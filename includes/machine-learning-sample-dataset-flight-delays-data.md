@@ -1,0 +1,3 @@
+美國交通部收集的 TranStats 資料所包含的客機航班準點率資料(<a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">準時</a>)。<p> </p>此資料集涵蓋的其間為 2013 年 4 月至 10 月。上傳至 Azure ML Studio 之前，資料集已經過下列處理：<ul><li>資料集已經過篩選，僅涵蓋美國大陸 70 個最繁忙的機場</li><li>取消的航班已標示為誤點達 15 分鐘以上</li><li>已篩選掉更改路徑的航班</li><li>已選取下列資料行：Year、Month、DayofMonth、DayOfWeek、Carrier、OriginAirportID、DestAirportID、CRSDepTime、DepDelay、DepDel15、CRSArrTime、ArrDelay、ArrDel15、Cancelled</li></ul>
+
+<!---HONumber=July15_HO2-->
