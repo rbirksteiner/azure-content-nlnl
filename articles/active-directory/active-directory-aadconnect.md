@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="使用 Azure AD Connect 啟用目錄的混合式管理。" 
 	description="這就是 Azure AD Connect，說明它是什麼及使用的理由。" 
 	services="active-directory" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2015" 
+	ms.date="07/26/2015" 
 	ms.author="billmath"/>
 
 # 使用 Azure AD Connect 啟用目錄的混合式管理
