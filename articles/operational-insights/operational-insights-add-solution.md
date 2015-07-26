@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/02/2015"
+    ms.date="05/11/2015"
     ms.author="banders"/>
 
 # Operational Insights 解決方案
@@ -42,15 +42,11 @@ Microsoft Azure Operational Insights 含有基礎組態評估模組。然而，�
 
 - [SQL 和 Active Directory 評估](operational-insights-assessment.md)
 
-然而，以下是 Microsoft Monitoring Agent *不*支援的解決方案，需要 System Center Operations Manager (SCOM)。
+然而，以下是 Microsoft Monitoring Agent *不*支援的解決方案
 
 - [產能管理](operational-insights-capacity.md)
 
-- [警示管理](operational-insights-alerts.md)
-
-- [組態評估](operational-insights-solutions.md#configuration-assessment)
-
-如需搭配使用這些解決方案和 Operations Manager 的指引，請參閱 [Operational Insights 的 Operations Manager 考量](operational-insights-operations-manager.md)。
+- [組態評估](../operational-insights-configuration-assessment.md)
 
 安裝以下作業系統的電腦支援 IIS 記錄檔收集：
 
@@ -89,5 +85,6 @@ Microsoft Azure Operational Insights 含有基礎組態評估模組。然而，�
 
 
 3. 在確認頁面中按一下 [**是**] 以移除解決方案。
+ 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=58-->

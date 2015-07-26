@@ -36,4 +36,4 @@
 
 將 `endpoints.apiDefinition` 保留在 *apiapp.json* 檔案外部，或將其值設定為 Null。如果您同時包含 `endpoints.apiDefinition` URL 和 *apiDefinition.swagger.json* 檔案，則會優先使用 URL，並忽略檔案。
 
-<!---HONumber=62-->
+<!---HONumber=58-->

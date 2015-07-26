@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/25/2015"
+	ms.date="03/18/2015"
 	ms.author="wpickett"/>
 
 # 如何在 Azure 虛擬機器上以 .NET 執行需密集運算的工作
@@ -101,7 +101,7 @@
 
 1. 在您的部署機器 (不一定是您建立的虛擬機器) 上，下載 [Azure SDK for .NET](http://azure.microsoft.com/develop/net/)。
 2. 利用名為 **TSPSolver** 的專案建立 .NET 主控台應用程式。確定已針對 .**NET Framework 4** 或更新版本 (而非 **.NET Framework 4 用戶端設定檔**) 設定目標 Framework。執行下列動作，即可在您建立專案後設定此目標 Framework：在 Visual Studio 的功能表中，依序按一下 [專案]、[屬性]、[應用程式] 索引標籤，然後設定 [目標 Framework] 的值。
-3. 加入 Microsoft ServiceBus 程式庫中。在 Visual Studio 方案總管中，以滑鼠右鍵按一下 [TSPSolver]，然後依序按一下 [新增參考] 和 [瀏覽] 索引標籤，瀏覽至 Azure .NET SDK (例如，位於 **C:\Program Files\Microsoft SDKs\Azure.NET SDK\v2.5\ToolsRef**)，然後選取 **Microsoft.ServiceBus.dll** 做為參考。
+3. 加入 Microsoft ServiceBus 程式庫中。在 Visual Studio 方案總管中，以滑鼠右鍵按一下 [TSPSolver]，然後依序按一下 [新增參考] 和 [瀏覽] 索引標籤，瀏覽至 Azure .NET SDK (例如，位於 **]Program Files\Microsoft SDKs\Azure.NET SDK\v2.5\ToolsRef**)，然後選取 **Microsoft.ServiceBus.dll** 做為參考。
 4. 加入 System Runtime Serialization 程式庫中。在 Visual Studio 方案總管中，於 [TSPSolver] 上按一下滑鼠右鍵，按一下 [新增參考]、按一下 [.NET] 索引標籤，然後選取 **System.Runtime.Serialization** 作為參考。
 5. 將這一節結尾的範例程式碼使用於 **Program.cs** 的內容。
 6. 修改 **your_connection_string** 預留位置以使用服務匯流排 **connection string**。
@@ -326,7 +326,7 @@
 ## 如何建立 .NET 應用程式以便監控需密集運算之工作的進度
 
 1. 在開發電腦上，以 **TSPClient** 作為專案名稱來建立 .NET 主控台應用程式。確定已針對 .**NET Framework 4** 或更新版本 (而非 **.NET Framework 4 用戶端設定檔**) 設定目標 Framework。執行下列動作，即可在您建立專案後設定此目標 Framework：在 Visual Studio 的功能表中，依序按一下 [專案]、[屬性]、[應用程式] 索引標籤，然後設定 [目標 Framework] 的值。
-2. 加入 Microsoft ServiceBus 程式庫中。在 Visual Studio 方案總管中，以滑鼠右鍵按一下 [TSPClient]，然後依序按一下 [新增參考] 和 [瀏覽] 索引標籤，瀏覽至 Azure .NET SDK (例如，位於 **C:\Program Files\Microsoft SDKs\Azure.NET SDK\v2.5\ToolsRef**)，然後選取 **Microsoft.ServiceBus.dll** 做為參考。
+2. 加入 Microsoft ServiceBus 程式庫中。在 Visual Studio 方案總管中，以滑鼠右鍵按一下 [TSPClient]，然後依序按一下 [新增參考] 和 [瀏覽] 索引標籤，瀏覽至 Azure .NET SDK (例如，位於 **]Program Files\Microsoft SDKs\Azure.NET SDK\v2.5\ToolsRef**)，然後選取 **Microsoft.ServiceBus.dll** 做為參考。
 3. 加入 System Runtime Serialization 程式庫中。在 Visual Studio 方案總管中，於 [TSPClient] 上按一下滑鼠右鍵，按一下 [新增參考]、按一下 [.NET] 索引標籤，然後選取 **System.Runtime.Serialization** 作為參考。
 4. 將這一節結尾的範例程式碼使用於 **Program.cs** 的內容。
 5. 修改 **your_connection_string** 預留位置以使用服務匯流排 **connection string**。
@@ -547,4 +547,4 @@
 [access_key_button]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=58-->

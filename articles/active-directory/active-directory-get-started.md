@@ -45,4 +45,4 @@ Azure AD 為系統管理員提供了幾種報告。在 Azure AD 的付費版本�
 * [Azure 身分識別](fundamentals-identity.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=58-->

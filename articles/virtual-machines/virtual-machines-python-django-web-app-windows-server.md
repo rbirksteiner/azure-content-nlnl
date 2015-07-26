@@ -148,7 +148,7 @@
 ## 建立新的 Django 應用程式
 
 
-1.  在 *C:\inetpub\wwwroot* 中，輸入下列命令以建立新的 Django 專案：
+1.  在 *]inetpub\wwwroot* 中，輸入下列命令以建立新的 Django 專案：
 
     Python 2.7：
 
@@ -168,7 +168,7 @@
 
 
 
-1.  在 **C:\inetpub\wwwroot\helloworld\helloworld** 目錄中，建立名為 *views.py* 的新檔案。這將包含轉譯 "hello world" 頁面的檢視。啟動您的編輯器並輸入下列程式碼：
+1.  在 **]inetpub\wwwroot\helloworld\helloworld** 目錄中，建立名為 *views.py* 的新檔案。這將包含轉譯 "hello world" 頁面的檢視。啟動您的編輯器並輸入下列程式碼：
 		
 		from django.http import HttpResponse
 		def home(request):
@@ -200,4 +200,4 @@
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=58-->

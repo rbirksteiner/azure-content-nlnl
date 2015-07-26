@@ -50,4 +50,4 @@ Azure AD 支援數個最常用的驗證和授權通訊協定。[深入了解 Azu
 * [Azure 身分識別](fundamentals-identity.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=58-->

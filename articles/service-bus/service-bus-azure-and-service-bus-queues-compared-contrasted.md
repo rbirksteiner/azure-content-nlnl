@@ -25,7 +25,7 @@ Microsoft Azure 支援兩種佇列機制：**Azure 佇列**和**服務匯流排�
 
 **Azure 佇列**是 [Azure 儲存體](http://azure.microsoft.com/services/storage/) 基礎結構的一部分，具有簡單的 REST 架構 Get/Put/Peek 介面，而且能夠在服務內部和服務之間提供可靠且持續的訊息傳遞。
 
-**服務匯流排佇列**是較廣泛之 [Azure 訊息](http://azure.microsoft.com/services/messaging/)基礎結構的一部分，這個基礎結構支援佇列處理，以及發佈/訂閱、Web 服務遠端處理和整合模式。如需服務匯流排佇列、主題/訂用帳戶和轉送的詳細資訊，請參閱[服務匯流排訊息模式的概觀](https://msdn.microsoft.com/library/hh410103.aspx)。
+**服務匯流排佇列**是較廣泛之 [Azure 訊息](http://azure.microsoft.com/services/messaging/)基礎結構的一部分，這個基礎結構支援佇列處理，以及發佈/訂閱、Web 服務遠端處理和整合模式。如需服務匯流排佇列、主題/訂閱和轉送的詳細資訊，請參閱[服務匯流排訊息模式的概觀](https://msdn.microsoft.com/library/hh410103.aspx)。
 
 雖然這兩種佇列技術同時存在，不過 Azure 佇列較早引進，做為建置在 Azure 儲存體服務之上的專用佇列儲存機制。服務匯流排佇列則是建置在較廣泛的「代理傳訊」基礎結構之上，這個基礎結構的設計目的是為了整合可能跨多種通訊協定、資料合約、信任網域和 (或) 網路環境的應用程式或應用程式元件。
 
@@ -157,7 +157,7 @@ Azure 佇列和服務匯流排佇列都是 Microsoft Azure 目前所提供之訊
 
 - 這兩種佇列技術都可讓訊息排定在稍後傳遞。
 
-- 佇列自動轉送可讓數以千計的佇列將其訊息自動轉送至單一佇列，而接收端應用程式將從中取用訊息。您可以使用這個機制來達成安全性、控制流程，並在每個訊息發佈者之間隔離儲存體。
+- 佇列自動轉送可讓數以千計的佇列將其訊息自動轉送至單一佇列，而接收端應用程式將從中取用訊息。您可以使用這個機制來達成安全性、控制流程，並在每個訊息發行者之間隔離儲存體。
 
 - Azure 佇列支援更新訊息內容。您可以使用這項功能，將狀態資訊和累加進度更新保存至訊息中，以便從最後已知的檢查點處理訊息，而不用從頭開始處理。使用服務匯流排佇列時，您可以透過使用訊息工作階段來實現相同案例。工作階段可讓您使用 [SetState](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.messagesession.setstate.aspx) 和 [GetState](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.messagesession.getstate.aspx) 儲存和擷取應用程式處理狀態。
 
@@ -318,4 +318,4 @@ Azure 佇列和服務匯流排佇列都是 Microsoft Azure 目前所提供之訊
 - [了解 Azure 儲存體計費 - 頻寬、交易和容量](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=58-->

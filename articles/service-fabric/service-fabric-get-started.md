@@ -93,4 +93,4 @@ Service Fabric 會使用 Windows PowerShell 指令碼，以便建立本機開發
 [4]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "WebPI 連結"
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=58-->

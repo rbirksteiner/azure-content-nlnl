@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.date="06/17/2015" 
 	ms.author="sdanie"/>
 
 # 如何在 Azure API 管理中使用服務備份和還原實作災害復原
@@ -38,7 +38,7 @@
 
 第一個步驟是建立 Azure Active Directory 應用程式。使用含 API 管理服務執行個體的訂用帳戶登入[管理入口網站](http://manage.windowsazure.com/)，並瀏覽至預設 Azure Active Directory 的 [應用程式] 索引標籤。
 
->[AZURE.NOTE]如果您的帳戶看不到 Azure Active Directory 預設目錄，請連絡 Azure 訂用帳戶的系統管理員，以授與您的帳戶必要權限。如需尋找您預設目錄的資訊，請參閱[在 Azure 入口網站中找到您的預設目錄](../virtual-machines/resource-group-create-work-id-from-persona.md/#locate-your-default-directory-in-the-azure-portal)。
+>[AZURE.NOTE]如果您的帳戶看不到 Azure Active Directory 預設目錄，請連絡 Azure 訂用帳戶的系統管理員，以授與您的帳戶必要權限。如需尋找您預設目錄的資訊，請參閱[在 Azure 入口網站中找到您的預設目錄](resource-group-create-work-id-from-persona.md/#locate-your-default-directory-in-the-azure-portal)。
 
 ![建立 Azure Active Directory 應用程式][api-management-add-aad-application]
 
@@ -156,7 +156,7 @@
 	    backupName : {backup blob name}  
 	}'
 
-將 `Content-Type` 要求標頭的值設定為 `application/json`。
+將 `Content-Type` 要求標頭的值設定為 `application\json`。
 
 還原作業的執行時間較長，因此可能需要 30 分鐘以上的時間才能完成。如果要求成功並已起始還原程序，則會收到含有 `Location` 標頭的 `202 Accepted` 回應狀態碼。請向 `Location` 標頭中的 URL 發出 'GET' 要求，以查明作業的狀態。當還原進行時，您會持續收到「202 已接受」狀態碼。回應碼 `200 OK` 代表還原作業已成功完成。
 
@@ -189,4 +189,4 @@
 [api-management-endpoint]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-endpoint.png
  
 
-<!---HONumber=62-->
+<!---HONumber=58-->

@@ -42,4 +42,4 @@ Azure 自動化提供非常可靠且高度可用的工作流程執行引擎，�
 * 請參閱 Azure 自動化[入門指南](http://go.microsoft.com/fwlink/?LinkId=390560)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=58-->

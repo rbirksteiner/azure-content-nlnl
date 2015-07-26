@@ -51,7 +51,7 @@ API 是跨所有平台統一的，除了一些小變化形式。
 
 * 在裝置或 Web 伺服器程式碼中，加入：
 
-    *C#:* `using Microsoft.ApplicationInsights;`
+    *C\#:* `using Microsoft.ApplicationInsights;`
 
     *VB:* `Imports Microsoft.ApplicationInsights`
 
@@ -61,7 +61,7 @@ API 是跨所有平台統一的，除了一些小變化形式。
 
 建構 TelemetryClient 的執行個體 (除了在網頁中的 JavaScript)：
 
-*C#:*
+*C\#:*
 
     private TelemetryClient telemetry = new TelemetryClient();
 
@@ -91,7 +91,7 @@ TelemetryClient 具備執行緒安全。
 
     appInsights.trackEvent("WinGame");
 
-*C#*
+*C\#*
     
     telemetry.TrackEvent("WinGame");
 
@@ -147,7 +147,7 @@ TelemetryClient 具備執行緒安全。
          {Score: currentGame.score, Opponents: currentGame.opponentCount}
          );
 
-*C#*
+*C\#*
 
     // Set up some properties and metrics:
     var properties = new Dictionary <string, string> 
@@ -236,7 +236,7 @@ TelemetryClient 具備執行緒安全。
 有時候您想要繪製執行某些動作耗費多少時間的圖表。例如，您可能想要知道使用者在遊戲中思考選項時花費多少時間。這是使用測量參數的實用範例。
 
 
-*C#*
+*C\#*
 
     var stopwatch = System.Diagnostics.Stopwatch.StartNew();
 
@@ -269,7 +269,7 @@ TelemetryClient 具備執行緒安全。
 
     appInsights.trackMetric("Queue", queue.Length);
 
-*C#*
+*C\#*
 
     telemetry.TrackMetric("Queue", queue.Length);
 
@@ -283,7 +283,7 @@ TelemetryClient 具備執行緒安全。
 
 事實上，您可能會在背景執行緒中執行這個動作：
 
-*C#*
+*C\#*
 
     private void Run() {
      var appInsights = new TelemetryClient();
@@ -314,7 +314,7 @@ TelemetryClient 具備執行緒安全。
 
     appInsights.trackPageView("tab1");
 
-*C#*
+*C\#*
 
     telemetry.TrackPageView("GameReviewPage");
 
@@ -348,7 +348,7 @@ TelemetryClient 具備執行緒安全。
 
 如果您想要在沒有 Web 服務模組執行的內容中模擬要求，您也可以自行呼叫。
 
-*C#*
+*C\#*
 
     // At start of processing this request:
 
@@ -369,7 +369,7 @@ TelemetryClient 具備執行緒安全。
 
 傳送例外狀況至 Application Insights：以[計算它們][metrics]，做為問題頻率的指示，以及[檢查個別發生次數][diagnostic]。
 
-*C#*
+*C\#*
 
     try
     {
@@ -392,7 +392,7 @@ TelemetryClient 具備執行緒安全。
 [記錄配接器][trace]使用此 API 將第三方記錄傳送至入口網站。
 
 
-*C#*
+*C\#*
 
     telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
 
@@ -405,7 +405,7 @@ TelemetryClient 具備執行緒安全。
 
 典型的用途是識別來自不同版本或您的應用程式元件的遙測。在入口網站中，您可以依據此屬性篩選或群組結果。
 
-*C#*
+*C\#*
 
     // Telemetry initializer class
     public class MyTelemetryInitializer : IContextInitializer
@@ -449,7 +449,7 @@ JavaScript Web 用戶端目前還沒有設定預設屬性的方法。
 
 而不是從組態檔取得檢測金鑰，您可以在程式碼中設定。在初始化方法中設定金鑰，例如 ASP.NET 服務中的 global.aspx.cs：
 
-*C#*
+*C\#*
 
     protected void Application_Start()
     {
@@ -484,7 +484,7 @@ JavaScript Web 用戶端目前還沒有設定預設屬性的方法。
 
 如果您只想為您撰寫的一些自訂事件設定預設屬性值，您可以在 TelemetryClient 中設定它們。它們會附加至從該用戶端傳送的每個遙測項目。
 
-*C#*
+*C\#*
 
     using Microsoft.ApplicationInsights.DataContracts;
 
@@ -519,7 +519,7 @@ JavaScript Web 用戶端目前還沒有設定預設屬性的方法。
 
 ## <a name="ikey"></a>設定已選取自訂遙測的檢測金鑰
 
-*C#*
+*C\#*
     
     var telemetry = new TelemetryClient();
     telemetry.Context.InstrumentationKey = "---my key---";
@@ -529,7 +529,7 @@ JavaScript Web 用戶端目前還沒有設定預設屬性的方法。
 
 通常 SDK 會在選擇的時間傳送資料以將對使用者的影響降到最低。不過，在某些情況下您可能想要排清緩衝區，例如，如果您在會關閉的應用程式中使用 SDK。
 
-*C#*
+*C\#*
 
     telemetry.Flush();
 
@@ -549,7 +549,7 @@ JavaScript Web 用戶端目前還沒有設定預設屬性的方法。
 偵錯期間，讓您的遙測透過管線加速很有用，如此您就可以立即看到結果。您也會取得額外的訊息，協助您追蹤任何遙測的問題。在生產環境中將它關閉，因為它可能會拖慢您的應用程式。
 
 
-*C#*
+*C\#*
     
     TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = true;
 
@@ -630,4 +630,4 @@ TelemetryClient 具有內容屬性，其中包含與所有遙測資料一起傳�
 
  
 
-<!---HONumber=62-->
+<!---HONumber=58-->

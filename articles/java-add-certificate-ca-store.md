@@ -52,4 +52,4 @@ Baltimore 憑證可能已經安裝於您的 cacerts 存放區，因此請記得�
 
 如需 Azure 所用根憑證的詳細資訊，請參閱 [Azure 根憑證移轉](http://blogs.msdn.com/b/windowsazure/archive/2013/03/15/windows-azure-root-certificate-migration.aspx)。
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=58-->

@@ -270,4 +270,4 @@
 [api-definition-blade]: ./media/app-service-api-java-api-app/apidefblade.png
  
 
-<!---HONumber=62-->
+<!---HONumber=58-->

@@ -52,4 +52,4 @@ Azure Active Directory (Azure AD) 為您的企業提供在雲端和內部部署�
 [1]: ./media/active-directory-whatis/Azure_Active_Directory.png
  
 
-<!---HONumber=62-->
+<!---HONumber=58-->

@@ -73,7 +73,7 @@ Debian 是 Linux 及以 dpkg 和 apt-get 封裝管理為基礎之開放原始碼
 CentOS Linux 散發版本是一個穩定、可預測、容易管理且可重製的平台，其衍生自 Red Hat Enterprise Linux (RHEL) 的原始碼。
 
 1. [MSOpenTech VM Depot](https://vmdepot.msopentech.com/List/Index?sort=Featured&search=centos)
-2. [映像庫](http://azure.microsoft.com/en-in/marketplace/partners/OpenLogic/)
+2. [映像庫](http://azure.microsoft.com/zh-tw/marketplace/partners/OpenLogic/)
 3. [做法：針對 Azure 準備自訂 CentOS 型 VM](virtual-machines-linux-create-upload-vhd-centos.md)
 4. [部落格：如何部署 OpenLogic 提供的 CentOS VM 映像](http://azure.microsoft.com/blog/2013/01/11/deploying-openlogic-centos-images-on-windows-azure-virtual-machines/)
 6. [做法：安裝 Apache Qpid Proton-C for AMQP 和服務匯流排](http://msdn.microsoft.com/library/azure/dn235560.aspx)
@@ -92,7 +92,7 @@ CentOS Linux 散發版本是一個穩定、可預測、容易管理且可重製�
 
 CoreOS 是一個小型、最佳化的散發版本，適用於高度控制自訂的純計算。
 
-10. [映像庫](http://azure.microsoft.com/en-in/marketplace/partners/coreos/)  
+10. [映像庫](http://azure.microsoft.com/zh-tw/marketplace/partners/coreos/)  
 11. [做法：在 Azure 上使用 CoreOS](virtual-machines-linux-coreos-how-to.md)
 12. [做法：開始在 Azure 上的 CoreOS 使用 Fleet 和 Docker](virtual-machines-linux-coreos-fleet-get-started.md)
 13. [部落格：TechEd Europe -- Windows Docker 用戶端和 Linux 容器](http://azure.microsoft.com/blog/2014/10/28/new-docker-coreos-topics-linux-on-azure/)
@@ -296,4 +296,4 @@ CoreOS 是一個小型、最佳化的散發版本，適用於高度控制自訂�
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=58-->

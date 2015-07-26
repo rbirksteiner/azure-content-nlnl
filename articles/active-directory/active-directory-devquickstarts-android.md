@@ -134,7 +134,7 @@ repositories {
         dirs 'libs'
     }
     maven {
-        url "YourLocalMavenRepoPath.m2\repository"
+        url "YourLocalMavenRepoPath\.m2\repository"
     }
 }
 dependencies {
@@ -268,7 +268,8 @@ dependencies {
      mContext.acquireTokenSilent(resource, clientid, userId, callback );
     ```
 
-11. **Broker**：Microsoft Intune 公司入口網站應用程式將提供 Broker 元件。如果有一個使用者帳戶在這個驗證器上建立，且開發人員選擇不要略過它，Adal 會使用 Broker 帳戶。開發人員可以使用下列方法來略過 Broker 使用者：
+11. **Broker**：
+  Microsoft Intune 公司入口網站應用程式將提供 Broker 元件。如果有一個使用者帳戶在這個驗證器上建立，且開發人員選擇不要略過它，Adal 會使用 Broker 帳戶。開發人員可以使用下列方法來略過 Broker 使用者：
 
     ```java
      AuthenticationSettings.Instance.setSkipBroker(true);
@@ -280,7 +281,8 @@ dependencies {
 
  ```java
  String brokerAccount =  mContext.getBrokerUser();
- ``` 如果帳戶有效，則會傳回 Broker 使用者。
+ ```
+ 如果帳戶有效，則會傳回 Broker 使用者。
 
  您的應用程式資訊清單應該有使用 AccountManager 帳戶的權限：http://developer.android.com/reference/android/accounts/AccountManager.html
 
@@ -309,9 +311,12 @@ ADFS 不視為正式的 STS，因此您需要開啟執行個體探索，並在 A
 
 ### 查詢快取項目
 
-ADAL 在 SharedPrefrecens 中提供預設快取與一些簡單的快取查詢函式。您可以使用 ```Java
+ADAL 在 SharedPrefrecens 中提供預設快取與一些簡單的快取查詢函式。您可以使用 
+```Java
  ITokenCacheStore cache = mContext.getCache();
-``` 從 AuthenticationContext 取得目前的快取。如果想要自訂，您也可以提供您的快取實作。```Java
+```
+從 AuthenticationContext 取得目前的快取。如果想要自訂，您也可以提供您的快取實作。
+```Java
 mContext = new AuthenticationContext(MainActivity.this, authority, true, yourCache);
 ```
 
@@ -341,7 +346,7 @@ ADAL 提供選項來指定提示行為。如果重新整理權杖無效，而且
 
 #### 例外狀況
 
-這顯然是第一個診斷。我們試著提供有用的錯誤訊息。如果您發現沒有幫助的錯誤訊息，請提出問題來告訴我們。請同時提供裝置資訊，例如機型和 SDK#。
+這顯然是第一個診斷。我們試著提供有用的錯誤訊息。如果您發現沒有幫助的錯誤訊息，請提出問題來告訴我們。請同時提供裝置資訊，例如機型和 SDK\#。
 
 #### 記錄檔
 
@@ -357,7 +362,8 @@ ADAL 提供選項來指定提示行為。如果重新整理權杖無效，而且
       writeToLogFile(getApplicationContext(), tag +":" + message + "-" + additionalMessage);
      }
  }
- ``` 訊息可以寫入自訂記錄檔，如下所示。不幸的是，從裝置取得記錄檔沒有標準方法。有一些服務可協助您處理這部份。您可以也自創方法，例如將檔案傳送到伺服器。
+ ``` 
+訊息可以寫入自訂記錄檔，如下所示。不幸的是，從裝置取得記錄檔沒有標準方法。有一些服務可協助您處理這部份。您可以也自創方法，例如將檔案傳送到伺服器。
 
 ```Java
 private syncronized void writeToLogFile(Context ctx, String msg) {
@@ -378,7 +384,8 @@ private syncronized void writeToLogFile(Context ctx, String msg) {
 + Info(參考)
 + Verbose(詳細資料)
 
-設定記錄層級的方法如下：```Java
+設定記錄層級的方法如下：
+```Java
 Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
  ```
 
@@ -386,7 +393,8 @@ Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
 
  ```
   adb logcat > "C:\logmsg\logfile.txt"
- ``` adb 命令的其他範例：https://developer.android.com/tools/debugging/debugging-log.html#startingLogcat
+ ```
+ adb 命令的其他範例：https://developer.android.com/tools/debugging/debugging-log.html#startingLogcat
 
 #### 網路追蹤
 
@@ -411,12 +419,14 @@ AuthenticationParameters 類別提供從 Oauth2 持有者挑戰取得 authorizat
 
 ### Web 檢視中的工作階段 Cookie
 
-在應用程式關閉後，Android Web 檢視不會清除工作階段 Cookie。您可以使用以下範例程式碼來處理這部分：```java
+在應用程式關閉後，Android Web 檢視不會清除工作階段 Cookie。您可以使用以下範例程式碼來處理這部分：
+```java
 CookieSyncManager.createInstance(getApplicationContext());
 CookieManager cookieManager = CookieManager.getInstance();
 cookieManager.removeSessionCookie();
 CookieSyncManager.getInstance().sync();
-``` 深入了解 Cookie：http://developer.android.com/reference/android/webkit/CookieSyncManager.html
+```
+深入了解 Cookie：http://developer.android.com/reference/android/webkit/CookieSyncManager.html
 
 ### 資源覆寫
 
@@ -437,7 +447,7 @@ ADAL 程式庫包含下列兩個 ProgressDialog 訊息英文字串。
 =======
 
 ### NTLM 對話方塊
-Adal 1.1.0 版支援 NTLM 對話方塊，此對話方塊是透過 WebViewClient 的 onReceivedHttpAuthRequest 事件來處理。您可以自訂對話方塊版面配置和字串。### 步驟 5：下載 iOS 原生用戶端範例程式碼
+Adal 1.1.0 版支援 NTLM 對話方塊，此對話方塊是透過 WebViewClient 的 onReceivedHttpAuthRequest 事件來處理。您可以自訂對話方塊版面配置和字串。\#\## 步驟 5：下載 iOS 原生用戶端範例程式碼
  
 
-<!---HONumber=62-->
+<!---HONumber=58-->

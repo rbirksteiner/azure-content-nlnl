@@ -124,4 +124,4 @@ Microsoft Azure 中的負載平衡服務可處理所有租用戶類型 (IaaS 或
 [設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=58-->

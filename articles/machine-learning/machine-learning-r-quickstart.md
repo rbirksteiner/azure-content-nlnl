@@ -1,20 +1,20 @@
-<properties
-	pageTitle="機器學習適用之 R 語言的快速入門教學課程 | Microsoft Azure"
-	description="請透過此 R 程式設計教學課程快速開始搭配 Azure Machine Learning Studio 使用 R 語言來建立預測解決方案。"
+<properties 
+	pageTitle="機器學習適用之 R 語言的快速入門教學課程 | Microsoft Azure" 
+	description="請透過此 R 程式設計教學課程快速開始搭配 Azure Machine Learning Studio 使用 R 語言來建立預測解決方案。" 
 	keywords="quickstart,r language,r programming language,r programming tutorial"
-	services="machine-learning"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="paulettm"
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="Blackmist" 
+	manager="paulettm" 
 	editor="cgronlun"/>
 
-<tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/26/2015"
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="04/22/2015" 
 	ms.author="larryfr"/>
 
 # Azure Machine Learning 之 R 程式設計語言的快速入門教學課程
@@ -164,23 +164,23 @@ RStudio 的教學課程介紹位於 https://support.rstudio.com/hc/sections/2001
 
 - 按一下您畫面左下方的 +，然後選取 [**資料集**]。
 
-- 選取 [從本機檔案]，然後按一下 [瀏覽] 以選取檔案。
+- 使用 [**瀏覽**] 來選取檔案。
 
-- 請確定您已選取**含標頭的一般 CSV 檔案 (.csv)** 做為資料集類型。
+- 確定您已選取 [**含標頭的一般 CSV 檔案 (.csv)**]。
 
 - 按一下核取記號。
 
-- 上傳資料集後，按一下 [資料集] 索引標籤，您應該會看到新的資料集。
+- 按一下 [**資料集**] 索引標籤，您應該就會看到新的資料集。
 
 ####建立實驗
 
 既然我們在 Machine Learning Studio 中已經有一些資料，我們需要建立一個實驗來執行分析。
 
-- 按一下左下方的 + 號並選取 [實驗]，然後選取 [空白實驗]。
+- 按一下左下方的 + 號，然後選取 [**實驗**]。
 
-- 您可以選取和修改頁面頂端的**實驗建立目的**標題，為您的實驗命名。例如，將它變更為「加州乳製品分析」。
+- 為您的實驗提供一個標題。我將把我的實驗稱為「**加州乳製品分析**」。
 
-- 在實驗頁面左側展開 [儲存的資料集]，然後選取 [我的資料集]。您應該會看到先前上傳的 **cadairydata.csv** 檔案。
+- 搜尋您剛才上傳的資料集。
 
 - 將 [**csdairydata.csv 資料集**] 拖放到實驗上。
 
@@ -200,7 +200,7 @@ RStudio 的教學課程介紹位於 https://support.rstudio.com/hc/sections/2001
 
 ####檢查資料
 
-讓我們看看已載入到實驗中的資料。在此實驗中，按一下 [cadairydata.csv 資料集] 的輸出，然後選取 [視覺化]。您應該會看到類似圖 4 的內容。
+讓我們看看已載入到實驗中的資料。在此實驗中，按兩下 [**cadairydata.csv 資料集**] 的輸出，然後選取 [**視覺化**]。您應該會看到類似圖 4 的內容。
 
 ![cadairydata.csv 資料集的摘要][4]
 
@@ -432,7 +432,7 @@ R 資料框架支援強大的篩選功能。藉由在資料列或資料行使用
 	num.month <- function(Year, Month) {
 	  ## Find the starting year
 	  min.year  <- min(Year)
-
+	
 	  ## Compute the number of months from the start of the time series
 	  12 * (Year - min.year) + Month - 1
 	}
@@ -461,31 +461,31 @@ R 資料框架支援強大的篩選功能。藉由在資料列或資料行使用
 	log.transform <- function(invec, multiplier = 1) {
 	  ## Function for the transformation, which is the log
 	  ## of the input value times a multiplier
-
+	
 	  warningmessages <- c("ERROR: Non-numeric argument encountered in function log.transform",
 	                       "ERROR: Arguments to function log.transform must be greate than zero",
 	                       "ERROR: Aggurment multiplier to funcition log.transform must be a scaler",
 	                       "ERROR: Invalid time seies value encountered in function log.transform"
 	                       )
-
+	
 	  ## Check the input arguments
 	  if(!is.numeric(invec) | !is.numeric(multiplier)) {warning(warningmessages[1]); return(NA)}  
 	  if(any(invec < 0.0) | any(multiplier < 0.0)) {warning(warningmessages[2]); return(NA)}
 	  if(length(multiplier) != 1) {{warning(warningmessages[3]); return(NA)}}
-
+	
 	  ## Wrap the multiplication in tryCatch
 	  ## If there is an exception, print the warningmessage to
 	  ## standard error and return NA
 	  tryCatch(log(multiplier * invec),
 	           error = function(e){warning(warningmessages[4]); NA})
 	}
-
-
+	
+	
 	## Apply the transformation function to the 4 columns
 	## of the dataframe with production data
 	multipliers  <- list(1.0, 6.5, 1000.0, 1000.0)
 	cadairydata[, 4:7] <- Map(log.transform, cadairydata[, 4:7], multipliers)
-
+	
 	## Get rid of any rows with NA values
 	cadairydata <- na.omit(cadairydata)  
 
@@ -553,11 +553,11 @@ POSIXct 時間序列類別是常用且相對簡單的類別。此時間序列類
 
 	# Comment the following if using RStudio
 	cadairydata <- maml.mapInputPort(1)
-
+	
 	## Create a new column as a POSIXct object
 	Sys.setenv(TZ = "PST8PDT")
 	cadairydata$Time <- as.POSIXct(strptime(paste(as.character(cadairydata$Year), "-", as.character(cadairydata$Month.Number), "-01 00:00:00", sep = ""), "%Y-%m-%d %H:%M:%S"))
-
+	
 	str(cadairydata) # Check the results
 
 現在，請檢查 [R 裝置] 輸出。這應該會看起來像圖 15。
@@ -590,7 +590,7 @@ POSIXct 時間序列類別是常用且相對簡單的類別。此時間序列類
 
 	ts.detrend <- function(ts, Time, min.length = 3){
 	  ## Function to de-trend and standardize a time series
-
+	
 	  ## Define some messages if they are NULL  
 	  messages <- c('ERROR: ts.detrend requires arguments ts and Time to have the same length',
 	                'ERROR: ts.detrend requires argument ts to be of type numeric',
@@ -601,33 +601,33 @@ POSIXct 時間序列類別是常用且相對簡單的類別。此時間序列類
   	)
 	  # Create a vector of zeros to return as a default in some cases
 	  zerovec  <- rep(length(ts), 0.0)
-
+	
 	  # The input arguments are not of the same length, return ts and quit
 	  if(length(Time) != length(ts)) {warning(messages[1]); return(ts)}
-
+	
 	  # If the ts is not numeric, just return a zero vector and quit
 	  if(!is.numeric(ts)) {warning(messages[2]); return(zerovec)}
-
+	
 	  # If the ts is too short, just return it and quit
 	  if((ts.length <- length(ts)) < min.length) {warning(messages[3]); return(ts)}
-
+	
 	  ## Check that the Time variable is of class POSIXct
 	  if(class(cadairydata$Time)[[1]] != "POSIXct") {warning(messages[4]); return(ts)}
-
+	
 	  ## De-trend the time series by using a linear model
 	  ts.frame  <- data.frame(ts = ts, Time = Time)
 	  tryCatch({ts <- ts - fitted(lm(ts ~ Time, data = ts.frame))},
 	           error = function(e){warning(messages[5]); zerovec})
-
+	
 	  tryCatch( {stdev <- sqrt(sum((ts - mean(ts))^2))/(ts.length - 1)
 	             ts <- ts/stdev},
 	            error = function(e){warning(messages[6]); zerovec})
-
+	
 	  ts
 	}  
 	## Apply the detrend.ts function to the variables of interest
 	df.detrend <- data.frame(lapply(cadairydata[, 4:7], ts.detrend, cadairydata$Time))
-
+	
 	## Plot the results to look at the relationships
 	pairs(~ Cotagecheese.Prod + Icecream.Prod + Milk.Prod + N.CA.Fat.Price, data = df.detrend, main = "Pairwise Scatterplots of detrended standardized time series")
 
@@ -654,13 +654,13 @@ POSIXct 時間序列類別是常用且相對簡單的類別。此時間序列類
 	pair.cor <- function(pair.ind, ts.list, lag.max = 1, plot = FALSE){
 	  ccf(ts.list[[pair.ind[1]]], ts.list[[pair.ind[2]]], lag.max = lag.max, plot = plot)
 	}
-
+	
 	## A list of the pairwise indices
 	corpairs <- list(c(1,2), c(1,3), c(1,4), c(2,3), c(2,4), c(3,4))
-
+	
 	## Compute the list of ccf objects
 	cadairycorrelations <- lapply(corpairs, pair.cor, df.detrend)  
-
+	
 	cadairycorrelations
 
 執行此程式碼會產生如圖 18 所示的輸出。
@@ -678,7 +678,7 @@ POSIXct 時間序列類別是常用且相對簡單的類別。此時間序列類
 下列程式碼會從 ccf 物件 (本身是清單) 的清單中擷取延隔時間值。
 
 	df.correlations <- data.frame(do.call(rbind, lapply(cadairycorrelations, '[[', 1)))
-
+	
 	c.names <- c("-1 lag", "0 lag", "+1 lag")
 	r.names  <- c("Corr Cot Cheese - Ice Cream",
 	              "Corr Cot Cheese - Milk Prod",
@@ -686,14 +686,14 @@ POSIXct 時間序列類別是常用且相對簡單的類別。此時間序列類
 	              "Corr Ice Cream - Mik Prod",
 	              "Corr Ice Cream - Fat Price",
 	              "Corr Milk Prod - Fat Price")
-
+	
 	## Build a dataframe with the row names column and the
 	## correlation data frame and assign the column names
 	outframe <- cbind(r.names, df.correlations)
 	colnames(outframe) <- c.names
 	outframe
-
-
+	
+	
 	## WARNING!
 	## The following line works only in Azure Machine Learning
 	## When running in RStudio, this code will result in an error
@@ -735,11 +735,11 @@ POSIXct 時間序列類別是常用且相對簡單的類別。此時間序列類
 
 	# If running in Machine Learning Studio, uncomment the first line with maml.mapInputPort()
 	cadairydata <- maml.mapInputPort(1)
-
+	
 	## Create a new column as a POSIXct object
 	Sys.setenv(TZ = "PST8PDT")
 	cadairydata$Time <- as.POSIXct(strptime(paste(as.character(cadairydata$Year), "-", as.character(cadairydata$Month.Number), "-01 00:00:00", sep = ""), "%Y-%m-%d %H:%M:%S"))
-
+	
 	str(cadairydata)
 
 請執行此程式碼，然後查看 [R 裝置] 輸出連接埠。結果應該會看起來像圖 21。
@@ -755,12 +755,12 @@ POSIXct 時間序列類別是常用且相對簡單的類別。此時間序列類
 建構資料框架之後，我們需要建立訓練資料集。此資料將包含所有觀察值，但 2013 年最後一個的 12 除外，這是我們的測試資料集。下列程式碼會將資料框架細分成子集，並繪製乳製品產量和價格變數的圖。然後，我會繪製四個產量和價格變數的圖。匿名函式可用來定義一些用於繪圖的引數，然後藉由 `Map()` 逐一查看其他兩個引數的清單。如果您正在想著可以在這裡使用 for 迴圈，的確沒錯。但是，由於 R 是函式型語言，因此我示範給您的是函式型方法。
 
 	cadairytrain <- cadairydata[1:216, ]
-
+	
 	Ylabs  <- list("Log CA Cotage Cheese Production, 1000s lb",
 	               "Log CA Ice Cream Production, 1000s lb",
 	               "Log CA Milk Production 1000s lb",
 	               "Log North CA Milk Milk Fat Price per 1000 lb")
-
+	
 	Map(function(y, Ylabs){plot(cadairytrain$Time, y, xlab = "Time", ylab = Ylabs, type = "l")}, cadairytrain[, 4:7], Ylabs)
 
 執行此程式碼會從 [R 裝置] 輸出產生一系列時間序列圖，如圖 22 所示。請注意，時間軸的單位是日期，這是時間序列圖方法的一個極佳優點。
@@ -842,7 +842,7 @@ POSIXct 時間序列類別是常用且相對簡單的類別。此時間序列類
 讓我們繪製顯示趨勢曲線的加州乳製品產量資料時間序列圖，來做為例行性測試。我已經在 Azure Machine Learning [執行 R 指令碼][execute-r-script]模型 (非 RStudio) 中新增下列程式碼，以建立模型並繪圖。結果顯示在「圖 23」中。
 
 	milk.lm <- lm(Milk.Prod ~ Time + I(Month.Count^3), data = cadairytrain)
-
+	
 	plot(cadairytrain$Time, cadairytrain$Milk.Prod, xlab = "Time", ylab = "Log CA Milk Production 1000s lb", type = "l")
 	lines(cadairytrain$Time, predict(milk.lm, cadairytrain), lty = 2, col = 2)
 
@@ -900,7 +900,7 @@ POSIXct 時間序列類別是常用且相對簡單的類別。此時間序列類
 讓我們繪製另一張加州乳製品產量資料的時間序列圖，看看季節性模型運作得如何。我已經在 Azure Machine Learning [執行 R 指令碼][execute-r-script]中新增下列程式碼，以建立模型並繪圖。
 
 	milk.lm2 <- lm(Milk.Prod ~ Time + I(Month.Count^3) + Month - 1, data = cadairytrain)
-
+	
 	plot(cadairytrain$Time, cadairytrain$Milk.Prod, xlab = "Time", ylab = "Log CA Milk Production 1000s lb", type = "l")
 	lines(cadairytrain$Time, predict(milk.lm2, cadairytrain), lty = 2, col = 2)
 
@@ -917,7 +917,7 @@ POSIXct 時間序列類別是常用且相對簡單的類別。此時間序列類
 	## Compute predictions from our models
 	predict1  <- predict(milk.lm, cadairydata)
 	predict2  <- predict(milk.lm2, cadairydata)
-
+	
 	## Compute and plot the residuals
 	residuals <- cadairydata$Milk.Prod - predict2
 	plot(cadairytrain$Time, residuals[1:216], xlab = "Time", ylab ="Residuals of Seasonal Model")
@@ -960,21 +960,21 @@ POSIXct 時間序列類別是常用且相對簡單的類別。此時間序列類
 	RMS.error <- function(series1, series2, is.log = TRUE, min.length = 2){
 	  ## Function to compute the RMS error or difference between two
 	  ## series or vectors
-
+	
 	  messages <- c("ERROR: Input arguments to function RMS.error of wrong type encountered",
 	                "ERROR: Input vector to function RMS.error is too short",
 	                "ERROR: Input vectors to function RMS.error must be of same length",
 	                "WARNING: Funtion rms.error has received invald input time series.")
-
+	
 	  ## Check the arguments
 	  if(!is.numeric(series1) | !is.numeric(series2) | !is.logical(is.log) | !is.numeric(min.length)) {
     	warning(messages[1])
 	    return(NA)}
-
+	
 	  if(length(series1) < min.length) {
     	warning(messages[2])
 	    return(NA)}
-
+	
 	  if((length(series1) != length(series2))) {
 	   	warning(messages[3])
 	    return(NA)}
@@ -994,7 +994,7 @@ POSIXct 時間序列類別是常用且相對簡單的類別。此時間序列類
 	 ## Compute predictions from our models
 	predict1  <- predict(milk.lm, cadairydata)
 	predict2  <- predict(milk.lm2, cadairydata)
-
+	
 	## Compute the RMS error in a dataframe
 	  tryCatch( {
 	    sqrt(sum((temp1 - temp2)^2) / length(temp1))},
@@ -1018,7 +1018,7 @@ POSIXct 時間序列類別是常用且相對簡單的類別。此時間序列類
 	    RMS.error(predict2[217:228], cadairydata$Milk.Prod[217:228]))
 	)
 	RMS.df
-
+	
 	## The following line should be executed only when running in
 	## Azure Machine Learning Studio
 	maml.mapOutputPort('RMS.df')
@@ -1116,5 +1116,6 @@ Paul Cowpertwait 與 Andrew Metcalfe 所著的 《Introductory Time Series with 
 
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
+ 
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=58-->

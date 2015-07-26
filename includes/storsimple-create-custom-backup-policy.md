@@ -55,4 +55,4 @@
 
     ![自訂備份原則](./media/storsimple-create-custom-backup-policy/HCS_CustomBackupPolicyM-include.png)。
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=58-->

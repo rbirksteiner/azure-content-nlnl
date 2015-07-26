@@ -233,4 +233,4 @@ Machine Learning Studio 隨附多個範例資料集，而且您可以從許多�
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=58-->

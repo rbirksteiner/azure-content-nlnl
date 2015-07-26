@@ -92,7 +92,7 @@ Azure 中的映像庫會提供預先配置的可用 VM 清單。使用者可將 
 使用下列任何選項建置 SQL Server VM：
 
 - 依照前述的步驟 1 到 7 來建立 SQL Server 2012 VM，但步驟 3 除外；請使用 SQL Server 2012 映像，而不要使用 Windows Server 2008 R2 SP1 映像。如需詳細資訊，請移至[在 Azure 上佈建 SQL Server 虛擬機器](virtual-machines-provision-sql-server.md)。
-	- 當您選擇此選項時，佈建程序會在 C:\SQLServer_11.0_Full 目錄路徑中保存 SQL Server 2012 安裝檔案的複本，供您自訂安裝之用。例如，您可以使用授權金鑰，將 SQL Server 2012 的評估版安裝轉換為授權版本。
+	- 當您選擇此選項時，佈建程序會在 ]SQLServer_11.0_Full 目錄路徑中保存 SQL Server 2012 安裝檔案的複本，供您自訂安裝之用。例如，您可以使用授權金鑰，將 SQL Server 2012 的評估版安裝轉換為授權版本。
 
 - 使用 SQL Server 系統準備 (SysPrep) 工具，在基礎作業系統的 VM 上安裝 SQL Server (如前述步驟 1 到 7 所說明)。如需詳細資訊，請移至[使用 SysPrep 安裝 SQL Server 2012](http://msdn.microsoft.com/library/ee210664.aspx)。
 
@@ -284,4 +284,4 @@ Azure 虛擬機器可用來執行完整而連續的 SharePoint 部署。Azure �
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=58-->

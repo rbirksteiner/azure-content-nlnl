@@ -23,7 +23,7 @@ BizTalk XPath 擷取連接器可協助您的應用程式根據指定的 XPath �
 ##使用 BizTalk XPath 擷取程式
 1. 若要使用 BizTalk Xpath 擷取程式，您必須先建立 BizTalk Xpath 擷取程式 API 應用程式的執行個體。在建立邏輯應用程式時進行內嵌，或從 Azure Marketplace 選取 BizTalk Xpath 擷取程式 API 應用程式，即可完成此作業。
 
-	>[AZURE.NOTE] 沒有與 BizTalk Xpath 擷取程式相關聯的組態設定
+	>[AZURE.NOTE]
 2. [建立新的邏輯應用程式]。在已建立的邏輯應用程式中開啟 [觸發程序和動作] 以開啟 Logic Apps 設計工具，來設定您的流程。
 3. 設計工具上，右窗格會列出可用來搭配建置流程的 API Apps。尋找「BizTalk XPath 擷取程式」。選取此項將新增「XPath 擷取程式」到您的流程，且將佈建它的執行個體。
 2. 佈建完成後，設計工具會顯示與 BizTalk XPath 擷取程式 API 應用程式相關聯的動作。
@@ -63,4 +63,4 @@ BizTalk XPath 擷取連接器可協助您的應用程式根據指定的 XPath �
 <!-- Links -->
 [建立新的邏輯應用程式]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=62-->
+<!---HONumber=58-->

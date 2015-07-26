@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="適用 JavaScript Web 應用程式的 Application Insights" 
-	description="取得頁面檢視和工作階段計數、Web 用戶端資料，並追蹤使用量模式。Detect exceptions and performance issues in JavaScript web pages." 
+	description="取得頁面檢視和工作階段計數、Web 用戶端資料，並追蹤使用量模式。在 JavaScript 網頁中偵測例外狀況與效能問題。" 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -124,7 +124,7 @@ Application Insights 資源是您的頁面的效能和使用量相關資料顯�
 
     appInsights.trackPageView(myPageName);
 
-頁面名稱可能會含有與 URL 相同的字元，不過 "#" 或 "?" 之後的任何字元都將遭到忽略。
+頁面名稱可能會含有與 URL 相同的字元，不過 "\#" 或 "?" 之後的任何字元都將遭到忽略。
 
 
 ## 檢查個別的頁面檢視事件
@@ -177,4 +177,4 @@ Application Insights 資源是您的頁面的效能和使用量相關資料顯�
 
  
 
-<!---HONumber=62-->
+<!---HONumber=58-->

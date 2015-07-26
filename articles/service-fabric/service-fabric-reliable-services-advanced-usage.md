@@ -62,4 +62,4 @@ StatefulServiceBase 也會提供與 StatelessServiceBase 相同的四個生命�
 - [保護 Azure Service Fabric 中具狀態服務的複寫流量](../service-fabric/service-fabric-replication-security.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=58-->

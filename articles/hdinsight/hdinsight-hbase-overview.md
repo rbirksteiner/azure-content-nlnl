@@ -104,4 +104,4 @@ HDInsight 實作運用 HBase 的向外延展架構，提供資料表自動分區
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=58-->

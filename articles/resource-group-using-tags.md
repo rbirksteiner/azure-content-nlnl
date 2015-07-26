@@ -3,7 +3,8 @@
 	description="" 
 	services="" 
 	documentationCenter="" 
-	authors="tfitzmac"
+	authors="flanakin" 
+	writer="" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -13,8 +14,8 @@
 	ms.tgt_pltfrm="AzurePortal" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/24/2015" 
-	ms.author="tomfitz"/>
+	ms.date="04/28/2015" 
+	ms.author="micflan"/>
 
 
 # 使用標記來組織您的 Azure 資源
@@ -88,16 +89,6 @@ Azure 入口網站和基礎資源管理員是用來組織您的資源及量身�
 
 ![將標記釘選到「開始面板」](./media/resource-group-using-tags/pin-tags.png)
 
-## 標記和計費
-
-對於支援的服務，您可以使用標記來分組您的計費資料。例如，[和 Azure 資源管理員整合的虛擬機器](/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)可讓您定義並套用標記，以組織虛擬機器的計費使用情況。如果您執行不同組織的多個 VM，您可以使用標記根據成本中心來分組使用情況。您也可以使用標記來根據執行階段環境分類成本。例如，在生產環境中執行之 VM 的計費使用情況。
-
-您可以透過[使用情況 api](billing-usage-rate-card-overview.md) 或使用情況以逗號分隔值 (CSV) 檔案 (您可以從 [Azure 帳戶入口網站](https://account.windowsazure.com/)或 [EA 入口網站](https://ea.azure.com)下載)，擷取關於標記的資訊。
-
-當您下載服務 (支援附計費的標記) 的使用情況 CSV 時，標記會出現在 [**標記**] 資料行。若需更多詳細資料，請參閱[了解 Microsoft Azure 的計費](billing-understand-your-bill.md)。
-
-![查看計費中的標記](./media/resource-group-using-tags/billing_csv.png)
-
 ## 後續步驟
 開始使用
 
@@ -121,4 +112,4 @@ Azure 入口網站和基礎資源管理員是用來組織您的資源及量身�
 - [使用 Azure 傳統入口網站建立新的 Azure 服務主體](./resource-group-create-service-principal-portal.md)  
   
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=58-->

@@ -47,7 +47,7 @@
 |	認證外洩的使用者 |	認證外洩的使用者 |
 |	稽核報告 |	目錄中的已稽核事件 |
 |	密碼重設活動 |	提供您組織中所執行之密碼重設的詳細檢視。 |
-|	密碼重設註冊活動 |	提供您組織中所執行之密碼重設登錄的詳細檢視。 |
+|	密碼重設登錄活動 |	提供您組織中所執行之密碼重設登錄的詳細檢視。 |
 |	自助服務群組活動 |	提供活動記錄給您目錄中所有的群組自助活動 |
 |	應用程式使用情況 |	針對與您目錄整合的所有 SaaS 應用程式提供使用摘要。 |
 |	帳戶佈建活動 |	提供嘗試將帳戶佈建到外部應用程式的歷程記錄。 |
@@ -72,7 +72,7 @@
 |	認證外洩的使用者 | | |	✓ |
 |	稽核報告 | | |	✓ |
 |	密碼重設活動 | | |	✓ |
-|	密碼重設註冊活動 | | |	✓ |
+|	密碼重設登錄活動 | | |	✓ |
 |	自助服務群組活動 | | |	✓ |
 |	應用程式使用情況 | | |	✓ |
 |	帳戶佈建活動 |	✓ |	✓ |	✓ |
@@ -238,7 +238,7 @@
 | :-------------     | :-------        |
 | 顯示您的組織中發生的所有密碼重設登錄 | 目錄 > 報告索引標籤 |
 
-![密碼重設註冊活動](./media/active-directory-view-access-usage-reports/passwordResetRegistrationActivity.PNG)]
+![密碼重設登錄活動](./media/active-directory-view-access-usage-reports/passwordResetRegistrationActivity.PNG)]
 
 
 ### 密碼重設活動
@@ -329,4 +329,4 @@
 - [開始使用 Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [在登入和存取面板頁面加上公司商標](active-directory-add-company-branding.md)
 
-<!---HONumber=62-->
+<!---HONumber=58-->

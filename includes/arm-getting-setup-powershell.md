@@ -77,4 +77,4 @@
 
 > [AZURE.NOTE]您可以使用 **Switch-AzureMode AzureServiceManagement** 命令切換回預設命令集。
 
-<!---HONumber=62-->
+<!---HONumber=58-->

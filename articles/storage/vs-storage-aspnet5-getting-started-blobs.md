@@ -35,11 +35,10 @@ Azure 二進位大型物件 (Windows Azure Blob) 儲存是一項儲存大量非�
 
 1. 將下列程式碼命名空間宣告，新增至您想要在其中以程式設計方式存取 Azure 儲存體之任何 C# 檔案內的頂端。
 
-		using Microsoft.Framework.Configuration;
+		using Microsoft.Framework.ConfigurationModel;
 		using Microsoft.WindowsAzure.Storage;
 		using Microsoft.WindowsAzure.Storage.Blob;
 		using System.Threading.Tasks;
-		using LogLevel = Microsoft.Framework.Logging.LogLevel;
 
 2. 使用下列程式碼來取得組態設定。
 
@@ -152,4 +151,4 @@ Azure 二進位大型物件 (Windows Azure Blob) 儲存是一項儲存大量非�
 [深入了解 Azure 儲存體](http://azure.microsoft.com/documentation/services/storage/)另請參閱[在伺服器總管中瀏覽儲存體資源](http://msdn.microsoft.com/library/azure/ff683677.aspx)和 [ASP.NET 5](http://www.asp.net/vnext)。
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=58-->

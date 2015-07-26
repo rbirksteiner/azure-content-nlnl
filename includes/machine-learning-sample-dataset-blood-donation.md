@@ -1,3 +1,3 @@
 台灣省新竹市捐血服務中心的捐血資料庫包含的資料子集。<p> </p>捐血資料包括前次捐血後經過的月數、頻率、或捐血總次數、前次捐血後經過的時間，以及捐血的數量。<p> </p><b>使用方式：</b>其目標是要透過分類來預測捐血者是否是在 2007 年 3 月份捐血；1 表示在目標期間內有 1 名捐血者，0 表示沒有捐血者。<p> </p><b>相關研究：</b>Yeh, I.C. (2008 年)。UCI 機器學習服務儲存機制 <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。Irvine, CA: University of California, School of Information and Computer Science <p> </p>Yeh, I-Cheng, Yang, King-Jang, and Ting, Tao-Ming, "Knowledge discovery on RFM model using Bernoulli sequence, "Expert Systems with Applications, 2008, <a href="http://dx.doi.org/10.1016/j.eswa.2008.07.018">http://dx.doi.org/10.1016/j.eswa.2008.07.018</a>
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=58-->

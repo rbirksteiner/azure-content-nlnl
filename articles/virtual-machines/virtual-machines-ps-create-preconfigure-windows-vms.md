@@ -270,4 +270,4 @@
 [利用資源管理員和 Azure PowerShell 建立及預先設定 Windows 虛擬機器](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=58-->

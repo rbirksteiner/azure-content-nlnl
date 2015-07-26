@@ -413,4 +413,4 @@ Version 宣告儲存權杖的版本號碼。在 JWT 權杖中，使用者主體�
 [Azure Active Directory 驗證通訊協定](https://msdn.microsoft.com/library/azure/dn151124.aspx)
  
 
-<!---HONumber=62-->
+<!---HONumber=58-->

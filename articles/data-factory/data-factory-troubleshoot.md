@@ -147,7 +147,7 @@
 		}
 		
 
-如需有關編輯這些 map reduce 組態屬性的 JSON 的詳細資訊和完整範例，請參閱此處 MSDN 文件中的範例 #3 https://msdn.microsoft.com/library/azure/dn893526.aspx
+如需有關編輯這些 map reduce 組態屬性的 JSON 的詳細資訊和完整範例，請參閱此處 MSDN 文件中的範例 \#3 https://msdn.microsoft.com/library/azure/dn893526.aspx
 
 ## 問題：PowerShell 要求失敗，錯誤為 400 要求錯誤「找不到已註冊的資源提供者...」
 
@@ -386,4 +386,4 @@
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
  
 
-<!---HONumber=62-->
+<!---HONumber=58-->

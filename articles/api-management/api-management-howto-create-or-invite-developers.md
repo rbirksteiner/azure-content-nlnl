@@ -91,4 +91,4 @@
 [開始使用 Azure API 管理]: api-management-get-started.md#create-service-instance
 [設定電子郵件範本]: api-management-howto-configure-notifications.md#email-templates
 
-<!---HONumber=62-->
+<!---HONumber=58-->

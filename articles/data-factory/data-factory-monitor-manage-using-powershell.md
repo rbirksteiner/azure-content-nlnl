@@ -68,7 +68,7 @@
 在此步驟中，您將建立兩個連結服務：**StorageLinkedService** 和 **AzureSqlLinkedService**。StorageLinkedService 連結服務會連結 Azure 儲存體帳戶，而 AzureSqlLinkedService 會將 Azure SQL Database 連結至 Data Factory：**ADFTutorialDataFactoryPSH**。您稍後將在本教學課程中建立管線，以將資料從 StorageLinkedService 中的 Blob 容器複製到 AzureSqlLinkedService 中的 SQL 資料表。
 
 ### 建立 Azure 儲存體帳戶的連結服務
-1.	在 **C:\ADFGetStartedPSH** 中，使用以下內容建立名為 **StorageLinkedService.json** 的 JSON 檔案。建立 ADFGetStartedPSH 資料夾 (如果不存在)。
+1.	在 **]ADFGetStartedPSH** 中，使用以下內容建立名為 **StorageLinkedService.json** 的 JSON 檔案。建立 ADFGetStartedPSH 資料夾 (如果不存在)。
 
 		{
 		    "name": "StorageLinkedService",
@@ -110,9 +110,9 @@
 
 	確認 Azure SQL Server 已開啟 [允許存取 Azure 服務] 設定。若要確認並開啟此設定，請執行下列動作：
 
-	1. 按一下左邊的 [**瀏覽**] 中樞，然後按一下 [**SQL Server**]。
-	2. 選取您的伺服器，然後按一下 [SQL SERVER] 刀鋒視窗上的 [**設定**]。
-	3. 在 [**設定**] 刀鋒視窗中，按一下 [**防火牆**]。
+	1. 按一下左邊的 [瀏覽] 中樞，然後按一下 [SQL Server]。
+	2. 選取您的伺服器，然後按一下 [SQL SERVER] 刀鋒視窗上的 [設定]。
+	3. 按一下 [設定] 刀鋒視窗中的 [防火牆]。
 	4. 在 [防火牆設定] 刀鋒視窗中，按一下 [允許存取 Azure 服務] 的 [開啟]。
 	5. 按一下左邊的 [作用中] 中樞，切換至原先的 [Data Factory] 刀鋒視窗。
 	
@@ -133,7 +133,7 @@
 * 在 **AzureSqlLinkedService** 所指向的 Azure SQL Database中，建立名為 **emp** 的資料表。
 
 
-1. 啟動 [記事本]，貼上以下文字，並命名為 **emp.txt**，然後儲存至您硬碟上的 **C:\ADFGetStartedPSH** 資料夾。 
+1. 啟動 [記事本]，貼上以下文字，並命名為 **emp.txt**，然後儲存至您硬碟上的 **]ADFGetStartedPSH** 資料夾。 
 
         John, Doe
 		Jane, Doe
@@ -161,7 +161,7 @@
 ### 建立輸入資料表 
 資料表是矩形的資料集，並具有的結構描述。在此步驟中，您將在 **StorageLinkedService** 連結服務所代表的 Azure 儲存體中，建立指向 Blob 容器的 **EmpBlobTable** 資料表。此 Blob 容器 (**adftutorial**) 包含的輸入資料位於 **emp.txt** 檔案中。
 
-1.	在 **C:\ADFGetStartedPSH** 資料夾中，使用下列內容建立名為 **EmpBlobTable.json** 的 JSON 檔案：
+1.	在 **]ADFGetStartedPSH** 資料夾中，使用下列內容建立名為 **EmpBlobTable.json** 的 JSON 檔案：
 
 		{
 	    	"name": "EmpTableFromBlob",
@@ -226,7 +226,7 @@
 ### 建立輸出資料表
 在這部分的步驟中，您將在 **AzureSqlLinkedService** 連結服務所代表的 Azure SQL Database中，建立指向 SQL 資料表 (**emp**) 的輸出資料表 **EmpSQLTable**。管線會將輸入 Blob 中的資料複製到 **emp** 資料表。
 
-1.	在 **C:\ADFGetStartedPSH** 資料夾中，使用下列內容建立名為 **EmpSQLTable.json** 的 JSON 檔案。
+1.	在 **]ADFGetStartedPSH** 資料夾中，使用下列內容建立名為 **EmpSQLTable.json** 的 JSON 檔案。
 		
 		{
 		    "name": "EmpSQLTable",
@@ -267,7 +267,7 @@
 ## <a name="CreateAndRunAPipeline"></a>步驟 4：建立和執行管線
 在此步驟中，您會建立管線，其中含有使用 **EmpTableFromBlob** 做為輸入和使用 **EmpSQLTable** 做為輸出的複製活動。
 
-1.	在 **C:\ADFGetStartedPSH** 資料夾中，使用下列內容建立名為 **ADFTutorialPipeline.json** 的 JSON 檔案。 
+1.	在 **]ADFGetStartedPSH** 資料夾中，使用下列內容建立名為 **ADFTutorialPipeline.json** 的 JSON 檔案。 
 
 		{
 		    "name": "ADFTutorialPipeline",
@@ -428,4 +428,4 @@
 [sql-management-studio]: ../sql-database-manage-azure-ssms.md#Step2
  
 
-<!---HONumber=62-->
+<!---HONumber=58-->

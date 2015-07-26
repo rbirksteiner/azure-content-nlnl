@@ -167,4 +167,4 @@ DocumentDB 支援用戶端資料分割的幾個原因如下：
 * [有關效能秘訣的 DocumentDB 部落格](http://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=58-->

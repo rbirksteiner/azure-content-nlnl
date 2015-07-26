@@ -63,7 +63,7 @@
 
 1.	開啟 Microsoft Visual Studio 2013，並在 [**檔案**] 功能表上按一下 [**新增**]，然後按一下 [**專案**]。
 
-2.	從 [**Windows**] 中，在 [**Visual C#**] 下按一下 [**主控台應用程式**]，並將專案命名為 **GettingStarted**，同時將方案命名為 **AzureBatch**，然後按一下 [**確定**]。
+2.	從 [**Windows**] 中，在 [**Visual C\#**] 下按一下 [**主控台應用程式**]，並將專案命名為 **GettingStarted**，同時將方案命名為 **AzureBatch**，然後按一下 [**確定**]。
 
 3.	將下列命名空間宣告加入至 Program.cs 的頂端：
 
@@ -294,7 +294,7 @@
 5.	將工作加入至作業。每個工作會使用您已上傳的程式，以處理您上傳的檔案中的資訊。
 6.	監視輸出的結果。  
 
-我們已經示範步驟 #3 到 #6。現在來看看如何準備「Azure 儲存體」以執行工作。
+我們已經示範步驟 \#3 到 \#6。現在來看看如何準備「Azure 儲存體」以執行工作。
 
 ####取得儲存體帳戶
 您需要有儲存體帳戶，才能繼續完成本教學課程的其餘部分。如果您不知道如何執行這項操作，請參閱[建立 Azure 儲存體帳戶](#tutorial1_storage)。
@@ -602,4 +602,4 @@ RunExternalMergeProcess 的實作非常類似於 RunExternalTaskProcess，除了
 [3]: ./media/batch-dotnet-get-started/batch-dotnet-get-started-03.jpg
 [4]: ./media/batch-dotnet-get-started/batch-dotnet-get-started-04.jpg
 
-<!---HONumber=62-->
+<!---HONumber=58-->

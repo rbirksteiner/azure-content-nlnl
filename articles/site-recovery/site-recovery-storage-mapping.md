@@ -86,24 +86,24 @@ VMM 中的實際檔案共用及其獲指派的分類將如下顯示。
 
 **位置** | **分類** | **相關聯的儲存體**
 ---|---|---
-紐約 | GOLD | <p>C:\\ClusterStorage\\SourceVolume1</p><p>\\FileServer\\SourceShare1</p>
- | SILVER | <p>C:\\ClusterStorage\\SourceVolume2</p><p>\\FileServer\\SourceShare2</p>
-芝加哥 | GOLD_TARGET | <p>C:\\ClusterStorage\\TargetVolume1</p><p>\\FileServer\\TargetShare1</p>
- | SILVER_TARGET| <p>C:\\ClusterStorage\\TargetVolume2</p><p>\\FileServer\\TargetShare2</p>
+紐約 | GOLD | <p>]ClusterStorage\SourceVolume1</p><p>\FileServer\SourceShare1</p>
+ | SILVER | <p>]ClusterStorage\SourceVolume2</p><p>\FileServer\SourceShare2</p>
+芝加哥 | GOLD_TARGET | <p>]ClusterStorage\TargetVolume1</p><p>\FileServer\TargetShare1</p>
+ | SILVER_TARGET| <p>]ClusterStorage\TargetVolume2</p><p>\FileServer\TargetShare2</p>
 
 下表摘要說明您在此範例環境中為虛擬機器 (VM1 - VM5) 啟用保護時的行為。
 
 **虛擬機器** | **來源儲存體** | **來源分類** | **對應的目標儲存體**
 ---|---|---|---
-VM1 | C:\\ClusterStorage\\SourceVolume1 | GOLD | <p>C:\\ClusterStorage\\SourceVolume1</p><p>\\\\FileServer\\SourceShare1</p><p>Both GOLD_TARGET</p>
-VM2 | \\FileServer\\SourceShare1 | GOLD | <p>C:\\ClusterStorage\\SourceVolume1</p><p>\\FileServer\\SourceShare1</p> <p>Both GOLD_TARGET</p>
-VM3 | C:\\ClusterStorage\\SourceVolume2 | SILVER | <p>C:\\ClusterStorage\\SourceVolume2</p><p>\\FileServer\\SourceShare2</p>
-VM4 | \\FileServer\\SourceShare2 | SILVER |<p>C:\\ClusterStorage\\SourceVolume2</p><p>\\FileServer\\SourceShare2</p><p>Both SILVER_TARGET</p>
-VM5 | C:\\ClusterStorage\\SourceVolume3 | N/A | 沒有對應，因此將會使用 Hyper-V 主機的預設儲存體位置
+VM1 | ]ClusterStorage\SourceVolume1 | GOLD | <p>]ClusterStorage\SourceVolume1</p><p>\FileServer\SourceShare1</p><p>Both GOLD_TARGET</p>
+VM2 | \FileServer\SourceShare1 | GOLD | <p>]ClusterStorage\SourceVolume1</p><p>\FileServer\SourceShare1</p> <p>Both GOLD_TARGET</p>
+VM3 | ]ClusterStorage\SourceVolume2 | SILVER | <p>]ClusterStorage\SourceVolume2</p><p>\FileServer\SourceShare2</p>
+VM4 | \FileServer\SourceShare2 | SILVER |<p>]ClusterStorage\SourceVolume2</p><p>\FileServer\SourceShare2</p><p>Both SILVER_TARGET</p>
+VM5 | ]ClusterStorage\SourceVolume3 | N/A | 沒有對應，因此將會使用 Hyper-V 主機的預設儲存體位置
 
 ## 後續步驟
 
 既然您已經更了解儲存體對應，請開始讀取[最佳作法](site-recovery-best-practices.md)以準備部署。
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=58-->

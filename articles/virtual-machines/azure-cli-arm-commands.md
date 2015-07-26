@@ -305,7 +305,7 @@ Azure 資源管理可讓您建立資源群組，包含虛擬機器、網站、�
 此命令可讓您列出資源群組中的所有虛擬網路。
 
 
-	C:\>azure network vnet list myresourcegroup
+	C:>azure network vnet list myresourcegroup
 
 	info:    Executing command network vnet list
 	+ Listing virtual networks
@@ -410,7 +410,7 @@ Azure 資源管理可讓您建立資源群組，包含虛擬機器、網站、�
 設定資源群組內的特定虛擬網路子網路。
 
 
-	C:\>azure network vnet subnet set -g myresourcegroup --vnet-name newvnet -n subnet1
+	C:>azure network vnet subnet set -g myresourcegroup --vnet-name newvnet -n subnet1
 
 	info:    Executing command network vnet subnet set
 	+ Looking up the subnet "subnet1"
@@ -653,7 +653,7 @@ Azure 資源管理可讓您建立資源群組，包含虛擬機器、網站、�
 
 列出負載平衡器集合的探查屬性。
 
-	C:\>azure network lb probe list -g myresourcegroup -l mylb
+	C:>azure network lb probe list -g myresourcegroup -l mylb
 
 	info:    Executing command network lb probe list
 	+ Looking up the load balancer "mylb"
@@ -1737,4 +1737,4 @@ Azure 資源管理可讓您建立資源群組，包含虛擬機器、網站、�
 	vm image list [options] <location> <publisher> [offer] [sku]
  
 
-<!---HONumber=62-->
+<!---HONumber=58-->

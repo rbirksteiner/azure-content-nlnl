@@ -38,7 +38,7 @@
 ##使用 Azure PowerShell 提交 MapReduce 工作
 Azure PowerShell 是功能強大的指令碼環境，可讓您在 Azure 中控制和自動化工作量的部署與管理。如需關於搭配 HDInsight 使用 Azure PowerShell 的詳細資訊，請參閱[使用 PowerShell 管理 HDInsight][hdinsight-admin-powershell]。
 
-Hadoop MapReduce 是一種可撰寫應用程式來處理大量資料的軟體架構。HDInsight 叢集隨附一個 JAR 檔案 (位於 *\\example\\jars\\hadoop-mapreduce-examples.jar*)，內含數個 MapReduce 範例。
+Hadoop MapReduce 是一種可撰寫應用程式來處理大量資料的軟體架構。HDInsight 叢集隨附一個 JAR 檔案 (位於 *\example\jars\hadoop-mapreduce-examples.jar*)，內含數個 MapReduce 範例。
 
 其中一個範例是計算來源檔案中的文字出現率。在這堂課中，您將了解如何從工作站使用 Azure PowerShell 執行字數統計範例。如需關於開發和執行 MapReduce 工作的詳細資訊，請參閱[搭配 HDInsight 使用 MapReduce][hdinsight-use-mapreduce]。
 
@@ -111,7 +111,7 @@ Hadoop MapReduce 是一種可撰寫應用程式來處理大量資料的軟體架
 
 	*example/data/WordCountOutput* 資料夾是您執行 MapReduce 工作時指定的輸出資料夾。*part-r-00000* 是 MapReduce 工作輸出的預設檔案名稱。檔案會下載至本機資料夾中的同一個資料夾結構。例如，在以下螢幕擷取畫面中，目前的資料夾是 C: 根資料夾。檔案會下載至：
 
-*C:\\example\\data\\WordCountOutput* 
+*]example\data\WordCountOutput* 
 
 5. 執行下列命令來列印 MapReduce 工作輸出檔案：
 
@@ -300,7 +300,7 @@ HDInsight 叢集隨附一個範例 Hive 資料表，稱為 *hivesampletable*。�
 請參閱[在 HDInsight 上使用 Sqoop][hdinsight-use-sqoop]。
 
 ##使用 HDInsight .NET SDK 提交 MapReduce 工作
-HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 使用 HDInsight 叢集。HDInsight 叢集隨附一個 JAR 檔案 (位於 *\\example\\jars\\hadoop-mapreduce-examples.jar*)，內含數個 MapReduce 範例。其中一個範例是計算來源檔案中的文字出現率。在這堂課，您將了解如何建立 .NET 應用程式來執行字數統計範例。如需關於開發和執行 MapReduce 工作的詳細資訊，請參閱[搭配 HDInsight 使用 MapReduce][hdinsight-use-mapreduce]。
+HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 使用 HDInsight 叢集。HDInsight 叢集隨附一個 JAR 檔案 (位於 *\example\jars\hadoop-mapreduce-examples.jar*)，內含數個 MapReduce 範例。其中一個範例是計算來源檔案中的文字出現率。在這堂課，您將了解如何建立 .NET 應用程式來執行字數統計範例。如需關於開發和執行 MapReduce 工作的詳細資訊，請參閱[搭配 HDInsight 使用 MapReduce][hdinsight-use-mapreduce]。
 
 
 使用 SDK 佈建 HDInsight 叢集需要執行以下程序：
@@ -729,4 +729,4 @@ HDInsight 叢集隨附一個範例 Hive 資料表，稱為 *hivesampletable*。�
 [apache-hive]: http://hive.apache.org/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=58-->
