@@ -1,6 +1,6 @@
-<properties 
+﻿<properties 
 	pageTitle="Microsoft Azure 上的應用程式架構" 
-	description="涵蓋常見設計模式的架構概觀。" 
+	description="MicrosoftMicrosoftMicrosoftMicrosoftMicrosoftMicrosoft涵蓋常見設計模式的架構概觀。" 
 	services="" 
 	documentationCenter="" 
 	authors="Rboucher" 

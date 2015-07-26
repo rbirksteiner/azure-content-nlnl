@@ -1,5 +1,5 @@
-<properties 
-   pageTitle="Azure 搜尋服務層 (Azure 架構模式)" 
+﻿<properties 
+   pageTitle="bugfix bugfix bugfix bugfix   Azure 搜尋服務層 (Azure 架構模式)" 
    description="Azure 搜尋服務層模式是基礎區域的一部分，CPIF 架構文件中有相關的詳細說明" 
    services="" 
    documentationCenter="" 
@@ -13,12 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple" 
-   ms.date="03/25/2015"
+   ms.date="07/25/2015"
    ms.author="arynes"/>
 
 # Azure 搜尋服務層 (Azure 架構模式)
 
 [雲端平台整合架構 (CPIF)](azure-architectures-cpif-overview.md) 提供工作負載整合指引，供您將應用程式上架到 Microsoft 雲端解決方案。
+bugfix bugfix bugfix bugfix工作負載整合指引，供您將應用程式上架到 Microsoft 雲端解決方案。
 
 CPIF 描述組織、客戶及合作夥伴應如何使用 Azure、System Center 及 Windows Server 的混合式雲端平台和管理功能來設計和部署以雲端為目標的工作負載。
 
