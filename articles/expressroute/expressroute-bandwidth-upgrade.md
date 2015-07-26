@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
    pageTitle="以動態方式升級 ExpressRoute 頻寬 | Microsoft Azure"
    description="如何在不停機的情況下以動態方式增加 ExpressRoute 電路的頻寬大小。"
    services="expressroute"
@@ -14,6 +14,8 @@
    ms.workload="infrastructure-services"
    ms.date="06/03/2015"
    ms.author="cherylmc" />
+
+# 您可以在完全不停機的情況下增加 ExpressRoute 電路的大小
 
 # 在不停機的情況下以動態方式升級 ExpressRoute 電路頻寬
 
@@ -85,4 +87,4 @@ Windows PowerShell 是功能強大的指令碼環境，可讓您控制和自動�
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->
