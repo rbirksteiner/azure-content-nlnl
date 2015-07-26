@@ -1,5 +1,5 @@
-<properties 
-   pageTitle="以動態方式升級 ExpressRoute 頻寬 | Microsoft Azure"
+﻿<properties 
+   pageTitle="bug fix bug fix bug fix bug fix bug fix以動態方式升級 ExpressRoute 頻寬 | Microsoft Azure"
    description="如何在不停機的情況下以動態方式增加 ExpressRoute 電路的頻寬大小。"
    services="expressroute"
    documentationCenter="na"
