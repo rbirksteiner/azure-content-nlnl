@@ -228,7 +228,7 @@ Azure AD 所簽發的安全性權杖包含宣告，或已驗證之主體的相�
 5. 使用者在登入頁面上登入。
 
 
-6. 如果驗證成功，Azure AD 就會建立識別碼權杖，並當做 URL 片段 (#) 傳回至應用程式的回覆 URL。對於實際執行應用程式，此回覆 URL 應該為 HTTPS。傳回的權杖包含應用程式驗證權杖所需的使用者與 Azure AD 宣告。
+6. 如果驗證成功，Azure AD 就會建立識別碼權杖，並當做 URL 片段 (\#) 傳回至應用程式的回覆 URL。對於實際執行應用程式，此回覆 URL 應該為 HTTPS。傳回的權杖包含應用程式驗證權杖所需的使用者與 Azure AD 宣告。
 
 
 7. 瀏覽器中執行的 JavaScript 用戶端程式碼從回應中擷取權杖，用以保護對應用程式 Web API 後端的呼叫。
@@ -466,4 +466,4 @@ Azure AD 所簽發的安全性權杖包含宣告，或已驗證之主體的相�
 [Azure AD 中的 OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx)
  
 
-<!---HONumber=62-->
+<!---HONumber=58-->

@@ -41,20 +41,20 @@ Azure 自動化中的 Runbook 無法存取您的本機資料中心中的資源�
 
 完成下列步驟來準備您的 Azure 自動化環境的混合式 Runbook 背景工作。
 
-#### 1.建立 Azure Operational Insights 工作區
+#### 1\.建立 Azure Operational Insights 工作區
 如果在您的 Azure 帳戶中尚無 Operational Insights 工作區，那麼，請使用[設定Operational Insights 工作區](../operational-insights-setup-workspace)中的指示加以建立。如果您已經有工作區，可以使用現有的工作區。
 
-#### 2.部署自動化解決方案
+#### 2\.部署自動化解決方案
 Operational Insights 中的自動化解決方案減少了設定及支援 Runbook 環境所需的元件。請依照 [Operational Insight 解決方案](../operational-insights-add-solution)中的指示來安裝 **Azure 自動化**套件。
 
 ### 設定內部部署機器
 針對每一部將做為混合式 Runbook 背景工作的內部部署機器，完成下列步驟。
 
 
-#### 1.安裝 Microsoft Management Agent
+#### 1\.安裝 Microsoft Management Agent
 Microsoft Management Agent 會將電腦連接至Operational Insights，並讓它可以從方案執行邏輯。請依照[將電腦直接連接到 Operational Insights](../operational-insights-direct-agent)中的指示，在內部部署機器上安裝代理程式，並連接到 Operational Insights。
 
-#### 2.安裝 Runbook 環境並連接到 Azure 自動化
+#### 2\.安裝 Runbook 環境並連接到 Azure 自動化
 將電腦加入 Operational Insights 時，自動化解決方案會關閉包含 **Add-HybridRunbookWorker** Cmdlet 的 **HybridRegistration** PowerShell 模組。您可以使用這個 Cmdlet 在電腦上安裝 Runbook 環境並向 Azure 自動化進行註冊。
 
 在管理員模式中開啟 PowerShell 工作階段，並執行下列命令以匯入模組。
@@ -75,7 +75,7 @@ Microsoft Management Agent 會將電腦連接至Operational Insights，並讓它
 - **權杖**是 [**管理金鑰**] 分頁中的**主要存取金鑰**。您可以依序按一下自動化帳戶的元素面板上的索引鍵圖示，開啟 [管理金鑰] 分頁。<br><br>![混合式 Runbook 背景工作概觀](./media/automation-hybrid-runbook-worker/elements-panel-keys.png)
 
 
-#### 3.安裝 PowerShell 模組
+#### 3\.安裝 PowerShell 模組
 Runbook 可以使用 Azure 自動化環境中安裝的模組中定義的任何活動和 Cmdlet。這些模組不自動會部署至內部部署機器，所以您必須手動安裝它們。例外狀況是預設安裝的 Azure 模組，可提供 Azure 自動化所有 Azure 服務和活動的 Cmdlet 存取權。
 
 由於「混合式 Runbook 背景工作」功能的主要目的是要管理本機資源，您很可能必須安裝支援這些資源的模組。您可以參考[安裝模組](http://msdn.microsoft.com/library/dd878350.aspx)來取得安裝 Windows PowerShell 模組的詳細資訊。
@@ -136,4 +136,4 @@ Runbook 將在混合式 Runbook 背景工作上的本機系統帳戶內容中執
 - [在 Azure 自動化中編輯 Runbook](https://msdn.microsoft.com/library/dn879137.aspx)
  
 
-<!---HONumber=62-->
+<!---HONumber=58-->

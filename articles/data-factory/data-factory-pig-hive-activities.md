@@ -24,7 +24,7 @@ Azure Data Factory 中的「管線」會使用連結的計算服務，來處理�
 
 ### 必要條件
 1. 完成[開始使用 Azure Data Factory][adfgetstarted] 文章中的教學課程。
-2. 在 **C:\ADFGetStarted** 下名為 **Hive** 的子資料夾中，使用下列內容建立 **hivequery.hql** 檔案。
+2. 在 **]ADFGetStarted** 下名為 **Hive** 的子資料夾中，使用下列內容建立 **hivequery.hql** 檔案。
     		
     	DROP TABLE IF EXISTS adftutorialhivetable; 
 		CREATE EXTERNAL TABLE  adftutorialhivetable
@@ -353,4 +353,4 @@ Data Factory Pig 和 Hive 活動可讓您使用 **extendedProperties**，指定 
 [Azure Portal]: http://portal.azure.com
  
 
-<!---HONumber=62-->
+<!---HONumber=58-->

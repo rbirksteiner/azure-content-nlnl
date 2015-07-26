@@ -136,4 +136,4 @@ VMNetwork1-Chicago 的網路對應已變更 | VM-1 現在將會連線到對應�
 既然您已經更了解網路對應，請開始讀取[最佳作法](site-recovery-best-practices.md)以準備部署。
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=58-->

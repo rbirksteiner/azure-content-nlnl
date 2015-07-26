@@ -115,7 +115,7 @@ V12 提供大幅改進的復原點目標 (RPO) 與預估復原時間 (ERT)：
 查看您是否已經具備執行較早版本 SQL Database 服務的資料庫或邏輯伺服器的一個簡單方法是執行下列動作：
 
 
-1. 移至 [Azure Preview 入口網站](http://portal.azure.com/)。
+1. 移至 [Azure 預覽入口網站](http://portal.azure.com/)。
 2. 按一下 [瀏覽]。
 3. 按一下 [SQL Server]。
 4. 您的伺服器或資料庫旁邊的圖示會告知詳情：
@@ -152,4 +152,4 @@ V12 在下列區域，僅提供「預覽」：
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=58-->

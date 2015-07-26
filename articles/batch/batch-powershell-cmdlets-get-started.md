@@ -164,4 +164,4 @@ Get-AzureBatchWorkItem -MaxCount 2500 -BatchContext $context
 * [Azure 批次 Cmdlet 參考資料](https://msdn.microsoft.com/library/azure/mt125957.aspx)
 * [有效率的清單查詢](batch-efficient-list-queries.md)
 
-<!---HONumber=62-->
+<!---HONumber=58-->

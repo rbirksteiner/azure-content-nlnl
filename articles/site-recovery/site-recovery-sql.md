@@ -436,4 +436,4 @@ Site Recovery 可以與資料表中摘要說明的原生 SQL Server BCDR 技術�
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=58-->

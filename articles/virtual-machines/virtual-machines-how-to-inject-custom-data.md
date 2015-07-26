@@ -79,4 +79,4 @@
 [Azure 命令列介面](https://github.com/Azure/azure-sdk-tools-xplat)
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=58-->

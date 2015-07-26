@@ -25,7 +25,7 @@
 * [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
 * [Java](app-insights-release-notes-java.md)
 * [JavaScript](app-insights-release-notes-javascript.md)
-* [Windows Phone 和市集 C#|VB](app-insights-release-notes-windows.md)
+* [Windows Phone 和市集 C\#|VB](app-insights-release-notes-windows.md)
 * [Windows Phone 和市集 C++](app-insights-release-notes-windows-cpp.md)
 * [其他平台](https://github.com/Microsoft/ApplicationInsights-Home)
 
@@ -33,4 +33,4 @@
 
  
 
-<!---HONumber=62-->
+<!---HONumber=58-->

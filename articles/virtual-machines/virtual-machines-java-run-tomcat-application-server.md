@@ -160,4 +160,4 @@ Azure 可讓您利用虛擬機器來提供伺服器功能。例如，於 Azure �
 [NewRuleProfile]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=58-->

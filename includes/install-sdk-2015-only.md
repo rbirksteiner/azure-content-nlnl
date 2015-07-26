@@ -4,6 +4,6 @@
 
 如果您尚未安裝 Visual Studio，則 Visual Studio Express for Web 將隨著 SDK 一起安裝。
 
->[AZURE.NOTE]視您的電腦上有多少 SDK 相依性而定，安裝 SDK 可能需要很長的時間 (從數分鐘到半小時以上不等)。
+>[AZURE.NOTE] 視您的電腦上有多少 SDK 相依性而定，安裝 SDK 可能需要很長的時間 (從數分鐘到半小時以上不等)。
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=58-->

@@ -125,7 +125,7 @@ Azure CLI 是以 JavaScript 所撰寫，而且需要 [Node.js](https://nodejs.or
 ## 執行 Azure CLI 命令
 
 安裝 Azure CLI 之後，您就能從命令列使用者介面 (Bash、終端機、cmd.exe 等) 中使用 **azure** 命令存取 Azure CLI 命令。例如，若要在 Windows 中執行 help 命令，請使用系統管理員權限啟動命令提示字元 (cmd.exe)：```
-	C:\> azure help
+	c:> azure help
 ```
 
 您現在已經準備就緒！ 接下來，您可以[從 Azure CLI 連線到您的 Azure 訂用帳戶](xplat-cli-connect.md)，然後開始使用 **azure** 命令。
@@ -150,7 +150,7 @@ Azure CLI 是以 JavaScript 所撰寫，而且需要 [Node.js](https://nodejs.or
 [mac-installer]: http://go.microsoft.com/fwlink/?LinkId=252249
 [windows-installer]: http://go.microsoft.com/?linkid=9828653&clcid=0x409
 [linux-installer]: http://go.microsoft.com/fwlink/?linkid=253472
-[cliasm]: virtual-machines/virtual-machines-command-line-tools.md
-[cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
+[cliasm]: virtual-machines-command-line-tools.md
+[cliarm]: xplat-cli-azure-resource-manager.md
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=58-->

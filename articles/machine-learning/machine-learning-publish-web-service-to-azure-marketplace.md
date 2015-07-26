@@ -109,4 +109,4 @@ Azure Marketplace 可讓您發行 Azure Machine Learning Web 服務，作為供�
 [odata]: ./media/machine-learning-publish-web-service-to-azure-marketplace/odata.png
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=58-->

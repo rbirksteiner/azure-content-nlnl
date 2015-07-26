@@ -211,4 +211,4 @@ Office 365 具有 [[常見網域註冊機構的特定指示](https://support.off
 - [以組織身分註冊 Azure](sign-up-organization.md)
 - [在 Azure AD 中管理網域](https://msdn.microsoft.com/library/azure/dn919677.aspx) 
 
-<!---HONumber=62-->
+<!---HONumber=58-->

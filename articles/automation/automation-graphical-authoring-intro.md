@@ -280,4 +280,4 @@ Runbook 可能需要使用者透過 Azure 預覽入口網站啟動 Runbook 時�
 - [自動化資產](http://msdn.microsoft.com/library/azure/dn939988.aspx)
  
 
-<!---HONumber=62-->
+<!---HONumber=58-->

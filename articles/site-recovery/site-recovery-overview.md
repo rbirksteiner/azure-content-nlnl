@@ -181,4 +181,4 @@ Oracle | 敬請期待 | 敬請期待 | Y (由 Microsoft 測試) | 敬請期待
 完成此概觀之後，請[讀取最佳作法](site-recovery-best-practices.md)以協助您開始進行部署規劃。
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=58-->

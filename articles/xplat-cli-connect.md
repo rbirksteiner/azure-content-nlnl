@@ -1,4 +1,4 @@
-<properties
+﻿<properties
 	pageTitle="從 Azure 命令列介面 (Azure CLI) 登入 | Microsoft Azure"
 	description="從 Azure 命令列介面 (Azure CLI) 連接到 Azure 訂用帳戶"
 	editor="tysonn"
@@ -15,6 +15,8 @@
 	ms.topic="article"
 	ms.date="06/09/2015"
 	ms.author="danlep"/>
+
+from58 July15_HO1
 
 # 從 Azure 命令列介面 (Azure CLI) 連接到 Azure 訂用帳戶
 
@@ -124,7 +126,6 @@ Azure CLI 所提供的大多數命令仍需要連接到 Azure 帳戶。有兩種
 <a id="additional-resources"></a>
 ## 其他資源
 
-* [搭配使用 Azure CLI 和服務管理 (或 ASM 模式) 命令][cliasm]
 
 * [搭配使用 Azure CLI 和資源管理 (或 ASM 模式) 命令][cliarm]
 
@@ -142,7 +143,7 @@ Azure CLI 所提供的大多數命令仍需要連接到 Azure 帳戶。有兩種
 [free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [portal]: https://manage.windowsazure.com
 [signuporg]: http://azure.microsoft.com/documentation/articles/sign-up-organization/
-[cliasm]: virtual-machines/virtual-machines-command-line-tools.md
-[cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
+[cliasm]: virtual-machines-command-line-tools.md
+[cliarm]: xplat-cli-azure-resource-manager.md
 
 <!---HONumber=July15_HO1-->

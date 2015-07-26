@@ -87,7 +87,7 @@ azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d
 
 若要測試您已在 Azure 中建立的 Docker VM，請輸入
 
-`docker --tls -H tcp://<vm-name-you-used>.cloudapp.net:2376 info`
+`docker --tls -H tcp://<vm-name-you-used>.cloudapp.net:4243 info`
 
 其中 *<vm-name-you-used>* 是虛擬機器的名稱，您會將其用在呼叫 `azure vm docker create`。您應該可看到如下所示的內容，這代表您的 Docker 主機 VM 已在 Azure 中啟用和執行，並且正等待您的命令。
 
@@ -96,10 +96,10 @@ azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d
 ### Docker 主機 VM 驗證
 除了建立 Docker VM 之外，`azure vm docker create` 命令也會自動建立所需的憑證，以允許您的 Docker 用戶端電腦使用 HTTPS 與 Azure 容器主機連線，而且憑證會適當地儲存在用戶端和主機機器中。在後續執行上，現有的認證會被重新使用並且與新的主機共用。
 
-依預設，憑證會放在 `~/.docker`，而 Docker 將設定為在連接埠 **2376** 上執行。如果您要使用不同的連接埠或目錄，則可以使用下列其中一個 `azure vm docker create` 命令列選項來設定您的 Docker 容器主機 VM，藉此使用不同連接埠或不同憑證來連接用戶端：
+依預設，憑證放置於 `~/.docker`，而 Docker 將會在連接埠 **4243** 上進行設定和執行。如果您要使用不同的連接埠或目錄，則可以使用下列其中一個 `azure vm docker create` 命令列選項來設定您的 Docker 容器主機 VM，藉此使用不同連接埠或不同憑證來連接用戶端：
 
 ```
--dp, --docker-port [port]              Port to use for docker [2376]
+-dp, --docker-port [port]              Port to use for docker [4243]
 -dc, --docker-cert-dir [dir]           Directory containing docker certs [.docker/]
 ```
 
@@ -139,4 +139,4 @@ azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d
 [Docker 使用者指南]: https://docs.docker.com/userguide/
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=58-->

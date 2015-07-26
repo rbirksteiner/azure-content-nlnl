@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="infrastructure"
-   ms.date="07/02/2015"
+   ms.date="06/03/2015"
    ms.author="rasquill"/>
 
 # 使用範本的應用程式架構
@@ -22,7 +22,6 @@
 
 | 範本名稱 | 說明 | 檢視範本 | 立即部署 |
 |:---|:---|:---:|:---:|
-| 快速部署 'N' 個 VM | 這是 Microsoft 建立的範本，最多可部署 'N' 個新的 VM (以及新的 VNet 和儲存體帳戶)。 | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/resource-loop-vms-vnet-aset/) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fresource-loop-vms-vnet-aset%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
 | Active Directory 樹系和網域 | 這個範本會部署 2 個新的 VM (以及一個新的 VNet、儲存體帳戶和負載平衡器) 並建立新的 AD 樹系和網域。每一個建立的 VM 會當做新網域的 DC，然後放入可用性設定組中。它也會有 RDP 端點並附帶負載平衡的公用 IP 位址。 | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/active-directory-new-domain-ha-2-dc) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Factive-directory-new-domain-ha-2-dc%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
 | Apache 網頁伺服器 | 這個範本使用 Azure Linux CustomScript 延伸模組來部署 Apache 網頁伺服器。這個範本會建立 Ubuntu VM、安裝 Apache2 以及建立一個簡單的 HTML 檔案。| [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/apache2-on-ubuntu-vm) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapache2-on-ubuntu-vm%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 | Couchbase 叢集 | 這個範本會在 Ubuntu 虛擬機器上部署 Couchbase 叢集。 | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/couchbase-on-ubuntu) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fcouchbase-on-ubuntu%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
@@ -50,4 +49,4 @@
 到[這裡](../resource-group-template-deploy.md)深入了解 Azure 資源管理。
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=58-->

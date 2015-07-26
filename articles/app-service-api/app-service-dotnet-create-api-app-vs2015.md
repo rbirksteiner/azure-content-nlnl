@@ -47,7 +47,7 @@ Visual Studio 2015 RC 還沒有 API 應用程式專案範本，所以若要建�
 
 4. 將專案命名為 *ContactsList*
 
-5. 請確定已經清除 [**將 Application Insights 加入專案**] 核取方塊。
+5. 請確定已經清除 [將 Application Insights 加入專案] 核取方塊。
 
 5. 按一下 [確定]。
 
@@ -297,4 +297,4 @@ API 應用程式基本上是 Azure 提供其他功能作為 Web 服務功能的 
 您現已使用 Visual Studio 2015 RC 建立及部署 API 應用程式。如需 API 應用程式的相關文件，請參閱顯示於頁面左邊 (適用於寬瀏覽器視窗) 或頁面頂端 (適用於窄瀏覽器視窗) 的瀏覽窗格中的項目。大部分 API 應用程式文件目前顯示 Visual Studio 2013，但其中許多內容適用於 VS 2015，因為 UI 類似，您所撰寫的程式碼相同，而且入口網站 UI 也相同。
  
 
-<!---HONumber=62-->
+<!---HONumber=58-->

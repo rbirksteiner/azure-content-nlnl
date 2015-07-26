@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.date="04/20/2015" 
 	ms.author="patshea123"/>
 
 # 開始使用 Azure 儲存體 (雲端服務專案)
@@ -246,7 +246,7 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
 <ul>
 <li>如需可用 API 的完整詳細資訊，請檢視佇列服務參考文件：
   <ul>
-    <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731">Storage Client Library for .NET 參考資料</a>
+    <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">Storage Client Library for .NET 參考資料</a>
     </li>
     <li><a href="http://msdn.microsoft.com/library/azure/dd179355">REST API 參考資料</a></li>
   </ul>
@@ -263,7 +263,7 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
 </ul>
 
   [Download and install the Azure SDK for .NET]: /develop/net/
-  [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731
+  [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [Creating a Azure Project in Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
   [CloudStorageAccount]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudstorageaccount_methods.aspx
   [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
@@ -274,4 +274,4 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=58-->

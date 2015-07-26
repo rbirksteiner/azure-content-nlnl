@@ -61,4 +61,4 @@ Azure Multi-Factor Authentication 是一個容易使用、可調整且可靠的�
 * [適用於使用者](multi-factor-authentication-end-user.md)
 * [MSDN 上的 Azure Multi-Factor Authentication](https://msdn.microsoft.com/library/azure/dn249471.aspx) 
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=58-->

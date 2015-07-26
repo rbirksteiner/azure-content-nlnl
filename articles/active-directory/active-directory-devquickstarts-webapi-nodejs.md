@@ -847,7 +847,7 @@ var server = restify.createServer({
     formatters: {
         'application/json': function(req, res, body){
             if(req.params.callback){
-                var callbackFunctionName = req.params.callback.replace(/[^A-Za-z0-9_.]/g, '');
+                var callbackFunctionName = req.params.callback.replace(/[^A-Za-z0-9_\.]/g, '');
                 return callbackFunctionName + "(" + JSON.stringify(body) + ");";
             } else {
                 return JSON.stringify(body);
@@ -1029,7 +1029,7 @@ var passport = require('passport')
   , OAuth2Strategy = require('passport-oauth').OAuth2Strategy;
 ```
 
-### 2.告訴伺服器我們正在使用驗證
+### 2\.告訴伺服器我們正在使用驗證
 
 在偏好的編輯器中開啟 `server.js` 檔案，並在您先前定義路由的 **server.get() 下方**，但在 **server.listen()** 方法上方加入下列資訊：
 
@@ -1043,7 +1043,7 @@ var passport = require('passport')
 ```
 
 
-### 3.將 Passport OAuth2 模組加入程式碼
+### 3\.將 Passport OAuth2 模組加入程式碼
 
 在此我們使用加入 config.js 檔案的特定 OAuth2 參數。如果 `aadutils.js` 檔案執行其剖析同盟中繼資料文件的工作，則即使這些值在 config.js 檔案中是空白值，系統仍會替我們填入這些值。
 
@@ -1178,4 +1178,4 @@ server.get('/tasks', passport.authenticate('provider', { session: false }), list
 [ADAL for .Net](http://msdn.microsoft.com/library/windowsazure/jj573266.aspx)
  
 
-<!---HONumber=62-->
+<!---HONumber=58-->

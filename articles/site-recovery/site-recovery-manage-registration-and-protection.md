@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="07/08/2015" 
+	ms.date="05/29/2015" 
 	ms.author="raynew"/>
 
 # 管理註冊與保護
@@ -24,9 +24,9 @@
 
 您可以在 Azure Site Recovery 入口網站中的 [伺服器] 索引標籤上刪除伺服器，以便從保存庫中取消註冊 VMM 伺服器。請注意：
 
--  **連接的 VMM 伺服器**：建議您在連線至 Azure 時，取消註冊 VMM 伺服器。這可確保正確清除內部部署 VMM 伺服器及其相關聯的 VMM 伺服器上的設定 (包含雲端的 VMM 伺服器，這些雲端會對應至您想要刪除的伺服器上的雲端)。建議您只在連線有永久問題時，才移除未連線的伺服器。
-- **未連接的 VMM 伺服器**：如果 VMM 伺服器未連線，當您刪除該伺服器時，您必須手動執行指令碼，才能執行清除作業。指令碼位於 [Microsoft 資源庫](https://gallery.technet.microsoft.com/scriptcenter/Cleanup-Script-for-Windows-95101439)中。請記下伺服器的 VMM 識別碼，以完成手動清除程序。
-- **叢集中的 VMM 伺服器**：如果您需要取消註冊在叢集中部署的 VMM 伺服器，請執行下列操作：
+-  建議您在連線至 Azure 時，取消註冊 VMM 伺服器。這可確保正確清除內部部署 VMM 伺服器及其相關聯的 VMM 伺服器上的設定 (包含雲端的 VMM 伺服器，這些雲端會對應至您想要刪除的伺服器上的雲端)。建議您只在連線有永久問題時，才移除未連線的伺服器。
+- 如果 VMM 伺服器未連線，當您刪除該伺服器時，您必須手動執行指令碼，才能執行清除作業。指令碼位於 [Microsoft 資源庫](https://gallery.technet.microsoft.com/scriptcenter/Cleanup-Script-for-Windows-95101439)中。請記下伺服器的 VMM 識別碼，以完成手動清除程序。
+- 如果您需要取消註冊在叢集中部署的 VMM 伺服器，請執行下列操作：
 
 	- 如果伺服器已連線，請刪除 [伺服器] 索引標籤上已連線的 VMM 伺服器。若要解除安裝伺服器上的提供者，登入每個叢集節點，然後從 [控制台] 解除安裝該提供者。針對叢集中的所有被動節點執行上一節中所參考的清除指令碼，以刪除註冊項目。
 	- 如果伺服器未連線，您必須針對所有叢集節點執行清除指令碼。
@@ -136,17 +136,15 @@
 	    popd
 
 
-## 停止保護 Hyper-V 虛擬機器
+## 停止保護虛擬機器
 
-如果您想要停止保護 Hyper-V 虛擬機器，您必須移除它的保護。視您要如何移除保護，您可能需要以手動方式清除機器上的保護設定。
-
-### 移除保護
+如果您想要停止保護虛擬機器，請執行以下操作：
 
 1. 在雲端屬性的 [虛擬機器] 索引標籤中選取虛擬機器，然後選取 [移除]。
 2. 在 [確認移除虛擬機器] 頁面上有幾個選項：
 
-	- **停用保護**—如果您啟用並儲存此選項，虛擬機器將不再受到 Site Recovery 的保護。系統將會自動清除虛擬機器的保護設定。
-	- **從保存庫移除**—如果您選擇此選項，虛擬機器將只會從 Site Recovery 保存庫中移除。虛擬機器的內部部署保護設定不受影響。您必須以手動方式清除設定，以移除保護設定、移除 Azure 訂用帳戶的虛擬機器，以及移除保護設定，即必須使用下列指示以手動清除的設定。
+	- **停用虛擬機器的保護** — 如果您啟用並儲存此選項，虛擬機器將不再受到 Azure Site Recovery 的保護。系統將會自動清除虛擬機器的保護設定。
+	- **停止管理虛擬機器** — 如果您選擇此選項，虛擬機器將只會從 Azure Site Recovery 服務中移除。虛擬機器的內部部署保護設定不會受到影響，而且您可能需要使用下列指示，手動清除這些這些設定。
 
 如果您選擇刪除虛擬機器及其硬碟，將會從目標位置移除它們。
 
@@ -185,6 +183,7 @@
 	    $replicationService = Get-WmiObject -Namespace "root\virtualization\v2"  -Query "Select * From Msvm_ReplicationService"  -computername $hostName
 	    $replicationService.RemoveReplicationRelationship($vm.__PATH)
 
+
 ### 手動清除保護設定 (Hyper-V 網站與 Azure 之間的設定)
 
 1. 在來源 Hyper-V 主機伺服器上，使用此指令碼移除虛擬機器的複寫。將 SQLVM1 取代成您的虛擬機器的名稱。
@@ -194,22 +193,23 @@
 	    $replicationService = Get-WmiObject -Namespace "root\virtualization\v2"  -Query "Select * From Msvm_ReplicationService"
 	    $replicationService.RemoveReplicationRelationship($vm.__PATH)
 
-## 停止保護 VMware 虛擬機器或實體伺服器
+### 手動清除保護設定 (VMware 網站與 Azure 之間的設定)
 
-如果您想要停止保護 VMware 虛擬機器或實體伺服器，您必須移除它的保護。視您要如何移除保護，您可能需要以手動方式清除機器上的保護設定。
+在來源伺服器上，解除安裝行動服務。
 
-### 移除保護
 
-1. 在雲端屬性的 [虛擬機器] 索引標籤中選取虛擬機器，然後選取 [移除]。
-2. 在 [**移除虛擬機器**] 上選取其中一個選項：
 
-	- **停用保護 (使用復原切入和調整大小的磁碟區)**—只要在擁有下列條件，您才會看到及啟用此選項：
-		- **調整大小的虛擬機器磁碟區**—當您調整磁碟區大小時，虛擬機器會進入重大狀態。如果發生這種情況，請選取此選項。它會停用保護，同時保留在 Azure 中的復原點。當您重新啟用機器的保護時，重新調整過大小的磁碟區資料會傳輸至 Azure。
-		- **執行容錯移轉**—執行從內部部署 VMware 虛擬機器或實體伺服器至 Azure 的容錯移轉來測試環境後，請選取此選項以重新開始保護您的內部部署虛擬機器。這個選項會停用每個虛擬機器，您接著必須重新啟用它們的保護。請注意：
-			- 使用這項設定停用虛擬機器，不會影響 Azure 中的複本虛擬機器。
-			- 您不得從虛擬機器解除安裝行動服務。
-	
-	- **停用保護**—如果您啟用並儲存此選項，機器將不再受到 Site Recovery 的保護。系統將會自動清除機器的保護設定。
-	- **從保存庫移除**—如果您選擇此選項，機器將只會從 Site Recovery 保存庫中移除。機器的內部部署保護設定不受影響。若要移除機器上的設定，並從 Azure 訂用帳戶移除虛擬機器，而且您將需要解除安裝行動服務來清除設定。![移除選項](./media/site-recovery-manage-registration-and-protection/RegistrationProtection_RemoveVM.png)
 
-<!---HONumber=July15_HO2-->
+
+
+
+
+
+
+
+
+
+
+ 
+
+<!---HONumber=58-->

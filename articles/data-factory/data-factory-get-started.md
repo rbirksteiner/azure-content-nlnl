@@ -66,7 +66,7 @@
 ### 準備教學課程所需的 Azure Blob 儲存體和 Azure SQL 資料庫
 現在，請執行下列步驟，準備本教學課程中的 Azure Blob 儲存體和 Azure SQL Database。
 
-1. 啟動 [記事本]，並貼上下列文字，然後將它以 **emp.txt** 的形式儲存至您硬碟上的 **C:\ADFGetStarted** 資料夾。
+1. 啟動 [記事本]，並貼上下列文字，然後將它以 **emp.txt** 的形式儲存至您硬碟上的 **]ADFGetStarted** 資料夾。
 
         John, Doe
 		Jane, Doe
@@ -218,4 +218,4 @@
 [image-data-factory-name-not-available]: ./media/data-factory-get-started/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=62-->
+<!---HONumber=58-->

@@ -119,4 +119,4 @@ Service Fabric 中常見的無狀態服務使用範例是做為前端，其公�
 + [閱讀可靠執行者程式設計模型](../service-fabric/service-fabric-reliable-actors-introduction.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=58-->

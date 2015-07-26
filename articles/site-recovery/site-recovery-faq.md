@@ -200,4 +200,4 @@ ASR 目前支援將 Hyper-V 上的第 2 代虛擬機器複寫到 Azure。ASR 會
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=58-->

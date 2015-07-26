@@ -80,4 +80,4 @@ ODataDetailLevel 物件有三個公用屬性，可以在建構函式中指定或
 
 > [AZURE.NOTE]建議您一律為清單 API 呼叫使用篩選和 Select 子句，以確保您的應用程式有最高效率和最佳效能。
 
-<!---HONumber=62-->
+<!---HONumber=58-->

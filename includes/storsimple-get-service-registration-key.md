@@ -1,3 +1,20 @@
+<properties 
+   pageTitle="取得服務註冊金鑰。"
+   description="說明如何取得用來註冊所有 StorSimple 裝置的註冊金鑰。"
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="adinah"
+   editor="tysonn" />
+<tags 
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="04/01/2015"
+   ms.author="v-sharos" />
+
 
 #### 取得 StorSimple 服務註冊金鑰
 
@@ -19,4 +36,4 @@
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=58-->

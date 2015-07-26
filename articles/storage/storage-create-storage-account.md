@@ -163,4 +163,4 @@ Azure 儲存體帳戶是可讓您存取 Azure 儲存體服務的安全帳戶。�
 - 造訪 [Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/) (英文)。
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=58-->

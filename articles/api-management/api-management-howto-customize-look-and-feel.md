@@ -36,7 +36,7 @@
 
 > 如果您熟悉[啟動程序](http://getbootstrap.com/)，事實上，開發人員入口網站所使用啟動程序佈景主題內的這些規則[變數較少](http://getbootstrap.com/css/)。
 
-現在，讓我們變更標題文字的色彩！ 選取 [**@headings-color**] 欄位中的項目，然後輸入 #000000。這是黑色的十六進位碼。執行這項作業，您會看見文字方塊末端出現方形色彩指示器。如果您按一下此指示器，將出現色彩選擇器，供您選擇色彩。
+現在，讓我們變更標題文字的色彩！ 選取 [**@headings-color**] 欄位中的項目，然後輸入 \#000000。這是黑色的十六進位碼。執行這項作業，您會看見文字方塊末端出現方形色彩指示器。如果您按一下此指示器，將出現色彩選擇器，供您選擇色彩。
 
 ![Color picker][api-management-customization-toolbar-color-picker]
 
@@ -55,4 +55,4 @@
 [api-management-customization-toolbar-color-picker]: ./media/api-management-howto-customize-look-and-feel/api-management-customization-toolbar-color-picker.png
 [api-management-customization-toolbar-publish-form]: ./media/api-management-howto-customize-look-and-feel/api-management-customization-toolbar-publish-form.png
 
-<!---HONumber=62-->
+<!---HONumber=58-->

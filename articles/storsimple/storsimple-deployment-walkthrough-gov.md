@@ -211,4 +211,4 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。請執行下列�
 使用 [StorSimple Manager 服務](https://msdn.microsoft.com/library/azure/dn772396.aspx)以管理 StorSimple 裝置。
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=58-->

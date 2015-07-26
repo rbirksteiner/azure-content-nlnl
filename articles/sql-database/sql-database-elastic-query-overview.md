@@ -44,4 +44,4 @@
 [1]: ./media/sql-database-elastic-query-overview/overview.png
 <!--anchors-->
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=58-->

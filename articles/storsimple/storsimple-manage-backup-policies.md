@@ -84,4 +84,4 @@
 
 了解如何使用 [StorSimple Snapshot Manager](https://msdn.microsoft.com/library/azure/dn772365.aspx) 管理 StorSimple 備份。
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=58-->

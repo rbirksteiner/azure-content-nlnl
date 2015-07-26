@@ -162,4 +162,4 @@ Azure 會將此範本視為映像，並將其儲存在您的映像清單中。�
 [如何將資料磁碟連接至虛擬機器]: storage-windows-attach-disk.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=58-->

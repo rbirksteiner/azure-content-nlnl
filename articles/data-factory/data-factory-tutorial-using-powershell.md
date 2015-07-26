@@ -30,7 +30,7 @@ Contoso 是為多個平台建立遊戲的遊戲公司，包含遊戲主機、手
 3.	您必須在電腦上下載並安裝 [Azure PowerShell][download-azure-powershell]。 
 2.	(建議) 檢閱並練習[開始使用 Azure Data Factory][adfgetstarted] 文章中的教學課程，透過簡易教學課程來熟悉入口網站和 Cmdlet。
 3.	(建議) 檢閱並練習[搭配 Azure Data Factory 使用 Pig 和 Hive][usepigandhive] 文章中的逐步解說，經由逐步解說建立管線，將資料從內部部署資料來源移至 Azure Blob 存放區。
-4.	將 [ADFWalkthrough][adfwalkthrough-download] 檔案下載至 **C:\ADFWalkthrough** 資料夾，**並保留資料夾結構**：
+4.	將 [ADFWalkthrough][adfwalkthrough-download] 檔案下載至 **]ADFWalkthrough** 資料夾，**並保留資料夾結構**：
 	- **Pipelines：**包含 JSON 檔案，內有管線的定義。
 	- **Tables：**包含 JSON 檔案，內有資料表的定義。
 	- **LinkedServices：**包含 JSON 檔案，內有您的儲存體和計算 (HDInsight) 叢集的定義 
@@ -53,7 +53,8 @@ Contoso 是為多個平台建立遊戲的遊戲公司，包含遊戲主機、手
 	
 
 ## 概觀
-端對端工作流程如下所示：![教學課程端對端流程][image-data-factory-tutorial-end-to-end-flow]
+端對端工作流程會如下所示：
+	![教學課程的端對端流程][image-data-factory-tutorial-end-to-end-flow]
 
 1. **PartitionGameLogsPipeline** 從 Blob 儲存體 (RawGameEventsTable) 讀取原始遊戲事件，並根據年、月和日建立分割區 (PartitionedGameEventsTable)。
 2. **EnrichGameLogsPipeline** 聯結分割的遊戲事件 (PartitionedGameEvents 資料表，其為 PartitionGameLogsPipeline 的輸出) 與地區代碼 (RefGetoCodeDictionaryTable)，並將 IP 位址對應到相對應的地理位置來充實資料 (EnrichedGameEventsTable)。
@@ -104,7 +105,7 @@ Contoso 是為多個平台建立遊戲的遊戲公司，包含遊戲主機、手
 
 將行銷活動有效性結果從 Azure Blob 儲存體移至 Azure SQL 資料庫時，會使用資料表、使用者定義型別和預存程序。
 
-1. 在您喜好的編輯器中，從 **C:\ADFWalkthrough** 資料夾 (或包含解壓縮檔案的資料夾) 開啟 **uploadSampleDataAndScripts.ps1**，以您的叢集資訊取代反白顯示部分，並儲存檔案。
+1. 在您喜好的編輯器中，從 **]ADFWalkthrough** 資料夾 (或包含解壓縮檔案的資料夾) 開啟 **uploadSampleDataAndScripts.ps1**，以您的叢集資訊取代反白顯示部分，並儲存檔案。
 
 
 		$storageAccount = <storage account name>
@@ -116,7 +117,7 @@ Contoso 是為多個平台建立遊戲的遊戲公司，包含遊戲主機、手
  
 	此指令碼要求您在電腦上安裝 sqlcmd 公用程式。如果您已安裝 SQL Server，則已具備。否則，請[下載][sqlcmd-install]並安裝此公用程式。
 	
-	或者，您可以使用資料夾 C:\ADFWalkthrough\Scripts 中的檔案，將 pig/hive 指令碼與範例檔案上傳至 Blob 儲存體中的 adfwalkthrough 容器，並在 MarketingCamapaigns Azure SQL 資料庫中建立 MarketingCampaignEffectiveness 資料表。
+	或者，您可以使用資料夾 ]ADFWalkthrough\Scripts 中的檔案，將 pig/hive 指令碼與範例檔案上傳至 Blob 儲存體中的 adfwalkthrough 容器，並在 MarketingCamapaigns Azure SQL 資料庫中建立 MarketingCampaignEffectiveness 資料表。
    
 2. 確認您的本機電腦可以存取 Azure SQL Database。若要啟用存取，請使用 **Azure 管理入口網站**，或在 master 資料庫上使用 **sp_set_firewall_rule**，為您電腦的 IP 位址建立防火牆規則。可能需要五分鐘的時間，這項變更才會生效。請參閱[設定 Azure SQL 的防火牆規則][azure-sql-firewall]。
 4. 在 Azure PowerShell 中，瀏覽至您解壓縮範例的位置 (例如：**C:\ADFWalkthrough**)
@@ -160,7 +161,7 @@ Contoso 是為多個平台建立遊戲的遊戲公司，包含遊戲主機、手
 
 	![新增->DataFactory][image-data-factory-new-datafactory-menu]
 	
-	如果您在 [**新增**] 刀鋒視窗上沒看見 **Data Factory**，請向下捲動。
+	如果您在 [**新增**] 刀鋒視窗上沒看見 **Data Factory**，請向下捲動。 
 	
 5. 在 [新增 Data Factory] 刀鋒視窗中，針對 [名稱] 輸入 **LogProcessingFactory**。
 
@@ -169,14 +170,14 @@ Contoso 是為多個平台建立遊戲的遊戲公司，包含遊戲主機、手
 6. 如果您尚未建立名為 **ADF** 的 Azure 資源群組，請執行下列動作：
 	1. 按一下 [**資源群組名稱**]，然後按一下 [**建立新的資源群組**]。
 	
-		![[資源群組] 刀鋒視窗][image-data-factory-tutorial-resourcegroup-blade]
+		![資源群組刀鋒視窗][image-data-factory-tutorial-resourcegroup-blade]
 	2. 在 [**建立資源群組**] 刀鋒視窗中，輸入 **ADF** 做為資源群組的名稱，然後按一下 [**確定**]。
 	
 		![建立資源群組][image-data-factory-tutorial-create-resourcegroup]
 7. 選取 [**ADF**] 做為 [**資源群組名稱**]。  
 8.	在 [**新增 Data Factory**] 刀鋒視窗中，請注意，預設會選取 [**新增至開始面板**]。這會將連結加入開始面板上的 Data Factory (登入 Azure 預覽入口網站時會看見)。
 
-	![[建立 Data Factory] 刀鋒視窗][image-data-factory-tutorial-create-datafactory]
+	![建立 Data Factory刀鋒視窗][image-data-factory-tutorial-create-datafactory]
 
 9.	在 [**新增 Data Factory**] 刀鋒視窗中，按一下 [**建立**] 以建立 Data Factory。
 10.	建立 Data Factory 之後，您應該會看到 **DATA FACTORY** 刀鋒視窗的標題為 **LogProcessingFactory**。
@@ -193,7 +194,7 @@ Contoso 是為多個平台建立遊戲的遊戲公司，包含遊戲主機、手
  
 ## <a name="MainStep3"></a> 步驟 3：建立連結服務
 
-> [AZURE.NOTE]本文使用 Azure PowerShell 建立連結服務、資料表和管線。若您想使用 Azure 入口網站 (特別是 Data Factory 編輯器) 執行此教學課程，請參閱[使用 Data Factory 編輯器執行教學課程][adftutorial-using-editor]。
+> [AZURE.NOTE] 本文使用 Azure PowerShell 建立連結服務、資料表和管線。若您想使用 Azure 入口網站 (特別是 Data Factory 編輯器) 執行此教學課程，請參閱[使用 Data Factory 編輯器執行教學課程][adftutorial-using-editor]。
 
 在此步驟中，您將建立下列連結服務：StorageLinkedService、AzureSqlLinkedService、HDInsightStorageLinkedService 和 HDInsightLinkedService。
 
@@ -220,7 +221,7 @@ Contoso 是為多個平台建立遊戲的遊戲公司，包含遊戲主機、手
   
 5. 在 [新增資料存放區] 刀鋒視窗上按一下 [確定] 之後，您應該會看到 **StorageLinkedService** 出現在 [連結服務] 刀鋒視窗上 [資料存放區] 的清單中。檢查 [**通知**] 中樞 (左側) 中是否有任何訊息。
 
-	![[連結服務] 刀鋒視窗與儲存體][image-data-factory-tutorial-linkedservices-blade-storage]
+	![連結服務 刀鋒視窗與儲存體][image-data-factory-tutorial-linkedservices-blade-storage]
    
 6. 重複**步驟 2 到 5**，建立另一個名為 **HDInsightStorageLinkedService** 的連結服務。這是您的 HDInsight 叢集所使用的儲存體。
 7. 確認您看到 **StorageLinkedService** 和 **HDInsightStorageLinkedService** 出現在 [連結服務] 刀鋒視窗的清單中。
@@ -246,7 +247,7 @@ Contoso 是為多個平台建立遊戲的遊戲公司，包含遊戲主機、手
 
 		Switch-AzureMode AzureResourceManager
 
-16. 瀏覽至 **C:\ADFWalkthrough** 中的 **LinkedServices** 子資料夾，或從您解壓縮檔案所在位置的資料夾。
+16. 瀏覽至 **]ADFWalkthrough** 中的 **LinkedServices** 子資料夾，或從您解壓縮檔案所在位置的資料夾。
 17. 在您喜愛的編輯器中開啟 **HDInsightLinkedService.json**，並注意類型設為 **HDInsightOnDemandLinkedService**。
 
 
@@ -296,7 +297,7 @@ Azure 入口網站尚不支援建立資料集/資料表，因此在此版本中�
 
 ### 建立資料表
 
-1.	在 Azure PowerShell 中，從解壓縮範例的位置，瀏覽至 **Tables** 資料夾 (**C:\ADFWalkthrough\Tables**)。 
+1.	在 Azure PowerShell 中，從解壓縮範例的位置，瀏覽至 **Tables** 資料夾 (**]ADFWalkthrough\Tables**)。 
 2.	使用 Cmdlet **New-AzureDataFactoryTable**，針對 **RawGameEventsTable.json** 建立資料表，如下所示	
 
 
@@ -334,7 +335,7 @@ Azure 入口網站尚不支援建立資料集/資料表，因此在此版本中�
 ## <a name="MainStep5"></a> 步驟 5：建立和排程管線
 在此步驟中，您將建立下列管線：PartitionGameLogsPipeline、EnrichGameLogsPipeline 和 AnalyzeMarketingCampaignPipeline。
 
-1. 在 **Windows 檔案總管** 中，導覽至 **C:\ADFWalkthrough** 資料夾中的 **Pipelines** 子資料夾 (或從您解壓縮範例所在位置)。
+1. 在 **Windows 檔案總管** 中，導覽至 **]ADFWalkthrough** 資料夾中的 **Pipelines** 子資料夾 (或從您解壓縮範例所在位置)。
 2.	在您喜好的編輯器中開啟 **PartitionGameLogsPipeline.json**，以您的資料儲存體帳戶的資訊取代反白顯示部分，並儲存檔案。
 			
 		"RAWINPUT": "wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/logs/rawgameevents/",
@@ -346,7 +347,7 @@ Azure 入口網站尚不支援建立資料集/資料表，因此在此版本中�
 
 	**重要事項：**確認您已用您的儲存體帳戶名稱取代所有 <storageaccountname>。
  
-4.  在 **Azure PowerShell** 中，導覽至 **C:\ADFWalkthrough** 資料夾的 **Pipelines** 子資料夾 (或從您解壓縮範例所在位置)。
+4.  在 **Azure PowerShell** 中，導覽至 **]ADFWalkthrough** 資料夾的 **Pipelines** 子資料夾 (或從您解壓縮範例所在位置)。
 5.  使用 Cmdlet **New-AzureDataFactoryPipeline**，針對 **PartitionGameLogspeline**.json 建立管線，如下所示	 
 			
 		New-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df –File .\PartitionGameLogsPipeline.json
@@ -424,7 +425,7 @@ Azure 入口網站尚不支援建立資料集/資料表，因此在此版本中�
 
 6. 在 **RawGameEventsTable** 的 [資料表] 刀鋒視窗中，您會看見所有配量。在下列螢幕擷取畫面中，所有的配量都處於**就緒**狀態，沒有任何有問題的配量。這表示資料已就緒可供處理。
 
-	![RawGameEventsTable [資料表] 刀鋒視窗][image-data-factory-monitoring-raw-game-events-table]
+	![RawGameEventsTable 資料表 刀鋒視窗][image-data-factory-monitoring-raw-game-events-table]
  
 7. 現在，在 **PartiionGameLogsPipeline** 的 [**管線**] 刀鋒視窗中，按一下 [**已產生**]。
 8. 您應該會看到這個管線產生的資料集的清單： 
@@ -432,7 +433,7 @@ Azure 入口網站尚不支援建立資料集/資料表，因此在此版本中�
 10.	確認所有配量的 [**狀態**] 都已設為 [**就緒**]。 
 11.	按一下其中一個**就緒**的配量，以查看該配量的 [**資料配量**] 刀鋒視窗。
 
-	![RawGameEventsTable [資料配量] 刀鋒視窗][image-data-factory-monitoring-raw-game-events-table-dataslice-blade]
+	![RawGameEventsTable 資料配量 刀鋒視窗][image-data-factory-monitoring-raw-game-events-table-dataslice-blade]
 
 	如果發生錯誤，您在這裡會看到 [Failed]**** 狀態。您也可能會看到兩個配量的狀態都是 [**就緒**]，或都是 [**PendingValidation**]，根據處理配量的速度而定。
  
@@ -440,7 +441,7 @@ Azure 入口網站尚不支援建立資料集/資料表，因此在此版本中�
 
 12.	在 [**資料配量**] 刀鋒視窗中，從 [**活動執行**] 清單中按一下執行。您應該會看到該配量的「活動執行」分頁。您應該會看到下列的 [**活動執行詳細資料**] 刀鋒視窗。
 
-	![[活動執行詳細資料] 刀鋒視窗][image-data-factory-monitoring-activity-run-details]
+	![活動執行詳細資料 刀鋒視窗][image-data-factory-monitoring-activity-run-details]
 
 13.	按一下 [**下載**] 以下載檔案。對 HDInsight 處理的錯誤進行疑難排解時，這個畫面會特別有用。
 	 
@@ -559,4 +560,4 @@ Azure 入口網站尚不支援建立資料集/資料表，因此在此版本中�
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial-using-powershell/DataFactoryCreateButton.png
 
-<!---HONumber=62-->
+<!---HONumber=58-->

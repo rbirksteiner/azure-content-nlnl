@@ -1,3 +1,20 @@
+<properties 
+   pageTitle="建立新的 StorSimple Manager 服務"
+   description="說明如何建立 StorSimple Manager 服務的新執行個體。"
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="adinah"
+   editor="tysonn" />
+<tags 
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="04/28/2015"
+   ms.author="v-sharos" />
+
 
 #### 建立新服務
 
@@ -18,4 +35,4 @@
  
        ![服務建立](./media/storsimple-create-new-service/HCS_StorSimpleManagerServicePage-include.png)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=58-->

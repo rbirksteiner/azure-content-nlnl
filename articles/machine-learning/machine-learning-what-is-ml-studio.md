@@ -92,4 +92,4 @@ Machine Learning Studio (有時稱為 Azure ML Studio) 是資料科學、預測�
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=58-->

@@ -28,7 +28,7 @@ Azure DNS 是 DNS 網域的主機代管服務。網域必須從父系網域委�
 
 網域是網域名稱系統中的唯一名稱，例如 'contoso.com'。網域註冊機構是指可以提供網際網路網域名稱的公司。他們會驗證您想要使用的網際網路網域是否可用，並允許您購買。一旦註冊網域名稱，您就成為該網域名稱的合法擁有者。如果您已經有網際網路網域，您將使用目前的網域註冊機構委派給 Azure DNS。
 
->[AZURE.NOTE]若要了解誰擁有指定的網域名稱，或如需有關如何購買網域的詳細資訊，請參閱 [Azure AD 中的網際網路網域管理](https://msdn.microsoft.com/library/azure/hh969248.aspx)。
+>[AZURE.NOTE]若要瞭解誰擁有指定網域名稱的詳細資訊，或購買網域，請連絡網域註冊機構，尋找並購買您的網域。
 
 DNS 區域用來裝載特定網域的 DNS 記錄。例如，網域 'contoso.com' 可能包含許多的 DNS 記錄，例如 'mail.contoso.com' (用於郵件伺服器) 和 'www.contoso.com' (用於網站)。
 
@@ -72,8 +72,8 @@ DNS 階層中的網域裝載於個別的 DNS 區域。這些區域遍布全球�
 
 您可以使用 Azure PowerShell 擷取授權 NS 記錄，如下所示 (記錄名稱 "@" 用來參考區域頂點的記錄)：
 
-	PS C:\> $zone = New-AzureDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
-	PS C:\> Get-AzureDnsRecordSet –Name “@” –RecordType NS –Zone $zone
+	PS C:> $zone = New-AzureDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
+	PS C:> Get-AzureDnsRecordSet –Name “@” –RecordType NS –Zone $zone
 
 	Name              : @
 	ZoneName          : contoso.com
@@ -93,7 +93,7 @@ DNS 階層中的網域裝載於個別的 DNS 區域。這些區域遍布全球�
 
 請注意，您不必指定 Azure DNS 名稱伺服器，因為，如果已正確設定委派，正常的 DNS 解析程序會自動尋找名稱伺服器。
 
-	PS C:\> nslookup –type=SOA contoso.com
+	PS C:> nslookup –type=SOA contoso.com
 
 	Server: ns1-04.azure-dns.com
 	Address: 208.76.47.4
@@ -119,22 +119,22 @@ DNS 階層中的網域裝載於個別的 DNS 區域。這些區域遍布全球�
 
 下列 PowerShell 範例將進行示範。首先，建立上層區域與子區域，這些區域可位於相同的資源群組或不同的資源群組中：
 
-	PS C:\> $parent = New-AzureDnsZone -Name contoso.com -ResourceGroupName RG1
-	PS C:\> $child = New-AzureDnsZone -Name partners.contoso.com -ResourceGroupName RG1
+	PS C:> $parent = New-AzureDnsZone -Name contoso.com -ResourceGroupName RG1
+	PS C:> $child = New-AzureDnsZone -Name partners.contoso.com -ResourceGroupName RG1
 
 接著，從子區域擷取權威 NS 記錄：
 
-	PS C:\> $child_ns_recordset = Get-AzureDnsRecordSet -Zone $child -Name "@" -RecordType NS
+	PS C:> $child_ns_recordset = Get-AzureDnsRecordSet -Zone $child -Name "@" -RecordType NS
 
 最後，在上層區域中建立相對應的 NS 記錄集來完成委派 (請注意，上層區域中的記錄集名稱會符合子區域名稱，在此案例中為 "partners")：
 
-	PS C:\> $parent_ns_recordset = New-AzureDnsRecordSet -Zone $parent -Name "partners" -RecordType NS -Ttl 3600
-	PS C:\> $parent_ns_recordset.Records = $child_ns_recordset.Records
-	PS C:\> Set-AzureDnsRecordSet -RecordSet $parent_ns_recordset 
+	PS C:> $parent_ns_recordset = New-AzureDnsRecordSet -Zone $parent -Name "partners" -RecordType NS -Ttl 3600
+	PS C:> $parent_ns_recordset.Records = $child_ns_recordset.Records
+	PS C:> Set-AzureDnsRecordSet -RecordSet $parent_ns_recordset 
 
 因為使用註冊機構進行委派時，可透過查閱子區域的 SOA 記錄來確認一切都已正確設定：
 
-	PS C:\> nslookup –type=SOA partners.contoso.com
+	PS C:> nslookup –type=SOA partners.contoso.com
 	
 	Server: ns1-08.azure-dns.com
 	Address: 208.76.47.8
@@ -161,4 +161,4 @@ DNS 階層中的網域裝載於個別的 DNS 區域。這些區域遍布全球�
 [Azure DNS REST API 參考](https://msdn.microsoft.com/library/azure/mt163862.aspx)
  
 
-<!---HONumber=62-->
+<!---HONumber=58-->

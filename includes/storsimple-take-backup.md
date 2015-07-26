@@ -1,3 +1,19 @@
+<properties 
+   pageTitle="建立備份"
+   description="說明如何定義 StorSimple 備份原則。"
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="adinah"
+   editor="tysonn" />
+<tags 
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="04/01/2015"
+   ms.author="v-sharos" />
 
 ### 建立備份
 
@@ -24,4 +40,4 @@
 
 您已經完成裝置設定。
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=58-->

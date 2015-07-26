@@ -1,3 +1,19 @@
+<properties 
+   pageTitle="建立磁碟區容器"
+   description="說明如何在 StorSimple 裝置上建立磁碟區容器。"
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="adinah"
+   editor="tysonn" />
+<tags 
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="04/01/2015"
+   ms.author="v-sharos" />
 
 #### 建立磁碟區容器
 
@@ -15,4 +31,4 @@
 
   新建立的磁碟區容器將列於 [磁碟區容器] 頁面上。
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=58-->
