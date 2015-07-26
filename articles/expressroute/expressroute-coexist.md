@@ -1,6 +1,6 @@
-<properties
+﻿<properties
    pageTitle="設定並存的 ExpressRoute 和站對站 VPN 連線"
-   description="本教學課程會引導您設定要並存的 ExpressRoute 和站對站 VPN 連線。"
+   description="bug gix bug gix bug gix bug gix bug gix bug gix bug gix bug gix bug gix bug gix 本教學課程會引導您設定要並存的 ExpressRoute 和站對站 VPN 連線。"
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
