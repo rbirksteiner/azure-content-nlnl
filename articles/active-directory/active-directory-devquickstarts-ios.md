@@ -35,7 +35,7 @@ Azure AD 提供 Active Directory 驗證程式庫 (ADAL) 給需要存取受保護
 
 ## *1.決定您 iOS 的重新導向 URI*
 
-為了安全地在特定 SSO 案例啟動您的應用程式，我們需要您以特定格式建立**「重新導向 URI」**。重新導向 URI 可確保應用程式要求的權杖會正確地傳回給它們。
+為了安全地在特定 SSO 案例啟動您的應用程式，我們需要您以特定格式建立「重新導向 URI」。重新導向 URI 可確保應用程式要求的權杖會正確地傳回給它們。
 
 iOS 格式的重新導向 URI：
 
@@ -227,4 +227,4 @@ ADAL 可讓您輕鬆地將這些常見的身分識別功能全部納入您的應
 - [Azure.com 上的 Azure AD 文件 >>](http://azure.microsoft.com/documentation/services/active-directory/)
  
 
-<!---HONumber=62-->
+<!---HONumber=58-->

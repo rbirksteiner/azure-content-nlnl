@@ -149,7 +149,7 @@
 
 在 Windows 上：
 
-    cd \users\azureuser.ipython\profile_nbserver
+    cd \users\azureuser\.ipython\profile_nbserver
 
 建立 SSL 憑證，如下所示 (Linux 和 Windows)：
 
@@ -180,7 +180,7 @@
     c.NotebookApp.certfile = u'/home/azureuser/.ipython/profile_nbserver/mycert.pem'
     
     # And if using a Windows VM:
-    c.NotebookApp.certfile = r'C:\Users\azureuser.ipython\profile_nbserver\mycert.pem'
+    c.NotebookApp.certfile = r'C:\Users\azureuser\.ipython\profile_nbserver\mycert.pem'
     
     # Create your own password as indicated above
     c.NotebookApp.password = u'sha1:b86e933199ad:a02e9592e5 etc... '
@@ -276,4 +276,4 @@ IPython Notebook 為交互存取 Azure 上 Python 生態系統的功能提供強
 [OpenSSL]: http://slproweb.com/products/Win32OpenSSL.html
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=58-->

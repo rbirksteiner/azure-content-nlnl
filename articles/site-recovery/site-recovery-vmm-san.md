@@ -179,7 +179,7 @@ Site Recovery 可協調對 VMM 雲端中 Hyper-V 主機伺服器上之虛擬機�
 	
 4. 在 [名稱] 中，輸入保存庫的易記識別名稱。
 
-5. 在 [區域] 中，選取保存庫的地理區域。若要查看支援的區域，請參閱 [Azure Site Recovery 定價詳細資料](href="http://go.microsoft.com/fwlink/?LinkId=389880) (英文) 中的＜各區域上市情況＞。
+5. 在 [地區] 中，選取保存庫的地理區域。若要查看支援的地區，請參閱 [Azure Site Recovery 定價詳細資料](href="http://go.microsoft.com/fwlink/?LinkId=389880) (英文) 中的＜各地區上市情況＞。
 
 6. 按一下 [建立保存庫]。
 
@@ -356,4 +356,4 @@ Site Recovery 可協調對 VMM 雲端中 Hyper-V 主機伺服器上之虛擬機�
 	
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=58-->

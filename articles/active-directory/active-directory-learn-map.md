@@ -38,4 +38,4 @@
 * [Azure 身分識別](fundamentals-identity.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=58-->

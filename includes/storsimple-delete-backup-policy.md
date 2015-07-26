@@ -1,3 +1,19 @@
+<properties 
+   pageTitle="刪除 StorSimple 備份原則"
+   description="說明如何使用 StorSimple Manager 服務刪除備份原則。"
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="adinah"
+   editor="tysonn" />
+<tags 
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="05/14/2015"
+   ms.author="v-sharos" />
 
 #### 刪除 StorSimple 備份原則
 
@@ -10,4 +26,4 @@
 [**備份原則**] 頁面將會更新以顯示新的原則清單。
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=58-->

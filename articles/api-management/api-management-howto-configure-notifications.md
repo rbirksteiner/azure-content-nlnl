@@ -114,4 +114,4 @@ API 管理可讓您設定特定事件的通知，以及設定用來與 API 管�
 [建立 API 管理服務執行個體]: api-management-get-started.md
 [開始使用 Azure API 管理]: api-management-get-started.md#create-service-instance
 
-<!---HONumber=62-->
+<!---HONumber=58-->

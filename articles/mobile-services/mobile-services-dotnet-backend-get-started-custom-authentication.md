@@ -420,4 +420,4 @@
 [ProviderCredentials]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.security.providercredentials.aspx
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=58-->

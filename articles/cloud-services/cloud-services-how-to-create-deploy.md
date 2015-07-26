@@ -140,4 +140,4 @@ Azure 管理入口網站提供兩種方法讓您建立和部署雲端服務：[*
 ![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy/CloudServices_QuickGlance.png)
  
 
-<!---HONumber=62-->
+<!---HONumber=58-->

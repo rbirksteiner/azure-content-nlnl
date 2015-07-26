@@ -19,7 +19,7 @@
 
 #Azure Machine Learning 常見問題集 (FAQ)：計費、功能、限制及支援
 
-此常見問題集針對 Azure Machine Learning 問題提供解答，Azure Machine Learning 是適合透過 Web 服務執行預測性模型化和運作方案的雲端服務。這個常見問題集涵蓋使用服務的相關問題，包括計費模型、功能、限制及支援。
+這個常見問題集是關於 Azure Machine Learning 問題的解答，此為適合透過 Web 服務來執行預測性模型化和運作解決方案的雲端服務。這個常見問題集涵蓋使用服務的相關問題，包括計費模型、功能、限制及支援。
  
 ##一般問題
 
@@ -93,8 +93,7 @@ Machine Learning Studio 中的模組對常見使用案例支援最多 10 GB 的�
 
 **可以從 Amazon S3 讀取資料嗎？**
 
-如果您有少量的資料，而且想要透過 HTTP URL 公開，則您可以使用[讀取器][reader]模組。若為任何較大量的資料，請先傳送至 Azure 儲存體，然後使用[讀取器][reader]模組將它帶入實驗中。
-<!--
+如果您有少量的資料，而且想要透過 HTTP URL 公開，則您可以使用[讀取器][reader]模組。若為任何較大量的資料，請先傳送至 Azure 儲存體，然後使用[讀取器][reader]模組將它帶入實驗中。<!--
 <SEE CLOUD DS PROCESS>
 -->
 
@@ -184,7 +183,7 @@ Machine Learning Studio 目前支援 400 個以上的 R 封裝，且數量仍在
 ## Web 服務
 ###以程式設計方式重新訓練模型
 
-**如何以程式設計方式重新訓練 AzureML 模型？** 使用重新訓練 API。[這裡](https://azuremlretrain.codeplex.com/)提供範例程式碼。
+**如何以程式設計方式重新訓練 Azure ML 模型？** 使用重新訓練 API。[這裡](https://azuremlretrain.codeplex.com/)提供範例程式碼。
 
 ###建立
 
@@ -305,4 +304,4 @@ Azure Machine Learning 在 MSDN 上也設有社群論壇，可供您詢問 Azure
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=58-->

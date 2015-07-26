@@ -90,7 +90,7 @@
 
 	Azure Data Factory 的名稱在全域必須是唯一的。如果您收到錯誤：**Data Factory 名稱 “ADFTutorialOnPremDF” 無法使用**，請變更 Data Factory 名稱 (例如 yournameADFTutorialOnPremDF)，然後嘗試重新建立。執行此教學課程中的其餘步驟時，請使用此名稱來取代 ADFTutorialOnPremDF。
 
-9. 尋找左側 [**通知**] 中樞中來自建立程序的通知。按一下 **X** 關閉 [**通知**] 刀鋒視窗 (若已開啟)。
+9. 尋找左側 [通知] 中樞中來自建立程序的通知。按一下 **X** 關閉 [**通知**] 刀鋒視窗 (若已開啟)。
 
 	![通知中樞][image-data-factory-notifications-hub]
 
@@ -105,25 +105,25 @@
 
 2.	在 [**連結服務**] 刀鋒視窗中，按一下 [**+ 資料閘道**]。
 
-	![連結的服務 - [新增閘道器] 按鈕][image-data-factory-linkedservices-add-gateway-button]
+	![連結的服務 - 新增閘道器 按鈕][image-data-factory-linkedservices-add-gateway-button]
 
 2. 在 [**建立**] 刀鋒視窗上，輸入 **adftutorialgateway** 做為 [**名稱**]，然後按一下 [**確定**]。
 
-	![[建立閘道器] 刀鋒視窗][image-data-factory-create-gateway-blade]
+	![建立閘道器 刀鋒視窗][image-data-factory-create-gateway-blade]
 
 3. 在 [**設定**] 分頁中，按一下 [**直接安裝在此電腦上**]。這會下載閘道的安裝套件、在電腦上安裝、設定和註冊閘道。
 
-	> [AZURE.NOTE]請使用 Internet Explorer 或 Microsoft ClickOnce 相容的 Web 瀏覽器。
+	> [AZURE.NOTE] 請使用 Internet Explorer 或 Microsoft ClickOnce 相容的 Web 瀏覽器。
 
-	![閘道器 - [設定] 刀鋒視窗][image-data-factory-gateway-configure-blade]
+	![閘道器 - 設定 刀鋒視窗][image-data-factory-gateway-configure-blade]
 
-	這是最簡單的方式 (一鍵)，透過單一步驟即可下載、安裝、設定和註冊閘道。您可以看到「Microsoft 資料管理閘道組態管理員」應用程式已安裝在電腦上。您也可以在此資料夾中找到執行檔 **ConfigManager.exe**：**C:\Program Files\Microsoft Data Management Gateway\1.0\Shared**。
+	這是最簡單的方式 (一鍵)，透過單一步驟即可下載、安裝、設定和註冊閘道。您可以看到「Microsoft 資料管理閘道組態管理員」應用程式已安裝在電腦上。您也可以在此資料夾中找到執行檔 **ConfigManager.exe**：**]Program Files\Microsoft Data Management Gateway\1.0\Shared**。
 
 	您也可以使用此刀鋒視窗中的連結手動下載與安裝閘道器，並使用 [**註冊金鑰**] 文字方塊中顯示的金鑰來加以註冊。
 	
 	如需閘道器的詳細資訊 (包括最佳作法和重要考量)，請參閱[資料管理閘道](#DMG)一節。
 
-	>[AZURE.NOTE]您必須是本機電腦上的系統管理員，才能成功安裝和設定「資料管理閘道」。您可以將其他使用者加入至資料管理閘道使用者本機 Windows 群組。此群組的成員可以使用「資料管理閘道組態管理員」工具來設定閘道器。
+	>[AZURE.NOTE] 您必須是本機電腦上的系統管理員，才能成功安裝和設定「資料管理閘道」。您可以將其他使用者加入至資料管理閘道使用者本機 Windows 群組。此群組的成員可以使用「資料管理閘道組態管理員」工具來設定閘道器。
 
 4. 按一下左側的 [通知] 中樞。等待 [**通知**] 刀鋒視窗中出現 [**'adftutorialgateway' 的快速安裝成功**] 訊息。
 
@@ -153,15 +153,16 @@
 ### 在內部部署 SQL Server 資料庫中新增連結服務
 1.	在 **DATA FACTORY** 刀鋒視窗中，按一下 [**製作和部署**] 磚來啟動 Data Factory 的**編輯器**。
 
-	![[製作和部署] 磚][image-author-deploy-tile]
+	![製作和部署 磚][image-author-deploy-tile]
 
 	如需 Data Factory 編輯器的詳細概觀，請參閱 [Data Factory 編輯器][data-factory-editor]主題。
 
 2.	在 [**編輯器**] 中，按一下工具列上的 [**新增資料存放區**] 按鈕，然後從下拉式功能中表選取 [**內部部署 SQL Server 資料庫**]。
 
-	![編輯器 [新增資料存放區] 按鈕][image-editor-newdatastore-onpremsql-button]
+	![編輯器 新增資料存放區 按鈕][image-editor-newdatastore-onpremsql-button]
     
-3.	在右窗格中，您應該會看到用來建立內部部署 SQL Server 連結服務的 JSON 範本。![內部部署 SQL 連結服務 - 設定][image-editor-newdatastore-onpremsql-settings]
+3.	在右窗格中，您應該會看到用來建立內部部署 SQL Server 連結服務的 JSON 範本。
+	![內部部署 SQL 連結服務 - 設定][image-editor-newdatastore-onpremsql-settings]
 
 4.	在 JSON 窗格中，執行下列動作：
 	1.	在 **gatewayName** 屬性中，輸入 **adftutorialgateway** 取代雙引號內的所有文字。  
@@ -202,11 +203,11 @@
  
 1. 在 [**編輯器**] 中，按一下工具列上的 [**新增資料存放區**] 按鈕，然後從下拉式功能表中選取 [**Azure 儲存體**]。在右窗格中，您應該會看到用來建立 Azure 儲存體連結服務的 JSON 範本。 
 
-	![編輯器 [新增資料存放區] 按鈕][image-editor-newdatastore-button]
+	![編輯器 新增資料存放區 按鈕][image-editor-newdatastore-button]
     
 6. 將 **<accountname>** 和 **<accountkey>** 取代為您的 Azure 儲存體帳戶的帳戶名稱和帳戶金鑰值。
 
-	![編輯器 Blob 儲存體 JSON][image-editor-blob-storage-json]
+	![編輯器 Blob 儲存體 JSON][image-editor-blob-storage-json]    
 	
 	如需 JSON 屬性的詳細資料，請參閱 [JSON 指令碼參考](http://go.microsoft.com/fwlink/?LinkId=516971)。
 
@@ -462,7 +463,7 @@
 
 10. 按一下底部清單中的 [活動執行]，可查看 [活動執行詳細資料]。
 
-	![[活動執行詳細資料] 刀鋒視窗][image-data-factory-activity-run-details]
+	![活動執行詳細資料 刀鋒視窗][image-data-factory-activity-run-details]
 
 11. 按一下 **X** 關閉所有刀鋒視窗，直到您回到 **ADFTutorialOnPremDF** 的起始刀鋒視窗。
 14. (選用) 依序按一下 [管線] 及 [ADFTutorialOnPremDF]，然後逐步深入輸入資料表 (**已使用**) 或輸出資料表 (**已產生**)。
@@ -487,7 +488,7 @@
 	**範例命令和輸出**：
 
 
-		PS C:\> New-AzureDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
+		PS C:> New-AzureDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
 
 		Name              : MyGateway
 		Description       : gateway for walkthrough
@@ -509,12 +510,12 @@
 	**範例命令的輸出：**
 
 
-		PS C:\> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
+		PS C:> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
 
 	
-4. 在 Azure PowerShell 中，切換到資料夾：**C:\Program Files\Microsoft Data Management Gateway\1.0\PowerShellScript**，然後執行與本機變數 **$Key** 相關聯的 **RegisterGateway.ps1** 指令碼 (如以下命令所示)，將您電腦上安裝的用戶端代理程式，註冊到您稍早建立的邏輯閘道器。
+4. 在 Azure PowerShell 中，切換到資料夾：**]Program Files\Microsoft Data Management Gateway\1.0\PowerShellScript**，然後執行與本機變數 **$Key** 相關聯的 **RegisterGateway.ps1** 指令碼 (如以下命令所示)，將您電腦上安裝的用戶端代理程式，註冊到您稍早建立的邏輯閘道器。
 
-		PS C:\> .\RegisterGateway.ps1 $Key.GatewayKey
+		PS C:> .\RegisterGateway.ps1 $Key.GatewayKey
 		
 		Agent registration is successful!
 
@@ -627,4 +628,4 @@
 
 [image-data-factory-preview-portal-storage-key]: ./media/data-factory-get-started/PreviewPortalStorageKey.png
 
-<!---HONumber=62-->
+<!---HONumber=58-->

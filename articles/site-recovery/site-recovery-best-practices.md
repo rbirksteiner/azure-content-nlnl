@@ -155,7 +155,7 @@ System Center 2012 R2 上的 VMM (建議選項) (叢集或獨立) | <p>使用 Hy
 - 資料磁碟大小：如果複寫至 Azure，您可以在虛擬機器上擁有最多 32 個資料磁碟，每個資料磁碟的上限為 1 TB。您可以有效地複寫及容錯移轉最多 32 TB 的虛擬機器。
 - 復原方案限制：Site Recovery 可擴充至數千個虛擬機器。復原方案是設計做為應用程式的模型，而由於應用程式應該一起進行容錯移轉，因此我們將一個復原方案中的機器數目限制為 50。
 - Azure 服務限制：每個 Azure 訂用帳戶均隨附一組對核心、雲端服務等的預設限制。我們建議您執行容錯移轉測試，以驗證您訂用帳戶中的資源可用性。您可以透過 Azure 支援修改這些限制。
-- 容量規劃：如需指引，請參閱[Hyper-V 複本的容量規劃工具](http://www.microsoft.com/en-in/download/details.aspx?id=39057) (英文)。
+- 容量規劃：如需指引，請參閱[Hyper-V 複本的容量規劃工具](http://www.microsoft.com/zh-tw/download/details.aspx?id=39057) (英文)。
 - 複寫頻寬：如果您的複寫頻寬不足，請注意：
 	- **ExpressRoute**：Site Recovery 可搭配 Azure ExpressRoute 和 WAN 最佳化工具，例如 Riverbed。[深入了解](http://blogs.technet.com/b/virtualization/archive/2014/07/20/expressroute-and-azure-site-recovery.aspx) ExpressRoute。
 	- 複寫流量：Site Recovery 只會使用資料區塊 (而非整個 VHD) 來執行智慧型初始複寫。只會在複寫進行期間複寫變更。
@@ -189,4 +189,4 @@ System Center 2012 R2 上的 VMM (建議選項) (叢集或獨立) | <p>使用 Hy
 - [利用單一 VMM 伺服器設定保護](site-recovery-single-vmm.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=58-->

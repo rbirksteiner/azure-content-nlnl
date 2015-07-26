@@ -104,4 +104,4 @@
 [使用 Azure CLI 來自動化行動服務]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=58-->

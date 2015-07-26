@@ -51,4 +51,4 @@ Azure 排程器會排程工作，保留使用者可以詢問的工作執行結�
  [排程器輸出驗證](scheduler-outbound-authentication.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=58-->

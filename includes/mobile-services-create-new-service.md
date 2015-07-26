@@ -25,4 +25,4 @@
 <!-- URLs. -->
 [管理入口網站]: https://manage.windowsazure.com/
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=58-->

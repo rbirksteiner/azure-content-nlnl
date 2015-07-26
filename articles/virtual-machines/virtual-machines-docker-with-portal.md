@@ -72,25 +72,25 @@
 
 ![](./media/virtual-machines-docker-with-portal/AddExtensionFormFilled.png)
 
-> [AZURE.NOTE]請注意，(如上圖所示) 依預設已填入 2376。您可以在此輸入任何端點，但下一個步驟會是開啟相符的端點。如果您變更預設值，請確定在下一個步驟中開啟相符的端點。
+> [AZURE.NOTE]請注意，(如先前影像所示) 依預設已填入 4243。您可以在此輸入任何端點，但下一個步驟會是開啟相符的端點。如果您變更預設值，請確定在下一個步驟中開啟相符的端點。
 
 ## 新增 Docker 通訊端點
 當在您所建立的資源群組中檢視 VM 時，您可以向下捲動並按一下 [端點] 以檢視 VM 上的端點，如下所示。
 
 ![](./media/virtual-machines-docker-with-portal/AddingEndpoint.png)
 
-按一下 [**+新增**] 以新增其他端點，在預設情況下，輸入端點的名稱 (在此範例中為 **docker**)，且私用和公用連接埠都輸入 2376。保留顯示 **TCP** 的通訊協定值，並按一下 [確定] 以建立端點。
+按一下 [新增] 以新增其他端點，在預設案例中，輸入端點的名稱 (在此範例中為 **docker**)，在私人和公用連接埠中輸入 4243。保留顯示 **TCP** 的通訊協定值，並按一下 [確定] 以建立端點。
 
 ![](./media/virtual-machines-docker-with-portal/AddEndpointFormFilledOut.png)
 
 
 ## 測試 Docker 用戶端和 Azure Docker 主機
-尋找並複製 VM 的網域名稱，並在用戶端電腦的命令列中，輸入 `docker --tls -H tcp://`*dockerextension*`.cloudapp.net:2376 info` (其中 *dockerextension* 會被您的 VM 子網域取代)。
+尋找並複製 VM 的網域名稱，並在用戶端電腦的命令列中，輸入 `docker --tls -H tcp://`*dockerextension*`.cloudapp.net:4243 info` (其中 *dockerextension* 會被您的 VM 子網域取代)。
 
 結果應該如下所示：
 
 ```
-$ docker --tls -H tcp://dockerextension.cloudapp.net:2376 info
+$ docker --tls -H tcp://dockerextension.cloudapp.net:4243 info
 Containers: 0
 Images: 0
 Storage Driver: devicemapper
@@ -145,4 +145,4 @@ WARNING: No swap limit support
 [Docker 使用者指南]: https://docs.docker.com/userguide/
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=58-->

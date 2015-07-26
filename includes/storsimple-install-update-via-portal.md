@@ -1,3 +1,19 @@
+<properties 
+   pageTitle="從 Azure 管理入口網站安裝 Update 1"
+   description="說明如何使用管理入口網站安裝 StorSimple 8000 Series Update 1。"
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="adinah"
+   editor="tysonn" />
+<tags 
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="05/22/2015"
+   ms.author="v-sharos" />
 
 #### 從管理入口網站安裝 Update 1
 
@@ -45,4 +61,4 @@
 
     ![維護頁面](./media/storsimple-install-update-via-portal/HCS_SoftwareUpdates7-include.png)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=58-->

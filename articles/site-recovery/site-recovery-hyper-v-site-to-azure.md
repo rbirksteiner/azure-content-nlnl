@@ -81,7 +81,7 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 
 4. 在 [名稱] 中，輸入保存庫的易記識別名稱。
 
-5. 在 [區域] 中，選取保存庫的地理區域。若要查看支援的區域，請參閱 [Azure Site Recovery 定價詳細資料](pricing/details/site-recovery/)中的＜各區域上市情況＞。
+5. 在 [地區] 中，選取保存庫的地理區域。若要查看支援的區域，請參閱 [Azure Site Recovery 定價詳細資料](pricing/details/site-recovery/)中的＜各地區上市情況＞。
 
 6. 按一下 [建立保存庫]。
 
@@ -157,15 +157,15 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 
 請注意，如果您想要在適用於 Windows Server 2012 R2 的伺服器核心或獨立的 HYPER-V Server 2012 R2 上安裝提供者，請執行下列動作：
 
-1. 將提供者安裝檔案和註冊金鑰下載至資料夾，如 C:\\ASR。
+1. 下載提供者安裝檔案和註冊金鑰。
 2. 輸入下列程式碼來解壓縮提供者安裝程式：
 
-	    C:\Windows\System32> CD C:\ASR
-	    C:\ASR>AzureSiteRecoveryProvider.exe /x:. /q
+	    C:\Windows\System32> CD C:\Program Files\Azure Site Recovery Provider
+	    C:\Program Files\Azure Site Recovery Provider>AzureSiteRecoveryProvider.exe /x:. /q
 
 3. 輸入下列程式碼來安裝提供者：
 
-	    C:\ASR> setupdr.exe /i
+	    C:\Program Files\Azure Site Recovery Provider> setupdr.exe /i
 
 4. 輸入下列程式碼來註冊伺服器：
 
@@ -179,14 +179,12 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 		- /proxyUsername <username>：認證 (如果 Proxy 需要驗證)。
 		- proxyPassword <password>
 
->[AZURE.NOTE]您可以設定每個個別的 Hyper-V 主機以使用不同的網路頻寬設定，將虛擬機器複寫至 Azure。深入了解[如何管理內部部署至 Azure 保護網路頻寬使用](https://support.microsoft.com/zh-TW/kb/3056159) (英文)
-
-
 ## 步驟 4：建立 Azure 資源
 
 1. 在 [準備資源] 中選取 [建立儲存體帳戶]，以建立 Azure 儲存體帳戶 (如果您沒有儲存體帳戶)。此帳戶應啟用異地複寫。它應該與 Azure Site Recovery 保存庫位於相同的區域，且和同一個訂用帳戶產生關聯。
 
 	![建立儲存體帳戶](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_CreateResources1.png)
+
 
 ## 步驟 5：建立和設定保護群組
 
@@ -206,7 +204,6 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 
 
 ## 步驟 6：啟用虛擬機器保護
-
 
 將虛擬機器新增到保護群組，為其啟用保護。
 
@@ -245,7 +242,7 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 		- **目標 IP 位址**：如果來源虛擬機器的網路介面卡已設定為使用靜態 IP 位址，則您可以指定目標虛擬機器的 IP 位址，以確保機器在容錯移轉後會有相同的 IP 位址。如果您未指定 IP 位址，則系統將在容錯移轉期間指派任何可用的位址。如果您指定了使用中的位址，則容錯移轉將會失敗。
 		 
 		![設定虛擬機器屬性](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_VMMultipleNic.png)
-
+	
 ## 步驟 7：建立復原計畫
 
 為測試部署，您可以針對單一虛擬機器執行測試容錯移轉，或執行包含一或多部虛擬機器的復原計劃。[請依照這些指示](site-recovery-create-recovery-plans.md)建立復原計畫
@@ -296,4 +293,4 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 
 在您的部署設定完成並開始執行之後，[深入了解](site-recovery-failover.md)容錯移轉。
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=58-->

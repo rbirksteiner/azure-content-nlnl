@@ -29,7 +29,7 @@
 
 * 如何使用 npm (節點封裝管理員) 來安裝節點模組
 
-* 如何使用 Azure 表格服務
+* 如何使用 Azure 資料表服務
 
 * 如何使用 Azure CLI 建立 Web 應用程式。
 
@@ -641,4 +641,4 @@
 [Create and deploy a Node.js application to an Azure Web Site]: web-sites-nodejs-develop-deploy-mac.md
  
 
-<!---HONumber=62-->
+<!---HONumber=58-->

@@ -18,7 +18,7 @@
 	ms.author="cakarst"/>
 
 
-# 使用 C&#x23; 連接及查詢您的 SQL Database
+# 使用 C&\#x23; 連接及查詢您的 SQL Database
 
 
 本主題提供 C# 程式碼範例，示範如何使用 ADO.NET 連接到現有的 AdventureWorks SQL Database。這個範例會編譯成可查詢資料庫並顯示結果集的主控台應用程式。
@@ -121,7 +121,7 @@
 ![入口網站](./media/sql-database-connect-query/ConnectandQuery_portal.png)
 
 
-在 [資料庫連接字串] 刀鋒視窗上，您可以找到 ADO.NET、ODBC、PHP 和 JDBC 的適當連接字串。
+在 [資料庫連接字串] 分頁上，您可以找到 ADO.NET、ODBC、PHP 和 JDBC 的適當連接字串。
 
 
 ## 步驟 4：以真正的連接資訊取代
@@ -137,4 +137,4 @@
 2. 程式會將查詢結果列印至主控台視窗。
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=58-->

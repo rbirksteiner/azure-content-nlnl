@@ -13,13 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="06/24/2015"
+   ms.date="05/29/2015"
    ms.author="danlep"/>
 
 # 在 Azure 中的大量計算：批次和高效能計算 (HPC) 的技術資源
 這是技術資源的指南，將幫助您在 Azure 中執行您的大規模平行、批次和 HPC 工作負載。使用各種 Azure 服務擴充您現有的批次或 HPC 工作負載至 Azure 雲端，或在 Azure 中建置新的大量計算解決方案。
 
 ## 方案選項
+
 
 了解在 Azure 中的大量計算選項，並為您的工作負載和商務需求選擇正確的方法。
 
@@ -30,7 +31,7 @@
 
 ## Azure 批次
 
-[批次](http://azure.microsoft.com/services/batch/)是一種平台服務，可以輕鬆地啟用您應用程式的雲端功能，並無需設定和管理叢集及工作排程器即可執行工作。使用 SDK 透過各種不同語言、接移資料至 Azure和建立工作執行管線，將用戶端應用程式與 Azure 批次整合。
+[批次](http://azure.microsoft.com/services/batch/) (預覽) 是一種平台服務，可以輕鬆地啟用您應用程式的雲端功能，並無需設定和管理叢集及工作排程器即可執行工作。使用 SDK 透過各種不同語言、接移資料至 Azure和建立工作執行管線，將用戶端應用程式與 Azure 批次整合。
 
 * 申請 [預覽](http://azure.microsoft.com/services/preview/)
 
@@ -46,7 +47,7 @@
 
 ## HPC 叢集解決方案
 
-部署或擴充您現有的 Windows 或 Linux HPC 叢集至 Azure，以執行您的計算密集工作負載。
+移轉或擴充您現有的 Windows HPC 叢集，以在 Azure 中執行您的計算密集工作負載。
 
 ### Microsoft HPC Pack
 
@@ -59,13 +60,6 @@
 * [教學課程：在 Azure 中使用 HPC Pack 設定混合式叢集](../cloud-services-setup-hybrid-hpcpack-cluster.md)
 
 * [Windows HPC 論壇](https://social.microsoft.com/Forums/home?category=windowshpc)
-
-### Linux 叢集解決方案
-使用這些 Azure 資源管理員範本來部署 Linux HPC 叢集。
-
-* [加速 SLURM 叢集](http://azure.microsoft.com/documentation/templates/slurm/)和[部落格文章](http://blogs.technet.com/b/windowshpc/archive/2015/06/06/deploy-a-slurm-cluster-on-azure.aspx)
-
-* [加速扭力叢集](http://azure.microsoft.com/documentation/templates/torque-cluster/)
 
 ## Microsoft MPI
 
@@ -81,7 +75,8 @@
 
 ## 計算密集型執行個體
 
-Azure 提供[各種大小](../virtual-machines/virtual-machines-size-specs.md)，包括計算密集的 [A8、A9、A10 和 A11 執行個體](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md)，以執行您的批次和 HPC 工作負載。
+Azure 提供 [各種大小](https://msdn.microsoft.com/library/azure/dn197896.aspx)，包括 [A8、A9、A10 和 A11 執行個體](https://msdn.microsoft.com/library/azure/dn689095.aspx)以執行您的批次和 HPC 工作負載。
+
 
 * [A8 和 A9 執行個體：HPC Pack 快速入門](https://msdn.microsoft.com/library/azure/dn594431.aspx)
 
@@ -118,4 +113,4 @@ Azure 提供[各種大小](../virtual-machines/virtual-machines-size-specs.md)�
 * 最新宣告請參閱 [Microsoft HPC 和批次的小組部落格](http://blogs.technet.com/b/windowshpc/)以及[Azure 部落格](http://azure.microsoft.com/blog/tag/hpc/)。
 * 另請參閱[批次的新功能](http://azure.microsoft.com/updates/?service=batch)或訂閱 [RSS 摘要](http://azure.microsoft.com/updates/feed/?service=batch)。
 
-<!---HONumber=62-->
+<!---HONumber=58-->

@@ -45,4 +45,4 @@ Azure 自動化中的 Runbook 通常會需要存取 Azure 訂用帳戶中的資�
 - [在 Azure 自動化中檢視 Runbook 工作的狀態](automation-viewing-the-status-of-a-runbook-job)
  
 
-<!---HONumber=62-->
+<!---HONumber=58-->

@@ -210,4 +210,4 @@
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=58-->

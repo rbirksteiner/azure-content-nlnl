@@ -648,4 +648,4 @@ Hive REPL "hive >" 出現記號後，只需剪下並貼上查詢即可執行。
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=58-->

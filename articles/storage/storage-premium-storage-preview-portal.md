@@ -1,5 +1,5 @@
 <properties
-	pageTitle="進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體 | Microsoft Azure"
+	pageTitle="Premium 儲存體：Azure 虛擬機器工作負載適用的高效能儲存體"
 	description="了解 Azure Premium 儲存體的磁碟。了解如何建立 Premium 儲存體帳戶。"
 	services="storage"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="06/11/2015"
 	ms.author="tamram;selcint"/>
 
 
@@ -391,4 +391,4 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=58-->

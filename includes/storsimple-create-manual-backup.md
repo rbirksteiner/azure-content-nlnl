@@ -1,3 +1,11 @@
+<properties pageTitle="建立手動備份" description="說明如何依需求啟動手動備份工作。" services="storsimple" documentationCenter="NA" authors="SharS" manager="adinah" edito**r="tysonn" /> <tags 
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="04/01/2015"
+   ms.author="v-sharos" />
 
 #### 建立手動備份
 
@@ -21,4 +29,4 @@
 
   備份應該會出現在類別目錄中顯示的備份組清單中。
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=58-->

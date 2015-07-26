@@ -173,4 +173,4 @@ Runbook 預期在要求的主體中有 JSON 格式的虛擬機器清單。我們
 - [啟動 Runbook](automation-starting-a-runbook.md)
 - [檢視 Runbook 工作的狀態](automation-viewing-the-status-of-a-runbook-job.md) 
 
-<!---HONumber=62-->
+<!---HONumber=58-->

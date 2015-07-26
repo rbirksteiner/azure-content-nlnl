@@ -26,12 +26,12 @@
 ### 步驟 1
  Azure DNS 使用 Azure 資源管理員 (ARM)。請確定您切換 PowerShell 模式來使用 ARM Cmdlet。如需詳細資訊，請參閱[將 Windows PowerShell 與資源管理員搭配使用](../powershell-azure-resource-manager)。<BR><BR>
 
-		PS C:\> Switch-AzureMode -Name AzureResourceManager
+		PS C:> Switch-AzureMode -Name AzureResourceManager
 
 ### 步驟 2
  登入您的 Azure 帳戶。<BR><BR>
 
-		PS C:\> Add-AzureAccount
+		PS C:> Add-AzureAccount
 
 系統會提示使用您的認證進行驗證。<BR>
 
@@ -39,14 +39,14 @@
 選擇其中一個要使用的 Azure 訂用帳戶。<BR>
 
 
-		PS C:\> Select-AzureSubscription -SubscriptionName "MySubscription"
+		PS C:> Select-AzureSubscription -SubscriptionName "MySubscription"
 
 若要查看可用的訂用帳戶清單，請使用 ‘Get-AzureSubscription’ Cmdlet。<BR>
 
 ### 步驟 4
 建立資源群組 (若使用現有的資源群組，請略過此步驟)<BR>
 
-		PS C:\> New-AzureResourceGroup -Name MyAzureResourceGroup -location "West US"
+		PS C:> New-AzureResourceGroup -Name MyAzureResourceGroup -location "West US"
 
 
 Azure 資源管理員需要所有的資源群組指定一個位置。這用來作為該資源群組中資源的預設位置。然而，因為所有 DNS 資源是全球性，而非區域性，資源群組位置的選擇不會對 Azure DNS 造成影響。<BR>
@@ -55,7 +55,7 @@ Azure 資源管理員需要所有的資源群組指定一個位置。這用來�
 
 Azure DNS 服務由 Microsoft.Network 資源提供者管理。您的 Azure 訂用帳戶必須註冊為使用此資源提供者，您才能使用 Azure DNS。此為每個訂用帳戶的一次性作業。
 
-	PS C:\> Register-AzureProvider -ProviderNamespace Microsoft.Network
+	PS c:> Register-AzureProvider -ProviderNamespace Microsoft.Network
 
 
 
@@ -75,13 +75,13 @@ Azure DNS 服務由 Microsoft.Network 資源提供者管理。您的 Azure 訂�
 ### 標記
 標記與 Etag 不同。標記是名稱-值組的清單，由 Azure 資源管理員在計費或分群用途上用來標示資源。如需「標記」的詳細資訊，請參閱「使用標記來組織您的 Azure 資源」。Azure DNS PowerShell 在區域與記錄集上支援使用選項 ‘-Tag’ 參數來指定「標記」。下列範例示範如何使用兩個標記 ‘project = demo’ 和 ‘env = test’ 建立 DNS 區域：
 
-	PS C:\> New-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGRoup -Tag @( @{ Name="project"; Value="demo" }, @{ Name="env"; Value="test" } )
+	PS C:> New-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGRoup -Tag @( @{ Name="project"; Value="demo" }, @{ Name="env"; Value="test" } )
 
 
 ## 建立 DNS 區域
 使用 New-AzureDnsZone Cmdlet 建立 DNS 區域。在下列範例中，我們將在稱為 'MyResourceGroup' 的資源群組中建立稱為 'contoso.com' 的 DNS 區域：<BR>
 
-		PS C:\> New-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGRoup
+		PS C:> New-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGRoup
 
 >[AZURE.NOTE]在 Azure DNS 中，指定的區域名稱結尾不能有 ‘.’。例如，指定為 'contoso.com'，而非 'contoso.com.'。<BR>
 
@@ -95,7 +95,7 @@ Azure DNS 服務由 Microsoft.Network 資源提供者管理。您的 Azure 訂�
 
 若要檢視這些記錄，請使用 Get-AzureDnsRecordSet：
 
-		PS C:\> Get-AzureDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
+		PS C:> Get-AzureDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 
 	Name              : @
 	ZoneName          : contoso.com
@@ -123,7 +123,7 @@ Azure DNS 服務由 Microsoft.Network 資源提供者管理。您的 Azure 訂�
 
 如果您還沒有將網域委派給 Azure DNS 中的新區域，您必須將 DNS 查詢直接導向您的區域的其中一個名稱伺服器。NS 記錄中提供您的區域的名稱伺服器，如上述 Get-AzureDnsRecordSet 所列 — 請務必在下列命令中換成您區域的正確值。<BR>
 
-		C:\> nslookup
+		C:> nslookup
 		> set type=SOA
 		> server ns1-01.azure-dns.com
 		> contoso.com
@@ -147,4 +147,4 @@ Azure DNS 服務由 Microsoft.Network 資源提供者管理。您的 Azure 訂�
 [開始建立記錄集與記錄](dns-getstarted-create-recordset.md)<BR> [如何管理 DNS 區域](dns-operations-dnszones.md)<BR> [如何管理 DNS 記錄](dns-operations-recordsets.md)<BR> [使用 .NET SDK 自動化 Azure 作業](dns-sdk.md)<BR> [Azure DNS REST API 參考](https://msdn.microsoft.com/library/azure/mt163862.aspx)
  
 
-<!---HONumber=62-->
+<!---HONumber=58-->

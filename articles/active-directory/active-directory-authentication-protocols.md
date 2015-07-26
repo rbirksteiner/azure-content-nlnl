@@ -56,4 +56,4 @@ Azure Active Directory (Azure AD) 支援數個最常用的驗證和授權通訊�
 [Active Directory 程式碼範例](active-directory-code-samples.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=58-->

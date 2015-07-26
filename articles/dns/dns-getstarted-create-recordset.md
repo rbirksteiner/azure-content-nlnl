@@ -55,7 +55,7 @@ Azure DNS 支援所有常見的 DNS 記錄類型：A、AAAA、CNAME、MX、NS、
 
 建立記錄集，並指派給變數 $rs：
 
-	PS C:\>$rs = New-AzureDnsRecordSet -Name "www" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 60
+	PS C:>$rs = New-AzureDnsRecordSet -Name "www" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 60
 
 記錄集在 DNS 區域 'contoso.com' 中有相對記錄名稱 'www'，因此記錄的完整名稱為 'www.contoso.com'。記錄類型為 'A'，TTL 為 60 秒。
 
@@ -67,8 +67,8 @@ Azure DNS 支援所有常見的 DNS 記錄類型：A、AAAA、CNAME、MX、NS、
 
 使用在步驟 1 建立記錄集時所指派的 $rs 變數，將 IPv4 A 記錄加入至 "www" 記錄集：
 
-	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.185.46
-	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.188.221
+	PS C:> Add-AzureDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.185.46
+	PS C:> Add-AzureDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.188.221
 
 使用 Add-AzureDnsRecordConfig 將記錄加入至記錄集是離線作業。只有本機變數 $rs 會更新。
 
@@ -81,7 +81,7 @@ Azure DNS 支援所有常見的 DNS 記錄類型：A、AAAA、CNAME、MX、NS、
 變更已完成。您可以使用 Get-AzureDnsRecordSet，從 Azure DNS 擷取記錄集。
 
 
-	PS C:\> Get-AzureDnsRecordSet –Name www –RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
+	PS C:> Get-AzureDnsRecordSet –Name www –RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 
 
 	Name              : www
@@ -100,7 +100,7 @@ Azure DNS 支援所有常見的 DNS 記錄類型：A、AAAA、CNAME、MX、NS、
 >[AZURE.NOTE]如同建立區域時一樣，如果您還沒有將網域委派給 Azure DNS 名稱伺服器，則必須明確指定區域的名稱伺服器位址。
 
 
-	C:\> nslookup www.contoso.com ns1-01.azure-dns.com
+	C:> nslookup www.contoso.com ns1-01.azure-dns.com
 
 	Server: ns1-01.azure-dns.com
 	Address:  208.76.47.1
@@ -119,4 +119,4 @@ Azure DNS 支援所有常見的 DNS 記錄類型：A、AAAA、CNAME、MX、NS、
 [使用 .NET SDK 自動化 Azure 作業](dns-sdk.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=58-->

@@ -132,4 +132,4 @@ Azure Active Directory 是身分識別管理即服務 (IDMaaS) 平台，提供�
 
 - **[Twitter 上的 Azure AD](https://twitter.com/azuread)**：140 個字元以內的 Azure AD 公告。
 
-<!---HONumber=62-->
+<!---HONumber=58-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="06/27/2015" 
+	ms.date="05/27/2015" 
 	ms.author="glenga"/>
 
 # 在行動服務中註冊應用程式以採用 Facebook 驗證
@@ -28,19 +28,27 @@
 
 1. 導覽至 <a href="http://go.microsoft.com/fwlink/p/?LinkId=268286" target="_blank">Facebook 開發人員</a>網站，並以您的 Facebook 帳戶認證登入。
 
-2. (選用) 按一下 [**我的應用程式**]，然後按一下 [**註冊為開發人員**]，接受政策並遵循註冊步驟 (若您尚未註冊)。
+2. (選用) 按一下 [應用程式]，然後按一下 [Register as a Developer]，接受政策並遵循註冊步驟 (若您尚未註冊)。
 
-3. 按一下 [**我的應用程式**] > [**加入新的應用程式**] > [**進階設定**]。
+   	![][0]
 
-4. 輸入應用程式的唯一 [**顯示名稱**]，選擇 [**類別**] 下的 [**Apps for Pages**]，然後按一下 [**建立應用程式識別碼**] 並完成安全性練習。
+3. 按一下 [應用程式]，然後按一下 [製作新應用程式]。
 
-	這會建立新的 Facebook 應用程式識別碼。
+   	![][1]
 
-5. 按一下 [**設定**]，在 [**應用程式網域**] 中輸入您行動服務的網域，輸入選用 [**連絡人電子郵件**]，然後按一下 [**新增平台**] 並選取 [**網站**]。
+4. 為您的應用程式選擇獨一無二的名稱，選取 [Apps for Pages]，按一下 [建立應用程式] 並完成挑戰問題。
+
+   	![][2]
+
+	如此會在 Facebook 註冊應用程式
+
+5. 按一下 [設定]，在 [應用程式網域] 中輸入行動服務的網域。並輸入 [連絡人電子郵件]，然後按一下 [新增平台]，並選取 [網站]。
 
    	![][3]
 
 6. 在 [網站 URL] 中輸入您行動服務的 URL，然後按一下 [儲存變更]。
+
+	![][4]
 
 7. 按一下 [顯示]，提供您的密碼 (如有要求)，然後記下 [應用程式 ID] 和 [應用程式密鑰] 的值。
 
@@ -52,10 +60,12 @@
 
      >[AZURE.NOTE]如需使用 Visual Studio 將 .NET 後端行動服務發佈至 Azure，則重新導向 URL 是行動服務的 URL 後面附加路徑 _signin-facebook_，而您的行動服務為 .NET 服務，例如 `https://todolist.azure-mobile.net/signin-facebook`。
        
+	&nbsp; ![][7]
 
-9. 按一下 [**狀態與檢閱**] > [**是**]，以啟用應用程式的一般公用存取權。
+9. 您為其定義新應用程式的 Facebook 帳戶是應用程式的管理員，具有該應用程式的管理員存取權。若要驗證其他 Facebook 帳戶，他們需要該應用程式的存取權。此步驟會授與一般公用存取權，讓應用程式能夠驗證其他 Facebook 帳戶。按一下 [狀態與檢閱]。然後按一下 [是]，以啟用一般公用存取權。
 
-	您用來註冊新應用程式的 Facebook 帳戶是應用程式的管理員，具有該應用程式的管理員存取權。此步驟會授與一般公用存取權，讓應用程式能夠使用其他 Facebook 帳戶進行驗證。
+    ![][6]
+
 
 
 現在您已準備好提供應用程式 ID 和應用程式密碼值給行動服務，以在您的應用程式中採用 Facebook 登入驗證。
@@ -63,8 +73,14 @@
 <!-- Anchors. -->
 
 <!-- Images. -->
+[0]: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-developer-register.png
+[1]: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-add-app.png
+[2]: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-new-app-dialog.png
 [3]: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-configure-app.png
+[4]: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-configure-app-2.png
 [5]: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-completed.png
+[6]: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-configure-app-general-public.png
+[7]: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-configure-app-3.png
 
 <!-- URLs. -->
 [Facebook Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268286
@@ -73,4 +89,4 @@
 [Azure 行動服務]: http://azure.microsoft.com/services/mobile-services/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=58-->

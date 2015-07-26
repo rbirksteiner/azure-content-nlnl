@@ -58,7 +58,7 @@ IdleTimeoutInMinutes 是選擇性的。若未設定，則預設的逾時為 4 �
 
 ### 擷取閒置逾時設定
 
-    PS C:\> Get-AzureVM –ServiceName “MyService” –Name “MyVM” | Get-AzureEndpoint
+    PS C:> Get-AzureVM –ServiceName “MyService” –Name “MyVM” | Get-AzureEndpoint
     
     VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
     LBSetName : MyLoadBalancedSet
@@ -152,4 +152,4 @@ LoadBalancerDistribution 的值可以是 sourceIP (適用於 2-tuple 同質性)�
     </LoadBalancedEndpointList>
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=58-->

@@ -36,18 +36,18 @@ Azure Data Factory 支援在管線中使用內建活動來移動和處理資料�
 
 4. 更新類別以實作 **IDotNetActivity** 介面。
 	<ol type='a'>
-	<li>
-		從 <b>IDotNetActivity</b> 衍生類別。
-		<br/>
-		範例： <br/>
-		public class <b>MyDotNetActivity : IDotNetActivity</b>
-	</li>
+		<li>
+			從 <b>IDotNetActivity</b> 衍生類別。
+			<br/>
+			範例： <br/>
+			public class <b>MyDotNetActivity : IDotNetActivity</b>
+		</li>
 
-	<li>
-		實作 <b>IDotNetActivity</b> 介面的 <b>Execute</b> 方法
-	</li>
+		<li>
+			實作 <b>IDotNetActivity</b> 介面的 <b>Execute</b> 方法
+		</li>
 
-</ol>
+	</ol>
 5. 編譯專案。
 
 
@@ -58,13 +58,17 @@ Azure Data Factory 支援在管線中使用內建活動來移動和處理資料�
 2.	以 Blob 形式「上傳 zip」檔案至您的「Azure Blob 儲存體」。 
 3.	更新「管線 JSON」檔案，以參考 zip 檔案、自訂活動 DLL、活動類別，以及包含管線 JSON 中 zip 檔案的 Blob。在 JSON 檔案中：
 	<ol type ="a">
-	<li>「活動類型」<b></b>應該設定為 <b>DotNetActivity</b>。</li>
-	<li><b>AssemblyName</b> 是 Visual Studio 專案的輸出 DLL 的名稱。</li>
-	<li><b>EntryPoint</b> 指定實作 <b>IDotNetActivity</b> 介面的「類別」<b></b>的「命名空間」<b></b>和「名稱」<b></b>。</li>
-	<li><b>PackageLinkedService</b> 是連結服務，參考包含 zip 檔案的 Blob。</li>
-	<li><b>PackageFile</b> 指定已上傳至 Azure Blob 儲存體的 zip 檔案的位置和名稱 。</li>
-	<li><b>LinkedServiceName</b> 是連結服務的名稱，此服務將 HDInsight 叢集 (隨選或您所有) 連結至 Data Factory。自訂活動在指定 HDInsight 叢集上以僅限對應的作業執行。</li>
-</ol>**部分 JSON 範例**
+		<li>「活動類型」<b></b>應該設定為 <b>DotNetActivity</b>。</li>
+		<li><b>AssemblyName</b> 是 Visual Studio 專案的輸出 DLL 的名稱。</li>
+		<li><b>EntryPoint</b> 指定實作 <b>IDotNetActivity</b> 介面的「類別」<b></b>的「命名空間」<b></b>和「名稱」<b></b>。</li>
+		<li><b>PackageLinkedService</b> 是連結服務，參考包含 zip 檔案的 Blob。</li>
+		<li><b>PackageFile</b> 指定已上傳至 Azure Blob 儲存體的 zip 檔案的位置和名稱 。</li>
+		<li><b>LinkedServiceName</b> 是連結服務的名稱，此服務將 HDInsight 叢集 (隨選或您所有) 連結至 Data Factory。自訂活動在指定 HDInsight 叢集上以僅限對應的作業執行。</li>
+	</ol>
+
+	
+
+	**部分 JSON 範例**
 
 		"Name": "MyDotNetActivity",
     	"Type": "DotNetActivity",
@@ -97,14 +101,14 @@ Azure Data Factory 支援在管線中使用內建活動來移動和處理資料�
 
 1.	建立 .NET 類別庫專案。
 	<ol type="a">
-	<li>啟動 <b>Visual Studio 2012</b> 或 <b>Visual Studio 2013</b>。</li>
-	<li>按一下 [<b>檔案</b>]，指向 [<b>新增</b>]，然後按一下 [<b>專案</b>]。</li> 
-	<li>展開 [範本]<b></b>，然後選取 [Visual C#]<b></b>。在此逐步解說中，您使用 C# 中，但您可以使用任何 .NET 語言來開發自訂活動。</li> 
-	<li>從右邊的專案類型清單中選取 [類別庫]<b></b>。</li>
-	<li>針對 [名稱]<b></b> 輸入 <b>MyDotNetActivity</b>。</li> 
-	<li>在 [<b>位置</b>] 中選取 <b>C:\ADFGetStarted</b>。</li>
-	<li>按一下 [確定]<b></b> 以建立專案。</li>
-</ol>
+		<li>啟動 <b>Visual Studio 2012</b> 或 <b>Visual Studio 2013</b>。</li>
+		<li>按一下 [<b>檔案</b>]，指向 [<b>新增</b>]，然後按一下 [<b>專案</b>]。</li> 
+		<li>展開 [範本]<b></b>，然後選取 [Visual C#]<b></b>。在此逐步解說中，您使用 C# 中，但您可以使用任何 .NET 語言來開發自訂活動。</li> 
+		<li>從右邊的專案類型清單中選取 [類別庫]<b></b>。</li>
+		<li>針對 [名稱]<b></b> 輸入 <b>MyDotNetActivity</b>。</li> 
+		<li>在 [<b>位置</b>] 中選取 <b>C:\ADFGetStarted</b>。</li>
+		<li>按一下 [確定]<b></b> 以建立專案。</li>
+	</ol>
 2.  按一下 [<b>工具</b>]，指向 [<b>NuGet 封裝管理員</b>]，然後按一下 [<b>封裝管理員主控台</b>]。
 3.	在 [封裝管理員主控台]<b></b> 中，執行下列命令匯入 <b>Microsoft.Azure.Management.DataFactories</b>。 
 
@@ -301,7 +305,7 @@ Azure Data Factory 支援在管線中使用內建活動來移動和處理資料�
 ### 建立 HDInsight 叢集的連結服務，將會用來執行自訂活動
 Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來產生輸出資料。您也可以使用自己的叢集執行相同作業。當您使用隨選 HDInsight 叢集時，系統會為每個配量建立叢集。然而，如果您使用自己的 HDInsight 叢集，叢集已經準備好立即處理配量。因此，在使用隨選叢集時，可能無法像使用自己的叢集那麼快看到輸出資料。
 
-> [AZURE.NOTE]在執行階段，.NET 活動的執行個體只在 HDInsight 叢集的一個背景工作節點上執行，無法擴展到多個節點上執行。.NET 活動的多個執行個體可以在 HDInsight 叢集的不同節點上平行執行。
+> [AZURE.NOTE] 在執行階段，.NET 活動的執行個體只在 HDInsight 叢集的一個背景工作節點上執行，無法擴展到多個節點上執行。.NET 活動的多個執行個體可以在 HDInsight 叢集的不同節點上平行執行。
 
 如果您已透過[搭配 Azure Data Factory 使用 Pig 和 Hive][hivewalkthrough] 的逐步解說來延伸[開始使用 Azure Data Factory][adfgetstarted] 的教學課程，則可以略過建立此連結服務，並使用 ADFTutorialDataFactory 中已有的連結服務。
 
@@ -446,10 +450,11 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 
 	![從自訂活動下載記錄檔][image-data-factory-download-logs-from-custom-activity]
    
-如需有關監視資料集和管線的詳細步驟，請參閱[開始使用 Azure Data Factory][adfgetstarted]。
+如需有關監視資料集和管線的詳細步驟，請參閱[開始使用 Azure Data Factory][adfgetstarted]。      
     
 ## <a name="AzureBatch"></a> 使用 Azure Batch 連結服務 
-> [AZURE.NOTE]請參閱 [Azure Batch 技術概觀][batch-technical-overview]，以取得 Azure Batch 服務的概觀，另請參閱[開始使用適用於 .NET 的 Azure Batch 程式庫][batch-get-started]，以快速開始使用 Azure Batch 服務。
+> [AZURE.NOTE] 請參閱 [Azure Batch 技術概觀][batch-technical-overview]，以取得 Azure Batch 服務的概觀，另請參閱[開始使用適用於 .NET 的 Azure Batch 程式庫][batch-get-started]，以快速開始使用 Azure Batch 服務。
+
 
 以下是上一節所述的逐步解說中使用 Azure Batch 連結服務的高階步驟：
 
@@ -523,4 +528,4 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
  
 
-<!---HONumber=62-->
+<!---HONumber=58-->

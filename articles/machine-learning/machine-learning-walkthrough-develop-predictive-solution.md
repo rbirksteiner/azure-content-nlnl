@@ -42,4 +42,4 @@
 此逐步解說以隨附於 Machine Learning Studio 的簡化版[信用風險預測範例實驗](../machine-learning-sample-credit-risk-prediction.md)為基礎。
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=58-->
