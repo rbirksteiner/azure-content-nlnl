@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/07/2015"
+   ms.date="07/14/2015"
    ms.author="liviodlc"/>
 
 #自動化使用 Azure Active Directory 對於 SaaS 應用程式的使用者佈建和解除佈建
@@ -76,8 +76,7 @@ Azure AD 每隔五到十分鐘就會檢查變更。如果 SaaS 應用程式傳�
 Azure AD 會藉由連接到每個應用程式廠商所提供的佈建端點，將使用者佈建至 SaaS 應用程式。這些端點可以讓 Azure AD 以程式設計方式建立、更新和移除使用者。以下是 Azure AD 進行自動化佈建的不同步驟的簡短概觀。
 
 1. 當您第一次對應用程式啟用佈建時，會執行下列動作：
- - Azure AD 會嘗試比對 SaaS 應用程式中任何現有使用者與其在目錄中的對應身分識別。
- - 當使用者相符時，他們會自動指派應用程式的存取權，讓他們進行單一登入。
+ - Azure AD 會嘗試比對 SaaS 應用程式中任何現有使用者與其在目錄中的對應身分識別。若有使用者符合時，就「不會」自動啟用單一登入。為了讓使用者能存取應用程式，必須在 Azure AD 中直接或透過群組成員資格，明確將他們指派至應用程式。
  - 如果您已經指定哪些使用者應指派給應用程式，且 Azure AD 無法找到這些使用者的現有帳戶，則 Azure AD 會在應用程式中為其佈建新帳戶。
 2. 一旦完成上述的初始同步處理之後，Azure AD 會每隔 10 分鐘檢查下列變更：
  - 如果新使用者已指派至應用程式 (直接或透過群組成員資格)，則系統會為他們在 SaaS 應用程式中佈建新的帳戶。
@@ -85,7 +84,7 @@ Azure AD 會藉由連接到每個應用程式廠商所提供的佈建端點，�
  - 如果使用者最近指派至應用程式，而且他們已經在 SaaS 應用程式中有帳戶，則該帳戶會標示為已啟用，如果相較於目錄是過時的，則可能會更新某些使用者屬性。
  - 如果使用者的資訊 (例如電話號碼、辦公室位置等等) 在目錄中已變更，則該資訊也會在 SaaS 應用程式中更新。
 
-如需有關如何在 Azure AD 和 SaaS 應用程式之間對應屬性的詳細資訊，請參閱[自訂屬性對應](https://msdn.microsoft.com/library/azure/dn872469.aspx)上的文章。
+如需有關如何在 Azure AD 和 SaaS 應用程式之間對應屬性的詳細資訊，請參閱[自訂屬性對應](active-directory-saas-customizing-attribute-mappings.md)上的文章。
 
 ##支援自動化使用者佈建的應用程式清單
 
@@ -107,4 +106,6 @@ Azure AD 會藉由連接到每個應用程式廠商所提供的佈建端點，�
 
 若要連絡 Azure AD 工程小組以要求對於其他應用程式的佈建支援，請透過 [Azure Active Directory 意見反應論壇](http://feedback.azure.com/forums/169401-azure-active-directory)提交訊息。
 
-<!---HONumber=62-->
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+
+<!---HONumber=August15_HO6-->

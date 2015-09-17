@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="04/28/2015"
+	ms.topic="hero-article"
+	ms.date="07/02/2015"
 	ms.author="dastrock"/>
 
 # 如何取得 Azure Active Directory 租用戶
@@ -64,6 +64,5 @@
 如果上述對您沒有太大的意義，別擔心。您只需造訪 [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization)，並以新的組織身分註冊 Azure。完成此程序時，您將會有自己專屬的 Azure AD 租用戶，並且它會有您在註冊時選擇的網域名稱。在 [Azure 管理入口網站](https://manage.windowsazure.com) 中，您可以透過瀏覽至左側導覽中的 [Active Directory] 找到租用戶。
 
 註冊 Azure 的過程中，您將需要提供信用卡的詳細資料。您可以放心繼續執行，您將不會被收取在 Azure AD 中發佈應用程式或建立新租用戶的費用。
- 
 
-<!---HONumber=58-->
+<!---HONumber=August15_HO6-->

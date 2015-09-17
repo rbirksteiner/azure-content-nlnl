@@ -122,4 +122,4 @@ Azure Active Directory 中的密碼管理是由以下所述的數個邏輯元件
 [007]: ./media/active-directory-passwords-how-it-works/007.jpg "Image_007.jpg"
  
 
-<!---HONumber=62-->
+<!---HONumber=August15_HO6-->

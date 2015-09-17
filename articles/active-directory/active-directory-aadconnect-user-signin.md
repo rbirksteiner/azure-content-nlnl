@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure AD Connect - 使用者登入" 
-	description="Azure AD Connect 使用者登入 (用於自訂設定)。" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Azure AD Connect - 使用者登入"
+	description="Azure AD Connect 使用者登入 (用於自訂設定)。"
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 
@@ -64,4 +64,4 @@ Azure AD Connect 可讓使用者使用同一組密碼登入雲端和內部部署
 	- 使用裝置註冊、Azure AD 聯結或 Intune MDM 原則有條件存取內部部署和雲端資源
  
 
-<!---HONumber=62-->
+<!---HONumber=August15_HO9-->

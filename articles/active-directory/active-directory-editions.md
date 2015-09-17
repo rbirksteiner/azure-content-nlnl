@@ -1,19 +1,19 @@
 <properties
-	pageTitle="Azure Active Directory 版本"
+	pageTitle="Azure Active Directory 版本 | Microsoft Azure"
 	description="說明 Azure Active Directory 免費和付費版本選擇的主題。"
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="TerryLan"
+	manager="msStevenPo"
 	editor=""/>
 
 <tags
 	ms.service="active-directory"
-	ms.workload="infrastructure-services"
+	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2015"
+	ms.date="08/14/2015"
 	ms.author="curtand"/>
 
 # Azure Active Directory 版本
@@ -66,6 +66,7 @@ Active Directory Premium 版本是一個 Azure Active Directory 的付費產品�
 
 - **具有寫回功能的密碼重設** - 自助式密碼重設可以寫回至內部部署目錄。
 
+- [Azure Active Directory Connect Health](https://msdn.microsoft.com/library/azure/dn906722.aspx)：監控內部部署 Active Directory 基礎結構的健康情況，並取得使用情況分析。
 
 
 
@@ -98,6 +99,7 @@ Active Directory Premium 版本是一個 Azure Active Directory 的付費產品�
 - 進階應用程式使用情況報告
 - 適用於雲端使用者的 Multi-Factor Authentication 服務
 - 適用於內部部署使用者的 Multi-Factor Authentication 服務
+- Azure Active Directory Connect Health
 
 ## 目前處於公開預覽狀態的功能
 
@@ -105,7 +107,6 @@ Active Directory Premium 版本是一個 Azure Active Directory 的付費產品�
 
 - [系統管理單位](https://msdn.microsoft.com/library/azure/dn832057.aspx)：新的 Azure Active Directory 資源容器，可用來將系統管理權限委派給使用者的子集，並將原則套用到使用者的子集。
 - [將自己的 SaaS 應用程式新增](https://msdn.microsoft.com/library/azure/dn893637.aspx)至 Azure Active Directory。
-- [Azure Active Directory Connect Health](https://msdn.microsoft.com/library/azure/dn906722.aspx)：監控內部部署 Active Directory 基礎結構的健康情況，並取得使用情況分析。
 - Facebook、Twitter 和 LinkedIn 的密碼變換。如需詳細資訊，請閱讀[本篇文章](http://blogs.technet.com/b/ad/archive/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview.aspx)。
 - 動態群組成員資格。如需詳細資訊，請參閱[本篇文章](https://msdn.microsoft.com/library/azure/dn913807.aspx)。
 - [條件式存取](https://msdn.microsoft.com/library/azure/dn906877.aspx)：每個應用程式的多因素驗證。
@@ -120,6 +121,5 @@ Active Directory Premium 版本是一個 Azure Active Directory 的付費產品�
 - [開始使用 Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [在登入和存取面板頁面加上公司商標](active-directory-add-company-branding.md)
 - [檢視存取和使用情況報告](active-directory-view-access-usage-reports.md)
- 
 
-<!---HONumber=58-->
+<!---HONumber=August15_HO8-->

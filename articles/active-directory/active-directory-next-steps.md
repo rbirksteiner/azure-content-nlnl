@@ -41,4 +41,4 @@ Azure AD 裝置註冊會利用當使用者登入時用來驗證裝置的身分�
 * [Azure 身分識別](fundamentals-identity.md)
  
 
-<!---HONumber=58-->
+<!---HONumber=August15_HO6-->

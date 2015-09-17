@@ -195,4 +195,4 @@
 [saml_output]: ./media/active-directory-java-view-saml-returned-by-access-control/SAML_Output.png
  
 
-<!---HONumber=58-->
+<!---HONumber=August15_HO6-->

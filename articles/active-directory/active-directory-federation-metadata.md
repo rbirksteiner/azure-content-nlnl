@@ -39,7 +39,7 @@ Azure AD 會在 *https://login.windows.net/<TenantDomainName>/FederationMetadata
 
 若為**租用戶獨立端點**，<TenantDomainName> 是**通用**的。這個名稱表示僅有通用於所有 Azure AD 租用戶的同盟中繼資料項目，才會裝載於 login.windows.net。
 
-例如，租用戶專屬端點可能是 *https://login.windows.net/contoso.onmicrosoft.comFederationMetadata/2007-06/FederationMetadata.xml*。租用戶獨立端點則是 *https://login.windows.net/common/FederationMetadata/2007-06/FederationMetadata.xml*。
+例如，租用戶專屬端點可能是 **https://login.windows.net/contoso.onmicrosoft.comFederationMetadata/2007-06/FederationMetadata.xml*。租用戶獨立端點則是 **https://login.windows.net/common/FederationMetadata/2007-06/FederationMetadata.xml*。
 
 ## 同盟中繼資料內容
 
@@ -149,4 +149,4 @@ Azure AD 所發佈之同盟中繼資料文件可以有多組簽署金鑰 (例如
 
 [Azure Active Directory 開發人員指南](active-directory-developers-guide.md)
 
-<!---HONumber=62-->
+<!---HONumber=August15_HO6-->

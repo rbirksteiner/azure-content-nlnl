@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="在 Azure AD 中建立或編輯使用者" 
-	description="說明如何在 Azure AD 中建立或編輯使用者帳戶的主題。" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
-	editor="LisaToft"/>
+<properties
+	pageTitle="在 Azure AD 中建立或編輯使用者"
+	description="說明如何在 Azure AD 中建立或編輯使用者帳戶的主題。"
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand"
+	manager="stevepo"
+	editor=""/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/05/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/31/2015"
+	ms.author="curtand"/>
 
 # 在 Azure AD 中建立或編輯使用者
 
@@ -24,10 +24,10 @@
 
 1. 按一下 [**Active Directory**]，然後按一下您的組織目錄的名稱。
 2. 在 [**使用者**] 頁面上，按一下 [**加入使用者**]。
-3. 在 [**告訴我們這位使用者**] 頁面上，針對 [**使用者類型**]，選取下列其中一項： 
+3. 在 [**告訴我們這位使用者**] 頁面上，針對 [**使用者類型**]，選取下列其中一項：
 	1. **您組織中的新使用者** – 表示您想要在目錄中建立和管理新的使用者帳戶。
-	2. **現有 Microsoft 帳戶的使用者** – 表示您想要將現有的 Microsoft 帳戶加入至目錄，以便與使用 Microsoft 帳戶存取 Azure 的共同管理員，一起在 Azure 資源上共同作業。	
-	3. **另一個 Azure AD 目錄中的使用者** – 表示您想要將來自另一個 Azure AD 目錄的使用者帳戶加入至您的目錄。您必須是其他目錄的成員，才能選取其中的使用者。 
+	2. **現有 Microsoft 帳戶的使用者** – 表示您想要將現有的 Microsoft 帳戶加入至目錄，以便與使用 Microsoft 帳戶存取 Azure 的共同管理員，一起在 Azure 資源上共同作業。
+	3. **另一個 Azure AD 目錄中的使用者** – 表示您想要將來自另一個 Azure AD 目錄的使用者帳戶加入至您的目錄。您必須是其他目錄的成員，才能選取其中的使用者。
 4. 視您選取的選項而定，請輸入使用者名稱，或此使用者用來登入的 Microsoft 帳戶名稱。
 5. 在 [**使用者設定檔**] 頁面上，提供使用者的姓氏和名字、使用者易記名稱，並從 [角色] 下拉式選單中選擇使用者角色。如需有關使用者和系統管理員角色的詳細資訊，請參閱[在 Azure AD 中指派系統管理員角色](active-directory-assign-admin-roles.md)。指定是否**啟用 Multi-Factor Authentication**。
 6. 在 [**取得暫時密碼**] 頁面上，按一下 [**建立**]。
@@ -40,7 +40,7 @@
 ## 編輯使用者
 
 如果您嘗試編輯的使用者已經與內部部署 Active Directory 服務同步處理，則會出現錯誤訊息，您將無法使用此程序來編輯使用者。若要編輯此使用者，使用您的本機 Active Directory 管理工具。
- 
+
 在 Azure 管理入口網站中編輯使用者：
 
 1. 按一下 [**Active Directory**]，然後按一下您的組織目錄的名稱。
@@ -110,6 +110,5 @@
 <!--Image references-->
 [1]: ./media/active-directory-create-users/RBACDirConfigTab.png
 [2]: ./media/active-directory-create-users/RBACGuestAccessControls.png
- 
 
-<!---HONumber=62-->
+<!---HONumber=August15_HO6-->

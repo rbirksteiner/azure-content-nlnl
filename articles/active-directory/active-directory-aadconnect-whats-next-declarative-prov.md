@@ -1,21 +1,21 @@
 
 
 <properties 
-	pageTitle="使用 Azure AD Connect 宣告式佈建" 
-	description="了解如何使用 Azure AD Connect 宣告式佈建。" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="使用 Azure AD Connect 宣告式佈建"
+	description="了解如何使用 Azure AD Connect 宣告式佈建。"
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Azure AD Connect 宣告式佈建
@@ -28,4 +28,4 @@
 
 如需運算式語言的詳細資訊，請參閱[了解宣告式佈建運算式](https://msdn.microsoft.com/library/azure/dn801048.aspx)
 
-<!---HONumber=62-->
+<!---HONumber=August15_HO9-->

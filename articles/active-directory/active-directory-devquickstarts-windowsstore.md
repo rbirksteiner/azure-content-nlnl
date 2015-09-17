@@ -13,11 +13,13 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/28/2015"
+	ms.date="07/17/2015"
 	ms.author="dastrock"/>
 
 
-# 從 Windows Phone 應用程式呼叫 Web API
+# 整合 Azure AD 與 Windows 市集應用程式
+
+[AZURE.INCLUDE [active-directory-devquickstarts-switcher](../../includes/active-directory-devquickstarts-switcher.md)]
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
@@ -88,7 +90,7 @@ public MainPage()
 }
 ```
 
-- 現在請找到 `Search(...)` 方法，這是在使用者按一下應用程式 UI 的 [搜尋] 按鈕時所叫用的方法。這個方法會對 Azure AD Graph API 提出 GET 要求，以查詢 UPN 開頭為指定搜尋詞彙的使用者。但為了能夠查詢 Graph API，要求的 `Authorization` 標頭必須包含 access_token - ADAL 可以提供這方面的協助。
+- 現在請找到 `Search(...)` 方法，這是在使用者按一下應用程式 UI 的 [搜尋] 按鈕時所叫用的方法。這個方法會對 Azure AD Graph API 提出 GET 要求，以查詢 UPN 開頭為指定搜尋詞彙的使用者。但為了能夠查詢 Graph API，要求的 `Authorization` 標頭必須包含 access\_token - ADAL 可以提供這方面的協助。
 
 ```C#
 private async void Search(object sender, RoutedEventArgs e)
@@ -109,7 +111,7 @@ private async void Search(object sender, RoutedEventArgs e)
 ```
 - 當您的應用程式透過呼叫 `AcquireTokenAsync(...)` 要求權杖時，ADAL 會嘗試在不要求使用者認證的情況下傳回權杖。如果 ADAL 決定使用者需要登入才能取得權杖，它會顯示登入對話方塊、收集使用者的認證，並在成功驗證後傳回權杖。如果基於任何原因 ADAL 無法傳回權杖，則 `AuthenticationResult` 狀態就會發生錯誤。
 
-- 現在可以開始使用您剛才取得的 access_token。另外，在 `Search(...)` 方法中，將您取得的權杖附加至 Graph API GET 要求的授權標頭中：
+- 現在可以開始使用您剛才取得的 access\_token。另外，在 `Search(...)` 方法中，將您取得的權杖附加至 Graph API GET 要求的授權標頭中：
 
 ```C#
 // Add the access token to the Authorization Header of the call to the Graph API
@@ -142,7 +144,7 @@ ADAL 可讓您輕鬆地將這些常見的身分識別功能全部納入您的應
 
 [使用 Azure AD 保護 .NET Web API >>](active-directory-devquickstarts-webapi-dotnet.md)
 
-如需其他資源，請參閱：- [GitHub 上的 AzureADSamples >>](https://github.com/AzureAdSamples) - [CloudIdentity.com >>](https://cloudidentity.com) - [Azure.com 上的 Azure AD 文件 >>](http://azure.microsoft.com/documentation/services/active-directory/)
+[AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!---HONumber=62-->
+<!---HONumber=August15_HO6-->

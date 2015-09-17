@@ -118,8 +118,8 @@
 **其他資源**
 
 
-* [什麼是密碼管理](active-directory-passwords.md)
-* [密碼管理的運作方式](active-directory-passwords-how-it-works.md)
+* [密碼管理是什麼](active-directory-passwords.md)
+* [密碼管理如何運作](active-directory-passwords-how-it-works.md)
 * [開始使用密碼管理](active-directory-passwords-getting-started.md)
 * [自訂密碼管理](active-directory-passwords-customize.md)
 * [如何使用密碼管理報告取得深入的運作資訊](active-directory-passwords-get-insights.md)
@@ -138,4 +138,4 @@
 [006]: ./media/active-directory-passwords-best-practices/006.jpg "Image_006.jpg"
  
 
-<!---HONumber=62-->
+<!---HONumber=August15_HO6-->

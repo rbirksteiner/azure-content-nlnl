@@ -1,21 +1,20 @@
-<properties 
-	pageTitle="開始使用 Azure Active Directory Premium" 
-	description="說明如何註冊 Azure Active Directory Premium Edition 的主題。" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	writer="Justinha" 
-	manager="TerryLan" 
+<properties
+	pageTitle="開始使用 Azure Active Directory Premium"
+	description="說明如何註冊 Azure Active Directory Premium Edition 的主題。"
+	services="active-directory"
+	documentationCenter=""
+	authors="MarkusVi"
+	manager="stevenpo" 
 	editor="LisaToft"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/05/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/14/2015"
+	ms.author="markvi"/>
 
 # 開始使用 Azure Active Directory Premium
 
@@ -122,7 +121,4 @@ Microsoft 雲端服務的服務和功能可用性會依國家或地區而有所�
 [11]: ./media/active-directory-get-started-premium/Assignlicensespicker.png
 [12]: ./media/active-directory-get-started-premium/Usagelocation.png
 
-
- 
-
-<!---HONumber=62-->
+<!---HONumber=August15_HO8-->

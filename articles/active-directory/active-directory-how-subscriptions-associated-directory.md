@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Azure 訂閱如何與 Azure AD 產生關聯" 
-	description="有關登入 Microsoft Azure 及相關問題的主題，例如 Azure 訂用帳戶與 Azure AD 之間的關係。" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
+<properties
+	pageTitle="Azure 訂閱如何與 Azure AD 產生關聯"
+	description="有關登入 Microsoft Azure 及相關問題的主題，例如 Azure 訂用帳戶與 Azure AD 之間的關係。"
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand"
+	manager="stevenpo"
 	editor="LisaToft"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/05/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/14/2015" 
+	ms.author="curtand"/>
 
 # Azure 訂閱如何與 Azure AD 產生關聯
 
@@ -124,6 +124,4 @@ Azure AD 有一組不同的系統管理角色，可用來管理目錄和識別�
 [2]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_OrgAccountSubscription.png
 [3]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_SignInDisambiguation.PNG
 
- 
-
-<!---HONumber=62-->
+<!---HONumber=August15_HO8-->

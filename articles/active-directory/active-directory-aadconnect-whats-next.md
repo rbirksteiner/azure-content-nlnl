@@ -1,26 +1,24 @@
 <properties 
-	pageTitle="管理 Azure AD Connect" 
-	description="了解如何針對 Azure AD Connect 擴充預設組態和作業工作。" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="管理 Azure AD Connect"
+	description="了解如何針對 Azure AD Connect 擴充預設組態和作業工作。"
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # 管理 Azure AD Connect 
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="../active-directory-aadconnect/" title="它是什麼">它是什麼</a> <a href="../active-directory-aadconnect-how-it-works/" title="運作方式">運作方式</a> <a href="../active-directory-aadconnect-get-started/" title="開始使用">開始使用</a> <a href="../active-directory-aadconnect-whats-next/" title="後續步驟" class="current">後續步驟</a> <a href="../active-directory-aadconnect-learn-more/" title="深入了解">深入了解</a>
-</div>
+
 
 以下這些進階的選擇性主題可讓您自訂 Azure Active Directory Connect，以符合您組織的需要和需求。
 
@@ -30,13 +28,12 @@
 
 ### 指派 Azure AD Premium 或 Enterprise Mobility Suite 授權
 --------------------------------------------------------------------------------
-<ol>
-<li>以系統管理員身分登入 Azure 入口網站。</li>
-<li>選取左邊的 [Active Directory]。</li>
-<li>在 [Active Directory] 頁面上，在有您要啟用的使用者之目錄上按兩下。</li>
-<li>在 [目錄] 頁面的頂端，選取 [授權]。</li>
-<li>在 [授權] 頁面上，選取 [Active Directory Premium] 或 [Enterprise Mobility Suite]，然後按一下 [指派]。</li>
-<li>在對話方塊中，選取您要對其指派授權的使用者，然後按一下核取記號圖示，以儲存變更。</li>
+1. 以系統管理員身分登入 Azure 入口網站。
+2. 選取左邊的 [Active Directory]。
+3. 在 [Active Directory] 頁面上，在有您要啟用的使用者之目錄上按兩下。
+4. 在目錄頁面頂端，選取 [授權]。
+5. 在 [授權] 頁面上，選取 [Active Directory Premium] 或 [Enterprise Mobility Suite]，然後按一下 [指派]。
+6. 在對話方塊中，選取您要對其指派授權的使用者，然後按一下核取記號圖示，以儲存變更。
 
 
 ## 確認已排程的同步處理工作
@@ -66,7 +63,8 @@
 
 下表提供這些工作的摘要和個別的簡短描述。
 
-<center>![加入規則](./media/active-directory-aadconnect-whats-next/addtasks.png) </center>
+![加入規則](./media/active-directory-aadconnect-whats-next/addtasks.png)
+
 
 其他工作 | 說明 
 ------------- | ------------- |
@@ -85,13 +83,14 @@
 ## 其他文件
 如需使用 Azure AD Connect 的其他文件請參閱下列文件：
 
+- [Azure AD Connect 同步處理：自訂同步處理選項](active-directory-aadconnectsync-whatis.md)
 - [變更 Azure AD Connect 預設組態](active-directory-aadconnect-whats-next-change-default-config.md)
 - [使用 Azure AD Connect 同步處理規則編輯器](active-directory-aadconnect-whats-next-synch-rules-editor.md)
 - [使用宣告式佈建](active-directory-aadconnect-whats-next-declarative-prov.md)
 
-此外，針對 Azure AD Sync 所建立的一些文件仍然有關，而且適用於 Azure AD Connect。雖然致力於將本文件帶到 Azure.com，但是這份文件有些部分還是保留在 MSDN 範圍文件庫中。如需其他文件，請參閱 [MSDN 上的 Azure AD Connect](https://msdn.microsoft.com/library/azure/dn832695.aspx) 和 [MSDN 上的 Azure AD Sync](https://msdn.microsoft.com/library/azure/dn790204.aspx)。
+此外，針對 Azure AD Sync 所建立的一些文件仍然有關，而且適用於 Azure AD Connect。雖然致力於將本文件帶到 Azure.com，但是這份文件有些部分還是保留在 MSDN 範圍文件庫中。如需其他文件，請參閱 [MSDN 上的 Azure AD Connect](active-directory-aadconnect.md) 和 [MSDN 上的 Azure AD Sync](https://msdn.microsoft.com/library/azure/dn790204.aspx)。
 
 
  
 
-<!---HONumber=58-->
+<!---HONumber=August15_HO9-->
