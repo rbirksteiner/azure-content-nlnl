@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="進一步了解 Azure AD Connect 認證和權限"
 	description="Azure AD Connect 認證和權限的自訂設定說明。"
 	services="active-directory"
@@ -18,7 +18,7 @@
 
 
 
-# 進一步了解 Azure AD Connect 認證和權限 
+# bug fix bug fix bug fix bug fix bug fix bug fix bug fix 進一步了解 Azure AD Connect 認證和權限 
 
 
 Azure AD Connect 精靈提供兩種權限需求相異的不同路徑：
