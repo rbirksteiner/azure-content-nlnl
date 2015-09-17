@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="03/23/2015"
+      ms.date="07/30/2015"
       ms.author="shoatman"/>
 
 # 將應用程式加入至 Azure AD 的方式和原因
@@ -65,7 +65,7 @@
 ![說明應用程式物件和服務主體如何與現有 Azure AD 執行個體共存的圖表。][apps_service_principals_directory]
 
 從以上圖表可以清楚得知。Microsoft 會在內部 (左側) 維護兩個它用來發佈應用程式的目錄。
- 
+
 * 一個用於 Microsoft 應用程式 (Microsoft 服務目錄)
 * 一個用於預先整合的協力廠商應用程式 (應用程式庫目錄)
 
@@ -145,6 +145,5 @@
 <!--Image references-->
 [apps_service_principals_directory]: media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg
 [app_settings]: media/active-directory-how-applications-are-added/IntegratedAppSettings.jpg
- 
 
-<!---HONumber=62-->
+<!---HONumber=August15_HO6-->

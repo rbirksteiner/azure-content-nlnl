@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="使用 Azure AD Connect 連接目錄" 
-	description="Azure AD Connect 連接目錄的自訂設定說明。" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="使用 Azure AD Connect 連接目錄"
+	description="Azure AD Connect 連接目錄的自訂設定說明。"
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory"  
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 
@@ -43,7 +43,7 @@ Exchange 混合部署|請參閱 [Office 365 Exchange 混合 AAD Sync 寫回屬�
 * [Exchange 混合的權限](https://msdn.microsoft.com/library/azure/dn757602.aspx#exchange)
 * [密碼回寫的權限](https://msdn.microsoft.com/library/azure/dn757602.aspx#pwriteback)
 * [自訂 Azure AD Connect 安裝](active-directory-aadconnect-get-started-custom.md)
-* [MSDN 上的 Azure AD Connect](https://msdn.microsoft.com/library/azure/dn832695.aspx)
+* [MSDN 上的 Azure AD Connect](active-directory-aadconnect.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=August15_HO9-->

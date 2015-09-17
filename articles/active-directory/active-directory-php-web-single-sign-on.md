@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="11/21/2014" 
+	ms.date="07/17/2015" 
 	ms.author="tomfitz"/>
 
 # 利用 PHP 和 Azure Active Directory 進行單一登入
@@ -125,7 +125,7 @@
 		federation.reply=https://localhost/phpSample/index.php 
 
 
-	> [AZURE.NOTE]**audienceuris** 和 **realm** 值的前面必須加上 "spn:"。
+> [AZURE.NOTE]**audienceuris** 和 **realm** 值的前面必須加上 "spn:"。
 
 4. 在 Eclipse 中，於 **phpSample** 專案上按一下滑鼠右鍵，按一下 [新增]，然後按一下 [PHP File]。
 
@@ -203,4 +203,4 @@
 [PHP Sample Code for Azure Active Directory]: https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/WAAD.WebSSO.PHP
  
 
-<!---HONumber=62-->
+<!---HONumber=August15_HO6-->

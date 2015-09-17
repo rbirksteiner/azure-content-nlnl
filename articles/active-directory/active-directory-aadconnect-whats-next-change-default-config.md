@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="變更 Azure AD Connect 預設組態" 
-	description="了解如何變更 Azure AD Connect 的預設組態。" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="變更 Azure AD Connect 預設組態"
+	description="了解如何變更 Azure AD Connect 的預設組態。"
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # 變更 Azure AD Connect 預設組態 
@@ -27,4 +27,4 @@
 - 使用同步處理規則編輯器，匯出您的自訂同步處理規則。這提供可用來在災害復原情況下輕鬆地重建它們的 PowerShell 指令碼。
 - 如果您需要變更「非預設」同步處理規則中的範圍或加入設定，請記錄該項目，並在升級至較新版本的 Azure AD Connect 之後重新套用變更。 
 
-<!---HONumber=62-->
+<!---HONumber=August15_HO9-->

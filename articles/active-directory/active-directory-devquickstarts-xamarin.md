@@ -13,11 +13,13 @@
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/28/2015"
+	ms.date="07/17/2015"
 	ms.author="dastrock"/>
 
 
 # 將 Azure AD 整合至 Xamarin 應用程式
+
+[AZURE.INCLUDE [active-directory-devquickstarts-switcher](../../includes/active-directory-devquickstarts-switcher.md)]
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
@@ -197,7 +199,8 @@ ADAL 可讓您輕鬆地將常見的身分識別功能納入您的應用程式。
 
 [使用 Azure AD 保護 .NET Web API >>](active-directory-devquickstarts-webapi-dotnet.md)
 
-如需其他資源，請參閱：- [GitHub 上的 AzureADSamples >>](https://github.com/AzureAdSamples) - [CloudIdentity.com >>](https://cloudidentity.com) - [Azure.com 上的 Azure AD 文件 >>](http://azure.microsoft.com/documentation/services/active-directory/)
+[AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
+
  
 
-<!---HONumber=62-->
+<!---HONumber=August15_HO6-->

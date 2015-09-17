@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/28/2015"
+	ms.date="07/17/2015"
 	ms.author="dastrock"/>
 
 # 使用 Azure AD 進行 Web 應用程式登入與登出
@@ -123,7 +123,7 @@ public void SignOut()
 }
 ```
 
--	現在，請開啟 `Views\Shared_LoginPartial.cshtml`。這裡是您向使用者顯示應用程式的登入和登出連結，以及在檢視中列印出使用者名稱的位置。
+-	現在，請開啟 `Views\Shared\_LoginPartial.cshtml`。這裡是您向使用者顯示應用程式的登入和登出連結，以及在檢視中列印出使用者名稱的位置。
 
 ```HTML
 @if (Request.IsAuthenticated)
@@ -148,7 +148,7 @@ else
 ```
 
 ## *4.顯示使用者資訊*
-使用 OpenID Connect 驗證使用者時，Azure AD 會將包含「宣告」或有關使用者判斷提示的 id_token 傳回給應用程式。您可以使用這些宣告來個人化應用程式：
+使用 OpenID Connect 驗證使用者時，Azure AD 會將包含「宣告」或有關使用者判斷提示的 id\_token 傳回給應用程式。您可以使用這些宣告來個人化應用程式：
 
 - 開啟 `Controllers\HomeController.cs` 檔案。您可以透過 `ClaimsPrincipal.Current` 安全性主體物件來存取控制器中的使用者宣告。
 
@@ -173,7 +173,7 @@ public ActionResult About()
 
 [使用 Azure AD 保護 Web API >>](active-directory-devquickstarts-webapi-dotnet.md)
 
-如需其他資源，請參閱：- [GitHub 上的 AzureADSamples >>](https://github.com/AzureAdSamples) - [CloudIdentity.com >>](https://cloudidentity.com) - [Azure.com 上的 Azure AD 文件 >>](http://azure.microsoft.com/documentation/services/active-directory/)
+[AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!---HONumber=62-->
+<!---HONumber=August15_HO6-->

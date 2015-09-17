@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="04/28/2015"
+	ms.date="07/17/2015"
 	ms.author="brandwe"/>
 
 # 將 Azure AD 整合至 Android 應用程式
+
+[AZURE.INCLUDE [active-directory-devquickstarts-switcher](../../includes/active-directory-devquickstarts-switcher.md)]
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
@@ -98,7 +100,7 @@
   * 安裝模擬器與 SDK 19
   * 移至您已複製儲存機制的根資料夾
   * 執行命令：mvn clean install
-  * 將目錄切換至快速入門範例：cd samples\hello
+  * 將目錄切換至快速入門範例：cd samples\\hello
   * 執行命令：mvn android:deploy android:run
   * 您應該會看到應用程式正在啟動
   * 輸入測試使用者認證來測試一下！
@@ -134,7 +136,7 @@ repositories {
         dirs 'libs'
     }
     maven {
-        url "YourLocalMavenRepoPath\.m2\repository"
+        url "YourLocalMavenRepoPath\\.m2\\repository"
     }
 }
 dependencies {
@@ -281,8 +283,8 @@ dependencies {
 
  ```java
  String brokerAccount =  mContext.getBrokerUser();
- ```
- 如果帳戶有效，則會傳回 Broker 使用者。
+ ``` 
+如果帳戶有效，則會傳回 Broker 使用者。
 
  您的應用程式資訊清單應該有使用 AccountManager 帳戶的權限：http://developer.android.com/reference/android/accounts/AccountManager.html
 
@@ -314,7 +316,7 @@ ADFS 不視為正式的 STS，因此您需要開啟執行個體探索，並在 A
 ADAL 在 SharedPrefrecens 中提供預設快取與一些簡單的快取查詢函式。您可以使用 
 ```Java
  ITokenCacheStore cache = mContext.getCache();
-```
+``` 
 從 AuthenticationContext 取得目前的快取。如果想要自訂，您也可以提供您的快取實作。
 ```Java
 mContext = new AuthenticationContext(MainActivity.this, authority, true, yourCache);
@@ -346,7 +348,7 @@ ADAL 提供選項來指定提示行為。如果重新整理權杖無效，而且
 
 #### 例外狀況
 
-這顯然是第一個診斷。我們試著提供有用的錯誤訊息。如果您發現沒有幫助的錯誤訊息，請提出問題來告訴我們。請同時提供裝置資訊，例如機型和 SDK\#。
+這顯然是第一個診斷。我們試著提供有用的錯誤訊息。如果您發現沒有幫助的錯誤訊息，請提出問題來告訴我們。請同時提供裝置資訊，例如機型和 SDK#。
 
 #### 記錄檔
 
@@ -393,8 +395,8 @@ Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
 
  ```
   adb logcat > "C:\logmsg\logfile.txt"
- ```
- adb 命令的其他範例：https://developer.android.com/tools/debugging/debugging-log.html#startingLogcat
+ ``` 
+adb 命令的其他範例：https://developer.android.com/tools/debugging/debugging-log.html#startingLogcat
 
 #### 網路追蹤
 
@@ -425,7 +427,7 @@ CookieSyncManager.createInstance(getApplicationContext());
 CookieManager cookieManager = CookieManager.getInstance();
 cookieManager.removeSessionCookie();
 CookieSyncManager.getInstance().sync();
-```
+``` 
 深入了解 Cookie：http://developer.android.com/reference/android/webkit/CookieSyncManager.html
 
 ### 資源覆寫
@@ -447,7 +449,9 @@ ADAL 程式庫包含下列兩個 ProgressDialog 訊息英文字串。
 =======
 
 ### NTLM 對話方塊
-Adal 1.1.0 版支援 NTLM 對話方塊，此對話方塊是透過 WebViewClient 的 onReceivedHttpAuthRequest 事件來處理。您可以自訂對話方塊版面配置和字串。\#\## 步驟 5：下載 iOS 原生用戶端範例程式碼
+Adal 1.1.0 版支援 NTLM 對話方塊，此對話方塊是透過 WebViewClient 的 onReceivedHttpAuthRequest 事件來處理。您可以自訂對話方塊版面配置和字串。### 步驟 5：下載 iOS 原生用戶端範例程式碼
+
+[AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!---HONumber=58-->
+<!---HONumber=August15_HO6-->

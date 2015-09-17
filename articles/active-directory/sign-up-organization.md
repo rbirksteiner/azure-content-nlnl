@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="以組織方式註冊 Azure" 
-	description="了解如何使用工作或學校帳戶，來運用您已有的現有使用者帳戶、原則、設定或內部部署伺服器部署，而提升您的組織在內部部署身分識別基礎結構與 Azure AD 之間的效率。" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="terrylan" 
-	editor="Lisatoft"/>
+<properties
+	pageTitle="以組織方式註冊 Azure"
+	description="了解如何使用工作或學校帳戶，來運用您已有的現有使用者帳戶、原則、設定或內部部署伺服器部署，而提升您的組織在內部部署身分識別基礎結構與 Azure AD 之間的效率。"
+	services="active-directory"
+	documentationCenter=""
+	authors="markvi"
+	manager="stevenpo"
+	editor=""/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/27/2015" 
-	ms.author="terrylan"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/30/2015"
+	ms.author="markvi"/>
 
 
 # 以組織方式註冊 Azure
@@ -27,13 +27,12 @@
 
 	此目錄建立後，系統管理員即可建立使用者，並根據其所需存取的雲端服務訂閱 (例如 Azure)，將授權指派給這些使用者。
 
-想要以組織方式註冊 Azure 嗎？ [**立即註冊**](http://go.microsoft.com/fwlink/?LinkId=269967)
+想要以組織方式註冊 Azure 嗎？ [**立即註冊**](https://azure.microsoft.com/pricing/purchase-options/)
 
 **其他資源**
 
-* [Microsoft Azure 部落格](http://azure.microsoft.com/blog/) 
+* [Microsoft Azure 部落格](http://azure.microsoft.com/blog/)
 * [什麼是 Azure AD？](active-directory-whatis.md)
 * [在雲端中使用內部部署身分識別基礎結構](active-directory-aadconnect.md)
- 
 
-<!---HONumber=62-->
+<!---HONumber=August15_HO6-->

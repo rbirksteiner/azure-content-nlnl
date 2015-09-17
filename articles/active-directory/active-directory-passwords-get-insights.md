@@ -69,47 +69,9 @@
 ### 報告值說明
 下表描述每個資料行允許的不同值：
 
-<table>
-            <tbody><tr>
-              <td>
-                <p>
-                  <strong>資料行</strong>
-                </p>
-              </td>
-              <td>
-                <p>
-                  <strong>允許的值及其意義</strong>
-                </p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>已註冊資料</p>
-              </td>
-              <td>
-                <ul>
-                  <li class="unordered">
-                    <strong>備用電子郵件</strong> – 使用者用來驗證的備用電子郵件或驗證電子郵件<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>辦公室電話</strong> – 使用者用來驗證的辦公室電話<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>行動電話</strong> – 使用者用來驗證的行動電話或驗證電話<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>安全性問題</strong> – 使用者用來驗證的安全性問題<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>上述項目的任意組合 (例如，備用電子郵件 + 行動電話)</strong> – 發生時機為當指定 2 個閘道原則，且顯示使用者使用哪兩個方法來驗證其密碼重設要求時。<br><br></li>
-                </ul>
-              </td>
-            </tr>
-          </tbody></table>
+欄|允許的值及其意義
+---|---
+已註冊資料| **替代電子郵件** – 使用者使用替代電子郵件或驗證電子郵件進行驗證<p><p>**辦公室電話** – 使用者使用辦公室電話進行驗證<p>**行動電話** - 使用者使用行動電話或驗證電話進行驗證<p>**安全性問題** - 使用者使用安全性問題進行驗證<p>**屬於上述任何組合 (例如替代電子郵件 + 行動電話)** – 當指定 2 個閘道原則時會發生這種情況，且會顯示使用者用來驗證其密碼重設要求的兩種方法。
 
 ## 檢視密碼重設活動
 
@@ -134,394 +96,53 @@
 ### 報告值說明
 下表描述每個資料行允許的不同值：
 
-<table>
-            <tbody><tr>
-              <td>
-                <p>
-                  <strong>資料行</strong>
-                </p>
-              </td>
-              <td>
-                <p>
-                  <strong>允許的值及其意義</strong>
-                </p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>使用方法</p>
-              </td>
-              <td>
-                <ul>
-                  <li class="unordered">
-                    <strong>備用電子郵件</strong> – 使用者用來驗證的備用電子郵件或驗證電子郵件<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>辦公室電話</strong> – 使用者用來驗證的辦公室電話<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>行動電話</strong> – 使用者用來驗證的行動電話或驗證電話<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>安全性問題</strong> – 使用者用來驗證的安全性問題<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>上述項目的任意組合 (例如，備用電子郵件 + 行動電話)</strong> – 發生時機為當指定 2 個閘道原則，且顯示使用者使用哪兩個方法來驗證其密碼重設要求時。<br><br></li>
-                </ul>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>結果</p>
-              </td>
-              <td>
-                <ul>
-                  <li class="unordered">
-                    <strong>Abandoned</strong> – 使用者開始重設密碼，但是又中途停止而未完成<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Blocked</strong> – 由於在 24 小時期間內嘗試使用密碼重設頁面或單一密碼重設閘道太多次，所以已防止使用者帳戶使用密碼重設<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Cancelled</strong> – 使用者開始重設密碼，但是隨後按一下 [取消] 按鈕，在中途取消工作階段 <br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Contacted Admin</strong> – 使用者在其工作階段期間有無法解決的問題，所以使用者按一下「連絡您的系統管理員」連結，而不是完成密碼重設流程<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Failed</strong> – 使用者無法重設密碼，可能是因為使用者未設定使用功能 (例如，沒有授權、遺失驗證資訊、在內部部署管理密碼但是回寫已關閉)。<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Succeeded</strong> – 密碼重設成功。<br><br></li>
-                </ul>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>詳細資料</p>
-              </td>
-              <td>
-                <p>請參閱下表</p>
-              </td>
-            </tr>
-          </tbody></table>
+
+欄|允許的值及其意義
+---|---
+使用方法|**替代電子郵件** – 使用者使用替代電子郵件或驗證電子郵件進行驗證<p>**辦公室電話** – 使用者使用辦公室電話進行驗證<p>**行動電話** – 使用者使用行動電話或驗證電話進行驗證<p>**安全性問題** - 使用者使用安全性問題進行驗證<p>**屬於上述任何組合 (例如替代電子郵件 + 行動電話)** – 當指定 2 個閘道原則時會發生這種情況，且會顯示使用者用來驗證其密碼重設要求的兩種方法。
+結果|**已放棄** – 使用者啟動密碼重設，但接著中途停止而未完成<p>**已封鎖** – 由於在 24 小時內嘗試使用密碼重設頁面或單一密碼重設閘道的次數太多，導致使用者的帳戶無法使用密碼重設<p>**已取消** – 使用者啟動密碼重設，但接著按一下 [取消] 按鈕以中途取消工作階段<p>**已連絡管理員** – 使用者在工作階段期間發生問題而無法解決，因此使用者按一下「連絡您的系統管理員」連結而非完成密碼重設流程<p>**已失敗** – 使用者無法重設密碼，可能是因為使用者已設定為無法使用該功能 (例如授權、遺漏驗證資訊、密碼由內部部署管理但回寫已關閉)。<p>**已成功** – 密碼重設成功。
+詳細資料|請參閱下表
 
 ### 允許的詳細資料資料行的值
 以下是使用密碼重設活動報告時，您預期的結果類型清單：
 
-<table>
-            <tbody><tr>
-              <td>
-                <p>
-                  <strong>詳細資料</strong>
-                </p>
-              </td>
-              <td>
-                <p>
-                  <strong>結果類型</strong>
-                </p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>在完成電子郵件驗證選項之後使用者已放棄</p>
-              </td>
-              <td>
-                <p>Abandoned</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>在完成行動 SMS 驗證選項之後使用者已放棄</p>
-              </td>
-              <td>
-                <p>Abandoned</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>在完成行動語音通話驗證選項之後使用者已放棄</p>
-              </td>
-              <td>
-                <p>Abandoned</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>在完成辦公室語音通話驗證選項之後使用者已放棄</p>
-              </td>
-              <td>
-                <p>Abandoned</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>在完成安全性問題選項之後使用者已放棄</p>
-              </td>
-              <td>
-                <p>Abandoned</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>在輸入其使用者識別碼之後使用者已放棄</p>
-              </td>
-              <td>
-                <p>Abandoned</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>在開始電子郵件驗證選項之後使用者已放棄</p>
-              </td>
-              <td>
-                <p>Abandoned</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>在開始行動 SMS 驗證選項之後使用者已放棄</p>
-              </td>
-              <td>
-                <p>Abandoned</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>在開始行動語音通話驗證選項之後使用者已放棄</p>
-              </td>
-              <td>
-                <p>Abandoned</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>在開始辦公室語音通話驗證選項之後使用者已放棄</p>
-              </td>
-              <td>
-                <p>Abandoned</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>在開始安全性問題選項之後使用者已放棄</p>
-              </td>
-              <td>
-                <p>Abandoned</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>選取新密碼之前使用者已放棄</p>
-              </td>
-              <td>
-                <p>Abandoned</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>選取新密碼之際使用者已放棄</p>
-              </td>
-              <td>
-                <p>Abandoned</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>使用者輸入太多無效的電子郵件驗證碼，因此封鎖 24 小時</p>
-              </td>
-              <td>
-                <p>Blocked</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>使用者輸入太多無效的 SMS 驗證碼，因此封鎖 24 小時</p>
-              </td>
-              <td>
-                <p>Blocked</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>使用者嘗試行動電話語音驗證太多次，因此封鎖 24 小時</p>
-              </td>
-              <td>
-                <p>Blocked</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>使用者嘗試辦公室電話語音驗證太多次，因此封鎖 24 小時</p>
-              </td>
-              <td>
-                <p>Blocked</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>使用者嘗試回答安全性問題太多次，因此封鎖 24 小時</p>
-              </td>
-              <td>
-                <p>Blocked</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>使用者嘗試驗證電話號碼太多次，因此封鎖 24 小時</p>
-              </td>
-              <td>
-                <p>Blocked</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>在傳遞必要的驗證方法之前使用者已取消</p>
-              </td>
-              <td>
-                <p>Cancelled</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>在提交新密碼之前使用者已取消</p>
-              </td>
-              <td>
-                <p>Cancelled</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>在嘗試電子郵件驗證選項之後使用者連絡系統管理員</p>
-              </td>
-              <td>
-                <p>Contacted admin</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>在嘗試行動 SMS 驗證選項之後使用者連絡系統管理員</p>
-              </td>
-              <td>
-                <p>Contacted admin</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>在嘗試行動語音通話驗證選項之後使用者連絡系統管理員</p>
-              </td>
-              <td>
-                <p>Contacted admin</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>在嘗試辦公室語音通話驗證選項之後使用者連絡系統管理員</p>
-              </td>
-              <td>
-                <p>Contacted admin</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>在嘗試安全性問題驗證選項之後使用者連絡系統管理員</p>
-              </td>
-              <td>
-                <p>Contacted admin</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>這位使用者未啟用密碼重設。在 [設定] 索引標籤底下啟用密碼重設以解決此問題</p>
-              </td>
-              <td>
-                <p>Failed</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>使用者沒有授權。您可以新增授權給使用者以解決此問題</p>
-              </td>
-              <td>
-                <p>Failed</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>使用者嘗試從未啟用 cookie 的裝置重設</p>
-              </td>
-              <td>
-                <p>Failed</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>使用者的帳戶已定義驗證方法不足。新增驗證資訊以解決此問題</p>
-              </td>
-              <td>
-                <p>Failed</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>使用者的密碼是在內部部署進行管理。您可以啟用密碼回寫以解決此問題</p>
-              </td>
-              <td>
-                <p>Failed</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>我們無法取得您的內部部署密碼重設服務。請檢查您的同步處理電腦的事件記錄檔</p>
-              </td>
-              <td>
-                <p>Failed</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>我們在重設使用者的內部部署密碼時發現問題。請檢查您的同步處理電腦的事件記錄檔</p>
-              </td>
-              <td>
-                <p>Failed</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>此使用者不是密碼重設使用者群組的成員。將此使用者加入至該群組中以解決此問題。</p>
-              </td>
-              <td>
-                <p>Failed</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>已針對此租用戶完全停用密碼重設。請參閱 <a href="http://aka.ms/ssprtroubleshoot">http://aka.ms/ssprtroubleshoot</a> 來解決這個問題。</p>
-              </td>
-              <td>
-                <p>Failed</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>使用者成功重設密碼</p>
-              </td>
-              <td>
-                <p>Succeeded</p>
-              </td>
-            </tr>
-          </tbody></table>
-
-<br/> <br/> <br/>
+詳細資料 | 結果類型 
+----|----
+在完成電子郵件驗證選項之後使用者已放棄 | Abandoned
+在完成行動 SMS 驗證選項之後使用者已放棄|Abandoned 
+在完成行動語音通話驗證選項之後使用者已放棄 | Abandoned 
+在完成辦公室語音通話驗證選項之後使用者已放棄 | Abandoned
+在完成安全性問題選項之後使用者已放棄|Abandoned 
+在輸入其使用者識別碼之後使用者已放棄| Abandoned 
+在開始電子郵件驗證選項之後使用者已放棄|Abandoned
+在開始行動 SMS 驗證選項之後使用者已放棄|Abandoned
+在開始行動語音通話驗證選項之後使用者已放棄|Abandoned
+在開始辦公室語音通話驗證選項之後使用者已放棄|Abandoned
+在開始安全性問題選項之後使用者已放棄| Abandoned
+選取新密碼之前使用者已放棄| Abandoned
+選取新密碼之際使用者已放棄| Abandoned
+使用者輸入太多無效的 SMS 驗證碼，因此封鎖 24 小時|Blocked
+使用者嘗試行動電話語音驗證太多次，因此封鎖 24 小時|Blocked
+使用者嘗試辦公室電話語音驗證太多次，因此封鎖 24 小時 |Blocked
+使用者嘗試回答安全性問題太多次，因此封鎖 24 小時| Blocked
+使用者嘗試驗證電話號碼太多次，因此封鎖 24 小時|Blocked
+在傳遞必要的驗證方法之前使用者已取消|Cancelled
+在提交新密碼之前使用者已取消|Cancelled
+在嘗試電子郵件驗證選項之後使用者連絡系統管理員 |Contacted admin
+在嘗試行動 SMS 驗證選項之後使用者連絡系統管理員|Contacted admin
+在嘗試行動語音通話驗證選項之後使用者連絡系統管理員|Contacted admin
+在嘗試辦公室語音通話驗證選項之後使用者連絡系統管理員 |Contacted admin
+在嘗試安全性問題驗證選項之後使用者連絡系統管理員|Contacted admin
+這位使用者未啟用密碼重設。在 [設定] 索引標籤底下啟用密碼重設以解決此問題| Failed
+使用者沒有授權。您可以新增授權給使用者以解決此問題|Failed
+使用者嘗試從未啟用 cookie 的裝置重設| Failed
+使用者的帳戶已定義驗證方法不足。新增驗證資訊以解決此問題|Failed
+使用者的密碼是在內部部署進行管理。您可以啟用密碼回寫以解決此問題|Failed
+我們無法取得您的內部部署密碼重設服務。請檢查您的同步處理電腦的事件記錄檔|Failed
+我們在重設使用者的內部部署密碼時發現問題。請檢查您的同步處理電腦的事件記錄檔 | Failed
+此使用者不是密碼重設使用者群組的成員。將此使用者加入至該群組中以解決此問題。|Failed
+已針對此租用戶完全停用密碼重設。若要解決這個問題，請參閱[這裡](http://aka.ms/ssprtroubleshoot)。 | Failed 
+使用者成功重設密碼|Succeeded
 
 **其他資源**
 
@@ -543,4 +164,4 @@
 [003]: ./media/active-directory-passwords-get-insights/003.jpg "Image_003.jpg"
  
 
-<!---HONumber=62-->
+<!---HONumber=August15_HO6-->

@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="什麼是 Azure 的自助式註冊？" 
-	description="Azure 的自助式註冊、如何管理註冊程序及其作法的概觀。" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
+<properties
+	pageTitle="什麼是 Azure 的自助式註冊？"
+	description="Azure 的自助式註冊、如何管理註冊程序及其作法的概觀。"
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand"
+	manager="stevenpo"
 	editor="LisaToft"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="identity" 
-	ms.date="05/13/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="active-directory"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="identity"
+	ms.date="08/14/2015" 
+	ms.author="stevenpo"/>
 
 
 # 什麼是 Azure 的自助式註冊？
@@ -26,12 +26,12 @@
 - 讓客戶更快取得他們想要的服務。
 - 建立服務的電子郵件型 (爆紅) 供應項目。
 - 建立以電子郵件為基礎的註冊流程，讓使用者使用其易記的工作電子郵件別名快速地建立身分識別。
-- 未受管理的 Azure 租用戶可以成長而成為受管理的租用戶，並重複用於其他服務。 
+- 未受管理的 Azure 租用戶可以成長而成為受管理的租用戶，並重複用於其他服務。
 
 ## 詞彙和定義
 
-+ **自助式註冊**：這是使用者用以註冊雲端服務的方法，系統會根據其電子郵件網域在 Azure Active Directory 中自動建立身分識別。 
-+ **未受管理的 Azure 租用戶**： 這是該身分識別建立所在的目錄。未受管理的租用戶是沒有全域管理員的目錄。 
++ **自助式註冊**：這是使用者用以註冊雲端服務的方法，系統會根據其電子郵件網域在 Azure Active Directory 中自動建立身分識別。
++ **未受管理的 Azure 租用戶**： 這是該身分識別建立所在的目錄。未受管理的租用戶是沒有全域管理員的目錄。
 + **電子郵件驗證的使用者**：這是 Azure AD 中的使用者帳戶類型。在註冊自助式供應項目後自動建立身分識別的使用者，就是所謂的電子郵件驗證的使用者。電子郵件驗證的使用者是加上 creationmethod=EmailVerified 標記之目錄的一般成員。
 
 ## 客戶體驗
@@ -46,8 +46,8 @@
 
 擁有未受管理 Azure 租用戶之 DNS 網域名稱的管理員，可以在證明擁有權後接管或合併租用戶。下一節會更詳細地說明管理員體驗，但其摘要如下：
 
-- 當您接管未受管理的 Azure 租用戶時，您只會變成未受管理租用戶的全域管理員。這有時候稱為內部接管。 
-- 當您合併未受管理的 Azure 租用戶時，您會將未受管理租用戶的 DNS 網域名稱新增至受管理的 Azure 租用戶，而且會建立使用者與資源的對應，以便使用者繼續存取服務而不中斷。這有時候稱為外部接管。 
+- 當您接管未受管理的 Azure 租用戶時，您只會變成未受管理租用戶的全域管理員。這有時候稱為內部接管。
+- 當您合併未受管理的 Azure 租用戶時，您會將未受管理租用戶的 DNS 網域名稱新增至受管理的 Azure 租用戶，而且會建立使用者與資源的對應，以便使用者繼續存取服務而不中斷。這有時候稱為外部接管。
 
 ### Microsoft Azure 目錄中會建立什麼？
 
@@ -103,13 +103,13 @@
 在外部接管中，您已有受管理的租用戶，而您希望來自未受管理租用戶的所有使用者和群組都能加入該受管理的租用戶，而非擁有兩個個別的租用戶。
 
 身為受管理租用戶的管理員，您會新增網域，而該網域剛好有與其相關聯的未受管理租用戶。
-	
+
 例如，假設您是 IT 管理員，而且已有 Contoso.com (貴組織註冊的網域名稱) 的受管理租用戶。您會發現貴組織的使用者已使用電子郵件網域名稱 user@contoso.co.uk (這是貴組織擁有的另一個網域名稱) 執行供應項目的自助式服務。這些使用者目前在 contoso.co.uk 的未受管理租用戶中有帳戶。
 
 您不想管理兩個不同的租用戶，所以將 contoso.co.uk 的未受管理租用戶合併到 contoso.com 現有的 IT 受管理租用戶。
-	
+
 外部接管會遵循與內部接管相同的 DNS 驗證程序。差異是：使用者和服務會重新對應至 IT 受管理的租用戶。
-	
+
 #### 執行外部接管的影響為何？
 
 外部接管時會建立使用者與資源的對應，以便使用者繼續存取服務而不中斷。許多應用程式 (包括個人的 RMS) 會妥善處理使用者與資源的對應，而使用者不需變更即可繼續存取這些服務。如果應用程式未有效地處理使用者與資源的對應，外部接管可能會明確遭到封鎖，以免使用者發生不佳的體驗。
@@ -160,14 +160,14 @@
 例如：
 
 1. 使用用來回應自助式供應項目的認證來連接至 Azure AD：import-module MSOnline $msolcred = get-credential connect-msolservice -credential $msolcred
-		
+
 2. 取得網域清單：
 
 	Get-MsolDomain
 
 3. 然後執行 Get-MsolDomainVerificationDns Cmdlet 來建立挑戰：
 
-	Get-MsolDomainVerificationDns –DomainName *your_domain_name* –Mode DnsTxtRecord
+	Get-MsolDomainVerificationDns –DomainName *your\_domain\_name* –Mode DnsTxtRecord
 
 	例如：
 
@@ -185,7 +185,7 @@
 
 6. 執行 onfirm-MsolDomain Cmdlet 來驗證挑戰：
 
-	Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*
+	Confirm-MsolEmailVerifiedDomain -DomainName *your\_domain\_name*
 
 	例如：
 
@@ -205,8 +205,8 @@
 
 系統管理員可以使用下列 Azure AD Cmdlet Set-MsolCompanySettings 參數設定這些功能：
 
-+ **AllowEmailVerifiedUsers** 控制使用者是否可以建立或加入未受管理的租用戶。如果您將該參數設定為 $false，則沒有任何電子郵件驗證的使用者可以加入租用戶。 
-+ **AllowAdHocSubscriptions** 控制使用者執行自助式註冊的能力。如果您將該參數為 $false，則沒有任何使用者可以執行自助式註冊。 
++ **AllowEmailVerifiedUsers** 控制使用者是否可以建立或加入未受管理的租用戶。如果您將該參數設定為 $false，則沒有任何電子郵件驗證的使用者可以加入租用戶。
++ **AllowAdHocSubscriptions** 控制使用者執行自助式註冊的能力。如果您將該參數為 $false，則沒有任何使用者可以執行自助式註冊。
 
 
 ### 這些控制項如何一起運作？
@@ -234,6 +234,4 @@
 <!--Image references-->
 [1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png
 
- 
-
-<!---HONumber=62-->
+<!---HONumber=August15_HO8-->

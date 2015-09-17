@@ -1,29 +1,27 @@
-<properties 
-	pageTitle="開始使用 Azure AD Connect" 
-	description="了解如何下載、安裝和執行 Azure AD Connect 的安裝精靈。" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+ou ar<properties
+	pageTitle="開始使用 Azure AD Connect"
+	description="了解如何下載、安裝和執行 Azure AD Connect 的安裝精靈。"
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # 開始使用 Azure AD Connect
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="../active-directory-aadconnect/" title="它是什麼">它是什麼</a> <a href="../active-directory-aadconnect-how-it-works/" title="運作方式">運作方式</a> <a href="../active-directory-aadconnect-get-started/" title="開始使用" class="current">開始使用</a> <a href="../active-directory-aadconnect-whats-next/" title="後續步驟">後續步驟</a> <a href="../active-directory-aadconnect-learn-more/" title="深入了解">深入了解</a>
-</div>
 
 
 下列文件將協助您開始使用 Azure Active Directory Connect。本文件說明使用 Azure AD Connect 的快速安裝。如需自訂安裝的詳細資訊，請參閱 [Azure AD Connect 的自訂安裝](active-directory-aadconnect-get-started-custom.md)。如需從 DirSync 升級至 Azure AD Connect 的詳細資訊，請參閱[升級 DirSync 至 Azure Active Directory Connect](active-directory-aadconnect-dirsync-upgrade-get-started.md)。
+
 
 ## 下載 Azure AD Connect
 
@@ -35,12 +33,27 @@
 在您快速設定安裝 Azure AD Connect 之前，您將需要一些項目。
 
 
- 
+
 - Azure 訂用帳戶或 [Azure 試用訂用帳戶](http://azure.microsoft.com/pricing/free-trial/) - 這僅需要用來存取 Azure 入口網站，而不會用於 Azure AD Connect。如果您正在使用 PowerShell 或 Office 365，則您不需要 Azure 訂用帳戶來使用 Azure AD Connect。
 - 想要與其整合之 Azure AD 租用戶的 Azure AD 全域管理員帳戶
 - AD 網域控制站或成員伺服器 (含 Windows Server 2008 或更新版本)
 - 本機 Active Directory 的企業系統管理員帳戶
-- 選用：測試使用者帳戶來驗證同步處理。 
+- 選用：測試使用者帳戶來驗證同步處理。
+
+### Azure AD Connect 的硬體需求
+下表顯示 Azure AD Connect 電腦的最低需求。
+
+| Active Directory 中的物件數目 | CPU | 記憶體 | 硬碟大小 |
+| ------------------------------------- | --- | ------ | --------------- |
+| 少於 10,000 個 | 1\.6 GHz | 4 GB | 70 GB |
+| 10,000–50,000 個 | 1\.6 GHz | 4 GB | 70 GB |
+| 50,000–100,000 個 | 1\.6 GHz | 16 GB | 100 GB |
+| 若有 100,000 個以上的物件，則需要完整版本的 SQL Server| | | |
+| 100,000–300,000 個 | 1\.6 GHz | 32 GB | 300 GB |
+| 300,000–600,000 個 | 1\.6 GHz | 32 GB | 450 GB |
+| 超過 600,000 個 | 1\.6 GHz | 32 GB | 500 GB |
+
+
 
 
 對於多個樹系或同盟登入等「自訂選項」，請在[這裡](active-directory-aadconnect-get-started-custom.md)了解其他需求。
@@ -92,6 +105,10 @@
 ## 後續步驟
 您已經安裝 Azure AD Connect，現在可以使用[這裡](active-directory-aadconnect-whats-next.md)的連結繼續安裝後的工作，例如指派您的使用者 Azure AD Premium 或 Enterprise Mobility 授權或設定其他選項。
 
- 
+**其他資源**
 
-<!---HONumber=58-->
+[目錄整合工具比較](active-directory-aadconnect-get-started-tools-comparison.md)
+
+
+
+<!---HONumber=August15_HO9-->

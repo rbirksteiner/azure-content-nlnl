@@ -1,5 +1,5 @@
 <properties
-    pageTitle="如何使用存取控制 (Java) - Azure 功能指南"
+    pageTitle="如何使用存取控制 (Java) | Microsoft Azure"
     description="了解如何在 Azure 中利用 Java 來開發及使用存取控制。"
 	services="active-directory" 
     documentationCenter="java"
@@ -114,11 +114,9 @@ Azure 即會建立並啟動命名空間。等到新命名空間的狀態變成 [
 3.  在 [Relying party applications] 頁面上，執行下列動作：
     1.  在 [名稱] 中，輸入 RP 的名稱。基於本教學課程的目的，輸入 **Azure Web App**。
     2.  在 [模式] 中，選取 [Enter settings manually]。
-    3.  在 [領域] 中，輸入 ACS 所簽發的安全性權杖要套用至的 URI。對於此工作，輸入 **http://localhost:8080/**。
-        ![Relying party realm for use in compute emulator][relying_party_realm_emulator]
-    4.  在 [傳回 URL] 中，輸入 ACS 傳回安全性權杖的 URL。對於此工作，輸入 **http://localhost:8080/MyACSHelloWorld/index.jsp**
-        ![信賴憑證者傳回可用於計算模擬器的 URL][relying_party_return_url_emulator]
-    5.  在其餘的欄位中接受預設值。
+    3.  在 [領域] 中，輸入 ACS 所簽發的安全性權杖要套用至的 URI。對於此工作，輸入 ****http://localhost:8080/**。![Relying party realm for use in compute emulator][relying_party_realm_emulator]
+4.  在 [傳回 URL] 中，輸入 ACS 傳回安全性權杖的 URL。對於此工作，輸入 ****http://localhost:8080/MyACSHelloWorld/index.jsp** ![信賴憑證者傳回可用於計算模擬器的 URL][relying_party_return_url_emulator]
+5.  在其餘的欄位中接受預設值。
 
 4.  按一下 [儲存]。
 
@@ -144,8 +142,7 @@ Azure 即會建立並啟動命名空間。等到新命名空間的狀態變成 [
     1. 在 [Used for] 區段中，按一下 [Relying Party Application]，然後選取 [Azure Web App] (先前設為信賴憑證者應用程式的名稱)。
     2. 在 [類型] 區段中，選取 [X.509 憑證]。
     3. 在 [憑證] 區段中，按一下瀏覽按鈕，並導覽至您要使用的 X.509 憑證檔案。這將為 .PFX 檔案。選取檔案、按一下 [開啟]，然後在 [密碼] 文字方塊中輸入憑證密碼。請注意，基於測試目的，您可能使用自我簽署憑證。若要建立自我簽署憑證，請使用 [ACS Filter Library] 對話方塊 (稍後將有描述) 中的 [新增]，或使用 **encutil.exe ** 公用程式，其來自 Azure Starter Kit for Java (由 Microsoft Open Technologies 提供) 的[專案網站][] (英文)。
-    4. 確定已核取 [Make Primary]。您的 [**新增權杖簽署憑證或金鑰**] 頁面應該看起來如下。
-        ![Add token-signing certificate][add_token_signing_cert]
+    4. 確定已核取 [Make Primary]。您的 [**新增權杖簽署憑證或金鑰**] 頁面應該看起來如下。![Add token-signing certificate][add_token_signing_cert]
     5. 按一下 [儲存] 以儲存您的設定，並關閉 [Add Token-Signing Certificate or Key] 頁面。
 
 接著，檢閱應用程式整合頁面中的資訊，並複製您將 Java Web 應用程式設定成使用 ACS 所需的 URI。
@@ -255,7 +252,7 @@ Azure 即會建立並啟動命名空間。等到新命名空間的狀態變成 [
 
 同時，此範例也使用了 [Embed the certificate in the WAR file] 選項。此選項可讓您輕易部署憑證。如果您想要改為讓簽署憑證與 WAR 檔案維持分開狀態，則可以使用下列技術：
 
-1. 在 [Azure Access Control Services Filter] 對話方塊的 [安全性] 區段內，輸入 **${env.JAVA_HOME}/mycert.cer**，然後取消核取 [Embed the certificate in the WAR file]。(如果憑證檔案名稱不同，請調整 mycert.cer。) 按一下 [完成] 以關閉對話方塊。
+1. 在 [Azure Access Control Services Filter] 對話方塊的 [安全性] 區段內，輸入 **${env.JAVA\_HOME}/mycert.cer**，然後取消核取 [Embed the certificate in the WAR file]。(如果憑證檔案名稱不同，請調整 mycert.cer。) 按一下 [完成] 以關閉對話方塊。
 2. 複製憑證作為部署中的元件：在 Eclipse 的專案總管中，展開 **MyAzureACSProject**、於 **WorkerRole1** 上按一下滑鼠右鍵、按一下 [**內容**]、展開 [**Azure 角色**]，然後按一下 [**元件**]。
 3. 按一下 [新增]。
 4. 在 [新增元件] 對話方塊中：
@@ -265,7 +262,7 @@ Azure 即會建立並啟動命名空間。等到新命名空間的狀態變成 [
     2. 對於 [As Name]，按一下文字方塊並接受預設名稱。
     3. 在 [部署] 區段中：
         1. 對於 [方法]，選取 [複製]。
-        2. 對於 [To directory]，輸入 **%JAVA_HOME%**。
+        2. 對於 [To directory]，輸入 **%JAVA\_HOME%**。
     4. 您的 [新增元件] 對話方塊應該看起來如下。
 
         ![Add certificate component][add_cert_component]
@@ -290,7 +287,7 @@ Azure 即會建立並啟動命名空間。等到新命名空間的狀態變成 [
 [Deploy to Azure]: #deploy_azure
 [Next steps]: #next_steps
 [專案網站]: http://wastarterkit4java.codeplex.com/releases/view/61026
-[如何檢視 Azure 存取控制服務傳回的 SAML]: /zh-tw/develop/java/how-to-guides/view-saml-returned-by-acs/
+[如何檢視 Azure 存取控制服務傳回的 SAML]: /zh-cn/develop/java/how-to-guides/view-saml-returned-by-acs/
 [存取控制服務 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
 [Windows Identity Foundation]: http://www.microsoft.com/download/en/details.aspx?id=17331
 [Windows Identity Foundation SDK]: http://www.microsoft.com/download/en/details.aspx?id=4451
@@ -312,4 +309,4 @@ Azure 即會建立並啟動命名空間。等到新命名空間的狀態變成 [
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
  
 
-<!---HONumber=58-->
+<!---HONumber=August15_HO7-->

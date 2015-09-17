@@ -1,21 +1,21 @@
 
 <properties
    pageTitle="Azure AD 的驗證案例"
-   description="Azure Active Directory (AAD) 五個最常見驗證案例的概觀"
-   services="active-directory"
-   documentationCenter="dev-center-name"
-   authors="msmbaldwin"
-   manager="mbaldwin"
-   editor=""/>
+	description="Azure Active Directory (AAD) 五個最常見驗證案例的概觀"
+	services="active-directory"
+	documentationCenter="dev-center-name"
+	authors="msmbaldwin"
+	manager="mbaldwin"
+	editor=""/>
 
 <tags
    ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="06/01/2015"
-   ms.author="mbaldwin"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="identity"
+	ms.date="06/01/2015"
+	ms.author="mbaldwin"/>
 
 # Azure AD 的驗證案例
 
@@ -60,7 +60,7 @@ Azure Active Directory (Azure AD) 提供身分識別做為服務來簡化開發�
 - 開發人員可以使用開放原始碼 Azure AD 驗證程式庫，為您處理通訊協定的細節，以輕鬆完成驗證。如需詳細資訊，請參閱 [Azure Active Directory 驗證程式庫](https://msdn.microsoft.com/library/azure/dn151135.aspx)。
 
 
-• 使用者通過驗證之後，應用程式必須驗證使用者的安全性權杖，以確定相關各方的驗證成功。開發人員可以使用提供的驗證程式庫來驗證來自 Azure AD 的任何權杖，包括 JSON Web Token (JWT) 或 SAML 2.0。如果您想要手動執行驗證，請參閱 [JWT 權杖處理常式](https://msdn.microsoft.com/library/dn205065(v=vs.110).aspx)文件。
+• 使用者通過驗證之後，應用程式必須驗證使用者的安全性權杖，以確定相關各方的驗證成功。開發人員可以使用提供的驗證程式庫來驗證來自 Azure AD 的任何權杖，包括 JSON Web Token (JWT) 或 SAML 2.0。如果您想要手動執行驗證，請參閱 [JWT 權杖處理常式](<https://msdn.microsoft.com/library/dn205065(v=vs.110).aspx>)文件。
 
 
 > [AZURE.IMPORTANT]Azure AD 使用公開金鑰密碼編譯來簽署權杖並驗證它們有效。如需有關應用程式中必要的邏輯以確保永遠以最新金鑰更新的相關資訊，請參閱 [Azure AD 中簽署金鑰變換的相關重要資訊](https://msdn.microsoft.com/library/azure/dn641920.aspx)。
@@ -204,7 +204,7 @@ Azure AD 所簽發的安全性權杖包含宣告，或已驗證之主體的相�
 ### 單一頁面應用程式 (SPA)
 
 
-本節描述單一頁面應用程式的驗證，此應用程式使用 Azure AD 保護其 Web API 後端。單一頁面應用程式通常建構為一個在瀏覽器執行的 JavaScript 展示層 (前端)，以及一個在伺服器上執行並實作應用程式商務邏輯的 Web API 後端。在此案例中，當使用者登入時，JavaScript 前端使用 [Active Directory Authentication Library for JavaScript (ADAL.JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js/tree/dev) 預覽和 OAuth 2.0 隱含授與通訊協定，從 Azure AD 取得的識別碼權杖 (id_token)。權杖留在快取中，用戶端呼叫 Web API 後端時會將權杖附加至要求做為持有人權杖，並使用 OWIN 中介軟體來保護。
+本節描述單一頁面應用程式的驗證，此應用程式使用 Azure AD 保護其 Web API 後端。單一頁面應用程式通常建構為一個在瀏覽器執行的 JavaScript 展示層 (前端)，以及一個在伺服器上執行並實作應用程式商務邏輯的 Web API 後端。在此案例中，當使用者登入時，JavaScript 前端使用 [Active Directory Authentication Library for JavaScript (ADAL.JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js/tree/dev) 預覽和 OAuth 2.0 隱含授與通訊協定，從 Azure AD 取得的識別碼權杖 (id\_token)。權杖留在快取中，用戶端呼叫 Web API 後端時會將權杖附加至要求做為持有人權杖，並使用 OWIN 中介軟體來保護。
 
 
 #### 圖表
@@ -228,7 +228,7 @@ Azure AD 所簽發的安全性權杖包含宣告，或已驗證之主體的相�
 5. 使用者在登入頁面上登入。
 
 
-6. 如果驗證成功，Azure AD 就會建立識別碼權杖，並當做 URL 片段 (\#) 傳回至應用程式的回覆 URL。對於實際執行應用程式，此回覆 URL 應該為 HTTPS。傳回的權杖包含應用程式驗證權杖所需的使用者與 Azure AD 宣告。
+6. 如果驗證成功，Azure AD 就會建立識別碼權杖，並當做 URL 片段 (#) 傳回至應用程式的回覆 URL。對於實際執行應用程式，此回覆 URL 應該為 HTTPS。傳回的權杖包含應用程式驗證權杖所需的使用者與 Azure AD 宣告。
 
 
 7. 瀏覽器中執行的 JavaScript 用戶端程式碼從回應中擷取權杖，用以保護對應用程式 Web API 後端的呼叫。
@@ -338,7 +338,7 @@ Azure AD 所簽發的安全性權杖包含宣告，或已驗證之主體的相�
 
 ##### 採用 OAuth 2.0 用戶端認證授與的應用程式識別
 
-1. 使用者在 Web 應用程式中登入 Azure AD (請參閱上方「Web 瀏覽器到 Web 應用程式」一節)。
+1. 使用者在 Web 應用程式中登入 Azure AD (請參閱上方的 [Web 瀏覽器到 Web 應用程式](#web-browser-to-web-application))。
 
 
 2. Web 應用程式需要取得存取權杖，才能向 Web API 驗證和擷取所需的資源。它向 Azure AD 的權杖端點提出要求，並提供認證、用戶端識別碼和 Web API 的應用程式識別碼 URI。
@@ -351,7 +351,7 @@ Azure AD 所簽發的安全性權杖包含宣告，或已驗證之主體的相�
 
 ##### 採用 OpenID Connect 的委派的使用者識別
 
-1. 使用者使用 Azure AD 登入 Web 應用程式 (請參閱上方 [Web 瀏覽器到 Web 應用程式](#web-browser-to-web-application))。如果 Web 應用程式的使用者尚未同意允許 Web 應用程式代表他來呼叫 Web API，使用者必須同意。應用程式會顯示它需要的權限，如果其中任何一項是系統管理員層級權限，則目錄中的一般使用者將無法同意。此同意程序僅適用於多租用戶應用程式，而非單一租用戶應用程式，因為應用程式已具有必要的權限。使用者登入後，Web 應用程式會收到識別碼權杖和使用者相關資訊，以及授權碼。
+1. 使用者使用 Azure AD 登入 Web 應用程式 (請參閱上方的 [Web 瀏覽器到 Web 應用程式](#web-browser-to-web-application)一節)。如果 Web 應用程式的使用者尚未同意允許 Web 應用程式代表他來呼叫 Web API，使用者必須同意。應用程式會顯示它需要的權限，如果其中任何一項是系統管理員層級權限，則目錄中的一般使用者將無法同意。此同意程序僅適用於多租用戶應用程式，而非單一租用戶應用程式，因為應用程式已具有必要的權限。使用者登入後，Web 應用程式會收到識別碼權杖和使用者相關資訊，以及授權碼。
 
 
 2. Web 應用程式會使用 Azure AD 簽發的授權碼，傳送要求至 Azure AD 的權杖端點，此要求包含授權碼、用戶端應用程式的詳細資料 (用戶端識別碼和重新導向 URI)，以及所需的資源 (Web API 的應用程式識別碼 URI)。
@@ -434,7 +434,7 @@ Azure AD 所簽發的安全性權杖包含宣告，或已驗證之主體的相�
 1. 原生應用程式將存取權杖傳送到第一層 Web API。
 
 
-2. 第一層 Web API 傳送要求至 Azure AD 的權杖端點，並提供其用戶端識別碼和認證，以及使用者的存取權杖。此外，傳送的要求包含 on_behalf_of 參數，指出 Web API 正在代表原始使用者要求新權杖來呼叫下游 Web API。
+2. 第一層 Web API 傳送要求至 Azure AD 的權杖端點，並提供其用戶端識別碼和認證，以及使用者的存取權杖。此外，傳送的要求包含 on\_behalf\_of 參數，指出 Web API 正在代表原始使用者要求新權杖來呼叫下游 Web API。
 
 
 3. Azure AD 確認第一層 Web API 有權存取第二層 Web API，並驗證要求，然後傳回 JWT 存取權杖和 JWT 重新整理權杖給第一層 Web API。
@@ -466,4 +466,4 @@ Azure AD 所簽發的安全性權杖包含宣告，或已驗證之主體的相�
 [Azure AD 中的 OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx)
  
 
-<!---HONumber=58-->
+<!---HONumber=August15_HO9-->

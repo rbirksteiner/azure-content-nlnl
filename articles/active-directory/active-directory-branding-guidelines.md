@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/29/2015"
+   ms.date="07/30/2015"
    ms.author="mbaldwin"/>
 
 
@@ -96,4 +96,4 @@ Microsoft 不會在 Azure 或 Active Directory 品牌名稱上公開使用者，
 
  
 
-<!---HONumber=62-->
+<!---HONumber=August15_HO6-->

@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="04/28/2015"
+	ms.date="07/17/2015"
 	ms.author="brandwe"/>
 
 # 將 Azure AD 整合至 iOS 應用程式
+
+[AZURE.INCLUDE [active-directory-devquickstarts-switcher](../../includes/active-directory-devquickstarts-switcher.md)]
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
@@ -35,7 +37,7 @@ Azure AD 提供 Active Directory 驗證程式庫 (ADAL) 給需要存取受保護
 
 ## *1.決定您 iOS 的重新導向 URI*
 
-為了安全地在特定 SSO 案例啟動您的應用程式，我們需要您以特定格式建立「重新導向 URI」。重新導向 URI 可確保應用程式要求的權杖會正確地傳回給它們。
+為了安全地在特定 SSO 案例啟動您的應用程式，我們需要您以特定格式建立**「重新導向 URI」**。重新導向 URI 可確保應用程式要求的權杖會正確地傳回給它們。
 
 iOS 格式的重新導向 URI：
 
@@ -46,7 +48,7 @@ iOS 格式的重新導向 URI：
 - 	**aap-scheme** - 這已在您的 XCode 專案中註冊。它是其他應用程式呼叫您的方式。您可以在 Info.plist -> URL types -> URL Identifier 下找到此項目。如果您尚未設定任何一個，建議您建立一個。
 - 	**bundle-id** - 這是在您的 XCode 專案設定中，[identity] 下可找到的 [Bundle Identifier]。
 	
-此 QuickStart 程式碼範例：***msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
+此 QuickStart 程式碼的範例為：******msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
 
 ## *2.註冊 DirectorySearcher 應用程式*
 若要讓您的應用程式取得權杖，您必須先在 Azure AD 租用戶中註冊這個應用程式，並授權它存取 Azure AD Graph API：
@@ -134,7 +136,7 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
 
 ```
 
-- 現在我們需要使用此權杖搜尋圖形中的使用者。尋找 `// TODO: implement SearchUsersList` 註解。這個方法會對 Azure AD Graph API 提出 GET 要求，以查詢 UPN 開頭為指定搜尋詞彙的使用者。但為了能夠查詢 Graph API，要求的 `Authorization` 標頭必須包含 access_token - ADAL 可以提供這方面的協助。
+- 現在我們需要使用此權杖搜尋圖形中的使用者。尋找 `// TODO: implement SearchUsersList` 註解。這個方法會對 Azure AD Graph API 提出 GET 要求，以查詢 UPN 開頭為指定搜尋詞彙的使用者。但為了能夠查詢 Graph API，要求的 `Authorization` 標頭必須包含 access\_token - ADAL 可以提供這方面的協助。
 
 ```ObjC
 +(void) searchUserList:(NSString*)searchString
@@ -221,10 +223,6 @@ ADAL 可讓您輕鬆地將這些常見的身分識別功能全部納入您的應
 
 [使用 Azure AD 保護 Node.JS Web API >>](../active-directory-devquickstarts-webapi-nodejst.md)
 
-##如需其他資源，請參閱：
-- [在 GitHub 上的 AzureADSamples >>](https://github.com/AzureAdSamples)
-- [CloudIdentity.com >>](https://cloudidentity.com)
-- [Azure.com 上的 Azure AD 文件 >>](http://azure.microsoft.com/documentation/services/active-directory/)
- 
+[AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=58-->
+<!---HONumber=August15_HO6-->

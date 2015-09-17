@@ -1,25 +1,25 @@
-<properties 
-	pageTitle="將公司商標新增至登入和存取面板頁面" 
-	description="本主題說明組織如何在所管理的所有網站和服務上套用一致的外觀及操作，讓使用者在需要使用這些網站時不致混淆。" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
+<properties
+	pageTitle="將公司商標新增至登入和存取面板頁面"
+	description="本主題說明組織如何在所管理的所有網站和服務上套用一致的外觀及操作，讓使用者在需要使用這些網站時不致混淆。"
+	services="active-directory"
+	documentationCenter=""
+	authors="MarkusVi"
+	manager="stevenpo"
 	editor="LisaToft"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/05/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/11/2015" 
+	ms.author="MarkVi"/>
 
 # 將公司商標新增至登入和存取面板頁面
 
 > [AZURE.NOTE]
-> 
+>
 - 公司商標是您升級至 Premium 或 Basic 版本的 Azure Active Directory 時才能使用的功能。如需詳細資訊，請參閱 [Azure Active Directory 版本](active-directory-editions.md)。
 - Azure Active Directory Premium 和 Basic 版本適用於使用全球 Azure Active Directory 執行個體的中國客戶。由 21Vianet 在中國提供的 Microsoft Azure 服務目前不支援 Azure Active Directory Premium 和 Basic 版本。如需詳細資訊，請透過 [Azure Active Directory 論壇](http://feedback.azure.com/forums/169401-azure-active-directory)與我們連絡。
 
@@ -44,7 +44,7 @@
 如果他們造訪具有非租用戶特定 URL (例如 https://mail.office365.com) 的服務，就會看到未加上商標的登入頁面。使用者輸入其使用者 ID 或選取使用者名稱之後，將會重新整理登入頁面以顯示您的商標。
 
 > [AZURE.NOTE]
-> 
+>
 - 在已設定商標之 Azure Management Portal 的 [**Active Directory**] > [**目錄**] > [**網域**] 區段中，您的網域名稱必須為 [作用中]。
 - 登入頁面商標不會延續到 Microsoft 的消費者登入頁面。這表示使用個人 Microsoft 帳戶 (先前稱為 Windows Live ID) 登入的使用者可能會看到 Azure AD 所呈現並加上商標的使用者名稱清單，但是您組織的商標不會套用到 Microsoft 帳戶登入頁面。
 
@@ -185,6 +185,4 @@ Azure AD 中的部分可自訂元素有多個使用案例。公司標誌可以�
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 
- 
-
-<!---HONumber=62-->
+<!---HONumber=August15_HO8-->
