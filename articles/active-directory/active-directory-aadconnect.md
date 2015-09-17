@@ -16,7 +16,7 @@
 	ms.date="07/26/2015" 
 	ms.author="billmath"/>
 
-# 使用 Azure AD Connect 啟用目錄的混合式管理
+# bug fix after Compare_NewHO1 使用 Azure AD Connect 啟用目錄的混合式管理
 
 <div class="dev-center-tutorial-selector sublanding">
 <a href="../active-directory-aadconnect/" title="它是什麼" class="current">它是什麼</a> <a href="../active-directory-aadconnect-how-it-works/" title="運作方式">運作方式</a> <a href="../active-directory-aadconnect-get-started/" title="開始使用">開始使用</a> <a href="../active-directory-aadconnect-whats-next/" title="後續步驟">後續步驟</a> <a href="../active-directory-aadconnect-learn-more/" title="深入了解">深入了解</a>
