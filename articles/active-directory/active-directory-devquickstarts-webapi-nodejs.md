@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="04/28/2015"
+	ms.date="07/17/2015"
 	ms.author="brandwe"/>
 
 # 開始使用節點的 WEB API
@@ -32,7 +32,7 @@
 
 ## 關於 Node.js 模組
 
-我們將在本逐步解說中使用 Node.js 模組。模組是指可載入的 JavaScript 封裝，可為您的應用程式提供特定功能。您通常可以使用 NPM 安裝目錄中的 Node.js NPM 命令列工具來安裝模組，但核心 Node.js 封裝中已隨附了一些模組 (例如 HTTP 模組)。已安裝的模組會儲存在 Node.js 安裝目錄的根目錄下的 node_modules 目錄。node_modules 目錄下的每個模組都會維護它自己的 node_modules 目錄 (其中包含它所依賴的任何模組)，且每個必要模組都會有一個 node_modules 目錄。這個遞迴目錄結構表示相依性鏈結。
+我們將在本逐步解說中使用 Node.js 模組。模組是指可載入的 JavaScript 封裝，可為您的應用程式提供特定功能。您通常可以使用 NPM 安裝目錄中的 Node.js NPM 命令列工具來安裝模組，但核心 Node.js 封裝中已隨附了一些模組 (例如 HTTP 模組)。已安裝的模組會儲存在 Node.js 安裝目錄的根目錄下的 node\_modules 目錄。node\_modules 目錄下的每個模組都會維護它自己的 node\_modules 目錄 (其中包含它所依賴的任何模組)，且每個必要模組都會有一個 node\_modules 目錄。這個遞迴目錄結構表示相依性鏈結。
 
 此相依性鏈結結構會導致較高的應用程式使用量，但它可以保證已符合所有相依性，而且用於開發的模組版本也會用於生產環境中。這可讓實際執行的應用程式行為更容易預測，並防止可能會影響使用者的版本控制問題。
 
@@ -197,7 +197,7 @@ Restify 提供使用 DTrace 追蹤 REST 呼叫的強大機制。不過，許多�
 `cd azuread`
 
 
-請輸入下列命令，在您的 node_modules 目錄中安裝下列模組：
+請輸入下列命令，在您的 node\_modules 目錄中安裝下列模組：
 
 * `npm install crypto`
 * `npm install assert-plus`
@@ -274,7 +274,7 @@ server.js 檔案可提供我們 Web API 伺服器的大部分功能。我們將�
 
 **附註：**您可能永遠不需要變更這些值。
 
-**附註：**我們會經常性地變更金鑰。請確定您總是從 "openid_keys" URL 中進行提取，而且應用程式可以存取網際網路。
+**附註：**我們會經常性地變更金鑰。請確定您總是從 "openid\_keys" URL 中進行提取，而且應用程式可以存取網際網路。
 
 
 ## 步驟 12：將設定加入 server.js 檔案
@@ -540,7 +540,7 @@ this.aadutils = new var Metadata = require('./metadata').Metadata;
 
 在此逐步解說中，我們將使用 MongoDB 來儲存工作，如***步驟 4*** 中所述。
 
-如果您還記得我們在***步驟 11*** 中建立的 `config.js` 檔案，我們會呼叫資料庫 `tasklist`，因為那是我們放在 mogoose_auth_local 連線 URL 結尾處的內容。您不需要在 MongoDB 中事先建立此資料庫，它會在您第一次執行伺服器應用程式時為您建立 (假設此資料庫不存在)。
+如果您還記得我們在***步驟 11*** 中建立的 `config.js` 檔案，我們會呼叫資料庫 `tasklist`，因為那是我們放在 mogoose\_auth\_local 連線 URL 結尾處的內容。您不需要在 MongoDB 中事先建立此資料庫，它會在您第一次執行伺服器應用程式時為您建立 (假設此資料庫不存在)。
 
 既然我們已經告訴伺服器想要使用哪個 MongoDB 資料庫，我們必須撰寫一些額外程式碼，以建立伺服器工作的模型和結構描述。
 
@@ -1176,6 +1176,8 @@ server.get('/tasks', passport.authenticate('provider', { session: false }), list
 [ADAL for Android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android)
 
 [ADAL for .Net](http://msdn.microsoft.com/library/windowsazure/jj573266.aspx)
+
+[AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!---HONumber=58-->
+<!---HONumber=August15_HO6-->

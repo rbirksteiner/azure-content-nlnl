@@ -13,11 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="04/28/2015"
+	ms.date="07/17/2015"
 	ms.author="dastrock"/>
 
 
 # 使用 Azure AD 保護 AngularJS 單一頁面應用程式
+
+[AZURE.INCLUDE [active-directory-devquickstarts-switcher](../../includes/active-directory-devquickstarts-switcher.md)]
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
@@ -109,7 +111,7 @@ adalProvider.init(
 ...
 ```
 
-您現在有一個安全的單一頁面應用程式，能夠將使用者登入，並發出以持有人權杖保護的要求至其後端 API。當使用者按一下 `TodoList` 連結時，需要的話，adal.js 會自動重新導向至 Azure AD 進行登入。此外，adal.js 將會自動將 access_token 附加至任何傳送至應用程式後端的 ajax 要求。以上是以 adal.js 建置 SPA 時最起碼的條件，但 SPA 中還有其他許多有用的功能：
+您現在有一個安全的單一頁面應用程式，能夠將使用者登入，並發出以持有人權杖保護的要求至其後端 API。當使用者按一下 `TodoList` 連結時，需要的話，adal.js 會自動重新導向至 Azure AD 進行登入。此外，adal.js 將會自動將 access\_token 附加至任何傳送至應用程式後端的 ajax 要求。以上是以 adal.js 建置 SPA 時最起碼的條件，但 SPA 中還有其他許多有用的功能：
 
 - 若要明確發出登入和登出要求，您可以在控制器中定義函式來叫用 adal.js。在 `App/Scripts/homeCtrl.js` 中：
 
@@ -147,7 +149,6 @@ Aaal.js 可讓您輕鬆地將這些常見的身分識別功能全部納入您的
 
 [從 SPA 呼叫 CORS Web API >>](https://github.com/AzureAdSamples/SinglePageApp-WebAPI-AngularJS-DotNet)
 
-如需其他資源，請參閱：- [GitHub 上的 AzureADSamples >>](https://github.com/AzureAdSamples) - [CloudIdentity.com >>](https://cloudidentity.com) - [Azure.com 上的 Azure AD 文件 >>](http://azure.microsoft.com/documentation/services/active-directory/)
- 
+[AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=62-->
+<!---HONumber=August15_HO9-->

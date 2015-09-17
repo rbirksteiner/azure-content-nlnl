@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="使用應用程式 Proxy 發行應用程式來進行安全遠端存取" 
-	description="本主題說明在私人網路內發行應用程式 (例如 SharePoint 網站、Outlook Web Access 和 IIS 應用程式)，並提供網路外部使用者的安全存取。" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
+<properties
+	pageTitle="使用應用程式 Proxy 發行應用程式來進行安全遠端存取"
+	description="本主題說明在私人網路內發行應用程式 (例如 SharePoint 網站、Outlook Web Access 和 IIS 應用程式)，並提供網路外部使用者的安全存取。"
+	services="active-directory"
+	documentationCenter=""
+	authors="rkarlin"
+	manager="stevenpo"
 	editor="LisaToft"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/04/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/14/2015" 
+	ms.author="rkarlin"/>
 
 
 # 使用應用程式 Proxy 發行應用程式來進行安全遠端存取
@@ -30,6 +30,5 @@ Azure AD 應用程式 Proxy 是您升級至 Premium 或 Basic 版本的 Azure Ac
 ## 接下來
 
 [Microsoft Azure 部落格](http://azure.microsoft.com/blog/) [啟用應用程式 Proxy 服務](https://msdn.microsoft.com/library/azure/dn768214.aspx) [使用應用程式 Proxy 發行應用程式](https://msdn.microsoft.com/library/azure/dn768220.aspx) [疑難排解應用程式 Proxy](https://msdn.microsoft.com/library/azure/dn768218.aspx)
- 
 
-<!---HONumber=62-->
+<!---HONumber=August15_HO8-->

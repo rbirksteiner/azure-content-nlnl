@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="使用條件式存取管理風險" 
-	description="此主題說明如何允許在任何地方從符合原則的已知裝置存取特定資源，以及不允許從遺失、遭竊、不符合原則的裝置來存取。" 
-	services="active-directory, virtual-network" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
-	editor="LisaToft"/>
+<properties
+	pageTitle="使用條件式存取管理風險"
+	description="允許在任何地方從符合原則的已知裝置存取公司網路內的特定資源，以及不允許從遺失、遭竊、不符合原則的裝置來存取。"
+	services="active-directory, virtual-network"
+	documentationCenter=""
+	authors="femila"
+	manager="stevenpo"
+	editor=""/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.devlang="na" 
-	ms.topic="article" 
-    ms.tgt_pltfrm="na" 
-    ms.workload="identity" 
-	ms.date="05/05/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="active-directory"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="identity"
+	ms.date="08/19/2015"
+	ms.author="femila"/>
 
 
 # 使用條件式存取管理風險
@@ -35,14 +35,13 @@
 
 下列主題討論在組織中設定條件式存取原則的各種不同機制。
 
-- [Azure Active Directory 裝置註冊概觀](https://msdn.microsoft.com/library/azure/dn903763.aspx)
-- [使用 Azure Active Directory 裝置註冊設定內部部署條件式存取](https://msdn.microsoft.com/library/azure/dn788908.aspx)
-- [Office 365 服務的條件式存取裝置原則](https://msdn.microsoft.com/library/azure/dn903766.aspx)
-- [SaaS 應用程式的 Azure 條件式存取預覽](https://msdn.microsoft.com/library/azure/dn906877.aspx)
+- [Azure Active Directory 裝置註冊概觀](active-directory-conditional-access-device-registration-overview.md)
+- [使用 Azure Active Directory 裝置註冊設定內部部署條件式存取](active-directory-conditional-access-on-premises-setup.md)
+- [Office 365 服務的條件式存取裝置原則](active-directory-conditional-access-device-policies.md)
+- [SaaS 應用程式的 Azure 條件式存取預覽](active-directory-conditional-access-azuread-connected-apps.md)
 
 
 <!--Image references-->
 [1]: ./media/active-directory-conditional-access/condaccoverviewvsdx1.png
- 
 
-<!---HONumber=62-->
+<!---HONumber=August15_HO9-->

@@ -73,10 +73,10 @@
 * [開始使用密碼管理](active-directory-passwords-getting-started.md)
 * [自訂密碼管理](active-directory-passwords-customize.md)
 * [密碼管理最佳作法](active-directory-passwords-best-practices.md)
-* [如何使用密碼管理報告取得深入的運作資訊](active-directory-passwords-get-insights.md)
+* [如何使用密碼管理報告取得 Operational Insights](active-directory-passwords-get-insights.md)
 * [密碼管理常見問題集](active-directory-passwords-faq.md)
 * [疑難排解密碼管理](active-directory-passwords-troubleshoot.md)
 * [深入了解](active-directory-passwords-learn-more.md)
 * [MSDN 上的密碼管理](https://msdn.microsoft.com/library/azure/dn510386.aspx) 
 
-<!---HONumber=62-->
+<!---HONumber=August15_HO6-->

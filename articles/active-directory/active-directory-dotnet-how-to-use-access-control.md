@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="如何使用存取控制 (.NET) - Azure 功能指南" 
+	pageTitle="如何使用存取控制 (.NET) | Microsoft Azure" 
 	description="了解如何使用 Azure 應用程式中的存取控制服務 (ACS)，以在使用者嘗試存取 Web 應用程式時予以驗證。" 
 	services="active-directory" 
 	documentationCenter=".net" 
@@ -116,7 +116,7 @@ Azure 即會建立並啟動命名空間。
 
 1. 在 [名稱] 中，輸入 **MvcACS**，然後按一下 [確定]。
 1. 在下一個對話方塊中，選取 [網際網路應用程式]，然後按一下 [確定]。
-1. 編輯 *Views\Shared_LoginPartial.cshtml* 檔案，並將其內容取代為下列程式碼：
+1. 編輯 *Views\\Shared\_LoginPartial.cshtml* 檔案，並將其內容取代為下列程式碼：
 
         @if (Request.IsAuthenticated)
         {
@@ -206,7 +206,7 @@ Azure 即會建立並啟動命名空間。
 
 在本節中，我們將修改應用程式來檢視 ACS 所傳送的宣告。Identity and Access 工具已建立一個規則群組，此規則群組會掃過所有從該 IP 傳遞至您應用程式的宣告。請注意，不同的身分識別提供者會傳送不同的宣告。
 
-1. 開啟 *Controllers\HomeController.cs* 檔案。對 **System.Threading** 新增 **using** 陳述式：
+1. 開啟 *Controllers\\HomeController.cs* 檔案。對 **System.Threading** 新增 **using** 陳述式：
 
  	using System.Threading;
 
@@ -225,7 +225,7 @@ Azure 即會建立並啟動命名空間。
 
 1. 按一下 [新增]。
 
-1. 以下列程式碼取代 *Views\Home\Claims.cshtml* 檔案的內容：
+1. 以下列程式碼取代 *Views\\Home\\Claims.cshtml* 檔案的內容：
 
         @{
             ViewBag.Title = "Claims";
@@ -403,4 +403,4 @@ Visual Studio 中的 Identity and Access Tool 會自動將您的應用程式與 
   [20]: ./media/active-directory-dotnet-how-to-use-access-control/acsConfigAcsNamespace2.png
  
 
-<!---HONumber=62-->
+<!---HONumber=August15_HO7-->

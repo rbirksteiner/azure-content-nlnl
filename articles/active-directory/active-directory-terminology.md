@@ -1,21 +1,20 @@
-<properties 
-	pageTitle="Azure AD 術語" 
-	description="與 Azure AD 相關的詞彙和定義。" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	writer="Justinha" 
-	manager="TerryLan" 
-	editor="LisaToft"/>
+<properties
+	pageTitle="Azure AD 詞彙 | Microsoft Azure"
+	description="與 Azure Active Directory 相關的詞彙和定義。"
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand"
+	manager="TerryLan"
+	editor=""/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/27/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/28/2015"
+	ms.author="curtand"/>
 
 # Azure AD 術語
 
@@ -37,14 +36,11 @@ Microsoft Online Services 登入小幫手 | 登入小幫手是安裝在用戶端
 多因素驗證 (也稱為雙因素驗證或 2FA) | 多重要素驗證會為使用者登入和交易加入重要的第二層安全性。當您在 Azure AD 中啟用使用者帳戶的多因素驗證時，該使用者必須接著使用其電話 (除了標準密碼認證以外) 作為每次需要登入及使用任何貴組織訂閱的 Microsoft 雲端服務時的額外安全性驗證方法。
 單一登入 | 用來為已登入公司網路的使用者提供存取 Microsoft 雲端服務時更順暢的驗證體驗。若要設定單一登入，組織必須在內部部署環境中部署安全性權杖服務。一旦設定單一登入，使用者就可以使用其 Active Directory 公司認證 (使用者名稱和密碼) 來存取雲端中的服務與其現有的內部部署資源。
 使用者識別碼 | 使用者識別碼會使用者在 [登入] 頁面上提供的唯一識別碼，用以存取您的組織已訂閱的 Microsoft 雲端服務。
-公司帳戶或學校帳戶 | 由組織 (公司、學校、非營利組織) 指派給其中一個成員 (員工、學生、客戶) 的使用者帳戶可供登入一或多個組織的 Microsoft 雲端服務訂閱，例如 Office 365 或 Azure。這些帳戶會儲存在組織的 Azure AD 目錄中，而且通常會在使用者離開組織時刪除。公司或學校帳戶與 Microsoft 帳戶不同，這類帳戶是由組織的系統管理員 (而非由使用者) 所建立及管理。 
+公司帳戶或學校帳戶 | 由組織 (公司、學校、非營利組織) 指派給其中一個成員 (員工、學生、客戶) 的使用者帳戶可供登入一或多個組織的 Microsoft 雲端服務訂閱，例如 Office 365 或 Azure。這些帳戶會儲存在組織的 Azure AD 目錄中，而且通常會在使用者離開組織時刪除。公司或學校帳戶與 Microsoft 帳戶不同，這類帳戶是由組織的系統管理員 (而非由使用者) 所建立及管理。
 
 ## 後續步驟
 - [以組織方式註冊 Azure](sign-up-organization.md)
 - [Azure 訂用帳戶如何與 Azure AD 產生關聯](active-directory-how-subscriptions-associated-directory.md)
 - [Azure AD 服務限制](active-directory-service-limits-restrictions.md)
 
-
- 
-
-<!---HONumber=62-->
+<!---HONumber=August15_HO6-->

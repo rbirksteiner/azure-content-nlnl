@@ -51,9 +51,9 @@ Azure Active Directory (Azure AD) 支援數個最常用的驗證和授權通訊�
 
 [Azure Active Directory 開發人員指南](active-directory-developers-guide.md)
 
-[使用 Azure AD 進行驗證](https://msdn.microsoft.com/library/azure/dn385718.aspx)
+[使用 Azure AD 進行驗證](../app-service-web/web-sites-authentication-authorization.md)
 
 [Active Directory 程式碼範例](active-directory-code-samples.md)
  
 
-<!---HONumber=58-->
+<!---HONumber=August15_HO6-->

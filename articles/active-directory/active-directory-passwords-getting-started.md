@@ -194,7 +194,8 @@
 密碼回寫可以在 Azure AD Connect 版本或具有版本號碼 **1.0.0419.0911** 或更高版本的 Azure AD Sync 工具中使用。具有自動帳戶解除鎖定的密碼回寫可以在 Azure AD Connect 版本或具有版本號碼 **1.0.0485.0222** 或更高版本的 Azure AD Sync 工具中使用。如果您執行較舊的版本，請至少升級至此版本，再繼續作業。[按一下這裡以下載最新版本的 Azure AD Connect](active-directory-aadconnect.md#download-azure-ad-connect)。
 
 #### 檢查 Azure AD Sync 的版本
-1.	瀏覽至 **%ProgramFiles%\Azure Active Directory Sync**。2.	尋找 **ConfigWizard.exe** 可執行檔。
+1.	瀏覽至 **%ProgramFiles%\Azure Active Directory Sync**。
+2.	尋找 **ConfigWizard.exe** 可執行檔。
 3.	以滑鼠右鍵按一下可執行檔，然後從內容功能表選取 [**屬性**] 選項。
 4.	按一下 [**詳細資料**] 索引標籤。
 5.	尋找 [**檔案版本**] 欄位。
@@ -269,7 +270,9 @@
 8.	在最上層的下拉式清單中選取 [**下階使用者物件**]。
 9.	在顯示的 [**權限項目**] 對話方塊中，勾選 [**重設密碼**]、[**變更密碼**]、[`lockoutTime` 的**寫入權限**] 和 [`pwdLastSet` 的**寫入權限**] 的方塊。
 
-    ![][026] ![][027] ![][028]
+    ![][026]
+    ![][027]
+    ![][028]
 
 10.	然後在所有開啟的對話方塊中按一下 [**套用/確定**]。
 
@@ -342,4 +345,4 @@
 
  
 
-<!---HONumber=62-->
+<!---HONumber=August15_HO6-->

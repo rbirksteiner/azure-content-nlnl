@@ -44,4 +44,4 @@ Azure AD 的報表會保留資料特定天數，在這裡表示。
 |	啟用 RMS 的應用程式使用量 |	30 天 |
  
 
-<!---HONumber=62-->
+<!---HONumber=August15_HO6-->

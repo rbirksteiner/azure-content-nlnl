@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Microsoft Azure AD Connect - 從 Windows Azure AD 同步作業工具 (DirSync) 升級" 
-   description="了解如何從 DirSync 升級至 Azure AD Connect。本文說明如何將目前 Windows Azure AD 同步作業工具 (DirSync) 升級至 Azure AD Connect 的步驟。" 
-   services="active-directory" 
-   documentationCenter="" 
-   authors="shoatman" 
-   manager="terrylanfear" 
-   editor="billmath"/>
+   pageTitle="Microsoft Azure AD Connect - 從 Windows Azure AD 同步作業工具 (DirSync) 升級"
+	description="了解如何從 DirSync 升級至 Azure AD Connect。本文說明如何將目前 Windows Azure AD 同步作業工具 (DirSync) 升級至 Azure AD Connect 的步驟。"
+	services="active-directory"
+	documentationCenter=""
+	authors="shoatman"
+	manager="terrylanfear"
+	editor="billmath"/>
 
 <tags 
-   ms.service="active-directory" 
-   ms.workload="identity" 
-   ms.tgt_pltfrm="na" 
-   ms.devlang="na" 
-   ms.topic="article" 
-   ms.date="05/26/2015" 
-   ms.author="shoatman"/>
+   ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/26/2015"
+	ms.author="shoatman"/>
 
 # 將 Windows Azure Active Directory 同步作業 (DirSync) 升級至 Azure Active Directory Connect
 
@@ -22,7 +22,8 @@
 
 ## 下載 Azure AD Connect
 
-若要開始使用 Azure AD Connect，您可以使用下列項目下載最新版本：[下載 Azure AD Connect Public Preview](http://connect.microsoft.com/site1164/program8612)
+若要開始使用 Azure AD Connect，您可以使用下列連結下載最新版本：[下載 Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
+
 
 ## 安裝 Azure AD Connect 之前
 安裝 Azure AD Connect 並從 DirSync 升級之前，這裡是您需要的一些事項。
@@ -88,7 +89,7 @@
 
 
 ## 就地升級 - 超過 5 萬個物件
-如果您擁有超過 5 萬個物件的規模可進行同步處理，則會在步驟 \#3 中看到不同的訊息。將會顯示與下面類似的畫面：
+如果您擁有超過 5 萬個物件的規模可進行同步處理，則會在步驟 #3 中看到不同的訊息。將會顯示與下面類似的畫面：
 
 ![輸入您的 Azure AD 認證](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisRecommendParallel.png)
 
@@ -100,7 +101,7 @@
 
 ## 就地升級 - 完整 SQL Server
 
-如果 DirSync 安裝使用本機或遠端完整版的 SQL Server，則會在步驟 \#3 中看到不同的訊息。將會顯示與下面類似的畫面：
+如果 DirSync 安裝使用本機或遠端完整版的 SQL Server，則會在步驟 #3 中看到不同的訊息。將會顯示與下面類似的畫面：
 
 ![輸入您的 Azure AD 認證](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisReadyFullSQL.png)
 
@@ -108,7 +109,7 @@
 
 ## 平行部署 - 超過 5 萬個物件
 
-在步驟 \#3，如果您擁有超過 5 萬個物件，則 Azure AD Connect 安裝會建議進行平行部署。如需選擇對 Azure AD Connect 進行就地還是平行部署的詳細資訊，請參閱上面的＜就地升級 - 超過 5 萬個物件＞。將會顯示與下面類似的畫面：
+在步驟 #3，如果您擁有超過 5 萬個物件，則 Azure AD Connect 安裝會建議進行平行部署。如需選擇對 Azure AD Connect 進行就地還是平行部署的詳細資訊，請參閱上面的＜就地升級 - 超過 5 萬個物件＞。將會顯示與下面類似的畫面：
 
 ![輸入您的 Azure AD 認證](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisRecommendParallel.png)
 
@@ -125,7 +126,7 @@
 1. 執行 Azure AD Connect Installer (MSI)
 2. 當您看到 [歡迎使用 Azure AD Connect] 畫面時。按一下視窗右上角的 "X"，以結束精靈。
 3. 開啟命令提示字元
-4. 從 Azure AD Connect 的安裝位置 (預設值：]Program Files\Microsoft Azure Active Directory Connect)，執行下列命令：
+4. 從 Azure AD Connect 的安裝位置 (預設值：C:\\Program Files\\Microsoft Azure Active Directory Connect)，執行下列命令：
     * AzureADConnect.exe /migrate
 
 Azure AD Connect 會連線並向您呈現下列 UI：
@@ -202,7 +203,7 @@ Azure AD Connect 會連線並向您呈現下列 UI：
 * [Azure AD Connect 運作方式](active-directory-aadconnect-how-it-works.md)
 * [使用 Azure AD Connect 的下一步](active-directory-aadconnect-whats-next.md)
 * [深入了解](active-directory-aadconnect-learn-more.md)
-* [MSDN 上的 Azure AD Connect](https://msdn.microsoft.com/library/azure/dn832695.aspx)
+* [MSDN 上的 Azure AD Connect](active-directory-aadconnect.md)
  
 
-<!---HONumber=58-->
+<!---HONumber=August15_HO9-->

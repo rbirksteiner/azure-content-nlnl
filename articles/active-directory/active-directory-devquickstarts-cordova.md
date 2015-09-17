@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="04/28/2015"
+	ms.date="07/17/2015"
 	ms.author="vittorib"/>
 
 # 整合 Azure AD 與 Apache Cordova 應用程式
+
+[AZURE.INCLUDE [active-directory-devquickstarts-switcher](../../includes/active-directory-devquickstarts-switcher.md)]
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
@@ -63,8 +65,8 @@ Apache Cordova 可讓您開發 HTML5/JavaScript 應用程式，然後在行動�
 	-   [ios-sim](https://www.npmjs.org/package/ios-sim) – 可讓您到 iOS 模擬器從命令列啟動 iOS 應用程式 (可以輕鬆地透過終端機來安裝：`npm install -g ios-sim`)
 
 - 針對 Android 建置和執行應用程式
-	- 安裝 [Java Development Kit (JDK) 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) 或更新版本。請確定 `JAVA_HOME` (環境變數) 已根據 JDK 安裝路徑 (例如 C:\Program Files\Java\jdk1.7.0_75) 正確設定。
-	- 安裝 [Android SDK](http://developer.android.com/sdk/installing/index.html?pkg=tools)，並將 `<android-sdk-location>\tools` 位置 (例如，C:\tools\Android\android-sdk\tools) 加入至 `PATH` 環境變數。
+	- 安裝 [Java Development Kit (JDK) 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) 或更新版本。請確定 `JAVA_HOME` (環境變數) 已根據 JDK 安裝路徑 (例如 C:\\Program Files\\Java\\jdk1.7.0\_75) 正確設定。
+	- 安裝 [Android SDK](http://developer.android.com/sdk/installing/index.html?pkg=tools)，並將 `<android-sdk-location>\tools` 位置 (例如，C:\\tools\\Android\\android-sdk\\tools) 加入至 `PATH` 環境變數。
 	- 開啟 Android SDK Manager (例如，透過終端機：`android`) 並安裝
     - *Android 5.0.1 (API 21)* 平台 SDK
     - *Android SDK Build-tools* 19.1.0 版或更新版本
@@ -252,7 +254,7 @@ Azure AD 只會發出權杖給已知的應用程式。您必須先在租用戶�
 
 [使用 Azure AD 保護 Node.js Web API >>](active-directory-devquickstarts-webapi-nodejs.md)
 
-如需其他資源，請參閱：- [GitHub 上的 AzureADSamples >>](https://github.com/AzureAdSamples) - [CloudIdentity.com >>](https://cloudidentity.com) - [Azure.com 上的 Azure AD 文件 >>](http://azure.microsoft.com/documentation/services/active-directory/)
+[AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!---HONumber=62-->
+<!---HONumber=August15_HO6-->

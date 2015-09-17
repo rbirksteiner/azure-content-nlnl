@@ -1,39 +1,38 @@
 <properties 
-	pageTitle="在 Azure 虛擬網路上安裝 Active Directory 樹系" 
-	description="說明如何在 Azure 虛擬網路之虛擬機器 (VM) 上建立新 Active Directory 樹系的教學課程。" 
-	services="active-directory, virtual-network" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
+	pageTitle="在 Azure 虛擬網路上安裝 Active Directory 樹系"
+	description="說明如何在 Azure 虛擬網路之虛擬機器 (VM) 上建立新 Active Directory 樹系的教學課程。"
+	services="active-directory, virtual-network"
+	documentationCenter=""
+	authors="markusvi"
+	manager="TerryLan"
 	editor="LisaToft"
 	tags="azure-classic-portal"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.devlang="na" 
-	ms.topic="article" 
-    ms.tgt_pltfrm="na" 
-    ms.workload="identity" 
-	ms.date="04/27/2015" 
-	ms.author="Justinha"/>
+	ms.service="active-directory"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="identity"
+	ms.date="07/23/2015"
+	ms.author="markusvi"/>
 
 
 # 在 Azure 虛擬網路上安裝新的 Active Directory 樹系
 
-本主題說明如何在 [Azure 虛擬網路](https://msdn.microsoft.com/library/azure/jj156007.aspx)上，於 Azure 虛擬網路的虛擬機器 (VM) 上建立新的 Windows Server Active Directory 環境。在此案例中，Azure 虛擬網路並未連線至內部部署網路。
+本主題說明如何在 [Azure 虛擬網路](../virtual-network/virtual-networks-overview.md)上，於 Azure 虛擬網路的虛擬機器 (VM) 上建立新的 Windows Server Active Directory 環境。在此案例中，Azure 虛擬網路並未連線至內部部署網路。
 
 您也可能對以下相關主題有興趣：
 
 - 如需顯示相關步驟的影片，請參閱[如何在 Azure 虛擬網路上安裝新的 Active Directory 樹系](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
-- 您可以選擇性地[設定站台對站台 VPN](https://msdn.microsoft.com/library/azure/dn133795.aspx)，然後安裝新樹系，或將內部部署樹系延伸至 Azure 虛擬網路。如需相關步驟，請參閱[在 Azure 虛擬網路中安裝複本 Active Directory 網域控制台](../virtual-networks-install-replica-active-directory-domain-controller.md) (英文)。
+- 您可以選擇性地[設定站台對站台 VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md)，然後安裝新樹系，或將內部部署樹系延伸至 Azure 虛擬網路。如需相關步驟，請參閱[在 Azure 虛擬網路中安裝複本 Active Directory 網域控制台](../virtual-networks-install-replica-active-directory-domain-controller.md) (英文)。
 -  如需在 Azure 虛擬網路上安裝 Active Directory 網域服務 (AD DS) 的概念指引，請參閱[在 Azure 虛擬機器上部署 Windows Server Active Directory 的方針](https://msdn.microsoft.com/library/azure/jj156090.aspx) (英文)。
 
 ## 案例圖表
 
 在此案例中，外部使用者需要存取在加入網域的伺服器上執行的應用程式。執行應用程式伺服器的 VM 和執行網域控制站的 VM 會安裝在 Azure 虛擬網路內自己的雲端服務中。它們也會包含在可用性設定檔內，以改進容錯能力。
 
-![][1]
-
+![][1] 7
 ## 這與內部部署有何不同？
 
 在 Azure 或在內部部署上安裝網域控制台，差異並不會很多。下表列出主要差異。
@@ -42,7 +41,7 @@
 ------------- | -------------  | ------------
 **網域控制站的 IP 位址** | 在網路介面卡內容上指派靜態 IP 位址 | 執行 Set-AzureStaticVNetIP Cmdlet 以指派靜態 IP 位址
 **DNS 用戶端解析程式** | 在網域成員的網路介面卡內容上設定慣用與替代的 DNS 伺服器位址 | 在虛擬網路內容上設定 DNS 伺服器位址
-**Active Directory 資料庫儲存體** | 選擇性地將預設儲存位置變更為不是 ] | 您需要將預設儲存位置變更為不是 ]
+**Active Directory 資料庫儲存體** | 選擇性地將預設儲存位置變更為不是 C:\\ | 您需要將預設儲存位置變更為不是 C:\\
 
 
 
@@ -79,7 +78,7 @@
 
     'Get-AzureVM -ServiceName AzureDC1 -Name AzureDC1 | Set-AzureStaticVNetIP -IPAddress 10.0.0.4 | Update-AzureVM
 
-如需如何設定靜態 IP 位址的詳細資訊，請參閱[設定 VM 的靜態內部 IP 位址](https://msdn.microsoft.com/library/azure/dn630228.aspx)。
+如需如何設定靜態 IP 位址的詳細資訊，請參閱[設定 VM 的靜態內部 IP 位址](../virtual-network/virtual-networks-reserved-private-ip.md)。
 
 ## 安裝 Windows Server Active Directory
 
@@ -120,12 +119,12 @@
 
 -  [如何在 Azure 虛擬網路上安裝新的 Active Directory 樹系](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
 -  [在 Azure 虛擬機器上部署 Windows Server Active Directory 的方針](https://msdn.microsoft.com/library/azure/jj156090.aspx)
--  [設定純雲端虛擬網路](https://msdn.microsoft.com/library/dn631643.aspx)
--  [設定站台對站台 VPN](https://msdn.microsoft.com/library/dn133795.aspx)
+-  [設定純雲端虛擬網路](../virtual-network/virtual-networks-create-vnet.md)
+-  [設定站台對站台 VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 -  [在 Azure 虛擬網路中安裝複本 Active Directory 網域控制台](../virtual-networks-install-replica-active-directory-domain-controller.md)
 -  [Microsoft Azure IT Pro IaaS：(01) 虛擬機器基本概念](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 -  [Microsoft Azure IT Pro IaaS：(05) 建立虛擬網路和跨單位連線](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
--  [虛擬網路概觀](https://msdn.microsoft.com/library/azure/jj156007.aspx)
+-  [虛擬網路概觀](../virtual-network/virtual-networks-overview.md)
 -  [如何安裝和設定 Azure PowerShell](../powershell-install-configure.md)
 -  [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
 -  [Azure Cmdlet 參考](https://msdn.microsoft.com/library/azure/jj554330.aspx)
@@ -139,4 +138,4 @@
 
  
 
-<!---HONumber=58-->
+<!---HONumber=August15_HO9-->

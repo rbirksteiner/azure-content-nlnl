@@ -1,22 +1,22 @@
-<properties 
-   pageTitle="Azure Active Directory 程式碼範例" 
-   description="依案例的組織的 Azure Active Directory 程式碼範例的索引。" 
-   services="active-directory" 
-   documentationCenter="dev-center-name" 
-   authors="msmbaldwin" 
-   manager="mbaldwin" 
+<properties
+   pageTitle="Azure Active Directory 程式碼範例"
+   description="依案例的組織的 Azure Active Directory 程式碼範例的索引。"
+   services="active-directory"
+   documentationCenter="dev-center-name"
+   authors="msmbaldwin"
+   manager="mbaldwin"
    editor=""/>
 
 <tags
-   ms.service="azure"
+   ms.service="active-directory"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="identity" 
-   ms.date="04/06/2015"
+   ms.workload="identity"
+   ms.date="07/30/2015"
    ms.author="mbaldwin"/>
 
-# Azure Active Directory 程式碼範例 
+# Azure Active Directory 程式碼範例
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
@@ -26,7 +26,7 @@
 
 歡迎對我們在 GitHub 的範例做出貢獻：[Microsoft Azure Active Directory 範例與文件](https://github.com/AzureADSamples)。
 
-## Web 瀏覽器到 Web 應用程式 
+## Web 瀏覽器到 Web 應用程式
 
 這些範例示範如何撰寫將使用者的瀏覽器導向至 Azure AD 以進行登入的 Web 應用程式。
 
@@ -53,9 +53,9 @@
 
 
 ## 原生應用程式到 Web API
- 
+
 這些程式碼範例示範如何建置原生用戶端應用程式，其呼叫由 Azure AD 保護的 Web API。它們使用 [Azure AD 驗證程式庫 (ADAL)](http://go.microsoft.com/fwlink/?LinkID=258232) 和 [Azure AD 中的 OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx)。
- 
+
 | 語言/平台 | 範例 | 說明
 | ----------------- | ------ | -----------
 | Javascript | [NativeClient-MultiTarget-Cordova](https://github.com/AzureADSamples/NativeClient-MultiTarget-Cordova) | 使用 Apache Cordova 的 ADAL 外掛程式，建置一個可呼叫 Web API 並使用 Azure AD 進行驗證的 Apache Cordova 應用程式。
@@ -71,7 +71,7 @@
 | C#/Xamarin | [NativeClient-MultiTarget-DotNet](http://github.com/AzureADSamples/NativeClient-MultiTarget-DotNet) | Xamarin 專案，以五個平台為目標，並呼叫由 Azure AD 保護的 Web API。
 | C#/.NET | [NativeClient-Headless-DotNet](http://github.com/AzureADSamples/NativeClient-Headless-DotNet) | 原生應用程式，其執行非互動式驗證，並呼叫由 Azure AD 保護的 Web API。
 
-   
+
 
 ## Web 應用程式到 Web API
 
@@ -150,9 +150,4 @@ PHP | [Azure AD Graph API 的 PHP 範例應用程式](http://code.msdn.microsoft
 
 [使用 OAuth 和 Active Directory Federation Services 開發現代化的應用程式](http://msdn.microsoft.com/library/dn633593.aspx)
 
-
-
-
- 
-
-<!---HONumber=62-->
+<!---HONumber=August15_HO6-->
