@@ -19,7 +19,7 @@
 
 # bug fix after Compare_NewHO1 使用 Azure AD Connect 啟用目錄的混合式管理
 
-現在，使用者希望在內部部署和雲端都能存取應用程式。他們希望能夠從任何裝置上這樣做，像是膝上型電腦、智慧型手機或平板電腦。為了實現這個理想，您和您的組織必須設法讓使用者存取這些應用程式，而完全轉向雲端不見得總是可行。
+New_HO, New_HO, New_HO, New_HO, New_HO, New_HO, New_HO, New_HO, New_HO, 現在，使用者希望在內部部署和雲端都能存取應用程式。他們希望能夠從任何裝置上這樣做，像是膝上型電腦、智慧型手機或平板電腦。為了實現這個理想，您和您的組織必須設法讓使用者存取這些應用程式，而完全轉向雲端不見得總是可行。
 
 <center>![什麼是 Azure AD Connect](./media/active-directory-aadconnect/arch.png)</center>
 
