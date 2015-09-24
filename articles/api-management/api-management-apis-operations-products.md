@@ -16,7 +16,7 @@
 	ms.date="05/19/2015" 
 	ms.author="sdanie"/>
 
-# 如何在 Azure API 管理中建立 API、作業和產品
+# new HO new HO new HO new HO new HO new HO new HO 如何在 Azure API 管理中建立 API、作業和產品
 
 在 Azure API 管理中，會將 API 和其作業加入至產品中，開發人員可在產品中用其建置使用 API 的應用程式。本節中的指南將示範如何建立 API、加入作業至 API，以及將 API 與產品建立關聯並發佈以供開發人員使用。
 
