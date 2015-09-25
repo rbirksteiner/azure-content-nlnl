@@ -1,3 +1,0 @@
-NOAA 提供的每小時起降天候觀測值 ((<a href="http://cdo.ncdc.noaa.gov/qclcd_ascii/, merged data from 201304 to 201310">將 201304 的資料合併至 201310</a>)。<p> </p>天氣資料涵蓋從機場天候觀測站進行的觀測，涵蓋期間為 2013 年 4 月至 10 月。上傳至 Azure ML Studio 之前，資料集已經過下列處理：<ul><li>天候觀測站識別碼已對應至相對應的機場識別碼</li><li>已篩選掉與 70 個最繁忙的機場沒有關聯的天候觀測站</li><li>Date 資料行已分割為個別的 Year、Month 和 Day 資料行</li><li>已選取下列資料行：AirportID、Year、Month、Day、Time、TimeZone、SkyCondition、Visibility、WeatherType、DryBulbFarenheit、DryBulbCelsius、WetBulbFarenheit、WetBulbCelsius、DewPointFarenheit、DewPointCelsius、RelativeHumidity、WindSpeed、WindDirection、ValueForWindCharacter、StationPressure、PressureTendency、PressureChange、SeaLevelPressure、RecordType、HourlyPrecip、Altimeter</li></ul>
-
-<!---HONumber=58-->
