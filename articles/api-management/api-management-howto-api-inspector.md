@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/31/2015" 
+	ms.date="12/03/2015" 
 	ms.author="sdanie"/>
 
 # How to use the API Inspector to trace calls in Azure API Management
@@ -24,7 +24,7 @@ In addition to tracing operations, API Inspector also traces [policy expression]
 
 This guide provides a walk-through of using API Inspector.
 
->[AZURE.NOTE] API Inspector traces are only available to the [administrators](api-management-howto-create-groups.md) of your API Management service instance. API Inspector traces are only returned when making calls to a [protected product](api-management-howto-add-products.md) that requires a subscription key. 
+>[AZURE.NOTE] API Inspector traces are only generated and made available for requests containing subscription keys that belong to the [administrator](api-management-howto-create-groups.md) account.
 
 ## <a name="trace-call"> </a> Use API Inspector to trace a call
 
@@ -34,7 +34,7 @@ This tutorial shows how to use the API Inspector to trace operations using the B
 
 
 
-To get started, click **developer portal** in the Azure Portal for your API Management service. Operations can be called directly from the developer portal which provides a convenient way to view and test the operations of an API.
+To get started, click **developer portal** in the Azure Classic Portal for your API Management service. Operations can be called directly from the developer portal which provides a convenient way to view and test the operations of an API.
 
 >If you haven't yet created an API Management service instance, see [Create an API Management service instance][] in the [Get started with Azure API Management][] tutorial.
 
@@ -245,7 +245,7 @@ To review the values in the trace, download the trace file from the **ocp-apim-t
 [Get started with Azure API Management]: api-management-get-started.md
 [Create an API Management service instance]: api-management-get-started.md#create-service-instance
 [Get started with advanced API configuration]: api-management-get-started-advanced.md
-[Management Portal]: https://manage.windowsazure.com/
+[Azure Classic Portal]: https://manage.windowsazure.com/
 
 
 [api-management-developer-portal-menu]: ./media/api-management-howto-api-inspector/api-management-developer-portal-menu.png
