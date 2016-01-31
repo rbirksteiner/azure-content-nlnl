@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/11/2015"
+	ms.date="12/05/2015"  
 	ms.author="juliako"/>
 
 # Set up your environment
@@ -24,11 +24,11 @@
 - [REST](https://msdn.microsoft.com/library/azure/dn167014.aspx)
 <a id="create_account"></a>
 
+The following steps describe prerequisites required for developing with Azure Media Services.
+
 ## Create a Media Services account
 
-Use the Azure portal, the .NET SDK, or the REST API to create an Azure Media Services account.
-
-
+Use the Azure Classic Portal, the .NET SDK, or the REST API to create an Azure Media Services account.
 
 <a id="setup_dev_env"></a>
 ## Set up the development environment  
@@ -44,7 +44,12 @@ Choose .NET or the REST API to programmatically connect to Azure Media Services.
 
 [AZURE.INCLUDE [media-services-selector-connect](../../includes/media-services-selector-connect.md)]
 
-## Next steps
 
-- [Get started with delivering Video-on-Demand (VoD) content using .NET SDK](media-services-dotnet-get-started.md)
-- [Use .NET SDK to create channels that perform live encoding from a single-bitrate to multi-bitrate stream (Preview)](media-services-dotnet-creating-live-encoder-enabled-channel.md)
+##Next steps: Azure Media Services learning paths
+
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+
+##Provide feedback
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
