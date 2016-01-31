@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/23/2015"
+	ms.date="12/08/2015"
 	ms.author="mandia"/>
 
 
@@ -209,7 +209,7 @@ Includes Non-repudiation of Receipt (NRR) and downloading tracked messages</td>
 #### What is a BizTalk unit?
 A "unit" is the atomic level of an Azure BizTalk Services deployment. Each edition comes with a unit that has different compute capacity and memory. For example, a Basic unit has more compute than Developer, Standard has more compute than Basic, and so on. When you scale a BizTalk Service, you scale in terms of units.
 
-#### What is the different between BizTalk Services and Azure BizTalk VM?
+#### What is the difference between BizTalk Services and Azure BizTalk VM?
 BizTalk Services provides a true Platform-as-a-Service (PaaS) architecture for building integration solutions in the cloud. With the PaaS model, you focus completely on the application logic and leave all of the infrastructure management to Microsoft, including:
 
 - No need to manage or patch virtual machines.
@@ -237,7 +237,10 @@ You are not able to deploy any new bridges or create any new agreements. To depl
 
 #### How do I migrate from one tier of BizTalk Services to another?
 
-Use the backup and restore flow for migrating from one tier to another. Only some migration paths are supported. Refer to [BizTalk Services: Backup and Restore](biztalk-backup-restore.md) for more details about the supported migration paths.
+The Free edition cannot be migrated or 'scaled up' to another tier, and cannot be backed up and restored to another tier. If you need another tier, create a new BizTalk Service using the new tier. Any artifacts created using the Free edition, including hybrid connections, need to be recreated in the new BizTalk Service. 
+
+For the remaining editions, use the backup and restore for migrating your artifacts from one tier to another. For example, backup your artifacts in the Standard tier, and then restore them to the Premium tier. [BizTalk Services: Backup and Restore](biztalk-backup-restore.md) describes the supported migration paths and lists what artifacts are backed up. Note that Hybrid Connections are not backed up. After backing up and restoring to a new tier, you then recreate the hybrid connections.  
+
 
 #### Is the BizTalk Adapter Service included in the service? How do I receive the software?
 
