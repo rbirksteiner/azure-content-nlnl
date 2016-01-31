@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/30/2015"
+	ms.date="11/24/2015"
 	ms.author="awills"/>
 
 # Get started with Application Insights in a Java web project
@@ -25,7 +25,7 @@
 
 ![sample data](./media/app-insights-java-get-started/5-results.png)
 
-[Application Insights web tests][availability] monitor your application's availability.
+Application Insights supports Java apps running on Linux, Unix or Windows.
 
 You'll need:
 
@@ -106,7 +106,7 @@ Then refresh the project dependencies to get the binaries downloaded.
 
 Manually add the SDK:
 
-1. Download the [Application Insights SDK for Java](http://dl.windowsazure.com/lib/applicationinsights/javabin/sdk.zip).
+1. Download the [Application Insights SDK for Java](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html).
 2. Extract the binaries from the zip file and add them to your project.
 
 ### Questions...
@@ -206,19 +206,13 @@ Add this item to the Struts configuration file (usually named struts.xml or stru
 
 (If you have interceptors defined in a default stack, the interceptor can simply be added to that stack.)
 
-## 5. Install on the server
 
-On Windows servers, install:
 
-* [Microsoft Visual C++ Redistributable](http://www.microsoft.com/download/details.aspx?id=40784)
-
-(This enables performance counters.)
-
-## 6. Run your application
+## 5. Run your application
 
 Either run it in debug mode on your development machine, or publish to your server.
 
-## 7. View your telemetry in Application Insights
+## 6. View your telemetry in Application Insights
 
 Return to your Application Insights resource in [Microsoft Azure Portal](https://portal.azure.com).
 
@@ -250,15 +244,34 @@ For example, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` and `GET H
 
 This enables meaningful aggregations of requests, such as number of requests and average execution time for requests.
 
+
+## 5. Install your app on the server
+
+Now publish your app to the server, let people use it, and watch the telemetry show up on the portal.
+
+* Make sure your firewall allows your application to send telemetry to these ports:
+
+ * dc.services.visualstudio.com:443
+ * dc.services.visualstudio.com:80
+ * f5.services.visualstudio.com:443
+ * f5.services.visualstudio.com:80
+
+
+* On Windows servers, install:
+
+ * [Microsoft Visual C++ Redistributable](http://www.microsoft.com/download/details.aspx?id=40784)
+
+    (This enables performance counters.)
+
 ## Exceptions and request failures
 
-Unhandled exceptions are collected:
+Unhandled exceptions are automatically collected:
 
-![](./media/app-insights-java-get-started/21-exceptions.png)
+![Scroll down and click the Failures tile](./media/app-insights-java-get-started/21-exceptions.png)
 
 To collect data on other exceptions, you have two options:
 
-* [Insert calls to TrackException in your code][apiexceptions].
+* [Insert calls to trackException() in your code][apiexceptions]. 
 * [Install the Java Agent on your server](app-insights-java-agent.md). You specify the methods you want to watch.
 
 
@@ -349,6 +362,19 @@ Now that you've installed the SDK, you can use the API to send your own telemetr
 * [Search events and logs][diagnostic] to help diagnose problems.
 
 
+## Availability web tests
+
+Application Insights can test your website at regular intervals to check that it's up and responding well. [To set up][availability], scroll down to click Availability.
+
+![Scroll down, click Availability, then Add Web test](./media/app-insights-java-get-started/31-config-web-test.png)
+
+You'll get charts of response times, plus email notifications if your site goes down.
+
+![Web test example](./media/app-insights-java-get-started/appinsights-10webtestresult.png)
+
+[Learn more about availability web tests.][availability] 
+
+
 
 
 
@@ -357,7 +383,9 @@ Now that you've installed the SDK, you can use the API to send your own telemetr
 
 [Troubleshooting Java](app-insights-java-troubleshoot.md)
 
+## Next steps
 
+For more information, see the [Java Developer Center](/develop/java/).
 
 <!--Link references-->
 
