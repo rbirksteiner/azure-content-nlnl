@@ -136,7 +136,6 @@ Formerly called SQL Azure, Azure SQL Database provides all of the key features o
 
 But SQL Database isn't just a DBMS in the cloud-it's a PaaS service. You still control your data and who can access it, but SQL Database takes care of the administrative grunt work, such as managing the hardware infrastructure and automatically keeping the database and operating system software up to date. SQL Database also provides high availability, automatic backups, point-in-time restore capabilities, and can replicate copies across geographical regions.  
 
-There is also a Premium option that you can pay a little more for so you can have your own dedicated server underneath. With the Standard option, the database runs on shared hardware, which can throttle your database queries if you happen to be on a particularly busy server.  
 
 **Scenarios for SQL Database**
 
@@ -257,23 +256,23 @@ These SDKs help you build, deploy, and manage Azure applications. They're availa
 
 Along with helping you build Azure applications, these SDKs also provide client libraries that help you create software that uses Azure services. For example, you might build an application that reads and writes Azure blobs, or create a tool that deploys Azure applications through the Azure management interface. 
 
-### Visual Studio Online
+### Visual Studio Team Services
 
-Visual Studio Online is an marketing name covering a number services which help to develop applications in the Azure. 
+Visual Studio Team Services is an marketing name covering a number services which help to develop applications in the Azure. 
 
 To avoid confusion - It does not provide a hosted or Web-based version of Visual Studio. You still need your local running copy of Visual Studio. But it provides many other tools which can be very helpful. 
 
 It does include a hosted source control system called Team Foundation Service, which offers version control and work item tracking.  You can even use Git for version control if you prefer that. And you can vary the source control system you use by project. You can create unlimited private team projects accessible from anywhere in the world.  
 
-Visual Studio Online provides a load testing service. You can execute load tests created in Visual Studio on VMs in the cloud. You specify the total number of users you want to load test with, and Visual Studio Online will automatically determine how many agents are needed, spin up the required virtual machines and execute your load tests. If you're an MSDN subscriber, you get thousands of free user-minutes of load testing each month. 
+Visual Studio Team Services provides a load testing service. You can execute load tests created in Visual Studio on VMs in the cloud. You specify the total number of users you want to load test with, and Visual Studio Team Services will automatically determine how many agents are needed, spin up the required virtual machines and execute your load tests. If you're an MSDN subscriber, you get thousands of free user-minutes of load testing each month. 
 
-Visual Studio Online also offers support for agile development with features like continuous integration builds, Kanban boards and virtual team rooms. 
+Visual Studio Team Services also offers support for agile development with features like continuous integration builds, Kanban boards and virtual team rooms. 
 
-**Visual Studio Online Scenarios**
+**Visual Studio Team Services Scenarios**
 
-Visual Studio Online is a good option for companies that need to collaborate worldwide and don't already have the infrastructure in place to do so. You can get setup in minutes, choose a source control system and start writing code and building that day.  The team tools provide a place for coordination and collaboration and the additional tools provide the analysis needed to test and tune your application quickly.
+Visual Studio Team Services is a good option for companies that need to collaborate worldwide and don't already have the infrastructure in place to do so. You can get setup in minutes, choose a source control system and start writing code and building that day.  The team tools provide a place for coordination and collaboration and the additional tools provide the analysis needed to test and tune your application quickly.
 
-But organizations that already have an on-premises system can test new projects on Visual Studio Online to see if it's more efficient.   
+But organizations that already have an on-premises system can test new projects on Visual Studio Team Services to see if it's more efficient.   
 
 ### Application Insights
 
@@ -406,11 +405,11 @@ Every enterprise needs to backup and restore data. You can use Azure to backup a
 
 ### Site Recovery
  
-Azure Site Recovery (formerly Hyper-V Recovery Manager) can help you protect important applications by coordinating the replication and recovery of Hyper-V images across sites. You can back up to your own secondary site, a hoster’s site, or use Azure and avoid the expense and complexity of building and managing your own secondary location. Azure encrypts data and communications and you have the option enable encryption for data at-rest too. 
+Azure Site Recovery (formerly Hyper-V Recovery Manager) can help you protect important applications by coordinating the replication and recovery across sites. Site Recovery  provides capability to protect applications based on Hyper-v, VMWare or SAN to your own secondary site, to a hoster’s site, or to Azure and avoid the expense and complexity of building and managing your own secondary location. Azure encrypts data and communications and you have the option enable encryption for data at-rest too. 
 
 It monitors the health of your services continuously and helps automate the orderly recovery of services in the event of a site outage at the primary datacenter. Virtual machines can be brought up in an orchestrated fashion to help restore service quickly, even for complex multi-tier workloads.
 
-Site Recovery works with existing technologies such as Hyper-V Replica, System Center, and SQL Server AlwaysOn.
+Site Recovery works with existing technologies such as Hyper-V Replica, System Center, and SQL Server AlwaysOn. Check out [Azure Site Recovery overview](site-recovery/site-recovery-overview.md) for more details.
 
 ### Azure Backup
 ![Azure Backup](./media/fundamentals-introduction-to-azure/AzureBackupIntroNew.png)  
