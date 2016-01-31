@@ -12,10 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/01/2015"
+   ms.date="12/14/2015"
    ms.author="alkohli" />
 
 # Use the StorSimple Manager service to view and manage StorSimple jobs
+
+[AZURE.INCLUDE [storsimple-version-selector-manage-jobs](../../includes/storsimple-version-selector-manage-jobs.md)]
 
 ## Overview
 
@@ -87,4 +89,6 @@ This job is now canceled.
 
 ## Next steps
 
-[Learn how to manage your StorSimple backup policies](storsimple-manage-backup-policies.md).
+- Learn how to [manage your StorSimple backup policies](storsimple-manage-backup-policies.md).
+
+- Learn how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).

@@ -12,10 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/28/2015"
+   ms.date="12/14/2015"
    ms.author="v-sharos" />
 
 # Restore a StorSimple volume from a backup set
+
+[AZURE.INCLUDE [storsimple-version-selector-restore-from-backup](../../includes/storsimple-version-selector-restore-from-backup.md)]
 
 ## Overview
 
@@ -78,6 +80,12 @@ You can use the **Backup Catalog** page to restore your StorSimple volume from a
 
 8. After the restore is complete, you can verify that the contents of your volumes are replaced by volumes from the backup.
 
+![Video available](./media/storsimple-restore-from-backup-set/Video_icon.png) **Video available**
+
+To watch a video that demonstrates how you can use the clone and restore features in StorSimple to recover deleted files, click [here](http://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/).
+
 ## Next steps
 
-Learn how to [Manage StorSimple volumes](storsimple-manage-volumes.md).
+- Learn how to [Manage StorSimple volumes](storsimple-manage-volumes.md).
+
+- Learn how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).

@@ -1,18 +1,20 @@
 <properties 
-	pageTitle="Performance best practices for SQL Server in Azure Virtual Machines"
+	pageTitle="Performance best practices for SQL Server | Microsoft Azure"
 	description="Provides best practices for optimizing SQL Server performance in Microsoft Azure VMs."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar" />
+	editor="monicar" 
+	tags="azure-service-management" />
+	
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="09/01/2015"
+	ms.date="11/13/2015"
 	ms.author="jroth" />
 
 # Performance best practices for SQL Server in Azure Virtual Machines
@@ -21,9 +23,11 @@
 
 This topic provides best practices for optimizing SQL Server performance in Microsoft Azure Virtual Machine. While running SQL Server in Azure Virtual Machines, we recommend that you continue using the same database performance tuning options that are applicable to SQL Server in on-premises server environment. However, the performance of a relational database in a public cloud depends on many factors such as the size of a virtual machine, and the configuration of the data disks.
 
->[AZURE.NOTE] This paper is focused on getting the best performance for SQL Server on Azure VMs. If your workload is less demanding, you might not require every optimization listed below. Consider your performance needs and workload patterns as you evaluate these recommendations.
+When creating SQL Server images, consider using the Azure portal to take advantage of features, such as the default use of Premium Storage, and other options, such as Automated Patching, Automated Backup, and AlwaysOn configurations.
 
-For a companion resource on this topic, you can [download the following white paper](http://download.microsoft.com/download/D/2/0/D20E1C5F-72EA-4505-9F26-FEF9550EFD44/Performance%20Guidance%20for%20SQL%20Server%20in%20Windows%20Azure%20Virtual%20Machines.docx). Please note that the information in that white paper is outdated in some areas. For example, it was written before the introduction of Premium Storage, which is now recommended for the best performance results.
+This paper is focused on getting the best performance for SQL Server on Azure VMs. If your workload is less demanding, you might not require every optimization listed below. Consider your performance needs and workload patterns as you evaluate these recommendations.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 ## Quick check list
 
