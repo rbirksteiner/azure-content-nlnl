@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Application Insights Data Model" 
-	description="Describes properties exported from continuous export in JSON, and used as filters." 
-	services="application-insights" 
+    pageTitle="Application Insights Data Model" 
+    description="Describes properties exported from continuous export in JSON, and used as filters." 
+    services="application-insights" 
     documentationCenter=""
-	authors="alancameronwills" 
-	manager="douge"/>
+    authors="alancameronwills" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/11/2015" 
-	ms.author="awills"/>
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/11/2015" 
+    ms.author="awills"/>
 
 # Application Insights Export Data Model
 
@@ -991,5 +991,6 @@ view, request, and so on.
 * [Application Insights](app-insights-overview.md) 
 * [Continuous Export](app-insights-export-telemetry.md)
 * [Code samples](app-insights-export-telemetry.md#code-samples)
+
 
 

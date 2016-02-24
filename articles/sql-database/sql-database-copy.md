@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Copy an Azure SQL database"
-	description="Create a copy of an Azure SQL database"
-	services="sql-database"
-	documentationCenter=""
-	authors="stevestein"
-	manager="jeffreyg"
-	editor=""/>
+    pageTitle="Copy an Azure SQL database"
+    description="Create a copy of an Azure SQL database"
+    services="sql-database"
+    documentationCenter=""
+    authors="stevestein"
+    manager="jeffreyg"
+    editor=""/>
 
 <tags
-	ms.service="sql-database"
-	ms.devlang="NA"
-	ms.date="10/16/2015"
-	ms.author="sstein"
-	ms.workload="data-management"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"/>
+    ms.service="sql-database"
+    ms.devlang="NA"
+    ms.date="10/16/2015"
+    ms.author="sstein"
+    ms.workload="data-management"
+    ms.topic="article"
+    ms.tgt_pltfrm="NA"/>
 
 
 # Copy an Azure SQL Database
@@ -47,9 +47,9 @@ To copy a SQL database you need the following:
 
 Open the SQL database blade for the database you want to copy:
 
-1.	Go to the [Azure Portal](https://portal.azure.com).
-2.	Go to the database you want to copy: Browse > SQL databases
-3.	In the SQL database blade click **Copy** to open the **Copy** blade:
+1.  Go to the [Azure Portal](https://portal.azure.com).
+2.  Go to the database you want to copy: Browse > SQL databases
+3.  In the SQL database blade click **Copy** to open the **Copy** blade:
 
     ![copy database][1]
 
@@ -64,7 +64,7 @@ Open the SQL database blade for the database you want to copy:
 
 ## Monitor the progress of the copy operation
 
-2.	After starting the copy click on the portal notification for details.
+2.  After starting the copy click on the portal notification for details.
 
 
     ![notification][3]
@@ -100,4 +100,5 @@ Open the SQL database blade for the database you want to copy:
 [2]: ./media/sql-database-copy/copy-ok.png
 [3]: ./media/sql-database-copy/copy-notification.png
 [4]: ./media/sql-database-copy/monitor-copy.png
+
 

@@ -49,3 +49,4 @@ This document describes a pattern for providing access to web services or web se
 
 [Batch Processing Tier](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-0bc3f8b1)
 
+

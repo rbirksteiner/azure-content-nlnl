@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Add authentication to your Windows Runtime 8.1 universal app | Azure Mobile Apps"
-	description="Learn how to use Azure App Service Mobile Apps to authenticate users of your Windows app using a variety of identity providers, including: AAD, Google, Facebook, Twitter, and Microsoft."
-	services="app-service\mobile"
-	documentationCenter="windows"
-	authors="mattchenderson" 
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Add authentication to your Windows Runtime 8.1 universal app | Azure Mobile Apps"
+    description="Learn how to use Azure App Service Mobile Apps to authenticate users of your Windows app using a variety of identity providers, including: AAD, Google, Facebook, Twitter, and Microsoft."
+    services="app-service\mobile"
+    documentationCenter="windows"
+    authors="mattchenderson" 
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-windows"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="11/23/2015"
-	ms.author="glenga"/>
+    ms.service="app-service-mobile"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-windows"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="11/23/2015"
+    ms.author="glenga"/>
 
 # Add authentication to your Windows app
 
@@ -65,3 +65,4 @@ Now that you completed this basic authentication tutorial, consider continuing o
 <!-- URLs. -->
 [Get started with your mobile app]: app-service-mobile-windows-store-dotnet-get-started.md
  
+

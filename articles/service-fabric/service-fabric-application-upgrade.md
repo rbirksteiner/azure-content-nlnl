@@ -66,3 +66,4 @@ The flowchart below aids with the understanding of the upgrade process of a Serv
 
 [image]: media/service-fabric-application-upgrade/service-fabric-application-upgrade-flowchart.png
  
+

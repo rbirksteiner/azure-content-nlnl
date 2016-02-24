@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Runbook and module galleries for Azure Automation | Microsoft Azure"
-	description="Runbooks and modules from Microsoft and the community are available for you to install and use in your Azure Automation environment.  This article describes how you can access these resources and to contribute your runbooks to the gallery."
-	services="automation"
-	documentationCenter=""
-	authors="bwren"
-	manager="stevenka"
-	editor="tysonn" />
+    pageTitle="Runbook and module galleries for Azure Automation | Microsoft Azure"
+    description="Runbooks and modules from Microsoft and the community are available for you to install and use in your Azure Automation environment.  This article describes how you can access these resources and to contribute your runbooks to the gallery."
+    services="automation"
+    documentationCenter=""
+    authors="bwren"
+    manager="stevenka"
+    editor="tysonn" />
 <tags 
-	ms.service="automation"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="09/23/2015"
-	ms.author="bwren" />
+    ms.service="automation"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="infrastructure-services"
+    ms.date="09/23/2015"
+    ms.author="bwren" />
 
 
 # Runbook and module galleries for Azure Automation

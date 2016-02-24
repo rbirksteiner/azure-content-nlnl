@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Service Bus messaging overview | Microsoft Azure"
-	description="Service Bus Messaging: Flexible Data Delivery in the Cloud"
-	services="service-bus"
-	documentationCenter=".net"
-	authors="sethmanheim"
-	manager="timlt"
-	editor=""/>
+    pageTitle="Service Bus messaging overview | Microsoft Azure"
+    description="Service Bus Messaging: Flexible Data Delivery in the Cloud"
+    services="service-bus"
+    documentationCenter=".net"
+    authors="sethmanheim"
+    manager="timlt"
+    editor=""/>
 
 <tags
-	ms.service="service-bus"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="12/09/2015"
-	ms.author="sethm"/>
+    ms.service="service-bus"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="multiple"
+    ms.topic="article"
+    ms.date="12/09/2015"
+    ms.author="sethm"/>
 
 
 # Service Bus messaging: flexible data delivery in the cloud
@@ -55,3 +55,4 @@ To learn more about Service Bus messaging, see the following topics.
 - [How to use Service Bus Queues](service-bus-dotnet-how-to-use-queues.md)
 - [How to use Service Bus Topics](service-bus-dotnet-how-to-use-topics-subscriptions.md)
  
+

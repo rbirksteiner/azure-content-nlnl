@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How to edit the contents of a page in Azure API Management" 
-	description="How to edit the contents of a page in Azure API Management." 
-	services="api-management" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="How to edit the contents of a page in Azure API Management" 
+    description="How to edit the contents of a page in Azure API Management." 
+    services="api-management" 
+    documentationCenter="" 
+    authors="steved0x" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="api-management" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/03/2015" 
-	ms.author="sdanie"/>
+    ms.service="api-management" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/03/2015" 
+    ms.author="sdanie"/>
 
 # How to edit the contents of a page in Azure API Management
 
@@ -34,3 +34,4 @@ Click on the "Welcome" page to edit what is displayed on the home page of the de
 [Azure Classic Portal]: https://manage.windowsazure.com/
 
 [api-management-howto-edit-contents-of-page-manage-content]: ./media/api-management-howto-edit-contents-of-page/api-management-customization-manage-content.png
+

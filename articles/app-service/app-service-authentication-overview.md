@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Authentication in Azure App Service API apps and mobile apps" 
-	description="Learn how to configure and use authentication for API apps and mobile apps in Azure app service." 
-	services="app-service" 
-	documentationCenter="" 
-	authors="tdykstra" 
-	manager="wpickett" 
-	editor="jimbe"/>
+    pageTitle="Authentication in Azure App Service API apps and mobile apps" 
+    description="Learn how to configure and use authentication for API apps and mobile apps in Azure app service." 
+    services="app-service" 
+    documentationCenter="" 
+    authors="tdykstra" 
+    manager="wpickett" 
+    editor="jimbe"/>
 
 <tags 
-	ms.service="app-service" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/22/2015" 
-	ms.author="tdykstra"/>
+    ms.service="app-service" 
+    ms.workload="web" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/22/2015" 
+    ms.author="tdykstra"/>
 
 # Authentication for API apps and mobile apps in Azure App Service
 
@@ -172,13 +172,13 @@ This article has explained the authentication services provided by Azure App Ser
 
 * [OAuth 2.0, OpenID Connect, and JSON Web Tokens (JWT)](#oauth)
 * API Apps resources
-	* [API Apps client flow](#apiaclient)
-	* [API Apps server flow](#apiaserver)
-	* [API Apps on-behalf-of calls](#apiaobo)
+    * [API Apps client flow](#apiaclient)
+    * [API Apps server flow](#apiaserver)
+    * [API Apps on-behalf-of calls](#apiaobo)
 * Mobile Apps resources
-	* [Mobile Apps client flow](#maclient)
-	* [Mobile Apps server flow](#maserver)
-	* [Mobile Apps on-behalf-of calls](#maobo)
+    * [Mobile Apps client flow](#maclient)
+    * [Mobile Apps server flow](#maserver)
+    * [Mobile Apps on-behalf-of calls](#maobo)
 
 ### <a id="oauth"></a>OAuth 2.0, OpenID Connect, and JSON Web Tokens (JWT)
 
@@ -215,3 +215,4 @@ This article has explained the authentication services provided by Azure App Ser
 ### <a id="maobo"></a>Mobile Apps on-behalf-of calls to secured resources
 
 * [Obtain an access token and call the SharePoint API in a mobile app](../app-service-mobile/app-service-mobile-dotnet-backend-get-started-connect-to-enterprise.md#obtain-token)
+

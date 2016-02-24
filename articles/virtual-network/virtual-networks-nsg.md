@@ -93,11 +93,11 @@ You can associate an NSG to VMs, NICs, and subnets, depending on the deployment 
 You can associate different NSGs to a VM (or NIC, depending on the deployment model) and the subnet that a NIC or VM is bound to. When that happens, all network access rules are applied to the traffic in the following order:
 
 - **Inbound traffic**
-	1. NSG applied to subnet.
-	2. NSG applied to NIC (Resource Manager) or VM (classic).
+    1. NSG applied to subnet.
+    2. NSG applied to NIC (Resource Manager) or VM (classic).
 - **Outbound traffic**
-	1. NSG applied to NIC (Resource Manager) or VM (classic).
-	3. NSG applied to subnet.
+    1. NSG applied to NIC (Resource Manager) or VM (classic).
+    3. NSG applied to subnet.
 
 ![NSG ACLs](./media/virtual-network-nsg-overview/figure2.png)
 
@@ -105,7 +105,7 @@ You can associate different NSGs to a VM (or NIC, depending on the deployment mo
 
 ## Planning
 
-Before implementing NSGs, you need to answer the questions below:	
+Before implementing NSGs, you need to answer the questions below:   
 
 1. What types of resources do you want to filter traffic to or from (NICs in the same VM, VMs or other resources such as cloud services or application service environments connected to the same subnet, or between resources connected to different subnets)?
 
@@ -247,3 +247,4 @@ Since some of the NSGs above need to be associated to individual NICs, you need 
 - [Deploy NSGs in the classic deployment model](virtual-networks-create-nsg-classic-ps.md).
 - [Deploy NSGs in Resource Manager](virtual-networks-create-nsg-arm-pportal.md).
 - [Manage NSG logs](virtual-network-nsg-manage-log.md).
+

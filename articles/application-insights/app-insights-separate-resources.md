@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Separate Application Insights resources for dev, test and production" 
-	description="Monitor the performance and usage of your application at different stages of development" 
-	services="application-insights" 
+    pageTitle="Separate Application Insights resources for dev, test and production" 
+    description="Monitor the performance and usage of your application at different stages of development" 
+    services="application-insights" 
     documentationCenter=""
-	authors="alancameronwills" 
-	manager="douge"/>
+    authors="alancameronwills" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/25/2015" 
-	ms.author="awills"/>
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/25/2015" 
+    ms.author="awills"/>
 
 # Separate Application Insights resources for development, test and production
 

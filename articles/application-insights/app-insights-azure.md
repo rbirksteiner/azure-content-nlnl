@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Application Insights for Microsoft Azure apps" 
-	description="Analyze usage and performance of your Azure app with Application Insights." 
-	services="application-insights" 
+    pageTitle="Application Insights for Microsoft Azure apps" 
+    description="Analyze usage and performance of your Azure app with Application Insights." 
+    services="application-insights" 
     documentationCenter="windows"
-	authors="alancameronwills" 
-	manager="douge"/>
+    authors="alancameronwills" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/04/2015" 
-	ms.author="awills"/>
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/04/2015" 
+    ms.author="awills"/>
 
 #  Application Insights for Microsoft Azure apps
 

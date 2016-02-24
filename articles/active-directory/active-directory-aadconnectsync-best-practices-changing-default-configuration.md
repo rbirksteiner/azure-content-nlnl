@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure AD Connect sync: Best practices for changing the default configuration | Microsoft Azure"
-	description="Provides best practices for changing the default configuration of Azure AD Connect sync."
-	services="active-directory"
-	documentationCenter=""
-	authors="andkjell"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Azure AD Connect sync: Best practices for changing the default configuration | Microsoft Azure"
+    description="Provides best practices for changing the default configuration of Azure AD Connect sync."
+    services="active-directory"
+    documentationCenter=""
+    authors="andkjell"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/11/2015"
-	ms.author="markusvi;andkjell"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/11/2015"
+    ms.author="markusvi;andkjell"/>
 
 
 # Azure AD Connect sync: Best practices for changing the default configuration
@@ -85,3 +85,4 @@ At Fabrikam we have realized that some of the attributes we synchronize to the c
 Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
 
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
+

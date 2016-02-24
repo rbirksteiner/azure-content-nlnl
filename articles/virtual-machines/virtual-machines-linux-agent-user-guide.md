@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Linux Agent User Guide | Microsoft Azure" 
-	description="Learn how to install and configure Linux Agent (waagent) to manage your virtual machine's interaction with Azure Fabric Controller." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="szarkos" 
-	manager="timlt" 
-	editor=""
-	tags="azure-service-management,azure-resource-manager" />
+    pageTitle="Linux Agent User Guide | Microsoft Azure" 
+    description="Learn how to install and configure Linux Agent (waagent) to manage your virtual machine's interaction with Azure Fabric Controller." 
+    services="virtual-machines" 
+    documentationCenter="" 
+    authors="szarkos" 
+    manager="timlt" 
+    editor=""
+    tags="azure-service-management,azure-resource-manager" />
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/30/2015" 
-	ms.author="szark"/>
+    ms.service="virtual-machines" 
+    ms.workload="infrastructure-services" 
+    ms.tgt_pltfrm="vm-linux" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="07/30/2015" 
+    ms.author="szark"/>
 
 
 
@@ -104,8 +104,8 @@ Installation using an RPM or a DEB package from your distribution's package repo
 
 If installing manually, the 'waagent' script should be copied to /usr/sbin/waagent and installed by running: 
 
-	# sudo chmod 755 /usr/sbin/waagent
-	# sudo /usr/sbin/waagent -install -verbose
+    # sudo chmod 755 /usr/sbin/waagent
+    # sudo /usr/sbin/waagent -install -verbose
 
 The agent's log file is kept at /var/log/waagent.log.
 
@@ -171,27 +171,27 @@ The agent's log file is kept at /var/log/waagent.log.
 
 A configuration file (/etc/waagent.conf) controls the actions of waagent. 
 A sample configuration file is shown below:
-	
-	#
-	# Azure Linux Agent Configuration	
-	#
-	Role.StateConsumer=None 
-	Role.ConfigurationConsumer=None 
-	Role.TopologyConsumer=None
-	Provisioning.Enabled=y
-	Provisioning.DeleteRootPassword=n
-	Provisioning.RegenerateSshHostKeyPair=y
-	Provisioning.SshHostKeyPairType=rsa
-	Provisioning.MonitorHostName=y
-	ResourceDisk.Format=y
-	ResourceDisk.Filesystem=ext4
-	ResourceDisk.MountPoint=/mnt/resource 
-	ResourceDisk.EnableSwap=n 
-	ResourceDisk.SwapSizeMB=0
-	LBProbeResponder=y
-	Logs.Verbose=n
-	OS.RootDeviceScsiTimeout=300
-	OS.OpensslPath=None
+    
+    #
+    # Azure Linux Agent Configuration   
+    #
+    Role.StateConsumer=None 
+    Role.ConfigurationConsumer=None 
+    Role.TopologyConsumer=None
+    Provisioning.Enabled=y
+    Provisioning.DeleteRootPassword=n
+    Provisioning.RegenerateSshHostKeyPair=y
+    Provisioning.SshHostKeyPairType=rsa
+    Provisioning.MonitorHostName=y
+    ResourceDisk.Format=y
+    ResourceDisk.Filesystem=ext4
+    ResourceDisk.MountPoint=/mnt/resource 
+    ResourceDisk.EnableSwap=n 
+    ResourceDisk.SwapSizeMB=0
+    LBProbeResponder=y
+    Logs.Verbose=n
+    OS.RootDeviceScsiTimeout=300
+    OS.OpensslPath=None
 
 The various configuration options are described in detail below. Configuration options are of three types; Boolean, String or Integer. The Boolean configuration options can be specified as "y" or "n". The special keyword "None" may be used for some string type configuration entries as detailed below.
 

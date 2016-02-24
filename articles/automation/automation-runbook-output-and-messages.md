@@ -36,9 +36,9 @@ The Output stream is intended for output of objects created by a script or workf
 
 You can write data to the output stream using [Write-Output](http://technet.microsoft.com/library/hh849921.aspx) or by putting the object on its own line in the runbook.
 
-	#The following lines both write an object to the output stream.
-	Write-Output –InputObject $object
-	$object
+    #The following lines both write an object to the output stream.
+    Write-Output –InputObject $object
+    $object
 
 ### Output from a function
 
@@ -46,27 +46,27 @@ When you write to the output stream in a function that is included in your runbo
 
 Consider the following sample runbook.
 
-	Workflow Test-Runbook
-	{
-	   Write-Verbose "Verbose outside of function"
-	   Write-Output "Output outside of function"
-	   $functionOutput = Test-Function
-	
-	   Function Test-Function
-	   {
-	      Write-Verbose "Verbose inside of function"
-	      Write-Output "Output inside of function"
-	   }
-	}
+    Workflow Test-Runbook
+    {
+       Write-Verbose "Verbose outside of function"
+       Write-Output "Output outside of function"
+       $functionOutput = Test-Function
+    
+       Function Test-Function
+       {
+          Write-Verbose "Verbose inside of function"
+          Write-Output "Output inside of function"
+       }
+    }
 
 The output stream for the runbook job would be:
 
-	Output outside of function
+    Output outside of function
 
 The verbose stream for the runbook job would be:
 
-	Verbose outside of function
-	Verbose inside of function
+    Verbose outside of function
+    Verbose inside of function
 
 ### Declaring output data type
 
@@ -74,13 +74,13 @@ A workflow can specify the data type of its output using the [OutputType attribu
 
 The following sample runbook outputs a string object and includes a declaration of its output type. If your runbook outputs an array of a certain type, then you should still specify the type as opposed to an array of the type.
 
-	Workflow Test-Runbook
-	{
-	   [OutputType([string])]
-	
-	   $output = "This is some string output."
-	   Write-Output $output
-	}
+    Workflow Test-Runbook
+    {
+       [OutputType([string])]
+    
+       $output = "This is some string output."
+       Write-Output $output
+    }
 
 ## Message streams
 
@@ -92,11 +92,11 @@ The Warning and Error streams are intended to log problems that occur in a runbo
 
 Create a warning or error message using the [Write-Warning](https://technet.microsoft.com/library/hh849931.aspx) or [Write-Error](http://technet.microsoft.com/library/hh849962.aspx) cmdlet. Activities may also write to these streams.
 
-	#The following lines create a warning message and then an error message that will suspend the runbook.
-	
-	$ErrorActionPreference = "Stop"
-	Write-Warning –Message "This is a warning message."
-	Write-Error –Message "This is an error message that will stop the runbook because of the preference variable."
+    #The following lines create a warning message and then an error message that will suspend the runbook.
+    
+    $ErrorActionPreference = "Stop"
+    Write-Warning –Message "This is a warning message."
+    Write-Error –Message "This is an error message that will stop the runbook because of the preference variable."
 
 ### Verbose stream
 
@@ -106,9 +106,9 @@ When [testing a runbook](http://msdn.microsoft.com/library/azure/dn879147.aspx),
 
 Create a verbose message using the [Write-Verbose](http://technet.microsoft.com/library/hh849951.aspx) cmdlet.
 
-	#The following line creates a verbose message.
-	
-	Write-Verbose –Message "This is a verbose message."
+    #The following line creates a verbose message.
+    
+    Write-Verbose –Message "This is a verbose message."
 
 ### Debug stream
 
@@ -152,16 +152,16 @@ In Windows PowerShell, you can retrieve output and messages from a runbook using
 
 The following example starts a sample runbook and then waits for it to complete. Once completed, its output stream is collected from the job.
 
-	$job = Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" 
-	
-	$doLoop = $true
-	While ($doLoop) {
-	   $job = Get-AzureAutomationJob –AutomationAccountName "MyAutomationAccount" -Id $job.Id
-	   $status = $job.Status
-	   $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped") 
-	}
-	
-	Get-AzureAutomationJobOutput –AutomationAccountName "MyAutomationAccount" -Id $job.Id –Stream Output
+    $job = Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" 
+    
+    $doLoop = $true
+    While ($doLoop) {
+       $job = Get-AzureAutomationJob –AutomationAccountName "MyAutomationAccount" -Id $job.Id
+       $status = $job.Status
+       $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped") 
+    }
+    
+    Get-AzureAutomationJobOutput –AutomationAccountName "MyAutomationAccount" -Id $job.Id –Stream Output
 
 ## Related articles
 

@@ -1,20 +1,20 @@
 <properties
-	pageTitle="How to define a custom API in a JavaScript backend mobile service | Azure Mobile Services"
-	description="Learn how to define a custom API endpoint in a JavaScript backend mobile service."
-	services="mobile-services"
-	documentationCenter=""
-	authors="ggailey777"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="How to define a custom API in a JavaScript backend mobile service | Azure Mobile Services"
+    description="Learn how to define a custom API endpoint in a JavaScript backend mobile service."
+    services="mobile-services"
+    documentationCenter=""
+    authors="ggailey777"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-multiple"
-	ms.devlang="javascript"
-	ms.topic="article"
-	ms.date="12/07/2015"
-	ms.author="glenga"/>
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-multiple"
+    ms.devlang="javascript"
+    ms.topic="article"
+    ms.date="12/07/2015"
+    ms.author="glenga"/>
 
 
 # How to: define a custom API endpoint in a JavaScript backend mobile service
@@ -35,4 +35,5 @@ For information on how to invoke a custom API in your app using a Mobile Service
 <!-- Images. -->
 
 <!-- URLs. -->
+
 

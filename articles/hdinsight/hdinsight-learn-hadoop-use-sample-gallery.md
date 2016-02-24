@@ -22,13 +22,13 @@
 The HDInsight Getting Started Gallery provides an easy and quick way learn Hadoop by running sample applications in HDInsight. Some of the samples come with sample data. You can supply your own data for the remaining samples. Currently, there are the following six samples (with more coming):
 
 - Solutions with your Azure data
-	- Microsoft Azure website log analysis
-	- Microsoft Azure storage analytics
+    - Microsoft Azure website log analysis
+    - Microsoft Azure storage analytics
 - Solutions with sample data
-	- Sensor data analysis
-	- Twitter trend analysis
-	- Website log analysis
-	- Mahout movie recommendation
+    - Sensor data analysis
+    - Twitter trend analysis
+    - Website log analysis
+    - Mahout movie recommendation
 
 [AZURE.INCLUDE [hdinsight-azure-preview-portal](../../includes/hdinsight-azure-preview-portal.md)]
 
@@ -51,7 +51,7 @@ The Dashboard can be accessed by browsing to http://<YourHDInsightClusterName>.a
 6. Click **Getting Started Gallery** at the top of the page.
 7. Click one of the samples. Each sample gives detailed steps for running it. The following image shows the Twitter trend analysis sample:
 
-	![HDInsight Twitter trend analysis sample][hdinsight.twitter.sample]
+    ![HDInsight Twitter trend analysis sample][hdinsight.twitter.sample]
 
 ## Next steps
 Other ways to learn about HDInsight include:
@@ -67,3 +67,4 @@ Other ways to learn about HDInsight include:
 [hdinsight.learn.map]: hdinsight-learn-map.md
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
 [azure.portal]:https://portal.azure.com
+

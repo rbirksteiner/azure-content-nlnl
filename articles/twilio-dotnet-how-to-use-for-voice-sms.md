@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How to Use Twilio for Voice and SMS (.NET) | Microsoft Azure" 
-	description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in .NET." 
-	services="" 
-	documentationCenter=".net" 
-	authors="devinrader" 
-	manager="twilio" 
-	editor=""/>
+    pageTitle="How to Use Twilio for Voice and SMS (.NET) | Microsoft Azure" 
+    description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in .NET." 
+    services="" 
+    documentationCenter=".net" 
+    authors="devinrader" 
+    manager="twilio" 
+    editor=""/>
 
 <tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="04/24/2015" 
-	ms.author="devinrader"/>
+    ms.service="multiple" 
+    ms.workload="na" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="dotnet" 
+    ms.topic="article" 
+    ms.date="04/24/2015" 
+    ms.author="devinrader"/>
 
 
 
@@ -286,3 +286,4 @@ For additional information about using Twilio on Azure with ASP.NET, see [How to
 [try_twilio]: https://www.twilio.com/try-twilio
 [twilio_account]:  https://www.twilio.com/user/account
 [verify_phone]: https://www.twilio.com/user/account/phone-numbers/verified#
+

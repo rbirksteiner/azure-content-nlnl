@@ -29,9 +29,9 @@ Depending upon which version your device is running, you can determine if Update
 
 | If running software version …   | What happens in the portal?                              |
 |---------------------------------|--------------------------------------------------------------|
-| Release - GA 				   	  | If you are running Release version (GA), do not apply this update. Please [contact Microsoft Support](storsimple-contact-microsoft-support.md) to update your device.|
-| Update 0.1 					  | Portal applies Update 1.2.                                |
-| Update 0.2 					  | Portal applies Update 1.2.                                |
+| Release - GA                    | If you are running Release version (GA), do not apply this update. Please [contact Microsoft Support](storsimple-contact-microsoft-support.md) to update your device.|
+| Update 0.1                      | Portal applies Update 1.2.                                |
+| Update 0.2                      | Portal applies Update 1.2.                                |
 | Update 0.3                      | Portal applies Update 1.2.                                |
 | Update 1                        | This update will not be available.                           |
 | Update 1.1                      | This update will not be available.                           |
@@ -52,28 +52,28 @@ You will need to perform the following steps before you scan and apply the updat
 
 2. Ensure that your controller fixed IPs are routable and can connect to the Internet. These fixed IPs will be used to service updates to your device. You can test this by running the following cmdlet on each controller from the Windows PowerShell interface of the device:
 
- 	`Test-Connection -Source <Fixed IP of your device controller> -Destination <Any IP or computer name outside of datacenter network> `
+    `Test-Connection -Source <Fixed IP of your device controller> -Destination <Any IP or computer name outside of datacenter network> `
  
-	**Sample output for Test-Connection when fixed IPs can connect to the Internet**
+    **Sample output for Test-Connection when fixed IPs can connect to the Internet**
 
-	    
-		Controller0>Test-Connection -Source 10.126.173.91 -Destination bing.com
-	    
-	    Source	  Destination 	IPV4Address      IPV6Address
-	    ----------------- -----------  -----------
-	    HCSNODE0  bing.com		204.79.197.200
-	    HCSNODE0  bing.com		204.79.197.200
-	    HCSNODE0  bing.com		204.79.197.200
-	    HCSNODE0  bing.com		204.79.197.200
-	
-		Controller0>Test-Connection -Source 10.126.173.91 -Destination  204.79.197.200
+        
+        Controller0>Test-Connection -Source 10.126.173.91 -Destination bing.com
+        
+        Source    Destination   IPV4Address      IPV6Address
+        ----------------- -----------  -----------
+        HCSNODE0  bing.com      204.79.197.200
+        HCSNODE0  bing.com      204.79.197.200
+        HCSNODE0  bing.com      204.79.197.200
+        HCSNODE0  bing.com      204.79.197.200
+    
+        Controller0>Test-Connection -Source 10.126.173.91 -Destination  204.79.197.200
 
-	    Source	  Destination 	  IPV4Address    IPV6Address
-	    ----------------- -----------  -----------
-	    HCSNODE0  204.79.197.200  204.79.197.200
-	    HCSNODE0  204.79.197.200  204.79.197.200
-	    HCSNODE0  204.79.197.200  204.79.197.200
-	    HCSNODE0  204.79.197.200  204.79.197.200
+        Source    Destination     IPV4Address    IPV6Address
+        ----------------- -----------  -----------
+        HCSNODE0  204.79.197.200  204.79.197.200
+        HCSNODE0  204.79.197.200  204.79.197.200
+        HCSNODE0  204.79.197.200  204.79.197.200
+        HCSNODE0  204.79.197.200  204.79.197.200
 
 After you have successfully completed these manual pre-checks, you can proceed to scan and install the updates.
 
@@ -151,3 +151,4 @@ If you have verified the connectivity exists, and you continue to see this issue
 ## Next steps
 
 Learn more about the [Update 1.2 release](storsimple-update1-release-notes.md).
+

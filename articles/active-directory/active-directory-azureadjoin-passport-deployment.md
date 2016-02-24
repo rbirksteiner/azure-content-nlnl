@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Enable Microsoft Passport for Work in the organization | Microsoft Azure" 
-	description="Deployment instructions to enable Microsoft Passport in your organization." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="femila" 
-	manager="stevenpo" 
-	editor=""
-	tags="azure-classic-portal"/>
+    pageTitle="Enable Microsoft Passport for Work in the organization | Microsoft Azure" 
+    description="Deployment instructions to enable Microsoft Passport in your organization." 
+    services="active-directory" 
+    documentationCenter="" 
+    authors="femila" 
+    manager="stevenpo" 
+    editor=""
+    tags="azure-classic-portal"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/19/2015" 
-	ms.author="femila"/>
+    ms.service="active-directory" 
+    ms.workload="identity" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/19/2015" 
+    ms.author="femila"/>
 
 # Enable Microsoft Passport for work in the organization
 
@@ -32,14 +32,14 @@ To deploy user certificates based on Microsoft Passport keys, you need the follo
 
  You can use an Active Directory Group Policy to configure your Windows 10 domain joined devices to provision user Microsoft Passport credentials upon user logon to Windows:
 
-1. 	Open Server Manager and navigate to **Tools** > **Group Policy Management**.
-2.	From Group Policy Management, navigate to the domain node that corresponds to the domain in which you would like to enable Azure AD Join.
-3.	Right-click **Group Policy Objects** and select **New**. Give your Group Policy object a name, for example, **Enable Microsoft Passport**. Click **OK**.
-4.	Right-click on your new Group Policy object and then select **Edit**.
-5.	Navigate to **Computer Configuration** > **Policies** > **Administrative Templates** > **Windows Components** > **Passport for Work**.
-6.	Right-click **Enable Passport for Work** and then select **Edit**.
-7.	Select the **Enabled** radio button and then click **Apply**. Click **OK**.
-8.	You may now link the Group Policy object to a location of your choice. To enable this policy for all of the domain joined Windows 10 devices at your organization, link the Group Policy to the domain. For example:
+1.  Open Server Manager and navigate to **Tools** > **Group Policy Management**.
+2.  From Group Policy Management, navigate to the domain node that corresponds to the domain in which you would like to enable Azure AD Join.
+3.  Right-click **Group Policy Objects** and select **New**. Give your Group Policy object a name, for example, **Enable Microsoft Passport**. Click **OK**.
+4.  Right-click on your new Group Policy object and then select **Edit**.
+5.  Navigate to **Computer Configuration** > **Policies** > **Administrative Templates** > **Windows Components** > **Passport for Work**.
+6.  Right-click **Enable Passport for Work** and then select **Edit**.
+7.  Select the **Enabled** radio button and then click **Apply**. Click **OK**.
+8.  You may now link the Group Policy object to a location of your choice. To enable this policy for all of the domain joined Windows 10 devices at your organization, link the Group Policy to the domain. For example:
  - A specific Organizational Unit (OU) in AD where Windows 10 domain-joined computers will be located.
  - A specific security group containing Windows 10 domain-joined computers that will be auto-registered with Azure AD.
 

@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Add Push Notifications to App (iOS) | JavaScript Backend"
-	description="Learn how to use Azure Mobile Services to send push notifications to your iOS app."
-	services="mobile-services,notification-hubs"
-	documentationCenter="ios"
-	manager="dwrede"
-	editor=""
-	authors="krisragh"/>
+    pageTitle="Add Push Notifications to App (iOS) | JavaScript Backend"
+    description="Learn how to use Azure Mobile Services to send push notifications to your iOS app."
+    services="mobile-services,notification-hubs"
+    documentationCenter="ios"
+    manager="dwrede"
+    editor=""
+    authors="krisragh"/>
 
 <tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="ios"
-	ms.devlang="objective-c"
-	ms.topic="article"
-	ms.date="09/28/2015"
-	ms.author="krisragh"/>
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="ios"
+    ms.devlang="objective-c"
+    ms.topic="article"
+    ms.date="09/28/2015"
+    ms.author="krisragh"/>
 
 # Add Push Notifications to iOS App and JavaScript Backend
 
@@ -116,3 +116,4 @@ This topic shows you how to add push notifications to the [quickstart project](m
 [Send broadcast notifications to subscribers]: ../notification-hubs-ios-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-ios-send-localized-breaking-news.md
 [Mobile Services Objective-C how-to conceptual reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
+

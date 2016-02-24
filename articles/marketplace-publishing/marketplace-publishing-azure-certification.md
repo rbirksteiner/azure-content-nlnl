@@ -39,3 +39,4 @@ Once you have received pre-approval from the Microsoft Azure Certified program, 
 
 ## See also
 - [Getting started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md)
+

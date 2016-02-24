@@ -29,9 +29,9 @@ To connect to Microsoft cloud services using ExpressRoute, you’ll need to veri
 
 - A relationship with a connectivity provider from the supported list through whom connectivity needs to be facilitated. You must have an existing business relationship with your connectivity provider. You will need to make sure that the service you have with the connectivity provider is compatible with ExpressRoute.
 - If the you want to use a connectivity provider that is not in the supported list, you can still create a connection to Microsoft cloud services through an exchange.
-	- Check with your connectivity provider to see if they are present in any of the exchange locations appearing in supported list.
-	- Have the connectivity provider extend your network to the exchange location of choice.
-	- Order an ExpressRoute circuit with the exchange as the connectivity provider.
+    - Check with your connectivity provider to see if they are present in any of the exchange locations appearing in supported list.
+    - Have the connectivity provider extend your network to the exchange location of choice.
+    - Order an ExpressRoute circuit with the exchange as the connectivity provider.
 
 ## Physical connectivity between your network and the connectivity provider
 
@@ -69,7 +69,8 @@ Review the following resources for more information about Office 365 requirement
 - Find a service provider. See [ExpressRoute partners and peering locations](expressroute-locations.md).
 - Refer to requirements for [Routing](expressroute-routing.md), [NAT](expressroute-nat.md) and [QoS](expressroute-qos.md).
 - Configure your ExpressRoute connection.
-	- [Create an ExpressRoute circuit](expressroute-howto-circuit-classic.md)
-	- [Configure routing](expressroute-howto-routing-classic.md)
-	- [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-classic.md)
+    - [Create an ExpressRoute circuit](expressroute-howto-circuit-classic.md)
+    - [Configure routing](expressroute-howto-routing-classic.md)
+    - [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-classic.md)
+
 

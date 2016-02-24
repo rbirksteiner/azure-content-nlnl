@@ -116,3 +116,4 @@ You can also review performance statistics and control security to the connector
 [10]: ./media/app-service-logic-connector-hdinsight/LogicApp6.jpg
 [11]: ./media/app-service-logic-connector-hdinsight/LogicApp7.jpg
 [12]: ./media/app-service-logic-connector-hdinsight/LogicApp8.PNG
+

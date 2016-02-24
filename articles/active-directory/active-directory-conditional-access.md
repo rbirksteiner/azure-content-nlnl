@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Managing Risk With Conditional Access"
-	description="Allow anywhere access to specific resources within the corporate network from known devices compliant with policies and disallow access from lost, stolen, non-compliant devices."
-	services="active-directory, virtual-network"
-	documentationCenter=""
-	authors="femila"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Managing Risk With Conditional Access"
+    description="Allow anywhere access to specific resources within the corporate network from known devices compliant with policies and disallow access from lost, stolen, non-compliant devices."
+    services="active-directory, virtual-network"
+    documentationCenter=""
+    authors="femila"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/24/2015"
-	ms.author="femila"/>
+    ms.date="11/24/2015"
+    ms.author="femila"/>
 
 
 # Managing Risk With Conditional Access
@@ -43,3 +43,4 @@ The following topics discuss each of the different mechanisms available for sett
 
 <!--Image references-->
 [1]: ./media/active-directory-conditional-access/condaccoverviewvsdx1.png
+

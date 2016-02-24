@@ -8,18 +8,19 @@ After the records for your domain name have propagated, you must associate them 
 
 2. In the **Web Apps** tab, click the name of your web app, select **Settings**, and then select **Custom domains and SSL**
 
-	![](./media/custom-dns-web-site/dncmntask-cname-6.png)
+    ![](./media/custom-dns-web-site/dncmntask-cname-6.png)
 
 3. In the **Custom domains and SSL** blade, click **Bring external domains**.
 
-	![](./media/custom-dns-web-site/dncmntask-cname-7.png)
+    ![](./media/custom-dns-web-site/dncmntask-cname-7.png)
 
 4. Use the **DOMAIN NAMES** text boxes to enter the domain names to associate with this web app.
 
-	![](./media/custom-dns-web-site/dncmntask-cname-8.png)
+    ![](./media/custom-dns-web-site/dncmntask-cname-8.png)
 
 5. Click **Save** to save the domain name configuration.
 
-	Once configuration has completed, the custom domain name will be listed in the **domain names** section of your web app.
+    Once configuration has completed, the custom domain name will be listed in the **domain names** section of your web app.
 
 At this point, you should be able to enter the custom domain name in your browser and see that it successfully takes you to your web app.
+

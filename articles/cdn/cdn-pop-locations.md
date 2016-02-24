@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure Content Delivery Network (CDN) POP Locations" 
-	description="This topic lists Azure Content Delivery Network (CDN) POP locations." 
-	services="cdn" 
-	documentationCenter="" 
-	authors="camsoper" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="Azure Content Delivery Network (CDN) POP Locations" 
+    description="This topic lists Azure Content Delivery Network (CDN) POP locations." 
+    services="cdn" 
+    documentationCenter="" 
+    authors="camsoper" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="cdn" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
-	ms.author="casoper"/>
+    ms.service="cdn" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/02/2015" 
+    ms.author="casoper"/>
 
 
 #Azure Content Delivery Network (CDN) POP Locations
@@ -77,3 +77,4 @@ This topic lists current Microsoft Azure CDN point of presence (POP) locations.
 
 - Melbourne
 - Sydney 
+

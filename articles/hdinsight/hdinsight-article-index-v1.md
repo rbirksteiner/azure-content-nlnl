@@ -132,3 +132,4 @@ For articles about using native Apache Spark clusters in the Azure Portal, go to
 * [Access application logs](hdinsight-hadoop-access-yarn-app-logs.md)
 * [Interpret error messages](hdinsight-debug-jobs.md)
 * [Get help on the forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight)
+

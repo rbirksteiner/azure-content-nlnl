@@ -1,20 +1,20 @@
 <properties
-	pageTitle="App Service API Apps - What's changed | Microsoft Azure"
-	description="Learn what's new for API Apps in Azure App Service."
-	services="app-service\api"
-	documentationCenter=".net"
-	authors="mohitsriv"
-	manager="wpickett"
-	editor="tdykstra"/>
+    pageTitle="App Service API Apps - What's changed | Microsoft Azure"
+    description="Learn what's new for API Apps in Azure App Service."
+    services="app-service\api"
+    documentationCenter=".net"
+    authors="mohitsriv"
+    manager="wpickett"
+    editor="tdykstra"/>
 
 <tags
-	ms.service="app-service-api"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="11/29/2015"
-	ms.author="mohisri"/>
+    ms.service="app-service-api"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="11/29/2015"
+    ms.author="mohisri"/>
 
 # App Service API Apps - What's changed
 
@@ -140,3 +140,4 @@ To learn more, read the articles in the [API Apps Documentation section](https:/
 
 - [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAPIApps)
 - [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-api-apps)
+

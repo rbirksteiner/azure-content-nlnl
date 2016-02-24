@@ -2,11 +2,11 @@ Now that the app has been updated to use Mobile Services for back end storage, y
 
 1. From the **Run** menu, click **Run** to start the project.
 
-	This executes your app, built with the Android SDK, that uses the client library to send a query that returns items from your mobile service.
+    This executes your app, built with the Android SDK, that uses the client library to send a query that returns items from your mobile service.
 
 5. As before, type meaningful text, then click **Add**.
 
-   	This sends a new item as an insert to the mobile service.
+    This sends a new item as an insert to the mobile service.
 
     You can restart the app to see that the changes were persisted to the database in Azure. You can also examine the database using the Azure classic portal:  the next two steps do this to view the changes in your database.
 

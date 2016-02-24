@@ -313,3 +313,4 @@ This topic assumes you have been issued a certificate and you have [OpenSSL](htt
 
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
+

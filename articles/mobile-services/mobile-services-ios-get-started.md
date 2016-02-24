@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Get Started with Azure Mobile Services for iOS apps | JavaScript Backend"
-	description="Follow this tutorial to get started using Azure Mobile Services for iOS development."
-	services="mobile-services"
-	documentationCenter="ios"
-	authors="krisragh"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Get Started with Azure Mobile Services for iOS apps | JavaScript Backend"
+    description="Follow this tutorial to get started using Azure Mobile Services for iOS development."
+    services="mobile-services"
+    documentationCenter="ios"
+    authors="krisragh"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-ios"
-	ms.devlang="objective-c"
-	ms.topic="hero-article"
-	ms.date="11/04/2015"
-	ms.author="krisragh"/>
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-ios"
+    ms.devlang="objective-c"
+    ms.topic="hero-article"
+    ms.date="11/04/2015"
+    ms.author="krisragh"/>
 
 # <a name="getting-started"> </a>Get started with Mobile Services
 
@@ -61,13 +61,13 @@ You can follow an easy Quick Start in the Azure classic portal to create a new a
 Learn how to perform additional important tasks in Mobile Services:
 
 * [Get started with offline data sync]
-	<br/>Learn how to use offline data sync to make your app responsive and robust.
+    <br/>Learn how to use offline data sync to make your app responsive and robust.
 
 * [Add authentication to an existing app]
-	<br/>Learn how to authenticate users of your app with an identity provider.
+    <br/>Learn how to authenticate users of your app with an identity provider.
 
 * [Add push notifications to an existing app]
-	<br/>Learn how to send a very basic push notification to your app.
+    <br/>Learn how to send a very basic push notification to your app.
 
 [AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
@@ -98,3 +98,4 @@ Learn how to perform additional important tasks in Mobile Services:
 [Azure classic portal]: https://manage.windowsazure.com/
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [.NET backend version]: mobile-services-dotnet-backend-ios-get-started.md
+

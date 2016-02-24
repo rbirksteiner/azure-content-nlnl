@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Overview and Comparison of Azure On Demand Media Encoders" 
-	description="This topic gives an overview and gives a comparison of Azire On Demand Media encoders." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="juliako,anilmur" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="Overview and Comparison of Azure On Demand Media Encoders" 
+    description="This topic gives an overview and gives a comparison of Azire On Demand Media encoders." 
+    services="media-services" 
+    documentationCenter="" 
+    authors="juliako,anilmur" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/29/2015"  
-	ms.author="juliako"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/29/2015"  
+    ms.author="juliako"/>
 
 #Overview and Comparison of Azure On Demand Media Encoders
 
@@ -155,36 +155,36 @@ This section compares the encoding capabilities of **Media Encoder Standard**, *
 
 Input Container/File Formats|Media Encoder Standard|Azure Media Encoder|Media Encoder Premium Workflow
 ---|---|---|---
-Adobe® Flash® F4V			|Yes|No		|Yes
-MXF/SMPTE 377M				|Yes|Limited|Yes
-GXF							|Yes|No		|Yes
-MPEG-2 Transport Streams	|Yes|Yes	|Yes
-MPEG-2 Program Streams		|Yes|Yes	|Yes
-MPEG-4/MP4					|Yes|Yes	|Yes
-Windows Media/ASF			|Yes|Yes	|Yes
-AVI (Uncompressed 8bit/10bit)|Yes|Yes	|Yes
-3GPP/3GPP2					|Yes|Yes	|No
+Adobe® Flash® F4V           |Yes|No     |Yes
+MXF/SMPTE 377M              |Yes|Limited|Yes
+GXF                         |Yes|No     |Yes
+MPEG-2 Transport Streams    |Yes|Yes    |Yes
+MPEG-2 Program Streams      |Yes|Yes    |Yes
+MPEG-4/MP4                  |Yes|Yes    |Yes
+Windows Media/ASF           |Yes|Yes    |Yes
+AVI (Uncompressed 8bit/10bit)|Yes|Yes   |Yes
+3GPP/3GPP2                  |Yes|Yes    |No
 Smooth Streaming File Format (PIFF 1.3)|Yes|Yes|No
 [Microsoft Digital Video Recording(DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984)|Yes|No|No
-Matroska/WebM				|Yes|No|No
+Matroska/WebM               |Yes|No|No
 QuickTime (.mov) |Yes|No|No
 
 ###Input Video Codecs
 
 Input Video Codecs|Media Encoder Standard|Azure Media Encoder|Media Encoder Premium Workflow
 ---|---|---|---
-AVC 8-bit/10-bit, up to 4:2:2, including AVCIntra	|8 bit 4:2:0 and 4:2:2|Only 8bit 4:2:0|Yes
-Avid DNxHD (in MXF)									|Yes|No|Yes
-DVCPro/DVCProHD (in MXF)							|Yes|No|Yes
-JPEG2000											|Yes|No|Yes
+AVC 8-bit/10-bit, up to 4:2:2, including AVCIntra   |8 bit 4:2:0 and 4:2:2|Only 8bit 4:2:0|Yes
+Avid DNxHD (in MXF)                                 |Yes|No|Yes
+DVCPro/DVCProHD (in MXF)                            |Yes|No|Yes
+JPEG2000                                            |Yes|No|Yes
 MPEG-2 (up to 422 Profile and High Level; including variants such as XDCAM, XDCAM HD, XDCAM IMX, CableLabs® and D10)|Up to 422 Profile|Up to 422 Profile|Yes
-MPEG-1												|Yes|Yes|Yes
-Windows Media Video/VC-1							|Yes|Yes|Yes
-Canopus HQ/HQX										|No|Yes|No
-MPEG-4 Part 2										|Yes|No|No
-[Theora](https://en.wikipedia.org/wiki/Theora)		|Yes|No|No
-Apple ProRes 422	|Yes|No|No
-Apple ProRes 422 LT	|Yes|No|No
+MPEG-1                                              |Yes|Yes|Yes
+Windows Media Video/VC-1                            |Yes|Yes|Yes
+Canopus HQ/HQX                                      |No|Yes|No
+MPEG-4 Part 2                                       |Yes|No|No
+[Theora](https://en.wikipedia.org/wiki/Theora)      |Yes|No|No
+Apple ProRes 422    |Yes|No|No
+Apple ProRes 422 LT |Yes|No|No
 Apple ProRes 422 HQ |Yes|No|No
 Apple ProRes Proxy|Yes|No|No
 Apple ProRes 4444 |Yes|No|No
@@ -194,10 +194,10 @@ Apple ProRes 4444 XQ |Yes|No|No
 
 Input Audio Codecs|Media Encoder Standard|Azure Media Encoder|Media Encoder Premium Workflow
 ---|---|---|---
-AES (SMPTE 331M and 302M, AES3-2003)		|No|No|Yes
-Dolby® E									|No|No|Yes
-Dolby® Digital (AC3)						|No|Yes|Yes
-Dolby® Digital Plus (E-AC3)					|No|No|Yes
+AES (SMPTE 331M and 302M, AES3-2003)        |No|No|Yes
+Dolby® E                                    |No|No|Yes
+Dolby® Digital (AC3)                        |No|Yes|Yes
+Dolby® Digital Plus (E-AC3)                 |No|No|Yes
 AAC (AAC-LC, AAC-HE, and AAC-HEv2; up to 5.1)|Yes|Yes|Yes
 MPEG Layer 2|Yes|Yes|Yes
 MP3 (MPEG-1 Audio Layer 3)|Yes|Yes|Yes
@@ -265,3 +265,4 @@ Windows Media Audio|No|Yes|Yes
  
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
+

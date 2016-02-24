@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Deploy an API app in Azure App Service " 
-	description="Learn how to deploy an API app project to your Azure subscription." 
-	services="app-service\api" 
-	documentationCenter=".net" 
-	authors="bradygaster" 
-	manager="wpickett" 
-	editor="jimbe"/>
+    pageTitle="Deploy an API app in Azure App Service " 
+    description="Learn how to deploy an API app project to your Azure subscription." 
+    services="app-service\api" 
+    documentationCenter=".net" 
+    authors="bradygaster" 
+    manager="wpickett" 
+    editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-api" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="dotnet" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/08/2015" 
-	ms.author="tdykstra"/>
+    ms.service="app-service-api" 
+    ms.workload="web" 
+    ms.tgt_pltfrm="dotnet" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/08/2015" 
+    ms.author="tdykstra"/>
 
 # Deploy an API app in Azure App Service 
 
@@ -50,15 +50,15 @@ Since you enabled the Swagger UI in the previous tutorial, you can use that to v
 
 2. Click the API app's URL.
 
-	![Click the URL](./media/app-service-dotnet-deploy-api-app/clickurl.png)
+    ![Click the URL](./media/app-service-dotnet-deploy-api-app/clickurl.png)
 
-	An "API app successfully created" page appears.
+    An "API app successfully created" page appears.
 
 3. Add "/swagger" to the end of the URL in the browser address bar.
 
 4. In the Swagger page that appears, click **Contacts > Get > Try it Out**.
 
-	![Try it out](./media/app-service-dotnet-deploy-api-app/swaggerui.png)
+    ![Try it out](./media/app-service-dotnet-deploy-api-app/swaggerui.png)
 
 ## View the API definition in the portal
 
@@ -66,44 +66,44 @@ Since you enabled the Swagger UI in the previous tutorial, you can use that to v
 
 4. Click **API Definition**. 
  
-	The app's **API Definition** blade shows the list of API operations that you defined when you created the app. 
+    The app's **API Definition** blade shows the list of API operations that you defined when you created the app. 
 
-	![API Definition](./media/app-service-dotnet-deploy-api-app/29-api-definition-v3.png)
+    ![API Definition](./media/app-service-dotnet-deploy-api-app/29-api-definition-v3.png)
 
 Next, you'll make a change to the API definition and see the change reflected in the portal.
 
 5. Go back to the project in Visual Studio and add the following code to the **ContactsController.cs** file.   
 
-		[HttpPost]
-		public HttpResponseMessage Post([FromBody] Contact contact)
-		{
-			// todo: save the contact somewhere
-			return Request.CreateResponse(HttpStatusCode.Created);
-		}
+        [HttpPost]
+        public HttpResponseMessage Post([FromBody] Contact contact)
+        {
+            // todo: save the contact somewhere
+            return Request.CreateResponse(HttpStatusCode.Created);
+        }
 
-	This code adds a **Post** method that can be used to post new `Contact` instances to the API.
+    This code adds a **Post** method that can be used to post new `Contact` instances to the API.
 
-	The code for the Contacts class now looks like the following example.
+    The code for the Contacts class now looks like the following example.
 
-		public class ContactsController : ApiController
-		{
-		    [HttpGet]
-		    public IEnumerable<Contact> Get()
-		    {
-		        return new Contact[]{
-		                    new Contact { Id = 1, EmailAddress = "barney@contoso.com", Name = "Barney Poland"},
-		                    new Contact { Id = 2, EmailAddress = "lacy@contoso.com", Name = "Lacy Barrera"},
-		                    new Contact { Id = 3, EmailAddress = "lora@microsoft.com", Name = "Lora Riggs"}
-		                };
-		    }
-		
-		    [HttpPost]
-		    public HttpResponseMessage Post([FromBody] Contact contact)
-		    {
-		        // todo: save the contact somewhere
-		        return Request.CreateResponse(HttpStatusCode.Created);
-		    }
-		}
+        public class ContactsController : ApiController
+        {
+            [HttpGet]
+            public IEnumerable<Contact> Get()
+            {
+                return new Contact[]{
+                            new Contact { Id = 1, EmailAddress = "barney@contoso.com", Name = "Barney Poland"},
+                            new Contact { Id = 2, EmailAddress = "lacy@contoso.com", Name = "Lacy Barrera"},
+                            new Contact { Id = 3, EmailAddress = "lora@microsoft.com", Name = "Lora Riggs"}
+                        };
+            }
+        
+            [HttpPost]
+            public HttpResponseMessage Post([FromBody] Contact contact)
+            {
+                // todo: save the contact somewhere
+                return Request.CreateResponse(HttpStatusCode.Created);
+            }
+        }
 
 7. In **Solution Explorer**, right-click the project and select **Publish**. 
 
@@ -111,7 +111,7 @@ Next, you'll make a change to the API definition and see the change reflected in
 
 10. Click **Start Preview** to see which file(s) will be copied to Azure.  
 
-	![Publish Web dialog](./media/app-service-dotnet-deploy-api-app/39-re-publish-preview-step-v2.png)
+    ![Publish Web dialog](./media/app-service-dotnet-deploy-api-app/39-re-publish-preview-step-v2.png)
 
 11. Click **Publish**.
 
@@ -119,7 +119,7 @@ Next, you'll make a change to the API definition and see the change reflected in
 
 12. Once the publish process has completed, go back to the portal, and close and reopen the **API Definition** blade. You will see the new API endpoint you just created and deployed directly into your Azure subscription.
 
-	![API Definition](./media/app-service-dotnet-deploy-api-app/38-portal-with-post-method-v4.png)
+    ![API Definition](./media/app-service-dotnet-deploy-api-app/38-portal-with-post-method-v4.png)
 
 ## Next steps
 
@@ -128,3 +128,4 @@ You've seen how the direct deployment capabilities in Visual Studio make it easy
 API apps are web apps with extra features for hosting APIs, which means you can use any deployment method that works with web apps. For more information about deployment options for web apps, see [Deploy a web app in Azure App Service](../app-service-web/web-sites-deploy.md).
 
 For information about API Apps features, see [What are API apps?](app-service-api-apps-why-best-platform.md).
+

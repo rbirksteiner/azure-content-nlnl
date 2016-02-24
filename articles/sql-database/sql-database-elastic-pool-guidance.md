@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Price and performance considerations for Azure SQL Database elastic database pools" 
-	description="An elastic database pool is a collection of available resources that are shared by a group of elastic databases. This document provides guidance to help assess the suitability of using an elastic database pool for a group of databases." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="stevestein" 
-	manager="jeffreyg" 
-	editor=""/>
+    pageTitle="Price and performance considerations for Azure SQL Database elastic database pools" 
+    description="An elastic database pool is a collection of available resources that are shared by a group of elastic databases. This document provides guidance to help assess the suitability of using an elastic database pool for a group of databases." 
+    services="sql-database" 
+    documentationCenter="" 
+    authors="stevestein" 
+    manager="jeffreyg" 
+    editor=""/>
 
 <tags 
-	ms.service="sql-database"
-	ms.devlang="NA"
-	ms.date="12/01/2015" 
-	ms.author="sstein" 
-	ms.workload="data-management" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="NA"/>
+    ms.service="sql-database"
+    ms.devlang="NA"
+    ms.date="12/01/2015" 
+    ms.author="sstein" 
+    ms.workload="data-management" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="NA"/>
 
 
 # Price and performance considerations for an elastic database pool
@@ -212,7 +212,7 @@ The script needs you to provide the credentials to connect to the target server 
 
 
 After submitting values for the initial set of parameters, you are prompted to log on to your azure account. This is for logging on to your target server, not the output database server.
-	
+    
 If you run into the following warnings while running the script you can ignore them:
 
 - WARNING: The Switch-AzureMode cmdlet is deprecated.
@@ -438,3 +438,4 @@ Not all single databases are optimum candidates for elastic database pools. Data
 [1]: ./media/sql-database-elastic-pool-guidance/one-database.png
 [2]: ./media/sql-database-elastic-pool-guidance/four-databases.png
 [3]: ./media/sql-database-elastic-pool-guidance/twenty-databases.png
+

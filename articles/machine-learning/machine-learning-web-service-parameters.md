@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Use Azure Machine Learning Web Service Parameters | Microsoft Azure" 
-	description="How to use Azure Machine Learning Web Service Parameters to modify the behavior of your model when the web service is accessed." 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="raymondlaghaeian" 
-	manager="paulettm" 
-	editor="cgronlun"/>
+    pageTitle="Use Azure Machine Learning Web Service Parameters | Microsoft Azure" 
+    description="How to use Azure Machine Learning Web Service Parameters to modify the behavior of your model when the web service is accessed." 
+    services="machine-learning" 
+    documentationCenter="" 
+    authors="raymondlaghaeian" 
+    manager="paulettm" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/04/2015" 
-	ms.author="raymondl;garye"/>
+    ms.service="machine-learning" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/04/2015" 
+    ms.author="raymondl;garye"/>
 
 #Use Azure Machine Learning Web Service Parameters
 
@@ -42,32 +42,32 @@ The documentation for the web service (provided through the **API help page** li
 
 As an example, let's assume we have an experiment with a [Writer][writer] module that sends information to Azure blob storage. We'll define a Web Service Parameter named "Blob path" that allows the web service user to change the path to the blob storage when the service is accessed.
 
-1.	In Machine Learning Studio, click the [Writer][writer] module to select it. Its properties are shown in the Properties pane to the right of the experiment canvas.
+1.  In Machine Learning Studio, click the [Writer][writer] module to select it. Its properties are shown in the Properties pane to the right of the experiment canvas.
 
-2.	Specify the storage type:
+2.  Specify the storage type:
 
     - Under **Please specify data destination**, select "Azure Blob Storage".
     - Under **Please specify authentication type**, select "Account".
     - Enter the account information for the Azure blob storage. 
     <p />
 
-3.	Click the icon to the right of the **Path to blob beginning with container parameter**. It looks like this:
+3.  Click the icon to the right of the **Path to blob beginning with container parameter**. It looks like this:
 
-	![Web Service Parameter icon][icon]
+    ![Web Service Parameter icon][icon]
 
     Select "Set as web service parameter".
 
     An entry is added under **Web Service Parameters** at the bottom of the Properties pane with the name "Path to blob beginning with container". This is the Web Service Parameter that is now associated with this [Writer][writer] module parameter.
 
-4.	To rename the Web Service Parameter, click the name, enter "Blob path", and press the **Enter** key. 
+4.  To rename the Web Service Parameter, click the name, enter "Blob path", and press the **Enter** key. 
  
-5.	To provide a default value for the Web Service Parameter, click the icon to the right of the name, select "Provide default value", enter a value (for example, "container1/output1.csv"), and press the **Enter** key.
+5.  To provide a default value for the Web Service Parameter, click the icon to the right of the name, select "Provide default value", enter a value (for example, "container1/output1.csv"), and press the **Enter** key.
 
-	![Web Service Parameter][parameter]
+    ![Web Service Parameter][parameter]
 
-6.	Click **Run**. 
+6.  Click **Run**. 
 
-7.	Click **PUBLISH WEB SERVICE** to publish the web service.
+7.  Click **PUBLISH WEB SERVICE** to publish the web service.
 
 The user of the web service can now specify a new destination for the [Writer][writer] module when accessing the web service.
 
@@ -90,3 +90,4 @@ For more information on accessing a Machine Learning web service, see [How to co
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [writer]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
  
+

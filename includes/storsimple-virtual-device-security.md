@@ -8,3 +8,4 @@ Keep the following security considerations in mind when you use the StorSimple v
 
 - The virtual device is hosted in the Microsoft Azure datacenter.
 
+

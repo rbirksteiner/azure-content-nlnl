@@ -55,90 +55,90 @@ If you have experience with Linux distributions, you may already have these file
 
 1. Create a local folder and on the command-line, navigate to that folder and type:
 
-		openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem
-		openssl pkcs12 -export -out mycert.pfx -in mycert.pem -name "My Certificate"
+        openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem
+        openssl pkcs12 -export -out mycert.pfx -in mycert.pem -name "My Certificate"
 
-	Be ready here to enter the export password for your certificate and capture it for future usage. Then type:
+    Be ready here to enter the export password for your certificate and capture it for future usage. Then type:
 
-		openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer
+        openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer
 
 2. Upload your certificate's .cer file to Azure. In the [Azure classic portal](https://manage.windowsazure.com), click **Settings** in the bottom left of the service area (shown below)
 
-	![][portalsettingsitem]
+    ![][portalsettingsitem]
 
-	and then click **Management Certificates**:
+    and then click **Management Certificates**:
 
-	![][managementcertificatesitem]
+    ![][managementcertificatesitem]
 
-	and then **Upload** (at the bottom of the page) ![][uploaditem] to upload the **mycert.cer** file you created in the previous step.
+    and then **Upload** (at the bottom of the page) ![][uploaditem] to upload the **mycert.cer** file you created in the previous step.
 
 3. In the same **Settings** pane in the portal, click **Subscriptions** and capture the subscription ID to use when creating your VM, because you'll use it in the next step. (You can also locate the subscription id on the command line using the Azure CLI command `azure account list`, which displays the subscription id for each subscription you have in the account.)
 
 4. Create a docker host VM on Azure using the **docker-machine create** command. The command requires the subscription ID you just captured in the previous step and the path to the **.pem** file you created in step 1. This topic uses "machine-name" as the Azure Cloud Service (and your VM) name, but you should replace that with your own choice and remember to use your cloud service name in any other step that requires the vm name. (Remember that in this example, we are using the full binary name and not a **docker-machine** symlink.)
 
-		docker-machine_linux-amd64 create \
-	    -d azure \
-	    --azure-subscription-id="<subscription ID acquired above>" \
-	    --azure-subscription-cert="mycert.pem" \
-	    machine-name
+        docker-machine_linux-amd64 create \
+        -d azure \
+        --azure-subscription-id="<subscription ID acquired above>" \
+        --azure-subscription-cert="mycert.pem" \
+        machine-name
 
-	As the first two steps require the creation of a new VM and the loading of the Linux Azure agent as well as the updating of the new VM, you should see something like the following.
+    As the first two steps require the creation of a new VM and the loading of the Linux Azure agent as well as the updating of the new VM, you should see something like the following.
 
-		INFO[0001] Creating Azure machine...
-	    INFO[0049] Waiting for SSH...
-	    modprobe: FATAL: Module aufs not found.
-	    + sudo -E sh -c sleep 3; apt-get update
-	    + sudo -E sh -c sleep 3; apt-get install -y -q linux-image-extra-3.13.0-36-generic
-	    E: Unable to correct problems, you have held broken packages.
-	    modprobe: FATAL: Module aufs not found.
-	    Warning: tried to install linux-image-extra-3.13.0-36-generic (for AUFS)
-	     but we still have no AUFS.  Docker may not work. Proceeding anyways!
-	    + sleep 10
-	    + [ https://get.docker.com/ = https://get.docker.com/ ]
-	    + sudo -E sh -c apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9
-	    gpg: requesting key A88D21E9 from hkp server keyserver.ubuntu.com
-	    gpg: key A88D21E9: public key "Docker Release Tool (releasedocker) <docker@dotcloud.com>" imported
-	    gpg: Total number processed: 1
-	    gpg:               imported: 1  (RSA: 1)
-	    + sudo -E sh -c echo deb https://get.docker.com/ubuntu docker main > /etc/apt/sources.list.d/docker.list
-	    + sudo -E sh -c sleep 3; apt-get update; apt-get install -y -q lxc-docker
-	    + sudo -E sh -c docker version
-	    INFO[0368] "machine-name" has been created and is now the active machine.
-	    INFO[0368] To point your Docker client at it, run this in your shell: $(docker-machine_linux-amd64 env machine-name)
+        INFO[0001] Creating Azure machine...
+        INFO[0049] Waiting for SSH...
+        modprobe: FATAL: Module aufs not found.
+        + sudo -E sh -c sleep 3; apt-get update
+        + sudo -E sh -c sleep 3; apt-get install -y -q linux-image-extra-3.13.0-36-generic
+        E: Unable to correct problems, you have held broken packages.
+        modprobe: FATAL: Module aufs not found.
+        Warning: tried to install linux-image-extra-3.13.0-36-generic (for AUFS)
+         but we still have no AUFS.  Docker may not work. Proceeding anyways!
+        + sleep 10
+        + [ https://get.docker.com/ = https://get.docker.com/ ]
+        + sudo -E sh -c apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9
+        gpg: requesting key A88D21E9 from hkp server keyserver.ubuntu.com
+        gpg: key A88D21E9: public key "Docker Release Tool (releasedocker) <docker@dotcloud.com>" imported
+        gpg: Total number processed: 1
+        gpg:               imported: 1  (RSA: 1)
+        + sudo -E sh -c echo deb https://get.docker.com/ubuntu docker main > /etc/apt/sources.list.d/docker.list
+        + sudo -E sh -c sleep 3; apt-get update; apt-get install -y -q lxc-docker
+        + sudo -E sh -c docker version
+        INFO[0368] "machine-name" has been created and is now the active machine.
+        INFO[0368] To point your Docker client at it, run this in your shell: $(docker-machine_linux-amd64 env machine-name)
 
     > [AZURE.NOTE] Because a VM is being created, it may take a few minutes to be in a ready state. While you're waiting, you can check the state of your new Docker host by typing `azure vm list` using the Azure CLI until you see your VMs with the **ReadyRole** status.
 
 5. Set the docker and machine environment variables for the terminal session. The last line of feedback suggest that you immediately run the **env** command to export the environment variables necessary to use your docker client directly with a specific machine.
 
-		$(docker-machine_linux-amd64 env machine-name)
+        $(docker-machine_linux-amd64 env machine-name)
 
-	Once you do so, you do not need any special commands to use your local docker client to connect to the VM that Docker **machine** created.
+    Once you do so, you do not need any special commands to use your local docker client to connect to the VM that Docker **machine** created.
 
-	    $ docker info
-	    Containers: 0
-	    Images: 0
-	    Storage Driver: devicemapper
-	     Pool Name: docker-8:1-131736-pool
-	     Pool Blocksize: 65.54 kB
-	     Backing Filesystem: extfs
-	     Data file: /dev/loop0
-	     Metadata file: /dev/loop1
-	     Data Space Used: 305.7 MB
-	     Data Space Total: 107.4 GB
-	     Metadata Space Used: 729.1 kB
-	     Metadata Space Total: 2.147 GB
-	     Udev Sync Supported: false
-	     Data loop file: /var/lib/docker/devicemapper/devicemapper/data
-	     Metadata loop file: /var/lib/docker/devicemapper/devicemapper/metadata
-	     Library Version: 1.02.82-git (2013-10-04)
-	    Execution Driver: native-0.2
-	    Kernel Version: 3.13.0-36-generic
-	    Operating System: Ubuntu 14.04.1 LTS
-	    CPUs: 1
-	    Total Memory: 1.639 GiB
-	    Name: machine-name
-	    ID: W3FZ:BCZW:UX24:GDSV:FR4N:N3JW:XOC2:RI56:IWQX:LRTZ:3G4P:6KJK
-	    WARNING: No swap limit support
+        $ docker info
+        Containers: 0
+        Images: 0
+        Storage Driver: devicemapper
+         Pool Name: docker-8:1-131736-pool
+         Pool Blocksize: 65.54 kB
+         Backing Filesystem: extfs
+         Data file: /dev/loop0
+         Metadata file: /dev/loop1
+         Data Space Used: 305.7 MB
+         Data Space Total: 107.4 GB
+         Metadata Space Used: 729.1 kB
+         Metadata Space Total: 2.147 GB
+         Udev Sync Supported: false
+         Data loop file: /var/lib/docker/devicemapper/devicemapper/data
+         Metadata loop file: /var/lib/docker/devicemapper/devicemapper/metadata
+         Library Version: 1.02.82-git (2013-10-04)
+        Execution Driver: native-0.2
+        Kernel Version: 3.13.0-36-generic
+        Operating System: Ubuntu 14.04.1 LTS
+        CPUs: 1
+        Total Memory: 1.639 GiB
+        Name: machine-name
+        ID: W3FZ:BCZW:UX24:GDSV:FR4N:N3JW:XOC2:RI56:IWQX:LRTZ:3G4P:6KJK
+        WARNING: No swap limit support
 
 > [AZURE.NOTE] This tutorial shows **docker-machine** creating one VM. However, you can repeat the steps to create as many machines as you want. If you do so, the best way to switch between VMs with docker is to use the **env** command inline to set the **docker** environment variables for each individual command. For example, to use **docker info** with a different VM, you can type `docker $(docker-machine env <VM name>) info` and the **env** command fills in the docker connection information to use with that VM.
 
@@ -146,21 +146,21 @@ If you have experience with Linux distributions, you may already have these file
 
 You can now use docker in the normal way to create an application in the container. The easiest to demonstrate is [busybox](https://registry.hub.docker.com/_/busybox/):
 
-	    $  docker run busybox echo hello world
-	    Unable to find image 'busybox:latest' locally
-	    511136ea3c5a: Pull complete
-	    df7546f9f060: Pull complete
-	    ea13149945cb: Pull complete
-	    4986bf8c1536: Pull complete
-	    busybox:latest: The image you are pulling has been verified. Important: image verification is a tech preview feature and should not be relied on to provide security.
-	    Status: Downloaded newer image for busybox:latest
-	    hello world
+        $  docker run busybox echo hello world
+        Unable to find image 'busybox:latest' locally
+        511136ea3c5a: Pull complete
+        df7546f9f060: Pull complete
+        ea13149945cb: Pull complete
+        4986bf8c1536: Pull complete
+        busybox:latest: The image you are pulling has been verified. Important: image verification is a tech preview feature and should not be relied on to provide security.
+        Status: Downloaded newer image for busybox:latest
+        hello world
 
 However, you may want to create an application that you can see immediately on the internet, such as the [nginx](https://registry.hub.docker.com/_/nginx/) from the [Docker Hub](https://registry.hub.docker.com/).
 
 > [AZURE.NOTE] Remember to use the **-P** option to have **docker** assign random ports to the image, and **-d** to ensure that the container runs in the background continuously. (If you forget, you'll start nginx and then it will immediately shut down. Don't forget!)
 
-	$ docker run --name machinenginx -P -d nginx
+    $ docker run --name machinenginx -P -d nginx
     Unable to find image 'nginx:latest' locally
     30d39e59ffe2: Pull complete
     c90d655b99b2: Pull complete
@@ -181,14 +181,14 @@ However, you may want to create an application that you can see immediately on t
 
 To see it from the internet, create a public endpoint on port 80 for the Azure VM and map that port to the nginx container's port. First, use `docker ps -a` to locate the container and find which ports **docker** has assigned to the container's port 80. (Below the displayed information is edited to show only port information; you'll see more.)
 
-	$ docker ps -a
+    $ docker ps -a
     IMAGE               PORTS
     nginx:latest        0.0.0.0:49153->80/tcp, 0.0.0.0:49154->443/tcp
     busybox:latest
 
 We can see that docker has assigned the container's port 80 to the VM's port 49153. We can now use the Azure CLI to map the external Cloud Service's public port 80 to port 49153 on the VM. Docker then ensures that inbound tcp traffic on VM port 49153 is routed to the nginx container.
 
-	$ azure vm endpoint create machine-name 80 49153
+    $ azure vm endpoint create machine-name 80 49153
     info:    Executing command vm endpoint create
     + Getting virtual machines
     + Reading network configuration
@@ -213,3 +213,4 @@ Go to the [Docker user guide](https://docs.docker.com/userguide/) and create som
 [Link 1 to another azure.microsoft.com documentation topic]: virtual-machines-windows-tutorial.md
 [Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
+

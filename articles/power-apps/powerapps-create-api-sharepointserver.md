@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Add the SharePoint Server API to PowerApps Enterprise | Microsoft Azure"
-	description="Create or configure a new SharePoint Server API in your organization's app service environment"
-	services=""
+    pageTitle="Add the SharePoint Server API to PowerApps Enterprise | Microsoft Azure"
+    description="Create or configure a new SharePoint Server API in your organization's app service environment"
+    services=""
     suite="powerapps"
-	documentationCenter="" 
-	authors="rajram"
-	manager="dwrede"
-	editor=""/>
+    documentationCenter="" 
+    authors="rajram"
+    manager="dwrede"
+    editor=""/>
 
 <tags
    ms.service="powerapps"
@@ -35,13 +35,13 @@
 5. In **Manage APIs**, select **Add** to add the new API:  
 ![Add API][6]
 
-6. Enter a descriptive **name** for your API.	
+6. Enter a descriptive **name** for your API.   
 7. In **Source**, select **Available APIs** to select the pre-built APIs, and select **SharePoint Server**. 
 8. Select **Settings - Configure required settings**.
 9. Enter the *Client Id* and *App Key* for the SharePoint Server Azure Active Directory (AAD app), and the *SharePoint URL* and *Resource Id* of the AAD Proxy app. Follow the steps outlined in the following section to configure connectivity to your on-premises SharePoint Server.  
 
-	> [AZURE.IMPORTANT] Save the **redirect URL**. You may need this value later in this topic.  
-	
+    > [AZURE.IMPORTANT] Save the **redirect URL**. You may need this value later in this topic.  
+    
 10. Select **OK** to complete the steps.
 
 When finished, a new SharePoint Server API is added to your app service environment.
@@ -55,14 +55,14 @@ SharePoint Server use Active Directory for user authentication. APIs in the app 
 
 1. [Enable Application Proxy Services](../active-directory-application-proxy-enable.md) – This includes:  
 
-	- Enable Application Proxy in Azure AD
-	- Install and Register the Azure Application Proxy Connector
+    - Enable Application Proxy in Azure AD
+    - Install and Register the Azure Application Proxy Connector
 
-2. [Publish Applications with Application  Proxy](../active-directory-application-proxy-publish.md) – This includes:  
+2. [Publish Applications with Application  Proxy](../active-directory-application-proxy-publish.md) – This includes:  
 
-	- Publish an Application Proxy app using the wizard. Note the external URL of the intranet sharepoint site once the Proxy app has been created.
-	- Assign users and group to the application.
-	- Enter advanced configuration like the SPN (Service Principal Name) that is used by the Application Proxy Connector to fetch the Kerberos token on-premises.
+    - Publish an Application Proxy app using the wizard. Note the external URL of the intranet sharepoint site once the Proxy app has been created.
+    - Assign users and group to the application.
+    - Enter advanced configuration like the SPN (Service Principal Name) that is used by the Application Proxy Connector to fetch the Kerberos token on-premises.
 
 Once the Proxy app is created, you have to create another AAD app that delegates to the proxy application. This is required to obtain the access token and refresh token that are required for the consent flow. You can create a new AAD application by following [these instructions](../active-directory-integrating-applications.md).
 
@@ -80,3 +80,4 @@ In this topic, you added the Office 365 Outlook API to your PowersApps Enterpris
 [6]: ./media/powerapps-create-api-dropbox/add-api.PNG
 [14]: ./media/powerapps-create-api-office365-outlook/browseall.png
 [15]: ./media/powerapps-create-api-office365-outlook/allresources.png
+

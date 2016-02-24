@@ -8,18 +8,19 @@ For additional information about installing Azure PowerShell, see [How to instal
 
 1. To install the Resource Manager module directly from the Gallery, open Windows PowerShell as administrator and type the following:
 
-		Install-Module AzureRM
-		Install-AzureRM
+        Install-Module AzureRM
+        Install-AzureRM
 
 2. Once you have installed the modules, you'll need to import them in order to use them:
 
-		Import-AzureRM
+        Import-AzureRM
 
 **To install modules using the Web Platform Installer**
 
 - You can install modules using the [Web Platform Installer](http://aka.ms/webpi-azps). When you click the link, it will launch the installer.
 
 - If you get errors when using the Web Platform Installer, it may be because you have already installed a previous version of the cmdlets using the Gallery. See this [Blog Post](https://azure.microsoft.com/blog/azps-1-0/), which can help you remove older versions of the modules and get you back up and running. Typically errors result when you have used the Web Platform Installer and are switching to the Gallery, or the other way around. Removing the modules that were installed earlier clears this issue, and you can then install from the new location.
+
 
 
 

@@ -313,3 +313,4 @@ There are two ways to add storage accounts by using Server Explorer. You can cre
 ## Next steps
 
 To learn more about how use Azure storage services, see [Accessing the Azure Storage Services](https://msdn.microsoft.com/library/azure/ee405490.aspx).
+

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Provision a web app that uses a SQL Database" 
-	description="Use an Azure Resource Manager template to deploy a web app that includes a SQL Database." 
-	services="app-service" 
-	documentationCenter="" 
-	authors="tfitzmac" 
-	manager="wpickett" 
-	editor="jimbe"/>
+    pageTitle="Provision a web app that uses a SQL Database" 
+    description="Use an Azure Resource Manager template to deploy a web app that includes a SQL Database." 
+    services="app-service" 
+    documentationCenter="" 
+    authors="tfitzmac" 
+    manager="wpickett" 
+    editor="jimbe"/>
 
 <tags 
-	ms.service="app-service" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/16/2015" 
-	ms.author="tomfitz"/>
+    ms.service="app-service" 
+    ms.workload="na" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/16/2015" 
+    ms.author="tomfitz"/>
 
 # Provision a web app with a SQL Database
 
@@ -458,3 +458,4 @@ you must provide a login name and password for the database server administrator
 
 
  
+

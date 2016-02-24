@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How to create a cloud collection of Azure RemoteApp | Microsoft Azure" 
-	description="Learn how to create a deployment of Azure RemoteApp that saves data in the Azure cloud." 
-	services="remoteapp" 
-	documentationCenter="" 
-	authors="lizap" 
-	manager="mbaldwin" 
-	editor=""/>
+    pageTitle="How to create a cloud collection of Azure RemoteApp | Microsoft Azure" 
+    description="Learn how to create a deployment of Azure RemoteApp that saves data in the Azure cloud." 
+    services="remoteapp" 
+    documentationCenter="" 
+    authors="lizap" 
+    manager="mbaldwin" 
+    editor=""/>
 
 <tags 
-	ms.service="remoteapp" 
-	ms.workload="compute" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/04/2015" 
-	ms.author="elizapo"/>
+    ms.service="remoteapp" 
+    ms.workload="compute" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/04/2015" 
+    ms.author="elizapo"/>
 
 # How to create a cloud collection of Azure RemoteApp
 
@@ -25,10 +25,10 @@ There are two kinds of [Azure RemoteApp collections](remoteapp-collections.md):
 
 This tutorial walks you through the process of creating a cloud collection. There are four steps: 
 
-1.	Create an Azure RemoteApp collection.
-2.	Optionally configure directory synchronization. If you are using Azure AD + Active Directory, you have to synchronize users, contacts, and passwords from your on-premises Active Directory to your Azure AD tenant.
-5.	Publish apps.
-6.	Configure user access.
+1.  Create an Azure RemoteApp collection.
+2.  Optionally configure directory synchronization. If you are using Azure AD + Active Directory, you have to synchronize users, contacts, and passwords from your on-premises Active Directory to your Azure AD tenant.
+5.  Publish apps.
+6.  Configure user access.
 
 
 **Before you begin**
@@ -54,12 +54,12 @@ Use the following steps to **create a cloud-only collection**:
 4. Choose the plan that you want to use - standard or basic.
 5. Choose the template to use for this collection. 
 
-	**Tip:** Your subscription for RemoteApp comes with [template images](remoteapp-images.md) that contain Office 365 or Office 2013 (for trial use) programs, some published (such as Word) and others ready to publish. You can also create a new [image](remoteapp-imageoptions.md) and use it in your cloud collection.
+    **Tip:** Your subscription for RemoteApp comes with [template images](remoteapp-images.md) that contain Office 365 or Office 2013 (for trial use) programs, some published (such as Word) and others ready to publish. You can also create a new [image](remoteapp-imageoptions.md) and use it in your cloud collection.
 
 
 1. Click **Create RemoteApp collection**.
-	
-	**Important:** It can take up to 30 minutes to provision your collection.
+    
+    **Important:** It can take up to 30 minutes to provision your collection.
 
 After your Azure RemoteApp collection has been created, double-click the name of the collection. That will bring up the **Quick Start** page - this is where you finish configuring the collection.
 
@@ -90,16 +90,16 @@ You can publish multiple apps to your Azure RemoteApp collection. From the publi
 
 Now that you have created your collection, you need to add the users that you want to be able to use your remote resources. If you are using Active Directory, the users that you provide access to need to exist in the Active Directory tenant associated with the subscription you used to create this collection.
 
-1.	From the Quick Start page, click **Configure user access**. 
-2.	Enter the work account (from Active Directory) or Microsoft account that you want to grant access for.
+1.  From the Quick Start page, click **Configure user access**. 
+2.  Enter the work account (from Active Directory) or Microsoft account that you want to grant access for.
 
-	**Notes:** 
+    **Notes:** 
 
-	Make sure that you use the “user@domain.com” format.
+    Make sure that you use the “user@domain.com” format.
 
-	If you are using Office 365 ProPlus in your collection, you must use the Active Directory identities for your users. This helps validate licensing. 
+    If you are using Office 365 ProPlus in your collection, you must use the Active Directory identities for your users. This helps validate licensing. 
 
-3.	After the users are validated, click **Save**.
+3.  After the users are validated, click **Save**.
 
 
 ## Next steps ##

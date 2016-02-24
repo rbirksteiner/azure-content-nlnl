@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Track service health" 
-	description="Find out when Azure has experienced performance degradation or service interruptions. " 
-	authors="stepsic-microsoft-com" 
-	manager="kamrani" 
-	editor="" 
-	services="azure-portal" 
-	documentationCenter="na"/>
+    pageTitle="Track service health" 
+    description="Find out when Azure has experienced performance degradation or service interruptions. " 
+    authors="stepsic-microsoft-com" 
+    manager="kamrani" 
+    editor="" 
+    services="azure-portal" 
+    documentationCenter="na"/>
 
 <tags 
-	ms.service="azure-portal" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/08/2015" 
-	ms.author="stepsic"/>
+    ms.service="azure-portal" 
+    ms.workload="na" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/08/2015" 
+    ms.author="stepsic"/>
 
 # Track service health
 

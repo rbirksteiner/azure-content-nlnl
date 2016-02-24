@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="programmatically Monitor jobs on Stream Analytics | Microsoft Azure" 
-	description="Learn how to programmatically monitor Stream Analytics jobs created via REST APIs, Azure SDK, or Powershell."
-	keywords=".net monitor, job monitor, monitoring app"
-	services="stream-analytics" 
-	documentationCenter="" 
-	authors="jeffstokes72" 
-	manager="paulettm" 
-	editor="cgronlun"/>
+    pageTitle="programmatically Monitor jobs on Stream Analytics | Microsoft Azure" 
+    description="Learn how to programmatically monitor Stream Analytics jobs created via REST APIs, Azure SDK, or Powershell."
+    keywords=".net monitor, job monitor, monitoring app"
+    services="stream-analytics" 
+    documentationCenter="" 
+    authors="jeffstokes72" 
+    manager="paulettm" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="stream-analytics" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="data-services" 
-	ms.date="12/04/2015" 
-	ms.author="jeffstok"/>
+    ms.service="stream-analytics" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="data-services" 
+    ms.date="12/04/2015" 
+    ms.author="jeffstok"/>
 
 
 # Programmatically create a Stream Analytics job monitor
@@ -32,8 +32,8 @@ Before you begin this article, you must have the following:
 
 ## Setup a project
 
-1.	Create a Visual Studio C# .Net console application.
-2.	In the Package Manager Console, run the following commands to install the NuGet packages. The first one is the Azure Stream Analytics Management .NET SDK. The second one is the Azure Insights SDK which will be used to enable monitoring. The last one is the Azure Active Directory client that will be used for authentication.
+1.  Create a Visual Studio C# .Net console application.
+2.  In the Package Manager Console, run the following commands to install the NuGet packages. The first one is the Azure Stream Analytics Management .NET SDK. The second one is the Azure Insights SDK which will be used to enable monitoring. The last one is the Azure Active Directory client that will be used for authentication.
 
     ```
     Install-Package Microsoft.Azure.Management.StreamAnalytics
@@ -41,29 +41,29 @@ Before you begin this article, you must have the following:
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
     ```
 
-3.	Add the following appSettings section to the App.config file.
+3.  Add the following appSettings section to the App.config file.
 
     ```
     <appSettings>
-    	<!--CSM Prod related values-->
-    	<add key="ResourceGroupName" value="RESOURCE GROUP NAME" />
-    	<add key="JobName" value="YOUR JOB NAME" />
-    	<add key="StorageAccountName" value="YOUR STORAGE ACCOUNT"/>
-    	<add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
-    	<add key="ResourceManagerEndpoint" value="https://management.azure.com/" />
-    	<add key="WindowsManagementUri" value="https://management.core.windows.net/" />
-    	<add key="AsaClientId" value="1950a258-227b-4e31-a9cf-717495945fc2" />
-    	<add key="RedirectUri" value="urn:ietf:wg:oauth:2.0:oob" />
-    	<add key="SubscriptionId" value="YOUR AZURE SUBSCRIPTION ID" />
-    	<add key="ActiveDirectoryTenantId" value="YOUR TENANT ID" />
+        <!--CSM Prod related values-->
+        <add key="ResourceGroupName" value="RESOURCE GROUP NAME" />
+        <add key="JobName" value="YOUR JOB NAME" />
+        <add key="StorageAccountName" value="YOUR STORAGE ACCOUNT"/>
+        <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
+        <add key="ResourceManagerEndpoint" value="https://management.azure.com/" />
+        <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
+        <add key="AsaClientId" value="1950a258-227b-4e31-a9cf-717495945fc2" />
+        <add key="RedirectUri" value="urn:ietf:wg:oauth:2.0:oob" />
+        <add key="SubscriptionId" value="YOUR AZURE SUBSCRIPTION ID" />
+        <add key="ActiveDirectoryTenantId" value="YOUR TENANT ID" />
     </appSettings>
-	```
+    ```
 Replace values for *SubscriptionId* and *ActiveDirectoryTenantId* with your Azure subscription and tenant IDs. You can get these values by running the following PowerShell cmdlet:
 
     ```
     Get-AzureAccount
     ```
-4.	Add the following using statements to the source file (Program.cs) in the project. 
+4.  Add the following using statements to the source file (Program.cs) in the project. 
 
     ```
         using System;
@@ -76,42 +76,42 @@ Replace values for *SubscriptionId* and *ActiveDirectoryTenantId* with your Azur
         using Microsoft.Azure.Management.StreamAnalytics.Models;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
     ```
-5.	Add an authentication helper method.
+5.  Add an authentication helper method.
 
         public static string GetAuthorizationHeader()
-        	{
-        		AuthenticationResult result = null;
-        		var thread = new Thread(() =>
-        		{
-        			try
-        			{
-            			var context = new AuthenticationContext(
-                			ConfigurationManager.AppSettings["ActiveDirectoryEndpoint"] +
-                			ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
+            {
+                AuthenticationResult result = null;
+                var thread = new Thread(() =>
+                {
+                    try
+                    {
+                        var context = new AuthenticationContext(
+                            ConfigurationManager.AppSettings["ActiveDirectoryEndpoint"] +
+                            ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
 
-            			result = context.AcquireToken(
-                			resource: ConfigurationManager.AppSettings["WindowsManagementUri"],
-                			clientId: ConfigurationManager.AppSettings["AsaClientId"],
-                			redirectUri: new Uri(ConfigurationManager.AppSettings["RedirectUri"]),
-                			promptBehavior: PromptBehavior.Always);
-        			}
-        			catch (Exception threadEx)
-        			{
-            			Console.WriteLine(threadEx.Message);
-        			}
-    			});
+                        result = context.AcquireToken(
+                            resource: ConfigurationManager.AppSettings["WindowsManagementUri"],
+                            clientId: ConfigurationManager.AppSettings["AsaClientId"],
+                            redirectUri: new Uri(ConfigurationManager.AppSettings["RedirectUri"]),
+                            promptBehavior: PromptBehavior.Always);
+                    }
+                    catch (Exception threadEx)
+                    {
+                        Console.WriteLine(threadEx.Message);
+                    }
+                });
 
-    			thread.SetApartmentState(ApartmentState.STA);
-    			thread.Name = "AcquireTokenThread";
-    			thread.Start();
-    			thread.Join();
+                thread.SetApartmentState(ApartmentState.STA);
+                thread.Name = "AcquireTokenThread";
+                thread.Start();
+                thread.Join();
 
-    			if (result != null)
-    			{
-        			return result.AccessToken;
-    			}
+                if (result != null)
+                {
+                    return result.AccessToken;
+                }
 
-    			throw new InvalidOperationException("Failed to acquire token");
+                throw new InvalidOperationException("Failed to acquire token");
         }
 
 ## Create Management Clients
@@ -122,9 +122,9 @@ The following code will set up the necessary variables and management clients.
 
     // Get authentication token
     TokenCloudCredentials aadTokenCredentials =
-    	new TokenCloudCredentials(
-    		ConfigurationManager.AppSettings["SubscriptionId"],
-    		GetAuthorizationHeader());
+        new TokenCloudCredentials(
+            ConfigurationManager.AppSettings["SubscriptionId"],
+            GetAuthorizationHeader());
 
     Uri resourceManagerUri = new
     Uri(ConfigurationManager.AppSettings["ResourceManagerEndpoint"]);
@@ -151,17 +151,17 @@ The following code will enable monitoring for an **existing** Stream Analytics j
     // Get an existing Stream Analytics job
     JobGetParameters jobGetParameters = new JobGetParameters()
     {
-    	PropertiesToExpand = "inputs,transformation,outputs"
+        PropertiesToExpand = "inputs,transformation,outputs"
     };
     JobGetResponse jobGetResponse = streamAnalyticsClient.StreamingJobs.Get(resourceGroupName, streamAnalyticsJobName, jobGetParameters);
 
     // Enable monitoring
     ServiceDiagnosticSettingsPutParameters insightPutParameters = new ServiceDiagnosticSettingsPutParameters()
     {
-    		Properties = new ServiceDiagnosticSettings()
-    		{
-        		StorageAccountName = "<YOUR STORAGE ACCOUNT NAME>"
-    		}
+            Properties = new ServiceDiagnosticSettings()
+            {
+                StorageAccountName = "<YOUR STORAGE ACCOUNT NAME>"
+            }
     };
     insightsClient.ServiceDiagnosticSettingsOperations.Put(jobGetResponse.Job.Id, insightPutParameters);
 

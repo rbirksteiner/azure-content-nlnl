@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure SDK for .NET Release Notes" 
-	description="Azure SDK for .NET Release Notes" 
-	services="app-service/web" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="Azure SDK for .NET Release Notes" 
+    description="Azure SDK for .NET Release Notes" 
+    services="app-service/web" 
+    documentationCenter="" 
+    authors="Juliako" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/18/2015" 
-	ms.author="juliako"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/18/2015" 
+    ms.author="juliako"/>
 
 
 

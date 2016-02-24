@@ -85,11 +85,12 @@ Below is the list of parameters to configure:
 You can retrieve the credential in a runbook using the [Get-AutomationPSCredential](http://msdn.microsoft.com/library/dn940015.aspx) activity and then use it with [Add-AzureAccount](http://msdn.microsoft.com/library/azure/dn722528.aspx) to connect to your Azure subscription. If the credential is an administrator of multiple Azure subscriptions, then you should also use [Select-AzureSubscription](http://msdn.microsoft.com/library/dn495203.aspx) to specify the correct one. This is shown in the sample Windows PowerShell below that will typically appear at the top of most Azure Automation runbooks.
 
     $cred = Get-AutomationPSCredential –Name "myuseraccount.onmicrosoft.com"
-	Add-AzureAccount –Credential $cred
-	Select-AzureSubscription –SubscriptionName "My Subscription"
+    Add-AzureAccount –Credential $cred
+    Select-AzureSubscription –SubscriptionName "My Subscription"
 
 You should repeat these lines after any [checkpoints](http://technet.microsoft.com/library/dn469257.aspx#bk_Checkpoints) in your runbook. If the runbook is suspended and then resumes on another worker, then it will need to perform the authentication again.
 
 ## Related articles
 - [Azure Automation: Authenticating to Azure using Azure Active Directory](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)
  
+

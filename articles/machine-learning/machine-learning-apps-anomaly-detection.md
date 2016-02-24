@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Machine Learning app: Anomaly Detection Service | Microsoft Azure" 
-	description="Anomaly Detection API is an example built with Microsoft Azure Machine Learning that detects anomalies in time series data with numerical values that are uniformly spaced in time." 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="LuisCabrer" 
-	manager="paulettm"
-	editor="cgronlun" /> 
+    pageTitle="Machine Learning app: Anomaly Detection Service | Microsoft Azure" 
+    description="Anomaly Detection API is an example built with Microsoft Azure Machine Learning that detects anomalies in time series data with numerical values that are uniformly spaced in time." 
+    services="machine-learning" 
+    documentationCenter="" 
+    authors="LuisCabrer" 
+    manager="paulettm"
+    editor="cgronlun" /> 
 
 <tags 
-	ms.service="machine-learning" 
-	ms.devlang="na" 
-	ms.topic="reference" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="multiple" 
-	ms.date="12/08/2015" 
-	ms.author="pingf"/>
+    ms.service="machine-learning" 
+    ms.devlang="na" 
+    ms.topic="reference" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="multiple" 
+    ms.date="12/08/2015" 
+    ms.author="pingf"/>
 
 
 # Machine Learning Anomaly Detection Service#
@@ -54,15 +54,15 @@ The API takes 2 input parameters
 1. "data" represents input time series in the format: t1=v1;t2=v2;... 
 
  
-	Sample data: 
-		
-		"9/21/2014 11:05:00 AM=3;9/21/2014 11:10:00 AM=9.09;9/21/2014 11:15:00 AM=0;"
+    Sample data: 
+        
+        "9/21/2014 11:05:00 AM=3;9/21/2014 11:10:00 AM=9.09;9/21/2014 11:15:00 AM=0;"
 
 2. "params" set to "SpikeDetector.TukeyThresh=3; SpikeDetector.ZscoreThresh=3" which controls sensitivity of spike detectors. Higher values will catch higher spikes and vice versa. 
 
-	Sample URL with input parameters mentioned above:
+    Sample URL with input parameters mentioned above:
 
-		https://api.datamarket.azure.com/data.ashx/aml_labs/anomalydetection/v1/Score?data=%279%2F21%2F2014%2011%3A05%3A00%20AM%3D3%3B9%2F21%2F2014%2011%3A10%3A00%20AM%3D9.09%3B9%2F21%2F2014%2011%3A15%3A00%20AM%3D0%3B%27&params=%27SpikeDetector.TukeyThresh%3D3%3B%20SpikeDetector.ZscoreThresh%3D3%27
+        https://api.datamarket.azure.com/data.ashx/aml_labs/anomalydetection/v1/Score?data=%279%2F21%2F2014%2011%3A05%3A00%20AM%3D3%3B9%2F21%2F2014%2011%3A10%3A00%20AM%3D9.09%3B9%2F21%2F2014%2011%3A15%3A00%20AM%3D0%3B%27&params=%27SpikeDetector.TukeyThresh%3D3%3B%20SpikeDetector.ZscoreThresh%3D3%27
 
 
 
@@ -72,7 +72,7 @@ The API runs these detectors on your time series data and returns the anomaly sc
 
 Sample output for the sample input above: 
 
-	"Time,Data,TSpike,ZSpike,Martingale values,Alert indicator,Martingale values(2),Alert indicator(2),;9/21/2014 11:05:00 AM,3,0,0,-0.687952590518378,0,-0.687952590518378,0,;9/21/2014 11:10:00 AM,9.09,0,0,-1.07030497733224,0,-0.884548154298423,0,;9/21/2014 11:15:00 AM,0,0,0,-1.05186237440962,0,-1.173800281031,0,;"
+    "Time,Data,TSpike,ZSpike,Martingale values,Alert indicator,Martingale values(2),Alert indicator(2),;9/21/2014 11:05:00 AM,3,0,0,-0.687952590518378,0,-0.687952590518378,0,;9/21/2014 11:10:00 AM,9.09,0,0,-1.07030497733224,0,-0.884548154298423,0,;9/21/2014 11:15:00 AM,0,0,0,-1.05186237440962,0,-1.173800281031,0,;"
 
 which is a representation of the following table:
 
@@ -88,3 +88,4 @@ Time|Data|Tspike|Zspike|Martingale values|Alert indicator|Martingale values (2)|
  
 
  
+

@@ -93,3 +93,4 @@ Ensure that the local resource size specified is less than or equal to the max l
 ## Next steps
 
 [Set Up a Cloud Service for Azure](https://msdn.microsoft.com/library/hh124108)  
+

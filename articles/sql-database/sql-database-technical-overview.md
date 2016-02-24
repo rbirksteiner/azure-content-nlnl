@@ -1,12 +1,12 @@
 <properties
-	pageTitle="What is SQL Database? Intro to SQL Database | Microsoft Azure"
-	description="Get an introduction to SQL Database: technical details and capabilities of Microsoft's relational database management system (RDBMS) in the cloud."
-	keywords="introduction to sql,intro to sql,what is sql database,DTU"
-	services="sql-database"
-	documentationCenter=""
-	authors="shontnew"
-	manager="jeffreyg"
-	editor="cgronlun"/>
+    pageTitle="What is SQL Database? Intro to SQL Database | Microsoft Azure"
+    description="Get an introduction to SQL Database: technical details and capabilities of Microsoft's relational database management system (RDBMS) in the cloud."
+    keywords="introduction to sql,intro to sql,what is sql database,DTU"
+    services="sql-database"
+    documentationCenter=""
+    authors="shontnew"
+    manager="jeffreyg"
+    editor="cgronlun"/>
 
 <tags
    ms.service="sql-database"
@@ -60,4 +60,5 @@ Now that you've read an introduction to SQL Database and answered the question "
 - See the [pricing page](http://azure.microsoft.com/pricing/details/sql-database/) for single database and elastic database pricing and calculators.
 
 - Get started by [creating your first database](sql-database-get-started.md). Then build your first app in [C#](sql-database-connect-query.md), [Java](sql-database-develop-java-simple-windows.md), [Node.js](sql-database-develop-nodejs-simple-windows.md), [PHP](sql-database-develop-php-retry-windows.md), [Python](sql-database-develop-python-simple-windows.md), or [Ruby](sql-database-develop-ruby-simple-linux). 
+
 

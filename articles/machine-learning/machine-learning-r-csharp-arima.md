@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Forecasting: Autoregressive Integrated Moving Average (ARIMA) | Microsoft Azure" 
-	description="Forecasting - Autoregressive Integrated Moving Average (ARIMA)" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="yijichen" 
-	manager="paulettm" 
-	editor="cgronlun"/>
+    pageTitle="Forecasting: Autoregressive Integrated Moving Average (ARIMA) | Microsoft Azure" 
+    description="Forecasting - Autoregressive Integrated Moving Average (ARIMA)" 
+    services="machine-learning" 
+    documentationCenter="" 
+    authors="yijichen" 
+    manager="paulettm" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/01/2015" 
-	ms.author="yijichen"/> 
+    ms.service="machine-learning" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/01/2015" 
+    ms.author="yijichen"/> 
 
  
 #Forecasting - Autoregressive Integrated Moving Average (ARIMA)
@@ -54,7 +54,7 @@ There are multiple ways of consuming the service in an automated fashion (an exa
 
 ###Starting C# code for web service consumption:
 
-	public class Input
+    public class Input
     {
         public string frequency;
         public string horizon;
@@ -62,26 +62,26 @@ There are multiple ways of consuming the service in an automated fashion (an exa
         public string value;
     }
 
-	public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
+    public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
     {
          byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
          return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
     }
 
        
-	void Main()
-	{
-  		var input = new Input() { frequency = TextBox1.Text, horizon = TextBox2.Text, date = TextBox3.Text, value = TextBox4.Text };
-		var json = JsonConvert.SerializeObject(input);
-		var acitionUri =  "PutAPIURLHere,e.g.https://api.datamarket.azure.com/..../v1/Score";
-	       
-	  	var httpClient = new HttpClient();
-	   	httpClient.DefaultRequestHeaders.Authorization = CreateBasicHeader("PutEmailAddressHere","ChangeToAPIKey");
-	   	httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-	  	var query = httpClient.PostAsync(acitionUri,new StringContent(json));
-	  	var result = query.Result.Content;
-	  	var scoreResult = result.ReadAsStringAsync().Result;
-  	}
+    void Main()
+    {
+        var input = new Input() { frequency = TextBox1.Text, horizon = TextBox2.Text, date = TextBox3.Text, value = TextBox4.Text };
+        var json = JsonConvert.SerializeObject(input);
+        var acitionUri =  "PutAPIURLHere,e.g.https://api.datamarket.azure.com/..../v1/Score";
+           
+        var httpClient = new HttpClient();
+        httpClient.DefaultRequestHeaders.Authorization = CreateBasicHeader("PutEmailAddressHere","ChangeToAPIKey");
+        httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+        var query = httpClient.PostAsync(acitionUri,new StringContent(json));
+        var result = query.Result.Content;
+        var scoreResult = result.ReadAsStringAsync().Result;
+    }
 
 ##Creation of web service 
 
@@ -95,35 +95,35 @@ From within Azure Machine Learning, a new blank experiment was created. Sample i
 
 ####Module 1:
  
-	# Add in the CSV file with the data in the format shown below 
-![Create workspace][3]	
+    # Add in the CSV file with the data in the format shown below 
+![Create workspace][3]  
 
 ####Module 2:
-	# data input
-	data <- maml.mapInputPort(1) # class: data.frame
-	library(forecast)
-	
-	# preprocessing
-	colnames(data) <- c("frequency", "horizon", "dates", "values")
-	dates <- strsplit(data$dates, ";")[[1]]
-	values <- strsplit(data$values, ";")[[1]]
-	
-	dates <- as.Date(dates, format = '%m/%d/%Y')
-	values <- as.numeric(values)
-	
-	# fit a time-series model
-	train_ts<- ts(values, frequency=data$frequency)
-	fit1 <- auto.arima(train_ts)
-	train_model <- forecast(fit1, h = data$horizon)
-	plot(train_model)
-	
-	# produce forecasting
-	train_pred <- round(train_model$mean,2)
-	data.forecast <- as.data.frame(t(train_pred))
-	colnames(data.forecast) <- paste("Forecast", 1:data$horizon, sep="")
-	
-	# data output
-	maml.mapOutputPort("data.forecast");
+    # data input
+    data <- maml.mapInputPort(1) # class: data.frame
+    library(forecast)
+    
+    # preprocessing
+    colnames(data) <- c("frequency", "horizon", "dates", "values")
+    dates <- strsplit(data$dates, ";")[[1]]
+    values <- strsplit(data$values, ";")[[1]]
+    
+    dates <- as.Date(dates, format = '%m/%d/%Y')
+    values <- as.numeric(values)
+    
+    # fit a time-series model
+    train_ts<- ts(values, frequency=data$frequency)
+    fit1 <- auto.arima(train_ts)
+    train_model <- forecast(fit1, h = data$horizon)
+    plot(train_model)
+    
+    # produce forecasting
+    train_pred <- round(train_model$mean,2)
+    data.forecast <- as.data.frame(t(train_pred))
+    colnames(data.forecast) <- paste("Forecast", 1:data$horizon, sep="")
+    
+    # data output
+    maml.mapOutputPort("data.forecast");
 
 
 ##Limitations 
@@ -141,3 +141,4 @@ For frequently asked questions on consumption of the web service or publishing t
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
  
+

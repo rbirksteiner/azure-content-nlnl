@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Handle conflicts with offline data in Mobile Services (iOS) | Mobile Dev Center"
-	description="Learn how to use Azure Mobile Services to handle conflicts when syncing offline data in your iOS application"
-	documentationCenter="ios"
-	authors="krisragh"
-	manager="dwrede"
-	editor=""
-	services="mobile-services"/>
+    pageTitle="Handle conflicts with offline data in Mobile Services (iOS) | Mobile Dev Center"
+    description="Learn how to use Azure Mobile Services to handle conflicts when syncing offline data in your iOS application"
+    documentationCenter="ios"
+    authors="krisragh"
+    manager="dwrede"
+    editor=""
+    services="mobile-services"/>
 
 <tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-ios"
-	ms.devlang="objective-c"
-	ms.topic="article"
-	ms.date="09/16/2015"
-	ms.author="krisragh;donnam"/>
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-ios"
+    ms.devlang="objective-c"
+    ms.topic="article"
+    ms.date="09/16/2015"
+    ms.author="krisragh;donnam"/>
 
 
 # Handling Conflicts with Offline Data Sync in Mobile Services
@@ -146,3 +146,4 @@ Perform the refresh gesture in the app instances by dragging from the top. Now y
 [Getting Started Offline iOS Sample]: https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/iOS/blog20140611
 [Get Started with Offline Data]: mobile-services-ios-get-started-offline-data.md
 [Get started with Mobile Services]: mobile-services-ios-get-started.md
+

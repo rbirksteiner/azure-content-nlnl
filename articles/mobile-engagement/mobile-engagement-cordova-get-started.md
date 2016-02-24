@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Get Started with Azure Mobile Engagement for Cordova/Phonegap"
-	description="Learn how to use Azure Mobile Engagement with Analytics and Push Notifications for Cordova/Phonegap apps."
-	services="mobile-engagement"
-	documentationCenter="Mobile"
-	authors="piyushjo"
-	manager="dwrede"
-	editor="" />
+    pageTitle="Get Started with Azure Mobile Engagement for Cordova/Phonegap"
+    description="Learn how to use Azure Mobile Engagement with Analytics and Push Notifications for Cordova/Phonegap apps."
+    services="mobile-engagement"
+    documentationCenter="Mobile"
+    authors="piyushjo"
+    manager="dwrede"
+    editor="" />
 
 <tags
-	ms.service="mobile-engagement"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-phonegap"
-	ms.devlang="js"
-	ms.topic="article" 
-	ms.date="09/22/2015"
-	ms.author="piyushjo" />
+    ms.service="mobile-engagement"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-phonegap"
+    ms.devlang="js"
+    ms.topic="article" 
+    ms.date="09/22/2015"
+    ms.author="piyushjo" />
 
 # Get Started with Azure Mobile Engagement for Cordova/Phonegap
 
@@ -56,35 +56,35 @@ We will create a basic app with Cordova to demonstrate the integration:
 
 1. Launch *Terminal* window on your Mac machine and type the following which will create a new Cordova project from the default template. Make sure that the publishing profile you eventually use to deploy your iOS app is using 'com.mycompany.myapp' as the App ID. 
 
-		$ cordova create azme-cordova com.mycompany.myapp
-		$ cd azme-cordova
+        $ cordova create azme-cordova com.mycompany.myapp
+        $ cd azme-cordova
 
 2. Execute the following to configure your project for **iOS** and run it in the iOS Simulator:
 
-		$ cordova platform add ios 
-		$ cordova run ios
+        $ cordova platform add ios 
+        $ cordova run ios
 
 3. Execute the following to configure your project for **Android** and run it in the Android emulator:
 
-		$ cordova platform add android
-		$ cordova run android
+        $ cordova platform add android
+        $ cordova run android
 
-4. 	Add the Cordova Console plugin. 
+4.  Add the Cordova Console plugin. 
 
-		$ cordova plugin add cordova-plugin-console 
+        $ cordova plugin add cordova-plugin-console 
 
 ###Connect your app to Mobile Engagement backend
 
 1. Install the Azure Mobile Engagement Cordova plugin while providing the variable values to configure the plugin:
 
-		cordova plugin add cordova-plugin-ms-azure-mobile-engagement    
-			 --variable AZME_IOS_CONNECTION_STRING=<iOS Connection String> 
-	        --variable AZME_IOS_REACH_ICON=... (icon name WITH extension) 
-	        --variable AZME_ANDROID_CONNECTION_STRING=<Android Connection String> 
-			--variable AZME_ANDROID_REACH_ICON=... (icon name WITHOUT extension)       
-	        --variable AZME_ANDROID_GOOGLE_PROJECT_NUMBER=... (From your Google Cloud console for sending push notifications) 
-	        --variable AZME_REDIRECT_URL=... (URL scheme which triggers the app for deep linking)
-	        --variable AZME_ENABLE_LOG=true|false
+        cordova plugin add cordova-plugin-ms-azure-mobile-engagement    
+             --variable AZME_IOS_CONNECTION_STRING=<iOS Connection String> 
+            --variable AZME_IOS_REACH_ICON=... (icon name WITH extension) 
+            --variable AZME_ANDROID_CONNECTION_STRING=<Android Connection String> 
+            --variable AZME_ANDROID_REACH_ICON=... (icon name WITHOUT extension)       
+            --variable AZME_ANDROID_GOOGLE_PROJECT_NUMBER=... (From your Google Cloud console for sending push notifications) 
+            --variable AZME_REDIRECT_URL=... (URL scheme which triggers the app for deep linking)
+            --variable AZME_ENABLE_LOG=true|false
 
 *Android Reach Icon* : must be the name of the resource without any extension, nor drawable prefix (ex: mynotificationicon), and the icon file must be copied into your android project (platforms/android/res/drawable)
 
@@ -94,33 +94,33 @@ We will create a basic app with Cordova to demonstrate the integration:
 
 1. In the Cordova project - edit **www/js/index.js** to add the call to Mobile Engagement to declare a new activity once the *deviceReady* event is received.
 
-		 onDeviceReady: function() {
-		        app.receivedEvent('deviceready');
-		        AzureEngagement.startActivity("myPage",{});
-		    }
+         onDeviceReady: function() {
+                app.receivedEvent('deviceready');
+                AzureEngagement.startActivity("myPage",{});
+            }
 
 2. Run the application:
-		
-	- **For iOS**
-	
-		In `Terminal` window launch your app in a new Simulator instance by executing the following:
+        
+    - **For iOS**
+    
+        In `Terminal` window launch your app in a new Simulator instance by executing the following:
 
-			cordova run ios
+            cordova run ios
 
-	- **For Android**
-		
-		In `Terminal` window launch your app in a new emulator instance by executing the following:
+    - **For Android**
+        
+        In `Terminal` window launch your app in a new emulator instance by executing the following:
 
-			cordova run android
+            cordova run android
 
 3. You can see the following in the console logs:
 
-		[Engagement] Agent: Session started
-		[Engagement] Agent: Activity 'myPage' started
-		[Engagement] Connection: Established
-		[Engagement] Connection: Sent: appInfo
-		[Engagement] Connection: Sent: startSession
-		[Engagement] Connection: Sent: activity name='myPage'
+        [Engagement] Agent: Session started
+        [Engagement] Agent: Activity 'myPage' started
+        [Engagement] Connection: Established
+        [Engagement] Connection: Sent: appInfo
+        [Engagement] Connection: Sent: startSession
+        [Engagement] Connection: Sent: activity name='myPage'
 
 ##<a id="monitor"></a>Connect app with real-time monitoring
 
@@ -134,46 +134,46 @@ The following sections will setup your app to receive them.
 ###Configure Push credentials for Mobile Engagement
 
 To allow Mobile Engagement to send Push Notifications on your behalf, you need to grant it access to your Apple iOS certificate or GCM Server API Key. 
-	
+    
 1. Navigate to your Mobile Engagement portal. Ensure you're in the app we're using for this project and then click on the **Engage** button at the bottom:
-	
-	![][1]
-	
+    
+    ![][1]
+    
 2. You will land in the settings page in your Engagement Portal. From there click on the **Native Push** section:
-	
-	![][2]
+    
+    ![][2]
 
 3. Configure iOS Certificate/GCM Server API Key
 
-	**[iOS]**
+    **[iOS]**
 
-	a. Select your .p12, upload it and type your password:
-	
-	![][3]
+    a. Select your .p12, upload it and type your password:
+    
+    ![][3]
 
-	**[Android]**
+    **[Android]**
 
-	a. Click the edit icon in front of **API Key** in the GCM Settings section and in the popup which shows up, paste the GCM Server Key and click **OK**. 
-		
-	![][4]
+    a. Click the edit icon in front of **API Key** in the GCM Settings section and in the popup which shows up, paste the GCM Server Key and click **OK**. 
+        
+    ![][4]
 
 ###Enable push notifications in the Cordova app
 
 Edit **www/js/index.js** to add the call to Mobile Engagement to request push notifications and declare a handler:
 
-	 onDeviceReady: function() {
-	        app.receivedEvent('deviceready');
-	        AzureEngagement.registerForPushNotification();
-	        AzureEngagement.onOpenURL(function(_url) { alert(_url); });
-	        AzureEngagement.startActivity("myPage",{});
-	    }
+     onDeviceReady: function() {
+            app.receivedEvent('deviceready');
+            AzureEngagement.registerForPushNotification();
+            AzureEngagement.onOpenURL(function(_url) { alert(_url); });
+            AzureEngagement.startActivity("myPage",{});
+        }
 
 ###Run the app
 
 **[iOS]**
 
 1. We will use XCode to build and deploy the app on the device to test push notifications since iOS only allows push notifications to an actual device. Go to the location where your Cordova project is created and navigate to **...\platforms\ios** location. Open up the native .xcodeproj file in XCode. 
-	
+    
 2. Build and deploy the Cordova app to the iOS device using the account which has the provisioning profile containing the certificate you just uploaded to the Mobile Engagement portal and the App Id which matches the one you provided while creating the Cordova app. You can check out the *Bundle identifier* in your **Resources\*-info.plist** file in XCode to match it up. 
 
 3. You will see the standard iOS popup on your device saying that the app requests permission to send notifications. Grant the permission. 
@@ -182,7 +182,7 @@ Edit **www/js/index.js** to add the call to Mobile Engagement to request push no
 
 You can simply use the emulator to run the Android app as GCM notifications are supported on the Android emulator. 
 
-	cordova run android
+    cordova run android
 
 ##<a id="send"></a>Send a notification to your app
 
@@ -192,38 +192,38 @@ We will now create a simple Push Notification campaign that will send a push to 
 
 2. Click **New Announcement** to create your push campaign
 
-	![][6]
+    ![][6]
 
 3. Provide inputs to create your campaign **[Android]**
-	
-	- Provide a **Name** for your campaign. 
-	- Select the **Delivery Type** as *System notification* *Simple*
-	- Select the Delivery time as *"Any Time"*
-	- Provide a **Title** for your notification which will be the first line in the push.
-	- Provide a **Message** for your notification which will serve as the message body. 
+    
+    - Provide a **Name** for your campaign. 
+    - Select the **Delivery Type** as *System notification* *Simple*
+    - Select the Delivery time as *"Any Time"*
+    - Provide a **Title** for your notification which will be the first line in the push.
+    - Provide a **Message** for your notification which will serve as the message body. 
 
-	![][11]
+    ![][11]
 
 4. Provide inputs to create your campaign **[iOS]**
 
-	- Provide a **Name** for your campaign. 
-	- Select the Delivery time as *"Out of app only"*
-	- Provide a **Title** for your notification which will be the first line in the push.
-	- Provide a **Message** for your notification which will serve as the message body. 
+    - Provide a **Name** for your campaign. 
+    - Select the Delivery time as *"Out of app only"*
+    - Provide a **Title** for your notification which will be the first line in the push.
+    - Provide a **Message** for your notification which will serve as the message body. 
  
-	![][12]
+    ![][12]
 
 5. Scroll down, and in the content section select **Notification only**
 
-	![][8]
+    ![][8]
 
 6. [Optional] You can also provide an Action URL. Make sure that it uses a URL scheme provided while configuring the plugin's **AZME REDIRECT URL** variable e.g. *myapp://test*.  
 
 7. You're done setting the most basic campaign possible. Now scroll down again and click the **Create** button to save your campaign.
 
 8. Finally **Activate** your campaign
-	
-	![][10]
+    
+    ![][10]
 
 9. You should now see a push notification on your device or emulator as part of this campaign. 
 
@@ -245,4 +245,5 @@ We will now create a simple Push Notification campaign that will send a push to 
 
 [11]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-android.png
 [12]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-ios.png
+
 

@@ -15,3 +15,4 @@ Hosted service certificates per subscription|400|400
 Alert rules per subscription|250|250
 
 <sup>1</sup>Extra Small instances count as one core towards the core limit despite using a partial core. 
+

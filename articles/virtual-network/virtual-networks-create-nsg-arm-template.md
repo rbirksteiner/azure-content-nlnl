@@ -102,45 +102,45 @@ To deploy the ARM template you downloaded by using PowerShell, follow the steps 
 
 3. Run the **New-AzureRmResourceGroup** cmdlet to create a resource group using the template.
 
-		New-AzureRmResourceGroup -Name TestRG -Location uswest `
-		    -TemplateFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.json' `
-		    -TemplateParameterFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.parameters.json'	
+        New-AzureRmResourceGroup -Name TestRG -Location uswest `
+            -TemplateFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.json' `
+            -TemplateParameterFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.parameters.json'  
 
-	Expected output:
+    Expected output:
 
-		ResourceGroupName : TestRG
-		Location          : westus
-		ProvisioningState : Succeeded
-		Tags              : 
-		Permissions       : 
-		                    Actions  NotActions
-		                    =======  ==========
-		                    *                  
-		                    
-		Resources         : 
-		                    Name                Type                                     Location
-		                    ==================  =======================================  ========
-		                    sqlAvSet            Microsoft.Compute/availabilitySets       westus  
-		                    webAvSet            Microsoft.Compute/availabilitySets       westus  
-		                    SQL1                Microsoft.Compute/virtualMachines        westus  
-		                    SQL2                Microsoft.Compute/virtualMachines        westus  
-		                    Web1                Microsoft.Compute/virtualMachines        westus  
-		                    Web2                Microsoft.Compute/virtualMachines        westus  
-		                    TestNICSQL1         Microsoft.Network/networkInterfaces      westus  
-		                    TestNICSQL2         Microsoft.Network/networkInterfaces      westus  
-		                    TestNICWeb1         Microsoft.Network/networkInterfaces      westus  
-		                    TestNICWeb2         Microsoft.Network/networkInterfaces      westus  
-		                    NSG-BackEnd         Microsoft.Network/networkSecurityGroups  westus  
-		                    NSG-FrontEnd        Microsoft.Network/networkSecurityGroups  westus  
-		                    TestPIPSQL1         Microsoft.Network/publicIPAddresses      westus  
-		                    TestPIPSQL2         Microsoft.Network/publicIPAddresses      westus  
-		                    TestPIPWeb1         Microsoft.Network/publicIPAddresses      westus  
-		                    TestPIPWeb2         Microsoft.Network/publicIPAddresses      westus  
-		                    TestVNet            Microsoft.Network/virtualNetworks        westus  
-		                    testvnetstorageprm  Microsoft.Storage/storageAccounts        westus  
-		                    testvnetstoragestd  Microsoft.Storage/storageAccounts        westus  
-		                    
-		ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG
+        ResourceGroupName : TestRG
+        Location          : westus
+        ProvisioningState : Succeeded
+        Tags              : 
+        Permissions       : 
+                            Actions  NotActions
+                            =======  ==========
+                            *                  
+                            
+        Resources         : 
+                            Name                Type                                     Location
+                            ==================  =======================================  ========
+                            sqlAvSet            Microsoft.Compute/availabilitySets       westus  
+                            webAvSet            Microsoft.Compute/availabilitySets       westus  
+                            SQL1                Microsoft.Compute/virtualMachines        westus  
+                            SQL2                Microsoft.Compute/virtualMachines        westus  
+                            Web1                Microsoft.Compute/virtualMachines        westus  
+                            Web2                Microsoft.Compute/virtualMachines        westus  
+                            TestNICSQL1         Microsoft.Network/networkInterfaces      westus  
+                            TestNICSQL2         Microsoft.Network/networkInterfaces      westus  
+                            TestNICWeb1         Microsoft.Network/networkInterfaces      westus  
+                            TestNICWeb2         Microsoft.Network/networkInterfaces      westus  
+                            NSG-BackEnd         Microsoft.Network/networkSecurityGroups  westus  
+                            NSG-FrontEnd        Microsoft.Network/networkSecurityGroups  westus  
+                            TestPIPSQL1         Microsoft.Network/publicIPAddresses      westus  
+                            TestPIPSQL2         Microsoft.Network/publicIPAddresses      westus  
+                            TestPIPWeb1         Microsoft.Network/publicIPAddresses      westus  
+                            TestPIPWeb2         Microsoft.Network/publicIPAddresses      westus  
+                            TestVNet            Microsoft.Network/virtualNetworks        westus  
+                            testvnetstorageprm  Microsoft.Storage/storageAccounts        westus  
+                            testvnetstoragestd  Microsoft.Storage/storageAccounts        westus  
+                            
+        ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG
 
 ## Deploy the ARM template by using the Azure CLI
 
@@ -149,35 +149,36 @@ To deploy the ARM template by using the Azure CLI, follow the steps below.
 1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](xplat-cli-install.md) and follow the instructions up to the point where you select your Azure account and subscription.
 2. Run the **azure config mode** command to switch to Resource Manager mode, as shown below.
 
-		azure config mode arm
+        azure config mode arm
 
-	Here is the expected output for the command above:
+    Here is the expected output for the command above:
 
-		info:    New mode is arm
+        info:    New mode is arm
 
 4. Run the **azure group deployment create** cmdlet to deploy the new VNet by using the template and parameter files you downloaded and modified above. The list shown after the output explains the parameters used.
 
-		azure group create -n TestRG -l westus -f 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.json' -e 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.parameters.json'
+        azure group create -n TestRG -l westus -f 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.json' -e 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.parameters.json'
 
-	Expected output:
+    Expected output:
 
-		info:    Executing command group create
-		info:    Getting resource group TestRG
-		info:    Creating resource group TestRG
-		info:    Created resource group TestRG
-		info:    Initializing template configurations and parameters
-		info:    Creating a deployment
-		info:    Created template deployment "azuredeploy"
-		data:    Id:                  /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG
-		data:    Name:                TestRG
-		data:    Location:            westus
-		data:    Provisioning State:  Succeeded
-		data:    Tags: null
-		data:    
-		info:    group create command OK
+        info:    Executing command group create
+        info:    Getting resource group TestRG
+        info:    Creating resource group TestRG
+        info:    Created resource group TestRG
+        info:    Initializing template configurations and parameters
+        info:    Creating a deployment
+        info:    Created template deployment "azuredeploy"
+        data:    Id:                  /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG
+        data:    Name:                TestRG
+        data:    Location:            westus
+        data:    Provisioning State:  Succeeded
+        data:    Tags: null
+        data:    
+        info:    group create command OK
 
-	- **-n (or --name)**. Name of the resource group to be created.
-	- **-l (or --location)**. Azure region where the resource group will be created.
-	- **-f (or --template-file)**. Path to your ARM template file.
-	- **-e (or --parameters-file)**. Path to your ARM parameters file.
+    - **-n (or --name)**. Name of the resource group to be created.
+    - **-l (or --location)**. Azure region where the resource group will be created.
+    - **-f (or --template-file)**. Path to your ARM template file.
+    - **-e (or --parameters-file)**. Path to your ARM parameters file.
+
 

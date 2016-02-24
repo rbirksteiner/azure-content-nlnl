@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How to Use Twilio for Voice and SMS (Java) | Microsoft Azure" 
-	description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in Java." 
-	services="" 
-	documentationCenter="java" 
-	authors="devinrader" 
-	manager="twilio" 
-	editor="mollybos"/>
+    pageTitle="How to Use Twilio for Voice and SMS (Java) | Microsoft Azure" 
+    description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in Java." 
+    services="" 
+    documentationCenter="java" 
+    authors="devinrader" 
+    manager="twilio" 
+    editor="mollybos"/>
 
 <tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="11/25/2014" 
-	ms.author="microsofthelp@twilio.com"/>
+    ms.service="multiple" 
+    ms.workload="na" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="Java" 
+    ms.topic="article" 
+    ms.date="11/25/2014" 
+    ms.author="microsofthelp@twilio.com"/>
 
 # How to Use Twilio for Voice and SMS Capabilities in Java
 
@@ -231,3 +231,4 @@ Now that you've learned the basics of the Twilio service, follow these links to 
 [twilio_on_github]: https://github.com/twilio
 [twilio_support]: http://www.twilio.com/help/contact
 [twilio_quickstarts]: http://www.twilio.com/docs/quickstart
+

@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Get started with authentication on Android (JavaScript backend) | Microsoft Azure"
-	description="Learn how to use Mobile Services to authenticate users of your Android app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft  (JavaScript backend)."
-	services="mobile-services"
-	documentationCenter="android"
-	authors="RickSaling"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Get started with authentication on Android (JavaScript backend) | Microsoft Azure"
+    description="Learn how to use Mobile Services to authenticate users of your Android app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft  (JavaScript backend)."
+    services="mobile-services"
+    documentationCenter="android"
+    authors="RickSaling"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-android"
-	ms.devlang="java"
-	ms.topic="article"
-	ms.date="10/05/2015"
-	ms.author="ricksal"/>
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-android"
+    ms.devlang="java"
+    ms.topic="article"
+    ms.date="10/05/2015"
+    ms.author="ricksal"/>
 
 # Add authentication to your Mobile Services Android app (JavaScript backend)
 
@@ -49,7 +49,7 @@ This tutorial walks you through the basic steps to enable authentication in your
 
 2. From the **Run** menu, then click **Run app**; verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts.
 
-	 This happens because the app attempts to access Mobile Services as an unauthenticated user, but the _TodoItem_ table now requires authentication.
+     This happens because the app attempts to access Mobile Services as an unauthenticated user, but the _TodoItem_ table now requires authentication.
 
 Next, you will update the app to authenticate users before requesting resources from the mobile service.
 
@@ -105,3 +105,4 @@ In the next tutorial, [Authorize users with scripts], you will take the user ID 
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [Get started with Mobile Services]: mobile-services-android-get-started.md
 [Authorize users with scripts]: mobile-services-javascript-backend-service-side-authorization.md
+

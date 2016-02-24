@@ -65,24 +65,24 @@ You can use the following cmdlets to obtain information about available extensio
         VERBOSE: 5:09:01 PM - Begin Operation: Get-AzureVMAvailableExtension
         VERBOSE: 5:09:06 PM - Completed Operation: Get-AzureVMAvailableExtension
 
-        Publisher                   : Microsoft.Azure.Diagnostics
-        ExtensionName               : IaaSDiagnostics
-        Version                     : 1.2
-        Label                       : Microsoft Monitoring Agent Diagnostics
-        Description                 : Microsoft Monitoring Agent Extension
-        PublicConfigurationSchema   :
-        PrivateConfigurationSchema  :
-        IsInternalExtension         : False
-        SampleConfig                :
-        ReplicationCompleted        : True
-        Eula                        :
-        PrivacyUri                  :
-        HomepageUri                 :
-        IsJsonExtension             : True
+        Publisher                   : Microsoft.Azure.Diagnostics
+        ExtensionName               : IaaSDiagnostics
+        Version                     : 1.2
+        Label                       : Microsoft Monitoring Agent Diagnostics
+        Description                 : Microsoft Monitoring Agent Extension
+        PublicConfigurationSchema   :
+        PrivateConfigurationSchema  :
+        IsInternalExtension         : False
+        SampleConfig                :
+        ReplicationCompleted        : True
+        Eula                        :
+        PrivacyUri                  :
+        HomepageUri                 :
+        IsJsonExtension             : True
         DisallowMajorVersionUpgrade : False
-        SupportedOS                 :
-        PublishedDate               :
-        CompanyName                 :
+        SupportedOS                 :
+        PublishedDate               :
+        CompanyName                 :
 
 
 ###Azure Command Line Interface (Azure CLI)
@@ -96,15 +96,15 @@ For example, the following code example shows how to list the information for th
 
     $ azure vm extension list -n IaaSDiagnostics --json
     [
-      {
-        "publisher": "Microsoft.Azure.Diagnostics",
-        "name": "IaaSDiagnostics",
-        "version": "1.2",
-        "label": "Microsoft Monitoring Agent Diagnostics",
-        "description": "Microsoft Monitoring Agent Extension",
-        "replicationCompleted": true,
-        "isJsonExtension": true
-      }
+      {
+        "publisher": "Microsoft.Azure.Diagnostics",
+        "name": "IaaSDiagnostics",
+        "version": "1.2",
+        "label": "Microsoft Monitoring Agent Diagnostics",
+        "description": "Microsoft Monitoring Agent Extension",
+        "replicationCompleted": true,
+        "isJsonExtension": true
+      }
     ]
 
 
@@ -144,3 +144,4 @@ You can use the following REST APIs to know whether an extension requires a conf
 -   For instances of Virtual Machines, the **PublicConfigurationSchema** and **PrivateConfigurationSchema** elements contain the information in the response from the [List Resource Extensions](https://msdn.microsoft.com/library/dn495441.aspx) operation.
 
 >[AZURE.NOTE]Extensions can also use configurations that are defined with JSON. When these types of extensions are used, only the **SampleConfig** element is used.
+

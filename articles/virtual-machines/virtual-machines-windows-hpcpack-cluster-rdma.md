@@ -69,7 +69,7 @@ in an Azure VM.
 
 
 
-4. **Deploy and configure an HPC Pack 2012 R2 head node**
+4. **Deploy and configure an HPC Pack 2012 R2 head node**
 
     Download the latest HPC Pack installation package from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=49922). For requirements and instructions to prepare for an Azure burst deployment, see [HPC Pack Getting Started Guide](https://technet.microsoft.com/library/jj884144.aspx) and [Burst to Azure with Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)
 
@@ -276,3 +276,4 @@ instances added in a “burst to Azure” configuration).
 [iaas]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/iaas.png
 [pingpong1]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/pingpong1.png
 [pingpong2]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/pingpong2.png
+

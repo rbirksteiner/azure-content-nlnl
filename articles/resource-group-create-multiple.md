@@ -126,23 +126,23 @@ name of the copy loop in the **dependsOn** element. The following example shows 
 copy element has **name** set to **storagecopy** and the **dependsOn** element for the Virtual Machines is also set to **storagecopy**.
 
     {
-	    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-	    "contentVersion": "1.0.0.0",
-	    "parameters": {},
-	    "resources": [
-	        {
-		        "apiVersion": "2015-06-15",
-		        "type": "Microsoft.Storage/storageAccounts",
-		        "name": "[concat('storage', uniqueString(resourceGroup().id), copyIndex())]",
-		        "location": "[resourceGroup().location]",
-		        "properties": {
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {},
+        "resources": [
+            {
+                "apiVersion": "2015-06-15",
+                "type": "Microsoft.Storage/storageAccounts",
+                "name": "[concat('storage', uniqueString(resourceGroup().id), copyIndex())]",
+                "location": "[resourceGroup().location]",
+                "properties": {
                     "accountType": "Standard_LRS"
-            	 },
-		        "copy": { 
-         	        "name": "storagecopy", 
-         	        "count": 3 
-      		    }
-	        },
+                 },
+                "copy": { 
+                    "name": "storagecopy", 
+                    "count": 3 
+                }
+            },
            {
                "apiVersion": "2015-06-15", 
                "type": "Microsoft.Compute/virtualMachines", 
@@ -150,8 +150,8 @@ copy element has **name** set to **storagecopy** and the **dependsOn** element f
                "dependsOn": ["storagecopy"],
                ...
            }
-	    ],
-	    "outputs": {}
+        ],
+        "outputs": {}
     }
 
 ## Looping on a nested resource
@@ -201,3 +201,4 @@ To create multiple instances of datasets, you would need to change your template
 - If you want to learn about the sections of a template, see [Authoring Azure Resource Manager Templates](./resource-group-authoring-templates.md).
 - For all of the functions you can use in a template, see [Azure Resource Manager Template Functions](./resource-group-template-functions.md).
 - To learn how to deploy your template, see [Deploy an application with Azure Resource Manager Template](resource-group-template-deploy.md).
+

@@ -6,7 +6,7 @@
    authors="Blackmist"
    manager="paulettm"
    editor="cgronlun"
-	tags="azure-portal"/>
+    tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -41,9 +41,9 @@ To complete the steps in this article, you will need the following.
 
 2. From the links at the top of the page, select **Hive Editor**. This displays a form that can be used to enter the HiveQL statements that you want to run in the HDInsight cluster.
 
-	![the hive editor](./media/hdinsight-hadoop-use-hive-query-console/queryconsole.png)
+    ![the hive editor](./media/hdinsight-hadoop-use-hive-query-console/queryconsole.png)
 
-	Replace the text `Select * from hivesampletable` with the following HiveQL statements:
+    Replace the text `Select * from hivesampletable` with the following HiveQL statements:
 
         DROP TABLE log4jLogs;
         CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
@@ -67,7 +67,7 @@ To complete the steps in this article, you will need the following.
 
 2. Click **Submit**. The **Job Session** at the bottom of the page should display details for the job.
 
-3. When the **Status** field changes to **Completed**, select **View Details** for the job. On the details page, the **Job Output** contains `[ERROR]	3`. You can use the **Download** button under this field to download a file that contains the output of the job.
+3. When the **Status** field changes to **Completed**, select **View Details** for the job. On the details page, the **Job Output** contains `[ERROR]   3`. You can use the **Download** button under this field to download a file that contains the output of the job.
 
 
 ##<a id="summary"></a>Summary
@@ -120,3 +120,4 @@ For information about other ways you can work with Hadoop on HDInsight:
 
 
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
+

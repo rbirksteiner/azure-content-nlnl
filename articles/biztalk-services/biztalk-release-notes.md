@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Release Notes for Azure BizTalk Services | Microsoft Azure BizTalk Services" 
-	description="" 
-	services="biztalk-services" 
-	documentationCenter="" 
-	authors="msftman" 
-	manager="dwrede" 
-	editor="cgronlun"/>
+    pageTitle="Release Notes for Azure BizTalk Services | Microsoft Azure BizTalk Services" 
+    description="" 
+    services="biztalk-services" 
+    documentationCenter="" 
+    authors="msftman" 
+    manager="dwrede" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="biztalk-services" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
-	ms.author="deonhe"/>
+    ms.service="biztalk-services" 
+    ms.workload="integration" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/02/2015" 
+    ms.author="deonhe"/>
 
 # Release Notes for Azure BizTalk Services
 
@@ -197,6 +197,7 @@ Throughout this document, the term ‘pipelines’ and ‘bridges’ are used in
 ### Concepts  
 
 [BizTalk Services](https://msdn.microsoft.com/library/azure/hh689864.aspx)   
+
 
 
 

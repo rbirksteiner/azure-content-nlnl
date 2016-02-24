@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Manage Azure Web App using Azure Automation"
-	description="Learn about how the Azure Automation service can be used to manage Azure Web App."
-	services="app-service\web, automation"
-	documentationCenter=""
-	authors="csand-msft"
-	manager="eamono"
-	editor=""/>
+    pageTitle="Manage Azure Web App using Azure Automation"
+    description="Learn about how the Azure Automation service can be used to manage Azure Web App."
+    services="app-service\web, automation"
+    documentationCenter=""
+    authors="csand-msft"
+    manager="eamono"
+    editor=""/>
 
 <tags
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/28/2015"
-	ms.author="csand"/>
+    ms.service="app-service-web"
+    ms.workload="web"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/28/2015"
+    ms.author="csand"/>
 
 
 
@@ -42,3 +42,4 @@ Now that you've learned the basics of Azure Automation and how it can be used to
 
 * See the Azure Automation [Getting Started Tutorial](../automation-intro.md)
  
+

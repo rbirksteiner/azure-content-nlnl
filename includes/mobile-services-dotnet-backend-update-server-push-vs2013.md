@@ -2,13 +2,13 @@ These steps create a new custom [ApiController](http://go.microsoft.com/fwlink/p
 
 1. In Visual Studio Solution Explorer, right-click the Controllers folder for the mobile service project, expand **Add**, then click **New Scaffolded Item**.
 
-	This displays the Add Scaffold dialog.
+    This displays the Add Scaffold dialog.
 
 2. Expand **Azure Mobile Services** and click **Azure Mobile Services Custom Controller**, then click **Add**, supply a **Controller name** of `NotifyAllUsersController`, then click **Add** again.
 
-	![Web API Add Scaffold dialog](./media/mobile-services-dotnet-backend-update-server-push-vs2013/add-custom-api-controller.png)
+    ![Web API Add Scaffold dialog](./media/mobile-services-dotnet-backend-update-server-push-vs2013/add-custom-api-controller.png)
 
-	This creates a new empty controller class named **NotifyAllUsersController**. 
+    This creates a new empty controller class named **NotifyAllUsersController**. 
 
 3. In the new NotifyAllUsersController.cs project file, add the following **using** statements:
 
@@ -22,7 +22,7 @@ These steps create a new custom [ApiController](http://go.microsoft.com/fwlink/p
             try
             {
                 // Define the XML paylod for a WNS native toast notification 
-				// that contains the value supplied in the POST request.
+                // that contains the value supplied in the POST request.
                 string wnsToast = 
                     string.Format("<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
                     "<toast><visual><binding template=\"ToastText01\">" + 
@@ -44,4 +44,5 @@ These steps create a new custom [ApiController](http://go.microsoft.com/fwlink/p
             return false;
         }
 
-	>[AZURE.NOTE]This POST method can be called by any client that has the application key, which is not secure. To secure the endpoint, apply the attribute `[AuthorizeLevel(AuthorizationLevel.User)]` to the method or class to require authentication. 
+    >[AZURE.NOTE]This POST method can be called by any client that has the application key, which is not secure. To secure the endpoint, apply the attribute `[AuthorizeLevel(AuthorizationLevel.User)]` to the method or class to require authentication. 
+

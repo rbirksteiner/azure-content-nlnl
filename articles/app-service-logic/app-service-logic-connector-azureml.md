@@ -29,10 +29,10 @@ To set up Retraining, add a second Azure ML Connector and provide the input para
 
 ## Running an Azure ML Batch Execution Job
 The Azure ML Connector provides the following four options for running Batch Execution (BES) jobs:
-1.	Batch Job With Input and Output: Experiment has web service input and output modules
-2.	Batch Job No Input and Output: Experiment does not have web service input or output module (e.g. uses Reader and Writer modules)
-3.	Batch Job With only Input: Experiment has a web service input module, but no web service output module (e.g. uses a Writer module)
-4.	Batch Job With only Output: Experiment has no web service input module, but has a web service output module (e.g. uses a Reader module)
+1.  Batch Job With Input and Output: Experiment has web service input and output modules
+2.  Batch Job No Input and Output: Experiment does not have web service input or output module (e.g. uses Reader and Writer modules)
+3.  Batch Job With only Input: Experiment has a web service input module, but no web service output module (e.g. uses a Writer module)
+4.  Batch Job With only Output: Experiment has no web service input module, but has a web service output module (e.g. uses a Reader module)
 Note that BES is an asynchronous request and could take time to complete depending on the size of your data and the complexity of the model. When the job is completed, the Connector will return the output result.
 
 ### Run Batch Execution: with Input and Output
@@ -50,12 +50,12 @@ Other variations on BES jobs, such as a job with no web service input or output,
 
 Use the Set Up Retraining action to set up a one-time or scheduled retraining of your ML model. 
 In combination with a Batch Execution job created from the Connector, you can complete the steps for training and updating a web service’s model. In this workflow, you would use the Connector twice. 
-1.	The first Connector is used to run the BES job to retrain your model and return the output. The output of this run will have the URL of the new model (.ilearner). It can also optionally - if you have set it up in your experiment – return the URL of the output of the Evaluate module which is a csv file.
+1.  The first Connector is used to run the BES job to retrain your model and return the output. The output of this run will have the URL of the new model (.ilearner). It can also optionally - if you have set it up in your experiment – return the URL of the output of the Evaluate module which is a csv file.
 In the next step, you can use the data in the Evaluate module output to make a decision on whether or not to replace the model in your web service (e.g. if Accuracy > 0.85).
-1.	The second Connector is used to set up Retraining. It uses parameters from the output of the first Connector to optionally check for the update model condition and update the web service with the newly trained model.
-  *	As an example, you can access the output of the BES Job with the URL to the newly trained model by entering `@{body('besconnector').Results.output2.FullURL}` in the Retrained Model URL field. This assumes that the web service output in your Training Experiment is called output2.
-  *	For the Resource Name, use the full name of the saved Trained Model in the Predictive Experiment e.g. MyTrainedModel [trained model]
-  *	For the Evaluation Result Key field, you can enter any of the parameters returned in the output of the Evaluate Module of the Training Experiment (if you have included it). You can see the list of available parameters by visualizing the results of the Evaluate module in the Training Experiment in Azure ML Studio. For a classification experiment, these would include Accuracy, Precision, Recall, F-Score, AUC, Average Log Loss, and Training Log Loss.
+1.  The second Connector is used to set up Retraining. It uses parameters from the output of the first Connector to optionally check for the update model condition and update the web service with the newly trained model.
+  * As an example, you can access the output of the BES Job with the URL to the newly trained model by entering `@{body('besconnector').Results.output2.FullURL}` in the Retrained Model URL field. This assumes that the web service output in your Training Experiment is called output2.
+  * For the Resource Name, use the full name of the saved Trained Model in the Predictive Experiment e.g. MyTrainedModel [trained model]
+  * For the Evaluation Result Key field, you can enter any of the parameters returned in the output of the Evaluate Module of the Training Experiment (if you have included it). You can see the list of available parameters by visualizing the results of the Evaluate module in the Training Experiment in Azure ML Studio. For a classification experiment, these would include Accuracy, Precision, Recall, F-Score, AUC, Average Log Loss, and Training Log Loss.
 
 ![][4]
  
@@ -89,3 +89,4 @@ Using the Azure ML Connector for Logic Apps, you can run batch scoring and retra
 [5]: ./media/app-service-logic-connector-azureml/img5.png
 [6]: ./media/app-service-logic-connector-azureml/img6.png
 [7]: ./media/app-service-logic-connector-azureml/img7.png
+

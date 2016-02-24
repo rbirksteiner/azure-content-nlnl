@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Get started with SQL Data Warehouse database auditing | Microsoft Azure" 
-	description="Get started with SQL Data Warehouse database auditing" 
-	services="sql-data-warehouse" 
-	documentationCenter="" 
-	authors="twounder" 
-	manager="" 
-	editor=""/>
+    pageTitle="Get started with SQL Data Warehouse database auditing | Microsoft Azure" 
+    description="Get started with SQL Data Warehouse database auditing" 
+    services="sql-data-warehouse" 
+    documentationCenter="" 
+    authors="twounder" 
+    manager="" 
+    editor=""/>
 
 <tags 
-	ms.service="sql-data-warehouse" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/06/2015" 
-	ms.author="twounder"/>
+    ms.service="sql-data-warehouse" 
+    ms.workload="data-management" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/06/2015" 
+    ms.author="twounder"/>
  
 # Get started with SQL Data Warehouse database auditing 
 <p> Azure SQL Data Warehouse Auditing tracks database events and writes audited events to an audit log in your Azure Storage account.
@@ -63,19 +63,19 @@ Before setting up audit auditing check if you are using a ["Downlevel Client"](s
 
 2. navigate to the configuration blade of the SQL Data Warehouse database / SQL Server you want to audit. Click the **Settings** button on top and then, in the Setting blade, and select **Auditing**.
 
-	![][1]
+    ![][1]
 
 3. In the auditing configuration blade, first unselect the **Inherit Auditing Settings from Server** checkbox. This allows you to specify the settings for a particular database.
-	
-	![][2]
+    
+    ![][2]
 
 4. Next, enable auditing by clicking the **ON** button.
 
-	![][3]
+    ![][3]
 
 5. In the auditing configuration blade, select **STORAGE DETAILS** to open the Audit Logs Storage Blade. Select the Azure storage account where logs will be saved and, the retention period. **Tip:** Use the same storage account for all audited databases to get the most out of the preconfigured reports templates.
 
-	![][4]
+    ![][4]
 
 6. Click the **OK** button to save the storage details configuration.
 
@@ -144,3 +144,4 @@ When you are in Azure Resource Manager mode, run `Get-Command *AzureSql*` to lis
 
 
  
+

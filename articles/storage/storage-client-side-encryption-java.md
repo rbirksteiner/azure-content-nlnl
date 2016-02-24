@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Client-Side Encryption with Java for Microsoft Azure Storage | Microsoft Azure" 
-	description="The Azure Storage Client Library for Java supports client-side encryption and integration with Azure Key Vault for maximum security for your Azure Storage applications." 
-	services="storage" 
-	documentationCenter="java" 
-	authors="dineshm" 
-	manager="carolz" 
-	editor=""/>
+    pageTitle="Client-Side Encryption with Java for Microsoft Azure Storage | Microsoft Azure" 
+    description="The Azure Storage Client Library for Java supports client-side encryption and integration with Azure Key Vault for maximum security for your Azure Storage applications." 
+    services="storage" 
+    documentationCenter="java" 
+    authors="dineshm" 
+    manager="carolz" 
+    editor=""/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/07/2015" 
-	ms.author="tamram"/>
+    ms.service="storage" 
+    ms.workload="storage" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/07/2015" 
+    ms.author="tamram"/>
 
 
 # Client-Side Encryption with Java for Microsoft Azure Storage   
@@ -30,25 +30,25 @@ The processes of encryption and decryption follow the envelope technique.
 ### Encryption via the envelope technique  
 Encryption via the envelope technique works in the following way:  
 
-1.	The Azure storage client library generates a content encryption key (CEK), which is a one-time-use symmetric key.  
+1.  The Azure storage client library generates a content encryption key (CEK), which is a one-time-use symmetric key.  
 
-2.	User data is encrypted using this CEK.   
+2.  User data is encrypted using this CEK.   
 
-3.	The CEK is then wrapped (encrypted) using the key encryption key (KEK). The KEK is identified by a key identifier and can be an asymmetric key pair or a symmetric key and can be managed locally or stored in Azure Key Vaults.  
+3.  The CEK is then wrapped (encrypted) using the key encryption key (KEK). The KEK is identified by a key identifier and can be an asymmetric key pair or a symmetric key and can be managed locally or stored in Azure Key Vaults.  
 The storage client library itself never has access to KEK. The library invokes the key wrapping algorithm that is provided by Key Vault. Users can choose to use custom providers for key wrapping/unwrapping if desired.  
 
-4.	The encrypted data is then uploaded to the Azure Storage service. The wrapped key along with some additional encryption metadata is either stored as metadata (on a blob) or interpolated with the encrypted data (queue messages and table entities).
+4.  The encrypted data is then uploaded to the Azure Storage service. The wrapped key along with some additional encryption metadata is either stored as metadata (on a blob) or interpolated with the encrypted data (queue messages and table entities).
 
 ### Decryption via the envelope technique  
 Decryption via the envelope technique works in the following way:  
 
-1.	The client library assumes that the user is managing the key encryption key (KEK) either locally or in Azure Key Vaults. The user does not need to know the specific key that was used for encryption. Instead, a key resolver which resolves different key identifiers to keys can be set up and used.  
+1.  The client library assumes that the user is managing the key encryption key (KEK) either locally or in Azure Key Vaults. The user does not need to know the specific key that was used for encryption. Instead, a key resolver which resolves different key identifiers to keys can be set up and used.  
 
-2.	The client library downloads the encrypted data along with any encryption material that is stored on the service.  
+2.  The client library downloads the encrypted data along with any encryption material that is stored on the service.  
 
-3.	The wrapped content encryption key (CEK) is then unwrapped (decrypted) using the key encryption key (KEK). Here again, the client library does not have access to KEK. It simply invokes the custom or Key Vault provider’s unwrapping algorithm.  
+3.  The wrapped content encryption key (CEK) is then unwrapped (decrypted) using the key encryption key (KEK). Here again, the client library does not have access to KEK. It simply invokes the custom or Key Vault provider’s unwrapping algorithm.  
 
-4.	The content encryption key (CEK) is then used to decrypt the encrypted user data.
+4.  The content encryption key (CEK) is then used to decrypt the encrypted user data.
 
 ## Encryption Mechanism  
 The storage client library uses [AES](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) in order to encrypt user data. Specifically, [Cipher Block Chaining (CBC)](http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) mode with AES. Each service works somewhat differently, so we will discuss each of them here.
@@ -72,7 +72,7 @@ Since queue messages can be of any format, the client library defines a custom f
 
 During encryption, the client library generates a random IV of 16 bytes along with a random CEK of 32 bytes and performs envelope encryption of the queue message text using this information. The wrapped CEK and some additional encryption metadata are then added to the encrypted queue message. This modified message (shown below) is stored on the service.
 
-	<MessageText>{"EncryptedMessageContents":"6kOu8Rq1C3+M1QO4alKLmWthWXSmHV3mEfxBAgP9QGTU++MKn2uPq3t2UjF1DO6w","EncryptionData":{…}}</MessageText>
+    <MessageText>{"EncryptedMessageContents":"6kOu8Rq1C3+M1QO4alKLmWthWXSmHV3mEfxBAgP9QGTU++MKn2uPq3t2UjF1DO6w","EncryptionData":{…}}</MessageText>
 
 During decryption, the wrapped key is extracted from the queue message and unwrapped. The IV is also extracted from the queue message and used along with the unwrapped key to decrypt the queue message data. Note that the encryption metadata is small (under 500 bytes), so while it does count toward the 64KB limit for a queue message, the impact should be manageable.
 
@@ -84,17 +84,17 @@ The client library supports encryption of entity properties for insert and repla
 
 Table data encryption works as follows:  
 
-1.	Users specify the properties to be encrypted.  
+1.  Users specify the properties to be encrypted.  
 
-2.	The client library generates a random Initialization Vector (IV) of 16 bytes along with a random content encryption key (CEK) of 32 bytes for every entity, and performs envelope encryption on the individual properties to be encrypted by deriving a new IV per property. The encrypted property is stored as binary data.  
+2.  The client library generates a random Initialization Vector (IV) of 16 bytes along with a random content encryption key (CEK) of 32 bytes for every entity, and performs envelope encryption on the individual properties to be encrypted by deriving a new IV per property. The encrypted property is stored as binary data.  
 
-3.	The wrapped CEK and some additional encryption metadata are then stored as two additional reserved properties. The first reserved property (_ClientEncryptionMetadata1) is a string property that holds the information about IV, version, and wrapped key. The second reserved property (_ClientEncryptionMetadata2) is a binary property that holds the information about the properties that are encrypted. The information in this second property (_ClientEncryptionMetadata2) is itself encrypted.  
+3.  The wrapped CEK and some additional encryption metadata are then stored as two additional reserved properties. The first reserved property (_ClientEncryptionMetadata1) is a string property that holds the information about IV, version, and wrapped key. The second reserved property (_ClientEncryptionMetadata2) is a binary property that holds the information about the properties that are encrypted. The information in this second property (_ClientEncryptionMetadata2) is itself encrypted.  
 
-4.	Due to these additional reserved properties required for encryption, users may now have only 250 custom properties instead of 252. The total size of the entity must be less than 1MB.  
+4.  Due to these additional reserved properties required for encryption, users may now have only 250 custom properties instead of 252. The total size of the entity must be less than 1MB.  
 
-	Note that only string properties can be encrypted. If other types of properties are to be encrypted, they must be converted to strings. The encrypted strings are stored on the service as binary properties, and they are converted back to strings after decryption.
+    Note that only string properties can be encrypted. If other types of properties are to be encrypted, they must be converted to strings. The encrypted strings are stored on the service as binary properties, and they are converted back to strings after decryption.
 
-	For tables, in addition to the encryption policy, users must specify the properties to be encrypted. This can be done by either specifying an [Encrypt] attribute (for POCO entities that derive from TableEntity) or an encryption resolver in request options. An encryption resolver is a delegate that takes a partition key, row key, and property name and returns a boolean that indicates whether that property should be encrypted. During encryption, the client library will use this information to decide whether a property should be encrypted while writing to the wire. The delegate also provides for the possibility of logic around how properties are encrypted. (For example, if X, then encrypt property A; otherwise encrypt properties A and B.) Note that it is not necessary to provide this information while reading or querying entities.
+    For tables, in addition to the encryption policy, users must specify the properties to be encrypted. This can be done by either specifying an [Encrypt] attribute (for POCO entities that derive from TableEntity) or an encryption resolver in request options. An encryption resolver is a delegate that takes a partition key, row key, and property name and returns a boolean that indicates whether that property should be encrypted. During encryption, the client library will use this information to decide whether a property should be encrypted while writing to the wire. The delegate also provides for the possibility of logic around how properties are encrypted. (For example, if X, then encrypt property A; otherwise encrypt properties A and B.) Note that it is not necessary to provide this information while reading or querying entities.
 
 ### Batch Operations  
 In batch operations, the same KEK will be used across all the rows in that batch operation because the client library only allows one options object (and hence one policy/KEK) per batch operation. However, the client library will internally generate a new random IV and random CEK per row in the batch. Users can also choose to encrypt different properties for every operation in the batch by defining this behavior in the encryption resolver.
@@ -117,11 +117,11 @@ There are three Key Vault packages:
 
   Key Vault is designed for high-value master keys, and throttling limits per Key Vault are designed with this in mind. When performing client-side encryption with Key Vault, the preferred model is to use symmetric master keys stored as secrets in Key Vault and cached locally. Users must do the following:  
 
-1.	Create a secret offline and upload it to Key Vault.  
+1.  Create a secret offline and upload it to Key Vault.  
 
-2.	Use the secret's base identifier as a parameter to resolve the current version of the secret for encryption and cache this information locally. Use CachingKeyResolver for caching; users are not expected to implement their own caching logic.  
+2.  Use the secret's base identifier as a parameter to resolve the current version of the secret for encryption and cache this information locally. Use CachingKeyResolver for caching; users are not expected to implement their own caching logic.  
 
-3.	Use the caching resolver as an input while creating the encryption policy.
+3.  Use the caching resolver as an input while creating the encryption policy.
 More information regarding Key Vault usage can be found in the encryption code samples. <fix URL>  
 
 ## Best practices  
@@ -142,10 +142,10 @@ Encryption support is available only in the storage client library for Java.
 While creating an EncryptionPolicy object, users can provide only a Key (implementing IKey), only a resolver (implementing IKeyResolver), or both. IKey is the basic key type that is identified using a key identifier and that provides the logic for wrapping/unwrapping. IKeyResolver is used to resolve a key during the decryption process. It defines a ResolveKey method that returns an IKey given a key identifier. This provides users the ability to choose between multiple keys that are managed in multiple locations.  
 - For encryption, the key is used always and the absence of a key will result in an error.  
 - For decryption:  
-	- The key resolver is invoked if specified to get the key. If the resolver is specified but does not have a mapping for the key identifier, an error is thrown.  
-	- If resolver is not specified but a key is specified, the key is used if its identifier matches the required key identifier. If the identifier does not match, an error is thrown.  
+    - The key resolver is invoked if specified to get the key. If the resolver is specified but does not have a mapping for the key identifier, an error is thrown.  
+    - If resolver is not specified but a key is specified, the key is used if its identifier matches the required key identifier. If the identifier does not match, an error is thrown.  
 
-	  The [encryption samples](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) <fix URL>demonstrate a more detailed end-to-end scenario for blobs, queues and tables, along with Key Vault integration.
+      The [encryption samples](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) <fix URL>demonstrate a more detailed end-to-end scenario for blobs, queues and tables, along with Key Vault integration.
 
 ### RequireEncryption mode  
 Users can optionally enable a mode of operation where all uploads and downloads must be encrypted. In this mode, attempts to upload data without an encryption policy or download data that is not encrypted on the service will fail on the client. The **requireEncryption** flag of the request options object controls this behavior. If your application will encrypt all objects stored in Azure Storage, then you can set the **requireEncryption** property on the default request options for the service client object.   
@@ -155,88 +155,88 @@ For example, use **CloudBlobClient.getDefaultRequestOptions().setRequireEncrypti
 ### Blob service encryption  
 Create a **BlobEncryptionPolicy** object and set it in the request options (per API or at a client level by using **DefaultRequestOptions**). Everything else will be handled by the client library internally.
 
-	// Create the IKey used for encryption.
-	RsaKey key = new RsaKey("private:key1" /* key identifier */);
+    // Create the IKey used for encryption.
+    RsaKey key = new RsaKey("private:key1" /* key identifier */);
 
-	// Create the encryption policy to be used for upload and download.
-	BlobEncryptionPolicy policy = new BlobEncryptionPolicy(key, null);
-	
-	// Set the encryption policy on the request options.
-	BlobRequestOptions options = new BlobRequestOptions();
-	options.setEncryptionPolicy(policy);
-	
-	// Upload the encrypted contents to the blob.
-	blob.upload(stream, size, null, options, null);
-	
-	// Download and decrypt the encrypted contents from the blob.
-	ByteArrayOutputStream outputStream = new ByteArrayOutputStream(); blob.DownloadToStream(outputStream, null, options, null);
+    // Create the encryption policy to be used for upload and download.
+    BlobEncryptionPolicy policy = new BlobEncryptionPolicy(key, null);
+    
+    // Set the encryption policy on the request options.
+    BlobRequestOptions options = new BlobRequestOptions();
+    options.setEncryptionPolicy(policy);
+    
+    // Upload the encrypted contents to the blob.
+    blob.upload(stream, size, null, options, null);
+    
+    // Download and decrypt the encrypted contents from the blob.
+    ByteArrayOutputStream outputStream = new ByteArrayOutputStream(); blob.DownloadToStream(outputStream, null, options, null);
 
 ### Queue service encryption  
 Create a **QueueEncryptionPolicy** object and set it in the request options (per API or at a client level by using **DefaultRequestOptions**). Everything else will be handled by the client library internally.
 
-	// Create the IKey used for encryption.
-	RsaKey key = new RsaKey("private:key1" /* key identifier */);
-	
-	// Create the encryption policy to be used for upload and download.
-	QueueEncryptionPolicy policy = new QueueEncryptionPolicy(key, null);
-	
-	// Add message
-	QueueRequestOptions options = new QueueRequestOptions();
-	options.setEncryptionPolicy(policy);
-	
-	queue.addMessage(message, 0, 0, options, null);
-	
-	// Retrieve message
-	CloudQueueMessage retrMessage = queue.retrieveMessage(30, options, null);
+    // Create the IKey used for encryption.
+    RsaKey key = new RsaKey("private:key1" /* key identifier */);
+    
+    // Create the encryption policy to be used for upload and download.
+    QueueEncryptionPolicy policy = new QueueEncryptionPolicy(key, null);
+    
+    // Add message
+    QueueRequestOptions options = new QueueRequestOptions();
+    options.setEncryptionPolicy(policy);
+    
+    queue.addMessage(message, 0, 0, options, null);
+    
+    // Retrieve message
+    CloudQueueMessage retrMessage = queue.retrieveMessage(30, options, null);
 
 ### Table service encryption  
 In addition to creating an encryption policy and setting it on request options, you must either specify an **EncryptionResolver** in **TableRequestOptions**, or set the [Encrypt] attribute on the entity’s getter and setter.
 
 ### Using the resolver  
 
-	// Create the IKey used for encryption.
-	RsaKey key = new RsaKey("private:key1" /* key identifier */);
-	
-	// Create the encryption policy to be used for upload and download.
-	TableEncryptionPolicy policy = new TableEncryptionPolicy(key, null);
-	
-	TableRequestOptions options = new TableRequestOptions() 
-	options.setEncryptionPolicy(policy);
-	options.setEncryptionResolver(new EncryptionResolver() {
-	    public boolean encryptionResolver(String pk, String rk, String key) {
-        	if (key == "foo")
-        	{
-	            return true;
-        	}
-        	return false;
-    	}
-	});
-	
-	// Insert Entity
-	currentTable.execute(TableOperation.insert(ent), options, null);
-	
-	// Retrieve Entity
-	// No need to specify an encryption resolver for retrieve
-	TableRequestOptions retrieveOptions = new TableRequestOptions() 
-	retrieveOptions.setEncryptionPolicy(policy);
-	
-	TableOperation operation = TableOperation.retrieve(ent.PartitionKey, ent.RowKey, DynamicTableEntity.class);
-	TableResult result = currentTable.execute(operation, retrieveOptions, null);
+    // Create the IKey used for encryption.
+    RsaKey key = new RsaKey("private:key1" /* key identifier */);
+    
+    // Create the encryption policy to be used for upload and download.
+    TableEncryptionPolicy policy = new TableEncryptionPolicy(key, null);
+    
+    TableRequestOptions options = new TableRequestOptions() 
+    options.setEncryptionPolicy(policy);
+    options.setEncryptionResolver(new EncryptionResolver() {
+        public boolean encryptionResolver(String pk, String rk, String key) {
+            if (key == "foo")
+            {
+                return true;
+            }
+            return false;
+        }
+    });
+    
+    // Insert Entity
+    currentTable.execute(TableOperation.insert(ent), options, null);
+    
+    // Retrieve Entity
+    // No need to specify an encryption resolver for retrieve
+    TableRequestOptions retrieveOptions = new TableRequestOptions() 
+    retrieveOptions.setEncryptionPolicy(policy);
+    
+    TableOperation operation = TableOperation.retrieve(ent.PartitionKey, ent.RowKey, DynamicTableEntity.class);
+    TableResult result = currentTable.execute(operation, retrieveOptions, null);
 
 ### Using attributes  
 As mentioned above, if the entity implements TableEntity, then the properties getter and setter can be decorated with the [Encrypt] attribute instead of specifying the **EncryptionResolver**.
 
-	private string encryptedProperty1;
+    private string encryptedProperty1;
 
-	@Encrypt
-	public String getEncryptedProperty1 () {
-	    return this.encryptedProperty1;
-	}
-	
-	@Encrypt
-	public void setEncryptedProperty1(final String encryptedProperty1) {
-	    this.encryptedProperty1 = encryptedProperty1;
-	}
+    @Encrypt
+    public String getEncryptedProperty1 () {
+        return this.encryptedProperty1;
+    }
+    
+    @Encrypt
+    public void setEncryptedProperty1(final String encryptedProperty1) {
+        this.encryptedProperty1 = encryptedProperty1;
+    }
 
 ## Encryption and performance  
 Note that encrypting your storage data results in additional performance overhead. The content key and IV must be generated, the content itself must be encrypted, and additional meta-data must be formatted and uploaded. This overhead will vary depending on the quantity of data being encrypted. We recommend that customers always test their applications for performance during development.

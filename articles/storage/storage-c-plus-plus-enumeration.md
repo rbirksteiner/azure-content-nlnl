@@ -23,11 +23,11 @@ Listing operations are key to many development scenarios with Azure Storage. Thi
 
 The Storage Client Library provides a variety of methods to list or query objects in Azure Storage. This article addresses the following scenarios:
 
--	List containers in an account
--	List blobs in a container or virtual blob directory
--	List queues in an account
--	List tables in an account
--	Query entities in a table
+-   List containers in an account
+-   List blobs in a container or virtual blob directory
+-   List queues in an account
+-   List tables in an account
+-   Query entities in a table
 
 Each of these methods is shown using different overloads for different scenarios.
 
@@ -35,14 +35,14 @@ Each of these methods is shown using different overloads for different scenarios
 
 Because the Storage Client Library for C++ is built on top of the [C++ REST library (Project Casablanca)](http://casablanca.codeplex.com/), we inherently support asynchronous operations by using [pplx::task](http://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). For example:
 
-	pplx::task<list_blob_item_segment> list_blobs_segmented_async(continuation_token& token) const;
+    pplx::task<list_blob_item_segment> list_blobs_segmented_async(continuation_token& token) const;
 
 Synchronous operations wrap the corresponding asynchronous operations:
 
-	list_blob_item_segment list_blobs_segmented(const continuation_token& token) const
-	{
-	    return list_blobs_segmented_async(token).get();
-	}
+    list_blob_item_segment list_blobs_segmented(const continuation_token& token) const
+    {
+        return list_blobs_segmented_async(token).get();
+    }
 
 If you are working with multiple threading applications or services, we recommend that you use the async APIs directly instead of creating a thread to call the sync APIs, which significantly impacts your performance.
 
@@ -54,37 +54,37 @@ It is therefore impractical to list all objects in a single response. Instead, y
 
 The response for a segmented listing operation includes:
 
--	<i>_segment</i>, which contains the set of results returned for a single call to the listing API. 
--	*continuation_token*, which is passed to the next call in order to get the next page of results. When there are no more results to return, the continuation token is null.
+-   <i>_segment</i>, which contains the set of results returned for a single call to the listing API. 
+-   *continuation_token*, which is passed to the next call in order to get the next page of results. When there are no more results to return, the continuation token is null.
 
 For example, a typical call to list all blobs in a container may look like the following code snippet. The code is available in our [samples](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted/Application.cpp):
 
-	// List blobs in the blob container
-	azure::storage::continuation_token token;
-	do
-	{
-	    azure::storage::list_blob_item_segment segment = container.list_blobs_segmented(token);
-	    for (auto it = segment.results().cbegin(); it != segment.results().cend(); ++it)
-	{
-	    if (it->is_blob())
-	    {
-	        process_blob(it->as_blob());
-	    }
-	    else
-	    {
-	        process_diretory(it->as_directory());
-	    }
-	}
-	
-	    token = segment.continuation_token();
-	}
-	while (!token.empty());
+    // List blobs in the blob container
+    azure::storage::continuation_token token;
+    do
+    {
+        azure::storage::list_blob_item_segment segment = container.list_blobs_segmented(token);
+        for (auto it = segment.results().cbegin(); it != segment.results().cend(); ++it)
+    {
+        if (it->is_blob())
+        {
+            process_blob(it->as_blob());
+        }
+        else
+        {
+            process_diretory(it->as_directory());
+        }
+    }
+    
+        token = segment.continuation_token();
+    }
+    while (!token.empty());
 
 Note that the number of results returned in a page can be controlled by the parameter *max_results* in the overload of each API, for example:
-	
-	list_blob_item_segment list_blobs_segmented(const utility::string_t& prefix, bool use_flat_blob_listing, 
-		blob_listing_details::values includes, int max_results, const continuation_token& token, 
-		const blob_request_options& options, operation_context context)
+    
+    list_blob_item_segment list_blobs_segmented(const utility::string_t& prefix, bool use_flat_blob_listing, 
+        blob_listing_details::values includes, int max_results, const continuation_token& token, 
+        const blob_request_options& options, operation_context context)
 
 If you do not specify the *max_results* parameter, the default maximum value of up to 5000 results is returned in a single page.
 
@@ -96,9 +96,9 @@ The recommended coding pattern for most scenarios is segmented listing, which pr
 
 Earlier versions of the Storage Client Library for C++ (versions 0.5.0 Preview and earlier) included non-segmented listing APIs for tables and queues, as in the following example:
 
-	std::vector<cloud_table> list_tables(const utility::string_t& prefix) const;
-	std::vector<table_entity> execute_query(const table_query& query) const;
-	std::vector<cloud_queue> list_queues() const;
+    std::vector<cloud_table> list_tables(const utility::string_t& prefix) const;
+    std::vector<table_entity> execute_query(const table_query& query) const;
+    std::vector<cloud_queue> list_queues() const;
 
 These methods were implemented as wrappers of segmented APIs. For each response of segmented listing, the code appended the results to a vector and returned all results after the full containers were scanned.
 
@@ -108,25 +108,25 @@ These greedy listing APIs in the SDK do not exist in C#, Java, or the JavaScript
 
 If your code is calling these greedy APIs:
 
-	std::vector<azure::storage::table_entity> entities = table.execute_query(query);
-	for (auto it = entities.cbegin(); it != entities.cend(); ++it)
-	{
-	    process_entity(*it);
-	}
+    std::vector<azure::storage::table_entity> entities = table.execute_query(query);
+    for (auto it = entities.cbegin(); it != entities.cend(); ++it)
+    {
+        process_entity(*it);
+    }
 
 Then you should modify your code to use the segmented listing APIs:
 
-	azure::storage::continuation_token token;
-	do
-	{
-	    azure::storage::table_query_segment segment = table.execute_query_segmented(query, token);
-	    for (auto it = segment.results().cbegin(); it != segment.results().cend(); ++it)
-	    {
-	        process_entity(*it);
-	    }
-	
-	    token = segment.continuation_token();
-	} while (!token.empty());
+    azure::storage::continuation_token token;
+    do
+    {
+        azure::storage::table_query_segment segment = table.execute_query_segmented(query, token);
+        for (auto it = segment.results().cbegin(); it != segment.results().cend(); ++it)
+        {
+            process_entity(*it);
+        }
+    
+        token = segment.continuation_token();
+    } while (!token.empty());
 
 By specifying the *max_results* parameter of the segment, you can balance between the numbers of requests and memory usage to meet performance considerations for your application.
 
@@ -140,23 +140,23 @@ If you’re also using C# or Oracle Java SDKs, you should be familiar with the E
 
 A typical lazy listing API, using **list_blobs** as an example, looks like this:
 
-	list_blob_item_iterator list_blobs() const;
+    list_blob_item_iterator list_blobs() const;
 
 A typical code snippet that uses the lazy listing pattern might look like this:
 
-	// List blobs in the blob container
-	azure::storage::list_blob_item_iterator end_of_results;
-	for (auto it = container.list_blobs(); it != end_of_results; ++it)
-	{
-		if (it->is_blob())
-		{
-			process_blob(it->as_blob());
-		}
-		else
-		{
-			process_directory(it->as_directory());
-		}
-	}
+    // List blobs in the blob container
+    azure::storage::list_blob_item_iterator end_of_results;
+    for (auto it = container.list_blobs(); it != end_of_results; ++it)
+    {
+        if (it->is_blob())
+        {
+            process_blob(it->as_blob());
+        }
+        else
+        {
+            process_directory(it->as_directory());
+        }
+    }
 
 Note that lazy listing is only available in synchronous mode.
 
@@ -168,18 +168,19 @@ Lazy listing APIs are included in the Storage Client Library for C++ in version 
 
 In this article, we discussed different overloads for listing APIs for various objects in the Storage Client Library for C++ . To summarize:
 
--	Async APIs are strongly recommended under multiple threading scenarios.
--	Segmented listing is recommended for most scenarios.
--	Lazy listing is provided in the library as a convenient wrapper in synchronous scenarios.
--	Greedy listing is not recommended and has been removed from the library.
+-   Async APIs are strongly recommended under multiple threading scenarios.
+-   Segmented listing is recommended for most scenarios.
+-   Lazy listing is provided in the library as a convenient wrapper in synchronous scenarios.
+-   Greedy listing is not recommended and has been removed from the library.
 
 ##Next steps
 
 For more information about Azure Storage and Client Library for C++, see the following resources.
 
--	[How to use Blob Storage from C++](storage-c-plus-plus-how-to-use-blobs.md)
--	[How to use Table Storage from C++](storage-c-plus-plus-how-to-use-tables.md)
--	[How to use Queue Storage from C++](storage-c-plus-plus-how-to-use-queues.md)
--	[Azure Storage Client Library for C++ API documentation.](http://azure.github.io/azure-storage-cpp/)
--	[Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)
--	[Azure Storage Documentation](http://azure.microsoft.com/documentation/services/storage/)
+-   [How to use Blob Storage from C++](storage-c-plus-plus-how-to-use-blobs.md)
+-   [How to use Table Storage from C++](storage-c-plus-plus-how-to-use-tables.md)
+-   [How to use Queue Storage from C++](storage-c-plus-plus-how-to-use-queues.md)
+-   [Azure Storage Client Library for C++ API documentation.](http://azure.github.io/azure-storage-cpp/)
+-   [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)
+-   [Azure Storage Documentation](http://azure.microsoft.com/documentation/services/storage/)
+

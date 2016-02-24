@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure AD and Applications: Assigning Users to an Application | Microsoft Azure"
-	description="How to implement user assignment for Azure applications."
-	services="active-directory"
-	documentationCenter=""
-	authors="IHenkel"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Azure AD and Applications: Assigning Users to an Application | Microsoft Azure"
+    description="How to implement user assignment for Azure applications."
+    services="active-directory"
+    documentationCenter=""
+    authors="IHenkel"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/09/2015"
-	ms.author="inhenk"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/09/2015"
+    ms.author="inhenk"/>
 
 # Azure AD and Applications: Assigning Users to an Application
 Before you can assign users and groups to an application, you must require user assignment.  To learn how to require user assignment please see the [Requiring User Assignment](active-directory-applications-guiding-developers-requiring-user-assignment.md) article.
@@ -32,3 +32,4 @@ Before you can assign users and groups to an application, you must require user 
 
 ## Next Steps
 [AZURE.INCLUDE [guiding-developers-for-lob-applications-toc.md](../../includes/active-directory-applications-guiding-developers-for-lob-applications-toc.md)]
+

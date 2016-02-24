@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How to interpret model results in Machine Learning | Microsoft Azure" 
-	description="How to to choose the optimal parameter set for an algorithm using and visualizing score model outputs." 
-	services="machine-learning"
-	documentationCenter="" 
-	authors="bradsev" 
-	manager="paulettm" 
-	editor="cgronlun"/>
+    pageTitle="How to interpret model results in Machine Learning | Microsoft Azure" 
+    description="How to to choose the optimal parameter set for an algorithm using and visualizing score model outputs." 
+    services="machine-learning"
+    documentationCenter="" 
+    authors="bradsev" 
+    manager="paulettm" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/04/2015" 
-	ms.author="bradsev" />
+    ms.service="machine-learning" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/04/2015" 
+    ms.author="bradsev" />
 
 
 # How to interpret model results in Azure Machine Learning 

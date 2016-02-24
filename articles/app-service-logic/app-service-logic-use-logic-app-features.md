@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Use Logic App features" 
-	description="Learn how to use the advanced features of logic apps." 
-	authors="stepsic-microsoft-com" 
-	manager="dwrede" 
-	editor="" 
-	services="app-service\logic" 
-	documentationCenter=""/>
+    pageTitle="Use Logic App features" 
+    description="Learn how to use the advanced features of logic apps." 
+    authors="stepsic-microsoft-com" 
+    manager="dwrede" 
+    editor="" 
+    services="app-service\logic" 
+    documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/15/2015"
-	ms.author="stepsic"/> 
-	
+    ms.service="app-service-logic"
+    ms.workload="integration"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/15/2015"
+    ms.author="stepsic"/> 
+    
 # Use Logic Apps features
 
 In the [previous topic][Create a new logic app], you created your first logic app. Now we will show you how to build a more complete process using App Services Logic Apps. This topic introduces the following new Logic Apps concepts:
@@ -51,9 +51,9 @@ Repeat takes a list of items and executes the action for each item in that list.
  
 2. Next to the **Repeat** box click the `...` and select **Body**. This will input:
 
-    	@body('twitterconnector')
+        @body('twitterconnector')
 
-	Into the text box. This function outputs a list of tweets. 
+    Into the text box. This function outputs a list of tweets. 
 
 3. Select all of the text in the **Content** text box and delete it. Then, click the `...` and select **Tweet Text**. This will insert the **repeatItem()** function, which returns each element in the list. 
 
@@ -66,9 +66,9 @@ This logic app still results in a lot of files being uploaded to Dropbox. The fo
 
 2. In the text box, type the following:
 
-    	@greater(repeatItem().Retweet_Count , 5)
+        @greater(repeatItem().Retweet_Count , 5)
     
-	The function **greater** compares two values and only allows the action to be executed when the first value is greater than the second value. You access a given property as a dot (.) followed by the property name, such as `.Retweet_Count` above. 
+    The function **greater** compares two values and only allows the action to be executed when the first value is greater than the second value. You access a given property as a dot (.) followed by the property name, such as `.Retweet_Count` above. 
 
 3. Click the check mark to save the Dropbox action.
 
@@ -78,9 +78,9 @@ In addition to the designer, you can directly edit the code that defines a logic
 
 1. Click on the **Code view** button in the command bar. 
 
-	This opens a full editor that shows the definition you just edited.
+    This opens a full editor that shows the definition you just edited.
 
-	![Code view](./media/app-service-logic-use-logic-app-features/codeview.png)
+    ![Code view](./media/app-service-logic-use-logic-app-features/codeview.png)
 
     By using the text editor, you can copy and paste any number of actions within the same logic app or between logic apps. You can also easily add or remove entire sections from the definition, and you can also share definitions with others.
 
@@ -93,17 +93,17 @@ The following updates your existing logic app to use parameters for the query te
 
 1. In the code view, locate the `parameters : {}` object and insert the following topic object:
 
-	    "topic" : {
-		    "type" : "string",
-		    "defaultValue" : "MicrosoftAzure"
-	    }
+        "topic" : {
+            "type" : "string",
+            "defaultValue" : "MicrosoftAzure"
+        }
     
 2. Scroll to the `twitterconnector` action, locate the query value and replace it with `#@{parameters('topic')}`.
-	You could also use the  **concat** function to join together two or more strings, for example: `@concat('#',parameters('topic'))` is identical to the above. 
+    You could also use the  **concat** function to join together two or more strings, for example: `@concat('#',parameters('topic'))` is identical to the above. 
  
 3. Finally, go to the `dropboxconnector` action and add the topic parameter, as follows:
 
-    	/tweets/@{parameters('topic')}/@{repeatItem().TweetID}.txt
+        /tweets/@{parameters('topic')}/@{repeatItem().TweetID}.txt
 
 Parameters are a good way to pull out values that you are likely to change a lot. They are especially useful when you need to override parameters in different environments. For more information on how to override parameters based on environment, see our [REST API documentation](http://go.microsoft.com/fwlink/?LinkID=525617&clcid=0x409).
 

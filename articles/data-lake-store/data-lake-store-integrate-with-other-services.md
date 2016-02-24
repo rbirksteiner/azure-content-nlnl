@@ -49,3 +49,4 @@ For instructions on how to use Azure Data Factory with Data Lake Store, see [Mov
 - [Overview of Azure Data Lake Store](data-lake-store-overview.md)
 - [Get Started with Data Lake Store using Portal](data-lake-store-get-started-portal.md)
 - [Get started with Data Lake Store using PowerShell](data-lake-store-get-started-powershell.md)  
+

@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Enable heap dumps for Hadoop services on HDInsight | Microsoft Azure"
-	description="Enable heap dumps for Hadoop services from Linux-based HDInsight clusters for debugging and analysis."
-	services="hdinsight"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="paulettm"
-	editor="cgronlun"
-	tags="azure-portal"/>
+    pageTitle="Enable heap dumps for Hadoop services on HDInsight | Microsoft Azure"
+    description="Enable heap dumps for Hadoop services from Linux-based HDInsight clusters for debugging and analysis."
+    services="hdinsight"
+    documentationCenter=""
+    authors="Blackmist"
+    manager="paulettm"
+    editor="cgronlun"
+    tags="azure-portal"/>
 
 <tags
-	ms.service="hdinsight"
-	ms.workload="big-data"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/04/2015"
-	ms.author="larryfr"/>
+    ms.service="hdinsight"
+    ms.workload="big-data"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/04/2015"
+    ms.author="larryfr"/>
 
 
 #Enable heap dumps for Hadoop services on Linux-based HDInsight (Preview)
@@ -101,7 +101,7 @@ To modify the configuration for a service, use the following steps:
 
     ![HADOOP_NAMENODE_OPTS with -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/](./media/hdinsight-hadoop-heap-dump-linux/opts.png)
 
-	> [AZURE.NOTE] When enabling heap dumps for the map or reduce child process, you will instead look for the fields labled **mapreduce.admin.map.child.java.opts** and **mapreduce.admin.reduce.child.java.opts**.
+    > [AZURE.NOTE] When enabling heap dumps for the map or reduce child process, you will instead look for the fields labled **mapreduce.admin.map.child.java.opts** and **mapreduce.admin.reduce.child.java.opts**.
 
     Use the **Save** button to save the changes. You will be allowed to enter a short note describing the changes.
 
@@ -120,3 +120,4 @@ To modify the configuration for a service, use the following steps:
     > [AZURE.NOTE] the entries for the **Restart** button may be different for other services.
 
 8. Once the services have been restarted, use the **Service Actions** button to **Turn Off Maintenance Mode**. This Ambari to resume monitoring for alerts for the service.
+

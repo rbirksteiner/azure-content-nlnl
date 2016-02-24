@@ -53,3 +53,4 @@ The article assumes that you have logged in to your subscription in the portal, 
     ![FQDN is created](media/virtual-machines-create-fqdn-on-portal/fqdnCreated.PNG)
 
     You can now connect remotely to the virtual machine using this DNS name. For example, use `SSH adminuser@testdnslabel.eastus.cloudapp.azure.com`, when connecting to a Linux virtual machine which has the fully qualified domain name of `testdnslabel.eastus.cloudapp.azure.com` and user name of `adminuser`.
+

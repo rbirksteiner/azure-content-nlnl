@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Create a LAMP Stack with Azure | Microsoft Azure"
-	description="Learn how to create a LAMP Stack with Microsoft Azure using Azure virtual machines (VMs) running Linux."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="NingKuang"
-	manager="timlt"
-	editor="tysonn"
-	tags="azure-service-management,azure-resource-manager"/>
+    pageTitle="Create a LAMP Stack with Azure | Microsoft Azure"
+    description="Learn how to create a LAMP Stack with Microsoft Azure using Azure virtual machines (VMs) running Linux."
+    services="virtual-machines"
+    documentationCenter=""
+    authors="NingKuang"
+    manager="timlt"
+    editor="tysonn"
+    tags="azure-service-management,azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/10/2015"
-	ms.author="ningk"/>
+    ms.service="virtual-machines"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-linux"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/10/2015"
+    ms.author="ningk"/>
 
 #How to create a LAMP Stack with Microsoft Azure
 
@@ -28,9 +28,9 @@ In this guide, we'll get a LAMP stack installed on a Linux image and deploy it o
 
 You will learn:  
 
--	How to create an Azure virtual machine.
--	How to prepare the virtual machine for the LAMP stack.
--	How to install software that is needed by your LAMP server on the virtual machine.
+-   How to create an Azure virtual machine.
+-   How to prepare the virtual machine for the LAMP stack.
+-   How to install software that is needed by your LAMP server on the virtual machine.
 
 It is assumed that the reader already has an Azure subscription.  If not you can sign up for a free trial at [http://azure.microsoft.com](http://azure.microsoft.com). If you have an MSDN subscription, see [Microsoft Azure Special Pricing: MSDN, MPN, and Bizspark Benefits](http://azure.microsoft.com/pricing/member-offers/msdn-benefits/?c=14-39). To learn more about Azure, see [What is Azure?](http://azure.microsoft.com/overview/what-is-azure/)
 
@@ -46,14 +46,14 @@ SSH is an important tool for system administrators. However, relying on a human-
 
 Follow these steps to generate the SSH Authentication Key.
 
--	Download and install puttygen from the following location: [http://www.chiark.greenend.org.uk/~sgtatham/](http://www.chiark.greenend.org.uk/~sgtatham/)putty/download.html
--	Run puttygen.exe.
--	Click **Generate** to generate the keys. In the process you can increase randomness by moving the mouse over the blank area in the window.  
+-   Download and install puttygen from the following location: [http://www.chiark.greenend.org.uk/~sgtatham/](http://www.chiark.greenend.org.uk/~sgtatham/)putty/download.html
+-   Run puttygen.exe.
+-   Click **Generate** to generate the keys. In the process you can increase randomness by moving the mouse over the blank area in the window.  
 ![][1]
--	After the generate process, Puttygen.exe will show your generated key. For example:  
+-   After the generate process, Puttygen.exe will show your generated key. For example:  
 ![][2]
--	Select and copy the public key in **Key** and save it in a file named **publicKey.pem**. Don’t click **Save public key**, because the saved public key’s file format is different from the public key we want.
--	Click **Save private key** and save it in a file named **privateKey.ppk**.
+-   Select and copy the public key in **Key** and save it in a file named **publicKey.pem**. Don’t click **Save public key**, because the saved public key’s file format is different from the public key we want.
+-   Click **Save private key** and save it in a file named **privateKey.ppk**.
 
 ###Step 2: Create the image in the Azure portal.
 In the [Azure portal](https://portal.azure.com/), click **New** in the task bar and create an image by following these instructions, choosing the Linux image based on your needs. This example uses the Ubuntu 14.04 image.
@@ -90,9 +90,9 @@ Click **Add**. When provisioning a new virtual machine you can enable or disable
 
 Configure the endpoint:  
 
-1.	Type a name for the endpoint in **Endpoint**.
-2.	Type 80 in **Public Port**. If you changed the default listen port of Apache, you should update Private Port to be the same as the Apache listen port.
-3.	Type 80 in **Public Port**. By default, HTTP traffic uses port 80.
+1.  Type a name for the endpoint in **Endpoint**.
+2.  Type 80 in **Public Port**. If you changed the default listen port of Apache, you should update Private Port to be the same as the Apache listen port.
+3.  Type 80 in **Public Port**. By default, HTTP traffic uses port 80.
 If you set it to 80, don’t need to include the port number in the URL that allows you to access the Apache web service. For example, http://lampdemo.cloudapp.net.
 If you set the Apache listening port to another value, such as 81, you need to add the port number to the URL to access the Apache web service. For example,  http://lampdemo.cloudapp.net:81/.
 
@@ -144,11 +144,11 @@ Depending what Linux distribution you used to create your virtual machine, there
 ####Install Apache
 To install Apache, open terminal and execute this command:  
 
-	sudo yum install httpd
+    sudo yum install httpd
 
 Once it installs, start Apache with this command:  
 
-	sudo service httpd start
+    sudo service httpd start
 
 ####Test Apache
 To check if Apache is successfully installed, browse to your Apache server’s DNS name (for the example URL in this article, http://lampdemo.cloudapp.net/). The page should display the words “It works!"
@@ -157,117 +157,117 @@ To check if Apache is successfully installed, browse to your Apache server’s D
 ####Troubleshooting
 If Apache is running but you can’t see Apache default page above, you need to check following:  
 
--	Apache web service listening address / port
-	-	Check your endpoint setting for your Azure virtual machine. Make sure the configuration of the endpoint is appropriate. See the Phase 1: Create an Image instructions in this article.
-	-	Open /etc/httpd/conf/httpd.conf and then search for the string “Listen”. Ensure that the Apache listening port is same as the Private Port that you configured for your endpoint. The default port for Apache is 80. Here is an example.  
+-   Apache web service listening address / port
+    -   Check your endpoint setting for your Azure virtual machine. Make sure the configuration of the endpoint is appropriate. See the Phase 1: Create an Image instructions in this article.
+    -   Open /etc/httpd/conf/httpd.conf and then search for the string “Listen”. Ensure that the Apache listening port is same as the Private Port that you configured for your endpoint. The default port for Apache is 80. Here is an example.  
 
-			……
-			......
-				# prevent Apache from glomming onto all bound IP addresses (0.0.0.0)
-				#
-				#Listen 12.34.56.78:80
-				Listen 80
-				#
-				# Dynamic Shared Object (DSO) Support
-			……
-			……  
+            ……
+            ......
+                # prevent Apache from glomming onto all bound IP addresses (0.0.0.0)
+                #
+                #Listen 12.34.56.78:80
+                Listen 80
+                #
+                # Dynamic Shared Object (DSO) Support
+            ……
+            ……  
 
--	Firewall, iptables configuration  
+-   Firewall, iptables configuration  
 If you can see Apache default page from the local host, then the problem may be that the port upon which Apache is listening is blocked by the firewall. You can use the w3m tool to browse the Apache web page. The following commands install w3m and browse to the Apache default page:  
 
-		sudo yum  install w3m w3m-img  
-		w3m http://localhost
+        sudo yum  install w3m w3m-img  
+        w3m http://localhost
 
-	If the issue is caused by the firewall or iptables, add the following lines to /etc/sysconfig/iptables:  
+    If the issue is caused by the firewall or iptables, add the following lines to /etc/sysconfig/iptables:  
 
-		-A INPUT -p tcp -m tcp --dport 80 -j ACCEPT
-		-A INPUT -p tcp -m tcp --dport 443 -j ACCEPT
+        -A INPUT -p tcp -m tcp --dport 80 -j ACCEPT
+        -A INPUT -p tcp -m tcp --dport 443 -j ACCEPT
 
-	Note that the second line is only needed for https traffic.  
+    Note that the second line is only needed for https traffic.  
 
-	Make sure that these lines are above any lines that would globally restrict access, such as the following:  
+    Make sure that these lines are above any lines that would globally restrict access, such as the following:  
 
-		-A INPUT -j REJECT --reject-with icmp-host-prohibited  
+        -A INPUT -j REJECT --reject-with icmp-host-prohibited  
 
-	To make the new settings take effect, use the following command:  
+    To make the new settings take effect, use the following command:  
 
-		service iptables restart
+        service iptables restart
 
 ####Install MySQL
 To install MySQL, open terminal and run these commands:  
 
-	sudo yum install mysql-server
-	sudo service mysqld start
+    sudo yum install mysql-server
+    sudo service mysqld start
 
 During the installation, MySQL will ask you for your permission twice. After you say yes to both queries, MySQL will install.
 
 ####Configure MySQL
 After it is done installing, you can set a root MySQL password with the following:  
 
-	sudo /usr/bin/mysql_secure_installation  
+    sudo /usr/bin/mysql_secure_installation  
 
 The prompt will ask you for your current root password.
 
 Since you just installed MySQL, you most likely won’t have one, so leave it blank by pressing ENTER.  
 
-	Enter current password for root (enter for none):
-	OK, successfully used password, moving on...  
+    Enter current password for root (enter for none):
+    OK, successfully used password, moving on...  
 
 You will be prompted to set a root password. Go ahead and choose Y and follow the instructions.  
 
 CentOS automates the process of setting up MySQL, asking you a series of yes or no questions. Those questions are shown below. Choose Y or N for your configuration. At the end, MySQL will reload and implement the new changes.  
 
-	By default, a MySQL installation has an anonymous user, allowing anyone
-	to log into MySQL without having to have a user account created for
-	them.  This is intended only for testing, and to make the installation
-	go a bit smoother.  You should remove them before moving into a
-	production environment.
+    By default, a MySQL installation has an anonymous user, allowing anyone
+    to log into MySQL without having to have a user account created for
+    them.  This is intended only for testing, and to make the installation
+    go a bit smoother.  You should remove them before moving into a
+    production environment.
 
-	Remove anonymous users? [Y/n] y
-	 ... Success!
+    Remove anonymous users? [Y/n] y
+     ... Success!
 
-	Normally, root should only be allowed to connect from 'localhost'.  This
-	ensures that someone cannot guess at the root password from the network.
+    Normally, root should only be allowed to connect from 'localhost'.  This
+    ensures that someone cannot guess at the root password from the network.
 
-	Disallow root login remotely? [Y/n] y
-	... Success!
+    Disallow root login remotely? [Y/n] y
+    ... Success!
 
-	By default, MySQL comes with a database named 'test' that anyone can
-	access.  This is also intended only for testing, and should be removed
-	before moving into a production environment.
+    By default, MySQL comes with a database named 'test' that anyone can
+    access.  This is also intended only for testing, and should be removed
+    before moving into a production environment.
 
-	Remove test database and access to it? [Y/n] y
-	 - Dropping test database...
-	 ... Success!
-	 - Removing privileges on test database...
-	 ... Success!
+    Remove test database and access to it? [Y/n] y
+     - Dropping test database...
+     ... Success!
+     - Removing privileges on test database...
+     ... Success!
 
-	Reloading the privilege tables will ensure that all changes made so far
-	will take effect immediately.
+    Reloading the privilege tables will ensure that all changes made so far
+    will take effect immediately.
 
-	Reload privilege tables now? [Y/n] y
-	 ... Success!
+    Reload privilege tables now? [Y/n] y
+     ... Success!
 
-	Cleaning up...
+    Cleaning up...
 
-	All done!  If you've completed all of the above steps, your MySQL
-	installation should now be secure.
+    All done!  If you've completed all of the above steps, your MySQL
+    installation should now be secure.
 
-	Thanks for using MySQL!  
+    Thanks for using MySQL!  
 
 ####Install PHP
 PHP is an open source web scripting language that is widely used to build dynamic web pages.  
 
 To install PHP on your virtual machine, open terminal and run this command:  
 
-	sudo yum install php php-mysql  
+    sudo yum install php php-mysql  
 
 Answer “y” to download software packages. Then answer “y” to Importing GPG key 0xE8562897 "CentOS-5 Key (CentOS 5 Official Signing Key). PHP will install.
 
-	warning: rpmts_HdrFromFdno: Header V3 DSA signature: NOKEY, key ID e8562897
-	updates/gpgkey                                                                                                                                                                       | 1.5 kB     00:00
-	Importing GPG key 0xE8562897 "CentOS-5 Key (CentOS 5 Official Signing Key) <centos-5-key@centos.org>" from /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
-	Is this ok [y/N]: y  
+    warning: rpmts_HdrFromFdno: Header V3 DSA signature: NOKEY, key ID e8562897
+    updates/gpgkey                                                                                                                                                                       | 1.5 kB     00:00
+    Importing GPG key 0xE8562897 "CentOS-5 Key (CentOS 5 Official Signing Key) <centos-5-key@centos.org>" from /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+    Is this ok [y/N]: y  
 
 ###Debian, Ubuntu base
 This has been tested on Ubuntu 14.04.  
@@ -280,11 +280,11 @@ Use tasksel to install the required software for the LAMP stack.
 
 - To download the package lists from the repositories and update them to get information on the newest versions of packages and their dependencies:  
 
-		sudo apt-get update
--	To Install the Ubuntu LAMP stack using Tasksel:  
+        sudo apt-get update
+-   To Install the Ubuntu LAMP stack using Tasksel:  
 
-		sudo apt-get install tasksel
-		sudo tasksel install lamp-server
+        sudo apt-get install tasksel
+        sudo tasksel install lamp-server
 
 Next, go through the wizard and choose your **MySQL root password**.
 
@@ -296,23 +296,23 @@ You can test the LAMP system by creating a quick php info page.
 
 First, create a new file:  
 
-	sudo nano /var/www/html/info.php  
+    sudo nano /var/www/html/info.php  
 
 Add the following line:  
 
-	<?php
-	phpinfo();
-	?>  
+    <?php
+    phpinfo();
+    ?>  
 
 Then, Save and Exit.  
 
 Restart Apache so that all of the changes take effect on your machine. If the OS of your virtual machine is CentOS, use the following command to restart Apache:  
 
-	sudo service httpd restart
+    sudo service httpd restart
 
 If the OS of your virtual machine is Ubuntu, use the following command to restart Apache:  
 
-	sudo service apache2 restart  
+    sudo service apache2 restart  
 
 Finish up by browsing to your php info page (for the example web server in this topic, the URL would be http://lampdemo.cloudapp.net/info.php).  
 
@@ -329,16 +329,16 @@ If you have more than one VM installed with MySQL and they need to exchange data
 
 **Command reference format:**
 
-	grant [authority] on [databaseName].[tableName] to [username]@[login host] identified by "[passwd]"  
+    grant [authority] on [databaseName].[tableName] to [username]@[login host] identified by "[passwd]"  
 
 **Example:**  
 
-	grant select,insert,update,delete on studentManage.student to user1@"%" Identified by "abc";
+    grant select,insert,update,delete on studentManage.student to user1@"%" Identified by "abc";
 
 You should also change the /etc/mysql/my.cnf profile. If you have lines like this:  
 
-	skip-networking
-	bind-address = 127.0.0.1  
+    skip-networking
+    bind-address = 127.0.0.1  
 
 You should comment them out (add a # at the beginning of the lines), and then restart MySQL.  
 
@@ -349,15 +349,15 @@ To add an endpoint to allow remote access, refer to instructions in Phase 1: Cre
 ###Deploy your web applications to the apache server
 Once you have setup the LAMP stack successfully, you can deploy your existing web application to the Apache web server (your virtual machine). It is the same steps as deploying an existing web application on a physical web server.
 
--	The root of the webserver is located at **/var/www/html**. You should grant privileges to the users who need to upload files to this folder. The following example shows how to add write permission to a group named lampappgroup and put the azureuser user name in this group:  
+-   The root of the webserver is located at **/var/www/html**. You should grant privileges to the users who need to upload files to this folder. The following example shows how to add write permission to a group named lampappgroup and put the azureuser user name in this group:  
 
-		sudo groupadd lampappgroup                      # Create a group
-		sudo gpasswd -a azureuser lampappgroup    # Add azureuser to lampappgroup
-		sudo chgrp lampappgroup /var/www/html/  # Change the ownership to group lampappgroup
-		sudo chmod g+w /var/www/html/                 # grant write permission to group lampappgroup
+        sudo groupadd lampappgroup                      # Create a group
+        sudo gpasswd -a azureuser lampappgroup    # Add azureuser to lampappgroup
+        sudo chgrp lampappgroup /var/www/html/  # Change the ownership to group lampappgroup
+        sudo chmod g+w /var/www/html/                 # grant write permission to group lampappgroup
 
-	>[AZURE.NOTE] You may need to login again if you want modify a file in /var/www/html/.
--	Use any SFTP client (such as FileZilla) to connect to the DNS name of your virtual machine (for example,  lampdemo.cloudapp.net) and navigate to /**var/www/html** to publish your site.  
+    >[AZURE.NOTE] You may need to login again if you want modify a file in /var/www/html/.
+-   Use any SFTP client (such as FileZilla) to connect to the DNS name of your virtual machine (for example,  lampdemo.cloudapp.net) and navigate to /**var/www/html** to publish your site.  
 ![][18]
 
 
@@ -366,91 +366,91 @@ Once you have setup the LAMP stack successfully, you can deploy your existing we
 
 ###Can't access Virtual Machine with Apache and Moodle from the Internet
 
--	**Symptom**  
+-   **Symptom**  
 Apache is running but you can’t see the Apache default page with your browser.
--	**Possible root case**
-	1.	The Apache listening port is not same as the Private Port of your virtual machine's endpoint for web traffic.</br>
-	Check your Public Port and Private Port endpoint settings and make sure the Private Port is same as the Apache listen port. See Phase 1: Create an Image for instructions on configuring endpoints for your virtual machine.</br>
-	To determine the listen port of Apache, open /etc/httpd/conf/httpd.conf (Red Hat release) or /etc/apache2/ports.conf (Debian release), search for the string “Listen”. The default port is 80.
+-   **Possible root case**
+    1.  The Apache listening port is not same as the Private Port of your virtual machine's endpoint for web traffic.</br>
+    Check your Public Port and Private Port endpoint settings and make sure the Private Port is same as the Apache listen port. See Phase 1: Create an Image for instructions on configuring endpoints for your virtual machine.</br>
+    To determine the listen port of Apache, open /etc/httpd/conf/httpd.conf (Red Hat release) or /etc/apache2/ports.conf (Debian release), search for the string “Listen”. The default port is 80.
 
-	2.	The firewall has disabled the listen port of Apache.</br>  
-	If you can see Apache default page from the local host, then the problem is most likely that the port which is listened by Apache is blocked by the firewall. You can use the w3m tool to browse the web page. The following commands install w3m and browse to Apache default page:  
+    2.  The firewall has disabled the listen port of Apache.</br>  
+    If you can see Apache default page from the local host, then the problem is most likely that the port which is listened by Apache is blocked by the firewall. You can use the w3m tool to browse the web page. The following commands install w3m and browse to Apache default page:  
 
-			sudo yum  install w3m w3m-img
-			w3m http://localhost
+            sudo yum  install w3m w3m-img
+            w3m http://localhost
 
--	**Solution**
+-   **Solution**
 
-	1.	If the Apache listen port is not same as the Private Port of endpoint for web traffic on the virtual machine, you need change the Private Port of the endpoint to be the same as the Apache listen port.
-	2.	If the issue is caused by the firewall/iptables, add the following lines to /etc/sysconfig/iptables:  
+    1.  If the Apache listen port is not same as the Private Port of endpoint for web traffic on the virtual machine, you need change the Private Port of the endpoint to be the same as the Apache listen port.
+    2.  If the issue is caused by the firewall/iptables, add the following lines to /etc/sysconfig/iptables:  
 
-			-A INPUT -p tcp -m tcp --dport 80 -j ACCEPT
-			-A INPUT -p tcp -m tcp --dport 443 -j ACCEPT
+            -A INPUT -p tcp -m tcp --dport 80 -j ACCEPT
+            -A INPUT -p tcp -m tcp --dport 443 -j ACCEPT
 
-		Note that the second line is only needed for https traffic.
+        Note that the second line is only needed for https traffic.
 
-		Make sure this is above any lines that would globally restrict access, such as the following:  
+        Make sure this is above any lines that would globally restrict access, such as the following:  
 
-			-A INPUT -j REJECT --reject-with icmp-host-prohibited  
+            -A INPUT -j REJECT --reject-with icmp-host-prohibited  
 
-		To reload the iptables, run the following command:  
+        To reload the iptables, run the following command:  
 
-			service iptables restart  
+            service iptables restart  
 
-		This has been tested on CentOS 6.3.
+        This has been tested on CentOS 6.3.
 
 ###Permission denied when upload you project files to /var/www/html/  
 
--	**Symptom**  
+-   **Symptom**  
 When you use any SFTP client (such as FileZilla) to connect to your virtual machine and navigate to /var/www/html to publish your site, you get an error message similar to the following:  
 
-		status:	Listing directory /var/www/html
-		Command:	put "C:\Users\liang\Desktop\info.php" "info.php"
-		Error:	/var/www/html/info.php: open for write: permission denied
-		Error:	File transfer failed
+        status: Listing directory /var/www/html
+        Command:    put "C:\Users\liang\Desktop\info.php" "info.php"
+        Error:  /var/www/html/info.php: open for write: permission denied
+        Error:  File transfer failed
 
--	**Possible root case**
+-   **Possible root case**
 You have no permissions to access the /var/www/html folder.  
--	**Solution**  
+-   **Solution**  
 You need get permission from the root account. You can change the ownership of that folder from root to the username you used when provisioning the machine. Here is an example with the azureuser account name:  
 
-		sudo chown azureuser -R /var/www/html  
+        sudo chown azureuser -R /var/www/html  
 
-	Use the -R option to apply the permissions for all files inside of a directory too.  
+    Use the -R option to apply the permissions for all files inside of a directory too.  
 
-	Note that this command also works for directories. The -R option changes the permissions for all files and directories inside of the directory. Here is an example:  
+    Note that this command also works for directories. The -R option changes the permissions for all files and directories inside of the directory. Here is an example:  
 
-		sudo chown -R username:group directory  
+        sudo chown -R username:group directory  
 
-	This command  changes ownership (both user and group) for all files and directories inside of directory and directory itself.  
+    This command  changes ownership (both user and group) for all files and directories inside of directory and directory itself.  
 
-	The following command only changes the permission of the folder directory but leaves the files and folders inside the directory alone.  
+    The following command only changes the permission of the folder directory but leaves the files and folders inside the directory alone.  
 
-		sudo chown username:group directory  
+        sudo chown username:group directory  
 
 ###Could not reliably determine the server's fully qualified domain name
 
--	**Symptom**  
+-   **Symptom**  
 When you restart the Apache server using one of the following commands:  
 
-		sudo /etc/init.d/apache2 restart  # Debian release  
+        sudo /etc/init.d/apache2 restart  # Debian release  
 
-	or
+    or
 
-		sudo /etc/init.d/httpd restart   # Red Hat release  
+        sudo /etc/init.d/httpd restart   # Red Hat release  
 
-	You get the following error:  
+    You get the following error:  
 
-		Restarting web server apache2
-		apache2: Could not reliably determine the server's fully qualified domain name, using 127.0.1.1 for ServerName
-		... waiting apache2:
-		Could not reliably determine the server's fully qualified domain name, using 127.0.1.1 for ServerName  
+        Restarting web server apache2
+        apache2: Could not reliably determine the server's fully qualified domain name, using 127.0.1.1 for ServerName
+        ... waiting apache2:
+        Could not reliably determine the server's fully qualified domain name, using 127.0.1.1 for ServerName  
 
--	**Possible root case**
-	You have not set the server name of Apache.
+-   **Possible root case**
+    You have not set the server name of Apache.
 
--	**Solution**  
-	Insert a “ServerName localhost” line in either httpd.conf (Red Hat release) or apache2.conf (Debian release) in /etc/apache2 and restart Apache. The notice will disappear.
+-   **Solution**  
+    Insert a “ServerName localhost” line in either httpd.conf (Red Hat release) or apache2.conf (Debian release) in /etc/apache2 and restart Apache. The notice will disappear.
 
 
 
@@ -472,3 +472,4 @@ When you restart the Apache server using one of the following commands:
 [16]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-16.png
 [17]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-17.png
 [18]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-18.jpg
+

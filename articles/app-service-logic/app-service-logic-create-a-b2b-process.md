@@ -45,15 +45,15 @@ This tutorial assumes that you have a basic understanding of Azure App Services,
 2. Create an instance of the **BizTalk Trading Partner Management**. This requires a blank SQL Database to function. Make sure that it is ready before you start creating this.
 3. Create an instance of the **AS2 Connector**. This also requires a blank SQL Database to function. Make sure that it is ready before you start creating this. Additionally, if you want to archive messages as part of AS2 processing, you may provide credentials to an Azure Blob during its creation.
 4. Configure the TPM (Trading Partner Management) service that is created:  
-	1. Browse to the instance of the TPM service created as part of the above steps.
-	2. Use the **Partners** option under *Components* to **Add** a new partner named **Contoso** and in its profile add the required AS2 identity.
-	3. Use the **Partners** option under *Components* to **Add** a new partner named **Northwind** and in its profile add the required AS2 identity.
-	4. Use the **Agreements** option under *Components* to **Add** a new AS2 agreement between Northwind and Contoso. Northwind will be the hosted partner here, and Contoso will be the guest partner. As appropriate configure signing, encryption, compression, and acknowledgements during this agreement creation. In case certificates need to be used, they can be uploaded via the **Certificates** option when browsing the TPM service that is created.
+    1. Browse to the instance of the TPM service created as part of the above steps.
+    2. Use the **Partners** option under *Components* to **Add** a new partner named **Contoso** and in its profile add the required AS2 identity.
+    3. Use the **Partners** option under *Components* to **Add** a new partner named **Northwind** and in its profile add the required AS2 identity.
+    4. Use the **Agreements** option under *Components* to **Add** a new AS2 agreement between Northwind and Contoso. Northwind will be the hosted partner here, and Contoso will be the guest partner. As appropriate configure signing, encryption, compression, and acknowledgements during this agreement creation. In case certificates need to be used, they can be uploaded via the **Certificates** option when browsing the TPM service that is created.
 
 
 ## Create a flow / business process
 1. Create a new flow in which the first step is AS2. Drag and drop the **AS2 Connector** and choose the instance already created. Choose trigger as the functionality:  
-	![][1]  
+    ![][1]  
 2. Next drag and drop **Azure Storage Blob Connector** and choose the instance already created. Choose action as the functionality and within that, select **Upload Blob** as the desired functionality. Configure as appropriate.
 3. Now create/deploy the flow.
 
@@ -69,3 +69,4 @@ This tutorial assumes that you have a basic understanding of Azure App Services,
 [1]: ./media/app-service-logic-create-a-b2b-process/Flow.png
 [2]: ./media/app-service-logic-create-a-b2b-process/Tracking.png
  
+

@@ -6,7 +6,7 @@
    authors="Blackmist"
    manager="paulettm"
    editor="cgronlun"
-	tags="azure-portal"/>
+    tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -51,16 +51,16 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
 
 1. Using an editor, save the following code as **mapreducejob.ps1**. You must replace **CLUSTERNAME** with the name of your HDInsight cluster.
 
-		#Specify the values
-		$clusterName = "CLUSTERNAME"
-        		
-		# Login to your Azure subscription
-		# Is there an active Azure subscription?
-		$sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
-		if(-not($sub))
-		{
-		    Login-AzureRmAccount
-		}
+        #Specify the values
+        $clusterName = "CLUSTERNAME"
+                
+        # Login to your Azure subscription
+        # Is there an active Azure subscription?
+        $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
+        if(-not($sub))
+        {
+            Login-AzureRmAccount
+        }
         
         #Get HTTPS/Admin credentials for submitting the job later
         $creds = Get-Credential
@@ -79,28 +79,28 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
             -StorageAccountName $storageAccountName `
             -StorageAccountKey $storageAccountKey
             
-		#Define the MapReduce job
-		#NOTE: If using an HDInsight 2.0 cluster, use hadoop-examples.jar instead.
-		# -JarFile = the JAR containing the MapReduce application
-		# -ClassName = the class of the application
-		# -Arguments = The input file, and the output directory
-		$wordCountJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
+        #Define the MapReduce job
+        #NOTE: If using an HDInsight 2.0 cluster, use hadoop-examples.jar instead.
+        # -JarFile = the JAR containing the MapReduce application
+        # -ClassName = the class of the application
+        # -Arguments = The input file, and the output directory
+        $wordCountJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
             -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" `
             -ClassName "wordcount" `
             -Arguments `
                 "wasb:///example/data/gutenberg/davinci.txt", `
                 "wasb:///example/data/WordCountOutput"
 
-		#Submit the job to the cluster
-		Write-Host "Start the MapReduce job..." -ForegroundColor Green
-		$wordCountJob = Start-AzureRmHDInsightJob `
+        #Submit the job to the cluster
+        Write-Host "Start the MapReduce job..." -ForegroundColor Green
+        $wordCountJob = Start-AzureRmHDInsightJob `
             -ClusterName $clusterName `
             -JobDefinition $wordCountJobDefinition `
             -HttpCredential $creds
 
-		#Wait for the job to complete
-		Write-Host "Wait for the job to complete..." -ForegroundColor Green
-		Wait-AzureRmHDInsightJob `
+        #Wait for the job to complete
+        Write-Host "Wait for the job to complete..." -ForegroundColor Green
+        Wait-AzureRmHDInsightJob `
             -ClusterName $clusterName `
             -JobId $wordCountJob.JobId `
             -HttpCredential $creds
@@ -110,8 +110,8 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
             -Container $container `
             -Destination output.txt `
             -Context $context
-		# Print the output
-		Get-AzureRmHDInsightJobOutput `
+        # Print the output
+        Get-AzureRmHDInsightJobOutput `
             -Clustername $clusterName `
             -JobId $wordCountJob.JobId `
             -DefaultContainer $container `
@@ -121,25 +121,25 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
             
 2. Open a new **Azure PowerShell** command prompt. Change directories to the location of the **mapreducejob.ps1** file, then use the following command to run the script:
 
-		.\mapreducejob.ps1
+        .\mapreducejob.ps1
     
     When you run the script, you may be prompted to authenticate to your Azure subscription. You will also be asked to provide the HTTPS/Admin account name and password for the HDInsight cluster.
 
 3. When the job completes, you should receive output similar to the following:
 
-		Cluster         : CLUSTERNAME
-		ExitCode        : 0
-		Name            : wordcount
-		PercentComplete : map 100% reduce 100%
-		Query           :
-		State           : Completed
-		StatusDirectory : f1ed2028-afe8-402f-a24b-13cc17858097
-		SubmissionTime  : 12/5/2014 8:34:09 PM
-		JobId           : job_1415949758166_0071
+        Cluster         : CLUSTERNAME
+        ExitCode        : 0
+        Name            : wordcount
+        PercentComplete : map 100% reduce 100%
+        Query           :
+        State           : Completed
+        StatusDirectory : f1ed2028-afe8-402f-a24b-13cc17858097
+        SubmissionTime  : 12/5/2014 8:34:09 PM
+        JobId           : job_1415949758166_0071
 
-	This output indicates that the job completed successfully.
+    This output indicates that the job completed successfully.
 
-	> [AZURE.NOTE] If the **ExitCode** is a value other than 0, see [Troubleshooting](#troubleshooting).
+    > [AZURE.NOTE] If the **ExitCode** is a value other than 0, see [Troubleshooting](#troubleshooting).
 
     This example will also store the downloaded files to the  **example/data/WordCountOutput** folder in the directory that you run the script from.
 
@@ -153,9 +153,9 @@ The output of the MapReduce job is stored in files with the name *part-r-#####*.
 
 If no information is returned when the job completes, an error may have occurred during processing. To view error information for this job, add the following command to the end of the **mapreducejob.ps1** file, save it, and then run it again.
 
-	# Print the output of the WordCount job.
-	Write-Host "Display the standard output ..." -ForegroundColor Green
-	Get-AzureRmHDInsightJobOutput `
+    # Print the output of the WordCount job.
+    Write-Host "Display the standard output ..." -ForegroundColor Green
+    Get-AzureRmHDInsightJobOutput `
             -Clustername $clusterName `
             -JobId $wordCountJob.JobId `
             -DefaultContainer $container `
@@ -181,3 +181,4 @@ For information about other ways you can work with Hadoop on HDInsight:
 * [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
 
 * [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
+

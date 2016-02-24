@@ -4,29 +4,29 @@ In this section, you'll create a Windows console app that creates a new device i
 
 1. In Visual Studio, add a new Visual C# Windows Classic Desktop project to the current solution using the **Console  Application** project template. Name the project **CreateDeviceIdentity**.
 
-	![][10]
+    ![][10]
 
 2. In Solution Explorer, right-click the **CreateDeviceIdentity** project, and then click **Manage NuGet Packages**.
 
 3. In the **NuGet Package Manager** window, make sure the **Include prerelease** option is checked. Then search for **Microsoft Azure Devices**, click **Install**, and accept the terms of use.
 
-	![][11]
+    ![][11]
 
 4. This downloads, installs, and adds a reference to the [Microsoft Azure Devices SDK][lnk-nuget-device-sdk] NuGet package.
 
 4. Add the following `using` statements at the top of the **Program.cs** file:
 
-		using Microsoft.Azure.Devices;
+        using Microsoft.Azure.Devices;
         using Microsoft.Azure.Devices.Common.Exceptions;
 
 5. Add the following fields to the **Program** class, replacing the placeholder value with the connection string for the IoT hub you created in the previous section:
 
-		static RegistryManager registryManager;
+        static RegistryManager registryManager;
         static string connectionString = "{iothub connection string}";
 
 6. Add the following method to the **Program** class:
 
-		private async static Task AddDeviceAsync()
+        private async static Task AddDeviceAsync()
         {
             string deviceId = "myFirstDevice";
             Device device;
@@ -41,11 +41,11 @@ In this section, you'll create a Windows console app that creates a new device i
             Console.WriteLine("Generated device key: {0}", device.Authentication.SymmetricKey.PrimaryKey);
         }
 
-	This method creates a new device identity with ID **myFirstDevice** (if that device ID already exists in the registry, the code simply retrieves the existing device information). The app then displays the primary key for that identity. You will use this key in the simulated device to connect to your IoT hub.
+    This method creates a new device identity with ID **myFirstDevice** (if that device ID already exists in the registry, the code simply retrieves the existing device information). The app then displays the primary key for that identity. You will use this key in the simulated device to connect to your IoT hub.
 
 7. Finally, add the following lines to the **Main** method:
 
-		registryManager = RegistryManager.CreateFromConnectionString(connectionString);
+        registryManager = RegistryManager.CreateFromConnectionString(connectionString);
         AddDeviceAsync().Wait();
         Console.ReadLine();
 
@@ -124,3 +124,4 @@ In this section, you'll create a Windows console app that reads device-to-cloud 
 [10]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp1.png
 [11]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp2.png
 [12]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp3.png
+

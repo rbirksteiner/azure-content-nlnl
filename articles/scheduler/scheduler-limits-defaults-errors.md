@@ -51,11 +51,11 @@ For example, an HTTP 404 error can occur for numerous reasons, so having the add
 
 API operations may also return additional error information that is defined by the management service. This additional error information is returned in the response body. The body of the error response follows the basic format shown below.
 
-		<?xml version="1.0" encoding="utf-8"?>  
-		<Error>  
-			<Code>string-code</Code>  
-			<Message>detailed-error-message</Message>  
-		</Error>  
+        <?xml version="1.0" encoding="utf-8"?>  
+        <Error>  
+            <Code>string-code</Code>  
+            <Message>detailed-error-message</Message>  
+        </Error>  
 
 ## See Also
 
@@ -77,3 +77,4 @@ API operations may also return additional error information that is defined by t
  [Azure Scheduler outbound authentication](scheduler-outbound-authentication.md)
  
   
+

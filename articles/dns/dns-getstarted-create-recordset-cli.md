@@ -41,8 +41,8 @@ Azure DNS supports all common DNS record types: A, AAAA, CNAME, MX, NS, SOA, SRV
 
 Sometimes, you need to create more than one DNS record with a given name and type.  For example, suppose the www.contoso.com web site is hosted on two different IP addresses.  This requires two different A records, one for each IP address:
 
-	www.contoso.com.		3600	IN	A	134.170.185.46
-	www.contoso.com.		3600	IN	A	134.170.188.221
+    www.contoso.com.        3600    IN  A   134.170.185.46
+    www.contoso.com.        3600    IN  A   134.170.188.221
 
 This is an example of a record set.  A record set is the collection of DNS records in a zone with the same name and the same type.  Most record sets contain a single record, but examples like the one above in which a record set contains more than one record are not uncommon.  (Records sets of type SOA and CNAME are an exception, the DNS standards do not permit multiple records with the same name for these types.)
 
@@ -61,9 +61,9 @@ In the following example we will show how to create a record set and records.  W
 
 Create record set:
 
-	Usage: network dns record-set create <resource-group> <dns-zone-name> <name> <type> <ttl>
+    Usage: network dns record-set create <resource-group> <dns-zone-name> <name> <type> <ttl>
 
-	azure network dns record-set create myresourcegroup  contoso.com  www A  60
+    azure network dns record-set create myresourcegroup  contoso.com  www A  60
 
 The record set has relative name ‘www’ in the DNS Zone ‘contoso.com’, so the fully-qualified name of the records will be ‘www.contoso.com’.  The record type is ‘A’ and the TTL is 60 seconds.
 
@@ -75,27 +75,27 @@ The record set is empty and we have to add records to be able to use the newly c
 
 Add IPv4 A records to the "www" record set using the following command:
 
-	Usage: network dns record-set add-record <resource-group> <dns-zone-name> <record-set-name> <type>
+    Usage: network dns record-set add-record <resource-group> <dns-zone-name> <record-set-name> <type>
 
-	azure network dns record-set add-record myresourcegroup contoso.com  www A  -a 134.170.185.46
-	
+    azure network dns record-set add-record myresourcegroup contoso.com  www A  -a 134.170.185.46
+    
 
 The changes are complete.  You can retrieve the record set from Azure DNS using "azure network dns-record-set show" :
 
 
-	azure network dns record-set show myresourcegroup "contoso.com" www A
-	
-	info:    Executing command network dns-record-set show
-	+ Looking up the DNS record set "www"
-	data:    Id                              : /subscriptions/########################/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com/A/www
-	data:    Name                            : www
-	data:    Type                            : Microsoft.Network/dnszones/A
-	data:    Location                        : global
-	data:    TTL                             : 300
-	data:    A records:
-	data:        IPv4 address                : 134.170.185.46
-	data:
-	info:    network dns record-set show command OK
+    azure network dns record-set show myresourcegroup "contoso.com" www A
+    
+    info:    Executing command network dns-record-set show
+    + Looking up the DNS record set "www"
+    data:    Id                              : /subscriptions/########################/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com/A/www
+    data:    Name                            : www
+    data:    Type                            : Microsoft.Network/dnszones/A
+    data:    Location                        : global
+    data:    TTL                             : 300
+    data:    A records:
+    data:        IPv4 address                : 134.170.185.46
+    data:
+    info:    network dns record-set show command OK
 
 
 You can also use nslookup or other DNS tools to query the new record set.  
@@ -103,14 +103,14 @@ You can also use nslookup or other DNS tools to query the new record set.
 >[AZURE.NOTE] As when creating the zone, if you have not yet delegated the domain to the Azure DNS name servers you will need to specify the name server address for your zone explicitly.
 
 
-	C:\> nslookup www.contoso.com ns1-01.azure-dns.com
+    C:\> nslookup www.contoso.com ns1-01.azure-dns.com
 
-	Server: ns1-01.azure-dns.com
-	Address:  208.76.47.1
+    Server: ns1-01.azure-dns.com
+    Address:  208.76.47.1
 
-	Name:    www.contoso.com
-	Addresses:  134.170.185.46
-    	        
+    Name:    www.contoso.com
+    Addresses:  134.170.185.46
+                
 
 
 
@@ -121,3 +121,4 @@ You can also use nslookup or other DNS tools to query the new record set.
 
 [Automate Azure Operations with .NET SDK](dns-sdk.md)
  
+

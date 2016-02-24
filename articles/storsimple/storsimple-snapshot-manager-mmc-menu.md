@@ -127,3 +127,4 @@ You can use the **Help** menu to view available online help for StorSimple Snaps
 
 - Learn more about the [StorSimple Snapshot Manager user interface](storsimple-use-snapshot-manager.md).
 - Learn more about [using StorSimple Snapshot Manager to administer your StorSimple solution](storsimple-snapshot-manager-admin.md).
+

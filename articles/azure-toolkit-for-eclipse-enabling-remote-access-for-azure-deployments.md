@@ -55,7 +55,7 @@ To enable remote access after you have deployed to Azure, use the following step
 1. Click **OK** 
 
 You will see a message stating that your configuration change is in progress, which may take a few minutes to complete. After the configuration change has completed, follow the steps in the **To log in remotely** section later in this article.
-	
+    
 ## How to enable Remote Access in your package ##
 
 * Within Eclipse's Project Explorer pane, right-click your Azure project and click **Properties**.
@@ -74,7 +74,7 @@ You will see a message stating that your configuration change is in progress, wh
 * Your **Remote Access** dialog should look similar to the following:</p>
     ![][ic719495]
 * Click **OK** to close the **Remote Access** dialog.
-	
+    
 Rebuild your application, with the build set for deployment to cloud.
 
 ## To log in remotely ##

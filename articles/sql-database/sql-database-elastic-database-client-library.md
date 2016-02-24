@@ -55,3 +55,4 @@ For instructions on using the split-merge tool, see the [split-merge tool overvi
 <!--Image references-->
 [1]:./media/sql-database-elastic-database-client-library/glossary.png
 
+

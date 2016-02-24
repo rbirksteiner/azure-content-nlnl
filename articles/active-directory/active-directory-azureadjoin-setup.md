@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Setting up Azure AD Join for your users| Microsoft Azure" 
-	description="Explains how administrators can set up Azure AD Join for on-premises directory oand device registration."
-	services="active-directory" 
-	documentationCenter="" 
-	authors="femila" 
-	manager="stevenpo" 
-	editor=""
-	tags="azure-classic-portal"/>
+    pageTitle="Setting up Azure AD Join for your users| Microsoft Azure" 
+    description="Explains how administrators can set up Azure AD Join for on-premises directory oand device registration."
+    services="active-directory" 
+    documentationCenter="" 
+    authors="femila" 
+    manager="stevenpo" 
+    editor=""
+    tags="azure-classic-portal"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/19/2015" 
-	ms.author="femila"/>
+    ms.service="active-directory" 
+    ms.workload="identity" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/19/2015" 
+    ms.author="femila"/>
 
 # Setting up Azure AD Join in your organization
 
@@ -54,5 +54,6 @@ Following are the three scenarios how you can enable your users to set up Azure 
 * [Learn about usage scenarios for Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Connect domain-joined devices to Azure AD for Windows 10 experiences](active-directory-azureadjoin-devices-group-policy.md)
 * [Set up Azure AD Join](active-directory-azureadjoin-setup.md)
+
 
 

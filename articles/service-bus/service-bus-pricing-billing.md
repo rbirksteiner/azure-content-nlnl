@@ -17,7 +17,7 @@
 
 # Service Bus pricing and billing
 
-Service Bus is offered in Basic, Standard, and [Premium](service-bus-premium-messaging.md) tiers. You can choose a service tier for each Service Bus service namespace that you create, and this tier selection applies across all queues, topics/subscriptions, relays, and Event Hubs created within that namespace.
+Service Bus is offered in Basic, Standard, and [Premium](service-bus-premium-messaging.md) tiers. You can choose a service tier for each Service Bus service namespace that you create, and this tier selection applies across all queues, topics/subscriptions, relays, and Event Hubs created within that namespace.
 
 >[AZURE.NOTE] For information about current Service Bus pricing, see the [Service Bus Pricing FAQ](service-bus-pricing-faq.md).
 

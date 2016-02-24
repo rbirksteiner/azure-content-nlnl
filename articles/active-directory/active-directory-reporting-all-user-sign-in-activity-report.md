@@ -31,3 +31,4 @@ The All User Sign In Activity report contains all sign ins from all users in you
  > [AZURE.IMPORTANT]
  >
  - The All User Sign In Activity report is currently only available through the Reporting API. Visit [Getting Started with the Reporting API](active-directory-reporting-api-getting-started.md) to learn more.
+

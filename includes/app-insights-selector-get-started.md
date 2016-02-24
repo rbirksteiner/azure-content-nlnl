@@ -4,3 +4,4 @@
 - [JavaScript](../article/application-insights/app-insights-javascript.md)
 - [Windows](../article/application-insights/app-insights-windows-desktop.md)
 - [Other](../article/application-insights/app-insights-platforms.md)
+

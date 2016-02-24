@@ -19,7 +19,7 @@
 
 To take advantage of the hosting services and scalability of Azure, you might want to migrate and publish your web application to an Azure cloud service. You can run a web application in Azure with minimal changes to your existing application.
 
->[AZURE.NOTE] This topic is about deploying to cloud services, not to web sites. For information about deploying to web sites, see [Deploy a web app in Azure App Service](web-sites-deploy.md).
+>[AZURE.NOTE] This topic is about deploying to cloud services, not to web sites. For information about deploying to web sites, see [Deploy a web app in Azure App Service](web-sites-deploy.md).
 
 For a list of specific templates that are supported for both Visual C# and Visual Basic, see the section **Supported Project Templates** later in this topic.
 
@@ -209,3 +209,4 @@ To publish a web application to Azure, the application must use one of the proje
 ## Next Steps
 For more information on publishing, see [Prepare to Publish or Deploy an Azure Application from Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md). Also check out
 [Setting Up Named Authentication Credentials](vs-azure-tools-setting-up-named-authentication-credentials.md).
+

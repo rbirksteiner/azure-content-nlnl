@@ -40,14 +40,14 @@ The PowerShell cmdlet for resetting Azure VPN gateway is *Reset-AzureVNetGateway
 
 The following example will reset the Azure VPN gateway for the virtual network called "ContosoVNet".
  
-			D:\PS> Reset-AzureVNetGateway –VnetName “ContosoVNet” 
+            D:\PS> Reset-AzureVNetGateway –VnetName “ContosoVNet” 
 
-	 		Error          :
-	 		HttpStatusCode : OK
-	 		Id             : f1600632-c819-4b2f-ac0e-f4126bec1ff8
-	 		Status         : Successful
-			RequestId      : 9ca273de2c4d01e986480ce1ffa4d6d9
-			StatusCode     : OK
+            Error          :
+            HttpStatusCode : OK
+            Id             : f1600632-c819-4b2f-ac0e-f4126bec1ff8
+            Status         : Successful
+            RequestId      : 9ca273de2c4d01e986480ce1ffa4d6d9
+            StatusCode     : OK
 
 
 If the connection is not restored after the first reboot, issue the same command again to reboot the second VM instance (the new active gateway). If the two reboots are requested back to back, there will be a slightly longer there will be a slightly longer period where both VM instances (active and standby) are being rebooted. This case will cause a longer gap on the VPN connectivity, up to 2 to 4 minutes for VMs to complete the reboots.
@@ -56,8 +56,9 @@ After two reboots, if you are still experiencing cross-premises connectivity pro
 
 
 ## Next steps
-	
+    
 See the [PowerShell reference](https://msdn.microsoft.com/library/azure/mt270366.aspx) for more information about this cmdlet.
+
 
 
 

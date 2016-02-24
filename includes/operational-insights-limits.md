@@ -27,3 +27,4 @@ The following limits apply to Operational Insights subscriptions.
 
 
 <sup>1</sup>When customers reach their 500MB daily data transfer limit, data analyzation stops and resumes at the start of the next day. A day is based on UTC.
+

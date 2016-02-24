@@ -5,4 +5,5 @@
 
 * Verify that a notification is received, then click **OK** to dismiss the notification. You have now successfully completed this tutorial.
 
-  	![](../articles/media/mobile-services-ios-get-started-push/mobile-quickstart-push3-ios.png)
+    ![](../articles/media/mobile-services-ios-get-started-push/mobile-quickstart-push3-ios.png)
+

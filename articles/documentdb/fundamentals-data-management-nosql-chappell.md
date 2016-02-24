@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Understanding NoSQL Technologies on Azure | Microsoft Azure" 
-	description="Learn how Azure NoSQL can help you manage data not suited to relational databases. DocumentDB vs. Table storage vs. HBase vs. HDInsight vs. SQL Database." 
-	editor="cgronlun" 
-	manager="jhubbard" 
-	services="documentdb, storage, hdinsight" 
-	documentationCenter="" 
-	authors="mimig1"/>
+    pageTitle="Understanding NoSQL Technologies on Azure | Microsoft Azure" 
+    description="Learn how Azure NoSQL can help you manage data not suited to relational databases. DocumentDB vs. Table storage vs. HBase vs. HDInsight vs. SQL Database." 
+    editor="cgronlun" 
+    manager="jhubbard" 
+    services="documentdb, storage, hdinsight" 
+    documentationCenter="" 
+    authors="mimig1"/>
 
 <tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/01/2015" 
-	ms.author="mimig"/>
+    ms.service="multiple" 
+    ms.workload="multiple" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/01/2015" 
+    ms.author="mimig"/>
 
 # Understanding NoSQL on Microsoft Azure
 
@@ -31,3 +31,4 @@ This whitepaper walks you through the following:
 **PDF Download:** [Understanding NoSQL on Microsoft Azure](http://go.microsoft.com/fwlink/p/?LinkId=330292)
 
  
+

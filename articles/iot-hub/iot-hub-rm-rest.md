@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Create an IoT Hub using the REST API | Microsoft Azure"
-	description="Follow this tutorial to get started using the REST API to create an IoT Hub."
-	services="iot-hub"
-	documentationCenter=".net"
-	authors="dominicbetts"
-	manager="timlt"
-	editor=""/>
+    pageTitle="Create an IoT Hub using the REST API | Microsoft Azure"
+    description="Follow this tutorial to get started using the REST API to create an IoT Hub."
+    services="iot-hub"
+    documentationCenter=".net"
+    authors="dominicbetts"
+    manager="timlt"
+    editor=""/>
 
 <tags
      ms.service="iot-hub"

@@ -91,11 +91,11 @@ The PEM files contain your organization and admin private keys for communication
 
 Open the file in your editor of choice and modify the “cookbook_path” by removing the /../ from the path so it appears as shown next.
 
-	cookbook_path  ["#{current_dir}/cookbooks"]
+    cookbook_path  ["#{current_dir}/cookbooks"]
 
 Also add the following line reflecting the name of your Azure publish settings file.
 
-	knife[:azure_publish_settings_file] = "yourfilename.publishsettings"
+    knife[:azure_publish_settings_file] = "yourfilename.publishsettings"
 
 Your knife.rb file should now look similar to the following example.
 
@@ -123,7 +123,7 @@ Next, we will install the Knife Azure extension. This provides Knife with the �
 
 Run the following command.
 
-	chef gem install knife-azure ––pre
+    chef gem install knife-azure ––pre
 
 > [AZURE.NOTE] The –pre argument ensures you are receiving the latest RC version of the Knife Azure Plugin which provides access to the latest set of APIs.
 
@@ -134,7 +134,7 @@ It’s likely that a number of dependencies will also be installed at the same t
 
 To ensure everything is configured correctly, run the following command.
 
-	knife azure image list
+    knife azure image list
 
 If everything is configured correctly, you will see a list of available Azure images scroll through.
 
@@ -146,7 +146,7 @@ A Cookbook is used by Chef to define a set of commands that you wish to execute 
 
 Under your C:\Chef directory run the following command.
 
-	chef generate cookbook webserver
+    chef generate cookbook webserver
 
 This will generate a set of files under the directory C:\Chef\cookbooks\webserver. We now need to define the set of commands we would like our Chef client to execute on our managed virtual machine.
 
@@ -154,19 +154,19 @@ The commands are stored in the file default.rb. In this file, I’ll be defining
 
 Modify the C:\chef\cookbooks\webserver\recipes\default.rb file and add the following lines.
 
-	powershell_script 'Install IIS' do
- 		action :run
- 		code 'add-windowsfeature Web-Server'
-	end
+    powershell_script 'Install IIS' do
+        action :run
+        code 'add-windowsfeature Web-Server'
+    end
 
-	service 'w3svc' do
- 		action [ :enable, :start ]
-	end
+    service 'w3svc' do
+        action [ :enable, :start ]
+    end
 
-	template 'c:\inetpub\wwwroot\Default.htm' do
- 		source 'Default.htm.erb'
- 		rights :read, 'Everyone'
-	end
+    template 'c:\inetpub\wwwroot\Default.htm' do
+        source 'Default.htm.erb'
+        rights :read, 'Everyone'
+    end
 
 Save the file once you are done.
 
@@ -176,7 +176,7 @@ As we mentioned previously, we need to generate a template file which will be us
 
 Run the following command to generate the template.
 
-	chef generate template webserver Default.htm
+    chef generate template webserver Default.htm
 
 Now navigate to the C:\chef\cookbooks\webserver\templates\default\Default.htm.erb file. Edit the file by adding some simple “Hello World” HTML code, and then save the file.
 
@@ -186,7 +186,7 @@ Now navigate to the C:\chef\cookbooks\webserver\templates\default\Default.htm.er
 
 In this step, we are taking a copy of the Cookbook that we have created on our local machine and uploading it to the Chef Hosted Server. Once uploaded, the Cookbook will appear under the **Policy** tab.
 
-	knife cookbook upload webserver
+    knife cookbook upload webserver
 
 ![][9]
 
@@ -198,7 +198,7 @@ In order to do this, use the **knife azure server create** command.
 
 Am example of the command appears next.
 
-	knife azure server create --azure-dns-name 'diegotest01' --azure-vm-name 'testserver01' --azure-vm-size 'Small' --azure-storage-account 'portalvhdsxxxx' --bootstrap-protocol 'cloud-api' --azure-source-image 'a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-Datacenter-201411.01-en.us-127GB.vhd' --azure-service-location 'Southeast Asia' --winrm-user azureuser --winrm-password 'myPassword123' --tcp-endpoints 80,3389 --r 'recipe[webserver]'
+    knife azure server create --azure-dns-name 'diegotest01' --azure-vm-name 'testserver01' --azure-vm-size 'Small' --azure-storage-account 'portalvhdsxxxx' --bootstrap-protocol 'cloud-api' --azure-source-image 'a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-Datacenter-201411.01-en.us-127GB.vhd' --azure-service-location 'Southeast Asia' --winrm-user azureuser --winrm-password 'myPassword123' --tcp-endpoints 80,3389 --r 'recipe[webserver]'
 
 The parameters are self-explanatory. Substitute your particular variables and run.
 
@@ -238,3 +238,4 @@ I hope this has been helpful! Go  and start your infrastructure as code journey 
 
 
 <!--Link references-->
+

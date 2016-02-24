@@ -152,3 +152,4 @@ For planned failover, this sequence guarantees that no data loss will occur. The
 [9]: ./media/sql-database-geo-replication-portal/seeding-complete.png
 [10]: ./media/sql-database-geo-replication-portal/failover.png
 
+

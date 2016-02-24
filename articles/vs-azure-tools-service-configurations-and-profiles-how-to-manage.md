@@ -130,3 +130,4 @@ When you run the wizard for the first time, a default profile is created. Visual
 ## Next steps
 
 To learn about configuring other parts of your Azure project from Visual Studio, see [Configuring an Azure Project](http://go.microsoft.com/fwlink/p/?LinkID=623075)
+

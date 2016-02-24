@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Manage Azure Backup vaults and servers | Microsoft Azure"
-	description="Use this tutorial to learn how to manage Azure Backup vaults and servers."
-	services="backup"
-	documentationCenter=""
-	authors="aashishr"
-	manager="jwhit"
-	editor="tysonn"/>
+    pageTitle="Manage Azure Backup vaults and servers | Microsoft Azure"
+    description="Use this tutorial to learn how to manage Azure Backup vaults and servers."
+    services="backup"
+    documentationCenter=""
+    authors="aashishr"
+    manager="jwhit"
+    editor="tysonn"/>
 
 <tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/15/2015"
-	ms.author="jimpark; aashishr; giridham"/>
+    ms.service="backup"
+    ms.workload="storage-backup-recovery"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/15/2015"
+    ms.author="jimpark; aashishr; giridham"/>
 
 
 # Manage Azure Backup vaults and servers
@@ -53,3 +53,4 @@ From here you can perform the following tasks:
 - [Restore Windows Server or Windows Client from Azure](backup-azure-restore-windows-server.md)
 - To learn more about Azure Backup, see [Azure Backup Overview](backup-introduction-to-azure-backup.md)
 - Visit the [Azure Backup Forum](http://go.microsoft.com/fwlink/p/?LinkId=290933)
+

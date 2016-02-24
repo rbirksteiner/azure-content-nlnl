@@ -41,7 +41,7 @@ You must first request your Azure subscription to be enabled for Data Lake Store
 2. Click **NEW**, click **Data + Storage**, and then click **Azure Data Lake Store**.
 3. In the **New Data Lake Store** blade, click **Sign up to preview**. Read the information and then click **OK**. You will receive an e-mail once your subscription has been enabled for the Public Preview.
 
-	![Sign up for Public Preview](./media/data-lake-store-get-started-portal/preview-signup.png "Create a new Azure Data Lake account")
+    ![Sign up for Public Preview](./media/data-lake-store-get-started-portal/preview-signup.png "Create a new Azure Data Lake account")
 
 ## Create an Azure Data Lake Store account
 
@@ -51,11 +51,11 @@ You must first request your Azure subscription to be enabled for Data Lake Store
 
 3. In the **New Data Lake Store** blade, provide the values as shown in the screen capture below:
 
-	![Create a new Azure Data Lake Store account](./media/data-lake-store-get-started-portal/ADL.Create.New.Account.png "Create a new Azure Data Lake account")
+    ![Create a new Azure Data Lake Store account](./media/data-lake-store-get-started-portal/ADL.Create.New.Account.png "Create a new Azure Data Lake account")
 
-	- **Subscription**. Select the subscription under which you want to create a new Data Lake Store account.
-	- **Resource Group**. Select an existing resource group, or click **Create a resource group** to create one. A resource group is a container that holds related resources for an application. For more information, see [Resource Groups in Azure](resource-group-overview.md#resource-groups).
-	- **Location**: Select a location where you want to create the Data Lake Store account.
+    - **Subscription**. Select the subscription under which you want to create a new Data Lake Store account.
+    - **Resource Group**. Select an existing resource group, or click **Create a resource group** to create one. A resource group is a container that holds related resources for an application. For more information, see [Resource Groups in Azure](resource-group-overview.md#resource-groups).
+    - **Location**: Select a location where you want to create the Data Lake Store account.
 
 4. Select **Pin to Startboard** if you want the Data Lake Store account to be accessible from the Startboard.
 
@@ -63,7 +63,7 @@ You must first request your Azure subscription to be enabled for Data Lake Store
 
 6. Expand the **Essentials** drop-down to see the information about your Data Lake Store account such as the resource group it is a part of, the location, etc. Click the **Quick Start** icon to see links to other resources related to Data Lake Store.
 
-	![Your Azure Data Lake Store account](./media/data-lake-store-get-started-portal/ADL.Account.QuickStart.png "Your Azure Data Lake account")
+    ![Your Azure Data Lake Store account](./media/data-lake-store-get-started-portal/ADL.Account.QuickStart.png "Your Azure Data Lake account")
 
 ## <a name="createfolder"></a>Create folders in Azure Data Lake Store account
 
@@ -73,15 +73,15 @@ You can create folders under your Data Lake Store account to manage and store da
 
 2. In your Data Lake Store account blade, click **Data Explorer**.
 
-	![Create folders in Data Lake Store account](./media/data-lake-store-get-started-portal/ADL.Create.Folder.png "Create folders in Data Lake Store account")
+    ![Create folders in Data Lake Store account](./media/data-lake-store-get-started-portal/ADL.Create.Folder.png "Create folders in Data Lake Store account")
 
 3. In your Data Lake Store account blade, click **New Folder**, enter a name for the new folder, and then click **OK**.
-	
-	![Create folders in Data Lake Store account](./media/data-lake-store-get-started-portal/ADL.Folder.Name.png "Create folders in Data Lake Store account")
-	
-	The newly created folder will be listed in the **Data Explorer** blade. You can create nested folders upto any level.
+    
+    ![Create folders in Data Lake Store account](./media/data-lake-store-get-started-portal/ADL.Folder.Name.png "Create folders in Data Lake Store account")
+    
+    The newly created folder will be listed in the **Data Explorer** blade. You can create nested folders upto any level.
 
-	![Create folders in Data Lake account](./media/data-lake-store-get-started-portal/ADL.New.Directory.png "Create folders in Data Lake account")
+    ![Create folders in Data Lake account](./media/data-lake-store-get-started-portal/ADL.New.Directory.png "Create folders in Data Lake account")
 
 
 ## <a name="uploaddata"></a>Upload data to Azure Data Lake Store account
@@ -133,3 +133,4 @@ To delete an Azure Data Lake Store account, from your Data Lake Store blade, cli
 - [Secure data in Data Lake Store](data-lake-store-secure-data.md)
 - [Use Azure Data Lake Analytics with Data Lake Store](data-lake-analytics-get-started-portal.md)
 - [Use Azure HDInsight with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
+

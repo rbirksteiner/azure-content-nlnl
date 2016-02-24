@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Troubleshoot Azure SQL database permissions and access"
-	description="Quick steps to troubleshoot common permissions, access, user, and login issues"
-	services="sql-database"
-	documentationCenter=""
-	authors="v-shysun"
-	manager="msmets"
-	editor=""/>
+    pageTitle="Troubleshoot Azure SQL database permissions and access"
+    description="Quick steps to troubleshoot common permissions, access, user, and login issues"
+    services="sql-database"
+    documentationCenter=""
+    authors="v-shysun"
+    manager="msmets"
+    editor=""/>
 
 <tags
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/11/2015"
-	ms.author="v-shysun"/>
+    ms.service="sql-database"
+    ms.workload="data-management"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/11/2015"
+    ms.author="v-shysun"/>
 
 #Troubleshoot common Azure SQL database permissions and access issues
 Use this topic for quick steps to grant and remove access to an Azure SQL database. For more comprehensive information, see:
@@ -36,3 +36,4 @@ Use this topic for quick steps to grant and remove access to an Azure SQL databa
 
 ## To create additional logins for high-privileged users in the virtual master database
 -Use the [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) statement, and see the Managing Logins section of [Managing databases and logins in Azure SQL Database](sql-database-manage-logins.md) for more detail.
+

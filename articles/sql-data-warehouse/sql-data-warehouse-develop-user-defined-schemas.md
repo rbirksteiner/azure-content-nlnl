@@ -91,12 +91,12 @@ GO
 CREATE SCHEMA [dim]; -- edw defines the legacy schema name boundary
 GO
 CREATE TABLE [stg].[customer] -- create the base staging tables in the staging boundary
-(       CustKey	BIGINT NOT NULL
+(       CustKey BIGINT NOT NULL
 ,       ...
 )
 GO
 CREATE TABLE [edw].[customer] -- create the base data warehouse tables in the data warehouse boundary
-(       CustKey	BIGINT NOT NULL
+(       CustKey BIGINT NOT NULL
 ,       ...
 )
 GO
@@ -104,7 +104,7 @@ CREATE VIEW [dim].[customer] -- create a view in the legacy schema name boundary
 AS
 SELECT  CustKey
 ,       ...
-FROM	[edw].customer
+FROM    [edw].customer
 ;
 ```
 

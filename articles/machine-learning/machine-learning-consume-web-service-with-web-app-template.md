@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Consume a Machine Learning web service with a web app template | Microsoft Azure"
-	description="Use a web app template in Azure Marketplace to consume a predictive web service in Azure Machine Learning."
-	keywords="web service,operationalization,REST API,machine learning"
-	services="machine-learning"
-	documentationCenter=""
-	authors="garyericson"
-	manager="paulettm"
-	editor="cgronlun"/>
+    pageTitle="Consume a Machine Learning web service with a web app template | Microsoft Azure"
+    description="Use a web app template in Azure Marketplace to consume a predictive web service in Azure Machine Learning."
+    keywords="web service,operationalization,REST API,machine learning"
+    services="machine-learning"
+    documentationCenter=""
+    authors="garyericson"
+    manager="paulettm"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/26/2015"
-	ms.author="garye;raymondl"/>
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/26/2015"
+    ms.author="garye;raymondl"/>
 
 # Consume an Azure Machine Learning web service with a web app template
 
@@ -49,40 +49,40 @@ Once you've deployed your web service, you can follow the steps below to use the
 
 1. In Machine Learning Studio, open the **Web Services** tab and then open the web service you want to access. Copy the key listed under **API key** and save it.
 
-	![API Key][image3]
+    ![API Key][image3]
 
 2. Open the **REQUEST/RESPONSE** API Help Page. At the top of the help page, under **Request**, copy the **Request URI** value and save it. This value will look like this:
 
-		https://ussouthcentral.services.azureml.net/workspaces/<workspace-id>/services/<service-id>/execute?api-version=2.0&details=true
+        https://ussouthcentral.services.azureml.net/workspaces/<workspace-id>/services/<service-id>/execute?api-version=2.0&details=true
 
-	![Request URI][image4]
+    ![Request URI][image4]
 
 3. Go to [Azure ML Request-Response Service Web App](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/) and click **Create Web App**. The template takes you to the Microsoft Azure Classic Portal where the new web app is created.
 
-	- Give your web app a unique name. The URL of the web app will be this name followed by `.azurewebsites.net.` For example, `http://carprediction.azurewebsites.net.`
+    - Give your web app a unique name. The URL of the web app will be this name followed by `.azurewebsites.net.` For example, `http://carprediction.azurewebsites.net.`
 
-	- Select the Azure subscription and services under which your web service is running.
+    - Select the Azure subscription and services under which your web service is running.
 
-	- Click **Create**.
+    - Click **Create**.
 
-	![Create web app][image5]
+    ![Create web app][image5]
 
 4. When Azure has finished deploying the web app, click the **URL** on the web app settings page in Azure, or enter the URL in a web browser. For example, `http://carprediction.azurewebsites.net.`
 
 5. When the web app first runs it will ask you for the **API Post URL** and **API Key**.
 Enter the values you saved earlier:
-	- **Request URI** from the API Help Page for **API Post URL**
-	- **API Key** from the web service dashboard for the **API Key**.
+    - **Request URI** from the API Help Page for **API Post URL**
+    - **API Key** from the web service dashboard for the **API Key**.
 
-	Click **Submit**.
+    Click **Submit**.
 
-	![Enter Post URI and API Key][image6]
+    ![Enter Post URI and API Key][image6]
 
 6. The web app displays its **Web App Configuration** page with the current web service settings. Here you can make changes to the settings used by the web app.
 
-	> [AZURE.NOTE] Changing the settings here only changes them for this web app. It doesn't change the default settings of your web service. For example, if you change the **Description** here it doesn't change the description shown on the web service dashboard in Machine Learning Studio.
+    > [AZURE.NOTE] Changing the settings here only changes them for this web app. It doesn't change the default settings of your web service. For example, if you change the **Description** here it doesn't change the description shown on the web service dashboard in Machine Learning Studio.
 
-	When you're done, click **Save changes**, and then click **Go to Home Page**.
+    When you're done, click **Save changes**, and then click **Go to Home Page**.
 
 7. From the home page you can enter values to send to your web service, click **Submit**, and the result will be returned.
 
@@ -100,13 +100,13 @@ So, you'll need an Azure storage container to hold the results returned by the w
 ![Process to use BES web template][image2]
 
 1. Follow the same procedure to create the BES web app as for the RRS template, except:
-	- Get the **Request URI** from the **BATCH EXECUTION** API Help Page for the web service.
-	- Go to [Azure ML Batch Execution Service Web App Template](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/) to open the BES template on Azure Marketplace and click **Create Web App**.
+    - Get the **Request URI** from the **BATCH EXECUTION** API Help Page for the web service.
+    - Go to [Azure ML Batch Execution Service Web App Template](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/) to open the BES template on Azure Marketplace and click **Create Web App**.
 
 2. To specify where you want the results stored, enter the destination container information on the web app home page. Also specify where the web app can get the input values, either in a local file or an Azure storage container.
 Click **Submit**.
 
-	![Storage information][image7]
+    ![Storage information][image7]
 
 The web app will display a page with job status.
 When the job has completed you'll be given the location of the results in Azure blob storage. You also have the option of downloading the results to a local file.
@@ -129,3 +129,4 @@ To learn more about...
 [image5]: media\machine-learning-consume-web-service-with-web-app-template\create-web-app.png
 [image6]: media\machine-learning-consume-web-service-with-web-app-template\web-service-info.png
 [image7]: media\machine-learning-consume-web-service-with-web-app-template\storage.png
+

@@ -1,19 +1,19 @@
 <properties
-	pageTitle="How to use multiple clients with a single mobile service backend | Azure Mobile Services"
-	description="Learn how to use a single mobile service back-end from multiple client apps that target different mobile platforms."
-	services="mobile-services"
-	documentationCenter=""
-	authors="ggailey777"
-	manager="dwrede"
-	editor="mollybos"/>
+    pageTitle="How to use multiple clients with a single mobile service backend | Azure Mobile Services"
+    description="Learn how to use a single mobile service back-end from multiple client apps that target different mobile platforms."
+    services="mobile-services"
+    documentationCenter=""
+    authors="ggailey777"
+    manager="dwrede"
+    editor="mollybos"/>
 <tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-multiple"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="12/07/2015"
-	ms.author="glenga"/>
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-multiple"
+    ms.devlang="multiple"
+    ms.topic="article"
+    ms.date="12/07/2015"
+    ms.author="glenga"/>
 
 # Supporting multiple device platforms from a single mobile service
 
@@ -53,29 +53,29 @@ In a .NET backend mobile service, you send notifications by calling the [SendAsy
 
 The following code sends a push notification from a .NET backend service to all iOS and Windows Store device registrations:
 
-	// Define a push notification for APNS.
-	ApplePushMessage apnsMessage = new ApplePushMessage(item.Text, TimeSpan.FromHours(1));
+    // Define a push notification for APNS.
+    ApplePushMessage apnsMessage = new ApplePushMessage(item.Text, TimeSpan.FromHours(1));
 
-	// Define a push notification for WNS.
-	WindowsPushMessage wnsMessage = new WindowsPushMessage();
+    // Define a push notification for WNS.
+    WindowsPushMessage wnsMessage = new WindowsPushMessage();
     wnsMessage.XmlPayload = @"<?xml version=""1.0"" encoding=""utf-8""?>" +
                          @"<toast><visual><binding template=""ToastText01"">" +
                          @"<text id=""1"">" + item.Text + @"</text>" +
                          @"</binding></visual></toast>";
 
-	// Send push notifications to all registered iOS and Windows Store devices.
+    // Send push notifications to all registered iOS and Windows Store devices.
     await Services.Push.SendAsync(apnsMessage);
-	await Services.Push.SendAsync(wnsMessage);
+    await Services.Push.SendAsync(wnsMessage);
 
 For examples of how to send push notifications to the other native client platforms, click the platform links in the header of the above table.
 
 When you use template client registrations rather than native client registrations, you can send the same notification with only a single call to [SendAsync], supplying a [TemplatePushMessage] object, as follows:
 
-	// Create a new template message and add the 'message' parameter.
-	var templatePayload = new TemplatePushMessage();
+    // Create a new template message and add the 'message' parameter.
+    var templatePayload = new TemplatePushMessage();
     templatePayload.Add("message", item.Text);
 
-	// Send a push notification to all template registrations.
+    // Send a push notification to all template registrations.
     await Services.Push.SendAsync(templatePayload);
 
 ###JavaScript backend
@@ -88,18 +88,18 @@ In a JavaScript backend mobile service, you send notifications by calling the **
 
 The following code sends push notification to all Android and Windows Phone registrations:
 
-	// Define a push notification for GCM.
-	var gcmPayload =
+    // Define a push notification for GCM.
+    var gcmPayload =
     '{"data":{"message" : item.text }}';
 
-	// Define the payload for a Windows Phone toast notification.
-	var mpnsPayload = '<?xml version="1.0" encoding="utf-8"?>' +
+    // Define the payload for a Windows Phone toast notification.
+    var mpnsPayload = '<?xml version="1.0" encoding="utf-8"?>' +
     '<wp:Notification xmlns:wp="WPNotification"><wp:Toast>' +
     '<wp:Text1>New Item</wp:Text1><wp:Text2>' + item.text +
     '</wp:Text2></wp:Toast></wp:Notification>';
 
-	// Send push notifications to all registered Android and Windows Phone 8.0 devices.
-	push.mpns.send(null, mpnsPayload, 'toast', 22, {
+    // Send push notifications to all registered Android and Windows Phone 8.0 devices.
+    push.mpns.send(null, mpnsPayload, 'toast', 22, {
             success: function(pushResponse) {
                 // Push succeeds.
                 },
@@ -120,10 +120,10 @@ For examples of how to send push notifications to the other native client platfo
 
 When you use template client registrations rather than native client registrations, you can send the same notification with only a single call the **send** function on the global [push object], supplying a template message payload, as follows:
 
-	// Create a new template message with the 'message' parameter.
-	var templatePayload = { "message": item.text };
+    // Create a new template message with the 'message' parameter.
+    var templatePayload = { "message": item.text };
 
-	// Send a push notification to all template registrations.
+    // Send a push notification to all template registrations.
     push.send(null, templatePayload, {
             success: function(pushResponse) {
                 // Push succeeds.
@@ -142,7 +142,7 @@ Cross-platform tools are available that provide a richer native experience on a 
 
 + [**PhoneGap**](https://go.microsoft.com/fwLink/p/?LinkID=390707)**/**[**Cordova**](http://cordova.apache.org/)<br/>PhoneGap (a distribution of the Apache Cordova project) is a free and open source framework that lets you use standardized web APIs, HTML and JavaScript to develop a single app that runs on Android, iOS and Windows devices. PhoneGap provides a web view based UI, but with a user experience enhanced by accessing native resources on the device, such as such as push notifications, the accelerometer, camera, storage, geolocation, and the in-app browser. For more information, see the [PhoneGap quickstart tutorial][PhoneGap].
 
-	Visual Studio now also enables you to build cross-platform Cordova apps by using the Multi-Device Hybrid Apps extension for Visual Studio, which is pre-release software. For more information, see [Getting Started with Multi-Device Hybrid Apps Using HTML and JavaScript](http://msdn.microsoft.com/library/dn771545.aspx).
+    Visual Studio now also enables you to build cross-platform Cordova apps by using the Multi-Device Hybrid Apps extension for Visual Studio, which is pre-release software. For more information, see [Getting Started with Multi-Device Hybrid Apps Using HTML and JavaScript](http://msdn.microsoft.com/library/dn771545.aspx).
 
 + [**Sencha Touch**](http://go.microsoft.com/fwlink/p/?LinkId=509988)<br/>Sencha Touch provides a set of controls, optimized for touch screens, that provide a like-native experience on a wide variety of mobile devices from a single HTML and JavaScript code base. Sencha Touch can be used along with PhoneGap or Cordova libraries to provide users access to native device resources. For more information, see the [Sencha Touch quickstart tutorial][Sencha].
 
@@ -172,3 +172,4 @@ Cross-platform tools are available that provide a richer native experience on a 
 [What's next for Windows Phone 8 developers]: http://msdn.microsoft.com/library/windows/apps/dn655121(v=vs.105).aspx
 [Building universal Windows apps for all Windows devices]: http://go.microsoft.com/fwlink/p/?LinkId=509905
 [Universal Windows app project for Azure Mobile Services using MVVM]: http://code.msdn.microsoft.com/Universal-Windows-app-for-db3564de
+

@@ -48,50 +48,50 @@ The next step is to create a Visual Studio project and write two helper function
 1. Create a new console application project. Click the **File** menu and select **New**, then click **Project**. In the **New Project** dialog, click **Visual C#** (if **Visual C#** does not appear, look under **Other Languages**), click the **Console Application** template, and name it **QueueSample**. Use the default **Location**. Click **OK** to create the project.
 
 1. Use the NuGet package manager to add the Service Bus libraries to your project:
-	1. In Solution Explorer, right-click the project folder and click **Manage NuGet Packages**.
-	2. In the **Manage Nuget Packages** dialog, search online for **Service Bus** and click **Install**.
+    1. In Solution Explorer, right-click the project folder and click **Manage NuGet Packages**.
+    2. In the **Manage Nuget Packages** dialog, search online for **Service Bus** and click **Install**.
 <br />
 1. In Solution Explorer, double-click the Program.cs file to open it in the Visual Studio editor. Change the namespace name from its default name of `QueueSample` to `Microsoft.ServiceBus.Samples`.
 
-	```
-	Microsoft.ServiceBus.Samples
-	{
-	    …
-	```
+    ```
+    Microsoft.ServiceBus.Samples
+    {
+        …
+    ```
 
 1. Modify the `using` statements as shown in the following code.
 
-	```
-	using System;
-	using System.Collections.Generic;
-	using System.Data;
-	using System.IO;
-	using System.Threading;
-	using Microsoft.ServiceBus.Messaging;
-	```
+    ```
+    using System;
+    using System.Collections.Generic;
+    using System.Data;
+    using System.IO;
+    using System.Threading;
+    using Microsoft.ServiceBus.Messaging;
+    ```
 
 1. Create a text file named Data.csv, and copy in the following comma-delimited text.
 
-	```
-	IssueID,IssueTitle,CustomerID,CategoryID,SupportPackage,Priority,Severity,Resolved
-	1,Package lost,1,1,Basic,5,1,FALSE
-	2,Package damaged,1,1,Basic,5,1,FALSE
-	3,Product defective,1,2,Premium,5,2,FALSE
-	4,Product damaged,2,2,Premium,5,2,FALSE
-	5,Package lost,2,2,Basic,5,2,TRUE
-	6,Package lost,3,2,Basic,5,2,FALSE
-	7,Package damaged,3,7,Premium,5,3,FALSE
-	8,Product defective,3,2,Premium,5,3,FALSE
-	9,Product damaged,4,6,Premium,5,3,TRUE
-	10,Package lost,4,8,Basic,5,3,FALSE
-	11,Package damaged,5,4,Basic,5,4,FALSE
-	12,Product defective,5,4,Basic,5,4,FALSE
-	13,Package lost,6,8,Basic,5,4,FALSE
-	14,Package damaged,6,7,Premium,5,5,FALSE
-	15,Product defective,6,2,Premium,5,5,FALSE
-	```
+    ```
+    IssueID,IssueTitle,CustomerID,CategoryID,SupportPackage,Priority,Severity,Resolved
+    1,Package lost,1,1,Basic,5,1,FALSE
+    2,Package damaged,1,1,Basic,5,1,FALSE
+    3,Product defective,1,2,Premium,5,2,FALSE
+    4,Product damaged,2,2,Premium,5,2,FALSE
+    5,Package lost,2,2,Basic,5,2,TRUE
+    6,Package lost,3,2,Basic,5,2,FALSE
+    7,Package damaged,3,7,Premium,5,3,FALSE
+    8,Product defective,3,2,Premium,5,3,FALSE
+    9,Product damaged,4,6,Premium,5,3,TRUE
+    10,Package lost,4,8,Basic,5,3,FALSE
+    11,Package damaged,5,4,Basic,5,4,FALSE
+    12,Product defective,5,4,Basic,5,4,FALSE
+    13,Package lost,6,8,Basic,5,4,FALSE
+    14,Package damaged,6,7,Premium,5,5,FALSE
+    15,Product defective,6,2,Premium,5,5,FALSE
+    ```
 
-	Save and close the Data.csv file, and remember the location to which you saved it.
+    Save and close the Data.csv file, and remember the location to which you saved it.
 
 1. In Solution Explorer, right-click the name of your project (in this example, **QueueSample**), click **Add**, then click **Existing Item**.
 
@@ -101,148 +101,148 @@ The next step is to create a Visual Studio project and write two helper function
 
 1. Before the `Main()` method, declare two variables: one of type **DataTable**, to contain the list of messages in Data.csv. The other should be of type List object, strongly typed to [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx). The latter is the list of brokered messages that subsequent steps in the tutorial will use.
 
-	```
-	namespace Microsoft.ServiceBus.Samples
-	{
-	    publicclass Program
-	    {
-	
-	        private static DataTable issues;
-	        private static List<BrokeredMessage> MessageList;
-	```
+    ```
+    namespace Microsoft.ServiceBus.Samples
+    {
+        publicclass Program
+        {
+    
+            private static DataTable issues;
+            private static List<BrokeredMessage> MessageList;
+    ```
 
 1. Outside `Main()`, define a `ParseCSV()` method that parses the list of messages in Data.csv and loads the messages into a [DataTable](https://msdn.microsoft.com/library/azure/system.data.datatable.aspx) table, as shown here. The method returns a **DataTable** object.
 
-	```
-	static DataTable ParseCSVFile()
-	{
-	    DataTable tableIssues = new DataTable("Issues");
-	    string path = @"..\..\data.csv";
-	    try
-	    {
-	        using (StreamReader readFile = new StreamReader(path))
-	        {
-	            string line;
-	            string[] row;
-	
-	            // create the columns
-	            line = readFile.ReadLine();
-	            foreach (string columnTitle in line.Split(','))
-	            {
-	                tableIssues.Columns.Add(columnTitle);
-	            }
-	
-	            while ((line = readFile.ReadLine()) != null)
-	            {
-	                row = line.Split(',');
-	                tableIssues.Rows.Add(row);
-	            }
-	        }
-	    }
-	    catch (Exception e)
-	    {
-	        Console.WriteLine("Error:" + e.ToString());
-	    }
-	
-	    return tableIssues;
-	}
-	```
+    ```
+    static DataTable ParseCSVFile()
+    {
+        DataTable tableIssues = new DataTable("Issues");
+        string path = @"..\..\data.csv";
+        try
+        {
+            using (StreamReader readFile = new StreamReader(path))
+            {
+                string line;
+                string[] row;
+    
+                // create the columns
+                line = readFile.ReadLine();
+                foreach (string columnTitle in line.Split(','))
+                {
+                    tableIssues.Columns.Add(columnTitle);
+                }
+    
+                while ((line = readFile.ReadLine()) != null)
+                {
+                    row = line.Split(',');
+                    tableIssues.Rows.Add(row);
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("Error:" + e.ToString());
+        }
+    
+        return tableIssues;
+    }
+    ```
 
 1. In the `Main()` method, add a statement that calls the `ParseCSVFile()` method:
 
-	```
-	public static void Main(string[] args)
-	{
-	
-	    // Populate test data
-	    issues = ParseCSVFile();
-	
-	}
-	```
+    ```
+    public static void Main(string[] args)
+    {
+    
+        // Populate test data
+        issues = ParseCSVFile();
+    
+    }
+    ```
 
 ### Create a function that loads the list of messages
 
 1. Outside `Main()`, define a `GenerateMessages()` method that takes the **DataTable** object returned by `ParseCSVFile()` and loads the table into a strongly-typed list of brokered messages. The method then returns the **List** object, as in the following example. 
 
-	```
-	static List<BrokeredMessage> GenerateMessages(DataTable issues)
-	{
-	    // Instantiate the brokered list object
-	    List<BrokeredMessage> result = new List<BrokeredMessage>();
-	
-	    // Iterate through the table and create a brokered message for each row
-	    foreach (DataRow item in issues.Rows)
-	    {
-	        BrokeredMessage message = new BrokeredMessage();
-	        foreach (DataColumn property in issues.Columns)
-	        {
-	            message.Properties.Add(property.ColumnName, item[property]);
-	        }
-	        result.Add(message);
-	    }
-	    return result;
-	}
-	```
+    ```
+    static List<BrokeredMessage> GenerateMessages(DataTable issues)
+    {
+        // Instantiate the brokered list object
+        List<BrokeredMessage> result = new List<BrokeredMessage>();
+    
+        // Iterate through the table and create a brokered message for each row
+        foreach (DataRow item in issues.Rows)
+        {
+            BrokeredMessage message = new BrokeredMessage();
+            foreach (DataColumn property in issues.Columns)
+            {
+                message.Properties.Add(property.ColumnName, item[property]);
+            }
+            result.Add(message);
+        }
+        return result;
+    }
+    ```
 
 1. In `Main()`, directly below the call to `ParseCSVFile()`, add a statement that calls the `GenerateMessages()` method with the return value from `ParseCSVFile()` as an argument:
 
-	```
-	public static void Main(string[] args)
-	{
-	
-	    // Populate test data
-	    issues = ParseCSVFile();
-	    MessageList = GenerateMessages(issues);
-	}
-	```
+    ```
+    public static void Main(string[] args)
+    {
+    
+        // Populate test data
+        issues = ParseCSVFile();
+        MessageList = GenerateMessages(issues);
+    }
+    ```
 
 ### Obtain user credentials
 
 1. First, create three global string variables to hold these values. Declare these variables directly after the previous variable declarations; for example:
 
-	```
-	namespace Microsoft.ServiceBus.Samples
-	{
-	    publicclass Program
-	    {
-	
-	        privatestatic DataTable issues;
-	        privatestatic List<BrokeredMessage> MessageList; 
-	        // Add these variablesprivatestaticstring ServiceNamespace;
-	        privatestaticstring sasKeyName = "RootManageSharedAccessKey";
-	        privatestaticstring sasKeyValue;
-	        …
-	```
+    ```
+    namespace Microsoft.ServiceBus.Samples
+    {
+        publicclass Program
+        {
+    
+            privatestatic DataTable issues;
+            privatestatic List<BrokeredMessage> MessageList; 
+            // Add these variablesprivatestaticstring ServiceNamespace;
+            privatestaticstring sasKeyName = "RootManageSharedAccessKey";
+            privatestaticstring sasKeyValue;
+            …
+    ```
 
 1. Next, create a function that accepts and stores the service namespace and SAS key. Add this method outside `Main()`. For example: 
 
-	```
-	static void CollectUserInput()
-	{
-	    // User service namespace
-	    Console.Write("Please enter the service namespace to use: ");
-	    ServiceNamespace = Console.ReadLine();
-	
-	    // Issuer key
-	    Console.Write("Please enter the SAS key to use: ");
-	    sasKeyValue = Console.ReadLine();
-	}
-	```
+    ```
+    static void CollectUserInput()
+    {
+        // User service namespace
+        Console.Write("Please enter the service namespace to use: ");
+        ServiceNamespace = Console.ReadLine();
+    
+        // Issuer key
+        Console.Write("Please enter the SAS key to use: ");
+        sasKeyValue = Console.ReadLine();
+    }
+    ```
 
 1. In `Main()`, directly below the call to `GenerateMessages()`, add a statement that calls the `CollectUserInput()` method:
 
-	```
-	public static void Main(string[] args)
-	{
-	
-	    // Populate test data
-	    issues = ParseCSVFile();
-	    MessageList = GenerateMessages(issues);
-	    
-	    // Collect user input
-	    CollectUserInput();
-	}
-	```
+    ```
+    public static void Main(string[] args)
+    {
+    
+        // Populate test data
+        issues = ParseCSVFile();
+        MessageList = GenerateMessages(issues);
+        
+        // Collect user input
+        CollectUserInput();
+    }
+    ```
 
 ### Build the solution
 
@@ -258,32 +258,32 @@ In this step, you define the management operations you will use to create shared
 
 1. For clarity, this tutorial places all the queue operations in a separate method. Create a `Queue()` method in the `Program` class, below the `Main()` method. For example:
  
-	```
-	public static void Main(string[] args)
-	{
-	…
-	}
-	staticvoid Queue()
-	{
-	}
-	```
+    ```
+    public static void Main(string[] args)
+    {
+    …
+    }
+    staticvoid Queue()
+    {
+    }
+    ```
 
 1. The next step is to create a SAS credential using a [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx) object. The creation method takes the SAS key name and value obtained in the `CollectUserInput()` method. Add the following code to the `Queue()` method:
 
-	```
-	staticvoid Queue()
-	{
-	    // Create management credentials
-	    TokenProvider credentials = TokenProvider.CreateSharedAccessSignatureTokenProvider(sasKeyName,sasKeyValue);
-	}
-	```
+    ```
+    staticvoid Queue()
+    {
+        // Create management credentials
+        TokenProvider credentials = TokenProvider.CreateSharedAccessSignatureTokenProvider(sasKeyName,sasKeyValue);
+    }
+    ```
 ### Create the namespace manager
 
 1. Create a new namespace management object, with a URI containing the namespace name and the management credentials obtained in the last step, as arguments. Add this code directly beneath the code added in the previous step:
-	
-	```
-	NamespaceManager namespaceClient = new NamespaceManager(ServiceBusEnvironment.CreateServiceUri("sb", <namespaceName>, string.Empty), credentials);
-	```
+    
+    ```
+    NamespaceManager namespaceClient = new NamespaceManager(ServiceBusEnvironment.CreateServiceUri("sb", <namespaceName>, string.Empty), credentials);
+    ```
 
 ### Example
 
@@ -402,36 +402,36 @@ In this step, you create a queue, then send the messages contained in the list o
 
 1. First, create the queue. For example, call it `myQueue`, and declare it directly after the management operations you added in the last step:
 
-	```
-	QueueDescription myQueue;
-	myQueue = namespaceClient.CreateQueue("IssueTrackingQueue");
-	```
+    ```
+    QueueDescription myQueue;
+    myQueue = namespaceClient.CreateQueue("IssueTrackingQueue");
+    ```
 
 1. In the `Queue()` method, create a messaging factory object with a newly-created Service Bus URI as an argument. Add the following code directly after the management operations you added in the last step:
 
-	```
-	MessagingFactory factory = MessagingFactory.Create(ServiceBusEnvironment.CreateServiceUri("sb", ServiceNamespace, string.Empty), credentials);
-	```
+    ```
+    MessagingFactory factory = MessagingFactory.Create(ServiceBusEnvironment.CreateServiceUri("sb", ServiceNamespace, string.Empty), credentials);
+    ```
 
 1. Next, create the queue object using the [QueueClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx) class. Add the following code directly after the code you added in the last step:
 
-	```
-	QueueClient myQueueClient = factory.CreateQueueClient("IssueTrackingQueue");
-	```
+    ```
+    QueueClient myQueueClient = factory.CreateQueueClient("IssueTrackingQueue");
+    ```
 
 1. Next, add code that loops through the list of brokered messages you created previously, sending each to the queue. Add the following code directly after the `CreateQueueClient()` statement in the previous step:
-	
-	```
-	// Send messages
-	Console.WriteLine("Now sending messages to the queue.");
-	for (int count = 0; count < 6; count++)
-	{
-	    var issue = MessageList[count];
-	    issue.Label = issue.Properties["IssueTitle"].ToString();
-	    myQueueClient.Send(issue);
-	    Console.WriteLine(string.Format("Message sent: {0}, {1}", issue.Label, issue.MessageId));
-	}
-	```
+    
+    ```
+    // Send messages
+    Console.WriteLine("Now sending messages to the queue.");
+    for (int count = 0; count < 6; count++)
+    {
+        var issue = MessageList[count];
+        issue.Label = issue.Properties["IssueTitle"].ToString();
+        myQueueClient.Send(issue);
+        Console.WriteLine(string.Format("Message sent: {0}, {1}", issue.Label, issue.MessageId));
+    }
+    ```
 
 ## Receive messages from the queue
 
@@ -441,47 +441,47 @@ In this step, you obtain the list of messages from the queue you created in the 
 
 In the `Queue()` method, iterate through the queue and receive the messages using the [Microsoft.ServiceBus.Messaging.QueueClient.Receive](https://msdn.microsoft.com/library/azure/hh322678.aspx) method, printing out each message to the console. Add the following code directly beneath the code you added in the previous step:
 
-	```
-	Console.WriteLine("Now receiving messages from Queue.");
-	BrokeredMessage message;
-	while ((message = myQueueClient.Receive(new TimeSpan(hours: 0, minutes: 1, seconds: 5))) != null)
-	    {
-	        Console.WriteLine(string.Format("Message received: {0}, {1}, {2}", message.SequenceNumber, message.Label, message.MessageId));
-	        message.Complete();
-	
-	        Console.WriteLine("Processing message (sleeping...)");
-	        Thread.Sleep(1000);
-	    }
-	```
+    ```
+    Console.WriteLine("Now receiving messages from Queue.");
+    BrokeredMessage message;
+    while ((message = myQueueClient.Receive(new TimeSpan(hours: 0, minutes: 1, seconds: 5))) != null)
+        {
+            Console.WriteLine(string.Format("Message received: {0}, {1}, {2}", message.SequenceNumber, message.Label, message.MessageId));
+            message.Complete();
+    
+            Console.WriteLine("Processing message (sleeping...)");
+            Thread.Sleep(1000);
+        }
+    ```
 
 ### End the `Queue()` method and clean up resources
 
 Directly beneath the previous code, add the following code to clean up the message factory and queue resources:
 
-	```
-	factory.Close();
-	myQueueClient.Close();
-	namespaceClient.DeleteQueue("IssueTrackingQueue");
-	```
+    ```
+    factory.Close();
+    myQueueClient.Close();
+    namespaceClient.DeleteQueue("IssueTrackingQueue");
+    ```
 
 ### Call the `Queue()` method
 
 The last step is to add a statement that calls the `Queue()` method from `Main()`. Add the following highlighted line of code at the end of Main():
-	
-	```
-	public static void Main(string[] args)
-	{
-	    // Collect user input
-	    CollectUserInput();
-	
-	    // Populate test data
-	    issues = ParseCSVFile();
-	    MessageList = GenerateMessages(issues);
-	
-	    // Add this call
-	    Queue();
-	}
-	```
+    
+    ```
+    public static void Main(string[] args)
+    {
+        // Collect user input
+        CollectUserInput();
+    
+        // Populate test data
+        issues = ParseCSVFile();
+        MessageList = GenerateMessages(issues);
+    
+        // Add this call
+        Queue();
+    }
+    ```
 
 ### Example
 

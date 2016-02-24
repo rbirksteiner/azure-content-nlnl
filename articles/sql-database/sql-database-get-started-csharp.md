@@ -1,12 +1,12 @@
 <properties 
-	pageTitle="Try SQL Database: Use C# to create a SQL database | Microsoft Azure" 
-	description="Try SQL Database for developing SQL and C# apps, and create an Azure SQL Database with C# using the SQL Database Library for .NET." 
-	keywords="try sql, sql c#"   
-	services="sql-database" 
-	documentationCenter="" 
-	authors="stevestein" 
-	manager="jeffreyg" 
-	editor="cgronlun"/>
+    pageTitle="Try SQL Database: Use C# to create a SQL database | Microsoft Azure" 
+    description="Try SQL Database for developing SQL and C# apps, and create an Azure SQL Database with C# using the SQL Database Library for .NET." 
+    keywords="try sql, sql c#"   
+    services="sql-database" 
+    documentationCenter="" 
+    authors="stevestein" 
+    manager="jeffreyg" 
+    editor="cgronlun"/>
 
 <tags
    ms.service="sql-database"
@@ -435,3 +435,4 @@ Now that you've tried SQL Database and set up a database with C#, you're ready f
 [7]: ./media/sql-database-get-started-csharp/add-application.png
 [8]: ./media/sql-database-get-started-csharp/add-application2.png
 [9]: ./media/sql-database-get-started-csharp/clientid.png
+

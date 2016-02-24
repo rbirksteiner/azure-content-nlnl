@@ -1,22 +1,22 @@
 <properties 
-	pageTitle="Virtual Machines and Containers | Microsoft Azure" 
-	description="Describes Virtual Machines, Docker and Linux containers, and their usage in groups of each in Azure, including the benefits of each and scenarios in which each approach works very well." 
-	services="virtual-machines" 
-	documentationCenter="virtual-machines" 
-	authors="squillace" 
-	manager="timlt"
-	tags="azure-resource-manager,azure-service-management" 
+    pageTitle="Virtual Machines and Containers | Microsoft Azure" 
+    description="Describes Virtual Machines, Docker and Linux containers, and their usage in groups of each in Azure, including the benefits of each and scenarios in which each approach works very well." 
+    services="virtual-machines" 
+    documentationCenter="virtual-machines" 
+    authors="squillace" 
+    manager="timlt"
+    tags="azure-resource-manager,azure-service-management" 
 />
-	
+    
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="infrastructure" 
-	ms.workload="infrastructure" 
-	ms.date="12/14/2015" 
-	ms.author="rasquill" 
+    ms.service="virtual-machines" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="infrastructure" 
+    ms.workload="infrastructure" 
+    ms.date="12/14/2015" 
+    ms.author="rasquill" 
 />
 
 <!--The next line, with one pound sign at the beginning, is the page title--> 
@@ -178,8 +178,8 @@ Docker tools:
 
 - [Docker daemon](https://docs.docker.com/installation/#installation)
 - Docker clients
-	- [Windows Docker Client on Chocolatey](https://chocolatey.org/packages/docker)
-	- [Docker installation instructions](https://docs.docker.com/installation/#installation)
+    - [Windows Docker Client on Chocolatey](https://chocolatey.org/packages/docker)
+    - [Docker installation instructions](https://docs.docker.com/installation/#installation)
 
 
 Docker on Microsoft Azure:
@@ -204,30 +204,30 @@ Configuration, cluster management, and container orchestration:
 
 - [Fleet on CoreOS](virtual-machines-linux-coreos-fleet-get-started.md)
 
--	Deis
-	- [Create a 3-Node Azure VM group, install Deis, and start a Hello World Go application](virtual-machines-deis-cluster.md)
-	
--	Kubernetes
-	- [Complete guide to automated Kubernetes cluster deployment with CoreOS and Weave](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave)
-	- [Kubernetes Visualizer](http://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure)
-	
--	[Mesos](http://mesos.apache.org/)
-	-	[Mesosphere's Data Center Operating System (DCOS)](http://beta-docs.mesosphere.com/install/azurecluster/)
-	
--	[Jenkins](https://jenkins-ci.org/) and [Hudson](http://hudson-ci.org/)
-	- [Blog: Jenkins Slave Plug-in for Azure](http://msopentech.com/blog/2014/09/23/announcing-jenkins-slave-plugin-azure/)
-	- [GitHub repo: Jenkins Storage Plug-in for Azure](https://github.com/jenkinsci/windows-azure-storage-plugin)
-	- [Third Party: Hudson Slave Plug-in for Azure](http://wiki.hudson-ci.org/display/HUDSON/Azure+Slave+Plugin)
-	- [Third Party: Hudson Storage Plug-in for Azure](https://github.com/hudson3-plugins/windows-azure-storage-plugin)
-	
--	[Chef](https://docs.chef.io/index.html)
-	- [Chef and Virtual Machines](virtual-machines-windows-install-chef-client.md)
-	- [Video: What is Chef and How does it Work?](https://msopentech.com/blog/2014/03/31/using-chef-to-manage-azure-resources/)
+-   Deis
+    - [Create a 3-Node Azure VM group, install Deis, and start a Hello World Go application](virtual-machines-deis-cluster.md)
+    
+-   Kubernetes
+    - [Complete guide to automated Kubernetes cluster deployment with CoreOS and Weave](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave)
+    - [Kubernetes Visualizer](http://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure)
+    
+-   [Mesos](http://mesos.apache.org/)
+    -   [Mesosphere's Data Center Operating System (DCOS)](http://beta-docs.mesosphere.com/install/azurecluster/)
+    
+-   [Jenkins](https://jenkins-ci.org/) and [Hudson](http://hudson-ci.org/)
+    - [Blog: Jenkins Slave Plug-in for Azure](http://msopentech.com/blog/2014/09/23/announcing-jenkins-slave-plugin-azure/)
+    - [GitHub repo: Jenkins Storage Plug-in for Azure](https://github.com/jenkinsci/windows-azure-storage-plugin)
+    - [Third Party: Hudson Slave Plug-in for Azure](http://wiki.hudson-ci.org/display/HUDSON/Azure+Slave+Plugin)
+    - [Third Party: Hudson Storage Plug-in for Azure](https://github.com/hudson3-plugins/windows-azure-storage-plugin)
+    
+-   [Chef](https://docs.chef.io/index.html)
+    - [Chef and Virtual Machines](virtual-machines-windows-install-chef-client.md)
+    - [Video: What is Chef and How does it Work?](https://msopentech.com/blog/2014/03/31/using-chef-to-manage-azure-resources/)
 
--	[Azure Automation](http://azure.microsoft.com/services/automation/)
-	- [Video: How to Use Azure Automation with Linux VMs](http://channel9.msdn.com/Shows/Azure-Friday/Azure-Automation-104-managing-Linux-and-creating-Modules-with-Joe-Levy)
-	
--	Powershell DSC for Linux
+-   [Azure Automation](http://azure.microsoft.com/services/automation/)
+    - [Video: How to Use Azure Automation with Linux VMs](http://channel9.msdn.com/Shows/Azure-Friday/Azure-Automation-104-managing-Linux-and-creating-Modules-with-Joe-Levy)
+    
+-   Powershell DSC for Linux
     - [Blog: How to do Powershell DSC for Linux](http://blogs.technet.com/b/privatecloud/archive/2014/05/19/powershell-dsc-for-linux-step-by-step.aspx)
     - [GitHub: Docker Client DSC](https://github.com/anweiss/DockerClientDSC)
 
@@ -239,3 +239,4 @@ Check out [Docker](https://www.docker.com) and [Windows Containers](https://msdn
 [microservices]: http://martinfowler.com/articles/microservices.html
 [microservice]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
+

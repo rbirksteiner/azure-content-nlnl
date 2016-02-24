@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Move data to SQL Server on an Azure virtual machine| Azure" 
-	description="Move data from flat files or from an on-premises SQL Server to SQL Server on Azure VM." 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="bradsev" 
-	manager="paulettm" 
-	editor="cgronlun" />
+    pageTitle="Move data to SQL Server on an Azure virtual machine| Azure" 
+    description="Move data from flat files or from an on-premises SQL Server to SQL Server on Azure VM." 
+    services="machine-learning" 
+    documentationCenter="" 
+    authors="bradsev" 
+    manager="paulettm" 
+    editor="cgronlun" />
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/12/2015" 
-	ms.author="fashah;mohabib;bradsev" /> 
+    ms.service="machine-learning" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/12/2015" 
+    ms.author="fashah;mohabib;bradsev" /> 
 
 # Move data to SQL Server on an Azure virtual machine
 
@@ -67,22 +67,22 @@ BCP is a command line utility installed with SQL Server and is one of the quicke
 
 1. Ensure that the database and the tables are created on the target SQL Server database. Here is an example of how to do that using the `Create Database` and `Create Table` commands:
 
-		CREATE DATABASE <database_name>
-	
-		CREATE TABLE <tablename>
-		(
-			<columnname1> <datatype> <constraint>,
-			<columnname2> <datatype> <constraint>,
-			<columnname3> <datatype> <constraint>
-		) 
-	
+        CREATE DATABASE <database_name>
+    
+        CREATE TABLE <tablename>
+        (
+            <columnname1> <datatype> <constraint>,
+            <columnname2> <datatype> <constraint>,
+            <columnname3> <datatype> <constraint>
+        ) 
+    
 2. Generate the format file that describes the schema for the table by issuing the following command from the command line of the machine where bcp is installed.
 
-	`bcp dbname..tablename format nul -c -x -f exportformatfilename.xml -S servername\sqlinstance -T -t \t -r \n` 
+    `bcp dbname..tablename format nul -c -x -f exportformatfilename.xml -S servername\sqlinstance -T -t \t -r \n` 
 
 3. Insert the data into the database using the bcp command as follows. This should work from the command line assuming that the SQL Server is installed on same machine:
 
-	`bcp dbname..tablename in datafilename.tsv -f exportformatfilename.xml -S servername\sqlinstancename -U username -P password -b block_size_to_move_in_single_attemp -t \t -r \n`
+    `bcp dbname..tablename in datafilename.tsv -f exportformatfilename.xml -S servername\sqlinstancename -U username -P password -b block_size_to_move_in_single_attemp -t \t -r \n`
 
 > **Optimizing BCP Inserts** Please refer the following article ['Guidelines for Optimizing Bulk Import'](https://technet.microsoft.com/library/ms177445%28v=sql.105%29.aspx) to optimize such inserts.
 
@@ -95,40 +95,40 @@ If the data you are moving is large, you can speed things up by simultaneously e
 
 
 The sample PowerShell script below demonstrate parallel inserts using bcp :
-	
-	$NO_OF_PARALLEL_JOBS=2
+    
+    $NO_OF_PARALLEL_JOBS=2
 
-	 Set-ExecutionPolicy RemoteSigned #set execution policy for the script to execute
-	 # Define what each job does
-	   $ScriptBlock = {
-		   param($partitionnumber)
+     Set-ExecutionPolicy RemoteSigned #set execution policy for the script to execute
+     # Define what each job does
+       $ScriptBlock = {
+           param($partitionnumber)
 
-		   #Explictly using SQL username password
-		   bcp database..tablename in datafile_path.csv -F 2 -f format_file_path.xml -U username@servername -S tcp:servername -P password -b block_size_to_move_in_single_attempt -t "," -r \n -o path_to_outputfile.$partitionnumber.txt
+           #Explictly using SQL username password
+           bcp database..tablename in datafile_path.csv -F 2 -f format_file_path.xml -U username@servername -S tcp:servername -P password -b block_size_to_move_in_single_attempt -t "," -r \n -o path_to_outputfile.$partitionnumber.txt
 
-			#Trusted connection w.o username password (if you are using windows auth and are signed in with that credentials)
-			#bcp database..tablename in datafile_path.csv -o path_to_outputfile.$partitionnumber.txt -h "TABLOCK" -F 2 -f format_file_path.xml  -T -b block_size_to_move_in_single_attempt -t "," -r \n 
-	  }
-	
+            #Trusted connection w.o username password (if you are using windows auth and are signed in with that credentials)
+            #bcp database..tablename in datafile_path.csv -o path_to_outputfile.$partitionnumber.txt -h "TABLOCK" -F 2 -f format_file_path.xml  -T -b block_size_to_move_in_single_attempt -t "," -r \n 
+      }
+    
 
-	# Background processing of all partitions
-	for ($i=1; $i -le $NO_OF_PARALLEL_JOBS; $i++)
-	{
-	  Write-Debug "Submit loading partition # $i"
-	  Start-Job $ScriptBlock -Arg $i	  
-	}
-	
+    # Background processing of all partitions
+    for ($i=1; $i -le $NO_OF_PARALLEL_JOBS; $i++)
+    {
+      Write-Debug "Submit loading partition # $i"
+      Start-Job $ScriptBlock -Arg $i      
+    }
+    
 
-	# Wait for it all to complete
-	While (Get-Job -State "Running")
-	{
-	  Start-Sleep 10
-	  Get-Job
-	}
-	
-	# Getting the information back from the jobs
-	Get-Job | Receive-Job
-	Set-ExecutionPolicy Restricted #reset the execution policy
+    # Wait for it all to complete
+    While (Get-Job -State "Running")
+    {
+      Start-Sleep 10
+      Get-Job
+    }
+    
+    # Getting the information back from the jobs
+    Get-Job | Receive-Job
+    Set-ExecutionPolicy Restricted #reset the execution policy
 
 
 ### <a name="insert-tables-bulkquery"></a>Bulk Insert SQL Query
@@ -139,20 +139,20 @@ Here are some sample commands for Bulk Insert are as below:
 
 1. Analyze your data and set any custom options before importing to make sure that the SQL Server database assumes the same format for any special fields such as dates. Here is an example of how to set the date format as year-month-day (if your data contains the date in year-month-day format):
 
-		SET DATEFORMAT ymd;	
-	
+        SET DATEFORMAT ymd; 
+    
 2. Import data using bulk import statements:
 
-    	BULK INSERT <tablename>
-    	FROM	
-    	'<datafilename>'
-    	WITH 
-    	(
-		FirstRow=2,
-    	FIELDTERMINATOR =',', --this should be column separator in your data
-    	ROWTERMINATOR ='\n'   --this should be the row separator in your data
-    	)
- 	  
+        BULK INSERT <tablename>
+        FROM    
+        '<datafilename>'
+        WITH 
+        (
+        FirstRow=2,
+        FIELDTERMINATOR =',', --this should be column separator in your data
+        ROWTERMINATOR ='\n'   --this should be the row separator in your data
+        )
+      
 
 ### <a name="sql-builtin-utilities"></a>Built-in Utilities in SQL Server
 
@@ -183,21 +183,21 @@ Various methods can be used to bulk export data from an On-Premises SQL Server a
 
 1. Export the data from on-premises SQL Server to a File using the bcp utility as follows
 
-	`bcp dbname..tablename out datafile.tsv -S	servername\sqlinstancename -T -t \t -t \n -c`
+    `bcp dbname..tablename out datafile.tsv -S  servername\sqlinstancename -T -t \t -t \n -c`
 
 2. Create the database and the table on SQL Server VM on Azure using the `create database` and `create table` for the table schema exported in step 1.
 
 3. Create a format file for describing the table schema of the data being exported/imported. Details of the format file are described in [Create a Format File (SQL Server)](https://msdn.microsoft.com/library/ms191516.aspx).
 
-	Format file generation when running BCP from the SQL Server machine 
+    Format file generation when running BCP from the SQL Server machine 
 
-		bcp dbname..tablename format nul -c -x -f exportformatfilename.xml -S servername\sqlinstance -T -t \t -r \n 
+        bcp dbname..tablename format nul -c -x -f exportformatfilename.xml -S servername\sqlinstance -T -t \t -r \n 
 
-	Format file generation when running BCP remotely against a SQL Server 
+    Format file generation when running BCP remotely against a SQL Server 
 
-		bcp dbname..tablename format nul -c -x -f  exportformatfilename.xml  -U username@servername.database.windows.net -S tcp:servername -P password  --t \t -r \n
-		
-	
+        bcp dbname..tablename format nul -c -x -f  exportformatfilename.xml  -U username@servername.database.windows.net -S tcp:servername -P password  --t \t -r \n
+        
+    
 4. Use any of the methods described in section [Moving Data from File Source](#filesource_to_sqlonazurevm) to move the data in flat files to a SQL Server.
 
 ### <a name="sql-migration"></a>SQL Database Migration Wizard
@@ -225,3 +225,4 @@ A screenshot of the Database backup/restore options from SQL Server Management S
 
 [1]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/database_migration_wizard.png
+

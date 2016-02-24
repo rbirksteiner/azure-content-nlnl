@@ -31,19 +31,19 @@ In the current release, there are a few API features that are not supported when
 
 ### Configuration using App.config
 
-It is good practice for applications to use the App.config configuration file to store settings. For Service Bus applications, you can use App.config to store the settings for the Service Bus **ConnectionString** value. An example App.config file is as follows:
+It is good practice for applications to use the App.config configuration file to store settings. For Service Bus applications, you can use App.config to store the settings for the Service Bus **ConnectionString** value. An example App.config file is as follows:
 
-	<?xml version="1.0" encoding="utf-8" ?>
-	<configuration>
-	    <appSettings>
-	        <add key="Microsoft.ServiceBus.ConnectionString"
-	             value="Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp" />
-	    </appSettings>
-	</configuration>
+    <?xml version="1.0" encoding="utf-8" ?>
+    <configuration>
+        <appSettings>
+            <add key="Microsoft.ServiceBus.ConnectionString"
+                 value="Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp" />
+        </appSettings>
+    </configuration>
 
 The value of the `Microsoft.ServiceBus.ConnectionString` setting is the Service Bus connection string that is used to configure the connection to Service Bus. The format is as follows:
 
-	Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp
+    Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp
 
 Where `[namespace]` and `SharedAccessKey` are obtained from the [Azure classic portal][]. For more information, see [How to use Service Bus queues][].
 

@@ -39,9 +39,9 @@ You can use the [New-AzureAutomationSchedule](http://msdn.microsoft.com/library/
 
 The following sample commands show how to create a new schedule that runs each day at 3:30 PM starting on January 20, 2015.
 
-	$automationAccountName = "MyAutomationAccount"
-	$scheduleName = "Sample-DailySchedule"
-	New-AzureAutomationSchedule –AutomationAccountName $automationAccountName –Name $scheduleName –StartTime "1/20/2015 15:30:00" –DayInterval 1
+    $automationAccountName = "MyAutomationAccount"
+    $scheduleName = "Sample-DailySchedule"
+    New-AzureAutomationSchedule –AutomationAccountName $automationAccountName –Name $scheduleName –StartTime "1/20/2015 15:30:00" –DayInterval 1
 
 ## Linking a schedule to a runbook
 
@@ -62,11 +62,11 @@ You can use the [Register-AzureAutomationScheduledRunbook](http://msdn.microsoft
 
 The following sample commands show how to link a schedule to a runbook with parameters.
 
-	$automationAccountName = "MyAutomationAccount"
-	$runbookName = "Test-Runbook"
-	$scheduleName = "Sample-DailySchedule"
-	$params = @{"FirstName"="Joe";"LastName"="Smith";"RepeatCount"=2;"Show"=$true}
-	Register-AzureAutomationScheduledRunbook –AutomationAccountName $automationAccountName –Name $runbookName –ScheduleName $scheduleName –Parameters $params
+    $automationAccountName = "MyAutomationAccount"
+    $runbookName = "Test-Runbook"
+    $scheduleName = "Sample-DailySchedule"
+    $params = @{"FirstName"="Joe";"LastName"="Smith";"RepeatCount"=2;"Show"=$true}
+    Register-AzureAutomationScheduledRunbook –AutomationAccountName $automationAccountName –Name $runbookName –ScheduleName $scheduleName –Parameters $params
 
 ## Disabling a schedule
 
@@ -87,9 +87,9 @@ You can use the [Set-AzureAutomationSchedule](http://msdn.microsoft.com/library/
 
 The following sample commands show how to disable a schedule.
 
-	$automationAccountName = "MyAutomationAccount"
-	$scheduleName = "Sample-DailySchedule"
-	Set-AzureAutomationSchedule –AutomationAccountName $automationAccountName –Name $scheduleName –IsEnabled $false
+    $automationAccountName = "MyAutomationAccount"
+    $scheduleName = "Sample-DailySchedule"
+    Set-AzureAutomationSchedule –AutomationAccountName $automationAccountName –Name $scheduleName –IsEnabled $false
 
 ## Related articles
 

@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Manage Key Vault using CLI | Microsoft Azure"
-	description="Use this tutorial to automate common tasks in Key Vault by using the CLI"
-	services="key-vault"
-	documentationCenter=""
-	authors="BrucePerlerMS"
-	manager="mbaldwin"
-	tags="azure-resource-manager"/>
+    pageTitle="Manage Key Vault using CLI | Microsoft Azure"
+    description="Use this tutorial to automate common tasks in Key Vault by using the CLI"
+    services="key-vault"
+    documentationCenter=""
+    authors="BrucePerlerMS"
+    manager="mbaldwin"
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="key-vault"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/22/2015"
-	ms.author="bruceper"/>
+    ms.service="key-vault"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/22/2015"
+    ms.author="bruceper"/>
 
 # Manage Key Vault using CLI #
 Azure Key Vault is available in most regions. For more information, see the [Key Vault pricing page](../../../../pricing/details/key-vault/).
@@ -73,11 +73,11 @@ or if you want to log in by typing interactively
 
 If you do not currently have an organizational account, and are using a Microsoft account to log in to your Azure subscription, you can easily create one using the following steps.
 
-1.	Login to the Login to the [Azure Management Portal](https://manage.windowsazure.com/), and click on Active Directory.
-2.	If no directory exists, select Create your directory and provide the requested information.
-3.	Select your directory and add a new user. This new user is an organizational account. During the creation of the user, you will be supplied with both an e-mail address for the user and a temporary password. Save this information as it is used in another step.
-4.	From the portal, select Settings and then select Administrators. Select Add, and add the new user as a co-administrator. This allows the organizational account to manage your Azure subscription.
-5.	Finally, log out of the Azure portal and then log back in using the new organizational account. If this is the first time logging in with this account, you will be prompted to change the password.
+1.  Login to the Login to the [Azure Management Portal](https://manage.windowsazure.com/), and click on Active Directory.
+2.  If no directory exists, select Create your directory and provide the requested information.
+3.  Select your directory and add a new user. This new user is an organizational account. During the creation of the user, you will be supplied with both an e-mail address for the user and a temporary password. Save this information as it is used in another step.
+4.  From the portal, select Settings and then select Administrators. Select Add, and add the new user as a co-administrator. This allows the organizational account to manage your Azure subscription.
+5.  Finally, log out of the Azure portal and then log back in using the new organizational account. If this is the first time logging in with this account, you will be prompted to change the password.
 
 For more information about using an organizational account with Microsoft Azure, see [Sign up for Microsoft Azure as an Organization](sign-up-organization.md).
 
@@ -168,13 +168,13 @@ To register the application in Azure Active Directory:
 2. On the left, click **Active Directory**, and then select the directory in which you will register your application. <br> <br> Note: You must select the same directory that contains the Azure subscription with which you created your key vault. If you do not know which directory this is, click **Settings**, identify the subscription with which you created your key vault, and note the name of the directory displayed in the last column.
 
 3. Click **APPLICATIONS**. If no apps have been added to your directory, this page will show only the **Add an App** link. Click the link, or alternatively, you can click the **ADD** on the command bar.
-4.	In the **ADD APPLICATION** wizard, on the **What do you want to do?** page, click **Add an application my organization is developing**.
-5.	On the **Tell us about your application** page, specify a name for your application and select **WEB APPLICATION AND/OR WEB API** (the default). Click the Next icon.
-6.	On the **App properties** page, specify the **SIGN-ON URL** and **APP ID URI** for your web application. If your application does not have these values, you can make them up for this step (for example, you could specify http://test1.contoso.com for both boxes). It does not matter if these sites exist; what is important is that the app ID URI for each application is different for every application in your directory. The directory uses this string to identify your app.
-7.	Click the Complete icon to save your changes in the wizard.
-8.	On the Quick Start page, click **CONFIGURE**.
-9.	Scroll to the **keys** section, select the duration, and then click **SAVE**. The page refreshes and now shows a key value. You must configure your application with this key value and the **CLIENT ID** value. (Instructions for this configuration will be application-specific.)
-10.	Copy the client ID value from this page, which you will use in the next step to set permissions on your vault.
+4.  In the **ADD APPLICATION** wizard, on the **What do you want to do?** page, click **Add an application my organization is developing**.
+5.  On the **Tell us about your application** page, specify a name for your application and select **WEB APPLICATION AND/OR WEB API** (the default). Click the Next icon.
+6.  On the **App properties** page, specify the **SIGN-ON URL** and **APP ID URI** for your web application. If your application does not have these values, you can make them up for this step (for example, you could specify http://test1.contoso.com for both boxes). It does not matter if these sites exist; what is important is that the app ID URI for each application is different for every application in your directory. The directory uses this string to identify your app.
+7.  Click the Complete icon to save your changes in the wizard.
+8.  On the Quick Start page, click **CONFIGURE**.
+9.  Scroll to the **keys** section, select the duration, and then click **SAVE**. The page refreshes and now shows a key value. You must configure your application with this key value and the **CLIENT ID** value. (Instructions for this configuration will be application-specific.)
+10. Copy the client ID value from this page, which you will use in the next step to set permissions on your vault.
 
 
 
@@ -189,7 +189,7 @@ For example, if your vault name is ContosoKeyVault and the application you want 
 
 If you want to authorize that same application to read secrets in your vault, run the following:
 
-	azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perm-to-secrets '["get"]'
+    azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perm-to-secrets '["get"]'
 
 ## If you want to use a hardware security module (HSM) ##
 
@@ -255,3 +255,4 @@ Here's an example of how to remove a specific secret:
 ## Next steps
 
 For programming references, see [the Azure Key Vault developer's guide](key-vault-developers-guide.md).
+

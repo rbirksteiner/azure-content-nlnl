@@ -67,3 +67,4 @@ For this reason, the following restrictions apply to Azure AD Connect:
 
 ## Next steps
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
+

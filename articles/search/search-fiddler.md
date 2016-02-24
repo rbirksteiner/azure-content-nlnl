@@ -1,20 +1,20 @@
 <properties
-	pageTitle="How to use Fiddler to evaluate and test Azure Search REST APIs | Microsoft Azure | Hosted cloud search service"
-	description="Use Fiddler for a code-free approach to verifying Azure Search availability and trying out the REST APIs."
-	services="search"
-	documentationCenter=""
-	authors="HeidiSteen"
-	manager="mblythe"
-	editor=""/>
+    pageTitle="How to use Fiddler to evaluate and test Azure Search REST APIs | Microsoft Azure | Hosted cloud search service"
+    description="Use Fiddler for a code-free approach to verifying Azure Search availability and trying out the REST APIs."
+    services="search"
+    documentationCenter=""
+    authors="HeidiSteen"
+    manager="mblythe"
+    editor=""/>
 
 <tags
-	ms.service="search"
-	ms.devlang="rest-api"
-	ms.workload="search"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.date="11/10/2015"
-	ms.author="heidist"/>
+    ms.service="search"
+    ms.devlang="rest-api"
+    ms.workload="search"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.date="11/10/2015"
+    ms.author="heidist"/>
 
 # Use Fiddler to evaluate and test Azure Search REST APIs
 > [AZURE.SELECTOR]
@@ -36,7 +36,7 @@ To complete these steps, you will need an Azure Search service and `api-key`. Se
 
 3. On the **Composer** tab, you'll formulate a request that looks like the following screen shot.
 
-  	![][1]
+    ![][1]
 
 2. Select **PUT**.
 
@@ -49,14 +49,14 @@ To complete these steps, you will need an Azure Search service and `api-key`. Se
 
          https://my-app.search.windows.net/indexes/hotels?api-version=2015-02-28
 
-4.	Specify the request header, replacing the host and api-key with values that are valid for your service.
+4.  Specify the request header, replacing the host and api-key with values that are valid for your service.
 
         User-Agent: Fiddler
         host: my-app.search.windows.net
         content-type: application/json
         api-key: 1111222233334444
 
-5.	In Request Body, paste in the fields that make up the index definition.
+5.  In Request Body, paste in the fields that make up the index definition.
 
          {
         "name": "hotels",  
@@ -75,7 +75,7 @@ To complete these steps, you will need an Azure Search service and `api-key`. Se
          ]
         }
 
-6.	Click **Execute**.
+6.  Click **Execute**.
 
 In a few seconds, you should see an HTTP 201 response in the session list, indicating the index was created successfully.
 
@@ -89,81 +89,81 @@ On the **Composer** tab, your request to post documents will look like the follo
 
 1. Select **POST**.
 
-2.	Enter a URL that starts with HTTPS, followed by your service URL, followed by "/indexes/<'indexname'>/docs/index?api-version=2015-02-28". The full URL should look similar to the following example.
+2.  Enter a URL that starts with HTTPS, followed by your service URL, followed by "/indexes/<'indexname'>/docs/index?api-version=2015-02-28". The full URL should look similar to the following example.
 
         https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2015-02-28
 
-3.	Request Header should be the same as before. Remember that you replaced the host and api-key with values that are valid for your service.
+3.  Request Header should be the same as before. Remember that you replaced the host and api-key with values that are valid for your service.
 
         User-Agent: Fiddler
         host: my-app.search.windows.net
         content-type: application/json
         api-key: 1111222233334444
 
-4.	The Request Body contains four documents to be added to the hotels index.
+4.  The Request Body contains four documents to be added to the hotels index.
 
         {
         "value": [
         {
-        	"@search.action": "upload",
-        	"hotelId": "1",
-        	"baseRate": 199.0,
-        	"description": "Best hotel in town",
-        	"hotelName": "Fancy Stay",
-        	"category": "Luxury",
-        	"tags": ["pool", "view", "wifi", "concierge"],
-        	"parkingIncluded": false,
-        	"smokingAllowed": false,
-        	"lastRenovationDate": "2010-06-27T00:00:00Z",
-        	"rating": 5,
-        	"location": { "type": "Point", "coordinates": [-122.131577, 47.678581] }
+            "@search.action": "upload",
+            "hotelId": "1",
+            "baseRate": 199.0,
+            "description": "Best hotel in town",
+            "hotelName": "Fancy Stay",
+            "category": "Luxury",
+            "tags": ["pool", "view", "wifi", "concierge"],
+            "parkingIncluded": false,
+            "smokingAllowed": false,
+            "lastRenovationDate": "2010-06-27T00:00:00Z",
+            "rating": 5,
+            "location": { "type": "Point", "coordinates": [-122.131577, 47.678581] }
           },
           {
-        	"@search.action": "upload",
-        	"hotelId": "2",
-        	"baseRate": 79.99,
-        	"description": "Cheapest hotel in town",
-        	"hotelName": "Roach Motel",
-        	"category": "Budget",
-        	"tags": ["motel", "budget"],
-        	"parkingIncluded": true,
-        	"smokingAllowed": true,
-        	"lastRenovationDate": "1982-04-28T00:00:00Z",
-        	"rating": 1,
-        	"location": { "type": "Point", "coordinates": [-122.131577, 49.678581] }
+            "@search.action": "upload",
+            "hotelId": "2",
+            "baseRate": 79.99,
+            "description": "Cheapest hotel in town",
+            "hotelName": "Roach Motel",
+            "category": "Budget",
+            "tags": ["motel", "budget"],
+            "parkingIncluded": true,
+            "smokingAllowed": true,
+            "lastRenovationDate": "1982-04-28T00:00:00Z",
+            "rating": 1,
+            "location": { "type": "Point", "coordinates": [-122.131577, 49.678581] }
           },
           {
-        	"@search.action": "upload",
-        	"hotelId": "3",
-        	"baseRate": 279.99,
-        	"description": "Surprisingly expensive",
-        	"hotelName": "Dew Drop Inn",
-        	"category": "Bed and Breakfast",
-        	"tags": ["charming", "quaint"],
-        	"parkingIncluded": true,
-        	"smokingAllowed": false,
-        	"lastRenovationDate": null,
-        	"rating": 4,
-        	"location": { "type": "Point", "coordinates": [-122.33207, 47.60621] }
+            "@search.action": "upload",
+            "hotelId": "3",
+            "baseRate": 279.99,
+            "description": "Surprisingly expensive",
+            "hotelName": "Dew Drop Inn",
+            "category": "Bed and Breakfast",
+            "tags": ["charming", "quaint"],
+            "parkingIncluded": true,
+            "smokingAllowed": false,
+            "lastRenovationDate": null,
+            "rating": 4,
+            "location": { "type": "Point", "coordinates": [-122.33207, 47.60621] }
           },
           {
-        	"@search.action": "upload",
-        	"hotelId": "4",
-        	"baseRate": 220.00,
-        	"description": "This could be the one",
-        	"hotelName": "A Hotel for Everyone",
-        	"category": "Basic hotel",
-        	"tags": ["pool", "wifi"],
-        	"parkingIncluded": true,
-        	"smokingAllowed": false,
-        	"lastRenovationDate": null,
-        	"rating": 4,
-        	"location": { "type": "Point", "coordinates": [-122.12151, 47.67399] }
+            "@search.action": "upload",
+            "hotelId": "4",
+            "baseRate": 220.00,
+            "description": "This could be the one",
+            "hotelName": "A Hotel for Everyone",
+            "category": "Basic hotel",
+            "tags": ["pool", "wifi"],
+            "parkingIncluded": true,
+            "smokingAllowed": false,
+            "lastRenovationDate": null,
+            "rating": 4,
+            "location": { "type": "Point", "coordinates": [-122.12151, 47.67399] }
           }
          ]
         }
 
-8.	Click **Execute**.
+8.  Click **Execute**.
 
 In a few seconds, you should see an HTTP 200 response in the session list. This indicates the documents were created successfully. If you get a 207, at least one document failed to upload. If you get a 404, you have a syntax error in either the header or body of the request.
 
@@ -173,15 +173,15 @@ Now that an index and documents are loaded, you can issue queries against them. 
 
    ![][3]
 
-1.	Select **GET**.
+1.  Select **GET**.
 
-2.	Enter a URL that starts with HTTPS, followed by your service URL, followed by "/indexes/<'indexname'>/docs?", followed by query parameters. By way of example, use the following URL, replacing the sample host name with one that is valid for your service.
+2.  Enter a URL that starts with HTTPS, followed by your service URL, followed by "/indexes/<'indexname'>/docs?", followed by query parameters. By way of example, use the following URL, replacing the sample host name with one that is valid for your service.
 
         https://my-app.search.windows.net/indexes/hotels/docs?search=motel&facet=category&facet=rating,values:1|2|3|4|5&api-version=2015-02-28
 
     This query searches on the term “motel” and retrieves facet categories for ratings.
 
-3.	Request Header should be the same as before. Remember that you replaced the host and api-key with values that are valid for your service.
+3.  Request Header should be the same as before. Remember that you replaced the host and api-key with values that are valid for your service.
 
         User-Agent: Fiddler
         host: my-app.search.windows.net
@@ -208,24 +208,24 @@ You can also query the system to get document counts and storage consumption. On
 
  ![][5]
 
-1.	Select **GET**.
+1.  Select **GET**.
 
-2.	Enter a URL that includes your service URL, followed by "/indexes/hotels/stats?api-version=2015-02-28":
+2.  Enter a URL that includes your service URL, followed by "/indexes/hotels/stats?api-version=2015-02-28":
 
         https://my-app.search.windows.net/indexes/hotels/stats?api-version=2015-02-28
 
-3.	Specify the request header, replacing the host and api-key with values that are valid for your service.
+3.  Specify the request header, replacing the host and api-key with values that are valid for your service.
 
         User-Agent: Fiddler
         host: my-app.search.windows.net
         content-type: application/json
         api-key: 1111222233334444
 
-4.	Leave the request body empty.
+4.  Leave the request body empty.
 
-5.	Click **Execute**. You should see an HTTP 200 status code in the session list. Select the entry posted for your command.
+5.  Click **Execute**. You should see an HTTP 200 status code in the session list. Select the entry posted for your command.
 
-6.	Click the **Inspectors** tab, click the **Headers** tab, and then select the JSON format. You should see the document count and storage size (in KB).
+6.  Click the **Inspectors** tab, click the **Headers** tab, and then select the JSON format. You should see the document count and storage size (in KB).
 
 ## Next steps
 
@@ -240,3 +240,4 @@ The following links provide additional information for a no-code approach to man
 [3]: ./media/search-fiddler/AzureSearch_Fiddler3_Query.png
 [4]: ./media/search-fiddler/AzureSearch_Fiddler4_QueryResults.png
 [5]: ./media/search-fiddler/AzureSearch_Fiddler5_QueryStats.png
+

@@ -1,20 +1,20 @@
-﻿<properties
-	pageTitle="Actions to fix transient connection loss | Microsoft Azure"
-	description="Actions to troubleshoot, diagnose, and prevent connection errors and other transient faults when interacting with Azure SQL Database."
-	services="sql-database"
-	documentationCenter=""
-	authors="dalechen"
-	manager="msmets"
-	editor=""/>
+<properties
+    pageTitle="Actions to fix transient connection loss | Microsoft Azure"
+    description="Actions to troubleshoot, diagnose, and prevent connection errors and other transient faults when interacting with Azure SQL Database."
+    services="sql-database"
+    documentationCenter=""
+    authors="dalechen"
+    manager="msmets"
+    editor=""/>
 
 <tags
-	ms.service="sql-database"
-	ms.workload="sql-database"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="12/10/2015"
-	ms.author="daleche"/>
+    ms.service="sql-database"
+    ms.workload="sql-database"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="12/10/2015"
+    ms.author="daleche"/>
 
 
 # Troubleshoot transient faults and connection errors to SQL Database
@@ -544,3 +544,4 @@ public bool IsTransient(Exception ex)
 
 
 - [*Retrying* is an Apache 2.0 licensed general-purpose retrying library, written in **Python**, to simplify the task of adding retry behavior to just about anything.](https://pypi.python.org/pypi/retrying)
+

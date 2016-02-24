@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Role Based Access Control in Mobile Services using .NET and the Azure Active Directory (Windows Store) | Microsoft Azure"
-	description="Learn how to control access based on Azure Active Directory roles in your Windows Store application using a Mobile Service with a .NET backend."
-	documentationCenter="windows"
-	authors="wesmc7777"
-	manager="dwrede"
-	editor=""
-	services="mobile-services"/>
+    pageTitle="Role Based Access Control in Mobile Services using .NET and the Azure Active Directory (Windows Store) | Microsoft Azure"
+    description="Learn how to control access based on Azure Active Directory roles in your Windows Store application using a Mobile Service with a .NET backend."
+    documentationCenter="windows"
+    authors="wesmc7777"
+    manager="dwrede"
+    editor=""
+    services="mobile-services"/>
 
 <tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-multiple"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="12/07/2015"
-	ms.author="wesmc"/>
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-multiple"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="12/07/2015"
+    ms.author="wesmc"/>
 
 # Role Based Access Control in Mobile Services using JavaScript and the Azure Active Directory
 
@@ -75,17 +75,17 @@ In this section you will create a new custom authorization attribute that can be
 
 5. In the AuthorizeAadRole.cs file, add the following `using` statements at the top of the file.
 
-		using System.Net;
-		using System.Net.Http;
-		using System.Web.Http;
-		using System.Web.Http.Controllers;
-		using System.Web.Http.Filters;
-		using Newtonsoft.Json;
-		using Microsoft.WindowsAzure.Mobile.Service.Security;
-		using Microsoft.WindowsAzure.Mobile.Service;
-		using Microsoft.IdentityModel.Clients.ActiveDirectory;
-		using System.Globalization;
-		using System.IO;
+        using System.Net;
+        using System.Net.Http;
+        using System.Web.Http;
+        using System.Web.Http.Controllers;
+        using System.Web.Http.Filters;
+        using Newtonsoft.Json;
+        using Microsoft.WindowsAzure.Mobile.Service.Security;
+        using Microsoft.WindowsAzure.Mobile.Service;
+        using Microsoft.IdentityModel.Clients.ActiveDirectory;
+        using System.Globalization;
+        using System.IO;
 
 6. In AuthorizeAadRole.cs, add the following enumerated type to the Utilities namespace. In this example we only deal with the **Sales** role. The others are just examples of groups you might use.
 
@@ -103,31 +103,31 @@ In this section you will create a new custom authorization attribute that can be
         {
             private bool isInitialized;
             private bool isHosted;
-	        private ApiServices services = null;
+            private ApiServices services = null;
 
-	        // Constants used with ADAL and the Graph REST API for AAD
-	        private const string AadInstance = "https://login.windows.net/{0}";
-	        private const string GraphResourceId = "https://graph.windows.net/";
-	        private const string APIVersion = "?api-version=2013-04-05";
+            // Constants used with ADAL and the Graph REST API for AAD
+            private const string AadInstance = "https://login.windows.net/{0}";
+            private const string GraphResourceId = "https://graph.windows.net/";
+            private const string APIVersion = "?api-version=2013-04-05";
 
-	        // App settings pulled from the Mobile Service
-	        private string tenantdomain;
-	        private string clientid;
-	        private string clientkey;
-	        private Dictionary<int, string> groupIds = new Dictionary<int, string>();
+            // App settings pulled from the Mobile Service
+            private string tenantdomain;
+            private string clientid;
+            private string clientkey;
+            private Dictionary<int, string> groupIds = new Dictionary<int, string>();
 
-	        private string token = null;
+            private string token = null;
 
             public AuthorizeAadRole(AadRoles role)
             {
                 this.Role = role;
             }
 
-	        // private class used to serialize the Graph REST API web response
-	        private class MembershipResponse
-	        {
-	            public bool value;
-	        }
+            // private class used to serialize the Graph REST API web response
+            private class MembershipResponse
+            {
+                public bool value;
+            }
 
             public AadRoles Role { get; private set; }
 
@@ -392,3 +392,4 @@ In this section you will create a new custom authorization attribute that can be
 [Graph REST API]: http://msdn.microsoft.com/library/azure/hh974478.aspx
 [IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
 [ADAL for .NET]: https://msdn.microsoft.com/library/azure/jj573266.aspx
+

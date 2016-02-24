@@ -1,19 +1,19 @@
 <properties
-	pageTitle="Usage analysis with Application Insights"
-	description="Overview of usage analytics with Application Insights"
-	services="application-insights"
+    pageTitle="Usage analysis with Application Insights"
+    description="Overview of usage analytics with Application Insights"
+    services="application-insights"
     documentationCenter=""
-	authors="alancameronwills"
-	manager="douge"/>
+    authors="alancameronwills"
+    manager="douge"/>
 
 <tags
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="multiple"
-	ms.topic="article" 
-	ms.date="11/24/2015"
-	ms.author="awills"/>
+    ms.service="application-insights"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="ibiza"
+    ms.devlang="multiple"
+    ms.topic="article" 
+    ms.date="11/24/2015"
+    ms.author="awills"/>
 
 # Usage analysis with Application Insights
 
@@ -99,7 +99,7 @@ Let's suppose that instead of implementing each game in a separate web page, you
 
 But you'd still like Application Insights to log the number of times each game is opened, in exactly the same way as when they were on separate web pages. That's easy: just insert a call to the telemetry module into your JavaScript where you want to record that a new 'page' has opened:
 
-	telemetryClient.trackPageView(game.Name);
+    telemetryClient.trackPageView(game.Name);
 
 ## Custom events
 
@@ -288,3 +288,4 @@ And of course, when the feature is live, make sure you look at the analytics and
 > [AZURE.VIDEO usage-monitoring-application-insights]
 
  
+

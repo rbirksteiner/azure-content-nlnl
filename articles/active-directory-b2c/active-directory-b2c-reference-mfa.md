@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure Active Directory B2C preview: Multi-Factor Authentication | Microsoft Azure"
-	description="How to enable Multi-Factor Authentication in consumer-facing applications secured by Azure Active Directory B2C"
-	services="active-directory-b2c"
-	documentationCenter=""
-	authors="swkrish"
-	manager="msmbaldwin"
-	editor="curtand"/>
+    pageTitle="Azure Active Directory B2C preview: Multi-Factor Authentication | Microsoft Azure"
+    description="How to enable Multi-Factor Authentication in consumer-facing applications secured by Azure Active Directory B2C"
+    services="active-directory-b2c"
+    documentationCenter=""
+    authors="swkrish"
+    manager="msmbaldwin"
+    editor="curtand"/>
 
 <tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/22/2015"
-	ms.author="swkrish"/>
+    ms.service="active-directory-b2c"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/22/2015"
+    ms.author="swkrish"/>
 
 # Azure Active Directory B2C preview: enable Multi-Factor Authentication in your Consumer-facing Applications
 
@@ -53,3 +53,4 @@ A consumer account gets created in your directory before the multi-factor authen
 You can use the "Run now" feature on the policy to verify the consumer experience. This is what you should expect to see:
 
 When the consumer signs in (using a social or local account), if a verified phone number is attached to the consumer account, he or she is asked to verify it. If no phone number is attached, the consumer is asked to provide one and verify it; on successful verification, the phone number is attached to the consumer account for later use.
+

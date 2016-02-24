@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="What are Connectors and BizTalk API Apps" 
-	description="Learn about API Apps, Connectors and BizTalk API Apps" 
-	services="app-service\logic" 
-	documentationCenter="" 
-	authors="MandiOhlinger" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="What are Connectors and BizTalk API Apps" 
+    description="Learn about API Apps, Connectors and BizTalk API Apps" 
+    services="app-service\logic" 
+    documentationCenter="" 
+    authors="MandiOhlinger" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="app-service-logic" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/01/2015" 
-	ms.author="mandia"/>
+    ms.service="app-service-logic" 
+    ms.workload="integration" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/01/2015" 
+    ms.author="mandia"/>
 
 # What are Connectors and BizTalk API Apps
 

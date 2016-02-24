@@ -1,22 +1,22 @@
-﻿<properties
-	pageTitle="How to buy or sign up for an Azure subscription | Microsoft Azure"
-	description="Describes How to buy or sign up for an Azure subscription"
-	services="billing"
-	documentationCenter=""
-	authors="genlin"
-	manager="jarrettr"
-	editor="meerak"
-	tags="billing"
-	/>
+<properties
+    pageTitle="How to buy or sign up for an Azure subscription | Microsoft Azure"
+    description="Describes How to buy or sign up for an Azure subscription"
+    services="billing"
+    documentationCenter=""
+    authors="genlin"
+    manager="jarrettr"
+    editor="meerak"
+    tags="billing"
+    />
 
 <tags
-	ms.service="billing"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/18/2015"
-	ms.author="genli"/>
+    ms.service="billing"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/18/2015"
+    ms.author="genli"/>
 
 # How to buy or sign up for an Azure subscription
 
@@ -70,3 +70,4 @@ If you bought Azure in Open credits from a reseller, follow these steps to activ
 1. Open the [Azure in Open License key](http://azure.microsoft.com/offers/ms-azr-0111p/) page, and then select Activate a new subscription or existing subscription.
 2. Enter the product key, and then check the agreement option.</br>![OSA KEY](./media/billing-buy-sign-up-azure-subscription/OSAkey.png)
 3. Select **Activate**.
+

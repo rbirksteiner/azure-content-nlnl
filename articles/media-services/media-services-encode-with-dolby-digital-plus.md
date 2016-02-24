@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Encoding your media with Dolby Digital Plus" 
-	description="This topic describes how to encode your media with Dolby Digital Plus." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="juliako" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="Encoding your media with Dolby Digital Plus" 
+    description="This topic describes how to encode your media with Dolby Digital Plus." 
+    services="media-services" 
+    documentationCenter="" 
+    authors="juliako" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/07/2015"   
-	ms.author="juliako"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/07/2015"   
+    ms.author="juliako"/>
 
 #Encoding your media with Dolby Digital Plus
 
@@ -30,8 +30,8 @@ Dolby Digital Plus is supported by the Azure Media Encoder. To get a reference t
 ###<a id="configure_preset"></a>Configure Azure Media Encoder settings
 
 When configuring the encoding settings for use with Azure Media Encoder, there were a number of pre-defined presets represented by easy to remember strings. The Dolby Digital Plus encoder provides a rich array of controls, see [<DolbyDigitalPlusAudioProfile>](https://msdn.microsoft.com/library/azure/dn296500.aspx) for more information. Therefore there are no pre-built string presets that use this codec. You must specify your desired encoder settings in an XML file and submit this data with your Task as shown in the following code example:
-	
-	string configuration = File.ReadAllText(pathToXMLConfigFile));
+    
+    string configuration = File.ReadAllText(pathToXMLConfigFile));
 
     ITask task = job.Tasks.AddNew("My Dolby Digital Plus Encode Task",
         processor,
@@ -49,81 +49,81 @@ The following XML preset contains a complete Azure Media Encoder XML preset that
 This XML preset should be passed to the **Azure Media Encoder** to create an encoding job as described in [this](media-services-dotnet-encode-asset.md) topic (only instead of a predefined preset string you will pass the whole XML preset, as described [here](#configure_preset)).
 
 
-	<?xml version="1.0" encoding="utf-16"?>
-	<!--Created for Azure Media Encoder, May 26 2013 -->
-	  <Preset
-	    Version="5.0">
-	    <Job />
-	    <MediaFile
-	      DeinterlaceMode="AutoPixelAdaptive"
-	      ResizeQuality="Super"
-	      AudioGainLevel="1"
-	      VideoResizeMode="Stretch">
-	      <OutputFormat>
-	        <MP4OutputFormat
-	          StreamCompatibility="Standard">
-	        <AudioProfile Condition="SourceContainsAudio">
-	            <DolbyDigitalPlusAudioProfile
-	              Codec="DolbyDigitalPlus"
-	              EncoderMode="DolbyDigitalPlus"
-	              AudioCodingMode="Mode32"
-	              LFEOn="True"
-	              SamplesPerSecond="48000"
-	              BandwidthLimitingLowpassFilter="True"
-	              DialogNormalization="-31">
-	              <Bitrate>
-	                <ConstantBitrate
-	                  Bitrate="512"
-	                  IsTwoPass="False"
-	                  BufferWindow="00:00:00" />
-	              </Bitrate>
-	            </DolbyDigitalPlusAudioProfile>
-	        </AudioProfile>
-	          <VideoProfile Condition="SourceContainsVideo">
-	            <HighH264VideoProfile
-	              BFrameCount="3"
-	              EntropyMode="Cabac"
-	              RDOptimizationMode="Speed"
-	              HadamardTransform="False"
-	              SubBlockMotionSearchMode="Speed"
-	              MultiReferenceMotionSearchMode="Balanced"
-	              ReferenceBFrames="False"
-	              AdaptiveBFrames="True"
-	              SceneChangeDetector="True"
-	              FastIntraDecisions="False"
-	              FastInterDecisions="False"
-	              SubPixelMode="Quarter"
-	              SliceCount="0"
-	              KeyFrameDistance="00:00:05"
-	              InLoopFilter="True"
-	              MEPartitionLevel="EightByEight"
-	              ReferenceFrames="4"
-	              SearchRange="64"
-	              AutoFit="True"
-	              Force16Pixels="False"
-	              FrameRate="0"
-	              SeparateFilesPerStream="True"
-	              SmoothStreaming="False"
-	              NumberOfEncoderThreads="0">
-	              <Streams
-	                AutoSize="False"
-	                FreezeSort="False">
-	                <StreamInfo
-	                  Size="1920, 1080">
-	                  <Bitrate>
-	                    <ConstantBitrate
-	                      Bitrate="6000"
-	                      IsTwoPass="False"
-	                      BufferWindow="00:00:05" />
-	                  </Bitrate>
-	                </StreamInfo>
-	              </Streams>
-	            </HighH264VideoProfile>
-	          </VideoProfile>
-	        </MP4OutputFormat>
-	      </OutputFormat>
-	    </MediaFile>
-	  </Preset>
+    <?xml version="1.0" encoding="utf-16"?>
+    <!--Created for Azure Media Encoder, May 26 2013 -->
+      <Preset
+        Version="5.0">
+        <Job />
+        <MediaFile
+          DeinterlaceMode="AutoPixelAdaptive"
+          ResizeQuality="Super"
+          AudioGainLevel="1"
+          VideoResizeMode="Stretch">
+          <OutputFormat>
+            <MP4OutputFormat
+              StreamCompatibility="Standard">
+            <AudioProfile Condition="SourceContainsAudio">
+                <DolbyDigitalPlusAudioProfile
+                  Codec="DolbyDigitalPlus"
+                  EncoderMode="DolbyDigitalPlus"
+                  AudioCodingMode="Mode32"
+                  LFEOn="True"
+                  SamplesPerSecond="48000"
+                  BandwidthLimitingLowpassFilter="True"
+                  DialogNormalization="-31">
+                  <Bitrate>
+                    <ConstantBitrate
+                      Bitrate="512"
+                      IsTwoPass="False"
+                      BufferWindow="00:00:00" />
+                  </Bitrate>
+                </DolbyDigitalPlusAudioProfile>
+            </AudioProfile>
+              <VideoProfile Condition="SourceContainsVideo">
+                <HighH264VideoProfile
+                  BFrameCount="3"
+                  EntropyMode="Cabac"
+                  RDOptimizationMode="Speed"
+                  HadamardTransform="False"
+                  SubBlockMotionSearchMode="Speed"
+                  MultiReferenceMotionSearchMode="Balanced"
+                  ReferenceBFrames="False"
+                  AdaptiveBFrames="True"
+                  SceneChangeDetector="True"
+                  FastIntraDecisions="False"
+                  FastInterDecisions="False"
+                  SubPixelMode="Quarter"
+                  SliceCount="0"
+                  KeyFrameDistance="00:00:05"
+                  InLoopFilter="True"
+                  MEPartitionLevel="EightByEight"
+                  ReferenceFrames="4"
+                  SearchRange="64"
+                  AutoFit="True"
+                  Force16Pixels="False"
+                  FrameRate="0"
+                  SeparateFilesPerStream="True"
+                  SmoothStreaming="False"
+                  NumberOfEncoderThreads="0">
+                  <Streams
+                    AutoSize="False"
+                    FreezeSort="False">
+                    <StreamInfo
+                      Size="1920, 1080">
+                      <Bitrate>
+                        <ConstantBitrate
+                          Bitrate="6000"
+                          IsTwoPass="False"
+                          BufferWindow="00:00:05" />
+                      </Bitrate>
+                    </StreamInfo>
+                  </Streams>
+                </HighH264VideoProfile>
+              </VideoProfile>
+            </MP4OutputFormat>
+          </OutputFormat>
+        </MediaFile>
+      </Preset>
 
 ##Encoding to Dolby Digital Plus Stereo
 
@@ -131,80 +131,80 @@ To encode to Dolby Digital Plus stereo, set the Codec and EncoderMode attributes
 
 This XML preset should be passed to the **Azure Media Encoder** to create an encoding job as described in [this](media-services-dotnet-encode-asset.md) topic (only instead of a predefined preset string you will pass the whole XML preset, as described [here](#configure_preset)).
 
-	<?xml version="1.0" encoding="utf-16"?>
-	<!--Created for Azure Media Encoder, May 26 2013 -->
-	  <Preset
-	    Version="5.0">
-	    <Job />
-	    <MediaFile
-	      DeinterlaceMode="AutoPixelAdaptive"
-	      ResizeQuality="Super"
-	      AudioGainLevel="1"
-	      VideoResizeMode="Stretch">
-	      <OutputFormat>
-	        <MP4OutputFormat
-	          StreamCompatibility="Standard">
-	        <AudioProfile Condition="SourceContainsAudio">
-	            <DolbyDigitalPlusAudioProfile
-	              Codec="DolbyDigitalPlus"
-	              EncoderMode="DolbyDigitalPlus"
-	              AudioCodingMode="Mode20"
-	              LFEOn="False"
-	              SamplesPerSecond="48000"
-	              DialogNormalization="-31">
-	              <Bitrate>
-	                <ConstantBitrate
-	                  Bitrate="128"
-	                  IsTwoPass="False"
-	                  BufferWindow="00:00:00" />
-	              </Bitrate>
-	            </DolbyDigitalPlusAudioProfile>
-	        </AudioProfile>
-	          <VideoProfile Condition="SourceContainsVideo">
-	            <HighH264VideoProfile
-	              BFrameCount="1"
-	              EntropyMode="Cabac"
-	              RDOptimizationMode="Speed"
-	              HadamardTransform="False"
-	              SubBlockMotionSearchMode="Speed"
-	              MultiReferenceMotionSearchMode="Speed"
-	              ReferenceBFrames="False"
-	              AdaptiveBFrames="True"
-	              SceneChangeDetector="True"
-	              FastIntraDecisions="False"
-	              FastInterDecisions="False"
-	              SubPixelMode="Quarter"
-	              SliceCount="0"
-	              KeyFrameDistance="00:00:05"
-	              InLoopFilter="True"
-	              MEPartitionLevel="EightByEight"
-	              ReferenceFrames="4"
-	              SearchRange="32"
-	              AutoFit="True"
-	              Force16Pixels="False"
-	              FrameRate="0"
-	              SeparateFilesPerStream="True"
-	              SmoothStreaming="False"
-	              NumberOfEncoderThreads="0">
-	              <Streams
-	                AutoSize="False"
-	                FreezeSort="False">
-	              <StreamInfo
-	                Size="852, 480">
-	                <Bitrate>
-	                  <ConstantBitrate
-	                    Bitrate="2200"
-	                    IsTwoPass="False"
-	                    BufferWindow="00:00:05" />
-	                </Bitrate>
-	              </StreamInfo>
-	              </Streams>
-	            </HighH264VideoProfile>
-	          </VideoProfile>
-	        </MP4OutputFormat>
-	      </OutputFormat>
-	    </MediaFile>
-	  </Preset>
+    <?xml version="1.0" encoding="utf-16"?>
+    <!--Created for Azure Media Encoder, May 26 2013 -->
+      <Preset
+        Version="5.0">
+        <Job />
+        <MediaFile
+          DeinterlaceMode="AutoPixelAdaptive"
+          ResizeQuality="Super"
+          AudioGainLevel="1"
+          VideoResizeMode="Stretch">
+          <OutputFormat>
+            <MP4OutputFormat
+              StreamCompatibility="Standard">
+            <AudioProfile Condition="SourceContainsAudio">
+                <DolbyDigitalPlusAudioProfile
+                  Codec="DolbyDigitalPlus"
+                  EncoderMode="DolbyDigitalPlus"
+                  AudioCodingMode="Mode20"
+                  LFEOn="False"
+                  SamplesPerSecond="48000"
+                  DialogNormalization="-31">
+                  <Bitrate>
+                    <ConstantBitrate
+                      Bitrate="128"
+                      IsTwoPass="False"
+                      BufferWindow="00:00:00" />
+                  </Bitrate>
+                </DolbyDigitalPlusAudioProfile>
+            </AudioProfile>
+              <VideoProfile Condition="SourceContainsVideo">
+                <HighH264VideoProfile
+                  BFrameCount="1"
+                  EntropyMode="Cabac"
+                  RDOptimizationMode="Speed"
+                  HadamardTransform="False"
+                  SubBlockMotionSearchMode="Speed"
+                  MultiReferenceMotionSearchMode="Speed"
+                  ReferenceBFrames="False"
+                  AdaptiveBFrames="True"
+                  SceneChangeDetector="True"
+                  FastIntraDecisions="False"
+                  FastInterDecisions="False"
+                  SubPixelMode="Quarter"
+                  SliceCount="0"
+                  KeyFrameDistance="00:00:05"
+                  InLoopFilter="True"
+                  MEPartitionLevel="EightByEight"
+                  ReferenceFrames="4"
+                  SearchRange="32"
+                  AutoFit="True"
+                  Force16Pixels="False"
+                  FrameRate="0"
+                  SeparateFilesPerStream="True"
+                  SmoothStreaming="False"
+                  NumberOfEncoderThreads="0">
+                  <Streams
+                    AutoSize="False"
+                    FreezeSort="False">
+                  <StreamInfo
+                    Size="852, 480">
+                    <Bitrate>
+                      <ConstantBitrate
+                        Bitrate="2200"
+                        IsTwoPass="False"
+                        BufferWindow="00:00:05" />
+                    </Bitrate>
+                  </StreamInfo>
+                  </Streams>
+                </HighH264VideoProfile>
+              </VideoProfile>
+            </MP4OutputFormat>
+          </OutputFormat>
+        </MediaFile>
+      </Preset>
 
 ##Encoding to Multiple MP4 Files 
 
@@ -215,329 +215,329 @@ You can encode to multiple MP4s within a single XML preset. For each MP4 you wan
 The following configuration will generate the following outputs:
 
 - 8 Video-only MP4 files
-	- 1080p Video @ 6000 kbps
-	- 1080p Video @ 4700 kbps
-	- 720p Video @ 3400 kbps
-	- 960 x 540 Video @ 2250 kbps
-	- 960 x 540 Video @ 1500 kbps
-	- 640 x 380 Video @ 1000 kbps
-	- 640 x 380 Video @ 650 kbps
-	- 320 x 180 Video @ 400 kbps
+    - 1080p Video @ 6000 kbps
+    - 1080p Video @ 4700 kbps
+    - 720p Video @ 3400 kbps
+    - 960 x 540 Video @ 2250 kbps
+    - 960 x 540 Video @ 1500 kbps
+    - 640 x 380 Video @ 1000 kbps
+    - 640 x 380 Video @ 650 kbps
+    - 320 x 180 Video @ 400 kbps
 
 - 5 Audio-only MP4 files
-	- AAC Audio Stereo @ 128 kbp
-	- AAC Audio 5.1 @ 512 kbps
-	- Dolby Digital Plus Stereo @ 128 kbps
-	- Dolby Digital Plus 5.1 Multichannel @ 512 kbps
-	- AAC Stereo @ 56 kbps
+    - AAC Audio Stereo @ 128 kbp
+    - AAC Audio 5.1 @ 512 kbps
+    - Dolby Digital Plus Stereo @ 128 kbps
+    - Dolby Digital Plus 5.1 Multichannel @ 512 kbps
+    - AAC Stereo @ 56 kbps
 - A .ism manifest
 - An XML file listing the properties of the generated MP4 files.
-		
-		<?xml version="1.0" encoding="utf-16"?>
-		<!--Created for Azure Media Encoder, May 16 2013 -->
-		<Presets>
-		  <Preset
-		    Version="5.0">
-		    <Job />
-		    <MediaFile
-		      DeinterlaceMode="AutoPixelAdaptive"
-		      ResizeQuality="Super"   
-		      AudioGainLevel="1"
-		      VideoResizeMode="Stretch">
-		      <OutputFormat>
-		        <MP4OutputFormat
-		          StreamCompatibility="Standard">
-		          <VideoProfile Condition="SourceContainsVideo">
-		            <HighH264VideoProfile
-		              BFrameCount="3"
-		              EntropyMode="Cabac"
-		              RDOptimizationMode="Speed"
-		              HadamardTransform="False"
-		              SubBlockMotionSearchMode="Speed"
-		              MultiReferenceMotionSearchMode="Balanced"
-		              ReferenceBFrames="False"
-		              AdaptiveBFrames="True"
-		              SceneChangeDetector="True"
-		              FastIntraDecisions="False"
-		              FastInterDecisions="False"
-		              SubPixelMode="Quarter"
-		              SliceCount="0"
-		              KeyFrameDistance="00:00:05"
-		              InLoopFilter="True"
-		              MEPartitionLevel="EightByEight"
-		              ReferenceFrames="4"
-		              SearchRange="64"
-		              AutoFit="True"
-		              Force16Pixels="False"
-		              FrameRate="0"
-		              SeparateFilesPerStream="True"
-		              SmoothStreaming="False"
-		              NumberOfEncoderThreads="0">
-		              <Streams
-		                AutoSize="False"
-		                FreezeSort="False">
-		                <StreamInfo
-		                  Size="1920, 1080">
-		                  <Bitrate>
-		                    <ConstantBitrate
-		                      Bitrate="6000"
-		                      IsTwoPass="False"
-		                      BufferWindow="00:00:05" />
-		                  </Bitrate>
-		                </StreamInfo>
-		                <StreamInfo
-		                  Size="1920, 1080">
-		                  <Bitrate>
-		                    <ConstantBitrate
-		                      Bitrate="4700"
-		                      IsTwoPass="False"
-		                      BufferWindow="00:00:05" />
-		                  </Bitrate>
-		                </StreamInfo>
-		                <StreamInfo
-		                  Size="1280, 720">
-		                  <Bitrate>
-		                    <ConstantBitrate
-		                      Bitrate="3400"
-		                      IsTwoPass="False"
-		                      BufferWindow="00:00:05" />
-		                  </Bitrate>
-		                </StreamInfo>
-		                <StreamInfo
-		                  Size="960, 540">
-		                  <Bitrate>
-		                    <ConstantBitrate
-		                      Bitrate="2250"
-		                      IsTwoPass="False"
-		                      BufferWindow="00:00:05" />
-		                  </Bitrate>
-		                </StreamInfo>
-		                <StreamInfo
-		                  Size="960, 540">
-		                  <Bitrate>
-		                    <ConstantBitrate
-		                      Bitrate="1500"
-		                      IsTwoPass="False"
-		                      BufferWindow="00:00:05" />
-		                  </Bitrate>
-		                </StreamInfo>
-		                <StreamInfo
-		                  Size="640, 360">
-		                  <Bitrate>
-		                    <ConstantBitrate
-		                      Bitrate="1000"
-		                      IsTwoPass="False"
-		                      BufferWindow="00:00:05" />
-		                  </Bitrate>
-		                </StreamInfo>
-		                <StreamInfo
-		                  Size="640, 360">
-		                  <Bitrate>
-		                    <ConstantBitrate
-		                      Bitrate="650"
-		                      IsTwoPass="False"
-		                      BufferWindow="00:00:05" />
-		                  </Bitrate>
-		                </StreamInfo>
-		                <StreamInfo
-		                  Size="320, 180">
-		                  <Bitrate>
-		                    <ConstantBitrate
-		                      Bitrate="400"
-		                      IsTwoPass="False"
-		                      BufferWindow="00:00:05" />
-		                  </Bitrate>
-		                </StreamInfo>
-		              </Streams>
-		            </HighH264VideoProfile>
-		          </VideoProfile>
-		        </MP4OutputFormat>
-		      </OutputFormat>
-		    </MediaFile>
-		  </Preset>
-		  <Preset
-		    Version="5.0">
-		    <Job />
-		    <MediaFile
-		      DeinterlaceMode="AutoPixelAdaptive"
-		      ResizeQuality="Super"
-		      NormalizeAudio="True"
-		      AudioGainLevel="1"
-		      VideoResizeMode="Stretch">
-		      <OutputFormat>
-		        <MP4OutputFormat
-		          StreamCompatibility="PropagateSourceTimeStamps">
-		          <AudioProfile>
-		            <AacAudioProfile
-		              Codec="AAC"
-		              Channels="2"
-		              BitsPerSample="16"
-		              SamplesPerSecond="48000">
-		              <Bitrate>
-		                <ConstantBitrate
-		                  Bitrate="128"
-		                  IsTwoPass="False"
-		                  BufferWindow="00:00:00" />
-		              </Bitrate>
-		            </AacAudioProfile>
-		          </AudioProfile>
-		        </MP4OutputFormat>
-		      </OutputFormat>
-		    </MediaFile>
-		  </Preset>
-		  <Preset
-		    Version="5.0">
-		    <Job />
-		    <MediaFile
-		      DeinterlaceMode="AutoPixelAdaptive"
-		      ResizeQuality="Super"
-		      NormalizeAudio="True"
-		      AudioGainLevel="1"
-		      VideoResizeMode="Stretch">
-		      <OutputFormat>
-		        <MP4OutputFormat
-		          StreamCompatibility="Standard">
-		          <AudioProfile>
-		            <AacAudioProfile
-		              Codec="AAC"
-		              Channels="6"
-		              BitsPerSample="16"
-		              SamplesPerSecond="48000">
-		              <Bitrate>
-		                <ConstantBitrate
-		                  Bitrate="512"
-		                  IsTwoPass="False"
-		                  BufferWindow="00:00:00" />
-		              </Bitrate>
-		            </AacAudioProfile>
-		          </AudioProfile>
-		        </MP4OutputFormat>
-		      </OutputFormat>
-		    </MediaFile>
-		  </Preset>
-		  <Preset
-		    Version="5.0">
-		    <Job />
-		    <MediaFile
-		      DeinterlaceMode="AutoPixelAdaptive"
-		      ResizeQuality="Super"
-		      NormalizeAudio="True"
-		      AudioGainLevel="1"
-		      VideoResizeMode="Stretch">
-		      <OutputFormat>
-		        <MP4OutputFormat
-		          StreamCompatibility="Standard">
-		          <AudioProfile>
-		            <DolbyDigitalPlusAudioProfile
-		              Codec="DolbyDigitalPlus"
-		              EncoderMode="DolbyDigitalPlus"
-		              Channels="2"
-		              AudioCodingMode="Mode20"
-		              LFEOn="False"
-		              NinetyDegreePhaseShiftSurrounds="False"
-		              ThreeDBAttenuationSurrounds="False"
-		              DolbySurroundMode="NotIndicated"
-		              StereoDownmixPreference="NotIndicated"
-		              LtRtCenterMixLevel="-3"
-		              LoRoCenterMixLevel="-3"
-		              LtRtSurroundMixLevel="-3"
-		              LoRoSurroundMixLevel="-3"
-		              LFELowpassFilter="False"
-		              SamplesPerSecond="48000"
-		              BandwidthLimitingLowpassFilter="True"
-		              DCHighpassFilter="True"
-		              LineModeDynamicRangeControl="FilmStandard"
-		              RFModeDynamicRangeControl="FilmStandard"
-		              DialogNormalization="-31">
-		              <Bitrate>
-		                <ConstantBitrate
-		                  Bitrate="128"
-		                  IsTwoPass="False"
-		                  BufferWindow="00:00:00" />
-		              </Bitrate>
-		            </DolbyDigitalPlusAudioProfile>
-		          </AudioProfile>
-		        </MP4OutputFormat>
-		      </OutputFormat>
-		    </MediaFile>
-		  </Preset>
-		  <Preset
-		    Version="5.0">
-		    <Job />
-		    <MediaFile
-		      DeinterlaceMode="AutoPixelAdaptive"
-		      ResizeQuality="Super"
-		      NormalizeAudio="True"
-		      AudioGainLevel="1"
-		      VideoResizeMode="Stretch">
-		      <OutputFormat>
-		        <MP4OutputFormat
-		          StreamCompatibility="Standard">
-		          <AudioProfile Condition="SourceContainsAudio">
-		            <DolbyDigitalPlusAudioProfile
-		              Codec="DolbyDigitalPlus"
-		              EncoderMode="DolbyDigitalPlus"
-		              Channels="6"
-		              AudioCodingMode="Mode32"
-		              LFEOn="True"
-		              NinetyDegreePhaseShiftSurrounds="True"
-		              ThreeDBAttenuationSurrounds="False"
-		              DolbySurroundMode="NotIndicated"
-		              StereoDownmixPreference="NotIndicated"
-		              LtRtCenterMixLevel="-3"
-		              LoRoCenterMixLevel="-3"
-		              LtRtSurroundMixLevel="-3"
-		              LoRoSurroundMixLevel="-3"
-		              LFELowpassFilter="True"
-		              SamplesPerSecond="48000"
-		              BandwidthLimitingLowpassFilter="True"
-		              DCHighpassFilter="True"
-		              LineModeDynamicRangeControl="FilmStandard"
-		              RFModeDynamicRangeControl="FilmStandard"
-		              DialogNormalization="-31">
-		              <Bitrate>
-		                <ConstantBitrate
-		                  Bitrate="512"
-		                  IsTwoPass="False"
-		                  BufferWindow="00:00:00" />
-		              </Bitrate>
-		            </DolbyDigitalPlusAudioProfile>
-		          </AudioProfile>
-		        </MP4OutputFormat>
-		      </OutputFormat>
-		    </MediaFile>
-		  </Preset>
-		  <Preset
-		    Version="5.0">
-		    <Job />
-		    <MediaFile
-		      DeinterlaceMode="AutoPixelAdaptive"
-		      ResizeQuality="Super"
-		      NormalizeAudio="True"
-		      AudioGainLevel="1"
-		      VideoResizeMode="Stretch">
-		      <OutputFormat>
-		        <MP4OutputFormat
-		          StreamCompatibility="Standard">
-		          <AudioProfile>
-		            <AacAudioProfile
-		              Codec="AAC"
-		              Channels="2"
-		              BitsPerSample="16"
-		              SamplesPerSecond="48000">
-		              <Bitrate>
-		                <ConstantBitrate
-		                  Bitrate="56"
-		                  IsTwoPass="False"
-		                  BufferWindow="00:00:00" />
-		              </Bitrate>
-		            </AacAudioProfile>
-		          </AudioProfile>
-		        </MP4OutputFormat>
-		      </OutputFormat>
-		    </MediaFile>
-		  </Preset>
-		</Presets>
+        
+        <?xml version="1.0" encoding="utf-16"?>
+        <!--Created for Azure Media Encoder, May 16 2013 -->
+        <Presets>
+          <Preset
+            Version="5.0">
+            <Job />
+            <MediaFile
+              DeinterlaceMode="AutoPixelAdaptive"
+              ResizeQuality="Super"   
+              AudioGainLevel="1"
+              VideoResizeMode="Stretch">
+              <OutputFormat>
+                <MP4OutputFormat
+                  StreamCompatibility="Standard">
+                  <VideoProfile Condition="SourceContainsVideo">
+                    <HighH264VideoProfile
+                      BFrameCount="3"
+                      EntropyMode="Cabac"
+                      RDOptimizationMode="Speed"
+                      HadamardTransform="False"
+                      SubBlockMotionSearchMode="Speed"
+                      MultiReferenceMotionSearchMode="Balanced"
+                      ReferenceBFrames="False"
+                      AdaptiveBFrames="True"
+                      SceneChangeDetector="True"
+                      FastIntraDecisions="False"
+                      FastInterDecisions="False"
+                      SubPixelMode="Quarter"
+                      SliceCount="0"
+                      KeyFrameDistance="00:00:05"
+                      InLoopFilter="True"
+                      MEPartitionLevel="EightByEight"
+                      ReferenceFrames="4"
+                      SearchRange="64"
+                      AutoFit="True"
+                      Force16Pixels="False"
+                      FrameRate="0"
+                      SeparateFilesPerStream="True"
+                      SmoothStreaming="False"
+                      NumberOfEncoderThreads="0">
+                      <Streams
+                        AutoSize="False"
+                        FreezeSort="False">
+                        <StreamInfo
+                          Size="1920, 1080">
+                          <Bitrate>
+                            <ConstantBitrate
+                              Bitrate="6000"
+                              IsTwoPass="False"
+                              BufferWindow="00:00:05" />
+                          </Bitrate>
+                        </StreamInfo>
+                        <StreamInfo
+                          Size="1920, 1080">
+                          <Bitrate>
+                            <ConstantBitrate
+                              Bitrate="4700"
+                              IsTwoPass="False"
+                              BufferWindow="00:00:05" />
+                          </Bitrate>
+                        </StreamInfo>
+                        <StreamInfo
+                          Size="1280, 720">
+                          <Bitrate>
+                            <ConstantBitrate
+                              Bitrate="3400"
+                              IsTwoPass="False"
+                              BufferWindow="00:00:05" />
+                          </Bitrate>
+                        </StreamInfo>
+                        <StreamInfo
+                          Size="960, 540">
+                          <Bitrate>
+                            <ConstantBitrate
+                              Bitrate="2250"
+                              IsTwoPass="False"
+                              BufferWindow="00:00:05" />
+                          </Bitrate>
+                        </StreamInfo>
+                        <StreamInfo
+                          Size="960, 540">
+                          <Bitrate>
+                            <ConstantBitrate
+                              Bitrate="1500"
+                              IsTwoPass="False"
+                              BufferWindow="00:00:05" />
+                          </Bitrate>
+                        </StreamInfo>
+                        <StreamInfo
+                          Size="640, 360">
+                          <Bitrate>
+                            <ConstantBitrate
+                              Bitrate="1000"
+                              IsTwoPass="False"
+                              BufferWindow="00:00:05" />
+                          </Bitrate>
+                        </StreamInfo>
+                        <StreamInfo
+                          Size="640, 360">
+                          <Bitrate>
+                            <ConstantBitrate
+                              Bitrate="650"
+                              IsTwoPass="False"
+                              BufferWindow="00:00:05" />
+                          </Bitrate>
+                        </StreamInfo>
+                        <StreamInfo
+                          Size="320, 180">
+                          <Bitrate>
+                            <ConstantBitrate
+                              Bitrate="400"
+                              IsTwoPass="False"
+                              BufferWindow="00:00:05" />
+                          </Bitrate>
+                        </StreamInfo>
+                      </Streams>
+                    </HighH264VideoProfile>
+                  </VideoProfile>
+                </MP4OutputFormat>
+              </OutputFormat>
+            </MediaFile>
+          </Preset>
+          <Preset
+            Version="5.0">
+            <Job />
+            <MediaFile
+              DeinterlaceMode="AutoPixelAdaptive"
+              ResizeQuality="Super"
+              NormalizeAudio="True"
+              AudioGainLevel="1"
+              VideoResizeMode="Stretch">
+              <OutputFormat>
+                <MP4OutputFormat
+                  StreamCompatibility="PropagateSourceTimeStamps">
+                  <AudioProfile>
+                    <AacAudioProfile
+                      Codec="AAC"
+                      Channels="2"
+                      BitsPerSample="16"
+                      SamplesPerSecond="48000">
+                      <Bitrate>
+                        <ConstantBitrate
+                          Bitrate="128"
+                          IsTwoPass="False"
+                          BufferWindow="00:00:00" />
+                      </Bitrate>
+                    </AacAudioProfile>
+                  </AudioProfile>
+                </MP4OutputFormat>
+              </OutputFormat>
+            </MediaFile>
+          </Preset>
+          <Preset
+            Version="5.0">
+            <Job />
+            <MediaFile
+              DeinterlaceMode="AutoPixelAdaptive"
+              ResizeQuality="Super"
+              NormalizeAudio="True"
+              AudioGainLevel="1"
+              VideoResizeMode="Stretch">
+              <OutputFormat>
+                <MP4OutputFormat
+                  StreamCompatibility="Standard">
+                  <AudioProfile>
+                    <AacAudioProfile
+                      Codec="AAC"
+                      Channels="6"
+                      BitsPerSample="16"
+                      SamplesPerSecond="48000">
+                      <Bitrate>
+                        <ConstantBitrate
+                          Bitrate="512"
+                          IsTwoPass="False"
+                          BufferWindow="00:00:00" />
+                      </Bitrate>
+                    </AacAudioProfile>
+                  </AudioProfile>
+                </MP4OutputFormat>
+              </OutputFormat>
+            </MediaFile>
+          </Preset>
+          <Preset
+            Version="5.0">
+            <Job />
+            <MediaFile
+              DeinterlaceMode="AutoPixelAdaptive"
+              ResizeQuality="Super"
+              NormalizeAudio="True"
+              AudioGainLevel="1"
+              VideoResizeMode="Stretch">
+              <OutputFormat>
+                <MP4OutputFormat
+                  StreamCompatibility="Standard">
+                  <AudioProfile>
+                    <DolbyDigitalPlusAudioProfile
+                      Codec="DolbyDigitalPlus"
+                      EncoderMode="DolbyDigitalPlus"
+                      Channels="2"
+                      AudioCodingMode="Mode20"
+                      LFEOn="False"
+                      NinetyDegreePhaseShiftSurrounds="False"
+                      ThreeDBAttenuationSurrounds="False"
+                      DolbySurroundMode="NotIndicated"
+                      StereoDownmixPreference="NotIndicated"
+                      LtRtCenterMixLevel="-3"
+                      LoRoCenterMixLevel="-3"
+                      LtRtSurroundMixLevel="-3"
+                      LoRoSurroundMixLevel="-3"
+                      LFELowpassFilter="False"
+                      SamplesPerSecond="48000"
+                      BandwidthLimitingLowpassFilter="True"
+                      DCHighpassFilter="True"
+                      LineModeDynamicRangeControl="FilmStandard"
+                      RFModeDynamicRangeControl="FilmStandard"
+                      DialogNormalization="-31">
+                      <Bitrate>
+                        <ConstantBitrate
+                          Bitrate="128"
+                          IsTwoPass="False"
+                          BufferWindow="00:00:00" />
+                      </Bitrate>
+                    </DolbyDigitalPlusAudioProfile>
+                  </AudioProfile>
+                </MP4OutputFormat>
+              </OutputFormat>
+            </MediaFile>
+          </Preset>
+          <Preset
+            Version="5.0">
+            <Job />
+            <MediaFile
+              DeinterlaceMode="AutoPixelAdaptive"
+              ResizeQuality="Super"
+              NormalizeAudio="True"
+              AudioGainLevel="1"
+              VideoResizeMode="Stretch">
+              <OutputFormat>
+                <MP4OutputFormat
+                  StreamCompatibility="Standard">
+                  <AudioProfile Condition="SourceContainsAudio">
+                    <DolbyDigitalPlusAudioProfile
+                      Codec="DolbyDigitalPlus"
+                      EncoderMode="DolbyDigitalPlus"
+                      Channels="6"
+                      AudioCodingMode="Mode32"
+                      LFEOn="True"
+                      NinetyDegreePhaseShiftSurrounds="True"
+                      ThreeDBAttenuationSurrounds="False"
+                      DolbySurroundMode="NotIndicated"
+                      StereoDownmixPreference="NotIndicated"
+                      LtRtCenterMixLevel="-3"
+                      LoRoCenterMixLevel="-3"
+                      LtRtSurroundMixLevel="-3"
+                      LoRoSurroundMixLevel="-3"
+                      LFELowpassFilter="True"
+                      SamplesPerSecond="48000"
+                      BandwidthLimitingLowpassFilter="True"
+                      DCHighpassFilter="True"
+                      LineModeDynamicRangeControl="FilmStandard"
+                      RFModeDynamicRangeControl="FilmStandard"
+                      DialogNormalization="-31">
+                      <Bitrate>
+                        <ConstantBitrate
+                          Bitrate="512"
+                          IsTwoPass="False"
+                          BufferWindow="00:00:00" />
+                      </Bitrate>
+                    </DolbyDigitalPlusAudioProfile>
+                  </AudioProfile>
+                </MP4OutputFormat>
+              </OutputFormat>
+            </MediaFile>
+          </Preset>
+          <Preset
+            Version="5.0">
+            <Job />
+            <MediaFile
+              DeinterlaceMode="AutoPixelAdaptive"
+              ResizeQuality="Super"
+              NormalizeAudio="True"
+              AudioGainLevel="1"
+              VideoResizeMode="Stretch">
+              <OutputFormat>
+                <MP4OutputFormat
+                  StreamCompatibility="Standard">
+                  <AudioProfile>
+                    <AacAudioProfile
+                      Codec="AAC"
+                      Channels="2"
+                      BitsPerSample="16"
+                      SamplesPerSecond="48000">
+                      <Bitrate>
+                        <ConstantBitrate
+                          Bitrate="56"
+                          IsTwoPass="False"
+                          BufferWindow="00:00:00" />
+                      </Bitrate>
+                    </AacAudioProfile>
+                  </AudioProfile>
+                </MP4OutputFormat>
+              </OutputFormat>
+            </MediaFile>
+          </Preset>
+        </Presets>
 
 ##Creating Commercial Encoding Services
 
@@ -546,42 +546,42 @@ Some customers may wish to build a commercial encoding service on top of Azure M
 ##Using Dolby Professional Loudness Metering (DPLM) Support
 
 The Azure Media Encoder, can use the DPLM SDK in order to measure the loudness of dialog in the input audio, and set the correct value of DialogNormalization. This feature is enabled only if the audio is being encoded to Dolby Digital Plus. DPLM is configured in a preset configuration file using the <LoudnessMetering> element that is a child of the <DolbyDigitalPlusAudioProfile> element. The following sample preset shows how to configure DPLM:
-	
-	<?xml version="1.0" encoding="utf-16"?>
-	<Preset
-	  Version="5.0">
-	  <Job />
-	  <MediaFile>
-	    <OutputFormat>
-	      <MP4OutputFormat
-	        StreamCompatibility="Standard">
-	    <AudioProfile>
-	             <DolbyDigitalPlusAudioProfile
-	               Codec="DolbyDigitalPlus"
-	               EncoderMode="DolbyDigitalPlus"
-	               DolbySurroundMode="NotIndicated"
-	               StereoDownmixPreference="NotIndicated"
-	               SamplesPerSecond="48000"
-	               AudioCodingMode="Mode20"
-	               Channels="2"
-	               BitsPerSample="24">
-	               <LoudnessMetering
-	                 Mode= "ITU_R_BS_1770_2_DI"
-	                 SpeechThreshold="20"
-	                 TruePeakEmphasis="false"
-	                 TruePeakDCBlock="false" />
-	              <Bitrate>
-	                <ConstantBitrate
-	                  Bitrate="320"
-	                  IsTwoPass="False"
-	                  BufferWindow="00:00:00" />
-	              </Bitrate>
-	     </DolbyDigitalPlusAudioProfile>
-	    </AudioProfile>
-	      </MP4OutputFormat>
-	    </OutputFormat>
-	  </MediaFile>
-	</Preset>
+    
+    <?xml version="1.0" encoding="utf-16"?>
+    <Preset
+      Version="5.0">
+      <Job />
+      <MediaFile>
+        <OutputFormat>
+          <MP4OutputFormat
+            StreamCompatibility="Standard">
+        <AudioProfile>
+                 <DolbyDigitalPlusAudioProfile
+                   Codec="DolbyDigitalPlus"
+                   EncoderMode="DolbyDigitalPlus"
+                   DolbySurroundMode="NotIndicated"
+                   StereoDownmixPreference="NotIndicated"
+                   SamplesPerSecond="48000"
+                   AudioCodingMode="Mode20"
+                   Channels="2"
+                   BitsPerSample="24">
+                   <LoudnessMetering
+                     Mode= "ITU_R_BS_1770_2_DI"
+                     SpeechThreshold="20"
+                     TruePeakEmphasis="false"
+                     TruePeakDCBlock="false" />
+                  <Bitrate>
+                    <ConstantBitrate
+                      Bitrate="320"
+                      IsTwoPass="False"
+                      BufferWindow="00:00:00" />
+                  </Bitrate>
+         </DolbyDigitalPlusAudioProfile>
+        </AudioProfile>
+          </MP4OutputFormat>
+        </OutputFormat>
+      </MediaFile>
+    </Preset>
 
 The <LoudnessMetering> element can only be specified within a <DolbyDigitalPlusAudioProfile> element. If the <LoudnessMetering> element is used then the DialogNormalization attribute must not be used. The encoder generate an error if both the <LoudnessMetering> element and the DialogNormalization attribute are used. All attributes of LoudnessMetering are optional, and the encoder will default to the values recommended by Dolby Laboratories, Inc.
 
@@ -624,15 +624,15 @@ Specifies whether the emphasis filter within the true‐peak metering is enabled
 ###DPLM Results
 
 When an encode tasks specifies the use of DPLM, the results of the loudness measurement will be included in the metadata XML in the output Asset. Following is an example.
-	
-	<LoudnessMeteringResultParameters 
-	     DPLMVersionInformation="Dolby Professional Loudness Metering Development Kit Version 1.0"
-	     DialogNormalization="-15" 
-	     IntegratedLoudness="-14.8487606" 
-	     IntegratedLoudnessGatingMethod="2" 
-	     IntegratedLoudnessSpeechPercentage="11.673481" 
-	     SamplePeak="-0.7028221" 
-	     TruePeak="0.705999851" />
+    
+    <LoudnessMeteringResultParameters 
+         DPLMVersionInformation="Dolby Professional Loudness Metering Development Kit Version 1.0"
+         DialogNormalization="-15" 
+         IntegratedLoudness="-14.8487606" 
+         IntegratedLoudnessGatingMethod="2" 
+         IntegratedLoudnessSpeechPercentage="11.673481" 
+         SamplePeak="-0.7028221" 
+         TruePeak="0.705999851" />
 
 Each attribute is described below.
 
@@ -658,3 +658,4 @@ Each attribute is described below.
 ##Provide feedback
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+

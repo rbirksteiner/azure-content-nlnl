@@ -69,3 +69,4 @@ For more information about the structure of the template, see [Authoring Azure R
 
 [Channel9 Video: Azure Resource Manager](http://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B224#fbid=)
 
+

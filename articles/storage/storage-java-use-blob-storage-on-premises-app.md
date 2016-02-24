@@ -1,20 +1,20 @@
 <properties
-	pageTitle="On-premises application with blob storage (Java) | Microsoft Azure"
-	description="Learn how to create a console application that uploads an image to Azure, and then displays the image in your browser. Code samples in Java."
-	services="storage"
-	documentationCenter="java"
-	authors="rmcmurray"
-	manager="wpickett"
-	editor="jimbe"/>
+    pageTitle="On-premises application with blob storage (Java) | Microsoft Azure"
+    description="Learn how to create a console application that uploads an image to Azure, and then displays the image in your browser. Code samples in Java."
+    services="storage"
+    documentationCenter="java"
+    authors="rmcmurray"
+    manager="wpickett"
+    editor="jimbe"/>
 
 <tags
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="12/01/2015" 
-	ms.author="robmcm"/>
+    ms.service="storage"
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="Java"
+    ms.topic="article"
+    ms.date="12/01/2015" 
+    ms.author="robmcm"/>
 
 # On-premises application with blob storage
 
@@ -436,3 +436,4 @@ Follow these links to learn more about more complex storage tasks.
   [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
   [Azure Storage Client SDK Reference]: http://dl.windowsazure.com/storage/javadoc/
   [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
+

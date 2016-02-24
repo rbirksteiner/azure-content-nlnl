@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Service Bus Premium and Standard Messaging pricing tiers overview | Microsoft Azure"
-	description="Service Bus Premium and Standard Messaging"
-	services="service-bus"
-	documentationCenter=".net"
-	authors="djrosanova"
-	manager="timlt"
-	editor=""/>
+    pageTitle="Service Bus Premium and Standard Messaging pricing tiers overview | Microsoft Azure"
+    description="Service Bus Premium and Standard Messaging"
+    services="service-bus"
+    documentationCenter=".net"
+    authors="djrosanova"
+    manager="timlt"
+    editor=""/>
 
 <tags
-	ms.service="service-bus"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/15/2015"
-	ms.author="darosa"/>
+    ms.service="service-bus"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/15/2015"
+    ms.author="darosa"/>
 
 # Service Bus Premium and Standard messaging tiers 
 
@@ -56,3 +56,4 @@ To learn more about Service Bus messaging, see the following topics.
 - [Service Bus messaging overview](service-bus-messaging-overview.md)
 - [Azure Service Bus Architectural Overview](service-bus-fundamentals-hybrid-solutions.md)
 - [How to use Service Bus queues](service-bus-dotnet-how-to-use-queues.md)
+

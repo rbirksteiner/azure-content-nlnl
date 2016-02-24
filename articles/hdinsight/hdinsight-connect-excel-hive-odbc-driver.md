@@ -48,7 +48,7 @@ The following steps show you how to create a Hive ODBC Data Source.
 1. From Windows 8 or Windows 10, press the Windows key to open the Start screen, and then type **data sources**.
 2. Click **Set up ODBC Data sources (32-bit)** or **Set up ODBC Data Sources (64-bit)** depending on your Office version. If you are using Windows 7, choose **ODBC Data Sources (32 bit)** or **ODBC Data Sources (64 bit)** from **Administrative Tools**. This will launch the **ODBC Data Source Administrator** dialog.
 
-	![OBDC data source administrator][img-hdi-simbahiveodbc-datasource-admin]
+    ![OBDC data source administrator][img-hdi-simbahiveodbc-datasource-admin]
 
 3. From User DNS, click **Add** to open the **Create New Data Source** wizard.
 4. Select **Microsoft Hive ODBC Driver**, and then click **Finish**. This will launch the **Microsoft Hive ODBC Driver DNS Setup** dialog.
@@ -77,7 +77,7 @@ Rows fetched per block|When fetching a large amount of records, tuning this para
 Default string column length, Binary column length, Decimal column scale|The data type lengths and precisions may affect how data is returned. They will cause incorrect information to be returned due to loss of precision and/or truncation.
 
 
-	![Advanced options][img-HiveOdbc-DataSource-AdvancedOptions]
+    ![Advanced options][img-HiveOdbc-DataSource-AdvancedOptions]
 
 6. Click **Test** to test the data source. When the data source is configured correctly, it shows *TESTS COMPLETED SUCCESSFULLY!*.
 7. Click **OK** to close the Test dialog. The new data source should now be listed on the **ODBC Data Source Administrator**.
@@ -90,7 +90,7 @@ The steps below describe the way to import data from a hive table into an Excel 
 1. Open a new or existing workbook in Excel.
 2. From the **Data** tab, click **From Other Data Sources**, and then click **From Data Connection Wizard** to launch the **Data Connection Wizard**.
 
-	![Open data connection wizard][img-hdi-simbahiveodbc.excel.dataconnection]
+    ![Open data connection wizard][img-hdi-simbahiveodbc.excel.dataconnection]
 
 3. Select **ODBC DSN** as the data source, and then click **Next**.
 4. From ODBC data sources, select the data source name that you created in the previous step, and then  click **Next**.
@@ -102,7 +102,7 @@ The steps below describe the way to import data from a hive table into an Excel 
 9. In the **Import Data** dialog, you can change or specify the query. To do so, click **Properties**. This can take a few seconds.
 10. Click on the **Definition** tab,  and then append **LIMIT 200** to the Hive select statement in the **Command text** textbox. The modification will limit the returned record set to 200.
 
-	![Connection Properties][img-hdi-simbahiveodbc-excel-connectionproperties]
+    ![Connection Properties][img-hdi-simbahiveodbc-excel-connectionproperties]
 
 11. Click **OK** to close the Connection Properties dialog.
 12. Click **OK** to close the **Import Data** dialog.  
@@ -130,3 +130,4 @@ In this article you learned how to use the Microsoft Hive ODBC driver to retriev
 [img-HiveOdbc-DataSource-AdvancedOptions]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.HiveOdbc.DataSource.AdvancedOptions1.png
 [img-hdi-simbahiveodbc-excel-connectionproperties]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveODBC.Excel.ConnectionProperties1.png
 [img-hdi-simbahiveodbc.excel.dataconnection]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveOdbc.Excel.DataConnection1.png
+

@@ -2,7 +2,7 @@
     pageTitle="Partition and Scale Data in DocumentDB with Sharding | Microsoft Azure"      
     description="Review how to scale data with a technique called sharding. Learn about shards, how to partition data in DocumentDB, and when to use Hash and Range partitioning."         
     keywords="Scale data, shard, sharding, documentdb, azure, Microsoft azure"
-	services="documentdb"      
+    services="documentdb"      
     authors="arramac"      
     manager="jhubbard"      
     editor="monicar"      
@@ -111,3 +111,4 @@ In this article, we've introduced some common techniques on how you can partitio
 
 
  
+

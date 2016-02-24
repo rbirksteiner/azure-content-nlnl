@@ -1,5 +1,5 @@
 
-| Resource	| Soft limit 
+| Resource  | Soft limit 
 --- | ---
 | CDN endpoints | 50
 | Custom domains per one customer| 16

@@ -32,3 +32,4 @@ To view **Server Explorer** in Visual Studio, on the menu bar, choose **View**, 
 
 Now that you have a cloud service container, you can [create and deploy](cloud-services-how-to-create-deploy.md) a cloud service.
  
+

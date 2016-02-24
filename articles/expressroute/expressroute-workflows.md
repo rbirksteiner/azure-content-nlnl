@@ -30,14 +30,14 @@ The figure and corresponding steps below show the tasks you must follow in order
 
 4. Configure routing domains. If your connectivity provider manages Layer 3 for you, they will configure routing for your circuit. If your connectivity provider only offers Layer 2 services, you must configure routing per guidelines described in the [routing requirements](expressroute-routing.md) and [routing configuration](expressroute-howto-routing-classic.md) pages.
 
-	-  Enable Azure private peering - You must enable this peering to connect to VMs / cloud services deployed within virtual networks.
-	-  Enable Azure public peering - You must enable Azure public peering if you wish to connect to Azure services hosted on public IP addresses. This is a requirement to access Azure resources if you have chosen to enable default routing for Azure private peering.
-	-  Enable Microsoft peering - You must enable this to access Office 365 and CRM online services. 
-	
-	>[AZURE.IMPORTANT] If you are enabling Microsoft peering, ensure that Azure public peering is also enabled to access Azure AD. You must ensure that you use a separate proxy / edge to connect to Microsoft than the one you use for the Internet. Using the same edge for both ExpressRoute and the Internet will cause asymmetric routing and cause connectivity outages for your network.
+    -  Enable Azure private peering - You must enable this peering to connect to VMs / cloud services deployed within virtual networks.
+    -  Enable Azure public peering - You must enable Azure public peering if you wish to connect to Azure services hosted on public IP addresses. This is a requirement to access Azure resources if you have chosen to enable default routing for Azure private peering.
+    -  Enable Microsoft peering - You must enable this to access Office 365 and CRM online services. 
+    
+    >[AZURE.IMPORTANT] If you are enabling Microsoft peering, ensure that Azure public peering is also enabled to access Azure AD. You must ensure that you use a separate proxy / edge to connect to Microsoft than the one you use for the Internet. Using the same edge for both ExpressRoute and the Internet will cause asymmetric routing and cause connectivity outages for your network.
 
 
-	![](./media/expressroute-workflows/expressroute-routing-workflow.png)
+    ![](./media/expressroute-workflows/expressroute-routing-workflow.png)
 
 5. Linking virtual networks to ExpressRoute circuits - You can link virtual networks to your ExpressRoute circuit. Follow instructions [to link VNets](expressroute-howto-linkvnets-classic.md) to your circuit. These VNets can either be in the same Azure subscription as the ExpressRoute circuit, or can be in a different subscription.
 
@@ -61,24 +61,24 @@ This section lists out the possible states for an ExpressRoute circuit.
 
 You will see the ExpressRoute circuit in the state described below as soon as you run the PowerShell cmdlet to create the ExpressRoute circuit.
 
-	ServiceProviderProvisioningState : NotProvisioned
-	Status                           : Enabled
+    ServiceProviderProvisioningState : NotProvisioned
+    Status                           : Enabled
 
 
 #### When connectivity provider is in the process of provisioning the circuit
 
 You will see the ExpressRoute circuit in the state described below as soon as you pass the service key to the connectivity provider and they have started the provisioning process.
 
-	ServiceProviderProvisioningState : Provisioning
-	Status                           : Enabled
+    ServiceProviderProvisioningState : Provisioning
+    Status                           : Enabled
 
 
 #### When connectivity provider has completed the provisioning process
 
 You will see the ExpressRoute circuit in the state described below as soon as the connectivity provider has completed the provisioning process.
 
-	ServiceProviderProvisioningState : Provisioned
-	Status                           : Enabled
+    ServiceProviderProvisioningState : Provisioned
+    Status                           : Enabled
 
 Provisioned and Enabled is the only state the circuit can be in for you to be able to use it. If you are using a Layer 2 provider, you can configure routing for your circuit only when it is in this state.
 
@@ -86,8 +86,8 @@ Provisioned and Enabled is the only state the circuit can be in for you to be ab
 
 You will see the ExpressRoute circuit in the state described below as soon as you run the PowerShell cmdlet to delete the ExpressRoute circuit.
 
-	ServiceProviderProvisioningState : Provisioned
-	Status                           : Disabling
+    ServiceProviderProvisioningState : Provisioned
+    Status                           : Disabling
 
 You must reach out to your connectivity provider to deprovision the ExpressRoute circuit. **Important:** Microsoft will continue to bill the circuit until you run the PowerShell cmdlet to deprovision the circuit.
 
@@ -96,8 +96,8 @@ You must reach out to your connectivity provider to deprovision the ExpressRoute
 If you requested the service provider to deprovision the ExpressRoute circuit first, you will see the circuit set to the state described below after the service provider has completed the deprovisioning process.
 
 
-	ServiceProviderProvisioningState : NotProvisioned
-	Status                           : Enabled
+    ServiceProviderProvisioningState : NotProvisioned
+    Status                           : Enabled
 
 You can choose to re-enable it if needed, or run PowerShell cmdlets to delete the circuit. **Important:** Microsoft will continue to bill the circuit until you run the PowerShell cmdlet to deprovision the circuit.
 
@@ -117,6 +117,6 @@ If the advertised public prefix state is set to a *validation needed* state, the
 
 - Configure your ExpressRoute connection.
 
-	- [Create an ExpressRoute circuit](expressroute-howto-circuit-classic.md)
-	- [Configure routing](expressroute-howto-routing-classic.md)
-	- [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-classic.md)
+    - [Create an ExpressRoute circuit](expressroute-howto-circuit-classic.md)
+    - [Configure routing](expressroute-howto-routing-classic.md)
+    - [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-classic.md)

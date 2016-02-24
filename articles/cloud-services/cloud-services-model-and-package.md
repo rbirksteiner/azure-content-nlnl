@@ -262,7 +262,7 @@ Where the variables are defined as follows:
 | \[RoleBinariesDirectory] | The location of the binary files for the role.|
 | \[VirtualPath\]           | The physical directories for each virtual path defined in the Sites section of the service definition.|
 | \[PhysicalPath\]          | The physical directories of the contents for each virtual path defined in the site node of the service definition.|
-| \[RoleAssemblyName\]      | The name of the binary file for the role.| 
+| \[RoleAssemblyName\]      | The name of the binary file for the role.| 
 
 
 ## Next steps
@@ -287,3 +287,4 @@ I am using Visual Studio and I want to...
 [vs_deploy]: https://msdn.microsoft.com/library/ee460772.aspx
 [vs_reconfigure]: https://msdn.microsoft.com/library/ee405486.aspx
 [vs_create]: https://msdn.microsoft.com/library/ee405487.aspx
+

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Learn how to secure access to data in DocumentDB | Microsoft Azure" 
-	description="Learn about access control concepts in DocumentDB, including master keys, read-only keys, users, and permissions." 
-	services="documentdb" 
-	authors="ryancrawcour" 
-	manager="jhubbard" 
-	editor="monicar" 
-	documentationCenter=""/>
+    pageTitle="Learn how to secure access to data in DocumentDB | Microsoft Azure" 
+    description="Learn about access control concepts in DocumentDB, including master keys, read-only keys, users, and permissions." 
+    services="documentdb" 
+    authors="ryancrawcour" 
+    manager="jhubbard" 
+    editor="monicar" 
+    documentationCenter=""/>
 
 <tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/16/2015" 
-	ms.author="ryancraw"/>
+    ms.service="documentdb" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/16/2015" 
+    ms.author="ryancraw"/>
 
 # Securing access to DocumentDB data #
 
@@ -22,27 +22,27 @@ This article provides an overview of securing access to data stored in [Microsof
 
 After reading this overview, you'll be able to answer the following questions:  
 
--	What are DocumentDB master keys?
--	What are DocumentDB read-only keys?
--	What are DocumentDB resource tokens?
--	How can I use DocumentDB users and permissions to secure access to DocumentDB data?
+-   What are DocumentDB master keys?
+-   What are DocumentDB read-only keys?
+-   What are DocumentDB resource tokens?
+-   How can I use DocumentDB users and permissions to secure access to DocumentDB data?
 
 ##<a id="Sub1"></a>DocumentDB access control concepts##
 
 DocumentDB provides first class concepts in order to control access to DocumentDB resources.  For the purposes of this topic, DocumentDB resources are grouped into two categories:
 
 - Administrative resources
-	- Account
-	- Database
-	- User
-	- Permission
+    - Account
+    - Database
+    - User
+    - Permission
 - Application resources
-	- Collection
-	- Document
-	- Attachment
-	- Stored procedure
-	- Trigger
-	- User-defined function
+    - Collection
+    - Document
+    - Attachment
+    - Stored procedure
+    - Trigger
+    - User-defined function
 
 In the context of these two categories, DocumentDB supports three types of access control personas: account administrator, read-only administrator, and database user.  The rights for each access control persona are:
  
@@ -71,12 +71,12 @@ As mentioned earlier, DocumentDB master keys provide full administrative access 
     //These values are available from the Azure Classic Portal on the DocumentDB Account Blade under "Keys".
     //NB > Keep these values in a safe and secure location. Together they provide Administrative access to your DocDB account.
     
-	private static readonly string endpointUrl = ConfigurationManager.AppSettings["EndPointUrl"];
+    private static readonly string endpointUrl = ConfigurationManager.AppSettings["EndPointUrl"];
     private static readonly SecureString authorizationKey = ToSecureString(ConfigurationManager.AppSettings["AuthorizationKey"]);
         
     client = new DocumentClient(new Uri(endpointUrl), authorizationKey);
     
-	//Create Database
+    //Create Database
     Database database = await client.CreateDatabaseAsync(
         new Database
         {
@@ -107,7 +107,7 @@ Here is a typical design pattern whereby resource tokens may be requested, gener
 ##<a id="Sub4"></a>Working with DocumentDB users and permissions ##
 A DocumentDB user resource is associated with a DocumentDB database.  Each database may contain zero or more DocumentDB users.  The following code snippet shows how to create a DocumentDB user resource.
 
-	//Create a user.
+    //Create a user.
     User docUser = new User
     {
         Id = "mobileuser"
@@ -129,7 +129,7 @@ There are two available access levels which may be provided by a permission reso
 
 The following code snippet shows how to create a permission resource, read the resource token (token) of the permission resource and associate the permissions with the user created above.
 
-	//Create a permission.
+    //Create a permission.
 
     Permission docPermission = new Permission
     {
@@ -138,17 +138,17 @@ The following code snippet shows how to create a permission resource, read the r
         Id = "readperm"
     };
             
-	docPermission = await client.CreatePermissionAsync(docUser.SelfLink, docPermission);
-	Console.WriteLine(docPermission.Id + " has token of: " + docPermission.Token);
+    docPermission = await client.CreatePermissionAsync(docUser.SelfLink, docPermission);
+    Console.WriteLine(docPermission.Id + " has token of: " + docPermission.Token);
 
 In order to easily obtain all permission resources associated with a particular user, DocumentDB makes available a permission feed for each user object.  The following code snippet shows how to retrieve the permission associated with the user created above, construct a permission list, and instantiate a new DocumentClient on behalf of the user.
 
-	//Read a permission feed.
+    //Read a permission feed.
     FeedResponse<Permission> permFeed = await client.ReadPermissionFeedAsync(docUser.SelfLink);
-	
-	List<Permission> permList = new List<Permission>();
     
-	foreach (Permission perm in permFeed)
+    List<Permission> permList = new List<Permission>();
+    
+    foreach (Permission perm in permFeed)
     {
         permList.Add(perm);
     }
@@ -163,3 +163,4 @@ In order to easily obtain all permission resources associated with a particular 
 - To learn about managing master and read-only keys, click [here](documentdb-manage-account.md).
 - To learn how to construct DocumentDB authorization tokens, click [here](https://msdn.microsoft.com/library/azure/dn783368.aspx)
  
+

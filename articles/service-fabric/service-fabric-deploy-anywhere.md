@@ -51,3 +51,4 @@ Running Service Fabric clusters using the Azure Hosted Service provides a few be
 * Azure Resource Manager: Use of ARM allows easy management of all resources used by the cluser as a unit and simplies cost tracking and billing. 
 * Diagnostics: On Azure we provide you integration with WAD (Windows Azure Diagnostics) and Operational Insights for diagnostics.
 * Auto-scaling: For Azure hosted clusters we will provide built-in auto-scaling functionality. In other environments using Deploy Anywhere feature you will have to build your own auto-scaling feature or scale manually using the APIs that Service Fabric exposes for scaling clusters.
+

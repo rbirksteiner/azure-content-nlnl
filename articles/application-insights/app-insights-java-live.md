@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Application Insights for Java web apps that are already live" 
-	description="Start monitoring a web application that is already running on your server" 
-	services="application-insights" 
+    pageTitle="Application Insights for Java web apps that are already live" 
+    description="Start monitoring a web application that is already running on your server" 
+    services="application-insights" 
     documentationCenter="java"
-	authors="alancameronwills" 
-	manager="douge"/>
+    authors="alancameronwills" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/24/2015" 
-	ms.author="awills"/>
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/24/2015" 
+    ms.author="awills"/>
  
 # Application Insights for Java web apps that are already live
 

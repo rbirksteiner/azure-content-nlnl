@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Monitor Hadoop clusters in HDInsight using the Ambari API | Microsoft Azure"
-	description="Use the Apache Ambari APIs for provisioning, managing, and monitoring Hadoop clusters. Intuitive operator tools and APIs hide the complexity of Hadoop."
-	services="hdinsight"
-	documentationCenter=""
-	tags="azure-portal"
-	authors="mumian"
-	editor="cgronlun"
-	manager="paulettm"/>
+    pageTitle="Monitor Hadoop clusters in HDInsight using the Ambari API | Microsoft Azure"
+    description="Use the Apache Ambari APIs for provisioning, managing, and monitoring Hadoop clusters. Intuitive operator tools and APIs hide the complexity of Hadoop."
+    services="hdinsight"
+    documentationCenter=""
+    tags="azure-portal"
+    authors="mumian"
+    editor="cgronlun"
+    manager="paulettm"/>
 
 <tags
-	ms.service="hdinsight"
-	ms.workload="big-data"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/11/2015"
-	ms.author="jgao"/>
+    ms.service="hdinsight"
+    ms.workload="big-data"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/11/2015"
+    ms.author="jgao"/>
 
 # Monitor Hadoop clusters in HDInsight using the Ambari API
 
@@ -40,7 +40,7 @@ Before you begin this tutorial, you must have the following:
 
 - (Optional) [cURL][curl]. To install it, see [cURL Releases and Downloads][curl-download].
 
-	>[AZURE.NOTE] When use the cURL command in Windows, use double-quotation marks instead of single-quotation marks for the option values.
+    >[AZURE.NOTE] When use the cURL command in Windows, use double-quotation marks instead of single-quotation marks for the option values.
 
 - **An Azure HDInsight cluster**. For instructions about cluster provisioning, see [Get started using HDInsight][hdinsight-get-started] or [Provision HDInsight clusters][hdinsight-provision]. You will need the following data to go through the tutorial:
 
@@ -50,7 +50,7 @@ HDInsight cluster name|$clusterName||The name of your HDInsight cluster.
 Cluster username|$clusterUsername||Cluster user name specified at provisioning.
 Cluster password|$clusterPassword||Cluster user password.
 
-	> [AZURE.NOTE] Fill-in the values in the table. This will be helpful for going through this tutorial.
+    > [AZURE.NOTE] Fill-in the values in the table. This will be helpful for going through this tutorial.
 
 
 
@@ -62,35 +62,35 @@ There are several ways to use Ambari to monitor HDInsight clusters.
 
 The following is an Azure PowerShell script to get the MapReduce job tracker information *in an HDInsight 3.1 cluster.*  The key difference is that we pull these details from the YARN service (rather than MapReduce).
 
-	$clusterName = "<HDInsightClusterName>"
-	$clusterUsername = "<HDInsightClusterUsername>"
-	$clusterPassword = "<HDInsightClusterPassword>"
+    $clusterName = "<HDInsightClusterName>"
+    $clusterUsername = "<HDInsightClusterUsername>"
+    $clusterPassword = "<HDInsightClusterPassword>"
 
-	$ambariUri = "https://$clusterName.azurehdinsight.net:443/ambari"
-	$uriJobTracker = "$ambariUri/api/v1/clusters/$clusterName.azurehdinsight.net/services/yarn/components/resourcemanager"
+    $ambariUri = "https://$clusterName.azurehdinsight.net:443/ambari"
+    $uriJobTracker = "$ambariUri/api/v1/clusters/$clusterName.azurehdinsight.net/services/yarn/components/resourcemanager"
 
-	$passwd = ConvertTo-SecureString $clusterPassword -AsPlainText -Force
-	$creds = New-Object System.Management.Automation.PSCredential ($clusterUsername, $passwd)
+    $passwd = ConvertTo-SecureString $clusterPassword -AsPlainText -Force
+    $creds = New-Object System.Management.Automation.PSCredential ($clusterUsername, $passwd)
 
-	$response = Invoke-RestMethod -Method Get -Uri $uriJobTracker -Credential $creds -OutVariable $OozieServerStatus
+    $response = Invoke-RestMethod -Method Get -Uri $uriJobTracker -Credential $creds -OutVariable $OozieServerStatus
 
-	$response.metrics.'yarn.queueMetrics'
+    $response.metrics.'yarn.queueMetrics'
 
 The following is an Azure PowerShell script for getting the MapReduce job tracker information *in an HDInsight 2.1 cluster*:
 
-	$clusterName = "<HDInsightClusterName>"
-	$clusterUsername = "<HDInsightClusterUsername>"
-	$clusterPassword = "<HDInsightClusterPassword>"
+    $clusterName = "<HDInsightClusterName>"
+    $clusterUsername = "<HDInsightClusterUsername>"
+    $clusterPassword = "<HDInsightClusterPassword>"
 
-	$ambariUri = "https://$clusterName.azurehdinsight.net:443/ambari"
-	$uriJobTracker = "$ambariUri/api/v1/clusters/$clusterName.azurehdinsight.net/services/mapreduce/components/jobtracker"
+    $ambariUri = "https://$clusterName.azurehdinsight.net:443/ambari"
+    $uriJobTracker = "$ambariUri/api/v1/clusters/$clusterName.azurehdinsight.net/services/mapreduce/components/jobtracker"
 
-	$passwd = ConvertTo-SecureString $clusterPassword -AsPlainText -Force
-	$creds = New-Object System.Management.Automation.PSCredential ($clusterUsername, $passwd)
+    $passwd = ConvertTo-SecureString $clusterPassword -AsPlainText -Force
+    $creds = New-Object System.Management.Automation.PSCredential ($clusterUsername, $passwd)
 
-	$response = Invoke-RestMethod -Method Get -Uri $uriJobTracker -Credential $creds -OutVariable $OozieServerStatus
+    $response = Invoke-RestMethod -Method Get -Uri $uriJobTracker -Credential $creds -OutVariable $OozieServerStatus
 
-	$response.metrics.'mapred.JobTracker'
+    $response.metrics.'mapred.JobTracker'
 
 The output is:
 
@@ -100,24 +100,24 @@ The output is:
 
 The following is an example of getting cluster information by using cURL:
 
-	curl -u <username>:<password> -k https://<ClusterName>.azurehdinsight.net:443/ambari/api/v1/clusters/<ClusterName>.azurehdinsight.net
+    curl -u <username>:<password> -k https://<ClusterName>.azurehdinsight.net:443/ambari/api/v1/clusters/<ClusterName>.azurehdinsight.net
 
 The output is:
 
-	{"href":"https://hdi0211v2.azurehdinsight.net/ambari/api/v1/clusters/hdi0211v2.azurehdinsight.net/",
-	 "Clusters":{"cluster_name":"hdi0211v2.azurehdinsight.net","version":"2.1.3.0.432823"},
-	 "services"[
-	   {"href":"https://hdi0211v2.azurehdinsight.net/ambari/api/v1/clusters/hdi0211v2.azurehdinsight.net/services/hdfs",
-	    "ServiceInfo":{"cluster_name":"hdi0211v2.azurehdinsight.net","service_name":"hdfs"}},
-	   {"href":"https://hdi0211v2.azurehdinsight.net/ambari/api/v1/clusters/hdi0211v2.azurehdinsight.net/services/mapreduce",
-	    "ServiceInfo":{"cluster_name":"hdi0211v2.azurehdinsight.net","service_name":"mapreduce"}}],
-	 "hosts":[
-	   {"href":"https://hdi0211v2.azurehdinsight.net/ambari/api/v1/clusters/hdi0211v2.azurehdinsight.net/hosts/headnode0",
-	    "Hosts":{"cluster_name":"hdi0211v2.azurehdinsight.net",
-	             "host_name":"headnode0"}},
-	   {"href":"https://hdi0211v2.azurehdinsight.net/ambari/api/v1/clusters/hdi0211v2.azurehdinsight.net/hosts/workernode0",
-	    "Hosts":{"cluster_name":"hdi0211v2.azurehdinsight.net",
-	             "host_name":"headnode0.{ClusterDNS}.azurehdinsight.net"}}]}
+    {"href":"https://hdi0211v2.azurehdinsight.net/ambari/api/v1/clusters/hdi0211v2.azurehdinsight.net/",
+     "Clusters":{"cluster_name":"hdi0211v2.azurehdinsight.net","version":"2.1.3.0.432823"},
+     "services"[
+       {"href":"https://hdi0211v2.azurehdinsight.net/ambari/api/v1/clusters/hdi0211v2.azurehdinsight.net/services/hdfs",
+        "ServiceInfo":{"cluster_name":"hdi0211v2.azurehdinsight.net","service_name":"hdfs"}},
+       {"href":"https://hdi0211v2.azurehdinsight.net/ambari/api/v1/clusters/hdi0211v2.azurehdinsight.net/services/mapreduce",
+        "ServiceInfo":{"cluster_name":"hdi0211v2.azurehdinsight.net","service_name":"mapreduce"}}],
+     "hosts":[
+       {"href":"https://hdi0211v2.azurehdinsight.net/ambari/api/v1/clusters/hdi0211v2.azurehdinsight.net/hosts/headnode0",
+        "Hosts":{"cluster_name":"hdi0211v2.azurehdinsight.net",
+                 "host_name":"headnode0"}},
+       {"href":"https://hdi0211v2.azurehdinsight.net/ambari/api/v1/clusters/hdi0211v2.azurehdinsight.net/hosts/workernode0",
+        "Hosts":{"cluster_name":"hdi0211v2.azurehdinsight.net",
+                 "host_name":"headnode0.{ClusterDNS}.azurehdinsight.net"}}]}
 
 **For the 10/8/2014 release**:
 
@@ -174,3 +174,4 @@ Now you have learned how to use Ambari monitoring API calls. To learn more, see:
 [hdinsight-provision]: hdinsight-provision-clusters.md
 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
+

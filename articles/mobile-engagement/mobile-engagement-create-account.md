@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Create an Azure Mobile Engagement account and start managing your apps | Microsoft Azure"
-	description="Describes how to create a new Mobile Engagement account in Azure and start managing your apps with the Mobile Engagement portal."
-	services="mobile-engagement"
-	documentationCenter=""
-	authors="piyushjo"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Create an Azure Mobile Engagement account and start managing your apps | Microsoft Azure"
+    description="Describes how to create a new Mobile Engagement account in Azure and start managing your apps with the Mobile Engagement portal."
+    services="mobile-engagement"
+    documentationCenter=""
+    authors="piyushjo"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="mobile-engagement"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-windows-store"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="11/22/2015"  
-	ms.author="juliako"/>
+    ms.service="mobile-engagement"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-windows-store"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="11/22/2015"  
+    ms.author="juliako"/>
 
 
 # Create an Azure Mobile Engagement account and start managing your apps

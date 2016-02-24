@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Manage DocumentDB capacity | Microsoft Azure" 
-	description="Learn how you can scale DocumentDB to meet the capacity needs of your application." 
-	services="documentdb" 
-	authors="mimig1" 
-	manager="jhubbard" 
-	editor="cgronlun" 
-	documentationCenter=""/>
+    pageTitle="Manage DocumentDB capacity | Microsoft Azure" 
+    description="Learn how you can scale DocumentDB to meet the capacity needs of your application." 
+    services="documentdb" 
+    authors="mimig1" 
+    manager="jhubbard" 
+    editor="cgronlun" 
+    documentationCenter=""/>
 
 <tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/28/2015" 
-	ms.author="mimig"/>
+    ms.service="documentdb" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/28/2015" 
+    ms.author="mimig"/>
 
 # Manage DocumentDB capacity needs
 DocumentDB is a fully managed, scalable document oriented NoSQL database service.  With DocumentDB, you don’t have to rent virtual machines, deploy software, monitor databases or worry about disaster recovery. DocumentDB is operated and continuously monitored by Microsoft engineers to deliver world class availability, performance, and data protection.  

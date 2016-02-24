@@ -74,3 +74,4 @@ You can also disable individual endpoints that are part of a Traffic Manager pro
 [Troubleshooting Traffic Manager degraded state](traffic-manager-troubleshooting-degraded.md)
 
 [Operations on Traffic Manager (REST API Reference)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
+

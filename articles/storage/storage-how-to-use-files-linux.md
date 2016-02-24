@@ -1,5 +1,5 @@
 <properties
-	pageTitle="How to use Azure File storage with Linux | Microsoft Azure"
+    pageTitle="How to use Azure File storage with Linux | Microsoft Azure"
         description="Create a file share in the cloud and mount it from an Azure VM or an on-premises application running on Linux."
         services="storage"
         documentationCenter="na"
@@ -38,10 +38,10 @@ Here's a video that demonstrates how to create and use Azure File shares on Linu
 
 When creating a Linux virtual machine in Azure, you can specify a Linux image which supports SMB 2.1 or higher from the Azure image gallery. Below is a list of recommended Linux images:
 
-- Ubuntu Server 14.04	
-- Ubuntu Server 15.04	
-- CentOS 7.1	
-- Open SUSE 13.2	
+- Ubuntu Server 14.04   
+- Ubuntu Server 15.04   
+- CentOS 7.1    
+- Open SUSE 13.2    
 - SUSE Linux Enterprise Server 12
 - SUSE Linux Enterprise Server 12 (Premium Image)
 
@@ -137,3 +137,4 @@ See these links for more information about Azure File storage.
 - [Deep dive with Azure File storage](http://go.microsoft.com/fwlink/?LinkID=626729&clcid=0x409) 
 - [Introducing Microsoft Azure File Service](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Persisting connections to Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
+

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Build Reliable and Elastic Cloud Apps with Messaging | Microsoft Azure" 
-	description="Learn how to build reliable and elastic cloud applications with messaging in Microsoft Azure." 
-	services="service-bus" 
-	authors="sethmanheim" 
-	manager="timlt" 
-	editor="" 
-	documentationCenter=""/>
+    pageTitle="Build Reliable and Elastic Cloud Apps with Messaging | Microsoft Azure" 
+    description="Learn how to build reliable and elastic cloud applications with messaging in Microsoft Azure." 
+    services="service-bus" 
+    authors="sethmanheim" 
+    manager="timlt" 
+    editor="" 
+    documentationCenter=""/>
 
 <tags 
-	ms.service="service-bus" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="10/06/2015" 
-	ms.author="sethm"/>
+    ms.service="service-bus" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="multiple" 
+    ms.topic="article" 
+    ms.date="10/06/2015" 
+    ms.author="sethm"/>
 
 # Build reliable and elastic cloud apps with messaging 
  

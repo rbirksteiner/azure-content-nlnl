@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Create a web app in an App Service Environment"
-	description="Learn how to create web apps and app service plans in an App Service Environment"
-	services="app-service"
-	documentationCenter=""
-	authors="ccompy"
-	manager="stefsch"
-	editor=""/>
+    pageTitle="Create a web app in an App Service Environment"
+    description="Learn how to create web apps and app service plans in an App Service Environment"
+    services="app-service"
+    documentationCenter=""
+    authors="ccompy"
+    manager="stefsch"
+    editor=""/>
 
 <tags
-	ms.service="app-service"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article" 
-	ms.date="10/26/2015"
-	ms.author="ccompy"/>
+    ms.service="app-service"
+    ms.workload="web"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article" 
+    ms.date="10/26/2015"
+    ms.author="ccompy"/>
 
 # Create a web app in an App Service Environment
 
@@ -32,37 +32,37 @@ This tutorial assumes you have created an App Service Environment. If you haven'
 
 1. In the [Azure Portal](https://portal.azure.com/), click **New > Web + Mobile > Web App**. 
 
-	![][1]
+    ![][1]
 
 2. Select your subscription.  
 
-	If you have multiple subscriptions be aware that to create an app in your App Service Environment, you need to use the same subscription that you used when creating the environment. 
+    If you have multiple subscriptions be aware that to create an app in your App Service Environment, you need to use the same subscription that you used when creating the environment. 
 
 3. Select or create a resource group.
 
-	*Resource groups* enable you to manage related Azure resources as a unit and are useful when establishing *role-based access control* (RBAC) rules for your apps. For more information, see [Managing your Azure resources][ResourceGroups]. 
+    *Resource groups* enable you to manage related Azure resources as a unit and are useful when establishing *role-based access control* (RBAC) rules for your apps. For more information, see [Managing your Azure resources][ResourceGroups]. 
 
 4. Select or create an App Service plan.
 
-	*App Service plans* are managed sets of web apps.  When you select pricing, the price charged is applied to the App Service plan rather than to the individual apps. To scale up the number of instances of a web app you scale up the instances of your App Service plan and it affects all of the web apps in that plan.  Some features such as site slots or VNET Integration also have quantity restrictions within the plan.  For more information, see [Azure App Service plans overview](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)
+    *App Service plans* are managed sets of web apps.  When you select pricing, the price charged is applied to the App Service plan rather than to the individual apps. To scale up the number of instances of a web app you scale up the instances of your App Service plan and it affects all of the web apps in that plan.  Some features such as site slots or VNET Integration also have quantity restrictions within the plan.  For more information, see [Azure App Service plans overview](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)
 
-	You can identify the App Service plans in your ASE by looking at the location that is noted under the plan name.  
+    You can identify the App Service plans in your ASE by looking at the location that is noted under the plan name.  
 
-	![][5]
+    ![][5]
 
-	If you want to use an App Service plan that already exists in your App Service Environment, select that plan. If you want to create a new App Service plan, see the following section of this tutorial, [Create an App Service plan in an App Service Environment](#createplan).
+    If you want to use an App Service plan that already exists in your App Service Environment, select that plan. If you want to create a new App Service plan, see the following section of this tutorial, [Create an App Service plan in an App Service Environment](#createplan).
 
 5. Enter the name for your web app, and then click **Create**. 
 
-	Your web app name needs to be unique in Azure App Service.  This means if you want to create a web app named "thisismywebapp" then there currently cannot be any other web app named "thisismywebapp" in Azure App Service.  
+    Your web app name needs to be unique in Azure App Service.  This means if you want to create a web app named "thisismywebapp" then there currently cannot be any other web app named "thisismywebapp" in Azure App Service.  
 
-	The URL of a web app in an ASE is:
+    The URL of a web app in an ASE is:
 
-	[*sitename*].[*name of your App Service Environment*].p.azurewebsites.net
+    [*sitename*].[*name of your App Service Environment*].p.azurewebsites.net
 
-	instead of
+    instead of
 
-	[*sitename*].azurewebsites.net
+    [*sitename*].azurewebsites.net
 
 ## <a name="createplan"></a> Create an App Service plan
 
@@ -76,13 +76,13 @@ The following instructions show how to create an App Service plan while you are 
 
 2. Select the ASE that you want to use from your location picker.
 
-	Because an App Service Environment is essentially a private deployment location, it shows under Location. 
+    Because an App Service Environment is essentially a private deployment location, it shows under Location. 
 
-	![][2]
+    ![][2]
 
-	After selection of an ASE in the location picker, the App Service plan creation UI updates.  The location now shows the name of the ASE system and the region it is in, and the pricing plan picker is replaced with a worker pool picker.  
+    After selection of an ASE in the location picker, the App Service plan creation UI updates.  The location now shows the name of the ASE system and the region it is in, and the pricing plan picker is replaced with a worker pool picker.  
 
-	![][3]
+    ![][3]
 
 ### Selecting a worker pool
 
@@ -117,3 +117,4 @@ After creating your web app and App Service plan it is a good idea to scale it u
 [HowtoConfigureASE]: http://azure.microsoft.com/documentation/articles/app-service-web-configure-an-app-service-environment
 [ResourceGroups]: http://azure.microsoft.com/documentation/articles/resource-group-portal/
 [AzurePowershell]: http://azure.microsoft.com/documentation/articles/powershell-install-configure/
+

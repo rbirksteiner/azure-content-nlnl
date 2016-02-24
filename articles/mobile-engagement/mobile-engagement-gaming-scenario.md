@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure Mobile Engagement implementation for Gaming App"
-	description="Gaming app scenario to implement Azure Mobile Engagement" 
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Azure Mobile Engagement implementation for Gaming App"
+    description="Gaming app scenario to implement Azure Mobile Engagement" 
+    services="mobile-engagement" 
+    documentationCenter="mobile" 
+    authors="piyushjo"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="mobile-engagement"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="mobile-multiple"
-	ms.workload="mobile" 
-	ms.date="11/23/2015"
-	ms.author="piyushjo"/>
+    ms.service="mobile-engagement"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="mobile-multiple"
+    ms.workload="mobile" 
+    ms.date="11/23/2015"
+    ms.author="piyushjo"/>
 
 #Implement Mobile Engagement with Gaming App
 
@@ -62,10 +62,11 @@ After 3 months, the Mobile Project Director has collected enough data to enhance
 * Users tend to buy premium packages at level 16, 24 and 32.
 
 Thanks to this analysis the Mobile Project Director decides to create specific push notification sequences to increase in app sales. He creates three push sequences which he calls: Welcome program, Sales Program, and Inactive Program. For more information refer to the [Playbooks](https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks)
-	![][1]
+    ![][1]
 
 <!--Image references-->
 
 [1]: ./media/mobile-engagement-game-scenario/notification-scenario.png
 
 <!--Link references-->
+

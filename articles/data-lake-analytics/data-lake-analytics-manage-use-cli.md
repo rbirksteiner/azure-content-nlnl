@@ -28,19 +28,19 @@ Before you begin this tutorial, you must have the following:
 
 - **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 - **Azure CLI**. See [Install and configure Azure CLI](xplat-cli.md).
-	- Download and install the **pre-release** [Azure CLI tools](https://github.com/MicrosoftBigData/AzureDataLake/releases) in order to complete this demo.
+    - Download and install the **pre-release** [Azure CLI tools](https://github.com/MicrosoftBigData/AzureDataLake/releases) in order to complete this demo.
 - **Authentication**, using the following command:
 
-		azure login
-	For more information on authenticating using a work or school account, see [Connect to an Azure subscription from the Azure CLI](xplat-cli-connect.md).
+        azure login
+    For more information on authenticating using a work or school account, see [Connect to an Azure subscription from the Azure CLI](xplat-cli-connect.md).
 - **Switch to the Azure Resource Manager mode**, using the following command:
 
-		azure config mode arm
+        azure config mode arm
 
 **To list the Data Lake Store and Data Lake Analytics commands:**
 
-	azure datalake store
-	azure datalake analytics
+    azure datalake store
+    azure datalake analytics
 
 <!-- ################################ -->
 <!-- ################################ -->
@@ -52,33 +52,33 @@ running a job.  You only pay for the time when it is running a job.  For more in
 
 ###Create accounts
 
-  	azure datalake analytics account create "<Data Lake Analytics Account Name>" "<Azure Location>" "<Resource Group Name>" "<Default Data Lake Account Name>"
+    azure datalake analytics account create "<Data Lake Analytics Account Name>" "<Azure Location>" "<Resource Group Name>" "<Default Data Lake Account Name>"
 
 
 ###Update accounts
 
 The following command updates the properties of an existing Data Lake Analytics Account
-  	
-	azure datalake analytics account set "<Data Lake Analytics Account Name>"
+    
+    azure datalake analytics account set "<Data Lake Analytics Account Name>"
 
 
 ###List accounts
 
 List Data Lake Analytics accounts 
 
-	azure datalake analytics account list
+    azure datalake analytics account list
 
 List Data Lake Analytics accounts within a specific resource group
 
-	azure datalake analytics account list -g "<Azure Resource Group Name>"
+    azure datalake analytics account list -g "<Azure Resource Group Name>"
 
 Get details of a specific Data Lake Analytics account
 
-	azure datalake analytics account show -g "<Azure Resource Group Name>" -n "<Data Lake Analytics Account Name>"
+    azure datalake analytics account show -g "<Azure Resource Group Name>" -n "<Data Lake Analytics Account Name>"
 
 ###Delete Data Lake Analytics accounts
 
-  	azure datalake analytics account delete "<Data Lake Analytics Account Name>"
+    azure datalake analytics account delete "<Data Lake Analytics Account Name>"
 
 
 <!-- ################################ -->
@@ -96,19 +96,19 @@ created an Analytics account, you can add additional Data Lake Storage accounts 
 
 ### Find the default ADL storage account
 
-	azure datalake analytics account show "<Data Lake Analytics Account Name>"
+    azure datalake analytics account show "<Data Lake Analytics Account Name>"
 
 The value is listed under properties:datalakeStoreAccount:name.
 
 ### Add additional Azure Blob storage accounts
 
-  	azure datalake analytics account datasource add -n "<Data Lake Analytics Account Name>" -b "<Azure Blob Storage Account Short Name>" -k "<Azure Storage Account Key>"
+    azure datalake analytics account datasource add -n "<Data Lake Analytics Account Name>" -b "<Azure Blob Storage Account Short Name>" -k "<Azure Storage Account Key>"
 
 >[AZURE.NOTE] Only Blob storage short names are supported.  Don't use FQDN, for example "myblob.blob.core.windows.net".
 
 ### Add additional Data Lake Store accounts
 
-  	azure datalake analytics account datasource add -n "<Data Lake Analytics Account Name>" -l "<Data Lake Store Account Name>" [-d]
+    azure datalake analytics account datasource add -n "<Data Lake Analytics Account Name>" -l "<Data Lake Store Account Name>" [-d]
 
 [-d] is an optional switch to indicate whether the Data Lake being added is the default Data Lake account. 
 
@@ -116,27 +116,27 @@ The value is listed under properties:datalakeStoreAccount:name.
 
 To set an existing Data Lake Store account to be the default:
 
-  	azure datalake analytics account datasource set -n "<Data Lake Analytics Account Name>" -l "<Azure Data Lake Store Account Name>" -d
-	  
+    azure datalake analytics account datasource set -n "<Data Lake Analytics Account Name>" -l "<Azure Data Lake Store Account Name>" -d
+      
 To update an existing Blob storage account key:
 
-  	azure datalake analytics account datasource set -n "<Data Lake Analytics Account Name>" -b "<Blob Storage Account Name>" -k "<New Blob Storage Account Key>"
+    azure datalake analytics account datasource set -n "<Data Lake Analytics Account Name>" -b "<Blob Storage Account Name>" -k "<New Blob Storage Account Key>"
 
 ### List data sources:
 
-	azure datalake analytics account show "<Data Lake Analytics Account Name>"
-	
+    azure datalake analytics account show "<Data Lake Analytics Account Name>"
+    
 ![Data Lake Analytics list data source](./media/data-lake-analytics-manage-use-cli/data-lake-analytics-list-data-source.png)
 
 ### Delete data sources:
 
 To delete a Data Lake Store account:
 
-  	azure datalake analytics account datasource delete "<Data Lake Analytics Account Name>" "<Azure Data Lake Store Account Name>"
+    azure datalake analytics account datasource delete "<Data Lake Analytics Account Name>" "<Azure Data Lake Store Account Name>"
 
 To delete a Blob storage account:
 
-  	azure datalake analytics account datasource delete "<Data Lake Analytics Account Name>" "<Blob Storage Account Name>"
+    azure datalake analytics account datasource delete "<Data Lake Analytics Account Name>" "<Blob Storage Account Name>"
 
 ## Manage jobs
 
@@ -144,26 +144,26 @@ You must have a Data Lake Analytics account before you can create a job.  For mo
 
 ### List jobs
 
-  	azure datalake analytics job list -n "<Data Lake Analytics Account Name>"
+    azure datalake analytics job list -n "<Data Lake Analytics Account Name>"
 
 ![Data Lake Analytics list data source](./media/data-lake-analytics-manage-use-cli/data-lake-analytics-list-jobs.png)
 
 ### Get job details
 
-  	azure datalake analytics job show -n "<Data Lake Analytics Account Name>" -j "<Job ID>"
-	
+    azure datalake analytics job show -n "<Data Lake Analytics Account Name>" -j "<Job ID>"
+    
 ### Submit jobs
 
 > [AZURE.NOTE] The default priority of a job is 1000, and the default degree of parallelism for a job is 1.
 
-	azure datalake analytics job create  "<Data Lake Analytics Account Name>" "<Job Name>" "<Script>"
+    azure datalake analytics job create  "<Data Lake Analytics Account Name>" "<Job Name>" "<Script>"
 
 ### Cancel jobs
 
 Use the list command to find the job id, and then use cancel to cancel the job.
 
-  	azure datalake analytics job list -n "<Data Lake Analytics Account Name>"
-  	azure datalake analytics job cancel "<Data Lake Analytics Account Name>" "<Job ID>"
+    azure datalake analytics job list -n "<Data Lake Analytics Account Name>"
+    azure datalake analytics job cancel "<Data Lake Analytics Account Name>" "<Job ID>"
 
 ## Manage catalog
 
@@ -171,25 +171,25 @@ The U-SQL catalog is used to structure data and code so they can be shared by U-
  
 ###List catalog items
 
-	#List databases
-	azure datalake analytics catalog list -n "<Data Lake Analytics Account Name>" -t database
+    #List databases
+    azure datalake analytics catalog list -n "<Data Lake Analytics Account Name>" -t database
 
-	#List tables
-	azure datalake analytics catalog list -n "<Data Lake Analytics Account Name>" -t table
-	
+    #List tables
+    azure datalake analytics catalog list -n "<Data Lake Analytics Account Name>" -t table
+    
 The types include database, schema, assembly, externaldatasource, table, tablevaluedfunction or tablestatistics.
 
 ###Create catalog secret
 
-	azure datalake analytics catalog secret create -n "<Data Lake Analytics Account Name>" <databaseName> <hostUri> <secretName>
+    azure datalake analytics catalog secret create -n "<Data Lake Analytics Account Name>" <databaseName> <hostUri> <secretName>
 
 ### Modify catalog secret
 
-  	azure datalake analytics catalog secret set -n "<Data Lake Analytics Account Name>" <databaseName> <hostUri> <secretName>
+    azure datalake analytics catalog secret set -n "<Data Lake Analytics Account Name>" <databaseName> <hostUri> <secretName>
 
 ###Delete catalog secret
 
-	azure datalake analytics catalog secrete delete -n "<Data Lake Analytics Account Name>" <databaseName> <hostUri> <secretName>
+    azure datalake analytics catalog secrete delete -n "<Data Lake Analytics Account Name>" <databaseName> <hostUri> <secretName>
 
 <!-- ################################ -->
 <!-- ################################ -->
@@ -224,4 +224,5 @@ The ARM group however can be located in a different data center.
 - [Get started with Data Lake Analytics using Azure Portal](data-lake-analytics-get-started-portal.md)
 - [Manage Azure Data Lake Analytics using Azure Portal](data-lake-analytics-use-portal.md)
 - [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+
 

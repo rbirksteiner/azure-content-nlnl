@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Creating a Windows Store leaderboard app with .NET Backend | Azure Mobile Services"
-	description="Learn how to build a Windows Store leaderboard app using Azure Mobile Services with a .NET backend."
-	documentationCenter="windows"
-	authors="rmcmurray"
-	manager="wpickett"
-	editor="jimbe"
-	services="mobile-services"/>
+    pageTitle="Creating a Windows Store leaderboard app with .NET Backend | Azure Mobile Services"
+    description="Learn how to build a Windows Store leaderboard app using Azure Mobile Services with a .NET backend."
+    documentationCenter="windows"
+    authors="rmcmurray"
+    manager="wpickett"
+    editor="jimbe"
+    services="mobile-services"/>
 
 <tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-windows-store"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="11/19/2015"
-	ms.author="glenga"/>
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-windows-store"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="11/19/2015"
+    ms.author="glenga"/>
 
 # Creating a Leaderboard App with Azure Mobile Services .NET Backend
 
@@ -87,32 +87,32 @@ These aren't needed for the tutorial, so you can delete them from the project. A
 
 You will use [EF Code First](http://msdn.microsoft.com/data/ee712907#codefirst) to define the database tables. Under the DataObjects folder, add a class named `Player`.
 
-	using Microsoft.WindowsAzure.Mobile.Service;
+    using Microsoft.WindowsAzure.Mobile.Service;
 
-	namespace Leaderboard.DataObjects
-	{
-	    public class Player : EntityData
-	    {
-	        public string Name { get; set; }
-	    }
-	}
+    namespace Leaderboard.DataObjects
+    {
+        public class Player : EntityData
+        {
+            public string Name { get; set; }
+        }
+    }
 
 Add another class named `PlayerRank`.
 
-	using Microsoft.WindowsAzure.Mobile.Service;
-	using System.ComponentModel.DataAnnotations.Schema;
+    using Microsoft.WindowsAzure.Mobile.Service;
+    using System.ComponentModel.DataAnnotations.Schema;
 
-	namespace Leaderboard.DataObjects
-	{
-	    public class PlayerRank : EntityData
-	    {
-	        public int Score { get; set; }
-	        public int Rank { get; set; }
+    namespace Leaderboard.DataObjects
+    {
+        public class PlayerRank : EntityData
+        {
+            public int Score { get; set; }
+            public int Rank { get; set; }
 
-	        [ForeignKey("Id")]
-	        public virtual Player Player { get; set; }
-	    }
-	}
+            [ForeignKey("Id")]
+            public virtual Player Player { get; set; }
+        }
+    }
 
 Notice that both classes inherit from the **EntityData** class. Deriving from **EntityData** makes it easy for the app consume the data, using the cross-platform client library for Azure Mobile Services. **EntityData** also makes it easier for an app to [handle database write conflicts](mobile-services-windows-store-dotnet-handle-database-conflicts.md).
 
@@ -132,10 +132,10 @@ In the **Add Scaffold** dialog, expand **Common** on the left and select **Azure
 
 In the **Add Controller** dialog:
 
-1.	Under **Model class**, select Player.
-2.	Under **Data context class**, select MobileServiceContext.
-3.	Name the controller "PlayerController".
-4.	Click **Add**.
+1.  Under **Model class**, select Player.
+2.  Under **Data context class**, select MobileServiceContext.
+3.  Name the controller "PlayerController".
+4.  Click **Add**.
 
 
 This step adds a file named PlayerController.cs to the project.
@@ -164,72 +164,72 @@ Recall that `PlayerRank` has a related `Player` entity:
 
 The Mobile Service client library does not support navigation properties, and they will not be serialized. For example, here is the raw HTTP response for GET `/tables/PlayerRank`:
 
-	HTTP/1.1 200 OK
-	Cache-Control: no-cache
-	Pragma: no-cache
-	Content-Length: 97
-	Content-Type: application/json; charset=utf-8
-	Expires: 0
-	Server: Microsoft-IIS/8.0
-	Date: Mon, 21 Apr 2014 17:58:43 GMT
+    HTTP/1.1 200 OK
+    Cache-Control: no-cache
+    Pragma: no-cache
+    Content-Length: 97
+    Content-Type: application/json; charset=utf-8
+    Expires: 0
+    Server: Microsoft-IIS/8.0
+    Date: Mon, 21 Apr 2014 17:58:43 GMT
 
-	[{"id":"1","rank":1,"score":150},{"id":"2","rank":3,"score":100},{"id":"3","rank":1,"score":150}]
+    [{"id":"1","rank":1,"score":150},{"id":"2","rank":3,"score":100},{"id":"3","rank":1,"score":150}]
 
 Notice that `Player` is not included in the object graph. To include the player, we can flatten the object graph by defining a *data transfer object* (DTO).
 
 A DTO is an object that defines how data is sent over the network. DTOs are useful whenever you want the wire format to look different than your database model. To create a DTO for `PlayerRank`, add a new class named `PlayerRankDto` in the DataObjects folder.
 
-	namespace Leaderboard.DataObjects
-	{
-	    public class PlayerRankDto
-	    {
-	        public string Id { get; set; }
-	        public string PlayerName { get; set; }
-	        public int Score { get; set; }
-	        public int Rank { get; set; }
-	    }
-	}
+    namespace Leaderboard.DataObjects
+    {
+        public class PlayerRankDto
+        {
+            public string Id { get; set; }
+            public string PlayerName { get; set; }
+            public int Score { get; set; }
+            public int Rank { get; set; }
+        }
+    }
 
 In the `PlayerRankController` class, we'll use the LINQ **Select** method to convert `PlayerRank` instances to `PlayerRankDto` instances. Update the `GetAllPlayerRank` and `GetPlayerRank` controller methods as follows:
 
-	// GET tables/PlayerRank
-	public IQueryable<PlayerRankDto> GetAllPlayerRank()
-	{
-	    return Query().Select(x => new PlayerRankDto()
-	    {
-	        Id = x.Id,
-	        PlayerName = x.Player.Name,
-	        Score = x.Score,
-	        Rank = x.Rank
-	    });
-	}
+    // GET tables/PlayerRank
+    public IQueryable<PlayerRankDto> GetAllPlayerRank()
+    {
+        return Query().Select(x => new PlayerRankDto()
+        {
+            Id = x.Id,
+            PlayerName = x.Player.Name,
+            Score = x.Score,
+            Rank = x.Rank
+        });
+    }
 
-	// GET tables/PlayerRank/48D68C86-6EA6-4C25-AA33-223FC9A27959
-	public SingleResult<PlayerRankDto> GetPlayerRank(string id)
-	{
-	    var result = Lookup(id).Queryable.Select(x => new PlayerRankDto()
-	    {
-	        Id = x.Id,
-	        PlayerName = x.Player.Name,
-	        Score = x.Score,
-	        Rank = x.Rank
-	    });
+    // GET tables/PlayerRank/48D68C86-6EA6-4C25-AA33-223FC9A27959
+    public SingleResult<PlayerRankDto> GetPlayerRank(string id)
+    {
+        var result = Lookup(id).Queryable.Select(x => new PlayerRankDto()
+        {
+            Id = x.Id,
+            PlayerName = x.Player.Name,
+            Score = x.Score,
+            Rank = x.Rank
+        });
 
-	    return SingleResult<PlayerRankDto>.Create(result);
-	}
+        return SingleResult<PlayerRankDto>.Create(result);
+    }
 
 With these changes, the two GET methods return `PlayerRankDto` objects to the client. The `PlayerRankDto.PlayerName` property is set to the player name. Here is an example response after making this change:
 
-	HTTP/1.1 200 OK
-	Cache-Control: no-cache
-	Pragma: no-cache
-	Content-Length: 160
-	Content-Type: application/json; charset=utf-8
-	Expires: 0
-	Server: Microsoft-IIS/8.0
-	Date: Mon, 21 Apr 2014 19:57:08 GMT
+    HTTP/1.1 200 OK
+    Cache-Control: no-cache
+    Pragma: no-cache
+    Content-Length: 160
+    Content-Type: application/json; charset=utf-8
+    Expires: 0
+    Server: Microsoft-IIS/8.0
+    Date: Mon, 21 Apr 2014 19:57:08 GMT
 
-	[{"id":"1","playerName":"Alice","score":150,"rank":1},{"id":"2","playerName":"Bob","score":100,"rank":3},{"id":"3","playerName":"Charles","score":150,"rank":1}]
+    [{"id":"1","playerName":"Alice","score":150,"rank":1},{"id":"2","playerName":"Bob","score":100,"rank":3},{"id":"3","playerName":"Charles","score":150,"rank":1}]
 
 Notice that the JSON payload now includes the player names.
 
@@ -241,14 +241,14 @@ The `PlayerRank` entity includes a `Rank` property. This value is calculated by 
 
 First, add a class named `PlayerScore` to the DataObjects folder.
 
-	namespace Leaderboard.DataObjects
-	{
-	    public class PlayerScore
-	    {
-	        public string PlayerId { get; set; }
-	        public int Score { get; set; }
-	    }
-	}
+    namespace Leaderboard.DataObjects
+    {
+        public class PlayerScore
+        {
+            public string PlayerId { get; set; }
+            public int Score { get; set; }
+        }
+    }
 
 In the `PlayerRankController` class, move the `MobileServiceContext` variable from the constructor to a class variable:
 
@@ -315,13 +315,13 @@ Then add the following code to `PlayerRankController`:
 
 The `PostPlayerScore` method takes a `PlayerScore` instance as input. (The client will send the `PlayerScore` in an HTTP POST request.) The method does the following:
 
-1.	Adds a new `PlayerRank` for the player, if there isn't one in the database already.
-2.	Updates the player's score.
-3.	Run a SQL query that batch updates all of the player ranks.
+1.  Adds a new `PlayerRank` for the player, if there isn't one in the database already.
+2.  Updates the player's score.
+3.  Run a SQL query that batch updates all of the player ranks.
 
 The **[Route]** attribute defines a custom route for this method:
 
-	[Route("api/score")]
+    [Route("api/score")]
 
 You could also put the method into a separate controller. There is no particular advantage either way, it just depends how you want to organize your code.
 To learn more about the **[Route]** attribute, see [Attribute Routing in Web API](http://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2).
@@ -336,7 +336,7 @@ Add a new Windows Store App project to the solution. I used the Blank App (Windo
 
 Use NuGet Package Manager to add the Mobile Services client library. In Visual Studio, from the **Tools** menu, select **NuGet Package Manager**. Then select **Package Manager Console**. In the Package Manager Console window, type the following command.
 
-	Install-Package WindowsAzure.MobileServices -Project LeaderboardApp
+    Install-Package WindowsAzure.MobileServices -Project LeaderboardApp
 
 The -Project switch specifies which project to install the package to.
 
@@ -344,28 +344,28 @@ The -Project switch specifies which project to install the package to.
 
 Create a folder named Models and add the following classes:
 
-	namespace LeaderboardApp.Models
-	{
-	    public class Player
-	    {
-	        public string Id { get; set; }
-	        public string Name { get; set; }
-	    }
+    namespace LeaderboardApp.Models
+    {
+        public class Player
+        {
+            public string Id { get; set; }
+            public string Name { get; set; }
+        }
 
-	    public class PlayerRank
-	    {
-	        public string Id { get; set; }
-	        public string PlayerName { get; set; }
-	        public int Score { get; set; }
-	        public int Rank { get; set; }
-	    }
+        public class PlayerRank
+        {
+            public string Id { get; set; }
+            public string PlayerName { get; set; }
+            public int Score { get; set; }
+            public int Rank { get; set; }
+        }
 
-	    public class PlayerScore
-	    {
-	        public string PlayerId { get; set; }
-	        public int Score { get; set; }
-	    }
-	}
+        public class PlayerScore
+        {
+            public string PlayerId { get; set; }
+            public int Score { get; set; }
+        }
+    }
 
 These classes correspond directly to the data entities in the mobile service.
 
@@ -381,24 +381,24 @@ Model-View-ViewModel (MVVM) is a variant of Model-View-Controller (MVC). The MVV
 
 Add a class named `LeaderboardViewModel`.
 
-	using LeaderboardApp.Models;
-	using Microsoft.WindowsAzure.MobileServices;
-	using System.ComponentModel;
-	using System.Net.Http;
-	using System.Threading.Tasks;
+    using LeaderboardApp.Models;
+    using Microsoft.WindowsAzure.MobileServices;
+    using System.ComponentModel;
+    using System.Net.Http;
+    using System.Threading.Tasks;
 
-	namespace LeaderboardApp.ViewModel
-	{
-	    class LeaderboardViewModel : INotifyPropertyChanged
-	    {
-	        MobileServiceClient _client;
+    namespace LeaderboardApp.ViewModel
+    {
+        class LeaderboardViewModel : INotifyPropertyChanged
+        {
+            MobileServiceClient _client;
 
-	        public LeaderboardViewModel(MobileServiceClient client)
-	        {
-	            _client = client;
-	        }
-	    }
-	}
+            public LeaderboardViewModel(MobileServiceClient client)
+            {
+                _client = client;
+            }
+        }
+    }
 
 Implement **INotifyPropertyChanged** on the view model, so the view model can participate in data binding.
 
@@ -596,22 +596,22 @@ Finally, add methods that call through to the service layer.
 
 Open the *App.xaml.cs*file and add a **MobileServiceClient** instance to the `App` class.
 
-	// New code:
-	using Microsoft.WindowsAzure.MobileServices;
+    // New code:
+    using Microsoft.WindowsAzure.MobileServices;
 
-	namespace LeaderboardApp
-	{
-	    sealed partial class App : Application
-	    {
-	        // New code.
-	        // TODO: Replace 'port' with the actual port number.
-	        const string serviceUrl = "http://localhost:port/";
-	        public static MobileServiceClient MobileService = new MobileServiceClient(serviceUrl);
+    namespace LeaderboardApp
+    {
+        sealed partial class App : Application
+        {
+            // New code.
+            // TODO: Replace 'port' with the actual port number.
+            const string serviceUrl = "http://localhost:port/";
+            public static MobileServiceClient MobileService = new MobileServiceClient(serviceUrl);
 
 
-	        // ...
-	    }
-	}
+            // ...
+        }
+    }
 
 When you debug locally, the mobile service runs on IIS express. Visual Studio assigns a random port number, so the local URL is http://localhost:*port*, where *port* is the port number. To get the port number, start the service in Visual Studio by pressing F5 to debug. Visual Studio will launch a browser and navigate to the service URL.  You can also find the local URL in the project properties, under **Web**.
 
@@ -638,28 +638,28 @@ As I mentioned earlier, I won't show all of the XAML for the app. One benefit of
 
 The list of players is displayed in a **ListBox**:
 
-	<ListBox Width="200" Height="400" x:Name="PlayerListBox"
-	    ItemsSource="{Binding Players}" DisplayMemberPath="Name"/>
+    <ListBox Width="200" Height="400" x:Name="PlayerListBox"
+        ItemsSource="{Binding Players}" DisplayMemberPath="Name"/>
 
 Rankings are displayed in a **ListView**:
 
-	<ListView x:Name="RankingsListView" ItemsSource="{Binding Ranks}" SelectionMode="None">
-	    <!-- Header and styles not shown -->
-	    <ListView.ItemTemplate>
-	        <DataTemplate>
-	            <Grid>
-	                <Grid.ColumnDefinitions>
-	                    <ColumnDefinition Width="*"/>
-	                    <ColumnDefinition Width="2*"/>
-	                    <ColumnDefinition Width="*"/>
-	                </Grid.ColumnDefinitions>
-	                <TextBlock Text="{Binding Path=Rank}"/>
-	                <TextBlock Text="{Binding Path=PlayerName}" Grid.Column="1"/>
-	                <TextBlock Text="{Binding Path=Score}" Grid.Column="2"/>
-	            </Grid>
-	        </DataTemplate>
-	    </ListView.ItemTemplate>
-	</ListView>
+    <ListView x:Name="RankingsListView" ItemsSource="{Binding Ranks}" SelectionMode="None">
+        <!-- Header and styles not shown -->
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="{Binding Path=Rank}"/>
+                    <TextBlock Text="{Binding Path=PlayerName}" Grid.Column="1"/>
+                    <TextBlock Text="{Binding Path=Score}" Grid.Column="2"/>
+                </Grid>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
 
 All data binding happens through the view model.
 
@@ -765,4 +765,5 @@ Now when you run the app, it communicates with the real service.
 [Handle database write conflicts]: mobile-services-windows-store-dotnet-handle-database-conflicts.md
 [Add push notifications]: ../notification-hubs-windows-store-dotnet-get-started.md
 [Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-dotnet
+
 

@@ -1,20 +1,20 @@
 <properties
-	pageTitle="What are Mobile Apps"
-	description="Learn what advantages does App Service bring to your enterprise mobile apps."
-	services="app-service\mobile"
-	documentationCenter=""
-	authors="kirillg"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="What are Mobile Apps"
+    description="Learn what advantages does App Service bring to your enterprise mobile apps."
+    services="app-service\mobile"
+    documentationCenter=""
+    authors="kirillg"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="app-service-mobile"
-	ms.workload="na"
-	ms.tgt_pltfrm="mobile-multiple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/05/2015"
-	ms.author="kirillg"/>
+    ms.service="app-service-mobile"
+    ms.workload="na"
+    ms.tgt_pltfrm="mobile-multiple"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/05/2015"
+    ms.author="kirillg"/>
 
 # <a name="getting-started"> </a>What are Mobile Apps?
 
@@ -53,3 +53,4 @@ For more information on Azure App Service platform, see [Azure App Service].
 [Get Started]: app-service-mobile-ios-get-started.md
 
  
+

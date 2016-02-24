@@ -24,7 +24,7 @@ It can be configured to:
 
 - Load balance incoming Internet traffic to virtual machines. We refer it as [Internet facing load balancing](load-balancer-internet-overview.md).
 - Load balance traffic between virtual machines in a Virtual Network, between virtual machines in cloud services or between on-premises computers and virtual machines in a cross-premises virtual network. We refer it as [internal load balancing (ILB)](load-balancer-internal-overview.md).
-- 	Forward external traffic to a specific Virtual Machine instance
+-   Forward external traffic to a specific Virtual Machine instance
 
 ## Understanding Azure load balancer in Azure classic and Azure Resource Manager (ARM)
 
@@ -131,3 +131,4 @@ Azure Resource Manager (ARM) is the new management framework for services in Azu
 
 [Get started - Internet facing load balancer](load-balancer-internet-getstarted.md)
  
+

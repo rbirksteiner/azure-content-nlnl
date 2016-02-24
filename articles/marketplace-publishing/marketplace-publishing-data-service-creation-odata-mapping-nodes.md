@@ -83,7 +83,7 @@ Additional child nodes (not covered by the CSDL documentation) within the Functi
 - **POST:** Used if the request is a HTTP POST
 - **GET:** Used if the request is a HTTP GET
 
-	Example:
+    Example:
 
         `<d:RequestBody d:httpMethod="POST">
         <![CDATA[
@@ -97,7 +97,7 @@ Additional child nodes (not covered by the CSDL documentation) within the Functi
 
 **d:Namespaces** and **d:Namespace** - This node describes the namespaces that are defined in the XML that is returned by the function import (URI endpoint). The XML that is returned by the backend service might contain any number of namespaces to differentiate the content that is returned. **All of these namespaces, if used in d:Map or d:Match XPath queries need to be listed.** The d:Namespaces node contains a set/list of d:Namespace nodes. Each of them lists one namespace used in the backend service response. The following are the attribute of the d:Namespace node:
 
--	**d:Prefix:** The prefix for the namespace, as seen in the XML results returned by the service, e.g. f:FirstName, f:LastName, where f is the prefix.
+-   **d:Prefix:** The prefix for the namespace, as seen in the XML results returned by the service, e.g. f:FirstName, f:LastName, where f is the prefix.
 - **d:Uri:** The full URI of the namespace used in the result document. It represents the value that the prefix is resolved to at runtime.
 
 **d:ErrorHandling** *(Optional)* - This node contains conditions for error handling. Each of the conditions is validated against the result that is returned by the content provider’s service. If a condition matches the proposed HTTP error code an error message is returned to the end-user.
@@ -116,7 +116,7 @@ Additional child nodes (not covered by the CSDL documentation) within the Functi
 **d:Rights** *(Optional)* - The rights (e.g. copyright) associated with the function. The value for the rights is coming from:
 
 - The optional map attribute (an xpath) which specifies where to find the rights in the response returned from the service request.
--	-Or - The rights specified as value of the node.
+-   -Or - The rights specified as value of the node.
 
 **d:Description** *(Optional)* - A short description for the function. The value for the description is coming from
 
@@ -200,8 +200,8 @@ This node contains one property of the record.
 
 Details about this node are found at [http://msdn.microsoft.com/library/bb399546.aspx](http://msdn.microsoft.com/library/bb399546.aspx) (Use the **Other Version** dropdown to select a different version if necessary to view the documentation.) *Example:*
         `<EntityType Name="MetaDataEntityType" d:Map="/MyXMLPath">
-        <Property Name="Name" 	Type="String" Nullable="true" d:Map="./Service/Name" d:IsPrimaryKey="true" DefaultValue=”Joe Doh” MaxLength="25" FixedLength="true" />
-		...
+        <Property Name="Name"   Type="String" Nullable="true" d:Map="./Service/Name" d:IsPrimaryKey="true" DefaultValue=”Joe Doh” MaxLength="25" FixedLength="true" />
+        ...
         </EntityType>`
 
 | AttributeName | Required | Value |
@@ -275,3 +275,4 @@ The following are the supported types for parameters and properties. (Case sensi
 - If you are interested in understanding the overall OData mapping process and purpose, read this article [Data Service OData Mapping](marketplace-publishing-data-service-creation-odata-mapping.md) to review definitions, structures, and instructions.
 - If you are interested in reviewing examples, read this article [Data Service OData Mapping Examples](marketplace-publishing-data-service-creation-odata-mapping-examples.md) to see sample code and understand code syntax and context.
 - To return to the prescribed path for publishing a Data Service to the Azure Marketplace, read this article [Data Service Publishing Guide](marketplace-publishing-data-service-creation.md).
+

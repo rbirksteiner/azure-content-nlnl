@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Receive alert notifications" 
-	description="Be notified when alert rules conditions are met." 
-	authors="stepsic-microsoft-com" 
-	manager="ronmart" 
-	editor="" 
-	services="azure-portal" 
-	documentationCenter="na"/>
+    pageTitle="Receive alert notifications" 
+    description="Be notified when alert rules conditions are met." 
+    authors="stepsic-microsoft-com" 
+    manager="ronmart" 
+    editor="" 
+    services="azure-portal" 
+    documentationCenter="na"/>
 
 <tags 
-	ms.service="azure-portal" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/08/2015" 
-	ms.author="stepsic"/>
+    ms.service="azure-portal" 
+    ms.workload="na" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/08/2015" 
+    ms.author="stepsic"/>
 
 # Receive alert notifications
 
@@ -68,3 +68,4 @@ You can of course edit this alert rule, and **Disable** or **Enable** it if you 
 * [View events and audit logs](insights-debugging-with-events.md) to learn everything that has happened in your service.
 * [Track service health](insights-service-health.md) to find out when Azure has experienced performance degradation or service interruptions.
  
+

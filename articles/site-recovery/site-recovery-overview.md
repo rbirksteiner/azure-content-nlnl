@@ -1,20 +1,20 @@
 <properties
-	pageTitle="What is Site Recovery? | Microsoft Azure" 
-	description="Azure Site Recovery coordinates the replication, failover and recovery of virtual machines and physical servers located on on-premises to Azure or to a secondary on-premises site." 
-	services="site-recovery" 
-	documentationCenter="" 
-	authors="rayne-wiselman" 
-	manager="jwhit" 
-	editor=""/>
+    pageTitle="What is Site Recovery? | Microsoft Azure" 
+    description="Azure Site Recovery coordinates the replication, failover and recovery of virtual machines and physical servers located on on-premises to Azure or to a secondary on-premises site." 
+    services="site-recovery" 
+    documentationCenter="" 
+    authors="rayne-wiselman" 
+    manager="jwhit" 
+    editor=""/>
 
 <tags 
-	ms.service="site-recovery" 
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="storage-backup-recovery" 
-	ms.date="12/14/2015" 
-	ms.author="raynew"/>
+    ms.service="site-recovery" 
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.workload="storage-backup-recovery" 
+    ms.date="12/14/2015" 
+    ms.author="raynew"/>
 
 #  What is Site Recovery?
 
@@ -67,3 +67,4 @@ Read more in  [What workloads can Site Recovery protect?](site-recovery-workload
 
 After you're finished this overview [learn more](site-recovery-components.md) about Site Recovery architecture. 
  
+

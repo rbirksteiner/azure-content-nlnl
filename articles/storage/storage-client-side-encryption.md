@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Client-Side Encryption with .NET for Microsoft Azure Storage | Microsoft Azure" 
-	description="The Azure Storage Client Library for .NET supports client-side encryption and integration with Azure Key Vault for maximum security for your Azure Storage applications." 
-	services="storage" 
-	documentationCenter=".net" 
-	authors="tamram" 
-	manager="carolz" 
-	editor=""/>
+    pageTitle="Client-Side Encryption with .NET for Microsoft Azure Storage | Microsoft Azure" 
+    description="The Azure Storage Client Library for .NET supports client-side encryption and integration with Azure Key Vault for maximum security for your Azure Storage applications." 
+    services="storage" 
+    documentationCenter=".net" 
+    authors="tamram" 
+    manager="carolz" 
+    editor=""/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/07/2015" 
-	ms.author="tamram"/>
+    ms.service="storage" 
+    ms.workload="storage" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/07/2015" 
+    ms.author="tamram"/>
 
 
 # Client-Side Encryption and Azure Key Vault for Microsoft Azure Storage
@@ -38,8 +38,8 @@ Encryption via the envelope technique works in the following way:
 1. The Azure storage client library generates a content encryption key (CEK), which is a one-time-use symmetric key.
 2. User data is encrypted using this CEK.
 3. The CEK is then wrapped (encrypted) using the key encryption key (KEK). The KEK is identified by a key identifier and can be an asymmetric key pair or a symmetric key and can be managed locally or stored in Azure Key Vaults. 
-	
-	The storage client library itself never has access to KEK. The library invokes the key wrapping algorithm that is provided by Key Vault. Users can choose to use custom providers for key wrapping/unwrapping if desired.
+    
+    The storage client library itself never has access to KEK. The library invokes the key wrapping algorithm that is provided by Key Vault. Users can choose to use custom providers for key wrapping/unwrapping if desired.
 
 4. The encrypted data is then uploaded to the Azure Storage service. The wrapped key along with some additional encryption metadata is either stored as metadata (on a blob) or interpolated with the encrypted data (queue messages and table entities).
 
@@ -76,7 +76,7 @@ Since queue messages can be of any format, the client library defines a custom f
 
 During encryption, the client library generates a random IV of 16 bytes along with a random CEK of 32 bytes and performs envelope encryption of the queue message text using this information. The wrapped CEK and some additional encryption metadata are then added to the encrypted queue message. This modified message (shown below) is stored on the service.
 
-	<MessageText>{"EncryptedMessageContents":"6kOu8Rq1C3+M1QO4alKLmWthWXSmHV3mEfxBAgP9QGTU++MKn2uPq3t2UjF1DO6w","EncryptionData":{…}}</MessageText>
+    <MessageText>{"EncryptedMessageContents":"6kOu8Rq1C3+M1QO4alKLmWthWXSmHV3mEfxBAgP9QGTU++MKn2uPq3t2UjF1DO6w","EncryptionData":{…}}</MessageText>
 
 During decryption, the wrapped key is extracted from the queue message and unwrapped. The IV is also extracted from the queue message and used along with the unwrapped key to decrypt the queue message data. Note that the encryption metadata is small (under 500 bytes), so while it does count toward the 64KB limit for a queue message, the impact should be manageable.
 
@@ -145,8 +145,8 @@ While creating an EncryptionPolicy object, users can provide only a Key (impleme
 
 - For encryption, the key is used always and the absence of a key will result in an error.
 - For decryption:
-	- The key resolver is invoked if specified to get the key. If the resolver is specified but does not have a mapping for the key identifier, an error is thrown.
-	- If resolver is not specified but a key is specified, the key is used if its identifier matches the required key identifier. If the identifier does not match, an error is thrown.
+    - The key resolver is invoked if specified to get the key. If the resolver is specified but does not have a mapping for the key identifier, an error is thrown.
+    - If resolver is not specified but a key is specified, the key is used if its identifier matches the required key identifier. If the identifier does not match, an error is thrown.
 
 The [encryption samples](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) demonstrate a more detailed end-to-end scenario for blobs, queues and tables, along with Key Vault integration.
 
@@ -158,39 +158,39 @@ Users can optionally enable a mode of operation where all uploads and downloads 
 
 Create a **BlobEncryptionPolicy** object and set it in the request options (per API or at a client level by using **DefaultRequestOptions**). Everything else will be handled by the client library internally.
 
-	// Create the IKey used for encryption.
- 	RsaKey key = new RsaKey("private:key1" /* key identifier */);
+    // Create the IKey used for encryption.
+    RsaKey key = new RsaKey("private:key1" /* key identifier */);
   
- 	// Create the encryption policy to be used for upload and download.
- 	BlobEncryptionPolicy policy = new BlobEncryptionPolicy(key, null);
+    // Create the encryption policy to be used for upload and download.
+    BlobEncryptionPolicy policy = new BlobEncryptionPolicy(key, null);
   
- 	// Set the encryption policy on the request options.
- 	BlobRequestOptions options = new BlobRequestOptions() { EncryptionPolicy = policy };
+    // Set the encryption policy on the request options.
+    BlobRequestOptions options = new BlobRequestOptions() { EncryptionPolicy = policy };
   
- 	// Upload the encrypted contents to the blob.
- 	blob.UploadFromStream(stream, size, null, options, null);
+    // Upload the encrypted contents to the blob.
+    blob.UploadFromStream(stream, size, null, options, null);
   
- 	// Download and decrypt the encrypted contents from the blob.
- 	MemoryStream outputStream = new MemoryStream();
- 	blob.DownloadToStream(outputStream, null, options, null);
+    // Download and decrypt the encrypted contents from the blob.
+    MemoryStream outputStream = new MemoryStream();
+    blob.DownloadToStream(outputStream, null, options, null);
 
 ### Queue service encryption
 
 Create a **QueueEncryptionPolicy** object and set it in the request options (per API or at a client level by using **DefaultRequestOptions**). Everything else will be handled by the client library internally.
 
 
-	// Create the IKey used for encryption.
- 	RsaKey key = new RsaKey("private:key1" /* key identifier */);
+    // Create the IKey used for encryption.
+    RsaKey key = new RsaKey("private:key1" /* key identifier */);
   
- 	// Create the encryption policy to be used for upload and download.
- 	QueueEncryptionPolicy policy = new QueueEncryptionPolicy(key, null);
+    // Create the encryption policy to be used for upload and download.
+    QueueEncryptionPolicy policy = new QueueEncryptionPolicy(key, null);
   
- 	// Add message
- 	QueueRequestOptions options = new QueueRequestOptions() { EncryptionPolicy = policy };
- 	queue.AddMessage(message, null, null, options, null);
+    // Add message
+    QueueRequestOptions options = new QueueRequestOptions() { EncryptionPolicy = policy };
+    queue.AddMessage(message, null, null, options, null);
   
- 	// Retrieve message
- 	CloudQueueMessage retrMessage = queue.GetMessage(null, options, null);
+    // Retrieve message
+    CloudQueueMessage retrMessage = queue.GetMessage(null, options, null);
 
 ### Table service encryption
 
@@ -199,44 +199,44 @@ In addition to creating an encryption policy and setting it on request options, 
 #### Using the resolver
 
 
-	// Create the IKey used for encryption.
- 	RsaKey key = new RsaKey("private:key1" /* key identifier */);
+    // Create the IKey used for encryption.
+    RsaKey key = new RsaKey("private:key1" /* key identifier */);
   
- 	// Create the encryption policy to be used for upload and download.
- 	TableEncryptionPolicy policy = new TableEncryptionPolicy(key, null);
+    // Create the encryption policy to be used for upload and download.
+    TableEncryptionPolicy policy = new TableEncryptionPolicy(key, null);
   
- 	TableRequestOptions options = new TableRequestOptions() 
- 	{ 
-    	EncryptionResolver = (pk, rk, propName) =>
-     	{
-        	if (propName == "foo")
-         	{
-            	return true;
-         	}
-         	return false;
-     	},
-     	EncryptionPolicy = policy
- 	};
+    TableRequestOptions options = new TableRequestOptions() 
+    { 
+        EncryptionResolver = (pk, rk, propName) =>
+        {
+            if (propName == "foo")
+            {
+                return true;
+            }
+            return false;
+        },
+        EncryptionPolicy = policy
+    };
   
- 	// Insert Entity
- 	currentTable.Execute(TableOperation.Insert(ent), options, null);
+    // Insert Entity
+    currentTable.Execute(TableOperation.Insert(ent), options, null);
   
- 	// Retrieve Entity
- 	// No need to specify an encryption resolver for retrieve
- 	TableRequestOptions retrieveOptions = new TableRequestOptions() 
- 	{
-    	EncryptionPolicy = policy
- 	};
+    // Retrieve Entity
+    // No need to specify an encryption resolver for retrieve
+    TableRequestOptions retrieveOptions = new TableRequestOptions() 
+    {
+        EncryptionPolicy = policy
+    };
   
- 	TableOperation operation = TableOperation.Retrieve(ent.PartitionKey, ent.RowKey);
- 	TableResult result = currentTable.Execute(operation, retrieveOptions, null);
+    TableOperation operation = TableOperation.Retrieve(ent.PartitionKey, ent.RowKey);
+    TableResult result = currentTable.Execute(operation, retrieveOptions, null);
 
 #### Using attributes
 
 As mentioned above, if the entity implements TableEntity, then the properties can be decorated with the [EncryptProperty] attribute instead of specifying the **EncryptionResolver**.
 
-	[EncryptProperty]
- 	public string EncryptedProperty1 { get; set; }
+    [EncryptProperty]
+    public string EncryptedProperty1 { get; set; }
 
 ## Encryption and performance
 
@@ -248,3 +248,4 @@ Download the [Azure Storage Client Library for .NET NuGet package](http://www.nu
 Download the [Azure Storage Client Library for .NET Source Code](https://github.com/Azure/azure-storage-net) from GitHub
 Download the Azure Key Vault NuGet [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/), and [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) packages  
 Visit the [Azure Key Vault Documentation](../articles/key-vault-whatis.md) 
+

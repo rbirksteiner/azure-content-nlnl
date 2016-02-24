@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Deploy an ASP.NET MVC 5 mobile web app in Azure App Service" 
-	description="A tutorial that teaches you how to deploy a web app to Azure App Service using mobile features in ASP.NET MVC 5 web application." 
-	services="app-service" 
-	documentationCenter=".net" 
-	authors="cephalin" 
-	manager="wpickett" 
-	editor="jimbe"/>
+    pageTitle="Deploy an ASP.NET MVC 5 mobile web app in Azure App Service" 
+    description="A tutorial that teaches you how to deploy a web app to Azure App Service using mobile features in ASP.NET MVC 5 web application." 
+    services="app-service" 
+    documentationCenter=".net" 
+    authors="cephalin" 
+    manager="wpickett" 
+    editor="jimbe"/>
 
 <tags 
-	ms.service="app-service" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="09/16/2015" 
-	ms.author="cephalin;riande"/>
+    ms.service="app-service" 
+    ms.workload="na" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="dotnet" 
+    ms.topic="article" 
+    ms.date="09/16/2015" 
+    ms.author="cephalin;riande"/>
 
 
 # Deploy an ASP.NET MVC 5 mobile web app in Azure App Service
@@ -38,13 +38,13 @@ developer tools.
 
 You can use the Internet Explorer 11 F12 developer tools and the [Fiddler
 tool][Fiddler] to help debug your
-application. 
+application. 
 
 ## Skills You'll Learn
 
 Here's what you'll learn:
 
--	How to use Visual Studio 2013 to publish your web application directly to a web app in Azure App Service.
+-   How to use Visual Studio 2013 to publish your web application directly to a web app in Azure App Service.
 -   How the ASP.NET MVC 5 templates use the CSS Bootstrap framework to
     improve display on mobile devices
 -   How to create mobile-specific views to target specific mobile
@@ -64,10 +64,10 @@ work:
 
 -   Browser Emulator in [Internet Explorer 11 F12 developer tools][EmulatorIE11] (used in all mobile
     browser screenshots). It has user agent string presets for Windows Phone 8, Windows Phone 7, and Apple iPad.
--	Browser Emulator in [Google Chrome DevTools][EmulatorChrome]. It contains presets for numerous Android devices, as well as Apple iPhone, Apple iPad, and Amazon Kindle Fire. It also emulates touch events.
+-   Browser Emulator in [Google Chrome DevTools][EmulatorChrome]. It contains presets for numerous Android devices, as well as Apple iPhone, Apple iPad, and Amazon Kindle Fire. It also emulates touch events.
 -   [Opera Mobile Emulator][EmulatorOpera]
 
-Visual Studio projects with C\# source code are available to accompany
+Visual Studio projects with C\# source code are available to accompany
 this topic:
 
 -   [Starter project download][StarterProject]
@@ -75,49 +75,49 @@ this topic:
 
 ##<a name="bkmk_DeployStarterProject"></a>Deploy the starter project to an Azure web app
 
-1.	Download the conference-listing application [starter project][StarterProject].
+1.  Download the conference-listing application [starter project][StarterProject].
 
-2. 	Then in Windows Explorer, right-click the Mvc5Mobile.zip file and choose *Properties*.
+2.  Then in Windows Explorer, right-click the Mvc5Mobile.zip file and choose *Properties*.
 
-3. 	In the **Mvc5Mobile.zip Properties** dialog box,
+3.  In the **Mvc5Mobile.zip Properties** dialog box,
 choose the **Unblock** button. (Unblocking prevents a security warning
 that occurs when you try to use a *.zip* file that you've downloaded
 from the web.)
 
-4.	Right-click the *Mvc5Mobile.zip* file and select **Extract All** to
+4.  Right-click the *Mvc5Mobile.zip* file and select **Extract All** to
 unzip the file. 
 
-5. 	In Visual Studio, open the *Mvc5Mobile.sln* file.
+5.  In Visual Studio, open the *Mvc5Mobile.sln* file.
 
 6.  In Solution Explorer, right-click the project and click **Publish**.
 
-	![][DeployClickPublish]
+    ![][DeployClickPublish]
 
-7.	In Publish Web, click **Microsoft Azure Web Apps**.
+7.  In Publish Web, click **Microsoft Azure Web Apps**.
 
-	![][DeployClickWebSites]
+    ![][DeployClickWebSites]
 
-8.	Click **Sign in**.
+8.  Click **Sign in**.
 
-	![][DeploySignIn]
+    ![][DeploySignIn]
 
-9.	Follow the prompts to log into your Azure account.
+9.  Follow the prompts to log into your Azure account.
 
 11. The Select Existing Web App dialog should now show you as signed in. Click **New**.
 
-	![][DeployNewWebsite]  
+    ![][DeployNewWebsite]  
 
 12. In the **Web App name** field, specify a unique app name prefix. Your fully-qualified web app name will be *&lt;prefix>*.azurewebsites.net. Also, configure the **App Service plan**, **Resource group**, and **Region** fields. Then, click **Create**.
 
-	![][DeploySiteSettings]
+    ![][DeploySiteSettings]
 
-13.	The Publish Web dialog will be filled with the settings for your new web app. Click **Publish**.
+13. The Publish Web dialog will be filled with the settings for your new web app. Click **Publish**.
 
-	![][DeployPublishSite]
+    ![][DeployPublishSite]
 
-	Once Visual Studio finishes publishing the starter project to the Azure web app, the desktop browser opens to display the live web app.
+    Once Visual Studio finishes publishing the starter project to the Azure web app, the desktop browser opens to display the live web app.
 
-14.	Start your mobile browser emulator, copy the URL for
+14. Start your mobile browser emulator, copy the URL for
 the conference application (*<prefix>*.azurewebsites.net) into the emulator, and then click the
 top-right button and select **Browse by tag**. If you are using Internet
 Explorer 11 as the default browser, you just need to type `F12`, then
@@ -125,7 +125,7 @@ Explorer 11 as the default browser, you just need to type `F12`, then
 image below shows the *AllTags* view in portrait mode (from choosing
 **Browse by tag**).
 
-	![][AllTags]
+    ![][AllTags]
 
 >[AZURE.NOTE] While you can debug your MVC 5 application from within Visual Studio, you can publish your web app to Azure again to verify the live web app directly from your mobile browser or a browser emulator.
 
@@ -240,7 +240,7 @@ views that are specifically for the iPhone or the Android browser. In this secti
 you'll create a layout for the iPhone browser and an iPhone version of
 the *AllTags* view.
 
-Open the *Global.asax* file and add the following code to the bottom of the
+Open the *Global.asax* file and add the following code to the bottom of the
 `Application_Start` method.
 
     DisplayModeProvider.Instance.Modes.Insert(0, new DefaultDisplayMode("iPhone")
@@ -285,7 +285,7 @@ using the emulator in Internet Explorer 11 F12 developer tools,
 configure emulation to the following:
 
 -   Browser profile = **Windows Phone**
--   User agent string =  **Custom**
+-   User agent string =  **Custom**
 -   Custom string = **Apple-iPhone5C1/1001.525**
 
 The following screenshot shows the *AllTags* view rendered in the
@@ -691,7 +691,7 @@ changes that you just made:
 This tutorial has shown you how to use ASP.NET MVC 5 to develop
 mobile-friendly Web applications. These include:
 
--	Deploy an ASP.NET MVC 5 application to an App Service web app
+-   Deploy an ASP.NET MVC 5 application to an App Service web app
 -   Use Bootstrap to create responsive web layout in your MVC 5
     application
 -   Override layout, views, and partial views, both globally and for an
@@ -784,3 +784,4 @@ mobile-friendly Web applications. These include:
 [SessionByCode3-644]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-3-644.png
 [SessionByCodeFixed3-644]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-Fixed-3-644.png
  
+

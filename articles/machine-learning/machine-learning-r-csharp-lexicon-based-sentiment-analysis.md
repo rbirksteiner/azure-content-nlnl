@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Lexicon Based Sentiment Analysis | Microsoft Azure" 
-	description="Lexicon Based Sentiment Analysis" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="pengxia" 
-	manager="paulettm" 
-	editor="cgronlun"/>
+    pageTitle="Lexicon Based Sentiment Analysis | Microsoft Azure" 
+    description="Lexicon Based Sentiment Analysis" 
+    services="machine-learning" 
+    documentationCenter="" 
+    authors="pengxia" 
+    manager="paulettm" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/01/2015" 
-	ms.author="pengxia"/> 
+    ms.service="machine-learning" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/01/2015" 
+    ms.author="pengxia"/> 
 
 
 
@@ -41,32 +41,32 @@ There are multiple ways of consuming the service in an automated fashion (an exa
 
 ###Starting C# code for web service consumption:
 
-	public class ScoreResult
-	{
-	        [DataMember]
-	        public double result
-	        {
-	            get;
-	            set;
-	        }
-	}
+    public class ScoreResult
+    {
+            [DataMember]
+            public double result
+            {
+                get;
+                set;
+            }
+    }
 
-	void main()
-	{
-	        using (var wb = new WebClient())
-	        {
-	            var acitionUri = new Uri("PutAPIURLHere,e.g.https://api.datamarket.azure.com/..../v1/Score");
-	            DataServiceContext ctx = new DataServiceContext(acitionUri);
-	            var cred = new NetworkCredential("PutEmailAddressHere", "ChangeToAPIKey");
-	            var cache = new CredentialCache();
-	
-	            cache.Add(acitionUri, "Basic", cred);
-	            ctx.Credentials = cache;
-	            var query = ctx.Execute<ScoreResult>(acitionUri, "POST", true, new BodyOperationParameter("Text", TextBox1.Text));
-	            ScoreResult scoreResult = query.ElementAt(0);
-	            double result = scoreResult.result;
-	    	}
-	}
+    void main()
+    {
+            using (var wb = new WebClient())
+            {
+                var acitionUri = new Uri("PutAPIURLHere,e.g.https://api.datamarket.azure.com/..../v1/Score");
+                DataServiceContext ctx = new DataServiceContext(acitionUri);
+                var cred = new NetworkCredential("PutEmailAddressHere", "ChangeToAPIKey");
+                var cache = new CredentialCache();
+    
+                cache.Add(acitionUri, "Basic", cred);
+                ctx.Credentials = cache;
+                var query = ctx.Execute<ScoreResult>(acitionUri, "POST", true, new BodyOperationParameter("Text", TextBox1.Text));
+                ScoreResult scoreResult = query.ElementAt(0);
+                double result = scoreResult.result;
+            }
+    }
 
 
 
@@ -84,8 +84,8 @@ From within Azure Machine Learning, a new blank experiment was created. The figu
 
 
 ####Module 1:
-	
-	# Map 1-based optional input ports to variables
+    
+    # Map 1-based optional input ports to variables
     sent_dict_data<- maml.mapInputPort(1) # class: data.frame
     dataset2 <- maml.mapInputPort(2) # class: data.frame
  
@@ -103,34 +103,34 @@ From within Azure Machine Learning, a new blank experiment was created. The figu
 
     #  Compute sentiment score for each document
     for (m in 1:nrow(dataset2)){
-	polarity_ratio <- 0
-	polarity_total <- 0
-	not <- 0
-	sentence <- tolower(dataset2[m,1])
-	if (nchar(sentence) > 0){
-		token_array <- scan_tokenizer(sentence)
-		for (j in 1:length(token_array)){
-			word = str_replace_all(token_array[j], "[^[:alnum:]]", "")
-		    for (k in 1:length(negation_word)){
-		      if (word == negation_word[k]){
-		        not <- (not+1) %% 2
+    polarity_ratio <- 0
+    polarity_total <- 0
+    not <- 0
+    sentence <- tolower(dataset2[m,1])
+    if (nchar(sentence) > 0){
+        token_array <- scan_tokenizer(sentence)
+        for (j in 1:length(token_array)){
+            word = str_replace_all(token_array[j], "[^[:alnum:]]", "")
+            for (k in 1:length(negation_word)){
+              if (word == negation_word[k]){
+                not <- (not+1) %% 2
 
-			  }
-		    }
-			if (word != ""){
-			    if (!is.null(sent_dict[[word]])){
-			      polarity_ratio <- polarity_ratio + (-2*not+1)*sent_dict[[word]]
-			      polarity_total <- polarity_total + abs(sent_dict[[word]])
-			    }
-			}
-		  
-		}
-	}
-	if (polarity_total > 0){
-		result <- c(result, polarity_ratio/polarity_total)
-	}else{
-		result<- c(result,0)
-	}
+              }
+            }
+            if (word != ""){
+                if (!is.null(sent_dict[[word]])){
+                  polarity_ratio <- polarity_ratio + (-2*not+1)*sent_dict[[word]]
+                  polarity_total <- polarity_total + abs(sent_dict[[word]])
+                }
+            }
+          
+        }
+    }
+    if (polarity_total > 0){
+        result <- c(result, polarity_ratio/polarity_total)
+    }else{
+        result<- c(result,0)
+    }
     }
 
     # Sample operation
@@ -138,7 +138,7 @@ From within Azure Machine Learning, a new blank experiment was created. The figu
 
     # Select data.frame to be sent to the output Dataset port
     maml.mapOutputPort("data.set")
-	
+    
 
 
 ##Limitations
@@ -156,3 +156,4 @@ For frequently asked questions on consumption of the web service or publishing t
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 
  
+

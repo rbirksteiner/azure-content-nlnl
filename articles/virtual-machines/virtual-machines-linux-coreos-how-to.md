@@ -1,21 +1,21 @@
 <properties
-	pageTitle="How to Use CoreOS | Microsoft Azure"
-	description="Describes CoreOS, how to create a CoreOS virtual machine cluster on Azure in the classic deployment model, and its basic usage."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="squillace"
-	manager="timlt"
-	editor="tysonn"
-	tags="azure-service-management"/>
+    pageTitle="How to Use CoreOS | Microsoft Azure"
+    description="Describes CoreOS, how to create a CoreOS virtual machine cluster on Azure in the classic deployment model, and its basic usage."
+    services="virtual-machines"
+    documentationCenter=""
+    authors="squillace"
+    manager="timlt"
+    editor="tysonn"
+    tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-linux"
-	ms.workload="infrastructure-services"
-	ms.date="10/21/2015"
-	ms.author="rasquill"/>
+    ms.service="virtual-machines"
+    ms.devlang="multiple"
+    ms.topic="article"
+    ms.tgt_pltfrm="vm-linux"
+    ms.workload="infrastructure-services"
+    ms.date="10/21/2015"
+    ms.author="rasquill"/>
 
 # How to Use CoreOS on Azure
 
@@ -106,18 +106,18 @@ coreos:
 1. Install the [Azure Command-line Interface (Azure CLI)] if you have not already done so, and either login using a work or school ID, or download a .publishsettings file and import that into your account.
 2. Locate your CoreOS image. To locate the images available at any time, type `azure vm image list | grep CoreOS` and you should see a list of results similar to:
 
-	data:    2b171e93f07c4903bcad35bda10acf22__CoreOS-Stable-522.6.0              Public    Linux
+    data:    2b171e93f07c4903bcad35bda10acf22__CoreOS-Stable-522.6.0              Public    Linux
 
 3. Create a cloud service for your basic cluster by typing
 `azure service create <cloud-service-name>` where <*cloud-service-name*> is the name for your CoreOS cloud service. This sample uses the name **`coreos-cluster`**; you will need to reuse the name that you choose to create your CoreOS VM instances inside the cloud service.
 
-	One note: If you observe your work so far in the [preview portal](https://portal.azure.com), you'll find your cloud service name is both a resource group and domain, as the following image shows:
+    One note: If you observe your work so far in the [preview portal](https://portal.azure.com), you'll find your cloud service name is both a resource group and domain, as the following image shows:
 
-	![][CloudServiceInNewPortal]
+    ![][CloudServiceInNewPortal]
 
 4. Connect to your cloud service and create a new CoreOS VM inside by using the **azure vm create** command. You'll pass the location of your X.509 certificate in the **--ssh-cert** option. Create your first VM image by typing the following, remembering to replace **coreos-cluster** with the cloud service name that you created:
 
-	```
+    ```
 azure vm create --custom-data=cloud-config.yaml --ssh=22 --ssh-cert=./myCert.pem --no-ssh-password --vm-name=node-1 --connect=coreos-cluster --location="West US" 2b171e93f07c4903bcad35bda10acf22__CoreOS-Stable-522.6.0 core
 ```
 
@@ -133,16 +133,16 @@ You can see from the shot below how the CoreOS cluster appears in the portal.
 
 To test your cluster, make sure you are in your working directory and then connect to **node-1** using **ssh**, passing the private key by typing:
 
-	ssh core@coreos-cluster.cloudapp.net -p 22 -i ./myPrivateKey.key
+    ssh core@coreos-cluster.cloudapp.net -p 22 -i ./myPrivateKey.key
 
 Once connected, type `sudo fleetctl list-machines` to see whether the cluster has already identified all VMs in the cluster. You should receive a response similar to the following:
 
 
-	core@node-1 ~ $ sudo fleetctl list-machines
-	MACHINE		IP		METADATA
-	442e6cfb...	100.71.168.115	-
-	a05e2d7c...	100.71.168.87	-
-	f7de6717...	100.71.188.96	-
+    core@node-1 ~ $ sudo fleetctl list-machines
+    MACHINE     IP      METADATA
+    442e6cfb... 100.71.168.115  -
+    a05e2d7c... 100.71.168.87   -
+    f7de6717... 100.71.188.96   -
 
 
 ### Test your CoreOS cluster from localhost
@@ -176,10 +176,10 @@ Now you are ready to test remotely using the same **fleetctl** command you used 
 The results should be exactly the same:
 
 
-	MACHINE		IP		METADATA
-	442e6cfb...	100.71.168.115	-
-	a05e2d7c...	100.71.168.87	-
-	f7de6717...	100.71.188.96	-
+    MACHINE     IP      METADATA
+    442e6cfb... 100.71.168.115  -
+    a05e2d7c... 100.71.168.87   -
+    f7de6717... 100.71.188.96   -
 
 ## Next steps
 
@@ -209,3 +209,4 @@ You should now have a running three-node CoreOS cluster on Azure. From here, you
 [Docker]: http://docker.io
 [YAML]: http://yaml.org/
 [Get Started with Fleet on CoreOS on Azure]: virtual-machines-linux-coreos-fleet-get-started.md
+

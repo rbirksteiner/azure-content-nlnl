@@ -1,19 +1,19 @@
 <properties
-	pageTitle="Using the Application Insights portal"
-	description="After you've configured your app to send telemetry to Application Insights, this guide shows you how to find your way around the portal."
-	services="application-insights"
+    pageTitle="Using the Application Insights portal"
+    description="After you've configured your app to send telemetry to Application Insights, this guide shows you how to find your way around the portal."
+    services="application-insights"
     documentationCenter=""
-	authors="alancameronwills"
-	manager="douge"/>
+    authors="alancameronwills"
+    manager="douge"/>
 
 <tags
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="multiple"
-	ms.topic="article" 
-	ms.date="11/23/2015"
-	ms.author="awills"/>
+    ms.service="application-insights"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="ibiza"
+    ms.devlang="multiple"
+    ms.topic="article" 
+    ms.date="11/23/2015"
+    ms.author="awills"/>
 
 # Using the Application Insights portal
 
@@ -205,5 +205,6 @@ To see the search again, **go to the overview blade** and open Favorites:
 ![Favorites tile](./media/app-insights-portal/22-favorite-get.png)
 
 If you saved with Relative time range, the re-opened blade has the latest data. If you saved with Absolute time range, you see the same data every time.
+
 
 

@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Managing access to resources with Azure Active Directory groups| Microsoft Azure"
-	description="How to use groups in  Azure Active Directory for access management to on-premises and cloud applications and resources."
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="stevenpo"
-	editor=""
+    pageTitle="Managing access to resources with Azure Active Directory groups| Microsoft Azure"
+    description="How to use groups in  Azure Active Directory for access management to on-premises and cloud applications and resources."
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="stevenpo"
+    editor=""
 />
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/17/2015"
-	ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/17/2015"
+    ms.author="curtand"/>
 
 
 # Managing access to resources with Azure Active Directory groups
@@ -29,19 +29,19 @@ Azure Active Directory (Azure AD) is a comprehensive identity and access managem
 Within Azure Active Directory, one of the major features is the ability to manage access to resources. These resources can be part of the directory, as in the case of permissions to manage objects through roles in the directory, or resources that are external to the directory, such as SaaS applications, Azure services, and SharePoint sites or on premise resources. There are 4 ways a user can be assigned access rights to a resource:
 
 
-1\.	Direct assignment
+1\. Direct assignment
 
 Users can be assigned directly to a resource by the owner of that resource.
 
-2\.	Group membership
+2\. Group membership
 
 A group can be assigned to a resource by the resource owner, and by doing so, granting the members of that group access to the resource. Membership of the group can then be managed by the owner of the group. Effectively, the resource owner delegates the permission to assign users to their resource to the owner of the group.
 
-3\.	Rule based
+3\. Rule based
 
 The resource owner can use a rule to express which users should be assigned access to a resource. The outcome of the rule depends on the attributes used in that rule and their values for specific users, and by doing so, the resource owner effectively delegates the right to manage access to their resource to the authoritative source for the attributes that are used in the rule. Note that the resource owner still manages the rule itself and determines which attributes and values provide access to their resource.
 
-4\.	External authority
+4\. External authority
 
 The access to a resource is derived from an external source; for example, a group that is synchronized from an authoritative source such as an on premise directory or a SaaS app such as WorkDay. The resource owner assigns the group to provide access to the resource, and the external source manages the members of the group.
 
@@ -96,3 +96,4 @@ These articles provide additional information on Azure Active Directory.
 * [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
 
 * [Graph API Reference for Groups](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/groups-operations#GroupFunctions)
+

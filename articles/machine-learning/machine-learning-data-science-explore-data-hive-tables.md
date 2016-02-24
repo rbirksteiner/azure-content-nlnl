@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Explore data in Hive tables with Hive queries | Microsoft Azure"
-	description="Explore data in Hive tables using Hive queries."
-	services="machine-learning"
-	documentationCenter=""
-	authors="bradsev"
-	manager="paulettm" 
-	editor="cgronlun"  />
+    pageTitle="Explore data in Hive tables with Hive queries | Microsoft Azure"
+    description="Explore data in Hive tables using Hive queries."
+    services="machine-learning"
+    documentationCenter=""
+    authors="bradsev"
+    manager="paulettm" 
+    editor="cgronlun"  />
 
 <tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/20/2015"
-	ms.author="hangzh;bradsev" />
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/20/2015"
+    ms.author="hangzh;bradsev" />
 
 # Explore data in Hive tables with Hive queries 
 
@@ -38,49 +38,50 @@ This article assumes that you have:
 ## Example Hive query scripts for data exploration
 
 1. Get the count of observations per partition
-	`SELECT <partitionfieldname>, count(*) from <databasename>.<tablename> group by <partitionfieldname>;`
+    `SELECT <partitionfieldname>, count(*) from <databasename>.<tablename> group by <partitionfieldname>;`
 
 2. Get the count of observations per day
-	`SELECT to_date(<date_columnname>), count(*) from <databasename>.<tablename> group by to_date(<date_columnname>);`
+    `SELECT to_date(<date_columnname>), count(*) from <databasename>.<tablename> group by to_date(<date_columnname>);`
 
 3. Get the levels in a categorical column  
-	`SELECT  distinct <column_name> from <databasename>.<tablename>`
+    `SELECT  distinct <column_name> from <databasename>.<tablename>`
 
 4. Get the number of levels in combination of two categorical columns
-	`SELECT <column_a>, <column_b>, count(*) from <databasename>.<tablename> group by <column_a>, <column_b>`
+    `SELECT <column_a>, <column_b>, count(*) from <databasename>.<tablename> group by <column_a>, <column_b>`
 
 5. Get the distribution for numerical columns  
-	`SELECT <column_name>, count(*) from <databasename>.<tablename> group by <column_name>`
+    `SELECT <column_name>, count(*) from <databasename>.<tablename> group by <column_name>`
 
 6. Extract records from joining two tables
 
-	    SELECT
-			a.<common_columnname1> as <new_name1>,
-			a.<common_columnname2> as <new_name2>,
-    		a.<a_column_name1> as <new_name3>,
-    		a.<a_column_name2> as <new_name4>,
-    		b.<b_column_name1> as <new_name5>,
-    		b.<b_column_name2> as <new_name6>
-    	FROM
-    		(
-    		SELECT <common_columnname1>,
-    			<common_columnname2>,
-				<a_column_name1>,
-				<a_column_name2>,
-			FROM <databasename>.<tablename1>
-			) a
-			join
-			(
-			SELECT <common_columnname1>,
-    			<common_columnname2>,
-				<b_column_name1>,
-				<b_column_name2>,
-			FROM <databasename>.<tablename2>
-			) b
-			ON a.<common_columnname1>=b.<common_columnname1> and a.<common_columnname2>=b.<common_columnname2>
+        SELECT
+            a.<common_columnname1> as <new_name1>,
+            a.<common_columnname2> as <new_name2>,
+            a.<a_column_name1> as <new_name3>,
+            a.<a_column_name2> as <new_name4>,
+            b.<b_column_name1> as <new_name5>,
+            b.<b_column_name2> as <new_name6>
+        FROM
+            (
+            SELECT <common_columnname1>,
+                <common_columnname2>,
+                <a_column_name1>,
+                <a_column_name2>,
+            FROM <databasename>.<tablename1>
+            ) a
+            join
+            (
+            SELECT <common_columnname1>,
+                <common_columnname2>,
+                <b_column_name1>,
+                <b_column_name2>,
+            FROM <databasename>.<tablename2>
+            ) b
+            ON a.<common_columnname1>=b.<common_columnname1> and a.<common_columnname2>=b.<common_columnname2>
 
 ## Additional query scripts for taxi trip data scenarios
 
 Examples of queries that are specific to [NYC Taxi Trip Data](http://chriswhong.com/open-data/foil_nyc_taxi/) scenarios are also provided in [Github repository](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). These queries already have data schema specified and are ready to be submitted to run.
 
  
+

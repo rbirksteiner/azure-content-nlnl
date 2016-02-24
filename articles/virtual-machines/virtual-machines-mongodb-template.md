@@ -587,11 +587,11 @@ From the previous example, it is clear how azuredeploy.json in this scenario has
 
 In particular, the following linked templates will be used for this deployment:
 
--	**Shared-resource.json**: Contains the definition of all resources that will be shared across the deployment. Examples are storage accounts used to store VM’s OS disks and virtual networks.
--	**Jumpbox-resources.json**: When enabled, is responsible for deploying all resources related to the Jumpbox VM, the one with a public IP address that can be used to access MongoDB cluster from public network.
--	**Arbiter-resources.json**: When enabled, this template deploys an arbiter member in the MongoDB cluster. An arbiter doesn’t contain data, but is used when a replica set contains an even number of nodes to manage primary elections.
--	**Member-resources-Dx.json**: Specifies resource templates that are effectively deploying MongoDB nodes. A specific file will be used based on the selected t-shirt size definition, where each file will only differ by the number of attached disks for each node.
--	**Mongodb-ubuntu-install.sh**: A bash script file invoked by CustomScriptForLinux extension on every node in the cluster. Responsible for mounting and formatting data disks, and installing MongoDB bits on the node.
+-   **Shared-resource.json**: Contains the definition of all resources that will be shared across the deployment. Examples are storage accounts used to store VM’s OS disks and virtual networks.
+-   **Jumpbox-resources.json**: When enabled, is responsible for deploying all resources related to the Jumpbox VM, the one with a public IP address that can be used to access MongoDB cluster from public network.
+-   **Arbiter-resources.json**: When enabled, this template deploys an arbiter member in the MongoDB cluster. An arbiter doesn’t contain data, but is used when a replica set contains an even number of nodes to manage primary elections.
+-   **Member-resources-Dx.json**: Specifies resource templates that are effectively deploying MongoDB nodes. A specific file will be used based on the selected t-shirt size definition, where each file will only differ by the number of attached disks for each node.
+-   **Mongodb-ubuntu-install.sh**: A bash script file invoked by CustomScriptForLinux extension on every node in the cluster. Responsible for mounting and formatting data disks, and installing MongoDB bits on the node.
 
 To deploy a MongoDB cluster, a specific logic is required to be able to correctly set up a replica set. The following example shows the specific sequence you have to use during the deployment.
 
@@ -687,10 +687,11 @@ By familiarizing yourself with the other files included in this deployment, you 
 
 In essence, this approach suggests that you:
 
--	Define your core template file as a central orchestration point for all specific deployment activities, leveraging template linking to invoke sub template executions.
--	Create specific template files that will deploy all resources shared across all other specific deployment tasks (for example, storage accounts, vnet configuration, etc.). This can be heavily reused between deployments that have similar requirements in terms of common infrastructure.
--	Include optional resource templates for spot requirements specific of a given resource.
--	For identical members of a group of resources (nodes in a cluster, etc.), create specific templates that leverage resource looping in order to deploy multiple instances with unique properties.
--	For all post deployment tasks (for example, product installation, configurations, etc.), leverage script deployment extensions and create scripts specific to each technology.
+-   Define your core template file as a central orchestration point for all specific deployment activities, leveraging template linking to invoke sub template executions.
+-   Create specific template files that will deploy all resources shared across all other specific deployment tasks (for example, storage accounts, vnet configuration, etc.). This can be heavily reused between deployments that have similar requirements in terms of common infrastructure.
+-   Include optional resource templates for spot requirements specific of a given resource.
+-   For identical members of a group of resources (nodes in a cluster, etc.), create specific templates that leverage resource looping in order to deploy multiple instances with unique properties.
+-   For all post deployment tasks (for example, product installation, configurations, etc.), leverage script deployment extensions and create scripts specific to each technology.
 
 For more information, see [Azure Resource Manager Template Language](../resource-group-authoring-templates.md).
+

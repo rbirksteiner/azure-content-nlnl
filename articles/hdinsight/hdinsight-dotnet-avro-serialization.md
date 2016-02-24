@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Serialize data with the Microsoft Avro Library | Microsoft Azure"
-	description="Learn how Azure HDInsight uses Avro to serialize big data."
-	services="hdinsight"
-	documentationCenter=""
-	tags="azure-portal"
-	authors="mumian" 
-	manager="paulettm"
-	editor="cgronlun"/>
+    pageTitle="Serialize data with the Microsoft Avro Library | Microsoft Azure"
+    description="Learn how Azure HDInsight uses Avro to serialize big data."
+    services="hdinsight"
+    documentationCenter=""
+    tags="azure-portal"
+    authors="mumian" 
+    manager="paulettm"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="hdinsight"
-	ms.workload="big-data"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/29/2015"
-	ms.author="jgao"/>
+    ms.service="hdinsight"
+    ms.workload="big-data"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/29/2015"
+    ms.author="jgao"/>
 
 
 # Serialize data in Hadoop with the Microsoft Avro Library
@@ -80,7 +80,7 @@ To get familiar with the command-line syntax, execute the following command from
 
 To test the utility, you can generate C# classes from the sample JSON schema file provided with the source code. Execute the following command:
 
-	Microsoft.Hadoop.Avro.Tools codegen /i:C:\SDK\src\Microsoft.Hadoop.Avro.Tools\SampleJSON\SampleJSONSchema.avsc /o:
+    Microsoft.Hadoop.Avro.Tools codegen /i:C:\SDK\src\Microsoft.Hadoop.Avro.Tools\SampleJSON\SampleJSONSchema.avsc /o:
 
 This is supposed to produce two C# files in the current directory: SensorData.cs and Location.cs.
 
@@ -128,7 +128,7 @@ The schema in this example is assumed to be shared between the readers and write
         using System.Linq;
         using System.Runtime.Serialization;
         using Microsoft.Hadoop.Avro.Container;
-		using Microsoft.Hadoop.Avro;
+        using Microsoft.Hadoop.Avro;
 
         //Sample class used in serialization samples
         [DataContract(Name = "SensorDataValue", Namespace = "Sensors")]
@@ -247,8 +247,8 @@ This example shows how to create and use an [**AvroRecord**](http://msdn.microso
 The schema in this example is assumed to be shared between the readers and writers, so the Avro object container format is not required. For an example of how to serialize and deserialize data into memory buffers by using a generic record with the object container format when the schema must be included with the serialized data, see the <a href="#Scenario4">Serialization using object container files with generic record</a> example.
 
 
-	namespace Microsoft.Hadoop.Avro.Sample
-	{
+    namespace Microsoft.Hadoop.Avro.Sample
+    {
     using System;
     using System.Collections.Generic;
     using System.IO;
@@ -256,7 +256,7 @@ The schema in this example is assumed to be shared between the readers and write
     using System.Runtime.Serialization;
     using Microsoft.Hadoop.Avro.Container;
     using Microsoft.Hadoop.Avro.Schema;
-	using Microsoft.Hadoop.Avro;
+    using Microsoft.Hadoop.Avro;
 
     //This class contains all methods demonstrating
     //the usage of Microsoft Avro Library
@@ -350,7 +350,7 @@ The schema in this example is assumed to be shared between the readers and write
             Console.Read();
         }
     }
-	}
+    }
     // The example is expected to display the following output:
     // SERIALIZATION USING GENERIC RECORD
     //
@@ -379,7 +379,7 @@ The data in the object container file is compressed via the default [**Deflate**
         using System.Linq;
         using System.Runtime.Serialization;
         using Microsoft.Hadoop.Avro.Container;
-		using Microsoft.Hadoop.Avro;
+        using Microsoft.Hadoop.Avro;
 
         //Sample class used in serialization samples
         [DataContract(Name = "SensorDataValue", Namespace = "Sensors")]
@@ -622,7 +622,7 @@ The data is then read from the file and deserialized into a collection of object
         using System.Runtime.Serialization;
         using Microsoft.Hadoop.Avro.Container;
         using Microsoft.Hadoop.Avro.Schema;
-		using Microsoft.Hadoop.Avro;
+        using Microsoft.Hadoop.Avro;
 
         //This class contains all methods demonstrating
         //the usage of Microsoft Avro Library
@@ -891,7 +891,7 @@ The [Avro Specification](http://avro.apache.org/docs/current/spec.html#Required+
         using System.Linq;
         using System.Runtime.Serialization;
         using Microsoft.Hadoop.Avro.Container;
-		using Microsoft.Hadoop.Avro;
+        using Microsoft.Hadoop.Avro;
 
         #region Defining objects for serialization
         //Sample class used in serialization samples
@@ -1402,3 +1402,4 @@ To clean up the cluster, run the following command:
 
 [deflate-100]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.100).aspx
 [deflate-110]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.110).aspx
+

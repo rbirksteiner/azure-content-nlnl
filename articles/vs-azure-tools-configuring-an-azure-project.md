@@ -60,3 +60,4 @@ The following illustration shows how to select a configuration to use when you r
 ## Next steps
 
 To learn more about how to configure Azure cloud service projects in Visual Studio, see [Configuring Your Azure project using multiple service configurations](vs-azure-tools-multiple-services-project-configurations.md).
+

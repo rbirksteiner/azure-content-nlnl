@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure Government Developers Guide" 
-	description="This provides a comparision of features and guidance on developing applications for Azure Government" 
-	services="" 
-	documentationCenter="" 
-	authors="Joharve2" 
-	manager="Chrisnie" 
-	editor=""/>
+    pageTitle="Azure Government Developers Guide" 
+    description="This provides a comparision of features and guidance on developing applications for Azure Government" 
+    services="" 
+    documentationCenter="" 
+    authors="Joharve2" 
+    manager="Chrisnie" 
+    editor=""/>
 
 <tags 
-	ms.service="multiple" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="azure-government" 
-	ms.date="10/29/2015" 
-	ms.author="jharve"/>
+    ms.service="multiple" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="azure-government" 
+    ms.date="10/29/2015" 
+    ms.author="jharve"/>
 
 
 #  Microsoft Azure Government Developer Guide 
@@ -92,7 +92,7 @@ Management Portal|manage.windowsazure.com|manage.windowsazure.us
 General|*.windows.net|*.usgovcloudapi.net
 Core|*.core.windows.net|*.core.usgovcloudapi.net
 Compute|*.cloudapp.net|*.usgovcloudapp.net
-Blob Storage|*.blob.core.windows.net|	*.blob.core.usgovcloudapi.net
+Blob Storage|*.blob.core.windows.net|   *.blob.core.usgovcloudapi.net
 Queue Storage|*.queue.core.windows.net|*.queue.core.usgovcloudapi.net
 Table Storage|*.table.core.windows.net|*.table.core.usgovcloudapi.net
 Service Management|management.core.windows.net|management.core.usgovcloudapi.net
@@ -128,3 +128,4 @@ If you are interested in learning more and about Azure Government please leverag
 [Link 1 to another azure.microsoft.com documentation topic]: virtual-machines-windows-tutorial.md
 [Link 2 to another azure.microsoft.com documentation topic]: web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
+

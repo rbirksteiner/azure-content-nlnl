@@ -1,20 +1,20 @@
 <properties
-	pageTitle="DPM Protection of SharePoint farm to Azure | Microsoft Azure"
-	description="This article provides an overview of DPM Protection of SharePoint farm to Azure"
-	services="backup"
-	documentationCenter=""
-	authors="giridharreddy"
-	manager="shreeshd"
-	editor=""/>
+    pageTitle="DPM Protection of SharePoint farm to Azure | Microsoft Azure"
+    description="This article provides an overview of DPM Protection of SharePoint farm to Azure"
+    services="backup"
+    documentationCenter=""
+    authors="giridharreddy"
+    manager="shreeshd"
+    editor=""/>
 
 <tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/10/2015"
-	ms.author="giridham;jimpark"/>
+    ms.service="backup"
+    ms.workload="storage-backup-recovery"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/10/2015"
+    ms.author="giridham;jimpark"/>
 
 
 # Backing up a SharePoint farm to Azure
@@ -238,3 +238,4 @@ A: Since SharePoint databases are configured in SQL AlwaysOn, they cannot be mod
 - Learn more about DPM Protection of SharePoint - see [Video Series - DPM Protection of SharePoint](http://channel9.msdn.com/Series/Azure-Backup/Microsoft-SCDPM-Protection-of-SharePoint-1-of-2-How-to-create-a-SharePoint-Protection-Group)
 - Review [Release Notes for System Center 2012 - Data Protection Manager](https://technet.microsoft.com/library/jj860415.aspx)
 - Review [Release Notes for Data Protection Manager in System Center 2012 SP1](https://technet.microsoft.com/library/jj860394.aspx)
+

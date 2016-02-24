@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Get started with Azure IoT Hub | Microsoft Azure"
-	description="Follow this tutorial to get started using Azure IoT Hub with C#."
-	services="iot-hub"
-	documentationCenter=".net"
-	authors="dominicbetts"
-	manager="timlt"
-	editor=""/>
+    pageTitle="Get started with Azure IoT Hub | Microsoft Azure"
+    description="Follow this tutorial to get started using Azure IoT Hub with C#."
+    services="iot-hub"
+    documentationCenter=".net"
+    authors="dominicbetts"
+    manager="timlt"
+    editor=""/>
 
 <tags
      ms.service="iot-hub"
@@ -88,13 +88,13 @@ You have now created your IoT hub and you have the hostname and connection strin
 
 You are now ready to run the applications.
 
-1.	In Visual Studio, in Solution Explorer, right-click your solution and then click **Set StartUp projects**. Select **Multiple startup projects**, then select **Start** as the **Action** for both the **ReadDeviceToCloudMessages** and **SimulatedDevice** projects.
+1.  In Visual Studio, in Solution Explorer, right-click your solution and then click **Set StartUp projects**. Select **Multiple startup projects**, then select **Start** as the **Action** for both the **ReadDeviceToCloudMessages** and **SimulatedDevice** projects.
 
-   	![][41]
+    ![][41]
 
-2.	Press **F5** to start both apps running. The console output from the **SimulatedDevice** app shows the messages your simulated device sends to your IoT hub, and the console output from the **ReadDeviceToCloudMessages** app shows the messages that your IoT hub receives.
+2.  Press **F5** to start both apps running. The console output from the **SimulatedDevice** app shows the messages your simulated device sends to your IoT hub, and the console output from the **ReadDeviceToCloudMessages** app shows the messages that your IoT hub receives.
 
-   	![][42]
+    ![][42]
 
 ## Next steps
 

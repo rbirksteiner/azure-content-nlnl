@@ -135,3 +135,4 @@ Azure Resource Manager supports cross-origin resource sharing (CORS). With CORS,
 Here's a video demonstration of this overview:
 
 [AZURE.VIDEO azure-resource-manager-overview]
+

@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="Azure Automation DSC Continuous Deployment with Chocolatey | Microsoft Azure"
    description="DevOps continuous deployment using Azure Automation DSC and Chocolatey package manager.  Example with full JSON ARM template and PowerShell source."
    services="automation"
@@ -186,3 +186,4 @@ Full source for this usage example is in [this Visual Studio project](https://gi
 - [Azure Automation DSC Overview] (automation-dsc-overview.md)
 - [Azure Automation DSC cmdlets] (https://msdn.microsoft.com/library/mt244122.aspx)
 - [Onboarding machines for management by Azure Automation DSC] (automation-dsc-onboarding.md)
+

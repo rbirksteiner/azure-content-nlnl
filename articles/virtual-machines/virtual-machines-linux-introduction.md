@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Introduction to Linux in Azure | Microsoft Azure"
-	description="Learn about using Linux virtual machines on Azure."
-	services="virtual-machines"
-	documentationCenter="python"
-	authors="szarkos"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager,azure-service-management"/>
+    pageTitle="Introduction to Linux in Azure | Microsoft Azure"
+    description="Learn about using Linux virtual machines on Azure."
+    services="virtual-machines"
+    documentationCenter="python"
+    authors="szarkos"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager,azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/13/2015"
-	ms.author="szark"/>
+    ms.service="virtual-machines"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-linux"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/13/2015"
+    ms.author="szark"/>
 
 #Introduction to Linux on Azure
 
@@ -36,7 +36,7 @@ When creating a Linux virtual machine using the Azure classic portal, you are as
 
 The user account that is specified during virtual machine instance deployment on Azure is a privileged account. This account is configured by the Azure Linux Agent to be able to elevate privileges to root (superuser account) using the `sudo` utility. Once logged in using this user account, you will be able to run commands as root using the command syntax
 
-	# sudo <COMMAND>
+    # sudo <COMMAND>
 
 You can optionally obtain a root shell using **sudo -s**.
 
@@ -58,7 +58,7 @@ When you initially deploy an instance of a Linux image, you are required to prov
 
 If hostname changes are desired after a virtual machine has been deployed, please use the command
 
-	# sudo hostname <newname>
+    # sudo hostname <newname>
 
 The Azure Linux Agent includes functionality to automatically detect this name change and appropriately configure the virtual machine to persist this change and publish this change to the platform DNS servers.
 
@@ -98,3 +98,4 @@ On Linux, the resource disk is typically managed by the Azure Linux Agent and au
 On Linux the data disk might be named by the kernel as `/dev/sdc`, and users will need to partition, format and mount that resource. This is covered step-by-step in the tutorial: [How to Attach a Data Disk to a Virtual Machine](virtual-machines-linux-how-to-attach-disk.md).
 
  - **See also:** [Configure Software RAID on Linux](virtual-machines-linux-configure-raid.md)
+

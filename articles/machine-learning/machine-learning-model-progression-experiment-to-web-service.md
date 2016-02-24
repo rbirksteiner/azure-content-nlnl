@@ -1,20 +1,20 @@
-﻿<properties
-	pageTitle="How a Machine Learning model progresses from an experiment to an operationalized web service | Microsoft Azure"
-	description="An overview of the mechanics of how your Azure Machine Learning model progresses from a development experiment to an operationalized web service."
-	services="machine-learning"
-	documentationCenter=""
-	authors="garyericson"
-	manager="paulettm"
-	editor="cgronlun"/>
+<properties
+    pageTitle="How a Machine Learning model progresses from an experiment to an operationalized web service | Microsoft Azure"
+    description="An overview of the mechanics of how your Azure Machine Learning model progresses from a development experiment to an operationalized web service."
+    services="machine-learning"
+    documentationCenter=""
+    authors="garyericson"
+    manager="paulettm"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/10/2015"
-	ms.author="garye"/>
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/10/2015"
+    ms.author="garye"/>
 
 
 # How a Machine Learning model progresses from an experiment to an operationalized web service
@@ -126,7 +126,7 @@ experiment](machine-learning-consume-web-services.md).
 Once you deploy the web service, the predictive experiment and web
 service remain connected, and you can go back-and-forth between them:
 
-|***From this page…***|***click this…***|***to open this page…***|
+|***undefined***|***undefined***|***undefined***|
 | ------------------- | --------------- | ---------------------- |
 |experiment canvas in Studio|**Go to web service**|web service configuration in Studio|
 |web service configuration in Studio|**View latest**|experiment canvas in Studio|
@@ -274,3 +274,4 @@ For examples of the whole process, see:
 -   [Walkthrough: Develop a predictive analytics solution for credit
     risk assessment in Azure Machine
     Learning](machine-learning-walkthrough-develop-predictive-solution.md)
+

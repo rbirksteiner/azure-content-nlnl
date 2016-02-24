@@ -1,20 +1,20 @@
 <properties
-	pageTitle="How to create a custom template image for Azure RemoteApp | Microsoft Azure"
-	description="Learn how to create a custom template image for Azure RemoteApp. You can use this template with either a hybrid or cloud collection."
-	services="remoteapp"
-	documentationCenter=""
-	authors="lizap"
-	manager="mbaldwin"
-	editor=""/>
+    pageTitle="How to create a custom template image for Azure RemoteApp | Microsoft Azure"
+    description="Learn how to create a custom template image for Azure RemoteApp. You can use this template with either a hybrid or cloud collection."
+    services="remoteapp"
+    documentationCenter=""
+    authors="lizap"
+    manager="mbaldwin"
+    editor=""/>
 
 <tags
-	ms.service="remoteapp"
-	ms.workload="compute"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/12/2015" 
-	ms.author="elizapo"/>
+    ms.service="remoteapp"
+    ms.workload="compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/12/2015" 
+    ms.author="elizapo"/>
 
 # How to create a custom template image for Azure RemoteApp
 Azure RemoteApp uses a Windows Server 2012 R2 template image to host all the programs that you want to share with your users. To create a custom RemoteApp template image, you can start with an existing image or create a new one. 
@@ -55,60 +55,60 @@ You need to do the following before creating the service:
 
 These are the high level steps to create a new template image from scratch:
 
-1.	Locate a Windows Server 2012 R2 Update DVD or ISO image.
-2.	Create a VHD file.
-4.	Install Windows Server 2012 R2.
-5.	Install the Remote Desktop Session Host (RDSH) role and the Desktop Experience feature.
-6.	Install additional features required by your applications.
-7.	Install and configure your applications. To make sharing apps easier, add any apps or programs that you want to share to the **Start** menu of the image, specifically in **%systemdrive%\ProgramData\Microsoft\Windows\Start Menu\Programs.
-8.	Perform any additional Windows configurations required by your applications.
-9.	Disable the Encrypting File System (EFS).
-10.	**REQUIRED:** Go to Windows Update and install all important updates.
-9.	SYSPREP the image.
+1.  Locate a Windows Server 2012 R2 Update DVD or ISO image.
+2.  Create a VHD file.
+4.  Install Windows Server 2012 R2.
+5.  Install the Remote Desktop Session Host (RDSH) role and the Desktop Experience feature.
+6.  Install additional features required by your applications.
+7.  Install and configure your applications. To make sharing apps easier, add any apps or programs that you want to share to the **Start** menu of the image, specifically in **%systemdrive%\ProgramData\Microsoft\Windows\Start Menu\Programs.
+8.  Perform any additional Windows configurations required by your applications.
+9.  Disable the Encrypting File System (EFS).
+10. **REQUIRED:** Go to Windows Update and install all important updates.
+9.  SYSPREP the image.
 
 The detailed steps for creating a new image are:
 
-1.	Locate a Windows Server 2012 R2 Update DVD or ISO image.
-2.	Create a VHD file by using Disk Management.
-	1.	Launch Disk Management (diskmgmt.msc).
-	2.	Create a dynamically expanding VHD of 40 GB or more in size. (Estimate the amount of space needed for Windows, your applications, and customizations. Windows Server with the RDSH role and Desktop Experience feature installed will require about 10 GB of space).
-		1.	Click **Action > Create VHD**.
-		2.	Specify the location, size, and VHD format. Select **Dynamically expanding**, and then click **OK**.
+1.  Locate a Windows Server 2012 R2 Update DVD or ISO image.
+2.  Create a VHD file by using Disk Management.
+    1.  Launch Disk Management (diskmgmt.msc).
+    2.  Create a dynamically expanding VHD of 40 GB or more in size. (Estimate the amount of space needed for Windows, your applications, and customizations. Windows Server with the RDSH role and Desktop Experience feature installed will require about 10 GB of space).
+        1.  Click **Action > Create VHD**.
+        2.  Specify the location, size, and VHD format. Select **Dynamically expanding**, and then click **OK**.
 
-			This will run for several seconds. When the VHD creation is complete, you should see a new disk without any drive letter and in “Not initialized" state in the Disk Management console.
+            This will run for several seconds. When the VHD creation is complete, you should see a new disk without any drive letter and in “Not initialized" state in the Disk Management console.
 
-		- Right-click the disk (not the unallocated space), and then click **Initialize Disk**. Select **MBR** (Master Boot Record) as the partition style, and then click **OK**.
-		- Create a new volume: right-click the unallocated space, and then click **New Simple Volume**. You can accept the defaults in the wizard, but make sure you assign a drive letter to avoid potential problems when you upload the template image.
-		- Right-click the disk, and then click **Detach VHD**.
+        - Right-click the disk (not the unallocated space), and then click **Initialize Disk**. Select **MBR** (Master Boot Record) as the partition style, and then click **OK**.
+        - Create a new volume: right-click the unallocated space, and then click **New Simple Volume**. You can accept the defaults in the wizard, but make sure you assign a drive letter to avoid potential problems when you upload the template image.
+        - Right-click the disk, and then click **Detach VHD**.
 
 
 
 
 
 1. Install Windows Server 2012 R2:
-	1. Create a new virtual machine. Use the New Virtual Machine Wizard in Hyper-V Manager or Client Hyper-V.
-		1. On the Specify Generation page, choose  **Generation 1**.
-		2. On the Connect Virtual Hard Disk page, select **Use an existing virtual hard disk**, and browse to the VHD you created in the previous step.
-		2. On the Installation Options page, select **Install an operating system from a boot CD/DVD_ROM**, and then select the location of your Windows Server 2012 R2 installation media.
-		3. Choose other options in the wizard necessary to install Windows and your applications. Finish the wizard.
-	2.  After the wizard finishes, edit the settings of the virtual machine and make any other changes necessary to install Windows and your programs, such as the number of virtual processors, and then click **OK**.
-	4.  Connect to the virtual machine and install Windows Server 2012 R2.
+    1. Create a new virtual machine. Use the New Virtual Machine Wizard in Hyper-V Manager or Client Hyper-V.
+        1. On the Specify Generation page, choose  **Generation 1**.
+        2. On the Connect Virtual Hard Disk page, select **Use an existing virtual hard disk**, and browse to the VHD you created in the previous step.
+        2. On the Installation Options page, select **Install an operating system from a boot CD/DVD_ROM**, and then select the location of your Windows Server 2012 R2 installation media.
+        3. Choose other options in the wizard necessary to install Windows and your applications. Finish the wizard.
+    2.  After the wizard finishes, edit the settings of the virtual machine and make any other changes necessary to install Windows and your programs, such as the number of virtual processors, and then click **OK**.
+    4.  Connect to the virtual machine and install Windows Server 2012 R2.
 1. Install the Remote Desktop Session Host (RDSH) role and the Desktop Experience feature:
-	1. Launch Server Manager.
-	2. Click **Add Roles and features** on the Welcome screen or from the **Manage** menu.
-	3. Click **Next** on the Before You Begin page.
-	4. Select **Role-based or feature-based installation**, and then click **Next**.
-	5. Select the local machine from the list, and then click **Next**.
-	6. Select **Remote Desktop Services**, and then click **Next**.
-	7. Expand **User Interfaces and Infrastructure** and select **Desktop Experience**.
-	8. Click **Add Features**, and then click **Next**.
-	9. On the Remote Desktop Services page, click **Next**.
-	10. Click **Remote Desktop Session Host**.
-	11. Click **Add Features**, and then click **Next**.
-	12. On the Confirm installation selections page, select **Restart the destination server automatically if required**, and then click **Yes** on the restart warning.
-	13. Click **Install**. The computer will restart.
-1.	Install additional features required by your applications, such as the .NET Framework 3.5. To install the features, run the Add Roles and Features Wizard.
-7.	Install and configure the programs and applications you want to publish through RemoteApp.
+    1. Launch Server Manager.
+    2. Click **Add Roles and features** on the Welcome screen or from the **Manage** menu.
+    3. Click **Next** on the Before You Begin page.
+    4. Select **Role-based or feature-based installation**, and then click **Next**.
+    5. Select the local machine from the list, and then click **Next**.
+    6. Select **Remote Desktop Services**, and then click **Next**.
+    7. Expand **User Interfaces and Infrastructure** and select **Desktop Experience**.
+    8. Click **Add Features**, and then click **Next**.
+    9. On the Remote Desktop Services page, click **Next**.
+    10. Click **Remote Desktop Session Host**.
+    11. Click **Add Features**, and then click **Next**.
+    12. On the Confirm installation selections page, select **Restart the destination server automatically if required**, and then click **Yes** on the restart warning.
+    13. Click **Install**. The computer will restart.
+1.  Install additional features required by your applications, such as the .NET Framework 3.5. To install the features, run the Add Roles and Features Wizard.
+7.  Install and configure the programs and applications you want to publish through RemoteApp.
 
 >[AZURE.IMPORTANT]
 >
@@ -117,21 +117,21 @@ The detailed steps for creating a new image are:
 >Make sure a shortcut to your application (**.lnk** file) appears in the **Start** menu for all users (%systemdrive%\ProgramData\Microsoft\Windows\Start Menu\Programs). Also ensure that the icon you see in the **Start** menu is what you want users to see. If not, change it. (You do not *have* to add the application to the Start menu, but it makes it much easier to publish the application in RemoteApp. Otherwise, you have to provide the installation path for the application when you publish the app.)
 
 
-8.	Perform any additional Windows configurations required by your applications.
-9.	Disable the Encrypting File System (EFS). Run the following command at an elevated command window:
+8.  Perform any additional Windows configurations required by your applications.
+9.  Disable the Encrypting File System (EFS). Run the following command at an elevated command window:
 
-		Fsutil behavior set disableencryption 1
+        Fsutil behavior set disableencryption 1
 
-	Alternatively, you can set or add the following DWORD value in the registry:
+    Alternatively, you can set or add the following DWORD value in the registry:
 
-		HKLM\System\CurrentControlSet\Control\FileSystem\NtfsDisableEncryption = 1
-9.	If you are building your image inside an Azure virtual machine, rename the **\%windir%\Panther\Unattend.xml** file, as this will block the upload script used later from working. Change the name of this file to Unattend.old so that you will still have the file in case you need to revert your deployment.
-10.	Go to Windows Update and install all important updates. You might need to run Windows Update multiple times to get all updates. (Sometimes you install an update, and that update itself requires an update.)
-10.	SYSPREP the image. At an elevated command prompt, run the following command:
+        HKLM\System\CurrentControlSet\Control\FileSystem\NtfsDisableEncryption = 1
+9.  If you are building your image inside an Azure virtual machine, rename the **\%windir%\Panther\Unattend.xml** file, as this will block the upload script used later from working. Change the name of this file to Unattend.old so that you will still have the file in case you need to revert your deployment.
+10. Go to Windows Update and install all important updates. You might need to run Windows Update multiple times to get all updates. (Sometimes you install an update, and that update itself requires an update.)
+10. SYSPREP the image. At an elevated command prompt, run the following command:
 
-	**C:\Windows\System32\sysprep\sysprep.exe /generalize /oobe /shutdown**
+    **C:\Windows\System32\sysprep\sysprep.exe /generalize /oobe /shutdown**
 
-	**Note:** Do not use the **/mode:vm** switch of the SYSPREP command even though this is a virtual machine.
+    **Note:** Do not use the **/mode:vm** switch of the SYSPREP command even though this is a virtual machine.
 
 
 ## Next steps ##

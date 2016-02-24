@@ -100,3 +100,4 @@ To learn more about integrating with SQL Data Warehouse, see [Build integrated s
 [tableau_more]:http://www.tableau.com/
 [targit_more]:http://www.targit.com/en/
 [yellowfin_more]:http://www.yellowfinbi.com/
+

@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Use Chrome Postman with Azure Search | Microsoft Azure | Hosted cloud search service"
-	description="Use Chrome Postman with Azure Search, a hosted cloud search service. Install and configure Postman. Create an Azure Search index. Post documents to and query the index with Postman."
-	services="search"
-	documentationCenter=""
-	authors="HeidiSteen"
-	manager="mblythe"
-	editor=""
+    pageTitle="Use Chrome Postman with Azure Search | Microsoft Azure | Hosted cloud search service"
+    description="Use Chrome Postman with Azure Search, a hosted cloud search service. Install and configure Postman. Create an Azure Search index. Post documents to and query the index with Postman."
+    services="search"
+    documentationCenter=""
+    authors="HeidiSteen"
+    manager="mblythe"
+    editor=""
     tags="azure-portal"/>
 
 <tags
-	ms.service="search"
-	ms.devlang="rest-api"
-	ms.workload="search"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.date="11/10/2015"
-	ms.author="heidist"/>
+    ms.service="search"
+    ms.devlang="rest-api"
+    ms.workload="search"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.date="11/10/2015"
+    ms.author="heidist"/>
 
 # How to use Chrome Postman with Azure Search #
 > [AZURE.SELECTOR]
@@ -46,8 +46,8 @@ To configure Postman, follow these steps:
 3. Ensure that `GET` is chosen.
 4. Click the **Headers** button.
 5. Enter values for:
-	- `api-key`:  [Admin Key]
-	- `Content-Type`: `application/json; charset=utf-8`
+    - `api-key`:  [Admin Key]
+    - `Content-Type`: `application/json; charset=utf-8`
 6. Click **Send** to issue the REST call to Azure Search and display the JSON response.
 
 ![][3]
@@ -60,15 +60,15 @@ Next, we will expand on what we completed in the last step by issuing a REST cal
 2. Change the request type from `GET` to `PUT`.
 3. In the RAW body content, enter the following JSON:
 
-	    {
-	    "name": "trails",
-	    "fields": [
-	    {"name": "id", "type": "Edm.String", "key": true, "searchable": false},
-	    {"name": "name", "type": "Edm.String"},
-	    {"name": "county", "type": "Edm.String"},
-	    {"name": "elevation", "type": "Edm.Int32"},
-	    {"name": "location", "type": "Edm.GeographyPoint"} ]
-	    }
+        {
+        "name": "trails",
+        "fields": [
+        {"name": "id", "type": "Edm.String", "key": true, "searchable": false},
+        {"name": "name", "type": "Edm.String"},
+        {"name": "county", "type": "Edm.String"},
+        {"name": "elevation", "type": "Edm.Int32"},
+        {"name": "location", "type": "Edm.GeographyPoint"} ]
+        }
 
 4. Click **Send**.
 
@@ -81,15 +81,15 @@ Now that the index is created, we can load documents into it. To do this, we'll 
 2. Change the HTTP type to `POST`.
 3. In the RAW body content, enter the following JSON:
 
-	    {
-	      "value": [
-		    {"@search.action": "upload", "id": "233358", "name": "Pacific Crest National Scenic Trail", "county": "San Diego", "elevation":1294, "location": { "type": "Point", "coordinates": [-120.802102,49.00021] }},
-		    {"@search.action": "upload", "id": "801970", "name": "Lewis and Clark National Historic Trail", "county": "Richland", "elevation":584, "location": { "type": "Point", "coordinates": [-104.8546903,48.1264084] }},
-		    {"@search.action": "upload", "id": "1144102", "name": "Intake Trail", "county": "Umatilla", "elevation":1076, "location": { "type": "Point", "coordinates": [-118.0468873,45.9981939] }},
-		    {"@search.action": "upload", "id": "1509897", "name": "Burke Gilman Trail", "county": "King", "elevation":10, "location": { "type": "Point", "coordinates": [-122.2754036,47.7059315] }},
-		    {"@search.action": "upload", "id": "1517508", "name": "Cavanaugh-Oso Truck Trail", "county": "Skagit", "elevation":339, "location": { "type": "Point", "coordinates": [-121.9470829,48.2981608] }}
-	      ]
-	    }
+        {
+          "value": [
+            {"@search.action": "upload", "id": "233358", "name": "Pacific Crest National Scenic Trail", "county": "San Diego", "elevation":1294, "location": { "type": "Point", "coordinates": [-120.802102,49.00021] }},
+            {"@search.action": "upload", "id": "801970", "name": "Lewis and Clark National Historic Trail", "county": "Richland", "elevation":584, "location": { "type": "Point", "coordinates": [-104.8546903,48.1264084] }},
+            {"@search.action": "upload", "id": "1144102", "name": "Intake Trail", "county": "Umatilla", "elevation":1076, "location": { "type": "Point", "coordinates": [-118.0468873,45.9981939] }},
+            {"@search.action": "upload", "id": "1509897", "name": "Burke Gilman Trail", "county": "King", "elevation":10, "location": { "type": "Point", "coordinates": [-122.2754036,47.7059315] }},
+            {"@search.action": "upload", "id": "1517508", "name": "Cavanaugh-Oso Truck Trail", "county": "Skagit", "elevation":339, "location": { "type": "Point", "coordinates": [-121.9470829,48.2981608] }}
+          ]
+        }
 
 4. Click **Send**.
 
@@ -123,3 +123,4 @@ You can also visit the [Video and tutorial list](search-video-demo-tutorial-list
 [4]: ./media/search-chrome-postman/create_index.png
 [5]: ./media/search-chrome-postman/upload_documents.png
 [6]: ./media/search-chrome-postman/query.png
+

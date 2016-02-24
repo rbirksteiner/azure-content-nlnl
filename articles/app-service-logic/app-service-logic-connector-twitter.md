@@ -52,7 +52,7 @@ A connector can be created within a logic app or be created directly from the Az
 4. [Optional] Click on 'Package Settings' and paste the 'Consumer Key' from your Twitter App into the 'clientId' field.  Paste the 'Consumer Secret' from your Twitter App into the 'clientSecret' field:  
 ![][10]
 5. Enter other required settings around connector Name, App Service, and Resource Group.
-6.	Click **Create**.
+6.  Click **Create**.
 
 > [AZURE.NOTE] If you want to further secure your Twitter API with the redirect URL, you can see details on how to do that [here](app-service-logic-oauth-security.md)
 
@@ -60,13 +60,13 @@ A connector can be created within a logic app or be created directly from the Az
 ## Using the Twitter Connector in your Logic App
 Once your API app is created, you can now use the Twitter connector as a trigger or action for your Logic Apps. To do this:
 
-1.	Create a new Logic App or open an existing Logic App:  
+1.  Create a new Logic App or open an existing Logic App:  
 ![][2]
-2.	Open **Triggers and Actions** to open the Logic Apps designer:  
+2.  Open **Triggers and Actions** to open the Logic Apps designer:  
 ![][3]
-3.	The Twitter connector is listed on the right hand side. Select it to automatically add it to your logic app:  
+3.  The Twitter connector is listed on the right hand side. Select it to automatically add it to your logic app:  
 ![][4]
-4.	Select **Authorize**, enter your Twitter credentials, and select **Authorize app**:  
+4.  Select **Authorize**, enter your Twitter credentials, and select **Authorize app**:  
 ![][5]
 
 
@@ -97,3 +97,4 @@ You can also review performance statistics and control security to the connector
 [8]: ./media/app-service-logic-connector-twitter/actions.png
 [9]: ./media/app-service-logic-connector-twitter/settings.PNG
 [10]: ./media/app-service-logic-connector-twitter/TwitterAPISettings.png
+

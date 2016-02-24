@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Notification Hubs Localized Breaking News Tutorial for iOS"
-	description="Learn how to use Azure Service Bus Notification Hubs to send localized breaking news notifications (iOS)."
-	services="notification-hubs"
-	documentationCenter="ios"
-	authors="wesmc7777"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Notification Hubs Localized Breaking News Tutorial for iOS"
+    description="Learn how to use Azure Service Bus Notification Hubs to send localized breaking news notifications (iOS)."
+    services="notification-hubs"
+    documentationCenter="ios"
+    authors="wesmc7777"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="notification-hubs"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="ios"
-	ms.devlang="objective-c"
-	ms.topic="article"
-	ms.date="12/16/2015"
-	ms.author="wesmc"/>
+    ms.service="notification-hubs"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="ios"
+    ms.devlang="objective-c"
+    ms.topic="article"
+    ms.date="12/16/2015"
+    ms.author="wesmc"/>
 
 # Use Notification Hubs to send localized breaking news to iOS devices
 
@@ -54,19 +54,19 @@ Note: one way to send localized notifications is to create multiple versions of 
 
 At a high level, templates are a way to specify how a specific device should receive a notification. The template specifies the exact payload format by referring to properties that are part of the message sent by your app back-end. In our case, we will send a locale-agnostic message containing all supported languages:
 
-	{
-		"News_English": "...",
-		"News_French": "...",
-		"News_Mandarin": "..."
-	}
+    {
+        "News_English": "...",
+        "News_French": "...",
+        "News_Mandarin": "..."
+    }
 
 Then we will ensure that devices register with a template that refers to the correct property. For instance,  an iOS app that wants to register for French news will register the following:
 
-	{
-		aps:{
-			alert: "$(News_French)"
-		}
-	}
+    {
+        aps:{
+            alert: "$(News_French)"
+        }
+    }
 
 Templates are a very powerful feature you can learn more about in our [Templates](notification-hubs-templates.md) article.
 
@@ -88,86 +88,86 @@ Then make sure to add an IBOutlet in your ViewController.h as shown below:
 
 1. In your Notification.h add the *retrieveLocale* method, and modify the store and subscribe methods as shown below:
 
-		- (void) storeCategoriesAndSubscribeWithLocale:(int) locale categories:(NSSet*) categories completion: (void (^)(NSError* error))completion;
+        - (void) storeCategoriesAndSubscribeWithLocale:(int) locale categories:(NSSet*) categories completion: (void (^)(NSError* error))completion;
 
-		- (void) subscribeWithLocale:(int) locale categories:(NSSet*) categories completion:(void (^)(NSError *))completion;
+        - (void) subscribeWithLocale:(int) locale categories:(NSSet*) categories completion:(void (^)(NSError *))completion;
 
-		- (NSSet*) retrieveCategories;
+        - (NSSet*) retrieveCategories;
 
-		- (int) retrieveLocale;
+        - (int) retrieveLocale;
 
-	In your Notification.m, modify the *storeCategoriesAndSubscribe* method, by adding the locale parameter and storing it in the user defaults:
+    In your Notification.m, modify the *storeCategoriesAndSubscribe* method, by adding the locale parameter and storing it in the user defaults:
 
-		- (void) storeCategoriesAndSubscribeWithLocale:(int) locale categories:(NSSet *)categories completion:(void (^)(NSError *))completion {
-		    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-		    [defaults setValue:[categories allObjects] forKey:@"BreakingNewsCategories"];
-		    [defaults setInteger:locale forKey:@"BreakingNewsLocale"];
-		    [defaults synchronize];
+        - (void) storeCategoriesAndSubscribeWithLocale:(int) locale categories:(NSSet *)categories completion:(void (^)(NSError *))completion {
+            NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setValue:[categories allObjects] forKey:@"BreakingNewsCategories"];
+            [defaults setInteger:locale forKey:@"BreakingNewsLocale"];
+            [defaults synchronize];
 
-		    [self subscribeWithLocale: locale categories:categories completion:completion];
-		}
+            [self subscribeWithLocale: locale categories:categories completion:completion];
+        }
 
-	Then modify the *subscribe* method to include the locale:
+    Then modify the *subscribe* method to include the locale:
 
-		- (void) subscribeWithLocale: (int) locale categories:(NSSet *)categories completion:(void (^)(NSError *))completion{
-		    SBNotificationHub* hub = [[SBNotificationHub alloc] initWithConnectionString:@"<connection string>" notificationHubPath:@"<hub name>"];
+        - (void) subscribeWithLocale: (int) locale categories:(NSSet *)categories completion:(void (^)(NSError *))completion{
+            SBNotificationHub* hub = [[SBNotificationHub alloc] initWithConnectionString:@"<connection string>" notificationHubPath:@"<hub name>"];
 
-		    NSString* localeString;
-		    switch (locale) {
-		        case 0:
-		            localeString = @"English";
-		            break;
-		        case 1:
-		            localeString = @"French";
-		            break;
-		        case 2:
-		            localeString = @"Mandarin";
-		            break;
-		    }
+            NSString* localeString;
+            switch (locale) {
+                case 0:
+                    localeString = @"English";
+                    break;
+                case 1:
+                    localeString = @"French";
+                    break;
+                case 2:
+                    localeString = @"Mandarin";
+                    break;
+            }
 
-		    NSString* template = [NSString stringWithFormat:@"{\"aps\":{\"alert\":\"$(News_%@)\"},\"inAppMessage\":\"$(News_%@)\"}", localeString, localeString];
+            NSString* template = [NSString stringWithFormat:@"{\"aps\":{\"alert\":\"$(News_%@)\"},\"inAppMessage\":\"$(News_%@)\"}", localeString, localeString];
 
-		    [hub registerTemplateWithDeviceToken:self.deviceToken name:@"localizednewsTemplate" jsonBodyTemplate:template expiryTemplate:@"0" tags:categories completion:completion];
-		}
+            [hub registerTemplateWithDeviceToken:self.deviceToken name:@"localizednewsTemplate" jsonBodyTemplate:template expiryTemplate:@"0" tags:categories completion:completion];
+        }
 
-	Note how we are now using the method *registerTemplateWithDeviceToken*, instead of *registerNativeWithDeviceToken*. When we register for a template we have to provide the json template and also a name for the template (as our app might want to register different templates). Make sure to register your categories as tags, as we want to make sure to receive the notifciations for those news.
+    Note how we are now using the method *registerTemplateWithDeviceToken*, instead of *registerNativeWithDeviceToken*. When we register for a template we have to provide the json template and also a name for the template (as our app might want to register different templates). Make sure to register your categories as tags, as we want to make sure to receive the notifciations for those news.
 
-	Add a method to retrieve the locale from the user default settings:
+    Add a method to retrieve the locale from the user default settings:
 
-		- (int) retrieveLocale {
-		    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+        - (int) retrieveLocale {
+            NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
 
-		    int locale = [defaults integerForKey:@"BreakingNewsLocale"];
+            int locale = [defaults integerForKey:@"BreakingNewsLocale"];
 
-		    return locale < 0?0:locale;
-		}
+            return locale < 0?0:locale;
+        }
 
 2. Now that we modified our Notifications class, we have to make sure that our ViewController makes use of the new UISegmentControl. Add the following line in the *viewDidLoad* method to make sure to show the locale that is currently selected:
 
-		self.Locale.selectedSegmentIndex = [notifications retrieveLocale];
+        self.Locale.selectedSegmentIndex = [notifications retrieveLocale];
 
-	Then, in your *subscribe* method, change your call to the *storeCategoriesAndSubscribe* to the following:
+    Then, in your *subscribe* method, change your call to the *storeCategoriesAndSubscribe* to the following:
 
-		[notifications storeCategoriesAndSubscribeWithLocale: self.Locale.selectedSegmentIndex categories:[NSSet setWithArray:categories] completion: ^(NSError* error) {
-	        if (!error) {
-	            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" message:
-	                                  @"Subscribed!" delegate:nil cancelButtonTitle:
-	                                  @"OK" otherButtonTitles:nil, nil];
-	            [alert show];
-	        } else {
-	            NSLog(@"Error subscribing: %@", error);
-	        }
-	    }];
+        [notifications storeCategoriesAndSubscribeWithLocale: self.Locale.selectedSegmentIndex categories:[NSSet setWithArray:categories] completion: ^(NSError* error) {
+            if (!error) {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" message:
+                                      @"Subscribed!" delegate:nil cancelButtonTitle:
+                                      @"OK" otherButtonTitles:nil, nil];
+                [alert show];
+            } else {
+                NSLog(@"Error subscribing: %@", error);
+            }
+        }];
 
 3. Finally, you have to update the *didRegisterForRemoteNotificationsWithDeviceToken* method in your AppDelegate.m, so that you can correctly refresh your registration when your app starts. Change your call to the *subscribe* method of notifications with the following:
 
-		NSSet* categories = [self.notifications retrieveCategories];
-	    int locale = [self.notifications retrieveLocale];
-	    [self.notifications subscribeWithLocale: locale categories:categories completion:^(NSError* error) {
-	        if (error != nil) {
-	            NSLog(@"Error registering for notifications: %@", error);
-	        }
-	    }];
+        NSSet* categories = [self.notifications retrieveCategories];
+        int locale = [self.notifications retrieveLocale];
+        [self.notifications subscribeWithLocale: locale categories:categories completion:^(NSError* error) {
+            if (error != nil) {
+                NSLog(@"Error registering for notifications: %@", error);
+            }
+        }];
 
 ##(optional) Send localized template notifications from .NET console app.
 
@@ -179,68 +179,68 @@ Then make sure to add an IBOutlet in your ViewController.h as shown below:
 
 If you don't have access to Visual Studio, or want to just test sending the localized template notifications directly from the app on the device.  You can simple add the localized template parameters to the `SendNotificationRESTAPI` method you defined in the previous tutorial.
 
-		- (void)SendNotificationRESTAPI:(NSString*)categoryTag
-		{
-		    NSURLSession* session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration
-									 defaultSessionConfiguration] delegate:nil delegateQueue:nil];
+        - (void)SendNotificationRESTAPI:(NSString*)categoryTag
+        {
+            NSURLSession* session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration
+                                     defaultSessionConfiguration] delegate:nil delegateQueue:nil];
 
-		    NSString *json;
+            NSString *json;
 
-		    // Construct the messages REST endpoint
-		    NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@/messages/%@", HubEndpoint,
-		                                       HUBNAME, API_VERSION]];
+            // Construct the messages REST endpoint
+            NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@/messages/%@", HubEndpoint,
+                                               HUBNAME, API_VERSION]];
 
-		    // Generated the token to be used in the authorization header.
-		    NSString* authorizationToken = [self generateSasToken:[url absoluteString]];
+            // Generated the token to be used in the authorization header.
+            NSString* authorizationToken = [self generateSasToken:[url absoluteString]];
 
-		    //Create the request to add the template notification message to the hub
-		    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-		    [request setHTTPMethod:@"POST"];
+            //Create the request to add the template notification message to the hub
+            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+            [request setHTTPMethod:@"POST"];
 
-		    // Add the category as a tag
-		    [request setValue:categoryTag forHTTPHeaderField:@"ServiceBusNotification-Tags"];
+            // Add the category as a tag
+            [request setValue:categoryTag forHTTPHeaderField:@"ServiceBusNotification-Tags"];
 
-			// Template notification
-	        json = [NSString stringWithFormat:@"{\"messageParam\":\"Breaking %@ News : %@\","
-					\"News_English\":\"Breaking %@ News in English : %@\","
-					\"News_French\":\"Breaking %@ News in French : %@\","
-					\"News_Mandarin\":\"Breaking %@ News in Mandarin : %@\","
-	                categoryTag, self.notificationMessage.text,
-	                categoryTag, self.notificationMessage.text,  // insert English localized news here
-	                categoryTag, self.notificationMessage.text,  // insert French localized news here
-	                categoryTag, self.notificationMessage.text]; // insert Mandarin localized news here
+            // Template notification
+            json = [NSString stringWithFormat:@"{\"messageParam\":\"Breaking %@ News : %@\","
+                    \"News_English\":\"Breaking %@ News in English : %@\","
+                    \"News_French\":\"Breaking %@ News in French : %@\","
+                    \"News_Mandarin\":\"Breaking %@ News in Mandarin : %@\","
+                    categoryTag, self.notificationMessage.text,
+                    categoryTag, self.notificationMessage.text,  // insert English localized news here
+                    categoryTag, self.notificationMessage.text,  // insert French localized news here
+                    categoryTag, self.notificationMessage.text]; // insert Mandarin localized news here
 
-	        // Signify template notification format
-	        [request setValue:@"template" forHTTPHeaderField:@"ServiceBusNotification-Format"];
+            // Signify template notification format
+            [request setValue:@"template" forHTTPHeaderField:@"ServiceBusNotification-Format"];
 
-			// JSON Content-Type
-			[request setValue:@"application/json;charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+            // JSON Content-Type
+            [request setValue:@"application/json;charset=utf-8" forHTTPHeaderField:@"Content-Type"];
 
-		    //Authenticate the notification message POST request with the SaS token
-		    [request setValue:authorizationToken forHTTPHeaderField:@"Authorization"];
+            //Authenticate the notification message POST request with the SaS token
+            [request setValue:authorizationToken forHTTPHeaderField:@"Authorization"];
 
-		    //Add the notification message body
-		    [request setHTTPBody:[json dataUsingEncoding:NSUTF8StringEncoding]];
+            //Add the notification message body
+            [request setHTTPBody:[json dataUsingEncoding:NSUTF8StringEncoding]];
 
-		    // Send the REST request
-		    NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request
-		               completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
-	           {
-	           NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) response;
-	               if (error || httpResponse.statusCode != 200)
-	               {
-	                   NSLog(@"\nError status: %d\nError: %@", httpResponse.statusCode, error);
-	               }
-	               if (data != NULL)
-	               {
-	                   //xmlParser = [[NSXMLParser alloc] initWithData:data];
-	                   //[xmlParser setDelegate:self];
-	                   //[xmlParser parse];
-	               }
-	           }];
+            // Send the REST request
+            NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request
+                       completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
+               {
+               NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) response;
+                   if (error || httpResponse.statusCode != 200)
+                   {
+                       NSLog(@"\nError status: %d\nError: %@", httpResponse.statusCode, error);
+                   }
+                   if (data != NULL)
+                   {
+                       //xmlParser = [[NSXMLParser alloc] initWithData:data];
+                       //[xmlParser setDelegate:self];
+                       //[xmlParser parse];
+                   }
+               }];
 
-		    [dataTask resume];
-		}
+            [dataTask resume];
+        }
 
 
 
@@ -288,3 +288,4 @@ For more information on using templates, see:
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
+

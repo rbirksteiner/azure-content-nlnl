@@ -1,21 +1,21 @@
 
 <properties
-	pageTitle="Azure Authenticator for Android | Microsoft Azure"
-	description="Microsoft Azure Authenticator app can be used to sign-in to access work resources. The Azure Authenticator app notifies you of a pending two-factor verification request by displaying an alert to your mobile device."
-	services="active-directory"
-	documentationCenter=""
-	authors="femila"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Azure Authenticator for Android | Microsoft Azure"
+    description="Microsoft Azure Authenticator app can be used to sign-in to access work resources. The Azure Authenticator app notifies you of a pending two-factor verification request by displaying an alert to your mobile device."
+    services="active-directory"
+    documentationCenter=""
+    authors="femila"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/24/2015"
-	ms.author="femila"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/24/2015"
+    ms.author="femila"/>
 
 # Azure Authenticator for Android
 
@@ -120,3 +120,4 @@ On a Samsung Android device, device administrator privileges must be removed as 
 ##Troubleshooting
 
 If you see the  **Keystore Error**, this could be because you don’t have the lock screen set up with a PIN. To work around this issue, uninstall the Azure Authenticator app, configure a PIN for your lock screen, and reinstall the app.
+

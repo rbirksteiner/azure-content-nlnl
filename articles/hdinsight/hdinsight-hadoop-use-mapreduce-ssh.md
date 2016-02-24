@@ -6,7 +6,7 @@
    authors="Blackmist"
    manager="paulettm"
    editor="cgronlun"
-	tags="azure-portal"/>
+    tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -37,11 +37,11 @@ To complete the steps in this article, you will need the following:
 
 Connect to the fully qualified domain name (FQDN) of your HDInsight cluster by using the SSH command. The FQDN will be the name you gave the cluster, followed by **.azurehdinsight.net**. For example, the following would connect to a cluster named **myhdinsight**:
 
-	ssh admin@myhdinsight-ssh.azurehdinsight.net
+    ssh admin@myhdinsight-ssh.azurehdinsight.net
 
 **If you provided a certificate key for SSH authentication** when you created the HDInsight cluster, you may need to specify the location of the private key on your client system, for example:
 
-	ssh admin@myhdinsight-ssh.azurehdinsight.net -i ~/mykey.key
+    ssh admin@myhdinsight-ssh.azurehdinsight.net -i ~/mykey.key
 
 **If you provided a password for SSH authentication** when you created the HDInsight cluster, you will need to provide the password when prompted.
 
@@ -57,40 +57,40 @@ For more information on using PuTTY, see [Use SSH with Linux-based Hadoop on HDI
 
 1. After you are connected to the HDInsight cluster, use the following **Hadoop** command to start a MapReduce job:
 
-		hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/WordCountOutput
+        hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/WordCountOutput
 
-	This starts the **wordcount** class, which is contained in the **hadoop-mapreduce-examples.jar** file. As input, it uses the **wasb://example/data/gutenberg/davinci.txt** document, and output is stored at **wasb:///example/data/WordCountOutput**.
+    This starts the **wordcount** class, which is contained in the **hadoop-mapreduce-examples.jar** file. As input, it uses the **wasb://example/data/gutenberg/davinci.txt** document, and output is stored at **wasb:///example/data/WordCountOutput**.
 
-	> [AZURE.NOTE] For more information about this MapReduce job and the example data, see [Use MapReduce in Hadoop on HDInsight](hdinsight-use-mapreduce.md).
+    > [AZURE.NOTE] For more information about this MapReduce job and the example data, see [Use MapReduce in Hadoop on HDInsight](hdinsight-use-mapreduce.md).
 
 2. The job emits details as it processes, and it returns information similar to the following when the job completes:
 
-		File Input Format Counters
+        File Input Format Counters
         Bytes Read=1395666
-		File Output Format Counters
+        File Output Format Counters
         Bytes Written=337623
 
 3. When the job completes, use the following command to list the output files that are stored at **wasb://example/data/WordCountOutput**:
 
-		hdfs dfs -ls wasb:///example/data/WordCountOutput
+        hdfs dfs -ls wasb:///example/data/WordCountOutput
 
-	This should display two files, **_SUCCESS** and **part-r-00000**. The **part-r-00000** file contains the output for this job.
+    This should display two files, **_SUCCESS** and **part-r-00000**. The **part-r-00000** file contains the output for this job.
 
-	> [AZURE.NOTE] Some MapReduce jobs may split the results across multiple **part-r-#####** files. If so, use the ##### suffix to indicate the order of the files.
+    > [AZURE.NOTE] Some MapReduce jobs may split the results across multiple **part-r-#####** files. If so, use the ##### suffix to indicate the order of the files.
 
 4. To view the output, use the following command:
 
-		hdfs dfs -cat wasb:///example/data/WordCountOutput/part-r-00000
+        hdfs dfs -cat wasb:///example/data/WordCountOutput/part-r-00000
 
-	This displays a list of the words that are contained in the **wasb://example/data/gutenberg/davinci.txt** file and the number of times each word occured. The following is an example of the data that will be contained in the file:
+    This displays a list of the words that are contained in the **wasb://example/data/gutenberg/davinci.txt** file and the number of times each word occured. The following is an example of the data that will be contained in the file:
 
-		wreathed        3
-		wreathing       1
-		wreaths 		1
-		wrecked 		3
-		wrenching       1
-		wretched        6
-		wriggling       1
+        wreathed        3
+        wreathing       1
+        wreaths         1
+        wrecked         3
+        wrenching       1
+        wretched        6
+        wriggling       1
 
 ##<a id="summary"></a>Summary
 
@@ -107,3 +107,4 @@ For information about other ways you can work with Hadoop on HDInsight:
 * [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
 
 * [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
+

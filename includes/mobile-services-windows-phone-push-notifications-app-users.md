@@ -7,7 +7,7 @@ Next, you must change the way that push notifications are registered to make sur
 
 3. Open the MainPage.xaml.cs project file and replace the **OnNavigatedTo** method override with the following:
 
-	    protected override async void OnNavigatedTo(NavigationEventArgs e)
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             await AuthenticateAsync();            
             App.AcquirePushChannel();

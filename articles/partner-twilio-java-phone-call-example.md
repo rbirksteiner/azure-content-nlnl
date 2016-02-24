@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How to Make a phone call from Twilio (Java) | Microsoft Azure" 
-	description="Learn how to make a phone call from a web page using Twilio in a Java application on Azure." 
-	services="" 
-	documentationCenter="java" 
-	authors="devinrader" 
-	manager="twilio" 
-	editor="mollybos"/>
+    pageTitle="How to Make a phone call from Twilio (Java) | Microsoft Azure" 
+    description="Learn how to make a phone call from a web page using Twilio in a Java application on Azure." 
+    services="" 
+    documentationCenter="java" 
+    authors="devinrader" 
+    manager="twilio" 
+    editor="mollybos"/>
 
 <tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="11/25/2014" 
-	ms.author="microsofthelp@twilio.com"/>
+    ms.service="multiple" 
+    ms.workload="na" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="Java" 
+    ms.topic="article" 
+    ms.date="11/25/2014" 
+    ms.author="microsofthelp@twilio.com"/>
 
 # How to Make a Phone Call Using Twilio in a Java Application on Azure 
 
@@ -209,3 +209,4 @@ For additional information about Twilio, see [https://www.twilio.com/docs][twili
 [twilio_say]: http://www.twilio.com/docs/api/twiml/say
 [twilio_java]: ./media/partner-twilio-java-phone-call-example/WA_TwilioJavaCallForm.jpg
 [twilio_java_response]: ./media/partner-twilio-java-phone-call-example/WA_TwilioJavaMakeCall.jpg
+

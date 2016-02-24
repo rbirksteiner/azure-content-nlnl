@@ -29,3 +29,4 @@ While in trial mode, you can create two collections with a 10 user per collectio
 Can’t wait? Watch a quick video on how to [create a cloud deployment](http://azure.microsoft.com/documentation/videos/azure-remoteapp-cloud-deployment-overview/).
 
 Got feedback? Post questions to [the discussion forums](http://feedback.azure.com/forums/247748-azure-remoteapp). If you have an [Azure support plan](http://azure.microsoft.com/support/plans/), you can submit a support case. Everyone can submit feedback on our [Feedback forum](http://feedback.azure.com/forums/247748-azure-remoteapp).  
+

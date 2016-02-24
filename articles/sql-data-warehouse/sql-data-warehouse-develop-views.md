@@ -55,11 +55,11 @@ Views are a smart way to enforce performance optimized joins between tables. For
 Views in SQL Data Warehouse are metadata only. 
 
 Consequently the following options aren't available:
-- 	There is no schema binding option
-- 	Base tables cannot be updated through the view
-- 	Views cannot be created over temporary tables
-- 	There is no support for the EXPAND / NOEXPAND Hints
-- 	There are no indexed views in SQL Data Warehouse
+-   There is no schema binding option
+-   Base tables cannot be updated through the view
+-   Views cannot be created over temporary tables
+-   There is no support for the EXPAND / NOEXPAND Hints
+-   There are no indexed views in SQL Data Warehouse
 
 
 ## Next steps
@@ -73,5 +73,6 @@ For more development tips, see [SQL Data Warehouse development overview][].
 <!--MSDN references-->
 
 <!--Other Web references-->
+
 
 

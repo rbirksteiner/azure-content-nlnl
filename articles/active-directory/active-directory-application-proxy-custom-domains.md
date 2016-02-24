@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Working with Custom Domains in Azure AD Application Proxy | Microsoft Azure"
-	description="Covers how work with custom domains in Azure AD Application Proxy."
-	services="active-directory"
-	documentationCenter=""
-	authors="kgremban"
-	manager="StevenPo"
-	editor=""/>
+    pageTitle="Working with Custom Domains in Azure AD Application Proxy | Microsoft Azure"
+    description="Covers how work with custom domains in Azure AD Application Proxy."
+    services="active-directory"
+    documentationCenter=""
+    authors="kgremban"
+    manager="StevenPo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/19/2015"
-	ms.author="kgremban"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/19/2015"
+    ms.author="kgremban"/>
 
 # Working with custom domains in Azure AD Application Proxy
 > [AZURE.NOTE] Application Proxy is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory. For more information, see [Azure Active Directory editions](active-directory-editions.md).
@@ -89,3 +89,4 @@ There's a lot more you can do with Application Proxy:
 
 * [Sign up for Azure as an organization](sign-up-organization.md)
 * [Azure Identity](fundamentals-identity.md)
+

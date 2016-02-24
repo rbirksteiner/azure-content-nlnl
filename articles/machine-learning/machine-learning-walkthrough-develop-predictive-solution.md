@@ -1,21 +1,21 @@
 <properties
-	pageTitle="A predictive solution for credit risk with Machine Learning | Microsoft Azure"
-	description="A detailed walkthrough showing how to create a predictive analytics solution for credit risk assessment in Azure Machine Learning Studio."
-	keywords="credit risk, predictive analytics solution,risk assessment"
-	services="machine-learning"
-	documentationCenter=""
-	authors="garyericson"
-	manager="paulettm"
-	editor="cgronlun"/>
+    pageTitle="A predictive solution for credit risk with Machine Learning | Microsoft Azure"
+    description="A detailed walkthrough showing how to create a predictive analytics solution for credit risk assessment in Azure Machine Learning Studio."
+    keywords="credit risk, predictive analytics solution,risk assessment"
+    services="machine-learning"
+    documentationCenter=""
+    authors="garyericson"
+    manager="paulettm"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="10/13/2015"
-	ms.author="garye"/>
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="10/13/2015"
+    ms.author="garye"/>
 
 
 # Walkthrough: Develop a predictive analytics solution for credit risk assessment in Azure Machine Learning
@@ -34,12 +34,13 @@ Open Machine Learning Studio: [https://studio.azureml.net/Home](https://studio.a
 
 To create a credit risk assessment solution, we'll follow these steps:  
 
-1.	[Create a Machine Learning workspace](machine-learning-walkthrough-1-create-ml-workspace.md)
-2.	[Upload existing data](machine-learning-walkthrough-2-upload-data.md)
-3.	[Create a new experiment](machine-learning-walkthrough-3-create-new-experiment.md)
-4.	[Train and evaluate the models](machine-learning-walkthrough-4-train-and-evaluate-models.md)
-5.	[Deploy the web service](machine-learning-walkthrough-5-publish-web-service.md)
-6.	[Access the web service](machine-learning-walkthrough-6-access-web-service.md)
+1.  [Create a Machine Learning workspace](machine-learning-walkthrough-1-create-ml-workspace.md)
+2.  [Upload existing data](machine-learning-walkthrough-2-upload-data.md)
+3.  [Create a new experiment](machine-learning-walkthrough-3-create-new-experiment.md)
+4.  [Train and evaluate the models](machine-learning-walkthrough-4-train-and-evaluate-models.md)
+5.  [Deploy the web service](machine-learning-walkthrough-5-publish-web-service.md)
+6.  [Access the web service](machine-learning-walkthrough-6-access-web-service.md)
 
 This walkthrough is based on a simplified version of the
 [Credit risk prediction sample experiment](../machine-learning-sample-credit-risk-prediction.md) included with Machine Learning Studio.
+

@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Troubleshoot Application Proxy | Microsoft Azure"
-	description="Covers how to troubleshoot errors in Azure AD Application Proxy."
-	services="active-directory"
-	documentationCenter=""
-	authors="kgremban"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Troubleshoot Application Proxy | Microsoft Azure"
+    description="Covers how to troubleshoot errors in Azure AD Application Proxy."
+    services="active-directory"
+    documentationCenter=""
+    authors="kgremban"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/19/2015"
-	ms.author="kgremban"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/19/2015"
+    ms.author="kgremban"/>
 
 
 
@@ -96,3 +96,4 @@ There's a lot more you can do with Application Proxy:
 <!--Image references-->
 [1]: ./media/active-directory-application-proxy-troubleshoot/connectorproperties.png
 [2]: ./media/active-directory-application-proxy-troubleshoot/sessionlog.png
+

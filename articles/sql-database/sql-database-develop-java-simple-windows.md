@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Connect to SQL Database by using Java with JDBC on Windows"
-	description="Presents a Java code sample you can use to connect to Azure SQL Database. The sample uses JDBC, and it runs on a Windows client computer."
-	services="sql-database"
-	documentationCenter=""
-	authors="LuisBosquez"
-	manager="jeffreyg"
-	editor="genemi"/>
+    pageTitle="Connect to SQL Database by using Java with JDBC on Windows"
+    description="Presents a Java code sample you can use to connect to Azure SQL Database. The sample uses JDBC, and it runs on a Windows client computer."
+    services="sql-database"
+    documentationCenter=""
+    authors="LuisBosquez"
+    manager="jeffreyg"
+    editor="genemi"/>
 
 
 <tags
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="java"
-	ms.topic="article"
-	ms.date="12/08/2015"
-	ms.author="lbosq"/>
+    ms.service="sql-database"
+    ms.workload="data-management"
+    ms.tgt_pltfrm="na"
+    ms.devlang="java"
+    ms.topic="article"
+    ms.date="12/08/2015"
+    ms.author="lbosq"/>
 
 
 # Connect to SQL Database by using Java with JDBC on Windows
@@ -47,13 +47,13 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 -->
 
 
-	CREATE TABLE Person
-	(
-		id         INT    PRIMARY KEY    IDENTITY(1,1),
-		firstName  VARCHAR(32),
-		lastName   VARCHAR(32),
-		age        INT
-	);
+    CREATE TABLE Person
+    (
+        id         INT    PRIMARY KEY    IDENTITY(1,1),
+        firstName  VARCHAR(32),
+        lastName   VARCHAR(32),
+        age        INT
+    );
 
 
 ## Step 1: Get Connection String
@@ -77,54 +77,54 @@ The section contains the bulk of the Java code sample. It has comments indicatin
 Here next is the bulk of the Java code sample. The sample includes the `main` function of the `SQLDatabaseTest` class.
 
 
-	import java.sql.*;
-	import com.microsoft.sqlserver.jdbc.*;
+    import java.sql.*;
+    import com.microsoft.sqlserver.jdbc.*;
 
-	public class SQLDatabaseTest {
+    public class SQLDatabaseTest {
 
-		public static void main(String[] args) {
-			String connectionString =
-				"jdbc:sqlserver://your_server.database.windows.net:1433;"
-				+ "database=your_database;"
-				+ "user=your_user@your_server;"
-				+ "password=your_password;"
-				+ "encrypt=true;"
-				+ "trustServerCertificate=false;"
-				+ "hostNameInCertificate=*.database.windows.net;"
-				+ "loginTimeout=30;";
+        public static void main(String[] args) {
+            String connectionString =
+                "jdbc:sqlserver://your_server.database.windows.net:1433;"
+                + "database=your_database;"
+                + "user=your_user@your_server;"
+                + "password=your_password;"
+                + "encrypt=true;"
+                + "trustServerCertificate=false;"
+                + "hostNameInCertificate=*.database.windows.net;"
+                + "loginTimeout=30;";
 
-			// Declare the JDBC objects.
-			Connection connection = null;
-			Statement statement = null;
-			ResultSet resultSet = null;
-			PreparedStatement prepsInsertPerson = null;
-			PreparedStatement prepsUpdateAge = null;
+            // Declare the JDBC objects.
+            Connection connection = null;
+            Statement statement = null;
+            ResultSet resultSet = null;
+            PreparedStatement prepsInsertPerson = null;
+            PreparedStatement prepsUpdateAge = null;
 
-			try {
-				connection = DriverManager.getConnection(connectionString);
+            try {
+                connection = DriverManager.getConnection(connectionString);
 
-				// INSERT two rows into the table.
-				// ...
+                // INSERT two rows into the table.
+                // ...
 
-				// TRANSACTION and commit for an UPDATE.
-				// ...
+                // TRANSACTION and commit for an UPDATE.
+                // ...
 
-				// SELECT rows from the table.
-				// ...
-			}
-			catch (Exception e) {
-				e.printStackTrace();
-			}
-			finally {
-				// Close the connections after the data has been handled.
-				if (prepsInsertPerson != null) try { prepsInsertPerson.close(); } catch(Exception e) {}
-				if (prepsUpdateAge != null) try { prepsUpdateAge.close(); } catch(Exception e) {}
-				if (resultSet != null) try { resultSet.close(); } catch(Exception e) {}
-				if (statement != null) try { statement.close(); } catch(Exception e) {}
-				if (connection != null) try { connection.close(); } catch(Exception e) {}
-			}
-		}
-	}
+                // SELECT rows from the table.
+                // ...
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+            }
+            finally {
+                // Close the connections after the data has been handled.
+                if (prepsInsertPerson != null) try { prepsInsertPerson.close(); } catch(Exception e) {}
+                if (prepsUpdateAge != null) try { prepsUpdateAge.close(); } catch(Exception e) {}
+                if (resultSet != null) try { resultSet.close(); } catch(Exception e) {}
+                if (statement != null) try { statement.close(); } catch(Exception e) {}
+                if (connection != null) try { connection.close(); } catch(Exception e) {}
+            }
+        }
+    }
 
 
 Of course, to actually run the preceding Java code sample, you would have to put your real values into the connection string to replace the placeholders:
@@ -152,21 +152,21 @@ This Java segment issues a Transact-SQL INSERT statement to insert two rows into
 Copy-and-paste this short Java segment into the primary code sample where you see the comment `// INSERT two rows into the table.`.
 
 
-	// Create and execute an INSERT SQL prepared statement.
-	String insertSql = "INSERT INTO Person (firstName, lastName, age) VALUES "
-		+ "('Bill', 'Gates', 59), "
-		+ "('Steve', 'Ballmer', 59);";
+    // Create and execute an INSERT SQL prepared statement.
+    String insertSql = "INSERT INTO Person (firstName, lastName, age) VALUES "
+        + "('Bill', 'Gates', 59), "
+        + "('Steve', 'Ballmer', 59);";
 
-	prepsInsertPerson = connection.prepareStatement(
-		insertSql,
-		Statement.RETURN_GENERATED_KEYS);
-	prepsInsertPerson.execute();
-	// Retrieve the generated key from the insert.
-	resultSet = prepsInsertPerson.getGeneratedKeys();
-	// Iterate through the set of generated keys.
-	while (resultSet.next()) {
-		System.out.println("Generated: " + resultSet.getString(1));
-	}
+    prepsInsertPerson = connection.prepareStatement(
+        insertSql,
+        Statement.RETURN_GENERATED_KEYS);
+    prepsInsertPerson.execute();
+    // Retrieve the generated key from the insert.
+    resultSet = prepsInsertPerson.getGeneratedKeys();
+    // Iterate through the set of generated keys.
+    while (resultSet.next()) {
+        System.out.println("Generated: " + resultSet.getString(1));
+    }
 
 
 ## Step 4: Commit a transaction
@@ -182,21 +182,21 @@ The following segment of Java code issues a Transact-SQL UPDATE statement to inc
 Copy-and-paste this short Java segment into the primary code sample where you see the comment `// TRANSACTION and commit for an UPDATE.`.
 
 
-	// Set AutoCommit value to false to execute a single transaction at a time.
-	connection.setAutoCommit(false);
+    // Set AutoCommit value to false to execute a single transaction at a time.
+    connection.setAutoCommit(false);
 
-	// Write the SQL Update instruction and get the PreparedStatement object.
-	String transactionSql = "UPDATE Person SET Person.age = Person.age + 1;";
-	prepsUpdateAge = connection.prepareStatement(transactionSql);
+    // Write the SQL Update instruction and get the PreparedStatement object.
+    String transactionSql = "UPDATE Person SET Person.age = Person.age + 1;";
+    prepsUpdateAge = connection.prepareStatement(transactionSql);
 
-	// Execute the statement.
-	prepsUpdateAge.executeUpdate();
+    // Execute the statement.
+    prepsUpdateAge.executeUpdate();
 
-	//Commit the transaction.
-	connection.commit();
+    //Commit the transaction.
+    connection.commit();
 
-	// Return the AutoCommit value to true.
-	connection.setAutoCommit(true);
+    // Return the AutoCommit value to true.
+    connection.setAutoCommit(true);
 
 
 ## Step 4: Execute a query
@@ -213,17 +213,18 @@ This Java segment executes a Transact-SQL SELECT statement to see all the update
 Copy-and-paste this short Java segment into the primary code sample where you see the comment `// SELECT rows from a table.`.
 
 
-	// Create and execute a SELECT SQL statement.
-	String selectSql = "SELECT firstName, lastName, age FROM dbo.Person";
-	statement = connection.createStatement();
-	resultSet = statement.executeQuery(selectSql);
+    // Create and execute a SELECT SQL statement.
+    String selectSql = "SELECT firstName, lastName, age FROM dbo.Person";
+    statement = connection.createStatement();
+    resultSet = statement.executeQuery(selectSql);
 
-	// Iterate through the result set and print the attributes.
-	while (resultSet.next()) {
-		System.out.println(resultSet.getString(2) + " "
-			+ resultSet.getString(3));
-	}
+    // Iterate through the result set and print the attributes.
+    while (resultSet.next()) {
+        System.out.println(resultSet.getString(2) + " "
+            + resultSet.getString(3));
+    }
 
 ## Next steps
 
 For more information, see the [Java Developer Center](/develop/java/).
+

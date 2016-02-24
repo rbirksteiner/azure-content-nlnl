@@ -29,50 +29,51 @@ NICs have a child object named **ipConfigurations** containing the following pro
 
 Sample public IP address in JSON format:
 
-	{
-	    "name": "lb-nic1-be",
-	    "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/nrprg/providers/Microsoft.Network/networkInterfaces/lb-nic1-be",
-	    "etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
-	    "type": "Microsoft.Network/networkInterfaces",
-	    "location": "eastus",
-	    "properties": {
-	        "provisioningState": "Succeeded",
-	        "resourceGuid": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-	        "ipConfigurations": [
-	            {
-	                "name": "NIC-config",
-	                "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/nrprg/providers/Microsoft.Network/networkInterfaces/lb-nic1-be/ipConfigurations/NIC-config",
-	                "etag": "W/\"0027f1a2-3ac8-49de-b5d5-fd46550500b1\"",
-	                "properties": {
-	                    "provisioningState": "Succeeded",
-	                    "privateIPAddress": "10.0.0.4",
-	                    "privateIPAllocationMethod": "Dynamic",
-	                    "subnet": {
-	                        "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/NRPRG/providers/Microsoft.Network/virtualNetworks/NRPVnet/subnets/NRPVnetSubnet"
-	                    },
-	                    "loadBalancerBackendAddressPools": [
-	                        {
-	                            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/NRPbackendpool"
-	                        }
-	                    ],
-	                    "loadBalancerInboundNatRules": [
-	                        {
-	                            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp1"
-	                        }
-	                    ]
-	                }
-	            }
-	        ],
-	        "dnsSettings": { ... },
-	        "macAddress": "00-0D-3A-10-F1-29",
-	        "enableIPForwarding": false,
-	        "primary": true,
-	        "virtualMachine": {
-	            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/nrprg/providers/Microsoft.Compute/virtualMachines/web1"
-	        }
-	    }
-	}
+    {
+        "name": "lb-nic1-be",
+        "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/nrprg/providers/Microsoft.Network/networkInterfaces/lb-nic1-be",
+        "etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
+        "type": "Microsoft.Network/networkInterfaces",
+        "location": "eastus",
+        "properties": {
+            "provisioningState": "Succeeded",
+            "resourceGuid": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+            "ipConfigurations": [
+                {
+                    "name": "NIC-config",
+                    "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/nrprg/providers/Microsoft.Network/networkInterfaces/lb-nic1-be/ipConfigurations/NIC-config",
+                    "etag": "W/\"0027f1a2-3ac8-49de-b5d5-fd46550500b1\"",
+                    "properties": {
+                        "provisioningState": "Succeeded",
+                        "privateIPAddress": "10.0.0.4",
+                        "privateIPAllocationMethod": "Dynamic",
+                        "subnet": {
+                            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/NRPRG/providers/Microsoft.Network/virtualNetworks/NRPVnet/subnets/NRPVnetSubnet"
+                        },
+                        "loadBalancerBackendAddressPools": [
+                            {
+                                "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/NRPbackendpool"
+                            }
+                        ],
+                        "loadBalancerInboundNatRules": [
+                            {
+                                "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp1"
+                            }
+                        ]
+                    }
+                }
+            ],
+            "dnsSettings": { ... },
+            "macAddress": "00-0D-3A-10-F1-29",
+            "enableIPForwarding": false,
+            "primary": true,
+            "virtualMachine": {
+                "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/nrprg/providers/Microsoft.Compute/virtualMachines/web1"
+            }
+        }
+    }
 
 ### Additional resources
 
 - Read the [REST API reference documentation](https://msdn.microsoft.com/library/azure/mt163579.aspx) for NICs.
+

@@ -75,9 +75,9 @@ Before you provision the virtual device, you need to make the following preparat
 >[AZURE.IMPORTANT] **Make sure that the virtual network is in the same region as the cloud storage accounts that you are going to be using with the virtual device.**
 
 - You can create [Azure Virtual Machines](../virtual-machines/virtual-machines-about.md) (host servers) in the virtual network that can use the volumes exposed by the virtual device. These servers must meet the following requirements:
-	- Be Windows or Linux VMs with iSCSI Initiator software installed.
-	- Be running in the same virtual network as the virtual device.
-	- Be able to connect to the iSCSI target of the virtual device through the internal IP address of the virtual device.
+    - Be Windows or Linux VMs with iSCSI Initiator software installed.
+    - Be running in the same virtual network as the virtual device.
+    - Be able to connect to the iSCSI target of the virtual device through the internal IP address of the virtual device.
 
 - Make sure you have configured support for iSCSI and cloud traffic on the same virtual network.
 
@@ -121,18 +121,18 @@ Perform the following steps to create the StorSimple virtual device.
 
 3. In the **Create Virtual Device** dialog box, specify the following details.
 
-	![StorSimple create virtual device](./media/storsimple-virtual-device/StorSimple_CreateVirtualDevice1.png)
+    ![StorSimple create virtual device](./media/storsimple-virtual-device/StorSimple_CreateVirtualDevice1.png)
 
-	1. **Name** – A unique name for your virtual device.
+    1. **Name** – A unique name for your virtual device.
 
-	2. **Virtual Network** – The name of the virtual network that you want to use with this virtual device.
+    2. **Virtual Network** – The name of the virtual network that you want to use with this virtual device.
 
-	3. **Subnet** – The subnet on the virtual network for use with the virtual device.
+    3. **Subnet** – The subnet on the virtual network for use with the virtual device.
 
-	4. **Storage Account for Virtual Device Creation** – The storage account that will be used to hold the image of the virtual device during provisioning. This storage account should be in the same region as the virtual device and virtual network. It should not be used for data storage by either the physical device or the virtual device. By default, a new storage account will be created for this purpose. However, if you know that you already have a storage account that is suitable for this use, you can select it from the list.
+    4. **Storage Account for Virtual Device Creation** – The storage account that will be used to hold the image of the virtual device during provisioning. This storage account should be in the same region as the virtual device and virtual network. It should not be used for data storage by either the physical device or the virtual device. By default, a new storage account will be created for this purpose. However, if you know that you already have a storage account that is suitable for this use, you can select it from the list.
 
 4. Click the check mark to indicate that you understand that the data stored on the virtual device will be hosted in a Microsoft datacenter. A virtual device will now be created. It may take up to 45 minutes to 1 hour to create a virtual device.
-	![StorSimple virtual device creating stage](./media/storsimple-virtual-device/StorSimple_VirtualDeviceCreating1M.png)
+    ![StorSimple virtual device creating stage](./media/storsimple-virtual-device/StorSimple_VirtualDeviceCreating1M.png)
 
 When you use only a physical device, your encryption key is kept with your device; therefore, Microsoft cannot decrypt it. When you use a virtual device, both the encryption key and the decryption key are stored in Microsoft Azure. For more information, see [Security considerations for using a virtual device](#security-considerations-for-using-a-virtual-device).
 
@@ -147,16 +147,16 @@ Perform the following steps to configure and register your StorSimple virtual de
 
 2. Click **Complete Device Configuration**. This starts the Configure device wizard.
 
-	![StorSimple complete device setup in Devices page](./media/storsimple-virtual-device/StorSimple_CompleteDeviceSetupSVA1M.png)
+    ![StorSimple complete device setup in Devices page](./media/storsimple-virtual-device/StorSimple_CompleteDeviceSetupSVA1M.png)
 
 1. In the Configure device wizard:
 
-	1. Enter the **Service Data Encryption Key** in the space provided.
-	2. Enter the **Snapshot Manager password**. The **Snapshot Manager password** must be 14 or 15 characters in length and must contain a combination of lowercase, uppercase, numeric, and special characters.
-	3. Enter the **device administrator password**. The **device administrator password** must be between 8 to 15 characters and must contain a combination of lowercase, uppercase, numeric, and special characters.
-	4. Click the check icon to finish the initial configuration and registration of the virtual device.
+    1. Enter the **Service Data Encryption Key** in the space provided.
+    2. Enter the **Snapshot Manager password**. The **Snapshot Manager password** must be 14 or 15 characters in length and must contain a combination of lowercase, uppercase, numeric, and special characters.
+    3. Enter the **device administrator password**. The **device administrator password** must be between 8 to 15 characters and must contain a combination of lowercase, uppercase, numeric, and special characters.
+    4. Click the check icon to finish the initial configuration and registration of the virtual device.
 
-		![StorSimple virtual device settings](./media/storsimple-virtual-device/StorSimple_VirtualDeviceSettings1.png)
+        ![StorSimple virtual device settings](./media/storsimple-virtual-device/StorSimple_VirtualDeviceSettings1.png)
 
 After the configuration and registration is complete, the device will come online. It may take several minutes for the device to come online.
 
@@ -292,7 +292,7 @@ Perform the following steps to create a public endpoint on the virtual device.
 
 - Click **Endpoints**. The Endpoints page lists all endpoints for the virtual machine.
 
-- Click **Add**. The Add Endpoint dialog box appears. Click the arrow to continue.
+- Click **Add**. The Add Endpoint dialog box appears. Click the arrow to continue.
 
 - For the **Name**, type the following name for the endpoint: **WinRMHttps**.
 
@@ -388,3 +388,4 @@ If you delete or shut down the virtual device, it will appear as **Offline** on 
 ## Next steps
 
 To administer your virtual device, refer to the detailed list of workflows in [Administer StorSimple device using StorSimple Manager service](storsimple-manager-service-administration.md#administer-storsimple-device-using-storsimple-manager-service).
+

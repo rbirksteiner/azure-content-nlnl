@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Get Started with Mobile Services for Xamarin iOS apps | Microsoft Azure"
-	description="Follow this tutorial to get started using Azure Mobile Services for Xamarin iOS development"
-	services="mobile-services"
-	documentationCenter="xamarin"
-	authors="lindydonna"
-	manager="dwrede"
-	editor="mollybos"/>
+    pageTitle="Get Started with Mobile Services for Xamarin iOS apps | Microsoft Azure"
+    description="Follow this tutorial to get started using Azure Mobile Services for Xamarin iOS development"
+    services="mobile-services"
+    documentationCenter="xamarin"
+    authors="lindydonna"
+    manager="dwrede"
+    editor="mollybos"/>
 
 <tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-xamarin-ios"
-	ms.devlang="dotnet"
-	ms.topic="get-started-article"
-	ms.date="11/05/2015"
-	ms.author="donnam"/>
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-xamarin-ios"
+    ms.devlang="dotnet"
+    ms.topic="get-started-article"
+    ms.date="11/05/2015"
+    ms.author="donnam"/>
 
 # <a name="getting-started"> </a>Get started with Mobile Services
 
@@ -55,11 +55,11 @@ In this section you will download a new Xamarin iOS app and a service project fo
 
 2. In the quickstart tab, click **Xamarin** under **Choose platform** and expand **Create a new Xamarin app**.
 
-   	![][6]
+    ![][6]
 
-   	This displays the three easy steps to create a Xamarin iOS app connected to your mobile service.
+    This displays the three easy steps to create a Xamarin iOS app connected to your mobile service.
 
-  	![][7]
+    ![][7]
 
 3. If you haven't already done so, download and install <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a> on your local computer or virtual machine.
 
@@ -67,7 +67,7 @@ In this section you will download a new Xamarin iOS app and a service project fo
 
 5. Under **Download and publish your service to the cloud**, select **iOS** and click **Download**.
 
-  	This downloads a solution contains projects for both the mobile service and for the sample _To do list_ application that is connected to your mobile service. Save the compressed project file to your local computer, and make a note of where you save it.
+    This downloads a solution contains projects for both the mobile service and for the sample _To do list_ application that is connected to your mobile service. Save the compressed project file to your local computer, and make a note of where you save it.
 
 6. Download your publish profile, save the downloaded file to your local computer, and make a note of where you save it.
 
@@ -85,17 +85,17 @@ The final stage of this tutorial is to build and run your new app.
 
 1. Navigate to the client project within the mobile service solution, in either Visual Studio or Xamarin Studio.
 
-	![][8]
+    ![][8]
 
-	![][9]
+    ![][9]
 
 2. Press the **Run** button to build the client project and start the app in the iPhone emulator.
 
 3. In the app, type meaningful text, such as _Complete the tutorial_ and then click the plus (**+**) icon.
 
-	![][10]
+    ![][10]
 
-	This sends a POST request to the new mobile service hosted in Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the list.
+    This sends a POST request to the new mobile service hosted in Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the list.
 
 >[AZURE.NOTE]You can review the code that accesses your mobile service to query and insert data in the QSTodoService.cs C# file.
 
@@ -147,3 +147,4 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [Xamarin Studio]: http://xamarin.com/download
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
+

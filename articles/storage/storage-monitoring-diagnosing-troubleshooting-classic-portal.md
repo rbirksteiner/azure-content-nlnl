@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Monitor, diagnose, and troubleshoot Storage | Microsoft Azure"
-	description="Use features such as storage analytics, client-side logging, and other third-party tools to identify, diagnose, and troubleshoot Azure Storage-related issues."
-	services="storage"
-	documentationCenter=""
-	authors="jasonnewyork"
-	manager="tadb"
-	editor=""/>
+    pageTitle="Monitor, diagnose, and troubleshoot Storage | Microsoft Azure"
+    description="Use features such as storage analytics, client-side logging, and other third-party tools to identify, diagnose, and troubleshoot Azure Storage-related issues."
+    services="storage"
+    documentationCenter=""
+    authors="jasonnewyork"
+    manager="tadb"
+    editor=""/>
 
 <tags
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/10/2015"
-	ms.author="jahogg"/>
+    ms.service="storage"
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/10/2015"
+    ms.author="jahogg"/>
 
 # Monitor, diagnose, and troubleshoot Microsoft Azure Storage
 
@@ -29,47 +29,47 @@ To manage such applications successfully you should monitor them proactively and
 For a hands-on guide to end-to-end troubleshooting in Azure Storage applications, see [End-to-End Troubleshooting using Azure Storage Metrics and Logging, AzCopy, and Message Analyzer](../storage-e2e-troubleshooting/).
 
 + [Introduction]
-	+ [How this guide is organized]
+    + [How this guide is organized]
 + [Monitoring your storage service]
-	+ [Monitoring service health]
-	+ [Monitoring capacity]
-	+ [Monitoring availability]
-	+ [Monitoring performance]
+    + [Monitoring service health]
+    + [Monitoring capacity]
+    + [Monitoring availability]
+    + [Monitoring performance]
 + [Diagnosing storage issues]
-	+ [Service health issues]
-	+ [Performance issues]
-	+ [Diagnosing errors]
-	+ [Storage emulator issues]
-	+ [Storage logging tools]
-	+ [Using network logging tools]
+    + [Service health issues]
+    + [Performance issues]
+    + [Diagnosing errors]
+    + [Storage emulator issues]
+    + [Storage logging tools]
+    + [Using network logging tools]
 + [End-to-end tracing]
-	+ [Correlating log data]
-	+ [Client request ID]
-	+ [Server request ID]
-	+ [Timestamps]
+    + [Correlating log data]
+    + [Client request ID]
+    + [Server request ID]
+    + [Timestamps]
 + [Troubleshooting guidance]
-	+ [Metrics show high AverageE2ELatency and low AverageServerLatency]
-	+ [Metrics show low AverageE2ELatency and low AverageServerLatency but the client is experiencing high latency]
-	+ [Metrics show high AverageServerLatency]
-	+ [You are experiencing unexpected delays in message delivery on a queue]
-	+ [Metrics show an increase in PercentThrottlingError]
-	+ [Metrics show an increase in PercentTimeoutError]
-	+ [Metrics show an increase in PercentNetworkError]
-	+ [The client is receiving HTTP 403 (Forbidden) messages]
-	+ [The client is receiving HTTP 404 (Not found) messages]
-	+ [The client is receiving HTTP 409 (Conflict) messages]
-	+ [Metrics show low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors]
-	+ [Capacity metrics show an unexpected increase in storage capacity usage]
-	+ [You are experiencing unexpected reboots of Virtual Machines that have a large number of attached VHDs]
-	+ [Your issue arises from using the storage emulator for development or test]
-	+ [You are encountering problems installing the Azure SDK for .NET]
-	+ [You have a different issue with a storage service]
+    + [Metrics show high AverageE2ELatency and low AverageServerLatency]
+    + [Metrics show low AverageE2ELatency and low AverageServerLatency but the client is experiencing high latency]
+    + [Metrics show high AverageServerLatency]
+    + [You are experiencing unexpected delays in message delivery on a queue]
+    + [Metrics show an increase in PercentThrottlingError]
+    + [Metrics show an increase in PercentTimeoutError]
+    + [Metrics show an increase in PercentNetworkError]
+    + [The client is receiving HTTP 403 (Forbidden) messages]
+    + [The client is receiving HTTP 404 (Not found) messages]
+    + [The client is receiving HTTP 409 (Conflict) messages]
+    + [Metrics show low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors]
+    + [Capacity metrics show an unexpected increase in storage capacity usage]
+    + [You are experiencing unexpected reboots of Virtual Machines that have a large number of attached VHDs]
+    + [Your issue arises from using the storage emulator for development or test]
+    + [You are encountering problems installing the Azure SDK for .NET]
+    + [You have a different issue with a storage service]
 + [Appendices]
-	+ [Appendix 1: Using Fiddler to capture HTTP and HTTPS traffic]
-	+ [Appendix 2: Using Wireshark to capture network traffic]
-	+ [Appendix 3: Using Microsoft Message Analyzer to capture network traffic]
-	+ [Appendix 4: Using Excel to view metrics and log data]
-	+ [Appendix 5: Monitoring with Application Insights for Visual Studio Team Services]
+    + [Appendix 1: Using Fiddler to capture HTTP and HTTPS traffic]
+    + [Appendix 2: Using Wireshark to capture network traffic]
+    + [Appendix 3: Using Microsoft Message Analyzer to capture network traffic]
+    + [Appendix 4: Using Excel to view metrics and log data]
+    + [Appendix 5: Monitoring with Application Insights for Visual Studio Team Services]
 
 ## <a name="introduction"></a>Introduction
 
@@ -525,21 +525,21 @@ Request ID |  Operation Text
 07b26a5d-... | Response received. Status code = 200, Request ID = eeead849-...Content-MD5 = , ETag =    &quot;0x8D14D2DC63D059B&quot;.
 07b26a5d-... | Response headers were processed successfully, proceeding with the rest of the operation.
 07b26a5d-... | Downloading response body.
-07b26a5d-... | Operation completed successfully.
-07b26a5d-... | Starting synchronous request to https://domemaildist.blob.core.windows.net/azuremmblobcontainer.
+07b26a5d-... | Operation completed successfully.
+07b26a5d-... | Starting synchronous request to https://domemaildist.blob.core.windows.net/azuremmblobcontainer.
 07b26a5d-... | StringToSign = DELETE............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:12    GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container.
 07b26a5d-... | Waiting for response.
 07b26a5d-... | Response received. Status code = 202, Request ID = 6ab2a4cf-..., Content-MD5 = , ETag = .
-07b26a5d-... | Response headers were processed successfully, proceeding with the rest of the operation.
+07b26a5d-... | Response headers were processed successfully, proceeding with the rest of the operation.
 07b26a5d-... | Downloading response body.
 07b26a5d-... | Operation completed successfully.
-e2d06d78-... | Starting asynchronous request to https://domemaildist.blob.core.windows.net/azuremmblobcontainer.</td>
+e2d06d78-... | Starting asynchronous request to https://domemaildist.blob.core.windows.net/azuremmblobcontainer.</td>
 e2d06d78-... | StringToSign = HEAD............x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container.
-e2d06d78-...| Waiting for response.
+e2d06d78-...| Waiting for response.
 de8b1c3c-... | Starting synchronous request to https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt.
-de8b1c3c-... |  StringToSign = PUT...64.qCmF+TQLPhq/YYK50mP9ZQ==........x-ms-blob-type:BlockBlob.x-ms-client-request-id:de8b1c3c-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer/blobCreated.txt.
+de8b1c3c-... |  StringToSign = PUT...64.qCmF+TQLPhq/YYK50mP9ZQ==........x-ms-blob-type:BlockBlob.x-ms-client-request-id:de8b1c3c-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer/blobCreated.txt.
 de8b1c3c-... | Preparing to write request data.
-e2d06d78-... | Exception thrown while waiting for response: The remote server returned an error: (404) Not Found..
+e2d06d78-... | Exception thrown while waiting for response: The remote server returned an error: (404) Not Found..
 e2d06d78-... | Response received. Status code = 404, Request ID = 353ae3bc-..., Content-MD5 = , ETag = .
 e2d06d78-... | Response headers were processed successfully, proceeding with the rest of the operation.
 e2d06d78-... | Downloading response body.
@@ -547,16 +547,16 @@ e2d06d78-... | Operation completed successfully.
 e2d06d78-... | Starting asynchronous request to https://domemaildist.blob.core.windows.net/azuremmblobcontainer.
 e2d06d78-...|StringToSign = PUT...0.........x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container.
 e2d06d78-... | Waiting for response.
-de8b1c3c-... | Writing request data.
+de8b1c3c-... | Writing request data.
 de8b1c3c-... | Waiting for response.
-e2d06d78-... | Exception thrown while waiting for response: The remote server returned an error: (409) Conflict..
+e2d06d78-... | Exception thrown while waiting for response: The remote server returned an error: (409) Conflict..
 e2d06d78-... | Response received. Status code = 409, Request ID = c27da20e-..., Content-MD5 = , ETag = .
 e2d06d78-... | Downloading error response body.
 de8b1c3c-... | Exception thrown while waiting for response: The remote server returned an error: (404) Not Found..
-de8b1c3c-... | Response received. Status code = 404, Request ID = 0eaeab3e-..., Content-MD5 = , ETag = .
-de8b1c3c-...| Exception thrown during the operation: The remote server returned an error: (404) Not Found..
+de8b1c3c-... | Response received. Status code = 404, Request ID = 0eaeab3e-..., Content-MD5 = , ETag = .
+de8b1c3c-...| Exception thrown during the operation: The remote server returned an error: (404) Not Found..
 de8b1c3c-... | Retry policy did not allow for a retry. Failing with The remote server returned an error: (404) Not Found..
-e2d06d78-... | Retry policy did not allow for a retry. Failing with The remote server returned an error: (409) Conflict..
+e2d06d78-... | Retry policy did not allow for a retry. Failing with The remote server returned an error: (409) Conflict..
 
 In this example, the log shows that the client is interleaving requests from the **CreateIfNotExists** method (request id e2d06d78…) with the requests from the **UploadFromStream** method (de8b1c3c-...); this is happening because the client application is invoking these methods asynchronously. You should modify the asynchronous code in the client to ensure that it creates the container before attempting to upload any data to a blob in that container. Ideally, you should create all your containers in advance.
 
@@ -772,16 +772,16 @@ Wireshark is a network protocol analyzer that enables you to view detailed packe
 
 The following procedure shows you how to capture detailed packet information for traffic from the local machine where you installed Wireshark to the table service in your Azure storage account.
 
-1.	Launch Wireshark on your local machine.
-2.	In the **Start** section, select the local network interface or interfaces that are connected to the internet.
-3.	Click **Capture Options**.
-4.	Add a filter to the **Capture Filter** textbox. For example, **host contosoemaildist.table.core.windows.net** will configure Wireshark to capture only packets sent to or from the table service endpoint in the **contosoemaildist** storage account. For a complete list of Capture Filters see <a href="http://wiki.wireshark.org/CaptureFilters" target="_blank">http://wiki.wireshark.org/CaptureFilters</a>.
+1.  Launch Wireshark on your local machine.
+2.  In the **Start** section, select the local network interface or interfaces that are connected to the internet.
+3.  Click **Capture Options**.
+4.  Add a filter to the **Capture Filter** textbox. For example, **host contosoemaildist.table.core.windows.net** will configure Wireshark to capture only packets sent to or from the table service endpoint in the **contosoemaildist** storage account. For a complete list of Capture Filters see <a href="http://wiki.wireshark.org/CaptureFilters" target="_blank">http://wiki.wireshark.org/CaptureFilters</a>.
 
     ![][6]
 
-5.	Click **Start**. Wireshark will now capture all the packets send to or from the table service endpoint as you use your client application on your local machine.
-6.	When you have finished, on the main menu click **Capture** and then **Stop**.
-7.	To save the captured data in a Wireshark Capture File, on the main menu click **File** and then **Save**.
+5.  Click **Start**. Wireshark will now capture all the packets send to or from the table service endpoint as you use your client application on your local machine.
+6.  When you have finished, on the main menu click **Capture** and then **Stop**.
+7.  To save the captured data in a Wireshark Capture File, on the main menu click **File** and then **Save**.
 
 WireShark will highlight any errors that exist in the **packetlist** window. You can also use the **Expert Info** window (click **Analyze**, then **Expert Info**) to view a summary of errors and warnings.
 
@@ -919,3 +919,4 @@ At the time of writing Application Insights is in preview. You can find more inf
 [8]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/wireshark-screenshot-3.png
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/mma-screenshot-2.png
+

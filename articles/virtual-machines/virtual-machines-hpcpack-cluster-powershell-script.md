@@ -304,7 +304,7 @@ are created from an OpenLogic CentOS version 7.0 Linux image.
 
 The following configuration file deploys an HPC Pack cluster
 which has a head node with local databases and 5 compute nodes running
-the Windows Server 2008 R2 operating system. All the cloud services are
+the Windows Server 2008 R2 operating system. All the cloud services are
 created directly in the East Asia location. The head node acts as domain
 controller of the domain forest.
 
@@ -453,3 +453,4 @@ extension might be stuck in the installing state.
 * For tutorials that use the script to create a cluster and run an HPC workload, see [Get started with an HPC Pack cluster in Azure to run Excel and SOA workloads](virtual-machines-excel-cluster-hpcpac), [Run NAMD with Microsoft HPC Pack on Linux compute nodes in Azure](virtual-machines-linux-cluster-hpcpack-namd.md), or [Run OpenFOAM with Microsoft HPC Pack on Linux compute nodes in Azure](virtual-machines-linux-cluster-hpcpack-openfoam.md).
 
 * Try HPC Pack's tools to start, stop, add, and remove compute nodes from a cluster you create. See [Manage compute nodes in an HPC Pack cluster in Azure](virtual-machines-hpcpack-cluster-node-manage.md)
+

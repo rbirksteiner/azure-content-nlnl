@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure PowerShell 1.0 Preview Resource Manager Changes | Microsoft Azure"
-	description="Describes the changes in the Resource Manager cmdlets that were made for Azure PowerShell 1.0 Preview."
-	services="azure-resource-manager"
-	documentationCenter="na"
-	authors="ravbhatnagar"
-	manager="ryjones"
-	editor=""/>
+    pageTitle="Azure PowerShell 1.0 Preview Resource Manager Changes | Microsoft Azure"
+    description="Describes the changes in the Resource Manager cmdlets that were made for Azure PowerShell 1.0 Preview."
+    services="azure-resource-manager"
+    documentationCenter="na"
+    authors="ravbhatnagar"
+    manager="ryjones"
+    editor=""/>
 
 <tags
-	ms.service="azure-resource-manager"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="powershell"
-	ms.workload="na"
-	ms.date="10/09/2015"
-	ms.author="gauravbh;tomfitz"/>
+    ms.service="azure-resource-manager"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="powershell"
+    ms.workload="na"
+    ms.date="10/09/2015"
+    ms.author="gauravbh;tomfitz"/>
 
 #Changes to Azure Resource Manager management PowerShell cmdlets
 
@@ -102,3 +102,4 @@ The above will the filter the result to show the locations supported for specifi
 
 We have added policy support to Azure Resource Manager. The PowerShell cmdlets to manage policies have been added in this release. For more details about policies, see 
 [Use Policy to manage resources and control access](resource-manager-policy.md). 
+

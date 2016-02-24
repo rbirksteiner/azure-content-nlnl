@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Feature engineering in the Cortana Analytics Process | Microsoft Azure" 
-	description="Explains the purposes of feature engineering and provides examples of its role in the data enhancement process of machine learning."
-	services="machine-learning"
-	documentationCenter=""
-	authors="bradsev"
-	manager="paulettm"
-	editor="cgronlun"/>
+    pageTitle="Feature engineering in the Cortana Analytics Process | Microsoft Azure" 
+    description="Explains the purposes of feature engineering and provides examples of its role in the data enhancement process of machine learning."
+    services="machine-learning"
+    documentationCenter=""
+    authors="bradsev"
+    manager="paulettm"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/20/2015"
-	ms.author="zhangya;bradsev" />
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/20/2015"
+    ms.author="zhangya;bradsev" />
 
 
 # Feature engineering in the Cortana Analytics Process 
@@ -96,3 +96,4 @@ Engineered and selected features increase the efficiency of the training process
 
 Note that it is not always necessarily to perform feature engineering or feature selection. Whether it is needed or not depends on the data we have or collect, the algorithm we pick, and the objective of the experiment.
  
+

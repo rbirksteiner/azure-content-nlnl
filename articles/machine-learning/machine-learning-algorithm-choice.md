@@ -1,21 +1,21 @@
 <properties
-	pageTitle="How to choose machine learning algorithms | Microsoft Azure"
-	description="How to choose Azure Machine Learning algorithms for supervised and unsupervised learning in clustering, classification, or regression experiments."
-	services="machine-learning"
-	documentationCenter=""
-	authors="brohrer"
-	manager="paulettm"
-	editor="cgronlun"
+    pageTitle="How to choose machine learning algorithms | Microsoft Azure"
+    description="How to choose Azure Machine Learning algorithms for supervised and unsupervised learning in clustering, classification, or regression experiments."
+    services="machine-learning"
+    documentationCenter=""
+    authors="brohrer"
+    manager="paulettm"
+    editor="cgronlun"
     tags=""/>
 
 <tags
-	ms.service="machine-learning"
+    ms.service="machine-learning"
     ms.devlang="na"
     ms.topic="article"
     ms.tgt_pltfrm="na"
-	ms.workload="data-services"
-	ms.date="10/13/2015"
-	ms.author="brohrer;garye" />
+    ms.workload="data-services"
+    ms.date="10/13/2015"
+    ms.author="brohrer;garye" />
 
 # How to choose algorithms for Microsoft Azure Machine Learning
 
@@ -195,7 +195,7 @@ or faster training times.
 |**Algorithm**|**Accuracy**|**Training time**|**Linearity**|**Parameters**|**Notes**|
 |---|:---:|:---:|:---:|:---:|---|
 |**Two-class classification**| | | | | |
-|[logistic regression](https://msdn.microsoft.com/library/azure/dn905994.aspx)                    | |●|●|5| |
+|[logistic regression](https://msdn.microsoft.com/library/azure/dn905994.aspx)                    | |●|●|5| |
 |[decision forest](https://msdn.microsoft.com/library/azure/dn906008.aspx)|●|○| |6| |
 |[decision jungle](https://msdn.microsoft.com/library/azure/dn905976.aspx)|●|○| |6|Low memory footprint|
 |[boosted decision tree](https://msdn.microsoft.com/library/azure/dn906025.aspx)|●|○| |6|Large memory footprint|
@@ -243,7 +243,7 @@ tutorial](machine-learning-linear-regression-in-azure.md).
 
 ![Data with a linear trend][3]
 
-***Data with a linear trend***
+***undefined***
 
 ### Logistic regression
 
@@ -286,8 +286,9 @@ depending on whether you are doing classification or regression.
 
 ![Decision tree subdivides a feature space][5]
 
-***A decision tree subdivides a feature space into regions of roughly
-uniform values***
+***undefined
+ly
+uniform val***
 
 Because a feature space can be subdivided into arbitrarily small
 regions, it's easy to imagine dividing it finely enough to have one data
@@ -340,8 +341,9 @@ possibilities are inexhaustible.
 ![Boundaries learned by neural networks][6]
 ---------------------------
 
-***The boundaries learned by neural networks can be complex and
-irregular***
+***undefined
+nd
+irregu***
 
 The [two-class averaged
 perceptron](https://msdn.microsoft.com/library/azure/dn906036.aspx)
@@ -366,8 +368,9 @@ addition to requiring only a modest amount of memory.
 
 ![Support vector machine class boundary][7]
 
-***A typical support vector machine class boundary maximizes the margin
-separating two classes***
+***undefined
+in
+separating two clas***
 
 Another product of Microsoft Research, the [two-class locally deep
 SVM](https://msdn.microsoft.com/library/azure/dn913070.aspx) is a
@@ -428,7 +431,7 @@ that distribution are suspect*
 
 ![Data set grouped using K-means][9]
 
-***A data set is grouped into 5 clusters using K-means***
+***undefined***
 
 There is also an ensemble [one-v-all multiclass
 classifier](https://msdn.microsoft.com/library/azure/dn905887.aspx),
@@ -438,8 +441,9 @@ properties are determined by the two-class classifiers used.
 
 ![Two-class classifiers combined to form a three-class classifier][10]
 
-***A pair of two-class classifiers combine to form a three-class
-classifier***
+***undefined
+ss
+classif***
 
 Azure Machine Learning also includes access to a powerful machine learning framework
 under the title of [Vowpal
@@ -470,3 +474,4 @@ several languages.
 [8]: ./media/machine-learning-algorithm-choice/image8.png
 [9]: ./media/machine-learning-algorithm-choice/image9.png
 [10]: ./media/machine-learning-algorithm-choice/image10.png
+

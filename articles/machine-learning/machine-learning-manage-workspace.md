@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Manage a Machine Learning workspace | Microsoft Azure"
-	description="Manage access to Azure Machine Learning workspaces, and deploy and manage ML API web services"
-	services="machine-learning"
-	documentationCenter=""
-	authors="garyericson"
-	manager="paulettm"
-	editor="cgronlun"/>
+    pageTitle="Manage a Machine Learning workspace | Microsoft Azure"
+    description="Manage access to Azure Machine Learning workspaces, and deploy and manage ML API web services"
+    services="machine-learning"
+    documentationCenter=""
+    authors="garyericson"
+    manager="paulettm"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/15/2015"
-	ms.author="garye"/>
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/15/2015"
+    ms.author="garye"/>
 
 
 # Manage an Azure Machine Learning workspace
@@ -33,9 +33,9 @@ In addition, the dashboard tab provides an overview of your workspace usage and 
 
 To manage a workspace:
 
-1.	Sign-in to your Microsoft Azure account - use the account that's associated with the Azure subscription.
-2.	In the [Azure Classic Portal](https://manage.windowsazure.com/), in the Microsoft Azure services panel, click **MACHINE LEARNING**.
-3.	Click the workspace you want to manage.
+1.  Sign-in to your Microsoft Azure account - use the account that's associated with the Azure subscription.
+2.  In the [Azure Classic Portal](https://manage.windowsazure.com/), in the Microsoft Azure services panel, click **MACHINE LEARNING**.
+3.  Click the workspace you want to manage.
 
 The workspace page has three tabs:
 
@@ -94,3 +94,4 @@ Click the **CONFIGURE** tab to edit the description, control the number of concu
 
 [consume]: machine-learning-consume-web-services.md
 [marketplace]: machine-learning-publish-web-service-to-azure-marketplace.md
+

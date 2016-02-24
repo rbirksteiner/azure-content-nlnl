@@ -25,8 +25,8 @@ One of the advantages of Azure RemoteApp is that we are always working to improv
 ## September 2015
 - Added Infopath to the Microsoft Office 365 template and gallery image. If you want to share Infopath, make sure to update your collections with the latest image.
 - Client updates:
-	- Windows client updated to make it possible for users to share feedback, especially around connection issues.
-	- iOS client updated to fix error messaging and to fix a problem where your credentials expired earlier than expected.
+    - Windows client updated to make it possible for users to share feedback, especially around connection issues.
+    - iOS client updated to fix error messaging and to fix a problem where your credentials expired earlier than expected.
 - We're working on getting Office 2016 support tested. Once that's completed, look for updated images.
 - Published a new article about the [differences between cloud and hybrid collections](remoteapp-collections.md) - this will help you choose the collection type that works best for your apps - cloud-only, cloud + VNET, or hybrid.
 - Want to share QuickBooks using Azure RemoteApp but not sure of the steps? Check out [Eric's new article](remoteapp-quickbooks.md) telling you exactly what to do.
@@ -83,3 +83,4 @@ Thanks for sticking with us - back next month with more updates.
 
 ### Help us help you
 Did you know that in addition to rating this article and making comments down below, you can make changes to the article itself? Something missing? Something wrong? Did I write something that's just confusing? Scroll up and click **Edit on GitHub** to make changes - those will come to us for review, and then, once we sign off on them, you'll see your changes and improvements right here.
+

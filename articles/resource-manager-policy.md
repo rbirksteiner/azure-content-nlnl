@@ -1,20 +1,20 @@
-﻿<properties
-	pageTitle="Azure Resource Manager Policy | Microsoft Azure"
-	description="Describes how to use Azure Resource Manager Policy to prevent violations at different scopes like 			subscription, resource groups or individual resources."
-	services="azure-resource-manager"
-	documentationCenter="na"
-	authors="ravbhatnagar"
-	manager="ryjones"
-	editor=""/>
+<properties
+    pageTitle="Azure Resource Manager Policy | Microsoft Azure"
+    description="Describes how to use Azure Resource Manager Policy to prevent violations at different scopes like          subscription, resource groups or individual resources."
+    services="azure-resource-manager"
+    documentationCenter="na"
+    authors="ravbhatnagar"
+    manager="ryjones"
+    editor=""/>
 
 <tags
-	ms.service="azure-resource-manager"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="11/10/2015"
-	ms.author="gauravbh;tomfitz"/>
+    ms.service="azure-resource-manager"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="11/10/2015"
+    ms.author="gauravbh;tomfitz"/>
 
 # Use Policy to manage resources and control access
 
@@ -94,11 +94,11 @@ event service log. For example, an administrator can create a policy which cause
 
 The supported logical operators along with the syntax are listed below:
 
-| Operator Name		| Syntax		 |
+| Operator Name     | Syntax         |
 | :------------- | :------------- |
-| Not			 | "not" : {&lt;condition  or operator &gt;}			 |
-| And			| "allOf" : [ {&lt;condition1&gt;},{&lt;condition2&gt;}] |
-| Or						 | "anyOf" : [ {&lt;condition1&gt;},{&lt;condition2&gt;}] |
+| Not            | "not" : {&lt;condition  or operator &gt;}             |
+| And           | "allOf" : [ {&lt;condition1&gt;},{&lt;condition2&gt;}] |
+| Or                         | "anyOf" : [ {&lt;condition1&gt;},{&lt;condition2&gt;}] |
 
 Nested conditions are not supported.
 
@@ -106,13 +106,13 @@ Nested conditions are not supported.
 
 A condition evaluates whether a **field** or **source** meets certain criteria. The supported condition names and syntax are listed below:
 
-| Condition Name | Syntax				 |
+| Condition Name | Syntax                |
 | :------------- | :------------- |
-| Equals			 | "equals" : "&lt;value&gt;"				|
-| Like					| "like" : "&lt;value&gt;"					 |
-| Contains			| "contains" : "&lt;value&gt;"|
-| In						| "in" : [ "&lt;value1&gt;","&lt;value2&gt;" ]|
-| ContainsKey	 | "containsKey" : "&lt;keyName&gt;" |
+| Equals             | "equals" : "&lt;value&gt;"               |
+| Like                  | "like" : "&lt;value&gt;"                   |
+| Contains          | "contains" : "&lt;value&gt;"|
+| In                        | "in" : [ "&lt;value1&gt;","&lt;value2&gt;" ]|
+| ContainsKey    | "containsKey" : "&lt;keyName&gt;" |
 
 
 ## Fields and Sources
@@ -271,20 +271,20 @@ see [REST API for Policy Definitions](https://msdn.microsoft.com/library/azure/m
 
 You can create a new policy definition using the New-AzureRmPolicyDefinition cmdlet as shown below. The below examples creates a policy for allowing resources only in North Europe and West Europe.
 
-    $policy = New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation onlyin certain regions" -Policy '{	"if" : {
-    	    			    "not" : {
-    	      			    	"field" : "location",
-    	      			    		"in" : ["northeurope" , "westeurope"]
-    	    			    	}
-    	    		          },
-    	      		    		"then" : {
-    	    			    		"effect" : "deny"
-    	      			    		}
-    	    		    	}'    		
+    $policy = New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation onlyin certain regions" -Policy '{   "if" : {
+                            "not" : {
+                                "field" : "location",
+                                    "in" : ["northeurope" , "westeurope"]
+                                }
+                              },
+                                "then" : {
+                                    "effect" : "deny"
+                                    }
+                            }'          
 
 The output of execution is stored in $policy object as it can used later during policy assignment. For the policy parameter, the path to a .json file containing the policy can also be provided instead of specifying the policy inline as shown below.
 
-    New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain 	regions" -Policy "path-to-policy-json-on-disk"
+    New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain    regions" -Policy "path-to-policy-json-on-disk"
 
 
 ## Applying a Policy
@@ -331,3 +331,4 @@ If you want to remove the above policy assignment, you can do it as follows:
 You can get, change or remove policy definitions through Get-AzureRmPolicyDefinition, Set-AzureRmPolicyDefinition and Remove-AzureRmPolicyDefinition cmdlets respectively.
 
 Similarly, you can get, change or remove policy assignments through the Get-AzureRmPolicyAssignment, Set-AzureRmPolicyAssignment and Remove-AzureRmPolicyAssignment cmdlets respectively.
+

@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure Active Directory Domain Services preview: Troubleshooting Guide | Microsoft Azure"
-	description="Troubleshooting guide for Azure AD Domain Services"
-	services="active-directory-ds"
-	documentationCenter=""
-	authors="mahesh-unnikrishnan"
-	manager="stevenpo"
-	editor="curtand"/>
+    pageTitle="Azure Active Directory Domain Services preview: Troubleshooting Guide | Microsoft Azure"
+    description="Troubleshooting guide for Azure AD Domain Services"
+    services="active-directory-ds"
+    documentationCenter=""
+    authors="mahesh-unnikrishnan"
+    manager="stevenpo"
+    editor="curtand"/>
 
 <tags
-	ms.service="active-directory-ds"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/16/2015"
-	ms.author="maheshu"/>
+    ms.service="active-directory-ds"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/16/2015"
+    ms.author="maheshu"/>
 
 # Azure AD Domain Services *(Preview)* - Troubleshooting guide
 This article provides troubleshooting hints for issues you may encounter when setting up or administering Azure Active Directory (AD) Domain Services.
@@ -43,3 +43,4 @@ If you have issues with your managed domain, check to see if the steps outlined 
 
 - The [Azure Active Directory User Voice channel](http://feedback.azure.com/forums/169401-azure-active-directory). Ensure you pre-pend your question with the words **'AADDS'** in order to reach us.
 - You may also email us at [Azure AD Domain Services Feedback](mailto:aaddsfb@microsoft.com)
+

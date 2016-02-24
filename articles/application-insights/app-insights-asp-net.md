@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Application Insights for ASP.NET" 
-	description="Analyze performance, availability and usage patterns of your on-premises or Microsoft Azure web application by using Application Insights." 
-	services="application-insights" 
+    pageTitle="Application Insights for ASP.NET" 
+    description="Analyze performance, availability and usage patterns of your on-premises or Microsoft Azure web application by using Application Insights." 
+    services="application-insights" 
     documentationCenter=".net"
-	authors="alancameronwills" 
-	manager="douge"/>
+    authors="alancameronwills" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/17/2015" 
-	ms.author="awills"/>
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/17/2015" 
+    ms.author="awills"/>
 
 
 # Set up Application Insights for ASP.NET

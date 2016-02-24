@@ -52,9 +52,9 @@ The following is a list of the available Oracle virtual machine images that run 
 - Oracle Database 11g and WebLogic Server 11g Standard Edition on Windows Server 2008 R2
 
 ### Java virtual machine images
--	JDK 8 on Windows Server 2012 R2
--	JDK 7 on Windows Server 2012
--	JDK 6 on Windows Server 2012
+-   JDK 8 on Windows Server 2012 R2
+-   JDK 7 on Windows Server 2012
+-   JDK 6 on Windows Server 2012
 
 
 ##Oracle Linux virtual machine images
@@ -70,3 +70,4 @@ The following is a list of the available preconfigured Oracle virtual machine im
 [New all-in-one Oracle images in the Azure Marketplace](https://msopentech.com/blog/2015/02/19/new-one-oracle-images-azure-marketplace/)
 
 [Oracle virtual machine images - miscellaneous considerations](#miscellaneous-considerations-for-oracle-virtual-machine-images-new-article)
+

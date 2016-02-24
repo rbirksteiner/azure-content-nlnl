@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure Active Directory B2C preview: Custom attributes | Microsoft Azure"
-	description="How to use custom attributes in Azure Active Directory B2C to collect information about your consumers"
-	services="active-directory-b2c"
-	documentationCenter=""
-	authors="swkrish"
-	manager="msmbaldwin"
-	editor="curtand"/>
+    pageTitle="Azure Active Directory B2C preview: Custom attributes | Microsoft Azure"
+    description="How to use custom attributes in Azure Active Directory B2C to collect information about your consumers"
+    services="active-directory-b2c"
+    documentationCenter=""
+    authors="swkrish"
+    manager="msmbaldwin"
+    editor="curtand"/>
 
 <tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/22/2015"
-	ms.author="swkrish"/>
+    ms.service="active-directory-b2c"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/22/2015"
+    ms.author="swkrish"/>
 
 #  Azure Active Directory B2C preview: use Custom Attributes to collect Information about your Consumers
 
@@ -47,3 +47,4 @@ The custom attribute is now available in the list of **User attributes** and for
 6. Click **Save** at the top of the blade. You're done!
 
 You can use the "Run now" feature on the policy to verify the consumer experience. You should now see "ShoeSize" in the list of attributes being collected during consumer sign-up and see it in the token sent back to your application.
+

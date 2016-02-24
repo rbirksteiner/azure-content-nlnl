@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How to use Table storage from Java | Microsoft Azure" 
-	description="Learn how to use the table storage service in Azure. Code samples are written in Java code." 
-	services="storage" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
-	editor="jimbe"/>
+    pageTitle="How to use Table storage from Java | Microsoft Azure" 
+    description="Learn how to use the table storage service in Azure. Code samples are written in Java code." 
+    services="storage" 
+    documentationCenter="java" 
+    authors="rmcmurray" 
+    manager="wpickett" 
+    editor="jimbe"/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="12/01/2015" 
-	ms.author="robmcm"/>
+    ms.service="storage" 
+    ms.workload="storage" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="Java" 
+    ms.topic="article" 
+    ms.date="12/01/2015" 
+    ms.author="robmcm"/>
 
 
 # How to use Table storage from Java
@@ -72,17 +72,17 @@ and uses it to create a new **CloudTable** object which represents a table named
 
     try
     {
-    	// Retrieve storage account from connection-string.
-    	CloudStorageAccount storageAccount =
-	       CloudStorageAccount.parse(storageConnectionString);
+        // Retrieve storage account from connection-string.
+        CloudStorageAccount storageAccount =
+           CloudStorageAccount.parse(storageConnectionString);
 
-	   // Create the table client.
-	   CloudTableClient tableClient = storageAccount.createCloudTableClient();
+       // Create the table client.
+       CloudTableClient tableClient = storageAccount.createCloudTableClient();
 
-	   // Create the table if it doesn't exist.
-	   String tableName = "people";
-	   CloudTable cloudTable = new CloudTable(tableName,tableClient);
-	   cloudTable.createIfNotExists();
+       // Create the table if it doesn't exist.
+       String tableName = "people";
+       CloudTable cloudTable = new CloudTable(tableName,tableClient);
+       cloudTable.createIfNotExists();
     }
     catch (Exception e)
     {
@@ -96,19 +96,19 @@ To get a list of tables, call the **CloudTableClient.listTables()** method to re
 
     try
     {
-    	// Retrieve storage account from connection-string.
-    	CloudStorageAccount storageAccount =
-	       CloudStorageAccount.parse(storageConnectionString);
+        // Retrieve storage account from connection-string.
+        CloudStorageAccount storageAccount =
+           CloudStorageAccount.parse(storageConnectionString);
 
-    	// Create the table client.
-    	CloudTableClient tableClient = storageAccount.createCloudTableClient();
+        // Create the table client.
+        CloudTableClient tableClient = storageAccount.createCloudTableClient();
 
-    	// Loop through the collection of table names.
-    	for (String table : tableClient.listTables())
-    	{
-		  // Output each table name.
-		  System.out.println(table);
-	   }
+        // Loop through the collection of table names.
+        for (String table : tableClient.listTables())
+        {
+          // Output each table name.
+          System.out.println(table);
+       }
     }
     catch (Exception e)
     {
@@ -152,26 +152,26 @@ Table operations involving entities require a **TableOperation** object. This ob
 
     try
     {
-    	// Retrieve storage account from connection-string.
-    	CloudStorageAccount storageAccount =
-	       CloudStorageAccount.parse(storageConnectionString);
+        // Retrieve storage account from connection-string.
+        CloudStorageAccount storageAccount =
+           CloudStorageAccount.parse(storageConnectionString);
 
-    	// Create the table client.
-    	CloudTableClient tableClient = storageAccount.createCloudTableClient();
-			
-    	// Create a cloud table object for the table.
-    	CloudTable cloudTable = tableClient.getTableReference("people");
-			
-    	// Create a new customer entity.
-    	CustomerEntity customer1 = new CustomerEntity("Harp", "Walter");
-    	customer1.setEmail("Walter@contoso.com");
-    	customer1.setPhoneNumber("425-555-0101");
-			
-    	// Create an operation to add the new customer to the people table.
-    	TableOperation insertCustomer1 = TableOperation.insertOrReplace(customer1);
+        // Create the table client.
+        CloudTableClient tableClient = storageAccount.createCloudTableClient();
+            
+        // Create a cloud table object for the table.
+        CloudTable cloudTable = tableClient.getTableReference("people");
+            
+        // Create a new customer entity.
+        CustomerEntity customer1 = new CustomerEntity("Harp", "Walter");
+        customer1.setEmail("Walter@contoso.com");
+        customer1.setPhoneNumber("425-555-0101");
+            
+        // Create an operation to add the new customer to the people table.
+        TableOperation insertCustomer1 = TableOperation.insertOrReplace(customer1);
 
-    	// Submit the operation to the table service.
-    	cloudTable.execute(insertCustomer1);
+        // Submit the operation to the table service.
+        cloudTable.execute(insertCustomer1);
     }
     catch (Exception e)
     {
@@ -185,39 +185,39 @@ You can insert a batch of entities to the table service in one write operation. 
 
     try
     {
-    	// Retrieve storage account from connection-string.
-    	CloudStorageAccount storageAccount =
-	       CloudStorageAccount.parse(storageConnectionString);
+        // Retrieve storage account from connection-string.
+        CloudStorageAccount storageAccount =
+           CloudStorageAccount.parse(storageConnectionString);
 
-    	// Create the table client.
-    	CloudTableClient tableClient = storageAccount.createCloudTableClient();
+        // Create the table client.
+        CloudTableClient tableClient = storageAccount.createCloudTableClient();
 
-    	// Define a batch operation.
-    	TableBatchOperation batchOperation = new TableBatchOperation();
+        // Define a batch operation.
+        TableBatchOperation batchOperation = new TableBatchOperation();
 
-    	// Create a cloud table object for the table.
-    	CloudTable cloudTable = tableClient.getTableReference("people");
+        // Create a cloud table object for the table.
+        CloudTable cloudTable = tableClient.getTableReference("people");
 
-    	// Create a customer entity to add to the table.
-    	CustomerEntity customer = new CustomerEntity("Smith", "Jeff");
-    	customer.setEmail("Jeff@contoso.com");
-    	customer.setPhoneNumber("425-555-0104");
-    	batchOperation.insertOrReplace(customer);
+        // Create a customer entity to add to the table.
+        CustomerEntity customer = new CustomerEntity("Smith", "Jeff");
+        customer.setEmail("Jeff@contoso.com");
+        customer.setPhoneNumber("425-555-0104");
+        batchOperation.insertOrReplace(customer);
 
-	   // Create another customer entity to add to the table.
-	   CustomerEntity customer2 = new CustomerEntity("Smith", "Ben");
-	   customer2.setEmail("Ben@contoso.com");
-	   customer2.setPhoneNumber("425-555-0102");
-	   batchOperation.insertOrReplace(customer2);
+       // Create another customer entity to add to the table.
+       CustomerEntity customer2 = new CustomerEntity("Smith", "Ben");
+       customer2.setEmail("Ben@contoso.com");
+       customer2.setPhoneNumber("425-555-0102");
+       batchOperation.insertOrReplace(customer2);
 
-	   // Create a third customer entity to add to the table.
-	   CustomerEntity customer3 = new CustomerEntity("Smith", "Denise");
-	   customer3.setEmail("Denise@contoso.com");
-	   customer3.setPhoneNumber("425-555-0103");
-	   batchOperation.insertOrReplace(customer3);
+       // Create a third customer entity to add to the table.
+       CustomerEntity customer3 = new CustomerEntity("Smith", "Denise");
+       customer3.setEmail("Denise@contoso.com");
+       customer3.setPhoneNumber("425-555-0103");
+       batchOperation.insertOrReplace(customer3);
 
-	   // Execute the batch of operations on the "people" table.
-	   cloudTable.execute(batchOperation);
+       // Execute the batch of operations on the "people" table.
+       cloudTable.execute(batchOperation);
     }
     catch (Exception e)
     {
@@ -238,31 +238,31 @@ To query a table for entities in a partition, you can use a **TableQuery**. Call
 
     try
     {
-    	// Define constants for filters.
-    	final String PARTITION_KEY = "PartitionKey";
-    	final String ROW_KEY = "RowKey";
-    	final String TIMESTAMP = "Timestamp";
+        // Define constants for filters.
+        final String PARTITION_KEY = "PartitionKey";
+        final String ROW_KEY = "RowKey";
+        final String TIMESTAMP = "Timestamp";
 
-    	// Retrieve storage account from connection-string.
-    	CloudStorageAccount storageAccount =
-	       CloudStorageAccount.parse(storageConnectionString);
+        // Retrieve storage account from connection-string.
+        CloudStorageAccount storageAccount =
+           CloudStorageAccount.parse(storageConnectionString);
 
-    	// Create the table client.
-    	CloudTableClient tableClient = storageAccount.createCloudTableClient();
-			
-	   // Create a cloud table object for the table.
-	   CloudTable cloudTable = tableClient.getTableReference("people");
+        // Create the table client.
+        CloudTableClient tableClient = storageAccount.createCloudTableClient();
+            
+       // Create a cloud table object for the table.
+       CloudTable cloudTable = tableClient.getTableReference("people");
 
-    	// Create a filter condition where the partition key is "Smith".
-    	String partitionFilter = TableQuery.generateFilterCondition(
-	       PARTITION_KEY, 
-	       QueryComparisons.EQUAL,
-	       "Smith");
+        // Create a filter condition where the partition key is "Smith".
+        String partitionFilter = TableQuery.generateFilterCondition(
+           PARTITION_KEY, 
+           QueryComparisons.EQUAL,
+           "Smith");
 
-	   // Specify a partition query, using "Smith" as the partition key filter.
-	   TableQuery<CustomerEntity> partitionQuery =
-	       TableQuery.from(CustomerEntity.class)
-	       .where(partitionFilter);
+       // Specify a partition query, using "Smith" as the partition key filter.
+       TableQuery<CustomerEntity> partitionQuery =
+           TableQuery.from(CustomerEntity.class)
+           .where(partitionFilter);
 
         // Loop through the results, displaying information about the entity.
         for (CustomerEntity entity : cloudTable.execute(partitionQuery)) {
@@ -270,7 +270,7 @@ To query a table for entities in a partition, you can use a **TableQuery**. Call
                 " " + entity.getRowKey() + 
                 "\t" + entity.getEmail() +
                 "\t" + entity.getPhoneNumber());
-	   }
+       }
     }
     catch (Exception e)
     {
@@ -284,44 +284,44 @@ If you don't want to query all the entities in a partition, you can specify a ra
 
     try
     {
-    	// Define constants for filters.
-    	final String PARTITION_KEY = "PartitionKey";
-    	final String ROW_KEY = "RowKey";
-    	final String TIMESTAMP = "Timestamp";
-			
-    	// Retrieve storage account from connection-string.
-    	CloudStorageAccount storageAccount =
-	       CloudStorageAccount.parse(storageConnectionString);
+        // Define constants for filters.
+        final String PARTITION_KEY = "PartitionKey";
+        final String ROW_KEY = "RowKey";
+        final String TIMESTAMP = "Timestamp";
+            
+        // Retrieve storage account from connection-string.
+        CloudStorageAccount storageAccount =
+           CloudStorageAccount.parse(storageConnectionString);
 
-	   // Create the table client.
-	   CloudTableClient tableClient = storageAccount.createCloudTableClient();
+       // Create the table client.
+       CloudTableClient tableClient = storageAccount.createCloudTableClient();
 
-	   // Create a cloud table object for the table.
-	   CloudTable cloudTable = tableClient.getTableReference("people");
+       // Create a cloud table object for the table.
+       CloudTable cloudTable = tableClient.getTableReference("people");
 
-    	// Create a filter condition where the partition key is "Smith".
-    	String partitionFilter = TableQuery.generateFilterCondition(
-	       PARTITION_KEY, 
-	       QueryComparisons.EQUAL,
-	       "Smith");
+        // Create a filter condition where the partition key is "Smith".
+        String partitionFilter = TableQuery.generateFilterCondition(
+           PARTITION_KEY, 
+           QueryComparisons.EQUAL,
+           "Smith");
 
-    	// Create a filter condition where the row key is less than the letter "E".
-    	String rowFilter = TableQuery.generateFilterCondition(
-	       ROW_KEY, 
-	       QueryComparisons.LESS_THAN,
-	       "E");
+        // Create a filter condition where the row key is less than the letter "E".
+        String rowFilter = TableQuery.generateFilterCondition(
+           ROW_KEY, 
+           QueryComparisons.LESS_THAN,
+           "E");
 
-    	// Combine the two conditions into a filter expression.
-    	String combinedFilter = TableQuery.combineFilters(partitionFilter, 
-	        Operators.AND, rowFilter);
+        // Combine the two conditions into a filter expression.
+        String combinedFilter = TableQuery.combineFilters(partitionFilter, 
+            Operators.AND, rowFilter);
 
-    	// Specify a range query, using "Smith" as the partition key,
-    	// with the row key being up to the letter "E".
-    	TableQuery<CustomerEntity> rangeQuery =
-	       TableQuery.from(CustomerEntity.class)
-	       .where(combinedFilter);
+        // Specify a range query, using "Smith" as the partition key,
+        // with the row key being up to the letter "E".
+        TableQuery<CustomerEntity> rangeQuery =
+           TableQuery.from(CustomerEntity.class)
+           .where(combinedFilter);
 
-    	// Loop through the results, displaying information about the entity
+        // Loop through the results, displaying information about the entity
         for (CustomerEntity entity : cloudTable.execute(rangeQuery)) {
             System.out.println(entity.getPartitionKey() +
                 " " + entity.getRowKey() +
@@ -341,32 +341,32 @@ You can write a query to retrieve a single, specific entity. The following code 
 
     try
     {
-    	// Retrieve storage account from connection-string.
-    	CloudStorageAccount storageAccount =
-	       CloudStorageAccount.parse(storageConnectionString);
+        // Retrieve storage account from connection-string.
+        CloudStorageAccount storageAccount =
+           CloudStorageAccount.parse(storageConnectionString);
 
-    	// Create the table client.
-    	CloudTableClient tableClient = storageAccount.createCloudTableClient();
+        // Create the table client.
+        CloudTableClient tableClient = storageAccount.createCloudTableClient();
 
-    	// Create a cloud table object for the table.
-    	CloudTable cloudTable = tableClient.getTableReference("people");
+        // Create a cloud table object for the table.
+        CloudTable cloudTable = tableClient.getTableReference("people");
 
-    	// Retrieve the entity with partition key of "Smith" and row key of "Jeff"
-    	TableOperation retrieveSmithJeff = 
-	       TableOperation.retrieve("Smith", "Jeff", CustomerEntity.class);
+        // Retrieve the entity with partition key of "Smith" and row key of "Jeff"
+        TableOperation retrieveSmithJeff = 
+           TableOperation.retrieve("Smith", "Jeff", CustomerEntity.class);
 
-	   // Submit the operation to the table service and get the specific entity.
-	   CustomerEntity specificEntity =
-    		cloudTable.execute(retrieveSmithJeff).getResultAsType();
-			
-    	// Output the entity.
-    	if (specificEntity != null)
-    	{
+       // Submit the operation to the table service and get the specific entity.
+       CustomerEntity specificEntity =
+            cloudTable.execute(retrieveSmithJeff).getResultAsType();
+            
+        // Output the entity.
+        if (specificEntity != null)
+        {
             System.out.println(specificEntity.getPartitionKey() +
                 " " + specificEntity.getRowKey() +
                 "\t" + specificEntity.getEmail() +
                 "\t" + specificEntity.getPhoneNumber());
-	   }
+       }
     }
     catch (Exception e)
     {
@@ -380,32 +380,32 @@ To modify an entity, retrieve it from the table service, make changes to the ent
 
     try
     {
-    	// Retrieve storage account from connection-string.
-    	CloudStorageAccount storageAccount =
-	       CloudStorageAccount.parse(storageConnectionString);
+        // Retrieve storage account from connection-string.
+        CloudStorageAccount storageAccount =
+           CloudStorageAccount.parse(storageConnectionString);
 
-    	// Create the table client.
-    	CloudTableClient tableClient = storageAccount.createCloudTableClient();
+        // Create the table client.
+        CloudTableClient tableClient = storageAccount.createCloudTableClient();
 
-    	// Create a cloud table object for the table.
-    	CloudTable cloudTable = tableClient.getTableReference("people");
+        // Create a cloud table object for the table.
+        CloudTable cloudTable = tableClient.getTableReference("people");
 
-    	// Retrieve the entity with partition key of "Smith" and row key of "Jeff".
-    	TableOperation retrieveSmithJeff = 
-	       TableOperation.retrieve("Smith", "Jeff", CustomerEntity.class);
+        // Retrieve the entity with partition key of "Smith" and row key of "Jeff".
+        TableOperation retrieveSmithJeff = 
+           TableOperation.retrieve("Smith", "Jeff", CustomerEntity.class);
 
-    	// Submit the operation to the table service and get the specific entity.
-    	CustomerEntity specificEntity =
-		  cloudTable.execute(retrieveSmithJeff).getResultAsType();
+        // Submit the operation to the table service and get the specific entity.
+        CustomerEntity specificEntity =
+          cloudTable.execute(retrieveSmithJeff).getResultAsType();
 
-    	// Specify a new phone number.
-    	specificEntity.setPhoneNumber("425-555-0105");
+        // Specify a new phone number.
+        specificEntity.setPhoneNumber("425-555-0105");
 
-    	// Create an operation to replace the entity.
-    	TableOperation replaceEntity = TableOperation.replace(specificEntity);
+        // Create an operation to replace the entity.
+        TableOperation replaceEntity = TableOperation.replace(specificEntity);
 
-    	// Submit the operation to the table service.
-    	cloudTable.execute(replaceEntity);
+        // Submit the operation to the table service.
+        cloudTable.execute(replaceEntity);
     }
     catch (Exception e)
     {
@@ -423,19 +423,19 @@ A query to a table can retrieve just a few properties from an entity. This techn
         CloudStorageAccount storageAccount =
             CloudStorageAccount.parse(storageConnectionString);
 
-    	// Create the table client.
-    	CloudTableClient tableClient = storageAccount.createCloudTableClient();
+        // Create the table client.
+        CloudTableClient tableClient = storageAccount.createCloudTableClient();
 
-    	// Create a cloud table object for the table.
-    	CloudTable cloudTable = tableClient.getTableReference("people");
+        // Create a cloud table object for the table.
+        CloudTable cloudTable = tableClient.getTableReference("people");
 
-    	// Define a projection query that retrieves only the Email property
-    	TableQuery<CustomerEntity> projectionQuery = 
-	       TableQuery.from(CustomerEntity.class)
-	       .select(new String[] {"Email"});
+        // Define a projection query that retrieves only the Email property
+        TableQuery<CustomerEntity> projectionQuery = 
+           TableQuery.from(CustomerEntity.class)
+           .select(new String[] {"Email"});
 
-    	// Define a Entity resolver to project the entity to the Email value.
-    	EntityResolver<String> emailResolver = new EntityResolver<String>() {
+        // Define a Entity resolver to project the entity to the Email value.
+        EntityResolver<String> emailResolver = new EntityResolver<String>() {
             @Override
             public String resolve(String PartitionKey, String RowKey, Date timeStamp, HashMap<String, EntityProperty> properties, String etag) {
                 return properties.get("Email").getValueAsString();

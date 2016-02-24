@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Add your own domain name to Azure Active Directory | Microsoft Azure"
-	description="Explains how to add your own domain name to Azure Active Directory, and other related information."
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Add your own domain name to Azure Active Directory | Microsoft Azure"
+    description="Explains how to add your own domain name to Azure Active Directory, and other related information."
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="12/01/2015"
-	ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="12/01/2015"
+    ms.author="curtand"/>
 
 # Add your own domain name to Azure Active Directory
 
@@ -214,3 +214,4 @@ If you add your custom domain name to the cloud service after you have already a
 - [Stackoverflow](http://stackoverflow.com/questions/tagged/azure)
 - [Sign up for Azure as an organization](sign-up-organization.md)
 - [Manage domains in Azure AD](https://msdn.microsoft.com/library/azure/dn919677.aspx)
+

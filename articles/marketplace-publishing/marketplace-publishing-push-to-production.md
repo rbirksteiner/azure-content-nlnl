@@ -19,7 +19,7 @@
 # Deploy your offer to the Azure Marketplace
 When you are satisfied with your offer (that is, you have tested customer scenarios, marketing content, etc.) and you are ready to launch, request **Push to production** on the **Publish** tab.  
 
-1.	These four steps on the walkthrough page should be completed and green.
+1.  These four steps on the walkthrough page should be completed and green.
 
   ![drawing][img-pubportal-walkthru-checked]
 
@@ -44,3 +44,4 @@ Once the offer goes live, test the customer scenarios to validate that all the c
 [img-pubportal-walkthru-checked]:media/marketplace-publishing-push-to-production/pubportal-walkthru-checked.png
 [img-pubportal-menu-publish]:media/marketplace-publishing-push-to-production/pubportal-menu-publish.png
 [img-pubportal-publish-pushproduction]:media/marketplace-publishing-push-to-production/pubportal-publish-pushproduction.png
+

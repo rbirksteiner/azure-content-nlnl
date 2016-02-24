@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Manage and Monitor your Connectors and API Apps in App Service | Microsoft Azure" 
-	description="View performance of your Connectors and API Apps in Azure App Service; microservices architecture" 
-	services="app-service\logic" 
-	documentationCenter=".net,nodejs,java"
-	authors="MandiOhlinger" 
-	manager="dwrede" 
-	editor="cgronlun"/>
+    pageTitle="Manage and Monitor your Connectors and API Apps in App Service | Microsoft Azure" 
+    description="View performance of your Connectors and API Apps in Azure App Service; microservices architecture" 
+    services="app-service\logic" 
+    documentationCenter=".net,nodejs,java"
+    authors="MandiOhlinger" 
+    manager="dwrede" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="app-service-logic" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/07/2015" 
-	ms.author="mandia"/>
+    ms.service="app-service-logic" 
+    ms.workload="integration" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/07/2015" 
+    ms.author="mandia"/>
 
 # Manage and Monitor your built-in API Apps and Connectors
 
@@ -51,11 +51,11 @@ Steps include:
 1. Open your connector or API App. When you do, the API App blade opens.
 2. In **Essentials**, click the hyperlink under the Host property. The hyperlink is named something like *slackconnector* or *microsoftsqlconnector123*:
 
-	![][apiapphost]
+    ![][apiapphost]
 
 3. In the API App Host blade, select **Settings**. In the Settings blade, select **Application Settings**. Your configuration values are listed under **App Settings**: 
-	
-	![][hostsettings]
+    
+    ![][hostsettings]
 
 4. Click the setting you want to change, enter the new value, and **Save** your changes. 
 

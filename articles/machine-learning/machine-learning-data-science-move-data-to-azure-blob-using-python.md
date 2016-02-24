@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Move Data to and from Azure Blob Storage using Python | Microsoft Azure" 
-	description="Move Data to and from Azure Blob Storage using Python" 
-	services="machine-learning,storage" 
-	documentationCenter="" 
-	authors="bradsev" 
-	manager="paulettm" 
-	editor="cgronlun" />
+    pageTitle="Move Data to and from Azure Blob Storage using Python | Microsoft Azure" 
+    description="Move Data to and from Azure Blob Storage using Python" 
+    services="machine-learning,storage" 
+    documentationCenter="" 
+    authors="bradsev" 
+    manager="paulettm" 
+    editor="cgronlun" />
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/23/2015" 
-	ms.author="bradsev" />
+    ms.service="machine-learning" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/23/2015" 
+    ms.author="bradsev" />
 
 # Move Data to and from Azure Blob Storage using Python
 
@@ -49,11 +49,11 @@ This document assumes that you have an Azure subscription, a storage account and
 
 Add the following snippet near the top of any Python code in which you wish to programmatically access Azure Storage:
 
-	from azure.storage import BlobService
+    from azure.storage import BlobService
 
 The **BlobService** object lets you work with containers and blobs. The following code creates a BlobService object using the storage account name and account key. Replace account name and account key with your real account and key.
-	
-	blob_service = BlobService(account_name="<your_account_name>", account_key="<your_account_key>")
+    
+    blob_service = BlobService(account_name="<your_account_name>", account_key="<your_account_key>")
 
 Use the following methods to upload data to a blob:
  
@@ -63,33 +63,33 @@ Use the following methods to upload data to a blob:
 4. put\_block\_blob\_from\_text (uploads the specified text value using the specified encoding)
  
 The following sample code uploads a local file to a container:
-	
-	blob_service.put_block_blob_from_path("<your_container_name>", "<your_blob_name>", "<your_local_file_name>")
+    
+    blob_service.put_block_blob_from_path("<your_container_name>", "<your_blob_name>", "<your_local_file_name>")
 
 The following sample code uploads all the files (excluding directories) in a local directory to blob storage:
 
-	from azure.storage import BlobService
-	from os import listdir
-	from os.path import isfile, join
-	
-	# Set parameters here
-	ACCOUNT_NAME = "<your_account_name>"
-	ACCOUNT_KEY = "<your_account_key>"
-	CONTAINER_NAME = "<your_container_name>"
-	LOCAL_DIRECT = "<your_local_directory>"		
-	
-	blob_service = BlobService(account_name=ACCOUNT_NAME, account_key=ACCOUNT_KEY)
-	# find all files in the LOCAL_DIRECT (excluding directory)
-	local_file_list = [f for f in listdir(LOCAL_DIRECT) if isfile(join(LOCAL_DIRECT, f))]
-	
-	file_num = len(local_file_list)
-	for i in range(file_num):
-	    local_file = join(LOCAL_DIRECT, local_file_list[i])
-	    blob_name = local_file_list[i]
-	    try:
-	        blob_service.put_block_blob_from_path(CONTAINER_NAME, blob_name, local_file)
-	    except:
-	        print "something wrong happened when uploading the data %s"%blob_name
+    from azure.storage import BlobService
+    from os import listdir
+    from os.path import isfile, join
+    
+    # Set parameters here
+    ACCOUNT_NAME = "<your_account_name>"
+    ACCOUNT_KEY = "<your_account_key>"
+    CONTAINER_NAME = "<your_container_name>"
+    LOCAL_DIRECT = "<your_local_directory>"     
+    
+    blob_service = BlobService(account_name=ACCOUNT_NAME, account_key=ACCOUNT_KEY)
+    # find all files in the LOCAL_DIRECT (excluding directory)
+    local_file_list = [f for f in listdir(LOCAL_DIRECT) if isfile(join(LOCAL_DIRECT, f))]
+    
+    file_num = len(local_file_list)
+    for i in range(file_num):
+        local_file = join(LOCAL_DIRECT, local_file_list[i])
+        blob_name = local_file_list[i]
+        try:
+            blob_service.put_block_blob_from_path(CONTAINER_NAME, blob_name, local_file)
+        except:
+            print "something wrong happened when uploading the data %s"%blob_name
 
 ## Download Data from Blob
 
@@ -103,27 +103,28 @@ These methods that perform the necessary chunking when the size of the data exce
 
 The following sample code downloads the contents of a blob in a container to a local file: 
 
-	blob_service.get_blob_to_path("<your_container_name>", "<your_blob_name>", "<your_local_file_name>")
+    blob_service.get_blob_to_path("<your_container_name>", "<your_blob_name>", "<your_local_file_name>")
 
 The following sample code downloads all blobs from a container. It uses list\_blobs to get the list of available blobs in the container and downloads them to a local directory. 
 
-	from azure.storage import BlobService
-	from os.path import join
-	
-	# Set parameters here
-	ACCOUNT_NAME = "<your_account_name>"
-	ACCOUNT_KEY = "<your_account_key>"
-	CONTAINER_NAME = "<your_container_name>"
-	LOCAL_DIRECT = "<your_local_directory>"		
-	
-	blob_service = BlobService(account_name=ACCOUNT_NAME, account_key=ACCOUNT_KEY)
-	
-	# List all blobs and download them one by one
-	blobs = blob_service.list_blobs(CONTAINER_NAME)
-	for blob in blobs:
-	    local_file = join(LOCAL_DIRECT, blob.name)
-	    try:
-	        blob_service.get_blob_to_path(CONTAINER_NAME, blob.name, local_file)
-	    except:
-	        print "something wrong happened when downloading the data %s"%blob.name
+    from azure.storage import BlobService
+    from os.path import join
+    
+    # Set parameters here
+    ACCOUNT_NAME = "<your_account_name>"
+    ACCOUNT_KEY = "<your_account_key>"
+    CONTAINER_NAME = "<your_container_name>"
+    LOCAL_DIRECT = "<your_local_directory>"     
+    
+    blob_service = BlobService(account_name=ACCOUNT_NAME, account_key=ACCOUNT_KEY)
+    
+    # List all blobs and download them one by one
+    blobs = blob_service.list_blobs(CONTAINER_NAME)
+    for blob in blobs:
+        local_file = join(LOCAL_DIRECT, blob.name)
+        try:
+            blob_service.get_blob_to_path(CONTAINER_NAME, blob.name, local_file)
+        except:
+            print "something wrong happened when downloading the data %s"%blob.name
+
 

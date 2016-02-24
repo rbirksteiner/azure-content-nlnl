@@ -151,3 +151,4 @@ Reliable State Manager provides ability to restore from a backup by using the IR
 
 
 RestoreAsync first drops all existing state in the Primary replica that it was called on.  After, the Reliable State Manager creates all the Reliable Objects that exists in the backup folder.  Next, the Reliable Objects are instructed to restore from their checkpoints in the backup folder.  Finally, Reliable State Manager recovers its own state from the log records in the backup folder and performs recovery.  As part of the recovery process, operations starting from the "starting point" that have commit log records in the backup folder are replayed to the Reliable Objects.  This step ensures that the recovered state is consistent.
+

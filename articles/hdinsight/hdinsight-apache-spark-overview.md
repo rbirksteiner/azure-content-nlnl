@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="An overview of Apache Spark in HDInsight | Microsoft Azure" 
-	description="An introduction to Apache Spark in HDInsight and scenarios in which to use Spark on HDInsight in your applications." 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="nitinme" 
-	manager="paulettm" 
-	editor="cgronlun"
-	tags="azure-portal"/>
+    pageTitle="An overview of Apache Spark in HDInsight | Microsoft Azure" 
+    description="An introduction to Apache Spark in HDInsight and scenarios in which to use Spark on HDInsight in your applications." 
+    services="hdinsight" 
+    documentationCenter="" 
+    authors="nitinme" 
+    manager="paulettm" 
+    editor="cgronlun"
+    tags="azure-portal"/>
 
 <tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/30/2015" 
-	ms.author="nitinme"/>
+    ms.service="hdinsight" 
+    ms.workload="big-data" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/30/2015" 
+    ms.author="nitinme"/>
 
 # Overview: Apache Spark on Azure HDInsight 
  
@@ -49,7 +49,7 @@ Azure HDInsight offers a fully managed Spark service. Benefits of using Spark on
 | Integration with BI Tools       | Spark for HDInsight provides connectors for popular BI tools such as [Power BI](http://www.powerbi.com/) and [Tableau](http://www.tableau.com/products/desktop) for data analytics.|
 | Pre-loaded Anaconda libraries        | Spark clusters on HDInsight come with Anaconda libraries pre-installed. [Anaconda](http://docs.continuum.io/anaconda/) provides close to 200 libraries for machine learning, data analysis, visualization, etc.|
 | Scalability                     | Although you can specify the number of nodes in your cluster during creation, you may want to grow or shrink the cluster to match workload. All HDInsight clusters allow you to change the number of nodes in the cluster. Also, Spark clusters can be dropped with no loss of data since all the data is stored in Azure Blob Storage. |
-| 24/7 Support					  | Spark on HDInsight comes with  enterprise-level 24/7 support and an SLA of 99.9% up-time.|
+| 24/7 Support                    | Spark on HDInsight comes with  enterprise-level 24/7 support and an SLA of 99.9% up-time.|
 
 
 
@@ -99,3 +99,4 @@ Spark in HDInsight also provides an [ODBC driver](http://go.microsoft.com/fwlink
 
 
 [hdinsight-storage]: ../hdinsight-use-blob-storage/
+

@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="What's new in SQL Database V12 | Microsoft Azure" 
-	description="Describes why business systems that are using Azure SQL Database in the cloud will benefit by upgrading to version V12 now." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="MightyPen" 
-	manager="jeffreyg" 
-	editor=""/>
+    pageTitle="What's new in SQL Database V12 | Microsoft Azure" 
+    description="Describes why business systems that are using Azure SQL Database in the cloud will benefit by upgrading to version V12 now." 
+    services="sql-database" 
+    documentationCenter="" 
+    authors="MightyPen" 
+    manager="jeffreyg" 
+    editor=""/>
 
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/11/2015" 
-	ms.author="genemi"/>
+    ms.service="sql-database" 
+    ms.workload="data-management" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/11/2015" 
+    ms.author="genemi"/>
 
 
 # What's new in SQL Database V12
@@ -161,3 +161,4 @@ If you are not yet running on V12, you can upgrade your logical server by follow
 - V12 was released in December 2014, but only at the status of Preview.
 
 [Supplemental Terms of Use for Microsoft Azure Previews](http://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+

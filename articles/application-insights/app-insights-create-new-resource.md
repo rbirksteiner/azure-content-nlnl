@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Create a new Application Insights resource" 
-	description="Set up Application Insights monitoring for a new live application. Web-based approach." 
-	services="application-insights" 
+    pageTitle="Create a new Application Insights resource" 
+    description="Set up Application Insights monitoring for a new live application. Web-based approach." 
+    services="application-insights" 
     documentationCenter=""
-	authors="alancameronwills" 
-	manager="douge"/>
+    authors="alancameronwills" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/06/2015" 
-	ms.author="awills"/>
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/06/2015" 
+    ms.author="awills"/>
 
 # Create a new Application Insights resource
 

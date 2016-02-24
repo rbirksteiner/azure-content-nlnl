@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication FAQ" 
-	description="Provides a list of frequently asked questions and answers related to Azure Multi-factor authentication (MFA). MFA is a method of verifying who you are that requires the use of more than just a username and password. It provides an additional layer of security to user sign-ins and transactions." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
-	editor="curtand"/>
+    pageTitle="Azure Multi-Factor Authentication FAQ" 
+    description="Provides a list of frequently asked questions and answers related to Azure Multi-factor authentication (MFA). MFA is a method of verifying who you are that requires the use of more than just a username and password. It provides an additional layer of security to user sign-ins and transactions." 
+    services="multi-factor-authentication" 
+    documentationCenter="" 
+    authors="billmath" 
+    manager="stevenpo" 
+    editor="curtand"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/20/2015" 
-	ms.author="billmath"/>
+    ms.service="multi-factor-authentication" 
+    ms.workload="identity" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/20/2015" 
+    ms.author="billmath"/>
 
 # Azure Multi-Factor Authentication FAQ
 
@@ -150,6 +150,7 @@ So, if the ActiveIdentity tokens are OATH TOTP tokens and you can get the secret
 Currently, additional security verification can only be used with applications/services that you can access through your browser. Non-browser applications (also referred to as rich client applications) which are installed on your local computer such as Windows Powershell will not work with accounts that are required for additional security verification. In this case, you may see the application generate error 0x800434D4L.
 
 A workaround for this is to have a separate user account for admin-related operations vs. non-admin operations. You can later link mailboxes between your admin account and non-admin account so you can sign-in to outlook using your non-admin account. For more details about this, see [Give an Administrator the Ability to Open and View the Contents of a User's Mailbox](http://help.outlook.com/141/gg709759(d=loband).aspx?sl=1).
+
 
 
 

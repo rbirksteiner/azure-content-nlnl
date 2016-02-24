@@ -6,7 +6,7 @@
    authors="Blackmist"
    manager="paulettm"
    editor="cgronlun"
-	tags="azure-portal"/>
+    tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -41,44 +41,44 @@ When you are connected to the desktop for the HDInsight cluster, use the followi
 
 1. From the HDInsight desktop, start the **Hadoop Command Line**. This opens a new command prompt in the **c:\apps\dist\hadoop-&lt;version number>** directory.
 
-	> [AZURE.NOTE] The version number changes as Hadoop is updated. The **HADOOP_HOME** environment variable can be used to find the path. For example, `cd %HADOOP_HOME%` changes directories to the Hadoop directory, without requiring you to know the version number.
+    > [AZURE.NOTE] The version number changes as Hadoop is updated. The **HADOOP_HOME** environment variable can be used to find the path. For example, `cd %HADOOP_HOME%` changes directories to the Hadoop directory, without requiring you to know the version number.
 
 2. To use the **Hadoop** command to run an example MapReduce job, use the following command:
 
-		hadoop jar hadoop-mapreduce-examples.jar wordcount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/WordCountOutput
+        hadoop jar hadoop-mapreduce-examples.jar wordcount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/WordCountOutput
 
-	This starts the **wordcount** class, which is contained in the **hadoop-mapreduce-examples.jar** file in the current directory. As input, it uses the **wasb://example/data/gutenberg/davinci.txt** document, and output is stored at: **wasb:///example/data/WordCountOutput**.
+    This starts the **wordcount** class, which is contained in the **hadoop-mapreduce-examples.jar** file in the current directory. As input, it uses the **wasb://example/data/gutenberg/davinci.txt** document, and output is stored at: **wasb:///example/data/WordCountOutput**.
 
-	> [AZURE.NOTE] for more information about this MapReduce job and the example data, see <a href="hdinsight-use-mapreduce.md">Use MapReduce in HDInsight Hadoop</a>.
+    > [AZURE.NOTE] for more information about this MapReduce job and the example data, see <a href="hdinsight-use-mapreduce.md">Use MapReduce in HDInsight Hadoop</a>.
 
 2. The job emits details as it is processed, and it returns information similar to the following when the job is complete:
 
-		File Input Format Counters
+        File Input Format Counters
         Bytes Read=1395666
-		File Output Format Counters
+        File Output Format Counters
         Bytes Written=337623
 
 3. When the job is complete, use the following command to list the output files stored at **wasb://example/data/WordCountOutput**:
 
-		hadoop fs -ls wasb:///example/data/WordCountOutput
+        hadoop fs -ls wasb:///example/data/WordCountOutput
 
-	This should display two files, **_SUCCESS** and **part-r-00000**. The **part-r-00000** file contains the output for this job.
+    This should display two files, **_SUCCESS** and **part-r-00000**. The **part-r-00000** file contains the output for this job.
 
-	> [AZURE.NOTE] Some MapReduce jobs may split the results across multiple **part-r-#####** files. If so, use the ##### suffix to indicate the order of the files.
+    > [AZURE.NOTE] Some MapReduce jobs may split the results across multiple **part-r-#####** files. If so, use the ##### suffix to indicate the order of the files.
 
 4. To view the output, use the following command:
 
-		hadoop fs -cat wasb:///example/data/WordCountOutput/part-r-00000
+        hadoop fs -cat wasb:///example/data/WordCountOutput/part-r-00000
 
-	This displays a list of the words that are contained in the **wasb://example/data/gutenberg/davinci.txt** file, along with the number of times each word occured. The following is an example of the data that will be contained in the file:
+    This displays a list of the words that are contained in the **wasb://example/data/gutenberg/davinci.txt** file, along with the number of times each word occured. The following is an example of the data that will be contained in the file:
 
-		wreathed        3
-		wreathing       1
-		wreaths 		1
-		wrecked 		3
-		wrenching       1
-		wretched        6
-		wriggling       1
+        wreathed        3
+        wreathing       1
+        wreaths         1
+        wrecked         3
+        wrenching       1
+        wretched        6
+        wriggling       1
 
 ##<a id="summary"></a>Summary
 
@@ -95,3 +95,4 @@ For information about other ways you can work with Hadoop on HDInsight:
 * [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
 
 * [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
+

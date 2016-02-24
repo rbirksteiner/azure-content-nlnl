@@ -71,11 +71,11 @@ When you create a new certificate, you upload a cer or pfx file to Azure Automat
 
 The following sample commands show how to create a new automation certificate and marks it exportable. This imports an existing pfx file.
 
-	$certName = 'MyCertificate'
-	$certPath = '.\MyCert.pfx'
-	$certPwd = ConvertTo-SecureString -String 'P@$$w0rd' -AsPlainText -Force
-	
-	New-AzureAutomationCertificate -AutomationAccountName "MyAutomationAccount" -Name $certName -Path $certPath –Password $certPwd -Exportable
+    $certName = 'MyCertificate'
+    $certPath = '.\MyCert.pfx'
+    $certPwd = ConvertTo-SecureString -String 'P@$$w0rd' -AsPlainText -Force
+    
+    New-AzureAutomationCertificate -AutomationAccountName "MyAutomationAccount" -Name $certName -Path $certPath –Password $certPwd -Exportable
 
 ## Using a certificate
 
@@ -85,10 +85,10 @@ You must use the **Get-AutomationCertificate** activity to use a certificate. Yo
 
 The following sample code shows how to add a certificate to a cloud service in a runbook. In this sample, the password is retrieved from an encrypted automation variable.
 
-	$serviceName = 'MyCloudService'
-	$cert = Get-AutomationCertificate -Name 'MyCertificate'
-	$certPwd = Get-AutomationVariable –Name 'MyCertPassword'
-	Add-AzureCertificate -ServiceName $serviceName -CertToDeploy $cert
+    $serviceName = 'MyCloudService'
+    $cert = Get-AutomationCertificate -Name 'MyCertificate'
+    $certPwd = Get-AutomationVariable –Name 'MyCertPassword'
+    Add-AzureCertificate -ServiceName $serviceName -CertToDeploy $cert
 
 ### Graphical runbook sample
 
@@ -106,3 +106,4 @@ This example uses the **UseConnectionObject** parameter set for the Send-**Twili
 ## See Also
 
 - [Links in graphical authoring](automation-graphical-authoring-intro.md#links-and-workflow) 
+

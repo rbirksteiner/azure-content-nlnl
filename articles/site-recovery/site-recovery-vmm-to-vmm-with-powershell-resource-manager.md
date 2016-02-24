@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Protect VMs from one VMM site to another  with PowerShell and Microsoft Azure Resource Manager"
-	description="Automate protection between two on-premises VMM site and Azure using PowerShell and Azure Resource Manager."
-	services="site-recovery"
-	documentationCenter=""
-	authors="rayne-wiselman"
-	manager="jwhit"
-	editor="tysonn"/>
+    pageTitle="Protect VMs from one VMM site to another  with PowerShell and Microsoft Azure Resource Manager"
+    description="Automate protection between two on-premises VMM site and Azure using PowerShell and Azure Resource Manager."
+    services="site-recovery"
+    documentationCenter=""
+    authors="rayne-wiselman"
+    manager="jwhit"
+    editor="tysonn"/>
 
 <tags
-	ms.service="site-recovery"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="backup-recovery"
-	ms.date="08/26/2015"
-	ms.author="raynew"/>
-	
+    ms.service="site-recovery"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="backup-recovery"
+    ms.date="08/26/2015"
+    ms.author="raynew"/>
+    
 
 #  VMM site to VMM site with PowerShell and Azure Resource Manager
 
@@ -41,19 +41,19 @@ Make sure you have these prerequisites in place:
 - You'll need a [Microsoft Azure](http://azure.microsoft.com/) account. You'll need a [Microsoft Azure](http://azure.microsoft.com/) account. You can start with a [free trial](pricing/free-trial/). In addition, you can read about [Azure Site Recovery Manager pricing](http://azure.microsoft.com/pricing/details/site-recovery/).
 - You'll need a VMM server in the primary and secondary sites running on System Center 2012 R2.
 - Each VMM server should have at least one cloud that contains:
-	- One or more VMM host groups.
-	- One or more Hyper-V host servers or clusters in each host group .
-	- One or more virtual machines on the source Hyper-V server.
-	- Learn more about setting up VMM clouds:
+    - One or more VMM host groups.
+    - One or more Hyper-V host servers or clusters in each host group .
+    - One or more virtual machines on the source Hyper-V server.
+    - Learn more about setting up VMM clouds:
 
-		- [What’s New in Private Cloud with System Center 2012 R2 VMM](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/MDC-B357#fbid=dfgvHAmYryA) and in [VMM 2012 and the clouds](http://www.server-log.com/blog/2011/8/26/vmm-2012-and-the-clouds.html).
-		- [Configuring the VMM cloud fabric](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric)
-		- [Creating a private cloud in VMM](https://technet.microsoft.com/library/jj860425.aspx) and [Walkthrough: Creating private clouds with System Center 2012 SP1 VMM](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx).
+        - [What’s New in Private Cloud with System Center 2012 R2 VMM](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/MDC-B357#fbid=dfgvHAmYryA) and in [VMM 2012 and the clouds](http://www.server-log.com/blog/2011/8/26/vmm-2012-and-the-clouds.html).
+        - [Configuring the VMM cloud fabric](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric)
+        - [Creating a private cloud in VMM](https://technet.microsoft.com/library/jj860425.aspx) and [Walkthrough: Creating private clouds with System Center 2012 SP1 VMM](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx).
 - One or more Hyper-V servers running at least Windows Server 2012 with Hyper-V role with the latest updates installed. The server or cluster must be included in a VMM cloud.
 - If you're running Hyper-V in a cluster note that cluster broker isn't created automatically if you have a static IP address-based cluster. You'll need to configure the cluster broker manually. For instructions see [Configure Hyper-V Replica Broker](http://social.technet.microsoft.com/wiki/contents/articles/18792.configure-replica-broker-role-cluster-to-cluster-replication.aspx).
 
-	- You'll needed Azure PowerShell. Make sure you're running Azure PowerShell version 0.9.6 or later. Read [How to install and configure Azure PowerShell](powershell-install-configure.md). 
-	- Installing Azure PowerShell installs a customized console. You can run the PowerShell commands from this console or from any other host program, such as Windows PowerShell ISE.
+    - You'll needed Azure PowerShell. Make sure you're running Azure PowerShell version 0.9.6 or later. Read [How to install and configure Azure PowerShell](powershell-install-configure.md). 
+    - Installing Azure PowerShell installs a customized console. You can run the PowerShell commands from this console or from any other host program, such as Windows PowerShell ISE.
 
 ## Step 1: Set up PowerShell
 
@@ -66,7 +66,7 @@ Make sure you have these prerequisites in place:
 
     `Add-AzureAccount` 
 
-	Note that if you're a CSP partner working on behalf of a tenant you'll need to specify the customer as a tenant when you add the Azure account: 
+    Note that if you're a CSP partner working on behalf of a tenant you'll need to specify the customer as a tenant when you add the Azure account: 
 
     `Add-AzureAccount-Tenant "customer"`
 
@@ -106,21 +106,21 @@ Make sure you have these prerequisites in place:
 
     `.\SetupDr.exe /i`
     `$installationRegPath = "hklm:\software\Microsoft\Microsoft System Center Virtual Machine Manager Server\DRAdapter"
-	do
-	{
+    do
+    {
                 $isNotInstalled = $true;
                 if(Test-Path $installationRegPath)
                 {
                                 $isNotInstalled = $false;
                 }
-	}While($isNotInstalled)`
+    }While($isNotInstalled)`
 
 5. Wait for the installation to finish and then register the server in the vault:
 
     `$BinPath = $env:SystemDrive+"\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin"
-	pushd $BinPath
-	$encryptionFilePath = "C:\temp\"
-	.\DRConfigurator.exe /r /Credentials $VaultSettingFilePath /vmmfriendlyname $env:COMPUTERNAME /dataencryptionenabled $encryptionFilePath /startvmmservice`
+    pushd $BinPath
+    $encryptionFilePath = "C:\temp\"
+    .\DRConfigurator.exe /r /Credentials $VaultSettingFilePath /vmmfriendlyname $env:COMPUTERNAME /dataencryptionenabled $encryptionFilePath /startvmmservice`
 
 ## Step 5: Set up the vault context
 
@@ -169,7 +169,7 @@ Enable protection for VMs in the VMM clouds:
 
 ## Step 5: Run a test failover
 
-1.	Select the VM you want to fail over:
+1.  Select the VM you want to fail over:
 
     `$VM = Get-AzureSiteRecoveryProtectionEntity -ProtectionContainer $PrimaryContainer -FriendlyName  $VMName`
 
@@ -185,3 +185,4 @@ Enable protection for VMs in the VMM clouds:
 ## Next steps
 
 For questions and comments on this scenario visit the [Site Recovery forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr/)
+

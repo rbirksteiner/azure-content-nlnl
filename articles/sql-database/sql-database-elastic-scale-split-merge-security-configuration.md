@@ -466,7 +466,7 @@ In the Certificate Import Wizard:
 7.     Select the desired store.
 8.     Click **Finish**.
        
-	* If the Trusted Root Certification Authority store was chosen, click **Yes**.
+    * If the Trusted Root Certification Authority store was chosen, click **Yes**.
 9.     Click **OK** on all dialog windows.
 
 ## Upload certificate

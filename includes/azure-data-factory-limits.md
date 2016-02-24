@@ -30,3 +30,4 @@ Retry timeout value | 1 second | 1 second
 Azure resource manager has limits for API calls. You can make API calls at a rate within the [Azure Resource Manager API limits](azure-subscription-service-limits/#resource-group-limits). 
 
 
+

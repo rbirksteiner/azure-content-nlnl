@@ -68,11 +68,11 @@ As part of this procedure, you are required to upload a certificate to Rally Sof
 
 ###To configure single sign-on, perform the following steps:
 
-1.  In the Azure AD portal, on the **Rally Software **application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  In the Azure AD portal, on the **Rally Software **application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
     ![Configure single sign-on](./media/active-directory-saas-rally-software-tutorial/IC749323.png "Configure single sign-on")
 
-2.  On the **How would you like users to sign on to Rally** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to Rally** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Microsoft Azure AD Single Sign-On](./media/active-directory-saas-rally-software-tutorial/IC769528.png "Microsoft Azure AD Single Sign-On")
 
@@ -80,7 +80,7 @@ As part of this procedure, you are required to upload a certificate to Rally Sof
 
     ![Configure App URL](./media/active-directory-saas-rally-software-tutorial/IC769529.png "Configure App URL")
 
-4.  On the **Configure single sign-on at Rally** page, click Download metadata, and then save it on your computer.
+4.  On the **Configure single sign-on at Rally** page, click Download metadata, and then save it on your computer.
 
     ![Configure single sign-on](./media/active-directory-saas-rally-software-tutorial/IC769530.png "Configure single sign-on")
 
@@ -100,7 +100,7 @@ As part of this procedure, you are required to upload a certificate to Rally Sof
     2.  In the Azure portal, on the **Configure single sign-on at Rally Software** dialog page, copy the **Identity Provider ID** value, and then paste it into the **Identity Provider URL** textbox
     3.  In the Azure portal, on the **Configure single sign-on at Rally Software** dialog page, copy the **Remote Logout URL** value.
 
-9.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+9.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
     ![Configure single sign-on](./media/active-directory-saas-rally-software-tutorial/IC769547.png "Configure single sign-on")
 ##Configuring user provisioning
@@ -135,7 +135,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 1.  In the Azure AD portal, create a test account.
 
-2.  On the **Rally Software** application integration page, click **Assign users**.
+2.  On the **Rally Software** application integration page, click **Assign users**.
 
     ![Assign users](./media/active-directory-saas-rally-software-tutorial/IC769548.png "Assign users")
 
@@ -144,6 +144,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
     ![Yes](./media/active-directory-saas-rally-software-tutorial/IC767830.png "Yes")
   
 If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+
 
 
 

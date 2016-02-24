@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Using the FTP Connector in Logic Apps | Microsoft Azure App Service"
-	description="How to create and configure the FTP Connector or API app and use it in a logic app in Azure App Service"
-	authors="rajram"
-	manager="dwrede"
-	editor=""
-	services="app-service\logic"
-	documentationCenter=""/>
+    pageTitle="Using the FTP Connector in Logic Apps | Microsoft Azure App Service"
+    description="How to create and configure the FTP Connector or API app and use it in a logic app in Azure App Service"
+    authors="rajram"
+    manager="dwrede"
+    editor=""
+    services="app-service\logic"
+    documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/30/2015"
-	ms.author="rajram"/>
+    ms.service="app-service-logic"
+    ms.workload="integration"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/30/2015"
+    ms.author="rajram"/>
 
 # Get started with the FTP Connector and add it to your Logic App
 Connect to an FTP server to move data or files. Key features of the FTP connector include:
@@ -49,13 +49,13 @@ To create a new FTP connector, follow the steps mentioned below.
 - **Pricing tier** - choose a pricing tier for the connector
 - **Name** - give a name for your FTP Connector
 - **Package settings**
-	- **Server Address** - Specify the FTP Server name or IP address
-	- **User Name** - Specify the user name to connect to the FTP Server
-	- **Password** - Specify the password to connect to the FTP Server
-	- **Root Folder** - Specify a root folder path
-	- **Use Binary** - Specify true to use Binary transfer mode, false for ASCII
-	- **Use SSL** - Specify true to use FTP over a secure SSL/TLS channel
-	- **Server Port** - Specify the FTP Server port number
+    - **Server Address** - Specify the FTP Server name or IP address
+    - **User Name** - Specify the user name to connect to the FTP Server
+    - **Password** - Specify the password to connect to the FTP Server
+    - **Root Folder** - Specify a root folder path
+    - **Use Binary** - Specify true to use Binary transfer mode, false for ASCII
+    - **Use SSL** - Specify true to use FTP over a secure SSL/TLS channel
+    - **Server Port** - Specify the FTP Server port number
 - Click on Create. A new FTP Connector will be created.
 
 ## Use FTP Connector in Logic App
@@ -107,7 +107,7 @@ You can click on '...' in the input dialog of action and select the output of FT
 
 You can also write an expression directly in the input box of action. The flow expression to refer to the output of ftp trigger is given below:
 
-	@triggers('ftpconnector').outputs.body.Content
+    @triggers('ftpconnector').outputs.body.Content
 
 ### Actions
 Click on FTP connector from the right pane. The FTP connector lists down the actions supported:  
@@ -142,19 +142,19 @@ Provide the inputs and click on the check mark to complete input configuration:
 
 The 'File Path' parameter is set to:
 
-	@concat('/Output/',triggers().outputs.body.FileName)
+    @concat('/Output/',triggers().outputs.body.FileName)
 
 Note that the configured FTP Upload File action shows both input parameters as well as output parameters.
 
 #### Using the outputs of previous actions as input to FTP action
 Note that in the configured screenshot, Content is value is set to an expression.
 
-	@triggers().outputs.body.Content
+    @triggers().outputs.body.Content
 
 
 You can set it to any value that you want. This is just an example. The expression takes the output of the logic app trigger and uses it as the content of the file to be uploaded. Lets say you want to use the output of a previous action, say transform. In that case, the expression would be
 
-	@actions('transformservice').outputs.body.OutputXML
+    @actions('transformservice').outputs.body.OutputXML
 
 ## Do more with your Connector
 Now that the connector is created, you can add it to a business workflow using a Logic App. See [What are Logic Apps?](app-service-logic-what-are-logic-apps.md).
@@ -180,3 +180,4 @@ You can also review performance statistics and control security to the connector
 [12]: ./media/app-service-logic-connector-ftp/AdvancedInputsUploadFile.PNG
 [13]: ./media/app-service-logic-connector-ftp/ConfiguredUploadFile.PNG
  
+

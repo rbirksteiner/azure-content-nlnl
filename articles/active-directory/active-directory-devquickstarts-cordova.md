@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure AD Cordova Getting Started | Microsoft Azure"
-	description="How to build a Cordova application that integrates with Azure AD for sign in and calls Azure AD protected APIs using OAuth."
-	services="active-directory"
-	documentationCenter=""
-	authors="vibronet"
-	manager="mbaldwin"
-	editor=""/>
+    pageTitle="Azure AD Cordova Getting Started | Microsoft Azure"
+    description="How to build a Cordova application that integrates with Azure AD for sign in and calls Azure AD protected APIs using OAuth."
+    services="active-directory"
+    documentationCenter=""
+    authors="vibronet"
+    manager="mbaldwin"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="javascript"
-	ms.topic="article"
-	ms.date="10/13/2015"
-	ms.author="vittorib"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="javascript"
+    ms.topic="article"
+    ms.date="10/13/2015"
+    ms.author="vittorib"/>
 
 # Integrate Azure AD with an Apache Cordova app
 
@@ -27,9 +27,9 @@ With Azure AD, you can add enterprise grade authentication capabilities to your 
 
 In this tutorial we will use the Apache Cordova plugin for Active Directory Authentication Library (ADAL) to improve a simple app with the following features:
 
--	With just few lines of code, authenticate an AD user and obtain a token for calling the Azure AD Graph API.
--	Use that token to invoke the Graph API to query that directory and display the results  
--	Leverage the ADAL token cache for minimizing the authentication prompts for the user.
+-   With just few lines of code, authenticate an AD user and obtain a token for calling the Azure AD Graph API.
+-   Use that token to invoke the Graph API to query that directory and display the results  
+-   Leverage the ADAL token cache for minimizing the authentication prompts for the user.
 
 In order to do this, you’ll need to:
 
@@ -38,7 +38,7 @@ In order to do this, you’ll need to:
 3. Add code to use the token for querying the Graph API and display results.
 4. Create the Cordova deployment project with all the platforms you want to target, and the Cordova ADAL plugin and test the solution in emulators.
 
-## *0.	Prerequisites*
+## *0.  Prerequisites*
 
 To complete this tutorial you will need:
 
@@ -61,15 +61,15 @@ Note that those should work both on the PC and on the Mac.
 Each target platform has different prerequisites.
 
 - To build and run Windows Tablet/PC or Phone app version
-	- [Visual Studio 2013 for Windows with Update 2 or later](http://www.visualstudio.com/downloads/download-visual-studio-vs#d-express-windows-8) (Express or another version).
+    - [Visual Studio 2013 for Windows with Update 2 or later](http://www.visualstudio.com/downloads/download-visual-studio-vs#d-express-windows-8) (Express or another version).
 - To build and run for iOS
-	-   Xcode 5.x or greater. Download it at http://developer.apple.com/downloads or the [Mac App Store](http://itunes.apple.com/us/app/xcode/id497799835?mt=12)
-	-   [ios-sim](https://www.npmjs.org/package/ios-sim) – allows you to launch iOS apps into the iOS Simulator from the command line (can be easily installed via the terminal: `npm install -g ios-sim`)
+    -   Xcode 5.x or greater. Download it at http://developer.apple.com/downloads or the [Mac App Store](http://itunes.apple.com/us/app/xcode/id497799835?mt=12)
+    -   [ios-sim](https://www.npmjs.org/package/ios-sim) – allows you to launch iOS apps into the iOS Simulator from the command line (can be easily installed via the terminal: `npm install -g ios-sim`)
 
 - To build and run application for Android
-	- Install [Java Development Kit (JDK) 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) or later. Make sure `JAVA_HOME` (Environment Variable) is correctly set according to JDK installation path (for example C:\Program Files\Java\jdk1.7.0_75).
-	- Install [Android SDK](http://developer.android.com/sdk/installing/index.html?pkg=tools) and add `<android-sdk-location>\tools` location (for example, C:\tools\Android\android-sdk\tools) to your `PATH` Environment Variable.
-	- Open Android SDK Manager (for example, via terminal: `android`) and install
+    - Install [Java Development Kit (JDK) 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) or later. Make sure `JAVA_HOME` (Environment Variable) is correctly set according to JDK installation path (for example C:\Program Files\Java\jdk1.7.0_75).
+    - Install [Android SDK](http://developer.android.com/sdk/installing/index.html?pkg=tools) and add `<android-sdk-location>\tools` location (for example, C:\tools\Android\android-sdk\tools) to your `PATH` Environment Variable.
+    - Open Android SDK Manager (for example, via terminal: `android`) and install
     - *Android 5.0.1 (API 21)* platform SDK
     - *Android SDK Build-tools* version 19.1.0 or higher
     - *Android Support Repository* (Extras)
@@ -77,7 +77,7 @@ Each target platform has different prerequisites.
   Android sdk doesn't provide any default emulator instance. Create a new one by running `android avd` from terminal and then selecting *Create...* if you want to run Android app on emulator. Recommended *Api Level* is 19 or higher, see [AVD Manager] (http://developer.android.com/tools/help/avd-manager.html) for more information about Android emulator and creation options.
 
 
-## *1.	Register an application with Azure AD*
+## *1.  Register an application with Azure AD*
 
 Note: this step is optional. The tutorial provided pre-provisioned values that will allow you to see the sample in action without doing any provisioning in your own tenant. However it is recommended that you do perform this step and become familiar with the process, as it will be required when you will create your own applications.
 
@@ -89,7 +89,7 @@ Azure AD will only issue tokens to known applications. Before you can use Azure 
 - Click the Applications tab, and click add in the bottom drawer.
 - Follow the prompts and create a new “Native Client Application”
     - The name of the application will describe your application to end-users
-    -	The “Redirect URI” is the URI used to return tokens to your app. Enter `http://MyDirectorySearcherApp`.
+    -   The “Redirect URI” is the URI used to return tokens to your app. Enter `http://MyDirectorySearcherApp`.
 
 Once you’ve completed registration, AAD will assign your app a unique client identifier.  You’ll need this value in the next sections: you can find it in the Configure tab of the newly created app.
 
@@ -269,3 +269,4 @@ For reference, the completed sample (without your configuration values) is provi
 [Secure a Node.js Web API with Azure AD >>](active-directory-devquickstarts-webapi-nodejs.md)
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
+

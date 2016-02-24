@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Analyze flight delay data with Hive on Linux-based HDInsight | Microsoft Azure" 
-	description="Learn how to use Hive to analyze flight data on Linux-based HDInsight, then export the data to SQL Database using Sqoop." 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="Blackmist" 
-	manager="paulettm" 
-	editor="cgronlun"
-	tags="azure-portal"/>
+    pageTitle="Analyze flight delay data with Hive on Linux-based HDInsight | Microsoft Azure" 
+    description="Learn how to use Hive to analyze flight data on Linux-based HDInsight, then export the data to SQL Database using Sqoop." 
+    services="hdinsight" 
+    documentationCenter="" 
+    authors="Blackmist" 
+    manager="paulettm" 
+    editor="cgronlun"
+    tags="azure-portal"/>
 
 <tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/04/2015" 
-	ms.author="larryfr"/>
+    ms.service="hdinsight" 
+    ms.workload="big-data" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/04/2015" 
+    ms.author="larryfr"/>
 
 #Analyze flight delay data by using Hive in HDInsight
 
@@ -41,10 +41,10 @@ Before you begin this tutorial, you must have the following:
 1. Browse to [Research and Innovative Technology Administration, Bureau of Transportation Statistics][rita-website].
 2. On the page, select the following values:
 
-	| Name | Value |
-	| Filter Year | 2013 |
-	| Filter Period | January |
-	| Fields | Year, FlightDate, UniqueCarrier, Carrier, FlightNum, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. Clear all other fields |
+    | Name | Value |
+    | Filter Year | 2013 |
+    | Filter Period | January |
+    | Fields | Year, FlightDate, UniqueCarrier, Carrier, FlightNum, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. Clear all other fields |
 
 3. Click **Download**. 
 
@@ -52,119 +52,119 @@ Before you begin this tutorial, you must have the following:
 
 1. Use the following command to upload the zip file to the HDInsight cluster head node:
 
-		scp FILENAME.csv USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:
+        scp FILENAME.csv USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:
 
-	Replace __FILENAME__ with the name of the zip file. Replace __USERNAME__ with the SSH login for the HDInsight cluster. Replace CLUSTERNAME with the name of the HDInsight cluster.
-	
-	> [AZURE.NOTE] If you use a password to authenticate your SSH login, you will be prompted for the password. If you used a public key, you may need to use the `-i` parameter and specify the path to the matching private key. For example `scp -i ~/.ssh/id_rsa FILENAME.csv USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
+    Replace __FILENAME__ with the name of the zip file. Replace __USERNAME__ with the SSH login for the HDInsight cluster. Replace CLUSTERNAME with the name of the HDInsight cluster.
+    
+    > [AZURE.NOTE] If you use a password to authenticate your SSH login, you will be prompted for the password. If you used a public key, you may need to use the `-i` parameter and specify the path to the matching private key. For example `scp -i ~/.ssh/id_rsa FILENAME.csv USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
 
 2. Once the upload has completed, connect to the cluster using SSH:
 
-		ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
-		
-	For more information on using SSH with Linux-based HDInsight, see the following articles:
-	
-	* [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+        ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+        
+    For more information on using SSH with Linux-based HDInsight, see the following articles:
+    
+    * [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-	* [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
-	
+    * [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    
 3. Once connected, use the following to unzip the .zip file:
 
-		unzip FILENAME.zip
-	
-	This will extract a .csv file that is roughly 60MB in size.
-	
+        unzip FILENAME.zip
+    
+    This will extract a .csv file that is roughly 60MB in size.
+    
 4. Use the following to create a new directory on WASB (the distributed data store used by HDInsight,) and copy the file:
 
-	hadoop fs -mkdir -p /tutorials/flightdelays/data
-	hadoop fs -copyFromLocal FILENAME.csv /tutorials/flightdelays/data/FILENAME.csv
-	
+    hadoop fs -mkdir -p /tutorials/flightdelays/data
+    hadoop fs -copyFromLocal FILENAME.csv /tutorials/flightdelays/data/FILENAME.csv
+    
 ##Create and run the HiveQL
 
 Use the following steps to import data from the CSV file into a Hive table named __Delays__.
 
 1. Use the following to create and edit a new file named __flightdelays.hql__:
 
-		nano flightdelays.hql
-		
-	Use the following as the contents of this file:
-	
-		DROP TABLE delays_raw;
-		-- Creates an external table over the csv file
-		CREATE EXTERNAL TABLE delays_raw (
-			YEAR string,
-			FL_DATE string,
-			UNIQUE_CARRIER string,
-			CARRIER string,
-			FL_NUM string,
-			ORIGIN_AIRPORT_ID string,
-			ORIGIN string,
-			ORIGIN_CITY_NAME string,
-			ORIGIN_CITY_NAME_TEMP string,
-			ORIGIN_STATE_ABR string,
-			DEST_AIRPORT_ID string,
-			DEST string,
-			DEST_CITY_NAME string,
-			DEST_CITY_NAME_TEMP string,
-			DEST_STATE_ABR string,
-			DEP_DELAY_NEW float,
-			ARR_DELAY_NEW float,
-			CARRIER_DELAY float,
-			WEATHER_DELAY float,
-			NAS_DELAY float,
-			SECURITY_DELAY float,
-			LATE_AIRCRAFT_DELAY float)
-		-- The following lines describe the format and location of the file
-		ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
-		LINES TERMINATED BY '\n'
-		STORED AS TEXTFILE
-		LOCATION '/tutorials/flightdelays/data';
-		
-		-- Drop the delays table if it exists
-		DROP TABLE delays;
-		-- Create the delays table and populate it with data
-		-- pulled in from the CSV file (via the external table defined previously)
-		CREATE TABLE delays AS
-		SELECT YEAR AS year,
-		    FL_DATE AS flight_date,
-		    substring(UNIQUE_CARRIER, 2, length(UNIQUE_CARRIER) -1) AS unique_carrier,
-		    substring(CARRIER, 2, length(CARRIER) -1) AS carrier,
-		    substring(FL_NUM, 2, length(FL_NUM) -1) AS flight_num,
-		    ORIGIN_AIRPORT_ID AS origin_airport_id,
-		    substring(ORIGIN, 2, length(ORIGIN) -1) AS origin_airport_code,
-		    substring(ORIGIN_CITY_NAME, 2) AS origin_city_name,
-		    substring(ORIGIN_STATE_ABR, 2, length(ORIGIN_STATE_ABR) -1)  AS origin_state_abr,
-		    DEST_AIRPORT_ID AS dest_airport_id,
-		    substring(DEST, 2, length(DEST) -1) AS dest_airport_code,
-		    substring(DEST_CITY_NAME,2) AS dest_city_name,
-		    substring(DEST_STATE_ABR, 2, length(DEST_STATE_ABR) -1) AS dest_state_abr,
-		    DEP_DELAY_NEW AS dep_delay_new,
-		    ARR_DELAY_NEW AS arr_delay_new,
-		    CARRIER_DELAY AS carrier_delay,
-		    WEATHER_DELAY AS weather_delay,
-		    NAS_DELAY AS nas_delay,
-		    SECURITY_DELAY AS security_delay,
-		    LATE_AIRCRAFT_DELAY AS late_aircraft_delay
-		FROM delays_raw;
-		
+        nano flightdelays.hql
+        
+    Use the following as the contents of this file:
+    
+        DROP TABLE delays_raw;
+        -- Creates an external table over the csv file
+        CREATE EXTERNAL TABLE delays_raw (
+            YEAR string,
+            FL_DATE string,
+            UNIQUE_CARRIER string,
+            CARRIER string,
+            FL_NUM string,
+            ORIGIN_AIRPORT_ID string,
+            ORIGIN string,
+            ORIGIN_CITY_NAME string,
+            ORIGIN_CITY_NAME_TEMP string,
+            ORIGIN_STATE_ABR string,
+            DEST_AIRPORT_ID string,
+            DEST string,
+            DEST_CITY_NAME string,
+            DEST_CITY_NAME_TEMP string,
+            DEST_STATE_ABR string,
+            DEP_DELAY_NEW float,
+            ARR_DELAY_NEW float,
+            CARRIER_DELAY float,
+            WEATHER_DELAY float,
+            NAS_DELAY float,
+            SECURITY_DELAY float,
+            LATE_AIRCRAFT_DELAY float)
+        -- The following lines describe the format and location of the file
+        ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+        LINES TERMINATED BY '\n'
+        STORED AS TEXTFILE
+        LOCATION '/tutorials/flightdelays/data';
+        
+        -- Drop the delays table if it exists
+        DROP TABLE delays;
+        -- Create the delays table and populate it with data
+        -- pulled in from the CSV file (via the external table defined previously)
+        CREATE TABLE delays AS
+        SELECT YEAR AS year,
+            FL_DATE AS flight_date,
+            substring(UNIQUE_CARRIER, 2, length(UNIQUE_CARRIER) -1) AS unique_carrier,
+            substring(CARRIER, 2, length(CARRIER) -1) AS carrier,
+            substring(FL_NUM, 2, length(FL_NUM) -1) AS flight_num,
+            ORIGIN_AIRPORT_ID AS origin_airport_id,
+            substring(ORIGIN, 2, length(ORIGIN) -1) AS origin_airport_code,
+            substring(ORIGIN_CITY_NAME, 2) AS origin_city_name,
+            substring(ORIGIN_STATE_ABR, 2, length(ORIGIN_STATE_ABR) -1)  AS origin_state_abr,
+            DEST_AIRPORT_ID AS dest_airport_id,
+            substring(DEST, 2, length(DEST) -1) AS dest_airport_code,
+            substring(DEST_CITY_NAME,2) AS dest_city_name,
+            substring(DEST_STATE_ABR, 2, length(DEST_STATE_ABR) -1) AS dest_state_abr,
+            DEP_DELAY_NEW AS dep_delay_new,
+            ARR_DELAY_NEW AS arr_delay_new,
+            CARRIER_DELAY AS carrier_delay,
+            WEATHER_DELAY AS weather_delay,
+            NAS_DELAY AS nas_delay,
+            SECURITY_DELAY AS security_delay,
+            LATE_AIRCRAFT_DELAY AS late_aircraft_delay
+        FROM delays_raw;
+        
 2. Use __Ctrl + X__, then __Y__ to save the file.
 
 3. Use the following to start Hive and run the __flightdelays.hql__ file:
 
-		hive -i flightdelays.hql
-		
-	This will run the file, then return a `hive>` prompt.
+        hive -i flightdelays.hql
+        
+    This will run the file, then return a `hive>` prompt.
 
 4. When you receive the `hive>` prompt, use the following to retrieve data from the imported flight delay data.
 
-		INSERT OVERWRITE DIRECTORY '/tutorials/flightdelays/output'
-		SELECT regexp_replace(origin_city_name, '''', ''),
-			avg(weather_delay)
-		FROM delays
-		WHERE weather_delay IS NOT NULL
-		GROUP BY origin_city_name;
+        INSERT OVERWRITE DIRECTORY '/tutorials/flightdelays/output'
+        SELECT regexp_replace(origin_city_name, '''', ''),
+            avg(weather_delay)
+        FROM delays
+        WHERE weather_delay IS NOT NULL
+        GROUP BY origin_city_name;
 
-	This will retrieve a list of cities that experienced weather delays, along with the average delay time, and save it to `/tutorials/flightdelays/output`. Later, Sqoop will read the data from this location and export it to Azure SQL Database.
+    This will retrieve a list of cities that experienced weather delays, along with the average delay time, and save it to `/tutorials/flightdelays/output`. Later, Sqoop will read the data from this location and export it to Azure SQL Database.
 
 ##Create a SQL Database
 
@@ -172,16 +172,16 @@ Use the following steps to create an Azure SQL Database. This will be used to ho
 
 1. From your develoment environment where Azure CLI is installed, use the following command to create a new Azure SQL Database:
 
-		azure sql server create <adminLogin> <adminPassword> <region>
+        azure sql server create <adminLogin> <adminPassword> <region>
 
-	For exmaple, `azure sql server create admin password "West US"`.
+    For exmaple, `azure sql server create admin password "West US"`.
 
-	When the command completes, you will receive a response similar to the following:
+    When the command completes, you will receive a response similar to the following:
 
-		info:    Executing command sql server create
-		+ Creating SQL Server
-		data:    Server Name i1qwc540ts
-		info:    sql server create command OK
+        info:    Executing command sql server create
+        + Creating SQL Server
+        data:    Server Name i1qwc540ts
+        info:    sql server create command OK
 
 > [AZURE.IMPORTANT] Note the server name returned by this command. This is the short name of the SQL Database server that was created. The fully qualified domain name (FQDN) is `<shortname>.database.windows.net`.
 
@@ -191,9 +191,9 @@ Use the following steps to create an Azure SQL Database. This will be used to ho
 
     This will return an "OK" message when it completes.
 
-	> [AZURE.NOTE] If you receive an error indicating that you do not have access, you may need to add your client workstation's IP address to the SQL Database firewall using the following command:
-	>
-	> `sql firewallrule create [options] <serverName> <ruleName> <startIPAddress> <endIPAddress>`
+    > [AZURE.NOTE] If you receive an error indicating that you do not have access, you may need to add your client workstation's IP address to the SQL Database firewall using the following command:
+    >
+    > `sql firewallrule create [options] <serverName> <ruleName> <startIPAddress> <endIPAddress>`
 
 ##Create a SQL Database table
 
@@ -220,11 +220,11 @@ Use the following steps to create an Azure SQL Database. This will be used to ho
 5. At the `1>` prompt, enter the following lines:
 
         CREATE TABLE [dbo].[delays](
-		[origin_city_name] [nvarchar](50) NOT NULL,
-		[weather_delay] float,
-		CONSTRAINT [PK_delays] PRIMARY KEY CLUSTERED   
-		([origin_city_name] ASC))
-		GO
+        [origin_city_name] [nvarchar](50) NOT NULL,
+        [weather_delay] float,
+        CONSTRAINT [PK_delays] PRIMARY KEY CLUSTERED   
+        ([origin_city_name] ASC))
+        GO
 
     When the `GO` statement is entered, the previous statements will be evaluated. This will create a new table named __delays__, with a clustered index (required by SQL Database.)
 
@@ -239,35 +239,35 @@ Use the following steps to create an Azure SQL Database. This will be used to ho
         sqooptest       dbo     delays      BASE TABLE
 
 8. Enter `exit` at the `1>` prompt to exit the tsql utility.
-	
+    
 ##Export data with Sqoop
 
 1. Use the following command to create a link to the SQL Server JDBC driver from the Sqoop lib directory. This allows Sqoop to use this driver to talk to SQL Database:
 
-		sudo ln /usr/share/java/sqljdbc_4.1/enu/sqljdbc4.jar /usr/hdp/current/sqoop-client/lib/sqljdbc4.jar
+        sudo ln /usr/share/java/sqljdbc_4.1/enu/sqljdbc4.jar /usr/hdp/current/sqoop-client/lib/sqljdbc4.jar
 
 2. Use the following command to verify that Sqoop can see your SQL Database:
 
-		sqoop list-databases --connect jdbc:sqlserver://<serverName>.database.windows.net:1433 --username <adminLogin> --password <adminPassword>
+        sqoop list-databases --connect jdbc:sqlserver://<serverName>.database.windows.net:1433 --username <adminLogin> --password <adminPassword>
 
-	This should return a list of databases, including the sqooptest database that you created earlier.
+    This should return a list of databases, including the sqooptest database that you created earlier.
 
 3. Use the following command to export data from hivesampletable to the mobiledata table:
 
-		sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'delays' --export-dir 'wasb:///tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
+        sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'delays' --export-dir 'wasb:///tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
 
-	This instructs Sqoop to connect to SQL Database, to the sqooptest database, and export data from the wasb:///tutorials/flightdelays/output (where we stored the output of the hive query earlier,) to the delays table.
+    This instructs Sqoop to connect to SQL Database, to the sqooptest database, and export data from the wasb:///tutorials/flightdelays/output (where we stored the output of the hive query earlier,) to the delays table.
 
 4. After the command completes, use the following to connect to the database using TSQL:
 
-		TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D sqooptest
+        TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D sqooptest
 
-	Once connected, use the following statements to verify that the data was exported to the mobiledata table:
-	
-		SELECT * FROM delays
-		GO
+    Once connected, use the following statements to verify that the data was exported to the mobiledata table:
+    
+        SELECT * FROM delays
+        GO
 
-	You should see a listing of data in the table. Type `exit` to exit the tsql utility.
+    You should see a listing of data in the table. Type `exit` to exit the tsql utility.
 
 ##<a id="nextsteps"></a> Next steps
 Now you understand how to upload a file to Azure Blob storage, how to populate a Hive table by using the data from Azure Blob storage, how to run Hive queries, and how to use Sqoop to export data from HDFS to an Azure SQL database. To learn more, see the following articles:
@@ -307,3 +307,4 @@ Now you understand how to upload a file to Azure Blob storage, how to populate a
 
 
  
+

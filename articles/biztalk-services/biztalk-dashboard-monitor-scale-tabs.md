@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Dashboard, Monitor, Scale, Configure, and Hybrid Connections in BizTalk Services | Microsoft Azure" 
-	description="Learn about the controls and monitor performance on the classic portal tabs for BizTalk Services: Dashboard, Monitor, Scale, Configure, and Hybrid Connections. MABS, WABS" 
-	services="biztalk-services" 
-	documentationCenter="" 
-	authors="MandiOhlinger" 
-	manager="dwrede" 
-	editor="cgronlun"/>
+    pageTitle="Dashboard, Monitor, Scale, Configure, and Hybrid Connections in BizTalk Services | Microsoft Azure" 
+    description="Learn about the controls and monitor performance on the classic portal tabs for BizTalk Services: Dashboard, Monitor, Scale, Configure, and Hybrid Connections. MABS, WABS" 
+    services="biztalk-services" 
+    documentationCenter="" 
+    authors="MandiOhlinger" 
+    manager="dwrede" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="biztalk-services" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
-	ms.author="mandia"/>
+    ms.service="biztalk-services" 
+    ms.workload="integration" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/02/2015" 
+    ms.author="mandia"/>
 
 
 
@@ -35,7 +35,7 @@ Depending on the BizTalk Services Edition, all options listed may not be availab
 
         <td>Download the BizTalk Services SDK to install the Visual Studio project templates on your on-premises development computer. These templates create the <strong>BizTalk Services</strong> (bridge) and the <strong>BizTalk Service Artifacts</strong> (Transform) Visual Studio projects that are deployed to your BizTalk Service.
         <br/><br/>
-		<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302335"> How do I Start Using the Azure BizTalk Services SDK </a> and <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=241589">Installing the Azure BizTalk Services SDK</a> lists the steps to get started.
+        <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302335"> How do I Start Using the Azure BizTalk Services SDK </a> and <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=241589">Installing the Azure BizTalk Services SDK</a> lists the steps to get started.
         </td>
     </tr>
 
@@ -242,10 +242,10 @@ You can also choose the **Relative** or **Absolute** values and the time range *
 4. Select the checkmark to return to the **Monitor** tab.
 5. Select the circle next to the metric to display that metric's value in the graph.  
 
-	For example, the **CPU Usage** metric is grayed out; its output is not displayed in the graph:  
+    For example, the **CPU Usage** metric is grayed out; its output is not displayed in the graph:  
 ![CPU Usage metric is grayed out][GrayedMetric]  
 
-	Select the grayed out circle to enable the **CPU Usage** metric to display its output in the graph:  
+    Select the grayed out circle to enable the **CPU Usage** metric to display its output in the graph:  
 ![CPU Usage metric is enabled][EnabledMetric]
 
 6. To remove a metric from the display graph and the list, select **Delete Metric** in the task bar. To add the metric back to the list, select **Add Metrics** in the task bar, check the metric, and select the checkmark to return to the **Monitor** tab. Select the grayed out circle to enable the metric.
@@ -364,3 +364,4 @@ Now that you're familiar with the different tabs, you can learn more about the A
 [GrayedMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_GrayedMetric.png
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
  
+

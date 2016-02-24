@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How to use Service Bus queues with Python | Microsoft Azure" 
-	description="Learn how to use Azure Service Bus queues from Python." 
-	services="service-bus" 
-	documentationCenter="python" 
-	authors="sethmanheim" 
-	manager="timlt" 
-	editor=""/>
+    pageTitle="How to use Service Bus queues with Python | Microsoft Azure" 
+    description="Learn how to use Azure Service Bus queues from Python." 
+    services="service-bus" 
+    documentationCenter="python" 
+    authors="sethmanheim" 
+    manager="timlt" 
+    editor=""/>
 
 <tags 
-	ms.service="service-bus" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="10/08/2015" 
-	ms.author="sethm"/>
+    ms.service="service-bus" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="python" 
+    ms.topic="article" 
+    ms.date="10/08/2015" 
+    ms.author="sethm"/>
 
 
 # How to use Service Bus queues
@@ -39,9 +39,9 @@ The following code creates a **ServiceBusService** object. Replace `mynamespace`
 
 ```
 bus_service = ServiceBusService(
-	service_namespace='mynamespace',
-	shared_access_key_name='sharedaccesskeyname',
-	shared_access_key_value='sharedaccesskey')
+    service_namespace='mynamespace',
+    shared_access_key_name='sharedaccesskeyname',
+    shared_access_key_value='sharedaccesskey')
 ```
 
 The values for the SAS key name and value can be found in the [Azure classic portal][] connection information, or in the Visual Studio **Properties** pane when selecting the Service Bus namespace in Server Explorer (as shown in the previous section).
@@ -114,3 +114,4 @@ Now that you have learned the basics of Service Bus queues, follow these links t
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [Azure Queues and Service Bus queues]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
  
+

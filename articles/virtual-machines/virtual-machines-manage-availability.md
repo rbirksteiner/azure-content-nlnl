@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Manage the availability of VMs | Microsoft Azure"
-	description="Learn how to use multiple virtual machines to ensure high availability for your Azure application."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="kenazk"
-	manager="timlt"
-	editor="tysonn"
-	tags="azure-resource-manager,azure-service-management"/>
+    pageTitle="Manage the availability of VMs | Microsoft Azure"
+    description="Learn how to use multiple virtual machines to ensure high availability for your Azure application."
+    services="virtual-machines"
+    documentationCenter=""
+    authors="kenazk"
+    manager="timlt"
+    editor="tysonn"
+    tags="azure-resource-manager,azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/23/2015"
-	ms.author="kenazk"/>
+    ms.service="virtual-machines"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/23/2015"
+    ms.author="kenazk"/>
 
 # Manage the availability of virtual machines
 
@@ -71,3 +71,4 @@ Avoid leaving a single instance virtual machine in an Availability Set by itself
 [Combine the Load Balancer with Availability Sets]: #combine-the-load-balancer-with-availability-sets
 [Avoid single instance virtual machines in Availability Sets]: #avoid-single-instance-virtual-machines-in-availability-sets
 [How to Configure An Availability Set for virtual machines]: virtual-machines-how-to-configure-availability.md
+

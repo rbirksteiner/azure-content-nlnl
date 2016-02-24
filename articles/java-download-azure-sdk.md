@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Download the Azure SDK for Java" 
-	description="Learn how to download the Azure SDK for Java, with sample code provided for Maven projects and basic installation steps for the Azure Tookit for Eclipse." 
-	services="" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
-	editor="jimbe"/>
+    pageTitle="Download the Azure SDK for Java" 
+    description="Learn how to download the Azure SDK for Java, with sample code provided for Maven projects and basic installation steps for the Azure Tookit for Eclipse." 
+    services="" 
+    documentationCenter="java" 
+    authors="rmcmurray" 
+    manager="wpickett" 
+    editor="jimbe"/>
 
 <tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="multiple" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="11/30/2015" 
-	ms.author="robmcm"/>
+    ms.service="multiple" 
+    ms.workload="na" 
+    ms.tgt_pltfrm="multiple" 
+    ms.devlang="Java" 
+    ms.topic="article" 
+    ms.date="11/30/2015" 
+    ms.author="robmcm"/>
 
 # Download the Azure SDK for Java #
 
@@ -134,3 +134,4 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 [maven-getting-started]: http://go.microsoft.com/fwlink/?LinkID=622998
 [zip-download]: http://go.microsoft.com/fwlink/?LinkId=690320
 [What's New in the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=690333
+

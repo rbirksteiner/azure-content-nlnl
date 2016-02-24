@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Scoring profiles (Azure Search REST API Version 2015-02-28-Preview) | Microsoft Azure | Hosted cloud search service"
-	description="Azure Search is a hosted cloud search service that supports tuning of ranked results based on user-defined scoring profiles."
-	services="search"
-	documentationCenter=""
-	authors="HeidiSteen"
-	manager="mblythe"
-	editor=""/>
+    pageTitle="Scoring profiles (Azure Search REST API Version 2015-02-28-Preview) | Microsoft Azure | Hosted cloud search service"
+    description="Azure Search is a hosted cloud search service that supports tuning of ranked results based on user-defined scoring profiles."
+    services="search"
+    documentationCenter=""
+    authors="HeidiSteen"
+    manager="mblythe"
+    editor=""/>
 
 <tags
-	ms.service="search"
-	ms.devlang="rest-api"
-	ms.workload="search"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.author="heidist"
-	ms.date="11/04/2015" />
+    ms.service="search"
+    ms.devlang="rest-api"
+    ms.workload="search"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.author="heidist"
+    ms.date="11/04/2015" />
 
 # Scoring Profiles (Azure Search REST API Version 2015-02-28-Preview)
 
@@ -86,24 +86,24 @@ This example shows the schema of an index with two scoring profiles (`boostGenre
 
     {
       "name": "musicstoreindex",
-	  "fields": [
-	    { "name": "key", "type": "Edm.String", "key": true },
-	    { "name": "albumTitle", "type": "Edm.String" },
-	    { "name": "albumUrl", "type": "Edm.String", "filterable": false },
-	    { "name": "genre", "type": "Edm.String" },
-	    { "name": "genreDescription", "type": "Edm.String", "filterable": false },
-	    { "name": "artistName", "type": "Edm.String" },
-	    { "name": "orderableOnline", "type": "Edm.Boolean" },
-	    { "name": "rating", "type": "Edm.Int32" },
-	    { "name": "tags", "type": "Collection(Edm.String)" },
-	    { "name": "price", "type": "Edm.Double", "filterable": false },
-	    { "name": "margin", "type": "Edm.Int32", "retrievable": false },
-	    { "name": "inventory", "type": "Edm.Int32" },
-	    { "name": "lastUpdated", "type": "Edm.DateTimeOffset" }
-	  ],
+      "fields": [
+        { "name": "key", "type": "Edm.String", "key": true },
+        { "name": "albumTitle", "type": "Edm.String" },
+        { "name": "albumUrl", "type": "Edm.String", "filterable": false },
+        { "name": "genre", "type": "Edm.String" },
+        { "name": "genreDescription", "type": "Edm.String", "filterable": false },
+        { "name": "artistName", "type": "Edm.String" },
+        { "name": "orderableOnline", "type": "Edm.Boolean" },
+        { "name": "rating", "type": "Edm.Int32" },
+        { "name": "tags", "type": "Collection(Edm.String)" },
+        { "name": "price", "type": "Edm.Double", "filterable": false },
+        { "name": "margin", "type": "Edm.Int32", "retrievable": false },
+        { "name": "inventory", "type": "Edm.Int32" },
+        { "name": "lastUpdated", "type": "Edm.DateTimeOffset" }
+      ],
       "scoringProfiles": [
         {
-	      "name": "boostGenre",
+          "name": "boostGenre",
           "text": {
             "weights": {
               "albumTitle": 1,
@@ -111,9 +111,9 @@ This example shows the schema of an index with two scoring profiles (`boostGenre
               "artistName": 2
             }
           }
-	    },
+        },
         {
-	      "name": "newAndHighlyRated",
+          "name": "newAndHighlyRated",
           "functions": [
             {
               "type": "freshness",
@@ -188,7 +188,7 @@ The body of the scoring profile is constructed from weighted fields and function
             - `tag` should be used when you want to boost by tags in common between documents and search queries. This function can only be used with `Edm.String` and `(Collection(Edm.String) fields.
           </p>
              <p><b>Rules for using functions</b>
-			</p>
+            </p>
             Function type (freshness, magnitude, distance, tag) must be lower case.
             <br/>
             Functions cannot include null or empty values. Specifically, if you include fieldname, you have to set it to something.
@@ -269,23 +269,23 @@ A scoring function can only be applied to fields that are filterable.
 <th>Description</th>
 </tr>
 <tr>
-<td>Name</td>	<td>Required. This is the name of the scoring profile. It follows the same naming conventions of a field. It must start with a letter, cannot contain dots, colons or @ symbols, and cannot start with the phrase ‘azureSearch’ (case-sensitive). </td>
+<td>Name</td>   <td>Required. This is the name of the scoring profile. It follows the same naming conventions of a field. It must start with a letter, cannot contain dots, colons or @ symbols, and cannot start with the phrase ‘azureSearch’ (case-sensitive). </td>
 </tr><tr>
-<td>Text</td>	<td>Contains the Weights property.</td>
+<td>Text</td>   <td>Contains the Weights property.</td>
 </tr><tr>
-<td>Weights</td>	<td>Optional. A name-value pair that specifies a field name and relative weight. Relative weight must be a positive integer. The maximum value is int32.MaxValue. You can specify the field name without a corresponding weight. Weights are used to indicate the importance of one field relative to another.</td>
+<td>Weights</td>    <td>Optional. A name-value pair that specifies a field name and relative weight. Relative weight must be a positive integer. The maximum value is int32.MaxValue. You can specify the field name without a corresponding weight. Weights are used to indicate the importance of one field relative to another.</td>
 <tr>
-<td>Functions</td>	<td>Optional. Note that a scoring function can only be applied to fields that are filterable.</td>
+<td>Functions</td>  <td>Optional. Note that a scoring function can only be applied to fields that are filterable.</td>
 </tr><tr>
-<td>Type</td>	<td>Required for scoring functions. Indicates the type of function to use. Valid values include magnitude, freshness, distance and tag. You can include more than one function in each scoring profile. The function name must be lower case.</td>
+<td>Type</td>   <td>Required for scoring functions. Indicates the type of function to use. Valid values include magnitude, freshness, distance and tag. You can include more than one function in each scoring profile. The function name must be lower case.</td>
 </tr><tr>
-<td>Boost</td>	<td>Required for scoring functions. A positive number used as multiplier for raw score. It cannot be equal to 1.</td>
+<td>Boost</td>  <td>Required for scoring functions. A positive number used as multiplier for raw score. It cannot be equal to 1.</td>
 </tr><tr>
-<td>Fieldname</td>	<td>Required for scoring functions. A scoring function can only be applied to fields that are part of the field collection of the index, and that are filterable. In addition, each function type introduces additional restrictions (freshness is used with datetime fields, magnitude with integer or double fields, distance with location fields and tag with string or string collection fields). You can only specify a single field per function definition. For example, to use magnitude twice in the same profile, you would need to include two definitions magnitude, one for each field.</td>
+<td>Fieldname</td>  <td>Required for scoring functions. A scoring function can only be applied to fields that are part of the field collection of the index, and that are filterable. In addition, each function type introduces additional restrictions (freshness is used with datetime fields, magnitude with integer or double fields, distance with location fields and tag with string or string collection fields). You can only specify a single field per function definition. For example, to use magnitude twice in the same profile, you would need to include two definitions magnitude, one for each field.</td>
 </tr><tr>
-<td>Interpolation</td>	<td>Required for scoring functions. Defines the slope for which the score boosting increases from the start of the range to the end of the range. Valid values include Linear (default), Constant, Quadratic, and Logarithmic. See [Set interpolations](#bkmk_interpolation) for details.</td>
+<td>Interpolation</td>  <td>Required for scoring functions. Defines the slope for which the score boosting increases from the start of the range to the end of the range. Valid values include Linear (default), Constant, Quadratic, and Logarithmic. See [Set interpolations](#bkmk_interpolation) for details.</td>
 </tr><tr>
-<td>magnitude</td>	<td>The magnitude scoring function is used to alter rankings based on the range of values for a numeric field. Some of the most common usage examples of this are:
+<td>magnitude</td>  <td>The magnitude scoring function is used to alter rankings based on the range of values for a numeric field. Some of the most common usage examples of this are:
 <br>
 - Star ratings: Alter the scoring based on the value within the "Star Rating" field. When two items are relevant, the item with the higher rating will be displayed first.
 <br>
@@ -295,29 +295,29 @@ A scoring function can only be applied to fields that are filterable.
 <br>
 - Download counts: For applications that track downloads, the magnitude function lets you boost items that have the most downloads.
 <tr>
-<td>magnitude | boostingRangeStart</td>	<td>Sets the start value of the range over which magnitude is scored. The value must be an integer or double. For star ratings of 1 through 4, this would be 1. For margins over 50%, this would be 50.</td>
+<td>magnitude | boostingRangeStart</td> <td>Sets the start value of the range over which magnitude is scored. The value must be an integer or double. For star ratings of 1 through 4, this would be 1. For margins over 50%, this would be 50.</td>
 </tr><tr>
-<td>magnitude | boostingRangeEnd</td>	<td>Sets the end value of the range over which magnitude is scored. The value must be an integer or double. For star ratings of 1 through 4, this would be 4.</td>
+<td>magnitude | boostingRangeEnd</td>   <td>Sets the end value of the range over which magnitude is scored. The value must be an integer or double. For star ratings of 1 through 4, this would be 4.</td>
 </tr><tr>
-<td>magnitude | constantBoostBeyondRange</td>	<td>Valid values are true or false (default). When set to true, the full boost will continue to apply to documents that have a value for the target field that’s higher than the upper end of the range. If false, the boost of this function won’t be applied to documents having a value for the target field that falls outside of the range.</td>
+<td>magnitude | constantBoostBeyondRange</td>   <td>Valid values are true or false (default). When set to true, the full boost will continue to apply to documents that have a value for the target field that’s higher than the upper end of the range. If false, the boost of this function won’t be applied to documents having a value for the target field that falls outside of the range.</td>
 </tr><tr>
-<td>freshness</td>	<td>The freshness scoring function is used to alter ranking scores for items based on values in DateTimeOffset fields. For example, an item with a more recent date can be ranked higher than older items. (Note that it is also possible to rank items like calendar events with future dates such that items closer to the present can be ranked higher than items further in the future.) In the current service release, one end of the range will be fixed to the current time. The other end is a time in the past based on the `boostingDuration`. To boost a range of times in the future use a negative `boostingDuration`. The rate at which the boosting changes from a maximum and minimum range is determined by the Interpolation applied to the scoring profile (see the figure below). To reverse the boosting factor applied, choose a boost factor of less than 1.</td>
+<td>freshness</td>  <td>The freshness scoring function is used to alter ranking scores for items based on values in DateTimeOffset fields. For example, an item with a more recent date can be ranked higher than older items. (Note that it is also possible to rank items like calendar events with future dates such that items closer to the present can be ranked higher than items further in the future.) In the current service release, one end of the range will be fixed to the current time. The other end is a time in the past based on the `boostingDuration`. To boost a range of times in the future use a negative `boostingDuration`. The rate at which the boosting changes from a maximum and minimum range is determined by the Interpolation applied to the scoring profile (see the figure below). To reverse the boosting factor applied, choose a boost factor of less than 1.</td>
 </tr><tr>
-<td>freshness | boostingDuration</td>	<td>Sets an expiration period after which boosting will stop for a particular document. See [Set boostingDuration ][#bkmk_boostdur] in the following section for syntax and examples.</td>
+<td>freshness | boostingDuration</td>   <td>Sets an expiration period after which boosting will stop for a particular document. See [Set boostingDuration ][#bkmk_boostdur] in the following section for syntax and examples.</td>
 </tr><tr>
-<td>distance</td>	<td>The distance scoring function is used to affect the score of documents based on how close or far they are relative to a reference geographic location. The reference location is given as part of the query in a parameter (using the `scoringParameterquery` string option) as a lon,lat argument.</td>
+<td>distance</td>   <td>The distance scoring function is used to affect the score of documents based on how close or far they are relative to a reference geographic location. The reference location is given as part of the query in a parameter (using the `scoringParameterquery` string option) as a lon,lat argument.</td>
 </tr><tr>
-<td>distance | referencePointParameter</td>	<td>A parameter to be passed in queries to use as reference location. scoringParameter is a query parameter. See [Search Documents](search-api-2015-02-28-preview/#SearchDocs) for descriptions of query parameters.</td>
+<td>distance | referencePointParameter</td> <td>A parameter to be passed in queries to use as reference location. scoringParameter is a query parameter. See [Search Documents](search-api-2015-02-28-preview/#SearchDocs) for descriptions of query parameters.</td>
 </tr><tr>
-<td>distance | boostingDistance</td>	<td>A number that indicates the distance in kilometers from the reference location where the boosting range ends.</td>
+<td>distance | boostingDistance</td>    <td>A number that indicates the distance in kilometers from the reference location where the boosting range ends.</td>
 </tr><tr>
-<td>tag</td>	<td>The tag scoring function is used to affect the score of documents based on tags in documents and search queries. Documents that have tags in common with the search query will be boosted. The tags for the search query is provided as a scoring parameter in each search request(using the `scoringParameterquery` string option).</td>
+<td>tag</td>    <td>The tag scoring function is used to affect the score of documents based on tags in documents and search queries. Documents that have tags in common with the search query will be boosted. The tags for the search query is provided as a scoring parameter in each search request(using the `scoringParameterquery` string option).</td>
 </tr><tr>
-<td>tag | tagsParameter</td>	<td>A parameter to be passed in queries to specify tags for a particular request. scoringParameter is a query parameter. See [Search Documents](search-api-2015-02-28-preview/#SearchDocs) for descriptions of query parameters.</td>
+<td>tag | tagsParameter</td>    <td>A parameter to be passed in queries to specify tags for a particular request. scoringParameter is a query parameter. See [Search Documents](search-api-2015-02-28-preview/#SearchDocs) for descriptions of query parameters.</td>
 </tr><tr>
-<td>functionAggregation</td>	<td>Optional. Applies only when functions are specified. Valid values include: sum (default), average, minimum, maximum, and firstMatching. A search score is single value that is computed from multiple variables, including multiple functions. This attributes indicates how the boosts of all the functions are combined into a single aggregate boost that then is applied to the base document score. The base score is based on the tf-idf value computed from the document and the search query.</td>
+<td>functionAggregation</td>    <td>Optional. Applies only when functions are specified. Valid values include: sum (default), average, minimum, maximum, and firstMatching. A search score is single value that is computed from multiple variables, including multiple functions. This attributes indicates how the boosts of all the functions are combined into a single aggregate boost that then is applied to the base document score. The base score is based on the tf-idf value computed from the document and the search query.</td>
 </tr><tr>
-<td>defaultScoringProfile</td>	<td>When executing a search request, if no scoring profile is specified, then default scoring is used (tf-idf only).
+<td>defaultScoringProfile</td>  <td>When executing a search request, if no scoring profile is specified, then default scoring is used (tf-idf only).
 A default scoring profile name can be set here, causing Azure Search to use that profile when no specific profile is given in the search request. </td>
 </tr>
 </table>
@@ -327,13 +327,13 @@ A default scoring profile name can be set here, causing Azure Search to use that
 
 Interpolations allow you to define the slope for which the score boosting increases from the start of the range to the end of the range. The following interpolations can be used:
 
-- `Linear`	For items that are within the max and min range, the boost applied to the item will be done in a constantly decreasing amount. Linear is the default interpolation for a scoring profile.
+- `Linear`  For items that are within the max and min range, the boost applied to the item will be done in a constantly decreasing amount. Linear is the default interpolation for a scoring profile.
 
-- `Constant`	For items that are within the start and ending range, a constant boost will be applied to the rank results.
+- `Constant`    For items that are within the start and ending range, a constant boost will be applied to the rank results.
 
-- `Quadratic`	In comparison to a Linear interpolation that has a constantly decreasing boost, Quadratic will initially decrease at smaller pace and then as it approaches the end range, it decreases at a much higher interval. This interpolation option is not allowed in tag scoring functions.
+- `Quadratic`   In comparison to a Linear interpolation that has a constantly decreasing boost, Quadratic will initially decrease at smaller pace and then as it approaches the end range, it decreases at a much higher interval. This interpolation option is not allowed in tag scoring functions.
 
-- `Logarithmic`	In comparison to a Linear interpolation that has a constantly decreasing boost, Logarithmic will initially decrease at higher pace and then as it approaches the end range, it decreases at a much smaller interval. This interpolation option is not allowed in tag scoring functions.
+- `Logarithmic` In comparison to a Linear interpolation that has a constantly decreasing boost, Logarithmic will initially decrease at higher pace and then as it approaches the end range, it decreases at a much smaller interval. This interpolation option is not allowed in tag scoring functions.
 
 <a name="Figure1"></a>
  ![][1]
@@ -357,13 +357,13 @@ The following table provides several examples.
 </thead>
 <tbody>
 <tr>
-<td>1 day</td>	<td>"P1D"</td>
+<td>1 day</td>  <td>"P1D"</td>
 </tr><tr>
-<td>2 days and 12 hours</td>	<td>"P2DT12H"</td>
+<td>2 days and 12 hours</td>    <td>"P2DT12H"</td>
 </tr><tr>
-<td>15 minutes</td>	<td>"PT15M"</td>
+<td>15 minutes</td> <td>"PT15M"</td>
 </tr><tr>
-<td>30 days, 5 hours, 10 minutes, and 6.334 seconds</td>	<td>"P30DT5H10M6.334S"</td>
+<td>30 days, 5 hours, 10 minutes, and 6.334 seconds</td>    <td>"P30DT5H10M6.334S"</td>
 </tr>
 </tbody>
 </table>
@@ -377,3 +377,4 @@ For more examples, see [XML Schema: Datatypes (W3.org web site)](http://www.w3.o
 
 <!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2015-02-28-Preview/scoring_interpolations.png
+

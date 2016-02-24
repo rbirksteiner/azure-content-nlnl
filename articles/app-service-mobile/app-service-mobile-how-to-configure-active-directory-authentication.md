@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How to configure Azure Active Directory authentication for your App Services application" 
-	description="Learn how to configure Azure Active Directory authentication for your App Services application." 
-	authors="mattchenderson" 
-	services="app-service\mobile" 
-	documentationCenter="" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="How to configure Azure Active Directory authentication for your App Services application" 
+    description="Learn how to configure Azure Active Directory authentication for your App Services application." 
+    authors="mattchenderson" 
+    services="app-service\mobile" 
+    documentationCenter="" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="app-service-mobile" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="11/20/2015" 
-	ms.author="mahender"/>
+    ms.service="app-service-mobile" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="multiple" 
+    ms.topic="article" 
+    ms.date="11/20/2015" 
+    ms.author="mahender"/>
 
 # How to configure your App Service application to use Azure Active Directory login
 
@@ -39,8 +39,8 @@ This topic shows you how to configure Azure App Services to use Azure Active Dir
 16. Click **OK** to register the application in Azure Active Directory. This will create a new registration. If you wish to choose an existing registration instead, click **Select an existing app** and then search for the name of a previously created registration within your tenant. Click the registration to select it and click **OK**. Then click **OK** on the Azure Active Directory settings blade.
 
     ![][0]
-	
-	By default, App Service provides authentication but does not restrict authorized access to your site content and APIs. You must authorize users in your app code. 
+    
+    By default, App Service provides authentication but does not restrict authorized access to your site content and APIs. You must authorize users in your app code. 
 
 17. (Optional) To restrict access to your site to only users authenticated by Azure Active Directory, set **Action to take when request is not authenticated** to **Azure Active Directory**. This requires that all requests be authenticated, and all unauthenticated requests are redirected to Azure Active Directory for authentication.
 
@@ -70,10 +70,10 @@ You can also choose to provide configuration settings manually. This is the pref
 8. Once the application has been added, click the **Configure** tab. Edit the **Reply URL** under **Single Sign-on** to be the the URL of your application appended with the path, _/.auth/login/aad/callback_. For example, `https://contoso.azurewebsites.net/.auth/login/aad/callback`. Make sure that you are using the HTTPS scheme.
 
     ![][3]
-	
-	
-	> [AZURE.NOTE]
-	If you are using the App Service Gateway instead of the App Service Authentication / Authorization feature, your Reply URL instead uses the gateway URL with the _/signin-aad_ path.
+    
+    
+    > [AZURE.NOTE]
+    If you are using the App Service Gateway instead of the App Service Authentication / Authorization feature, your Reply URL instead uses the gateway URL with the _/signin-aad_ path.
 
 
 9. Click **Save**. Then copy the **Client ID** for the app. You will configure your application to use this later.
@@ -95,8 +95,8 @@ If using the App Service Gateway, ignore this section and instead navigate to yo
 15. Click **Azure Active Directory**, and then click **Advanced** under **Management Mode**. Paste in the Client ID and Issuer URL value which you obtained previously. Then click **OK**.
 
     ![][1]
-	
-	By default, App Service provides authentication but does not restrict authorized access to your site content and APIs. You must authorize users in your app code. 
+    
+    By default, App Service provides authentication but does not restrict authorized access to your site content and APIs. You must authorize users in your app code. 
 
 17. (Optional) To restrict access to your site to only users authenticated by Azure Active Directory, set **Action to take when request is not authenticated** to **Azure Active Directory**. This requires that all requests be authenticated, and all unauthenticated requests are redirected to Azure Active Directory for authentication.
 

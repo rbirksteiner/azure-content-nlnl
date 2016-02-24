@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Ports beyond 1433 for SQL Database | Microsoft Azure"
-	description="Client connections from ADO.NET to Azure SQL Database V12 sometimes bypass the proxy and interact directly with the database. Ports other than 1433 become important."
-	services="sql-database"
-	documentationCenter=""
-	authors="MightyPen"
-	manager="jeffreyg"
-	editor="" />
+    pageTitle="Ports beyond 1433 for SQL Database | Microsoft Azure"
+    description="Client connections from ADO.NET to Azure SQL Database V12 sometimes bypass the proxy and interact directly with the database. Ports other than 1433 become important."
+    services="sql-database"
+    documentationCenter=""
+    authors="MightyPen"
+    manager="jeffreyg"
+    editor="" />
 
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/15/2015" 
-	ms.author="genemi"/>
+    ms.service="sql-database" 
+    ms.workload="data-management" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/15/2015" 
+    ms.author="genemi"/>
 
 
 # Ports beyond 1433 for ADO.NET 4.5 and SQL Database V12
@@ -119,4 +119,5 @@ The client connection differences between SQL Database V11 and V12 are highlight
 
 
 - [How to: Configure firewall settings on SQL Database](sql-database-configure-firewall-settings.md)
+
 

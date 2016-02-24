@@ -58,3 +58,4 @@ To support the development of Solution architectures within Azure, a series of p
 [Azure Networking](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-5e401f38)
 
 [Azure Search](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-e581d65d)
+

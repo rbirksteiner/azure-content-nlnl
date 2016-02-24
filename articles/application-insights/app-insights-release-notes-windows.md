@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Release notes for Application Insights for Windows" 
-	description="The latest updates for Windows Store SDK." 
-	services="application-insights" 
+    pageTitle="Release notes for Application Insights for Windows" 
+    description="The latest updates for Windows Store SDK." 
+    services="application-insights" 
     documentationCenter=""
-	authors="alancameronwills" 
-	manager="douge"/>
+    authors="alancameronwills" 
+    manager="douge"/>
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/18/2015" 
-	ms.author="sergkanz"/>
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/18/2015" 
+    ms.author="sergkanz"/>
  
 # Release Notes for Application Insights SDK for Windows Phone and Store
 
@@ -94,3 +94,4 @@ See [Get started with Application Insights for Windows Phone and Store apps](app
 ## Version 0.13
 
 No release notes for older versions available. 
+

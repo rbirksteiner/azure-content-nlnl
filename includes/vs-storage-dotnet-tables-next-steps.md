@@ -8,3 +8,4 @@ Now that you've learned the basics of Azure table storage, follow these links to
   - Use [Table Storage](./storage-dotnet-how-to-use-tables.md) to store structured data.
   - Use [SQL Database](../sql-database/sql-database-dotnet-how-to-use.md) to store relational data.
 
+

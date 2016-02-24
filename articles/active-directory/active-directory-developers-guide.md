@@ -137,3 +137,4 @@ These overview presentations on developing apps by using Azure Active Directory 
 - [Cloud Identity](http://www.cloudidentity.net): Thoughts on identity management as a service, from a principal Azure Active Directory PM.  
 
 - [Azure Active Directory on Twitter](https://twitter.com/azuread): Azure Active Directory announcements in 140 characters or fewer.
+

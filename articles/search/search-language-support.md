@@ -76,3 +76,4 @@ If you're a .NET developer, note that you can configure language analyzers using
 [1]: ./media/search-language-support/AnalyzerTab.png
 [2]: ./media/search-language-support/SelectAnalyzer.png
 [3]: ./media/search-language-support/IndexDefinition.png
+

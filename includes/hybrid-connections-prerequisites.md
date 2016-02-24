@@ -5,7 +5,7 @@
 
 - **An on-premises computer** <br/>You can run the Hybrid Connections Manger on the same on-premises computer as your SQL Server instance, or you can run each on a separate computer. The computer on which the Hybrid Connection Manager runs must meet the following criteria:
 
-	- Be able to connect to Azure over port 5671.
-	- Be able to access the *hostname*:*portnumber* of the computer running your SQL Server instance.  
+    - Be able to connect to Azure over port 5671.
+    - Be able to access the *hostname*:*portnumber* of the computer running your SQL Server instance.  
 
-	For more information see [Hybrid Connections Overview](../articles/integration-hybrid-connection-overview.md).
+    For more information see [Hybrid Connections Overview](../articles/integration-hybrid-connection-overview.md).

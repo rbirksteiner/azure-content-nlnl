@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Tutorial: Azure Active Directory integration with QuickHelp | Microsoft Azure"
-	description="Learn how to configure single sign-on between Azure Active Directory and QuickHelp."
-	services="active-directory"
-	documentationCenter=""
-	authors="jeevansd"
-	manager="prasannas"
-	editor=""/>
+    pageTitle="Tutorial: Azure Active Directory integration with QuickHelp | Microsoft Azure"
+    description="Learn how to configure single sign-on between Azure Active Directory and QuickHelp."
+    services="active-directory"
+    documentationCenter=""
+    authors="jeevansd"
+    manager="prasannas"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/01/2015"
-	ms.author="jeedes"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/01/2015"
+    ms.author="jeedes"/>
 
 
 # Tutorial: Azure Active Directory integration with QuickHelp
@@ -283,6 +283,7 @@ When you click the QuickHelp tile in the Access Panel, you should get automatica
 [400]: ./media/active-directory-saas-QuickHelp-tutorial/tutorial_QuickHelp_400.png
 [401]: ./media/active-directory-saas-QuickHelp-tutorial/tutorial_QuickHelp_401.png
 [402]: ./media/active-directory-saas-QuickHelp-tutorial/tutorial_QuickHelp_402.png
+
 
 
 

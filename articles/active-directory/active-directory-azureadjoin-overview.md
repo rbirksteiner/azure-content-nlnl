@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join| Microsoft Azure" 
-	description="Provides a detailed overview of how Widows 10 devices can utilize Azure AD Join to get registered on Azure Active Directory." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="femila" 
-	manager="stevenpo" 
-	editor=""
-	tags="azure-classic-portal"/>
+    pageTitle="Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join| Microsoft Azure" 
+    description="Provides a detailed overview of how Widows 10 devices can utilize Azure AD Join to get registered on Azure Active Directory." 
+    services="active-directory" 
+    documentationCenter="" 
+    authors="femila" 
+    manager="stevenpo" 
+    editor=""
+    tags="azure-classic-portal"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/07/2015" 
-	ms.author="femila"/>
+    ms.service="active-directory" 
+    ms.workload="identity" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/07/2015" 
+    ms.author="femila"/>
 
 # Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join
 
@@ -76,4 +76,5 @@ With Azure AD Join, you get the following:
 * [Learn about usage scenarios for Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Connect domain-joined devices to Azure AD for Windows 10 experiences](active-directory-azureadjoin-devices-group-policy.md)
 * [Set up Azure AD Join](active-directory-azureadjoin-setup.md)
+
 

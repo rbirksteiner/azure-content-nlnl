@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Use Script Action to install Apache Spark on Linux-based HDInsight (Hadoop) | Microsoft Azure" 
-	description="Learn how to install Spark on a Linux-based HDInsight cluster using Script Actions. Script Actions allow you to customize the cluster during creation, by changing cluster configuration or installing services and utilities." 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="Blackmist" 
-	manager="paulettm" 
-	editor="cgronlun"/>
+    pageTitle="Use Script Action to install Apache Spark on Linux-based HDInsight (Hadoop) | Microsoft Azure" 
+    description="Learn how to install Spark on a Linux-based HDInsight cluster using Script Actions. Script Actions allow you to customize the cluster during creation, by changing cluster configuration or installing services and utilities." 
+    services="hdinsight" 
+    documentationCenter="" 
+    authors="Blackmist" 
+    manager="paulettm" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/04/2015" 
-	ms.author="larryfr"/>
+    ms.service="hdinsight" 
+    ms.workload="big-data" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/04/2015" 
+    ms.author="larryfr"/>
 
 # Install and use Spark on HDInsight Hadoop clusters
 
@@ -52,12 +52,12 @@ A sample script to install Spark on an HDInsight cluster is available from a rea
 
 2. On the **Optional Configuration** blade, select **Script Actions**, and provide the information below:
 
-	* __NAME__: Enter a friendly name for the script action.
-	* __SCRIPT URI__: https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh
-	* __HEAD__: Check this option
-	* __WORKER__: Uncheck this option
-	* __ZOOKEEPER__: Uncheck this option
-	* __PARAMETERS__: Leave this field blank
+    * __NAME__: Enter a friendly name for the script action.
+    * __SCRIPT URI__: https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh
+    * __HEAD__: Check this option
+    * __WORKER__: Uncheck this option
+    * __ZOOKEEPER__: Uncheck this option
+    * __PARAMETERS__: Leave this field blank
     
     > [AZURE.NOTE] The example Spark script only installs components on the head nodes, so the other node types can be unchecked.
 
@@ -69,8 +69,8 @@ A sample script to install Spark on an HDInsight cluster is available from a rea
 
 Spark provides APIs in Scala, Python, and Java. You can also use the interactive Spark shell to run Spark queries. Once your cluster has finished creation, use the following to connect to your HDInsight cluster:
 
-	ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
-	
+    ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+    
 For more information on using SSH with HDInsight, see the following:
 
 * [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
@@ -87,28 +87,28 @@ Once connected, use the following sections for specific steps on using Spark:
 
 1. Run the following command to start the Spark shell:
 
-		 /usr/hdp/current/spark/bin/spark-shell --master yarn
+         /usr/hdp/current/spark/bin/spark-shell --master yarn
 
-	After the command finishes running, you should get a Scala prompt:
+    After the command finishes running, you should get a Scala prompt:
 
-		 scala>
+         scala>
 
 5. On the Scala prompt, enter the Spark query shown below. This query counts the occurrence of each word in the davinci.txt file that is available at the /example/data/gutenberg/ location on the Azure Blob storage associated with the cluster.
 
-		val file = sc.textFile("/example/data/gutenberg/davinci.txt")
-		val counts = file.flatMap(line => line.split(" ")).map(word => (word, 1)).reduceByKey(_ + _)
-		counts.toArray().foreach(println)
+        val file = sc.textFile("/example/data/gutenberg/davinci.txt")
+        val counts = file.flatMap(line => line.split(" ")).map(word => (word, 1)).reduceByKey(_ + _)
+        counts.toArray().foreach(println)
 
 6. The output should resemble the following:
 
-		(felt,,1)
-		(axle-tree,1)
-		(deals,9)
-		(virtuous,4)
+        (felt,,1)
+        (axle-tree,1)
+        (deals,9)
+        (virtuous,4)
 
 7. Enter :q to exit the Scala prompt.
 
-		:q
+        :q
 
 ###<a name="sparksql"></a>Using the Spark shell to run Spark SQL queries
 
@@ -116,31 +116,31 @@ Spark SQL allows you to use Spark to run relational queries expressed in Structu
 
 1. Run the following command to start the Spark shell:
 
-		 /usr/hdp/current/spark/bin/spark-shell --master yarn
+         /usr/hdp/current/spark/bin/spark-shell --master yarn
 
-	After the command finishes running, you should get a Scala prompt:
+    After the command finishes running, you should get a Scala prompt:
 
-		 scala>
+         scala>
 
 2. On the Scala prompt, set the Hive context. This is required to work with Hive queries by using Spark.
 
-		val hiveContext = new org.apache.spark.sql.hive.HiveContext(sc)
+        val hiveContext = new org.apache.spark.sql.hive.HiveContext(sc)
 
-	> [AZURE.NOTE]  `sc` in this statement is the default Spark context that is set when you start the Spark shell.
+    > [AZURE.NOTE]  `sc` in this statement is the default Spark context that is set when you start the Spark shell.
 
 5. Run a Hive query by using the Hive context and print the output to the console. The query retrieves data on devices of a specific make and limits the number of records retrieved to 20.
 
-		hiveContext.sql("""SELECT * FROM hivesampletable WHERE devicemake LIKE "HTC%" LIMIT 20""").collect().foreach(println)
+        hiveContext.sql("""SELECT * FROM hivesampletable WHERE devicemake LIKE "HTC%" LIMIT 20""").collect().foreach(println)
 
 6. You should see an output like the following:
 
-		[820,11:35:17,en-US,Android,HTC,Inspire 4G,Louisiana,UnitedStates, 2.7383836,0,1]
-		[1055,17:24:08,en-US,Android,HTC,Incredible,Ohio,United States,18.0894738,0,0]
-		[1067,03:42:29,en-US,Windows Phone,HTC,HD7,District Of Columbia,United States,null,0,0]
+        [820,11:35:17,en-US,Android,HTC,Inspire 4G,Louisiana,UnitedStates, 2.7383836,0,1]
+        [1055,17:24:08,en-US,Android,HTC,Incredible,Ohio,United States,18.0894738,0,0]
+        [1067,03:42:29,en-US,Windows Phone,HTC,HD7,District Of Columbia,United States,null,0,0]
 
 7. Enter :q to exit the Scala prompt.
 
-		:q
+        :q
 
 ### <a name="standalone"></a>Using a standalone Scala program
 
@@ -148,75 +148,75 @@ In this section, you will create a Scala application that counts the number of l
 
 1. Use the following commands to install the Scala Build Tool:
 
-		echo "deb http://dl.bintray.com/sbt/debian /" | sudo tee -a /etc/apt/sources.list.d/sbt.list
-		sudo apt-get update
-		sudo apt-get install sbt
-		
-	When prompted, select __Y__ to continue.
+        echo "deb http://dl.bintray.com/sbt/debian /" | sudo tee -a /etc/apt/sources.list.d/sbt.list
+        sudo apt-get update
+        sudo apt-get install sbt
+        
+    When prompted, select __Y__ to continue.
 
 2. Create the directory structure for the Scala project:
 
-		mkdir -p SimpleScalaApp/src/main/scala
-		
+        mkdir -p SimpleScalaApp/src/main/scala
+        
 3. Create a new file named __simple.sbt__, which contains the configuration information for this project.
 
-		cd SimpleScalaApp
-		nano simple.sbt
-		
-	Use the following as the contents of the file:
+        cd SimpleScalaApp
+        nano simple.sbt
+        
+    Use the following as the contents of the file:
 
-		name := "SimpleApp"
-	
-		version := "1.0"
-	
-		scalaVersion := "2.10.4"
-	
-		libraryDependencies += "org.apache.spark" %% "spark-core" % "1.2.0"
+        name := "SimpleApp"
+    
+        version := "1.0"
+    
+        scalaVersion := "2.10.4"
+    
+        libraryDependencies += "org.apache.spark" %% "spark-core" % "1.2.0"
 
 
-	> [AZURE.NOTE] Make sure you retain the empty lines between each entry.
-	
-	Use __Ctrl+X__, then __Y__ and __Enter__ to save the file.
+    > [AZURE.NOTE] Make sure you retain the empty lines between each entry.
+    
+    Use __Ctrl+X__, then __Y__ and __Enter__ to save the file.
 
 4. Use the following command to create a new file named __SimpleApp.scala__ in the __SimpleScalaApp/src/main/scala__ directory:
 
-		nano src/main/scala/SimpleApp.scala
+        nano src/main/scala/SimpleApp.scala
 
-	Use the following as the contents of the file:
+    Use the following as the contents of the file:
 
-		/* SimpleApp.scala */
-		import org.apache.spark.SparkContext
-		import org.apache.spark.SparkContext._
-		import org.apache.spark.SparkConf
-		
-		object SimpleApp {
-		  def main(args: Array[String]) {
-		    val logFile = "/example/data/gutenberg/davinci.txt"			//Location of the sample data file on Azure Blob storage
-		    val conf = new SparkConf().setAppName("SimpleApplication")
-		    val sc = new SparkContext(conf)
-		    val logData = sc.textFile(logFile, 2).cache()
-		    val numAs = logData.filter(line => line.contains("a")).count()
-		    val numBs = logData.filter(line => line.contains("b")).count()
-		    println("Lines with a: %s, Lines with b: %s".format(numAs, numBs))
-		  }
-		}
+        /* SimpleApp.scala */
+        import org.apache.spark.SparkContext
+        import org.apache.spark.SparkContext._
+        import org.apache.spark.SparkConf
+        
+        object SimpleApp {
+          def main(args: Array[String]) {
+            val logFile = "/example/data/gutenberg/davinci.txt"         //Location of the sample data file on Azure Blob storage
+            val conf = new SparkConf().setAppName("SimpleApplication")
+            val sc = new SparkContext(conf)
+            val logData = sc.textFile(logFile, 2).cache()
+            val numAs = logData.filter(line => line.contains("a")).count()
+            val numBs = logData.filter(line => line.contains("b")).count()
+            println("Lines with a: %s, Lines with b: %s".format(numAs, numBs))
+          }
+        }
 
-	Use __Ctrl+X__, then __Y__, and __Enter__ to save the file.
+    Use __Ctrl+X__, then __Y__, and __Enter__ to save the file.
 
 5. From the __SimpleScalaApp__ directory, use the following command to build the application, and store it in a jar file:
 
-		sbt package
+        sbt package
 
-	Once the application is compiled, you will see a **simpleapp_2.10-1.0.jar** file created in the __SimpleScalaApp/target/scala-2.10** directory.
+    Once the application is compiled, you will see a **simpleapp_2.10-1.0.jar** file created in the __SimpleScalaApp/target/scala-2.10** directory.
 
 6. Use the following command to run the SimpleApp.scala program:
 
 
-		/usr/hdp/current/spark/bin/spark-submit --class "SimpleApp" --master yarn target/scala-2.10/simpleapp_2.10-1.0.jar
+        /usr/hdp/current/spark/bin/spark-submit --class "SimpleApp" --master yarn target/scala-2.10/simpleapp_2.10-1.0.jar
 
 4. When the program finishes running, the output is displayed on the console.
 
-		Lines with a: 21374, Lines with b: 11430
+        Lines with a: 21374, Lines with b: 11430
 
 ## Next steps
 
@@ -235,3 +235,4 @@ In this section, you will create a Scala application that counts the number of l
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
  
+

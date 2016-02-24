@@ -83,37 +83,37 @@ This part of the script does the following:
 2. If the namespace is found, it reports what was found.
 3. If the namespace is not found, it creates the namespace and then retrieves the newly created namespace.
 
-	``` powershell
+    ``` powershell
 
-	$Namespace = "MyServiceBusNS"
-	$Location = "West US"
+    $Namespace = "MyServiceBusNS"
+    $Location = "West US"
 
-	# Query to see if the namespace currently exists
-	$CurrentNamespace = Get-AzureSBNamespace -Name $Namespace
+    # Query to see if the namespace currently exists
+    $CurrentNamespace = Get-AzureSBNamespace -Name $Namespace
 
-	# Check if the namespace already exists or needs to be created
-	if ($CurrentNamespace)
-	{
-	    Write-Output "The namespace [$Namespace] already exists in the [$($CurrentNamespace.Region)] region."
-	}
-	else
-	{
-	    Write-Host "The [$Namespace] namespace does not exist."
-	    Write-Output "Creating the [$Namespace] namespace in the [$Location] region..."
-	    New-AzureSBNamespace -Name $Namespace -Location $Location -CreateACSNamespace false -NamespaceType Messaging
-	    $CurrentNamespace = Get-AzureSBNamespace -Name $Namespace
-	    Write-Host "The [$Namespace] namespace in the [$Location] region has been successfully created."
-	}
-	```
+    # Check if the namespace already exists or needs to be created
+    if ($CurrentNamespace)
+    {
+        Write-Output "The namespace [$Namespace] already exists in the [$($CurrentNamespace.Region)] region."
+    }
+    else
+    {
+        Write-Host "The [$Namespace] namespace does not exist."
+        Write-Output "Creating the [$Namespace] namespace in the [$Location] region..."
+        New-AzureSBNamespace -Name $Namespace -Location $Location -CreateACSNamespace false -NamespaceType Messaging
+        $CurrentNamespace = Get-AzureSBNamespace -Name $Namespace
+        Write-Host "The [$Namespace] namespace in the [$Location] region has been successfully created."
+    }
+    ```
 To provision other Service Bus entities, create an instance of the `NamespaceManager` object from the SDK. You can use the [Get-AzureSBAuthorizationRule] cmdlet to retrieve an authorization rule that's used to provide a connection string. This example stores a reference to the `NamespaceManager` instance in the `$NamespaceManager` variable. The script later uses `$NamespaceManager` to provision other entities.
 
-	``` powershell
-	$sbr = Get-AzureSBAuthorizationRule -Namespace $Namespace
-	# Create the NamespaceManager object to create the Event Hub
-	Write-Output "Creating a NamespaceManager object for the [$Namespace] namespace..."
-	$NamespaceManager = [Microsoft.ServiceBus.NamespaceManager]::CreateFromConnectionString($sbr.ConnectionString);
-	Write-Output "NamespaceManager object for the [$Namespace] namespace has been successfully created."
-	```
+    ``` powershell
+    $sbr = Get-AzureSBAuthorizationRule -Namespace $Namespace
+    # Create the NamespaceManager object to create the Event Hub
+    Write-Output "Creating a NamespaceManager object for the [$Namespace] namespace..."
+    $NamespaceManager = [Microsoft.ServiceBus.NamespaceManager]::CreateFromConnectionString($sbr.ConnectionString);
+    Write-Output "NamespaceManager object for the [$Namespace] namespace has been successfully created."
+    ```
 
 ## Provisioning other Service Bus entities
 
@@ -127,130 +127,130 @@ This part of the script creates four more local variables. These variables are u
 2. If it does not exist, create an `EventHubDescription` and pass that to the `NamespaceManager` class `CreateEventHubIfNotExists` method.
 3. After determining that the Event Hub is available, create a consumer group using `ConsumerGroupDescription` and `NamespaceManager`.
 
-	``` powershell
+    ``` powershell
 
-	$Path  = "MyEventHub"
-	$PartitionCount = 12
-	$MessageRetentionInDays = 7
-	$UserMetadata = $null
-	$ConsumerGroupName = "MyConsumerGroup"
+    $Path  = "MyEventHub"
+    $PartitionCount = 12
+    $MessageRetentionInDays = 7
+    $UserMetadata = $null
+    $ConsumerGroupName = "MyConsumerGroup"
 
-	# Check if the Event Hub already exists
-	if ($NamespaceManager.EventHubExists($Path))
-	{
-	    Write-Output "The [$Path] event hub already exists in the [$Namespace] namespace."  
-	}
-	else
-	{
-	    Write-Output "Creating the [$Path] event hub in the [$Namespace] namespace: PartitionCount=[$PartitionCount] MessageRetentionInDays=[$MessageRetentionInDays]..."
-	    $EventHubDescription = New-Object -TypeName Microsoft.ServiceBus.Messaging.EventHubDescription -ArgumentList $Path
-	    $EventHubDescription.PartitionCount = $PartitionCount
-	    $EventHubDescription.MessageRetentionInDays = $MessageRetentionInDays
-	    $EventHubDescription.UserMetadata = $UserMetadata
-	    $EventHubDescription.Path = $Path
-	    $NamespaceManager.CreateEventHubIfNotExists($EventHubDescription);
-	    Write-Output "The [$Path] event hub in the [$Namespace] namespace has been successfully created."
-	}
+    # Check if the Event Hub already exists
+    if ($NamespaceManager.EventHubExists($Path))
+    {
+        Write-Output "The [$Path] event hub already exists in the [$Namespace] namespace."  
+    }
+    else
+    {
+        Write-Output "Creating the [$Path] event hub in the [$Namespace] namespace: PartitionCount=[$PartitionCount] MessageRetentionInDays=[$MessageRetentionInDays]..."
+        $EventHubDescription = New-Object -TypeName Microsoft.ServiceBus.Messaging.EventHubDescription -ArgumentList $Path
+        $EventHubDescription.PartitionCount = $PartitionCount
+        $EventHubDescription.MessageRetentionInDays = $MessageRetentionInDays
+        $EventHubDescription.UserMetadata = $UserMetadata
+        $EventHubDescription.Path = $Path
+        $NamespaceManager.CreateEventHubIfNotExists($EventHubDescription);
+        Write-Output "The [$Path] event hub in the [$Namespace] namespace has been successfully created."
+    }
 
-	# Create the consumer group if it doesn't exist
-	Write-Output "Creating the consumer group [$ConsumerGroupName] for the [$Path] event hub..."
-	$ConsumerGroupDescription = New-Object -TypeName Microsoft.ServiceBus.Messaging.ConsumerGroupDescription -ArgumentList $Path, $ConsumerGroupName
-	$ConsumerGroupDescription.UserMetadata = $ConsumerGroupUserMetadata
-	$NamespaceManager.CreateConsumerGroupIfNotExists($ConsumerGroupDescription);
-	Write-Output "The consumer group [$ConsumerGroupName] for the [$Path] event hub has been successfully created."
-	```
+    # Create the consumer group if it doesn't exist
+    Write-Output "Creating the consumer group [$ConsumerGroupName] for the [$Path] event hub..."
+    $ConsumerGroupDescription = New-Object -TypeName Microsoft.ServiceBus.Messaging.ConsumerGroupDescription -ArgumentList $Path, $ConsumerGroupName
+    $ConsumerGroupDescription.UserMetadata = $ConsumerGroupUserMetadata
+    $NamespaceManager.CreateConsumerGroupIfNotExists($ConsumerGroupDescription);
+    Write-Output "The consumer group [$ConsumerGroupName] for the [$Path] event hub has been successfully created."
+    ```
 
 ### Create a queue
 
 To create a queue or topic, perform a namespace check as in the previous section.
 
-	if ($NamespaceManager.QueueExists($Path))
-	{
-	    Write-Output "The [$Path] queue already exists in the [$Namespace] namespace."
-	}
-	else
-	{
-	    Write-Output "Creating the [$Path] queue in the [$Namespace] namespace..."
-	    $QueueDescription = New-Object -TypeName Microsoft.ServiceBus.Messaging.QueueDescription -ArgumentList $Path
-	    if ($AutoDeleteOnIdle -ge 5)
-	    {
-	        $QueueDescription.AutoDeleteOnIdle = [System.TimeSpan]::FromMinutes($AutoDeleteOnIdle)
-	    }
-	    if ($DefaultMessageTimeToLive -gt 0)
-	    {
-	        $QueueDescription.DefaultMessageTimeToLive = [System.TimeSpan]::FromMinutes($DefaultMessageTimeToLive)
-	    }
-	    if ($DuplicateDetectionHistoryTimeWindow -gt 0)
-	    {
-	        $QueueDescription.DuplicateDetectionHistoryTimeWindow = [System.TimeSpan]::FromMinutes($DuplicateDetectionHistoryTimeWindow)
-	    }
-	    $QueueDescription.EnableBatchedOperations = $EnableBatchedOperations
-	    $QueueDescription.EnableDeadLetteringOnMessageExpiration = $EnableDeadLetteringOnMessageExpiration
-	    $QueueDescription.EnableExpress = $EnableExpress
-	    $QueueDescription.EnablePartitioning = $EnablePartitioning
-	    $QueueDescription.ForwardDeadLetteredMessagesTo = $ForwardDeadLetteredMessagesTo
-	    $QueueDescription.ForwardTo = $ForwardTo
-	    $QueueDescription.IsAnonymousAccessible = $IsAnonymousAccessible
-	    if ($LockDuration -gt 0)
-	    {
-	        $QueueDescription.LockDuration = [System.TimeSpan]::FromSeconds($LockDuration)
-	    }
-	    $QueueDescription.MaxDeliveryCount = $MaxDeliveryCount
-	    $QueueDescription.MaxSizeInMegabytes = $MaxSizeInMegabytes
-	    $QueueDescription.RequiresDuplicateDetection = $RequiresDuplicateDetection
-	    $QueueDescription.RequiresSession = $RequiresSession
-	    if ($EnablePartitioning)
-	    {
-	        $QueueDescription.SupportOrdering = $False
-	    }
-	    else
-	    {
-	        $QueueDescription.SupportOrdering = $SupportOrdering
-	    }
-	    $QueueDescription.UserMetadata = $UserMetadata
-	    $NamespaceManager.CreateQueue($QueueDescription);
-	}
+    if ($NamespaceManager.QueueExists($Path))
+    {
+        Write-Output "The [$Path] queue already exists in the [$Namespace] namespace."
+    }
+    else
+    {
+        Write-Output "Creating the [$Path] queue in the [$Namespace] namespace..."
+        $QueueDescription = New-Object -TypeName Microsoft.ServiceBus.Messaging.QueueDescription -ArgumentList $Path
+        if ($AutoDeleteOnIdle -ge 5)
+        {
+            $QueueDescription.AutoDeleteOnIdle = [System.TimeSpan]::FromMinutes($AutoDeleteOnIdle)
+        }
+        if ($DefaultMessageTimeToLive -gt 0)
+        {
+            $QueueDescription.DefaultMessageTimeToLive = [System.TimeSpan]::FromMinutes($DefaultMessageTimeToLive)
+        }
+        if ($DuplicateDetectionHistoryTimeWindow -gt 0)
+        {
+            $QueueDescription.DuplicateDetectionHistoryTimeWindow = [System.TimeSpan]::FromMinutes($DuplicateDetectionHistoryTimeWindow)
+        }
+        $QueueDescription.EnableBatchedOperations = $EnableBatchedOperations
+        $QueueDescription.EnableDeadLetteringOnMessageExpiration = $EnableDeadLetteringOnMessageExpiration
+        $QueueDescription.EnableExpress = $EnableExpress
+        $QueueDescription.EnablePartitioning = $EnablePartitioning
+        $QueueDescription.ForwardDeadLetteredMessagesTo = $ForwardDeadLetteredMessagesTo
+        $QueueDescription.ForwardTo = $ForwardTo
+        $QueueDescription.IsAnonymousAccessible = $IsAnonymousAccessible
+        if ($LockDuration -gt 0)
+        {
+            $QueueDescription.LockDuration = [System.TimeSpan]::FromSeconds($LockDuration)
+        }
+        $QueueDescription.MaxDeliveryCount = $MaxDeliveryCount
+        $QueueDescription.MaxSizeInMegabytes = $MaxSizeInMegabytes
+        $QueueDescription.RequiresDuplicateDetection = $RequiresDuplicateDetection
+        $QueueDescription.RequiresSession = $RequiresSession
+        if ($EnablePartitioning)
+        {
+            $QueueDescription.SupportOrdering = $False
+        }
+        else
+        {
+            $QueueDescription.SupportOrdering = $SupportOrdering
+        }
+        $QueueDescription.UserMetadata = $UserMetadata
+        $NamespaceManager.CreateQueue($QueueDescription);
+    }
 
 ### Create a topic
 
-	if ($NamespaceManager.TopicExists($Path))
-	{
-	    Write-Output "The [$Path] topic already exists in the [$Namespace] namespace."
-	}
-	else
-	{
-	    Write-Output "Creating the [$Path] topic in the [$Namespace] namespace..."
-	    $TopicDescription = New-Object -TypeName Microsoft.ServiceBus.Messaging.TopicDescription -ArgumentList $Path
-	    if ($AutoDeleteOnIdle -ge 5)
-	    {
-	        $TopicDescription.AutoDeleteOnIdle = [System.TimeSpan]::FromMinutes($AutoDeleteOnIdle)
-	    }
-	    if ($DefaultMessageTimeToLive -gt 0)
-	    {
-	        $TopicDescription.DefaultMessageTimeToLive = [System.TimeSpan]::FromMinutes($DefaultMessageTimeToLive)
-	    }
-	    if ($DuplicateDetectionHistoryTimeWindow -gt 0)
-	    {
-	        $TopicDescription.DuplicateDetectionHistoryTimeWindow = [System.TimeSpan]::FromMinutes($DuplicateDetectionHistoryTimeWindow)
-	    }
-	    $TopicDescription.EnableBatchedOperations = $EnableBatchedOperations
-	    $TopicDescription.EnableExpress = $EnableExpress
-	    $TopicDescription.EnableFilteringMessagesBeforePublishing = $EnableFilteringMessagesBeforePublishing
-	    $TopicDescription.EnablePartitioning = $EnablePartitioning
-	    $TopicDescription.IsAnonymousAccessible = $IsAnonymousAccessible
-	    $TopicDescription.MaxSizeInMegabytes = $MaxSizeInMegabytes
-	    $TopicDescription.RequiresDuplicateDetection = $RequiresDuplicateDetection
-	    if ($EnablePartitioning)
-	    {
-	        $TopicDescription.SupportOrdering = $False
-	    }
-	    else
-	    {
-	        $TopicDescription.SupportOrdering = $SupportOrdering
-	    }
-	    $TopicDescription.UserMetadata = $UserMetadata
-	    $NamespaceManager.CreateTopic($TopicDescription);
-	}
+    if ($NamespaceManager.TopicExists($Path))
+    {
+        Write-Output "The [$Path] topic already exists in the [$Namespace] namespace."
+    }
+    else
+    {
+        Write-Output "Creating the [$Path] topic in the [$Namespace] namespace..."
+        $TopicDescription = New-Object -TypeName Microsoft.ServiceBus.Messaging.TopicDescription -ArgumentList $Path
+        if ($AutoDeleteOnIdle -ge 5)
+        {
+            $TopicDescription.AutoDeleteOnIdle = [System.TimeSpan]::FromMinutes($AutoDeleteOnIdle)
+        }
+        if ($DefaultMessageTimeToLive -gt 0)
+        {
+            $TopicDescription.DefaultMessageTimeToLive = [System.TimeSpan]::FromMinutes($DefaultMessageTimeToLive)
+        }
+        if ($DuplicateDetectionHistoryTimeWindow -gt 0)
+        {
+            $TopicDescription.DuplicateDetectionHistoryTimeWindow = [System.TimeSpan]::FromMinutes($DuplicateDetectionHistoryTimeWindow)
+        }
+        $TopicDescription.EnableBatchedOperations = $EnableBatchedOperations
+        $TopicDescription.EnableExpress = $EnableExpress
+        $TopicDescription.EnableFilteringMessagesBeforePublishing = $EnableFilteringMessagesBeforePublishing
+        $TopicDescription.EnablePartitioning = $EnablePartitioning
+        $TopicDescription.IsAnonymousAccessible = $IsAnonymousAccessible
+        $TopicDescription.MaxSizeInMegabytes = $MaxSizeInMegabytes
+        $TopicDescription.RequiresDuplicateDetection = $RequiresDuplicateDetection
+        if ($EnablePartitioning)
+        {
+            $TopicDescription.SupportOrdering = $False
+        }
+        else
+        {
+            $TopicDescription.SupportOrdering = $SupportOrdering
+        }
+        $TopicDescription.UserMetadata = $UserMetadata
+        $NamespaceManager.CreateTopic($TopicDescription);
+    }
 
 ## Next steps
 
@@ -276,3 +276,4 @@ Some ready-made scripts are also available for download:
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
 [.NET API for Service Bus]: https://msdn.microsoft.com/en-us/library/azure/mt419900.aspx
 [Install and configure Azure PowerShell]: ../install-configure-powershell.md
+

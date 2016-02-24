@@ -26,51 +26,51 @@ You can view and modify VNet settings by using the Azure portal.
 
 1. Click **Dashboard** to view the following information:
 
-	- **virtual network:** This is the virtual network and subnets along with the local network and DNS server.
+    - **virtual network:** This is the virtual network and subnets along with the local network and DNS server.
 
-	- **data in, data out:** Visible when you have cross-premises connectivity. This is the data coming into and going out of your virtual network.
+    - **data in, data out:** Visible when you have cross-premises connectivity. This is the data coming into and going out of your virtual network.
 
-	- **gateway IP address:** Visible when you have configured a gateway. This is the gateway IP address. This is the IP address that you will use to configure your VPN device for cross-premise connectivity.
+    - **gateway IP address:** Visible when you have configured a gateway. This is the gateway IP address. This is the IP address that you will use to configure your VPN device for cross-premise connectivity.
 
-	- **resources:** These are the Azure resources connected to this virtual network.
+    - **resources:** These are the Azure resources connected to this virtual network.
 
-	- **quick glance:** A place to quickly find the following information:
+    - **quick glance:** A place to quickly find the following information:
 
-		- **Download Client VPN package:** This package is used when creating point-to-site cross premises VPN connections. Download the package that pertains to the client.
+        - **Download Client VPN package:** This package is used when creating point-to-site cross premises VPN connections. Download the package that pertains to the client.
 
-		- **Download VPN device script:** These templates are used to help configure VPN devices for site-to-site cross-premises connections.
+        - **Download VPN device script:** These templates are used to help configure VPN devices for site-to-site cross-premises connections.
 
-		- **status**
+        - **status**
 
-		- **subscription ID**
-		
-		- **virtual network ID**
-		
-		- **location**
+        - **subscription ID**
+        
+        - **virtual network ID**
+        
+        - **location**
 
 1. Click **Configure** to view the following information:
 
-	- **dns servers:** These are the DNS servers and their corresponding IP address that the clients in your virtual network will use for name resolution.
+    - **dns servers:** These are the DNS servers and their corresponding IP address that the clients in your virtual network will use for name resolution.
 
-	- **point-to-site connectivity:** Visible when you have configured your virtual network for point-to-site connections.
+    - **point-to-site connectivity:** Visible when you have configured your virtual network for point-to-site connections.
 
-	- **site-to-site connectivity:** Visible when you have configured your virtual network for site-to-site connections.
+    - **site-to-site connectivity:** Visible when you have configured your virtual network for site-to-site connections.
 
-	- **local network:** This is shown if you have site-to-site connectivity. This is selected local network that represents your on-premises site. The settings for this local network can be configured in **networks** on the **Local Networks** page.
-	
-	- **virtual network address spaces:** The address space and subnets in your virtual network.
+    - **local network:** This is shown if you have site-to-site connectivity. This is selected local network that represents your on-premises site. The settings for this local network can be configured in **networks** on the **Local Networks** page.
+    
+    - **virtual network address spaces:** The address space and subnets in your virtual network.
 
 1. Click **Certificates** to view the following information:
 
-	- **Uploaded root certificate:** For point-to-site VPN configurations
-	
-	- **Certificate thumbprint**
-	
-	- **Certificate expiration**
-	
-	- **Upload:** Upload a root certificate
-	
-	- **Delete:** Delete a selected root certificate
+    - **Uploaded root certificate:** For point-to-site VPN configurations
+    
+    - **Certificate thumbprint**
+    
+    - **Certificate expiration**
+    
+    - **Upload:** Upload a root certificate
+    
+    - **Delete:** Delete a selected root certificate
 
 ## Edit VNet settings
 
@@ -82,13 +82,13 @@ After you deploy your virtual network, only certain settings can be modified. Th
 
 1. Click **Configure**.
 
-	- In **dns servers**, you can add additional DNS servers for name resolution. If you add additional DNS servers after you have deployed virtual machines to your virtual network, you must restart each virtual machine in order for it to pick up the new additional DNS server.
-	
-	- In the **point-to-site connectivity** section, you can configure the address space that you want to designate for point-to-site connections.
-	
-	- In the **site to site connectivity** section, you can configure site-to-site settings.
-	
-	- In the **virtual network address space** section, you can add additional address space and subnets. To add subnets, click **add subnets** and configure the address space that you want to use. To add a gateway subnet for cross-premises connectivity, click **add gateway subnet**. You can only add one gateway subnet per virtual network.
+    - In **dns servers**, you can add additional DNS servers for name resolution. If you add additional DNS servers after you have deployed virtual machines to your virtual network, you must restart each virtual machine in order for it to pick up the new additional DNS server.
+    
+    - In the **point-to-site connectivity** section, you can configure the address space that you want to designate for point-to-site connections.
+    
+    - In the **site to site connectivity** section, you can configure site-to-site settings.
+    
+    - In the **virtual network address space** section, you can add additional address space and subnets. To add subnets, click **add subnets** and configure the address space that you want to use. To add a gateway subnet for cross-premises connectivity, click **add gateway subnet**. You can only add one gateway subnet per virtual network.
 
 1. Click **SAVE** at the bottom of the screen to save your configuration changes.
 

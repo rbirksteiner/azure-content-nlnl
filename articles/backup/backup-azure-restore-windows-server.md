@@ -10,11 +10,11 @@
 <tags
    ms.service="backup"
    ms.workload="storage-backup-recovery"
-	 ms.tgt_pltfrm="na"
-	 ms.devlang="na"
-	 ms.topic="article"
-	 ms.date="10/21/2015"
-	 ms.author="jimpark"; "aashishr"/>
+     ms.tgt_pltfrm="na"
+     ms.devlang="na"
+     ms.topic="article"
+     ms.date="10/21/2015"
+     ms.author="jimpark"; "aashishr"/>
 
 # Restore files to a Windows server or Windows client machine
 This article covers the steps required to perform two types of restore operations:
@@ -115,3 +115,4 @@ The terminology used in these steps includes:
 - [Azure Backup Overview](http://go.microsoft.com/fwlink/p/?LinkId=222425)
 - [Backup Azure virtual machines](backup-azure-vms-introduction.md)
 - [Backup up Microsoft workloads](backup-azure-dpm-introduction.md)
+

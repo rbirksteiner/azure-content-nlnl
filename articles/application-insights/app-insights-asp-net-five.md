@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Application Insights for ASP.NET 5" 
-	description="Monitor web applications for availability, performance and usage." 
-	services="application-insights" 
+    pageTitle="Application Insights for ASP.NET 5" 
+    description="Monitor web applications for availability, performance and usage." 
+    services="application-insights" 
     documentationCenter=".net"
-	authors="alancameronwills" 
-	manager="douge"/>
+    authors="alancameronwills" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/11/2015" 
-	ms.author="awills"/>
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/11/2015" 
+    ms.author="awills"/>
 
 # Application Insights for ASP.NET 5
 
@@ -77,3 +77,4 @@ Views in the portal fall into two main categories:
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-overview.md
 [usage]: app-insights-web-track-usage.md 
+

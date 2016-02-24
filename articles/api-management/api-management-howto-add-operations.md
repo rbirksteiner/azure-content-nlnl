@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How to add operations to an API in Azure API Management" 
-	description="Learn how to add operations to an API in Azure API Management." 
-	services="api-management" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="How to add operations to an API in Azure API Management" 
+    description="Learn how to add operations to an API in Azure API Management." 
+    services="api-management" 
+    documentationCenter="" 
+    authors="steved0x" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="api-management" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/07/2015" 
-	ms.author="sdanie"/>
+    ms.service="api-management" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/07/2015" 
+    ms.author="sdanie"/>
 
 # How to add operations to an API in Azure API Management
 
@@ -78,11 +78,11 @@ Operation parameters are managed on the Parameters tab. Parameters specified in 
 
 To add a new query parameter, click **Add Query Parameter** and enter the following information:
 
--	**Name** - parameter name.
--	**Description** - a brief description of the parameter (optional).
--	**Type** - parameter type, selected in the drop down.
--	**Values** - values that can be assigned to this parameter. One of the values can be marked as default (optional).
--	**Required** - make the parameter mandatory by checking the checkbox. 
+-   **Name** - parameter name.
+-   **Description** - a brief description of the parameter (optional).
+-   **Type** - parameter type, selected in the drop down.
+-   **Values** - values that can be assigned to this parameter. One of the values can be marked as default (optional).
+-   **Required** - make the parameter mandatory by checking the checkbox. 
 
 ![Request parameters][api-management-request-parameters]
 
@@ -125,7 +125,7 @@ Once the operation is configured, click **Save**.
 
 Once the operations are added to an API, the next step is to associate the API with a product and publish it so that developers can call its operations.
 
--	[How to create and publish a product][]
+-   [How to create and publish a product][]
 
 [api-management-management-console]: ./media/api-management-howto-add-operations/api-management-management-console.png
 [api-management-operations]: ./media/api-management-howto-add-operations/api-management-operations.png

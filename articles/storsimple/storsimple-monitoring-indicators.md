@@ -51,7 +51,7 @@ Use the following table to identify the status indicated by the LEDs on the fron
 
 |System power | Module fault | Logical fault | Alarm | Status|
 |-------------|---------------|-----------------|-------|-------|
-|Red-amber | OFF	 | OFF | N/A | AC power lost, operating on backup power, or AC power ON and the controller modules were removed.|
+|Red-amber | OFF     | OFF | N/A | AC power lost, operating on backup power, or AC power ON and the controller modules were removed.|
 |Green | ON | ON | N/A | Ops panel power on (5s) test state|
 |Green | OFF | OFF | N/A | Power on, all functions good|
 |Green | ON |N/A | PCM fault LEDs, fan fault LEDs | Any PCM fault, fan fault, over or under temperature|
@@ -88,7 +88,7 @@ The status of the PCM is indicated on the LED panel. The device PCM LED panel ha
 |--------|----------------|-----------------------|------------------|----------------------|
 | No AC power (to enclosure) | OFF | OFF | OFF | OFF|
 | No AC power (this PCM only) | OFF | ON | OFF | ON |
-| AC present PCM ON - OK	 | ON | OFF | OFF | OFF |
+| AC present PCM ON - OK     | ON | OFF | OFF | OFF |
 | PCM fail (fan fail) | OFF | OFF | ON | N/A |
 | PCM fault (over amp, over voltage, over current) | OFF | ON | ON | ON |
 | PCM (fan out of tolerance) | ON | OFF | OFF | ON |
@@ -239,7 +239,7 @@ The following table describes the various alarm conditions.
 | High warning temperature alert | Warning | S1 | Module fault |
 | Over temperature alarm | Fault – critical | S1 | Module fault |
 | I2C bus failure | Fault – loss of redundancy | S1 | Module fault |
-| Ops panel communication error (I2C) | Fault – critical	 | S1 | Module fault |
+| Ops panel communication error (I2C) | Fault – critical     | S1 | Module fault |
 | Controller error | Fault – critical | S1 | Module fault |
 | SBB interface module fault | Fault – critical | S1 | Module fault |
 | SBB interface module fault – No functioning modules remaining | Fault – critical | S4 | Module fault |

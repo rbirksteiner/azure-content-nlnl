@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Add push notifications to your Xamarin.Android app with Azure App Service"
-	description="Learn how to use Azure App Service and Azure Notification Hubs to send push notifications to your Xamarin.Android app"
-	services="app-service\mobile" 
-	documentationCenter="xamarin" 
-	authors="ggailey777"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Add push notifications to your Xamarin.Android app with Azure App Service"
+    description="Learn how to use Azure App Service and Azure Notification Hubs to send push notifications to your Xamarin.Android app"
+    services="app-service\mobile" 
+    documentationCenter="xamarin" 
+    authors="ggailey777"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-xamarin-android"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="12/02/2015" 
-	ms.author="glenga"/>
+    ms.service="app-service-mobile"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-xamarin-android"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="12/02/2015" 
+    ms.author="glenga"/>
 
 # Add push notifications to your Xamarin.Android app
 
@@ -67,15 +67,15 @@ You can test the app by using a virtual device in the emulator. There are additi
 
 1. Make sure that you are deploying to or debugging on a virtual device that has Google APIs set as the target, as shown below in the Android Virtual Device (AVD) manager. 
 
-	![](./media/app-service-mobile-xamarin-android-get-started-push/google-apis-avd-settings.png)
+    ![](./media/app-service-mobile-xamarin-android-get-started-push/google-apis-avd-settings.png)
 
 2. Add a Google account to the Android device by clicking **Apps** > **Settings** > **Add account**, then follow the prompts to use add an existing Google account to the device to create a new one.
 
-	![](./media/app-service-mobile-xamarin-android-get-started-push/add-google-account.png)
+    ![](./media/app-service-mobile-xamarin-android-get-started-push/add-google-account.png)
 
 3. Run the todolist app as before and insert a new todo item. This time, a notification icon is displayed in the notification area. You can open the notification drawer to view the full text of the notification.
 
-	![](./media/app-service-mobile-xamarin-android-get-started-push/android-notifications.png)
+    ![](./media/app-service-mobile-xamarin-android-get-started-push/android-notifications.png)
 
 
 <!-- URLs. -->
@@ -84,3 +84,4 @@ You can test the app by using a virtual device in the emulator. There are additi
 [Google Cloud Messaging Client Component]: http://components.xamarin.com/view/GCMClient/
 [Xamarin.Android]: http://xamarin.com/download/
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
+

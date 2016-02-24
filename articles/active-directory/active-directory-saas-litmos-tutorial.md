@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Tutorial: Azure Active Directory integration with Litmos | Microsoft Azure"
-	description="Learn how to configure single sign-on between Azure Active Directory and Litmos."
-	services="active-directory"
-	documentationCenter=""
-	authors="markusvi"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Tutorial: Azure Active Directory integration with Litmos | Microsoft Azure"
+    description="Learn how to configure single sign-on between Azure Active Directory and Litmos."
+    services="active-directory"
+    documentationCenter=""
+    authors="markusvi"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/30/2015"
-	ms.author="markusvi"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/30/2015"
+    ms.author="markusvi"/>
 
 
 # Tutorial: Azure Active Directory integration with Litmos
@@ -343,6 +343,7 @@ When you click the Litmos tile in the Access Panel, you should get automatically
 [400]: ./media/active-directory-saas-litmos-tutorial/tutorial_litmos_400.png
 [401]: ./media/active-directory-saas-litmos-tutorial/tutorial_litmos_401.png
 [402]: ./media/active-directory-saas-litmos-tutorial/tutorial_litmos_402.png
+
 
 
 

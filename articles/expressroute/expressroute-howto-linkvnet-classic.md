@@ -32,9 +32,9 @@ This article gives you an overview of how to link virtual networks (VNets) to Ex
 - You will need the latest version of the Azure PowerShell modules. You can download the latest PowerShell module from the PowerShell section of the [Azure Downloads page](http://azure.microsoft.com/downloads). Follow the instructions on the [How to install and configure Azure PowerShell](../powershell-install-configure.md) page for step-by-step guidance on how to configure your computer to use the Azure PowerShell modules. 
 - Make sure that you have reviewed the [prerequisites](expressroute-prerequisites.md) page, the  [routing requirements](expressroute-routing.md) page and the [workflows](expressroute-workflows.md) page before you begin configuration.
 - You must have an active ExpressRoute circuit. 
-	- Follow the instructions to [create an ExpressRoute circuit](expressroute-howto-circuit-classic.md) and have the circuit enabled by your connectivity provider. 
-	- Ensure that you have Azure private peering configured for your circuit. See the [configure routing](expressroute-howto-routing-classic.md) article for routing instructions. 
-	- Azure private peering must be configured and the BGP peering between your network and Microsoft must be up for you to enable end-to-end connectivity.
+    - Follow the instructions to [create an ExpressRoute circuit](expressroute-howto-circuit-classic.md) and have the circuit enabled by your connectivity provider. 
+    - Ensure that you have Azure private peering configured for your circuit. See the [configure routing](expressroute-howto-routing-classic.md) article for routing instructions. 
+    - Azure private peering must be configured and the BGP peering between your network and Microsoft must be up for you to enable end-to-end connectivity.
 
 You can link up to 10 VNets to an ExpressRoute circuit. All ExpressRoute circuits must be in the same geopolitical region. You can link a larger number of virtual networks to your ExpressRoute circuit if you enabled the ExpressRoute premium add-on. Check out the [FAQ](expressroute-faqs.md) for more details on the premium add-on. 
 
@@ -42,8 +42,8 @@ You can link up to 10 VNets to an ExpressRoute circuit. All ExpressRoute circuit
 
 Yon can link a virtual network to an ExpressRoute circuit using the following cmdlet. Make sure that the virtual network gateway is created and is ready for linking before you run the cmdlet.
 
-	C:\> New-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VNetName "MyVNet"
-	Provisioned
+    C:\> New-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VNetName "MyVNet"
+    Provisioned
 
 ## Linking a VNet in a different Azure subscription to an ExpressRoute circuit
 
@@ -62,60 +62,60 @@ The circuit owner has the power to modify and revoke authorizations at any time.
 ### Circuit owner operations 
 
 #### Creating an authorization
-	
+    
 The circuit owner authorizes the administrators of other subscriptions to use the specified circuit. In the example below, the administrator of the circuit (Contoso IT) enables the administrator of another subscription (Dev-Test), by specifying their Microsoft ID, to link up to 2 VNETs to the circuit. The cmdlet doesn't send email to the specified Microsoft ID. The circuit owner need to explicitly notify the other subscription owner that the authorization is complete.
 
-		PS C:\> New-AzureDedicatedCircuitLinkAuthorization -ServiceKey "**************************" -Description "Dev-Test Links" -Limit 2 -MicrosoftIds 'devtest@contoso.com'
-		
-		Description         : Dev-Test Links 
-		Limit               : 2 
-		LinkAuthorizationId : ********************************** 
-		MicrosoftIds        : devtest@contoso.com 
-		Used                : 0
+        PS C:\> New-AzureDedicatedCircuitLinkAuthorization -ServiceKey "**************************" -Description "Dev-Test Links" -Limit 2 -MicrosoftIds 'devtest@contoso.com'
+        
+        Description         : Dev-Test Links 
+        Limit               : 2 
+        LinkAuthorizationId : ********************************** 
+        MicrosoftIds        : devtest@contoso.com 
+        Used                : 0
 
 #### Reviewing authorizations
 
 The circuit owner can review all authorizations issued on a particular circuit by running the following cmdlet.
 
-	PS C:\> Get-AzureDedicatedCircuitLinkAuthorization -ServiceKey: "**************************"
-	
-	Description         : EngineeringTeam 
-	Limit               : 3 
-	LinkAuthorizationId : #################################### 
-	MicrosoftIds        : engadmin@contoso.com 
-	Used                : 1 
-	
-	Description         : MarketingTeam 
-	Limit               : 1 
-	LinkAuthorizationId : @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 
-	MicrosoftIds        : marketingadmin@contoso.com 
-	Used                : 0 
-	
-	Description         : Dev-Test Links 
-	Limit               : 2 
-	LinkAuthorizationId : &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& 
-	MicrosoftIds        : salesadmin@contoso.com 
-	Used                : 2 
-	
+    PS C:\> Get-AzureDedicatedCircuitLinkAuthorization -ServiceKey: "**************************"
+    
+    Description         : EngineeringTeam 
+    Limit               : 3 
+    LinkAuthorizationId : #################################### 
+    MicrosoftIds        : engadmin@contoso.com 
+    Used                : 1 
+    
+    Description         : MarketingTeam 
+    Limit               : 1 
+    LinkAuthorizationId : @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 
+    MicrosoftIds        : marketingadmin@contoso.com 
+    Used                : 0 
+    
+    Description         : Dev-Test Links 
+    Limit               : 2 
+    LinkAuthorizationId : &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& 
+    MicrosoftIds        : salesadmin@contoso.com 
+    Used                : 2 
+    
 
 #### Updating authorizations
 
 The circuit owner can modify authorizations using the following cmdlet.
 
-	PS C:\> set-AzureDedicatedCircuitLinkAuthorization -ServiceKey "**************************" -AuthorizationId "&&&&&&&&&&&&&&&&&&&&&&&&&&&&"-Limit 5
-		
-	Description         : Dev-Test Links 
-	Limit               : 5 
-	LinkAuthorizationId : &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& 
-	MicrosoftIds        : devtest@contoso.com 
-	Used                : 0
+    PS C:\> set-AzureDedicatedCircuitLinkAuthorization -ServiceKey "**************************" -AuthorizationId "&&&&&&&&&&&&&&&&&&&&&&&&&&&&"-Limit 5
+        
+    Description         : Dev-Test Links 
+    Limit               : 5 
+    LinkAuthorizationId : &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& 
+    MicrosoftIds        : devtest@contoso.com 
+    Used                : 0
 
 
 #### Deleting authorizations
 
 The circuit owner can revoke/delete authorizations to the user by running the following cmdlet.
 
-	PS C:\> Remove-AzureDedicatedCircuitLinkAuthorization -ServiceKey "*****************************" -AuthorizationId "###############################"
+    PS C:\> Remove-AzureDedicatedCircuitLinkAuthorization -ServiceKey "*****************************" -AuthorizationId "###############################"
 
 
 ### Circuit user operations
@@ -124,29 +124,30 @@ The circuit owner can revoke/delete authorizations to the user by running the fo
 
 The circuit user can review authorizations using the following cmdlet.
 
-	PS C:\> Get-AzureAuthorizedDedicatedCircuit
-		
-	Bandwidth                        : 200
-	CircuitName                      : ContosoIT
-	Location                         : Washington DC
-	MaximumAllowedLinks              : 2
-	ServiceKey                       : &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
-	ServiceProviderName              : equinix
-	ServiceProviderProvisioningState : Provisioned
-	Status                           : Enabled
-	UsedLinks                        : 0
+    PS C:\> Get-AzureAuthorizedDedicatedCircuit
+        
+    Bandwidth                        : 200
+    CircuitName                      : ContosoIT
+    Location                         : Washington DC
+    MaximumAllowedLinks              : 2
+    ServiceKey                       : &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+    ServiceProviderName              : equinix
+    ServiceProviderProvisioningState : Provisioned
+    Status                           : Enabled
+    UsedLinks                        : 0
 
 #### Redeeming link authorizations
 
 The circuit user can run the following cmdlet to redeem a link authorization.
 
-	PS C:\> New-AzureDedicatedCircuitLink –servicekey "&&&&&&&&&&&&&&&&&&&&&&&&&&" –VnetName 'SalesVNET1' 
-		
-	State VnetName 
-	----- -------- 
-	Provisioned SalesVNET1
+    PS C:\> New-AzureDedicatedCircuitLink –servicekey "&&&&&&&&&&&&&&&&&&&&&&&&&&" –VnetName 'SalesVNET1' 
+        
+    State VnetName 
+    ----- -------- 
+    Provisioned SalesVNET1
 
 ## Next steps
 
 For more information about ExpressRoute, see the [ExpressRoute FAQ](expressroute-faqs.md).
+
 

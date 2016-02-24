@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Get started with a Javascript mobile app after adding Mobile Services by using Visual Studio Connected Services | Microsoft Azure " 
-	description="How to get started with Mobile Services in a JavaScript project in Visual Studio" 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="TomArcher" 
-	manager="douge" 
-	editor=""/>
+    pageTitle="Get started with a Javascript mobile app after adding Mobile Services by using Visual Studio Connected Services | Microsoft Azure " 
+    description="How to get started with Mobile Services in a JavaScript project in Visual Studio" 
+    services="mobile-services" 
+    documentationCenter="" 
+    authors="TomArcher" 
+    manager="douge" 
+    editor=""/>
 
 <tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="vs-getting-started" 
-	ms.devlang="JavaScript" 
-	ms.topic="article" 
-	ms.date="09/17/2015" 
-	ms.author="tarcher"/>
+    ms.service="mobile-services" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="vs-getting-started" 
+    ms.devlang="JavaScript" 
+    ms.topic="article" 
+    ms.date="09/17/2015" 
+    ms.author="tarcher"/>
 
 # Getting Started with with a Javascript mobile app after adding Azure Mobile Services by using Visual Studio Connected Services
 
@@ -32,7 +32,7 @@ The first step you need to do in order to follow the code in these examples depe
 
 The client object was added to your project already.  Its name is the name of your mobile service with "Client" appended to it. The following code gets a reference to a table that contains data for a TodoItem, which you can use in subsequent operations to read and update the data table.
 
-	var todoTable = yourMobileServiceClient.getTable('TodoItem');
+    var todoTable = yourMobileServiceClient.getTable('TodoItem');
 
 ##Add an entry 
 
@@ -84,10 +84,11 @@ Update a row in a data table. In this example, *todoItem* is the updated item, a
 
 Delete a row in a data table. Call the [done]() method on the returned [Promise](https://msdn.microsoft.com/library/dn802826.aspx) object to get a copy of the inserted object and handle any errors.
 
-	todoTable.del(todoItem).done(function (item) {
-	    todoItems.splice(todoItems.indexOf(item), 1);
+    todoTable.del(todoItem).done(function (item) {
+        todoItems.splice(todoItems.indexOf(item), 1);
     }
 
 
 
 [Learn more about mobile services](http://azure.microsoft.com/documentation/services/mobile-services/) 
+

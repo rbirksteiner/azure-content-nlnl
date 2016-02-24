@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Widevine License Template Overview" 
-	description="This topic gives an overview of a Widevine license template that used to configure Widevine licenses." 
-	authors="juliako" 
-	manager="dwrede" 
-	editor="" 
-	services="media-services" 
-	documentationCenter=""/>
+    pageTitle="Widevine License Template Overview" 
+    description="This topic gives an overview of a Widevine license template that used to configure Widevine licenses." 
+    authors="juliako" 
+    manager="dwrede" 
+    editor="" 
+    services="media-services" 
+    documentationCenter=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/11/2015"
-	ms.author="juliako"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/11/2015"
+    ms.author="juliako"/>
 
 #Widevine License Template Overview
 
@@ -26,34 +26,34 @@ Widevine license request is formatted as a JSON message.
 
 Note that you can choose to create an empty message with no values just "{}" and a license template will be created with all defaults.  
 
-	{  
-	   “payload”:“<license challenge>”,
-	   “content_id”: “<content id>” 
-	   “provider”: ”<provider>”
-	   “allowed_track_types”:“<types>”,
-	   “content_key_specs”:[  
-	      {  
-	         “track_type”:“<track type 1>”
-	      },
-	      {  
-	         “track_type”:“<track type 2>”
-	      },
-	      …
-	   ],
-	   “policy_overrides”:{  
-	      “can_play”:<can play>,
-	      “can persist”:<can persist>,
-	      “can_renew”:<can renew>,
-	      “rental_duration_seconds”:<rental duration>,
-	      “playback_duration_seconds”:<playback duration>,
-	      “license_duration_seconds”:<license duration>,
-	      “renewal_recovery_duration_seconds”:<renewal recovery duration>,
-	      “renewal_server_url”:”<renewal server url>”,
-	      “renewal_delay_seconds”:<renewal delay>,
-	      “renewal_retry_interval_seconds”:<renewal retry interval>,
-	      “renew_with_usage”:<renew with usage>
-	   }
-	}
+    {  
+       “payload”:“<license challenge>”,
+       “content_id”: “<content id>” 
+       “provider”: ”<provider>”
+       “allowed_track_types”:“<types>”,
+       “content_key_specs”:[  
+          {  
+             “track_type”:“<track type 1>”
+          },
+          {  
+             “track_type”:“<track type 2>”
+          },
+          …
+       ],
+       “policy_overrides”:{  
+          “can_play”:<can play>,
+          “can persist”:<can persist>,
+          “can_renew”:<can renew>,
+          “rental_duration_seconds”:<rental duration>,
+          “playback_duration_seconds”:<playback duration>,
+          “license_duration_seconds”:<license duration>,
+          “renewal_recovery_duration_seconds”:<renewal recovery duration>,
+          “renewal_server_url”:”<renewal server url>”,
+          “renewal_delay_seconds”:<renewal delay>,
+          “renewal_retry_interval_seconds”:<renewal retry interval>,
+          “renew_with_usage”:<renew with usage>
+       }
+    }
 
 ##JSON message
 
@@ -119,17 +119,17 @@ Media Services provides .NET APIs that let you configure your Widevine licenses.
 
 The following are the definitions of these types.
 
-	public class WidevineMessage
-	{
-	    public WidevineMessage();
-	
-	    [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-	    public AllowedTrackTypes? allowed_track_types { get; set; }
-	    [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-	    public ContentKeySpecs[] content_key_specs { get; set; }
-	    [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-	    public object policy_overrides { get; set; }
-	}
+    public class WidevineMessage
+    {
+        public WidevineMessage();
+    
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public AllowedTrackTypes? allowed_track_types { get; set; }
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public ContentKeySpecs[] content_key_specs { get; set; }
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public object policy_overrides { get; set; }
+    }
 
     [JsonConverter(typeof(StringEnumConverter))]
     public enum AllowedTrackTypes
@@ -209,3 +209,4 @@ The following example shows how to use .NET APIs to configure  a simple Widevine
 ##See also
 
 [Using PlayReady and/or Widevine Dynamic Common Encryption](media-services-protect-with-drm.md)
+

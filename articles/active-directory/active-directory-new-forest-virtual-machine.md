@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Install an Active Directory forest on an Azure virtual network | Microsoft Azure" 
-	description="A tutorial that explains how to create a new Active Directory forest on a virtual machine (VM) on an Azure Virtual Network." 
-	services="active-directory, virtual-network" 
-	documentationCenter="" 
-	authors="markusvi" 
-	manager="stevenpo" 
-	tags=""/>
+    pageTitle="Install an Active Directory forest on an Azure virtual network | Microsoft Azure" 
+    description="A tutorial that explains how to create a new Active Directory forest on a virtual machine (VM) on an Azure Virtual Network." 
+    services="active-directory, virtual-network" 
+    documentationCenter="" 
+    authors="markusvi" 
+    manager="stevenpo" 
+    tags=""/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.devlang="na" 
-	ms.topic="article" 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-	ms.date="10/20/2015" 
-	ms.author="markusvi"/>
+    ms.date="10/20/2015" 
+    ms.author="markusvi"/>
 
 
 # Install a new Active Directory forest on an Azure virtual network
@@ -37,7 +37,7 @@ In this scenario, external users need to access applications that run on domain-
 
 There is not much difference between installing a domain controller on Azure versus on-premises. The main differences are listed in the following table. 
 
-To configure...  | On-premises  | Azure virtual network	
+To configure...  | On-premises  | Azure virtual network 
 ------------- | -------------  | ------------
 **IP address for the domain controller**  | Assign static IP address on the network adapter properties   | Run the Set-AzureStaticVNetIP cmdlet to assign a static IP address
 **DNS client resolver**  | Set Preferred and Alternate DNS server address on the network adapter properties of domain members   | Set DNS server address on the the virtual network properties
@@ -50,11 +50,11 @@ To configure...  | On-premises  | Azure virtual network
 1. Sign in to the Azure classic portal.
 2. Create a virtual network. Click **Networks** > **Create a virtual network**. Use the values in the following table to complete the wizard. 
 
-	On this wizard page…  | Specify these values
-	------------- | -------------
-	**Virtual Network Details**  | <p>Name: Enter a name for your virtual network</p><p>Region: Choose the closest region</p>
-	**DNS and VPN**  | <p>Leave DNS server blank</p><p>Don't select either VPN option</p>
-	**Virtual network address spaces**  | <p>Subnet name: Enter a name for your subnet</p><p>Starting IP: <b>10.0.0.0</b></p><p>CIDR: <b>/24 (256)</b></p>
+    On this wizard page…  | Specify these values
+    ------------- | -------------
+    **Virtual Network Details**  | <p>Name: Enter a name for your virtual network</p><p>Region: Choose the closest region</p>
+    **DNS and VPN**  | <p>Leave DNS server blank</p><p>Don't select either VPN option</p>
+    **Virtual network address spaces**  | <p>Subnet name: Enter a name for your subnet</p><p>Starting IP: <b>10.0.0.0</b></p><p>CIDR: <b>/24 (256)</b></p>
 
 
 
@@ -67,11 +67,11 @@ To create the VMs by using Windows PowerShell instead of the UI, see [Use Azure 
 1. In the classic portal, click **New** > **Compute** > **Virtual Machine** > **From Gallery**. Use the following values to complete the wizard. Accept the default value for a setting unless another value is suggested or required.
 
     On this wizard page…  | Specify these values
-	------------- | -------------
-	**Choose an Image**  | Windows Server 2012 R2 Datacenter
-	**Virtual Machine Configuration**  | <p>Virtual Machine Name: Type a single label name (such as AzureDC1).</p><p>New User Name: Type the name of a user. This user will be a member of the local Administrators group on the VM. You will need this name to sign in to the VM for the first time. The built-in account named Administrator will not work.</p><p>New Password/Confirm: Type a password</p>
-	**Virtual Machine Configuration**  | <p>Cloud Service: Choose <b>Create a new cloud service</b> for the first VM and select that same cloud service name when you create more VMs that will host the DC role.</p><p>Cloud Service DNS Name: Specify a globally unique name</p><p>Region/Affinity Group/Virtual Network: Specify the virtual network name (such as WestUSVNet).</p><p>Storage Account: Choose <b>Use an automatically generated storage account</b> for the first VM and then select that same storage account name when you create more VMs that will host the DC role.</p><p>Availability Set: Choose <b>Create an availability set</b>.</p><p>Availability set name: Type a name for the availability set when you create the first VM and then select that same name when you create more VMs.</p>
-	**Virtual Machine Configuration**  | <p>Select <b>Install the VM Agent</b> and any other extensions you need.</p>
+    ------------- | -------------
+    **Choose an Image**  | Windows Server 2012 R2 Datacenter
+    **Virtual Machine Configuration**  | <p>Virtual Machine Name: Type a single label name (such as AzureDC1).</p><p>New User Name: Type the name of a user. This user will be a member of the local Administrators group on the VM. You will need this name to sign in to the VM for the first time. The built-in account named Administrator will not work.</p><p>New Password/Confirm: Type a password</p>
+    **Virtual Machine Configuration**  | <p>Cloud Service: Choose <b>Create a new cloud service</b> for the first VM and select that same cloud service name when you create more VMs that will host the DC role.</p><p>Cloud Service DNS Name: Specify a globally unique name</p><p>Region/Affinity Group/Virtual Network: Specify the virtual network name (such as WestUSVNet).</p><p>Storage Account: Choose <b>Use an automatically generated storage account</b> for the first VM and then select that same storage account name when you create more VMs that will host the DC role.</p><p>Availability Set: Choose <b>Create an availability set</b>.</p><p>Availability set name: Type a name for the availability set when you create the first VM and then select that same name when you create more VMs.</p>
+    **Virtual Machine Configuration**  | <p>Select <b>Install the VM Agent</b> and any other extensions you need.</p>
 2. Attach a disk to each VM that will run the DC server role. The additional disk is needed to store the AD database, logs, and SYSVOL. Specify a size for the disk (such as 10 GB) and leave the **Host Cache Preference** set to **None**. For the steps, see [How to Attach a Data Disk to a Windows Virtual Machine](../storage-windows-attach-disk.md).
 3. After you first sign in to the VM, open **Server Manager** > **File and Storage Services** to create a volume on this disk using NTFS.
 4. Reserve a static IP address for VMs that will run the DC role. To reserve a static IP address, download the Microsoft Web Platform Installer and [install Azure PowerShell](../powershell-install-configure.md) and run the Set-AzureStaticVNetIP cmdlet. For example:
@@ -102,12 +102,12 @@ After the DC installation finishes, connect to the VM again and log on to the DC
 
 1. Repeat the following steps to create VMs to run as application servers. Accept the default value for a setting unless another value is suggested or required.
 
-	On this wizard page…  | Specify these values
-	------------- | -------------
-	**Choose an Image**  | Windows Server 2012 R2 Datacenter
-	**Virtual Machine Configuration**  | <p>Virtual Machine Name: Type a single label name (such as  AppServer1).</p><p>New User Name: Type the name of a user. This user will be a member of the local Administrators group on the VM. You will need this name to sign in to the VM for the first time. The built-in account named Administrator will not work.</p><p>New Password/Confirm: Type a password</p>
-	**Virtual Machine Configuration**  | <p>Cloud Service: Choose **Create a new cloud service** for the first VM and select that same cloud service name when you create more VMs that will host the application.</p><p>Cloud Service DNS Name: Specify a globally unique name</p><p>Region/Affinity Group/Virtual Network: Specify the virtual network name (such as WestUSVNet).</p><p>Storage Account: Choose **Use an automatically generated storage account** for the first VM and then select that same storage account name when you create more VMs that will host the application.</p><p>Availability Set: Choose **Create an availability set**.</p><p>Availability set name: Type a name for the availability set when you create the first VM and then select that same name when you create more VMs.</p>
-	**Virtual Machine Configuration**  | <p>Select <b>Install the VM Agent</b> and any other extensions you need.</p>
+    On this wizard page…  | Specify these values
+    ------------- | -------------
+    **Choose an Image**  | Windows Server 2012 R2 Datacenter
+    **Virtual Machine Configuration**  | <p>Virtual Machine Name: Type a single label name (such as  AppServer1).</p><p>New User Name: Type the name of a user. This user will be a member of the local Administrators group on the VM. You will need this name to sign in to the VM for the first time. The built-in account named Administrator will not work.</p><p>New Password/Confirm: Type a password</p>
+    **Virtual Machine Configuration**  | <p>Cloud Service: Choose **Create a new cloud service** for the first VM and select that same cloud service name when you create more VMs that will host the application.</p><p>Cloud Service DNS Name: Specify a globally unique name</p><p>Region/Affinity Group/Virtual Network: Specify the virtual network name (such as WestUSVNet).</p><p>Storage Account: Choose **Use an automatically generated storage account** for the first VM and then select that same storage account name when you create more VMs that will host the application.</p><p>Availability Set: Choose **Create an availability set**.</p><p>Availability set name: Type a name for the availability set when you create the first VM and then select that same name when you create more VMs.</p>
+    **Virtual Machine Configuration**  | <p>Select <b>Install the VM Agent</b> and any other extensions you need.</p>
 2. After each VM is provisioned, sign in and join it to the domain. In **Server Manager**, click **Local Server** > **WORKGROUP** > **Change…** and then select **Domain** and type the name of your on-premises domain. Provide credentials of a domain user, and then restart the VM to complete the domain join.
 
 To create the VMs by using Windows PowerShell instead of the UI, see [Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines](../virtual-machines-ps-create-preconfigure-windows-vms.md).
@@ -137,3 +137,4 @@ For more information about using Windows PowerShell, see [Get Started with Azure
 [1]: ./media/active-directory-new-forest-virtual-machine/AD_Forest.png
 
  
+

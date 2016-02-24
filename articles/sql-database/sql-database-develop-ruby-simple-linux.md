@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Connect to SQL Database by using Ruby with TinyTDS on Ubuntu"
-	description="Give a Ruby code sample you can run as a client on Ubuntu Linux to connect to Azure SQL Database."
-	services="sql-database"
-	documentationCenter=""
-	authors="ajlam"
-	manager="jeffreyg"
-	editor=""/>
+    pageTitle="Connect to SQL Database by using Ruby with TinyTDS on Ubuntu"
+    description="Give a Ruby code sample you can run as a client on Ubuntu Linux to connect to Azure SQL Database."
+    services="sql-database"
+    documentationCenter=""
+    authors="ajlam"
+    manager="jeffreyg"
+    editor=""/>
 
 
 <tags
-	ms.service="sql-database"
-	ms.workload="sql-database"
-	ms.tgt_pltfrm="na"
-	ms.devlang="ruby"
-	ms.topic="article"
-	ms.date="12/08/2015"
-	ms.author="andrela"/>
+    ms.service="sql-database"
+    ms.workload="sql-database"
+    ms.tgt_pltfrm="na"
+    ms.devlang="ruby"
+    ms.topic="article"
+    ms.date="12/08/2015"
+    ms.author="andrela"/>
 
 
 # Connect to SQL Database by using Ruby on Ubuntu Linux
@@ -115,3 +115,4 @@ To align with the Microsoft SQL Server [datetime](http://msdn.microsoft.com/libr
     results.each do |row|
     puts row
     end
+

@@ -50,3 +50,4 @@ The Redis server version of the new cache.
       "type": "string",
       "defaultValue": "2.8"
     }
+

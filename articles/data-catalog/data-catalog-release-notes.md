@@ -51,10 +51,10 @@ Users who receive this message should use Windows control panel to remove the ex
 
 When connecting to Oracle Database data sources users must have installed the correct Oracle drivers that match the bitness (32-bit or 64-bit) of the software being used.
 
--	When registering Oracle data sources on a computer running 32-bit Windows, the 32-bit Oracle drivers will be used
--	When registering Oracle data sources on a computer running 64-bit Windows, the 64-bit Oracle drivers will be used
--	When connecting to Oracle data sources using Excel on a computer running the 32-bit version of Microsoft Office, including on 64-bit Windows, the 32-bit Oracle drivers will be used
--	When connecting to Oracle data sources using Excel on a computer running the 64-bit version of Microsoft Office, the 64-bit Oracle drivers will be used
+-   When registering Oracle data sources on a computer running 32-bit Windows, the 32-bit Oracle drivers will be used
+-   When registering Oracle data sources on a computer running 64-bit Windows, the 64-bit Oracle drivers will be used
+-   When connecting to Oracle data sources using Excel on a computer running the 32-bit version of Microsoft Office, including on 64-bit Windows, the 32-bit Oracle drivers will be used
+-   When connecting to Oracle data sources using Excel on a computer running the 64-bit version of Microsoft Office, the 64-bit Oracle drivers will be used
 
 ### Registering and connecting to SQL Server Reporting Services
 
@@ -87,13 +87,14 @@ For more information, see [Configuring Authentication Policies](https://technet.
 If the corporate network uses a proxy server, the registration tool may not be able to connect to Azure Active Directory through the proxy. Users can ensure that the registration tool by editing the tool’s configuration file, adding this section to the file:
 
 
-	  <system.net>
-	    <defaultProxy useDefaultCredentials="true" enabled="true">
-	      <proxy usesystemdefault="True"
-	                      proxyaddress="http://<your corporate network proxy url>"
-	                      bypassonlocal="True"/>
-	    </defaultProxy>
-	  </system.net>
+      <system.net>
+        <defaultProxy useDefaultCredentials="true" enabled="true">
+          <proxy usesystemdefault="True"
+                          proxyaddress="http://<your corporate network proxy url>"
+                          bypassonlocal="True"/>
+        </defaultProxy>
+      </system.net>
 
 
 To locate the RegistrationTool.exe.config file, launch the registration tool, and then open the Windows Task Manager utility. On the Details tab in Task manager, right-click on RegistrationTool.exe and choose Open file location from the pop-up menu.
+

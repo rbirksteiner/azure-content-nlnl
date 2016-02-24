@@ -7,16 +7,16 @@ You can use VNets to provision and manage virtual private networks (VPNs) in Azu
 Use VNets to:
 
 - Create a dedicated private cloud-only virtual network
-									
-	Sometimes you don't require a cross-premises configuration for your solution. When you create a VNet, your services and VMs within your VNet can communicate directly and securely with each other in the cloud. This keeps traffic securely within the VNet, but still allows you to configure endpoint connections for the VMs and services that require Internet communication as part of your solution.
+                                    
+    Sometimes you don't require a cross-premises configuration for your solution. When you create a VNet, your services and VMs within your VNet can communicate directly and securely with each other in the cloud. This keeps traffic securely within the VNet, but still allows you to configure endpoint connections for the VMs and services that require Internet communication as part of your solution.
 
 - Securely extend your data center
-									
-	With VNets, you can build traditional site-to-site (S2S) VPNs to securely scale your datacenter capacity. S2S VPNs use IPSEC to provide a secure connection between your corporate VPN gateway and Azure.
+                                    
+    With VNets, you can build traditional site-to-site (S2S) VPNs to securely scale your datacenter capacity. S2S VPNs use IPSEC to provide a secure connection between your corporate VPN gateway and Azure.
 
 - Enable hybrid cloud scenarios
-									
-	VNets give you the flexibility to support a range of hybrid cloud scenarios. You can securely connect cloud-based applications to any type of on-premises system such as mainframes and Unix systems.
+                                    
+    VNets give you the flexibility to support a range of hybrid cloud scenarios. You can securely connect cloud-based applications to any type of on-premises system such as mainframes and Unix systems.
 
 ### How do I know if I need a virtual network?
 
@@ -193,7 +193,7 @@ No. You must not change any interface properties of VMs. Any changes may lead to
 
 Nothing. The IP addresses (both public VIP and internal IP address) will stay with your cloud service or VM. 
 
-> [AZURE.NOTE] If you want to simply shut down the VM, don't use the Management Portal to do so. Currently, the shutdown button will deallocate the virtual machine.
+> [AZURE.NOTE] If you want to simply shut down the VM, don't use the Management Portal to do so. Currently, the shutdown button will deallocate the virtual machine.
 
 ### Can I move VMs from one subnet to another subnet in a VNet without re-deploying?
 
@@ -265,3 +265,4 @@ Yes. You can use REST APIs to manage VNets and cross-premises connectivity. More
 ### Is there tooling support for VNets?
 
 Yes. You can use PowerShell and command line tools for a variety of platforms. More information can be found [here](http://go.microsoft.com/fwlink/?LinkId=317721).
+

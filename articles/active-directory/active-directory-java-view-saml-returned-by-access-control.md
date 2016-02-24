@@ -1,7 +1,7 @@
 <properties
     pageTitle="View SAML Returned by the Access Control Service (Java)"
     description="Learn how to view SAML returned by the Access Control Service in Java applications hosted on Azure."
-	services="active-directory" 
+    services="active-directory" 
     documentationCenter="java"
     authors="rmcmurray"
     manager="wpickett"
@@ -47,135 +47,135 @@ Add the library that contains the **javax.servlet.jsp.JspWriter** class to your 
 
 Modify **index.jsp** to use the following code.
 
-	<%@ page language="java" contentType="text/html; charset=UTF-8"
-	    pageEncoding="UTF-8"%>
-	    <%@ page import="javax.xml.parsers.*"
-	             import="javax.xml.transform.*"
-	             import="org.w3c.dom.*"
-	             import="java.io.*"
-	             import="javax.xml.transform.stream.*"
-	             import="javax.xml.transform.dom.*"
-	             import="javax.xml.xpath.*"
-	             import="javax.servlet.jsp.JspWriter" %>
-	<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-	<html>
-	<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Sample ACS Filter</title>
-	</head>
-	<body>
-		<h3>SAML information from sample ACS program</h3>
-		<%!
-	    void displaySAMLInfo(Node node, String parent, JspWriter out)
-	    {
-	    
-		    try
-		    {
-				String nodeName;
-			    int nChild, i;
-			    
-			    nodeName = node.getNodeName();
-			    out.println("<br>");
-			    out.println("<u>Examining <b>" + parent + nodeName + "</b></u><br>");
-			       
-			       // Attributes.
-			       NamedNodeMap attribsMap = node.getAttributes();
-			       if (null != attribsMap)
-			       {
-	                     for (i=0; i < attribsMap.getLength(); i++)
-	                     {
-	                            Node attrib = attribsMap.item(i);
-	                            out.println("Attribute: <b>" + attrib.getNodeName() + "</b>: " + attrib.getNodeValue()  + "<br>");
-	                     }
-			       }
-			       
-			       // Child nodes.
-			       NodeList list = node.getChildNodes();
-			       if (null != list)
-	 		       {
-			              nChild = list.getLength();
-			              if (nChild > 0)
-			              {                    
-	
-				                 // If it is a text node, just print the text.
-				                 if (list.item(0).getNodeName() == "#text")
-				                 {
-	                                 out.println("Text value: <b>" + list.item(0).getTextContent() + "</b><br>");
-				                 }
-				                 else
-				                 {
-				                	 // Print out the child node names.
-				                	 out.print("Contains " + nChild + " child node(s): ");   
-		   		                     for (i=0; i < nChild; i++)
-				                     {
-					                    Node temp = list.item(i);
-					                    
-					                    out.print("<b>" + temp.getNodeName() + "</b>");
-					                    if (i < nChild - 1)
-					                    {
-					                    	// Separate the names.
-					                    	out.print(", ");
-					                    }
-					                    else
-					                    {
-					                    	// Finish the sentence.
-					                    	out.print(".");
-					                    }
-					                    	
-				                     }
-					                 out.println("<br>");
-					                 
-					                 // Process the child nodes.
-					                 for (i=0; i < nChild; i++)
-				                     {
-					                    Node temp = list.item(i);
-					                    displaySAMLInfo(temp, parent + nodeName + "\\", out);
-				                     }
-				               }
-			              }
-			          }
-			      }
-			    catch (Exception e)
-			    {
-			    	System.out.println("Exception encountered.");
-			    	e.printStackTrace();	    	
-			    }
-		    }
-	    %>
-	
-	    <%
-	    try 
-	    {
-		    String data  = (String) request.getAttribute("ACSSAML");
-		    
-		    DocumentBuilder docBuilder;
-			Document doc = null;
-			DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
-			docBuilderFactory.setIgnoringElementContentWhitespace(true);
-			docBuilder = docBuilderFactory.newDocumentBuilder();
-			byte[] xmlDATA = data.getBytes();
-			
-			ByteArrayInputStream in = new ByteArrayInputStream(xmlDATA); 
-			doc = docBuilder.parse(in);
-			doc.getDocumentElement().normalize();
-			
-			// Iterate the child nodes of the doc.
-	        NodeList list = doc.getChildNodes();
-	
-	        for (int i=0; i < list.getLength(); i++)
-	        {
-	        	displaySAMLInfo(list.item(i), "", out);
-	        }
-		}
-	    catch (Exception e) 
-	    {
-	    	out.println("Exception encountered.");
-	    	e.printStackTrace();
-		}
-	    
-	    %>
-	</body>
-	</html>
+    <%@ page language="java" contentType="text/html; charset=UTF-8"
+        pageEncoding="UTF-8"%>
+        <%@ page import="javax.xml.parsers.*"
+                 import="javax.xml.transform.*"
+                 import="org.w3c.dom.*"
+                 import="java.io.*"
+                 import="javax.xml.transform.stream.*"
+                 import="javax.xml.transform.dom.*"
+                 import="javax.xml.xpath.*"
+                 import="javax.servlet.jsp.JspWriter" %>
+    <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+    <html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>Sample ACS Filter</title>
+    </head>
+    <body>
+        <h3>SAML information from sample ACS program</h3>
+        <%!
+        void displaySAMLInfo(Node node, String parent, JspWriter out)
+        {
+        
+            try
+            {
+                String nodeName;
+                int nChild, i;
+                
+                nodeName = node.getNodeName();
+                out.println("<br>");
+                out.println("<u>Examining <b>" + parent + nodeName + "</b></u><br>");
+                   
+                   // Attributes.
+                   NamedNodeMap attribsMap = node.getAttributes();
+                   if (null != attribsMap)
+                   {
+                         for (i=0; i < attribsMap.getLength(); i++)
+                         {
+                                Node attrib = attribsMap.item(i);
+                                out.println("Attribute: <b>" + attrib.getNodeName() + "</b>: " + attrib.getNodeValue()  + "<br>");
+                         }
+                   }
+                   
+                   // Child nodes.
+                   NodeList list = node.getChildNodes();
+                   if (null != list)
+                   {
+                          nChild = list.getLength();
+                          if (nChild > 0)
+                          {                    
+    
+                                 // If it is a text node, just print the text.
+                                 if (list.item(0).getNodeName() == "#text")
+                                 {
+                                     out.println("Text value: <b>" + list.item(0).getTextContent() + "</b><br>");
+                                 }
+                                 else
+                                 {
+                                     // Print out the child node names.
+                                     out.print("Contains " + nChild + " child node(s): ");   
+                                     for (i=0; i < nChild; i++)
+                                     {
+                                        Node temp = list.item(i);
+                                        
+                                        out.print("<b>" + temp.getNodeName() + "</b>");
+                                        if (i < nChild - 1)
+                                        {
+                                            // Separate the names.
+                                            out.print(", ");
+                                        }
+                                        else
+                                        {
+                                            // Finish the sentence.
+                                            out.print(".");
+                                        }
+                                            
+                                     }
+                                     out.println("<br>");
+                                     
+                                     // Process the child nodes.
+                                     for (i=0; i < nChild; i++)
+                                     {
+                                        Node temp = list.item(i);
+                                        displaySAMLInfo(temp, parent + nodeName + "\\", out);
+                                     }
+                               }
+                          }
+                      }
+                  }
+                catch (Exception e)
+                {
+                    System.out.println("Exception encountered.");
+                    e.printStackTrace();            
+                }
+            }
+        %>
+    
+        <%
+        try 
+        {
+            String data  = (String) request.getAttribute("ACSSAML");
+            
+            DocumentBuilder docBuilder;
+            Document doc = null;
+            DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
+            docBuilderFactory.setIgnoringElementContentWhitespace(true);
+            docBuilder = docBuilderFactory.newDocumentBuilder();
+            byte[] xmlDATA = data.getBytes();
+            
+            ByteArrayInputStream in = new ByteArrayInputStream(xmlDATA); 
+            doc = docBuilder.parse(in);
+            doc.getDocumentElement().normalize();
+            
+            // Iterate the child nodes of the doc.
+            NodeList list = doc.getChildNodes();
+    
+            for (int i=0; i < list.getLength(); i++)
+            {
+                displaySAMLInfo(list.item(i), "", out);
+            }
+        }
+        catch (Exception e) 
+        {
+            out.println("Exception encountered.");
+            e.printStackTrace();
+        }
+        
+        %>
+    </body>
+    </html>
 
 ## Run the application
 

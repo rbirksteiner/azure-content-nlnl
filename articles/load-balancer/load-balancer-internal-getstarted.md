@@ -38,36 +38,36 @@ To create an Azure internal load-balanced set and the servers that will send the
 
 For an existing cloud service or a cloud service deployed under a regional virtual network, you can create an Internal Load Balancing instance with the following Windows PowerShell commands:
 
-	$svc="<Cloud Service Name>"
-	$ilb="<Name of your ILB instance>"
-	$subnet="<Name of the subnet within your virtual network>"
-	$IP="<The IPv4 address to use on the subnet-optional>"
+    $svc="<Cloud Service Name>"
+    $ilb="<Name of your ILB instance>"
+    $subnet="<Name of the subnet within your virtual network>"
+    $IP="<The IPv4 address to use on the subnet-optional>"
 
-	Add-AzureInternalLoadBalancer -ServiceName $svc -InternalLoadBalancerName $ilb –SubnetName $subnet –StaticVNetIPAddress $IP
+    Add-AzureInternalLoadBalancer -ServiceName $svc -InternalLoadBalancerName $ilb –SubnetName $subnet –StaticVNetIPAddress $IP
 
 
 To use these commands, fill in the values and remove the < and >. Here is an example:
 
-	$svc="WebCloud-NY"
-	$ilb="SQL-BE"
-	$subnet="Farm1"
-	$IP="192.168.98.10"
-	Add-AzureInternalLoadBalancer -ServiceName $svc -InternalLoadBalancerName $ilb –SubnetName $subnet –StaticVNetIPAddress $IP
+    $svc="WebCloud-NY"
+    $ilb="SQL-BE"
+    $subnet="Farm1"
+    $IP="192.168.98.10"
+    Add-AzureInternalLoadBalancer -ServiceName $svc -InternalLoadBalancerName $ilb –SubnetName $subnet –StaticVNetIPAddress $IP
 
 
 ### Step 2: Add endpoints to the Internal Load Balancing instance
 
 For existing virtual machines, you can add endpoints to the Internal Load Balancing instance with the following commands:
 
-	$svc="<Cloud service name>"
-	$vmname="<Name of the VM>"
-	$epname="<Name of the endpoint>"
-	$lbsetname="<Name of the load balancer set>"
-	$prot="tcp" or "udp"
-	$locport=<local port number>
-	$pubport=<public port number>
-	$ilb="<Name of your ILB instance>"
-	Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -LbsetName $lbsetname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
+    $svc="<Cloud service name>"
+    $vmname="<Name of the VM>"
+    $epname="<Name of the endpoint>"
+    $lbsetname="<Name of the load balancer set>"
+    $prot="tcp" or "udp"
+    $locport=<local port number>
+    $pubport=<public port number>
+    $ilb="<Name of your ILB instance>"
+    Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -LbsetName $lbsetname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
 
 To use these commands, fill in the values and remove the < and >.
 
@@ -75,15 +75,15 @@ Note that this use of the [Add-AzureEndpoint](https://msdn.microsoft.com/library
 
 Here is an example:
 
-	$svc="AZ-LOB1"
-	$vmname="SQL-LOBAZ1"
-	$epname="SQL1"
-	$lbsetname="SQL-LB"
-	$prot="tcp"
-	$locport=1433
-	$pubport=1433
-	$ilb="SQL ILB"
-	Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -Lbset $lbsetname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
+    $svc="AZ-LOB1"
+    $vmname="SQL-LOBAZ1"
+    $epname="SQL1"
+    $lbsetname="SQL-LB"
+    $prot="tcp"
+    $locport=1433
+    $pubport=1433
+    $ilb="SQL ILB"
+    Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -Lbset $lbsetname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
 
 
 ### Step 3: Configure your servers to send their traffic to the new Internal Load Balancing endpoint
@@ -92,15 +92,15 @@ You must configure the servers whose traffic is going to be load balanced to use
 
 If you specified the IP address during the creation of the Internal Load Balancing instance, you already have the VIP. Otherwise, you can see the VIP from the following commands:
 
-	$svc="<Cloud Service Name>"
-	Get-AzureService -ServiceName $svc | Get-AzureInternalLoadBalancer
+    $svc="<Cloud Service Name>"
+    Get-AzureService -ServiceName $svc | Get-AzureInternalLoadBalancer
 
 
 
 To use these commands, fill in the values and remove the < and >. Here is an example:
 
-	$svc="WebCloud-NY"
-	Get-AzureService -ServiceName $svc | Get-AzureInternalLoadBalancer
+    $svc="WebCloud-NY"
+    Get-AzureService -ServiceName $svc | Get-AzureInternalLoadBalancer
 
 
 From the display of the Get-AzureInternalLoadBalancer command, note the IP address and make the necessary changes to your servers or DNS records to ensure that traffic gets sent to the VIP.
@@ -132,29 +132,29 @@ The configuration consists of the following:
 
 The following commands configure a new Internal Load Balancing instance named PARTNER-DBTIER and add endpoints to the virtual machines corresponding to the three database servers:
 
-	$svc="Contoso-PartnerSite"
-	$ilb="PARTNER-DBTIER"
-	Add-AzureInternalLoadBalancer -ServiceName $svc -InternalLoadBalancerName $ilb
+    $svc="Contoso-PartnerSite"
+    $ilb="PARTNER-DBTIER"
+    Add-AzureInternalLoadBalancer -ServiceName $svc -InternalLoadBalancerName $ilb
 
-	$prot="tcp"
-	$locport=1433
-	$pubport=1433
-	$epname="DBTIER1"
-	$lbsetname="SQL-LB"
-	$vmname="PARTNER-SQL-1"
-	Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -LbSetName $lbsetname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
+    $prot="tcp"
+    $locport=1433
+    $pubport=1433
+    $epname="DBTIER1"
+    $lbsetname="SQL-LB"
+    $vmname="PARTNER-SQL-1"
+    Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -LbSetName $lbsetname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
 
-	$epname="DBTIER2"
-	$vmname="PARTNER-SQL-2"
-	Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -LbSetName $lbsetname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
+    $epname="DBTIER2"
+    $vmname="PARTNER-SQL-2"
+    Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -LbSetName $lbsetname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
 
-	$epname="DBTIER3"
-	$vmname="PARTNER-SQL-3"
-	Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -LbSetName $lbsetname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
+    $epname="DBTIER3"
+    $vmname="PARTNER-SQL-3"
+    Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -LbSetName $lbsetname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
 
 Next, Contoso determined the VIP of the PARTNER-DBTIER instance of Internal Load Balancing with the following command:
 
-	Get-AzureService -ServiceName $svc | Get-AzureInternalLoadBalancer
+    Get-AzureService -ServiceName $svc | Get-AzureInternalLoadBalancer
 
 From the display of this command, Contoso noted the VIP address of 100.64.65.211 and configured the DNS Address (A) record for the name partner-sql.external.contoso.com to use this new address.
 
@@ -179,27 +179,27 @@ The configuration consists of the following:
 The following commands create an Internal Load Balancing instance named LEGAL-ILB and add endpoints to the virtual machines corresponding to the three LOB servers:
 
 
-	$svc="Contoso-Legal"
-	$ilb="LEGAL-ILB"
-	$subnet="LOB-LEGAL"
-	$IP="198.168.99.145"
-	Add-AzureInternalLoadBalancer –ServiceName $svc -InternalLoadBalancerName $ilb –SubnetName $subnet –StaticVNetIPAddress $IP
+    $svc="Contoso-Legal"
+    $ilb="LEGAL-ILB"
+    $subnet="LOB-LEGAL"
+    $IP="198.168.99.145"
+    Add-AzureInternalLoadBalancer –ServiceName $svc -InternalLoadBalancerName $ilb –SubnetName $subnet –StaticVNetIPAddress $IP
 
-	$prot="tcp"
-	$locport=80
-	$pubport=80
-	$epname="LOB1"
-	$lbsetname="LOB-LB"
-	$vmname="LEGAL-1"
-	Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname-LbSetName $lbsetname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
+    $prot="tcp"
+    $locport=80
+    $pubport=80
+    $epname="LOB1"
+    $lbsetname="LOB-LB"
+    $vmname="LEGAL-1"
+    Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname-LbSetName $lbsetname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
 
-	$epname="LOB2"
-	$vmname="LEGAL2"
-	Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -LbSetName $lbsetname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
+    $epname="LOB2"
+    $vmname="LEGAL2"
+    Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -LbSetName $lbsetname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
 
-	$epname="LOB3"
-	$vmname="LEGAL3"
-	Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -LbSetName $lbsetname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
+    $epname="LOB3"
+    $vmname="LEGAL3"
+    Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -LbSetName $lbsetname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
 
 
 Next, Contoso configured the DNS A record for the legalnet.corp.contoso.com name to use 198.168.99.145.
@@ -210,18 +210,18 @@ To add a virtual machine to an Internal Load Balancing instance as it is created
 
 Here is an example:
 
-	$svc="AZ-LOB1"
-	$ilb="LOB-ILB"
-	$vnet="LOBNet_Azure"
-	$subnet="LOBServers"
-	$vmname="LOB-WEB1"
-	$adminuser="Lando"
-	$adminpw="Platform327"
-	$regionname="North Central US"
+    $svc="AZ-LOB1"
+    $ilb="LOB-ILB"
+    $vnet="LOBNet_Azure"
+    $subnet="LOBServers"
+    $vmname="LOB-WEB1"
+    $adminuser="Lando"
+    $adminpw="Platform327"
+    $regionname="North Central US"
 
-	$myilbconfig=New-AzureInternalLoadBalancerConfig -InternalLoadBalancerName $ilb -SubnetName $subnet
-	$images = Get-AzureVMImage
-	New-AzureVMConfig -Name $vmname -InstanceSize Small -ImageName $images[50].ImageName | Add-AzureProvisioningConfig -Windows -AdminUsername $adminuser -Password $adminpw | New-AzureVM -ServiceName $svc -InternalLoadBalancerConfig $myilbconfig -Location $regionname –VNetName $vnet
+    $myilbconfig=New-AzureInternalLoadBalancerConfig -InternalLoadBalancerName $ilb -SubnetName $subnet
+    $images = Get-AzureVMImage
+    New-AzureVMConfig -Name $vmname -InstanceSize Small -ImageName $images[50].ImageName | Add-AzureProvisioningConfig -Windows -AdminUsername $adminuser -Password $adminpw | New-AzureVM -ServiceName $svc -InternalLoadBalancerConfig $myilbconfig -Location $regionname –VNetName $vnet
 
 ## To configure Internal Load Balancing for cloud services
 
@@ -239,24 +239,24 @@ Open the service configuration file (.cscfg) for your cloud deployment in Visual
 
 
 
-	<NetworkConfiguration>
-	  <LoadBalancers>
-	    <LoadBalancer name="name of the load balancer">
-	      <FrontendIPConfiguration type="private" subnet="subnet-name" staticVirtualNetworkIPAddress="static-IP-address"/>
-	    </LoadBalancer>
-	  </LoadBalancers>
-	</NetworkConfiguration>
+    <NetworkConfiguration>
+      <LoadBalancers>
+        <LoadBalancer name="name of the load balancer">
+          <FrontendIPConfiguration type="private" subnet="subnet-name" staticVirtualNetworkIPAddress="static-IP-address"/>
+        </LoadBalancer>
+      </LoadBalancers>
+    </NetworkConfiguration>
 
 
 Let's add the values for the network configuration file to show how it will look. In the example, assume you created a subnet called "test_vnet" with a subnet 10.0.0.0/24 called test_subnet and a static IP 10.0.0.4. The load balancer will be named testLB.
 
-	<NetworkConfiguration>
-	  <LoadBalancers>
-	    <LoadBalancer name="testLB">
-	      <FrontendIPConfiguration type="private" subnet="test_subnet" staticVirtualNetworkIPAddress="10.0.0.4"/>
-	    </LoadBalancer>
-	  </LoadBalancers>
-	</NetworkConfiguration>
+    <NetworkConfiguration>
+      <LoadBalancers>
+        <LoadBalancer name="testLB">
+          <FrontendIPConfiguration type="private" subnet="test_subnet" staticVirtualNetworkIPAddress="10.0.0.4"/>
+        </LoadBalancer>
+      </LoadBalancers>
+    </NetworkConfiguration>
 
 For more information about the load balancer schema, see [Add load balancer](https://msdn.microsoft.com/library/azure/dn722411.aspx).
 
@@ -266,19 +266,19 @@ For more information about the load balancer schema, see [Add load balancer](htt
 Change the service definition (.csdef) file to add endpoints to the Internal Load Balancing. The moment a role instance is created, the service definition file will add the role instances to the Internal Load Balancing.
 
 
-	<WorkerRole name="worker-role-name" vmsize="worker-role-size" enableNativeCodeExecution="[true|false]">
-	  <Endpoints>
-	    <InputEndpoint name="input-endpoint-name" protocol="[http|https|tcp|udp]" localPort="local-port-number" port="port-number" certificate="certificate-name" loadBalancerProbe="load-balancer-probe-name" loadBalancer="load-balancer-name" />
-	  </Endpoints>
-	</WorkerRole>
+    <WorkerRole name="worker-role-name" vmsize="worker-role-size" enableNativeCodeExecution="[true|false]">
+      <Endpoints>
+        <InputEndpoint name="input-endpoint-name" protocol="[http|https|tcp|udp]" localPort="local-port-number" port="port-number" certificate="certificate-name" loadBalancerProbe="load-balancer-probe-name" loadBalancer="load-balancer-name" />
+      </Endpoints>
+    </WorkerRole>
 
 Following the same values from the example above, let's add the values to the service definition file.
 
-	<WorkerRole name=WorkerRole1" vmsize="A7" enableNativeCodeExecution="[true|false]">
-	  <Endpoints>
-	    <InputEndpoint name="endpoint1" protocol="http" localPort="80" port="80" loadBalancer="testLB" />
-	  </Endpoints>
-	</WorkerRole>
+    <WorkerRole name=WorkerRole1" vmsize="A7" enableNativeCodeExecution="[true|false]">
+      <Endpoints>
+        <InputEndpoint name="endpoint1" protocol="http" localPort="80" port="80" loadBalancer="testLB" />
+      </Endpoints>
+    </WorkerRole>
 
 The network traffic will be load balanced using the testLB load balancer using port 80 for incoming requests, sending to worker role instances also on port 80.
 
@@ -287,31 +287,31 @@ The network traffic will be load balanced using the testLB load balancer using p
 
 To remove a virtual machine as an endpoint from an Internal Load Balancing instance, use the following commands:
 
-	$svc="<Cloud service name>"
-	$vmname="<Name of the VM>"
-	$epname="<Name of the endpoint>"
-	Get-AzureVM -ServiceName $svc -Name $vmname | Remove-AzureEndpoint -Name $epname | Update-AzureVM
+    $svc="<Cloud service name>"
+    $vmname="<Name of the VM>"
+    $epname="<Name of the endpoint>"
+    Get-AzureVM -ServiceName $svc -Name $vmname | Remove-AzureEndpoint -Name $epname | Update-AzureVM
 
 To use these commands, fill in the values, removing the < and >.
 
 Here is an example:
 
-	$svc="AZ-LOB1"
-	$vmname="SQL-LOBAZ1"
-	$epname="SQL1"
-	Get-AzureVM -ServiceName $svc -Name $vmname | Remove-AzureEndpoint -Name $epname | Update-AzureVM
+    $svc="AZ-LOB1"
+    $vmname="SQL-LOBAZ1"
+    $epname="SQL1"
+    Get-AzureVM -ServiceName $svc -Name $vmname | Remove-AzureEndpoint -Name $epname | Update-AzureVM
 
 To remove an Internal Load Balancing instance from a cloud service, use the following commands:
 
-	$svc="<Cloud service name>"
-	Remove-AzureInternalLoadBalancer -ServiceName $svc
+    $svc="<Cloud service name>"
+    Remove-AzureInternalLoadBalancer -ServiceName $svc
 
 To use these commands, fill in the value and remove the < and >.
 
 Here is an example:
 
-	$svc="AZ-LOB1"
-	Remove-AzureInternalLoadBalancer -ServiceName $svc
+    $svc="AZ-LOB1"
+    Remove-AzureInternalLoadBalancer -ServiceName $svc
 
 
 
@@ -333,3 +333,4 @@ To obtain additional information about Internal Load Balancing cmdlets, run the 
 [Configure a load balancer distribution mode](load-balancer-distribution-mode.md)
 
 [Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
+

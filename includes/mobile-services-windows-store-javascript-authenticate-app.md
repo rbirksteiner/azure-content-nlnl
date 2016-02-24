@@ -1,7 +1,7 @@
 
 
 1. Open the project file default.js and in the **app.OnActivated** method overload, replace the last call to the **refreshTodoItems** method with the following code: 
-	
+    
         var userId = null;
 
         // Request authentication from Mobile Services using a Facebook login.
@@ -40,4 +40,4 @@
 
 2. Press the F5 key to run the app and sign into the app with your chosen identity provider. 
 
-   	When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
+    When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.

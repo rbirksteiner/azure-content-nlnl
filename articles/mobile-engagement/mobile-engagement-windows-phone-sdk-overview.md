@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Windows Phone Silverlight SDK Overview" 
-	description="Overview of the Windows Phone Silverlight SDK for Azure Mobile Engagement" 					
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede"
-	editor="" />
+    pageTitle="Windows Phone Silverlight SDK Overview" 
+    description="Overview of the Windows Phone Silverlight SDK for Azure Mobile Engagement"                     
+    services="mobile-engagement" 
+    documentationCenter="mobile" 
+    authors="piyushjo" 
+    manager="dwrede"
+    editor="" />
 
 <tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/10/2015" 
-	ms.author="piyushjo" />
+    ms.service="mobile-engagement" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="mobile-windows-phone" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/10/2015" 
+    ms.author="piyushjo" />
 
 #Windows Phone Silverlight SDK Overview for Azure Mobile Engagement
 
@@ -54,3 +54,4 @@ None.
 
 See [Upgrade Procedures](mobile-engagement-windows-phone-upgrade-procedure/)
  
+

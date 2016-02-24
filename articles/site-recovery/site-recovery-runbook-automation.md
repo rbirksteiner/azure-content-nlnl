@@ -101,7 +101,7 @@ Next, create the following assets in the Account.
 
 4.  Specify your actual Azure Subscription name as the variable value.
 
-	![](media/site-recovery-runbook-automation/07_1.png)
+    ![](media/site-recovery-runbook-automation/07_1.png)
 
 You can identify the name of your subscription from the settings page of
 your account on the Azure portal. 
@@ -186,68 +186,68 @@ Now create the runbook to open port 80 on the front-end virtual machine.
 1.  Create a new runbook in the Azure Automation account with the name
     **OpenPort80**
 
-	![](media/site-recovery-runbook-automation/14.png)
+    ![](media/site-recovery-runbook-automation/14.png)
 
 2.  Navigate to the Author view of the runbook and enter the draft mode.
 
 3.  First specify the variable to use as the recovery plan context
   
-	```
-		param (
-			[Object]$RecoveryPlanContext
-		)
+    ```
+        param (
+            [Object]$RecoveryPlanContext
+        )
 
-	```
+    ```
 
 4.  Next connect to the subscription using the credential and
     subscription name
 
-	```
-		$Cred = Get-AutomationPSCredential -Name 'AzureCredential'
-	
-		# Connect to Azure
-		$AzureAccount = Add-AzureAccount -Credential $Cred
-		$AzureSubscriptionName = Get-AutomationVariable –Name ‘AzureSubscriptionName’
-		Select-AzureSubscription -SubscriptionName $AzureSubscriptionName
-	```
+    ```
+        $Cred = Get-AutomationPSCredential -Name 'AzureCredential'
+    
+        # Connect to Azure
+        $AzureAccount = Add-AzureAccount -Credential $Cred
+        $AzureSubscriptionName = Get-AutomationVariable –Name ‘AzureSubscriptionName’
+        Select-AzureSubscription -SubscriptionName $AzureSubscriptionName
+    ```
 
-	Note that you use the Azure assets – **AzureCredential** and **AzureSubscriptionName** here.
+    Note that you use the Azure assets – **AzureCredential** and **AzureSubscriptionName** here.
 
 5.  Now specify the endpoint details and the GUID of the virtual machine for which you want to expose the endpoint. In this case the front-end virtual machine.
 
-	```
-		# Specify the parameters to be used by the script
-		$AEProtocol = "TCP"
-		$AELocalPort = 80
-		$AEPublicPort = 80
-		$AEName = "Port 80 for HTTP"
-		$VMGUID = "7a1069c6-c1d6-49c5-8c5d-33bfce8dd183"
-	```
+    ```
+        # Specify the parameters to be used by the script
+        $AEProtocol = "TCP"
+        $AELocalPort = 80
+        $AEPublicPort = 80
+        $AEName = "Port 80 for HTTP"
+        $VMGUID = "7a1069c6-c1d6-49c5-8c5d-33bfce8dd183"
+    ```
 
-	This specifies the Azure endpoint protocol, local port on the VM and its mapped public port. These variables are parameters 	required by the Azure commands that add endpoints to VMs. The VMGUID holds the GUID of the virtual machine you need to operate on. 
+    This specifies the Azure endpoint protocol, local port on the VM and its mapped public port. These variables are parameters     required by the Azure commands that add endpoints to VMs. The VMGUID holds the GUID of the virtual machine you need to operate on. 
 
 6.  The script will now extract the context for the given VM GUID and
     create an endpoint on the virtual machine referenced by it.
 
-	```
-		#Read the VM GUID from the context
-		$VM = $RecoveryPlanContext.VmMap.$VMGUID
+    ```
+        #Read the VM GUID from the context
+        $VM = $RecoveryPlanContext.VmMap.$VMGUID
 
-		if ($VM -ne $null)
-		{
-			# Invoke pipeline commands within an InlineScript
+        if ($VM -ne $null)
+        {
+            # Invoke pipeline commands within an InlineScript
 
-			$EndpointStatus = InlineScript {
-				# Invoke the necessary pipeline commands to add a Azure Endpoint to a specified Virtual Machine
-				# Commands include: Get-AzureVM | Add-AzureEndpoint | Update-AzureVM (including parameters)
+            $EndpointStatus = InlineScript {
+                # Invoke the necessary pipeline commands to add a Azure Endpoint to a specified Virtual Machine
+                # Commands include: Get-AzureVM | Add-AzureEndpoint | Update-AzureVM (including parameters)
 
-				$Status = Get-AzureVM -ServiceName $Using:VM.CloudServiceName -Name $Using:VM.RoleName | `
-					Add-AzureEndpoint -Name $Using:AEName -Protocol $Using:AEProtocol -PublicPort $Using:AEPublicPort -LocalPort $Using:AELocalPort | `
-					Update-AzureVM
-				Write-Output $Status
-			}
-		}
-	```
+                $Status = Get-AzureVM -ServiceName $Using:VM.CloudServiceName -Name $Using:VM.RoleName | `
+                    Add-AzureEndpoint -Name $Using:AEName -Protocol $Using:AEProtocol -PublicPort $Using:AEPublicPort -LocalPort $Using:AELocalPort | `
+                    Update-AzureVM
+                Write-Output $Status
+            }
+        }
+    ```
 
 7. Once this is complete, hit Publish ![](media/site-recovery-runbook-automation/20.png) to allow your script to be available for execution. 
 
@@ -256,41 +256,41 @@ The complete script is given below for your reference
 ```
   workflow OpenPort80
   {
-	param (
-		[Object]$RecoveryPlanContext
-	)
+    param (
+        [Object]$RecoveryPlanContext
+    )
 
-	$Cred = Get-AutomationPSCredential -Name 'AzureCredential'
-	
-	# Connect to Azure
-	$AzureAccount = Add-AzureAccount -Credential $Cred
-	$AzureSubscriptionName = Get-AutomationVariable –Name ‘AzureSubscriptionName’
-	Select-AzureSubscription -SubscriptionName $AzureSubscriptionName
+    $Cred = Get-AutomationPSCredential -Name 'AzureCredential'
+    
+    # Connect to Azure
+    $AzureAccount = Add-AzureAccount -Credential $Cred
+    $AzureSubscriptionName = Get-AutomationVariable –Name ‘AzureSubscriptionName’
+    Select-AzureSubscription -SubscriptionName $AzureSubscriptionName
 
-	# Specify the parameters to be used by the script
-	$AEProtocol = "TCP"
-	$AELocalPort = 80
-	$AEPublicPort = 80
-	$AEName = "Port 80 for HTTP"
-	$VMGUID = "7a1069c6-c1d6-49c5-8c5d-33bfce8dd183"
-	
-	#Read the VM GUID from the context
-	$VM = $RecoveryPlanContext.VmMap.$VMGUID
+    # Specify the parameters to be used by the script
+    $AEProtocol = "TCP"
+    $AELocalPort = 80
+    $AEPublicPort = 80
+    $AEName = "Port 80 for HTTP"
+    $VMGUID = "7a1069c6-c1d6-49c5-8c5d-33bfce8dd183"
+    
+    #Read the VM GUID from the context
+    $VM = $RecoveryPlanContext.VmMap.$VMGUID
 
-	if ($VM -ne $null)
-	{
-		# Invoke pipeline commands within an InlineScript
+    if ($VM -ne $null)
+    {
+        # Invoke pipeline commands within an InlineScript
 
-		$EndpointStatus = InlineScript {
-			# Invoke the necessary pipeline commands to add an Azure Endpoint to a specified Virtual Machine
-			# This set of commands includes: Get-AzureVM | Add-AzureEndpoint | Update-AzureVM (including necessary parameters)
+        $EndpointStatus = InlineScript {
+            # Invoke the necessary pipeline commands to add an Azure Endpoint to a specified Virtual Machine
+            # This set of commands includes: Get-AzureVM | Add-AzureEndpoint | Update-AzureVM (including necessary parameters)
 
-			$Status = Get-AzureVM -ServiceName $Using:VM.CloudServiceName -Name $Using:VM.RoleName | `
-				Add-AzureEndpoint -Name $Using:AEName -Protocol $Using:AEProtocol -PublicPort $Using:AEPublicPort -LocalPort $Using:AELocalPort | `
-				Update-AzureVM
-			Write-Output $Status
-		}
-	}
+            $Status = Get-AzureVM -ServiceName $Using:VM.CloudServiceName -Name $Using:VM.RoleName | `
+                Add-AzureEndpoint -Name $Using:AEName -Protocol $Using:AEProtocol -PublicPort $Using:AEPublicPort -LocalPort $Using:AELocalPort | `
+                Update-AzureVM
+            Write-Output $Status
+        }
+    }
   }
 ```
 
@@ -352,3 +352,4 @@ While we walked through automating one commonly used task of adding an endpoint 
 [Sample Azure Automation Scripts](http://gallery.technet.microsoft.com/scriptcenter/site/search?f[0].Type=User&f[0].Value=SC%20Automation%20Product%20Team&f[0].Text=SC%20Automation%20Product%20Team "Sample Azure Automation Scripts")
 
  
+

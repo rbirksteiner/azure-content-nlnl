@@ -180,3 +180,4 @@ After you have reviewed these safety notices, the next steps are to unpack, rack
 
 - For an 8600 device, go to [Install your StorSimple 8600 device](storsimple-8600-hardware-installation.md).
 
+

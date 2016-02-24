@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="What are App Passwords in Azure MFA?" 
-	description="This page will help users understand what app passwords are and what they are used for with regard to Azure MFA." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
-	editor="curtland"/>
+    pageTitle="What are App Passwords in Azure MFA?" 
+    description="This page will help users understand what app passwords are and what they are used for with regard to Azure MFA." 
+    services="multi-factor-authentication" 
+    documentationCenter="" 
+    authors="billmath" 
+    manager="stevenpo" 
+    editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/19/2015" 
-	ms.author="billmath"/>
+    ms.service="multi-factor-authentication" 
+    ms.workload="identity" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/19/2015" 
+    ms.author="billmath"/>
 
 
 
@@ -96,7 +96,7 @@ If you are not sure how you use multi-factor authentication, then you can always
 
 ### To create an app password using the Myapps portal
 
-1. Sign-in to [https://myapps.microsoft.com](https://myapps.microsoft.com)	
+1. Sign-in to [https://myapps.microsoft.com](https://myapps.microsoft.com)  
 2. At the top, select profile.
 3. Select Additional Security Verification.
 ![Cloud](./media/multi-factor-authentication-end-user-manage/myapps1.png)
@@ -112,7 +112,7 @@ If you are not sure how you use multi-factor authentication, then you can always
 
 ### To delete an app password using the Myapps portal
 
-1. Sign-in to [https://myapps.microsoft.com](https://myapps.microsoft.com)	
+1. Sign-in to [https://myapps.microsoft.com](https://myapps.microsoft.com)  
 2. At the top, select profile.
 3. Select Additional Security Verification.
 ![Cloud](./media/multi-factor-authentication-end-user-manage/myapps1.png)

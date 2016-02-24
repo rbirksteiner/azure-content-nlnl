@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Add the Bing Search API to PowerApps Enterprise | Microsoft Azure"
-	description="Create or configure a new Bing Search API in your organization's app service environment"
-	services=""
+    pageTitle="Add the Bing Search API to PowerApps Enterprise | Microsoft Azure"
+    description="Create or configure a new Bing Search API in your organization's app service environment"
+    services=""
     suite="powerapps"
-	documentationCenter="" 
-	authors="LinhTran"
-	manager="gautamt"
-	editor=""/>
+    documentationCenter="" 
+    authors="LinhTran"
+    manager="gautamt"
+    editor=""/>
 
 <tags
    ms.service="powerapps"
@@ -39,11 +39,11 @@
 
 4. In **Source**, select **Available API** to select the pre-built APIs, and select **Bing Search**:  
 
-	a) Select **Settings - Configure required settings**.  
-	
-	b) Enter *Account Key*. If you don't have a Bing Search Key, create a free [Bing Search offer][1] to get a key. 
+    a) Select **Settings - Configure required settings**.  
+    
+    b) Enter *Account Key*. If you don't have a Bing Search Key, create a free [Bing Search offer][1] to get a key. 
 
-	c) Select **OK**. 
+    c) Select **OK**. 
 
 5. Select **OK** to complete the steps. 
 

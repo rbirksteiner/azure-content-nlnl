@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="CDN - Analyze Edge Performance" 
-	description="Analyze edge node performance in Microsoft Azure CDN. Edge Performance Analytics provides granular information traffic and bandwidth usage for the CDN." 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="camsoper" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="CDN - Analyze Edge Performance" 
+    description="Analyze edge node performance in Microsoft Azure CDN. Edge Performance Analytics provides granular information traffic and bandwidth usage for the CDN." 
+    services="cdn" 
+    documentationCenter=".NET" 
+    authors="camsoper" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
-	ms.author="casoper"/>
+    ms.service="cdn" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/02/2015" 
+    ms.author="casoper"/>
 
 # Analyze edge node performance in Microsoft Azure CDN
 
@@ -45,13 +45,13 @@ This dashboard consists of:
 
 1. From the CDN profile blade, click the **Manage** button.
 
-	![CDN profile blade manage button](./media/cdn-edge-performance/cdn-manage-btn.png)
-	
-	The CDN management portal opens.
-	
+    ![CDN profile blade manage button](./media/cdn-edge-performance/cdn-manage-btn.png)
+    
+    The CDN management portal opens.
+    
 2. Hover over the **Analytics** tab, then hover over the **Edge Perfomance Analytics** flyout.  Click on **Dashboard**.
-	
-	The edge node analytics dashboard is displayed.
+    
+    The edge node analytics dashboard is displayed.
 
 ### Chart
 
@@ -68,8 +68,8 @@ The dashboard contains a chart that tracks a metric over the time period selecte
 #### Updating the chart
 
 * Time Range: Perform one of the following:
-	* Select the desired region in the timeline. The chart will be updated with data that corresponds to the selected time period.
-	* Double-click the chart to display all available historical data up to a maximum of two years.
+    * Select the desired region in the timeline. The chart will be updated with data that corresponds to the selected time period.
+    * Double-click the chart to display all available historical data up to a maximum of two years.
 * Metric: Click the chart icon that appears next to the desired metric. The chart and the timeline will be refreshed with data for the corresponding metric.
 
 
@@ -80,8 +80,8 @@ The dashboard contains a chart that tracks a metric over the time period selecte
 The purpose of these metrics is to see whether cache efficiency can be improved. The main benefits derived from cache efficiency are:
 
 * Reduced load on the origin server which may lead to:
-	* Better web server performance.
-	* Reduced operational costs.
+    * Better web server performance.
+    * Reduced operational costs.
 * Improved data delivery acceleration since more requests will be served directly from the CDN.
 
 Field | Description
@@ -142,14 +142,14 @@ Each report in this module contains a chart and statistics on bandwidth and traf
 
 1. From the CDN profile blade, click the **Manage** button.
 
-	![CDN profile blade manage button](./media/cdn-edge-performance/cdn-manage-btn.png)
-	
-	The CDN management portal opens.
-	
+    ![CDN profile blade manage button](./media/cdn-edge-performance/cdn-manage-btn.png)
+    
+    The CDN management portal opens.
+    
 2. Hover over the **Analytics** tab, then hover over the **Edge Perfomance Analytics** flyout.  Click on **HTTP Large Object**.
-	
-	The edge node analytics reports screen is displayed.
-	
+    
+    The edge node analytics reports screen is displayed.
+    
 Report | Description
 -------|------------
 Daily Summary | Allows you to view daily traffic trends over a specified time period. Each bar on this graph represents a particular date. The size of the bar indicates the total number of hits that occurred on that date.
@@ -191,6 +191,7 @@ HTTP Response Codes | Provides a breakdown of the HTTP status codes (e.g., 200 O
 * [Real-time stats in Microsoft Azure CDN](cdn-real-time-stats.md)
 * [Overriding default HTTP behavior using the rules engine](cdn-rules-engine.md)
 * [Advanced HTTP Reports](cdn-advanced-http-reports.md)
+
 
 
 

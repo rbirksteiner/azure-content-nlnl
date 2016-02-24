@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Create ContentKeys with .NET" 
-	description="Learn how to create content keys that provide secure access to Assets." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="Create ContentKeys with .NET" 
+    description="Learn how to create content keys that provide secure access to Assets." 
+    services="media-services" 
+    documentationCenter="" 
+    authors="Juliako" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/05/2015" 
-	ms.author="juliako"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/05/2015" 
+    ms.author="juliako"/>
 
 
 #Create ContentKeys with .NET
@@ -95,7 +95,7 @@ The following code snippet creates a content key of the envelope encryption type
 
 call
 
-	IContentKey key = CreateEnvelopeTypeContentKey(encryptedsset);
+    IContentKey key = CreateEnvelopeTypeContentKey(encryptedsset);
 
 
 
@@ -135,7 +135,7 @@ The following code snippet creates a content key of the common encryption type. 
     }
 call
 
-	IContentKey key = CreateCommonTypeContentKey(encryptedsset); 
+    IContentKey key = CreateCommonTypeContentKey(encryptedsset); 
 
 
 ##Media Services learning paths
@@ -145,3 +145,4 @@ call
 ##Provide feedback
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+

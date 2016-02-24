@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure Active Directory Reporting Search"
-	description="How to search your Azure Active Directory's security, activity and audit reports"
-	services="active-directory"
-	documentationCenter=""
-	authors="kenhoff"
-	manager="mbaldwin"
-	editor=""/>
+    pageTitle="Azure Active Directory Reporting Search"
+    description="How to search your Azure Active Directory's security, activity and audit reports"
+    services="active-directory"
+    documentationCenter=""
+    authors="kenhoff"
+    manager="mbaldwin"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="12/07/2015"
-	ms.author="kenhoff"/>
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+    ms.date="12/07/2015"
+    ms.author="kenhoff"/>
 
 # Azure Active Directory Reporting Search
 
@@ -57,3 +57,4 @@ RMS device usage                                    | No
 
  - [Azure Active Directory Reports](active-directory-view-access-usage-reports.md)
  - [Azure Active Directory Reporting Audit Events](active-directory-reporting-audit-events.md)
+

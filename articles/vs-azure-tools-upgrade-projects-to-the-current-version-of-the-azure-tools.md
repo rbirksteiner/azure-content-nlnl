@@ -50,3 +50,4 @@ If a project is automatically upgraded or you specify that you want to upgrade i
 1. Choose the **Upgrade** button to upgrade a project to the current version of the tools.
 
 1. Build the project, and then address any errors that result from API changes. For information about how to modify your code for the new version, see the documentation for the specific API.
+

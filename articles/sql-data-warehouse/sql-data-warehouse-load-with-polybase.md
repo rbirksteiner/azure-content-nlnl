@@ -232,7 +232,7 @@ CREATE TABLE [dbo].[Customer_Speed]
 WITH 
 (   
     CLUSTERED COLUMNSTORE INDEX
-,	DISTRIBUTION = HASH([CarSensor_Data].[CustomerKey])
+,   DISTRIBUTION = HASH([CarSensor_Data].[CustomerKey])
 )
 AS 
 SELECT * 
@@ -366,5 +366,6 @@ For more development tips, see [development overview][].
 [CREATE MASTER KEY (Transact-SQL)]:https://msdn.microsoft.com/library/ms174382.aspx
 [CREATE CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/ms189450.aspx
+
 
 

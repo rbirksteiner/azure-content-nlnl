@@ -106,3 +106,4 @@ For more information on DataFu or Pig, see the following documents:
 * [Apache DataFu Pig Guide](http://datafu.incubator.apache.org/docs/datafu/guide.html).
 
 * [Use Pig with HDInsight](hdinsight-use-pig.md)
+

@@ -219,7 +219,7 @@ Security credentials, such as symmetric keys, are never sent over the wire.
 
 The security token has the following format:
 
-	SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}
+    SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}
 
 These are the expected values:
 
@@ -531,3 +531,4 @@ Now that you've seen an overview of developing for IoT Hub, follow these links t
 [lnk-servicebus]: http://azure.microsoft.com/services/service-bus/
 [lnk-tls]: https://tools.ietf.org/html/rfc5246
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
+

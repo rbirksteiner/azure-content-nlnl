@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Reset the password or Remote Desktop on a Windows VM | Microsoft Azure"
-	description="Reset the administrator password or Remote Desktop services on a Windows VM created with the Resource Manager deployment model."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="dsk-2015"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    pageTitle="Reset the password or Remote Desktop on a Windows VM | Microsoft Azure"
+    description="Reset the administrator password or Remote Desktop services on a Windows VM created with the Resource Manager deployment model."
+    services="virtual-machines"
+    documentationCenter=""
+    authors="dsk-2015"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/14/2015"
-	ms.author="dkshir"/>
+    ms.service="virtual-machines"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-windows"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/14/2015"
+    ms.author="dkshir"/>
 
 # How to reset a password or the Remote Desktop service for a Windows VM
 
@@ -48,10 +48,10 @@ The VMAccess extension doesn't need to be installed before you can use it. As lo
 
 First, verify that the VM Agent is already installed. Add the cloud service name and virtual machine name, and then run the following commands at an administrator-level Azure PowerShell command prompt. Replace everything within the quotes, including the < and > characters.
 
-	$csName = "<cloud service name>"
-	$vmName = "<virtual machine name>"
-	$vm = Get-AzureVM -ServiceName $csName -Name $vmName
-	write-host $vm.VM.ProvisionGuestAgent
+    $csName = "<cloud service name>"
+    $vmName = "<virtual machine name>"
+    $vm = Get-AzureVM -ServiceName $csName -Name $vmName
+    write-host $vm.VM.ProvisionGuestAgent
 
 If you don't know the cloud service and virtual machine name, run **Get-AzureVM** to display that information for all the virtual machines in your current subscription.
 
@@ -59,7 +59,7 @@ If the **write-host** command displays **True**, the VM Agent is installed. If i
 
 If you created the virtual machine with the portal, run the following additional command.
 
-	$vm.GetInstance().ProvisionGuestAgent = $true
+    $vm.GetInstance().ProvisionGuestAgent = $true
 
 This command will prevent the “Provision Guest Agent must be enabled on the VM object before setting IaaS VM Access Extension” error when running the **Set-AzureVMExtension** command in the following sections.
 
@@ -72,8 +72,8 @@ Now, you can do these tasks:
 
 Add the current local administrator account name and the new password, and then run the following commands.
 
-	$cred=Get-Credential –Message "Type the name of the current local administrator account and the new password."
-	Set-AzureVMAccessExtension –vm $vm -UserName $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password  | Update-AzureVM
+    $cred=Get-Credential –Message "Type the name of the current local administrator account and the new password."
+    Set-AzureVMAccessExtension –vm $vm -UserName $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password  | Update-AzureVM
 
 - If you type a different name than the current account, the VMAccess extension renames the local administrator account, assigns the password to that account, and issues a Remote Desktop log off.
 - If the local administrator account is disabled, the VMAccess extension enables it.
@@ -84,22 +84,22 @@ These commands also reset the Remote Desktop service configuration.
 
 To reset the Remote Desktop service configuration, run the following command.
 
-	Set-AzureVMAccessExtension –vm $vm | Update-AzureVM
+    Set-AzureVMAccessExtension –vm $vm | Update-AzureVM
 
 The VMAccess extension runs these two commands on the virtual machine:
 
 - **netsh advfirewall firewall set rule group="Remote Desktop" new enable=Yes**
 
-	This command enables the built-in Windows Firewall group that allows incoming Remote Desktop traffic, which uses TCP port 3389.
+    This command enables the built-in Windows Firewall group that allows incoming Remote Desktop traffic, which uses TCP port 3389.
 
 - **Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -Value 0**
 
-	This command sets the fDenyTSConnections registry value to 0, enabling Remote Desktop connections.
+    This command sets the fDenyTSConnections registry value to 0, enabling Remote Desktop connections.
 
 If this did not solve your Remote Desktop access problem, run the [Azure IaaS (Windows) diagnostics package](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864).
 
-1.	In the diagnostics package, click **Microsoft Azure IaaS (Windows) diagnostics package** to create a new diagnostics session.
-2.	On the **Which of the following issues are you experiencing with your Azure VM?** page, select the **RDP connectivity to an Azure VM (Reboot Required)** issue.
+1.  In the diagnostics package, click **Microsoft Azure IaaS (Windows) diagnostics package** to create a new diagnostics session.
+2.  On the **Which of the following issues are you experiencing with your Azure VM?** page, select the **RDP connectivity to an Azure VM (Reboot Required)** issue.
 
 For more information, see the [Microsoft Azure IaaS (Windows) diagnostics package](http://support.microsoft.com/kb/2976864) Knowledge Base article.
 
@@ -113,3 +113,4 @@ If you were unable to run the Azure IaaS (Windows) diagnostics package or runnin
 [Connect to an Azure virtual machine with RDP or SSH](http://msdn.microsoft.com/library/azure/dn535788.aspx)
 
 [Troubleshoot Remote Desktop connections to a Windows-based Azure virtual machine](virtual-machines-troubleshoot-remote-desktop-connections.md)
+

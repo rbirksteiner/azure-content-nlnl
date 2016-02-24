@@ -77,3 +77,4 @@ To create trading partner agreements:
 [2]: ./media/app-service-logic-create-a-trading-partner-agreement/ProtocolSelection.png
 [3]: ./media/app-service-logic-create-a-trading-partner-agreement/X12AgreementCreation.png
  
+

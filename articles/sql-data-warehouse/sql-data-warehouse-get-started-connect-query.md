@@ -69,13 +69,13 @@ Now that we have registered our server let's go ahead and write a query.
 
 3. Type the following code into the query window:
 
-	```
-	SELECT COUNT(*) FROM dbo.FactInternetSales;
-	```
+    ```
+    SELECT COUNT(*) FROM dbo.FactInternetSales;
+    ```
 
 4. Run the query.
 
-	To run the query click the green arrow or use the following shortcut: `CTRL`+`SHIFT`+`E`.
+    To run the query click the green arrow or use the following shortcut: `CTRL`+`SHIFT`+`E`.
 
 ## Next steps
 

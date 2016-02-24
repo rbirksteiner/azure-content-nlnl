@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Detailed Remote Desktop troubleshooting | Microsoft Azure"
-	description="Detailed troubleshooting steps for RDP connections to an Azure virtual machine running Windows."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="dsk-2015"
-	manager="timlt"
-	editor=""
-	tags="top-support-issue,azure-service-management,azure-resource-manager"/>
+    pageTitle="Detailed Remote Desktop troubleshooting | Microsoft Azure"
+    description="Detailed troubleshooting steps for RDP connections to an Azure virtual machine running Windows."
+    services="virtual-machines"
+    documentationCenter=""
+    authors="dsk-2015"
+    manager="timlt"
+    editor=""
+    tags="top-support-issue,azure-service-management,azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/16/2015"
-	ms.author="dkshir"/>
+    ms.service="virtual-machines"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-windows"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/16/2015"
+    ms.author="dkshir"/>
 
 # Detailed troubleshooting for Remote Desktop connections to Windows based Azure virtual machines
 
@@ -151,10 +151,10 @@ Next, open an Azure PowerShell command prompt and change the current folder to t
 
 Next, fill in your Azure subscription name, the cloud service name, and your virtual machine name (removing the < and > characters), and then run these commands.
 
-	$subscr="<Name of your Azure subscription>"
-	$serviceName="<Name of the cloud service that contains the target virtual machine>"
-	$vmName="<Name of the target virtual machine>"
-	.\InstallWinRMCertAzureVM.ps1 -SubscriptionName $subscr -ServiceName $serviceName -Name $vmName
+    $subscr="<Name of your Azure subscription>"
+    $serviceName="<Name of the cloud service that contains the target virtual machine>"
+    $vmName="<Name of the target virtual machine>"
+    .\InstallWinRMCertAzureVM.ps1 -SubscriptionName $subscr -ServiceName $serviceName -Name $vmName
 
 You can get the correct subscription name from the _SubscriptionName_ property of the display of the **Get-AzureSubscription** command. You can get the cloud service name for the virtual machine from the _ServiceName_ column of the display of the **Get-AzureVM** command.
 
@@ -162,13 +162,13 @@ To prove that you have this new certificate, open a Certificates snap-in for the
 
 Next, initiate a remote Azure PowerShell session by using these commands.
 
-	$uri = Get-AzureWinRMUri -ServiceName $serviceName -Name $vmName
-	$creds = Get-Credential
-	Enter-PSSession -ConnectionUri $uri -Credential $creds
+    $uri = Get-AzureWinRMUri -ServiceName $serviceName -Name $vmName
+    $creds = Get-Credential
+    Enter-PSSession -ConnectionUri $uri -Credential $creds
 
 After entering valid administrator credentials, you should see something like this as your Azure PowerShell prompt:
 
-	[cloudservice4testing.cloudapp.net]: PS C:\Users\User1\Documents>
+    [cloudservice4testing.cloudapp.net]: PS C:\Users\User1\Documents>
 
 The first part of the prompt indicates that you are now issuing Azure PowerShell commands for the cloud service that contains the target virtual machine. Your cloud service name will be something different from "cloudservice4testing.cloudapp.net".
 
@@ -178,19 +178,19 @@ You can now issue Azure PowerShell commands to investigate the additional proble
 
 If you were unable to run the [Azure IaaS (Windows) diagnostics package](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864) for the **RDP connectivity to an Azure VM (Reboot Required)** issue, at the remote Azure PowerShell session prompt, run this command.
 
-	Get-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "PortNumber"
+    Get-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "PortNumber"
 
 The PortNumber property shows the current port number. If needed, change the Remote Desktop port number back to its default value (3389) by using this command.
 
-	Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "PortNumber" -Value 3389
+    Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "PortNumber" -Value 3389
 
 Verify that the port has been changed to 3389 by using this command.
 
-	Get-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "PortNumber"
+    Get-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "PortNumber"
 
 Exit the remote Azure PowerShell session by using this command.
 
-	Exit-PSSession
+    Exit-PSSession
 
 Verify that the Remote Desktop endpoint for the Azure virtual machine is also using TCP port 3398 as its internal port. Then, restart the Azure virtual machine and try your Remote Desktop connection again.
 
@@ -206,3 +206,4 @@ Verify that the Remote Desktop endpoint for the Azure virtual machine is also us
 [Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine](virtual-machines-troubleshoot-ssh-connections.md)
 
 [Troubleshoot access to an application running on an Azure virtual machine](virtual-machines-troubleshoot-access-application.md)
+

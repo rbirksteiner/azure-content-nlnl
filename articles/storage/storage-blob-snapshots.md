@@ -1,20 +1,20 @@
-﻿<properties
-	pageTitle="Create a snapshot of a blob | Microsoft Azure"
-	description="A guide for creating snapshots of Azure storage blobs"
-	services="storage"
-	documentationCenter=""
-	authors="tamram"
-	manager="adinah"
-	editor=""/>
+<properties
+    pageTitle="Create a snapshot of a blob | Microsoft Azure"
+    description="A guide for creating snapshots of Azure storage blobs"
+    services="storage"
+    documentationCenter=""
+    authors="tamram"
+    manager="adinah"
+    editor=""/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/01/2015" 
-	ms.author="tamram"/>
+    ms.service="storage" 
+    ms.workload="storage" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/01/2015" 
+    ms.author="tamram"/>
 
 # Create a blob snapshot
 
@@ -124,3 +124,4 @@ In scenario 3, the base blob has been updated, but the snapshot has not. Block 3
 In scenario 4, the base blob has been completely updated and contains none of its original blocks. As a result, the account is charged for all eight unique blocks. This scenario can occur if you are using an update method such as **UploadFile**, **UploadText**, **UploadFromStream**, or **UploadByteArray**, because these methods replace all of the contents of a blob.
 
 ![Azure Storage resources](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
+

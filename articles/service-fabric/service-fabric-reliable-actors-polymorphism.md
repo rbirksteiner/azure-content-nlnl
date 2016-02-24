@@ -77,3 +77,4 @@ Note the `ActorService` attribute on the actor type. This tells the Service Fabr
 <!-- Image references -->
 
 [shapes-interface-hierarchy]: ./media/service-fabric-reliable-actors-polymorphism/Shapes-Interface-Hierarchy.png
+

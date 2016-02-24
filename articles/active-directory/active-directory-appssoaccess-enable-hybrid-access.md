@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Enabling hybrid access with App Proxy| Microsoft Azure"
-	description="Enable access to apps that are running inside your private network from outside your network though Azure Active Directory."
-	services="active-directory"
-	documentationCenter=""
-	authors="femila"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Enabling hybrid access with App Proxy| Microsoft Azure"
+    description="Enable access to apps that are running inside your private network from outside your network though Azure Active Directory."
+    services="active-directory"
+    documentationCenter=""
+    authors="femila"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/16/2015"
-	ms.author="femila"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/16/2015"
+    ms.author="femila"/>
 
 # Enabling hybrid access with App Proxy
 With Microsoft Azure Active Directory (AD) Application Proxy, you can provide access to applications located inside your private network securely, from anywhere and on any device. After you have installed an application proxy connector within your environment, it can be easily configured with Azure AD.
@@ -41,3 +41,4 @@ There is only one requirement for enabling access to a web application: the web 
 ## Related articles
 - [Enabling Azure AD Application Proxy](active-directory-application-proxy-enable.md#step-1-enable-application-proxy-in-azure-ad)
 - [Publishing applications through Azure AD App Proxy](active-directory-application-proxy-publish.md)
+

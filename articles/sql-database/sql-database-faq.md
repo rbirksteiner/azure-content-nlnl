@@ -25,7 +25,7 @@ SQL Database bills on a predictable hourly rate based on both the service tier +
 You are billed for each hour a database exists using the highest service tier + performance level that applied during that hour, regardless of usage or whether the database was active for less than an hour. For example, if you create a single database and delete it 5 minutes later your bill will reflect a charge for 1 database hour. 
 
 Examples
-	
+    
 - If you create a Basic database and then immediately upgrade it to Standard S1, you are charged at the Standard S1 rate for the first hour.
 
 - If you upgrade a database from Basic to Premium at 10:00 p.m. and upgrade completes at 1:35 a.m. on the following day, you are charged at the Premium rate starting at 1:00 a.m. 
@@ -73,4 +73,5 @@ Backup storage is the storage associated with your automated database backups th
 
 ## I'm moving from Web/Business to the new service tiers, what do I need to know?
 Azure SQL Web and Business databases are now retired. The Basic, Standard, Premium, and Elastic tiers replace the retiring Web and Business databases. We've additional FAQ that should help you in this transition period. [Web and Business Edition sunset FAQ](sql-database-web-business-sunset-faq.md)
+
 

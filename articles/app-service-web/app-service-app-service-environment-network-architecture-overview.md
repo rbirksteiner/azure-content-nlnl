@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Network Architecture Overview of App Service Environments" 
-	description="Architectural overview of network topology ofApp Service Environments." 
-	services="app-service" 
-	documentationCenter="" 
-	authors="stefsch" 
-	manager="wpickett" 
-	editor=""/>
+    pageTitle="Network Architecture Overview of App Service Environments" 
+    description="Architectural overview of network topology ofApp Service Environments." 
+    services="app-service" 
+    documentationCenter="" 
+    authors="stefsch" 
+    manager="wpickett" 
+    editor=""/>
 
 <tags 
-	ms.service="app-service" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/01/2015" 
-	ms.author="stefsch"/>	
+    ms.service="app-service" 
+    ms.workload="na" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/01/2015" 
+    ms.author="stefsch"/>   
 
 # Network Architecture Overview of App Service Environments
 
@@ -86,4 +86,5 @@ Details on using user defined routes to grant outbound Internet access to App Se
 [OutboundIPAddress]: ./media/app-service-app-service-environment-network-architecture-overview/OutboundIPAddress-1.png
 [OutboundNetworkAddresses]: ./media/app-service-app-service-environment-network-architecture-overview/OutboundNetworkAddresses-1.png
 [CallsBetweenAppServiceEnvironments]: ./media/app-service-app-service-environment-network-architecture-overview/CallsBetweenEnvironments-1.png
+
 

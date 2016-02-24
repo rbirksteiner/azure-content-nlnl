@@ -1,20 +1,20 @@
 <properties
-	pageTitle="How to configure Microsoft Account authentication for your App Services application"
-	description="Learn how to configure Microsoft Account authentication for your App Services application."
-	authors="mattchenderson" 
-	services="app-service\mobile"
-	documentationCenter=""
-	manager="dwrede"
-	editor=""/>
+    pageTitle="How to configure Microsoft Account authentication for your App Services application"
+    description="Learn how to configure Microsoft Account authentication for your App Services application."
+    authors="mattchenderson" 
+    services="app-service\mobile"
+    documentationCenter=""
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="11/20/2015"
-	ms.author="mahender"/>
+    ms.service="app-service-mobile"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="na"
+    ms.devlang="multiple"
+    ms.topic="article"
+    ms.date="11/20/2015"
+    ms.author="mahender"/>
 
 # How to configure your App Service application to use Microsoft Account login
 
@@ -40,18 +40,18 @@ This topic demonstrates use of the App Service Authentication / Authorization fe
 
 5. Click **API Settings**. Select **Yes** for **Mobile or desktop client app**. In the **Redirect URL** field, enter your application's **Redirect URL** and click **Save**. Your redirect URI is the URL of your application appended with the path, _/.auth/login/microsoftaccount/callback_. For example, `https://contoso.azurewebsites.net/.auth/login/microsoftaccount/callback`. Make sure that you are using the HTTPS scheme.
 
-	![][0]
+    ![][0]
 
 
-	> [AZURE.NOTE]
-	If you are using the App Service Gateway instead of the App Service Authentication / Authorization feature, your redirect URL instead uses the gateway URL with the _/signin-microsoft_ path.
+    > [AZURE.NOTE]
+    If you are using the App Service Gateway instead of the App Service Authentication / Authorization feature, your redirect URL instead uses the gateway URL with the _/signin-microsoft_ path.
 
 
 6. Click **App Settings** and make a note of the values of the **Client ID** and **Client secret**.
 
 
     > [AZURE.NOTE] The client secret is an important security credential. Do not share the client secret with anyone or distribute it within a client application.
-	
+    
 
 ## <a name="secrets"> </a>Add Microsoft Account information to your application
 
@@ -66,8 +66,8 @@ If using the App Service Gateway, ignore this section and instead navigate to yo
 9. Click **Microsoft Account**. Paste in the App ID and App Secret values which you obtained previously, and optionally enable any scopes your application requires. Then click **OK**.
 
     ![][1]
-	
-	By default, App Service provides authentication but does not restrict authorized access to your site content and APIs. You must authorize users in your app code. 
+    
+    By default, App Service provides authentication but does not restrict authorized access to your site content and APIs. You must authorize users in your app code. 
 
 17. (Optional) To restrict access to your site to only users authenticated by Microsoft account, set **Action to take when request is not authenticated** to **Microsoft Account**. This requires that all requests be authenticated, and all unauthenticated requests are redirected to Microsoft account for authentication.
 
@@ -93,3 +93,4 @@ You are now ready to use Microsoft Account for authentication in your app.
 
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Azure portal]: https://portal.azure.com/
+

@@ -33,3 +33,4 @@ Now that you have reviewed the prerequisites and completed the necessary tasks, 
 
 
 [link-acct]:marketplace-publishing-accounts-creation-registration.md
+

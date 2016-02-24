@@ -6,3 +6,4 @@
     ![Set the GCM API key in the portal](./media/app-service-mobile-configure-wns/mobile-push-wns-credentials.png)
 
 Your Mobile App backend is now configured to use WNS to send push notifications to your Windows app using its notification hub.
+

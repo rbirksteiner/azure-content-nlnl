@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Get started with Notification Hubs for Xamarin iOS apps | Microsoft Azure"
-	description="In this tutorial, you learn how to use Azure Notification Hubs to send push notifications to a Xamarin iOS application."
-	services="notification-hubs"
-	documentationCenter="xamarin"
-	authors="ysxu"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Get started with Notification Hubs for Xamarin iOS apps | Microsoft Azure"
+    description="In this tutorial, you learn how to use Azure Notification Hubs to send push notifications to a Xamarin iOS application."
+    services="notification-hubs"
+    documentationCenter="xamarin"
+    authors="ysxu"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="notification-hubs"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-xamarin-ios"
-	ms.devlang="dotnet"
-	ms.topic="hero-article"
-	ms.date="11/17/2015"
-	ms.author="yuaxu"/>
+    ms.service="notification-hubs"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-xamarin-ios"
+    ms.devlang="dotnet"
+    ms.topic="hero-article"
+    ms.date="11/17/2015"
+    ms.author="yuaxu"/>
 
 # Get started with Notification Hubs
 
@@ -76,17 +76,17 @@ Your notification hub is now configured to work with APNS, and you have the conn
 
 1. In Xamarin Studio, create a new iOS project and select the **Unified API** > **Single View Application** template.
 
-   	![][31]
+    ![][31]
 
 2. Add a reference to the Azure Messaging component. In the Solution view, right-click the **Components** folder for your project and choose **Get More Components**. Search for the **Azure Messaging** component and add the component to your project.
 
 3. In **AppDelegate.cs**, add the following using statement:
 
-    	using WindowsAzure.Messaging;
+        using WindowsAzure.Messaging;
 
 4. Declare an instance of **SBNotificationHub**:
 
-		private SBNotificationHub Hub { get; set; }
+        private SBNotificationHub Hub { get; set; }
 
 5. Create a **Constants.cs** class with the following variables:
 
@@ -100,16 +100,16 @@ Your notification hub is now configured to work with APNS, and you have the conn
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
             if (UIDevice.CurrentDevice.CheckSystemVersion (8, 0)) {
-    			var pushSettings = UIUserNotificationSettings.GetSettingsForTypes (
+                var pushSettings = UIUserNotificationSettings.GetSettingsForTypes (
                        UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound,
                        new NSSet ());
 
-			    UIApplication.SharedApplication.RegisterUserNotificationSettings (pushSettings);
-			    UIApplication.SharedApplication.RegisterForRemoteNotifications ();
-			} else {
-			    UIRemoteNotificationType notificationTypes = UIRemoteNotificationType.Alert | UIRemoteNotificationType.Badge | UIRemoteNotificationType.Sound;
-			    UIApplication.SharedApplication.RegisterForRemoteNotificationTypes (notificationTypes);
-			}
+                UIApplication.SharedApplication.RegisterUserNotificationSettings (pushSettings);
+                UIApplication.SharedApplication.RegisterForRemoteNotifications ();
+            } else {
+                UIRemoteNotificationType notificationTypes = UIRemoteNotificationType.Alert | UIRemoteNotificationType.Badge | UIRemoteNotificationType.Sound;
+                UIApplication.SharedApplication.RegisterForRemoteNotificationTypes (notificationTypes);
+            }
 
             return true;
         }
@@ -212,19 +212,19 @@ In this section, we will send notifications by using a .NET console app
 
 1. Create a new Visual C# console application:
 
-   	![][213]
+    ![][213]
 
 2. In Visual Studio, click **Tools**, click **NuGet Package Manager**, and then click **Package Manager Console**.
 
-	This displays the Package Manager Console in Visual Studio.
+    This displays the Package Manager Console in Visual Studio.
 
 3. In the Package Manager Console window, set the **Default project** to your new console application project, and then in the console window, execute the following command:
 
         Install-Package Microsoft.Azure.NotificationHubs
 
-	This adds a reference to the Azure Notification Hubs SDK using the <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet package</a>.
+    This adds a reference to the Azure Notification Hubs SDK using the <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet package</a>.
 
-	![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
+    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
 
 
 4. Open the Program.cs file and add the following `using` statement:
@@ -243,7 +243,7 @@ In this section, we will send notifications by using a .NET console app
 4. Add the following lines in your `Main` method:
 
          SendNotificationAsync();
-		 Console.ReadLine();
+         Console.ReadLine();
 
 5. Press the F5 key to run the app. You should receive an alert on your device. If you are using Wi-Fi, make sure that your connection is working.
 
@@ -260,32 +260,32 @@ To send a notification by using a mobile service, follow [Get started with Mobil
 
 2. Select the **Scheduler** tab on the top.
 
-   	![][215]
+    ![][215]
 
 3. Create a new scheduled job, insert a name, and select **On demand**.
 
-   	![][216]
+    ![][216]
 
 4. When the job is created, click the job name. Then click the **Script** tab on the top bar.
 
 5. Insert the following script inside your scheduler function. Make sure to replace the placeholders with your notification hub name and the connection string for *DefaultFullSharedAccessSignature* that you obtained earlier. Click **Save**.
 
-		var azure = require('azure');
-		var notificationHubService = azure.createNotificationHubService('<Hubname>', '<SAS Full access >');
-		notificationHubService.apns.send(
-	    	null,
-    		{"aps":
-        		{
-          		"alert": "Hello from Mobile Services!"
-        		}
-    		},
-    		function (error)
-    		{
-	        	if (!error) {
-    	        	console.warn("Notification successful");
-        		}
-    		}
-		);
+        var azure = require('azure');
+        var notificationHubService = azure.createNotificationHubService('<Hubname>', '<SAS Full access >');
+        notificationHubService.apns.send(
+            null,
+            {"aps":
+                {
+                "alert": "Hello from Mobile Services!"
+                }
+            },
+            function (error)
+            {
+                if (!error) {
+                    console.warn("Notification successful");
+                }
+            }
+        );
 
 
 6. Click **Run Once** on the bottom bar. You should receive an alert on your device.
@@ -331,3 +331,4 @@ In this simple example, you broadcasted notifications to all your iOS devices. I
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331329
 [Xamarin.iOS]: http://xamarin.com/download
 [WindowsAzure.Messaging]: https://github.com/infosupport/WindowsAzure.Messaging.iOS
+

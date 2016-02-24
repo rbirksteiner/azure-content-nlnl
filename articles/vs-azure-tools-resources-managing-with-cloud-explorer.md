@@ -71,7 +71,7 @@ To view your Azure resources, you can choose either **Resource Types** or **Reso
 - Resource Groups view categorizes Azure resources by the Azure resource group they're associated with.
 
  
-	A resource group is a bundle of Azure resources, typically used by a specific application. To learn more about Azure resource groups, see [Azure Resource Manager Overview](https://azure.microsoft.com/documentation/articles/resource-group-overview/).
+    A resource group is a bundle of Azure resources, typically used by a specific application. To learn more about Azure resource groups, see [Azure Resource Manager Overview](https://azure.microsoft.com/documentation/articles/resource-group-overview/).
 
 ## View and navigate resources
 
@@ -94,4 +94,5 @@ To locate resources with a specific name in your Azure account subscriptions, en
 ![Finding resources in Cloud Explorer](./media/vs-azure-tools-resources-managing-with-cloud-explorer/IC820394.png)
 
 As you enter characters in the Search box, only resources that match those characters appear in the resource tree.
+
 

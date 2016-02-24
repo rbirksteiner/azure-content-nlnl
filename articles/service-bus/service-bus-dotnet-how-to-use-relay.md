@@ -1,20 +1,20 @@
 <properties
-	pageTitle="How to use the Service Bus relay with .NET | Microsoft Azure"
-	description="Learn how to use the Azure Service Bus relay service to connect two applications hosted in different locations."
-	services="service-bus"
-	documentationCenter=".net"
-	authors="sethmanheim"
-	manager="timlt"
-	editor=""/>
+    pageTitle="How to use the Service Bus relay with .NET | Microsoft Azure"
+    description="Learn how to use the Azure Service Bus relay service to connect two applications hosted in different locations."
+    services="service-bus"
+    documentationCenter=".net"
+    authors="sethmanheim"
+    manager="timlt"
+    editor=""/>
 
 <tags
-	ms.service="service-bus"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="get-started-article"
-	ms.date="10/07/2015"
-	ms.author="sethm"/>
+    ms.service="service-bus"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="get-started-article"
+    ms.date="10/07/2015"
+    ms.author="sethm"/>
 
 
 # How to use the Azure Service Bus relay service
@@ -51,25 +51,25 @@ To create a service namespace:
 
 3.  In the lower pane of the portal, click **Create**.
 
-	![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png)
+    ![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png)
 
 4.  In the **Add a new namespace** dialog box, enter a namespace name.
     The system immediately checks to see if the name is available.
 
-	![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-04.png)
+    ![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-04.png)
 
 5.  After making sure the namespace name is available, choose the
     country or region in which your namespace should be hosted (make
     sure you use the same country/region in which you are deploying your
     compute resources).
 
-	> [AZURE.IMPORTANT] Pick the *same region* that you intend to choose for deploying your application. This will give you the best performance.
+    > [AZURE.IMPORTANT] Pick the *same region* that you intend to choose for deploying your application. This will give you the best performance.
 
-6.	Leave the other fields in the dialog box with their default values (**Messaging** and **Standard** tier), then click the check mark. The system now creates your namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
+6.  Leave the other fields in the dialog box with their default values (**Messaging** and **Standard** tier), then click the check mark. The system now creates your namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
 
-	![](./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-27.png)
+    ![](./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-27.png)
 
-	The namespace you created then appears in the portal and takes a moment to activate. Wait until the status is **Active** before continuing.
+    The namespace you created then appears in the portal and takes a moment to activate. Wait until the status is **Active** before continuing.
 
 ## Obtain the default management credentials for the namespace
 
@@ -77,10 +77,10 @@ In order to perform management operations, such as creating a relay connection, 
 
 1.  In the left navigation pane, click the **Service Bus** node, to
     display the list of available namespaces.
-	![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png)
+    ![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png)
 
 2.  Double click the name of the namespace you just created from the list shown.
-	![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-09.png)
+    ![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-09.png)
 
 3.  Click the **Configure** tab at the top of the page.
 
@@ -97,7 +97,7 @@ To install the NuGet package in your application, do the following:
 2.  Search for "Service Bus" and select the **Microsoft Azure
     Service Bus** item. Click **Install** to complete the installation, then close the following dialog box.
 
-	![](./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-13.png)
+    ![](./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-13.png)
 
 
 ## Use Service Bus to expose and consume a SOAP web service with TCP

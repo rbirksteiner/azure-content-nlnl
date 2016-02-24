@@ -2,7 +2,7 @@
     pageTitle="How do you redirect USB devices in Azure RemoteApp? | Microsoft Azure" 
     description="Learn how to use redirection for USB devices in Azure RemoteApp." 
     services="remoteapp" 
-	documentationCenter="" 
+    documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -50,11 +50,11 @@ A better way, or the second option, is to follow these steps to find the specifi
 
 For example:
 
-		Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "nusbdevicestoredirect:s:<Class Guid value>"
+        Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "nusbdevicestoredirect:s:<Class Guid value>"
 
 You can combine multiple device redirections in the same cmdlet. For example: to redirect local storage and a USB web camera, cmdlet looks like this:
 
-		Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "drivestoredirect:s:*`nusbdevicestoredirect:s:<Class Guid value>"
+        Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "drivestoredirect:s:*`nusbdevicestoredirect:s:<Class Guid value>"
 
 When you set device redirection by class GUID all devices that match that class GUID in the specified collection are redirected. For example, if there are multiple computers on the local network that have the same USB web cameras, you can run a single cmdlet to redirect all of the web cameras.
 
@@ -67,13 +67,13 @@ The hardest part of this method is finding the USB device instance ID. You'll ne
 1. Enable the device redirection in Remote Desktop Session as described in [How can I use my devices and resources in a Remote Desktop session?](http://windows.microsoft.com/en-us/windows7/How-can-I-use-my-devices-and-resources-in-a-Remote-Desktop-session)
 2. Open a Remote Desktop Connection and click **Show Options**.
 3. Click **Save as** to save the current connection settings to an RDP file.  
-	![Save the settings as an RDP file](./media/remoteapp-usbredir/ra-saveasrdp.png)
+    ![Save the settings as an RDP file](./media/remoteapp-usbredir/ra-saveasrdp.png)
 4. Choose a file name and a location, for example “MyConnection.rdp” and “This PC\Documents”, and save the file.
 5. Open the MyConnection.rdp file using a text editor and find the instance ID of the device you want to redirect.
 
 Now, use the instance ID in the following cmdlet:
 
-	Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "nusbdevicestoredirect:s: USB\<Device InstanceID value>"
+    Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "nusbdevicestoredirect:s: USB\<Device InstanceID value>"
 
 
 

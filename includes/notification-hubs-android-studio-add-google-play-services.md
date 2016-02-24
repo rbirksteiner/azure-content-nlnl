@@ -2,18 +2,18 @@
 
 2. Click the **SDK Tools** tab. If you haven't already installed Google Play Service, click **Google Play Services** as shown below. Then click **Apply** to install. 
  
-	Note the SDK path, for use in a later step. 
+    Note the SDK path, for use in a later step. 
 
-   	![](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-sdk-manager.png)
+    ![](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-sdk-manager.png)
 
 
 3. Open the **build.gradle** file in the app directory.
 
-	![](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-add-google-play-dependency.png)
+    ![](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-add-google-play-dependency.png)
 
 4. Add this line under *dependencies*: 
 
-   		compile 'com.google.android.gms:play-services-base:6.5.87'
+        compile 'com.google.android.gms:play-services-base:6.5.87'
 
 5. Under *defaultConfig*, change *minSdkVersion* to 9.
  
@@ -24,6 +24,7 @@
         <meta-data android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
  
+
 
 
 

@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Connect to SQL Database by using Node.js on Windows"
-	description="Presents a Node.js code sample you can use to connect to Azure SQL Database. The sample runs on a Windows client computer."
-	services="sql-database"
-	documentationCenter=""
-	authors="meet-bhagdev"
-	manager="jeffreyg"
-	editor=""/>
+    pageTitle="Connect to SQL Database by using Node.js on Windows"
+    description="Presents a Node.js code sample you can use to connect to Azure SQL Database. The sample runs on a Windows client computer."
+    services="sql-database"
+    documentationCenter=""
+    authors="meet-bhagdev"
+    manager="jeffreyg"
+    editor=""/>
 
 
 <tags
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="nodejs"
-	ms.topic="article"
-	ms.date="12/08/2015"
-	ms.author="meetb"/>
+    ms.service="sql-database"
+    ms.workload="data-management"
+    ms.tgt_pltfrm="na"
+    ms.devlang="nodejs"
+    ms.topic="article"
+    ms.date="12/08/2015"
+    ms.author="meetb"/>
 
 
 # Connect to SQL Database by using Node.js on Windows
@@ -44,8 +44,8 @@ The following software items must exist on your client development computer.
 Once you satisfy the requirements, make sure you are on Node.js version 0.8.9. You can check this by using the following command from your command line terminal: node -v.
 <br>In a **cmd.exe** command line window, navigate to your project directory- for example C:\NodeJSSQLProject. Enter the following commands in the sequence shown.
 
-	npm init
-	npm install msnodesql
+    npm init
+    npm install msnodesql
 
 Next navigate to node_modules\msnodesql folder and run the **msnodesql-0.2.1-v0.8-ia32** executible. Follow the steps from the installation wizard and hit finish when you are done. At this point you should have the Node.js SQL Server driver installed. Follow the next steps to get your connection string and then you should be able to connect to Azure SQL DB from your Node.js application.
 
@@ -65,92 +65,92 @@ See the [getting started page](sql-database-get-started.md) to learn how to crea
 - Copy the following code in a .js file located in your project directory.
 
 
-		var http = require('http');
-		var sql = require('msnodesql');
-		var http = require('http');
-		var fs = require('fs');
-		var useTrustedConnection = false;
-		var conn_str = "Driver={SQL Server Native Client 11.0};Server=tcp:yourserver.database.windows.net;" +
-		(useTrustedConnection == true ? "Trusted_Connection={Yes};" : "UID=yourusername;PWD=yourpassword;") +
-		"Database={AdventureWorks};"
-		sql.open(conn_str, function (err, conn) {
-		    if (err) {
-		        console.log("Error opening the connection!");
-		        return;
-		    }
-		    else
-		        console.log("Successfuly connected");
-		});
+        var http = require('http');
+        var sql = require('msnodesql');
+        var http = require('http');
+        var fs = require('fs');
+        var useTrustedConnection = false;
+        var conn_str = "Driver={SQL Server Native Client 11.0};Server=tcp:yourserver.database.windows.net;" +
+        (useTrustedConnection == true ? "Trusted_Connection={Yes};" : "UID=yourusername;PWD=yourpassword;") +
+        "Database={AdventureWorks};"
+        sql.open(conn_str, function (err, conn) {
+            if (err) {
+                console.log("Error opening the connection!");
+                return;
+            }
+            else
+                console.log("Successfuly connected");
+        });
 
 
 - Now run your .js file by issuing the following command.
 
 
-		node index.js
+        node index.js
 
 
 ## Step 3:  Execute a query
 
 
-	var http = require('http');
-	var sql = require('msnodesql');
-	var http = require('http');
-	var fs = require('fs');
-	var useTrustedConnection = false;
-	var conn_str = "Driver={SQL Server Native Client 11.0};Server=tcp:yourserver.database.windows.net;" +
-	(useTrustedConnection == true ? "Trusted_Connection={Yes};" : "UID=yourusername;PWD=yourpassword;") +
-	"Database={AdventureWorks};"
-	sql.open(conn_str, function (err, conn) {
-	    if (err) {
-	        console.log("Error opening the connection!");
-	        return;
-	    }
-	    else
-	        console.log("Successfuly connected");
+    var http = require('http');
+    var sql = require('msnodesql');
+    var http = require('http');
+    var fs = require('fs');
+    var useTrustedConnection = false;
+    var conn_str = "Driver={SQL Server Native Client 11.0};Server=tcp:yourserver.database.windows.net;" +
+    (useTrustedConnection == true ? "Trusted_Connection={Yes};" : "UID=yourusername;PWD=yourpassword;") +
+    "Database={AdventureWorks};"
+    sql.open(conn_str, function (err, conn) {
+        if (err) {
+            console.log("Error opening the connection!");
+            return;
+        }
+        else
+            console.log("Successfuly connected");
 
 
-	    conn.queryRaw("SELECT c.CustomerID, c.CompanyName,COUNT(soh.SalesOrderID) AS OrderCount FROM SalesLT.Customer AS c LEFT OUTER JOIN SalesLT.SalesOrderHeader AS soh ON c.CustomerID = soh.CustomerID GROUP BY c.CustomerID, c.CompanyName ORDER BY OrderCount DESC;", function (err, results) {
-	        if (err) {
-	            console.log("Error running query1!");
-	            return;
-	        }
-	        for (var i = 0; i < results.rows.length; i++) {
-	            console.log(results.rows[i]);
-	        }
-	    });
-	});
+        conn.queryRaw("SELECT c.CustomerID, c.CompanyName,COUNT(soh.SalesOrderID) AS OrderCount FROM SalesLT.Customer AS c LEFT OUTER JOIN SalesLT.SalesOrderHeader AS soh ON c.CustomerID = soh.CustomerID GROUP BY c.CustomerID, c.CompanyName ORDER BY OrderCount DESC;", function (err, results) {
+            if (err) {
+                console.log("Error running query1!");
+                return;
+            }
+            for (var i = 0; i < results.rows.length; i++) {
+                console.log(results.rows[i]);
+            }
+        });
+    });
 
 
 ## Step 4:  Insert a row
 
 
-	var http = require('http');
-	var sql = require('msnodesql');
-	var http = require('http');
-	var fs = require('fs');
-	var useTrustedConnection = false;
-	var conn_str = "Driver={SQL Server Native Client 11.0};Server=tcp:yourserver.database.windows.net;" +
-	(useTrustedConnection == true ? "Trusted_Connection={Yes};" : "UID=yourusername;PWD=yourpassword;") +
-	"Database={AdventureWorks};"
-	sql.open(conn_str, function (err, conn) {
-	    if (err) {
-	        console.log("Error opening the connection!");
-	        return;
-	    }
-	    else
-	        console.log("Successfuly connected");
+    var http = require('http');
+    var sql = require('msnodesql');
+    var http = require('http');
+    var fs = require('fs');
+    var useTrustedConnection = false;
+    var conn_str = "Driver={SQL Server Native Client 11.0};Server=tcp:yourserver.database.windows.net;" +
+    (useTrustedConnection == true ? "Trusted_Connection={Yes};" : "UID=yourusername;PWD=yourpassword;") +
+    "Database={AdventureWorks};"
+    sql.open(conn_str, function (err, conn) {
+        if (err) {
+            console.log("Error opening the connection!");
+            return;
+        }
+        else
+            console.log("Successfuly connected");
 
 
-	    conn.queryRaw("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES ('SQL Server Express', 'SQLEXPRESS', 0, 0, CURRENT_TIMESTAMP)", function (err, results) {
-	        if (err) {
-	            console.log("Error running query!");
-	            return;
-	        }
-	        for (var i = 0; i < results.rows.length; i++) {
-	            console.log("Product ID Inserted : "+results.rows[i]);
-	        }
-	    });
-	});
+        conn.queryRaw("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES ('SQL Server Express', 'SQLEXPRESS', 0, 0, CURRENT_TIMESTAMP)", function (err, results) {
+            if (err) {
+                console.log("Error running query!");
+                return;
+            }
+            for (var i = 0; i < results.rows.length; i++) {
+                console.log("Product ID Inserted : "+results.rows[i]);
+            }
+        });
+    });
 
 
 ## Step 5:  Rollback a transaction
@@ -159,40 +159,40 @@ See the [getting started page](sql-database-get-started.md) to learn how to crea
 The method **conn.beginTransactions** will not work in Azure SQL Database. Instead, follow the code sample to perform transactions in SQL Database.
 
 
-	var http = require('http');
-	var sql = require('msnodesql');
-	var http = require('http');
-	var fs = require('fs');
-	var useTrustedConnection = false;
-	var conn_str = "Driver={SQL Server Native Client 11.0};Server=tcp:yourserver.database.windows.net;" +
-	(useTrustedConnection == true ? "Trusted_Connection={Yes};" : "UID=yourusername;PWD=yourpassword;") +
-	"Database={AdventureWorks};"
-	sql.open(conn_str, function (err, conn) {
-	    if (err) {
-	        console.log("Error opening the connection!");
-	        return;
-	    }
-	    else
-	        console.log("Successfuly connected");
+    var http = require('http');
+    var sql = require('msnodesql');
+    var http = require('http');
+    var fs = require('fs');
+    var useTrustedConnection = false;
+    var conn_str = "Driver={SQL Server Native Client 11.0};Server=tcp:yourserver.database.windows.net;" +
+    (useTrustedConnection == true ? "Trusted_Connection={Yes};" : "UID=yourusername;PWD=yourpassword;") +
+    "Database={AdventureWorks};"
+    sql.open(conn_str, function (err, conn) {
+        if (err) {
+            console.log("Error opening the connection!");
+            return;
+        }
+        else
+            console.log("Successfuly connected");
 
 
-	    conn.queryRaw("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES ('SQL Server Express New ', 'SQLEXPRESS New', 1, 1, CURRENT_TIMESTAMP)", function (err, results) {
-	        if (err) {
-	            console.log("Error running query!");
-	            return;
-	        }
-	        for (var i = 0; i < results.rows.length; i++) {
-	            console.log("Product ID Inserted : "+results.rows[i]);
-	        }
-	    });
+        conn.queryRaw("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES ('SQL Server Express New ', 'SQLEXPRESS New', 1, 1, CURRENT_TIMESTAMP)", function (err, results) {
+            if (err) {
+                console.log("Error running query!");
+                return;
+            }
+            for (var i = 0; i < results.rows.length; i++) {
+                console.log("Product ID Inserted : "+results.rows[i]);
+            }
+        });
 
-	    conn.queryRaw("ROLLBACK TRANSACTION; ", function (err, results) {
-            	if (err) {
-        		console.log("Rollback failed");
-        		return;
-        	}
-    	    });
-	});
+        conn.queryRaw("ROLLBACK TRANSACTION; ", function (err, results) {
+                if (err) {
+                console.log("Rollback failed");
+                return;
+            }
+            });
+    });
 
 
 ## Step 6: Stored Procedures
@@ -200,31 +200,32 @@ The method **conn.beginTransactions** will not work in Azure SQL Database. Inste
 For this code sample to work, you must first have or create a stored procedure that inputs no parameters. You can create a stored procedure with a tool such as SQL Server Management Studio (SSMS.exe).
 
 
-	var http = require('http');
-	var sql = require('msnodesql');
-	var http = require('http');
-	var fs = require('fs');
-	var useTrustedConnection = false;
-	var conn_str = "Driver={SQL Server Native Client 11.0};Server=tcp:yourserver.database.windows.net;" +
-	(useTrustedConnection == true ? "Trusted_Connection={Yes};" : "UID=yourusername;PWD=yourpassword;") +
-	"Database={AdventureWorks};"
-	sql.open(conn_str, function (err, conn) {
-	    if (err) {
-	        console.log("Error opening the connection!");
-	        return;
-	    }
-	    else
-	        console.log("Successfuly connected");
+    var http = require('http');
+    var sql = require('msnodesql');
+    var http = require('http');
+    var fs = require('fs');
+    var useTrustedConnection = false;
+    var conn_str = "Driver={SQL Server Native Client 11.0};Server=tcp:yourserver.database.windows.net;" +
+    (useTrustedConnection == true ? "Trusted_Connection={Yes};" : "UID=yourusername;PWD=yourpassword;") +
+    "Database={AdventureWorks};"
+    sql.open(conn_str, function (err, conn) {
+        if (err) {
+            console.log("Error opening the connection!");
+            return;
+        }
+        else
+            console.log("Successfuly connected");
 
-	    conn.query("exec NameOfStoredProcedure", function (err, results) {
-	    	if (err) {
-			console.log("Error running query8!");
-			return;
-		}
-	    });
-	});
+        conn.query("exec NameOfStoredProcedure", function (err, results) {
+            if (err) {
+            console.log("Error running query8!");
+            return;
+        }
+        });
+    });
 
 
 ## Next steps
 
 For more information, see the [Node.js Developer Center](/develop/nodejs/).
+

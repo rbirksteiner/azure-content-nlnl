@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Analyze sensor data using Hive and Hadoop | Microsoft Azure"
-	description="Learn how to analyze sensor data by using the Hive Query Console with HDInsight (Hadoop), then visualize the data in Microsoft Excel with PowerView."
-	services="hdinsight"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="paulettm"
-	editor="cgronlun"
-	tags="azure-portal"/>
+    pageTitle="Analyze sensor data using Hive and Hadoop | Microsoft Azure"
+    description="Learn how to analyze sensor data by using the Hive Query Console with HDInsight (Hadoop), then visualize the data in Microsoft Excel with PowerView."
+    services="hdinsight"
+    documentationCenter=""
+    authors="Blackmist"
+    manager="paulettm"
+    editor="cgronlun"
+    tags="azure-portal"/>
 
 <tags
-	ms.service="hdinsight"
-	ms.workload="big-data"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/04/2015" 
-	ms.author="larryfr"/>
+    ms.service="hdinsight"
+    ms.workload="big-data"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/04/2015" 
+    ms.author="larryfr"/>
 
 #Analyze sensor data using the Hive Query Console on Hadoop in HDInsight
 
@@ -38,7 +38,7 @@ In this sample, you'll use Hive to process historical data produced by heating, 
 
 * Microsoft Excel 2013
 
-	> [AZURE.NOTE] Microsoft Excel is used for data visualization with [Power View](https://support.office.com/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=en-US&rs=en-US&ad=US).
+    > [AZURE.NOTE] Microsoft Excel is used for data visualization with [Power View](https://support.office.com/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=en-US&rs=en-US&ad=US).
 
 * [Microsoft Hive ODBC Driver](http://www.microsoft.com/download/details.aspx?id=40886)
 
@@ -46,10 +46,11 @@ In this sample, you'll use Hive to process historical data produced by heating, 
 
 1. From your web browser, navigate to the following URL. Replace `<clustername>` with the name of your HDInsight cluster.
 
-	 	https://<clustername>.azurehdinsight.net
+        https://<clustername>.azurehdinsight.net
 
-	When prompted, authenticate by using the administrator user name and password you used when provisioning this cluster.
+    When prompted, authenticate by using the administrator user name and password you used when provisioning this cluster.
 
 2. From the web page that opens, click the **Getting Started Gallery** tab, and then under the **Solutions with Sample Data** category, click the **Sensor Data Analysis** sample.
 
 3. Follow the instructions provided on the web page to finish the sample.
+

@@ -98,13 +98,13 @@ Let us now use Business Rules to implement this business logic.
 4. Select the *Create* button
 ![Alt text][3]
 1. In the new blade that opens, enter the following information:  
-	1. Name – give a name for your Rules API App
-	1. App Service Plan – select or create a new App Service Plan
-	1. Pricing Tier – Choose the pricing tier you want this App to reside in
-	1. Resource Group – Select or create Resource group where the App should reside in
-	2. Subscription - Select the Subscription you wish to use
-	1. Location – Choose the geographic location where you would like the App to be deployed.
-4.	Select *Create*. Within a few minutes your BizTalk Rules API App would be created.
+    1. Name – give a name for your Rules API App
+    1. App Service Plan – select or create a new App Service Plan
+    1. Pricing Tier – Choose the pricing tier you want this App to reside in
+    1. Resource Group – Select or create Resource group where the App should reside in
+    2. Subscription - Select the Subscription you wish to use
+    1. Location – Choose the geographic location where you would like the App to be deployed.
+4.  Select *Create*. Within a few minutes your BizTalk Rules API App would be created.
 
 ##Vocabulary Creation
 After creating a BizTalk Rules API App, the next step would be to create vocabularies. The expectation is that the developer is the more common persona to be doing this exercise. Here's how to get this done:
@@ -119,24 +119,24 @@ After creating a BizTalk Rules API App, the next step would be to create vocabul
 There are 2 types of vocabulary definitions currently supported – Literal and XML.
 
 ##Literal Definition
-1.	After clicking on “Add”, a new “Add Definition” Blade Opens up. Enter the following values
-  1.	Name – only alphanumeric characters are expected without any special characters. This should also be unique to your existing vocabulary definition list.
-  2.	Description – optional field.
-  3.	Definition Type – there are 2 types supported. Choose Literal in this example
-  4.	Data type – this allows users to select the data type of the definition. Currently 4 data types are supported:
-    i.	String – these values must be entered in double quotes (“Example String”)  
-    ii.	Boolean – this can either be true or false  
-    iii.	Number – can be any decimal number  
-    iv.	DateTime – this means that the def is of type date type. Data must be entered using this format – mm/dd/yyyy hh:mm:ss AM\PM  
+1.  After clicking on “Add”, a new “Add Definition” Blade Opens up. Enter the following values
+  1.    Name – only alphanumeric characters are expected without any special characters. This should also be unique to your existing vocabulary definition list.
+  2.    Description – optional field.
+  3.    Definition Type – there are 2 types supported. Choose Literal in this example
+  4.    Data type – this allows users to select the data type of the definition. Currently 4 data types are supported:
+    i.  String – these values must be entered in double quotes (“Example String”)  
+    ii. Boolean – this can either be true or false  
+    iii.    Number – can be any decimal number  
+    iv. DateTime – this means that the def is of type date type. Data must be entered using this format – mm/dd/yyyy hh:mm:ss AM\PM  
   5. Input – This is where you enter the value of your definition. The values entered here must conform to the chosen data type. You can either enter a single value, a set of values separated by commas, or a range of values using the keyword *to*. For example, you can enter unique value 1; a set 1, 2, 3; or a range 1 to 5. Note that range is only supported for numbers.
   6. Select *OK*.
 
 ![Alt text][5]
 ##XML Definition
 If Vocabulary Type is chosen as XML, the following inputs needs to be specified  
-  a.	Schema – Clicking on this will open a new blade allowing user to either choose from a list of already uploaded schemas or allowing to upload a new one.
-  b.	XPATH – this input gets unlocked only after choosing a schema in the previous step. Clicking on this will display the schema that was selected and allows the user to select the node for which a vocabulary definition needs to be created.  
-  c.	FACT – This input identifies which data object would be fed to the rules engine for processing. This is an advanced property and by default is set to the parent of the selected XPATH. FACT becomes particularly important for chaining and collection scenarios.
+  a.    Schema – Clicking on this will open a new blade allowing user to either choose from a list of already uploaded schemas or allowing to upload a new one.
+  b.    XPATH – this input gets unlocked only after choosing a schema in the previous step. Clicking on this will display the schema that was selected and allows the user to select the node for which a vocabulary definition needs to be created.  
+  c.    FACT – This input identifies which data object would be fed to the rules engine for processing. This is an advanced property and by default is set to the parent of the selected XPATH. FACT becomes particularly important for chaining and collection scenarios.
 
 ![Alt text][6]
 
@@ -150,24 +150,24 @@ The names for the multiple definitions created will default to the name of the n
 
 ##Policy Creation
 Once the developer has created required vocabularies, the expectation is that the Business Analyst would be the one creating Business Policies via the Azure Portal.  
-	1.	On the Rules App created, there is a Policy lens clicking which the user will go into the Policy creation page.  
-	2.	This page will show the list of policies this particular Rules App has. The analyst can add a new Policy by simply typing a policy name and hitting tab twice. Multiple policies can reside in a single Rules API App.  
-	3.	Selecting the created Policy will take the user to the Policy details page where one can see the rules that are in the policy.  
-	![Alt text][8]
-	4.	Select “Add” to add a new rule. This will take you to a new blade.
+    1.  On the Rules App created, there is a Policy lens clicking which the user will go into the Policy creation page.  
+    2.  This page will show the list of policies this particular Rules App has. The analyst can add a new Policy by simply typing a policy name and hitting tab twice. Multiple policies can reside in a single Rules API App.  
+    3.  Selecting the created Policy will take the user to the Policy details page where one can see the rules that are in the policy.  
+    ![Alt text][8]
+    4.  Select “Add” to add a new rule. This will take you to a new blade.
 
 ##Rule Creation
 A rule is collection of condition and action statements. The actions are executed if the condition evaluates to true. In the Create Rule blade, give a unique rule name (for that policy) and description (optional).
 The Condition (IF) box can be used to create complex conditional statements. Following are the keywords supported:  
-1. 	And – conditional operator  
-2. 	Or – conditional operator  
-3. 	does\_not\_exist  
-4. 	exists  
-5. 	false  
-6. 	is\_equal\_to  
-7. 	is\_greater\_than  
-8. 	is\_greater\_than\_equal\_to  
-9. 	is\_in  
+1.  And – conditional operator  
+2.  Or – conditional operator  
+3.  does\_not\_exist  
+4.  exists  
+5.  false  
+6.  is\_equal\_to  
+7.  is\_greater\_than  
+8.  is\_greater\_than\_equal\_to  
+9.  is\_in  
 10. is\_less\_than  
 11. is\_less\_than\_equal\_to  
 12. is\_not\_in  
@@ -176,21 +176,21 @@ The Condition (IF) box can be used to create complex conditional statements. Fol
 15. true  
 
 The Action(THEN) box can contain multiple statements, one per line, to create actions that are to be executed. Following are the keywords supported:  
-1.	equals  
-2.	false  
-3.	true  
-4.	halt  
-5.	mod  
-6.	null  
-7.	update  
+1.  equals  
+2.  false  
+3.  true  
+4.  halt  
+5.  mod  
+6.  null  
+7.  update  
 
 The condition and action boxes provide Intellisense to help you author a rule quickly. This can be triggered by hitting ctrl+space or by just starting to type. Keywords matching typed characters will automatically be filtered down and shown. The intellisense window will show all keywords and vocabulary definitions.
 ![Alt text][9]
 
 ##Explicit Forward Chaining
 BizTalk Rules supports explicit forward chaining so, if users would like to re-evaluate rules in response to certain actions, they can trigger this by using certain keywords. The following are the keywords supported:  
-   1.	update <vocabulary definition> – this keyword re-evaluates all rules that use the specified vocabulary definition in its condition.  
-   2.	Halt – this keyword stops all rule executions
+   1.   update <vocabulary definition> – this keyword re-evaluates all rules that use the specified vocabulary definition in its condition.  
+   2.   Halt – this keyword stops all rule executions
 
 ##Enable\Disable Rules
 Each rule in the policy can be enabled or disabled. By default all rules are enabled. Disabled rules wont be executed during policy execution. Enable\Disable rules can be done either from the rule blade directly – the commands are available in the command bar at the top of the blade, or from the policy, the context menu (right-click on a rule) has the option to enable\disable.
@@ -211,16 +211,16 @@ The Rules API App can also be invoked using a rich set of APIs. This way users a
 
 Following is an example of how one might use this API in C#
 
-   			// Constructing the JSON message to use in API call to Rules API App
+            // Constructing the JSON message to use in API call to Rules API App
 
-			// xmlInstance is the XML message instance to be passed as input to our Policy
+            // xmlInstance is the XML message instance to be passed as input to our Policy
             string xmlInstance = "<ns0:Patient xmlns:ns0=\"http://tempuri.org/XMLSchema.xsd\">  <ns0:Name>Name_0</ns0:Name>  <ns0:Email>Email_0</ns0:Email>  <ns0:PatientID>PatientID_0</ns0:PatientID>  <ns0:Age>10.4</ns0:Age>  <ns0:Claim>    <ns0:ClaimDate>2012-05-31T13:20:00.000-05:00</ns0:ClaimDate>    <ns0:ClaimID>10</ns0:ClaimID>    <ns0:TreatmentID>12</ns0:TreatmentID>    <ns0:ClaimAmount>10000.0</ns0:ClaimAmount>    <ns0:ClaimStatus>ClaimStatus_0</ns0:ClaimStatus>    <ns0:ClaimStatusReason>ClaimStatusReason_0</ns0:ClaimStatusReason>  </ns0:Claim></ns0:Patient>";
 
             JObject input = new JObject();
 
-			// The JSON object is to be of form {"<XMLSchemName>_<RootNodeName>":"<XML Instance String>".
-			// In the below case, we are using XML Schema - "insruanceclaimsschema" and the root node is "Patient".
-			// This is CASE SENSITIVE.
+            // The JSON object is to be of form {"<XMLSchemName>_<RootNodeName>":"<XML Instance String>".
+            // In the below case, we are using XML Schema - "insruanceclaimsschema" and the root node is "Patient".
+            // This is CASE SENSITIVE.
             input.Add("insuranceclaimschema_Patient", xmlInstance);
             string stringContent = JsonConvert.SerializeObject(input);
 
@@ -228,7 +228,7 @@ Following is an example of how one might use this API in C#
             // Making REST call to Rules API App
             HttpClient httpClient = new HttpClient();
 
-			// The url is the Host URL of the Rules API App
+            // The url is the Host URL of the Rules API App
             httpClient.BaseAddress = new Uri("https://rulesservice77492755b7b54c3f9e1df8ba0b065dc6.azurewebsites.net/");
             HttpContent httpContent = new StringContent(stringContent);
             httpContent.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
@@ -255,3 +255,4 @@ One of the main advantages of using Business Rules is that changes to business l
 [9]: ./media/app-service-logic-use-biztalk-rules/RuleCreate.PNG
 [10]: ./media/app-service-logic-use-biztalk-rules/APIDef.PNG
 [11]: ./media/app-service-logic-use-biztalk-rules/PublicAnon.PNG
+

@@ -81,7 +81,7 @@ Complete the following steps if one of the controllers in your Microsoft Azure S
 
     >[AZURE.NOTE] The failed controller in a single controller replacement is always a standby controller.
 
-3. Use Figure 1 and the following table to locate the failed controller module.  
+3. Use Figure 1 and the following table to locate the failed controller module.  
 
     ![Backplane of device primary enclosure modules](./media/storsimple-controller-replacement/IC740994.png)
 
@@ -121,7 +121,7 @@ In a dual controller replacement, you first remove both failed controllers and t
    2. Is it a part of the cluster?
 
    3. Is the peer controller running and is it clustered?
-							
+                            
     If none of these conditions are true, the controller looks for the latest daily backup (located in the **nonDOMstorage** on drive S). The controller copies the latest snapshot of the VHD from the backup.
 
 2. The controller in slot 0 uses the snapshot to image itself.
@@ -143,7 +143,7 @@ This workflow is required when both of the controllers in your Microsoft Azure S
 #### To replace both controller modules
 
 1. If the device is turned off, skip this step and proceed to the next step. If the device is turned on, turn off the device.
-										
+                                        
     1. If you are using a 8600 model, turn off the primary enclosure first, and then turn off the EBOD enclosure.
 
     2. Wait until the device has shut down completely. All the LEDs in the back of the device will be off.
@@ -188,7 +188,7 @@ Use the following procedure to remove a faulty controller module from your StorS
 
     ![Sliding controller out of chassis](./media/storsimple-controller-replacement/IC741048.png)
 
-    **Figure 3** Sliding the controller out of the chassis
+    **Figure 3** Sliding the controller out of the chassis
 
 ## Insert a controller
 
@@ -202,7 +202,7 @@ Use the following procedure to install a factory-supplied controller module afte
 
     ![Sliding controller into chassis](./media/storsimple-controller-replacement/IC741053.png)
 
-    **Figure 4** Sliding controller into the chassis
+    **Figure 4** Sliding controller into the chassis
 
 3. With the controller module inserted, begin closing the latch while continuing to push the controller module into the chassis. The latch will engage to guide the controller into place.
 
@@ -254,7 +254,7 @@ If this LED is blinking, the controller is active and the other controller is in
 
 ![Device primary enclosure backplane with dataports](./media/storsimple-controller-replacement/IC741055.png)
 
-**Figure 8** Back of primary enclosure with data ports and monitoring LEDs
+**Figure 8** Back of primary enclosure with data ports and monitoring LEDs
 
 |Label|Description|
 |:----|:----------|

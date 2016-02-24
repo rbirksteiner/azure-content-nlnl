@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Using the Slack Connector in Logic Apps | Microsoft Azure App Service"
-	description="How to create and configure the Slack Connector or API app and use it in a logic app in Azure App Service"
-	authors="rajeshramabathiran" 
-	manager="dwrede" 
-	editor="" 
-	services="app-service\logic" 
-	documentationCenter=""/>
+    pageTitle="Using the Slack Connector in Logic Apps | Microsoft Azure App Service"
+    description="How to create and configure the Slack Connector or API app and use it in a logic app in Azure App Service"
+    authors="rajeshramabathiran" 
+    manager="dwrede" 
+    editor="" 
+    services="app-service\logic" 
+    documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/11/2015"
-	ms.author="rajram"/>
+    ms.service="app-service-logic"
+    ms.workload="integration"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/11/2015"
+    ms.author="rajram"/>
 
 # Get started with the Slack Connector and add it to your Logic App
 Connect to Slack channels and post messages to your team. Connectors can be used in Logic Apps as a part of a "workflow" to do different tasks. When you use the Slack Connector in your workflow, you can achieve a variety of scenarios using other connectors. For example, you can use the [Facebook Connector](app-service-logic-connector-facebook.md) in your workflow to post a message to your Slack channel. 
@@ -46,20 +46,20 @@ A connector can be created within a logic app or be created directly from the Az
 
 Once the Slack connector is created, you can add it as an action to your Logic App: 
 
-1.	Within your Logic app, open **Triggers and Actions**.  
-	[Create a new Logic App](app-service-logic-create-a-logic-app.md)
+1.  Within your Logic app, open **Triggers and Actions**.  
+    [Create a new Logic App](app-service-logic-create-a-logic-app.md)
 
-2.	The Slack connector is listed in the gallery on the right hand side:  
+2.  The Slack connector is listed in the gallery on the right hand side:  
 ![][2]
 
-3.	Select the Slack Connector you created to automatically add it to your logic app. 
-4.	Select **Authorize**. Sign-in to your Slack account. Towards the end, you are asked to give permission to your connector to access your Slack account. Select **Authorizify**:  
+3.  Select the Slack Connector you created to automatically add it to your logic app. 
+4.  Select **Authorize**. Sign-in to your Slack account. Towards the end, you are asked to give permission to your connector to access your Slack account. Select **Authorizify**:  
 ![][3]  
 ![][4]  
 ![][5]  
 ![][6]  
-	
-5.	You can now use the Slack connector in the flow. The Post Message action is available:  
+    
+5.  You can now use the Slack connector in the flow. The Post Message action is available:  
 ![][7]
 
 
@@ -99,3 +99,4 @@ You can also review performance statistics and control security to the connector
 [7]: ./media/app-service-logic-connector-slack/img7.PNG
 [8]: ./media/app-service-logic-connector-slack/img8.PNG
 [9]: ./media/app-service-logic-connector-slack/img9.PNG
+

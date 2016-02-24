@@ -1,22 +1,22 @@
 <properties 
-	pageTitle="Call a custom API in Logic Apps" 
-	description="Using your custom API hosted on App Service with Logic apps" 
-	authors="stepsic-microsoft-com" 
-	manager="dwrede" 
-	editor="" 
-	services="app-service\logic" 
-	documentationCenter=""/>
+    pageTitle="Call a custom API in Logic Apps" 
+    description="Using your custom API hosted on App Service with Logic apps" 
+    authors="stepsic-microsoft-com" 
+    manager="dwrede" 
+    editor="" 
+    services="app-service\logic" 
+    documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	
-	ms.topic="article"
-	ms.date="10/07/2015"
-	ms.author="stepsic"/>
-	
+    ms.service="app-service-logic"
+    ms.workload="integration"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    
+    ms.topic="article"
+    ms.date="10/07/2015"
+    ms.author="stepsic"/>
+    
 # Using your custom API hosted on App Service with Logic apps
 
 Although Logic apps has a rich set of 40+ connectors for a variety of services, you may want to call into your own custom API that can run your own code. One of the easiest and most scalable ways to host your own custom Web API's is to use App Service. This article covers how to call into any Web API hosted in an App Service Web app.
@@ -101,21 +101,21 @@ Once you have the client ID and tenant ID include the following as a sub resourc
 
 ```
 "resources" : [
-	{
-		"apiVersion" : "2015-08-01",
-		"name" : "web",
-		"type" : "config",
-		"dependsOn" : [
-			"[concat('Microsoft.Web/sites/','parameters('webAppName'))]"
-		],
-		"properties" : {
-			"siteAuthEnabled": true,
-			"siteAuthSettings": {
-			  "clientId": "<<clientID>>",
-			  "issuer": "https://sts.windows.net/<<tenantID>>/",
-			}
-		}
-	}
+    {
+        "apiVersion" : "2015-08-01",
+        "name" : "web",
+        "type" : "config",
+        "dependsOn" : [
+            "[concat('Microsoft.Web/sites/','parameters('webAppName'))]"
+        ],
+        "properties" : {
+            "siteAuthEnabled": true,
+            "siteAuthSettings": {
+              "clientId": "<<clientID>>",
+              "issuer": "https://sts.windows.net/<<tenantID>>/",
+            }
+        }
+    }
 ]
 ```
 

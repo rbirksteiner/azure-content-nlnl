@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Configure a custom domain name in Azure App Service"
-	description="Learn how to use a custom domain name with a web app in Azure App Service."
-	services="app-service"
-	documentationCenter=""
-	authors="cephalin"
-	manager="wpickett"
-	editor="jimbe"
-	tags="top-support-issue"/>
+    pageTitle="Configure a custom domain name in Azure App Service"
+    description="Learn how to use a custom domain name with a web app in Azure App Service."
+    services="app-service"
+    documentationCenter=""
+    authors="cephalin"
+    manager="wpickett"
+    editor="jimbe"
+    tags="top-support-issue"/>
 
 <tags
-	ms.service="app-service"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/23/2015"
-	ms.author="cephalin"/>
+    ms.service="app-service"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/23/2015"
+    ms.author="cephalin"/>
 
 # Configure a custom domain name in Azure App Service
 
@@ -68,20 +68,20 @@ If the IP address changes, a CNAME entry is still valid, whereas an A record mus
 
 Skip this step if you are creating a CNAME record. To create an A record, you need the virtual IP address of your web app. To get the IP address:
 
-1.	In your browser, open the [Azure Portal](https://portal.azure.com).
-2.	Click the **Browse** option on the left side of the page.
-3.	Click the **Web Apps** blade.
-4.	Click the name of your web app.
-5.	In the **Essentials** page, click **All settings**.
-6.	Click **Custom domains and SSL**.
-7.	In the **Custom domains and SSL** blade, click **Bring External Domains"**. The IP address is located at the bottom of this part.
+1.  In your browser, open the [Azure Portal](https://portal.azure.com).
+2.  Click the **Browse** option on the left side of the page.
+3.  Click the **Web Apps** blade.
+4.  Click the name of your web app.
+5.  In the **Essentials** page, click **All settings**.
+6.  Click **Custom domains and SSL**.
+7.  In the **Custom domains and SSL** blade, click **Bring External Domains"**. The IP address is located at the bottom of this part.
 
 ## Create the DNS records
 
 Log in to your domain registrar and use their tool to add an A record or CNAME record. Every registrar’s web app is slightly different, but here are some general guidelines.
 
-1.	Find the page for managing DNS records. Look for links or areas of the site labeled **Domain Name**, **DNS**, or **Name Server Management**. Often the link can be found be viewing your account information, and then looking for a link such as **My domains**.
-2.	When you find the management page, look for a link that lets you add or edit DNS records. This might be listed as a **Zone file**, **DNS Records**, or as an **Advanced** configuration link.
+1.  Find the page for managing DNS records. Look for links or areas of the site labeled **Domain Name**, **DNS**, or **Name Server Management**. Often the link can be found be viewing your account information, and then looking for a link such as **My domains**.
+2.  When you find the management page, look for a link that lets you add or edit DNS records. This might be listed as a **Zone file**, **DNS Records**, or as an **Advanced** configuration link.
 
 The page might list A records and CNAME records separately, or else provide a drop-down to select the record type. Also, it might use other names for the record types, such as **IP Address record** instead of A record, or **Alias Record** instead of CNAME record.  Usually the registrar creates some records for you, so there may already be records for the root domain or common subdomains, such as **www**.
 
@@ -154,3 +154,4 @@ For more information please see: [Get started with Azure DNS](../dns/dns-getstar
 
 <!-- Images -->
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
+

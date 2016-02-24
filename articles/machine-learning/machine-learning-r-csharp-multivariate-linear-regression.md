@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Multivariate Linear Regression | Microsoft Azure" 
-	description="Multivariate Linear Regression" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="jaymathe" 
-	manager="paulettm" 
-	editor="cgronlun"/>
+    pageTitle="Multivariate Linear Regression | Microsoft Azure" 
+    description="Multivariate Linear Regression" 
+    services="machine-learning" 
+    documentationCenter="" 
+    authors="jaymathe" 
+    manager="paulettm" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/24/2015" 
-	ms.author="jaymathe"/> 
+    ms.service="machine-learning" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/24/2015" 
+    ms.author="jaymathe"/> 
 
 
 #Multivariate Linear Regression   
@@ -43,31 +43,31 @@ There are multiple ways of consuming the service in an automated fashion (an exa
 
 ###Starting C# code for web service consumption:
 
-	public class Input
-	{
-	        public string value;
-	}
-	
-	public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
-	{
-	        byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
-	        return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
-	}
-	
-	void Main()
-	{
-	        var input = new Input() { value = TextBox1.Text };
-	        var json = JsonConvert.SerializeObject(input);
-	        var acitionUri = "PutAPIURLHere,e.g.https://api.datamarket.azure.com/..../v1/Score";
-	        var httpClient = new HttpClient();
-	
-	        httpClient.DefaultRequestHeaders.Authorization = CreateBasicHeader("PutEmailAddressHere", "ChangeToAPIKey");
-	        httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-	
-	        var response = httpClient.PostAsync(acitionUri, new StringContent(json));
-	        var result = response.Result.Content;
-	    	var scoreResult = result.ReadAsStringAsync().Result;
-	}
+    public class Input
+    {
+            public string value;
+    }
+    
+    public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
+    {
+            byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
+            return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
+    }
+    
+    void Main()
+    {
+            var input = new Input() { value = TextBox1.Text };
+            var json = JsonConvert.SerializeObject(input);
+            var acitionUri = "PutAPIURLHere,e.g.https://api.datamarket.azure.com/..../v1/Score";
+            var httpClient = new HttpClient();
+    
+            httpClient.DefaultRequestHeaders.Authorization = CreateBasicHeader("PutEmailAddressHere", "ChangeToAPIKey");
+            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+    
+            var response = httpClient.PostAsync(acitionUri, new StringContent(json));
+            var result = response.Result.Content;
+            var scoreResult = result.ReadAsStringAsync().Result;
+    }
 
 
 
@@ -83,24 +83,24 @@ From within Azure Machine Learning, a new blank experiment was created and two [
 ####Module 1:
  
 ####Schema definition  
-	data <- data.frame(value = "1;2;3,4;5;6,7;8;9", stringsAsFactors=FALSE) maml.mapOutputPort("data");  
+    data <- data.frame(value = "1;2;3,4;5;6,7;8;9", stringsAsFactors=FALSE) maml.mapOutputPort("data");  
 
 ####Module 2:
 ####LM modeling   
-	data <- maml.mapInputPort(1) # class: data.frame  
+    data <- maml.mapInputPort(1) # class: data.frame  
   
-	data.split <- strsplit(data[1,1], ",")[[1]]  
-	data.split <- sapply(data.split, strsplit, ";", simplify = TRUE)  
-	data.split <- sapply(data.split, strsplit, ";", simplify = TRUE)  
-	data.split <- as.data.frame(t(data.split)) 
-	data.split <- data.matrix(data.split) 
-	data.split <- data.frame(data.split) 
-	model <- lm(data.split)  
+    data.split <- strsplit(data[1,1], ",")[[1]]  
+    data.split <- sapply(data.split, strsplit, ";", simplify = TRUE)  
+    data.split <- sapply(data.split, strsplit, ";", simplify = TRUE)  
+    data.split <- as.data.frame(t(data.split)) 
+    data.split <- data.matrix(data.split) 
+    data.split <- data.frame(data.split) 
+    model <- lm(data.split)  
 
-	out=data.frame(predict(model,data.split))  
-	out <- data.frame(t(out))
+    out=data.frame(predict(model,data.split))  
+    out <- data.frame(t(out))
 
-	maml.mapOutputPort("out");  
+    maml.mapOutputPort("out");  
  
 ##Limitations
 This is a very simple example of a multiple linear regression web service. As can be seen from the example code above, no error catching is implemented and the service assumes everything is a continuous variable (no categorical features allowed), as the service only inputs numeric values at the time of the creation of this web service. Also, the service currently handles limited data size, due to the request/response nature of the web service call and the fact that the model is being fit every time the web service is called. 
@@ -116,3 +116,4 @@ For frequently asked questions on consumption of the web service or publishing t
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
  
+

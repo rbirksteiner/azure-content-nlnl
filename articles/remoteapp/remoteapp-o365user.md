@@ -1,11 +1,11 @@
 
 <properties 
     pageTitle="How to use Azure RemoteApp with Office 365 user accounts | Microsoft Azure"
-	description="Learn how to use Azure RemoteApp with my Office 365 user accounts"
-	services="remoteapp"
-	documentationCenter="" 
-	authors="piotrci" 
-	manager="mbaldwin" />
+    description="Learn how to use Azure RemoteApp with my Office 365 user accounts"
+    services="remoteapp"
+    documentationCenter="" 
+    authors="piotrci" 
+    manager="mbaldwin" />
 
 <tags 
     ms.service="remoteapp" 
@@ -43,6 +43,7 @@ Follow the instructions described in [Change the Azure Active Directory tenant i
  
 
 At this point your Azure RemoteApp subscription is associated with your Office 365 Azure AD; you can use the existing Office 365 user accounts with Azure RemoteApp!
+
 
 
 

@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="mobile-android"
     ms.devlang="na"
     ms.topic="get-started-article"
-	ms.date="11/21/2015"
+    ms.date="11/21/2015"
     ms.author="awills"/>
 
 # Analytics for Android apps
@@ -25,4 +25,5 @@ Use [Application Insights SDK for Android](https://github.com/Microsoft/Applicat
 
 * [Get started with Application Insights for Android](https://github.com/Microsoft/ApplicationInsights-Android).
 * [Get started with HockeyApp for Android](http://support.hockeyapp.net/kb/client-integration-android/hockeyapp-for-android-sdk).
+
 

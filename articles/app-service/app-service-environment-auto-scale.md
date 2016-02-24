@@ -1,23 +1,23 @@
 <properties 
-	pageTitle="Auto scaling and App Service Environment" 
-	description="Auto scaling and App Service Environment" 
-	services="app-service"
-	documentationCenter=""
-	authors="btardif" 
-	manager="wpickett" 
-	editor="" 
+    pageTitle="Auto scaling and App Service Environment" 
+    description="Auto scaling and App Service Environment" 
+    services="app-service"
+    documentationCenter=""
+    authors="btardif" 
+    manager="wpickett" 
+    editor="" 
 />
 
 <tags 
-	ms.service="app-service" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/09/2015" 
-	ms.author="byvinyal"
+    ms.service="app-service" 
+    ms.workload="web" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/09/2015" 
+    ms.author="byvinyal"
 />
-	
+    
 #Auto scaling and App Service Environment
 
 ##Introduction
@@ -88,34 +88,34 @@ rules:
 
 ![][asp-scale]
 
-|	**Auto-scale Profile – Weekdays – App Service Plan**	|	**Auto-scale Profile – Weekends – App Service Plan**	|
-|	----------------------------------------------------	|	----------------------------------------------------	|
-|	**Name:** Weekday Profile								|	**Name:** Weekend Profile								|
-|	**Scale by:** Schedule and performance rules			|	**Scale by:** Schedule and performance rules			|
-|	**Profile:** Weekdays									|	**Profile:** Weekend									|
-|	**Type:** recurrence									|	**Type:** recurrence									|
-|	**Target Range:** 5 to 20 instances						|	**Target Range:** 3 to 10 instances						|
-|	**Days:** Monday, Tuesday, Wednesday, Thursday, Friday	|	**Days:** Saturday, Sunday								|
-|	**Start Time:** 9:00AM									|	**Start Time:** 9:00AM									|
-|	**Time zone:** UTC – 08									|	**Time zone:** UTC – 08									|
-|	                                                    	|	                                            	        |
-|	**Auto-scale Rule (Scale UP)**							|	**Auto-scale Rule (Scale UP)**							|
-|	**Resource:** Production (App Service Environment)		|	**Resource:** Production (App Service Environment)		|
-|	**Metric:** CPU %										|	**Metric:** CPU %										|
-|	**Operation:** Greater than 60%							|	**Operation:** Greater than 80%							|
-|	**Duration:** 5 Minutes									|	**Duration:** 10 Minutes								|
-|	**Time Aggregation:** Average							|	**Time Aggregation:** Average							|
-|	**Action:** Increase count by 2							|	**Action:** Increase count by 1							|
-|	**Cool down (minutes):** 15								|	**Cool down (minutes):** 20								|
-|	                                                    	|	                                            	        |
-|	**Auto-scale Rule (Scale DOWN)**						|	**Auto-scale Rule (Scale DOWN)**						|
-|	**Resource:** Production (App Service Environment)		|	**Resource:** Production (App Service Environment)		|
-|	**Metric:** CPU %										|	**Metric:** CPU %										|
-|	**Operation:** Lesser than 30%							|	**Operation:** Lesser than 20%							|
-|	**Duration:** 10 Minutes								|	**Duration:** 15 Minutes								|
-|	**Time Aggregation:** Average							|	**Time Aggregation:** Average							|
-|	**Action:** Decrease count by 1							|	**Action:** Decrease count by 1							|
-|	**Cool down (minutes):** 20								|	**Cool down (minutes):** 10								|
+|   **Auto-scale Profile – Weekdays – App Service Plan**    |   **Auto-scale Profile – Weekends – App Service Plan**    |
+|   ----------------------------------------------------    |   ----------------------------------------------------    |
+|   **Name:** Weekday Profile                               |   **Name:** Weekend Profile                               |
+|   **Scale by:** Schedule and performance rules            |   **Scale by:** Schedule and performance rules            |
+|   **Profile:** Weekdays                                   |   **Profile:** Weekend                                    |
+|   **Type:** recurrence                                    |   **Type:** recurrence                                    |
+|   **Target Range:** 5 to 20 instances                     |   **Target Range:** 3 to 10 instances                     |
+|   **Days:** Monday, Tuesday, Wednesday, Thursday, Friday  |   **Days:** Saturday, Sunday                              |
+|   **Start Time:** 9:00AM                                  |   **Start Time:** 9:00AM                                  |
+|   **Time zone:** UTC – 08                                 |   **Time zone:** UTC – 08                                 |
+|                                                           |                                                           |
+|   **Auto-scale Rule (Scale UP)**                          |   **Auto-scale Rule (Scale UP)**                          |
+|   **Resource:** Production (App Service Environment)      |   **Resource:** Production (App Service Environment)      |
+|   **Metric:** CPU %                                       |   **Metric:** CPU %                                       |
+|   **Operation:** Greater than 60%                         |   **Operation:** Greater than 80%                         |
+|   **Duration:** 5 Minutes                                 |   **Duration:** 10 Minutes                                |
+|   **Time Aggregation:** Average                           |   **Time Aggregation:** Average                           |
+|   **Action:** Increase count by 2                         |   **Action:** Increase count by 1                         |
+|   **Cool down (minutes):** 15                             |   **Cool down (minutes):** 20                             |
+|                                                           |                                                           |
+|   **Auto-scale Rule (Scale DOWN)**                        |   **Auto-scale Rule (Scale DOWN)**                        |
+|   **Resource:** Production (App Service Environment)      |   **Resource:** Production (App Service Environment)      |
+|   **Metric:** CPU %                                       |   **Metric:** CPU %                                       |
+|   **Operation:** Lesser than 30%                          |   **Operation:** Lesser than 20%                          |
+|   **Duration:** 10 Minutes                                |   **Duration:** 15 Minutes                                |
+|   **Time Aggregation:** Average                           |   **Time Aggregation:** Average                           |
+|   **Action:** Decrease count by 1                         |   **Action:** Decrease count by 1                         |
+|   **Cool down (minutes):** 20                             |   **Cool down (minutes):** 10                             |
 
 ###App Service Plan Inflation Rate
 **App Service plans** that are configured to auto-scale, will do so at a maximum rate per hour. This rate 
@@ -177,34 +177,34 @@ With this Information Frank can define the following Auto-scale Profile and Rule
 
 ![][Worker-Pool-Scale]
 
-|	**Auto-scale Profile – Weekdays**						|	**Auto-scale Profile – Weekends**				|
-|	----------------------------------------------------	|	--------------------------------------------	|
-|	**Name:** Weekday Profile								|	**Name:** Weekend Profile						|
-|	**Scale by:** Schedule and performance rules			|	**Scale by:** Schedule and performance rules	|
-|	**Profile:** Weekdays									|	**Profile:** Weekend							|
-|	**Type:** recurrence									|	**Type:** recurrence							|
-|	**Target Range:** 13 to 25 instances					|	**Target Range:** 6 to 15 instances				|
-|	**Days:** Monday, Tuesday, Wednesday, Thursday, Friday	|	**Days:** Saturday, Sunday						|
-|	**Start Time:** 7:00AM									|	**Start Time:** 9:00AM							|
-|	**Time zone:** UTC – 08									|	**Time zone:** UTC – 08							|
-|	                                                    	|	                                            	|
-|	**Auto-scale Rule (Scale UP)**							|	**Auto-scale Rule (Scale UP)**					|
-|	**Resource:** Worker Pool 1								|	**Resource:** Worker Pool 1						|
-|	**Metric:** WorkersAvailable							|	**Metric:** WorkersAvailable					|
-|	**Operation:** Less than 8								|	**Operation:** Less than 3						|
-|	**Duration:** 20 Minutes								|	**Duration:** 30 Minutes						|
-|	**Time Aggregation:** Average							|	**Time Aggregation:** Average					|
-|	**Action:** Increase count by 8							|	**Action:** Increase count by 3					|
-|	**Cool down (minutes):** 90								|	**Cool down (minutes):** 90						|
-|	                                                    	|	                                            	|
-|	**Auto-scale Rule (Scale DOWN)**						|	**Auto-scale Rule (Scale DOWN)**				|
-|	**Resource:** Worker Pool 1								|	**Resource:** Worker Pool 1						|
-|	**Metric:** WorkersAvailable							|	**Metric:** WorkersAvailable					|
-|	**Operation:** Greater than 8							|	**Operation:** Less than 3						|
-|	**Duration:** 20 Minutes								|	**Duration:** 15 Minutes						|
-|	**Time Aggregation:** Average							|	**Time Aggregation:** Average					|
-|	**Action:** Decrease count by 2							|	**Action:** Decrease count by 3					|
-|	**Cool down (minutes):** 90								|	**Cool down (minutes):** 90						|
+|   **Auto-scale Profile – Weekdays**                       |   **Auto-scale Profile – Weekends**               |
+|   ----------------------------------------------------    |   --------------------------------------------    |
+|   **Name:** Weekday Profile                               |   **Name:** Weekend Profile                       |
+|   **Scale by:** Schedule and performance rules            |   **Scale by:** Schedule and performance rules    |
+|   **Profile:** Weekdays                                   |   **Profile:** Weekend                            |
+|   **Type:** recurrence                                    |   **Type:** recurrence                            |
+|   **Target Range:** 13 to 25 instances                    |   **Target Range:** 6 to 15 instances             |
+|   **Days:** Monday, Tuesday, Wednesday, Thursday, Friday  |   **Days:** Saturday, Sunday                      |
+|   **Start Time:** 7:00AM                                  |   **Start Time:** 9:00AM                          |
+|   **Time zone:** UTC – 08                                 |   **Time zone:** UTC – 08                         |
+|                                                           |                                                   |
+|   **Auto-scale Rule (Scale UP)**                          |   **Auto-scale Rule (Scale UP)**                  |
+|   **Resource:** Worker Pool 1                             |   **Resource:** Worker Pool 1                     |
+|   **Metric:** WorkersAvailable                            |   **Metric:** WorkersAvailable                    |
+|   **Operation:** Less than 8                              |   **Operation:** Less than 3                      |
+|   **Duration:** 20 Minutes                                |   **Duration:** 30 Minutes                        |
+|   **Time Aggregation:** Average                           |   **Time Aggregation:** Average                   |
+|   **Action:** Increase count by 8                         |   **Action:** Increase count by 3                 |
+|   **Cool down (minutes):** 90                             |   **Cool down (minutes):** 90                     |
+|                                                           |                                                   |
+|   **Auto-scale Rule (Scale DOWN)**                        |   **Auto-scale Rule (Scale DOWN)**                |
+|   **Resource:** Worker Pool 1                             |   **Resource:** Worker Pool 1                     |
+|   **Metric:** WorkersAvailable                            |   **Metric:** WorkersAvailable                    |
+|   **Operation:** Greater than 8                           |   **Operation:** Less than 3                      |
+|   **Duration:** 20 Minutes                                |   **Duration:** 15 Minutes                        |
+|   **Time Aggregation:** Average                           |   **Time Aggregation:** Average                   |
+|   **Action:** Decrease count by 2                         |   **Action:** Decrease count by 3                 |
+|   **Cool down (minutes):** 90                             |   **Cool down (minutes):** 90                     |
 
 The Target range defined in the profile is calculated by the minimum instances defined in the 
 Profile for the **App Service plan** + buffer.
@@ -228,34 +228,34 @@ to prevent this he sets the auto-scale rule to increase instances as follows:
  
 ![][Front-End-Scale]
   
-|	**Auto-scale Profile – Front Ends**				|
-|	--------------------------------------------	|
-|	**Name:** Auto-scale – Front Ends				|
-|	**Scale by:** Schedule and performance rules	|
-|	**Profile:** Everyday							|
-|	**Type:** recurrence							|
-|	**Target Range:** 3 to 10 instances				|
-|	**Days:** Everyday								|
-|	**Start Time:** 9:00AM							|
-|	**Time zone:** UTC – 08							|
-|													|
-|	**Auto-scale Rule (Scale UP)**					|
-|	**Resource:** Front End Pool					|
-|	**Metric:** CPU %								|
-|	**Operation:** Greater than 60%					|
-|	**Duration:** 20 Minutes						|
-|	**Time Aggregation:** Average					|
-|	**Action:** Increase count by 3					|
-|	**Cool down (minutes):** 90						|
-|													|
-|	**Auto-scale Rule (Scale DOWN)**				|
-|	**Resource:** Worker Pool 1						|
-|	**Metric:** CPU %								|
-|	**Operation:** Lesser than 30%					|
-|	**Duration:** 20 Minutes						|
-|	**Time Aggregation:** Average					|
-|	**Action:** Decrease count by 3					|
-|	**Cool down (minutes):** 90						|
+|   **Auto-scale Profile – Front Ends**             |
+|   --------------------------------------------    |
+|   **Name:** Auto-scale – Front Ends               |
+|   **Scale by:** Schedule and performance rules    |
+|   **Profile:** Everyday                           |
+|   **Type:** recurrence                            |
+|   **Target Range:** 3 to 10 instances             |
+|   **Days:** Everyday                              |
+|   **Start Time:** 9:00AM                          |
+|   **Time zone:** UTC – 08                         |
+|                                                   |
+|   **Auto-scale Rule (Scale UP)**                  |
+|   **Resource:** Front End Pool                    |
+|   **Metric:** CPU %                               |
+|   **Operation:** Greater than 60%                 |
+|   **Duration:** 20 Minutes                        |
+|   **Time Aggregation:** Average                   |
+|   **Action:** Increase count by 3                 |
+|   **Cool down (minutes):** 90                     |
+|                                                   |
+|   **Auto-scale Rule (Scale DOWN)**                |
+|   **Resource:** Worker Pool 1                     |
+|   **Metric:** CPU %                               |
+|   **Operation:** Lesser than 30%                  |
+|   **Duration:** 20 Minutes                        |
+|   **Time Aggregation:** Average                   |
+|   **Action:** Decrease count by 3                 |
+|   **Cool down (minutes):** 90                     |
 
 <!-- IMAGES -->
 [intro]: ./media/app-service-environment-auto-scale/introduction.png
@@ -273,3 +273,4 @@ to prevent this he sets the auto-scale rule to increase instances as follows:
 [ASP-Total-Inflation]: ./media/app-service-environment-auto-scale/asp-total-inflation-rate.png
 [Worker-Pool-Scale]: ./media/app-service-environment-auto-scale/wp-scale.png
 [Front-End-Scale]: ./media/app-service-environment-auto-scale/fe-scale.png
+

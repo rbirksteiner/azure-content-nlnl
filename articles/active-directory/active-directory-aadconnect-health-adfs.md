@@ -1,21 +1,21 @@
 
 <properties 
-	pageTitle="Using Azure AD Connect Health with AD FS | Microsoft Azure" 
-	description="This is the Azure AD Connect Health page how to monitor your on-premises AD FS infrastructure." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
-	editor="curtand"/>
+    pageTitle="Using Azure AD Connect Health with AD FS | Microsoft Azure" 
+    description="This is the Azure AD Connect Health page how to monitor your on-premises AD FS infrastructure." 
+    services="active-directory" 
+    documentationCenter="" 
+    authors="billmath" 
+    manager="stevenpo" 
+    editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/14/2015" 
-	ms.author="billmath"/>
+    ms.service="active-directory" 
+    ms.workload="identity" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="get-started-article" 
+    ms.date="08/14/2015" 
+    ms.author="billmath"/>
 
 # Using Azure AD Connect Health with AD FS 
 The following documentation is specific to monitoring your AD FS infrastructure with Azure AD Connect Health.
@@ -73,3 +73,4 @@ By selecting the Filter option at the top of the blade, you can filter by server
 * [Azure AD Connect Health Operations](active-directory-aadconnect-health-operations.md)
 * [Using Azure AD Connect Health for sync](active-directory-aadconnect-health-sync.md)
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
+

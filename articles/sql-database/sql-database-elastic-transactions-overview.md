@@ -45,56 +45,56 @@ Remember that elastic database transactions do not require installing MSDTC. Ins
 
 ## Development experience
 
-###	Multi-database applications
+### Multi-database applications
 
 The following sample code uses the familiar programming experience with .NET System.Transactions. The TransactionScope class establishes an ambient transaction in .NET. (An “ambient transaction” is one that lives in the current thread.) All connections opened within the TransactionScope participate in the transaction. If different databases participate, the transaction is automatically elevated to a distributed transaction. The outcome of the transaction is controlled by setting the scope to complete to indicate a commit.
 
-	using (var scope = new TransactionScope())
-	{
-		using (var conn1 = new SqlConnection(connStrDb1))
-		{
-			conn1.Open();
-			SqlCommand cmd1 = conn1.CreateCommand();
-			cmd1.CommandText = string.Format("insert into T1 values(1)");
-			cmd1.ExecuteNonQuery();
-		}
+    using (var scope = new TransactionScope())
+    {
+        using (var conn1 = new SqlConnection(connStrDb1))
+        {
+            conn1.Open();
+            SqlCommand cmd1 = conn1.CreateCommand();
+            cmd1.CommandText = string.Format("insert into T1 values(1)");
+            cmd1.ExecuteNonQuery();
+        }
 
-		using (var conn2 = new SqlConnection(connStrDb2))
-		{
-			conn2.Open();
-			var cmd2 = conn2.CreateCommand();
-			cmd2.CommandText = string.Format("insert into T2 values(2)");
-			cmd2.ExecuteNonQuery();
-		}
+        using (var conn2 = new SqlConnection(connStrDb2))
+        {
+            conn2.Open();
+            var cmd2 = conn2.CreateCommand();
+            cmd2.CommandText = string.Format("insert into T2 values(2)");
+            cmd2.ExecuteNonQuery();
+        }
 
-		scope.Complete();
-	}
+        scope.Complete();
+    }
 
 ### Sharded database applications
  
 Elastic database transactions for SQL DB also support coordinating distributed transactions where you use the OpenConnectionForKey method of the elastic database client library to open connections for a scaled out data tier. Consider cases where you need to guarantee transactional consistency for changes across several different sharding key values. Connections to the shards hosting the different sharding key values are brokered using OpenConnectionForKey. In the general case, the connections can be to different shards such that ensuring transactional guarantees requires a distributed transaction. 
 The following code sample illustrates this approach. It assumes that a variable called shardmap is used to represent a shard map from the elastic database client library:
 
-	using (var scope = new TransactionScope())
-	{
-		using (var conn1 = shardmap.OpenConnectionForKey(tenantId1, credentialsStr))
-		{
-			conn1.Open();
-			SqlCommand cmd1 = conn1.CreateCommand();
-			cmd1.CommandText = string.Format("insert into T1 values(1)");
-			cmd1.ExecuteNonQuery();
-		}
-		
-		using (var conn2 = shardmap.OpenConnectionForKey(tenantId2, credentialsStr))
-		{
-			conn2.Open();
-			var cmd2 = conn2.CreateCommand();
-			cmd2.CommandText = string.Format("insert into T1 values(2)");
-			cmd2.ExecuteNonQuery();
-		}
+    using (var scope = new TransactionScope())
+    {
+        using (var conn1 = shardmap.OpenConnectionForKey(tenantId1, credentialsStr))
+        {
+            conn1.Open();
+            SqlCommand cmd1 = conn1.CreateCommand();
+            cmd1.CommandText = string.Format("insert into T1 values(1)");
+            cmd1.ExecuteNonQuery();
+        }
+        
+        using (var conn2 = shardmap.OpenConnectionForKey(tenantId2, credentialsStr))
+        {
+            conn2.Open();
+            var cmd2 = conn2.CreateCommand();
+            cmd2.CommandText = string.Format("insert into T1 values(2)");
+            cmd2.ExecuteNonQuery();
+        }
 
-		scope.Complete();
-	}
+        scope.Complete();
+    }
 
 
 ## Setup for Azure worker roles
@@ -103,24 +103,24 @@ You can automate the installation and deployment of the .NET version and librari
 
 Note that the installer for .NET 4.6.1 requires more temporary storage during the bootstrapping process on Azure cloud services than the installer for .NET 4.6. To ensure a successful installation, you need to increase temporary storage for your Azure cloud service in your ServiceDefinition.csdef file in the LocalResources section and the environment settings of your startup task, as shown in the following sample:
 
-	<LocalResources>
-	...
-		<LocalStorage name="TEMP" sizeInMB="5000" cleanOnRoleRecycle="false" />
-		<LocalStorage name="TMP" sizeInMB="5000" cleanOnRoleRecycle="false" />
-	</LocalResources>
-	<Startup>
-		<Task commandLine="install.cmd" executionContext="elevated" taskType="simple">
-			<Environment>
-		...
-				<Variable name="TEMP">
-					<RoleInstanceValue xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='TEMP']/@path" />
-				</Variable>
-				<Variable name="TMP">
-					<RoleInstanceValue xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='TMP']/@path" />
-				</Variable>
-			</Environment>
-		</Task>
-	</Startup>
+    <LocalResources>
+    ...
+        <LocalStorage name="TEMP" sizeInMB="5000" cleanOnRoleRecycle="false" />
+        <LocalStorage name="TMP" sizeInMB="5000" cleanOnRoleRecycle="false" />
+    </LocalResources>
+    <Startup>
+        <Task commandLine="install.cmd" executionContext="elevated" taskType="simple">
+            <Environment>
+        ...
+                <Variable name="TEMP">
+                    <RoleInstanceValue xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='TEMP']/@path" />
+                </Variable>
+                <Variable name="TMP">
+                    <RoleInstanceValue xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='TMP']/@path" />
+                </Variable>
+            </Environment>
+        </Task>
+    </Startup>
 
 ## Monitoring transaction status
 
@@ -147,6 +147,7 @@ Not yet using elastic database capabilities for your Azure applications? Check o
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png
+
 
 
 

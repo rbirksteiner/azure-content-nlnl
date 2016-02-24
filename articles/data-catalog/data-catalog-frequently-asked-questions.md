@@ -33,7 +33,7 @@ A: Microsoft **Azure Data Catalog** is a fully managed service hosted in the Mic
 **Azure Data Catalog** provides capabilities for technical and non-technical users, including:
 
 - Data Developers, BI and Analytics Professionals: Who are responsible for producing data and analytics content for others to consume
--	Data Stewards: Those who have the knowledge about the data, what it means and how it is intended to be used and for which purpose
+-   Data Stewards: Those who have the knowledge about the data, what it means and how it is intended to be used and for which purpose
 - Data Consumers: Those who need to be able to easily discover, understand and connect to data needed to do their job using the tool of their choice
 - Central IT: Those who need to make hundreds of data sources discoverable for the business users, and who need to maintain oversight over how data is being used and by whom
 
@@ -171,3 +171,4 @@ If you encounter problems or require assistance with the **Azure Data Catalog** 
 ## Q: My question isn’t answered here – what should I do?
 
 Head on over to the [Azure Data Catalog forum](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Questions asked there will find their way here.
+

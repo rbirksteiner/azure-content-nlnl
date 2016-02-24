@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Add the Google Drive API to PowerApps Enterprise | Microsoft Azure"
-	description="Create or configure a new Google Drive API in your organization's app service environment"
-	services=""
+    pageTitle="Add the Google Drive API to PowerApps Enterprise | Microsoft Azure"
+    description="Create or configure a new Google Drive API in your organization's app service environment"
+    services=""
     suite="powerapps"
-	documentationCenter="" 
-	authors="rajeshramabathiran"
-	manager="dwrede"
-	editor=""/>
+    documentationCenter="" 
+    authors="rajeshramabathiran"
+    manager="dwrede"
+    editor=""/>
 
 <tags
    ms.service="powerapps"
@@ -36,7 +36,7 @@
 ![Add API][2]
 
 6. Enter a descriptive **name** for your API.  
-	
+    
 7. In **Source**, select **Available APIs** to select the pre-built APIs, and select **Google Drive**:  
 ![select google drive api][3]
 
@@ -45,7 +45,7 @@
 
 9. Enter *App Key* and *App Secret* of your Google Drive application. If you don't have one, see the "Register a Google Drive app for use with PowerApps" section in this topic to create the key and secret values you need.  
 
-	> [AZURE.IMPORTANT] Save the **redirect URL**. You may need this value later in this topic.
+    > [AZURE.IMPORTANT] Save the **redirect URL**. You may need this value later in this topic.
 
 10. Select **OK** to complete the steps.
 
@@ -83,12 +83,12 @@ If you don't have an existing Google Drive app with the key and secret values, t
 
 10. In the create client id page:  
 
-	a) In **Application type**, select **Web application**.  
-	b) Enter a name for the client.  
-	c) Set the redirect URL to the redirect URL you received when you added the new Google Drive API in the Azure Portal (in this topic).  
-	d) Select **Create**.  
+    a) In **Application type**, select **Web application**.  
+    b) Enter a name for the client.  
+    c) Set the redirect URL to the redirect URL you received when you added the new Google Drive API in the Azure Portal (in this topic).  
+    d) Select **Create**.  
 
-	![Create client id][14] 
+    ![Create client id][14] 
 
 11. You are shown the client id and client secret of the registered application.
 

@@ -50,12 +50,12 @@ Following are the different actions available in SugarCRM connector:
 *Note*: For more details on the supported arguments in a query, refer to [SugarCRM REST API](https://msdn.microsoft.com/library/dn705870) documentation.
 
 ## Create a SugarCRM Connector API App
-1.	Navigate to portal.azure.com. Open the Azure Marketplace using the + NEW option at the top left corner of the Azure Portal.
-2.	Browse to “Marketplace > Everything” and search for “SugarCRM”.
-3.	Configure the SugarCRM Connector by providing the details for App Service Plan, the Resource Group and entering the name of the API App.
+1.  Navigate to portal.azure.com. Open the Azure Marketplace using the + NEW option at the top left corner of the Azure Portal.
+2.  Browse to “Marketplace > Everything” and search for “SugarCRM”.
+3.  Configure the SugarCRM Connector by providing the details for App Service Plan, the Resource Group and entering the name of the API App.
 4. Configure the SugarCRM Connector package settings. Following are the package settings you would need to provide to create the connector:
 
-	Name | Required | Description
+    Name | Required | Description
 --- | --- | ---
 Site URL | Yes | Enter the URL of your SugarCRM instance. For example, enter https://abcde1234.sugarcrm.com.
 Client Id | Yes | Enter the consumer key of OAUTH 2.0 key in SugarCRM. 
@@ -71,32 +71,32 @@ Module Names | Yes | Enter the SugarCRM modules (such as Accounts, Contacts, Pro
 ## Create a Logic App
 Let us create a simple logic app that creates an account in SugarCRM and updates billing address details of the same account.
 
-1.	Login to Azure Portal and click on ‘New -> Web + mobile -> Logic App’:  
+1.  Login to Azure Portal and click on ‘New -> Web + mobile -> Logic App’:  
 ![][1]
 
-2.	In the ‘Create logic app’ page, provide the required details such as name, app service plan and location:  
+2.  In the ‘Create logic app’ page, provide the required details such as name, app service plan and location:  
 ![][2]
 
-3.	Click on ‘Triggers and Actions’ and the Logic App editor screen comes up. Select ‘Run this logic manually’ which means that this logic app can be invoked only manually.
+3.  Click on ‘Triggers and Actions’ and the Logic App editor screen comes up. Select ‘Run this logic manually’ which means that this logic app can be invoked only manually.
 
-4.	Expand ‘API Apps in this resource group’ in Gallery to see all the available API Apps. Select ‘SugarCRM’ from the gallery and the ‘SugarCRM connector’ gets added to the flow:  
+4.  Expand ‘API Apps in this resource group’ in Gallery to see all the available API Apps. Select ‘SugarCRM’ from the gallery and the ‘SugarCRM connector’ gets added to the flow:  
 ![][3]
 
-5.	Select ‘Create Account’ action and the input parameters are displayed:  
+5.  Select ‘Create Account’ action and the input parameters are displayed:  
 ![][4]
 
-6.	Provide name as 'Microsoft Account' and click ✓:  
+6.  Provide name as 'Microsoft Account' and click ✓:  
 ![][5]
 
-7.	Select ‘SugarCRM Connector’ from the ‘Recently Used’ section in the gallery and a new SugarCRM action gets added.
+7.  Select ‘SugarCRM Connector’ from the ‘Recently Used’ section in the gallery and a new SugarCRM action gets added.
 
-8.	Select ‘Update Account’ (this will be under advanced actions '...') from the list of actions and the input parameters of ‘Update Account’ action are displayed:  
+8.  Select ‘Update Account’ (this will be under advanced actions '...') from the list of actions and the input parameters of ‘Update Account’ action are displayed:  
 ![][6]
 
-9.	Click on ‘...’ next to ‘Record Id’ to pick the "id" value from the output of ‘Create Account’ action:  
+9.  Click on ‘...’ next to ‘Record Id’ to pick the "id" value from the output of ‘Create Account’ action:  
 ![][7]
 
-10.	Provide values for billing address information and click ✓:  
+10. Provide values for billing address information and click ✓:  
 ![][8]
 
 11. Click on OK on Logic app editor screen and then click 'Create'. It will take approximately 30 seconds for the creation to complete.
@@ -124,3 +124,4 @@ You can also review performance statistics and control security to the connector
 [7]: ./media/app-service-logic-connector-sugarcrm/7_Record_ID_from_Create.png
 [8]: ./media/app-service-logic-connector-sugarcrm/8_Update_Account_Address.png
 [9]: ./media/app-service-logic-connector-sugarcrm/9_Create_new_SugarCRM_connector.png
+

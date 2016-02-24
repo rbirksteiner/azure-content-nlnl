@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure Batch service basics | Microsoft Azure"
-	description="Learn about the concepts, workflows, and scenarios of the Azure Batch service for large-scale parallel and HPC workloads"
-	services="batch"
-	documentationCenter=""
-	authors="dlepow"
-	manager="timlt"
-	editor=""/>
+    pageTitle="Azure Batch service basics | Microsoft Azure"
+    description="Learn about the concepts, workflows, and scenarios of the Azure Batch service for large-scale parallel and HPC workloads"
+    services="batch"
+    documentationCenter=""
+    authors="dlepow"
+    manager="timlt"
+    editor=""/>
 
 <tags
-	ms.service="batch"
-	ms.workload="big-compute"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="11/19/2015"
-	ms.author="danlep"/>
+    ms.service="batch"
+    ms.workload="big-compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="11/19/2015"
+    ms.author="danlep"/>
 
 # Basics of Azure Batch
 
@@ -78,17 +78,17 @@ Figure 2 shows a workflow that uses a Batch .NET client application to run a par
 
 **Figure 2. Scale out a parallel workload on Batch**
 
-1.	Upload input files (such as source data or images) required for a job to an Azure storage account. The Batch service will load files onto compute nodes when the job tasks run.
+1.  Upload input files (such as source data or images) required for a job to an Azure storage account. The Batch service will load files onto compute nodes when the job tasks run.
 
-2.	Upload the program files or scripts that will run on the compute nodes to the storage account. These might include binary files and their dependent assemblies. The Batch service will also load these files onto the compute nodes when the tasks run.
+2.  Upload the program files or scripts that will run on the compute nodes to the storage account. These might include binary files and their dependent assemblies. The Batch service will also load these files onto the compute nodes when the tasks run.
 
-3.	Programmatically create a pool of Batch compute nodes in your Batch account, specifying properties such as their size and the OS they run. You can also define how the number of nodes in the pool [scales up or down](batch-automatic-scaling.md) in response to the workload. When a task runs, it's assigned a node from this pool.
+3.  Programmatically create a pool of Batch compute nodes in your Batch account, specifying properties such as their size and the OS they run. You can also define how the number of nodes in the pool [scales up or down](batch-automatic-scaling.md) in response to the workload. When a task runs, it's assigned a node from this pool.
 
-4.	Programmatically define a Batch job to run the workload on the pool of nodes.
+4.  Programmatically define a Batch job to run the workload on the pool of nodes.
 
-5.	Add tasks to the job. Each task uses the program that you uploaded to process information from a file you uploaded. Depending on your workload, you might want to run [multiple tasks at the same time](batch-parallel-node-tasks.md) on each compute node to maximize resource usage. Batch also supports specialized [job preparation and completion tasks](batch-job-prep-release.md) to prepare the compute nodes before the scheduled tasks run and to clean up afterward.
+5.  Add tasks to the job. Each task uses the program that you uploaded to process information from a file you uploaded. Depending on your workload, you might want to run [multiple tasks at the same time](batch-parallel-node-tasks.md) on each compute node to maximize resource usage. Batch also supports specialized [job preparation and completion tasks](batch-job-prep-release.md) to prepare the compute nodes before the scheduled tasks run and to clean up afterward.
 
-6.	Run the Batch workload and monitor the progress and results. The application communicates over HTTPS with the Batch service. To improve application performance when monitoring large numbers of pools, jobs, and tasks, take advantage of [efficient techniques to query](batch-efficient-list-queries.md) the Batch service.
+6.  Run the Batch workload and monitor the progress and results. The application communicates over HTTPS with the Batch service. To improve application performance when monitoring large numbers of pools, jobs, and tasks, take advantage of [efficient techniques to query](batch-efficient-list-queries.md) the Batch service.
 
 
 
@@ -102,3 +102,4 @@ Figure 2 shows a workflow that uses a Batch .NET client application to run a par
 
 [parallel]: ./media/batch-technical-overview/parallel.png
 [work_item_workflow]: ./media/batch-technical-overview/work_item_workflow.png
+

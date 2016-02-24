@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Tutorial: Azure Active Directory integration with Mixpanel | Microsoft Azure"
-	description="Learn how to configure single sign-on between Azure Active Directory and Mixpanel."
-	services="active-directory"
-	documentationCenter=""
-	authors="ashimaabrol"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Tutorial: Azure Active Directory integration with Mixpanel | Microsoft Azure"
+    description="Learn how to configure single sign-on between Azure Active Directory and Mixpanel."
+    services="active-directory"
+    documentationCenter=""
+    authors="ashimaabrol"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/14/2015"
-	ms.author="v-aabrol"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/14/2015"
+    ms.author="v-aabrol"/>
 
 
 # Tutorial: Azure Active Directory integration with Mixpanel
@@ -203,16 +203,16 @@ In the Users list, select **Britta Simon**.<br><br>![Create Azure AD User][20]<b
 
 The objective of this section is to create a user called Britta Simon in Mixpanel. 
 
-1.	Sign-on to your Mixpanel company site as an administrator.
+1.  Sign-on to your Mixpanel company site as an administrator.
 
-2.	On the bottom of the page, click the little gear button on the left corner to open the **Settings** window.
+2.  On the bottom of the page, click the little gear button on the left corner to open the **Settings** window.
 
-3.	Click the **Team** tab.
+3.  Click the **Team** tab.
 
 4. In the **team member** textbox, type Britta's email address in the Azure.
    <br><br>![Mixpanel Settings](./media/active-directory-saas-mixpanel-tutorial/tutorial_mixpanel_11.png) <br>
 
-4.	Click **Invite**. 
+4.  Click **Invite**. 
 
 The user will get an email to set his profile up.
 
@@ -269,3 +269,4 @@ When you click the Mixpanel tile in the Access Panel, you should get automatical
 [203]: ./media/active-directory-saas-mixpanel-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-mixpanel-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-mixpanel-tutorial/tutorial_general_205.png
+

@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure AD Connect sync: Understand and customize synchronization | Microsoft Azure"
-	description="Explains how Azure AD Connect sync works and how to customize."
-	services="active-directory"
-	documentationCenter=""
-	authors="markusvi"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Azure AD Connect sync: Understand and customize synchronization | Microsoft Azure"
+    description="Explains how Azure AD Connect sync works and how to customize."
+    services="active-directory"
+    documentationCenter=""
+    authors="markusvi"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/13/2015"
-	ms.author="markusvi;andkjell"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/13/2015"
+    ms.author="markusvi;andkjell"/>
 
 
 # Azure AD Connect sync: Understand and customize synchronization
@@ -45,3 +45,4 @@ What do you want to do next?:
 ## Additional Resources
 
 * [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
+

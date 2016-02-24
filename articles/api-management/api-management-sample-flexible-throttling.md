@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Advanced request throttling with Azure API Management"
-	description="Learn how to create and apply flexible quota and rate limiting policies with Azure API Management."
-	services="api-management"
-	documentationCenter=""
-	authors="darrelmiller"
-	manager=""
-	editor=""/>
+    pageTitle="Advanced request throttling with Azure API Management"
+    description="Learn how to create and apply flexible quota and rate limiting policies with Azure API Management."
+    services="api-management"
+    documentationCenter=""
+    authors="darrelmiller"
+    manager=""
+    editor=""/>
 
 <tags
-	ms.service="api-management"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="12/16/2015"
-	ms.author="v-darmi"/>
+    ms.service="api-management"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="12/16/2015"
+    ms.author="v-darmi"/>
 
 
 # Advanced request throttling with Azure API Management
@@ -67,3 +67,4 @@ Azure API Management provides rate and quote throttling to both protect and add 
 
 ## Next steps
 Please give us your feedback in the Disqus thread for this topic. It would be great to hear about other potential key values that have been a logical choice in your scenarios.
+

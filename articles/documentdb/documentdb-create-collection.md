@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Create a DocumentDB database collection | Microsoft Azure" 
-	description="Learn how to create collections using the online service portal for Azure DocumentDB, a managed NoSQL document database for JSON. Get a free trial today." 
-	services="documentdb" 
-	authors="mimig1" 
-	manager="jhubbard" 
-	editor="monicar" 
-	documentationCenter=""/>
+    pageTitle="Create a DocumentDB database collection | Microsoft Azure" 
+    description="Learn how to create collections using the online service portal for Azure DocumentDB, a managed NoSQL document database for JSON. Get a free trial today." 
+    services="documentdb" 
+    authors="mimig1" 
+    manager="jhubbard" 
+    editor="monicar" 
+    documentationCenter=""/>
 
 <tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/28/2015" 
-	ms.author="mimig"/>
+    ms.service="documentdb" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/28/2015" 
+    ms.author="mimig"/>
 
 # Create a DocumentDB collection
 
@@ -30,7 +30,7 @@ To use Microsoft Azure DocumentDB, you must have a [DocumentDB account](document
     
 4. In the **Database** blade, click **Add collections**.
 
-	![Screen shot highlighting the Add Collection button on the Database blade, the settings on the Add Collection blade, and the OK button](./media/documentdb-create-collection/docdb-collection-creation-4-7.png)
+    ![Screen shot highlighting the Add Collection button on the Database blade, the settings on the Add Collection blade, and the OK button](./media/documentdb-create-collection/docdb-collection-creation-4-7.png)
 
 5. In the **Add Collection** blade, enter the ID for your new collection. When the name is validated, a green check mark appears in the ID box.
 
@@ -38,18 +38,18 @@ To use Microsoft Azure DocumentDB, you must have a [DocumentDB account](document
 
 7. Select one of the following **Indexing Policies**. 
 
-	- **Default**. This policy is best when you’re performing equality queries against strings and using ORDER BY, range, and equality queries for numbers.  This policy has a lower index storage overhead than **Range**.
-	- **Hash**. This policy is best when you’re performing equality queries for both numbers and strings.  This policy has the lowest index storage overhead.
-	- **Range**. This policy is best when you’re using ORDER BY, range and equality queries on both numbers and strings.  This policy has a higher index storage overhead than **Default** or **Hash**.
+    - **Default**. This policy is best when you’re performing equality queries against strings and using ORDER BY, range, and equality queries for numbers.  This policy has a lower index storage overhead than **Range**.
+    - **Hash**. This policy is best when you’re performing equality queries for both numbers and strings.  This policy has the lowest index storage overhead.
+    - **Range**. This policy is best when you’re using ORDER BY, range and equality queries on both numbers and strings.  This policy has a higher index storage overhead than **Default** or **Hash**.
 
-	For more information about the indexing policies, see [DocumentDB indexing policies](documentdb-indexing-policies.md).
+    For more information about the indexing policies, see [DocumentDB indexing policies](documentdb-indexing-policies.md).
 
 8. Click **OK** at the bottom of the screen to create the new collection. 
 
 
 9. The new collection now appears in the **Collections** lens on the **Database** blade.
  
-	![Screen shot of the new collection in the Database blade](./media/documentdb-create-collection/docdb-collection-creation-8.png)
+    ![Screen shot of the new collection in the Database blade](./media/documentdb-create-collection/docdb-collection-creation-8.png)
 
 ## Other ways to create a DocumentDB collection
 
@@ -64,3 +64,4 @@ Now that you have a collection, the next step is to add documents or import docu
 - Or you can add documents by using one of the [DocumentDB SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx). DocumentDB has .NET, Java, Python, Node.js, and JavaScript API SDKs. The [Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/DocumentManagement/Program.cs) file in the DocumentManagement project, available in the [azure-documentdb-net](https://github.com/Azure/azure-documentdb-net) repository on [GitHub.com](https://github.com), demonstrates CRUD operations on documents by using the DocumentDB .NET SDK.
 
 After you have documents in a collection, you can use [DocumentDB SQL](documentdb-sql-query.md) to [execute queries](documentdb-sql-query.md#executing-queries) against your documents by using the [Query Explorer](documentdb-query-collections-query-explorer.md) in the Portal, the [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx), or one of the [SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx). 
+

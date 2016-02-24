@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Clusterize MySQL with load-balanced sets | Microsoft Azure"
-	description="Setup a load-balanced, high availability Linux MySQL cluster created with the classic deployment model on Azure"
-	services="virtual-machines"
-	documentationCenter=""
-	authors="bureado"
-	manager="timlt"
-	editor=""
-	tags="azure-service-management"/>
+    pageTitle="Clusterize MySQL with load-balanced sets | Microsoft Azure"
+    description="Setup a load-balanced, high availability Linux MySQL cluster created with the classic deployment model on Azure"
+    services="virtual-machines"
+    documentationCenter=""
+    authors="bureado"
+    manager="timlt"
+    editor=""
+    tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="04/14/2015"
-	ms.author="jparrel"/>
+    ms.service="virtual-machines"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-linux"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="04/14/2015"
+    ms.author="jparrel"/>
 
 # Using load-balanced sets to clusterize MySQL on Linux
 
@@ -339,3 +339,4 @@ The following limitations apply:
 - Load balancer needs at least 5 seconds to respond, so applications should be cluster aware and be more tolerant of timeout; other architectures can also help, for example in-app queues, query middlewares, etc.
 - MySQL tuning is necessary to ensure writing is done at a sane pace and caches are flushed to disk as frequently as possible to minimize memory loss
 - Write performance will be dependent in VM interconnect in the virtual switch as this is the mechanism used by DRBD to replicate the device
+

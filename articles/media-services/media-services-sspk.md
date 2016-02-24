@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Licensing Microsoft® Smooth Streaming Client Porting Kit" 
-	description="Learn about how to licensing the Microsoft® Smooth Streaming Client Porting Kit." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="xpouyat,vsood" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="Licensing Microsoft® Smooth Streaming Client Porting Kit" 
+    description="Learn about how to licensing the Microsoft® Smooth Streaming Client Porting Kit." 
+    services="media-services" 
+    documentationCenter="" 
+    authors="xpouyat,vsood" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/30/2015"  
-	ms.author="xpouyat"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/30/2015"  
+    ms.author="xpouyat"/>
 
 #Licensing Microsoft® Smooth Streaming Client Porting Kit
 
@@ -34,17 +34,17 @@ SSPK is licensed on terms that offer excellent business value. SSPK license prov
   - implements Smooth Streaming Client functionality
   - adds format parsing, heuristics, buffering logic, etc.
 - Player application APIs 
-  -	programming interfaces for interaction with a media player application
+  - programming interfaces for interaction with a media player application
 - Platform Abstraction Layer (PAL) Interface 
-  -	programming interfaces for interaction with the operating system (threads, sockets)
+  - programming interfaces for interaction with the operating system (threads, sockets)
 - Hardware Abstraction Layer (HAL) Interface 
-  -	programming interfaces for interaction with hardware A/V decoders (decoding, rendering)
+  - programming interfaces for interaction with hardware A/V decoders (decoding, rendering)
 - Digital Rights Management (DRM) Interface 
-  -	programming interfaces for handling DRM through the DRM Abstraction Layer (DAL)
-  -	Microsoft PlayReady Porting Kit ships separately but integrates through this interface. For more details on Microsoft PlayReady Device licensing, click [here](http://www.microsoft.com/playready/licensing/device_technology.mspx#pddipdl).
+  - programming interfaces for handling DRM through the DRM Abstraction Layer (DAL)
+  - Microsoft PlayReady Porting Kit ships separately but integrates through this interface. For more details on Microsoft PlayReady Device licensing, click [here](http://www.microsoft.com/playready/licensing/device_technology.mspx#pddipdl).
 - Implementation samples 
-  -	sample PAL implementation for Linux
-  -	sample HAL implementation for GStreamer
+  - sample PAL implementation for Linux
+  - sample HAL implementation for GStreamer
 
 ##Licensing Options
 
@@ -192,3 +192,4 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 ##Provide feedback
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+

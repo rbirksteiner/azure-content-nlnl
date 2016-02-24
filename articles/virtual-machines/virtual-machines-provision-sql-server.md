@@ -1,22 +1,22 @@
 <properties 
-	pageTitle="Provision a SQL Server virtual machine | Microsoft Azure" 
-	description="This tutorial teaches you how to create and configure a SQL Server VM on Azure." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="rothja" 
-	manager="jeffreyg" 
-	editor="monicar"
-	tags="azure-service-management"
-	/>
+    pageTitle="Provision a SQL Server virtual machine | Microsoft Azure" 
+    description="This tutorial teaches you how to create and configure a SQL Server VM on Azure." 
+    services="virtual-machines" 
+    documentationCenter="" 
+    authors="rothja" 
+    manager="jeffreyg" 
+    editor="monicar"
+    tags="azure-service-management"
+    />
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-windows-sql-server" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/26/2015" 
-	ms.author="jroth"/>
+    ms.service="virtual-machines" 
+    ms.workload="infrastructure-services" 
+    ms.tgt_pltfrm="vm-windows-sql-server" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/26/2015" 
+    ms.author="jroth"/>
 
 # Provision a SQL Server virtual machine in Azure
 
@@ -48,7 +48,7 @@ In this tutorial, you will:
 
 3. On the **Choose an Image** page, click **SQL SERVER**. Then select a SQL Server image. Click the next arrow at the bottom right of the page. 
 
-	![Choose an Image](./media/virtual-machines-provision-sql-server/choose-sql-vm.png)
+    ![Choose an Image](./media/virtual-machines-provision-sql-server/choose-sql-vm.png)
 
 For the most up-to-date information on the supported SQL Server images on Azure, see [SQL Server on Azure Virtual Machines Overview](virtual-machines-sql-server-infrastructure-services.md).
 
@@ -58,31 +58,31 @@ For the most up-to-date information on the supported SQL Server images on Azure,
 > - Or, you can upgrade an existing instance of SQL Server Evaluation edition to a different edition of SQL Server under the [License Mobility through Software Assurance on Azure](http://azure.microsoft.com/pricing/license-mobility/) agreement by following the steps at [Upgrade to a Different Edition of SQL Server](https://msdn.microsoft.com/library/cc707783.aspx). For information on how to purchase the licensed copy of SQL Server, see [How to Buy SQL Server](http://www.microsoft.com/sqlserver/get-sql-server/how-to-buy.aspx).
 
 4. On the first **Virtual Machine Configuration** page, provide the following information:
-	- A **VERSION RELEASE DATE**. If multiple images are available, select the latest.
-	- A unique **VIRTUAL MACHINE NAME**.
-	- In the **NEW USER NAME** box, a unique user name for the machine's local administrator account.
-	- In the **NEW PASSWORD** box, type a strong password. 
-	- In the **CONFIRM PASSWORD** box, retype the password.
-	- Select the appropriate **SIZE** from the drop down list. 
+    - A **VERSION RELEASE DATE**. If multiple images are available, select the latest.
+    - A unique **VIRTUAL MACHINE NAME**.
+    - In the **NEW USER NAME** box, a unique user name for the machine's local administrator account.
+    - In the **NEW PASSWORD** box, type a strong password. 
+    - In the **CONFIRM PASSWORD** box, retype the password.
+    - Select the appropriate **SIZE** from the drop down list. 
 
-	![VM Configuration](./media/virtual-machines-provision-sql-server/4VM-Config.png)
+    ![VM Configuration](./media/virtual-machines-provision-sql-server/4VM-Config.png)
 
-	>[AZURE.NOTE] The size of the virtual machine is specified during provisioning:
- 	>
-	> - For production workloads, we recommend using Premium Storage with the following minimum recommended sizes: **DS3** for SQL Server Enterprise edition and **DS2** for SQL Server Standard edition. For more information, see [Performance Best Practices for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-performance-best-practices.md).
-	> - The selected size limits the number of data disks you can configure. For most up-to-date information on available virtual machine sizes and the number of data disks that you can attach to a virtual machine, see [Virtual Machine Sizes for Azure](virtual-machines-size-specs.md).
+    >[AZURE.NOTE] The size of the virtual machine is specified during provisioning:
+    >
+    > - For production workloads, we recommend using Premium Storage with the following minimum recommended sizes: **DS3** for SQL Server Enterprise edition and **DS2** for SQL Server Standard edition. For more information, see [Performance Best Practices for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-performance-best-practices.md).
+    > - The selected size limits the number of data disks you can configure. For most up-to-date information on available virtual machine sizes and the number of data disks that you can attach to a virtual machine, see [Virtual Machine Sizes for Azure](virtual-machines-size-specs.md).
 
 5. After entering your VM configuration details, click the next arrow on the bottom right to continue.
 
 5. On the second **Virtual machine configuration** page, configure resources for networking, storage, and availability:
-	- In the **Cloud Service** box, choose **Create a new cloud service**.
-	- In the **Cloud Service DNS Name** box, provide the first portion of a DNS name of your choice, so that it completes a name in the format **TESTNAME.cloudapp.net** 
-	- Select a **SUBSCRIPTION**, if you have multiple subscriptions to choose from. The choice determines which **storage accounts **are available.
-	- In the **REGION/AFFINITY GROUP/VIRTUAL NETWORK** box, select a region where this virtual image will be hosted.
-	- In the **Storage Account**, automatically generate an account, or select one from the list. Change the **SUBSCRIPTION** to see more accounts. 
-	- In the **AVAILABILITY SET** box, select **(none)**.
-	- Read and accept the legal terms.
-	
+    - In the **Cloud Service** box, choose **Create a new cloud service**.
+    - In the **Cloud Service DNS Name** box, provide the first portion of a DNS name of your choice, so that it completes a name in the format **TESTNAME.cloudapp.net** 
+    - Select a **SUBSCRIPTION**, if you have multiple subscriptions to choose from. The choice determines which **storage accounts **are available.
+    - In the **REGION/AFFINITY GROUP/VIRTUAL NETWORK** box, select a region where this virtual image will be hosted.
+    - In the **Storage Account**, automatically generate an account, or select one from the list. Change the **SUBSCRIPTION** to see more accounts. 
+    - In the **AVAILABILITY SET** box, select **(none)**.
+    - Read and accept the legal terms.
+    
 
 6. Click the next arrow to continue.
 
@@ -91,12 +91,12 @@ For the most up-to-date information on the supported SQL Server images on Azure,
 
 8. Wait while Azure prepares your virtual machine. Expect the virtual machine status to proceed through:
 
-	- **Starting (Provisioning)**
-	- **Stopped**
-	- **Starting (Provisioning)**
-	- **Running (Provisioning)**
-	- **Running**
-	
+    - **Starting (Provisioning)**
+    - **Stopped**
+    - **Starting (Provisioning)**
+    - **Running (Provisioning)**
+    - **Running**
+    
 
 ##<a id="RemoteDesktop">Open the VM using Remote Desktop to complete setup</a>
 
@@ -104,11 +104,11 @@ For the most up-to-date information on the supported SQL Server images on Azure,
 
 2. Click the **Open** button.
 
-	![Click the Open button](./media/virtual-machines-provision-sql-server/click-open-to-connect.png)
+    ![Click the Open button](./media/virtual-machines-provision-sql-server/click-open-to-connect.png)
 
 3. At the **Windows Security** dialog box, click **Use another account**.
 
-	![Click Use another account](./media/virtual-machines-provision-sql-server/credentials.png) 
+    ![Click Use another account](./media/virtual-machines-provision-sql-server/credentials.png) 
 
 4. Use the name of the machine as the domain name, followed by your administrator name in this format: `machinename\username`. Type your password and connect to the machine.
 
@@ -124,7 +124,7 @@ Once you are connected to the virtual machine with Windows Remote Desktop, the v
 
 If you can connect to an instance of SQL Server running on an Azure virtual machine by using Management Studio, you should be able to connect by using a connection string similar to the following.
 
-	connectionString = "Server=tutorialtestVM.cloudapp.net,57500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
+    connectionString = "Server=tutorialtestVM.cloudapp.net,57500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
 
 For more information, see [How to Troubleshoot Connecting to the SQL Server Database Engine](http://social.technet.microsoft.com/wiki/contents/articles/how-to-troubleshoot-connecting-to-the-sql-server-database-engine.aspx).
 
@@ -155,3 +155,4 @@ The following list provides additional resources for SQL Server in Azure virtual
 - [Understand Azure SQL Database and SQL Server in Azure Virtual Machines](sql-database/data-management-azure-sql-database-and-sql-server-iaas.md)
 
 - [Application Patterns and Development Strategies for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
+

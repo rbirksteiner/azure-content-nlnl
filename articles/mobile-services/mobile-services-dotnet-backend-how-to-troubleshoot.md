@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Troubleshoot the Mobile Services .NET Backend | Microsoft Azure"
-	description="Learn how to diagnose and fix issues with your mobile services using the .NET backend"
-	services="mobile-services"
-	documentationCenter=""
-	authors="wesmc7777"
-	manager="dwrede"
-	editor="mollybos"/>
+    pageTitle="Troubleshoot the Mobile Services .NET Backend | Microsoft Azure"
+    description="Learn how to diagnose and fix issues with your mobile services using the .NET backend"
+    services="mobile-services"
+    documentationCenter=""
+    authors="wesmc7777"
+    manager="dwrede"
+    editor="mollybos"/>
 
 <tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="multiple"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="12/01/2015" 
-	ms.author="wesmc;ricksal"/>
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="multiple"
+    ms.devlang="multiple"
+    ms.topic="article"
+    ms.date="12/01/2015" 
+    ms.author="wesmc;ricksal"/>
 
 # Troubleshoot the Mobile Services .NET Backend
 

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Configure the FMLE encoder to send a single bitrate live stream" 
-	description="This topic shows how to configure the Flash Media Live Encoder (FMLE) encoder to send a single bitrate stream to AMS channels that are enabled for live encoding." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako,cenkdin,anilmur" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="Configure the FMLE encoder to send a single bitrate live stream" 
+    description="This topic shows how to configure the Flash Media Live Encoder (FMLE) encoder to send a single bitrate stream to AMS channels that are enabled for live encoding." 
+    services="media-services" 
+    documentationCenter="" 
+    authors="Juliako,cenkdin,anilmur" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="ne" 
-	ms.topic="article" 
-	ms.date="10/15/2015"  
-	ms.author="juliako"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="ne" 
+    ms.topic="article" 
+    ms.date="10/15/2015"  
+    ms.author="juliako"/>
 
 #Use the FMLE encoder to send a single bitrate live stream
 
@@ -87,46 +87,46 @@ In this tutorial the following output settings are used. The rest of this sectio
 
 1. Navigate to the Flash Media Live Encoder’s (FMLE) interface on the machine being used.
 
-	The interface is one main page of settings. Please take note of the following recommended settings to get started with streaming using FMLE.
-	
-	- Format: H.264 Frame Rate: 30.00 
-	- Input Size: 1280 x 720 
-	- Bit Rate: 5000 Kbps (Can be adjusted based on network limitations)  
+    The interface is one main page of settings. Please take note of the following recommended settings to get started with streaming using FMLE.
+    
+    - Format: H.264 Frame Rate: 30.00 
+    - Input Size: 1280 x 720 
+    - Bit Rate: 5000 Kbps (Can be adjusted based on network limitations)  
 
-	![fmle](./media/media-services-fmle-live-encoder/media-services-fmle3.png)
+    ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle3.png)
 
-	When using interlaced sources, please checkmark the “Deinterlace” option
+    When using interlaced sources, please checkmark the “Deinterlace” option
 
 2. Select the wrench icon next to Format, these additional settings should be:
 
-	- Profile: Main
-	- Level: 4.0
-	- Keyframe Frequency: 2 seconds 
-	
-	![fmle](./media/media-services-fmle-live-encoder/media-services-fmle4.png)
+    - Profile: Main
+    - Level: 4.0
+    - Keyframe Frequency: 2 seconds 
+    
+    ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle4.png)
 
 3. Set the following important audio setting:
-	
-	- Format: AAC 
-	- Sample Rate: 44100 Hz
-	- Bitrate: 192 Kbps
-	
-	![fmle](./media/media-services-fmle-live-encoder/media-services-fmle5.png)
+    
+    - Format: AAC 
+    - Sample Rate: 44100 Hz
+    - Bitrate: 192 Kbps
+    
+    ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle5.png)
 
 6. Get the channel's input URL in order to assign it to the FMLE's **RTMP Endpoint**.
-	
-	Navigate back to the AMSE tool, and check on the channel completion status. Once the State has changed from **Starting** to **Running**, you can get the input URL.
-	  
-	When the channel is running, right click the channel name, navigate down to hover over **Copy Input URL to clipboard** and then select **Primary Input 
-	URL**.  
-	
-	![fmle](./media/media-services-fmle-live-encoder/media-services-fmle6.png)
+    
+    Navigate back to the AMSE tool, and check on the channel completion status. Once the State has changed from **Starting** to **Running**, you can get the input URL.
+      
+    When the channel is running, right click the channel name, navigate down to hover over **Copy Input URL to clipboard** and then select **Primary Input 
+    URL**.  
+    
+    ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle6.png)
 
 7. Paste this information in the **FMS URL** field of the output section, and assign a stream name. 
 
-	![fmle](./media/media-services-fmle-live-encoder/media-services-fmle7.png)
+    ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle7.png)
 
-	For extra redundancy, repeat these steps with the Secondary Input URL.
+    For extra redundancy, repeat these steps with the Secondary Input URL.
 8. Select **Connect**.
 
 >[AZURE.IMPORTANT] Before you click **Connect**, you **must** ensure that the Channel is ready. 
@@ -136,7 +136,7 @@ In this tutorial the following output settings are used. The rest of this sectio
   
 1. Navigate to the AMSE tool, and right click the channel to be tested. From the menu, hover over **Playback the Preview** and select **with Azure Media Player**.  
 
-	![fmle](./media/media-services-fmle-live-encoder/media-services-fmle8.png)
+    ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle8.png)
 
 If the stream appears in the player, then the encoder has been properly configured to connect to AMS. 
 
@@ -146,13 +146,13 @@ If an error is received, the channel will need to be reset and encoder settings 
 
 1. Once channel playback is confirmed, create a program. Under the **Live** tab in the AMSE tool, right click within the program area and select **Create New Program**.  
 
-	![fmle](./media/media-services-fmle-live-encoder/media-services-fmle9.png)
+    ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle9.png)
 
 2. Name the program and, if needed, adjust the **Archive Window Length** (which defaults to 4 hours). You can also specify a storage location or leave as the default.  
 3. Check the **Start the Program now** box.
 4. Click **Create Program**.  
   
-	Note: Program creation takes less time than channel creation.    
+    Note: Program creation takes less time than channel creation.    
  
 5. Once the program is running, confirm playback by right clicking the program and navigating to **Playback the program(s)** and then selecting **with Azure Media Player**.  
 6. Once confirmed, right click the program again and select **Copy the Output URL to Clipboard** (or retrieve this information from the **Program information and settings** option from the menu). 
@@ -172,3 +172,4 @@ Please see the [troubleshooting](media-services-troubleshooting-live-streaming.m
 ##Provide feedback
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+

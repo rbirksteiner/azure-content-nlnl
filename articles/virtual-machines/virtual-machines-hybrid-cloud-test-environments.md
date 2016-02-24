@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Hybrid cloud test environments in Azure | Microsoft Azure"
-	description="Find the articles that describe how to build dev/test or proof-of-concept IT pro environments for your Azure-based hybrid cloud."
-	documentationCenter=""
-	services="virtual-machines"
-	authors="JoeDavies-MSFT"
-	manager="timlt"
-	editor=""
-	tags="azure-service-management"/>
+    pageTitle="Hybrid cloud test environments in Azure | Microsoft Azure"
+    description="Find the articles that describe how to build dev/test or proof-of-concept IT pro environments for your Azure-based hybrid cloud."
+    documentationCenter=""
+    services="virtual-machines"
+    authors="JoeDavies-MSFT"
+    manager="timlt"
+    editor=""
+    tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="Windows"
-	ms.devlang="na"
-	ms.topic="index-page"
-	ms.date="09/16/2015"
-	ms.author="josephd"/>
+    ms.service="virtual-machines"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="Windows"
+    ms.devlang="na"
+    ms.topic="index-page"
+    ms.date="09/16/2015"
+    ms.author="josephd"/>
 
 # Azure hybrid cloud test environments
 
@@ -58,3 +58,4 @@ For organizations and individuals for which a direct Internet connection and pub
 [Deploy Office 365 Directory Synchronization (DirSync) in Microsoft Azure](https://technet.microsoft.com/library/dn635310.aspx)
 
 [Azure infrastructure services implementation guidelines](virtual-machines-infrastructure-services-implementation-guidelines.md)
+

@@ -69,10 +69,10 @@ If you're creating a new local network, you'll see the **Site-To-Site Connectivi
 
 Enter the following information and then click the next arrow.
 
-- 	**Name**: The name you want to call your local (on-premises) network site.
-- 	**VPN Device IP Address**: This is public facing IPv4 address of your on-premises VPN device that you'll use to connect to Azure. The VPN device cannot be located behind a NAT.
-- 	**Address Space**: Include Starting IP and CIDR (Address Count). This is where you specify the address range(s) that you want sent through the virtual network gateway to your local on-premises location. If a destination IP address falls within the ranges that you specify here, it will be routed through the virtual network gateway.
-- 	**Add address space**: If you have multiple address ranges that you want sent through the virtual network gateway, this is where you specify each additional address range. You can add or remove ranges later on the **Local Network** page.
+-   **Name**: The name you want to call your local (on-premises) network site.
+-   **VPN Device IP Address**: This is public facing IPv4 address of your on-premises VPN device that you'll use to connect to Azure. The VPN device cannot be located behind a NAT.
+-   **Address Space**: Include Starting IP and CIDR (Address Count). This is where you specify the address range(s) that you want sent through the virtual network gateway to your local on-premises location. If a destination IP address falls within the ranges that you specify here, it will be routed through the virtual network gateway.
+-   **Add address space**: If you have multiple address ranges that you want sent through the virtual network gateway, this is where you specify each additional address range. You can add or remove ranges later on the **Local Network** page.
 
 ## Virtual network address spaces page
 
@@ -99,3 +99,4 @@ Next, you'll configure the virtual network gateway in order to create a secure s
 You can add virtual machines to your virtual network. See [How to create a custom virtual machine](../virtual-machines/virtual-machines-create-custom.md).
 
 If you want to configure a connection between your classic virtual network and a virtual network created using the Azure Resource Manager mode, see [Connecting classic VNets to Azure Resource Manager VNets](../virtual-network/virtual-networks-arm-asm-s2s-howto.md).
+

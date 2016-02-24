@@ -167,26 +167,26 @@ From the Microsoft Azure portal, you can create your VM based on an approved bas
 
 4. Select the size of the VM to deploy:
 
-    a.	If you plan to develop the VHD on-premises, the size does not matter. Consider using one of the smaller VMs.
+    a.  If you plan to develop the VHD on-premises, the size does not matter. Consider using one of the smaller VMs.
 
-    b.	If you plan to develop the image in Azure, consider using one of the recommended VM sizes for the selected image.
+    b.  If you plan to develop the image in Azure, consider using one of the recommended VM sizes for the selected image.
 
-    c.	For pricing information, refer to the **Recommended pricing tiers** selector displayed on the portal. It will provide the three recommended sizes provided by the publisher. (In this case, the publisher is Microsoft.)
+    c.  For pricing information, refer to the **Recommended pricing tiers** selector displayed on the portal. It will provide the three recommended sizes provided by the publisher. (In this case, the publisher is Microsoft.)
 
     ![drawing][img-portal-vm-size]
 
 5. Set properties:
 
-    a.	For quick deployment, you can leave the default values for the properties under **Optional Configuration** and **Resource Group**.
+    a.  For quick deployment, you can leave the default values for the properties under **Optional Configuration** and **Resource Group**.
 
-    b.	Under **Storage Account**, you can optionally select the storage account in which the operating system VHD will be stored.
+    b.  Under **Storage Account**, you can optionally select the storage account in which the operating system VHD will be stored.
 
-    c.	Under **Resource Group**, you can optionally select the logical group in which to place the VM.
+    c.  Under **Resource Group**, you can optionally select the logical group in which to place the VM.
 6. Select the **Location** for deployment:
 
-    a.	If you plan to develop the VHD on-premises, the location does not matter because you will upload the image to Azure later.
+    a.  If you plan to develop the VHD on-premises, the location does not matter because you will upload the image to Azure later.
 
-    b.	If you plan to develop the image in Azure, consider using one of the US-based Microsoft Azure regions from the beginning. This speeds up the VHD copying process that Microsoft performs on your behalf when you submit your image for certification.
+    b.  If you plan to develop the image in Azure, consider using one of the US-based Microsoft Azure regions from the beginning. This speeds up the VHD copying process that Microsoft performs on your behalf when you submit your image for certification.
 
     ![drawing][img-portal-vm-location]
 
@@ -556,23 +556,23 @@ Instead of generating a shared access key by using code, you can also use storag
 
     ![drawing][img-azstg-setup-6]
 
-    a.	**Access permitted from**: To safeguard for UTC time, select the day before the current date. For example, if the current date is October 6, 2014, select 10/5/2014.
+    a.  **Access permitted from**: To safeguard for UTC time, select the day before the current date. For example, if the current date is October 6, 2014, select 10/5/2014.
 
-    b.	**Access permitted to**: Select a date that is at least 7 to 8 days after the **Access permitted from** date.
+    b.  **Access permitted to**: Select a date that is at least 7 to 8 days after the **Access permitted from** date.
 
-    c.	**Actions permitted**: Select the **List** and **Read** permissions.
+    c.  **Actions permitted**: Select the **List** and **Read** permissions.
 
-    d.	If you have selected your .vhd file correctly, then your file appears in **Blob name to access** with extension .vhd.
+    d.  If you have selected your .vhd file correctly, then your file appears in **Blob name to access** with extension .vhd.
 
-    e.	Click **Generate Signature**.
+    e.  Click **Generate Signature**.
 
-    f.	In **Generated Shared Access Signature URI of this container**, check for the following as highlighted above:
+    f.  In **Generated Shared Access Signature URI of this container**, check for the following as highlighted above:
 
-    - 	Make sure that the URL doesn't start with "https".
-    - 	Make sure that your image file name and ".vhd" are in the URI.
-    - 	At the end of the signature, make sure that "=rl" appears. This demonstrates that Read and List access was provided successfully.
+    -   Make sure that the URL doesn't start with "https".
+    -   Make sure that your image file name and ".vhd" are in the URI.
+    -   At the end of the signature, make sure that "=rl" appears. This demonstrates that Read and List access was provided successfully.
 
-    g.	To ensure that the generated shared access signature URI works, click **Test in Browser**. It should start the download process.
+    g.  To ensure that the generated shared access signature URI works, click **Test in Browser**. It should start the download process.
 10. Copy the shared access signature URI. This is the URI to paste into the Publishing Portal.
 11. Repeat these steps for each VHD in the SKU.
 
@@ -593,15 +593,15 @@ After you have created your offer and SKU, you should enter the image details as
   > [AZURE.NOTE] These are only recommendations. The customer is able to select any VM size that accommodates the disks specified in your image.
 
 8. Enter the version. The version field encapsulates a semantic version to identify the product and its updates:
-  -	Versions should be of the form X.Y.Z, where X, Y, and Z are integers.
-  -	Images in different SKUs can have different major and minor versions.
-  -	Versions within a SKU should only be incremental changes, which increase the patch version (Z from X.Y.Z).
+  - Versions should be of the form X.Y.Z, where X, Y, and Z are integers.
+  - Images in different SKUs can have different major and minor versions.
+  - Versions within a SKU should only be incremental changes, which increase the patch version (Z from X.Y.Z).
 9. In the **OS VHD URL** box, enter the shared access signature URI created for the operating system VHD.
 10. If there are data disks associated with this SKU, select the logical unit number (LUN) to which you would like this data disk to be mounted upon deployment.
 11. In the **LUN X VHD URL** box, enter the shared access signature URI created for the first data VHD.
-12.	Click **Upload test results**.
-13.	Click **Request certification.**
-14.	Repeat Steps 11, 12, and 13 for every additional data disk VHD.
+12. Click **Upload test results**.
+13. Click **Request certification.**
+14. Repeat Steps 11, 12, and 13 for every additional data disk VHD.
 
     ![drawing][img-pubportal-vm-skus-2]
 
@@ -662,3 +662,4 @@ After you submit your virtual machine image SKUs for certification, you can move
 [link-openssl]:https://www.openssl.org/
 [link-intsvc]:http://www.microsoft.com/download/details.aspx?id=41554
 [link-python]:https://www.python.org/
+

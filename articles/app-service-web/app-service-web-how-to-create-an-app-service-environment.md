@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How to Create an App Service Environment" 
-	description="Creation flow description for app service environments" 
-	services="app-service" 
-	documentationCenter="" 
-	authors="ccompy" 
-	manager="stefsch" 
-	editor=""/>
+    pageTitle="How to Create an App Service Environment" 
+    description="Creation flow description for app service environments" 
+    services="app-service" 
+    documentationCenter="" 
+    authors="ccompy" 
+    manager="stefsch" 
+    editor=""/>
 
 <tags 
-	ms.service="app-service" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="10/26/2015" 
-	ms.author="ccompy"/>
+    ms.service="app-service" 
+    ms.workload="web" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="get-started-article" 
+    ms.date="10/26/2015" 
+    ms.author="ccompy"/>
 
 # How to Create an App Service Environment #
 

@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Connection libraries for SQL Database and SQL Server"
-	description="Lists the minimum version number for each driver that client programs can use to connect to Azure SQL Database or to Microsoft SQL Server. A link is provided for version information about drivers that are released by the community rather than by Microsoft."
-	services="sql-database"
-	documentationCenter=""
-	authors="pehteh"
-	manager="jeffreyg"
-	editor="genemi"/>
+    pageTitle="Connection libraries for SQL Database and SQL Server"
+    description="Lists the minimum version number for each driver that client programs can use to connect to Azure SQL Database or to Microsoft SQL Server. A link is provided for version information about drivers that are released by the community rather than by Microsoft."
+    services="sql-database"
+    documentationCenter=""
+    authors="pehteh"
+    manager="jeffreyg"
+    editor="genemi"/>
 
 <tags
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/01/2015"
-	ms.author="pehteh"/>
+    ms.service="sql-database"
+    ms.workload="data-management"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/01/2015"
+    ms.author="pehteh"/>
 
 # Connection libraries for SQL Database and SQL Server
 
@@ -68,3 +68,4 @@ The following table displays libraries that are released by third parties such a
 <!--
 https://en.wikipedia.org/wiki/Draft:Microsoft_SQL_Server_Libraries/Drivers
 -->
+

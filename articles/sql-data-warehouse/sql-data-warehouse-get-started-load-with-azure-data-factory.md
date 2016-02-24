@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Load data with Azure Data Factory | Microsoft Azure"
-	description="Learn to load data with Azure Data Factory"
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="lodipalm"
-	manager="barbkess"
-	editor=""
-	tags="azure-sql-data-warehouse"/>
+    pageTitle="Load data with Azure Data Factory | Microsoft Azure"
+    description="Learn to load data with Azure Data Factory"
+    services="sql-data-warehouse"
+    documentationCenter="NA"
+    authors="lodipalm"
+    manager="barbkess"
+    editor=""
+    tags="azure-sql-data-warehouse"/>
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
@@ -53,7 +53,7 @@ In addition to the different pieces of the pipeline, we will also need some samp
 
         AzCopy /Source:<Sample Data Location>  /Dest:https://<storage account>.blob.core.windows.net/<container name> /DestKey:<storage key> /Pattern:FactInternetSales.csv
 
-	See the [AZCopy documentation](../storage/storage-use-azcopy/) for additional information on how to install and work with AZCopy.
+    See the [AZCopy documentation](../storage/storage-use-azcopy/) for additional information on how to install and work with AZCopy.
 
 Now that we have our data in place we can move to your data factory to create the pipeline that will move data from your storage account to your SQL Data Warehouse.  
 
@@ -71,16 +71,16 @@ The first step is to link your Azure storage account and SQL Data Warehouse to y
 
 2. To register SQL Data Warehouse you will need to navigate to the 'Author and Deploy' section, then select 'New Data Store' and then 'Azure SQL Data Warehouse'. You will then need to fill in the below template:
 
-		{
-		    "name": "<Linked Service Name>",
-		    "properties": {
-		        "description": "",
-		        "type": "AzureSqlDW",
-		        "typeProperties": {
-		            "connectionString": "Data Source=tcp:<server name>.database.windows.net,1433;Initial Catalog=<server name>;Integrated Security=False;User ID=<user>@<servername>;Password=<password>;Connect Timeout=30;Encrypt=True"
-		        }
-		    }
-		}
+        {
+            "name": "<Linked Service Name>",
+            "properties": {
+                "description": "",
+                "type": "AzureSqlDW",
+                "typeProperties": {
+                    "connectionString": "Data Source=tcp:<server name>.database.windows.net,1433;Initial Catalog=<server name>;Integrated Security=False;User ID=<user>@<servername>;Password=<password>;Connect Timeout=30;Encrypt=True"
+                }
+            }
+        }
 
 ### Registering datasets
 
@@ -90,68 +90,68 @@ After creating the linked services, we will have to define the data sets.  Here 
 
 2. Click 'New dataset' and then 'Azure Blob storage' to link your storage to your data factory.  You can use the below script to define your data in Azure Blob storage:
 
-		{
-			"name": "<Dataset Name>",
-			"properties": {
-				"type": "AzureBlob",
-				"linkedServiceName": "<linked storage name>",
-				"typeProperties": {
-					"folderPath": "<containter name>",
-					"fileName": "FactInternetSales.csv",
-					"format": {
-					"type": "TextFormat",
-					"columnDelimiter": ",",
-					"rowDelimiter": "\n"
-					}
-				},
-				"external": true,
-				"availability": {
-					"frequency": "Hour",
-					"interval": 1
-				},
-				"policy": {
-				"externalData": {
-					"retryInterval": "00:01:00",
-					"retryTimeout": "00:10:00",
-					"maximumRetry": 3
-					}
-				}
-			}
-		}
+        {
+            "name": "<Dataset Name>",
+            "properties": {
+                "type": "AzureBlob",
+                "linkedServiceName": "<linked storage name>",
+                "typeProperties": {
+                    "folderPath": "<containter name>",
+                    "fileName": "FactInternetSales.csv",
+                    "format": {
+                    "type": "TextFormat",
+                    "columnDelimiter": ",",
+                    "rowDelimiter": "\n"
+                    }
+                },
+                "external": true,
+                "availability": {
+                    "frequency": "Hour",
+                    "interval": 1
+                },
+                "policy": {
+                "externalData": {
+                    "retryInterval": "00:01:00",
+                    "retryTimeout": "00:10:00",
+                    "maximumRetry": 3
+                    }
+                }
+            }
+        }
 
 
 
 3. Now we will also define our dataset for SQL Data Warehouse.  We start in the same way, by clicking 'New dataset' and then 'Azure SQL Data Warehouse'.
 
-		{
-		  "name": "<dataset name>",
-		  "properties": {
-		    "type": "AzureSqlDWTable",
-		    "linkedServiceName": "<linked data warehouse name>",
-		    "typeProperties": {
-		      "tableName": "FactInternetSales"
-		    },
-		    "availability": {
-		      "frequency": "Hour",
-		      "interval": 1
-		    }
-		  }
-		}
+        {
+          "name": "<dataset name>",
+          "properties": {
+            "type": "AzureSqlDWTable",
+            "linkedServiceName": "<linked data warehouse name>",
+            "typeProperties": {
+              "tableName": "FactInternetSales"
+            },
+            "availability": {
+              "frequency": "Hour",
+              "interval": 1
+            }
+          }
+        }
 
-		{
-		  "name": "DWDataset",
-		  "properties": {
-			"type": "AzureSqlDWTable",
-			"linkedServiceName": "AzureSqlDWLinkedService",
-			"typeProperties": {
-			  "tableName": "FactInternetSales"
-			},
-			"availability": {
-			  "frequency": "Hour",
-			  "interval": 1
-			}
-		  }
-		}
+        {
+          "name": "DWDataset",
+          "properties": {
+            "type": "AzureSqlDWTable",
+            "linkedServiceName": "AzureSqlDWLinkedService",
+            "typeProperties": {
+              "tableName": "FactInternetSales"
+            },
+            "availability": {
+              "frequency": "Hour",
+              "interval": 1
+            }
+          }
+        }
 
 ### Setting up your pipeline
 
@@ -159,49 +159,50 @@ Finally, we will set-up and run the pipeline in Azure Data Factory.  This is the
 
 In the 'Author and Deploy' section now click 'More Commands' and then 'New Pipeline'.  After you create the pipeline, you can use the below code to transfer the data to your data warehouse:
 
-	{
-	"name": "<Pipeline Name>",
-	"properties": {
-		"description": "<Description>",
-		"activities": [
-			{
-				"type": "Copy",
-				"typeProperties": {
-					"source": {
-						"type": "BlobSource",
-						"skipHeaderLineCount": 1
-					},
-					"sink": {
-						"type": "SqlDWSink",
-						"writeBatchSize": 0,
-						"writeBatchTimeout": "00:00:10"
-					}
-				},
-				"inputs": [
-					{
-						"name": "<Storage Dataset>"
-					}
-				],
-				"outputs": [
-					{
-						"name": "<Data Warehouse Dataset>"
-					}
-				],
-				"policy": {
-					"timeout": "01:00:00",
-					"concurrency": 1
-				},
-				"scheduler": {
-					"frequency": "Hour",
-					"interval": 1
-				},
-				"name": "Sample Copy",
-				"description": "Copy Activity"
-			}
-		],
-		"start": "<Date YYYY-MM-DD>",
-		"end": "<Date YYYY-MM-DD>",
-		"isPaused": false
-	}
-	}
-	
+    {
+    "name": "<Pipeline Name>",
+    "properties": {
+        "description": "<Description>",
+        "activities": [
+            {
+                "type": "Copy",
+                "typeProperties": {
+                    "source": {
+                        "type": "BlobSource",
+                        "skipHeaderLineCount": 1
+                    },
+                    "sink": {
+                        "type": "SqlDWSink",
+                        "writeBatchSize": 0,
+                        "writeBatchTimeout": "00:00:10"
+                    }
+                },
+                "inputs": [
+                    {
+                        "name": "<Storage Dataset>"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "<Data Warehouse Dataset>"
+                    }
+                ],
+                "policy": {
+                    "timeout": "01:00:00",
+                    "concurrency": 1
+                },
+                "scheduler": {
+                    "frequency": "Hour",
+                    "interval": 1
+                },
+                "name": "Sample Copy",
+                "description": "Copy Activity"
+            }
+        ],
+        "start": "<Date YYYY-MM-DD>",
+        "end": "<Date YYYY-MM-DD>",
+        "isPaused": false
+    }
+    }
+    
+

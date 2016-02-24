@@ -42,3 +42,4 @@ Get-help New-AzureService
 
     - To publish your Cloud Service project to Azure, please refer to **PublishCloudService.ps1** code sample from [Continuous Delivery for Cloud Service in Azure](cloud-services-dotnet-continuous-delivery.md)
  
+

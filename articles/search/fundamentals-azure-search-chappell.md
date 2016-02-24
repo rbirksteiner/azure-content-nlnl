@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Introduction to Azure Search | Microsoft Azure | Hosted cloud search service" 
-	description="Learn how Azure Search, a hosted cloud search service, can help you build rich search applications." 
-	editor="monicar" 
-	manager="mblythe" 
-	services="search" 
-	documentationCenter="" 
-	authors="HeidiSteen"/>
+    pageTitle="Introduction to Azure Search | Microsoft Azure | Hosted cloud search service" 
+    description="Learn how Azure Search, a hosted cloud search service, can help you build rich search applications." 
+    editor="monicar" 
+    manager="mblythe" 
+    services="search" 
+    documentationCenter="" 
+    authors="HeidiSteen"/>
 
 <tags 
-	ms.service="search" 
-	ms.workload="search" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/04/2015" 
-	ms.author="heidist"/>
+    ms.service="search" 
+    ms.workload="search" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/04/2015" 
+    ms.author="heidist"/>
 
 # Introduction to Azure search #
 
@@ -41,3 +41,4 @@ This paper is an overview of the technology and what features and scenarios it s
 
 * <a href="http://go.microsoft.com/fwlink/p/?LinkId=522547" target="_blank">"Introducing Azure Search" (in PDF)</a>
 * <a href="http://go.microsoft.com/fwlink/p/?LinkId=529011" target="_blank">"Introducing Azure Search" (in Microsoft Word)</a> 
+

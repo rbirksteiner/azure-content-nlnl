@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Get started with Azure Search in NodeJS | Microsoft Azure | Hosted cloud search service"
-	description="Walk through building a search application on a hosted cloud search service on Azure using NodeJS as your programming language."
-	services="search"
-	documentationCenter=""
-	authors="HeidiSteen"
-	manager="mblythe"
-	editor="v-lincan"/>
+    pageTitle="Get started with Azure Search in NodeJS | Microsoft Azure | Hosted cloud search service"
+    description="Walk through building a search application on a hosted cloud search service on Azure using NodeJS as your programming language."
+    services="search"
+    documentationCenter=""
+    authors="HeidiSteen"
+    manager="mblythe"
+    editor="v-lincan"/>
 
 <tags
-	ms.service="search"
-	ms.devlang="na"
-	ms.workload="search"
-	ms.topic="hero-article"
-	ms.tgt_pltfrm="na"
-	ms.date="11/04/2015"
-	ms.author="heidist"/>
+    ms.service="search"
+    ms.devlang="na"
+    ms.workload="search"
+    ms.topic="hero-article"
+    ms.tgt_pltfrm="na"
+    ms.date="11/04/2015"
+    ms.author="heidist"/>
 
 # Get started with Azure Search in NodeJS
 
@@ -46,18 +46,18 @@ In this application, the **DataIndexer** program builds and loads the index usin
 
      ![][2]
 
-	- **Service name** must be unique, lower-case, under 15 characters, with no spaces. This name becomes part of the endpoint of your Azure Search service. See [Naming Rules](https://msdn.microsoft.com/library/azure/dn857353.aspx) for more information about naming conventions.
+    - **Service name** must be unique, lower-case, under 15 characters, with no spaces. This name becomes part of the endpoint of your Azure Search service. See [Naming Rules](https://msdn.microsoft.com/library/azure/dn857353.aspx) for more information about naming conventions.
 
-	- **Pricing Tier** determines capacity and billing. Both tiers provide the same features, but at different resource levels.
+    - **Pricing Tier** determines capacity and billing. Both tiers provide the same features, but at different resource levels.
 
-		- **Free**  runs on clusters that are shared with other subscribers. It offers enough capacity to try out tutorials and write proof-of-concept code, but is not intended for production applications. Deploying a free service typically only takes a few minutes.
-		- **Standard** runs on dedicated resources and is highly scalable. Initially, a standard service is provisioned with one replica and one partition, but you can adjust capacity once the service is created. Deploying a standard service takes longer, usually about fifteen minutes.
+        - **Free**  runs on clusters that are shared with other subscribers. It offers enough capacity to try out tutorials and write proof-of-concept code, but is not intended for production applications. Deploying a free service typically only takes a few minutes.
+        - **Standard** runs on dedicated resources and is highly scalable. Initially, a standard service is provisioned with one replica and one partition, but you can adjust capacity once the service is created. Deploying a standard service takes longer, usually about fifteen minutes.
 
-	- **Resource Groups** are containers for services and resources used for a common purpose. For example, if you're building a custom search application based on Azure Search, Azure Websites, Azure BLOB storage, you could create a resource group that keeps these services together in the portal management pages.
+    - **Resource Groups** are containers for services and resources used for a common purpose. For example, if you're building a custom search application based on Azure Search, Azure Websites, Azure BLOB storage, you could create a resource group that keeps these services together in the portal management pages.
 
-	- **Subscription** allows you to choose among multiple subscriptions, if you have more than one subscription.
+    - **Subscription** allows you to choose among multiple subscriptions, if you have more than one subscription.
 
-	- **Location** is the data center region. Currently, all resources must run in the same data center. Distributing resources across multiple data centers is not supported.
+    - **Location** is the data center region. Currently, all resources must run in the same data center. Distributing resources across multiple data centers is not supported.
 
 4. Click **Create** to provision the service.
 
@@ -72,7 +72,7 @@ After you create the service, return to the portal to get the URL or `api-key`. 
 
 2. On the service dashboard, you'll see tiles for essential information, as well as the key icon for accessing the admin keys.
 
-  	![][3]
+    ![][3]
 
 3. Copy the service URL, an admin key, and a query key. You'll need all three later, when you add them to the config.js file.
 
@@ -146,3 +146,4 @@ New to Azure Search? We recommend trying other tutorials to develop an understan
 [3]: ./media/search-get-started-nodejs/create-search-portal-3.PNG
 [5]: ./media/search-get-started-nodejs/AzSearch-NodeJS-configjs.png
 [9]: ./media/search-get-started-nodejs/rogerwilliamsschool.png
+

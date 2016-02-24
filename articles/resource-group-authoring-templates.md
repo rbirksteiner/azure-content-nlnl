@@ -420,3 +420,4 @@ The following template deploys a web app and provisions it with code from a .zip
 - To see how to deploy the template you have created, see [Deploy an application with Azure Resource Manager Template](resource-group-template-deploy.md)
 - For an in-depth example of deploying an application, see [Provision and deploy microservices predictably in Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
 - To see the available schemas, see [Azure Resource Manager Schemas](https://github.com/Azure/azure-resource-manager-schemas)
+

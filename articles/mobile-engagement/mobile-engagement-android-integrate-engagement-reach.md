@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure Mobile Engagement Android SDK Integration" 
-	description="Latest updates and procedures for Android SDK for Azure Mobile Engagement"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
-	editor="" />
+    pageTitle="Azure Mobile Engagement Android SDK Integration" 
+    description="Latest updates and procedures for Android SDK for Azure Mobile Engagement"
+    services="mobile-engagement" 
+    documentationCenter="mobile" 
+    authors="piyushjo" 
+    manager="dwrede" 
+    editor="" />
 
 <tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="08/10/2015" 
-	ms.author="piyushjo" />
+    ms.service="mobile-engagement" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="mobile-android" 
+    ms.devlang="Java" 
+    ms.topic="article" 
+    ms.date="08/10/2015" 
+    ms.author="piyushjo" />
 
 #How to Integrate Engagement Reach on Android
 
@@ -37,75 +37,75 @@ Edit your `AndroidManifest.xml` file:
 
 -   Add the following section (between the `<application>` and `</application>` tags):
 
-			<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity" android:theme="@android:style/Theme.Light">
-			  <intent-filter>
-			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT"/>
-			    <category android:name="android.intent.category.DEFAULT" />
-			    <data android:mimeType="text/plain" />
-			  </intent-filter>
-			</activity>
-			<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementWebAnnouncementActivity" android:theme="@android:style/Theme.Light">
-			  <intent-filter>
-			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT"/>
-			    <category android:name="android.intent.category.DEFAULT" />
-			    <data android:mimeType="text/html" />
-			  </intent-filter>
-			</activity>
-			<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementPollActivity" android:theme="@android:style/Theme.Light">
-			  <intent-filter>
-			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.POLL"/>
-			    <category android:name="android.intent.category.DEFAULT" />
-			  </intent-filter>
-			</activity>
-			<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementLoadingActivity" android:theme="@android:style/Theme.Dialog">
-			  <intent-filter>
-			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.LOADING"/>
-			    <category android:name="android.intent.category.DEFAULT"/>
-			  </intent-filter>
-			</activity>
-			<receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachReceiver" android:exported="false">
-			  <intent-filter>
-			    <action android:name="android.intent.action.BOOT_COMPLETED"/>
-			    <action android:name="com.microsoft.azure.engagement.intent.action.AGENT_CREATED"/>
-			    <action android:name="com.microsoft.azure.engagement.intent.action.MESSAGE"/>
-			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.ACTION_NOTIFICATION"/>
-			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.EXIT_NOTIFICATION"/>
-			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.DOWNLOAD_TIMEOUT"/>
-			  </intent-filter>
-			</receiver>
-			<receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachDownloadReceiver">
-			  <intent-filter>
-			    <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
-			  </intent-filter>
-			</receiver>
+            <activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity" android:theme="@android:style/Theme.Light">
+              <intent-filter>
+                <action android:name="com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT"/>
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/plain" />
+              </intent-filter>
+            </activity>
+            <activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementWebAnnouncementActivity" android:theme="@android:style/Theme.Light">
+              <intent-filter>
+                <action android:name="com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT"/>
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/html" />
+              </intent-filter>
+            </activity>
+            <activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementPollActivity" android:theme="@android:style/Theme.Light">
+              <intent-filter>
+                <action android:name="com.microsoft.azure.engagement.reach.intent.action.POLL"/>
+                <category android:name="android.intent.category.DEFAULT" />
+              </intent-filter>
+            </activity>
+            <activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementLoadingActivity" android:theme="@android:style/Theme.Dialog">
+              <intent-filter>
+                <action android:name="com.microsoft.azure.engagement.reach.intent.action.LOADING"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+              </intent-filter>
+            </activity>
+            <receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachReceiver" android:exported="false">
+              <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="com.microsoft.azure.engagement.intent.action.AGENT_CREATED"/>
+                <action android:name="com.microsoft.azure.engagement.intent.action.MESSAGE"/>
+                <action android:name="com.microsoft.azure.engagement.reach.intent.action.ACTION_NOTIFICATION"/>
+                <action android:name="com.microsoft.azure.engagement.reach.intent.action.EXIT_NOTIFICATION"/>
+                <action android:name="com.microsoft.azure.engagement.reach.intent.action.DOWNLOAD_TIMEOUT"/>
+              </intent-filter>
+            </receiver>
+            <receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachDownloadReceiver">
+              <intent-filter>
+                <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
+              </intent-filter>
+            </receiver>
 
 -   You need this permission to replay system notifications that were not clicked at boot (otherwise they will be kept on disk but won't be displayed anymore, you really have to include this).
 
-			<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+            <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
 -   Specify an icon used for notifications (both in app and system ones) by copying and editing the following section (between the `<application>` and `</application>` tags):
 
-			<meta-data android:name="engagement:reach:notification:icon" android:value="<name_of_icon_WITHOUT_file_extension_and_WITHOUT_'@drawable/'>" />
+            <meta-data android:name="engagement:reach:notification:icon" android:value="<name_of_icon_WITHOUT_file_extension_and_WITHOUT_'@drawable/'>" />
 
 > [AZURE.IMPORTANT] This section is **mandatory** if you plan on using system notifications when creating Reach campaigns. Android prevents system notifications without icons from being shown. So if you omit this section, your end users will not be able to receive them.
 
 -   If you create campaigns with system notifications using big picture, you need to add the following permissions (after the `</application>` tag) if missing:
 
-			<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-			<uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+            <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
 
   -   On Android M and if your application targets Android API level 23 or greater, ``WRITE_EXTERNAL_STORAGE`` permission requires user approval. Please read [this section](mobile-engagement-android-integrate-engagement.md#android-m-permissions).
 
 -   For system notifications you can also specify in the Reach campaign if the device should ring and/or vibrate. For it to work, you have to make sure you declared the following permission (after the `</application>` tag):
 
-			<uses-permission android:name="android.permission.VIBRATE" />
+            <uses-permission android:name="android.permission.VIBRATE" />
 
-	Without this permission, Android prevents system notifications from being shown if you checked the ring or the vibrate option in the Reach Campaign manager.
+    Without this permission, Android prevents system notifications from being shown if you checked the ring or the vibrate option in the Reach Campaign manager.
 
 -   If you build your application using **ProGuard** and have errors related to the Android Support library or the Engagement jar, add the following lines to your `proguard.cfg` file:
 
-			-dontwarn android.**
-			-keep class android.support.v4.** { *; }
+            -dontwarn android.**
+            -keep class android.support.v4.** { *; }
 
 ## Native Push
 
@@ -128,32 +128,32 @@ You should use multiple APKs in that case.
 
 If you want your application to be able to receive Reach data pushes, you have to create a sub-class of `com.microsoft.azure.engagement.reach.EngagementReachDataPushReceiver` and reference it in the `AndroidManifest.xml` file (between the `<application>` and/or `</application>` tags):
 
-			<receiver android:name="<your_sub_class_of_com.microsoft.azure.engagement.reach.EngagementReachDataPushReceiver>"
-			  android:exported="false">
-			  <intent-filter>
-			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.DATA_PUSH" />
-			  </intent-filter>
-			</receiver>
+            <receiver android:name="<your_sub_class_of_com.microsoft.azure.engagement.reach.EngagementReachDataPushReceiver>"
+              android:exported="false">
+              <intent-filter>
+                <action android:name="com.microsoft.azure.engagement.reach.intent.action.DATA_PUSH" />
+              </intent-filter>
+            </receiver>
 
 Then you can override the `onDataPushStringReceived` and `onDataPushBase64Received` callbacks. Here is an example:
 
-			public class MyDataPushReceiver extends EngagementReachDataPushReceiver
-			{
-			  @Override
-			  protected Boolean onDataPushStringReceived(Context context, String category, String body)
-			  {
-			    Log.d("tmp", "String data push message received: " + body);
-			    return true;
-			  }
-			
-			  @Override
-			  protected Boolean onDataPushBase64Received(Context context, String category, byte[] decodedBody, String encodedBody)
-			  {
-			    Log.d("tmp", "Base64 data push message received: " + encodedBody);
-			    // Do something useful with decodedBody like updating an image view
-			    return true;
-			  }
-			}
+            public class MyDataPushReceiver extends EngagementReachDataPushReceiver
+            {
+              @Override
+              protected Boolean onDataPushStringReceived(Context context, String category, String body)
+              {
+                Log.d("tmp", "String data push message received: " + body);
+                return true;
+              }
+            
+              @Override
+              protected Boolean onDataPushBase64Received(Context context, String category, byte[] decodedBody, String encodedBody)
+              {
+                Log.d("tmp", "Base64 data push message received: " + encodedBody);
+                // Do something useful with decodedBody like updating an image view
+                return true;
+              }
+            }
 
 ### Category
 
@@ -203,31 +203,31 @@ You can decide to include our notification layout in your existing layout thanks
 
 **Before Engagement integration :**
 
-			<?xml version="1.0" encoding="utf-8"?>
-			<ListView
-			  xmlns:android="http://schemas.android.com/apk/res/android"
-			  android:id="@android:id/list"
-			  android:layout_width="fill_parent"
-			  android:layout_height="fill_parent" />
+            <?xml version="1.0" encoding="utf-8"?>
+            <ListView
+              xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@android:id/list"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent" />
 
 **After Engagement integration :**
 
-			<?xml version="1.0" encoding="utf-8"?>
-			<LinearLayout
-			  xmlns:android="http://schemas.android.com/apk/res/android"
-			  android:orientation="vertical"
-			  android:layout_width="fill_parent"
-			  android:layout_height="fill_parent">
-			
-			  <ListView
-			    android:id="@android:id/list"
-			    android:layout_width="fill_parent"
-			    android:layout_height="fill_parent"
-			    android:layout_weight="1" />
-			
-			  <include layout="@layout/engagement_notification_area" />
-			
-			</LinearLayout>
+            <?xml version="1.0" encoding="utf-8"?>
+            <LinearLayout
+              xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent">
+            
+              <ListView
+                android:id="@android:id/list"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1" />
+            
+              <include layout="@layout/engagement_notification_area" />
+            
+            </LinearLayout>
 
 In this example we added a parent container since the original layout used a list view as the top level element. We also added `android:layout_weight="1"` to be able to add a view below a list view configured with `android:layout_height="fill_parent"`.
 
@@ -239,9 +239,9 @@ The Engagement Reach SDK automatically detects that the notification layout is i
 
 If you don't want the overlay to be added to your activity, and if you don't include the notification layout in your own layout, you can disable the overlay for this activity in the `AndroidManifest.xml` by adding a `meta-data` section like in the following example:
 
-			<activity android:name="SplashScreenActivity">
-			  <meta-data android:name="engagement:notification:overlay" android:value="false"/>
-			</activity>
+            <activity android:name="SplashScreenActivity">
+              <meta-data android:name="engagement:notification:overlay" android:value="false"/>
+            </activity>
 
 #### <a name="categories"></a> Categories
 
@@ -253,35 +253,35 @@ To register a category handler for your notifications, you need to add a call wh
 
 The following example assumes you acknowledged the previous warning and use a sub-class of `EngagementApplication`:
 
-			public class MyApplication extends EngagementApplication
-			{
-			  @Override
-			  protected void onApplicationProcessCreate()
-			  {
-			    // [...] other init
-			    EngagementReachAgent reachAgent = EngagementReachAgent.getInstance(this);
-			    reachAgent.registerNotifier(new MyNotifier(this), "myCategory");
-			  }
-			}
+            public class MyApplication extends EngagementApplication
+            {
+              @Override
+              protected void onApplicationProcessCreate()
+              {
+                // [...] other init
+                EngagementReachAgent reachAgent = EngagementReachAgent.getInstance(this);
+                reachAgent.registerNotifier(new MyNotifier(this), "myCategory");
+              }
+            }
 
 The `MyNotifier` object is the implementation of the notification category handler. It is either an implementation of the `EngagementNotifier` interface or a sub class of the default implementation: `EngagementDefaultNotifier`.
 
 Note that the same notifier can handle several categories, you can register them like this:
 
-			reachAgent.registerNotifier(new MyNotifier(this), "myCategory", "myAnotherCategory");
+            reachAgent.registerNotifier(new MyNotifier(this), "myCategory", "myAnotherCategory");
 
 To replace the default category implementation, you can register your implementation like in the following example:
 
-			public class MyApplication extends EngagementApplication
-			{
-			  @Override
-			  protected void onApplicationProcessCreate()
-			  {
-			    // [...] other init
-			    EngagementReachAgent reachAgent = EngagementReachAgent.getInstance(this);
-			    reachAgent.registerNotifier(new MyNotifier(this), Intent.CATEGORY_DEFAULT); // "android.intent.category.DEFAULT"
-			  }
-			}
+            public class MyApplication extends EngagementApplication
+            {
+              @Override
+              protected void onApplicationProcessCreate()
+              {
+                // [...] other init
+                EngagementReachAgent reachAgent = EngagementReachAgent.getInstance(this);
+                reachAgent.registerNotifier(new MyNotifier(this), Intent.CATEGORY_DEFAULT); // "android.intent.category.DEFAULT"
+              }
+            }
 
 The current category used in a handler is passed as a parameter in most methods you can override in `EngagementDefaultNotifier`.
 
@@ -292,128 +292,128 @@ You can change most of the notification creation process by redefining methods o
 ##### In-app notifications
 
 If you just want to use alternate layouts for a specific category, you can implement this as in the following example:
-			
-			public class MyNotifier extends EngagementDefaultNotifier
-			{
-			  public MyNotifier(Context context)
-			  {
-			    super(context);
-			  }
-			
-			  @Override
-			  protected int getOverlayLayoutId(String category)
-			  {
-			    return R.layout.my_notification_overlay;
-			  }
-			
-			
-			  @Override
-			  public Integer getOverlayViewId(String category)
-			  {
-			    return R.id.my_notification_overlay;
-			  }
-			
-			  @Override
-			  public Integer getInAppAreaId(String category)
-			  {
-			    return R.id.my_notification_area;
-			  }
-			}
+            
+            public class MyNotifier extends EngagementDefaultNotifier
+            {
+              public MyNotifier(Context context)
+              {
+                super(context);
+              }
+            
+              @Override
+              protected int getOverlayLayoutId(String category)
+              {
+                return R.layout.my_notification_overlay;
+              }
+            
+            
+              @Override
+              public Integer getOverlayViewId(String category)
+              {
+                return R.id.my_notification_overlay;
+              }
+            
+              @Override
+              public Integer getInAppAreaId(String category)
+              {
+                return R.id.my_notification_area;
+              }
+            }
 
 **Example of `my_notification_overlay.xml` :**
 
-			<?xml version="1.0" encoding="utf-8"?>
-			<RelativeLayout
-			  xmlns:android="http://schemas.android.com/apk/res/android"
-			  android:id="@+id/my_notification_overlay"
-			  android:layout_width="fill_parent"
-			  android:layout_height="fill_parent">
-			
-			  <include layout="@layout/my_notification_area" />
-			
-			</RelativeLayout>
+            <?xml version="1.0" encoding="utf-8"?>
+            <RelativeLayout
+              xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/my_notification_overlay"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent">
+            
+              <include layout="@layout/my_notification_area" />
+            
+            </RelativeLayout>
 
 As you can see, the overlay view identifier is different than the standard one. It is important that each layout use a unique identifier for overlays.
 
 **Example of `my_notification_area.xml` :**
 
-			<?xml version="1.0" encoding="utf-8"?>
-			<merge
-			  xmlns:android="http://schemas.android.com/apk/res/android"
-			  android:layout_width="fill_parent"
-			  android:layout_height="fill_parent">
-			
-			  <RelativeLayout
-			    android:id="@+id/my_notification_area"
-			    android:layout_width="fill_parent"
-			    android:layout_height="64dp"
-			    android:layout_alignParentTop="true"
-			    android:background="#B000">
-			
-			    <LinearLayout
-			      android:orientation="horizontal"
-			      android:layout_width="fill_parent"
-			      android:layout_height="fill_parent"
-			      android:gravity="center_vertical">
-			
-			      <ImageView
-			        android:id="@+id/engagement_notification_icon"
-			        android:layout_width="48dp"
-			        android:layout_height="48dp" />
-			
-			      <LinearLayout
-			        android:id="@+id/engagement_notification_text"
-			        android:orientation="vertical"
-			        android:layout_width="fill_parent"
-			        android:layout_height="fill_parent"
-			        android:layout_weight="1"
-			        android:gravity="center_vertical">
-			
-			        <TextView
-			          android:id="@+id/engagement_notification_title"
-			          android:layout_width="fill_parent"
-			          android:layout_height="wrap_content"
-			          android:singleLine="true"
-			          android:ellipsize="end"
-			          android:textAppearance="@android:style/TextAppearance.Medium" />
-			
-			        <TextView
-			          android:id="@+id/engagement_notification_message"
-			          android:layout_width="fill_parent"
-			          android:layout_height="wrap_content"
-			          android:maxLines="2"
-			          android:ellipsize="end"
-			          android:textAppearance="@android:style/TextAppearance.Small" />
-			
-			      </LinearLayout>
-			
-			      <ImageView
-			        android:id="@+id/engagement_notification_image"
-			        android:layout_width="wrap_content"
-			        android:layout_height="fill_parent"
-			        android:adjustViewBounds="true" />
-			
-			      <ImageButton
-			        android:id="@+id/engagement_notification_close_area"
-			        android:visibility="invisible"
-			        android:layout_width="wrap_content"
-			        android:layout_height="fill_parent"
-			        android:src="@android:drawable/btn_dialog"
-			        android:background="#0F00" />
-			
-			    </LinearLayout>
-			
-			    <ImageButton
-			      android:id="@+id/engagement_notification_close"
-			      android:layout_width="wrap_content"
-			      android:layout_height="fill_parent"
-			      android:layout_alignParentRight="true"
-			      android:src="@android:drawable/btn_dialog"
-			      android:background="#0F00" />
-			
-			  </RelativeLayout>
-			
-			</merge>
+            <?xml version="1.0" encoding="utf-8"?>
+            <merge
+              xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent">
+            
+              <RelativeLayout
+                android:id="@+id/my_notification_area"
+                android:layout_width="fill_parent"
+                android:layout_height="64dp"
+                android:layout_alignParentTop="true"
+                android:background="#B000">
+            
+                <LinearLayout
+                  android:orientation="horizontal"
+                  android:layout_width="fill_parent"
+                  android:layout_height="fill_parent"
+                  android:gravity="center_vertical">
+            
+                  <ImageView
+                    android:id="@+id/engagement_notification_icon"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp" />
+            
+                  <LinearLayout
+                    android:id="@+id/engagement_notification_text"
+                    android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical">
+            
+                    <TextView
+                      android:id="@+id/engagement_notification_title"
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content"
+                      android:singleLine="true"
+                      android:ellipsize="end"
+                      android:textAppearance="@android:style/TextAppearance.Medium" />
+            
+                    <TextView
+                      android:id="@+id/engagement_notification_message"
+                      android:layout_width="fill_parent"
+                      android:layout_height="wrap_content"
+                      android:maxLines="2"
+                      android:ellipsize="end"
+                      android:textAppearance="@android:style/TextAppearance.Small" />
+            
+                  </LinearLayout>
+            
+                  <ImageView
+                    android:id="@+id/engagement_notification_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:adjustViewBounds="true" />
+            
+                  <ImageButton
+                    android:id="@+id/engagement_notification_close_area"
+                    android:visibility="invisible"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:src="@android:drawable/btn_dialog"
+                    android:background="#0F00" />
+            
+                </LinearLayout>
+            
+                <ImageButton
+                  android:id="@+id/engagement_notification_close"
+                  android:layout_width="wrap_content"
+                  android:layout_height="fill_parent"
+                  android:layout_alignParentRight="true"
+                  android:src="@android:drawable/btn_dialog"
+                  android:background="#0F00" />
+            
+              </RelativeLayout>
+            
+            </merge>
 
 As you can see, the notification area view identifier is different than the standard one. It is important that each layout uses a unique identifier for notification areas.
 
@@ -427,14 +427,14 @@ By extending `EngagementDefaultNotifier`, you can override `onNotificationPrepar
 
 For example:
 
-			@Override
-			protected boolean onNotificationPrepared(Notification notification, EngagementReachInteractiveContent content)
-			  throws RuntimeException
-			{
-			  if ("ongoing".equals(content.getCategory()))
-			    notification.flags |= Notification.FLAG_ONGOING_EVENT;
-			  return true;
-			}
+            @Override
+            protected boolean onNotificationPrepared(Notification notification, EngagementReachInteractiveContent content)
+              throws RuntimeException
+            {
+              if ("ongoing".equals(content.getCategory()))
+                notification.flags |= Notification.FLAG_ONGOING_EVENT;
+              return true;
+            }
 
 This example makes a system notification for a content being displayed as an ongoing event when the "ongoing" category is used.
 
@@ -442,44 +442,44 @@ If you want to build the `Notification` object from scratch, you can return `fal
 
 Here is a correct example of such an implementation:
 
-			@Override
-			protected boolean onNotificationPrepared(Notification notification, EngagementReachInteractiveContent content) throws RuntimeException
-			{
-			  /* Required fields */
-			  NotificationCompat.Builder builder = new NotificationCompat.Builder(mContext)
-			    .setSmallIcon(notification.icon)              // icon is mandatory
-			    .setContentIntent(notification.contentIntent) // keep content intent
-			    .setDeleteIntent(notification.deleteIntent);  // keep delete intent
-			
-			  /* Your customization */
-			  // builder.set...
-			
-			  /* Dismiss option can be managed only after build */
-			  Notification myNotification = builder.build();
-			  if (!content.isNotificationCloseable())
-			    myNotification.flags |= Notification.FLAG_NO_CLEAR;
-			
-			  /* Notify here instead of super class */
-			  NotificationManager manager = (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
-			  manager.notify(getNotificationId(content), myNotification); // notice the call to get the right identifier
-			
-			  /* Return false, we notify ourselves */
-			  return false;
-			}
+            @Override
+            protected boolean onNotificationPrepared(Notification notification, EngagementReachInteractiveContent content) throws RuntimeException
+            {
+              /* Required fields */
+              NotificationCompat.Builder builder = new NotificationCompat.Builder(mContext)
+                .setSmallIcon(notification.icon)              // icon is mandatory
+                .setContentIntent(notification.contentIntent) // keep content intent
+                .setDeleteIntent(notification.deleteIntent);  // keep delete intent
+            
+              /* Your customization */
+              // builder.set...
+            
+              /* Dismiss option can be managed only after build */
+              Notification myNotification = builder.build();
+              if (!content.isNotificationCloseable())
+                myNotification.flags |= Notification.FLAG_NO_CLEAR;
+            
+              /* Notify here instead of super class */
+              NotificationManager manager = (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
+              manager.notify(getNotificationId(content), myNotification); // notice the call to get the right identifier
+            
+              /* Return false, we notify ourselves */
+              return false;
+            }
 
 ##### Notification only announcements
 
 The management of the click on a notification only announcement can be customized by overriding `EngagementDefaultNotifier.onNotifAnnouncementIntentPrepared` to modify the prepared `Intent`. Using this method allows you to tune the flags easily.
 
 For example to add the `SINGLE_TOP` flag:
-			
-			@Override
-			protected Intent onNotifAnnouncementIntentPrepared(EngagementNotifAnnouncement notifAnnouncement,
-			  Intent intent)
-			{
-			  intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-			  return intent;
-			}
+            
+            @Override
+            protected Intent onNotifAnnouncementIntentPrepared(EngagementNotifAnnouncement notifAnnouncement,
+              Intent intent)
+            {
+              intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+              return intent;
+            }
 
 For legacy Engagement users, please note that system notifications without action URL now launches the application if it was in background, so this method can be called with an announcement without action URL. You should consider that when customizing the intent.
 
@@ -519,13 +519,13 @@ Like notifications, the campaign's category can be used to have alternate layout
 
 For example, to create a category for a text announcement, you can extend `EngagementTextAnnouncementActivity` and reference it the `AndroidManifest.xml` file:
 
-			<activity android:name="com.your_company.MyCustomTextAnnouncementActivity">
-			  <intent-filter>
-			    <action android:name="com.microsoft.azure.engagement.intent.action.ANNOUNCEMENT"/>
-			    <category android:name="my_category" />
-			    <data android:mimeType="text/plain" />
-			  </intent-filter>
-			</activity>
+            <activity android:name="com.your_company.MyCustomTextAnnouncementActivity">
+              <intent-filter>
+                <action android:name="com.microsoft.azure.engagement.intent.action.ANNOUNCEMENT"/>
+                <category android:name="my_category" />
+                <data android:mimeType="text/plain" />
+              </intent-filter>
+            </activity>
 
 Note that the category in the intent filter is used to make the difference with the default announcement activity.
 
@@ -533,14 +533,14 @@ The Reach SDK uses the intent system to resolve the right activity for a specifi
 
 Then you have to implement `MyCustomTextAnnouncementActivity`, if you just want to change the layout (but keep the same view identifiers), you just have to define the class like in the following example:
 
-			public class MyCustomTextAnnouncementActivity extends EngagementTextAnnouncementActivity
-			{
-			  @Override
-			  protected String getLayoutName()
-			  {
-			    return "my_text_announcement";  // tell super class to use R.layout.my_text_announcement
-			  }
-			}
+            public class MyCustomTextAnnouncementActivity extends EngagementTextAnnouncementActivity
+            {
+              @Override
+              protected String getLayoutName()
+              {
+                return "my_text_announcement";  // tell super class to use R.layout.my_text_announcement
+              }
+            }
 
 To replace the default category of text announcements, simply replace `android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity"` by your implementation.
 
@@ -548,23 +548,23 @@ Web announcements and polls can be customized in a similar fashion.
 
 For web announcements you can extend `EngagementWebAnnouncementActivity` and declare your activity in the `AndroidManifest.xml` like in the following example:
 
-			<activity android:name="com.your_company.MyCustomWebAnnouncementActivity">
-			  <intent-filter>
-			    <action android:name="com.microsoft.azure.engagement.intent.action.ANNOUNCEMENT"/>
-			    <category android:name="my_category" />
-			    <data android:mimeType="text/html" />    <!-- only difference with text announcements in the intent is the data mime type -->
-			  </intent-filter>
-			</activity>
+            <activity android:name="com.your_company.MyCustomWebAnnouncementActivity">
+              <intent-filter>
+                <action android:name="com.microsoft.azure.engagement.intent.action.ANNOUNCEMENT"/>
+                <category android:name="my_category" />
+                <data android:mimeType="text/html" />    <!-- only difference with text announcements in the intent is the data mime type -->
+              </intent-filter>
+            </activity>
 
 For polls you can extend `EngagementPollActivity` and declare your in the `AndroidManifest.xml` like in the following example:
 
-			<activity android:name="com.your_company.MyCustomPollActivity">
-			  <intent-filter>
-			    <action android:name="com.microsoft.azure.engagement.intent.action.POLL"/>
-			    <category android:name="my_category" />
-			  </intent-filter>
-			</activity>
-			
+            <activity android:name="com.your_company.MyCustomPollActivity">
+              <intent-filter>
+                <action android:name="com.microsoft.azure.engagement.intent.action.POLL"/>
+                <category android:name="my_category" />
+              </intent-filter>
+            </activity>
+            
 ##### Implementation from scratch
 
 You can implement categories for your announcement (and poll) activities without extending one of the `Engagement*Activity` classes provided by the Reach SDK. This is useful for example if you want to define a layout that does not use the same views as the standard layouts.
@@ -575,40 +575,40 @@ Here are some things to keep in mind: Reach will launch the activity with a spec
 
 To retrieve the content object which contain the fields you specified when creating the campaign on the web site you can do this:
 
-			public class MyCustomTextAnnouncement extends EngagementActivity
-			{
-			  private EngagementAnnouncement mContent;
-			
-			  @Override
-			  protected void onCreate(Bundle savedInstanceState)
-			  {
-			    super.onCreate(savedInstanceState);
-			
-			    /* Get content */
-			    mContent = EngagementReachAgent.getInstance(this).getContent(getIntent());
-			    if (mContent == null)
-			    {
-			      /* If problem with content, exit */
-			      finish();
-			      return;
-			    }
-			
-			    setContentView(R.layout.my_text_announcement);
-			
-			    /* Configure views by querying fields on mContent */
-			    // ...
-			  }
-			}
+            public class MyCustomTextAnnouncement extends EngagementActivity
+            {
+              private EngagementAnnouncement mContent;
+            
+              @Override
+              protected void onCreate(Bundle savedInstanceState)
+              {
+                super.onCreate(savedInstanceState);
+            
+                /* Get content */
+                mContent = EngagementReachAgent.getInstance(this).getContent(getIntent());
+                if (mContent == null)
+                {
+                  /* If problem with content, exit */
+                  finish();
+                  return;
+                }
+            
+                setContentView(R.layout.my_text_announcement);
+            
+                /* Configure views by querying fields on mContent */
+                // ...
+              }
+            }
 
 For statistics, you should report the content is displayed in the `onResume` event:
-			
-			@Override
-			protected void onResume()
-			{
-			 /* Mark the content displayed */
-			 mContent.displayContent(this);
-			 super.onResume();
-			}
+            
+            @Override
+            protected void onResume()
+            {
+             /* Mark the content displayed */
+             mContent.displayContent(this);
+             super.onResume();
+            }
 
 Then, don't forget to call either `actionContent(this)` or `exitContent(this)` on the content object before the activity goes into background.
 
@@ -618,25 +618,25 @@ Orientation or other configuration changes can make the code tricky to determine
 
 Here is the interesting part of the implementation:
 
-			@Override
-			protected void onUserLeaveHint()
-			{
-			  finish();
-			}
-			
-			@Override
-			protected void onPause()
-			{
-			  if (isFinishing() && mContent != null)
-			  {
-			    /*
-			     * Exit content on exit, this is has no effect if another process method has already been
-			     * called so we don't have to check anything here.
-			     */
-			    mContent.exitContent(this);
-			  }
-			  super.onPause();
-			}
+            @Override
+            protected void onUserLeaveHint()
+            {
+              finish();
+            }
+            
+            @Override
+            protected void onPause()
+            {
+              if (isFinishing() && mContent != null)
+              {
+                /*
+                 * Exit content on exit, this is has no effect if another process method has already been
+                 * called so we don't have to check anything here.
+                 */
+                mContent.exitContent(this);
+              }
+              super.onPause();
+            }
 
 As you can see, if you called `actionContent(this)` then finished the activity, `exitContent(this)` can be safely called without having any effect.
 

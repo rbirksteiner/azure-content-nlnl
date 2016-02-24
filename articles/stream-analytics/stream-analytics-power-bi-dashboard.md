@@ -1,22 +1,22 @@
 <properties 
-	pageTitle="Power BI dashboard on Stream Analytics | Microsoft Azure" 
-	description="Use a real-time streaming Power BI dashboard to gather business intelligence and analyze high-volume data from a Stream Analytics job." 
-	keywords="analytics dashboard, real-time dashboard"	
-	services="stream-analytics" 
-	documentationCenter="" 
-	authors="jeffstokes72" 
-	manager="paulettm" 
-	editor="cgronlun"/>
+    pageTitle="Power BI dashboard on Stream Analytics | Microsoft Azure" 
+    description="Use a real-time streaming Power BI dashboard to gather business intelligence and analyze high-volume data from a Stream Analytics job." 
+    keywords="analytics dashboard, real-time dashboard" 
+    services="stream-analytics" 
+    documentationCenter="" 
+    authors="jeffstokes72" 
+    manager="paulettm" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="stream-analytics" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="data-services" 
-	ms.date="12/04/2015" 
-	ms.author="jeffstok"/>
-	
+    ms.service="stream-analytics" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="data-services" 
+    ms.date="12/04/2015" 
+    ms.author="jeffstok"/>
+    
 # Azure Stream Analytics & Power BI: A real-time analytics dashboard for real-time visibility of streaming data
 
 Azure Stream Analytics allows you to take advantage of one of the leading business intelligence tools, Microsoft Power BI. Learn how to use Azure Stream Analytics to analyze high-volume, streaming data and get the insight in a real-time Power BI analytics dashboard.
@@ -55,24 +55,24 @@ For this tutorial, we are assuming you are using Event Hub as an input with JSON
 
 * Click the job name.
 * Click **Inputs** from the top of the page, and then click **Add Input**. The dialog that opens will walk you through a number of steps to set up your input.
-*	Select **Data Stream**, and then click the right button.
-*	Select **Event Hub**, and then click the right button.
-*	Type or select the following values on the third page:
-  *	**Input Alias** - Enter a friendly name for this job input. Note that you will be using this name in the query later on.
+*   Select **Data Stream**, and then click the right button.
+*   Select **Event Hub**, and then click the right button.
+*   Type or select the following values on the third page:
+  * **Input Alias** - Enter a friendly name for this job input. Note that you will be using this name in the query later on.
   * **Event Hub** - If the Event Hub you created is in the same subscription as the Stream Analytics job, select the namespace that the event hub is in.
-*	If your event hub is in a different subscription, select **Use Event Hub from Another Subscription** and manually enter information for **Service Bus Namespace**, **Event Hub Name**, **Event Hub Policy Name**, **Event Hub Policy Key**, and **Event Hub Partition Count**.
+*   If your event hub is in a different subscription, select **Use Event Hub from Another Subscription** and manually enter information for **Service Bus Namespace**, **Event Hub Name**, **Event Hub Policy Name**, **Event Hub Policy Key**, and **Event Hub Partition Count**.
 
-> [AZURE.NOTE]	This sample uses the default number of partitions, which is 16.
+> [AZURE.NOTE]  This sample uses the default number of partitions, which is 16.
 
 * **Event Hub Name** - Select the name of the Azure Event Hub you have.
 * **Event Hub Policy Name** - Select the Event Hub policy for the Event Hub you are using. Ensure that this policy has manage permissions.
-*	**Event Hub Consumer Group** – You can leave this empty or specify a consumer group you have on your Event Hub. Note that each consumer group of an Event Hub can have only 5 readers at a time. So, decide the right consumer group for your job accordingly. If you leave the field blank, it will use the default consumer group.
+*   **Event Hub Consumer Group** – You can leave this empty or specify a consumer group you have on your Event Hub. Note that each consumer group of an Event Hub can have only 5 readers at a time. So, decide the right consumer group for your job accordingly. If you leave the field blank, it will use the default consumer group.
 
-*	Click the right button.
-*	Specify the following values:
-  *	**Event Serializer Format** - JSON
-  *	**Encoding** - UTF8
-*	Click the check button to add this source and to verify that Stream Analytics can successfully connect to the Event Hub.
+*   Click the right button.
+*   Specify the following values:
+  * **Event Serializer Format** - JSON
+  * **Encoding** - UTF8
+*   Click the check button to add this source and to verify that Stream Analytics can successfully connect to the Event Hub.
 
 ## Add Power BI output ##
 
@@ -97,13 +97,13 @@ Provide values as below:
 
 * **Output Alias** – You can put any output alias that is easy for you to refer to. This output alias is particularly helpful if you decide to have multiple outputs for your job. In that case, you have to refer to this output in your query. For example, let’s use the output alias value = “OutPbi”.
 * **Dataset Name** - Provide a dataset name that you want your Power BI output to have. For example, let’s use “pbidemo”.
-*	**Table Name** - Provide a table name under the dataset of your Power BI output. Let’s say we call it “pbidemo”. Currently, Power BI output from Stream Analytics jobs may only have one table in a dataset.
+*   **Table Name** - Provide a table name under the dataset of your Power BI output. Let’s say we call it “pbidemo”. Currently, Power BI output from Stream Analytics jobs may only have one table in a dataset.
 
->	[AZURE.NOTE] You should not explicitly create this dataset and table in your Power BI account. They will be automatically created when you start your Stream Analytics job and the job starts pumping output into Power BI. If your job query doesn’t return any results, the dataset and table will not be created.
+>   [AZURE.NOTE] You should not explicitly create this dataset and table in your Power BI account. They will be automatically created when you start your Stream Analytics job and the job starts pumping output into Power BI. If your job query doesn’t return any results, the dataset and table will not be created.
 
-*	Click **OK**, **Test Connection** and now you output configuraiton is complete.
+*   Click **OK**, **Test Connection** and now you output configuraiton is complete.
 
->	[AZURE.WARNING] Also be aware that if Power BI already had a dataset and table with the same name as the one you provided in this Stream Analytics job, the existing data will be overwritten.
+>   [AZURE.WARNING] Also be aware that if Power BI already had a dataset and table with the same name as the one you provided in this Stream Analytics job, the existing data will be overwritten.
 
 
 ## Write Query ##
@@ -111,17 +111,17 @@ Provide values as below:
 Go to the **Query** tab of your job. Write your query, the output of which you want in your Power BI. For example, it could be something such as the following SQL query:
 
     SELECT
-    	MAX(hmdt) AS hmdt,
-    	MAX(temp) AS temp,
-    	System.TimeStamp AS time,
-    	dspl
+        MAX(hmdt) AS hmdt,
+        MAX(temp) AS temp,
+        System.TimeStamp AS time,
+        dspl
     INTO
         OutPBI
     FROM
-    	Input TIMESTAMP BY time
+        Input TIMESTAMP BY time
     GROUP BY
-    	TUMBLINGWINDOW(ss,1),
-    	dspl
+        TUMBLINGWINDOW(ss,1),
+        dspl
 
     
     
@@ -175,17 +175,17 @@ As an example – If you have 1,000 devices sending data every second, you are o
 Which means we would change the original query to:
 
     SELECT
-    	MAX(hmdt) AS hmdt,
-    	MAX(temp) AS temp,
-    	System.TimeStamp AS time,
-    	dspl
+        MAX(hmdt) AS hmdt,
+        MAX(temp) AS temp,
+        System.TimeStamp AS time,
+        dspl
     INTO
-    	OutPBI
+        OutPBI
     FROM
-    	Input TIMESTAMP BY time
+        Input TIMESTAMP BY time
     GROUP BY
-    	TUMBLINGWINDOW(ss,4),
-    	dspl
+        TUMBLINGWINDOW(ss,4),
+        dspl
 
 ## Renew Authorization
 
@@ -222,3 +222,4 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 [graphic11]: ./media/stream-analytics-power-bi-dashboard/11-stream-analytics-power-bi-dashboard.png
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
+

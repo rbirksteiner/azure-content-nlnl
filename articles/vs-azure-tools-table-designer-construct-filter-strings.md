@@ -98,3 +98,4 @@ To filter on a DateTime value, specify the **datetime** keyword, followed by the
 The following example returns entities where the CustomerSince property is equal to July 10, 2008:
 
     CustomerSince eq datetime'2008-07-10T00:00:00Z'
+

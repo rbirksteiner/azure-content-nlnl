@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Manage Azure HDInsight using Azure Automation"
-	description="Learn how the Azure Automation service can be used to manage Azure HDInsight."
-	services="HDInsight, automation"
-	documentationCenter=""
-	authors="elcooper"
-	manager="eamono"
-	editor=""/>
+    pageTitle="Manage Azure HDInsight using Azure Automation"
+    description="Learn how the Azure Automation service can be used to manage Azure HDInsight."
+    services="HDInsight, automation"
+    documentationCenter=""
+    authors="elcooper"
+    manager="eamono"
+    editor=""/>
 
 <tags
-	ms.service="HDInsight"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/20/2015"
-	ms.author="elcooper"/>
+    ms.service="HDInsight"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/20/2015"
+    ms.author="elcooper"/>
 
 
 
@@ -43,3 +43,4 @@ Now that you've learned the basics of Azure Automation and how it can be used to
 * View examples in [Script Center](http://aka.ms/scriptcentergallery).  
 
  
+

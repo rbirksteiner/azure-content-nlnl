@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Getting Started with Azure storage and Visual Studio connected services (WebJob projects)"
-	description="How to get started using Azure Table storage in an Azure WebJobs project in Visual Studio after connecting to a storage account using Visual Studio connected services"
-	services="storage"
-	documentationCenter=""
-	authors="TomArcher"
-	manager="douge"
-	editor=""/>
+    pageTitle="Getting Started with Azure storage and Visual Studio connected services (WebJob projects)"
+    description="How to get started using Azure Table storage in an Azure WebJobs project in Visual Studio after connecting to a storage account using Visual Studio connected services"
+    services="storage"
+    documentationCenter=""
+    authors="TomArcher"
+    manager="douge"
+    editor=""/>
 
 <tags
-	ms.service="storage"
-	ms.workload="web"
-	ms.tgt_pltfrm="vs-getting-started"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/16/2015"
-	ms.author="tarcher"/>
+    ms.service="storage"
+    ms.workload="web"
+    ms.tgt_pltfrm="vs-getting-started"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/16/2015"
+    ms.author="tarcher"/>
 
 # Getting Started with Azure Storage (Azure WebJob Projects)
 
@@ -33,34 +33,34 @@ To add entities to a table, use the **Table** attribute with an **ICollector<T>*
 
 The following code sample adds **Person** entities to a table named *Ingress*.
 
-		[NoAutomaticTrigger]
-		public static void IngressDemo(
-		    [Table("Ingress")] ICollector<Person> tableBinding)
-		{
-		    for (int i = 0; i < 100000; i++)
-		    {
-		        tableBinding.Add(
-		            new Person() {
-		                PartitionKey = "Test",
-		                RowKey = i.ToString(),
-		                Name = "Name" }
-		            );
-		    }
-		}
+        [NoAutomaticTrigger]
+        public static void IngressDemo(
+            [Table("Ingress")] ICollector<Person> tableBinding)
+        {
+            for (int i = 0; i < 100000; i++)
+            {
+                tableBinding.Add(
+                    new Person() {
+                        PartitionKey = "Test",
+                        RowKey = i.ToString(),
+                        Name = "Name" }
+                    );
+            }
+        }
 
 Typically the type you use with **ICollector** derives from **TableEntity** or implements **ITableEntity**, but it doesn't have to. Either of the following **Person** classes work with the code shown in the preceding **Ingress** method.
 
-		public class Person : TableEntity
-		{
-		    public string Name { get; set; }
-		}
+        public class Person : TableEntity
+        {
+            public string Name { get; set; }
+        }
 
-		public class Person
-		{
-		    public string PartitionKey { get; set; }
-		    public string RowKey { get; set; }
-		    public string Name { get; set; }
-		}
+        public class Person
+        {
+            public string PartitionKey { get; set; }
+            public string RowKey { get; set; }
+            public string Name { get; set; }
+        }
 
 If you want to work directly with the Azure storage API, you can add a **CloudStorageAccount** parameter to the method signature.
 
@@ -84,17 +84,17 @@ To read a table, use the **Table** attribute with an **IQueryable<T>** parameter
 
 The following code sample reads and logs all rows from the **Ingress** table:
 
-		public static void ReadTable(
-		    [Table("Ingress")] IQueryable<Person> tableBinding,
-		    TextWriter logger)
-		{
-		    var query = from p in tableBinding select p;
-		    foreach (Person person in query)
-		    {
-		        logger.WriteLine("PK:{0}, RK:{1}, Name:{2}",
-		            person.PartitionKey, person.RowKey, person.Name);
-		    }
-		}
+        public static void ReadTable(
+            [Table("Ingress")] IQueryable<Person> tableBinding,
+            TextWriter logger)
+        {
+            var query = from p in tableBinding select p;
+            foreach (Person person in query)
+            {
+                logger.WriteLine("PK:{0}, RK:{1}, Name:{2}",
+                    person.PartitionKey, person.RowKey, person.Name);
+            }
+        }
 
 ### How to read a single entity from a table
 
@@ -102,22 +102,22 @@ There is a **Table** attribute constructor with two additional parameters that l
 
 The following code sample reads a table row for a **Person** entity based on partition key and row key values received in a queue message:  
 
-		public static void ReadTableEntity(
-		    [QueueTrigger("inputqueue")] Person personInQueue,
-		    [Table("persontable","{PartitionKey}", "{RowKey}")] Person personInTable,
-		    TextWriter logger)
-		{
-		    if (personInTable == null)
-		    {
-		        logger.WriteLine("Person not found: PK:{0}, RK:{1}",
-		                personInQueue.PartitionKey, personInQueue.RowKey);
-		    }
-		    else
-		    {
-		        logger.WriteLine("Person found: PK:{0}, RK:{1}, Name:{2}",
-		                personInTable.PartitionKey, personInTable.RowKey, personInTable.Name);
-		    }
-		}
+        public static void ReadTableEntity(
+            [QueueTrigger("inputqueue")] Person personInQueue,
+            [Table("persontable","{PartitionKey}", "{RowKey}")] Person personInTable,
+            TextWriter logger)
+        {
+            if (personInTable == null)
+            {
+                logger.WriteLine("Person not found: PK:{0}, RK:{1}",
+                        personInQueue.PartitionKey, personInQueue.RowKey);
+            }
+            else
+            {
+                logger.WriteLine("Person found: PK:{0}, RK:{1}, Name:{2}",
+                        personInTable.PartitionKey, personInTable.RowKey, personInTable.Name);
+            }
+        }
 
 
 The **Person** class in this example does not have to implement **ITableEntity**.
@@ -128,19 +128,19 @@ You can also use the **Table** attribute with a **CloudTable** object for more f
 
 The following code sample uses a **CloudTable** object to add a single entity to the *Ingress* table.
 
-		public static void UseStorageAPI(
-		    [Table("Ingress")] CloudTable tableBinding,
-		    TextWriter logger)
-		{
-		    var person = new Person()
-		        {
-		            PartitionKey = "Test",
-		            RowKey = "100",
-		            Name = "Name"
-		        };
-		    TableOperation insertOperation = TableOperation.Insert(person);
-		    tableBinding.Execute(insertOperation);
-		}
+        public static void UseStorageAPI(
+            [Table("Ingress")] CloudTable tableBinding,
+            TextWriter logger)
+        {
+            var person = new Person()
+                {
+                    PartitionKey = "Test",
+                    RowKey = "100",
+                    Name = "Name"
+                };
+            TableOperation insertOperation = TableOperation.Insert(person);
+            tableBinding.Execute(insertOperation);
+        }
 
 For more information about how to use the **CloudTable** object, see [How to use Table Storage from .NET](../storage-dotnet-how-to-use-tables.md).
 
@@ -153,3 +153,4 @@ For information about how to handle table processing triggered by a queue messag
 ## Next steps
 
 This article has provided code samples that show how to handle common scenarios for working with Azure tables. For more information about how to use Azure WebJobs and the WebJobs SDK, see [Azure WebJobs Recommended Resources](http://go.microsoft.com/fwlink/?linkid=390226).
+

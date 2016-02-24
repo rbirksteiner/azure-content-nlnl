@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Provision a Redis Cache" 
-	description="Use Azure Resource Manager template to deploy an Azure Redis Cache." 
-	services="app-service" 
-	documentationCenter="" 
-	authors="tfitzmac" 
-	manager="wpickett" 
-	editor=""/>
+    pageTitle="Provision a Redis Cache" 
+    description="Use Azure Resource Manager template to deploy an Azure Redis Cache." 
+    services="app-service" 
+    documentationCenter="" 
+    authors="tfitzmac" 
+    manager="wpickett" 
+    editor=""/>
 
 <tags 
-	ms.service="cache" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="cache-redis" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/16/2015" 
-	ms.author="tomfitz"/>
+    ms.service="cache" 
+    ms.workload="web" 
+    ms.tgt_pltfrm="cache-redis" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/16/2015" 
+    ms.author="tomfitz"/>
 
 # Create a Redis Cache using a template
 
@@ -139,5 +139,6 @@ Creates the Azure Redis Cache.
 ### Azure CLI
 
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -g ExampleDeployGroup
+
 
 

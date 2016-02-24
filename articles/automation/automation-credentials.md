@@ -66,10 +66,10 @@ The activities in the following table are used to access credentials in a runboo
 
 The following sample commands show how to create a new automation credential. A PSCredential object is first created with the name and password and then used to create the credential asset. Alternatively, you could use the **Get-Credential** cmdlet to be prompted to type in a name and password.
 
-	$user = "MyDomain\MyUser"
-	$pw = ConvertTo-SecureString "PassWord!" -AsPlainText -Force
-	$cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $user, $pw
-	New-AzureAutomationCredential -AutomationAccountName "MyAutomationAccount" -Name "MyCredential" -Value $cred
+    $user = "MyDomain\MyUser"
+    $pw = ConvertTo-SecureString "PassWord!" -AsPlainText -Force
+    $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $user, $pw
+    New-AzureAutomationCredential -AutomationAccountName "MyAutomationAccount" -Name "MyCredential" -Value $cred
 
 ## Using a PowerShell credential
 
@@ -79,10 +79,10 @@ You retrieve a credential asset in a runbook or DSC configuration with the **Get
 
 The following sample commands show how to use a PowerShell credential in a runbook. In this example, the credential is retrieved and its username and password assigned to variables.
 
-	$myCredential = Get-AutomationPSCredential -Name 'MyCredential'
-	$userName = $myCredential.UserName
-	$securePassword = $myCredential.Password
-	$password = $myCredential.GetNetworkCredential().Password
+    $myCredential = Get-AutomationPSCredential -Name 'MyCredential'
+    $userName = $myCredential.UserName
+    $securePassword = $myCredential.Password
+    $password = $myCredential.GetNetworkCredential().Password
 
 
 ### Graphical runbook sample
@@ -104,3 +104,4 @@ While DSC Configurations in Azure Automation can reference credential assets usi
 - [Links in graphical authoring](automation-graphical-authoring-intro.md#links-and-workflow)
 
  
+

@@ -36,27 +36,27 @@ In order to load balance network traffic from the Internet across the virtual ma
 **To configure a load-balanced set for virtual machines**
 
 1. In the Azure classic portal, click **Virtual Machines**, and then click the name of a virtual machine in the load-balanced set.
-2.	Click **Endpoints**, and then click **Add**.
+2.  Click **Endpoints**, and then click **Add**.
 
-4.	On the **Add an endpoint to a virtual machine** page, click the right arrow.
+4.  On the **Add an endpoint to a virtual machine** page, click the right arrow.
 
-4.	On the **Specify the details of the endpoint** page:
-	- In **Name**, type a name for the endpoint or select the name from the list of predefined endpoints for common protocols.
-	-  In **Protocol**, select the protocol required by the type of endpoint, either TCP or UDP, as needed.
- 	-  In **Public Port and Private Port**, type the port numbers that you want the virtual machine to use, as needed. You can use the private port and firewall rules on the virtual machine to redirect traffic in a way that is appropriate for your application. The private port can be the same as the public port. For example, for an endpoint for web (HTTP) traffic, you could assign port 80 to both the public and private port.
+4.  On the **Specify the details of the endpoint** page:
+    - In **Name**, type a name for the endpoint or select the name from the list of predefined endpoints for common protocols.
+    -  In **Protocol**, select the protocol required by the type of endpoint, either TCP or UDP, as needed.
+    -  In **Public Port and Private Port**, type the port numbers that you want the virtual machine to use, as needed. You can use the private port and firewall rules on the virtual machine to redirect traffic in a way that is appropriate for your application. The private port can be the same as the public port. For example, for an endpoint for web (HTTP) traffic, you could assign port 80 to both the public and private port.
 
-5.	Select **Create a load-balanced set**, and then click the right arrow.
+5.  Select **Create a load-balanced set**, and then click the right arrow.
 
-6.	On the **Configure the load-balanced set** page, type a name for the load-balanced set, and then assign the values for probe behavior of the Azure Load Balancer.
+6.  On the **Configure the load-balanced set** page, type a name for the load-balanced set, and then assign the values for probe behavior of the Azure Load Balancer.
 The Load Balancer uses probes to determine if the virtual machines in the load-balanced set are available to receive incoming traffic.
 
-7.	Click the check mark to create the load-balanced endpoint. You will see **Yes** in the **Load-balanced set name** column of the **Endpoints** page for the virtual machine.
+7.  Click the check mark to create the load-balanced endpoint. You will see **Yes** in the **Load-balanced set name** column of the **Endpoints** page for the virtual machine.
 
-8.	In the portal, click **Virtual Machines**, click the name of an additional virtual machine in the load-balanced set, click **Endpoints**, and then click **Add**.
+8.  In the portal, click **Virtual Machines**, click the name of an additional virtual machine in the load-balanced set, click **Endpoints**, and then click **Add**.
 
-9.	On the **Add an endpoint to a virtual machine** page, click **Add endpoint to an existing load-balanced set**, select the name of the load-balanced set, and then click the right arrow.
+9.  On the **Add an endpoint to a virtual machine** page, click **Add endpoint to an existing load-balanced set**, select the name of the load-balanced set, and then click the right arrow.
 
-10.	On the **Specify the details of the endpoint** page, type a name for the endpoint, and then click the check mark.
+10. On the **Specify the details of the endpoint** page, type a name for the endpoint, and then click the check mark.
 For the additional virtual machines in the load-balanced set, repeat steps 8-10.
 
 
@@ -68,4 +68,5 @@ For the additional virtual machines in the load-balanced set, repeat steps 8-10.
 [Configure a load balancer distribution mode](load-balancer-distribution-mode.md)
 
 [Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
+
 

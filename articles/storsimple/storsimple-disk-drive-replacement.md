@@ -54,7 +54,7 @@ This procedure explains how the antitamper locks on your StorSimple device can b
 
     ![Unlocked disk drive](./media/storsimple-disk-drive-replacement/IC741057.png)
 
-    **Figure 2** Unlocked disk drive
+    **Figure 2** Unlocked disk drive
 
 4. The disk drive can now be removed.
 
@@ -86,13 +86,13 @@ Drives can be removed and replaced while the system is operating.
 
     ![Releasing disk drive handle](./media/storsimple-disk-drive-replacement/IC741051.png)
 
-    **Figure 3** Releasing the drive handle
+    **Figure 3** Releasing the drive handle
 
 5. When the drive carrier handle is fully extended, slide the drive carrier out of the chassis. 
 
     ![Sliding disk out of disk drive](./media/storsimple-disk-drive-replacement/IC741052.png)
     
-    **Figure 4** Sliding the disk drive out of the carrier
+    **Figure 4** Sliding the disk drive out of the carrier
 
 ## Install the replacement disk drive
 
@@ -104,13 +104,13 @@ After a drive has failed in your Microsoft Azure StorSimple device and you have 
 
     ![Disk drive with handle extended](./media/storsimple-disk-drive-replacement/IC741044.png)
 
-    **Figure 5** Drive with handle extended
+    **Figure 5** Drive with handle extended
 
 2. Slide the drive carrier all the way into the chassis. 
 
     ![Sliding disk into disk drive carrier](./media/storsimple-disk-drive-replacement/IC741045.png)
 
-    **Figure 6**  Sliding the drive carrier into the chassis
+    **Figure 6**  Sliding the drive carrier into the chassis
 
 3. With the drive carrier inserted, close the drive carrier handle while continuing to push the drive carrier into the chassis, until the drive carrier handle snaps into a locked position.
 

@@ -27,7 +27,7 @@ Event Hubs are created and managed using the [NamespaceManager](https://msdn.mic
 
 ## Get started
 
-The .NET  classes that support Event Hubs are part of the Microsoft.ServiceBus.dll assembly. The easiest way to reference the Service Bus API and to configure your application with all of the Service Bus dependencies is to download the Service Bus NuGet package. For more information, see [Using the NuGet Service Bus Package](https://msdn.microsoft.com/library/azure/dn741354.aspx). Alternatively, you can use the [Package Manager Console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) in Visual Studio. To do so, issue the following command in the [Package Manager Console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) window:
+The .NET  classes that support Event Hubs are part of the Microsoft.ServiceBus.dll assembly. The easiest way to reference the Service Bus API and to configure your application with all of the Service Bus dependencies is to download the Service Bus NuGet package. For more information, see [Using the NuGet Service Bus Package](https://msdn.microsoft.com/library/azure/dn741354.aspx). Alternatively, you can use the [Package Manager Console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) in Visual Studio. To do so, issue the following command in the [Package Manager Console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) window:
 
 ```powershell
 Install-Package WindowsAzure.ServiceBus
@@ -184,3 +184,4 @@ To learn more about Event Hubs scenarios, visit these links:
 - [Event Hubs overview](event-hubs-overview.md)
 - [Event Hubs code samples](http://code.msdn.microsoft.com/site/search?query=event hub&f[0].Value=event hub&f[0].Type=SearchText&ac=5)
 - [Event processor host API reference](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx)
+

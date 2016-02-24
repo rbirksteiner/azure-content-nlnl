@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Set Up Apache Tomcat on a Linux VM | Microsoft Azure"
-	description="Learn how to set up Apache Tomcat7 using an Azure virtual machine (VM) running Linux."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="NingKuang"
-	manager="timlt"
-	editor=""
-	tags="azure-service-management"/>
+    pageTitle="Set Up Apache Tomcat on a Linux VM | Microsoft Azure"
+    description="Learn how to set up Apache Tomcat7 using an Azure virtual machine (VM) running Linux."
+    services="virtual-machines"
+    documentationCenter=""
+    authors="NingKuang"
+    manager="timlt"
+    editor=""
+    tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="05/21/2015"
-	ms.author="ningk"/>
+    ms.service="virtual-machines"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-linux"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="05/21/2015"
+    ms.author="ningk"/>
 
 #How to Set Up Tomcat7 on a Linux Virtual Machine with Microsoft Azure
 
@@ -28,9 +28,9 @@ In this guide, you will install tomcat7 on a Linux image and deploy it in Micros
 
 You will learn:  
 
--	How to create a virtual machine in Azure.
--	How to prepare the virtual machine for tomcat7.
--	How to install tomcat7.
+-   How to create a virtual machine in Azure.
+-   How to prepare the virtual machine for tomcat7.
+-   How to install tomcat7.
 
 It is assumed that the reader already has an Azure subscription.  If not you can sign up for a free trial at [http://azure.microsoft.com](http://azure.microsoft.com). If you have an MSDN subscription, see [Microsoft Azure Special Pricing: MSDN, MPN, and Bizspark Benefits](http://azure.microsoft.com/pricing/member-offers/msdn-benefits/?c=14-39). To learn more about Azure, see [What is Azure?](http://azure.microsoft.com/overview/what-is-azure/).
 
@@ -50,14 +50,14 @@ It is also possible to login with requiring a password with this method.
 
 Follow these steps to generate the SSH authentication key.
 
-1.	Download and install puttygen from the following location: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
-2.	Run PUTTYGEN.EXE.
-3.	Click **Generate** to generate the keys. In the process you can increase randomness by moving the mouse over the blank area in the window.  
+1.  Download and install puttygen from the following location: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
+2.  Run PUTTYGEN.EXE.
+3.  Click **Generate** to generate the keys. In the process you can increase randomness by moving the mouse over the blank area in the window.  
 ![][1]
-4.	After the generate process, Puttygen.exe will show your generated key. For example:  
+4.  After the generate process, Puttygen.exe will show your generated key. For example:  
 ![][2]
-5.	Select and copy the public key in **Key** and save it in a file named publicKey.pem. Don’t click **Save public key**, because the saved public key’s file format is different from the public key we want.
-6.	Click **Save private key** and save it in a file named privateKey.ppk.
+5.  Select and copy the public key in **Key** and save it in a file named publicKey.pem. Don’t click **Save public key**, because the saved public key’s file format is different from the public key we want.
+6.  Click **Save private key** and save it in a file named privateKey.ppk.
 
 ###Step 2: Create the image in the Azure portal.
 In the [Azure portal](https://portal.azure.com/), click **New** in the task bar to create an image, choosing the Linux image based on your needs. The following example uses the Ubuntu 14.04 image.
@@ -77,20 +77,20 @@ Endpoints in Azure consist of a protocol (TCP or UDP), along with a public and p
 
 TCP port 8080 is the default port number on which tomcat listens. Opening this port with an Azure endpoint will allow you and other Internet clients access to tomcat pages.  
 
-1.	In the Azure portal, click **Browse** -> **Virtual Machine**, and then click the virtual machine that you created.  
+1.  In the Azure portal, click **Browse** -> **Virtual Machine**, and then click the virtual machine that you created.  
 ![][5]
-2.	To add an endpoint to your virtual machine, click the **Endpoints** box.
+2.  To add an endpoint to your virtual machine, click the **Endpoints** box.
 ![][6]
-3.	Click **Add**.  
-	1.	For the **endpoint**, type a name for the endpoint in Endpoint, and then type 80 in **Public Port**.  
+3.  Click **Add**.  
+    1.  For the **endpoint**, type a name for the endpoint in Endpoint, and then type 80 in **Public Port**.  
 
-		If you set it to 80, don’t need to include the port number in the URL that allows you to access tomcat. For example, http://tomcatdemo.cloudapp.net.    
+        If you set it to 80, don’t need to include the port number in the URL that allows you to access tomcat. For example, http://tomcatdemo.cloudapp.net.    
 
-		If you set it to another value, such as 81, you need to add the port number to the URL to access tomcat. For example,  http://tomcatdemo.cloudapp.net:81/.
-	2.	Type 8080 in Private Port. By default, tomcat listens on TCP port 8080. If you changed the default listen port of tomcat, you should update Private Port to be the same as the tomcat listen port.  
-	![][7]
+        If you set it to another value, such as 81, you need to add the port number to the URL to access tomcat. For example,  http://tomcatdemo.cloudapp.net:81/.
+    2.  Type 8080 in Private Port. By default, tomcat listens on TCP port 8080. If you changed the default listen port of tomcat, you should update Private Port to be the same as the tomcat listen port.  
+    ![][7]
 
-4.	Click **OK** to add the endpoint to your virtual machine.
+4.  Click **OK** to add the endpoint to your virtual machine.
 
 
 
@@ -136,32 +136,32 @@ The following commands download the different JDKs.
 
 open-jdk   
 
-	sudo apt-get update  
-	sudo apt-get install openjdk-7-jre  
+    sudo apt-get update  
+    sudo apt-get install openjdk-7-jre  
 
 oracle-jdk  
 
--	To download the JDK from the Oracle website:  
+-   To download the JDK from the Oracle website:  
 
-		wget --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u5-b13/jdk-8u5-linux-x64.tar.gz  
+        wget --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u5-b13/jdk-8u5-linux-x64.tar.gz  
 
--	To create a directory to contain the JDK files:  
+-   To create a directory to contain the JDK files:  
 
-		sudo mkdir /usr/lib/jvm  
+        sudo mkdir /usr/lib/jvm  
 
--	To extract the JDK files into the /usr/lib/jvm/ directory:  
+-   To extract the JDK files into the /usr/lib/jvm/ directory:  
 
-		sudo tar -zxf jdk-8u5-linux-x64.tar.gz  -C /usr/lib/jvm/  
+        sudo tar -zxf jdk-8u5-linux-x64.tar.gz  -C /usr/lib/jvm/  
 
--	To set Oracle JDK as the default JVM:  
+-   To set Oracle JDK as the default JVM:  
 
-		sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk1.8.0_05/bin/java 100  
-		sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/jdk1.8.0_05/bin/javac 100  
+        sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk1.8.0_05/bin/java 100  
+        sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/jdk1.8.0_05/bin/javac 100  
 
 ####Test:
 You can use a command like the following to test if the Java runtime environment is installed correctly:  
 
-	java -version  
+    java -version  
 
 If you installed open-jdk, you should see a message like the following:
 ![][14]
@@ -172,7 +172,7 @@ If you installed oracle-jdk, you should see a message like the following:
 ###Tomcat7
 Using the following command to install tomcat7:  
 
-	sudo apt-get install tomcat7  
+    sudo apt-get install tomcat7  
 
 If you are not using tomcat7, use the appropriate variation of this command.  
 
@@ -187,32 +187,32 @@ There are other optional tomcat components that you can also install.
 
 Use the **sudo apt-cache search tomcat7** command to see all the available components. The following commands are examples to install some useful parts.  
 
-	sudo apt-get install tomcat7-admin      #admin web applications
-	sudo apt-get install tomcat7-user         #tools to create user instances  
+    sudo apt-get install tomcat7-admin      #admin web applications
+    sudo apt-get install tomcat7-user         #tools to create user instances  
 
 ##Phase 4: Configure Tomcat
 In this phase, you administer tomcat.
 ###Start and stop tomcat7
 The tomcat7 server will automatically start when you install it. You can also start it yourself with the following command:   
 
-	sudo /etc/init.d/tomcat7 start
+    sudo /etc/init.d/tomcat7 start
 
 To stop tomcat7：  
 
-	sudo /etc/init.d/tomcat7 stop
+    sudo /etc/init.d/tomcat7 stop
 
 To view the status of tomcat7：  
 
-	sudo /etc/init.d/tomcat7 status
+    sudo /etc/init.d/tomcat7 status
 
 To restart tomcat services：  
 
-	sudo /etc/init.d/tomcat7 restart
+    sudo /etc/init.d/tomcat7 restart
 
 ###Tomcat administration
 You can edit the Tomcat user configuration file to setup your admin credentials with the following command:  
 
-	sudo vi  /etc/tomcat7/tomcat-users.xml   
+    sudo vi  /etc/tomcat7/tomcat-users.xml   
 
 Here is an example:  
 ![][17]  
@@ -221,7 +221,7 @@ Here is an example:
 
 After editing this file, you should restart tomcat7 services with the following command to ensure that the changes take effect:  
 
-	sudo /etc/init.d/tomcat7 restart  
+    sudo /etc/init.d/tomcat7 restart  
 
 Open your browser, and enter the URL **http://<your tomcat server DNS name>/manager/html**. For the example in this article, the URL is http://tomcatexample.cloudapp.net/manager/html.  
 
@@ -232,80 +232,80 @@ After connecting, you should see something similar to the following:
 
 ###Can't access the virtual machine with Tomcat and Moodle from the Internet
 
--	**Symptom**  
+-   **Symptom**  
 Tomcat is running but you can’t see the Tomcat default page with your browser.
--	**Possible root case**   
-	1.	The tomcat listen port is not same as the Private Port of your virtual machine's endpoint for tomcat traffic.  
+-   **Possible root case**   
+    1.  The tomcat listen port is not same as the Private Port of your virtual machine's endpoint for tomcat traffic.  
 
-		Check your Public Port and Private Port endpoint settings and make sure the Private Port is same as the tomcat listen port. See Phase 1: Create an Image for instructions on configuring endpoints for your virtual machine.  
+        Check your Public Port and Private Port endpoint settings and make sure the Private Port is same as the tomcat listen port. See Phase 1: Create an Image for instructions on configuring endpoints for your virtual machine.  
 
-		To determine the tomcat listen port, open /etc/httpd/conf/httpd.conf (Red Hat release) or /etc/tomcat7/server.xml (Debian release). By default, the tomcat listen port is 8080. Here is an example:  
+        To determine the tomcat listen port, open /etc/httpd/conf/httpd.conf (Red Hat release) or /etc/tomcat7/server.xml (Debian release). By default, the tomcat listen port is 8080. Here is an example:  
 
-			<Connector port="8080" protocol="HTTP/1.1"  connectionTimeout="20000"  URIEncoding="UTF-8"            redirectPort="8443" />  
+            <Connector port="8080" protocol="HTTP/1.1"  connectionTimeout="20000"  URIEncoding="UTF-8"            redirectPort="8443" />  
 
-		If you are using a virtual machine like Debian or Ubuntu and you want to change the default port of Tomcat Listen (for example 8081), you should also open the port for the OS. First, open the Profile:  
+        If you are using a virtual machine like Debian or Ubuntu and you want to change the default port of Tomcat Listen (for example 8081), you should also open the port for the OS. First, open the Profile:  
 
-			sudo vi /etc/default/tomcat7  
+            sudo vi /etc/default/tomcat7  
 
-		Then uncomment the last line and change “no” to “yes”.  
+        Then uncomment the last line and change “no” to “yes”.  
 
-			AUTHBIND=yes
+            AUTHBIND=yes
 
-	2.	The firewall has disabled the listen port of tomcat.
+    2.  The firewall has disabled the listen port of tomcat.
 
-		If you can only see the Tomcat default page from the local host, then the problem is most likely that the port which is listened by tomcat is blocked by the firewall. You can use the w3m tool to browse the web page. The following commands install w3m and browse to the Tomcat default page:  
+        If you can only see the Tomcat default page from the local host, then the problem is most likely that the port which is listened by tomcat is blocked by the firewall. You can use the w3m tool to browse the web page. The following commands install w3m and browse to the Tomcat default page:  
 
-			sudo yum  install w3m w3m-img
-			w3m http://localhost:8080  
+            sudo yum  install w3m w3m-img
+            w3m http://localhost:8080  
 
--	**Solution**
-	1. If the tomcat listen port is not same as the Private Port of the endpoint for traffic to the virtual machine, you need change the Private Port to be the same as the tomcat listen port.   
+-   **Solution**
+    1. If the tomcat listen port is not same as the Private Port of the endpoint for traffic to the virtual machine, you need change the Private Port to be the same as the tomcat listen port.   
 
-	2.	If the issue is caused by the firewall/iptables, add the following lines to /etc/sysconfig/iptables:  
+    2.  If the issue is caused by the firewall/iptables, add the following lines to /etc/sysconfig/iptables:  
 
-			-A INPUT -p tcp -m tcp --dport 80 -j ACCEPT
-			-A INPUT -p tcp -m tcp --dport 443 -j ACCEPT  
+            -A INPUT -p tcp -m tcp --dport 80 -j ACCEPT
+            -A INPUT -p tcp -m tcp --dport 443 -j ACCEPT  
 
-		Note that the second line is only needed for https traffic.  
+        Note that the second line is only needed for https traffic.  
 
-		Make sure this is above any lines that would globally restrict access, such as the following:  
+        Make sure this is above any lines that would globally restrict access, such as the following:  
 
-			-A INPUT -j REJECT --reject-with icmp-host-prohibited  
+            -A INPUT -j REJECT --reject-with icmp-host-prohibited  
 
-		To reload the iptables, run the following command:  
+        To reload the iptables, run the following command:  
 
-			service iptables restart  
+            service iptables restart  
 
-		This has been tested on CentOS 6.3.
+        This has been tested on CentOS 6.3.
 
 ###Permission denied when upload you project files to /var/lib/tomcat7/webapps/  
 
--	**Symptom**  
+-   **Symptom**  
 When you use any SFTP client (such as FileZilla) to connect to your virtual machine and navigate to /var/lib/tomcat7/webapps/ to publish your site, you get an error message similar to the following:  
 
-		status:	Listing directory /var/lib/tomcat7/webapps
-		Command:	put "C:\Users\liang\Desktop\info.jsp" "info.jsp"
-		Error:	/var/lib/tomcat7/webapps/info.jsp: open for write: permission denied
-		Error:	File transfer failed
+        status: Listing directory /var/lib/tomcat7/webapps
+        Command:    put "C:\Users\liang\Desktop\info.jsp" "info.jsp"
+        Error:  /var/lib/tomcat7/webapps/info.jsp: open for write: permission denied
+        Error:  File transfer failed
 
--	**Possible root case**
+-   **Possible root case**
 You have no permissions to access the /var/lib/tomcat7/webapps folder.  
--	**Solution**  
+-   **Solution**  
 You need get permission from the root account. You can change the ownership of that folder from root to the username you used when provisioning the machine. Here is an example with the azureuser account name:  
 
-		sudo chown azureuser -R /var/lib/tomcat7/webapps
+        sudo chown azureuser -R /var/lib/tomcat7/webapps
 
-	Use the -R option to apply the permissions for all files inside of a directory too.  
+    Use the -R option to apply the permissions for all files inside of a directory too.  
 
-	Note that this command also works for directories. The -R option changes the permissions for all files and directories inside of the directory. Here is an example:  
+    Note that this command also works for directories. The -R option changes the permissions for all files and directories inside of the directory. Here is an example:  
 
-		sudo chown -R username:group directory  
+        sudo chown -R username:group directory  
 
-	This command changes ownership (both user and group) for all files and directories inside of directory and directory itself.  
+    This command changes ownership (both user and group) for all files and directories inside of directory and directory itself.  
 
-	The following command only changes the permission of the folder directory but leaves the files and folders inside the directory alone.  
+    The following command only changes the permission of the folder directory but leaves the files and folders inside the directory alone.  
 
-		sudo chown username:group directory
+        sudo chown username:group directory
 
 
 
@@ -327,3 +327,4 @@ You need get permission from the root account. You can change the ownership of t
 [16]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-16.png
 [17]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-17.png
 [18]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-18.png
+

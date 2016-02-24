@@ -1,21 +1,21 @@
 
 <properties
-	pageTitle="Azure Site Recovery: Replicate Hyper-V virtual machines (single VMM server)"
-	description="Azure Site Recovery coordinates the replication, failover and recovery of virtual machines located in on-premises VMM clouds to Azure or to a secondary VMM cloud."
-	services="site-recovery"
-	documentationCenter=""
-	authors="rayne-wiselman"
-	manager="jwhit"
-	editor=""/>
+    pageTitle="Azure Site Recovery: Replicate Hyper-V virtual machines (single VMM server)"
+    description="Azure Site Recovery coordinates the replication, failover and recovery of virtual machines located in on-premises VMM clouds to Azure or to a secondary VMM cloud."
+    services="site-recovery"
+    documentationCenter=""
+    authors="rayne-wiselman"
+    manager="jwhit"
+    editor=""/>
 
 <tags
-	ms.service="site-recovery"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="backup-recovery"
-	ms.date="12/01/2015"
-	ms.author="raynew"/>
+    ms.service="site-recovery"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="backup-recovery"
+    ms.date="12/01/2015"
+    ms.author="raynew"/>
 
 #  Azure Site Recovery: Replicate Hyper-V virtual machines (single VMM server)
 
@@ -77,3 +77,4 @@ When outages occur the VMM server and it's corresponding SQL Server database are
 
 
  
+

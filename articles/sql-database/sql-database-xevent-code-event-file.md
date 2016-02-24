@@ -1,22 +1,22 @@
 <properties 
-	pageTitle="XEvent Event File code for SQL Database | Microsoft Azure" 
-	description="Provides PowerShell and Transact-SQL for a two-phase code sample that demonstrates the Event File target in an extended event on Azure SQL Database. Azure Storage is a required part of this scenario." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="MightyPen" 
-	manager="jeffreyg" 
-	editor="" 
-	tags=""/>
+    pageTitle="XEvent Event File code for SQL Database | Microsoft Azure" 
+    description="Provides PowerShell and Transact-SQL for a two-phase code sample that demonstrates the Event File target in an extended event on Azure SQL Database. Azure Storage is a required part of this scenario." 
+    services="sql-database" 
+    documentationCenter="" 
+    authors="MightyPen" 
+    manager="jeffreyg" 
+    editor="" 
+    tags=""/>
 
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/09/2015" 
-	ms.author="genemi"/>
+    ms.service="sql-database" 
+    ms.workload="data-management" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/09/2015" 
+    ms.author="genemi"/>
 
 
 # Event File target code for extended events in SQL Database
@@ -305,26 +305,26 @@ GO
 
 
 IF EXISTS
-	(SELECT * FROM sys.objects
-		WHERE type = 'U' and name = 'gmTabEmployee')
+    (SELECT * FROM sys.objects
+        WHERE type = 'U' and name = 'gmTabEmployee')
 BEGIN
-	DROP TABLE gmTabEmployee;
+    DROP TABLE gmTabEmployee;
 END
 GO
 
 
 CREATE TABLE gmTabEmployee
 (
-	EmployeeGuid         uniqueIdentifier   not null  default newid()  primary key,
-	EmployeeId           int                not null  identity(1,1),
-	EmployeeKudosCount   int                not null  default 0,
-	EmployeeDescr        nvarchar(256)          null
+    EmployeeGuid         uniqueIdentifier   not null  default newid()  primary key,
+    EmployeeId           int                not null  identity(1,1),
+    EmployeeKudosCount   int                not null  default 0,
+    EmployeeDescr        nvarchar(256)          null
 );
 GO
 
 
 INSERT INTO gmTabEmployee ( EmployeeDescr )
-	VALUES ( 'Jane Doe' );
+    VALUES ( 'Jane Doe' );
 GO
 
 
@@ -333,37 +333,37 @@ GO
 
 
 IF NOT EXISTS
-	(SELECT * FROM sys.symmetric_keys
-		WHERE symmetric_key_id = 101)
+    (SELECT * FROM sys.symmetric_keys
+        WHERE symmetric_key_id = 101)
 BEGIN
-	CREATE MASTER KEY ENCRYPTION BY PASSWORD = '0C34C960-6621-4682-A123-C7EA08E3FC46' -- Or any newid().
+    CREATE MASTER KEY ENCRYPTION BY PASSWORD = '0C34C960-6621-4682-A123-C7EA08E3FC46' -- Or any newid().
 END
 GO
 
 
 IF EXISTS
-	(SELECT * FROM sys.database_scoped_credentials
-		-- TODO: Assign AzureStorageAccount name, and the associated Container name.
-		WHERE name = 'https://gmstorageaccountxevent.blob.core.windows.net/gmcontainerxevent')
+    (SELECT * FROM sys.database_scoped_credentials
+        -- TODO: Assign AzureStorageAccount name, and the associated Container name.
+        WHERE name = 'https://gmstorageaccountxevent.blob.core.windows.net/gmcontainerxevent')
 BEGIN
-	DROP DATABASE SCOPED CREDENTIAL
-		-- TODO: Assign AzureStorageAccount name, and the associated Container name.
-		[https://gmstorageaccountxevent.blob.core.windows.net/gmcontainerxevent] ;
+    DROP DATABASE SCOPED CREDENTIAL
+        -- TODO: Assign AzureStorageAccount name, and the associated Container name.
+        [https://gmstorageaccountxevent.blob.core.windows.net/gmcontainerxevent] ;
 END
 GO
 
 
 CREATE
-	DATABASE SCOPED
-	CREDENTIAL
-		-- use '.blob.',   and not '.queue.' or '.table.' etc.
-		-- TODO: Assign AzureStorageAccount name, and the associated Container name.
-		[https://gmstorageaccountxevent.blob.core.windows.net/gmcontainerxevent]
-	WITH
-		IDENTITY = 'SHARED ACCESS SIGNATURE',  -- "SAS" token.
-		-- TODO: Paste in the long SasToken string here for Secret, but exclude any leading '?'.
-		SECRET = 'sv=2014-02-14&sr=c&si=gmpolicysastoken&sig=EjAqjo6Nu5xMLEZEkMkLbeF7TD9v1J8DNB2t8gOKTts%3D'
-	;
+    DATABASE SCOPED
+    CREDENTIAL
+        -- use '.blob.',   and not '.queue.' or '.table.' etc.
+        -- TODO: Assign AzureStorageAccount name, and the associated Container name.
+        [https://gmstorageaccountxevent.blob.core.windows.net/gmcontainerxevent]
+    WITH
+        IDENTITY = 'SHARED ACCESS SIGNATURE',  -- "SAS" token.
+        -- TODO: Paste in the long SasToken string here for Secret, but exclude any leading '?'.
+        SECRET = 'sv=2014-02-14&sr=c&si=gmpolicysastoken&sig=EjAqjo6Nu5xMLEZEkMkLbeF7TD9v1J8DNB2t8gOKTts%3D'
+    ;
 GO
 
 
@@ -372,40 +372,40 @@ GO
 ------  and a has a target.
 
 IF EXISTS
-	(SELECT * from sys.database_event_sessions
-		WHERE name = 'gmeventsessionname240b')
+    (SELECT * from sys.database_event_sessions
+        WHERE name = 'gmeventsessionname240b')
 BEGIN
-	DROP
-		EVENT SESSION
-			gmeventsessionname240b
-	    ON DATABASE;
+    DROP
+        EVENT SESSION
+            gmeventsessionname240b
+        ON DATABASE;
 END
 GO
 
 
 CREATE
-	EVENT SESSION
-		gmeventsessionname240b
-	ON DATABASE
+    EVENT SESSION
+        gmeventsessionname240b
+    ON DATABASE
 
-	ADD EVENT
-		sqlserver.sql_statement_starting
-			(
-			ACTION (sqlserver.sql_text)
-			WHERE statement LIKE 'UPDATE gmTabEmployee%'
-			)
-	ADD TARGET
-		package0.event_file
-			(
-			-- TODO: Assign AzureStorageAccount name, and the associated Container name.
-			-- Also, tweak the .xel file name at end, if you like.
-			SET filename =
-				'https://gmstorageaccountxevent.blob.core.windows.net/gmcontainerxevent/anyfilenamexel242b.xel'
-			)
-	WITH
-		(MAX_MEMORY = 10 MB,
-		MAX_DISPATCH_LATENCY = 3 SECONDS)
-	;
+    ADD EVENT
+        sqlserver.sql_statement_starting
+            (
+            ACTION (sqlserver.sql_text)
+            WHERE statement LIKE 'UPDATE gmTabEmployee%'
+            )
+    ADD TARGET
+        package0.event_file
+            (
+            -- TODO: Assign AzureStorageAccount name, and the associated Container name.
+            -- Also, tweak the .xel file name at end, if you like.
+            SET filename =
+                'https://gmstorageaccountxevent.blob.core.windows.net/gmcontainerxevent/anyfilenamexel242b.xel'
+            )
+    WITH
+        (MAX_MEMORY = 10 MB,
+        MAX_DISPATCH_LATENCY = 3 SECONDS)
+    ;
 GO
 
 
@@ -417,62 +417,62 @@ GO
 ------  the session must be stopped and restarted.
 
 ALTER
-	EVENT SESSION
-		gmeventsessionname240b
-	ON DATABASE
-	STATE = START;
+    EVENT SESSION
+        gmeventsessionname240b
+    ON DATABASE
+    STATE = START;
 GO
 
 
 SELECT 'BEFORE_Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 
 UPDATE gmTabEmployee
-	SET EmployeeKudosCount = EmployeeKudosCount + 2
-	WHERE EmployeeDescr = 'Jane Doe';
+    SET EmployeeKudosCount = EmployeeKudosCount + 2
+    WHERE EmployeeDescr = 'Jane Doe';
 
 UPDATE gmTabEmployee
-	SET EmployeeKudosCount = EmployeeKudosCount + 13
-	WHERE EmployeeDescr = 'Jane Doe';
+    SET EmployeeKudosCount = EmployeeKudosCount + 13
+    WHERE EmployeeDescr = 'Jane Doe';
 
 SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 GO
 
 
 ALTER
-	EVENT SESSION
-		gmeventsessionname240b
-	ON DATABASE
-	STATE = STOP;
+    EVENT SESSION
+        gmeventsessionname240b
+    ON DATABASE
+    STATE = STOP;
 GO
 
 
 -------------- Step 5.  Select the results. ----------
 
 SELECT
-		*, 'CLICK_NEXT_CELL_TO_BROWSE_ITS_RESULTS!' as [CLICK_NEXT_CELL_TO_BROWSE_ITS_RESULTS],
-		CAST(event_data AS XML) AS [event_data_XML]  -- TODO: In ssms.exe results grid, double-click this cell!
-	FROM
-		sys.fn_xe_file_target_read_file
-			(
-				-- TODO: Fill in Storage Account name, and the associated Container name.
-				'https://gmstorageaccountxevent.blob.core.windows.net/gmcontainerxevent/anyfilenamexel242b',
-				null, null, null
-			);
+        *, 'CLICK_NEXT_CELL_TO_BROWSE_ITS_RESULTS!' as [CLICK_NEXT_CELL_TO_BROWSE_ITS_RESULTS],
+        CAST(event_data AS XML) AS [event_data_XML]  -- TODO: In ssms.exe results grid, double-click this cell!
+    FROM
+        sys.fn_xe_file_target_read_file
+            (
+                -- TODO: Fill in Storage Account name, and the associated Container name.
+                'https://gmstorageaccountxevent.blob.core.windows.net/gmcontainerxevent/anyfilenamexel242b',
+                null, null, null
+            );
 GO
 
 
 -------------- Step 6.  Clean up. ----------
 
 DROP
-	EVENT SESSION
-		gmeventsessionname240b
-	ON DATABASE;
+    EVENT SESSION
+        gmeventsessionname240b
+    ON DATABASE;
 GO
 
 DROP DATABASE SCOPED CREDENTIAL
-	-- TODO: Assign AzureStorageAccount name, and the associated Container name.
-	[https://gmstorageaccountxevent.blob.core.windows.net/gmcontainerxevent]
-	;
+    -- TODO: Assign AzureStorageAccount name, and the associated Container name.
+    [https://gmstorageaccountxevent.blob.core.windows.net/gmcontainerxevent]
+    ;
 GO
 
 DROP TABLE gmTabEmployee;
@@ -597,4 +597,5 @@ Image references.
 -->
 
 [30_powershell_ise]: ./media/sql-database-xevent-code-event-file/event-file-powershell-ise-b30.png
+
 

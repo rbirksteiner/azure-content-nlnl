@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Working with the App Service Mobile Apps managed client library (Windows | Xamarin) | Microsoft Azure"
-	description="Learn how to use a .NET client for Azure App Service Mobile Apps with Windows and Xamarin apps."
-	services="app-service\mobile"
-	documentationCenter=""
-	authors="ggailey777"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Working with the App Service Mobile Apps managed client library (Windows | Xamarin) | Microsoft Azure"
+    description="Learn how to use a .NET client for Azure App Service Mobile Apps with Windows and Xamarin apps."
+    services="app-service\mobile"
+    documentationCenter=""
+    authors="ggailey777"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="app-service"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-multiple"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="11/05/2015" 
-	ms.author="glenga"/>
+    ms.service="app-service"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-multiple"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="11/05/2015" 
+    ms.author="glenga"/>
 
 # How to use the managed client for Azure Mobile Apps
 
@@ -38,16 +38,16 @@ We assume that you have already created and published your Mobile App backend pr
 The corresponding typed client-side type in C# is the following:
 
 
-	public class TodoItem
-	{
-		public string Id { get; set; }
+    public class TodoItem
+    {
+        public string Id { get; set; }
 
-		[JsonProperty(PropertyName = "text")]
-		public string Text { get; set; }
+        [JsonProperty(PropertyName = "text")]
+        public string Text { get; set; }
 
-		[JsonProperty(PropertyName = "complete")]
-		public bool Complete { get; set; }
-	}
+        [JsonProperty(PropertyName = "complete")]
+        public bool Complete { get; set; }
+    }
 
 Note that the [JsonPropertyAttribute](http://www.newtonsoft.com/json/help/html/Properties_T_Newtonsoft_Json_JsonPropertyAttribute.htm) is used to define the *PropertyName* mapping between the client type and the table.
 
@@ -57,7 +57,7 @@ To learn how to create new tables in your Mobile Apps backend, see [How to: Defi
 
 The following code creates the `MobileServiceClient` object that is used to access your Mobile App backend.
 
-	MobileServiceClient client = new MobileServiceClient("MOBILE_APP_URL");
+    MobileServiceClient client = new MobileServiceClient("MOBILE_APP_URL");
 
 In the code above, replace `MOBILE_APP_URL` with the URL of the Mobile App backend, which is found in the blade for your Mobile App backend in the [Azure portal](https://portal.azure.com).
 
@@ -66,12 +66,12 @@ In the code above, replace `MOBILE_APP_URL` with the URL of the Mobile App backe
 All of the code that accesses or modifies data in a backend table calls functions on the `MobileServiceTable` object. You get a reference to the table by calling the [GetTable](https://msdn.microsoft.com/library/azure/jj554275.aspx) method on an instance of the `MobileServiceClient`, as follows:
 
     IMobileServiceTable<TodoItem> todoTable =
-		client.GetTable<TodoItem>();
+        client.GetTable<TodoItem>();
 
 This is the typed serialization model. An untyped serialization model is also supported. The following creates a reference to an untyped table: 
 
-	// Get an untyped table reference
-	IMobileServiceTable untypedTodoTable = client.GetTable("TodoItem");
+    // Get an untyped table reference
+    IMobileServiceTable untypedTodoTable = client.GetTable("TodoItem");
 
 In untyped queries, you must specify the underlying OData query string.
 
@@ -91,45 +91,45 @@ This section describes how to issue queries to the Mobile App backend, which inc
 
 The following code illustrates how to filter data by including a `Where` clause in a query. It returns all items from `todoTable` whose `Complete` property is equal to `false`. The `Where` function applies a row filtering predicate to the query against the table.
 
-	// This query filters out completed TodoItems and
-	// items without a timestamp.
-	List<TodoItem> items = await todoTable
-	   .Where(todoItem => todoItem.Complete == false)
-	   .ToListAsync();
+    // This query filters out completed TodoItems and
+    // items without a timestamp.
+    List<TodoItem> items = await todoTable
+       .Where(todoItem => todoItem.Complete == false)
+       .ToListAsync();
 
 You can view the URI of the request sent to the backend by using message inspection software, such as browser developer tools or [Fiddler]. If you look at the request URI below,  notice that we are modifying the query string itself:
 
-	GET /tables/todoitem?$filter=(complete+eq+false) HTTP/1.1
+    GET /tables/todoitem?$filter=(complete+eq+false) HTTP/1.1
 
 This request would normally be translated roughly into the following SQL query on the Azure side:
 
-	SELECT *
-	FROM TodoItem
-	WHERE ISNULL(complete, 0) = 0
+    SELECT *
+    FROM TodoItem
+    WHERE ISNULL(complete, 0) = 0
 
 The function which is passed to the `Where` method can have an arbitrary number of conditions. For example, the line below:
 
-	// This query filters out completed TodoItems where Text isn't null
-	List<TodoItem> items = await todoTable
-	   .Where(todoItem => todoItem.Complete == false
-		   && todoItem.Text != null)
-	   .ToListAsync();
+    // This query filters out completed TodoItems where Text isn't null
+    List<TodoItem> items = await todoTable
+       .Where(todoItem => todoItem.Complete == false
+           && todoItem.Text != null)
+       .ToListAsync();
 
 Would be roughly translated (for the same request shown before) as
 
-	SELECT *
-	FROM TodoItem
-	WHERE ISNULL(complete, 0) = 0
-	      AND ISNULL(text, 0) = 0
+    SELECT *
+    FROM TodoItem
+    WHERE ISNULL(complete, 0) = 0
+          AND ISNULL(text, 0) = 0
 
 The `where` statement above will find items with `Complete` status set to false with non-null `Text`.
 
 We also could have written that in multiple lines instead:
 
-	List<TodoItem> items = await todoTable
-	   .Where(todoItem => todoItem.Complete == false)
-	   .Where(todoItem => todoItem.Text != null)
-	   .ToListAsync();
+    List<TodoItem> items = await todoTable
+       .Where(todoItem => todoItem.Complete == false)
+       .Where(todoItem => todoItem.Text != null)
+       .ToListAsync();
 
 The two methods are equivalent and may be used interchangeably.  The former option&mdash;of concatenating multiple predicates in one query&mdash;is more compact and recommended.
 
@@ -139,36 +139,36 @@ The `where` clause supports operations that be translated into the OData subset.
 
 The following code illustrates how to sort data by including an `OrderBy` or `OrderByDescending` function in the query. It returns items from `todoTable` sorted ascending by the `Text` field.
 
-	// Sort items in ascending order by Text field
-	MobileServiceTableQuery<TodoItem> query = todoTable
-					.OrderBy(todoItem => todoItem.Text)
- 	List<TodoItem> items = await query.ToListAsync();
+    // Sort items in ascending order by Text field
+    MobileServiceTableQuery<TodoItem> query = todoTable
+                    .OrderBy(todoItem => todoItem.Text)
+    List<TodoItem> items = await query.ToListAsync();
 
-	// Sort items in descending order by Text field
-	MobileServiceTableQuery<TodoItem> query = todoTable
-					.OrderByDescending(todoItem => todoItem.Text)
- 	List<TodoItem> items = await query.ToListAsync();
+    // Sort items in descending order by Text field
+    MobileServiceTableQuery<TodoItem> query = todoTable
+                    .OrderByDescending(todoItem => todoItem.Text)
+    List<TodoItem> items = await query.ToListAsync();
 
 ### <a name="paging"></a>How to: Return data in pages
 
 By default, the backend returns only the first 50 rows. You can increase the number of returned rows by calling the [Take] method. Use `Take` along with the [Skip] method to request a specific "page" of the total dataset returned by the query. The following query, when executed, returns the top three items in the table.
 
-	// Define a filtered query that returns the top 3 items.
-	MobileServiceTableQuery<TodoItem> query = todoTable
-					.Take(3);
-	List<TodoItem> items = await query.ToListAsync();
+    // Define a filtered query that returns the top 3 items.
+    MobileServiceTableQuery<TodoItem> query = todoTable
+                    .Take(3);
+    List<TodoItem> items = await query.ToListAsync();
 
 The following revised query skips the first three results and returns the next three after that. This is effectively the second "page" of data, where the page size is three items.
 
-	// Define a filtered query that skips the top 3 items and returns the next 3 items.
-	MobileServiceTableQuery<TodoItem> query = todoTable
-					.Skip(3)
-					.Take(3);
-	List<TodoItem> items = await query.ToListAsync();
+    // Define a filtered query that skips the top 3 items and returns the next 3 items.
+    MobileServiceTableQuery<TodoItem> query = todoTable
+                    .Skip(3)
+                    .Take(3);
+    List<TodoItem> items = await query.ToListAsync();
 
 You can also use the [IncludeTotalCount] method to ensure that the query will get the total count for <i>all</i> the records that would have been returned, ignoring any take paging/limit clause specified:
 
-	query = query.IncludeTotalCount();
+    query = query.IncludeTotalCount();
 
 This is a simplified scenario of passing hard-coded paging values to the `Take` and `Skip` methods. In a real-world app, you can use queries similar to the above with a pager control or comparable UI to let users navigate to previous and next pages.
 
@@ -181,40 +181,40 @@ This is a simplified scenario of passing hard-coded paging values to the `Take` 
 
 You can specify which set of properties to include in the results by adding a `Select` clause to your query. For example, the following code shows how to select just one field and also how to select and format multiple fields:
 
-	// Select one field -- just the Text
-	MobileServiceTableQuery<TodoItem> query = todoTable
-					.Select(todoItem => todoItem.Text);
-	List<string> items = await query.ToListAsync();
+    // Select one field -- just the Text
+    MobileServiceTableQuery<TodoItem> query = todoTable
+                    .Select(todoItem => todoItem.Text);
+    List<string> items = await query.ToListAsync();
 
-	// Select multiple fields -- both Complete and Text info
-	MobileServiceTableQuery<TodoItem> query = todoTable
-					.Select(todoItem => string.Format("{0} -- {1}", 
-						todoItem.Text.PadRight(30), todoItem.Complete ? 
-						"Now complete!" : "Incomplete!"));
-	List<string> items = await query.ToListAsync();
+    // Select multiple fields -- both Complete and Text info
+    MobileServiceTableQuery<TodoItem> query = todoTable
+                    .Select(todoItem => string.Format("{0} -- {1}", 
+                        todoItem.Text.PadRight(30), todoItem.Complete ? 
+                        "Now complete!" : "Incomplete!"));
+    List<string> items = await query.ToListAsync();
 
 All the functions described so far are additive, so we can just keep calling them and we'll each time affect more of the query. One more example:
 
-	MobileServiceTableQuery<TodoItem> query = todoTable
-					.Where(todoItem => todoItem.Complete == false)
-					.Select(todoItem => todoItem.Text)
-					.Skip(3).
-					.Take(3);
-	List<string> items = await query.ToListAsync();
+    MobileServiceTableQuery<TodoItem> query = todoTable
+                    .Where(todoItem => todoItem.Complete == false)
+                    .Select(todoItem => todoItem.Text)
+                    .Skip(3).
+                    .Take(3);
+    List<string> items = await query.ToListAsync();
 
 ### <a name="lookingup"></a>How to: Look up data by ID
 
 The `LookupAsync` function can be used to look up objects from the database with a particular ID.
 
-	// This query filters out the item with the ID of 37BBF396-11F0-4B39-85C8-B319C729AF6D
-	TodoItem item = await todoTable.LookupAsync("37BBF396-11F0-4B39-85C8-B319C729AF6D");
+    // This query filters out the item with the ID of 37BBF396-11F0-4B39-85C8-B319C729AF6D
+    TodoItem item = await todoTable.LookupAsync("37BBF396-11F0-4B39-85C8-B319C729AF6D");
 
 ### <a name="lookingup"></a>How to: Execute untyped queries
 
 When executing a query using an untyped table object, you must explicitly specify the OData query string, as in the following example:
 
-	// Lookup untyped data using OData
-	JToken untypedItems = await untypedTodoTable.ReadAsync("$filter=complete eq 0&$orderby=text");
+    // Lookup untyped data using OData
+    JToken untypedItems = await untypedTodoTable.ReadAsync("$filter=complete eq 0&$orderby=text");
 
 You get back JSON values that you can use like a property bag. For more information on JToken and Json.NET, see [Json.NET](http://json.codeplex.com/)
 
@@ -222,24 +222,24 @@ You get back JSON values that you can use like a property bag. For more informat
 
 All client types must contain a member named **Id**, which is by default a string. This **Id** is required to perform CRUD operations and for offline. The following code illustrates how to insert new rows into a table. The parameter contains the data to be inserted as a .NET object.
 
-	await todoTable.InsertAsync(todoItem);
+    await todoTable.InsertAsync(todoItem);
 
 If a unique custom ID value is not included in the `todoItem` passed to the `todoTable.InsertAsync` call, a value for ID is generated by the server and is set in the `todoItem` object returned to the client.
 
 To insert untyped data, you may take advantage of Json.NET as shown below.
 
-	JObject jo = new JObject();
-	jo.Add("Text", "Hello World");
-	jo.Add("Complete", false);
-	var inserted = await table.InsertAsync(jo);
+    JObject jo = new JObject();
+    jo.Add("Text", "Hello World");
+    jo.Add("Complete", false);
+    var inserted = await table.InsertAsync(jo);
 
 Here is an example using an email address as a unique string id.
 
-	JObject jo = new JObject();
-	jo.Add("id", "myemail@emaildomain.com");
-	jo.Add("Text", "Hello World");
-	jo.Add("Complete", false);
-	var inserted = await table.InsertAsync(jo);
+    JObject jo = new JObject();
+    jo.Add("id", "myemail@emaildomain.com");
+    jo.Add("Text", "Hello World");
+    jo.Add("Complete", false);
+    var inserted = await table.InsertAsync(jo);
 
 
 ###Working with ID values
@@ -258,14 +258,14 @@ When a string ID value is not set on an inserted record, the Mobile App backend 
 
 The following code illustrates how to update an existing instance with the same ID with new information. The parameter contains the data to be updated as a .NET object.
 
-	await todoTable.UpdateAsync(todoItem);
+    await todoTable.UpdateAsync(todoItem);
 
 To insert untyped data, you may take advantage of Json.NET as follows: 
-	JObject jo = new JObject();
-	jo.Add("Id", "37BBF396-11F0-4B39-85C8-B319C729AF6D");
-	jo.Add("Text", "Hello World");
-	jo.Add("Complete", false);
-	var inserted = await table.UpdateAsync(jo);
+    JObject jo = new JObject();
+    jo.Add("Id", "37BBF396-11F0-4B39-85C8-B319C729AF6D");
+    jo.Add("Text", "Hello World");
+    jo.Add("Complete", false);
+    var inserted = await table.UpdateAsync(jo);
 
 Note that when making an update, an ID must be specified. This is how the backend identifies which instance to update. The ID can be obtained from the result of the `InsertAsync` call. When you try to update an item without providing the "Id" value, an `ArgumentException` is raised.
 
@@ -274,13 +274,13 @@ Note that when making an update, an ID must be specified. This is how the backen
 
 The following code illustrates how to delete an existing instance. The instance is identified by the "Id" field set on the `todoItem`.
 
-	await todoTable.DeleteAsync(todoItem);
+    await todoTable.DeleteAsync(todoItem);
 
 To delete untyped data, you may take advantage of Json.NET as follows:
 
-	JObject jo = new JObject();
-	jo.Add("Id", "37BBF396-11F0-4B39-85C8-B319C729AF6D");
-	await table.DeleteAsync(jo);
+    JObject jo = new JObject();
+    jo.Add("Id", "37BBF396-11F0-4B39-85C8-B319C729AF6D");
+    await table.DeleteAsync(jo);
 
 Note that when you make a delete request, an ID must be specified. Other properties are not passed to the service or are ignored at the service. The result of a `DeleteAsync` call is usually `null`. The ID to pass in can be obtained from the result of the `InsertAsync` call. When you try to delete an item without the "Id" field already set, a `MobileServiceInvalidOperationException` is returned from the backend. 
 
@@ -300,17 +300,17 @@ Note that this a typed method call, which requires that the **MarkAllResult** re
 
 The Mobile Apps client enables you to register for push notifications with Azure Notification Hubs. When registering, you obtain a handle that you obtain from the platform-specific Push Notification Service (PNS). You then provide this value along with any tags when you create the registration. The following code registers your Windows app for push notifications with the Windows Notification Service (WNS):
 
-		private async void InitNotificationsAsync()
-		{
-		    // Request a push notification channel.
-		    var channel =
-		        await PushNotificationChannelManager
-		            .CreatePushNotificationChannelForApplicationAsync();
+        private async void InitNotificationsAsync()
+        {
+            // Request a push notification channel.
+            var channel =
+                await PushNotificationChannelManager
+                    .CreatePushNotificationChannelForApplicationAsync();
 
-		    // Register for notifications using the new channel and a tag collection.
-			var tags = new List<string>{ "mytag1", "mytag2"};
-		    await MobileService.GetPush().RegisterNativeAsync(channel.Uri, tags);
-		}
+            // Register for notifications using the new channel and a tag collection.
+            var tags = new List<string>{ "mytag1", "mytag2"};
+            await MobileService.GetPush().RegisterNativeAsync(channel.Uri, tags);
+        }
 
 Note that in this example, two tags are included with the registration. For more information on Windows apps, including how to register for template registrations, see [Add push notifications to your app](app-service-mobile-windows-store-dotnet-get-started-push.md). 
 
@@ -371,7 +371,7 @@ To enable optimistic concurrency the application defines a column on the table c
         [JsonProperty(PropertyName = "complete")]
         public bool Complete { get; set; }
 
-		// *** Enable Optimistic Concurrency *** //
+        // *** Enable Optimistic Concurrency *** //
         [JsonProperty(PropertyName = "__version")]
         public byte[] Version { set; get; }
     }
@@ -379,66 +379,66 @@ To enable optimistic concurrency the application defines a column on the table c
 
 Applications using untyped tables enable optimistic concurrency by setting the `Version` flag on the `SystemProperties` of the table as follows.
 
-	//Enable optimistic concurrency by retrieving __version
-	todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
+    //Enable optimistic concurrency by retrieving __version
+    todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 
 
 The following code shows how to resolve a write conflict once detected. The correct `__version` value must be included in the `UpdateAsync()` call to commit a resolution.
 
-	private async void UpdateToDoItem(TodoItem item)
-	{
-    	MobileServicePreconditionFailedException<TodoItem> exception = null;
+    private async void UpdateToDoItem(TodoItem item)
+    {
+        MobileServicePreconditionFailedException<TodoItem> exception = null;
 
-	    try
-    	{
-	        //update at the remote table
-    	    await todoTable.UpdateAsync(item);
-    	}
-    	catch (MobileServicePreconditionFailedException<TodoItem> writeException)
-	    {
-        	exception = writeException;
-	    }
+        try
+        {
+            //update at the remote table
+            await todoTable.UpdateAsync(item);
+        }
+        catch (MobileServicePreconditionFailedException<TodoItem> writeException)
+        {
+            exception = writeException;
+        }
 
-    	if (exception != null)
-    	{
-			// Conflict detected, the item has changed since the last query
-        	// Resolve the conflict between the local and server item
-	        await ResolveConflict(item, exception.Item);
-    	}
-	}
+        if (exception != null)
+        {
+            // Conflict detected, the item has changed since the last query
+            // Resolve the conflict between the local and server item
+            await ResolveConflict(item, exception.Item);
+        }
+    }
 
 
-	private async Task ResolveConflict(TodoItem localItem, TodoItem serverItem)
-	{
-    	//Ask user to choose the resoltion between versions
-	    MessageDialog msgDialog = new MessageDialog(String.Format("Server Text: \"{0}\" \nLocal Text: \"{1}\"\n",
-        	                                        serverItem.Text, localItem.Text),
-                                                	"CONFLICT DETECTED - Select a resolution:");
+    private async Task ResolveConflict(TodoItem localItem, TodoItem serverItem)
+    {
+        //Ask user to choose the resoltion between versions
+        MessageDialog msgDialog = new MessageDialog(String.Format("Server Text: \"{0}\" \nLocal Text: \"{1}\"\n",
+                                                    serverItem.Text, localItem.Text),
+                                                    "CONFLICT DETECTED - Select a resolution:");
 
-	    UICommand localBtn = new UICommand("Commit Local Text");
-    	UICommand ServerBtn = new UICommand("Leave Server Text");
-    	msgDialog.Commands.Add(localBtn);
-	    msgDialog.Commands.Add(ServerBtn);
+        UICommand localBtn = new UICommand("Commit Local Text");
+        UICommand ServerBtn = new UICommand("Leave Server Text");
+        msgDialog.Commands.Add(localBtn);
+        msgDialog.Commands.Add(ServerBtn);
 
-    	localBtn.Invoked = async (IUICommand command) =>
-	    {
-        	// To resolve the conflict, update the version of the
-	        // item being committed. Otherwise, you will keep
-        	// catching a MobileServicePreConditionFailedException.
-	        localItem.Version = serverItem.Version;
+        localBtn.Invoked = async (IUICommand command) =>
+        {
+            // To resolve the conflict, update the version of the
+            // item being committed. Otherwise, you will keep
+            // catching a MobileServicePreConditionFailedException.
+            localItem.Version = serverItem.Version;
 
-    	    // Updating recursively here just in case another
-        	// change happened while the user was making a decision
-	        UpdateToDoItem(localItem);
-    	};
+            // Updating recursively here just in case another
+            // change happened while the user was making a decision
+            UpdateToDoItem(localItem);
+        };
 
-	    ServerBtn.Invoked = async (IUICommand command) =>
-    	{
-	        RefreshTodoItems();
-    	};
+        ServerBtn.Invoked = async (IUICommand command) =>
+        {
+            RefreshTodoItems();
+        };
 
-	    await msgDialog.ShowAsync();
-	}
+        await msgDialog.ShowAsync();
+    }
 
 For more information, see the [Offline Data Sync in Azure Mobile Apps](app-service-mobile-offline-data-sync.md).
 
@@ -447,32 +447,32 @@ For more information, see the [Offline Data Sync in Azure Mobile Apps](app-servi
 
 This section shows how to display returned data objects using UI elements in a Windows app. To query incomplete items in `todoTable` and display it in a very simple list, you can run the following example code to bind the source of the list with a query. Using `MobileServiceCollection` creates a Mobile Apps-aware binding collection.
 
-	// This query filters out completed TodoItems.
-	MobileServiceCollection<TodoItem, TodoItem> items = await todoTable
-		.Where(todoItem => todoItem.Complete == false)
-		.ToCollectionAsync();
+    // This query filters out completed TodoItems.
+    MobileServiceCollection<TodoItem, TodoItem> items = await todoTable
+        .Where(todoItem => todoItem.Complete == false)
+        .ToCollectionAsync();
 
-	// itemsControl is an IEnumerable that could be bound to a UI list control
-	IEnumerable itemsControl  = items;
+    // itemsControl is an IEnumerable that could be bound to a UI list control
+    IEnumerable itemsControl  = items;
 
-	// Bind this to a ListBox
-	ListBox lb = new ListBox();
-	lb.ItemsSource = items;
+    // Bind this to a ListBox
+    ListBox lb = new ListBox();
+    lb.ItemsSource = items;
 
 Some controls in the managed runtime support an interface called [ISupportIncrementalLoading](http://msdn.microsoft.com/library/windows/apps/Hh701916). This interface allows controls to request extra data when the user scrolls. There is built-in support for this interface for universal Windows 8.1 apps via `MobileServiceIncrementalLoadingCollection`, which automatically handles the calls from the controls. To use `MobileServiceIncrementalLoadingCollection` in Windows apps, do the following:
 
-			MobileServiceIncrementalLoadingCollection<TodoItem,TodoItem> items;
-		items =  todoTable.Where(todoItem => todoItem.Complete == false)
-					.ToIncrementalLoadingCollection();
+            MobileServiceIncrementalLoadingCollection<TodoItem,TodoItem> items;
+        items =  todoTable.Where(todoItem => todoItem.Complete == false)
+                    .ToIncrementalLoadingCollection();
 
-		ListBox lb = new ListBox();
-		lb.ItemsSource = items;
+        ListBox lb = new ListBox();
+        lb.ItemsSource = items;
 
 
 To use the new collection on Windows Phone 8 and "Silverlight" apps, use the `ToCollection` extension methods on `IMobileServiceTableQuery<T>` and `IMobileServiceTable<T>`. To actually load data, call `LoadMoreItemsAsync()`.
 
-	MobileServiceCollection<TodoItem, TodoItem> items = todoTable.Where(todoItem => todoItem.Complete==false).ToCollection();
-	await items.LoadMoreItemsAsync();
+    MobileServiceCollection<TodoItem, TodoItem> items = todoTable.Where(todoItem => todoItem.Complete==false).ToCollection();
+    await items.LoadMoreItemsAsync();
 
 When you use the collection created by calling `ToCollectionAsync` or `ToCollection`, you get a collection which can be bound to UI controls. This collection is paging-aware, i.e., a control can ask the collection to "load more items", and the collection will do it for the control. At that point there is no user code involved, the control will start the flow. However, since the collection is loading data from the network, it's expected that some times this loading will fail. To handle such failures, you may override the `OnException` method on `MobileServiceIncrementalLoadingCollection` to handle exceptions resulting from calls to `LoadMoreItemsAsync` performed by controls.
 
@@ -503,29 +503,29 @@ you must register your app with your identity provider. Then in your mobile App 
 
 Once you have registered your identity provider, simply call the [LoginAsync method] with the [MobileServiceAuthenticationProvider] value of your provider. For example, the following code initiates a server flow sign-in by using Facebook.
 
-	private MobileServiceUser user;
-	private async System.Threading.Tasks.Task Authenticate()
-	{
-		while (user == null)
-		{
-			string message;
-			try
-			{
-				user = await client
-					.LoginAsync(MobileServiceAuthenticationProvider.Facebook);
-				message =
-					string.Format("You are now logged in - {0}", user.UserId);
-			}
-			catch (InvalidOperationException)
-			{
-				message = "You must log in. Login Required";
-			}
+    private MobileServiceUser user;
+    private async System.Threading.Tasks.Task Authenticate()
+    {
+        while (user == null)
+        {
+            string message;
+            try
+            {
+                user = await client
+                    .LoginAsync(MobileServiceAuthenticationProvider.Facebook);
+                message =
+                    string.Format("You are now logged in - {0}", user.UserId);
+            }
+            catch (InvalidOperationException)
+            {
+                message = "You must log in. Login Required";
+            }
 
-			var dialog = new MessageDialog(message);
-			dialog.Commands.Add(new UICommand("OK"));
-			await dialog.ShowAsync();
-		}
-	}
+            var dialog = new MessageDialog(message);
+            dialog.Commands.Add(new UICommand("OK"));
+            await dialog.ShowAsync();
+        }
+    }
 
 If you are using an identity provider other than Facebook, change the value of [MobileServiceAuthenticationProvider] above to the value for your provider.
 
@@ -539,36 +539,36 @@ Your app can also independently contact the identity provider and then provide t
 
 In the most simplified form, you can use the client flow as shown in this snippet for Facebook or Google.
 
-	var token = new JObject();
-	// Replace access_token_value with actual value of your access token obtained
-	// using the Facebook or Google SDK.
-	token.Add("access_token", "access_token_value");
+    var token = new JObject();
+    // Replace access_token_value with actual value of your access token obtained
+    // using the Facebook or Google SDK.
+    token.Add("access_token", "access_token_value");
 
-	private MobileServiceUser user;
-	private async System.Threading.Tasks.Task Authenticate()
-	{
-		while (user == null)
-		{
-			string message;
-			try
-			{
-				// Change MobileServiceAuthenticationProvider.Facebook
-				// to MobileServiceAuthenticationProvider.Google if using Google auth.
-				user = await client
-					.LoginAsync(MobileServiceAuthenticationProvider.Facebook, token);
-				message =
-					string.Format("You are now logged in - {0}", user.UserId);
-			}
-			catch (InvalidOperationException)
-			{
-				message = "You must log in. Login Required";
-			}
+    private MobileServiceUser user;
+    private async System.Threading.Tasks.Task Authenticate()
+    {
+        while (user == null)
+        {
+            string message;
+            try
+            {
+                // Change MobileServiceAuthenticationProvider.Facebook
+                // to MobileServiceAuthenticationProvider.Google if using Google auth.
+                user = await client
+                    .LoginAsync(MobileServiceAuthenticationProvider.Facebook, token);
+                message =
+                    string.Format("You are now logged in - {0}", user.UserId);
+            }
+            catch (InvalidOperationException)
+            {
+                message = "You must log in. Login Required";
+            }
 
-			var dialog = new MessageDialog(message);
-			dialog.Commands.Add(new UICommand("OK"));
-			await dialog.ShowAsync();
-		}
-	}
+            var dialog = new MessageDialog(message);
+            dialog.Commands.Add(new UICommand("OK"));
+            await dialog.ShowAsync();
+        }
+    }
 
 
 ####Single sign-in using Microsoft Account with the Live SDK
@@ -577,8 +577,8 @@ To be able to authenticate users, you must register your app at the Microsoft ac
 
 The following code authenticates using Live SDK and uses the returned token to sign-in to your Mobile App backend. 
 
-	private LiveConnectSession session;
- 	//private static string clientId = "<microsoft-account-client-id>";
+    private LiveConnectSession session;
+    //private static string clientId = "<microsoft-account-client-id>";
     private async System.Threading.Tasks.Task AuthenticateAsync()
     {
 
@@ -593,7 +593,7 @@ The following code authenticates using Live SDK and uses the returned token to s
         while (session == null)
         {
             // Request the authentication token from the Live authentication service.
-			// The wl.basic scope is requested.
+            // The wl.basic scope is requested.
             LiveLoginResult result = await liveIdClient.LoginAsync(new string[] { "wl.basic" });
             if (result.Status == LiveConnectSessionStatus.Connected)
             {
@@ -628,30 +628,30 @@ The following code authenticates using Live SDK and uses the returned token to s
 ###<a name="caching"></a>Caching the authentication token
 In some cases, the call to the login method can be avoided after the first time the user authenticates. You can use [PasswordVault] for Windows Store apps to cache the current user identity the first time they log in and every subsequent time you check whether you already have the user identity in our cache. When the cache is empty, you still need to send the user through the login process.
 
-	// After logging in
-	PasswordVault vault = new PasswordVault();
-	vault.Add(new PasswordCredential("Facebook", user.UserId, user.MobileServiceAuthenticationToken));
+    // After logging in
+    PasswordVault vault = new PasswordVault();
+    vault.Add(new PasswordCredential("Facebook", user.UserId, user.MobileServiceAuthenticationToken));
 
-	// Log in
-	var creds = vault.FindAllByResource("Facebook").FirstOrDefault();
-	if (creds != null)
-	{
-		user = new MobileServiceUser(creds.UserName);
-		user.MobileServiceAuthenticationToken = vault.Retrieve("Facebook", creds.UserName).Password;
-	}
-	else
-	{
-		// Regular login flow
-		user = new MobileServiceuser( await client
-			.LoginAsync(MobileServiceAuthenticationProvider.Facebook, token);
-		var token = new JObject();
-		// Replace access_token_value with actual value of your access token
-		token.Add("access_token", "access_token_value");
-	}
+    // Log in
+    var creds = vault.FindAllByResource("Facebook").FirstOrDefault();
+    if (creds != null)
+    {
+        user = new MobileServiceUser(creds.UserName);
+        user.MobileServiceAuthenticationToken = vault.Retrieve("Facebook", creds.UserName).Password;
+    }
+    else
+    {
+        // Regular login flow
+        user = new MobileServiceuser( await client
+            .LoginAsync(MobileServiceAuthenticationProvider.Facebook, token);
+        var token = new JObject();
+        // Replace access_token_value with actual value of your access token
+        token.Add("access_token", "access_token_value");
+    }
 
-	 // Log out
-	client.Logout();
-	vault.Remove(vault.Retrieve("Facebook", user.UserId));
+     // Log out
+    client.Logout();
+    vault.Remove(vault.Retrieve("Facebook", user.UserId));
 
 
 For Windows Phone apps, you may encrypt and cache data using the [ProtectedData] class and store sensitive information in isolated storage.
@@ -662,20 +662,20 @@ For Windows Phone apps, you may encrypt and cache data using the [ProtectedData]
 
 The following example shows you how to handle an exception that is returned by the backend:
 
-	private async void InsertTodoItem(TodoItem todoItem)
-	{
-		// This code inserts a new TodoItem into the database. When the operation completes
-		// and App Service has assigned an Id, the item is added to the CollectionView
-		try
-		{
-			await todoTable.InsertAsync(todoItem);
-			items.Add(todoItem);
-		}
-		catch (MobileServiceInvalidOperationException e)
-		{
-			// Handle error
-		}
-	}
+    private async void InsertTodoItem(TodoItem todoItem)
+    {
+        // This code inserts a new TodoItem into the database. When the operation completes
+        // and App Service has assigned an Id, the item is added to the CollectionView
+        try
+        {
+            await todoTable.InsertAsync(todoItem);
+            items.Add(todoItem);
+        }
+        catch (MobileServiceInvalidOperationException e)
+        {
+            // Handle error
+        }
+    }
 
 
 ##<a name="unit-testing"></a>How to: Design unit tests
@@ -723,9 +723,9 @@ The Mobile Apps client library uses Json.NET to convert a JSON response into .NE
 
 Using this property, you may set one of the many Json.NET properties, such as the following:
 
-	var settings = new JsonSerializerSettings();
-	settings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-	client.SerializerSettings = settings;
+    var settings = new JsonSerializerSettings();
+    settings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+    client.SerializerSettings = settings;
 
 This property converts all properties to lower case during serialization.
 

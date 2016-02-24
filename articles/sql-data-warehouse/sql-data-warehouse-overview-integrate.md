@@ -70,3 +70,4 @@ See [Integrate with Azure Stream Analytics](../sql-data-warehouse-integrate-azur
 <!--MSDN references-->
 
 <!--Other Web references-->
+

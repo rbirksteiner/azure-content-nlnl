@@ -182,3 +182,4 @@ To learn about connecting virtual networks from different deployment models, see
 - To learn about creating declarative deployment templates, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
 - To see the commands for deploying a template, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md).
 
+

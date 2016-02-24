@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure Notification Hubs Notify Users with .NET backend"
-	description="Learn how to send secure push notifications in Azure. Code samples written in C# using the .NET API."
-	documentationCenter="windows"
-	authors="wesmc7777"
-	manager="dwrede"
-	services="notification-hubs"
-	editor=""/>
+    pageTitle="Azure Notification Hubs Notify Users with .NET backend"
+    description="Learn how to send secure push notifications in Azure. Code samples written in C# using the .NET API."
+    documentationCenter="windows"
+    authors="wesmc7777"
+    manager="dwrede"
+    services="notification-hubs"
+    editor=""/>
 
 <tags
-	ms.service="notification-hubs"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-windows"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="11/09/2015"
-	ms.author="wesmc"/>
+    ms.service="notification-hubs"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-windows"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="11/09/2015"
+    ms.author="wesmc"/>
 
 #Azure Notification Hubs Notify Users with .NET backend
 
@@ -130,16 +130,16 @@ In this section, you update the code in the project you completed for the [Get s
 
 10. In Solution Explorer, in the **(Windows Phone 8.1)** project, open **MainPage.xaml** and replace the Windows Phone 8.1 `<Grid>` section with that same code above. The interface should look similar to whats shown below.
 
-	![][13]
+    ![][13]
 
 11. In Solution Explorer, open the **MainPage.xaml.cs** file for the **(Windows 8.1)** and **(Windows Phone 8.1)** projects. Add the following `using` statements at the top of both files:
 
-		using System.Net.Http;
-		using Windows.Storage;
-		using System.Net.Http.Headers;
-		using Windows.Networking.PushNotifications;
-		using Windows.UI.Popups;
-		using System.Threading.Tasks;
+        using System.Net.Http;
+        using Windows.Storage;
+        using System.Net.Http.Headers;
+        using Windows.Networking.PushNotifications;
+        using Windows.UI.Popups;
+        using System.Threading.Tasks;
 
 12. In **MainPage.xaml.cs** for the **(Windows 8.1)** and **(Windows Phone 8.1)** projects, add the following member to the `MainPage` class. Be sure to replace `<Enter Your Backend Endpoint>` with the your actual backend endpoint obtained previously. For example, `http://mybackend.azurewebsites.net`.
 
@@ -149,9 +149,9 @@ In this section, you update the code in the project you completed for the [Get s
 
 13. Add the code below to the MainPage class in **MainPage.xaml.cs** for the **(Windows 8.1)** and **(Windows Phone 8.1)** projects.
 
-	The `PushClick` method is the click handler for the **Send Push** button. It calls the backend to trigger a notification to all devices with a username tag that matches the `to_tag` parameter. The notification message is sent as JSON content in the request body.
+    The `PushClick` method is the click handler for the **Send Push** button. It calls the backend to trigger a notification to all devices with a username tag that matches the `to_tag` parameter. The notification message is sent as JSON content in the request body.
 
-	The `LoginAndRegisterClick` method is the click handler for the **Log in and register** button. It stores the basic authentication token in local storage (note that this represents any token your authentication scheme uses), then uses `RegisterClient` to register for notifications using the backend.
+    The `LoginAndRegisterClick` method is the click handler for the **Log in and register** button. It stores the basic authentication token in local storage (note that this represents any token your authentication scheme uses), then uses `RegisterClient` to register for notifications using the backend.
 
 
         private async void PushClick(object sender, RoutedEventArgs e)
@@ -204,8 +204,8 @@ In this section, you update the code in the project you completed for the [Get s
             // The tag passed here can be whatever other tags you may want to use.
             try
             {
-				// The device handle used will be different depending on the device and PNS. 
-				// Windows devices use the channel uri as the PNS handle.
+                // The device handle used will be different depending on the device and PNS. 
+                // Windows devices use the channel uri as the PNS handle.
                 await new RegisterClient(BACKEND_ENDPOINT).RegisterAsync(channel.Uri, new string[] { "myTag" });
 
                 var dialog = new MessageDialog("Registered as: " + UsernameTextBox.Text);
@@ -241,22 +241,22 @@ In this section, you update the code in the project you completed for the [Get s
 
 15. In Solution Explorer, right-click the **Shared** project, then click **Add**, and then click **Class**. Name the class **RegisterClient.cs**, then click **OK** to generate the class.
 
-	This class will wrap the REST calls required to contact the app backend, in order to register for push notifications. It also locally stores the *registrationIds* created by the Notification Hub as detailed in [Registering from your app backend](http://msdn.microsoft.com/library/dn743807.aspx). Note that it uses an authorization token stored in local storage when you click the **Log in and register** button.
+    This class will wrap the REST calls required to contact the app backend, in order to register for push notifications. It also locally stores the *registrationIds* created by the Notification Hub as detailed in [Registering from your app backend](http://msdn.microsoft.com/library/dn743807.aspx). Note that it uses an authorization token stored in local storage when you click the **Log in and register** button.
 
 
 16. Add the following `using` statements at the top of the RegisterClient.cs file:
 
-		using Windows.Storage;
-		using System.Net;
-		using System.Net.Http;
-		using System.Net.Http.Headers;
-		using Newtonsoft.Json;
-		using System.Threading.Tasks;
-		using System.Linq;
+        using Windows.Storage;
+        using System.Net;
+        using System.Net.Http;
+        using System.Net.Http.Headers;
+        using Newtonsoft.Json;
+        using System.Threading.Tasks;
+        using System.Linq;
 
 17. Add the following code inside the `RegisterClient` class definition.
 
-		private string POST_URL;
+        private string POST_URL;
 
         private class DeviceRegistration
         {
@@ -295,7 +295,7 @@ In this section, you update the code in the project you completed for the [Get s
             if (statusCode != HttpStatusCode.Accepted)
             {
                 // log or throw
-				throw new System.Net.WebException(statusCode.ToString());
+                throw new System.Net.WebException(statusCode.ToString());
             }
         }
 
@@ -332,7 +332,7 @@ In this section, you update the code in the project you completed for the [Get s
                     }
                     else
                     {
-						throw new System.Net.WebException(response.StatusCode.ToString());
+                        throw new System.Net.WebException(response.StatusCode.ToString());
                     }
                 }
             }
@@ -361,7 +361,7 @@ In this section, you update the code in the project you completed for the [Get s
 
 6. Only the devices that have registered with the matching username tag receive the notification message.
 
-	![][15]
+    ![][15]
 
 ## Next Steps
 
@@ -386,3 +386,4 @@ In this section, you update the code in the project you completed for the [Get s
 [Secure Push]: notification-hubs-aspnet-backend-windows-dotnet-secure-push.md
 [Use Notification Hubs to send breaking news]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
+

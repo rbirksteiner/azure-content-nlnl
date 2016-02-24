@@ -69,3 +69,4 @@ You can continue to work in Visual Studio while the IntelliTrace logs are downlo
 
 [Debugging Cloud Services](https://msdn.microsoft.com/library/ee405479.aspx)
 
+

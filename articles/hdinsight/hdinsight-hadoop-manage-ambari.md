@@ -6,7 +6,7 @@
    authors="Blackmist"
    manager="paulettm"
    editor="cgronlun"
-	tags="azure-portal"/>
+    tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -159,29 +159,29 @@ The **Hosts** page lists all hosts in the cluster. To manage hosts, follow these
 
 2. Use the **Actions** menu to select the action that you wish to perform:
 
-	* **Start all components** - Start all components on the host.
+    * **Start all components** - Start all components on the host.
 
-	* **Stop all components** - Stop all components on the host.
+    * **Stop all components** - Stop all components on the host.
 
-	* **Restart all components** - Stop and start all components on the host.
+    * **Restart all components** - Stop and start all components on the host.
 
-	* **Turn on maintenance mode** - Suppresses alerts for the host. This should be enabled if you are performing actions that will generate alerts, such as restarting a service that running services rely on.
+    * **Turn on maintenance mode** - Suppresses alerts for the host. This should be enabled if you are performing actions that will generate alerts, such as restarting a service that running services rely on.
 
-	* **Turn off maintenance mode** - Returns the host to normal alerting.
+    * **Turn off maintenance mode** - Returns the host to normal alerting.
 
-	* **Stop** - Stops DataNode or NodeManagers on the host.
+    * **Stop** - Stops DataNode or NodeManagers on the host.
 
-	* **Start** - Starts DataNode or NodeManagers on the host.
+    * **Start** - Starts DataNode or NodeManagers on the host.
 
-	* **Restart** - Stops and starts DataNode or NodeManagers on the host.
+    * **Restart** - Stops and starts DataNode or NodeManagers on the host.
 
-	* **Decommission** - Removes a host from the cluster.
+    * **Decommission** - Removes a host from the cluster.
 
-		> [AZURE.NOTE] Do not use this action on HDInsight clusters.
+        > [AZURE.NOTE] Do not use this action on HDInsight clusters.
 
-	* **Recommission** - Adds a previously decommissioned host to the cluster.
+    * **Recommission** - Adds a previously decommissioned host to the cluster.
 
-		> [AZURE.NOTE] Do not use this action on HDInsight clusters.
+        > [AZURE.NOTE] Do not use this action on HDInsight clusters.
 
 ###<a id="service"></a>Services
 
@@ -198,13 +198,13 @@ While the **Actions** button can restart all services, often you want to start, 
 
 2. From the top of the **Summary** tab, use the **Service Actions** button and select the action to take. This will restart the service on all nodes.
 
-	![service action](./media/hdinsight-hadoop-manage-ambari/individual-service-actions.png)
+    ![service action](./media/hdinsight-hadoop-manage-ambari/individual-service-actions.png)
 
-	> [AZURE.NOTE] Restarting some services while the cluster is running may generate alerts. To avoid this, you can use the **Service Actions** button to enable **Maintenance mode** for the service before performing the restart.
+    > [AZURE.NOTE] Restarting some services while the cluster is running may generate alerts. To avoid this, you can use the **Service Actions** button to enable **Maintenance mode** for the service before performing the restart.
 
 3. Once an action has been selected, the **# op** entry at the top of the page will increment to show that a background operation is occurring. If configured to display, the list of background operations is displayed.
 
-	> [AZURE.NOTE] If you enabled **Maintenance mode** for the service, remember to disable it by using the **Service Actions** button once the operation has finished.
+    > [AZURE.NOTE] If you enabled **Maintenance mode** for the service, remember to disable it by using the **Service Actions** button once the operation has finished.
 
 To configure a service, use the following steps:
 
@@ -212,7 +212,7 @@ To configure a service, use the following steps:
 
 2. Select the **Configs** tab. The current configuration will be displayed. A list of previous configurations is also displayed.
 
-	![configurations](./media/hdinsight-hadoop-manage-ambari/service-configs.png)
+    ![configurations](./media/hdinsight-hadoop-manage-ambari/service-configs.png)
 
 3. Use the fields displayed to modify the configuration, and then select **Save**. Or select a previous configuration and then select **Make current** to roll back to the previous settings.
 

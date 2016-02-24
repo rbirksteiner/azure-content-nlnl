@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Create a line-of-business web app on Azure App Service" 
-	description="This guide provides a technical overview of how to use Azure App Service Web Apps to create intranet, line-of-business applications. This includes authentication strategies, service bus relay, and monitoring." 
-	editor="jimbe" 
-	manager="wpickett" 
-	authors="cephalin" 
-	services="app-service\web" 
-	documentationCenter=""/>
+    pageTitle="Create a line-of-business web app on Azure App Service" 
+    description="This guide provides a technical overview of how to use Azure App Service Web Apps to create intranet, line-of-business applications. This includes authentication strategies, service bus relay, and monitoring." 
+    editor="jimbe" 
+    manager="wpickett" 
+    authors="cephalin" 
+    services="app-service\web" 
+    documentationCenter=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/10/2015" 
-	ms.author="cephalin"/>
+    ms.service="app-service-web" 
+    ms.workload="web" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/10/2015" 
+    ms.author="cephalin"/>
 
 
 
@@ -124,3 +124,4 @@ In the **Standard** tier, monitor app responsiveness receive email notifications
 [How to: Receive Alert Notifications and Manage Alert Rules in Azure]:http://msdn.microsoft.com/library/windowsazure/dn306638.aspx
 
  
+

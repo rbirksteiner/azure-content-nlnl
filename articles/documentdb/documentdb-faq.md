@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="DocumentDB Database Questions - Frequently Asked Questions | Microsoft Azure" 
-	description="Get answers to frequently asked questions about Azure DocumentDB a NoSQL document database service for JSON. Answer database questions about capacity, performance levels, and scaling." 
-	keywords="Database questions, frequently asked questions, documentdb, azure, Microsoft azure"
-	services="documentdb" 
-	authors="mimig1" 
-	manager="jhubbard" 
-	editor="monicar" 
-	documentationCenter=""/>
+    pageTitle="DocumentDB Database Questions - Frequently Asked Questions | Microsoft Azure" 
+    description="Get answers to frequently asked questions about Azure DocumentDB a NoSQL document database service for JSON. Answer database questions about capacity, performance levels, and scaling." 
+    keywords="Database questions, frequently asked questions, documentdb, azure, Microsoft azure"
+    services="documentdb" 
+    authors="mimig1" 
+    manager="jhubbard" 
+    editor="monicar" 
+    documentationCenter=""/>
 
 <tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/03/2015" 
-	ms.author="mimig"/>
+    ms.service="documentdb" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/03/2015" 
+    ms.author="mimig"/>
 
 
 #Frequently asked questions about DocumentDB

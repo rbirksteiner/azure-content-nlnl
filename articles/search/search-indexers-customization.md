@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure Search Indexer Customization | Microsoft Azure | Hosted cloud search service" 
-	description="Learn how to customize settings and policies of indexers in Azure Search, a hosted cloud search service on Microsoft Azure." 
-	services="search" 
-	documentationCenter="" 
-	authors="chaosrealm" 
-	manager="pablocas" 
-	editor=""/>
+    pageTitle="Azure Search Indexer Customization | Microsoft Azure | Hosted cloud search service" 
+    description="Learn how to customize settings and policies of indexers in Azure Search, a hosted cloud search service on Microsoft Azure." 
+    services="search" 
+    documentationCenter="" 
+    authors="chaosrealm" 
+    manager="pablocas" 
+    editor=""/>
 
 <tags 
-	ms.service="search" 
-	ms.devlang="rest-api" 
-	ms.workload="search" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.date="11/04/2015" 
-	ms.author="eugenesh"/>
+    ms.service="search" 
+    ms.devlang="rest-api" 
+    ms.workload="search" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.date="11/04/2015" 
+    ms.author="eugenesh"/>
 
 #Azure Search Indexer Customization
 
@@ -33,7 +33,7 @@ If you’re not familiar with Azure Search indexers, you might want to take a lo
 
 The following example illustrates updating an indexer to include a field mapping that "renames" `_id` field of the datasource into `id` field in the target index:
 
-	PUT https://[service name].search.windows.net/indexers/myindexer?api-version=[api-version]
+    PUT https://[service name].search.windows.net/indexers/myindexer?api-version=[api-version]
     Content-Type: application/json
     api-key: [admin key]
     {
@@ -46,10 +46,10 @@ The following example illustrates updating an indexer to include a field mapping
 
 You can specify multiple field mappings: 
 
-	"fieldMappings" : [ 
-		{ "sourceFieldName" : "_id", "targetFieldName" : "id" },
+    "fieldMappings" : [ 
+        { "sourceFieldName" : "_id", "targetFieldName" : "id" },
         { "sourceFieldName" : "_timestamp", "targetFieldName" : "timestamp" },
-	 ]
+     ]
 
 Both source and target field names are case-insensitive.
 
@@ -59,7 +59,7 @@ Field mappings can also be used to transform source field values using *mapping 
 
 One such function, `jsonArrayToStringCollection`, parses a field that contains a string formatted as JSON array into a Collection(Edm.String) field in the target index. It is intended for use with Azure SQL indexer in particular, since SQL doesn't have a native collection data type. It can be used as follows: 
 
-	"fieldMappings" : [ { "sourceFieldName" : "tags", "mappingFunction" : { "name" : "jsonArrayToStringCollection" } } ] 
+    "fieldMappings" : [ { "sourceFieldName" : "tags", "mappingFunction" : { "name" : "jsonArrayToStringCollection" } } ] 
 
 For example, if the source field contains the string `["red", "white", "blue"]`, then the target field of type `Collection(Edm.String)` will be populated with the three values `"red"`, `"white"` and `"blue"`.
 
@@ -72,7 +72,7 @@ In Azure Search, the decision of which change detection policy to go with is lar
 If you simply call the PUT datasource REST API to update your datasource, you might get a 400 response back with an error message similar to the following:
 
 
-	"Change detection policy cannot be changed for data source '…' because indexer '…' references this data source and has a non-empty change tracking state. You can use Reset API to reset the indexer's change tracking state, and retry this call."
+    "Change detection policy cannot be changed for data source '…' because indexer '…' references this data source and has a non-empty change tracking state. You can use Reset API to reset the indexer's change tracking state, and retry this call."
 
  You’d probably wonder what this means and how to work around it. This error occurs because Azure Search maintains internal state associated with your change detection policy. When policy is changed, the existing state is invalidated since it doesn’t apply to the new policy. This means that the indexer has to start indexing your data source from scratch using the new policy, which has potential implications for you (e.g., additional load on the database, or additional networking bandwidth charges). That is why Azure Search asks you call the [Reset Indexer API]( https://msdn.microsoft.com/library/azure/dn946897.aspx) to reset the state associated with the current change detection policy, after which the policy can be changed with a regular PUT datasource call. Of course, Azure Search could do the reset for you automatically, but we felt it was important for you to explicitly acknowledge your understanding of the implications by calling the Reset API.
 
@@ -103,9 +103,9 @@ By default, an Azure Search indexer stops indexing as soon as even as single doc
 
 You can change these values at any time by specifying one or both of these parameters when creating or updating your indexer:
 
-	PUT https://[service name].search.windows.net/indexers/myindexer?api-version=[api-version]
-	Content-Type: application/json
-	api-key: [admin key]
+    PUT https://[service name].search.windows.net/indexers/myindexer?api-version=[api-version]
+    Content-Type: application/json
+    api-key: [admin key]
     {
         "dataSourceName" : "mydatasource",
         "targetIndexName" : "myindex",

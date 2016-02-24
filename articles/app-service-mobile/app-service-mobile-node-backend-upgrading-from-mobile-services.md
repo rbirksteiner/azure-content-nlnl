@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Upgrade from Mobile Services to Azure App Service - Node.js"
-	description="Learn how to easily upgrade your Mobile Services application to an App Service Mobile App"
-	services="app-service\mobile"
-	documentationCenter=""
-	authors="christopheranderson"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Upgrade from Mobile Services to Azure App Service - Node.js"
+    description="Learn how to easily upgrade your Mobile Services application to an App Service Mobile App"
+    services="app-service\mobile"
+    documentationCenter=""
+    authors="christopheranderson"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile"
-	ms.devlang="node"
-	ms.topic="article"
-	ms.date="12/02/2015"
-	ms.author="chrande"/>
+    ms.service="app-service-mobile"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile"
+    ms.devlang="node"
+    ms.topic="article"
+    ms.date="12/02/2015"
+    ms.author="chrande"/>
 
 # Upgrade your existing Node.js Azure Mobile Service to App Service
 
@@ -266,3 +266,4 @@ When you have the new client version ready, try it out against your upgraded ser
 [Microsoft SQL Server 2014 Express]: http://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
+

@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Add the Excel API to PowerApps Enterprise | Microsoft Azure"
-	description="Create or configure a new Excel API in your organization's app service environment"
-	services=""
+    pageTitle="Add the Excel API to PowerApps Enterprise | Microsoft Azure"
+    description="Create or configure a new Excel API in your organization's app service environment"
+    services=""
     suite="powerapps"
-	documentationCenter="" 
-	authors="rajeshramabathiran"
-	manager="dwrede"
-	editor=""/>
+    documentationCenter="" 
+    authors="rajeshramabathiran"
+    manager="dwrede"
+    editor=""/>
 
 <tags
    ms.service="powerapps"
@@ -36,7 +36,7 @@
 ![Add API][2]
 
 6. Enter a descriptive **name** for your API.  
-	
+    
 7. In **Source**, select **Available APIs** to select the pre-built APIs, and then select **Excel**:  
 ![select Excel api][3]
 

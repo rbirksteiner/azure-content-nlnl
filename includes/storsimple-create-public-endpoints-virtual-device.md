@@ -6,7 +6,7 @@
 
 - Click **Endpoints**. The Endpoints page lists all endpoints for the virtual machine.
 
-- Click **Add**. The Add Endpoint dialog box appears. Click the arrow to continue.
+- Click **Add**. The Add Endpoint dialog box appears. Click the arrow to continue.
 
 - For the **Name**, type the following name for the endpoint: **WinRMHttps**.
 

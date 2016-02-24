@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="How do I ... in Application Insights" 
-	description="FAQ in Application Insights." 
-	services="application-insights" 
+    pageTitle="How do I ... in Application Insights" 
+    description="FAQ in Application Insights." 
+    services="application-insights" 
     documentationCenter=""
-	authors="alancameronwills" 
-	manager="douge"/>
+    authors="alancameronwills" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/11/2015" 
-	ms.author="awills"/>
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/11/2015" 
+    ms.author="awills"/>
 
 # How do I ... in Application Insights?
 
@@ -239,5 +239,6 @@ Among the metrics you can show in metrics explorer are a set of system performan
 
 * First, [add a new chart](app-insights-metrics-explorer.md) and see if the counter is in the basic set that we offer.
 * If not, [add the counter to the set collected by the performance counter module](app-insights-web-monitor-performance.md#system-performance-counters).
+
 
 

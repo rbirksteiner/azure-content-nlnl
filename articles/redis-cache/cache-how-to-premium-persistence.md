@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How to configure data persistence for a Premium Azure Redis Cache" 
-	description="Learn how to configure and manage data persistence your Premium tier Azure Redis Cache instances" 
-	services="redis-cache" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="How to configure data persistence for a Premium Azure Redis Cache" 
+    description="Learn how to configure and manage data persistence your Premium tier Azure Redis Cache instances" 
+    services="redis-cache" 
+    documentationCenter="" 
+    authors="steved0x" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="cache" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="cache-redis" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/03/2015" 
-	ms.author="sdanie"/>
+    ms.service="cache" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="cache-redis" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/03/2015" 
+    ms.author="sdanie"/>
 
 # How to configure data persistence for a Premium Azure Redis Cache
 
@@ -92,8 +92,8 @@ All backups except for the most recent one are automatically deleted. This delet
 ## Next steps
 Learn how to use more premium cache features.
 
--	[How to configure clustering for a Premium Azure Redis Cache](cache-how-to-premium-clustering.md)
--	[How to configure Virtual Network support for a Premium Azure Redis Cache](cache-how-to-premium-vnet.md)
+-   [How to configure clustering for a Premium Azure Redis Cache](cache-how-to-premium-clustering.md)
+-   [How to configure Virtual Network support for a Premium Azure Redis Cache](cache-how-to-premium-vnet.md)
   
 <!-- IMAGES -->
 

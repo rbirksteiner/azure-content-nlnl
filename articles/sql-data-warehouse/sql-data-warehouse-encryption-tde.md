@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Get started with Transparent Data Encryption (TDE) in SQL Data Warehouse| Microsoft Azure" 
-	description="Get started with Transparent Data Encryption (TDE) in SQL Data Warehouse" 
-	services="sql-data-warehouse" 
-	documentationCenter="" 
-	authors="twounder" 
-	manager="barbkess" 
-	editor=""/>
+    pageTitle="Get started with Transparent Data Encryption (TDE) in SQL Data Warehouse| Microsoft Azure" 
+    description="Get started with Transparent Data Encryption (TDE) in SQL Data Warehouse" 
+    services="sql-data-warehouse" 
+    documentationCenter="" 
+    authors="twounder" 
+    manager="barbkess" 
+    editor=""/>
 
 <tags 
-	ms.service="sql-data-warehouse" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/20/2015" 
-	ms.author="twounder"/>
+    ms.service="sql-data-warehouse" 
+    ms.workload="data-management" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/20/2015" 
+    ms.author="twounder"/>
  
 # Get started with Transparent Data Encryption (TDE) in SQL Data Warehouse
 > [AZURE.SELECTOR]
@@ -30,7 +30,7 @@ TDE encrypts the storage of an entire database by using a symmetric key called t
 To enable TDE for a SQL Data Warehouse, follow the steps below:
 
 1. Open the database in the [Azure Classic Portal](https://portal.azure.com)
-2. In the database blade, click the **Settings** button	
+2. In the database blade, click the **Settings** button 
 3. Select the **Transparent data encryption** option
 ![][1] 
 4. Select the **On** setting
@@ -43,7 +43,7 @@ To enable TDE for a SQL Data Warehouse, follow the steps below:
 To disable TDE for a SQL Data Warehouse, follow the steps below:
 
 1. Open the database in the [Azure Classic Portal](https://portal.azure.com)
-2. In the database blade, click the **Settings** button	
+2. In the database blade, click the **Settings** button 
 3. Select the **Transparent data encryption** option
 ![][1] 
 4. Select the **Off** setting
@@ -66,3 +66,4 @@ To disable TDE for a SQL Data Warehouse, follow the steps below:
 [5]: ./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-save2.png
 
 <!--Link references-->
+

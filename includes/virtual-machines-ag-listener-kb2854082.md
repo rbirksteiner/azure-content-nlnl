@@ -7,3 +7,4 @@ In the remote desktop session for each of the cluster nodes, download [KB2854082
 > - The cluster is in optimal quorum health, 
 > - All cluster nodes are online before installing the hotfix on any node, and
 > - Allow the hotfix installation to run to completion on one node, including fully restarting the server, before installing the hotfix on any other node in the cluster.
+

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Windows Universal Apps Engagement SDK Integration" 
-	description="How to Integrate Azure Mobile Engagement with Windows Universal Apps" 					
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
-	editor="" />
+    pageTitle="Windows Universal Apps Engagement SDK Integration" 
+    description="How to Integrate Azure Mobile Engagement with Windows Universal Apps"                  
+    services="mobile-engagement" 
+    documentationCenter="mobile" 
+    authors="piyushjo" 
+    manager="dwrede" 
+    editor="" />
 
 <tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="07/07/2015" 
-	ms.author="piyushjo" />
+    ms.service="mobile-engagement" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="mobile-windows-store" 
+    ms.devlang="dotnet" 
+    ms.topic="article" 
+    ms.date="07/07/2015" 
+    ms.author="piyushjo" />
 
 # Windows Universal Apps Engagement SDK Integration
 
@@ -101,32 +101,32 @@ Modify the `App.xaml.cs`:
 
 -   Add to your `using` statements:
 
-		using Microsoft.Azure.Engagement;
+        using Microsoft.Azure.Engagement;
 
 -   Define a method to share the Engagement initialization once for all calls:
 
         private void InitEngagement(IActivatedEventArgs e)
         {
           EngagementAgent.Instance.Init(e);
-		
-		  // or
-		
-		  EngagementAgent.Instance.Init(e, engagementConfiguration);
+        
+          // or
+        
+          EngagementAgent.Instance.Init(e, engagementConfiguration);
         }
         
 -   Call `InitEngagement` in the `OnLaunched` method:
 
-		protected override void OnLaunched(LaunchActivatedEventArgs e)
-		{
+        protected override void OnLaunched(LaunchActivatedEventArgs e)
+        {
           InitEngagement(e);
-		}
+        }
 
 -   When your application is launched using a custom scheme, another application or the command line then the `OnActivated` method is called. You also need to initiate the Engagement SDK when your app is activated. To do so, override `OnActivated` method:
 
-		protected override void OnActivated(IActivatedEventArgs args)
-		{
+        protected override void OnActivated(IActivatedEventArgs args)
+        {
           InitEngagement(args);
-		}
+        }
 
 > [AZURE.IMPORTANT] We strongly discourage you to add the Engagement initialization in another place of your application.
 
@@ -144,31 +144,31 @@ Modify your page `.xaml.cs` file:
 
 -   Add to your `using` statements:
 
-		using Microsoft.Azure.Engagement;
+        using Microsoft.Azure.Engagement;
 
 -   Replace `Page` with `EngagementPage`:
 
 **Without Engagement:**
-	
-		namespace Example
-		{
-		  public sealed partial class ExamplePage : Page
-		  {
-		    [...]
-		  }
-		}
+    
+        namespace Example
+        {
+          public sealed partial class ExamplePage : Page
+          {
+            [...]
+          }
+        }
 
 **With Engagement:**
 
-		using Microsoft.Azure.Engagement;
-		
-		namespace Example
-		{
-		  public sealed partial class ExamplePage : EngagementPage 
-		  {
-		    [...]
-		  }
-		}
+        using Microsoft.Azure.Engagement;
+        
+        namespace Example
+        {
+          public sealed partial class ExamplePage : EngagementPage 
+          {
+            [...]
+          }
+        }
 
 > [AZURE.IMPORTANT] If your page overrides the `OnNavigatedTo` method, be sure to call `base.OnNavigatedTo(e)`. Otherwise,  the activity will not be reported (the `EngagementPage` calls `StartActivity` inside its `OnNavigatedTo` method).
 
@@ -178,24 +178,24 @@ Modify your page `.xaml` file:
 
 -   Add to your namespaces declarations:
 
-		xmlns:engagement="using:Microsoft.Azure.Engagement"
+        xmlns:engagement="using:Microsoft.Azure.Engagement"
 
 -   Replace `Page` with `engagement:EngagementPage`:
 
 **Without Engagement:**
 
-		<Page>
-		    <!-- layout -->
-		    ...
-		</Page>
+        <Page>
+            <!-- layout -->
+            ...
+        </Page>
 
 **With Engagement:**
 
-		<engagement:EngagementPage 
-		    xmlns:engagement="using:Microsoft.Azure.Engagement">
-		    <!-- layout -->
-		    ...
-		</engagement:EngagementPage >
+        <engagement:EngagementPage 
+            xmlns:engagement="using:Microsoft.Azure.Engagement">
+            <!-- layout -->
+            ...
+        </engagement:EngagementPage >
 
 #### Override the default behaviour
 
@@ -203,21 +203,21 @@ By default, the class name of the page is reported as the activity name, with no
 
 If you want to override the default behaviour for the name, simply add this to your code:
 
-		// in the .xaml.cs file
-		protected override string GetEngagementPageName()
-		{
-		  /* your code */
-		  return "new name";
-		}
+        // in the .xaml.cs file
+        protected override string GetEngagementPageName()
+        {
+          /* your code */
+          return "new name";
+        }
 
 If you want to report some extra informations with your activity, you can add this to your code:
 
-		// in the .xaml.cs file
-		protected override Dictionary<object,object> GetEngagementPageExtra()
-		{
-		  /* your code */
-		  return extra;
-		}
+        // in the .xaml.cs file
+        protected override Dictionary<object,object> GetEngagementPageExtra()
+        {
+          /* your code */
+          return extra;
+        }
 
 These methods are called from within the `OnNavigatedTo` method of your page.
 
@@ -227,11 +227,11 @@ If you cannot or do not want to overload your `Page` classes, you can instead st
 
 We recommend to call `StartActivity` inside your `OnNavigatedTo` method of your Page.
 
-			protected override void OnNavigatedTo(NavigationEventArgs e)
-			{
-			  base.OnNavigatedTo(e);
-			  EngagementAgent.Instance.StartActivity("MyPage");
-			}
+            protected override void OnNavigatedTo(NavigationEventArgs e)
+            {
+              base.OnNavigatedTo(e);
+              EngagementAgent.Instance.StartActivity("MyPage");
+            }
 
 > [AZURE.IMPORTANT]  Ensure you end your session correctly.
 > 
@@ -261,12 +261,12 @@ Set report crash to `false` between `<reportCrash>` and `</reportCrash>` tags.
 
 Set report crash to false using your EngagementConfiguration object.
 
-		/* Engagement configuration. */
-		EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
-		engagementConfiguration.Agent.ConnectionString = "Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}";
-		
-		/* Disable Engagement crash reporting. */
-		engagementConfiguration.Agent.ReportCrash = false;
+        /* Engagement configuration. */
+        EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
+        engagementConfiguration.Agent.ConnectionString = "Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}";
+        
+        /* Disable Engagement crash reporting. */
+        engagementConfiguration.Agent.ReportCrash = false;
 
 ### Burst mode
 
@@ -274,7 +274,7 @@ By default, the Engagement service reports logs in real time. If your applicatio
 
 To do so, call the method:
 
-		EngagementAgent.Instance.SetBurstThreshold(int everyMs);
+        EngagementAgent.Instance.SetBurstThreshold(int everyMs);
 
 The argument is a value in **milliseconds**. At any time, if you want to reactivate the real-time logging, just call the method without any parameter, or with the 0 value.
 
@@ -285,3 +285,4 @@ The burst mode slightly increase the battery life but has an impact on the Engag
 [here]:http://www.nuget.org/packages/Capptain.WindowsCS
 [NuGet website]:http://docs.nuget.org/docs/start-here/overview
  
+

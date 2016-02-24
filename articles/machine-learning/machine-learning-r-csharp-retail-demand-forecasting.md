@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Forecasting - ETS + STL  | Microsoft Azure" 
-	description="Forecasting - ETS + STL" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="xueshanz" 
-	manager="paulettm" 
-	editor="cgronlun"/>
+    pageTitle="Forecasting - ETS + STL  | Microsoft Azure" 
+    description="Forecasting - ETS + STL" 
+    services="machine-learning" 
+    documentationCenter="" 
+    authors="xueshanz" 
+    manager="paulettm" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/24/2015" 
-	ms.author="xueshzha"/> 
+    ms.service="machine-learning" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/24/2015" 
+    ms.author="xueshzha"/> 
 
 #Forecasting - ETS + STL  
 
@@ -53,33 +53,33 @@ There are multiple ways of consuming the service in an automated fashion (an exa
 
 ###Starting C# code for web service consumption:
 
-	public class Input
-	{
-	        public string frequency;
-	        public string horizon;
-	        public string date;
-	        public string value;
-	}
-	
+    public class Input
+    {
+            public string frequency;
+            public string horizon;
+            public string date;
+            public string value;
+    }
+    
     public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
-	{
-	        byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
-	        return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
-	}
-	
-	void Main()
-	{
-	        var input = new Input() { frequency = TextBox1.Text, horizon = TextBox2.Text, date = TextBox3.Text, value = TextBox4.Text };         var json = JsonConvert.SerializeObject(input);
-	        var acitionUri = "PutAPIURLHere,e.g.https://api.datamarket.azure.com/..../v1/Score";
-	        var httpClient = new HttpClient();
-	
-	        httpClient.DefaultRequestHeaders.Authorization = CreateBasicHeader("PutEmailAddressHere", "ChangeToAPIKey");
-	        httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-	
-	        var response = httpClient.PostAsync(acitionUri, new StringContent(json));
-	        var result = response.Result.Content;
-		    var scoreResult = result.ReadAsStringAsync().Result;
-	}
+    {
+            byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
+            return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
+    }
+    
+    void Main()
+    {
+            var input = new Input() { frequency = TextBox1.Text, horizon = TextBox2.Text, date = TextBox3.Text, value = TextBox4.Text };         var json = JsonConvert.SerializeObject(input);
+            var acitionUri = "PutAPIURLHere,e.g.https://api.datamarket.azure.com/..../v1/Score";
+            var httpClient = new HttpClient();
+    
+            httpClient.DefaultRequestHeaders.Authorization = CreateBasicHeader("PutEmailAddressHere", "ChangeToAPIKey");
+            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+    
+            var response = httpClient.PostAsync(acitionUri, new StringContent(json));
+            var result = response.Result.Content;
+            var scoreResult = result.ReadAsStringAsync().Result;
+    }
 
 
 ##Creation of web service 
@@ -94,36 +94,36 @@ From within Azure Machine Learning, a new blank experiment was created. Sample i
 
 ####Module 1:
  
-	# Add in the CSV file with the data in the format shown below 
-![Sample data][3]	
+    # Add in the CSV file with the data in the format shown below 
+![Sample data][3]   
 
 ####Module 2:
 
-	# Data input
-	data <- maml.mapInputPort(1) # class: data.frame
-	library(forecast)
-	
-	# Preprocessing
-	colnames(data) <- c("frequency", "horizon", "dates", "values")
-	dates <- strsplit(data$dates, ";")[[1]]
-	values <- strsplit(data$values, ";")[[1]]
-	
-	dates <- as.Date(dates, format = '%m/%d/%Y')
-	values <- as.numeric(values)
-	
-	# Fit a time series model
-	train_ts<- ts(values, frequency=data$frequency)
-	fit1 <- stl(train_ts,  s.window="periodic")
-	train_model <- forecast(fit1, h = data$horizon, method = 'ets')
-	plot(train_model)
-	
-	# Produce forcasting
-	train_pred <- round(train_model$mean,2)
-	data.forecast <- as.data.frame(t(train_pred))
-	colnames(data.forecast) <- paste("Forecast", 1:data$horizon, sep="")
-	
-	# Data output
-	maml.mapOutputPort("data.forecast");
+    # Data input
+    data <- maml.mapInputPort(1) # class: data.frame
+    library(forecast)
+    
+    # Preprocessing
+    colnames(data) <- c("frequency", "horizon", "dates", "values")
+    dates <- strsplit(data$dates, ";")[[1]]
+    values <- strsplit(data$values, ";")[[1]]
+    
+    dates <- as.Date(dates, format = '%m/%d/%Y')
+    values <- as.numeric(values)
+    
+    # Fit a time series model
+    train_ts<- ts(values, frequency=data$frequency)
+    fit1 <- stl(train_ts,  s.window="periodic")
+    train_model <- forecast(fit1, h = data$horizon, method = 'ets')
+    plot(train_model)
+    
+    # Produce forcasting
+    train_pred <- round(train_model$mean,2)
+    data.forecast <- as.data.frame(t(train_pred))
+    colnames(data.forecast) <- paste("Forecast", 1:data$horizon, sep="")
+    
+    # Data output
+    maml.mapOutputPort("data.forecast");
 
 ##Limitations 
 
@@ -140,3 +140,4 @@ For frequently asked questions on consumption of the web service or publishing t
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
  
+

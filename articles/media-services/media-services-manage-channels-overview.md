@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders" 
-	description="This topic describes how to set up a Channel that receives a multi-bitrate live stream from an on-premises encoder. The stream can then be delivered to client playback applications through one or more Streaming Endpoints, using one of the following adaptive streaming protocols: HLS, Smooth Stream, MPEG DASH, HDS." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="cenkdin,Juliako" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders" 
+    description="This topic describes how to set up a Channel that receives a multi-bitrate live stream from an on-premises encoder. The stream can then be delivered to client playback applications through one or more Streaming Endpoints, using one of the following adaptive streaming protocols: HLS, Smooth Stream, MPEG DASH, HDS." 
+    services="media-services" 
+    documentationCenter="" 
+    authors="cenkdin,Juliako" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="ne" 
-	ms.topic="article" 
-	ms.date="12/15/2015"  
-	ms.author="juliako"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="ne" 
+    ms.topic="article" 
+    ms.date="12/15/2015"  
+    ms.author="juliako"/>
 
 #Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders
 
@@ -40,25 +40,25 @@ This topic covers the following:
 The following steps describe tasks involved in creating common live streaming applications.
 
 1. Connect a video camera to a computer. Launch and configure an on-premises live encoder that outputs a multi-bitrate RTMP or Fragmented MP4 (Smooth Streaming) stream. For more information, see [Azure Media Services RTMP Support and Live Encoders](http://go.microsoft.com/fwlink/?LinkId=532824).
-	
-	This step could also be performed after you create your Channel.
+    
+    This step could also be performed after you create your Channel.
 
 1. Create and start a Channel.
 1. Retrieve the Channel ingest URL. 
 
-	The ingest URL is used by the live encoder to send the stream to the Channel.
+    The ingest URL is used by the live encoder to send the stream to the Channel.
 1. Retrieve the Channel preview URL. 
 
-	Use this URL to verify that your channel is properly receiving the live stream.
+    Use this URL to verify that your channel is properly receiving the live stream.
 
 3. Create a program. 
 
-	When using the Azure Classic Portal, creating a program also creates an asset. 
+    When using the Azure Classic Portal, creating a program also creates an asset. 
 
-	When using .NET SDK or REST you need to create an asset and specify to use this asset when creating a Program. 
+    When using .NET SDK or REST you need to create an asset and specify to use this asset when creating a Program. 
 1. Publish the asset associated with the program.   
 
-	Make sure to have at least one streaming reserved unit on the streaming endpoint from which you want to stream content.
+    Make sure to have at least one streaming reserved unit on the streaming endpoint from which you want to stream content.
 1. Start the program when you are ready to start streaming and archiving.
 2. Optionally, the live encoder can be signaled to start an advertisement. The advertisement is inserted in the output stream.
 1. Stop the program whenever you want to stop streaming and archiving the event.
@@ -78,26 +78,26 @@ Media Services supports ingesting live feeds using the following streaming proto
  
 - **Multi-bitrate RTMP** 
 
-	When the **RTMP** ingest streaming protocol is selected, two ingest(input) endpoints are created for the channel: 
-	
-	**Primary URL**: Specifies the fully qualified URL of the channel's primary RTMP ingest endpoint.
+    When the **RTMP** ingest streaming protocol is selected, two ingest(input) endpoints are created for the channel: 
+    
+    **Primary URL**: Specifies the fully qualified URL of the channel's primary RTMP ingest endpoint.
 
-	**Secondary URL** (optional): Specifies the fully qualified URL of the channel's secondary RTMP ingest endpoint. 
+    **Secondary URL** (optional): Specifies the fully qualified URL of the channel's secondary RTMP ingest endpoint. 
 
 
-	Use the secondary URL if you want to improve the durability and fault tolerance of your ingest stream as well as encoder failover and fault-tolerance, especially for the following scenarios.
+    Use the secondary URL if you want to improve the durability and fault tolerance of your ingest stream as well as encoder failover and fault-tolerance, especially for the following scenarios.
 
-	- Single encoder double pushing to both Primary and Secondary URLs:
-	
-		The main purpose of this is to provide more resiliency to network fluctuations and jitters. Some RTMP encoders do not handle network disconnects well. When a network disconnect happens, an encoder may stop encoding and will not send the buffered data when reconnect happens, this causes discontinuities and data lost. Network disconnects can happen because of a bad network or a maintenance on Azure side. Primary/secondary URLs reduce the network issues and also provide a controlled upgrade process. Each time a scheduled network disconnect happens, Media Services manages the primary and secondary disconnect and provides a delayed disconnect between the two which gives time for encoders to keep sending data and reconnect again. The order of the disconnects can be random, but there will be always a delay between primary/secondary or secondary/primary. In this scenario encoder is still the single point of failure.
-	 
-	- Multiple encoders each encoder pushing to dedicated point:
-		
-		This scenario provides both encoder and ingest redundancy. In this scenario encoder1 pushes to the primary URL and encoder2 pushes to secondary URL. When there is an encoder failure other encoder can still keep sending data. Data redundancy can still be maintained because Media Services does not disconnect primary and secondary at the same time. This scenario assumes encoders are time sync and provides exactly same data.  
+    - Single encoder double pushing to both Primary and Secondary URLs:
+    
+        The main purpose of this is to provide more resiliency to network fluctuations and jitters. Some RTMP encoders do not handle network disconnects well. When a network disconnect happens, an encoder may stop encoding and will not send the buffered data when reconnect happens, this causes discontinuities and data lost. Network disconnects can happen because of a bad network or a maintenance on Azure side. Primary/secondary URLs reduce the network issues and also provide a controlled upgrade process. Each time a scheduled network disconnect happens, Media Services manages the primary and secondary disconnect and provides a delayed disconnect between the two which gives time for encoders to keep sending data and reconnect again. The order of the disconnects can be random, but there will be always a delay between primary/secondary or secondary/primary. In this scenario encoder is still the single point of failure.
+     
+    - Multiple encoders each encoder pushing to dedicated point:
+        
+        This scenario provides both encoder and ingest redundancy. In this scenario encoder1 pushes to the primary URL and encoder2 pushes to secondary URL. When there is an encoder failure other encoder can still keep sending data. Data redundancy can still be maintained because Media Services does not disconnect primary and secondary at the same time. This scenario assumes encoders are time sync and provides exactly same data.  
  
-	- Multiple encoder double pushing to both primary and secondary URLs:
-	
-		In this scenario both encoders push data to both primary and secondary URLs. This provides the best reliability and fault tolerance as well as data redundancy. It can tolerate both encoder failures and also disconnects even if one encoder stops working. This scenario assumes encoders are time sync and provides exactly same data.  
+    - Multiple encoder double pushing to both primary and secondary URLs:
+    
+        In this scenario both encoders push data to both primary and secondary URLs. This provides the best reliability and fault tolerance as well as data redundancy. It can tolerate both encoder failures and also disconnects even if one encoder stops working. This scenario assumes encoders are time sync and provides exactly same data.  
 
 For information about RTMP live encoders, see [Azure Media Services RTMP Support and Live Encoders](http://go.microsoft.com/fwlink/?LinkId=532824).
 
@@ -268,3 +268,4 @@ Choose **Portal**, **.NET**, **REST API** to see how to create and manage channe
 
 [live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
  
+

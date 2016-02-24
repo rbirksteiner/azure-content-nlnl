@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure Redis Cache samples" 
-	description="Learn how to use Azure Redis Cache" 
-	services="redis-cache" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="Azure Redis Cache samples" 
+    description="Learn how to use Azure Redis Cache" 
+    services="redis-cache" 
+    documentationCenter="" 
+    authors="steved0x" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="cache" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="cache-redis" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="12/03/2015" 
-	ms.author="sdanie"/>
+    ms.service="cache" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="cache-redis" 
+    ms.devlang="multiple" 
+    ms.topic="article" 
+    ms.date="12/03/2015" 
+    ms.author="sdanie"/>
 
 # Azure Redis Cache samples 
 
@@ -28,13 +28,13 @@ The [Hello world](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) 
 
 This sample shows how to:
 
--	Use various connection options
--	Read and write objects to and from the cache using synchronous and asynchronous operations
--	Use Redis MGET/MSET commands to return values of specified keys
--	Perform Redis transactional operations
--	Work with Redis lists and sorted sets
--	Store .NET objects using JsonConvert serializers
--	Use Redis sets to implement tagging
+-   Use various connection options
+-   Read and write objects to and from the cache using synchronous and asynchronous operations
+-   Use Redis MGET/MSET commands to return values of specified keys
+-   Perform Redis transactional operations
+-   Work with Redis lists and sorted sets
+-   Store .NET objects using JsonConvert serializers
+-   Use Redis sets to implement tagging
 
 For more information, see the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) documentation on github, and for more usage scenarios see the [StackExchange.Redis.Tests](https://github.com/StackExchange/StackExchange.Redis/tree/master/StackExchange.Redis.Tests) unit tests.
 
@@ -52,8 +52,8 @@ The [Use Redis Cache as a Scale out Backplane for ASP.NET SignalR](https://githu
 
 This sample demonstrates compares performance between accessing data from a cache and accessing data from persistence storage. This sample has two projects.
 
--	[Demo how Redis Cache can improve performance by Caching data](https://github.com/rustd/RedisSamples/tree/master/RedisCacheCustomerQuerySample)
--	[Seed the Database and Cache for the demo](https://github.com/rustd/RedisSamples/tree/master/SeedCacheForCustomerQuerySample)
+-   [Demo how Redis Cache can improve performance by Caching data](https://github.com/rustd/RedisSamples/tree/master/RedisCacheCustomerQuerySample)
+-   [Seed the Database and Cache for the demo](https://github.com/rustd/RedisSamples/tree/master/SeedCacheForCustomerQuerySample)
 
 ## ASP.NET Session State and Output Caching
 
@@ -74,3 +74,4 @@ The [Retwis](https://github.com/SyntaxC4-MSFT/retwis) sample is the Redis Hello 
 ## Bandwidth monitor
 
 The [Bandwidth monitor](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) sample allows you to monitor the bandwidth used on the client. To measure the bandwidth, run the sample on the cache client machine, make calls to the cache, and observe the bandwidth reported by the bandwidth monitor sample.
+

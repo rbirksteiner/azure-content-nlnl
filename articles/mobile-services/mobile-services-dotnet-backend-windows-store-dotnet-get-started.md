@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Get Started with Mobile Services for Windows Universal apps | Microsoft Azure"
-	description="Follow this tutorial to get started using Azure Mobile Services for universal Windows app development in C#."
-	services="mobile-services"
-	documentationCenter="windows"
-	authors="ggailey777"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Get Started with Mobile Services for Windows Universal apps | Microsoft Azure"
+    description="Follow this tutorial to get started using Azure Mobile Services for universal Windows app development in C#."
+    services="mobile-services"
+    documentationCenter="windows"
+    authors="ggailey777"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-windows"
-	ms.devlang="dotnet"
-	ms.topic="hero-article"
-	ms.date="11/06/2015"
-	ms.author="glenga"/>
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-windows"
+    ms.devlang="dotnet"
+    ms.topic="hero-article"
+    ms.date="11/06/2015"
+    ms.author="glenga"/>
 
 
 # <a name="getting-started"> </a>Get started with Mobile Services
@@ -58,15 +58,15 @@ In this section you will create a new universal Windows app that is connected to
 
 2. In the quickstart tab, click **Windows** under **Choose platform** and expand **Create a new Windows Store app**.
 
-   	This displays the three easy steps to create a Windows Store app connected to your mobile service.
+    This displays the three easy steps to create a Windows Store app connected to your mobile service.
 
-  	![Mobile Services quickstart steps](./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started/mobile-quickstart-steps.png)
+    ![Mobile Services quickstart steps](./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started/mobile-quickstart-steps.png)
 
 3. If you haven't already done so, download and install [Visual Studio 2013] on your local computer or virtual machine.
 
 4. Under **Download and run your app and service locally**, select a language for your Windows Store app, then click **Download**.
 
-  	This downloads a solution contains projects for both the mobile service and for the sample _To do list_ application that is connected to your mobile service. Save the compressed project file to your local computer, and make a note of where you save it.
+    This downloads a solution contains projects for both the mobile service and for the sample _To do list_ application that is connected to your mobile service. Save the compressed project file to your local computer, and make a note of where you save it.
 
 ## Test the app against the local mobile service
 
@@ -87,7 +87,7 @@ In this section you will create a new universal Windows app that is connected to
             "https://todolist.azure-mobile.net/",
             "XXXX-APPLICATION-KEY-XXXXX");</code></pre>
 
-	<p>The client will now access the mobile service published to Azure.</p></li>
+    <p>The client will now access the mobile service published to Azure.</p></li>
 </ol>
 
 ## Test the app against the mobile service hosted in Azure
@@ -137,3 +137,4 @@ For more information about universal Windows apps, see [Supporting multiple devi
 [JavaScript and HTML]: mobile-services-win8-javascript/
 [Azure classic portal]: https://manage.windowsazure.com/
 [Troubleshoot a Mobile Services .NET backend]: mobile-services-dotnet-backend-how-to-troubleshoot.md
+

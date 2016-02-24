@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure RemoteApp FAQ | Microsoft Azure" 
-	description="Learn answers to the most frequently asked questions about Azure RemoteApp." 
-	services="remoteapp" 
-	documentationCenter="" 
-	authors="lizap" 
-	manager="mbaldwin" 
-	editor=""/>
+    pageTitle="Azure RemoteApp FAQ | Microsoft Azure" 
+    description="Learn answers to the most frequently asked questions about Azure RemoteApp." 
+    services="remoteapp" 
+    documentationCenter="" 
+    authors="lizap" 
+    manager="mbaldwin" 
+    editor=""/>
 
 <tags 
-	ms.service="remoteapp" 
-	ms.workload="compute" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="10/23/2015" 
-	ms.author="elizapo"/>
+    ms.service="remoteapp" 
+    ms.workload="compute" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="get-started-article" 
+    ms.date="10/23/2015" 
+    ms.author="elizapo"/>
 
 # Azure RemoteApp FAQ
 We've heard the following questions about Azure RemoteApp. Have others? Visit the [RemoteApp forums](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureRemoteApp) and let us know what you need to know, or drop a comment down below.
@@ -67,24 +67,24 @@ You can find good client information, including steps for installing the differe
 
 - **Which devices and operating systems do the client applications support?**
 First, the computers and tablets: 
-	- Windows 10 (client preview)
-	- Windows 8.1 and Windows 8
-	- Windows 7 Service Pack 1
-	- Mac OS X
-	- Windows RT
-	- Android tablets
-	- iPads
+    - Windows 10 (client preview)
+    - Windows 8.1 and Windows 8
+    - Windows 7 Service Pack 1
+    - Mac OS X
+    - Windows RT
+    - Android tablets
+    - iPads
 And the phones:
-	- iPhone
-	- Android Phone
-	- Windows Phone
+    - iPhone
+    - Android Phone
+    - Windows Phone
  
-	[Download](https://www.remoteapp.windowsazure.com/ClientDownload/AllClients.aspx) a RemoteApp client now.
+    [Download](https://www.remoteapp.windowsazure.com/ClientDownload/AllClients.aspx) a RemoteApp client now.
 - **Does Azure RemoteApp support Thin Clients?** Yes, the following Windows Embedded thin clients are supported:
-	- Windows Embedded Standard 7
-	- Windows Embedded 8 Standard
-	- Windows Embedded 8.1 Industry Pro
-	- Windows 10 IoT Enterprise
+    - Windows Embedded Standard 7
+    - Windows Embedded 8 Standard
+    - Windows Embedded 8.1 Industry Pro
+    - Windows 10 IoT Enterprise
 
 - **Which version of Windows Server is supported for the Remote Desktop Session Host (RDSH)?** Windows Server 2012 R2.
 
@@ -95,24 +95,25 @@ And the phones:
 - **How do I submit feedback?** Visit the [feedback forum](http://feedback.azure.com/forums/247748-azure-remoteapp).
 - **Who can I talk to learn more about Azure RemoteApp?** In addition to our [discussion forum](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=AzureRemoteApp), which is a great place to post questions, you can join the weekly [Ask the Experts webinar](https://azureinfo.microsoft.com/US-Azure-WBNR-FY15-11Nov-AzureRemoteAppAskTheExperts-Registration-Page.html), where we talk about all things RemoteApp.
 - **What about RemoteApp documentation?** We're so glad you asked. In addition to the help content in the portal help drawer (just click the **?** on any page in the portal), the following articles are available to teach you all about RemoteApp:
-	- **Get started:**
-		- [What is RemoteApp?](remoteapp-whatis.md)
-		- [What is in the RemoteApp template images?](remoteapp-images.md)
-		- [How does licensing work?](remoteapp-licensing.md)
-		- [How do RemoteApp and Office work together?](remoteapp-o365.md)
-		- [How does redirection work in RemoteApp](remoteapp-redirection.md)?
-	- **Deploy:**
-		- [Create a custom template image](remoteapp-create-custom-image.md)
-		- [Create a hybrid collection](remoteapp-create-hybrid-deployment.md)
-		- [Create a cloud collection](remoteapp-create-cloud-deployment.md)
-		- [Configure Azure Active Directory for RemoteApp](remoteapp-ad.md)
-		- [Publish an app in RemoteApp](remoteapp-publish.md)
-	- **Manage:**
-		- [Add users](remoteapp-user.md)
-		- [Best practices for configuring and using RemoteApp](remoteapp-bestpractices.md)	
+    - **Get started:**
+        - [What is RemoteApp?](remoteapp-whatis.md)
+        - [What is in the RemoteApp template images?](remoteapp-images.md)
+        - [How does licensing work?](remoteapp-licensing.md)
+        - [How do RemoteApp and Office work together?](remoteapp-o365.md)
+        - [How does redirection work in RemoteApp](remoteapp-redirection.md)?
+    - **Deploy:**
+        - [Create a custom template image](remoteapp-create-custom-image.md)
+        - [Create a hybrid collection](remoteapp-create-hybrid-deployment.md)
+        - [Create a cloud collection](remoteapp-create-cloud-deployment.md)
+        - [Configure Azure Active Directory for RemoteApp](remoteapp-ad.md)
+        - [Publish an app in RemoteApp](remoteapp-publish.md)
+    - **Manage:**
+        - [Add users](remoteapp-user.md)
+        - [Best practices for configuring and using RemoteApp](remoteapp-bestpractices.md)  
 
-	Videos! We also have a number of videos about RemoteApp. Some provide introduction ([Introduction to Azure RemoteApp](http://azure.microsoft.com/documentation/videos/cloud-cover-ep-150-azure-remote-app-with-thomas-willingham-and-nihar-namjoshi/)) while others walk you through deployment ([Cloud deployment](https://www.youtube.com/watch?v=3NAv2iwZtGc&feature=youtu.be) and [Hybrid deployment](https://www.youtube.com/watch?v=GCIMxPUvg0c&feature=youtu.be)). Check them out!
+    Videos! We also have a number of videos about RemoteApp. Some provide introduction ([Introduction to Azure RemoteApp](http://azure.microsoft.com/documentation/videos/cloud-cover-ep-150-azure-remote-app-with-thomas-willingham-and-nihar-namjoshi/)) while others walk you through deployment ([Cloud deployment](https://www.youtube.com/watch?v=3NAv2iwZtGc&feature=youtu.be) and [Hybrid deployment](https://www.youtube.com/watch?v=GCIMxPUvg0c&feature=youtu.be)). Check them out!
 
  
 ### Help us help you 
 Did you know that in addition to rating this article and making comments down below, you can make changes to the article itself? Something missing? Something wrong? Did I write something that's just confusing? Scroll up and click **Edit on GitHub** to make changes - those will come to us for review, and then, once we sign off on them, you'll see your changes and improvements right here.
+

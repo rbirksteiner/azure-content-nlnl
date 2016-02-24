@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Use ReportViewer in a Web Site | Microsoft Azure"
-	description="This topic describes how to build a Microsoft Azure Web site with the Visual Studio ReportViewer control that displays a report stored on an Microsoft Azure Virtual Machine."
-	services="virtual-machines"
-	documentationCenter="na"
-	authors="rothja"
-	manager="jeffreyg"
-	editor="monicar" 
-	tags="azure-service-management" />
+    pageTitle="Use ReportViewer in a Web Site | Microsoft Azure"
+    description="This topic describes how to build a Microsoft Azure Web site with the Visual Studio ReportViewer control that displays a report stored on an Microsoft Azure Virtual Machine."
+    services="virtual-machines"
+    documentationCenter="na"
+    authors="rothja"
+    manager="jeffreyg"
+    editor="monicar" 
+    tags="azure-service-management" />
 <tags 
-	ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services"
-	ms.date="12/11/2015"
-	ms.author="jroth" />
+    ms.service="virtual-machines"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="vm-windows-sql-server"
+    ms.workload="infrastructure-services"
+    ms.date="12/11/2015"
+    ms.author="jroth" />
 
 # Use ReportViewer in a Web Site Hosted in Azure
 
@@ -108,3 +108,4 @@ For instructions on publishing an ASP.NET Web application to Azure, see [How to:
 [Use PowerShell to Create an Azure VM With a Native Mode Report Server](virtual-machines-sql-server-create-native-mode-report-server-powershell.md)
 
 [Reporting Services report viewer control and Microsoft Azure virtual machine based report servers](http://download.microsoft.com/download/2/2/0/220DE2F1-8AB3-474D-8F8B-C998F7C56B5D/Reporting%20Services%20report%20viewer%20control%20and%20Azure%20VM%20based%20report%20servers.docx)
+

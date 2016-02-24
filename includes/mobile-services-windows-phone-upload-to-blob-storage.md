@@ -5,9 +5,9 @@ In this section you will update the project from the [Get started with Mobile Se
 
 1. In the Solution Explorer for Visual Studio, under the project, expand **Properties**. Then open the WMAppManifest.xml file and on the **Capabilities** tab enable the camera by clicking **ID\_CAP\_ISV\_CAMERA**. Close the file to save your change.
 
-   	![](./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-WMAppmanifest-wp8.png)
+    ![](./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-WMAppmanifest-wp8.png)
 
-   	This makes sure that your app can use a camera attached to the computer. Users will be requested to allow camera access the first time that the app is run.
+    This makes sure that your app can use a camera attached to the computer. Users will be requested to allow camera access the first time that the app is run.
 
 2. Open the MainPage.xaml file and replace the **Grid** element named **ContentPanel** with the following code:
 
@@ -44,26 +44,26 @@ In this section you will update the project from the [Get started with Mobile Se
         </Grid>
 
 
-   	This adds a new button to launch the [CameraCaptureTask] and adds an image to the **ItemTemplate** and sets its binding source as the URI of the uploaded image in the Blob Storage service.
+    This adds a new button to launch the [CameraCaptureTask] and adds an image to the **ItemTemplate** and sets its binding source as the URI of the uploaded image in the Blob Storage service.
 
 3. Open the MainPage.xaml.cs project file and add the following **using** statements:
-	
-		using Microsoft.Phone.Tasks;
-		using System.IO;
-		using Microsoft.WindowsAzure.Storage.Auth;
-		using Microsoft.WindowsAzure.Storage.Blob;
+    
+        using Microsoft.Phone.Tasks;
+        using System.IO;
+        using Microsoft.WindowsAzure.Storage.Auth;
+        using Microsoft.WindowsAzure.Storage.Blob;
     
 4. In the MainPage.xaml.cs project file, update the TodoItem class by adding the following properties:
 
         [JsonProperty(PropertyName = "containerName")]
         public string ContainerName { get; set; }
-		
+        
         [JsonProperty(PropertyName = "resourceName")]
         public string ResourceName { get; set; }
-		
+        
         [JsonProperty(PropertyName = "sasQueryString")]
         public string SasQueryString { get; set; }
-		
+        
         [JsonProperty(PropertyName = "imageUri")]
         public string ImageUri { get; set; } 
 
@@ -71,7 +71,7 @@ In this section you will update the project from the [Get started with Mobile Se
 
         // Using the CameraCaptureTask to allow the user to capture a todo item image //
         CameraCaptureTask cameraCaptureTask;
-		
+        
         // Using a stream reference to upload the image to blob storage.
         Stream imageStream = null;
 
@@ -81,11 +81,11 @@ In this section you will update the project from the [Get started with Mobile Se
         public MainPage()
         {
             InitializeComponent();
-			
+            
             cameraCaptureTask = new CameraCaptureTask();
             cameraCaptureTask.Completed += cameraCaptureTask_Completed;
         }
-		
+        
         void cameraCaptureTask_Completed(object sender, PhotoResult e)
         {
             imageStream = e.ChosenPhoto;
@@ -104,18 +104,18 @@ In this section you will update the project from the [Get started with Mobile Se
         private async void InsertTodoItem(TodoItem todoItem)
         {
             string errorString = string.Empty;            
-			
+            
             if (imageStream != null)
             {
                 // Set blob properties of TodoItem.
                 todoItem.ContainerName = "todoitemimages";
                 todoItem.ResourceName = Guid.NewGuid().ToString() + ".jpg";
             }                       
-			
+            
             // Send the item to be inserted. When blob properties are set this
             // generates an SAS in the response.
             await todoTable.InsertAsync(todoItem);  
-			
+            
             // If we have a returned SAS, then upload the blob.
             if (!string.IsNullOrEmpty(todoItem.SasQueryString))
             {
@@ -123,46 +123,46 @@ In this section you will update the project from the [Get started with Mobile Se
                 // and extract the storage credentials.
                 StorageCredentials cred = new StorageCredentials(todoItem.SasQueryString);
                 var imageUri = new Uri(todoItem.ImageUri);
-				
+                
                 // Instantiate a Blob store container based on the info in the returned item.
                 CloudBlobContainer container = new CloudBlobContainer(
                     new Uri(string.Format("https://{0}/{1}",
                         imageUri.Host, todoItem.ContainerName)), cred);                
-				
+                
                 // Upload the new image as a BLOB from the stream.
                 CloudBlockBlob blobFromSASCredential =
                     container.GetBlockBlobReference(todoItem.ResourceName);
                 await blobFromSASCredential.UploadFromStreamAsync(imageStream);
-				
-				// When you request an SAS at the container-level instead of the blob-level,
-				// you are able to upload multiple streams using the same container credentials.
+                
+                // When you request an SAS at the container-level instead of the blob-level,
+                // you are able to upload multiple streams using the same container credentials.
 
                 imageStream = null;
             }              
-			
+            
             // Add the new item to the collection.
             items.Add(todoItem);
             TextInput.Text = "";
         }
 
 
-	This code sends a request to the mobile service to insert a new TodoItem, including the image file name. The response contains the SAS, which is then used to insert the image in the Blob store, and the URI of the image for data binding.
+    This code sends a request to the mobile service to insert a new TodoItem, including the image file name. The response contains the SAS, which is then used to insert the image in the Blob store, and the URI of the image for data binding.
 
 The final step is to test the app and validate that uploads succeed.
-		
+        
 ##<a name="test"></a>Test uploading the images in your app
 
 1. In Visual Studio, you can press the F5 key to test the app in the emulator or with an actual device targeted.
 
 2. Enter some text in the textbox, then click **Capture Image**.
 
-   	![](./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-view-wp8.png)
+    ![](./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-view-wp8.png)
 
-  	This displays the camera capture UI. 
+    This displays the camera capture UI. 
 
 3. Click the image or the snapshot button on the phone to take a picture.
   
-   	![](./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-view-camera-wp8.png)
+    ![](./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-view-camera-wp8.png)
 
 4. Click **accept** to accept the image and exit the camera UI.
 
@@ -170,11 +170,11 @@ The final step is to test the app and validate that uploads succeed.
 
 5. Click **Save** to insert the new item and upload the image.
 
-	![](./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-view-save-wp8.png)
+    ![](./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-view-save-wp8.png)
 
 6. The new item, along with the uploaded image, is displayed in the list view.
 
-	![](./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-view-final-wp8.png)
+    ![](./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-view-final-wp8.png)
 
    >[AZURE.NOTE]The image is downloaded automatically from the Blob Storage service when the <code>imageUri</code> property of the new item is bound to the <strong>Image</strong> control.
 
@@ -182,3 +182,4 @@ The final step is to test the app and validate that uploads succeed.
 [Get started with Mobile Services]: ../articles/mobile-services-windows-phone-get-started.md
 [CameraCaptureTask]: http://msdn.microsoft.com/library/windowsphone/develop/microsoft.phone.tasks.cameracapturetask(v=vs.105).aspx
 [PhotoCamera]: http://msdn.microsoft.com/library/windowsphone/develop/microsoft.devices.photocamera(v=vs.105).aspx
+

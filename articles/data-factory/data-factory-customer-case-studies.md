@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Customer Case Studies | Microsoft Azure" 
-	description="Learn about how some of our customers have been using Azure Data Factory." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
-	editor="monicar"/>
+    pageTitle="Customer Case Studies | Microsoft Azure" 
+    description="Learn about how some of our customers have been using Azure Data Factory." 
+    services="data-factory" 
+    documentationCenter="" 
+    authors="spelluru" 
+    manager="jhubbard" 
+    editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/28/2015" 
-	ms.author="spelluru"/>
+    ms.service="data-factory" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/28/2015" 
+    ms.author="spelluru"/>
 
 # Customer Case Studies
 
@@ -47,3 +47,4 @@ Data Factory is a cloud-based information management service that automates the 
 ## Pier 1 Imports
 
 [Finding a Better Connection with Customers through Cloud Machine Learning](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11257)
+

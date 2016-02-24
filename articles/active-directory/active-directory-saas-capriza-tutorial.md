@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Tutorial: Azure Active Directory integration with Capriza | Microsoft Azure"
-	description="Learn how to configure single sign-on between Azure Active Directory and Capriza."
-	services="active-directory"
-	documentationCenter=""
-	authors="jeevansd"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Tutorial: Azure Active Directory integration with Capriza | Microsoft Azure"
+    description="Learn how to configure single sign-on between Azure Active Directory and Capriza."
+    services="active-directory"
+    documentationCenter=""
+    authors="jeevansd"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/14/2015"
-	ms.author="jeedes"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/14/2015"
+    ms.author="jeedes"/>
 
 
 # Tutorial: Azure Active Directory integration with Capriza
@@ -242,3 +242,4 @@ When you click the Capriza tile in the Access Panel, you should get automaticall
 [203]: ./media/active-directory-saas-capriza-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-capriza-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-capriza-tutorial/tutorial_general_205.png
+

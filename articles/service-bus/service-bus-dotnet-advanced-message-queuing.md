@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How to use AMQP 1.0 with the .NET Service Bus API | Microsoft Azure" 
-	description="Learn how to use Advanced Message Queuing Protodol (AMQP) 1.0 with the Azure .NET Service Bus API." 
-	services="service-bus" 
-	documentationCenter=".net" 
-	authors="sethmanheim" 
-	manager="timlt" 
-	editor="tysonn"/>
+    pageTitle="How to use AMQP 1.0 with the .NET Service Bus API | Microsoft Azure" 
+    description="Learn how to use Advanced Message Queuing Protodol (AMQP) 1.0 with the Azure .NET Service Bus API." 
+    services="service-bus" 
+    documentationCenter=".net" 
+    authors="sethmanheim" 
+    manager="timlt" 
+    editor="tysonn"/>
 
 <tags 
-	ms.service="service-bus" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="10/08/2015" 
-	ms.author="sethm"/>
+    ms.service="service-bus" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="dotnet" 
+    ms.topic="article" 
+    ms.date="10/08/2015" 
+    ms.author="sethm"/>
 
 # How to use AMQP 1.0 with the Service Bus .NET API
 
@@ -47,11 +47,11 @@ A sample App.config file is shown here:
 ```
 <?xml version="1.0" encoding="utf-8" ?>
 <configuration>
-  	<appSettings>
-	    <add key="Microsoft.ServiceBus.ConnectionString"
-       	     value="Endpoint=sb://[namespace].servicebus.windows.net;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp" />
-	    	<add key="EntityName" value="queue1" />
-	</appSettings>
+    <appSettings>
+        <add key="Microsoft.ServiceBus.ConnectionString"
+             value="Endpoint=sb://[namespace].servicebus.windows.net;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp" />
+            <add key="EntityName" value="queue1" />
+    </appSettings>
 </configuration>
 ```
 
@@ -77,12 +77,12 @@ The following example sends and receives messages to and from a Service Bus queu
 
 ```
 // SimpleSenderReceiver.cs
-	
+    
 using System;
 using System.Configuration;
 using System.Threading;
 using Microsoft.ServiceBus.Messaging;
-	
+    
 namespace SimpleSenderReceiver
 {
     class SimpleSenderReceiver
@@ -95,23 +95,23 @@ namespace SimpleSenderReceiver
         private MessageReceiver receiver;
         private MessageListener messageListener;
         private Thread listenerThread;
-	
+    
         static void Main(string[] args)
         {
             try
             {
                 if ((args.Length > 0) && args[0].ToLower().Equals("sendonly"))
                     runReceiver = false;
-	                
+                    
                 string ConnectionStringKey = "Microsoft.ServiceBus.ConnectionString";
                 string entityNameKey = "EntityName";
                 entityName = ConfigurationManager.AppSettings[entityNameKey];
                 connectionString = ConfigurationManager.AppSettings[ConnectionStringKey];
                 SimpleSenderReceiver simpleSenderReceiver = new SimpleSenderReceiver();
-	
+    
                 Console.WriteLine("Press [enter] to send a message. " +
                     "Type 'exit' + [enter] to quit.");
-	
+    
                 while (true)
                 {
                     string s = Console.ReadLine();
@@ -129,12 +129,12 @@ namespace SimpleSenderReceiver
                 Console.WriteLine("Caught exception: " + e.Message);
             }
         }
-	
+    
         public SimpleSenderReceiver()
         {
             factory = MessagingFactory.CreateFromConnectionString(connectionString);
             sender = factory.CreateMessageSender(entityName);
-	
+    
             if (runReceiver)
             {
                 receiver = factory.CreateMessageReceiver(entityName);
@@ -143,14 +143,14 @@ namespace SimpleSenderReceiver
                 listenerThread.Start();
             }
         }
-	
+    
         public void Close()
         {
             messageListener.RequestStop();
             listenerThread.Join();
             factory.Close();
         }
-	
+    
         private void SendMessage()
         {
             BrokeredMessage message = new BrokeredMessage("Test AMQP message from .NET");
@@ -160,7 +160,7 @@ namespace SimpleSenderReceiver
         }
 
     }
-	
+    
     public class MessageListener
     {
         private MessageReceiver messageReceiver;
@@ -168,7 +168,7 @@ namespace SimpleSenderReceiver
         {
             messageReceiver = receiver;
         }
-	
+    
         public void Listen()
         {
             while (!_shouldStop)
@@ -191,12 +191,12 @@ namespace SimpleSenderReceiver
                 }
             }
         }
-	
+    
         public void RequestStop()
         {
             _shouldStop = true;
         }
-	
+    
         private volatile bool _shouldStop;
     }
 }
@@ -209,13 +209,13 @@ Running the application produces output of the form:
 ```
 > SimpleSenderReceiver.exe
 Press [enter] to send a message. Type 'exit' + [enter] to quit.
-	
+    
 Sent message with MessageID = fb7f5d3733704e4ba4bd55f759d9d7cf
 Received message with MessageID = fb7f5d3733704e4ba4bd55f759d9d7cf
-	
+    
 Sent message with MessageID = d00e2e088f06416da7956b58310f7a06
 Received message with MessageID = d00e2e088f06416da7956b58310f7a06
-	
+    
 Received message with MessageID = f27f79ec124548c196fd0db8544bca49
 Sent message with MessageID = f27f79ec124548c196fd0db8544bca49
 exit
@@ -252,7 +252,7 @@ exit
 ### Output from .NET application
 
 ```
-> SimpleSenderReceiver.exe	
+> SimpleSenderReceiver.exe  
 Press [enter] to send a message. Type 'exit' + [enter] to quit.
 Received message with MessageID = 4364096528752411591
 Received message with MessageID = 459252991689389983
@@ -274,7 +274,7 @@ To demonstrate .NET to JMS messaging:
 ```
 > SimpleSenderReceiver.exe sendonly
 Press [enter] to send a message. Type 'exit' + [enter] to quit.
-Sent message with MessageID = d64e681a310a48a1ae0ce7b017bf1cf3	
+Sent message with MessageID = d64e681a310a48a1ae0ce7b017bf1cf3  
 Sent message with MessageID = 98a39664995b4f74b32e2a0ecccc46bb
 Sent message with MessageID = acbca67f03c346de9b7893026f97ddeb
 exit
@@ -283,7 +283,7 @@ exit
 #### Output from JMS application
 
 ```
-> java SimpleSenderReceiver	
+> java SimpleSenderReceiver 
 Press [enter] to send a message. Type 'exit' + [enter] to quit.
 Received message with JMSMessageID = ID:d64e681a310a48a1ae0ce7b017bf1cf3
 Received message with JMSMessageID = ID:98a39664995b4f74b32e2a0ecccc46bb
@@ -323,3 +323,4 @@ Now that you've read an overview of Service Bus and AMQP with .NET, see the foll
 * [How to Use Service Bus Queues](service-bus-dotnet-how-to-use-queues.md)
  
 [Azure classic portal]: http://manage.windowsazure.com
+

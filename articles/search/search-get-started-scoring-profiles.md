@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How to use scoring profiles in Azure Search | Microsoft Azure | Hosted cloud search service" 
-	description="Tune search ranking through scoring profiles in Azure Search, a hosted cloud search service on Microsoft Azure." 
-	services="search" 
-	documentationCenter="" 
-	authors="HeidiSteen" 
-	manager="mblythe" 
-	editor=""/>
+    pageTitle="How to use scoring profiles in Azure Search | Microsoft Azure | Hosted cloud search service" 
+    description="Tune search ranking through scoring profiles in Azure Search, a hosted cloud search service on Microsoft Azure." 
+    services="search" 
+    documentationCenter="" 
+    authors="HeidiSteen" 
+    manager="mblythe" 
+    editor=""/>
 
 <tags 
-	ms.service="search" 
-	ms.devlang="rest-api" 
-	ms.workload="search" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.date="11/04/2015" 
-	ms.author="heidist"/>
+    ms.service="search" 
+    ms.devlang="rest-api" 
+    ms.workload="search" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.date="11/04/2015" 
+    ms.author="heidist"/>
 
 # How to use scoring profiles in Azure Search
 

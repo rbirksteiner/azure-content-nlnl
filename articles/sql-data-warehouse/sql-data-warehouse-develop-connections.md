@@ -98,7 +98,7 @@ Each query will be represented by one or more request identifiers. All queries s
 However, as SQL Data Warehouse is a distributed MPP system both session and request identifiers are exposed a little differently when compared to SQL Server. 
 
 Sessions and requests are logically represented by their respective identifiers.
-	
+    
 | Identifier | Example value |
 | :--------- | :------------ |
 | Session ID | SID123456     |
@@ -120,25 +120,25 @@ To view all the queries that are either running or have recently run against you
 ```
 CREATE VIEW dbo.vSessionRequests
 AS
-SELECT 	 s.[session_id]									AS Session_ID
-		,s.[status]										AS Session_Status
-		,s.[login_name]									AS Session_LoginName
-		,s.[login_time]									AS Session_LoginTime
-        ,r.[request_id]									AS Request_ID
-		,r.[status]										AS Request_Status
-		,r.[submit_time]								AS Request_SubmitTime
-		,r.[start_time]									AS Request_StartTime
-		,r.[end_compile_time]							AS Request_EndCompileTime
-		,r.[end_time]									AS Request_EndTime
-		,r.[total_elapsed_time]							AS Request_TotalElapsedDuration_ms
-        ,DATEDIFF(ms,[submit_time],[start_time])		AS Request_InitiateDuration_ms
-        ,DATEDIFF(ms,[start_time],[end_compile_time])	AS Request_CompileDuration_ms
-        ,DATEDIFF(ms,[end_compile_time],[end_time])		AS Request_ExecDuration_ms
-		,[label]										AS Request_QueryLabel
-		,[command]										AS Request_Command
-		,[database_id]									AS Request_Database_ID
+SELECT   s.[session_id]                                 AS Session_ID
+        ,s.[status]                                     AS Session_Status
+        ,s.[login_name]                                 AS Session_LoginName
+        ,s.[login_time]                                 AS Session_LoginTime
+        ,r.[request_id]                                 AS Request_ID
+        ,r.[status]                                     AS Request_Status
+        ,r.[submit_time]                                AS Request_SubmitTime
+        ,r.[start_time]                                 AS Request_StartTime
+        ,r.[end_compile_time]                           AS Request_EndCompileTime
+        ,r.[end_time]                                   AS Request_EndTime
+        ,r.[total_elapsed_time]                         AS Request_TotalElapsedDuration_ms
+        ,DATEDIFF(ms,[submit_time],[start_time])        AS Request_InitiateDuration_ms
+        ,DATEDIFF(ms,[start_time],[end_compile_time])   AS Request_CompileDuration_ms
+        ,DATEDIFF(ms,[end_compile_time],[end_time])     AS Request_ExecDuration_ms
+        ,[label]                                        AS Request_QueryLabel
+        ,[command]                                      AS Request_Command
+        ,[database_id]                                  AS Request_Database_ID
 FROM    sys.dm_pdw_exec_requests r
-JOIN    sys.dm_pdw_exec_sessions s	ON	r.[session_id] = s.[session_id]
+JOIN    sys.dm_pdw_exec_sessions s  ON  r.[session_id] = s.[session_id]
 WHERE   s.[session_id] <> SESSION_ID()
 ;
 ```
@@ -157,3 +157,4 @@ Once connected you can begin designing your tables. Please refer to the [table d
 <!--MSDN references-->
 
 <!--Other references-->
+

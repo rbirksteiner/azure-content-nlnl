@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Prepare network mapping for Hyper-V virtual machine protection with VMM in Azure Site Recovery  | Microsoft Azure"
-	description="Set up network mapping for Hyper-V virtual machine replication from an on-premises datacenter to Azure, or to a secondary site."
-	services="site-recovery"
-	documentationCenter=""
-	authors="rayne-wiselman"
-	manager="jwhit"
-	editor=""/>
+    pageTitle="Prepare network mapping for Hyper-V virtual machine protection with VMM in Azure Site Recovery  | Microsoft Azure"
+    description="Set up network mapping for Hyper-V virtual machine replication from an on-premises datacenter to Azure, or to a secondary site."
+    services="site-recovery"
+    documentationCenter=""
+    authors="rayne-wiselman"
+    manager="jwhit"
+    editor=""/>
 
 <tags
-	ms.service="site-recovery"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="storage-backup-recovery"
-	ms.date="12/01/2015"
-	ms.author="raynew"/>
+    ms.service="site-recovery"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.workload="storage-backup-recovery"
+    ms.date="12/01/2015"
+    ms.author="raynew"/>
 
 
 # Prepare network mapping for Hyper-V virtual machine protection with VMM in Azure Site Recovery
@@ -32,14 +32,14 @@ Network mapping is used when Azure Site Recovery is deployed to replicate Hyper-
 
 - **Replicating Hyper-V virtual machines in VMM clouds between two on-premises datacenters**—Network mapping maps between VM networks on a source VMM server and VM networks on a target VMM server to do the following:
 
-	- **Connect virtual machines after failover**—Ensures that virtual machines will be connected to appropriate networks after failover. The replica virtual machine will be connected to the target network that is mapped to the source network.
-	- **Place replica virtual machines on host servers**—Optimally place replica virtual machines on Hyper-V host servers. Replica virtual machines will be placed on hosts that can access the mapped VM networks.
-	- **No network mapping**—If you don’t configure network mapping, replicated virtual machines won’t be connected to any VM networks after failover.
+    - **Connect virtual machines after failover**—Ensures that virtual machines will be connected to appropriate networks after failover. The replica virtual machine will be connected to the target network that is mapped to the source network.
+    - **Place replica virtual machines on host servers**—Optimally place replica virtual machines on Hyper-V host servers. Replica virtual machines will be placed on hosts that can access the mapped VM networks.
+    - **No network mapping**—If you don’t configure network mapping, replicated virtual machines won’t be connected to any VM networks after failover.
 
 - **Replicating Hyper-V virtual machines in an on-premises VMM cloud to Azure**—Network mapping maps between VM networks on the source VMM server and target Azure networks to do the following:
-	- **Connect virtual machines after failover**—All machines which failover on the same network can connect to each other, irrespective of which recovery plan they are in.
-	- **Network gateway**—If a network gateway is set up on the target Azure network, virtual machines can connect to other on-premises virtual machines.
-	- **No network mapping**—If you don’t configure network mapping, only virtual machines that failover in the same recovery plan will be able to connect to each other after fail over to Azure.
+    - **Connect virtual machines after failover**—All machines which failover on the same network can connect to each other, irrespective of which recovery plan they are in.
+    - **Network gateway**—If a network gateway is set up on the target Azure network, virtual machines can connect to other on-premises virtual machines.
+    - **No network mapping**—If you don’t configure network mapping, only virtual machines that failover in the same recovery plan will be able to connect to each other after fail over to Azure.
 
 
 ## Network mapping example
@@ -122,3 +122,4 @@ Network mapping of VMNetwork1-Chicago is changed. | VM-1 will be connected to th
 ## Next steps
 
 Now that you have a better understanding of network mapping, [get started with Site Recovery deployment](site-recovery-best-practices.md).
+

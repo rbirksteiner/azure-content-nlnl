@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Azure SQL Database benchmark overview"
-	description="This topic describes the Azure SQL Database Benchmark used in measuring the performance of Azure SQL Database."
-	services="sql-database"
-	documentationCenter="na"
-	authors="rothja"
-	manager="jeffreyg"
-	editor="monicar" />
+    pageTitle="Azure SQL Database benchmark overview"
+    description="This topic describes the Azure SQL Database Benchmark used in measuring the performance of Azure SQL Database."
+    services="sql-database"
+    documentationCenter="na"
+    authors="rothja"
+    manager="jeffreyg"
+    editor="monicar" />
 
 
 <tags
-	ms.service="sql-database"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="data-management"
-	ms.date="10/15/2015"
-	ms.author="jroth" />
+    ms.service="sql-database"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="data-management"
+    ms.date="10/15/2015"
+    ms.author="jroth" />
 
 # Azure SQL Database benchmark overview
 
@@ -80,9 +80,9 @@ The benchmark workload is driven from a tool that submits transactions across a 
 
 1. Establish a database connection.
 2. Repeat until signaled to exit:
-	- Select a transaction at random (from a weighted distribution).
-	- Perform the selected transaction and measure the response time.
-	- Wait for a pacing delay.
+    - Select a transaction at random (from a weighted distribution).
+    - Perform the selected transaction and measure the response time.
+    - Wait for a pacing delay.
 3. Close the database connection.
 4. Exit.
 
@@ -129,3 +129,4 @@ The Azure SQL Database Benchmark measures the relative performance of Azure SQL 
 [Service tiers and performance levels](sql-database-service-tiers.md)
 
 [Performance guidance for single databases](sql-database-performance-guidance.md)
+

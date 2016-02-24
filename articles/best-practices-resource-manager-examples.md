@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Contextual examples of best practices for implementing templates"
-	description="Shows examples of Azure Resource Manager templates that illustrate best practices."
-	services="azure-resource-manager"
-	documentationCenter=""
-	authors="mmercuri"
-	manager="georgem"
-	editor="tysonn"/>
+    pageTitle="Contextual examples of best practices for implementing templates"
+    description="Shows examples of Azure Resource Manager templates that illustrate best practices."
+    services="azure-resource-manager"
+    documentationCenter=""
+    authors="mmercuri"
+    manager="georgem"
+    editor="tysonn"/>
 
 <tags
-	ms.service="azure-resource-manager"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/13/2015"
-	ms.author="mmercuri"/>
+    ms.service="azure-resource-manager"
+    ms.workload="multiple"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/13/2015"
+    ms.author="mmercuri"/>
 
 # Contextual examples of best practices for implementing templates
 
@@ -382,3 +382,4 @@ considered for resources which require such protection.
 - To learn about creating templates, see [Authoring templates](resource-group-authoring-templates.md).
 - For recommendations about how to handle security in Azure Resource Manager, see [Security considerations for Azure Resource Manager](best-practices-resource-manager-security.md).
 - To learn about sharing state into and out of templates, see [Sharing state in Azure Resource Manager templates](best-practices-resource-manager-state.md)
+

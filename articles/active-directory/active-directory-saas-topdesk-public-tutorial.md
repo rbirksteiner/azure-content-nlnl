@@ -99,23 +99,23 @@ Configuring single sign-on for TOPdesk - Public requires you to upload a logo ic
 
 6.  In a different web browser window, log into your **Azure Active Directory** portal as an administrator.
 
-7.  On the **TOPdesk - Public** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+7.  On the **TOPdesk - Public** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
     ![Configure Single Sign-On](./media/active-directory-saas-topdesk-public-tutorial/IC790620.png "Configure Single Sign-On")
 
-8.  On the **How would you like users to sign on to TOPdesk - Public** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+8.  On the **How would you like users to sign on to TOPdesk - Public** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-topdesk-public-tutorial/IC790621.png "Configure Single Sign-On")
 
-9.  On the **Configure App URL** page, perform the following steps:
+9.  On the **Configure App URL** page, perform the following steps:
 
     ![Configure App URL](./media/active-directory-saas-topdesk-public-tutorial/IC790622.png "Configure App URL")
 
-    1.  In the **TOPdesk - Public Sign On URL** textbox, type the URL used by your users to sign into your TOPdesk - Public application (e.g.: "*https://qssolutions.topdesk.net*").
+    1.  In the **TOPdesk - Public Sign On URL** textbox, type the URL used by your users to sign into your TOPdesk - Public application (e.g.: "*https://qssolutions.topdesk.net*").
     2.  In the **TOPdesk – Public Reply URL** textbox, paste the **TOPdesk - Public AssertionConsumerService URL** (e.g.: "*https://qssolutions.topdesk.net/tas/public/login/saml*")
     3.  Click **Next**.
 
-10. On the **Configure single sign-on at TOPdesk - Public** page, to download your metadata file, click **Download metadata**, and then save the file locally on your computer.
+10. On the **Configure single sign-on at TOPdesk - Public** page, to download your metadata file, click **Download metadata**, and then save the file locally on your computer.
 
     ![Configure Single Sign-On](./media/active-directory-saas-topdesk-public-tutorial/IC790623.png "Configure Single Sign-On")
 
@@ -155,7 +155,7 @@ Configuring single sign-on for TOPdesk - Public requires you to upload a logo ic
     5.  In the **Display name** textbox, type a name for your configuration.
     6.  Click **Save**.
 
-17. On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+17. On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
     ![Configure Single Sign-On](./media/active-directory-saas-topdesk-public-tutorial/IC790627.png "Configure Single Sign-On")
 
@@ -191,7 +191,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 1.  In the Azure AD portal, create a test account.
 
-2.  On the **TOPdesk - Public **application integration page, click **Assign users**.
+2.  On the **TOPdesk - Public **application integration page, click **Assign users**.
 
     ![Assign Users](./media/active-directory-saas-topdesk-public-tutorial/IC790630.png "Assign Users")
 

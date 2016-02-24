@@ -1,20 +1,20 @@
 <properties
-	pageTitle="List of available Connectors and API Apps | Microsoft Azure App Service"
-	description="Read about the Connectors and API Apps in Azure App Service"
-	services="app-service\logic"
-	documentationCenter=""
-	authors="MandiOhlinger"
-	manager="dwrede"
-	editor="cgronlun"/>
+    pageTitle="List of available Connectors and API Apps | Microsoft Azure App Service"
+    description="Read about the Connectors and API Apps in Azure App Service"
+    services="app-service\logic"
+    documentationCenter=""
+    authors="MandiOhlinger"
+    manager="dwrede"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="app-service-logic"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/03/2015"
-	ms.author="mandia"/>
+    ms.service="app-service-logic"
+    ms.workload="integration"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/03/2015"
+    ms.author="mandia"/>
 
 
 # List of Connectors and API Apps to use in your Logic Apps
@@ -97,3 +97,4 @@ Connectors can also be used as actions within your Logic App. Actions are useful
 [What are Connectors and BizTalk API Apps](app-service-logic-what-are-biztalk-api-apps.md)  
 [Using the Hybrid Connection Manager in Azure App Service](app-service-logic-hybrid-connection-manager.md)  
 [Manage and Monitor your built-in API Apps and Connectors](app-service-logic-monitor-your-connectors.md)
+

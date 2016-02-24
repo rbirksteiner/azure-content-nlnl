@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Media Encoder Premium Workflow Formats and Codecs" 
-	description="This topic gives an overview of Media Encoder Premium Workflow Formats formats and codecs" 
-	services="media-services" 
-	documentationCenter="" 
-	authors="juliako,anilmur" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="Media Encoder Premium Workflow Formats and Codecs" 
+    description="This topic gives an overview of Media Encoder Premium Workflow Formats formats and codecs" 
+    services="media-services" 
+    documentationCenter="" 
+    authors="juliako,anilmur" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/15/2015"  
-	ms.author="juliako"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/15/2015"  
+    ms.author="juliako"/>
 
 #Media Encoder Premium Workflow Formats and Codecs
 
@@ -135,3 +135,4 @@ If your input video does not contain closed captioning, the output Asset will st
 ##Provide feedback
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+

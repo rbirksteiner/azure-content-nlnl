@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Flighting deployment (beta testing) in Azure App Service"
-	description="Learn how to flight new features in your app or beta test your updates in this end-to-end tutorial. It brings together App Service features like continuous publishing, slots, traffic routing, and Application Insights integration."
-	services="app-service\web"
-	documentationCenter=""
-	authors="cephalin"
-	manager="wpickett"
-	editor=""/>
+    pageTitle="Flighting deployment (beta testing) in Azure App Service"
+    description="Learn how to flight new features in your app or beta test your updates in this end-to-end tutorial. It brings together App Service features like continuous publishing, slots, traffic routing, and Application Insights integration."
+    services="app-service\web"
+    documentationCenter=""
+    authors="cephalin"
+    manager="wpickett"
+    editor=""/>
 
 <tags
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/16/2015"
-	ms.author="cephalin"/>
+    ms.service="app-service-web"
+    ms.workload="web"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/16/2015"
+    ms.author="cephalin"/>
 # Flighting deployment (beta testing) in Azure App Service
 
 This tutorial shows you how to do *flighting deployments* by integrating the various capabilities of [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) and [Azure Application Insights](/services/application-insights/). 
@@ -52,15 +52,15 @@ In this tutorial, you will learn how to bring the following scenarios together t
 
 ## What you will need
 
--	An Azure account
--	A [GitHub](https://github.com/) account
+-   An Azure account
+-   A [GitHub](https://github.com/) account
 - Visual Studio 2015 - you can download the [Community edition](https://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx).
--	Git Shell (installed with [GitHub for Windows](https://windows.github.com/)) - this enables you to run both the Git and PowerShell commands in the same session
--	Latest [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/download/v0.9.8-September2015/azure-powershell.0.9.8.msi) bits
--	Basic understanding of the following:
-	-	[Azure Resource Manager](resource-group-overview.md) template deployment (see [Deploy a complex application predictably in Azure](app-service-deploy-complex-application-predictably.md))
-	-	[Git](http://git-scm.com/documentation)
-	-	[PowerShell](https://technet.microsoft.com/library/bb978526.aspx)
+-   Git Shell (installed with [GitHub for Windows](https://windows.github.com/)) - this enables you to run both the Git and PowerShell commands in the same session
+-   Latest [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/download/v0.9.8-September2015/azure-powershell.0.9.8.msi) bits
+-   Basic understanding of the following:
+    -   [Azure Resource Manager](resource-group-overview.md) template deployment (see [Deploy a complex application predictably in Azure](app-service-deploy-complex-application-predictably.md))
+    -   [Git](http://git-scm.com/documentation)
+    -   [PowerShell](https://technet.microsoft.com/library/bb978526.aspx)
 
 > [AZURE.NOTE] You need an Azure account to complete this tutorial:
 > + You can [open an Azure account for free](/pricing/free-trial/?WT.mc_id=A261C142F) - You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Web Apps.
@@ -76,36 +76,36 @@ In this tutorial, you will learn how to bring the following scenarios together t
 
 In a typical DevOps scenario, you have an application that’s running live in Azure, and you want to make changes to it through continuous publishing. In this scenario, you will deploy to production a template that you have developed and tested.
 
-1.	Create your own fork of the [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) repository. For information on creating your fork, see [Fork a Repo](https://help.github.com/articles/fork-a-repo/). Once your fork is created, you can see it in your browser.
+1.  Create your own fork of the [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) repository. For information on creating your fork, see [Fork a Repo](https://help.github.com/articles/fork-a-repo/). Once your fork is created, you can see it in your browser.
 
-	![](./media/app-service-agile-software-development/production-1-private-repo.png)
+    ![](./media/app-service-agile-software-development/production-1-private-repo.png)
 
-2.	Open a Git Shell session. If you don't have Git Shell yet, install [GitHub for Windows](https://windows.github.com/) now.
-3.	Create a local clone of your fork by executing the following command:
+2.  Open a Git Shell session. If you don't have Git Shell yet, install [GitHub for Windows](https://windows.github.com/) now.
+3.  Create a local clone of your fork by executing the following command:
 
         git clone https://github.com/<your_fork>/ToDoApp.git
 
-4.	Once you have your local clone, navigate to *&lt;repository_root>*\ARMTemplates, and run the deploy.ps1 script with a unique suffix, as shown below:
+4.  Once you have your local clone, navigate to *&lt;repository_root>*\ARMTemplates, and run the deploy.ps1 script with a unique suffix, as shown below:
 
         .\deploy.ps1 –RepoUrl https://github.com/<your_fork>/todoapp.git -ResourceGroupSuffix <your_suffix>
 
-4.	When prompted, type in the desired username and password for database access. Remember your database credentials because you will need to specify them again when updating the resource group.
+4.  When prompted, type in the desired username and password for database access. Remember your database credentials because you will need to specify them again when updating the resource group.
 
-	You should see the provisioning progress of various Azure resources. When deployment completes, the script will launch the application in the browser and give you a friendly beep.
-	![](./media/app-service-web-test-in-production-controlled-test-flight/00.1-app-in-browser.png)
+    You should see the provisioning progress of various Azure resources. When deployment completes, the script will launch the application in the browser and give you a friendly beep.
+    ![](./media/app-service-web-test-in-production-controlled-test-flight/00.1-app-in-browser.png)
 
-6.	Back in your Git Shell session, run:
+6.  Back in your Git Shell session, run:
 
         .\swap –Name ToDoApp<your_suffix>
 
-	![](./media/app-service-web-test-in-production-controlled-test-flight/00.2-swap-to-production.png)
+    ![](./media/app-service-web-test-in-production-controlled-test-flight/00.2-swap-to-production.png)
 
-7.	When the script finishes, go back to browse to the frontend’s address (http://ToDoApp*&lt;your_suffix>*.azurewebsites.net/) to see the application running in production.
-5.	Log into the [Azure Portal](https://portal.azure.com) and take a look at what’s created.
+7.  When the script finishes, go back to browse to the frontend’s address (http://ToDoApp*&lt;your_suffix>*.azurewebsites.net/) to see the application running in production.
+5.  Log into the [Azure Portal](https://portal.azure.com) and take a look at what’s created.
 
-	You should be able to see two web apps in the same resource group, one with the `Api` suffix in the name. If you look at the resource group view, you will also see the SQL Database and server, the App Service plan, and the staging slots for the web apps. Browse through the different resources and compare them with *&lt;repository_root>*\ARMTemplates\ProdAndStage.json to see how they are configured in the template.
+    You should be able to see two web apps in the same resource group, one with the `Api` suffix in the name. If you look at the resource group view, you will also see the SQL Database and server, the App Service plan, and the staging slots for the web apps. Browse through the different resources and compare them with *&lt;repository_root>*\ARMTemplates\ProdAndStage.json to see how they are configured in the template.
 
-	![](./media/app-service-web-test-in-production-controlled-test-flight/00.3-resource-group-view.png)
+    ![](./media/app-service-web-test-in-production-controlled-test-flight/00.3-resource-group-view.png)
 
 You have set up the production app.  Now, let's imagine that you receive feedback that usability is poor for the app. So you decide to investigate. You're going to instrument your app to give you feedback.
 
@@ -145,7 +145,7 @@ You have set up the production app.  Now, let's imagine that you receive feedbac
         git commit -m "add AI configuration for client app"
         git push origin master
 
-6.	Swap the deployed app changes to production:
+6.  Swap the deployed app changes to production:
 
         .\swap –Name ToDoApp<your_suffix>
 
@@ -181,7 +181,7 @@ This is a tangent since the scenario demonstrated in this tutorial only deals wi
         git commit -m "add AI configuration for server app"
         git push origin master
 
-6.	Swap the deployed app changes to production:
+6.  Swap the deployed app changes to production:
 
         .\swap –Name ToDoApp<your_suffix>
 
@@ -239,30 +239,30 @@ Again, for completeness you will set up the server-side app. Unlike the client a
 
 1. Open *&lt;repository_root>*\src\MultiChannelToDo\Global.asax.cs. Add the code block below, just before the closing namespace curly brace.
 
-		namespace MultiChannelToDo
-		{
-				...
+        namespace MultiChannelToDo
+        {
+                ...
 
-				// Begin new code
-		    public class ConfigInitializer
-		    : ITelemetryInitializer
-		    {
-		        void ITelemetryInitializer.Initialize(ITelemetry telemetry)
-		        {
-		            telemetry.Context.Properties["Environment"] = System.Configuration.ConfigurationManager.AppSettings["environment"];
-		        }
-		    }
-				// End new code
-		}
+                // Begin new code
+            public class ConfigInitializer
+            : ITelemetryInitializer
+            {
+                void ITelemetryInitializer.Initialize(ITelemetry telemetry)
+                {
+                    telemetry.Context.Properties["Environment"] = System.Configuration.ConfigurationManager.AppSettings["environment"];
+                }
+            }
+                // End new code
+        }
 
 2. Correct the name resolution errors by adding the `using` statements below to the beginning of the file:
 
-		using Microsoft.ApplicationInsights.Channel;
-		using Microsoft.ApplicationInsights.Extensibility;
+        using Microsoft.ApplicationInsights.Channel;
+        using Microsoft.ApplicationInsights.Extensibility;
 
 3. Add the code below to the beginning of the `Application_Start()` method:
 
-		TelemetryConfiguration.Active.TelemetryInitializers.Add(new ConfigInitializer());
+        TelemetryConfiguration.Active.TelemetryInitializers.Add(new ConfigInitializer());
 
 3. Commit and push your code changes to your fork on GitHub, and then wait for your users to use the new app (need to refresh the browser). It takes about 15 minutes for the new property to show up in your Application Insights `MultiChannelToDo` resource.
 
@@ -385,9 +385,10 @@ Azure App Service makes it easy for small- to medium-sized businesses to test th
 
 -   [Agile software development with Azure App Service](app-service-agile-software-development.md)
 -   [Set up staging environments for web apps in Azure App Service](web-sites-staged-publishing.md)
--	[Deploy a complex application predictably in Azure](app-service-deploy-complex-application-predictably.md)
--	[Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md)
--	[JSONLint - The JSON Validator](http://jsonlint.com/)
--	[Git Branching – Basic Branching and Merging](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
--	[Azure PowerShell](powershell-install-configure.md)
--	[Project Kudu Wiki](https://github.com/projectkudu/kudu/wiki)
+-   [Deploy a complex application predictably in Azure](app-service-deploy-complex-application-predictably.md)
+-   [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md)
+-   [JSONLint - The JSON Validator](http://jsonlint.com/)
+-   [Git Branching – Basic Branching and Merging](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
+-   [Azure PowerShell](powershell-install-configure.md)
+-   [Project Kudu Wiki](https://github.com/projectkudu/kudu/wiki)
+

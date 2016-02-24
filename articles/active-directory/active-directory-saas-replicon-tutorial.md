@@ -68,19 +68,19 @@ The objective of this section is to outline how to enable users to authenticate 
 
 ###To configure single sign-on, perform the following steps:
 
-1.  In the Azure AD portal, on the **Replicon** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  In the Azure AD portal, on the **Replicon** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
     ![Configure single sign-on](./media/active-directory-saas-replicon-tutorial/IC777801.png "Configure single sign-on")
 
-2.  On the **How would you like users to sign on to Replicon** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to Replicon** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure single sign-on](./media/active-directory-saas-replicon-tutorial/IC777802.png "Configure single sign-on")
 
-3.  On the **Configure App URL** page, perform the following steps:
+3.  On the **Configure App URL** page, perform the following steps:
 
     ![Configure app URL](./media/active-directory-saas-replicon-tutorial/IC777803.png "Configure app URL")
 
-    1.  In the **Replicon Sign On URL** textbox, type your Replicon tenant URL (e.g.: *https://na2.replicon.com/company/saml2/sp-sso/post*).
+    1.  In the **Replicon Sign On URL** textbox, type your Replicon tenant URL (e.g.: *https://na2.replicon.com/company/saml2/sp-sso/post*).
     2.  In the **Replicon Reply URL** textbox, type your Replicon **AssertionConsumerService** URL(e.g.: *https://global.replicon.com/!/saml2/company/sso/post*).  
 
         >[AZURE.NOTE] You can get the URL from the Replicon metadata at:
@@ -88,7 +88,7 @@ The objective of this section is to outline how to enable users to authenticate 
 
     3.  Click **Next**
 
-4.  On the **Configure single sign-on at Replicon** page, to download your metadata, click **Download metadata**, and then save the metadata on your computer.
+4.  On the **Configure single sign-on at Replicon** page, to download your metadata, click **Download metadata**, and then save the metadata on your computer.
 
     ![Configure single sign-on](./media/active-directory-saas-replicon-tutorial/IC777804.png "Configure single sign-on")
 
@@ -106,7 +106,7 @@ The objective of this section is to outline how to enable users to authenticate 
     3.  Click the **+** to expand the **metaDataConfiguration** section.
     4.  Click **Choose File**, to select your identity provider metadata XML file, and click **Submit**.
 
-7.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+7.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
     ![Configure single sign-on](./media/active-directory-saas-replicon-tutorial/IC778418.png "Configure single sign-on")
 ##Configuring user provisioning
@@ -146,7 +146,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 1.  In the Azure AD portal, create a test account.
 
-2.  On the **Replicon **application integration page, click **Assign users**.
+2.  On the **Replicon **application integration page, click **Assign users**.
 
     ![Assign users](./media/active-directory-saas-replicon-tutorial/IC777809.png "Assign users")
 

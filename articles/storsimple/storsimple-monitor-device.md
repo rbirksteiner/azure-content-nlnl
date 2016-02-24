@@ -55,13 +55,13 @@ When you view the primary storage volume capacity utilization charts for all vol
 
 - **Snapshot data included for all volumes**: The primary data shown for all the volumes is the sum of the primary data for each volume and the snapshot data. The primary data shown for a given volume corresponds to only the amount of data allocated on the volume (and does not include the corresponding volume snapshot data).
 
-	This can also be explained by the following equation:
+    This can also be explained by the following equation:
 
-	*Primary data (All volumes) = Sum of (Primary data (volume i) + Size of snapshot data (volume i) )*
-	
-	*where, Primary data (volume i) = Size of primary data allocated to volume i*
+    *Primary data (All volumes) = Sum of (Primary data (volume i) + Size of snapshot data (volume i) )*
+    
+    *where, Primary data (volume i) = Size of primary data allocated to volume i*
  
-	If the snapshots are deleted through the service, the deletion is done asynchronously in the background. It may take some time for the volume data size to be updated following the snapshot deletion. 
+    If the snapshots are deleted through the service, the deletion is done asynchronously in the background. It may take some time for the volume data size to be updated following the snapshot deletion. 
  
 - **Volumes with monitoring disabled included in all volumes**: If you have volumes on your device for which monitoring is turned off, the monitoring data for these individual volumes will not be available in the charts. However, the data for all volumes in the chart will include the volumes for which monitoring is turned off. 
  

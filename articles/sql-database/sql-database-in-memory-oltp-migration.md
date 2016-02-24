@@ -1,21 +1,21 @@
 <properties
-	pageTitle="In-Memory OLTP improves SQL txn perf | Microsoft Azure"
-	description="Adopt In-Memory OLTP to improve transactional performance in an existing SQL database."
-	services="sql-database"
-	documentationCenter=""
-	authors="jodebrui"
-	manager="jeffreyg"
-	editor="MightyPen"/>
+    pageTitle="In-Memory OLTP improves SQL txn perf | Microsoft Azure"
+    description="Adopt In-Memory OLTP to improve transactional performance in an existing SQL database."
+    services="sql-database"
+    documentationCenter=""
+    authors="jodebrui"
+    manager="jeffreyg"
+    editor="MightyPen"/>
 
 
 <tags
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="11/16/2015"
-	ms.author="jodebrui"/>
+    ms.service="sql-database"
+    ms.workload="data-management"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="hero-article"
+    ms.date="11/16/2015"
+    ms.author="jodebrui"/>
 
 
 # Use In-Memory (preview) to improve your application performance in SQL Database
@@ -87,8 +87,8 @@ To ease testing, tweak your test database as follows:
 2. To avoid needing the WITH (SNAPSHOT) option in queries, set the database option as shown in the following T-SQL statement:
 ```
 ALTER DATABASE CURRENT
-	SET
-		MEMORY_OPTIMIZED_ELEVATE_TO_SNAPSHOT = ON;
+    SET
+        MEMORY_OPTIMIZED_ELEVATE_TO_SNAPSHOT = ON;
 ```
 
 
@@ -136,10 +136,10 @@ To use this migration option:
 6. Create the new memory-optimized copy of the table by running your edited CREATE TABLE script.
 
 7. Copy the data to your memory-optimized table by using INSERT...SELECT * INTO:
-	
+    
 ```
 INSERT INTO <new_memory_optimized_table>
-		SELECT * FROM <old_disk_based_table>;
+        SELECT * FROM <old_disk_based_table>;
 ```
 
 
@@ -166,15 +166,15 @@ Typically the T-SQL to create a natively compiled stored procedure is similar to
 
 ```
 CREATE PROCEDURE schemaname.procedurename
-	@param1 type1, …
-	WITH NATIVE_COMPILATION, SCHEMABINDING
-	AS
-		BEGIN ATOMIC WITH
-			(TRANSACTION ISOLATION LEVEL = SNAPSHOT,
-			LANGUAGE = N'your_language__see_sys.languages'
-			)
-		…
-		END;
+    @param1 type1, …
+    WITH NATIVE_COMPILATION, SCHEMABINDING
+    AS
+        BEGIN ATOMIC WITH
+            (TRANSACTION ISOLATION LEVEL = SNAPSHOT,
+            LANGUAGE = N'your_language__see_sys.languages'
+            )
+        …
+        END;
 ```
 
 - For the TRANSACTION_ISOLATION_LEVEL, SNAPSHOT is the most common value for the natively compiled stored procedure. However,  a subset of the other values are also supported:
@@ -235,4 +235,5 @@ Consider monitoring the performance effects of your In-Memory implementations in
 - [Introduction to Natively Compiled Stored Procedures](http://msdn.microsoft.com/library/dn133184.aspx)
 
 - [Memory Optimization Advisor](http://msdn.microsoft.com/library/dn284308.aspx)
+
 

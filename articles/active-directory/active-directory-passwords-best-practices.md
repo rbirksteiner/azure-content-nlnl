@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Best Practices: Azure AD Password Management | Microsoft Azure" 
-	description="Deployment and usage best practices, sample end-user documentation and training guides for Password Management in Azure Active Directory." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
-	editor="billmath"/>
+    pageTitle="Best Practices: Azure AD Password Management | Microsoft Azure" 
+    description="Deployment and usage best practices, sample end-user documentation and training guides for Password Management in Azure Active Directory." 
+    services="active-directory" 
+    documentationCenter="" 
+    authors="asteen" 
+    manager="kbrint" 
+    editor="billmath"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/16/2015" 
-	ms.author="asteen"/>
+    ms.service="active-directory" 
+    ms.workload="identity" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/16/2015" 
+    ms.author="asteen"/>
 
 # Deploying Password Management and training users to use it
 After enabling password reset, the next step you need to take is to get users using the service in your organization. To do this, you'll need to make sure your users are configured to use the service properly and also that your users have the training they need to be successful in managing their own passwords. This article will explain to you the following concepts:
@@ -35,14 +35,14 @@ This section describes to you various methods by which you can ensure every user
 ### What makes an account configured
 Before a user can use password reset, **all** of the following conditions must be met:
 
-1.	Password reset must be enabled in the directory.  Learn how to enable password reset by reading [Enable users to reset their Azure AD Passwords](active-directory-passwords-getting-started.md#enable-users-to-reset-their-azure-ad-passwords) or [Enable users to reset or change their AD Passwords](active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords)
-2.	The user must be licensed.
+1.  Password reset must be enabled in the directory.  Learn how to enable password reset by reading [Enable users to reset their Azure AD Passwords](active-directory-passwords-getting-started.md#enable-users-to-reset-their-azure-ad-passwords) or [Enable users to reset or change their AD Passwords](active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords)
+2.  The user must be licensed.
  - For cloud users, the user must have **any paid Office 365 license**, or an **AAD Basic** or **AAD Premium license** assigned.
  - For on-prem users (federated or hash synced), the user **must have an AAD Premium license assigned**.
-3.	The user must have the **minimum set of authentication data defined** in accordance with the current password reset policy.
+3.  The user must have the **minimum set of authentication data defined** in accordance with the current password reset policy.
  - Authentication data is considered defined if the corresponding field in the directory contains well-formed data.
  - A minimum set of authentication data is defined as at **least one** of the enabled authentication options if a one gate policy is configured, or at **least two** of the enabled authentication options if a two gate policy is configured.
-4.	If the user is using an on-premises account, then [Password Writeback](active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords) must be enabled and turned on
+4.  If the user is using an on-premises account, then [Password Writeback](active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords) must be enabled and turned on
 
 ### Ways to populate authentication data
 You have several options on how to specify data for users in your organization to be used for password reset.
@@ -60,12 +60,12 @@ You can also read more about [how data is used by password reset](active-directo
 ## What is the best way to roll out password reset for users?
 The following are the general rollout steps for password reset:
 
-1.	Enable password reset in your directory by going to the **Configure** tab in the [Azure Management Portal](https://manage.windowsazure.com) and selecting **Yes** for the **Users Enabled for Password Reset** option.
-2.	Assign the appropriate licenses to each user to whom you’d like to offer password reset in the by going to the **Licenses** tab in the [Azure Management Portal](https://manage.windowsazure.com).
-3.	Optionally restrict password reset to a group of users to roll out the feature slowly over time by setting the **Restrict Access to Password Reset** toggle to **Yes** and selecting a security group to enable for password reset (note these users must all have licenses assigned to them).
-4.	Instruct your users to use password reset by either sending them an email instructing them to register, enabling enforced registration on the access panel, or by uploading the appropriate authentication data for those users yourself via DirSync, PowerShell, or the [Azure Management Portal](https://manage.windowsazure.com).  More details on this are provided below.
-5.	Over time, review users registering by navigating to the Reports tab and viewing the [**Password Reset Registration Activity**](active-directory-passwords-get-insights.md#view-password-reset-registration-activity) report.
-6.	Once a good number of users have registered, watch them use password reset by navigating to the Reports tab and viewing the [**Password Reset Activity**](active-directory-passwords-get-insights.md#view-password-reset-activity) report.
+1.  Enable password reset in your directory by going to the **Configure** tab in the [Azure Management Portal](https://manage.windowsazure.com) and selecting **Yes** for the **Users Enabled for Password Reset** option.
+2.  Assign the appropriate licenses to each user to whom you’d like to offer password reset in the by going to the **Licenses** tab in the [Azure Management Portal](https://manage.windowsazure.com).
+3.  Optionally restrict password reset to a group of users to roll out the feature slowly over time by setting the **Restrict Access to Password Reset** toggle to **Yes** and selecting a security group to enable for password reset (note these users must all have licenses assigned to them).
+4.  Instruct your users to use password reset by either sending them an email instructing them to register, enabling enforced registration on the access panel, or by uploading the appropriate authentication data for those users yourself via DirSync, PowerShell, or the [Azure Management Portal](https://manage.windowsazure.com).  More details on this are provided below.
+5.  Over time, review users registering by navigating to the Reports tab and viewing the [**Password Reset Registration Activity**](active-directory-passwords-get-insights.md#view-password-reset-registration-activity) report.
+6.  Once a good number of users have registered, watch them use password reset by navigating to the Reports tab and viewing the [**Password Reset Activity**](active-directory-passwords-get-insights.md#view-password-reset-activity) report.
 
 There are several ways to inform your users that they can register for and use password reset in your organization.  They are detailed below.
 
@@ -109,15 +109,15 @@ To learn what properties you can set via AAD Connect or Windows PowerShell, see 
 
 You can upload the authentication data via the [Azure Management Portal](https://manage.windowsazure.com) by following the steps below:
 
-1.	Navigate to your directory in the **Active Directory extension** in the [Azure Management Portal](https://manage.windowsazure.com).
-2.	Click on the **Users** tab.
-3.	Select the user you are interested in from the list.
-4.	On the first tab, you will find **Alternate Email**, which can be used as a property to enable password reset. 
+1.  Navigate to your directory in the **Active Directory extension** in the [Azure Management Portal](https://manage.windowsazure.com).
+2.  Click on the **Users** tab.
+3.  Select the user you are interested in from the list.
+4.  On the first tab, you will find **Alternate Email**, which can be used as a property to enable password reset. 
 
     ![][005]
 
-5.	Click on the **Work Info** tab.
-6.	On this page, you will find **Office Phone**, **Mobile Phone**, **Authentication Phone**, and **Authentication Email**.  These properties can also be set to allow a user to reset his or her password. 
+5.  Click on the **Work Info** tab.
+6.  On this page, you will find **Office Phone**, **Mobile Phone**, **Authentication Phone**, and **Authentication Email**.  These properties can also be set to allow a user to reset his or her password. 
 
     ![][006]
 
@@ -154,3 +154,4 @@ Below are links to all of the Azure AD Password Reset documentation pages:
 [005]: ./media/active-directory-passwords-best-practices/005.jpg "Image_005.jpg"
 [006]: ./media/active-directory-passwords-best-practices/006.jpg "Image_006.jpg"
 [007]: ./media/active-directory-passwords-best-practices/007.jpg "Image_007.jpg"
+

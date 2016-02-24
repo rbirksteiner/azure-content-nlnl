@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Learn More: Azure AD Password Management | Microsoft Azure" 
-	description="Advanced topics on Azure AD Password Management, including how password writeback works, password writeback security, how the password reset portal works, and what data is used by password reset." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
-	editor="billmath"/>
+    pageTitle="Learn More: Azure AD Password Management | Microsoft Azure" 
+    description="Advanced topics on Azure AD Password Management, including how password writeback works, password writeback security, how the password reset portal works, and what data is used by password reset." 
+    services="active-directory" 
+    documentationCenter="" 
+    authors="asteen" 
+    manager="kbrint" 
+    editor="billmath"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/16/2015" 
-	ms.author="asteen"/>
+    ms.service="active-directory" 
+    ms.workload="identity" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/16/2015" 
+    ms.author="asteen"/>
 
 # Learn more about Password Management
 If you have already deployed Password Management, or are just looking to learn more about the technical nitty gritty of how it works before deploying, this section will give you a good overview of the technical concepts behind the service. We'll cover the following:
@@ -54,16 +54,16 @@ They fit together as described in the below diagram:
 
 When a federated or password hash sync’d user comes to reset or change his or her password in the cloud, the following occurs:
 
-1.	We check to see what type of password the user has.  If we see the password is managed on premises, then we ensure the writeback service is up and running.  If it is, we let the user proceed, if it is not, we tell the user that their password cannot be reset here.
-2.	Next, the user passes the appropriate authentication gates and reaches the reset password screen.
-3.	The user selects a new password and confirms it.
-4.	Upon clicking submit, we encrypt the plaintext password with a symmetric key that was created during the writeback setup process.
-5.	After encrypting the password, we include it in a payload that gets sent over an HTTPS channel to your tenant specific service bus relay (that we also set up for you during the writeback setup process).  This relay is protected by a randomly generated password that only your on-premises installation knows.
-6.	Once the message reaches service bus, the password reset endpoint automatically wakes up and sees that it has a reset request pending.
-7.	The service then looks for the user in question by using the cloud anchor attribute.  For this lookup to succeed, the user object must exist in the AD connector space, it must be linked to the corresponding MV object, and it must be linked to the corresponding AAD connector object. Finally, in order for sync to find this user account, the link from AD connector object to MV must have the sync rule `Microsoft.InfromADUserAccountEnabled.xxx` on the link.  This is needed because when the call comes in from the cloud, the sync engine uses the cloudAnchor attribute to look up the AAD connector space object, then follows the link back to the MV object, and then follows the link back to the AD object. Because there could be multiple AD objects (multi-forest) for the same user, the sync engine relies on the `Microsoft.InfromADUserAccountEnabled.xxx` link to pick the correct one.
-8.	Once the user account is found, we attempt to reset the password directly in the appropriate AD forest.
-9.	If the password set operation is successful, we tell the user their password has been modified and that they can go on their merry way.
-10.	If the password set operation fails, we return the error to the user and let them try again.  The operation might fail because the service was down, because the password they selected did not meet organization policies, because we could not find the user in the local AD, or any number of reasons.  We have a specific message for many of these cases and tell the user what they can do to resolve the issue.
+1.  We check to see what type of password the user has.  If we see the password is managed on premises, then we ensure the writeback service is up and running.  If it is, we let the user proceed, if it is not, we tell the user that their password cannot be reset here.
+2.  Next, the user passes the appropriate authentication gates and reaches the reset password screen.
+3.  The user selects a new password and confirms it.
+4.  Upon clicking submit, we encrypt the plaintext password with a symmetric key that was created during the writeback setup process.
+5.  After encrypting the password, we include it in a payload that gets sent over an HTTPS channel to your tenant specific service bus relay (that we also set up for you during the writeback setup process).  This relay is protected by a randomly generated password that only your on-premises installation knows.
+6.  Once the message reaches service bus, the password reset endpoint automatically wakes up and sees that it has a reset request pending.
+7.  The service then looks for the user in question by using the cloud anchor attribute.  For this lookup to succeed, the user object must exist in the AD connector space, it must be linked to the corresponding MV object, and it must be linked to the corresponding AAD connector object. Finally, in order for sync to find this user account, the link from AD connector object to MV must have the sync rule `Microsoft.InfromADUserAccountEnabled.xxx` on the link.  This is needed because when the call comes in from the cloud, the sync engine uses the cloudAnchor attribute to look up the AAD connector space object, then follows the link back to the MV object, and then follows the link back to the AD object. Because there could be multiple AD objects (multi-forest) for the same user, the sync engine relies on the `Microsoft.InfromADUserAccountEnabled.xxx` link to pick the correct one.
+8.  Once the user account is found, we attempt to reset the password directly in the appropriate AD forest.
+9.  If the password set operation is successful, we tell the user their password has been modified and that they can go on their merry way.
+10. If the password set operation fails, we return the error to the user and let them try again.  The operation might fail because the service was down, because the password they selected did not meet organization policies, because we could not find the user in the local AD, or any number of reasons.  We have a specific message for many of these cases and tell the user what they can do to resolve the issue.
 
 ### Scenarios supported for password writeback
 The table below describes which scenarios are supported for which versions of our sync capabilities.  In general, it is highly recommended that you install the latest version of [Azure AD Connect](active-directory-aadconnect.md#download-azure-ad-connect) if you want to use password writeback.
@@ -81,9 +81,9 @@ Password writeback is a highly secure and robust service.  In order to ensure yo
 ## How does the password reset portal work?
 When a user navigates to the password reset portal, a workflow is kicked off to determine if that user account is valid, what organization that users belongs to, where that user’s password is managed, and whether or not the user is licensed to use the feature.  Read through the steps below to learn about the logic behind the password reset page.
 
-1.	User clicks on the Can’t access your account link or goes directly to [https://passwordreset.microsoftonline.com](https://passwordreset.microsoftonline.com).
-2.	User enters a user id and passes a captcha.
-3.	Azure AD verifies if the user is able to use this feature by doing the following:
+1.  User clicks on the Can’t access your account link or goes directly to [https://passwordreset.microsoftonline.com](https://passwordreset.microsoftonline.com).
+2.  User enters a user id and passes a captcha.
+3.  Azure AD verifies if the user is able to use this feature by doing the following:
     - Checks that the user has this feature enabled and an Azure AD license assigned.
         - If the user does not have this feature enabled or a license assigned, the user is asked to contact his or her administrator to reset his or her password.
     - Checks that the user has the right challenge data defined on his or her account in accordance with administrator policy.
@@ -94,7 +94,7 @@ When a user navigates to the password reset portal, a workflow is kicked off to 
     - Checks whether or not the user’s password is managed on premises (federated or password hash sync’d).
        - If writeback is deployed and the user’s password is managed on premises, then the user is allowed to proceed to authenticate and reset his or her password.
        - If writeback is not deployed and the user’s password is managed on premises, then the user is asked to contact his or her administrator to reset his or her password.
-4.	If it is determined that the user is able to successfully reset his or her password, then the user is guided through the reset process.
+4.  If it is determined that the user is able to successfully reset his or her password, then the user is guided through the reset process.
 
 Learn more about how to deploy password writeback at [Getting Started: Azure AD Password Management](active-directory-passwords-getting-started.md).
 
@@ -144,23 +144,23 @@ The following table outlines where and how this data is used during password res
               <p>+ccc xxxyyyzzzz (e.g. +1 1234567890)</p>
               <ul>
                 <li class="unordered">
-										Must provide a country code<br><br></li>
+                                        Must provide a country code<br><br></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Must provide an area code (where applicable)<br><br></li>
+                                        Must provide an area code (where applicable)<br><br></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Must have provide a + in front of the country code<br><br></li>
+                                        Must have provide a + in front of the country code<br><br></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Must have a space between country code and the rest of the number<br><br></li>
+                                        Must have a space between country code and the rest of the number<br><br></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Extensions are not supported, if you have any extensions specified, we will strip it from the number before dispatching the phone call.<br><br></li>
+                                        Extensions are not supported, if you have any extensions specified, we will strip it from the number before dispatching the phone call.<br><br></li>
               </ul>
             </td>
           </tr>
@@ -187,23 +187,23 @@ The following table outlines where and how this data is used during password res
               <p>+ccc xxxyyyzzzz (e.g. +1 1234567890)</p>
               <ul>
                 <li class="unordered">
-										Must provide a country code.<br><br></li>
+                                        Must provide a country code.<br><br></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Must provide an area code (where applicable).<br><br></li>
+                                        Must provide an area code (where applicable).<br><br></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Must have provide a + in front of the country code.<br><br></li>
+                                        Must have provide a + in front of the country code.<br><br></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Must have a space between country code and the rest of the number.<br><br></li>
+                                        Must have a space between country code and the rest of the number.<br><br></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Extensions are not supported, if you have any extensions specified, we ignore it when dispatching the phone call.<br><br></li>
+                                        Extensions are not supported, if you have any extensions specified, we ignore it when dispatching the phone call.<br><br></li>
               </ul>
             </td>
           </tr>
@@ -232,11 +232,11 @@ The following table outlines where and how this data is used during password res
                 <a href="mailto:user@domain.com">user@domain.com</a> or 甲斐@黒川.日本</p>
               <ul>
                 <li class="unordered">
-										Emails should follow standard formatting as per .<br><br></li>
+                                        Emails should follow standard formatting as per .<br><br></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Unicode emails are supported.<br><br></li>
+                                        Unicode emails are supported.<br><br></li>
               </ul>
             </td>
           </tr>
@@ -378,3 +378,4 @@ Below are links to all of the Azure AD Password Reset documentation pages:
 
 [001]: ./media/active-directory-passwords-learn-more/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-learn-more/002.jpg "Image_002.jpg"
+

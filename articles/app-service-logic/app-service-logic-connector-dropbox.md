@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Using the Dropbox Connector in Logic Apps | Microsoft Azure App Service"
-	description="How to create and configure the Dropbox Connector or API app and use it in a logic app in Azure App Service"
-	authors="anuragdalmia"
-	manager="dwrede"
-	editor=""
-	services="app-service\logic"
-	documentationCenter=""/>
+    pageTitle="Using the Dropbox Connector in Logic Apps | Microsoft Azure App Service"
+    description="How to create and configure the Dropbox Connector or API app and use it in a logic app in Azure App Service"
+    authors="anuragdalmia"
+    manager="dwrede"
+    editor=""
+    services="app-service\logic"
+    documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/30/2015"
-	ms.author="sameerch"/>
+    ms.service="app-service-logic"
+    ms.workload="integration"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/30/2015"
+    ms.author="sameerch"/>
 
 # Get started with the Dropbox Connector and add it to your Logic App
 Connect to Dropbox account to upload or download files. Logic apps can trigger based on a variety of data sources and offer connectors to get and process data. You can add the Dropbox connector to your business workflow and process data as part of this workflow within a Logic App.
@@ -36,31 +36,31 @@ A connector can be created within a logic app or be created directly from the Az
 1. In the Azure startboard, select **Marketplace**.
 2. Search for “Dropbox Connector”, select it, and select **Create**.
 3. Enter the Name, App Service Plan, and other properties:  
-	![][1]
-	- **Location** - choose the geographic location where you would like the connector to be deployed
-	- **Subscription** - choose a subscription you want this connector to be created in
-	- **Resource group** - select or create a resource group where the connector should reside
-	- **App Service plan** - select or create a web hosting plan
-	- **Pricing tier** - choose a pricing tier for the connector
-	- **Name** - give a name for your Dropbox Connector  
+    ![][1]
+    - **Location** - choose the geographic location where you would like the connector to be deployed
+    - **Subscription** - choose a subscription you want this connector to be created in
+    - **Resource group** - select or create a resource group where the connector should reside
+    - **App Service plan** - select or create a web hosting plan
+    - **Pricing tier** - choose a pricing tier for the connector
+    - **Name** - give a name for your Dropbox Connector  
 4. Select **Create**.
 
 
 ## Using the Dropbox Connector in your Logic App
 Once your API app is created, you can now use the Dropbox connector as an action for your Logic App. To do this:
 
-1.	In your logic app, open **Triggers and Actions** to open the Logic Apps Designer and configure your flow:  
-	![][3]
-2.	The Dropbox connector is listed in the gallery:  
-	![][4]
-3.	Select the Dropbox connector to automatically add in the designer. Select **Authorize**, enter your credentials, and select **Allow**:  
-	![][5]
-	![][6]
-	![][7]
+1.  In your logic app, open **Triggers and Actions** to open the Logic Apps Designer and configure your flow:  
+    ![][3]
+2.  The Dropbox connector is listed in the gallery:  
+    ![][4]
+3.  Select the Dropbox connector to automatically add in the designer. Select **Authorize**, enter your credentials, and select **Allow**:  
+    ![][5]
+    ![][6]
+    ![][7]
 
 You can now use Dropbox connector in the flow. You can use the Dropbox action "upload File" to upload a file to your Dropbox account:  
-	![][8]
-	![][9]
+    ![][8]
+    ![][9]
 
 Configure the input properties for "Upload File" action as follows:  
 
@@ -88,3 +88,4 @@ You can also review performance statistics and control security to the connector
 [7]: ./media/app-service-logic-connector-dropbox/img7.PNG
 [8]: ./media/app-service-logic-connector-dropbox/img8.PNG
 [9]: ./media/app-service-logic-connector-dropbox/img9.PNG
+

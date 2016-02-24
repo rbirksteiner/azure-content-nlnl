@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Get Started with Azure Mobile Services for Android apps (JavaScript backend)"
-	description="Follow this tutorial to get started using Azure Mobile Services for Android development (JavaScript backend)."
-	services="mobile-services"
-	documentationCenter="android"
-	authors="RickSaling"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Get Started with Azure Mobile Services for Android apps (JavaScript backend)"
+    description="Follow this tutorial to get started using Azure Mobile Services for Android development (JavaScript backend)."
+    services="mobile-services"
+    documentationCenter="android"
+    authors="RickSaling"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-android"
-	ms.devlang="java"
-	ms.topic="hero-article"
-	ms.date="11/05/2015"
-	ms.author="ricksal"/>
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-android"
+    ms.devlang="java"
+    ms.topic="hero-article"
+    ms.date="11/05/2015"
+    ms.author="ricksal"/>
 
 # Get started with Mobile Services for Android  (JavaScript backend)
 
@@ -59,11 +59,11 @@ In this section you will create a new Android app that is connected to your mobi
 
 2. In the quickstart tab, click **Android** under **Choose platform** and expand **Create a new Android app**.
 
-   	![](./media/mobile-services-android-get-started/mobile-portal-quickstart-android1.png)
+    ![](./media/mobile-services-android-get-started/mobile-portal-quickstart-android1.png)
 
-   	This displays the three easy steps to create an Android app connected to your mobile service.
+    This displays the three easy steps to create an Android app connected to your mobile service.
 
-  	![](./media/mobile-services-android-get-started/mobile-quickstart-steps-android-AS.png)
+    ![](./media/mobile-services-android-get-started/mobile-quickstart-steps-android-AS.png)
 
 3. If you haven't already done so, download and install the [Android Developer Tools](https://go.microsoft.com/fwLink/p/?LinkID=280125) on your local computer or virtual machine.
 
@@ -99,4 +99,5 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [Get started with authentication]: mobile-services-android-get-started-users.md
 [Get started with push notifications]: mobile-services-javascript-backend-android-get-started-push.md
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
+
 

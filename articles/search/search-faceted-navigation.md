@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How to implement faceted navigation in Azure Search | Microsoft Azure | Hosted cloud search service" 
-	description="Add Faceted navigation to applications that integrate with Azure Search, a cloud hosted search service on Microsoft Azure." 
-	services="search" 
-	documentationCenter="" 
-	authors="HeidiSteen" 
-	manager="mblythe" 
-	editor=""/>
+    pageTitle="How to implement faceted navigation in Azure Search | Microsoft Azure | Hosted cloud search service" 
+    description="Add Faceted navigation to applications that integrate with Azure Search, a cloud hosted search service on Microsoft Azure." 
+    services="search" 
+    documentationCenter="" 
+    authors="HeidiSteen" 
+    manager="mblythe" 
+    editor=""/>
 
 <tags 
-	ms.service="search" 
-	ms.devlang="rest-api" 
-	ms.workload="search" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.date="11/04/2015" 
-	ms.author="heidist"/>
+    ms.service="search" 
+    ms.devlang="rest-api" 
+    ms.workload="search" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.date="11/04/2015" 
+    ms.author="heidist"/>
 
 #How to implement faceted navigation in Azure Search
 
@@ -60,11 +60,11 @@ The search experience for faceted navigation is iterative, so let’s start by u
 
 The starting point is an application page that provides faceted navigation, typically placed on the periphery. Faceted navigation is often a tree structure, with checkboxes for each value, or clickable text. 
 
-1.	A query sent to Azure Search specifies the faceted navigation structure via one or more facet query parameters. For instance, the query might include `facet=Rating`, perhaps with a `:values` or `:sort` option to further refine the presentation.
-2.	The presentation layer renders a search page that provides faceted navigation, using the facets specified on the request.
-3.	Given a faceted navigation structure that includes Rating, the user clicks "4" to indicate that only products with a rating of 4 or higher should be shown. 
-4.	In response, the application sends a query that includes `$filter=Rating ge 4` 
-5.	The presentation layer updates the page, showing a reduced result set, containing just those items that satisfy the new criteria (in this case, products rated 4 and up).
+1.  A query sent to Azure Search specifies the faceted navigation structure via one or more facet query parameters. For instance, the query might include `facet=Rating`, perhaps with a `:values` or `:sort` option to further refine the presentation.
+2.  The presentation layer renders a search page that provides faceted navigation, using the facets specified on the request.
+3.  Given a faceted navigation structure that includes Rating, the user clicks "4" to indicate that only products with a rating of 4 or higher should be shown. 
+4.  In response, the application sends a query that includes `$filter=Rating ge 4` 
+5.  The presentation layer updates the page, showing a reduced result set, containing just those items that satisfy the new criteria (in this case, products rated 4 and up).
 
 A facet is a query parameter, but do not confuse it with query input. It is never used as selection criteria in a query. Instead, think of facet query parameters as inputs to the navigation structure that comes back in the response. For each facet query parameter you provide, Azure Search will evaluate how many documents are in the partial results for each facet value.
 
@@ -221,10 +221,10 @@ For Numeric and DateTime values only, you can explicitly set values on the facet
 
 Facet results are documents found in the search results that match a facet term. In the following example, in search results for *cloud computing*, 254 items also have *internal specification* as a content type. Items are not necessarily mutually exclusive. If an item meets the criteria of both filters, it is counted in each one. This is possible when faceting on `Collection(Edm.String)` fields, which are often used to implement document tagging.
 
-		Search term: "cloud computing"
-		Content type
-		   Internal specification (254)
-		   Video (10) 
+        Search term: "cloud computing"
+        Content type
+           Internal specification (254)
+           Video (10) 
 
 In general, if you find that facet results are persistently too large, we recommend that you add more filters, as explained in earlier sections, to give your application users more options for narrowing the search.
 
@@ -316,29 +316,29 @@ You can find filter examples in [OData expression syntax (Azure Search)](http://
 
 Azure Search Adventure Works Demo on Codeplex contains the examples referenced in this article. As you work with search results, watch the URL for changes in query construction. This application happens to append facets to the URI as you select each one.
 
-1.	Configure the sample application (see [Create your first application for instructions](search-create-first-solution.md)). 
+1.  Configure the sample application (see [Create your first application for instructions](search-create-first-solution.md)). 
 
-	Notice the schema that is defined in the Program.cs file of the CatalogIndexer project. It specifies facetable fields for color, listPrice, size, weight, categoryName, and modelName.  Only a few of these (color, listPrice, categoryName) are actually implemented in faceted navigation.
+    Notice the schema that is defined in the Program.cs file of the CatalogIndexer project. It specifies facetable fields for color, listPrice, size, weight, categoryName, and modelName.  Only a few of these (color, listPrice, categoryName) are actually implemented in faceted navigation.
 
-3.	Run the application. 
+3.  Run the application. 
 
-	At first, just the Search box is visible. You can click the Search button right away to get all results, or type a search term.
+    At first, just the Search box is visible. You can click the Search button right away to get all results, or type a search term.
 
-	![][7]
+    ![][7]
  
-4.	Enter a search term, such as bike, and click **Search**. The query executes quickly.
+4.  Enter a search term, such as bike, and click **Search**. The query executes quickly.
  
-	A faceted navigation structure is also returned with the search results.  In the URL, facets for Colors, Categories, and Prices are null. In the search result page, the faceted navigation structure includes counts for each facet result.
+    A faceted navigation structure is also returned with the search results.  In the URL, facets for Colors, Categories, and Prices are null. In the search result page, the faceted navigation structure includes counts for each facet result.
 
-	 ![][8]
+     ![][8]
  
-5.	Click a color, category, and price range. Facets are null on an initial search, but as they take on values, the search results are trimmed of items that no longer match. Notice that the URI picks up the changes to your query.
+5.  Click a color, category, and price range. Facets are null on an initial search, but as they take on values, the search results are trimmed of items that no longer match. Notice that the URI picks up the changes to your query.
 
-	![][9]
+    ![][9]
  
-6.	To clear the faceted query so that you can try different query behaviors, click **AdventureWorks Catalog** at the top of the page.
+6.  To clear the faceted query so that you can try different query behaviors, click **AdventureWorks Catalog** at the top of the page.
 
-	![][10]
+    ![][10]
  
 <a name="nextstep"></a>
 ##Next Step

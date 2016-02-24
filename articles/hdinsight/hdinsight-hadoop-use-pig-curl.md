@@ -6,7 +6,7 @@
    authors="Blackmist"
    manager="paulettm"
    editor="cgronlun"
-	tags="azure-portal"/>
+    tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -82,7 +82,7 @@ To complete the steps in this article, you will need the following:
 
         curl -G -u USERNAME:PASSWORD -d user.name=USERNAME https://CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/JOBID | jq .status.state
 
-	If the job has finished, the state will be **SUCCEEDED**.
+    If the job has finished, the state will be **SUCCEEDED**.
 
     > [AZURE.NOTE] This Curl request returns a JavaScript Object Notation (JSON) document with information about the job, and jq is used to retrieve only the state value.
 
@@ -92,11 +92,11 @@ When the state of the job has changed to **SUCCEEDED**, you can retrieve the res
 
 You can list and download these files by using the [Azure CLI for Mac, Linux and Windows](../xplat-cli-install.md). For example, to list files in **example/pigcurl**, use the following command:
 
-	azure storage blob list <container-name> example/pigcurl
+    azure storage blob list <container-name> example/pigcurl
 
 To download a file, use the following:
 
-	azure storage blob download <container-name> <blob-name> <destination-file>
+    azure storage blob download <container-name> <blob-name> <destination-file>
 
 > [AZURE.NOTE] You must specify the storage account name that contains the blob by using the `-a` and `-k` parameters, or set the **AZURE\_STORAGE\_ACCOUNT** and **AZURE\_STORAGE\_ACCESS\_KEY** environment variables.
 
@@ -117,3 +117,4 @@ For information about other ways you can work with Hadoop on HDInsight:
 * [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
 
 * [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)
+

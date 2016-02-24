@@ -96,3 +96,4 @@ Any app that supports SAML 2.0 can be integrated directly with an Azure AD tenan
 > Attach Application Large Icon (PNG file, 215px by 215px, solid background color):
 > 
 > Attach Application Logo (PNG file, 150px by 122px, transparent background color):
+

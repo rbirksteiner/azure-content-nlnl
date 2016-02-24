@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Best practices for designing Azure Resource Manager templates"
-	description="Show design patterns for Azure Resource Manager templates"
-	services="azure-resource-manager"
-	documentationCenter=""
-	authors="mmercuri"
-	manager="georgem"
-	editor="tysonn"/>
+    pageTitle="Best practices for designing Azure Resource Manager templates"
+    description="Show design patterns for Azure Resource Manager templates"
+    services="azure-resource-manager"
+    documentationCenter=""
+    authors="mmercuri"
+    manager="georgem"
+    editor="tysonn"/>
 
 <tags
-	ms.service="azure-resource-manager"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/13/2015"
-	ms.author="mmercuri"/>
+    ms.service="azure-resource-manager"
+    ms.workload="multiple"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/13/2015"
+    ms.author="mmercuri"/>
 
 # Best practices for designing Azure Resource Manager templates
 
@@ -337,8 +337,8 @@ template, such as *jumpbox_enabled.json*. Template linking would use the resulti
 
 You can link the optional resources template from multiple places:
 
--	When applicable to every deployment, create a parameter-driven link from the shared resources template.
--	When applicable to select known configurations—for example, only install on large deployments—create a parameter-driven or variable-driven link from the 
+-   When applicable to every deployment, create a parameter-driven link from the shared resources template.
+-   When applicable to select known configurations—for example, only install on large deployments—create a parameter-driven or variable-driven link from the 
 known configuration template.
 
 Whether a given resource is optional may not be driven by the template consumer but instead by the template provider. For example, you may need to satisfy a 
@@ -360,8 +360,8 @@ or product configurations such as Community, Developer, or Enterprise.
 
 As with the shared resource template, variables are passed to the known configurations template from either:
 
--	An end user—that is, the parameters sent to the main template.
--	An organization—that is, the variables in the main template that represent internal requirements or policies.
+-   An end user—that is, the parameters sent to the main template.
+-   An organization—that is, the variables in the main template that represent internal requirements or policies.
 
 ### Member resources template
 
@@ -500,3 +500,4 @@ inbound parameter of tshirtSize to a variable embedded within the template.
 - To see contextual examples of how to implement the design priciples presented in this topic, see [Contextual examples of best practices for implementing templates](best-practices-resource-manager-examples.md).
 - For recommendations about how to handle security in Azure Resource Manager, see [Security considerations for Azure Resource Manager](best-practices-resource-manager-security.md)
 - To learn about sharing state into and out of templates, see [Sharing state in Azure Resource Manager templates](best-practices-resource-manager-state.md).
+

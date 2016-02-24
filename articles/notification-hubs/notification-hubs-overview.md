@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure Notification Hubs"
-	description="Learn how to use push notifications in Azure. Code samples written in C# using the .NET API."
-	authors="wesmc7777"
-	manager="dwrede"
-	editor=""
-	services="notification-hubs"
-	documentationCenter=""/>
+    pageTitle="Azure Notification Hubs"
+    description="Learn how to use push notifications in Azure. Code samples written in C# using the .NET API."
+    authors="wesmc7777"
+    manager="dwrede"
+    editor=""
+    services="notification-hubs"
+    documentationCenter=""/>
 
 <tags
-	ms.service="notification-hubs"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="multiple"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="12/10/2015"
-	ms.author="wesmc"/>
+    ms.service="notification-hubs"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="multiple"
+    ms.devlang="multiple"
+    ms.topic="article"
+    ms.date="12/10/2015"
+    ms.author="wesmc"/>
 
 
 #Azure Notification Hubs
@@ -73,9 +73,9 @@ Push notifications are one of the most requested features in cloud services for 
 - **Platform dependency.** In order to send notifications to devices on different platforms, multiple interfaces must be coded in the back-end. Not only are the low-level details different, but the presentation of the notification (tile, toast, or badge) is also platform-dependent. These differences can lead to complex and hard-to-maintain back-end code.
 
 - **Scale.** Scaling this infrastructure has two aspects:
-	+ Per PNS guidelines, device tokens must be refreshed every time the app is launched. This leads to a large amount of traffic (and consequent database accesses) just to keep the device tokens up to date. When the number of devices grows (possibly to millions), the cost of creating and maintaining this infrastructure is nonnegligible.
+    + Per PNS guidelines, device tokens must be refreshed every time the app is launched. This leads to a large amount of traffic (and consequent database accesses) just to keep the device tokens up to date. When the number of devices grows (possibly to millions), the cost of creating and maintaining this infrastructure is nonnegligible.
 
-	+ Most PNSs do not support broadcast to multiple devices. It follows that a broadcast to millions of devices results in millions of calls to the PNSs. Being able to scale these requests is nontrivial, because usually app developers want to keep the total latency down (for example, the last device to receive the message should not receive the notification 30 minutes after the notifications has been sent, as for many cases it would defeat the purpose to have push notifications).
+    + Most PNSs do not support broadcast to multiple devices. It follows that a broadcast to millions of devices results in millions of calls to the PNSs. Being able to scale these requests is nontrivial, because usually app developers want to keep the total latency down (for example, the last device to receive the message should not receive the notification 30 minutes after the notifications has been sent, as for many cases it would defeat the purpose to have push notifications).
 - **Routing.** PNSs provide a way to send a message to a device. However, in most apps notifications are targeted at users and/or interest groups (for example, all employees assigned to a certain customer account). As such, in order to route the notifications to the correct devices, the app back-end must maintain a registry that associates interest groups with device tokens. This overhead adds to the total time to market and maintenance costs of an app.
 
 ##Why Use Notification Hubs?
@@ -88,11 +88,11 @@ Notification Hubs eliminate complexity: you do not have to manage the challenges
 Notification hubs provide a ready-to-use push notification infrastructure with the following advantages:
 
 - **Multiple platforms.**
-	+  Support for all major mobile platforms. Notification hubs can send push notifications to Windows Store, iOS, Android, and Windows Phone apps.
+    +  Support for all major mobile platforms. Notification hubs can send push notifications to Windows Store, iOS, Android, and Windows Phone apps.
 
-	+  Notification hubs provide a common interface to send notifications to all supported platforms. Platform-specific protocols are not required. The app back-end can send notifications in platform-specific, or platform-independent formats. The application only communicates with Notification Hubs.
+    +  Notification hubs provide a common interface to send notifications to all supported platforms. Platform-specific protocols are not required. The app back-end can send notifications in platform-specific, or platform-independent formats. The application only communicates with Notification Hubs.
 
-	+  Device handle management. Notification Hubs maintains the handle registry and feedback from PNSs.
+    +  Device handle management. Notification Hubs maintains the handle registry and feedback from PNSs.
 
 - **Works with any back-end**: Cloud or on-premises, .NET, PHP, Java, Node, etc.
 
@@ -101,13 +101,13 @@ Notification hubs provide a ready-to-use push notification infrastructure with t
 
 - **Rich set of delivery patterns**:
 
-	- *Broadcast*: allows for near-simultaneous broadcast to millions of devices with a single API call.
+    - *Broadcast*: allows for near-simultaneous broadcast to millions of devices with a single API call.
 
-	- *Unicast/Multicast*: Push to tags representing individual users, including all of their devices; or wider group; for example, separate form factors (tablet vs. phone).
+    - *Unicast/Multicast*: Push to tags representing individual users, including all of their devices; or wider group; for example, separate form factors (tablet vs. phone).
 
-	- *Segmentation*: Push to complex segment defined by tag expressions (for example, devices in New York following the Yankees).
+    - *Segmentation*: Push to complex segment defined by tag expressions (for example, devices in New York following the Yankees).
 
-	Each device, when sending its handle to a notification hub, can specify one or more _tags_. For more information about [tags]. Tags do not have to be pre-provisioned or disposed. Tags provide a simple way to send notifications to users or interest groups. Since tags can contain any app-specific identifier (such as user or group IDs), their use frees the app back-end from the burden of having to store and manage device handles.
+    Each device, when sending its handle to a notification hub, can specify one or more _tags_. For more information about [tags]. Tags do not have to be pre-provisioned or disposed. Tags provide a simple way to send notifications to users or interest groups. Since tags can contain any app-specific identifier (such as user or group IDs), their use frees the app back-end from the burden of having to store and manage device handles.
 
 - **Personalization**: Each device can have one or more templates, to achieve per-device localization and personalization without affecting back-end code.
 
@@ -170,3 +170,4 @@ The relevant .NET managed API references for push notifications are located here
   [templates]: notification-hubs-templates.md
   [Azure Portal]: https://portal.azure.com
   [tags]: (http://msdn.microsoft.com/library/azure/dn530749.aspx)
+

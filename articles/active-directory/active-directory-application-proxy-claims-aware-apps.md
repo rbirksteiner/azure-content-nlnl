@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Working with Claims Aware Apps in Application Proxy"
-	description="Covers how to get up and running with Azure AD Application Proxy."
-	services="active-directory"
-	documentationCenter=""
-	authors="kgremban"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Working with Claims Aware Apps in Application Proxy"
+    description="Covers how to get up and running with Azure AD Application Proxy."
+    services="active-directory"
+    documentationCenter=""
+    authors="kgremban"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/08/2015"
-	ms.author="kgremban"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/08/2015"
+    ms.author="kgremban"/>
 
 
 
@@ -49,3 +49,4 @@ Before performing this procedure, make sure that the STS the claims aware app re
 4. Under **Trusted URL**, enter the URL you entered in the Application Proxy under **External URL** and click **OK**.
 
 ![Add an Endpoint - set Trusted URL value - screenshot](./media/active-directory-application-proxy-claims-aware-apps/appproxyendpointtrustedurl.png)
+

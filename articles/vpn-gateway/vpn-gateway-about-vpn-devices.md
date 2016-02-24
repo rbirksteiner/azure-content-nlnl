@@ -24,8 +24,8 @@ If your device doesn't appear in the Validated VPN devices table, see the Non-Va
 **Items to note when viewing the tables:**
 
 - There has been a terminology change for static and dynamic routing. You'll likely run into both terms. There is no functionality change, only the names are changing.
-	- Static Routing = Policy-based
-	- Dynamic Routing = Route-based 
+    - Static Routing = Policy-based
+    - Dynamic Routing = Route-based 
 - Specifications for High Performance VPN gateway and route-based VPN gateway are the same unless otherwise noted. For example, the validated VPN devices that are compatible with route-based VPN gateways will also be compatible with the new Azure High Performance VPN gateway. 
 
 
@@ -147,6 +147,7 @@ The table below lists IPsec SA Encryption and Authentication Offers. Offers are 
 - You can specify IPsec ESP NULL encryption with route-based and High Performance VPN gateway. This is intended for VNet-to-VNet connections within Azure networks. 
 
 - For cross-premises connectivity through the Internet, please use the default Azure VPN gateway settings with encryption and hashing algorithms listed in the tables above to ensure security of your critical communication.
+
 
 
 

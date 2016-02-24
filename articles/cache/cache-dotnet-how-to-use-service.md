@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How to Use Azure Managed Cache Service" 
-	description="Learn how to improve the performance of your Azure applications with Azure Managed Cache Service" 
-	services="cache" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="How to Use Azure Managed Cache Service" 
+    description="Learn how to improve the performance of your Azure applications with Azure Managed Cache Service" 
+    services="cache" 
+    documentationCenter="" 
+    authors="steved0x" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="cache" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="12/03/2015" 
-	ms.author="sdanie"/>
+    ms.service="cache" 
+    ms.workload="web" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="dotnet" 
+    ms.topic="article" 
+    ms.date="12/03/2015" 
+    ms.author="sdanie"/>
 
 # How to Use Azure Managed Cache Service
 
@@ -47,9 +47,9 @@ Managed Cache Service gives you access to a secure, dedicated cache that is mana
 
 Managed Cache Service is available in three tiers:
 
--	Basic - Cache in sizes from 128MB to 1GB
--	Standard - Cache in sizes from 1GB to 10GB
--	Premium - Cache in sizes from 5GB to 150GB
+-   Basic - Cache in sizes from 128MB to 1GB
+-   Standard - Cache in sizes from 1GB to 10GB
+-   Premium - Cache in sizes from 5GB to 150GB
 
 Each tier differs in terms of features and pricing. The features are covered later in this guide, and for more information on pricing, see [Cache Pricing Details][].
 
@@ -60,9 +60,9 @@ This guide provides an overview of getting started with Managed Cache Service. F
 
 Getting started with Managed Cache Service is easy. To get started, you provision and configure a cache. Next, you configure the cache clients so they can access the cache. Once the cache clients are configured, you can begin working with them.
 
--	[Create the cache][]
--	[Configure the cache][]
--	[Configure the cache clients][]
+-   [Create the cache][]
+-   [Configure the cache][]
+-   [Configure the cache clients][]
 
 <a name="create-cache"></a>
 ## Create a cache
@@ -89,15 +89,15 @@ For **Location**, specify a region for the cache. For the best performance, crea
 
 **Sku** and **Memory** work together to determine the size of the cache. Managed Cache Service is available in the three following tiers.
 
--	Basic - Cache in sizes from 128MB to 1GB in 128MB increments, with one default named cache
--	Standard - Cache in sizes from 1GB to 10GB in 1GB increments, with support for notifications and up to ten named caches
--	Premium - Cache in sizes from 5GB to 150GB in 5GB increments, with support for notifications, high availability, and up to ten named caches
+-   Basic - Cache in sizes from 128MB to 1GB in 128MB increments, with one default named cache
+-   Standard - Cache in sizes from 1GB to 10GB in 1GB increments, with support for notifications and up to ten named caches
+-   Premium - Cache in sizes from 5GB to 150GB in 5GB increments, with support for notifications, high availability, and up to ten named caches
 
 Choose the **Sku** and **Memory** that meets the needs of your application. Note that some cache features, such as notifications and high availability, are only available with certain cache offerings. For more information on choosing the cache offering and size that's best for your application, see [Cache offerings][].
 
  In the following example, a Basic 128MB cache is created with name contosocache, in the South Central US geographic region.
 
-	New-AzureManagedCache -Name contosocache -Location "South Central US" -Sku Basic -Memory 128MB
+    New-AzureManagedCache -Name contosocache -Location "South Central US" -Sku Basic -Memory 128MB
 
 >For a complete list of parameters and values that can be used when creating a cache, see the [New-AzureManagedCache][] cmdlet documentation.
 
@@ -105,28 +105,28 @@ Once the PowerShell cmdlet is invoked, it can take a few minutes for the cache t
 
 You can monitor the creation progress in the Azure PowerShell window. Once the cache is ready for use, the [New-AzureManagedCache][] cmdlet will display the cache information, as shown in the following example.
 
-	PS C:\> Add-AzureAccount
-	VERBOSE: Account "user@domain.com" has been added.
-	VERBOSE: Subscription "MySubscription" is selected as the default subscription.
-	VERBOSE: To view all the subscriptions, please use Get-AzureSubscription.
-	VERBOSE: To switch to a different subscription, please use Select-AzureSubscription.
-	PS C:\> New-AzureManagedCache -Name contosocache -Location "South Central US" -Sku Basic -Memory 128MB
-	VERBOSE: Intializing parameters...
-	VERBOSE: Creating prerequisites...
-	VERBOSE: Verify cache service name...
-	VERBOSE: Creating cache service...
-	VERBOSE: Waiting for cache service to be in ready state...
+    PS C:\> Add-AzureAccount
+    VERBOSE: Account "user@domain.com" has been added.
+    VERBOSE: Subscription "MySubscription" is selected as the default subscription.
+    VERBOSE: To view all the subscriptions, please use Get-AzureSubscription.
+    VERBOSE: To switch to a different subscription, please use Select-AzureSubscription.
+    PS C:\> New-AzureManagedCache -Name contosocache -Location "South Central US" -Sku Basic -Memory 128MB
+    VERBOSE: Intializing parameters...
+    VERBOSE: Creating prerequisites...
+    VERBOSE: Verify cache service name...
+    VERBOSE: Creating cache service...
+    VERBOSE: Waiting for cache service to be in ready state...
 
 
-	Name     : contosocache
-	Location : South Central US
-	State    : Active
-	Sku      : Basic
-	Memory   : 128MB
+    Name     : contosocache
+    Location : South Central US
+    State    : Active
+    Sku      : Basic
+    Memory   : 128MB
 
 
 
-	PS C:\>
+    PS C:\>
 
 
 
@@ -236,11 +236,11 @@ After the configuration is added, replace the following two items in the newly a
 
 1. Replace **[Cache role name or Service Endpoint]** with the endpoint, which is displayed on the Dashboard in the Azure Classic Portal.
 
-	![Endpoint][Endpoint]
+    ![Endpoint][Endpoint]
 
 2. Uncomment the securityProperties section, and replace **[Authentication Key]** with the authentication key, which can be found in the Azure Classic Portal by clicking **Manage Keys** from the cache dashboard.
 
-	![AccessKeys][AccessKeys]
+    ![AccessKeys][AccessKeys]
 
 >These settings must be configured properly or clients will not be able to access the cache.
 
@@ -268,7 +268,7 @@ The NuGet package also adds references to the following assemblies:
 
 If your project is a web project, the following assembly reference is also added:
 
--	Microsoft.Web.DistributedCache.dll.
+-   Microsoft.Web.DistributedCache.dll.
 
 Once your client project is configured for caching, you can use the techniques described in the following sections for working with your cache.
 
@@ -277,7 +277,7 @@ Once your client project is configured for caching, you can use the techniques d
 
 The steps in this section describe how to perform common tasks with Cache.
 
--	[How To: Create a DataCache Object][]
+-   [How To: Create a DataCache Object][]
 -   [How To: Add and Retrieve an Object from the Cache][]
 -   [How To: Specify the Expiration of an Object in the Cache][]
 -   [How To: Store ASP.NET Session State in the Cache][]
@@ -307,7 +307,7 @@ To use the second way, create a new **DataCacheFactory** object in your applicat
     DataCacheFactory cacheFactory = new DataCacheFactory();
     DataCache cache = cacheFactory.GetDefaultCache();
     // Or DataCache cache = cacheFactory.GetCache("MyCache");
-    // cache can now be used to add and retrieve items.	
+    // cache can now be used to add and retrieve items. 
 
 <a name="add-object"></a>
 ## How To: Add and Retrieve an Object from the Cache
@@ -447,7 +447,7 @@ Now that you've learned the basics of Managed Cache Service,
 follow these links to learn how to do more complex caching tasks.
 
 -   See the MSDN Reference: [Managed Cache Service][]
--	Learn how to migrate to Managed Cache Service: [Migrate to Managed Cache Service][]
+-   Learn how to migrate to Managed Cache Service: [Migrate to Managed Cache Service][]
 -   Check out the samples: [Managed Cache Service Samples][]
 
 <!-- INTRA-TOPIC LINKS -->

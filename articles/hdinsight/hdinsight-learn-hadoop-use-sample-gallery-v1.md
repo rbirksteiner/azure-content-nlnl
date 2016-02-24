@@ -21,13 +21,13 @@
 The HDInsight Getting Started Gallery provides an easy and quick way learn Hadoop by running sample applications in HDInsight. Some of the samples come with sample data. You can supply your own data for the remaining samples. Currently, there are the following six samples (with more coming):
 
 - Solutions with your Azure data
-	- Microsoft Azure website log analysis
-	- Microsoft Azure storage analytics
+    - Microsoft Azure website log analysis
+    - Microsoft Azure storage analytics
 - Solutions with sample data
-	- Sensor data analysis
-	- Twitter trend analysis
-	- Website log analysis
-	- Mahout movie recommendation
+    - Sensor data analysis
+    - Twitter trend analysis
+    - Website log analysis
+    - Mahout movie recommendation
 
 [AZURE.INCLUDE [hdinsight-azure-portal](../../includes/hdinsight-azure-portal.md)]
 
@@ -43,15 +43,15 @@ The following video clip shows how to run the Twitter trend analysis sample:
 
 **To run a sample from the Getting Started Gallery**
 
-1.	Sign in to the [Azure portal][azure.portal].
-2.	Click **HDInsight** in the left menu. You will see a list of existing HDInsight clusters, including Hadoop, Storm, and HBase clusters.
-3.	Click the cluster where you want to run the sample.
-4.	Click **QUERY CONSOLE** at the bottom of the page.
-5.	Enter the Hadoop user name and password for the cluster.
-6.	Click **Getting Started Gallery** at the top of the page.
-7.	Click one of the samples. Each sample gives detailed steps for running it. The following image shows the Twitter trend analysis sample:
+1.  Sign in to the [Azure portal][azure.portal].
+2.  Click **HDInsight** in the left menu. You will see a list of existing HDInsight clusters, including Hadoop, Storm, and HBase clusters.
+3.  Click the cluster where you want to run the sample.
+4.  Click **QUERY CONSOLE** at the bottom of the page.
+5.  Enter the Hadoop user name and password for the cluster.
+6.  Click **Getting Started Gallery** at the top of the page.
+7.  Click one of the samples. Each sample gives detailed steps for running it. The following image shows the Twitter trend analysis sample:
 
-	![HDInsight Twitter trend analysis sample][hdinsight.twitter.sample]
+    ![HDInsight Twitter trend analysis sample][hdinsight.twitter.sample]
 
 ## Next steps
 Other ways to learn about HDInsight include:
@@ -67,3 +67,4 @@ Other ways to learn about HDInsight include:
 [hdinsight.learn.map]: hdinsight-learn-map.md
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
 [azure.portal]:https://manage.windowsazure.com
+

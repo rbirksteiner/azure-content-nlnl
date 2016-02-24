@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Walkthrough: Monitor Microsoft Dynamics CRM with Application Insights" 
-	description="Get telemetry from Microsoft Dynamics CRM Online using Application Insights. Walkthrough of setup, getting data, visualization and export." 
-	services="application-insights" 
+    pageTitle="Walkthrough: Monitor Microsoft Dynamics CRM with Application Insights" 
+    description="Get telemetry from Microsoft Dynamics CRM Online using Application Insights. Walkthrough of setup, getting data, visualization and export." 
+    services="application-insights" 
     documentationCenter=""
-	authors="mazharmicrosoft" 
-	manager="douge"/>
+    authors="mazharmicrosoft" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/17/2015" 
-	ms.author="awills"/>
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/17/2015" 
+    ms.author="awills"/>
  
 # Walkthrough: Enabling Telemetry for Microsoft Dynamics CRM Online using Application Insights
 
@@ -160,3 +160,4 @@ You can do even deeper analysis if you [export the data to Microsoft Power BI](a
 * [More samples and walkthroughs](app-insights-code-samples.md)
 
  
+

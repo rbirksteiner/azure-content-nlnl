@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Manage VMs using Azure Automation | Microsoft Azure"
-	description="Learn about how the Azure Automation service can be used to manage Azure virtual machines at scale."
-	services="virtual-machines, automation"
-	documentationCenter=""
-	authors="jodoglevy"
-	manager="eamono"
-	editor=""/>
+    pageTitle="Manage VMs using Azure Automation | Microsoft Azure"
+    description="Learn about how the Azure Automation service can be used to manage Azure virtual machines at scale."
+    services="virtual-machines, automation"
+    documentationCenter=""
+    authors="jodoglevy"
+    manager="eamono"
+    editor=""/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/03/2015"
-	ms.author="jolevy"/>
+    ms.service="virtual-machines"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/03/2015"
+    ms.author="jolevy"/>
 
 
 
@@ -42,3 +42,4 @@ Virtual machines can be managed in Azure Automation by using [Azure PowerShell](
 Now that you've learned the basics of Azure Automation and how it can be used to manage Azure virtual machines, learn more:
 
 [Get started with Azure Automation](../automation-create-runbook-from-samples.md)
+

@@ -137,3 +137,4 @@ Consider the following points when access to the Microsoft Azure SQL Database se
 
 <!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png
+

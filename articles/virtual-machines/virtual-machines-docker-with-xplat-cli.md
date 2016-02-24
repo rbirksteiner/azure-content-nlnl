@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Using the Docker VM Extension for Linux on Azure"
-	description="Describes Docker and the Azure Virtual Machines extensions, and shows how to programmatically create Virtual Machines on Azure that are docker hosts from the command line using the Azure CLI."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="squillace"
-	manager="timlt"
-	editor="tysonn"/>
+    pageTitle="Using the Docker VM Extension for Linux on Azure"
+    description="Describes Docker and the Azure Virtual Machines extensions, and shows how to programmatically create Virtual Machines on Azure that are docker hosts from the command line using the Azure CLI."
+    services="virtual-machines"
+    documentationCenter=""
+    authors="squillace"
+    manager="timlt"
+    editor="tysonn"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-linux"
-	ms.workload="infrastructure-services"
-	ms.date="09/22/2015"
-	ms.author="rasquill"/>
+    ms.service="virtual-machines"
+    ms.devlang="multiple"
+    ms.topic="article"
+    ms.tgt_pltfrm="vm-linux"
+    ms.workload="infrastructure-services"
+    ms.date="09/22/2015"
+    ms.author="rasquill"/>
 
 # Using the Docker VM Extension from the Azure Command-line Interface (Azure CLI)
 
@@ -97,45 +97,45 @@ where *&lt;vm-name-you-used&gt;* is the name of the virtual machine that you use
 
 Now you can try to connect using your docker client to obtain information (in some Docker client setups, such as that on Mac, you may have to use `sudo`):
 
-	sudo docker --tls -H tcp://testsshasm.cloudapp.net:2376 info
-	Password:
-	Containers: 0
-	Images: 0
-	Storage Driver: devicemapper
-	Pool Name: docker-8:1-131781-pool
-	Pool Blocksize: 65.54 kB
-	Backing Filesystem: extfs
-	Data file: /dev/loop0
-	Metadata file: /dev/loop1
-	Data Space Used: 1.821 GB
-	Data Space Total: 107.4 GB
-	Data Space Available: 28 GB
-	Metadata Space Used: 1.479 MB
-	Metadata Space Total: 2.147 GB
-	Metadata Space Available: 2.146 GB
-	Udev Sync Supported: true
-	Deferred Removal Enabled: false
-	Data loop file: /var/lib/docker/devicemapper/devicemapper/data
-	Metadata loop file: /var/lib/docker/devicemapper/devicemapper/metadata
-	Library Version: 1.02.77 (2012-10-15)
-	Execution Driver: native-0.2
-	Logging Driver: json-file
-	Kernel Version: 3.19.0-28-generic
-	Operating System: Ubuntu 14.04.3 LTS
-	CPUs: 1
-	Total Memory: 1.637 GiB
-	Name: testsshasm
-	WARNING: No swap limit support
+    sudo docker --tls -H tcp://testsshasm.cloudapp.net:2376 info
+    Password:
+    Containers: 0
+    Images: 0
+    Storage Driver: devicemapper
+    Pool Name: docker-8:1-131781-pool
+    Pool Blocksize: 65.54 kB
+    Backing Filesystem: extfs
+    Data file: /dev/loop0
+    Metadata file: /dev/loop1
+    Data Space Used: 1.821 GB
+    Data Space Total: 107.4 GB
+    Data Space Available: 28 GB
+    Metadata Space Used: 1.479 MB
+    Metadata Space Total: 2.147 GB
+    Metadata Space Available: 2.146 GB
+    Udev Sync Supported: true
+    Deferred Removal Enabled: false
+    Data loop file: /var/lib/docker/devicemapper/devicemapper/data
+    Metadata loop file: /var/lib/docker/devicemapper/devicemapper/metadata
+    Library Version: 1.02.77 (2012-10-15)
+    Execution Driver: native-0.2
+    Logging Driver: json-file
+    Kernel Version: 3.19.0-28-generic
+    Operating System: Ubuntu 14.04.3 LTS
+    CPUs: 1
+    Total Memory: 1.637 GiB
+    Name: testsshasm
+    WARNING: No swap limit support
 
 Just to be certain that it's all working, you can examine the VM for the Docker extension:
 
-	azure vm extension get testsshasm
-	info: Executing command vm extension get
-	+ Getting virtual machines
-	data: Publisher Extension name ReferenceName Version State
-	data: -------------------- --------------- ------------------------- ------- ------
-	data: Microsoft.Azure.E... DockerExtension DockerExtension 1.* Enable
-	info: vm extension get command OK
+    azure vm extension get testsshasm
+    info: Executing command vm extension get
+    + Getting virtual machines
+    data: Publisher Extension name ReferenceName Version State
+    data: -------------------- --------------- ------------------------- ------- ------
+    data: Microsoft.Azure.E... DockerExtension DockerExtension 1.* Enable
+    info: vm extension get command OK
 
 ### Docker Host VM Authentication
 

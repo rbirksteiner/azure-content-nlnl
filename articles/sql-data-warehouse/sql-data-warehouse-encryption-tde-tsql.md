@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Get started with SQL Data Warehouse Transparent Data Encryption (TDE) TSQL | Microsoft Azure" 
-	description="Get started with SQL Data Warehouse Transparent Data Encryption (TDE) TSQL" 
-	services="sql-data-warehouse" 
-	documentationCenter="" 
-	authors="twounder" 
-	manager="" 
-	editor=""/>
+    pageTitle="Get started with SQL Data Warehouse Transparent Data Encryption (TDE) TSQL | Microsoft Azure" 
+    description="Get started with SQL Data Warehouse Transparent Data Encryption (TDE) TSQL" 
+    services="sql-data-warehouse" 
+    documentationCenter="" 
+    authors="twounder" 
+    manager="" 
+    editor=""/>
 
 <tags 
-	ms.service="sql-data-warehouse" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/21/2015" 
-	ms.author="twounder"/>
+    ms.service="sql-data-warehouse" 
+    ms.workload="data-management" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/21/2015" 
+    ms.author="twounder"/>
  
 # Get started with Transparent Data Encryption (TDE)
 > [AZURE.SELECTOR]
@@ -56,10 +56,10 @@ To verify encryption status for a SQL Data Warehouse, follow the steps below:
 
 ```
 SELECT
-	[name],
-	[is_encrypted]
+    [name],
+    [is_encrypted]
 FROM
-	sys.databases;
+    sys.databases;
 ```
 
 A result of ```1``` indicates an encrypted database, ```0``` indicates a non-encrypted database. 
@@ -72,3 +72,4 @@ A result of ```1``` indicates an encrypted database, ```0``` indicates a non-enc
 <!--Image references-->
 
 <!--Link references-->
+

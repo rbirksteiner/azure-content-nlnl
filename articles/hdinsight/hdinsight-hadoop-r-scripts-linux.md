@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Install R on Linux-based HDInsight | Microsoft Azure"
-	description="Learn how to install and use R to customize Linux-based Hadoop clusters."
-	services="hdinsight"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="paulettm"
-	editor="cgronlun"/>
+    pageTitle="Install R on Linux-based HDInsight | Microsoft Azure"
+    description="Learn how to install and use R to customize Linux-based Hadoop clusters."
+    services="hdinsight"
+    documentationCenter=""
+    authors="Blackmist"
+    manager="paulettm"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="hdinsight"
-	ms.workload="big-data"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/04/2015"
-	ms.author="larryfr"/>
+    ms.service="hdinsight"
+    ms.workload="big-data"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/04/2015"
+    ms.author="larryfr"/>
 
 # Install and use R on HDInsight Hadoop clusters
 
@@ -66,12 +66,12 @@ The [https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-inst
 
 2. On the **Optional Configuration** blade, select **Script Actions**, and provide the information below:
 
-	* __NAME__: Enter a friendly name for the script action.
-	* __SCRIPT URI__: https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh
-	* __HEAD__: Check this option
-	* __WORKER__: Check this option
-	* __ZOOKEEPER__: Check this option to install on the Zookeeper node.
-	* __PARAMETERS__: Leave this field blank
+    * __NAME__: Enter a friendly name for the script action.
+    * __SCRIPT URI__: https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh
+    * __HEAD__: Check this option
+    * __WORKER__: Check this option
+    * __ZOOKEEPER__: Check this option to install on the Zookeeper node.
+    * __PARAMETERS__: Leave this field blank
 
 3. At the bottom of the **Script Actions**, use the **Select** button to save the configuration. Finally, use the **Select** button at the bottom of the **Optional Configuration** blade to save the optional configuration information.
 
@@ -83,52 +83,52 @@ After the cluster has finished provisioning, use the following steps to use R to
 
 1. Connect to the HDInsight cluster using SSH:
 
-		ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+        ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
 
-	For more information on using SSH with HDInsight, see the following:
+    For more information on using SSH with HDInsight, see the following:
 
-	* [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-	* [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    * [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 2. From the `username@hn0-CLUSTERNAME:~$` prompt, enter the following command to start an interactive R session:
 
-		R
+        R
 
 3. Enter the following R program. This generates the numbers 1 to 100 and then multiplies them by 2.
 
-		library(rmr2)
-		ints = to.dfs(1:100)
-		calc = mapreduce(input = ints, map = function(k, v) cbind(v, 2*v))
+        library(rmr2)
+        ints = to.dfs(1:100)
+        calc = mapreduce(input = ints, map = function(k, v) cbind(v, 2*v))
 
-	The first line calls the RHadoop library rmr2, which is used for MapReduce operations.
+    The first line calls the RHadoop library rmr2, which is used for MapReduce operations.
 
-	The second line generates values 1 - 100, then stores them to the Hadoop file system using `to.dfs`.
+    The second line generates values 1 - 100, then stores them to the Hadoop file system using `to.dfs`.
 
-	The third line creates a MapReduce process using functionality provided by rmr2, and begins processing. You should see several lines scroll past as the processing begins.
+    The third line creates a MapReduce process using functionality provided by rmr2, and begins processing. You should see several lines scroll past as the processing begins.
 
 4. Next, use the following to see the temporary path that the MapReduce output was stored to:
 
-		print(calc())
+        print(calc())
 
-	This should be something similar to `/tmp/file5f615d870ad2`. To view the actual output, use the following:
+    This should be something similar to `/tmp/file5f615d870ad2`. To view the actual output, use the following:
 
-		print(from.dfs(calc))
+        print(from.dfs(calc))
 
-	The output should look like this:
+    The output should look like this:
 
-		[1,]  1 2
-		[2,]  2 4
-		.
-		.
-		.
-		[98,]  98 196
-		[99,]  99 198
-		[100,] 100 200
+        [1,]  1 2
+        [2,]  2 4
+        .
+        .
+        .
+        [98,]  98 196
+        [99,]  99 198
+        [100,] 100 200
 
 5. To exit R, enter the following:
 
-		q()
+        q()
 
 
 ## Next steps
@@ -145,3 +145,4 @@ After the cluster has finished provisioning, use the following steps to use R to
 
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
+

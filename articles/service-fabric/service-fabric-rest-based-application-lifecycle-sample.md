@@ -708,3 +708,4 @@ namespace ServiceFabricRestCaller
 ## Next steps
 
 [Service Fabric application lifecycle](service-fabric-application-lifecycle.md)
+

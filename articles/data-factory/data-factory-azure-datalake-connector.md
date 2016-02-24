@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Move data to and from Azure Data Lake Store | Azure Data Factory"
-	description="Learn how to move data to/from Azure Data Lake Store using Azure Data Factory"
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
-	editor="monicar"/>
+    pageTitle="Move data to and from Azure Data Lake Store | Azure Data Factory"
+    description="Learn how to move data to/from Azure Data Lake Store using Azure Data Factory"
+    services="data-factory"
+    documentationCenter=""
+    authors="spelluru"
+    manager="jhubbard"
+    editor="monicar"/>
 
 <tags
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/09/2015"
-	ms.author="spelluru"/>
+    ms.service="data-factory"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/09/2015"
+    ms.author="spelluru"/>
 
 # Move data to and from Azure Data Lake Store using Azure Data Factory
 This article outlines how you can use the Copy Activity in an Azure data factory to move data to Azure Data Lake Store from another data store and move data from Azure Data Lake Store to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with the copy activity and the supported data store combinations.
@@ -27,40 +27,40 @@ This article outlines how you can use the Copy Activity in an Azure data factory
 ## Sample: Copy data from Azure Blob to Azure Data Lake Store
 The sample below shows:
 
-1.	A linked service of type [AzureStorage](#azure-storage-linked-service-properties).
-2.	A linked service of type [AzureDataLakeStore](#azure-data-lake-linked-service-properties).
-3.	An input [dataset](data-factory-create-datasets.md) of type [AzureBlob](#azure-blob-dataset-type-properties).
-4.	An output [dataset](data-factory-create-datasets.md) of type [AzureDataLakeStore](#azure-data-lake-dataset-type-properties).
-4.	A [pipeline](data-factory-create-pipelines.md) with a Copy activity that uses [BlobSource](#azure-blob-copy-activity-type-properties) and [AzureDataLakeStoreSink](#azure-data-lake-copy-activity-type-properties).
+1.  A linked service of type [AzureStorage](#azure-storage-linked-service-properties).
+2.  A linked service of type [AzureDataLakeStore](#azure-data-lake-linked-service-properties).
+3.  An input [dataset](data-factory-create-datasets.md) of type [AzureBlob](#azure-blob-dataset-type-properties).
+4.  An output [dataset](data-factory-create-datasets.md) of type [AzureDataLakeStore](#azure-data-lake-dataset-type-properties).
+4.  A [pipeline](data-factory-create-pipelines.md) with a Copy activity that uses [BlobSource](#azure-blob-copy-activity-type-properties) and [AzureDataLakeStoreSink](#azure-data-lake-copy-activity-type-properties).
 
 The sample copies data belonging to a time series from an Azure Blob Storage to Azure Data Lake  Store every hour. The JSON properties used in these samples are described in sections following the samples.
 
 
 **Azure Storage linked service:**
 
-	{
-	  "name": "StorageLinkedService",
-	  "properties": {
-	    "type": "AzureStorage",
-	    "typeProperties": {
-	      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-	    }
-	  }
-	}
+    {
+      "name": "StorageLinkedService",
+      "properties": {
+        "type": "AzureStorage",
+        "typeProperties": {
+          "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+        }
+      }
+    }
 
 **Azure Data Lake linked service:**
 
-	{
-	    "name": "AzureDataLakeStoreLinkedService",
-	    "properties": {
-	        "type": "AzureDataLakeStore",
-	        "typeProperties": {
-	            "dataLakeUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
-				"sessionId": "<session ID>",
-	            "authorization": "<authorization URL>"
-	        }
-	    }
-	}
+    {
+        "name": "AzureDataLakeStoreLinkedService",
+        "properties": {
+            "type": "AzureDataLakeStore",
+            "typeProperties": {
+                "dataLakeUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
+                "sessionId": "<session ID>",
+                "authorization": "<authorization URL>"
+            }
+        }
+    }
 
 ### To create Azure Data Lake Linked Service using Data Factory Editor
 The following procedure provides steps for creating an Azure Data Lake Store linked service using the Data Factory Editor.
@@ -69,7 +69,7 @@ The following procedure provides steps for creating an Azure Data Lake Store lin
 2. In the JSON editor, for the **datalakeUri** property, enter the URI for the data lake.
 3. Click **Authorize** button on the command bar. You should see a pop up window.
 
-	![Authorize button](./media/data-factory-azure-data-lake-connector/authorize-button.png)
+    ![Authorize button](./media/data-factory-azure-data-lake-connector/authorize-button.png)
 4. Use your credentials to sign-in and the **authorization** property in the JSON should be assigned to a value now.
 5. (optional) Specify values for optional parameters such as **accountName**, **subscriptionID** and **resourceGroupName** in the JSON (or) delete these properties from the JSON.
 6. Click **Deploy** on the command bar to deploy the linked service.
@@ -79,82 +79,82 @@ The following procedure provides steps for creating an Azure Data Lake Store lin
 
 Data is picked up from a new blob every hour (frequency: hour, interval: 1). The folder path and file name for the blob are dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, and day part of the start time and file name uses the hour part of the start time. “external”: “true” setting informs the Data Factory service that this table is external to the data factory and not produced by an activity in the data factory.
 
-	{
-	  "name": "AzureBlobInput",
-	  "properties": {
-	    "type": "AzureBlob",
-	    "linkedServiceName": "StorageLinkedService",
-	    "typeProperties": {
-	      "Path": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}",
-	      "partitionedBy": [
-	        {
-	          "name": "Year",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "yyyy"
-	          }
-	        },
-	        {
-	          "name": "Month",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "MM"
-	          }
-	        },
-	        {
-	          "name": "Day",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "dd"
-	          }
-	        },
-	        {
-	          "name": "Hour",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "HH"
-	          }
-	        }
-	      ]
-	    },
-	    "external": true,
-	    "availability": {
-	      "frequency": "Hour",
-	      "interval": 1
-	    },
-	    "policy": {
-	      "externalData": {
-	        "retryInterval": "00:01:00",
-	        "retryTimeout": "00:10:00",
-	        "maximumRetry": 3
-	      }
-	    }
-	  }
-	}
+    {
+      "name": "AzureBlobInput",
+      "properties": {
+        "type": "AzureBlob",
+        "linkedServiceName": "StorageLinkedService",
+        "typeProperties": {
+          "Path": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}",
+          "partitionedBy": [
+            {
+              "name": "Year",
+              "value": {
+                "type": "DateTime",
+                "date": "SliceStart",
+                "format": "yyyy"
+              }
+            },
+            {
+              "name": "Month",
+              "value": {
+                "type": "DateTime",
+                "date": "SliceStart",
+                "format": "MM"
+              }
+            },
+            {
+              "name": "Day",
+              "value": {
+                "type": "DateTime",
+                "date": "SliceStart",
+                "format": "dd"
+              }
+            },
+            {
+              "name": "Hour",
+              "value": {
+                "type": "DateTime",
+                "date": "SliceStart",
+                "format": "HH"
+              }
+            }
+          ]
+        },
+        "external": true,
+        "availability": {
+          "frequency": "Hour",
+          "interval": 1
+        },
+        "policy": {
+          "externalData": {
+            "retryInterval": "00:01:00",
+            "retryTimeout": "00:10:00",
+            "maximumRetry": 3
+          }
+        }
+      }
+    }
 
 
 **Azure Data Lake output dataset:**
 
 The sample copies data to an Azure Data Lake store. New data is copies to Data Lake store every hour.
 
-	{
-		"name": "AzureDataLakeStoreOutput",
-	  	"properties": {
-			"type": "AzureDataLakeStore",
-		    "linkedServiceName": " AzureDataLakeStoreLinkedService",
-		    "typeProperties": {
-				"folderPath": "datalake/output/"
-		    },
-	    	"availability": {
-	      		"frequency": "Hour",
-	      		"interval": 1
-	    	}
-	  	}
-	}
+    {
+        "name": "AzureDataLakeStoreOutput",
+        "properties": {
+            "type": "AzureDataLakeStore",
+            "linkedServiceName": " AzureDataLakeStoreLinkedService",
+            "typeProperties": {
+                "folderPath": "datalake/output/"
+            },
+            "availability": {
+                "frequency": "Hour",
+                "interval": 1
+            }
+        }
+    }
 
 
 
@@ -162,233 +162,233 @@ The sample copies data to an Azure Data Lake store. New data is copies to Data L
 
 The pipeline contains a Copy Activity that is configured to use the above input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **BlobSource** and **sink** type is set to **AzureDataLakeStoreSink**.
 
-	{  
-	    "name":"SamplePipeline",
-	    "properties":
-		{  
-	    	"start":"2014-06-01T18:00:00",
-	    	"end":"2014-06-01T19:00:00",
-	    	"description":"pipeline with copy activity",
-	    	"activities":
-			[  
-	      		{
-	        		"name": "AzureBlobtoDataLake",
-		        	"description": "Copy Activity",
-		        	"type": "Copy",
-		        	"inputs": [
-		          	{
-			            "name": "AzureBlobInput"
-		          	}
-		        	],
-		        	"outputs": [
-		          	{
-			            "name": "AzureDataLakeStoreOutput"
-		          	}
-		        	],
-		        	"typeProperties": {
-			        	"source": {
-		            		"type": "BlobSource",
-			    			"treatEmptyAsNull": true,
-		            		"blobColumnSeparators": ","
-		          		},
-		          		"sink": {
-		            		"type": "AzureDataLakeStoreSink"
-		          		}
-		        	},
-		       		"scheduler": {
-		          		"frequency": "Hour",
-		          		"interval": 1
-		        	},
-		        	"policy": {
-		          		"concurrency": 1,
-		          		"executionPriorityOrder": "OldestFirst",
-		          		"retry": 0,
-		          		"timeout": "01:00:00"
-		        	}
-		      	}
-    		]
-		}
-	}
+    {  
+        "name":"SamplePipeline",
+        "properties":
+        {  
+            "start":"2014-06-01T18:00:00",
+            "end":"2014-06-01T19:00:00",
+            "description":"pipeline with copy activity",
+            "activities":
+            [  
+                {
+                    "name": "AzureBlobtoDataLake",
+                    "description": "Copy Activity",
+                    "type": "Copy",
+                    "inputs": [
+                    {
+                        "name": "AzureBlobInput"
+                    }
+                    ],
+                    "outputs": [
+                    {
+                        "name": "AzureDataLakeStoreOutput"
+                    }
+                    ],
+                    "typeProperties": {
+                        "source": {
+                            "type": "BlobSource",
+                            "treatEmptyAsNull": true,
+                            "blobColumnSeparators": ","
+                        },
+                        "sink": {
+                            "type": "AzureDataLakeStoreSink"
+                        }
+                    },
+                    "scheduler": {
+                        "frequency": "Hour",
+                        "interval": 1
+                    },
+                    "policy": {
+                        "concurrency": 1,
+                        "executionPriorityOrder": "OldestFirst",
+                        "retry": 0,
+                        "timeout": "01:00:00"
+                    }
+                }
+            ]
+        }
+    }
 
 ## Sample: Copy data from Azure Data Lake Store to Azure Blob
 The sample below shows:
 
-1.	A linked service of type [AzureDataLakeStore](#azure-data-lake-linked-service-properties).
-2.	A linked service of type [AzureStorage](#azure-storage-linked-service-properties).
-3.	An input [dataset](data-factory-create-datasets.md) of type [AzureDataLakeStore](#azure-data-lake-dataset-type-properties).
-4.	An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](#azure-blob-dataset-type-properties).
-5.	A [pipeline](data-factory-create-pipelines.md) with a Copy activity that uses [AzureDataLakeStoreSource](#azure-data-lake-copy-activity-type-properties) and [BlobSink](#azure-blob-copy-activity-type-properties)
+1.  A linked service of type [AzureDataLakeStore](#azure-data-lake-linked-service-properties).
+2.  A linked service of type [AzureStorage](#azure-storage-linked-service-properties).
+3.  An input [dataset](data-factory-create-datasets.md) of type [AzureDataLakeStore](#azure-data-lake-dataset-type-properties).
+4.  An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](#azure-blob-dataset-type-properties).
+5.  A [pipeline](data-factory-create-pipelines.md) with a Copy activity that uses [AzureDataLakeStoreSource](#azure-data-lake-copy-activity-type-properties) and [BlobSink](#azure-blob-copy-activity-type-properties)
 
 The sample copies data belonging to a time series from an Azure Data Lake store to an Azure blob every hour. The JSON properties used in these samples are described in sections following the samples.
 
 **Azure Data Lake Store linked service:**
 
-	{
-	    "name": "AzureDataLakeStoreLinkedService",
-	    "properties": {
-	        "type": "AzureDataLakeStore",
-	        "typeProperties": {
-	            "dataLakeUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
-				"sessionId": "<session ID>",
-	            "authorization": "<authorization URL>"
-	        }
-	    }
-	}
+    {
+        "name": "AzureDataLakeStoreLinkedService",
+        "properties": {
+            "type": "AzureDataLakeStore",
+            "typeProperties": {
+                "dataLakeUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
+                "sessionId": "<session ID>",
+                "authorization": "<authorization URL>"
+            }
+        }
+    }
 
 > [AZURE.NOTE] See the steps in the previous sample to obtain authorization URL.  
 
 **Azure Storage linked service:**
 
-	{
-	  "name": "StorageLinkedService",
-	  "properties": {
-	    "type": "AzureStorage",
-	    "typeProperties": {
-	      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-	    }
-	  }
-	}
+    {
+      "name": "StorageLinkedService",
+      "properties": {
+        "type": "AzureStorage",
+        "typeProperties": {
+          "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+        }
+      }
+    }
 
 **Azure Data Lake input dataset:**
 
 Setting **"external": true** and specifying **externalData** policy informs the Azure Data Factory service that this is a table that is external to the data factory and not produced by an activity in the data factory.
 
-	{
-		"name": "AzureDataLakeStoreInput",
-	  	"properties":
-		{
-	    	"type": "AzureDataLakeStore",
-	    	"linkedServiceName": "AzureDataLakeStoreLinkedService",
-		    "typeProperties": {
-				"folderPath": "datalake/input/",
-            	"fileName": "SearchLog.tsv",
-            	"format": {
-                	"type": "TextFormat",
-	                "rowDelimiter": "\n",
-    	            "columnDelimiter": "\t"
-    	        }
-		    },
-		    "external": true,
-		    "availability": {
-		    	"frequency": "Hour",
-		      	"interval": 1
-	    	},
-	    	"policy": {
-	      		"externalData": {
-	        		"retryInterval": "00:01:00",
-	        		"retryTimeout": "00:10:00",
-	        		"maximumRetry": 3
-	      		}
-	    	}
-	  	}
-	}
+    {
+        "name": "AzureDataLakeStoreInput",
+        "properties":
+        {
+            "type": "AzureDataLakeStore",
+            "linkedServiceName": "AzureDataLakeStoreLinkedService",
+            "typeProperties": {
+                "folderPath": "datalake/input/",
+                "fileName": "SearchLog.tsv",
+                "format": {
+                    "type": "TextFormat",
+                    "rowDelimiter": "\n",
+                    "columnDelimiter": "\t"
+                }
+            },
+            "external": true,
+            "availability": {
+                "frequency": "Hour",
+                "interval": 1
+            },
+            "policy": {
+                "externalData": {
+                    "retryInterval": "00:01:00",
+                    "retryTimeout": "00:10:00",
+                    "maximumRetry": 3
+                }
+            }
+        }
+    }
 
 **Azure Blob output dataset:**
 
 Data is written to a new blob every hour (frequency: hour, interval: 1). The folder path for the blob is dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, day, and hours parts of the start time.
 
-	{
-	  "name": "AzureBlobOutput",
-	  "properties": {
-	    "type": "AzureBlob",
-	    "linkedServiceName": "StorageLinkedService",
-	    "typeProperties": {
-	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
-	      "partitionedBy": [
-	        {
-	          "name": "Year",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "yyyy"
-	          }
-	        },
-	        {
-	          "name": "Month",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "MM"
-	          }
-	        },
-	        {
-	          "name": "Day",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "dd"
-	          }
-	        },
-	        {
-	          "name": "Hour",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "HH"
-	          }
-	        }
-	      ],
-	      "format": {
-	        "type": "TextFormat",
-	        "columnDelimiter": "\t",
-	        "rowDelimiter": "\n"
-	      }
-	    },
-	    "availability": {
-	      "frequency": "Hour",
-	      "interval": 1
-	    }
-	  }
-	}
+    {
+      "name": "AzureBlobOutput",
+      "properties": {
+        "type": "AzureBlob",
+        "linkedServiceName": "StorageLinkedService",
+        "typeProperties": {
+          "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
+          "partitionedBy": [
+            {
+              "name": "Year",
+              "value": {
+                "type": "DateTime",
+                "date": "SliceStart",
+                "format": "yyyy"
+              }
+            },
+            {
+              "name": "Month",
+              "value": {
+                "type": "DateTime",
+                "date": "SliceStart",
+                "format": "MM"
+              }
+            },
+            {
+              "name": "Day",
+              "value": {
+                "type": "DateTime",
+                "date": "SliceStart",
+                "format": "dd"
+              }
+            },
+            {
+              "name": "Hour",
+              "value": {
+                "type": "DateTime",
+                "date": "SliceStart",
+                "format": "HH"
+              }
+            }
+          ],
+          "format": {
+            "type": "TextFormat",
+            "columnDelimiter": "\t",
+            "rowDelimiter": "\n"
+          }
+        },
+        "availability": {
+          "frequency": "Hour",
+          "interval": 1
+        }
+      }
+    }
 
 **Pipeline with the Copy activity:**
 
 The pipeline contains a Copy Activity that is configured to use the above input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **AzureDataLakeStoreSource** and **sink** type is set to **BlobSink**.
 
 
-	{  
-	    "name":"SamplePipeline",
-	    "properties":{  
-	    	"start":"2014-06-01T18:00:00",
-	    	"end":"2014-06-01T19:00:00",
-	    	"description":"pipeline for copy activity",
-	    	"activities":[  
-	      		{
-	        		"name": "AzureDakeLaketoBlob",
-		    	    "description": "copy activity",
-		    	    "type": "Copy",
-		    	    "inputs": [
-		    	      {
-		    	        "name": "AzureDataLakeStoreInput"
-		    	      }
-		    	    ],
-		    	    "outputs": [
-		    	      {
-		    	        "name": "AzureBlobOutput"
-		    	      }
-		    	    ],
-		    	    "typeProperties": {
-		    	    	"source": {
-		            		"type": "AzureDataLakeStoreSource",
-		          		},
-		          		"sink": {
-		            		"type": "BlobSink"
-		          		}
-		        	},
-		       		"scheduler": {
-		          		"frequency": "Hour",
-		          		"interval": 1
-		        	},
-		        	"policy": {
-		          		"concurrency": 1,
-		          		"executionPriorityOrder": "OldestFirst",
-		          		"retry": 0,
-		          		"timeout": "01:00:00"
-		        	}
-		      	}
-		     ]
-		}
-	}
+    {  
+        "name":"SamplePipeline",
+        "properties":{  
+            "start":"2014-06-01T18:00:00",
+            "end":"2014-06-01T19:00:00",
+            "description":"pipeline for copy activity",
+            "activities":[  
+                {
+                    "name": "AzureDakeLaketoBlob",
+                    "description": "copy activity",
+                    "type": "Copy",
+                    "inputs": [
+                      {
+                        "name": "AzureDataLakeStoreInput"
+                      }
+                    ],
+                    "outputs": [
+                      {
+                        "name": "AzureBlobOutput"
+                      }
+                    ],
+                    "typeProperties": {
+                        "source": {
+                            "type": "AzureDataLakeStoreSource",
+                        },
+                        "sink": {
+                            "type": "BlobSink"
+                        }
+                    },
+                    "scheduler": {
+                        "frequency": "Hour",
+                        "interval": 1
+                    },
+                    "policy": {
+                        "concurrency": 1,
+                        "executionPriorityOrder": "OldestFirst",
+                        "retry": 0,
+                        "timeout": "01:00:00"
+                    }
+                }
+             ]
+        }
+    }
 
 
 ## Azure Data Lake Store Linked Service properties
@@ -427,25 +427,25 @@ See [Creating Datasets](data-factory-create-datasets.md) and [Scheduling & Execu
 
 #### Sample 1
 
-	"folderPath": "wikidatagateway/wikisampledataout/{Slice}",
-	"partitionedBy":
-	[
-	    { "name": "Slice", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyyMMddHH" } },
-	],
+    "folderPath": "wikidatagateway/wikisampledataout/{Slice}",
+    "partitionedBy":
+    [
+        { "name": "Slice", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyyMMddHH" } },
+    ],
 
 In the above example {Slice} is replaced with the value of Data Factory system variable SliceStart in the format (YYYYMMDDHH) specified. The SliceStart refers to start time of the slice. The folderPath is different for each slice. For example: wikidatagateway/wikisampledataout/2014100103 or wikidatagateway/wikisampledataout/2014100104
 
 #### Sample 2
 
-	"folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
-	"fileName": "{Hour}.csv",
-	"partitionedBy":
-	 [
-	    { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
-	    { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } },
-	    { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } },
-	    { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } }
-	],
+    "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
+    "fileName": "{Hour}.csv",
+    "partitionedBy":
+     [
+        { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
+        { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } },
+        { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } },
+        { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } }
+    ],
 
 In the above example, year, month, day, and time of SliceStart are extracted into separate variables that are used by folderPath and fileName properties.
 
@@ -465,31 +465,31 @@ If the format is set to **TextFormat**, you can specify the following **optional
 #### Samples
 The following sample shows some of the format properties for TextFormat.
 
-	"typeProperties":
-	{
-	    "folderPath": "mycontainer/myfolder",
-	    "fileName": "myfilename"
-	    "format":
-	    {
-	        "type": "TextFormat",
-	        "columnDelimiter": ",",
-	        "rowDelimiter": ";",
-	        "quoteChar": "\"",
-	        "NullValue": "NaN"
-	    }
-	},
+    "typeProperties":
+    {
+        "folderPath": "mycontainer/myfolder",
+        "fileName": "myfilename"
+        "format":
+        {
+            "type": "TextFormat",
+            "columnDelimiter": ",",
+            "rowDelimiter": ";",
+            "quoteChar": "\"",
+            "NullValue": "NaN"
+        }
+    },
 
 To use an escapeChar instead of quoteChar, replace the line with quoteChar with the following:
 
-	"escapeChar": "$",
+    "escapeChar": "$",
 
 ### Specifying AvroFormat
 If the format is set to AvroFormat, you do not need to specify any properties in the Format section within the typeProperties section. Example:
 
-	"format":
-	{
-	    "type": "AvroFormat",
-	}
+    "format":
+    {
+        "type": "AvroFormat",
+    }
 
 To use Avro format in a Hive table, you can refer to [Apache Hive’s tutorial](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
 
@@ -499,34 +499,34 @@ Processing large data sets can cause I/O and network bottlenecks. Therefore, com
 
 To specify compression for a dataset, use the **compression** property in the dataset JSON as in the following example:   
 
-	{  
-		"name": "AzureDatalakeStoreDataSet",  
-	  	"properties": {  
-	    	"availability": {  
-	    		"frequency": "Day",  
-	    	  	"interval": 1  
-	    	},  
-	    	"type": "AzureDatalakeStore",  
-	    	"linkedServiceName": "DataLakeStoreLinkedService",  
-	    	"typeProperties": {  
-	    		"fileName": "pagecounts.csv.gz",  
-	    	  	"folderPath": "compression/file/",  
-	    	  	"compression": {  
-	    	    	"type": "GZip",  
-	    	    	"level": "Optimal"  
-	    	  	}  
-    		}  
-	  	}  
-	}  
+    {  
+        "name": "AzureDatalakeStoreDataSet",  
+        "properties": {  
+            "availability": {  
+                "frequency": "Day",  
+                "interval": 1  
+            },  
+            "type": "AzureDatalakeStore",  
+            "linkedServiceName": "DataLakeStoreLinkedService",  
+            "typeProperties": {  
+                "fileName": "pagecounts.csv.gz",  
+                "folderPath": "compression/file/",  
+                "compression": {  
+                    "type": "GZip",  
+                    "level": "Optimal"  
+                }  
+            }  
+        }  
+    }  
  
 Note that the **compression** section has two properties:  
   
 - **Type:** the compression codec, which can be **GZIP**, **Deflate** or **BZIP2**.  
 - **Level:** the compression ratio, which can be **Optimal** or **Fastest**. 
-	- **Fastest:** The compression operation should complete as quickly as possible, even if the resulting file is not optimally compressed. 
-	- **Optimal**: The compression operation should be optimally compressed, even if the operation takes a longer time to complete. 
-	
-	See [Compression Level](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) topic for more information. 
+    - **Fastest:** The compression operation should complete as quickly as possible, even if the resulting file is not optimally compressed. 
+    - **Optimal**: The compression operation should be optimally compressed, even if the operation takes a longer time to complete. 
+    
+    See [Compression Level](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) topic for more information. 
 
 Suppose the above sample dataset is used as the output of a copy activity, the copy activity will compresses the output data with GZIP codec using optimal ratio and then write the compressed data into a file named pagecounts.csv.gz in the Azure Data Lake store.   
 
@@ -562,3 +562,4 @@ Properties available in the typeProperties section of the activity on the other 
 [AZURE.INCLUDE [data-factory-type-conversion-sample](../../includes/data-factory-type-conversion-sample.md)]
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
+

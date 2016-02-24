@@ -29,7 +29,7 @@ Use the [Azure preview portal](http://portal.azure.com/) to obtain the connectio
 
 6. If you intend to use the JDBC connection library, copy the string labeled **JDBC**.
 
-	![Copy the JDBC connection string for your database][3-get-connection-string]
+    ![Copy the JDBC connection string for your database][3-get-connection-string]
 
 7. Paste the connection string information into your client program code.  You will need to replace the {your_password_here} with your real password.
 
@@ -56,3 +56,4 @@ includes/sql-database-include-connection-string-20-portalshots.md
 includes/sql-database-include-connection-string-30-compare.md
 includes/sql-database-include-connection-string-40-config.md
 -->
+

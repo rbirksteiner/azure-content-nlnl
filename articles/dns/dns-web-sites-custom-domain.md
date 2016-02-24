@@ -31,8 +31,8 @@ An A record is used to map a name to its IP address. In the following example we
 ### Step 1
  
 Create an A record and assign to a variable $rs
-	
-	PS C:\>$rs= New-AzureRMDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 600 
+    
+    PS C:\>$rs= New-AzureRMDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 600 
 
 ### Step 2
 
@@ -40,13 +40,13 @@ Add IPv4 value to previously created record set "@" using the $rs variable assig
 
 > [AZURE.NOTE] To find the IP address for a web app, follow the steps in [Configure a custom domain name in Azure App Service](../web-sites-custom-domain-name/#Find-the-virtual-IP-address)
 
-	PS C:\> Add-AzureRMDnsRecordConfig -RecordSet $rs -Ipv4Address <your web app IP address>
+    PS C:\> Add-AzureRMDnsRecordConfig -RecordSet $rs -Ipv4Address <your web app IP address>
 
 ### Step 3
 
 Commit the changes to the record set. Use Set-AzureRMDnsRecordSet to upload the changes to the record set to Azure DNS:
 
-	Set-AzureRMDnsRecordSet -RecordSet $rs
+    Set-AzureRMDnsRecordSet -RecordSet $rs
 
 ## Creating a CNAME record for your custom domain
 
@@ -56,16 +56,16 @@ Assuming your domain is already managed by Azure DNS (see [DNS domain delegation
 
 Open powershell and create a new CNAME record set and assign to a variable $rs:
 
-	PS C:\> $rs = New-AzureRMDnsRecordSet -ZoneName contoso.com -ResourceGroupName myresourcegroup -Name "www" -RecordType "CNAME" -Ttl 600
+    PS C:\> $rs = New-AzureRMDnsRecordSet -ZoneName contoso.com -ResourceGroupName myresourcegroup -Name "www" -RecordType "CNAME" -Ttl 600
  
-	Name              : www
-	ZoneName          : contoso.com
-	ResourceGroupName : myresourcegroup
-	Ttl               : 600
-	Etag              : 8baceeb9-4c2c-4608-a22c-229923ee1856
-	RecordType        : CNAME
-	Records           : {}
-	Tags              : {}
+    Name              : www
+    ZoneName          : contoso.com
+    ResourceGroupName : myresourcegroup
+    Ttl               : 600
+    Etag              : 8baceeb9-4c2c-4608-a22c-229923ee1856
+    RecordType        : CNAME
+    Records           : {}
+    Tags              : {}
 
 This will create a record set type CNAME with a "time to live" of 600 seconds in DNS zone named "contoso.com".
 
@@ -75,37 +75,37 @@ Once the CNAME record set is created, you need to create an alias value which wi
 
 Using the previously assigned variable "$rs" you can use the PowerShell command below to create the alias for the web app contoso.azurewebsites.net.
 
-	PS C:\> Add-AzureRMDnsRecordConfig -RecordSet $rs -Cname "contoso.azurewebsites.net"
+    PS C:\> Add-AzureRMDnsRecordConfig -RecordSet $rs -Cname "contoso.azurewebsites.net"
  
-	Name              : www
-	ZoneName          : contoso.com
-	ResourceGroupName : myresourcegroup
-	Ttl               : 600
-	Etag              : 8baceeb9-4c2c-4608-a22c-229923ee185
-	RecordType        : CNAME
-	Records           : {contoso.azurewebsites.net}
-	Tags              : {}
+    Name              : www
+    ZoneName          : contoso.com
+    ResourceGroupName : myresourcegroup
+    Ttl               : 600
+    Etag              : 8baceeb9-4c2c-4608-a22c-229923ee185
+    RecordType        : CNAME
+    Records           : {contoso.azurewebsites.net}
+    Tags              : {}
 
 ### Step 3
 
 Commit the changes using the Set-AzureRMDnsRecordSet cmdlet:
 
-	PS C:\>Set-AzureRMDnsRecordSet -RecordSet $rs
+    PS C:\>Set-AzureRMDnsRecordSet -RecordSet $rs
 
 You can validate the record was created correctly by querying the "www.contoso.com" using nslookup, as shown below:
 
-	PS C:\> nslookup
-	Default Server:  Default
-	Address:  192.168.0.1
+    PS C:\> nslookup
+    Default Server:  Default
+    Address:  192.168.0.1
  
-	> www.contoso.com
-	Server:  default server
-	Address:  192.168.0.1
-	 
-	Non-authoritative answer:
-	Name:    <instance of web app service>.cloudapp.net
-	Address:  <ip of web app service>
-	Aliases:  www.contoso.com
+    > www.contoso.com
+    Server:  default server
+    Address:  192.168.0.1
+     
+    Non-authoritative answer:
+    Name:    <instance of web app service>.cloudapp.net
+    Address:  <ip of web app service>
+    Aliases:  www.contoso.com
     contoso.azurewebsites.net
     <instance of web app service>.vip.azurewebsites.windows.net
 
@@ -117,38 +117,38 @@ In the example below, the "awverify" record will be created for contoso.com to v
 
 ### Step 1
 
-	PS C:\> $rs = New-AzureRMDnsRecordSet -ZoneName contoso.com -ResourceGroupName myresourcegroup -Name "awverify" -RecordType "CNAME" -Ttl 600
+    PS C:\> $rs = New-AzureRMDnsRecordSet -ZoneName contoso.com -ResourceGroupName myresourcegroup -Name "awverify" -RecordType "CNAME" -Ttl 600
  
-	Name              : awverify
-	ZoneName          : contoso.com
-	ResourceGroupName : myresourcegroup
-	Ttl               : 600
-	Etag              : 8baceeb9-4c2c-4608-a22c-229923ee1856
-	RecordType        : CNAME
-	Records           : {}
-	Tags              : {}
+    Name              : awverify
+    ZoneName          : contoso.com
+    ResourceGroupName : myresourcegroup
+    Ttl               : 600
+    Etag              : 8baceeb9-4c2c-4608-a22c-229923ee1856
+    RecordType        : CNAME
+    Records           : {}
+    Tags              : {}
 
 
 ### Step 2
 
 Once the record set awverify is created, you have to assign the CNAME record set alias to awverify.contoso.azurewebsites.net, as shown in the command below: 
 
-	PS C:\> Add-AzureRMDnsRecordConfig -RecordSet $rs -Cname "awverify.contoso.azurewebsites.net"
+    PS C:\> Add-AzureRMDnsRecordConfig -RecordSet $rs -Cname "awverify.contoso.azurewebsites.net"
  
-	Name              : awverify
-	ZoneName          : contoso.com
-	ResourceGroupName : myresourcegroup
-	Ttl               : 600
-	Etag              : 8baceeb9-4c2c-4608-a22c-229923ee185
-	RecordType        : CNAME
-	Records           : {awverify.contoso.azurewebsites.net}
-	Tags              : {}
+    Name              : awverify
+    ZoneName          : contoso.com
+    ResourceGroupName : myresourcegroup
+    Ttl               : 600
+    Etag              : 8baceeb9-4c2c-4608-a22c-229923ee185
+    RecordType        : CNAME
+    Records           : {awverify.contoso.azurewebsites.net}
+    Tags              : {}
 
 ### Step 3
 
 Commit the changes using the Set-AzureRMDnsRecordSet cmdlet. as shown in the command below:
 
-	PS C:\>Set-AzureRMDnsRecordSet -RecordSet $rs
+    PS C:\>Set-AzureRMDnsRecordSet -RecordSet $rs
 
 Now you can continue to follow the steps in [Configuring a custom domain name for App Service](../web-sites-custom-domain-name) to configure your web app to use a custom domain.
 

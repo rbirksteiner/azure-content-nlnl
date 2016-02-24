@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure AD B2C Preview | Microsoft Azure"
-	description="How to build a Windows desktop application with Sign-In, Sign-Up, and Profile Managment using Azure AD B2C."
-	services="active-directory-b2c"
-	documentationCenter=".net"
-	authors="dstrockis"
-	manager="msmbaldwin"
-	editor=""/>
+    pageTitle="Azure AD B2C Preview | Microsoft Azure"
+    description="How to build a Windows desktop application with Sign-In, Sign-Up, and Profile Managment using Azure AD B2C."
+    services="active-directory-b2c"
+    documentationCenter=".net"
+    authors="dstrockis"
+    manager="msmbaldwin"
+    editor=""/>
 
 <tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="09/22/2015"
-	ms.author="dastrock"/>
+    ms.service="active-directory-b2c"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="09/22/2015"
+    ms.author="dastrock"/>
 
 # Azure AD B2C Preview: Build a Windows desktop app
 
@@ -115,15 +115,15 @@ Open up the file `Globals.cs` and replace each of the property values with your 
 ```C#
 public static class Globals
 {
-	public static string tenant = "{Enter the name of your B2C tenant - it usually looks like constoso.onmicrosoft.com}";
-	public static string clientId = "{Enter the Application ID assigned to your app by the Azure Portal}";
-	public static string signInPolicy = "{Enter the name of your sign in policy, e.g. b2c_1_sign_in}";
-	public static string signUpPolicy = "{Enter the name of your sign up policy, e.g. b2c_1_sign_up}";
-	public static string editProfilePolicy = "{Enter the name of your edit profile policy, e.g. b2c_1_edit_profile}";
+    public static string tenant = "{Enter the name of your B2C tenant - it usually looks like constoso.onmicrosoft.com}";
+    public static string clientId = "{Enter the Application ID assigned to your app by the Azure Portal}";
+    public static string signInPolicy = "{Enter the name of your sign in policy, e.g. b2c_1_sign_in}";
+    public static string signUpPolicy = "{Enter the name of your sign up policy, e.g. b2c_1_sign_up}";
+    public static string editProfilePolicy = "{Enter the name of your edit profile policy, e.g. b2c_1_edit_profile}";
 
-	public static string taskServiceUrl = "https://localhost:44332";
-	public static string aadInstance = "https://login.microsoftonline.com/";
-	public static string redirectUri = "urn:ietf:wg:oauth:2.0:oob";
+    public static string taskServiceUrl = "https://localhost:44332";
+    public static string aadInstance = "https://login.microsoftonline.com/";
+    public static string redirectUri = "urn:ietf:wg:oauth:2.0:oob";
 
 }
 ``` 
@@ -138,19 +138,19 @@ create an instance of the `AuthenticationContext` in the `MainWindow.xaml.cs`, w
 ```C#
 public partial class MainWindow : Window
 {
-	private HttpClient httpClient = new HttpClient();
-	private AuthenticationContext authContext = null;
+    private HttpClient httpClient = new HttpClient();
+    private AuthenticationContext authContext = null;
 
-	protected async override void OnInitialized(EventArgs e)
-	{
-		base.OnInitialized(e);
+    protected async override void OnInitialized(EventArgs e)
+    {
+        base.OnInitialized(e);
 
-		// The authority parameter can be constructed by appending the name of your tenant to 'https://login.microsoftonline.com/'.
-		// ADAL implements an in-memory cache by default.  Since we want tokens to persist when the user closes the app, 
-		// we've extended the ADAL TokenCache and created a simple FileCache in this app.
-		authContext = new AuthenticationContext("https://login.microsoftonline.com/contoso.onmicrosoft.com", new FileCache());
-		...
-	...
+        // The authority parameter can be constructed by appending the name of your tenant to 'https://login.microsoftonline.com/'.
+        // ADAL implements an in-memory cache by default.  Since we want tokens to persist when the user closes the app, 
+        // we've extended the ADAL TokenCache and created a simple FileCache in this app.
+        authContext = new AuthenticationContext("https://login.microsoftonline.com/contoso.onmicrosoft.com", new FileCache());
+        ...
+    ...
 ```
 
 #### Initiate a sign-up flow
@@ -161,50 +161,50 @@ the authentication request, and so on.
 ```C#
 private async void SignUp(object sender, RoutedEventArgs e)
 {
-	AuthenticationResult result = null;
-	try
-	{
-		// Use the app's clientId here as the scope parameter, indicating that we want a token to the our own backend API
-		// Use the PromptBehavior.Always flag to indicate to ADAL that it should show a sign-up UI no matter what.
-		// Pass in the name of your sign-up policy to execute the sign-up experience.
-		result = await authContext.AcquireTokenAsync(new string[] { Globals.clientId },
-			null, Globals.clientId, new Uri(Globals.redirectUri),
-			new PlatformParameters(PromptBehavior.Always, null), Globals.signUpPolicy);
+    AuthenticationResult result = null;
+    try
+    {
+        // Use the app's clientId here as the scope parameter, indicating that we want a token to the our own backend API
+        // Use the PromptBehavior.Always flag to indicate to ADAL that it should show a sign-up UI no matter what.
+        // Pass in the name of your sign-up policy to execute the sign-up experience.
+        result = await authContext.AcquireTokenAsync(new string[] { Globals.clientId },
+            null, Globals.clientId, new Uri(Globals.redirectUri),
+            new PlatformParameters(PromptBehavior.Always, null), Globals.signUpPolicy);
 
-		// Indicate in the app that the user is signed in.
-		SignInButton.Visibility = Visibility.Collapsed;
-		SignUpButton.Visibility = Visibility.Collapsed;
-		EditProfileButton.Visibility = Visibility.Visible;
-		SignOutButton.Visibility = Visibility.Visible;
-		
-		// When the request completes successfully, you can get user information form the AuthenticationResult
-		UsernameLabel.Content = result.UserInfo.Name;
+        // Indicate in the app that the user is signed in.
+        SignInButton.Visibility = Visibility.Collapsed;
+        SignUpButton.Visibility = Visibility.Collapsed;
+        EditProfileButton.Visibility = Visibility.Visible;
+        SignOutButton.Visibility = Visibility.Visible;
+        
+        // When the request completes successfully, you can get user information form the AuthenticationResult
+        UsernameLabel.Content = result.UserInfo.Name;
 
-		// After the sign up successfully completes, display the user's To-Do List
-		GetTodoList();
-	}
-	
-	// Handle any exeptions that occurred during execution of the policy.
-	catch (AdalException ex)
-	{
-		if (ex.ErrorCode == "authentication_canceled")
-		{
-			MessageBox.Show("Sign up was canceled by the user");
-		}
-		else
-		{
-			// An unexpected error occurred.
-			string message = ex.Message;
-			if (ex.InnerException != null)
-			{
-				message += "Inner Exception : " + ex.InnerException.Message;
-			}
+        // After the sign up successfully completes, display the user's To-Do List
+        GetTodoList();
+    }
+    
+    // Handle any exeptions that occurred during execution of the policy.
+    catch (AdalException ex)
+    {
+        if (ex.ErrorCode == "authentication_canceled")
+        {
+            MessageBox.Show("Sign up was canceled by the user");
+        }
+        else
+        {
+            // An unexpected error occurred.
+            string message = ex.Message;
+            if (ex.InnerException != null)
+            {
+                message += "Inner Exception : " + ex.InnerException.Message;
+            }
 
-			MessageBox.Show(message);
-		}
+            MessageBox.Show(message);
+        }
 
-		return;
-	}
+        return;
+    }
 }
 ```
 
@@ -214,13 +214,13 @@ A sign-in flow can be initiated the same way as the sign-up flow.  When the user
 ```C#
 private async void SignIn(object sender = null, RoutedEventArgs args = null)
 {
-	AuthenticationResult result = null;
-	try
-	{
-		result = await authContext.AcquireTokenAsync(new string[] { Globals.clientId },
+    AuthenticationResult result = null;
+    try
+    {
+        result = await authContext.AcquireTokenAsync(new string[] { Globals.clientId },
                     null, Globals.clientId, new Uri(Globals.redirectUri),
                     new PlatformParameters(PromptBehavior.Always, null), Globals.signInPolicy);
-		...			
+        ...         
 ```
 
 #### Initiate a profile edit flow
@@ -229,10 +229,10 @@ Again, you can execute your edit profile policy in the same fashion:
 ```C#
 private async void EditProfile(object sender, RoutedEventArgs e)
 {
-	AuthenticationResult result = null;
-	try
-	{
-		result = await authContext.AcquireTokenAsync(new string[] { Globals.clientId },
+    AuthenticationResult result = null;
+    try
+    {
+        result = await authContext.AcquireTokenAsync(new string[] { Globals.clientId },
                     null, Globals.clientId, new Uri(Globals.redirectUri),
                     new PlatformParameters(PromptBehavior.Always, null), Globals.editProfilePolicy);
 ```
@@ -249,62 +249,62 @@ again using the `clientId` as the scope parameter, but this time using `PromptBe
 ```C#
 private async void GetTodoList()
 {
-	AuthenticationResult result = null;
-	try
-	{
-		// Here we want to check for a cached token, independent of whatever policy was used to acquire it.
-		TokenCacheItem tci = authContext.TokenCache.ReadItems().Where(i => i.Scope.Contains(Globals.clientId) && !string.IsNullOrEmpty(i.Policy)).FirstOrDefault();
-		string existingPolicy = tci == null ? null : tci.Policy;
+    AuthenticationResult result = null;
+    try
+    {
+        // Here we want to check for a cached token, independent of whatever policy was used to acquire it.
+        TokenCacheItem tci = authContext.TokenCache.ReadItems().Where(i => i.Scope.Contains(Globals.clientId) && !string.IsNullOrEmpty(i.Policy)).FirstOrDefault();
+        string existingPolicy = tci == null ? null : tci.Policy;
 
-		// We use the PromptBehavior.Never flag to indicate that ADAL should throw an exception if a token 
-		// could not be acquired from the cache, rather than automatically prompting the user to sign in. 
-		result = await authContext.AcquireTokenAsync(new string[] { Globals.clientId },
-			null, Globals.clientId, new Uri(Globals.redirectUri),
-			new PlatformParameters(PromptBehavior.Never, null), existingPolicy);
-	
-	}
+        // We use the PromptBehavior.Never flag to indicate that ADAL should throw an exception if a token 
+        // could not be acquired from the cache, rather than automatically prompting the user to sign in. 
+        result = await authContext.AcquireTokenAsync(new string[] { Globals.clientId },
+            null, Globals.clientId, new Uri(Globals.redirectUri),
+            new PlatformParameters(PromptBehavior.Never, null), existingPolicy);
+    
+    }
 
-	// If a token could not be acquired silently, we'll catch the exception and show the user a message.
-	catch (AdalException ex)
-	{
-		// There is no access token in the cache, so prompt the user to sign-in.
-		if (ex.ErrorCode == "user_interaction_required")
-		{
-			MessageBox.Show("Please sign up or sign in first");
-			SignInButton.Visibility = Visibility.Visible;
-			SignUpButton.Visibility = Visibility.Visible;
-			EditProfileButton.Visibility = Visibility.Collapsed;
-			SignOutButton.Visibility = Visibility.Collapsed;
-			UsernameLabel.Content = string.Empty;
+    // If a token could not be acquired silently, we'll catch the exception and show the user a message.
+    catch (AdalException ex)
+    {
+        // There is no access token in the cache, so prompt the user to sign-in.
+        if (ex.ErrorCode == "user_interaction_required")
+        {
+            MessageBox.Show("Please sign up or sign in first");
+            SignInButton.Visibility = Visibility.Visible;
+            SignUpButton.Visibility = Visibility.Visible;
+            EditProfileButton.Visibility = Visibility.Collapsed;
+            SignOutButton.Visibility = Visibility.Collapsed;
+            UsernameLabel.Content = string.Empty;
 
-		}
-		else
-		{
-			// An unexpected error occurred.
-			string message = ex.Message;
-			if (ex.InnerException != null)
-			{
-				message += "Inner Exception : " + ex.InnerException.Message;
-			}
-			MessageBox.Show(message);
-		}
+        }
+        else
+        {
+            // An unexpected error occurred.
+            string message = ex.Message;
+            if (ex.InnerException != null)
+            {
+                message += "Inner Exception : " + ex.InnerException.Message;
+            }
+            MessageBox.Show(message);
+        }
 
-		return;
-	}
-	...
+        return;
+    }
+    ...
 ```
 
 When the call to `AcquireTokenAsync(...)` succeeds and a token is found in the cache, you can add the token to the `Authorization` header of the HTTP request so that the `TaskService` can authenticate
 the request to read the user's to-do list: 
 
 ```C#
-	...
-	// Once the token has been returned by ADAL, add it to the http authorization header, before making the call to the TaskService.
-	httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.Token);
+    ...
+    // Once the token has been returned by ADAL, add it to the http authorization header, before making the call to the TaskService.
+    httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.Token);
 
-	// Call the To Do list service.
-	HttpResponseMessage response = await httpClient.GetAsync(taskServiceUrl + "/api/tasks");
-	...
+    // Call the To Do list service.
+    HttpResponseMessage response = await httpClient.GetAsync(taskServiceUrl + "/api/tasks");
+    ...
 ``` 
 
 You can use this same pattern any time you want to check the token cache for tokens without prompting the user to sign in.  For instance - when the app starts up,
@@ -318,19 +318,19 @@ the token cache:
 ```C#
 private void SignOut(object sender, RoutedEventArgs e)
 {
-	// Clear any remnants of the user's session.
-	authContext.TokenCache.Clear();
+    // Clear any remnants of the user's session.
+    authContext.TokenCache.Clear();
 
-	// This is a helper method that clears browser cookies in the browser control that ADAL uses, it is not part of ADAL.
-	ClearCookies();
+    // This is a helper method that clears browser cookies in the browser control that ADAL uses, it is not part of ADAL.
+    ClearCookies();
 
-	// Update the UI to show the user as signed out.
-	TaskList.ItemsSource = string.Empty;
-	SignInButton.Visibility = Visibility.Visible;
-	SignUpButton.Visibility = Visibility.Visible;
-	EditProfileButton.Visibility = Visibility.Collapsed;
-	SignOutButton.Visibility = Visibility.Collapsed;
-	return;
+    // Update the UI to show the user as signed out.
+    TaskList.ItemsSource = string.Empty;
+    SignInButton.Visibility = Visibility.Visible;
+    SignUpButton.Visibility = Visibility.Visible;
+    EditProfileButton.Visibility = Visibility.Collapsed;
+    SignOutButton.Visibility = Visibility.Collapsed;
+    return;
 }
 ```
 
@@ -375,3 +375,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 [Customizing the your B2C App's UX >>]()
 
 -->
+

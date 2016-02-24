@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Azure IoT device SDK for C - IoTHubClient | Microsoft Azure"
-	description="Learn more about using the IoTHubClient library in the Azure IoT device SDK for C"
-	services="iot-hub"
-	documentationCenter=""
-	authors="MichelBarnett"
-	manager="timlt"
-	editor=""/>
+    pageTitle="Azure IoT device SDK for C - IoTHubClient | Microsoft Azure"
+    description="Learn more about using the IoTHubClient library in the Azure IoT device SDK for C"
+    services="iot-hub"
+    documentationCenter=""
+    authors="MichelBarnett"
+    manager="timlt"
+    editor=""/>
 
 <tags
      ms.service="iot-hub"
@@ -205,7 +205,7 @@ As stated previously, when messages arrive from IoT Hub the **IoTHubClient** lib
 ```
 static IOTHUBMESSAGE_DISPOSITION_RESULT ReceiveMessageCallback(IOTHUB_MESSAGE_HANDLE message, void* userContextCallback)
 {
-	. . .
+    . . .
     return IOTHUBMESSAGE_ACCEPTED;
 }
 ```
@@ -277,3 +277,4 @@ The batching option is important. By default, the library ingresses events indiv
 ## Next steps
 
 This article describes in detail the behavior of the **IoTHubClient** library found in the **Azure IoT device SDK for C**. With this information, you should have a good understanding of the capabilities of the **IoTHubClient** library. The [next article](iot-hub-device-sdk-c-serializer.md) provides similar detail on the **serializer** library.
+

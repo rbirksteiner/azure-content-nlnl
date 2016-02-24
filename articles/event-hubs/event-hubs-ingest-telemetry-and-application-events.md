@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Ingest Telemetry and Application Events at Scale | Microsoft Azure" 
-	description="Learn how to ingest telemetry and application events at scale across your business solutions." 
-	services="event-hubs,service-bus" 
-	documentationCenter=".net" 
-	authors="sethmanheim" 
-	manager="timlt" 
-	editor=""/>
+    pageTitle="Ingest Telemetry and Application Events at Scale | Microsoft Azure" 
+    description="Learn how to ingest telemetry and application events at scale across your business solutions." 
+    services="event-hubs,service-bus" 
+    documentationCenter=".net" 
+    authors="sethmanheim" 
+    manager="timlt" 
+    editor=""/>
 
 <tags 
-	ms.service="event-hubs" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="10/06/2015" 
-	ms.author="sethm"/>
+    ms.service="event-hubs" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="multiple" 
+    ms.topic="article" 
+    ms.date="10/06/2015" 
+    ms.author="sethm"/>
 
 # Ingest telemetry and application events at scale
  

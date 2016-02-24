@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Tutorial: Use Copy Activity in an Azure Data Factory Pipeline"
-	description="This tutorial shows you how to use Copy Activity in an Azure Data Factory pipeline that to copy data from an Azure blob to an Azure SQL database."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
-	editor="monicar"/>
+    pageTitle="Tutorial: Use Copy Activity in an Azure Data Factory Pipeline"
+    description="This tutorial shows you how to use Copy Activity in an Azure Data Factory pipeline that to copy data from an Azure blob to an Azure SQL database."
+    services="data-factory"
+    documentationCenter=""
+    authors="spelluru"
+    manager="jhubbard"
+    editor="monicar"/>
 
 <tags
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article" 
-	ms.date="11/02/2015"
-	ms.author="spelluru"/>
+    ms.service="data-factory"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article" 
+    ms.date="11/02/2015"
+    ms.author="spelluru"/>
 
 # Tutorial: Copy data from an Azure blob to Azure SQL
 > [AZURE.SELECTOR]
@@ -70,7 +70,7 @@ Now, prepare your Azure blob storage and Azure SQL database for the tutorial by 
 1. Launch Notepad, paste the following text, and save it as **emp.txt** to **C:\ADFGetStarted** folder on your hard drive.
 
         John, Doe
-		Jane, Doe
+        Jane, Doe
 
 2. Use tools such as [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) to create the **adftutorial** container and to upload the **emp.txt** file to the container.
 
@@ -79,18 +79,18 @@ Now, prepare your Azure blob storage and Azure SQL database for the tutorial by 
 
 
         CREATE TABLE dbo.emp
-		(
-			ID int IDENTITY(1,1) NOT NULL,
-			FirstName varchar(50),
-			LastName varchar(50),
-		)
-		GO
+        (
+            ID int IDENTITY(1,1) NOT NULL,
+            FirstName varchar(50),
+            LastName varchar(50),
+        )
+        GO
 
-		CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
+        CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
 
-	**If you have SQL Server 2012/2014 installed on your computer:** follow instructions from [Step 2: Connect to SQL Database of the Managing Azure SQL Database using SQL Server Management Studio][sql-management-studio] article to connect to your Azure SQL server and run the SQL script. Note that this article uses the [Azure Classic Portal](http://manage.windowsazure.com), not the [Azure Portal](http://portal.azure.com), to configure firewall for an Azure SQL server.
+    **If you have SQL Server 2012/2014 installed on your computer:** follow instructions from [Step 2: Connect to SQL Database of the Managing Azure SQL Database using SQL Server Management Studio][sql-management-studio] article to connect to your Azure SQL server and run the SQL script. Note that this article uses the [Azure Classic Portal](http://manage.windowsazure.com), not the [Azure Portal](http://portal.azure.com), to configure firewall for an Azure SQL server.
 
-	**If you have Visual Studio 2013 installed on your computer:** in the [Azure Portal](http://portal.azure.com), click **BROWSE** hub on the left, click **SQL servers**, select your database, and click **Open in Visual Studio** button on toolbar to connect to your Azure SQL server and run the script. If your client is not allowed to access the Azure SQL server, you will need to configure firewall for your Azure SQL server to allow access from your machine (IP Address). See the article above for steps to configure the firewall for your Azure SQL server.
+    **If you have Visual Studio 2013 installed on your computer:** in the [Azure Portal](http://portal.azure.com), click **BROWSE** hub on the left, click **SQL servers**, select your database, and click **Open in Visual Studio** button on toolbar to connect to your Azure SQL server and run the script. If your client is not allowed to access the Azure SQL server, you will need to configure firewall for your Azure SQL server to allow access from your machine (IP Address). See the article above for steps to configure the firewall for your Azure SQL server.
 
 
 Do the following:
@@ -110,3 +110,4 @@ Do the following:
 [data-factory-introduction]: data-factory-introduction.md
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
 [data-factory-create-sql-database]: ../sql-database-get-started.md 
+

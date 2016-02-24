@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Enterprise-class WordPress on Azure App Service"
-	description="Learn how to host an enterprise-class WordPress site on Azure App Service"
-	services="app-service\web"
-	documentationCenter=""
-	authors="tfitzmac"
-	manager="wpickett"
-	editor=""/>
+    pageTitle="Enterprise-class WordPress on Azure App Service"
+    description="Learn how to host an enterprise-class WordPress site on Azure App Service"
+    services="app-service\web"
+    documentationCenter=""
+    authors="tfitzmac"
+    manager="wpickett"
+    editor=""/>
 
 <tags
-	ms.service="app-service-web"
-	ms.devlang="php"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="web"
-	ms.date="11/06/2015"
-	ms.author="tomfitz"/>
+    ms.service="app-service-web"
+    ms.devlang="php"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="web"
+    ms.date="11/06/2015"
+    ms.author="tomfitz"/>
 
 #Enterprise-class WordPress on Azure App Service
 
@@ -30,7 +30,7 @@ A basic WordPress installation has only two requirements.
 
 * **PHP 5.2.4 or greater** - Azure App Service currently provide [PHP versions 5.4, 5.5, and 5.6][phpwebsite].
 
-	> [AZURE.NOTE] We recommend always running on the latest version of PHP to ensure you have the latest security fixes.
+    > [AZURE.NOTE] We recommend always running on the latest version of PHP to ensure you have the latest security fixes.
 
 ###Basic deployment
 
@@ -96,7 +96,7 @@ There are two methods of migrating an existing WordPress site to Azure App Servi
 
 * **[WordPress export][export]** - This exports the content of your blog, which can then be imported to a new WordPress site on Azure App Service using the [WordPress importer plugin][import].
 
-	> [AZURE.NOTE] While this process allows you to migrate your content, it does not migrate any plugins, themes or other customizations. These must be installed again manually.
+    > [AZURE.NOTE] While this process allows you to migrate your content, it does not migrate any plugins, themes or other customizations. These must be installed again manually.
 
 * **Manual migration** - [Back up your site][wordpressbackup] and [database][wordpressdbbackup], then manually restore it to a web app in Azure App Service and associated MySQL database to migrate highly customized sites and avoid the tedium of manually installing plugins, themes, and other customizations.
 
@@ -153,27 +153,27 @@ If you were using this... | Do this...
 
 3. Create a new database and restore the backup.
 
-	1. Purchase a new database from the [Azure Marketplace][cdbnstore], or setup a  MySQL database on a [Windows][mysqlwindows] or [Linux][mysqllinux] VM.
+    1. Purchase a new database from the [Azure Marketplace][cdbnstore], or setup a  MySQL database on a [Windows][mysqlwindows] or [Linux][mysqllinux] VM.
 
-	2. Using a MySQL client like [MySQL Workbench][workbench], connect to the new database and import your WordPress database.
+    2. Using a MySQL client like [MySQL Workbench][workbench], connect to the new database and import your WordPress database.
 
-	3. Update the database to change the domain entries to your new Azure App Service domain. For example, mywordpress.azurewebsites.net. Use the [Search and Replace for WordPress Databases Script][searchandreplace] to safely change all instances.
+    3. Update the database to change the domain entries to your new Azure App Service domain. For example, mywordpress.azurewebsites.net. Use the [Search and Replace for WordPress Databases Script][searchandreplace] to safely change all instances.
 
 4. Create a new web app in the Azure Portal and publish the WordPress backup.
 
-	1. Create a new web app in the [Azure Portal][mgmtportal] with a database using **New** -> **Web + Mobile** -> **Azure Marketplace** -> **Web Apps** -> **Web app + SQL** (or **Web app + MySQL**) -> **Create**. Configure all the required settings to create an empty web app.
+    1. Create a new web app in the [Azure Portal][mgmtportal] with a database using **New** -> **Web + Mobile** -> **Azure Marketplace** -> **Web Apps** -> **Web app + SQL** (or **Web app + MySQL**) -> **Create**. Configure all the required settings to create an empty web app.
 
-	2. In your WordPress backup, locate the **wp-config.php** file and open it in an editor. Replace the following entries with the information for your new MySQL database.
+    2. In your WordPress backup, locate the **wp-config.php** file and open it in an editor. Replace the following entries with the information for your new MySQL database.
 
-		* **DB_NAME** - the user name of the database
+        * **DB_NAME** - the user name of the database
 
-		* **DB_USER** - the user name used to access the database
+        * **DB_USER** - the user name used to access the database
 
-		* **DB_PASSWORD** - the user password
+        * **DB_PASSWORD** - the user password
 
-		After changing these entries, save and close the **wp-config.php** file.
+        After changing these entries, save and close the **wp-config.php** file.
 
-	3. Use the [Deploy a web app in Azure App Service][deploy] information to enable the deployment method you wish to use, and then deploy your WordPress backup to your web app in Azure App Service.
+    3. Use the [Deploy a web app in Azure App Service][deploy] information to enable the deployment method you wish to use, and then deploy your WordPress backup to your web app in Azure App Service.
 
 5. Once the WordPress site has been deployed, you should be able to access the new site (as an App Service web app) using the *.azurewebsite.net URL for the site.
 
@@ -281,3 +281,4 @@ To do this... | Use this...
 [storesendgrid]: https://azure.microsoft.com/marketplace/partners/sendgrid/sendgrid-azure/
 [cdn]: ../cdn-how-to-use.md
  
+

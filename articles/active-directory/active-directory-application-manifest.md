@@ -51,33 +51,33 @@ Now lets walk through the steps required to update your application's identity c
 
 2. After you've authenticated, scroll down and select the Azure "Active Directory" extension in the left navigation panel (1), then click on the Azure AD tenant where your application is registered (2).
 
-	![Select the Azure AD tenant][SELECT-AZURE-AD-TENANT]
+    ![Select the Azure AD tenant][SELECT-AZURE-AD-TENANT]
 
 
 3. When the directory page comes up, click "Applications" (1) on the top of the page to see a list of applications registered in the tenant. Then find the application you want to update in the list and click on it (2).
 
-	![Select the Azure AD tenant][SELECT-AZURE-AD-APP]
+    ![Select the Azure AD tenant][SELECT-AZURE-AD-APP]
 
 
 4. Now that you've selected the application's main page, notice the "Manage Manifest" feature on the bottom of the page (1). If you click this link, you will be prompted to either download or upload the JSON manifest file. Click "Download Manifest" (2) which will be immediately followed with the download confirmation dialog prompting you to confirm by clicking "Download Manifest" (3), then either open or save the file locally (4).
 
-	![Manage the manifest, download option][MANAGE-MANIFEST-DOWNLOAD]
+    ![Manage the manifest, download option][MANAGE-MANIFEST-DOWNLOAD]
 
-	![Download the manifest][DOWNLOAD-MANIFEST]
+    ![Download the manifest][DOWNLOAD-MANIFEST]
 
 
 5. In this example, we saved the file locally, allowing us to open in an editor, make changes to the JSON, and save again. Here's what the JSON structure looks like inside the Visual Studio JSON editor. Note that it follows the schema for the [Application entity][APPLICATION-ENTITY] as we mentioned earlier:
 
-	![Update the manifest JSON][UPDATE-MANIFEST]
+    ![Update the manifest JSON][UPDATE-MANIFEST]
 
 
 6. When you're finished updating the manifest, return to the Azure AD application page in the Azure classic portal, click the "Manage Manifest" feature again (1), but this time select the "Upload Manifest" option (2). Similar to the download, you will be greeted again with a second dialog, prompting you for the location of the JSON file. Click "Browse for file ..." (3), then use the "Choose File to Upload" dialog to select the JSON file (4), and press "Open". Once the dialog goes away, select the "OK" check mark (5) and your manifest will be uploaded.  
 
-	![Manage the manifest, upload option][MANAGE-MANIFEST-UPLOAD]
+    ![Manage the manifest, upload option][MANAGE-MANIFEST-UPLOAD]
 
-	![Upload the manifest JSON][UPLOAD-MANIFEST]
+    ![Upload the manifest JSON][UPLOAD-MANIFEST]
 
-	![Upload the manifest JSON - confirmation][UPLOAD-MANIFEST-CONFIRM]
+    ![Upload the manifest JSON - confirmation][UPLOAD-MANIFEST-CONFIRM]
 
 That's it. Now your application can run using the new Application configuration, based on the changes you made to the manifest.
 
@@ -107,3 +107,4 @@ Please use the DISQUS comments section below to provide feedback and help us ref
 [O365-PERM-DETAILS]: https://msdn.microsoft.com/office/office365/HowTo/application-manifest
 [O365-SERVICE-DAEMON-APPS]: https://msdn.microsoft.com/office/office365/howto/building-service-apps-in-office-365
 [RBAC-CLOUD-APPS-AZUREAD]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
+

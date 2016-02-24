@@ -56,18 +56,18 @@ Or to drop the credential and key:
 
 Provide the information about your shard map and your data tier by defining an external data source. The external data source references your shard map. An elastic query then uses the external data source and the underlying shard map to enumerate the databases that participate in the data tier. The syntax to create an external data source is defined as follows: 
 
-	<External_Data_Source> ::=    
-	CREATE EXTERNAL DATA SOURCE <data_source_name> WITH                               	           
-			(TYPE = SHARD_MAP_MANAGER,
-                   	LOCATION = '<fully_qualified_server_name>',
-			DATABASE_NAME = ‘<shardmap_database_name>',
-			CREDENTIAL = <credential_name>, 
-			SHARD_MAP_NAME = ‘<shardmapname>’ 
+    <External_Data_Source> ::=    
+    CREATE EXTERNAL DATA SOURCE <data_source_name> WITH                                            
+            (TYPE = SHARD_MAP_MANAGER,
+                    LOCATION = '<fully_qualified_server_name>',
+            DATABASE_NAME = ‘<shardmap_database_name>',
+            CREDENTIAL = <credential_name>, 
+            SHARD_MAP_NAME = ‘<shardmapname>’ 
                    ) [;] 
  
 or to drop an external data source: 
 
-	DROP EXTERNAL DATA SOURCE <data_source_name>[;] 
+    DROP EXTERNAL DATA SOURCE <data_source_name>[;] 
 
 #### Permissions for CREATE/DROP EXTERNAL DATA SOURCE 
 
@@ -77,19 +77,19 @@ The user must possess ALTER ANY EXTERNAL DATA SOURCE permission. This permission
 
 The following example illustrates the use of the CREATE statement for external data sources. 
 
-	CREATE EXTERNAL DATA SOURCE MyExtSrc 
-	WITH 
-	( 
-		TYPE=SHARD_MAP_MANAGER,
-		LOCATION='myserver.database.windows.net', 
-		DATABASE_NAME='ShardMapDatabase', 
-		CREDENTIAL= SMMUser, 
-		SHARD_MAP_NAME='ShardMap' 
-	);
+    CREATE EXTERNAL DATA SOURCE MyExtSrc 
+    WITH 
+    ( 
+        TYPE=SHARD_MAP_MANAGER,
+        LOCATION='myserver.database.windows.net', 
+        DATABASE_NAME='ShardMapDatabase', 
+        CREDENTIAL= SMMUser, 
+        SHARD_MAP_NAME='ShardMap' 
+    );
  
 You can retrieve the list of current external data sources from the following catalog view: 
 
-	select * from sys.external_data_sources; 
+    select * from sys.external_data_sources; 
 
 Note that the same credentials are used to read the shard map and to access the data on the shards during the processing of an elastic query. 
 
@@ -105,14 +105,14 @@ Elastic query extends the external table DDL to refer to external tables that ar
 
 Using an external data source as outlined in the previous section, the syntax to create and drop external tables is as follows: 
 
-	CREATE EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name. ] table_name  
+    CREATE EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name. ] table_name  
         ( { <column_definition> } [ ,...n ])     
-	    { WITH ( <sharded_external_table_options> ) }
-	) [;]  
-	
-	<sharded_external_table_options> ::= 
+        { WITH ( <sharded_external_table_options> ) }
+    ) [;]  
+    
+    <sharded_external_table_options> ::= 
       DATA_SOURCE = <External_Data_Source>,       
-	  [ SCHEMA_NAME = N'nonescaped_schema_name',] 
+      [ SCHEMA_NAME = N'nonescaped_schema_name',] 
       [ OBJECT_NAME = N'nonescaped_object_name',] 
       DISTRIBUTION = SHARDED(<sharding_column_name>) | REPLICATED |ROUND_ROBIN
 
@@ -134,7 +134,7 @@ The query processor utilizes the information provided in the DISTRIBUTION clause
 
 Use the following statement to drop external tables:
 
-	DROP EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name. ] table_name[;]  
+    DROP EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name. ] table_name[;]  
 
 **Permissions for CREATE/DROP EXTERNAL TABLE:** ALTER ANY EXTERNAL DATA SOURCE permissions are needed which is also needed to refer to the underlying data source.  
 
@@ -142,30 +142,30 @@ Use the following statement to drop external tables:
 
 **Example**: The following example illustrates how to create an external table:  
 
-	CREATE EXTERNAL TABLE [dbo].[order_line]( 
-		 [ol_o_id] int NOT NULL, 
-		 [ol_d_id] tinyint NOT NULL,
-		 [ol_w_id] int NOT NULL, 
-		 [ol_number] tinyint NOT NULL, 
-		 [ol_i_id] int NOT NULL, 
-		 [ol_delivery_d] datetime NOT NULL, 
-		 [ol_amount] smallmoney NOT NULL, 
-		 [ol_supply_w_id] int NOT NULL, 
-		 [ol_quantity] smallint NOT NULL, 
-		 [ol_dist_info] char(24) NOT NULL 
-	) 
-	
-	WITH 
-	( 
-		DATA_SOURCE = MyExtSrc, 
-	 	SCHEMA_NAME = 'orders', 
-	 	OBJECT_NAME = 'order_details', 
-		DISTRIBUTION=SHARDED(ol_w_id)
-	); 
+    CREATE EXTERNAL TABLE [dbo].[order_line]( 
+         [ol_o_id] int NOT NULL, 
+         [ol_d_id] tinyint NOT NULL,
+         [ol_w_id] int NOT NULL, 
+         [ol_number] tinyint NOT NULL, 
+         [ol_i_id] int NOT NULL, 
+         [ol_delivery_d] datetime NOT NULL, 
+         [ol_amount] smallmoney NOT NULL, 
+         [ol_supply_w_id] int NOT NULL, 
+         [ol_quantity] smallint NOT NULL, 
+         [ol_dist_info] char(24) NOT NULL 
+    ) 
+    
+    WITH 
+    ( 
+        DATA_SOURCE = MyExtSrc, 
+        SCHEMA_NAME = 'orders', 
+        OBJECT_NAME = 'order_details', 
+        DISTRIBUTION=SHARDED(ol_w_id)
+    ); 
 
 The following example shows how to retrieve the list of external tables from the current database: 
 
-	select * from sys.external_tables; 
+    select * from sys.external_tables; 
 
 ## Querying 
 
@@ -175,20 +175,20 @@ Once you have defined your external data source and your external tables, you ca
 
 **Example for horizontal partitioning:** The following query performs a three-way join between warehouses, orders and order lines and uses several aggregates and a selective filter. It assumes (1) horizontal partitioning (sharding) and (2) that warehouses, orders and order lines are sharded by the warehouse id column, and that the elastic query can collocate the joins on the shards and process the expensive part of the query on the shards in parallel. 
 
-	select  
-		 w_id as warehouse,
-		 o_c_id as customer,
-		 count(*) as cnt_orderline,
-		 max(ol_quantity) as max_quantity,
-		 avg(ol_amount) as avg_amount, 
-		 min(ol_delivery_d) as min_deliv_date
-	from warehouse 
-	join orders 
-	on w_id = o_w_id
-	join order_line 
-	on o_id = ol_o_id and o_w_id = ol_w_id 
-	where w_id > 100 and w_id < 200 
-	group by w_id, o_c_id 
+    select  
+         w_id as warehouse,
+         o_c_id as customer,
+         count(*) as cnt_orderline,
+         max(ol_quantity) as max_quantity,
+         avg(ol_amount) as avg_amount, 
+         min(ol_delivery_d) as min_deliv_date
+    from warehouse 
+    join orders 
+    on w_id = o_w_id
+    join order_line 
+    on o_id = ol_o_id and o_w_id = ol_w_id 
+    where w_id > 100 and w_id < 200 
+    group by w_id, o_c_id 
  
 ### 2.2 Stored procedure SP_EXECUTE_FANOUT 
 
@@ -209,13 +209,13 @@ Note that the same credentials are used to connect to the shard map database and
 
 Example: 
 
-	sp_execute_fanout 
-		’myserver.database.windows.net', 
-		N'ShardMapDb', 
-		N'myuser', 
-		N'MyPwd', 
-		N'ShardMap', 
-		N'select count(w_id) as foo from warehouse' 
+    sp_execute_fanout 
+        ’myserver.database.windows.net', 
+        N'ShardMapDb', 
+        N'myuser', 
+        N'MyPwd', 
+        N'ShardMap', 
+        N'select count(w_id) as foo from warehouse' 
 
 ## Connectivity for tools  
 
@@ -237,3 +237,4 @@ Use regular SQL Server connection strings to connect your application, your BI a
 
 <!--Image references-->
 <!--anchors-->
+

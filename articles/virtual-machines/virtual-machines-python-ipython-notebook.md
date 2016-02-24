@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Create an Jupyter/IPython Notebook | Microsoft Azure"
-	description="Learn how to deploy the Jupyter/IPython Notebook on a Linux virtual machine created with the resource manager deployment model in Azure."
-	services="virtual-machines"
-	documentationCenter="python"
-	authors="crwilcox"
-	manager="wpickett"
-	editor=""
-	tags=“azure-service-management,azure-resource-manager"/>
+    pageTitle="Create an Jupyter/IPython Notebook | Microsoft Azure"
+    description="Learn how to deploy the Jupyter/IPython Notebook on a Linux virtual machine created with the resource manager deployment model in Azure."
+    services="virtual-machines"
+    documentationCenter="python"
+    authors="crwilcox"
+    manager="wpickett"
+    editor=""
+    tags=“azure-service-management,azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="python"
-	ms.topic="article"
-	ms.date="11/10/2015"
-	ms.author="crwilcox"/>
+    ms.service="virtual-machines"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-linux"
+    ms.devlang="python"
+    ms.topic="article"
+    ms.date="11/10/2015"
+    ms.author="crwilcox"/>
 
 # Jupyter Notebook on Azure
 
@@ -70,19 +70,19 @@ Install Anaconda, a popular data science python distribution, using one of the l
   <th>Python 2.7</th>
   <tr>
     <td>
-		<a href='https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda3-2.3.0-Linux-x86_64.sh'>64 bit</href>
-	</td>
+        <a href='https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda3-2.3.0-Linux-x86_64.sh'>64 bit</href>
+    </td>
     <td>
-		<a href='https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda-2.3.0-Linux-x86_64.sh'>64 bit</href>
-	</td>
+        <a href='https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda-2.3.0-Linux-x86_64.sh'>64 bit</href>
+    </td>
   </tr>
   <tr>
     <td>
-		<a href='https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda3-2.3.0-Linux-x86.sh'>32 bit</href>
-	</td>
+        <a href='https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda3-2.3.0-Linux-x86.sh'>32 bit</href>
+    </td>
     <td>
-		<a href='https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda-2.3.0-Linux-x86.sh'>32 bit</href>
-	</td>  
+        <a href='https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda-2.3.0-Linux-x86.sh'>32 bit</href>
+    </td>  
   </tr>
 </table>
 
@@ -90,20 +90,20 @@ Install Anaconda, a popular data science python distribution, using one of the l
 #### Installing Anaconda3 2.3.0 64-bit on Ubuntu
 As an example, this is how you can install Anaconda on Ubuntu
 
-	# install anaconda
-	cd ~
-	mkdir -p anaconda
-	cd anaconda/
-	curl -O https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda3-2.3.0-Linux-x86_64.sh
-	sudo bash Anaconda3-2.3.0-Linux-x86_64.sh -b -f -p /anaconda3
+    # install anaconda
+    cd ~
+    mkdir -p anaconda
+    cd anaconda/
+    curl -O https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda3-2.3.0-Linux-x86_64.sh
+    sudo bash Anaconda3-2.3.0-Linux-x86_64.sh -b -f -p /anaconda3
 
-	# clean up home directory
-	cd ..
-	rm -rf anaconda/
+    # clean up home directory
+    cd ..
+    rm -rf anaconda/
 
-	# Update Jupyter to the latest install and generate its config file
-	sudo /anaconda3/bin/conda install -f jupyter -y
-	/anaconda3/bin/jupyter-notebook --generate-config
+    # Update Jupyter to the latest install and generate its config file
+    sudo /anaconda3/bin/conda install -f jupyter -y
+    /anaconda3/bin/jupyter-notebook --generate-config
 
 
 ![Screenshot](./media/virtual-machines-python-ipython-notebook/anaconda-install.png)
@@ -254,3 +254,4 @@ For more information, see the [Python Developer Center](/develop/python/).
 [portal-vm-linux]: https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-tutorial-portal-rm/
 [repository]: https://github.com/ipython/ipython
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
+

@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Deploy Resources Using .NET Libraries | Microsoft Azure"
-	description="Learn to use the Compute, Storage, and Network .NET libraries to create and delete resources in Microsoft Azure using the Resource Manager."
-	services="virtual-machines,virtual-network,storage"
-	documentationCenter=""
-	authors="davidmu1"
-	manager="timlt"
-	editor="tysonn"
-	tags="azure-resource-manager"/>
+    pageTitle="Deploy Resources Using .NET Libraries | Microsoft Azure"
+    description="Learn to use the Compute, Storage, and Network .NET libraries to create and delete resources in Microsoft Azure using the Resource Manager."
+    services="virtual-machines,virtual-network,storage"
+    documentationCenter=""
+    authors="davidmu1"
+    manager="timlt"
+    editor="tysonn"
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/28/2015"
-	ms.author="davidmu"/>
+    ms.service="virtual-machines"
+    ms.workload="multiple"
+    ms.tgt_pltfrm="vm-windows"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/28/2015"
+    ms.author="davidmu"/>
 
 # Deploy Azure Resources Using the Compute, Network, and Storage .NET Libraries
 
@@ -42,13 +42,13 @@ To use Azure AD to authenticate requests to Azure Resource Manager, an applicati
 
 1. Open an Azure PowerShell prompt, and then run this command, and enter the credentials for your subscription when prompted:
 
-	    Login-AzureRmAccount
+        Login-AzureRmAccount
 
 2. Replace {password} in the following command with the one that you want to use and then run it to create the application:
 
-	    New-AzureRmADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
+        New-AzureRmADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
 
-	>[AZURE.NOTE] Take note of the application identifer that is returned after the application is created because you'll need it for the next step. You can also find the application identifier in the client id field of the application in the Active Directory section of the Azure portal.
+    >[AZURE.NOTE] Take note of the application identifer that is returned after the application is created because you'll need it for the next step. You can also find the application identifier in the client id field of the application in the Active Directory section of the Azure portal.
 
 3. Replace {application-id} with the identifier that you just recorded and then create the service principal for the application:
 
@@ -56,7 +56,7 @@ To use Azure AD to authenticate requests to Azure Resource Manager, an applicati
 
 4. Set the permission to use the application:
 
-	    New-AzureRmRoleAssignment -RoleDefinitionName Owner -ServicePrincipalName "https://myapp1.com"
+        New-AzureRmRoleAssignment -RoleDefinitionName Owner -ServicePrincipalName "https://myapp1.com"
 
 ## Step 2: Create a Visual Studio project and install the libraries
 
@@ -84,23 +84,23 @@ You are now ready to start using the libraries to create your application.
 
 Now that the Azure Active Directory application is created and the authentication library is installed, you format the application information into credentials that are used to authenticate requests to Azure Resource Manager. Do the following:
 
-1.	Open the Program.cs file for the project that you created, and then add the following using statements to the top of the file:
-		
-		using Microsoft.Azure;
-		using Microsoft.IdentityModel.Clients.ActiveDirectory;
-		using Microsoft.Azure.Management.Resources;
-		using Microsoft.Azure.Management.Resources.Models;
-		using Microsoft.Azure.Management.Storage;
-		using Microsoft.Azure.Management.Storage.Models;
-		using Microsoft.Azure.Management.Network;
-		using Microsoft.Azure.Management.Network.Models;
-		using Microsoft.Azure.Management.Compute;
-		using Microsoft.Azure.Management.Compute.Models;
+1.  Open the Program.cs file for the project that you created, and then add the following using statements to the top of the file:
+        
+        using Microsoft.Azure;
+        using Microsoft.IdentityModel.Clients.ActiveDirectory;
+        using Microsoft.Azure.Management.Resources;
+        using Microsoft.Azure.Management.Resources.Models;
+        using Microsoft.Azure.Management.Storage;
+        using Microsoft.Azure.Management.Storage.Models;
+        using Microsoft.Azure.Management.Network;
+        using Microsoft.Azure.Management.Network.Models;
+        using Microsoft.Azure.Management.Compute;
+        using Microsoft.Azure.Management.Compute.Models;
 
 
 2. Add the following method to the Program class to get the token that is needed to create the credentials:
 
-		private static string GetAuthorizationHeader()
+        private static string GetAuthorizationHeader()
         {
           ClientCredential cc = new ClientCredential("{application-id}", "{password}");
             var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
@@ -116,16 +116,16 @@ Now that the Azure Active Directory application is created and the authenticatio
           return token;
         }
 
-	Replace {application-id} with the application identifier that you recorded earlier, {password} with the password that you chose for the AD application, and {tenant-id} with the tenant identifier for your subscription. You can find the tenant id by running Get-AzureSubscription.
+    Replace {application-id} with the application identifier that you recorded earlier, {password} with the password that you chose for the AD application, and {tenant-id} with the tenant identifier for your subscription. You can find the tenant id by running Get-AzureSubscription.
 
-3.	Add the following code to the Main method in the Program.cs file to create the credentials:
+3.  Add the following code to the Main method in the Program.cs file to create the credentials:
 
-		var token = GetAuthorizationHeader();
-		var credential = new TokenCloudCredentials("{subscription-id}", token);
+        var token = GetAuthorizationHeader();
+        var credential = new TokenCloudCredentials("{subscription-id}", token);
 
-	Replace {subscription-id} with your subscription identifier.
+    Replace {subscription-id} with your subscription identifier.
 
-4.	Save the Program.cs file.
+4.  Save the Program.cs file.
 
 ## Step 4: Add the code to register the providers and create the resources
 
@@ -133,15 +133,15 @@ Now that the Azure Active Directory application is created and the authenticatio
 
 Resources are always deployed to a resource group. You use the [ResourceGroup](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.models.resourcegroup.aspx) and the [ResourceManagementClient](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.resourcemanagementclient.aspx) classes to create the resource group that the resources are deployed to.
 
-1.	Add the following method to the Program class to create the resource group:
+1.  Add the following method to the Program class to create the resource group:
 
-		public async static void CreateResourceGroup(TokenCloudCredentials credential)
-		{
-		  Console.WriteLine("Creating the resource group...");
+        public async static void CreateResourceGroup(TokenCloudCredentials credential)
+        {
+          Console.WriteLine("Creating the resource group...");
 
           using (var resourceManagementClient = new ResourceManagementClient(credential))
-		  {
-		    var rgResult = await resourceManagementClient.ResourceGroups.CreateOrUpdateAsync("mytestrg1", new ResourceGroup { Location = "West US" });
+          {
+            var rgResult = await resourceManagementClient.ResourceGroups.CreateOrUpdateAsync("mytestrg1", new ResourceGroup { Location = "West US" });
             Console.WriteLine(rgResult.StatusCode);
             var rpResult = await resourceManagementClient.Providers.RegisterAsync("Microsoft.Storage");
             Console.WriteLine(rpResult.StatusCode);
@@ -149,21 +149,21 @@ Resources are always deployed to a resource group. You use the [ResourceGroup](h
             Console.WriteLine(rpResult.StatusCode);
             rpResult = await resourceManagementClient.Providers.RegisterAsync("Microsoft.Compute");
             Console.WriteLine(rpResult.StatusCode);
-		  }
-		}
+          }
+        }
 
-2.	Add the following code to the Main method to call the method that you just added:
+2.  Add the following code to the Main method to call the method that you just added:
 
-		CreateResourceGroup(credential);
-		Console.ReadLine();
+        CreateResourceGroup(credential);
+        Console.ReadLine();
 
 ###Create a storage account
 
 A storage account is needed to store the virtual hard disk file that is created for the virtual machine.
 
-1.	Add the following method to the Program class to create the storage account:
+1.  Add the following method to the Program class to create the storage account:
 
-		public async static void CreateStorageAccount(TokenCloudCredentials credential)
+        public async static void CreateStorageAccount(TokenCloudCredentials credential)
         {
           Console.WriteLine("Creating the storage account...");
 
@@ -178,18 +178,18 @@ A storage account is needed to store the virtual hard disk file that is created 
           }
         }
 
-3.	Add the following code to the Main method to call the method that you just added:
+3.  Add the following code to the Main method to call the method that you just added:
 
-		CreateStorageAccount(credential);
-		Console.ReadLine();
+        CreateStorageAccount(credential);
+        Console.ReadLine();
 
 ###Create networking configuration
 
 A virtual machine is most productive when it is added to a virtual network.
 
-1.	Add the following method to the Program class to create a subnet, a public IP address, and a virtual network:
+1.  Add the following method to the Program class to create a subnet, a public IP address, and a virtual network:
 
-		public async static void CreateNetwork(TokenCloudCredentials credential)
+        public async static void CreateNetwork(TokenCloudCredentials credential)
         {
           Console.WriteLine("Creating the virtual network...");
           using (var networkClient = new NetworkResourceProviderClient(credential))
@@ -258,18 +258,18 @@ A virtual machine is most productive when it is added to a virtual network.
           }
         }
 
-2.	Add the following code to the Main method to call the method that you just added:
+2.  Add the following code to the Main method to call the method that you just added:
 
-		CreateNetwork(credential);
-		Console.ReadLine();
+        CreateNetwork(credential);
+        Console.ReadLine();
 
 ###Create a virtual machine
 
 Now that you created all of the supporting resources, you can create a virtual machine.
 
-1.	Add the following method to the Program class to create the virtual machine:
+1.  Add the following method to the Program class to create the virtual machine:
 
-		public async static void CreateVirtualMachine(TokenCloudCredentials credential)
+        public async static void CreateVirtualMachine(TokenCloudCredentials credential)
         {
           using (var computeClient = new ComputeManagementClient(credential))
           {
@@ -342,22 +342,22 @@ Now that you created all of the supporting resources, you can create a virtual m
           }
         }
 
-	>[AZURE.NOTE] Image vhd names change regularly in the image gallery, so you need to get a current image name to deploy the virtual machine. To do this, see [Manage Images Windows using Windows PowerShell](https://msdn.microsoft.com/library/azure/dn790330.aspx), and then replace {source-image-name} with the name of the vhd file that you want to use. For example,  "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201411.01-en.us-127GB.vhd".
+    >[AZURE.NOTE] Image vhd names change regularly in the image gallery, so you need to get a current image name to deploy the virtual machine. To do this, see [Manage Images Windows using Windows PowerShell](https://msdn.microsoft.com/library/azure/dn790330.aspx), and then replace {source-image-name} with the name of the vhd file that you want to use. For example,  "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201411.01-en.us-127GB.vhd".
 
-	Replace {subscription-id} with the identifier of your subscription.
+    Replace {subscription-id} with the identifier of your subscription.
 
-2.	Add the following code to the Main method to call the method that you just added:
+2.  Add the following code to the Main method to call the method that you just added:
 
-		CreateVirtualMachine(credential);
+        CreateVirtualMachine(credential);
     Console.ReadLine();
 
 ##Step 5: Add the code to delete the resources
 
 Because you are charged for resources used in Azure, it is always a good practice to delete resources that are no longer needed. If you want to delete the virtual machines and all of the supporting resources, all you have to do is delete the resource group.
 
-1.	Add the following method to the Program class to delete the resource group:
+1.  Add the following method to the Program class to delete the resource group:
 
-		public async static void DeleteResourceGroup(TokenCloudCredentials credential)
+        public async static void DeleteResourceGroup(TokenCloudCredentials credential)
         {
           Console.WriteLine("Deleting resource group...");
           using (var resourceGroupClient = new ResourceManagementClient(credential))
@@ -367,19 +367,20 @@ Because you are charged for resources used in Azure, it is always a good practic
           }
         }
 
-2.	Add the following code to the Main method to call the method that you just added:
+2.  Add the following code to the Main method to call the method that you just added:
 
-		DeleteResourceGroup(credential);
+        DeleteResourceGroup(credential);
         Console.ReadLine();
 
 ##Step 6: Run the console application
 
-1.	To run the console application, click **Start** in Visual Studio, and then sign in to Azure AD using the same username and password that you use with your subscription.
+1.  To run the console application, click **Start** in Visual Studio, and then sign in to Azure AD using the same username and password that you use with your subscription.
 
-2.	Press **Enter** after each status code is returned to create each resource. After the virtual machine is created, do the next step before pressing Enter to delete all of the resources.
+2.  Press **Enter** after each status code is returned to create each resource. After the virtual machine is created, do the next step before pressing Enter to delete all of the resources.
 
-	It should take about 5 minutes for this console application to run completely from start to finish. Before you press Enter to start deleting resources, you could take a few minutes to verify the creation of the resources in the Azure portal before you delete them.
+    It should take about 5 minutes for this console application to run completely from start to finish. Before you press Enter to start deleting resources, you could take a few minutes to verify the creation of the resources in the Azure portal before you delete them.
 
 3. Browse to the Audit Logs in the Azure portal to see the status of the resources:
 
-	![Create an AD application](./media/virtual-machines-arm-deployment/crpportal.png)
+    ![Create an AD application](./media/virtual-machines-arm-deployment/crpportal.png)
+

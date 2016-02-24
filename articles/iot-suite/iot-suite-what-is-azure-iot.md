@@ -45,3 +45,4 @@ Explore these resources for more information about IoT on Azure:
 [Azure Stream Analytics]: https://azure.microsoft.com/services/stream-analytics/
 [Azure Machine Learning]: https://azure.microsoft.com/en-us/services/machine-learning/
 [Azure storage]: https://azure.microsoft.com/en-us/services/storage/
+

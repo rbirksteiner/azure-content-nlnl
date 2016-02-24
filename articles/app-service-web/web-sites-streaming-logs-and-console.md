@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Streaming logs and console" 
-	description="Streaming logs and console overview" 
-	authors="btardif" 
-	manager="wpickett" 
-	editor="" 
-	services="app-service\web" 
-	documentationCenter=""/>
+    pageTitle="Streaming logs and console" 
+    description="Streaming logs and console overview" 
+    authors="btardif" 
+    manager="wpickett" 
+    editor="" 
+    services="app-service\web" 
+    documentationCenter=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="11/12/2015" 
-	ms.author="byvinyal"/>
+    ms.service="app-service-web" 
+    ms.workload="web" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="multiple" 
+    ms.topic="article" 
+    ms.date="11/12/2015" 
+    ms.author="byvinyal"/>
 
 #Streaming Logs and the Console
 
@@ -108,3 +108,4 @@ cd
 [BrowseSitesScreenshot]: ./media/web-sites-streaming-logs-and-console/browse-sites.png
 [StreamingLogsScreenshot]: ./media/web-sites-streaming-logs-and-console/streaming-logs.png
 [ConsoleScreenshot]: ./media/web-sites-streaming-logs-and-console/console.png
+

@@ -51,14 +51,14 @@ To create a service namespace:
     sure you use the same country/region in which you are deploying your
     compute resources).
 
-	IMPORTANT: Pick the **same region** that you intend to choose for
+    IMPORTANT: Pick the **same region** that you intend to choose for
     deploying your application. This will give you the best performance.
 
-6. 	Leave the other fields in the dialog with their default values (**Messaging** and **Standard Tier**), then click the check mark. The system now creates your service
+6.  Leave the other fields in the dialog with their default values (**Messaging** and **Standard Tier**), then click the check mark. The system now creates your service
     namespace and enables it. You might have to wait several minutes as
     the system provisions resources for your account.
 
-	![][6]
+    ![][6]
 
 
 ## Obtain the default management credentials for the namespace
@@ -77,7 +77,7 @@ credentials for the namespace. You can obtain these credentials from the portal.
     ![][3]
 
 3.  Click **Configure** to view the shared access policies for your namespace.
-	![](./media/service-bus-java-how-to-create-topic/sb-queues-14.png)
+    ![](./media/service-bus-java-how-to-create-topic/sb-queues-14.png)
 
 4.  Make a note of the primary key, or copy it to the clipboard.
 
@@ -90,3 +90,4 @@ credentials for the namespace. You can obtain these credentials from the portal.
 
   [6]: ./media/service-bus-java-how-to-create-topic/getting-started-multi-tier-27.png
   [34]: ./media/service-bus-java-how-to-create-topic/VSProperties.png
+

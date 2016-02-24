@@ -21,3 +21,4 @@
 6. Set the filter selections to the appropriate device, backup policy, and time range. Click the check icon ![check icon](./media/storsimple-create-manual-backup/HCS_CheckIcon-include.png) after setting the filters.
 
   The backup should appear in the list of backup sets that is displayed in the catalog.
+

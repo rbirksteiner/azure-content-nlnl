@@ -34,20 +34,20 @@ For more information, see [U-SQL Reference](http://go.microsoft.com/fwlink/p/?Li
 - **Visual Studio 2015, Visual Studio 2013 update 4, or Visual Studio 2012 with Visual C++ Installed** 
 - **Microsoft Azure SDK for .NET version 2.7 or above**.  Install it using the [Web platform installer](http://www.microsoft.com/web/downloads/platform.aspx).
 - **[Data Lake Tools for Visual Studio](http://aka.ms/adltoolsvs)**. 
-	
-	Once Data Lake Tools for Visual Studio is installed, you will see a **Data Lake** menu in Visual Studio:
-	
-	![U-SQL Visual Studio menu](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-menu.png)
+    
+    Once Data Lake Tools for Visual Studio is installed, you will see a **Data Lake** menu in Visual Studio:
+    
+    ![U-SQL Visual Studio menu](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-menu.png)
 
 - **Basic knowledge of Data Lake Analytics and the Data Lake Tools for Visual Studio**. To get started, see:
  
-	- [Get Started with Azure Data Lake Analytics using Azure Portal](data-lake-analytics-get-started-portal.md).
-	- [Develop U-SQL script using Data Lake tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
+    - [Get Started with Azure Data Lake Analytics using Azure Portal](data-lake-analytics-get-started-portal.md).
+    - [Develop U-SQL script using Data Lake tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 
 - **A Data Lake Analytics account**.  See [Create an Azure Data Lake (ADL) Analytics account](data-lake-analytics-get-started-portal.md#create_adl_analytics_account).
 - **Upload the sample data to the Data Lake Analytics account**. See [Upload SearchLog.tsv to the default Data Lake Storage account](data-lake-analytics-get-started-portal.md#update-data-to-the-default-adl-storage-account).
 
-	The Data Lake Tools doesn't support creating Data Lake Analytics accounts.  So you have to create it using the Azure Portal, Azure PowerShell, .NET SDK or Azure CLI. 
+    The Data Lake Tools doesn't support creating Data Lake Analytics accounts.  So you have to create it using the Azure Portal, Azure PowerShell, .NET SDK or Azure CLI. 
     To run a Data Lake Analytics job, you will need some data. Even though the Data Lake Tools supports uploading data, you will use the portal to upload the sample data to make this tutorial easier to follow. 
 
 ## Connect to Azure from Visual Studio
@@ -76,8 +76,8 @@ The main purpose of this section is to understand the process of writing and tes
 1. From the **File** menu, click **New**, and then click **Project**.
 2. Select the U-SQL Project type.
 
-	![new U-SQL Visual Studio project](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
-	
+    ![new U-SQL Visual Studio project](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
+    
 3. Click **OK**. Visual studio creates a solution with a Script.usql file.
 4. Enter the following script into the Script.usql file:
 
@@ -96,14 +96,14 @@ The main purpose of this section is to understand the process of writing and tes
             TO "/output/SearchLog-first-u-sql.csv"
         USING Outputters.Csv();
 
-		The next section in this article will explain the script in details.  You just need to focus on understanding the development and testing process in this section.
+        The next section in this article will explain the script in details.  You just need to focus on understanding the development and testing process in this section.
 5. Next to the **Submit** button, specify the Analytics account.
 5. From **Solution Explorer**, right click **Script.usql**, and then click **Build Script**. Verify the result in the Output pane.  If you have an error in your script, you will see an error output here. 
 6. From **Solution Explorer**, right click **Script.usql**, and then click **Submit Script**.
 7. Verify the **Analytics Account**, and then click **Submit**. Submission results and job link are available in the Data Lake Tools for Visual Studio Results window when the submission is completed.
 8. You can click the **Refresh** button to see the latest job status and refresh the screen. Wait until the job is completed successfully.  If the job failed, it is most likely missing the source file.  You can use the "error" tab in the tool to see the error returned from the service. Please see the Prerequisite section of this tutorial. For additional troubleshooting information, see [Monitor and troubleshoot Azure Data Lake Analytics jobs](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
 
-	
+    
 **To see the job output**
 
 1. From **Server Explorer**, expand **Azure**, expand **Data Lake Analytics**, expand your Data Lake Analytics account, expand **Storage Accounts**, right-click the default Data Lake Storage account, and then click **Explorer**. 
@@ -504,6 +504,7 @@ What is covered in the tutorial is only a small part of U-SQL. Because of the sc
 - [Submit a feature request](http://aka.ms/adlafeedback)
 - [Get help in the forums](http://aka.ms/adlaforums)
 - [Provide feedback on U-SQL](http://aka.ms/usqldiscuss)
+
 
 
 

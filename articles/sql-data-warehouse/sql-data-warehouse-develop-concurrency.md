@@ -228,43 +228,43 @@ To look at the differences in memory resource allocation in detail from the pers
 ```
 WITH rg
 AS
-(   SELECT  pn.name									AS node_name
-	,		pn.[type]								AS node_type
-	,		pn.pdw_node_id							AS node_id
-	,		rp.name									AS pool_name
-    ,       rp.max_memory_kb*1.0/1024				AS pool_max_mem_MB
-    ,       wg.name									AS group_name
-    ,       wg.importance							AS group_importance
-    ,       wg.request_max_memory_grant_percent		AS group_request_max_memory_grant_pcnt
-    ,       wg.max_dop								AS group_max_dop
-    ,       wg.effective_max_dop					AS group_effective_max_dop
-	,		wg.total_request_count					AS group_total_request_count
-	,		wg.total_queued_request_count			AS group_total_queued_request_count
-	,		wg.active_request_count					AS group_active_request_count
-	,		wg.queued_request_count					AS group_queued_request_count
+(   SELECT  pn.name                                 AS node_name
+    ,       pn.[type]                               AS node_type
+    ,       pn.pdw_node_id                          AS node_id
+    ,       rp.name                                 AS pool_name
+    ,       rp.max_memory_kb*1.0/1024               AS pool_max_mem_MB
+    ,       wg.name                                 AS group_name
+    ,       wg.importance                           AS group_importance
+    ,       wg.request_max_memory_grant_percent     AS group_request_max_memory_grant_pcnt
+    ,       wg.max_dop                              AS group_max_dop
+    ,       wg.effective_max_dop                    AS group_effective_max_dop
+    ,       wg.total_request_count                  AS group_total_request_count
+    ,       wg.total_queued_request_count           AS group_total_queued_request_count
+    ,       wg.active_request_count                 AS group_active_request_count
+    ,       wg.queued_request_count                 AS group_queued_request_count
     FROM    sys.dm_pdw_nodes_resource_governor_workload_groups wg
     JOIN    sys.dm_pdw_nodes_resource_governor_resource_pools rp    ON  wg.pdw_node_id  = rp.pdw_node_id
-															        AND wg.pool_id      = rp.pool_id
-	JOIN	sys.dm_pdw_nodes pn										ON	wg.pdw_node_id	= pn.pdw_node_id
-	WHERE   wg.name like 'SloDWGroup%'
-	AND     rp.name = 'SloDWPool'
+                                                                    AND wg.pool_id      = rp.pool_id
+    JOIN    sys.dm_pdw_nodes pn                                     ON  wg.pdw_node_id  = pn.pdw_node_id
+    WHERE   wg.name like 'SloDWGroup%'
+    AND     rp.name = 'SloDWPool'
 ) 
-SELECT	pool_name
-,		pool_max_mem_MB
-,		group_name
-,		group_importance
-,		(pool_max_mem_MB/100)*group_request_max_memory_grant_pcnt AS max_memory_grant_MB
-,		node_name
-,		node_type
+SELECT  pool_name
+,       pool_max_mem_MB
+,       group_name
+,       group_importance
+,       (pool_max_mem_MB/100)*group_request_max_memory_grant_pcnt AS max_memory_grant_MB
+,       node_name
+,       node_type
 ,       group_total_request_count
 ,       group_total_queued_request_count
 ,       group_active_request_count
 ,       group_queued_request_count
-FROM	rg
+FROM    rg
 ORDER BY 
-	node_name
-,	group_request_max_memory_grant_pcnt
-,	group_importance
+    node_name
+,   group_request_max_memory_grant_pcnt
+,   group_importance
 ;
 ```
 
@@ -329,12 +329,12 @@ EXEC sp_droprolemember 'largerc', 'newperson'
 To see which users are members of a given role use the following query:
 
 ```
-SELECT	r.name AS role_principal_name
-,		m.name AS member_principal_name
-FROM	sys.database_role_members rm
-JOIN	sys.database_principals AS r			ON rm.role_principal_id		= r.principal_id
-JOIN	sys.database_principals AS m			ON rm.member_principal_id	= m.principal_id
-WHERE	r.name IN ('mediumrc','largerc', 'xlargerc')
+SELECT  r.name AS role_principal_name
+,       m.name AS member_principal_name
+FROM    sys.database_role_members rm
+JOIN    sys.database_principals AS r            ON rm.role_principal_id     = r.principal_id
+JOIN    sys.database_principals AS m            ON rm.member_principal_id   = m.principal_id
+WHERE   r.name IN ('mediumrc','largerc', 'xlargerc')
 ;
 ```
 
@@ -342,11 +342,11 @@ WHERE	r.name IN ('mediumrc','largerc', 'xlargerc')
 To identify queries that are held in a concurrency queue you can always refer to the `sys.dm_pdw_exec_requests` DMV.
 
 ```
-SELECT 	 r.[request_id]									AS Request_ID
-		,r.[status]										AS Request_Status
-		,r.[submit_time]								AS Request_SubmitTime
-		,r.[start_time]									AS Request_StartTime
-        ,DATEDIFF(ms,[submit_time],[start_time])		AS Request_InitiateDuration_ms
+SELECT   r.[request_id]                                 AS Request_ID
+        ,r.[status]                                     AS Request_Status
+        ,r.[submit_time]                                AS Request_SubmitTime
+        ,r.[start_time]                                 AS Request_StartTime
+        ,DATEDIFF(ms,[submit_time],[start_time])        AS Request_InitiateDuration_ms
         ,r.resource_class                               AS Request_resource_class
 FROM    sys.dm_pdw_exec_requests r
 ;
@@ -375,7 +375,7 @@ To perform analysis of currently queued queries to find out what resources a req
 ```
 SELECT  w.[wait_id]
 ,       w.[session_id]
-,       w.[type]											AS Wait_type
+,       w.[type]                                            AS Wait_type
 ,       w.[object_type]
 ,       w.[object_name]
 ,       w.[request_id]
@@ -383,27 +383,27 @@ SELECT  w.[wait_id]
 ,       w.[acquire_time]
 ,       w.[state]
 ,       w.[priority]
-,		SESSION_ID()										AS Current_session
-,		s.[status]											AS Session_status
-,		s.[login_name]
-,		s.[query_count]
-,		s.[client_id]
-,		s.[sql_spid]
-,		r.[command]											AS Request_command
-,		r.[label]
-,		r.[status]											AS Request_status
-,		r.[submit_time]
-,		r.[start_time]
-,		r.[end_compile_time]
-,		r.[end_time]
-,		DATEDIFF(ms,r.[submit_time],r.[start_time])			AS Request_queue_time_ms
-,		DATEDIFF(ms,r.[start_time],r.[end_compile_time])	AS Request_compile_time_ms
-,		DATEDIFF(ms,r.[end_compile_time],r.[end_time])		AS Request_execution_time_ms
-,		r.[total_elapsed_time]
+,       SESSION_ID()                                        AS Current_session
+,       s.[status]                                          AS Session_status
+,       s.[login_name]
+,       s.[query_count]
+,       s.[client_id]
+,       s.[sql_spid]
+,       r.[command]                                         AS Request_command
+,       r.[label]
+,       r.[status]                                          AS Request_status
+,       r.[submit_time]
+,       r.[start_time]
+,       r.[end_compile_time]
+,       r.[end_time]
+,       DATEDIFF(ms,r.[submit_time],r.[start_time])         AS Request_queue_time_ms
+,       DATEDIFF(ms,r.[start_time],r.[end_compile_time])    AS Request_compile_time_ms
+,       DATEDIFF(ms,r.[end_compile_time],r.[end_time])      AS Request_execution_time_ms
+,       r.[total_elapsed_time]
 FROM    sys.dm_pdw_waits w
 JOIN    sys.dm_pdw_exec_sessions s  ON w.[session_id] = s.[session_id]
 JOIN    sys.dm_pdw_exec_requests r  ON w.[request_id] = r.[request_id]
-WHERE	w.[session_id] <> SESSION_ID()
+WHERE   w.[session_id] <> SESSION_ID()
 ;
 ```
 
@@ -422,21 +422,21 @@ SELECT  [session_id]
 ,       [resource_class]
 ,       [wait_id]                                   AS queue_position
 FROM    sys.dm_pdw_resource_waits
-WHERE	[session_id] <> SESSION_ID()
+WHERE   [session_id] <> SESSION_ID()
 ;
 ```
 
 Finally, for historic trend analysis of waits then SQL Datawarehouse provides the `sys.dm_pdw_wait_stats` DMV.
 
 ```
-SELECT	w.[pdw_node_id]
-,		w.[wait_name]
-,		w.[max_wait_time]
-,		w.[request_count]
-,		w.[signal_time]
-,		w.[completed_count]
-,		w.[wait_time]
-FROM	sys.dm_pdw_wait_stats w
+SELECT  w.[pdw_node_id]
+,       w.[wait_name]
+,       w.[max_wait_time]
+,       w.[request_count]
+,       w.[signal_time]
+,       w.[completed_count]
+,       w.[wait_time]
+FROM    sys.dm_pdw_wait_stats w
 ;
 ```
 
@@ -452,5 +452,6 @@ For more development tips, see [development overview][].
 [Managing Databases and Logins in Azure SQL Database]:https://msdn.microsoft.com/library/azure/ee336235.aspx
 
 <!--Other Web references-->
+
 
 

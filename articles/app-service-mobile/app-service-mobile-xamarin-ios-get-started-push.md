@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Add push notifications to your Xamarin.iOS app with Azure App Service" 
-	description="Learn how to use Azure App Service to send push notifications to your Xamarin.iOS app" 
-	services="app-service\mobile" 
-	documentationCenter="xamarin" 
-	authors="wesmc7777"
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="Add push notifications to your Xamarin.iOS app with Azure App Service" 
+    description="Learn how to use Azure App Service to send push notifications to your Xamarin.iOS app" 
+    services="app-service\mobile" 
+    documentationCenter="xamarin" 
+    authors="wesmc7777"
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="app-service-mobile" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-ios" 
-	ms.devlang="dotnet" 
-	ms.topic="article"
-	ms.date="12/01/2015" 
-	ms.author="wesmc"/>
+    ms.service="app-service-mobile" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="mobile-xamarin-ios" 
+    ms.devlang="dotnet" 
+    ms.topic="article"
+    ms.date="12/01/2015" 
+    ms.author="wesmc"/>
 
 # Add push notifications to your Xamarin.iOS App
 
@@ -52,13 +52,13 @@ To configure your app to send notifications, create a new hub and configure it f
 
 1. In the [Azure portal](https://portal.azure.com/), click **Browse** > **Mobile Apps** > your Mobile App > **Settings** > **Mobile** > **Push** > **Notification Hub** > **+ Notification Hub**, and provide a name and namespace for a new notification hub, and then click the **OK** button.
 
-	![](./media/app-service-mobile-xamarin-ios-get-started-push/mobile-app-configure-notification-hub.png)
+    ![](./media/app-service-mobile-xamarin-ios-get-started-push/mobile-app-configure-notification-hub.png)
 
 2. In the Create Notification Hub blade, click **Create**.
 
 3. Click **Push** > **Apple (APNS)** > **Upload Certificate**. Upload the .p12 push certificate file you exported earlier.  Make sure to select **Sandbox** if you created a development push certificate for development and testing.  Otherwise, choose **Production**. Your service is now configured to work with push notifications on iOS!
 
-	![](./media/app-service-mobile-xamarin-ios-get-started-push/mobile-app-upload-apns-cert.png)
+    ![](./media/app-service-mobile-xamarin-ios-get-started-push/mobile-app-upload-apns-cert.png)
 
 ##Update the server project to send push notifications
 
@@ -89,8 +89,8 @@ To configure your app to send notifications, create a new hub and configure it f
 
 1. Add the following `using` statement to the top of the **AppDelegate.cs** file.
 
-		using Microsoft.WindowsAzure.MobileServices;
-		using Newtonsoft.Json.Linq;
+        using Microsoft.WindowsAzure.MobileServices;
+        using Newtonsoft.Json.Linq;
 
 2. In **AppDelegate**, override the **FinishedLaunching** event: 
 
@@ -111,7 +111,7 @@ To configure your app to send notifications, create a new hub and configure it f
 
 3. In the same file, override the **RegisteredForRemoteNotifications** event. In this code you are registering for a simple template notification that will be sent across all supported platforms by the server. 
  
-	For more information on templates with Notification Hubs, see [Templates](../notification-hubs/notification-hubs-templates.md). 
+    For more information on templates with Notification Hubs, see [Templates](../notification-hubs/notification-hubs-templates.md). 
 
 
         public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
@@ -155,8 +155,8 @@ Your app is now updated to support push notifications.
 ## <a name="test"></a>Test push notifications in your app
 
 1. Press the **Run** button to build the project and start the app in an iOS capable device, then click **OK** to accept push notifications.
-	
-	> [AZURE.NOTE] You must explicitly accept push notifications from your app. This request only occurs the first time that the app runs.
+    
+    > [AZURE.NOTE] You must explicitly accept push notifications from your app. This request only occurs the first time that the app runs.
 
 2. In the app, type a task, and then click the plus (**+**) icon.
 

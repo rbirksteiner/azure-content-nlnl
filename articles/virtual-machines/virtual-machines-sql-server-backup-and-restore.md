@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Backup and Restore for SQL Server | Microsoft Azure"
-	description="Describes backup and restore considerations for SQL Server databases running on Azure Virtual Machines."
-	services="virtual-machines"
-	documentationCenter="na"
-	authors="rothja"
-	manager="jeffreyg"
-	editor="monicar"
-	tags="azure-service-management" />
+    pageTitle="Backup and Restore for SQL Server | Microsoft Azure"
+    description="Describes backup and restore considerations for SQL Server databases running on Azure Virtual Machines."
+    services="virtual-machines"
+    documentationCenter="na"
+    authors="rothja"
+    manager="jeffreyg"
+    editor="monicar"
+    tags="azure-service-management" />
 
 <tags
-	ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services"
-	ms.date="11/13/2015"
-	ms.author="jroth" />
+    ms.service="virtual-machines"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="vm-windows-sql-server"
+    ms.workload="infrastructure-services"
+    ms.date="11/13/2015"
+    ms.author="jroth" />
 
 # Backup and Restore for SQL Server in Azure Virtual Machines
 
@@ -91,3 +91,4 @@ If you are still planning your deployment of SQL Server in an Azure VM, you can 
 Although backup and restore can be used to migrate your data, there are potentially easier data migration paths to SQL Server on an Azure VM. For a full discussion of migration options and recommendations, see [Migrating a Database to SQL Server on an Azure VM](virtual-machines-migrate-onpremises-database.md).
 
 Review other [resources for running SQL Server in Azure Virtual Machines](virtual-machines-sql-server-infrastructure-services.md).
+

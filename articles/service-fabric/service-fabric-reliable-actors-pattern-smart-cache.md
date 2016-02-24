@@ -311,3 +311,4 @@ Essentially Smart Cache provides:
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-smart-cache/smartcache-arch.png
+

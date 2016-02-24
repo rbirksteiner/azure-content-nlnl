@@ -1,20 +1,20 @@
 <properties   
-	pageTitle="Migrating BizTalk Server EDI Solutions to BizTalk Services Technical Guide | Microsoft Azure"
-	description="Migrate EDI to MABS; Microsoft Azure BizTalk Services"
-	services="biztalk-services"
-	documentationCenter="na"
-	authors="MandiOhlinger"
-	manager="dwrede"
-	editor="dwrede"/>
+    pageTitle="Migrating BizTalk Server EDI Solutions to BizTalk Services Technical Guide | Microsoft Azure"
+    description="Migrate EDI to MABS; Microsoft Azure BizTalk Services"
+    services="biztalk-services"
+    documentationCenter="na"
+    authors="MandiOhlinger"
+    manager="dwrede"
+    editor="dwrede"/>
 
 <tags 
-	ms.service="biztalk-services"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/07/2015"
-	ms.author="mandia"/>
+    ms.service="biztalk-services"
+    ms.workload="integration"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/07/2015"
+    ms.author="mandia"/>
 
 
 # Migrating BizTalk Server EDI Solutions to BizTalk Services: Technical Guide
@@ -54,7 +54,7 @@ The key differences, and similarities, between an EDI solution flow in BizTalk S
 - Just like BizTalk Server uses an EDIReceive pipeline to receive an EDI message and an EDISend pipeline to send an EDI message, BizTalk Services uses an EDI Receive bridge to receive and EDI Send bridge to send out EDI messages. In BizTalk Server, the pipelines are associated with an agreement by using send or receive ports. In BizTalk Services, the agreement itself denotes the send or receive bridge.
 - In BizTalk Server, after the EDIReceive pipeline processes the EDI message, the message is dumped to a SQL Server database. The EdiSend pipeline then picks up the message from the SQL Server database, processes it, and then sends it out to the trading partner.
 
-	In BizTalk Services, after the EDI receive bridge processes the EDI message, it routes the message to an external process. The external process could be running on Microsoft Azure or on-premises. The external process should route the message to the EDI send bridge; the send bridge does not inherently pull the message. After processing the message, the EDI send bridge routes the message to the trading partner.
+    In BizTalk Services, after the EDI receive bridge processes the EDI message, it routes the message to an external process. The external process could be running on Microsoft Azure or on-premises. The external process should route the message to the EDI send bridge; the send bridge does not inherently pull the message. After processing the message, the EDI send bridge routes the message to the trading partner.
 
 BizTalk Services provides an easy-to-use configuration experience to quickly create and deploy a B2B agreement between trading partners without configuring any Microsoft Azure Compute instances (Web or Worker roles), any Microsoft Azure SQL Databases, or any Microsoft Azure storage accounts. More complex scenarios will require tying in workflows or other service processing "around the edges" of a Trading Partner agreement, that is, before or after Trading Partner Agreement EDI bridge processing. In detail, the following sequences of events occur during an EDI message processing in BizTalk Services.
 

@@ -25,11 +25,11 @@ When you want to create an experiment, look for examples in Machine Learning tea
 1. Go to the [Gallery](http://gallery.azureml.net/)
 2. Browse either by going to **Trending Experiments** or **Microsoft samples**.
 3. Use search and filters to narrow results:
-![](./media/machine-learning-sample-experiments/image1.png) 
+![](./media/machine-learning-sample-experiments/image1.png) 
 4. Click an experiment to learn more about it. To run and/or modify the experiment, click **Open in Studio**.
-![](./media/machine-learning-sample-experiments/image2.png) 
+![](./media/machine-learning-sample-experiments/image2.png) 
 5.  Sign in with your Microsoft account credentials. If you don’t have a Machine Learning workspace yet, a free trial workspace is created. [Learn what’s included in the Machine Learning free trial](http://azure.microsoft.com/pricing/details/machine-learning/)
-![](./media/machine-learning-sample-experiments/image3.png) 
+![](./media/machine-learning-sample-experiments/image3.png) 
 
 ## Use as template in Studio
 1. Sign in with your Microsoft account credentials to the [Studio](https://studio.azureml.net), and then click **New*** to create a new experiment
@@ -41,3 +41,4 @@ When you want to create an experiment, look for examples in Machine Learning tea
 - [Review sample R experiments](machine-learning-r-csharp-web-service-examples.md)
 - [Create an web service API](machine-learning-publish-a-machine-learning-web-service.md)
 - [Browse ready-to-use applications](https://datamarket.azure.com/browse?query=machine+learning)
+

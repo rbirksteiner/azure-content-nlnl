@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Windows Phone Silverlight SDK Upgrade Procedures" 
-	description="Windows Phone Silverlight SDK Upgrade Procedures for Azure Mobile Engagement" 					
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede"
-	editor="" />
+    pageTitle="Windows Phone Silverlight SDK Upgrade Procedures" 
+    description="Windows Phone Silverlight SDK Upgrade Procedures for Azure Mobile Engagement"                  
+    services="mobile-engagement" 
+    documentationCenter="mobile" 
+    authors="piyushjo" 
+    manager="dwrede"
+    editor="" />
 
 <tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/10/2015" 
-	ms.author="piyushjo" />
+    ms.service="mobile-engagement" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="mobile-windows-phone" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/10/2015" 
+    ms.author="piyushjo" />
 
 #Windows Phone Silverlight SDK Upgrade Procedures
 
@@ -50,56 +50,56 @@ When those steps are completed you only have to replace old Capptain references 
 
 1. All Capptain namespaces have to be updated.
 
-	Before migration:
-	
-		using Capptain.Agent;
-		using Capptain.Reach;
-	
-	After migration:
-	
-		using Microsoft.Azure.Engagement;
+    Before migration:
+    
+        using Capptain.Agent;
+        using Capptain.Reach;
+    
+    After migration:
+    
+        using Microsoft.Azure.Engagement;
 
 2. All Capptain classes that contain "Capptain" should contain "Engagement".
 
-	Before migration:
-	
-		public sealed partial class MainPage : CapptainPage
-		{
-		  protected override string GetCapptainPageName()
-		  {
-		    return "Capptain Demo";
-		  }
-		  ...
-		}
-	
-	After migration:
-	
-		public sealed partial class MainPage : EngagementPage
-		{
-		  protected override string GetEngagementPageName()
-		  {
-		    return "Engagement Demo";
-		  }
-		  ...
-		}
+    Before migration:
+    
+        public sealed partial class MainPage : CapptainPage
+        {
+          protected override string GetCapptainPageName()
+          {
+            return "Capptain Demo";
+          }
+          ...
+        }
+    
+    After migration:
+    
+        public sealed partial class MainPage : EngagementPage
+        {
+          protected override string GetEngagementPageName()
+          {
+            return "Engagement Demo";
+          }
+          ...
+        }
 
 3. For xaml files Capptain namespace and attributes also change.
 
-	Before migration:
-	
-		<capptain:CapptainPage
-		...
-		xmlns:capptain="clr-namespace:Capptain.Agent;assembly=Capptain.Agent.WP"
-		...
-		</capptain:CapptainPage>
-	
-	After migration:
-	
-		<engagement:EngagementPage
-		...
-		xmlns:engagement="clr-namespace:Microsoft.Azure.Engagement;assembly=Microsoft.Azure.Engagement.EngagementAgent.WP"
-		...
-		</engagement:EngagementPage>
+    Before migration:
+    
+        <capptain:CapptainPage
+        ...
+        xmlns:capptain="clr-namespace:Capptain.Agent;assembly=Capptain.Agent.WP"
+        ...
+        </capptain:CapptainPage>
+    
+    After migration:
+    
+        <engagement:EngagementPage
+        ...
+        xmlns:engagement="clr-namespace:Microsoft.Azure.Engagement;assembly=Microsoft.Azure.Engagement.EngagementAgent.WP"
+        ...
+        </engagement:EngagementPage>
 
 4. For the other resources like Capptain pictures, please note that they also have been renamed to use "Engagement".
 
@@ -115,12 +115,12 @@ Edit this file to specify:
 
 If you want to specify it at runtime instead, you can call the following method before the Engagement agent initialization:
 
-		/* Engagement configuration. */
-		EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
-		engagementConfiguration.Agent.ConnectionString = "Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}";
-		
-		/* Initialize Engagement angent with above configuration. */
-		EngagementAgent.Instance.Init(engagementConfiguration);
+        /* Engagement configuration. */
+        EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
+        engagementConfiguration.Agent.ConnectionString = "Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}";
+        
+        /* Initialize Engagement angent with above configuration. */
+        EngagementAgent.Instance.Init(engagementConfiguration);
 
 The connection string for your application is displayed in the Azure Classic Portal.
 
@@ -141,3 +141,4 @@ Note that rename also affects overridden methods.
 
 
  
+

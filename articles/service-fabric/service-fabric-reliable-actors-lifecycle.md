@@ -89,3 +89,4 @@ Note that an actor will never be garbage collected while it is executing one of 
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png
+

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="AMQP 1.0 support for Service Bus Partitioned Queues and Topics | Microsoft Azure" 
-	description="Learn about using the Advanced Message Queuing Protocol (AMQP) 1.0 with Service Bus Partitioned Queues and Topics." 
-	services="service-bus" 
-	documentationCenter=".net" 
-	authors="hillaryc" 
-	manager="timlt" 
-	editor=""/>
+    pageTitle="AMQP 1.0 support for Service Bus Partitioned Queues and Topics | Microsoft Azure" 
+    description="Learn about using the Advanced Message Queuing Protocol (AMQP) 1.0 with Service Bus Partitioned Queues and Topics." 
+    services="service-bus" 
+    documentationCenter=".net" 
+    authors="hillaryc" 
+    manager="timlt" 
+    editor=""/>
 
 <tags 
-	ms.service="service-bus" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="11/05/2015" 
-	ms.author="hillaryc"/>
+    ms.service="service-bus" 
+    ms.workload="na" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="multiple" 
+    ms.topic="article" 
+    ms.date="11/05/2015" 
+    ms.author="hillaryc"/>
 
 # AMQP 1.0 support for Service Bus partitioned queues and topics 
 
@@ -73,7 +73,7 @@ A partitioned topic further increases the availability, reliability, and through
 ### Create partitioned topics
 
 A partitioned topic can be created through the [Azure classic portal][] and the Service Bus SDK. To create a partitioned topic, set the [EnablePartitioning](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.enablepartitioning.aspx) property to **true** in the [TopicDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.aspx) instance. The following code shows how to create a patitioned topic using the Service Bus SDK.
-	
+    
 ```
 // Create partitioned topic
 var nm = NamespaceManager.CreateFromConnectionString(myConnectionString);
@@ -94,12 +94,12 @@ You can send messages to, and receive messages from a partitioned topic subscrip
 var myConnectionStringBuilder = new ServiceBusConnectionStringBuilder(myConnectionString);
 myConnectionStringBuilder.TransportType = TransportType.Amqp;
 string amqpConnectionString = myConnectionStringBuilder.ToString();
-	
+    
 var topicClient = TopicClient.CreateFromConnectionString(amqpConnectionString, "myTopic");
 BrokeredMessage message = new BrokeredMessage("Hello AMQP");
 Console.WriteLine("Sending message {0}...", message.MessageId);
 topicClient.Send(message);
-	
+    
 var subcriptionClient = SubscriptionClient.CreateFromConnectionString(amqpConnectionString, "myTopic", "mySubscription");
 var receivedMessage = subcriptionClient.Receive();
 Console.WriteLine("Received message: {0}", receivedMessage.GetBody<string>());
@@ -117,3 +117,4 @@ See the following additional information to learn more about partitioning messag
 *    [How to use AMQP 1.0 with the Service Bus .NET API](service-bus-dotnet-advanced-message-queuing.md)
 
 [Azure classic portal]: http://manage.windowsazure.com
+

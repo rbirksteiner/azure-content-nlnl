@@ -121,3 +121,4 @@ The service account is created with a long complex password which does not expir
 ## Next steps
 
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
+

@@ -123,16 +123,16 @@ You will receive an HTTP 201 Created response if the data source was successfull
 
 Create a target Azure Search index if you don’t have one already. You can do this from the [Azure Classic Portal UI](../search-get-started.md#test-service-operations) or by using the [Create Index API](https://msdn.microsoft.com/library/azure/dn798941.aspx).
 
-	POST https://[Search service name].search.windows.net/indexes?api-version=[api-version]
-	Content-Type: application/json
-	api-key: [Search service admin key]
+    POST https://[Search service name].search.windows.net/indexes?api-version=[api-version]
+    Content-Type: application/json
+    api-key: [Search service admin key]
 
 
 Ensure that the schema of your target index is compatible with the schema of the source JSON documents or the output of your custom query projection.
 
 ###Figure A: Mapping between JSON Data Types and Azure Search Data Types
 
-| JSON DATA TYPE|	COMPATIBLE TARGET INDEX FIELD TYPES|
+| JSON DATA TYPE|   COMPATIBLE TARGET INDEX FIELD TYPES|
 |---|---|
 |Bool|Edm.Boolean, Edm.String|
 |Numbers that look like integers|Edm.Int32, Edm.Int64, Edm.String|
@@ -269,3 +269,4 @@ Congratulations! You have just learned how to integrate Azure DocumentDB with Az
 
  - To learn how more about Azure Search, click [here](/services/search/).
  
+

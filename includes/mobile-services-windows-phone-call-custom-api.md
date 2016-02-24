@@ -9,46 +9,46 @@
                 Click="ButtonCompleteAll_Click">Complete All</Button>
         </StackPanel>
 
-	This adds a new button to the page. 
+    This adds a new button to the page. 
 
 2. Open the MainPage.xaml.cs code file, and add the following class definition code:
 
-	    public class MarkAllResult
-	    {
-	        public int Count { get; set; }
-	    }
+        public class MarkAllResult
+        {
+            public int Count { get; set; }
+        }
 
-	This class is used to hold the row count value returned by the custom API. 
+    This class is used to hold the row count value returned by the custom API. 
 
 3. Locate the **RefreshTodoItems** method in the **MainPage** class, and make sure that the `query` is defined by using the following **Where** method:
 
         .Where(todoItem => todoItem.Complete == false)
 
-	This filters the items so that completed items are not returned by the query.
+    This filters the items so that completed items are not returned by the query.
 
 3. In the **MainPage** class, add the following method:
 
-		private async void ButtonCompleteAll_Click(object sender, RoutedEventArgs e)
-		{
-		    string message;
-		    try
-		    {
-		        // Asynchronously call the custom API using the POST method. 
-		        var result = await App.MobileService
-		            .InvokeApiAsync<MarkAllResult>("completeAll", 
-		            System.Net.Http.HttpMethod.Post, null);
-		        message =  result.Count + " item(s) marked as complete.";
-		        RefreshTodoItems();
-		    }
-		    catch (MobileServiceInvalidOperationException ex)
-		    {
-		        message = ex.Message;                
-		    }
-		
-		    MessageBox.Show(message);  
-		}
+        private async void ButtonCompleteAll_Click(object sender, RoutedEventArgs e)
+        {
+            string message;
+            try
+            {
+                // Asynchronously call the custom API using the POST method. 
+                var result = await App.MobileService
+                    .InvokeApiAsync<MarkAllResult>("completeAll", 
+                    System.Net.Http.HttpMethod.Post, null);
+                message =  result.Count + " item(s) marked as complete.";
+                RefreshTodoItems();
+            }
+            catch (MobileServiceInvalidOperationException ex)
+            {
+                message = ex.Message;                
+            }
+        
+            MessageBox.Show(message);  
+        }
 
-	This method handles the **Click** event for the new button. The **InvokeApiAsync** method is called on the client, which sends a request to the new custom API. The result returned by the custom API is displayed in a message dialog.
+    This method handles the **Click** event for the new button. The **InvokeApiAsync** method is called on the client, which sends a request to the new custom API. The result returned by the custom API is displayed in a message dialog.
 
 ## <a name="test-app"></a>Test the app
 
@@ -60,6 +60,6 @@
 
 4. Tap the **Complete All** button.
 
-  	![](./media/mobile-services-windows-phone-call-custom-api/mobile-custom-api-windows-phone-completed.png)
+    ![](./media/mobile-services-windows-phone-call-custom-api/mobile-custom-api-windows-phone-completed.png)
 
-	A message box is displayed that indicates the number of items marked complete and the filtered query is executed again, which clears all items from the list.
+    A message box is displayed that indicates the number of items marked complete and the filtered query is executed again, which clears all items from the list.

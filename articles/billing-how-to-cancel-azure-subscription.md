@@ -1,22 +1,22 @@
 <properties
-	pageTitle="How to cancel your Azure subscription | Microsoft Azure"
-	description="Describes how to cancel your Azure subscriptio"
-	services="billing"
-	documentationCenter=""
-	authors="genlin"
-	manager="jarrettr"
-	editor="meerak"
-	tags="billing"
-	/>
+    pageTitle="How to cancel your Azure subscription | Microsoft Azure"
+    description="Describes how to cancel your Azure subscriptio"
+    services="billing"
+    documentationCenter=""
+    authors="genlin"
+    manager="jarrettr"
+    editor="meerak"
+    tags="billing"
+    />
 
 <tags
-	ms.service="billing"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/01/2015"
-	ms.author="genli"/>
+    ms.service="billing"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/01/2015"
+    ms.author="genli"/>
 
 # How to cancel your Azure subscription
 
@@ -29,3 +29,4 @@ If you cancel your subscription, all your services will be deleted immediately. 
 3. On the right side of the page, select **Cancel Subscription**. </br> ![cancelsub](.\media\billing-how-to-cancel-azure-subscription\cancelsub.png)
 4. Select **Yes, cancel my subscription**. </br> ![cancelbox](.\media\billing-how-to-cancel-azure-subscription\cancelbox.png)
 5. Click ![checkbutton](.\media\billing-how-to-cancel-azure-subscription\checkbutton.png) to close the dialog window and return to your subscription page.
+

@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Getting Started with a Cordova mobile services project (Visual Studio Connected Services)"
-	description="Describes the first steps you can take after connecting your Cordova project to Azure Mobile Services by using Visual Studio Connected Services."
-	services="mobile-services"
-	documentationCenter=""
-	authors="TomArcher"
-	manager="douge"
-	editor=""/>
+    pageTitle="Getting Started with a Cordova mobile services project (Visual Studio Connected Services)"
+    description="Describes the first steps you can take after connecting your Cordova project to Azure Mobile Services by using Visual Studio Connected Services."
+    services="mobile-services"
+    documentationCenter=""
+    authors="TomArcher"
+    manager="douge"
+    editor=""/>
 
 <tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="vs-getting-started"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="09/17/2015"
-	ms.author="tarcher"/>
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="vs-getting-started"
+    ms.devlang="multiple"
+    ms.topic="article"
+    ms.date="09/17/2015"
+    ms.author="tarcher"/>
 
 # Getting Started with Mobile Services (Cordova Projects)
 
@@ -98,3 +98,4 @@ Delete a row in a data table using the **del** method. Call the **done** method 
     });
 
 [Learn more about mobile services](http://azure.microsoft.com/documentation/services/mobile-services/)
+

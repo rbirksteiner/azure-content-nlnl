@@ -1,20 +1,20 @@
-﻿<properties 
-	pageTitle="Audit operations with Resource Manager | Microsoft Azure" 
-	description="Use the audit log in Resource Manager to review user actions and errors. Shows PowerShell, Azure CLI, and REST." 
-	services="azure-resource-manager" 
-	documentationCenter="" 
-	authors="tfitzmac" 
-	manager="wpickett" 
-	editor=""/>
+<properties 
+    pageTitle="Audit operations with Resource Manager | Microsoft Azure" 
+    description="Use the audit log in Resource Manager to review user actions and errors. Shows PowerShell, Azure CLI, and REST." 
+    services="azure-resource-manager" 
+    documentationCenter="" 
+    authors="tfitzmac" 
+    manager="wpickett" 
+    editor=""/>
 
 <tags 
-	ms.service="azure-resource-manager" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
-	ms.author="tomfitz"/>
+    ms.service="azure-resource-manager" 
+    ms.workload="multiple" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/02/2015" 
+    ms.author="tomfitz"/>
 
 # Audit operations with Resource Manager
 
@@ -164,3 +164,4 @@ You can select any operation for more details about it.
 - To learn about setting security policies, see [Managing access to resources](resource-group-rbac.md).
 - To learn about granting access to a service principal, see [Authenticating a service principal with Azure Resource Manager](resource-group-authenticate-service-principal.md).
 - To learn how to actions on a resource for all users, see [Lock resources with Azure Resource Manager](resource-group-lock-resources.md).
+

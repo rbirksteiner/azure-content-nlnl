@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Finding unsanctioned cloud applications with Cloud App Discovery | Microsoft Azure"
-	description="Provides information about finding and managing applications with Cloud App Discovery, what are the benefits and how it works."
-	services="active-directory"
-	keywords="cloud app discovery, managing applications"
-	documentationCenter=""
-	authors="markusvi"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Finding unsanctioned cloud applications with Cloud App Discovery | Microsoft Azure"
+    description="Provides information about finding and managing applications with Cloud App Discovery, what are the benefits and how it works."
+    services="active-directory"
+    keywords="cloud app discovery, managing applications"
+    documentationCenter=""
+    authors="markusvi"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/20/2015"
-	ms.author="markusvi"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/20/2015"
+    ms.author="markusvi"/>
 
 # Finding unsanctioned cloud applications with Cloud App Discovery
 
@@ -47,3 +47,4 @@ To get started with Cloud App Discovery, see [Getting Started With Cloud App Dis
 - [Cloud App Discovery Registry Settings for Proxy Servers with Custom Ports](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 - [Cloud App Discovery Agent Changelog ](http://social.technet.microsoft.com/wiki/contents/articles/24616.cloud-app-discovery-agent-changelog.aspx)
 - [Cloud App Discovery Frequently Asked Questions](http://social.technet.microsoft.com/wiki/contents/articles/24037.cloud-app-discovery-frequently-asked-questions.aspx)
+

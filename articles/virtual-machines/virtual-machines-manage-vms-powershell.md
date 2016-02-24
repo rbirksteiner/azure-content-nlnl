@@ -46,11 +46,11 @@ Run these commands:
 
 >[AZURE.NOTE] You can get the virtual machine and cloud service name from the display of the **Get-AzureVM** command.
 >
-	$svcName="<cloud service name>"
-	$vmName="<virtual machine name>"
-	$localPath="<drive and folder location to store the downloaded RDP file, example: c:\temp >"
-	$localFile=$localPath + "\" + $vmname + ".rdp"
-	Get-AzureRemoteDesktopFile -ServiceName $svcName -Name $vmName -LocalPath $localFile -Launch
+    $svcName="<cloud service name>"
+    $vmName="<virtual machine name>"
+    $localPath="<drive and folder location to store the downloaded RDP file, example: c:\temp >"
+    $localFile=$localPath + "\" + $vmname + ".rdp"
+    Get-AzureRemoteDesktopFile -ServiceName $svcName -Name $vmName -LocalPath $localFile -Launch
 
 ## Stop a VM
 
@@ -105,3 +105,4 @@ Use the instructions in [Create and preconfigure a Linux virtual machine using A
 - With additional disks.
 - As a member of an existing load-balanced set.
 - With a static IP address.
+

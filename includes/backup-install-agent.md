@@ -14,11 +14,11 @@ After creating the Azure Backup vault, an agent should be installed on each of y
 
 4. Once the agent is installed, double click MARSAgentInstaller.exe to launch the installation of the Azure Backup agent. Choose the installation folder and scratch folder required for the agent. The cache location specified must have free space which is at least 5% of the backup data.
 
-5.	If you use a proxy server to connect to the internet, in the **Proxy configuration** screen, enter the proxy server details. If you use an authenticated proxy, enter the user name and password details in this screen.
+5.  If you use a proxy server to connect to the internet, in the **Proxy configuration** screen, enter the proxy server details. If you use an authenticated proxy, enter the user name and password details in this screen.
 
-6.	The Azure Backup agent installs .NET Framework 4.5 and Windows PowerShell (if it’s not available already) to complete the installation.
+6.  The Azure Backup agent installs .NET Framework 4.5 and Windows PowerShell (if it’s not available already) to complete the installation.
 
-7.	Once the agent is installed, click the **Proceed to Registration** button to continue with the workflow.
+7.  Once the agent is installed, click the **Proceed to Registration** button to continue with the workflow.
 
     ![Register](./media/backup-install-agent/register.png)
 
@@ -47,3 +47,4 @@ After creating the Azure Backup vault, an agent should be installed on each of y
     Alternatively, when using Data Protection Manager, you can modify the settings specified  during the registration workflow by clicking the **Configure** option by selecting **Online** under the **Management** Tab.
 
     ![Configure Azure Backup](./media/backup-install-agent/configure.png)
+

@@ -94,16 +94,16 @@ One final piece of information you need to factor in to the table partition deci
 Information on the allocation of memory per distribution is available by querying the resource governor dynamic management views. In reality your memory grant will be less than the figures below. However, this provides a level of guidance that you can use when sizing your partitions for data management operations.
 
 ```
-SELECT  rp.[name]								AS [pool_name]
-,       rp.[max_memory_kb]						AS [max_memory_kb]
-,       rp.[max_memory_kb]/1024					AS [max_memory_mb]
-,       rp.[max_memory_kb]/1048576				AS [mex_memory_gb]
-,       rp.[max_memory_percent]					AS [max_memory_percent]
-,       wg.[name]								AS [group_name]
-,       wg.[importance]							AS [group_importance]
-,       wg.[request_max_memory_grant_percent]	AS [request_max_memory_grant_percent]
-FROM    sys.dm_pdw_nodes_resource_governor_workload_groups	wg
-JOIN    sys.dm_pdw_nodes_resource_governor_resource_pools	rp ON wg.[pool_id] = rp.[pool_id]
+SELECT  rp.[name]                               AS [pool_name]
+,       rp.[max_memory_kb]                      AS [max_memory_kb]
+,       rp.[max_memory_kb]/1024                 AS [max_memory_mb]
+,       rp.[max_memory_kb]/1048576              AS [mex_memory_gb]
+,       rp.[max_memory_percent]                 AS [max_memory_percent]
+,       wg.[name]                               AS [group_name]
+,       wg.[importance]                         AS [group_importance]
+,       wg.[request_max_memory_grant_percent]   AS [request_max_memory_grant_percent]
+FROM    sys.dm_pdw_nodes_resource_governor_workload_groups  wg
+JOIN    sys.dm_pdw_nodes_resource_governor_resource_pools   rp ON wg.[pool_id] = rp.[pool_id]
 WHERE   wg.[name] like 'SloDWGroup%'
 AND     rp.[name]    = 'SloDWPool'
 ;
@@ -333,4 +333,5 @@ Once you have successfully migrated your database schema to SQL Data Warehouse y
 <!-- MSDN Articles -->
 
 <!-- Other web references -->
+
 

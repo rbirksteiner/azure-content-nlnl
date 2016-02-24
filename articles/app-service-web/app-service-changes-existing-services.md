@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Azure App Service and its impact on existing Azure services" 
-	description="Explains how the new Azure App Service and its features impact existing services in Azure." 
-	authors="yochayk" 
-	writer="yochayk" 
-	editor="yochayk" 
-	manager="nirma" 
-	services="app-service" 
-	documentationCenter=""/>
+    pageTitle="Azure App Service and its impact on existing Azure services" 
+    description="Explains how the new Azure App Service and its features impact existing services in Azure." 
+    authors="yochayk" 
+    writer="yochayk" 
+    editor="yochayk" 
+    manager="nirma" 
+    services="app-service" 
+    documentationCenter=""/>
 
 <tags 
-	ms.service="app-service" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/15/2015" 
-	ms.author="yochayk"/>
+    ms.service="app-service" 
+    ms.workload="na" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/15/2015" 
+    ms.author="yochayk"/>
 
 
 # Azure App Service and existing Azure services

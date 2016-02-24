@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Manage API apps" 
-	description="Learn how to manage Azure App Service API apps by using the Azure portal and Visual Studio Server Explorer." 
-	services="app-service\api" 
-	documentationCenter="" 
-	authors="tdykstra" 
-	manager="wpickett" 
-	editor="jimbe"/>
+    pageTitle="Manage API apps" 
+    description="Learn how to manage Azure App Service API apps by using the Azure portal and Visual Studio Server Explorer." 
+    services="app-service\api" 
+    documentationCenter="" 
+    authors="tdykstra" 
+    manager="wpickett" 
+    editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-api" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na"
-	ms.topic="article" 
-	ms.date="12/04/2015" 
-	ms.author="tdykstra"/>
+    ms.service="app-service-api" 
+    ms.workload="web" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na"
+    ms.topic="article" 
+    ms.date="12/04/2015" 
+    ms.author="tdykstra"/>
 
 # Manage API apps in Azure App Service
 
@@ -135,3 +135,4 @@ To get to an API app in Server Explorer, click **Azure > App Service > [the reso
 This article has shown how to use the Azure portal to perform management tasks for API apps. For API apps that you install from the API app gallery, see also [Manage and monitor your built-in API apps and connectors](../app-service-logic/app-service-logic-monitor-your-connectors.md).
 
 For information about how to manage API apps by using the command line, see the articles in the **Automate** section of the menu that appears on the left side of the article (on wide browser windows) or at the top of the article (on narrow browser windows).
+

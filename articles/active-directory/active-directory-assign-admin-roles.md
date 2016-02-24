@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Assigning administrator roles in Azure Active Directory | Microsoft Azure"
-	description="Explains what administrator roles are available with Azure Active Directory and how to assign them."
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Assigning administrator roles in Azure Active Directory | Microsoft Azure"
+    description="Explains what administrator roles are available with Azure Active Directory and how to assign them."
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/01/2015"
-	ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/01/2015"
+    ms.author="curtand"/>
 
 # Assigning administrator roles in Azure Active Directory (Azure AD)
 
@@ -85,3 +85,4 @@ The global administrator has access to all administrative features. By default, 
 - [Manage users](../active-directory-manage-users.md)
 - [Manage passwords](active-directory-manage-passwords.md)
 - [Manage groups](active-directory-manage-groups.md)
+

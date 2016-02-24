@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Manage passwords in Azure Active Directory | Microsoft Azure"
-	description="How to manage passwords in Azure Active Directory."
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Manage passwords in Azure Active Directory | Microsoft Azure"
+    description="How to manage passwords in Azure Active Directory."
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/01/2015"
-	ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/01/2015"
+    ms.author="curtand"/>
 
 # Manage passwords in Azure Active Directory
 
@@ -48,3 +48,4 @@ Use the following links to jump to the documentation you are most interested in:
 - [Administering Azure AD](active-directory-administer.md)
 - [Create or edit users in Azure AD](active-directory-create-users.md)
 - [Manage groups in Azure AD](active-directory-manage-groups.md)
+

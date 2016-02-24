@@ -192,3 +192,4 @@ For more information: [Resource Balancer Architecture](service-fabric-resource-b
 [Image5]: media/service-fabric-resource-balancer-cluster-description/Config.png
 [Image6]: media/service-fabric-resource-balancer-cluster-description/Thresholds.png
  
+

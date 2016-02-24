@@ -3,7 +3,7 @@ You can optionally test push notifications with your mobile service running on t
 
 1. Open the readme.html file in the mobile service project folder. 
 
-	This displays the **Push setup is almost complete** page, if you don't still have it open. The section **Step 3: Modify Web Config** contains the notification hub connection information.
+    This displays the **Push setup is almost complete** page, if you don't still have it open. The section **Step 3: Modify Web Config** contains the notification hub connection information.
 
 2. In your mobile service project in Visual Studio, open the Web.config file for the service, then in **connectionStrings**, add the **MS_NotificationHubConnectionString** connection string from the **Push setup is almost complete** page.
 
@@ -11,6 +11,6 @@ You can optionally test push notifications with your mobile service running on t
 
 4. Right-click the mobile service project and click **Debug** then **Start new instance** and make a note of the service root URL of the start up page displayed in the browser.
 
-	This is the URL of the local host for the .NET backend project. You will use this URL to test the app against the mobile service running on the local computer.
+    This is the URL of the local host for the .NET backend project. You will use this URL to test the app against the mobile service running on the local computer.
 
 Now, the mobile service project is configured to connect to the notification hub in Azure when running locally. Note that it is important to use the same notification hub name and connection string as the portal because these project settings in the Web.config file are overridden by the portal settings when running in Azure. 

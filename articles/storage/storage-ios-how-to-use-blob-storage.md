@@ -94,24 +94,24 @@ The following example shows how to use Azure CLI to generate a SAS token that gr
 
 2. Next, type the following command in Azure CLI to get the connection string for your account:
 
-		azure storage account connectionstring show youraccountname
+        azure storage account connectionstring show youraccountname
 
 3. Create an environment variable with the connection string that you just generated:
 
-		export AZURE_STORAGE_CONNECTION_STRING=”your connection string”
+        export AZURE_STORAGE_CONNECTION_STRING=”your connection string”
 
 4. Generate SAS URL:
 
-		azure storage container sas create --container sascontainer --permissions rw --expiry 2015-09-05T00:00:00
+        azure storage container sas create --container sascontainer --permissions rw --expiry 2015-09-05T00:00:00
 
 5. The SAS URL should look similar to the following:
 
-		https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-29T22%3A18%3A26Z&se=2013-04-30T02%3A23%3A26Z&sr=b&sp=rw&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
+        https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-29T22%3A18%3A26Z&se=2013-04-30T02%3A23%3A26Z&sr=b&sp=rw&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
 
 6. In your iOS application, you can now get a reference to your container by using the SAS URL in the following manner:
 
-		// Get a reference to a container in your Storage account
-    	AZSCloudBlobContainer *blobContainer = [[AZSCloudBlobContainer alloc] initWithUrl:[NSURL URLWithString:@" your SAS URL"]];
+        // Get a reference to a container in your Storage account
+        AZSCloudBlobContainer *blobContainer = [[AZSCloudBlobContainer alloc] initWithUrl:[NSURL URLWithString:@" your SAS URL"]];
 
 As you can see, when using a SAS token, you’re not exposing your account name and account key in your iOS application. You can learn more about SAS by checking out the [Shared Access Signature tutorial](../storage-dotnet-shared-access-signature-part-1).
 
@@ -190,17 +190,17 @@ The following example shows how to upload a block blob from an NSString. If a bl
              if (error){
                  NSLog(@"Error in creating container.");
              }
-         	 else{
-				 // Create a local blob object
-             	 AZSCloudBlockBlob *blockBlob = [blobContainer blockBlobReferenceFromName:@"sampleblob"];
+             else{
+                 // Create a local blob object
+                 AZSCloudBlockBlob *blockBlob = [blobContainer blockBlobReferenceFromName:@"sampleblob"];
 
-             	 // Upload blob to Storage
-             	 [blockBlob uploadFromText:@"This text will be uploaded to Blob Storage." completionHandler:^(NSError *error) {
-                 	if (error){
-						NSLog(@"Error in creating blob.");
-                 	}             
-             	 }];
-			 }
+                 // Upload blob to Storage
+                 [blockBlob uploadFromText:@"This text will be uploaded to Blob Storage." completionHandler:^(NSError *error) {
+                    if (error){
+                        NSLog(@"Error in creating blob.");
+                    }             
+                 }];
+             }
          }];
      }
 
@@ -217,12 +217,12 @@ The following example shows how to list all blobs in a container. When performin
 - **prefix** - You can specify the prefix to use for blob listing. Only blobs that begin with this prefix will be listed.
 - **useFlatBlobListing** - As mentioned in the [Naming and referencing containers and blobs](#naming-and-referencing-containers-and-blobs) section, although the Blob service is a flat storage scheme, you can create a virtual hierarchy by naming blobs with path information. However, non-flat listing is currently not supported; this is coming soon. For now, this value should be `YES`
 - **blobListingDetails** - You can specify which items to include when listing blobs
-	- `AZSBlobListingDetailsNone`: List only committed blobs, and do not return blob metadata.
-	- `AZSBlobListingDetailsSnapshots`: List committed blobs and blob snapshots.
-	- `AZSBlobListingDetailsMetadata`: Retrieve blob metadata for each blob returned in the listing.
-	- `AZSBlobListingDetailsUncommittedBlobs`: List committed and uncommitted blobs.
-	- `AZSBlobListingDetailsCopy`: Include copy properties in the listing.
-	- `AZSBlobListingDetailsAll`: List all available committed blobs, uncommitted blobs, and snapshots, and return all metadata and copy status for those blobs.
+    - `AZSBlobListingDetailsNone`: List only committed blobs, and do not return blob metadata.
+    - `AZSBlobListingDetailsSnapshots`: List committed blobs and blob snapshots.
+    - `AZSBlobListingDetailsMetadata`: Retrieve blob metadata for each blob returned in the listing.
+    - `AZSBlobListingDetailsUncommittedBlobs`: List committed and uncommitted blobs.
+    - `AZSBlobListingDetailsCopy`: Include copy properties in the listing.
+    - `AZSBlobListingDetailsAll`: List all available committed blobs, uncommitted blobs, and snapshots, and return all metadata and copy status for those blobs.
 - **maxResults** - The maximum number of results to return for this operation. Use -1 to not set a limit.
 - **completionHandler** - The block of code to execute with the results of the listing operation.
 
@@ -293,9 +293,9 @@ The following example shows how to download a blob to a NSString object.
             if (error) {
                 NSLog(@"Error in downloading blob");
             }
-			else{
-            	NSLog(@"%@",text);
-			}
+            else{
+                NSLog(@"%@",text);
+            }
         }];
     }
 
@@ -361,3 +361,4 @@ If you have feature suggestions for Azure Storage please post to [Azure Storage 
 [Azure Storage iOS Library]: https://github.com/azure/azure-storage-ios
 [Azure Storage REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage
+

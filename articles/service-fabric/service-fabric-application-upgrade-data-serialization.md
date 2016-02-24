@@ -66,3 +66,4 @@ Data Contract is the recommended solution for ensuring your data is compatible. 
 [Upgrade Parameters](service-fabric-application-upgrade-parameters.md)
 
 [Manual Upgrade and Upgrading with a Diff Package](service-fabric-application-upgrade-advanced.md)
+

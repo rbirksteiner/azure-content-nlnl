@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Hybrid on-premises/cloud application (.NET) | Microsoft Azure"
-	description="Learn how to create a .NET on-premises/cloud hybrid application using the Azure Service Bus relay."
-	services="service-bus"
-	documentationCenter=".net"
-	authors="sethmanheim"
-	manager="timlt"
-	editor=""/>
+    pageTitle="Hybrid on-premises/cloud application (.NET) | Microsoft Azure"
+    description="Learn how to create a .NET on-premises/cloud hybrid application using the Azure Service Bus relay."
+    services="service-bus"
+    documentationCenter=".net"
+    authors="sethmanheim"
+    manager="timlt"
+    editor=""/>
 
 <tags
-	ms.service="service-bus"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="get-started-article"
-	ms.date="10/07/2015"
-	ms.author="sethm"/>
+    ms.service="service-bus"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="get-started-article"
+    ms.date="10/07/2015"
+    ms.author="sethm"/>
 
 # .NET on-premises/cloud hybrid application using Azure Service Bus relay
 
@@ -84,9 +84,9 @@ Before you can begin developing your Azure application, get the tools and set up
 
 1.  Install the Azure SDK for .NET at [Get Tools and SDK][].
 
-2. 	Click **Install the SDK** for the version of Visual Studio you are using. The steps in this tutorial use Visual Studio 2013.
+2.  Click **Install the SDK** for the version of Visual Studio you are using. The steps in this tutorial use Visual Studio 2013.
 
-	![][42]
+    ![][42]
 
 4.  When prompted to run or save the installer, click **Run**.
 
@@ -131,9 +131,9 @@ You can manage namespaces and Service Bus messaging entities using either the [A
     > [AZURE.IMPORTANT] Pick the *same region* that you intend to choose for
     deploying your application. This will give you the best performance.
 
-6.	Leave the other fields in the dialog box with their default values (**Messaging** and **Standard** tier), then click the check mark. The system now creates your namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
+6.  Leave the other fields in the dialog box with their default values (**Messaging** and **Standard** tier), then click the check mark. The system now creates your namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
 
-	![][38]
+    ![][38]
 
 The namespace you created will appear in the Azure classic portal, though it may take a moment to activate. Wait until the status is **Active** before moving on.
 
@@ -143,15 +143,15 @@ In order to perform management operations on the new namespace, such as creating
 
 1.  In the main window, click the name of your service namespace.
 
-	![][39]
+    ![][39]
 
 2.  Click **Connection Information**.
 
-	![][40]
+    ![][40]
 
 3.  In the **Access connection information** pane, find the connection string that contains the SAS key and key name.
 
-	![][45]
+    ![][45]
 
 4.  Make a note of these credentials, or copy them to the clipboard.
 
@@ -206,7 +206,7 @@ the Service Bus package, see [Using the NuGet Service Bus Package][].
 
 8.  In the left column of the **NuGet** dialog box, click **Online**.
 
-9. 	In the right-hand column, click the **Search** box, type "**Service Bus**" and then select the **Microsoft
+9.  In the right-hand column, click the **Search** box, type "**Service Bus**" and then select the **Microsoft
     Azure Service Bus** item. Click **Install** to complete the
     installation, then close the dialog box.
 
@@ -428,7 +428,7 @@ In this section you will build a simple ASP.NET application that displays data r
 
 6. Remove the **Home**, **About**, and **Contact** links. In the following example, delete the highlighted code.
 
-	![][41]
+    ![][41]
 
 7.  In Solution Explorer, expand the Views\Home folder:
 
@@ -437,37 +437,37 @@ In this section you will build a simple ASP.NET application that displays data r
 8.  Double-click **Index.cshtml** to open it in the Visual Studio editor.
     Replace the entire contents of the file with the following code.
 
-		@model IEnumerable<ProductsWeb.Models.Product>
+        @model IEnumerable<ProductsWeb.Models.Product>
 
-		@{
-    		ViewBag.Title = "Index";
-		}
+        @{
+            ViewBag.Title = "Index";
+        }
 
-		<h2>Prod Inventory</h2>
+        <h2>Prod Inventory</h2>
 
-		<table>
-    		<tr>
-        		<th>
-            		@Html.DisplayNameFor(model => model.Name)
-        		</th>
+        <table>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
                 <th></th>
-        		<th>
-            		@Html.DisplayNameFor(model => model.Quantity)
-        		</th>
-    		</tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Quantity)
+                </th>
+            </tr>
 
-		@foreach (var item in Model) {
-    		<tr>
-        		<td>
-            		@Html.DisplayFor(modelItem => item.Name)
-        		</td>
-        		<td>
-            		@Html.DisplayFor(modelItem => item.Quantity)
-        		</td>
-    		</tr>
-		}
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+            </tr>
+        }
 
-		</table>
+        </table>
 
 9.  To verify the accuracy of your work so far, you can press **F6** or
     **Ctrl+Shift+B** to build the project.
@@ -517,7 +517,7 @@ The next step is to hook up the on-premises products server with the ASP.NET MVC
 
 5.  Navigate to the **ProductsContract.cs** file from the **ProductsServer** console project. Click to highlight   ProductsContract.cs. Click the down arrow next to **Add**, then click **Add as Link**.
 
-	![][24]
+    ![][24]
 
 6.  Now open the **HomeController.cs** file in the Visual Studio  editor and replace the namespace definition with the following code. Be sure to replace *yourServiceNamespace* with the name of your service namespace, and *yourKey* with your SAS key. This will enable the client to call the on-premises service, returning the result of the call.
 
@@ -638,7 +638,7 @@ application.
 
 2.  Click the **Dashboard** tab, and then click **Stop** to temporarily suspend your application. You will be able to start it again by clicking **Start**. Click **Delete** to completely remove your application from Azure with no ability to restore it.
 
-	![][43]
+    ![][43]
 
 ## Next steps  
 
@@ -702,3 +702,4 @@ To learn more about Service Bus, see the following resources:
   [sbwacom]: /documentation/services/service-bus/  
   [sbwacomqhowto]: service-bus-dotnet-how-to-use-queues.md
   [executionmodels]: ../cloud-services/fundamentals-application-models.md
+

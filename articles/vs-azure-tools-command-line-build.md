@@ -54,10 +54,11 @@ The simplest way to create a package is to run MSBuild with the `/t:Publish` opt
 
 - ServiceConfiguration.TargetProfile.cscfg
 
-By default, each Azure project includes one service-configuration file for local (debugging) builds and another for cloud (staging or production) builds, but you can add or remove service-configuration files as needed. When you build a package within Visual Studio, you will be asked which service-configuration file to include alongside the package. When you build a package by using MSBuild, the local service-configuration file is included by default. To include a different service-configuration file, set the `TargetProfile` property of the MSBuild command (`MSBuild /t:Publish /p:TargetProfile=ProfileName`).
+By default, each Azure project includes one service-configuration file for local (debugging) builds and another for cloud (staging or production) builds, but you can add or remove service-configuration files as needed. When you build a package within Visual Studio, you will be asked which service-configuration file to include alongside the package. When you build a package by using MSBuild, the local service-configuration file is included by default. To include a different service-configuration file, set the `TargetProfile` property of the MSBuild command (`MSBuild /t:Publish /p:TargetProfile=ProfileName`).
 
 If you want to use an alternate directory for the stored package and configuration files, set the path by using the `/p:PublishDir=Directory\` option, including the trailing backslash separator.
 
 ## Deployment
 
 After the package is built, you can deploy it to Azure. For a tutorial that demonstrates that process, see the Azure website. For information about how to automate that process, see [Continuous Delivery for Cloud Services in Azure](../cloud-services/cloud-services-dotnet-continuous-delivery).
+

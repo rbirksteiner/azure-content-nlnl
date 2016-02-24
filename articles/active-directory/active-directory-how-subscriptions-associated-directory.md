@@ -1,20 +1,20 @@
 <properties
-	pageTitle="How Azure subscriptions are associated with Azure Active Directory | Microsoft Azure"
-	description="Signing in to Microsoft Azure and related issues, such as the relationship between an Azure subscription and Azure Active Directory."
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="How Azure subscriptions are associated with Azure Active Directory | Microsoft Azure"
+    description="Signing in to Microsoft Azure and related issues, such as the relationship between an Azure subscription and Azure Active Directory."
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="12/01/2015"
-	ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="12/01/2015"
+    ms.author="curtand"/>
 
 # How Azure subscriptions are associated with Azure Active Directory
 
@@ -24,7 +24,7 @@ This topic covers information about signing in to Microsoft Azure and related is
 Let’s start with the accounts that you can use to sign in. There are two types: a Microsoft account (formerly known as Microsoft Live ID) and a work or school account, which is an account stored in Azure AD.
 
  Microsoft account  | Azure AD account
-	------------- | -------------
+    ------------- | -------------
 The consumer identity system run by Microsoft | The business identity system run by Microsoft
 Authentication to services that are consumer-oriented, such as Hotmail and MSN | Authentication to services that are business-oriented, such as Office 365
 Consumers create their own Microsoft accounts, such when they sign up for email | Companies and organizations create and manage their own work or school accounts
@@ -125,3 +125,4 @@ To manage both of the directories in the Azure classic portal, complete these st
 [1]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_PassThruAuth.png
 [2]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_OrgAccountSubscription.png
 [3]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_SignInDisambiguation.PNG
+

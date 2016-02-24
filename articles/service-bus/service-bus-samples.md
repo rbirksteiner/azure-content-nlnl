@@ -25,7 +25,7 @@ The Service Bus samples demonstrate key features in Service Bus (cloud service) 
 
 The following samples illustrate how to write applications that use Service Bus.
 
-Note that the brokered messaging samples require a connection string to access your Service Bus service namespace.
+Note that the brokered messaging samples require a connection string to access your Service Bus service namespace.
 
 ### To obtain a connection string for Azure Service Bus
 
@@ -43,9 +43,9 @@ Note that the brokered messaging samples require a connection string to access y
 
 1. Run the following PowerShell cmdlet:
 
-	```
-	get-sbClientConfiguration
-	```
+    ```
+    get-sbClientConfiguration
+    ```
 
 2. Paste the connection string into the App.config file for the sample.
 
@@ -121,7 +121,7 @@ The following samples demonstrate various other features of the service.
 
 |Sample Name|Description|Minimum SDK Version|Availability|
 |---|---|---|---|
-|[Service Bus Explorer](http://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)|The Service Bus Explorer allows users to connect to a Service Bus service namespace and manage messaging entities in an easy manner. The tool provides advanced features such as import/export functionality, and the ability to test messaging entities and relay services.|1.8|Microsoft Azure Service Bus; Service Bus for Windows Server|
+|[Service Bus Explorer](http://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)|The Service Bus Explorer allows users to connect to a Service Bus service namespace and manage messaging entities in an easy manner. The tool provides advanced features such as import/export functionality, and the ability to test messaging entities and relay services.|1.8|Microsoft Azure Service Bus; Service Bus for Windows Server|
 |[Authorization: SBAzTool](http://code.msdn.microsoft.com/Authorization-SBAzTool-6fd76d93)|This sample demonstrates how to create and manage service identities in Microsoft Azure Active Directory Access Control (also known as Access Control Service or ACS) for use with Service Bus.|N/A|Microsoft Azure Service Bus|
 
 ## Next steps
@@ -131,3 +131,4 @@ See the following topics for more overviews of Service Bus.
 - [Service Bus messaging overview](service-bus-messaging-overview.md)
 - [Service Bus architecture](service-bus-architecture.md)
 - [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
+

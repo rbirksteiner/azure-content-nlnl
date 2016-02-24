@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="universal" 
     ms.devlang="na" 
     ms.topic="article" 
-	ms.date="11/17/2015" 
+    ms.date="11/17/2015" 
     ms.author="crystk"/>
 
 # Application Insights for C++ apps
@@ -79,16 +79,16 @@ Initialize the SDK and start tracking telemetry.
     `using namespace ApplicationInsights::CX;`
 
   - In App:App()
-	
+    
      `// this will do automatic session tracking and automatic page view collection`
      `m_session = ref new ApplicationInsights::CX::SessionTracking();`
 
   - Once you have created the root Frame, (usually at the end of App::OnLaunched) initalize m_session:
-	
+    
     ```
     String^ iKey = L"<YOUR INSTRUMENTATION KEY>";
     m_session->Initialize(this, rootFrame, iKey);
-	```
+    ```
 
 3. To use tracking elsewhere in your application, you can declare an instance of Telemetry client.
 
@@ -97,7 +97,7 @@ Initialize the SDK and start tracking telemetry.
 
     using namespace ApplicationInsights::CX;
     TelemetryClient^ tc = ref new TelemetryClient(L"<YOUR INSTRUMENTATION KEY>");
-	tc->TrackTrace(L"This is my first trace");
+    tc->TrackTrace(L"This is my first trace");
     tc->TrackEvent(L"I'M ON PAGE 1");
     tc->TrackMetric(L"Test Metric", 5.03);
 ```
@@ -148,3 +148,4 @@ Click on any chart to get more detail. For example, crashes:
 [track]: app-insights-api-custom-events-metrics.md
 
  
+

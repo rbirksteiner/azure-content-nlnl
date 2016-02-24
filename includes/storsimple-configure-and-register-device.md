@@ -45,15 +45,15 @@
 
     You can reset the StorSimple Snapshot Manager password from the StorSimple Manager service interface. For detailed steps, go to [Change the StorSimple passwords using the StorSimple Manager serivce](storsimple-change-passwords.md).
 
-	To troubleshoot any issues during this step, refer to troubleshooting guidance for [Errors related to passwords](storsimple-troubleshoot-deployment.md#errors-related-to-device-administrator-and-storsimple-snapshot-manager-passwords).
+    To troubleshoot any issues during this step, refer to troubleshooting guidance for [Errors related to passwords](storsimple-troubleshoot-deployment.md#errors-related-to-device-administrator-and-storsimple-snapshot-manager-passwords).
 
 11. The final step in the setup wizard registers your device with the StorSimple Manager service. For this, you will need the service registration key that you obtained in step 2. After you supply the registration key, you may need to wait for 2-3 minutes before the device is registered.
 
-	To troubleshoot any possible device registration failures, refer to [Errors during device registration](storsimple-troubleshoot-deployment.md#errors-during-device-registration). For detailed troubleshooting, you can also refer to [Step-by-step troubleshooting example](storsimple-troubleshoot-deployment.md#step-by-step-storsimple-troubleshooting-example).
+    To troubleshoot any possible device registration failures, refer to [Errors during device registration](storsimple-troubleshoot-deployment.md#errors-during-device-registration). For detailed troubleshooting, you can also refer to [Step-by-step troubleshooting example](storsimple-troubleshoot-deployment.md#step-by-step-storsimple-troubleshooting-example).
 
 12. After the device is registered, a Service Data Encryption key will appear. Copy this key and save it in a safe location.
-	
-	> [AZURE.WARNING] This key will be required with the service registration key to register additional devices with the StorSimple Manager service. Refer to [StorSimple security](../articles/storsimple/storsimple-security.md) for more information about this key.
+    
+    > [AZURE.WARNING] This key will be required with the service registration key to register additional devices with the StorSimple Manager service. Refer to [StorSimple security](../articles/storsimple/storsimple-security.md) for more information about this key.
 
      ![StorSimple register device 6](./media/storsimple-configure-and-register-device/HCS_RegisterYourDevice6-include.png)
 

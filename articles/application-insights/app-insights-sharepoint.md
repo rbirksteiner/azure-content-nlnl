@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Monitor a SharePoint site with Application Insights" 
-	description="Start monitoring a new application with a new instrumentation key" 
-	services="application-insights" 
+    pageTitle="Monitor a SharePoint site with Application Insights" 
+    description="Start monitoring a new application with a new instrumentation key" 
+    services="application-insights" 
     documentationCenter=""
-	authors="alancameronwills" 
-	manager="douge"/>
+    authors="alancameronwills" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/06/2015" 
-	ms.author="awills"/>
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/06/2015" 
+    ms.author="awills"/>
 
 # Monitor a SharePoint site with Application Insights
 

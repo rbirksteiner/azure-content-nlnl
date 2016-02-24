@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Mobile Engagement Overview" 
-	description="Overview of Azure Mobile Engagement"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
-	editor="" />
+    pageTitle="Mobile Engagement Overview" 
+    description="Overview of Azure Mobile Engagement"
+    services="mobile-engagement" 
+    documentationCenter="mobile" 
+    authors="piyushjo" 
+    manager="dwrede" 
+    editor="" />
 
 <tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/28/2015" 
-	ms.author="piyushjo" />
+    ms.service="mobile-engagement" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="mobile-multiple" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="07/28/2015" 
+    ms.author="piyushjo" />
 
 #Azure Mobile Engagement Overview
 
@@ -53,3 +53,4 @@ Microsoft has a longstanding commitment to privacy, which is an integral part of
 
 [Getting Started (Developers)](/documentation/services/mobile-engagement/)
  
+

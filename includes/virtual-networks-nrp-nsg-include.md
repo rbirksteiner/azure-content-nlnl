@@ -26,46 +26,46 @@ A security rule is a child resource of an NSG containing the properties below.
 
 Sample NSG in JSON format:
 
-	{
-	    "name": "NSG-BackEnd",
-	    "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-BackEnd",
-	    "etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
-	    "type": "Microsoft.Network/networkSecurityGroups",
-	    "location": "westus",
-	    "tags": {
-	        "displayName": "NSG - Front End"
-	    },
-	    "properties": {
-	        "provisioningState": "Succeeded",
-	        "resourceGuid": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-	        "securityRules": [
-	            {
-	                "name": "rdp-rule",
-	                "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-BackEnd/securityRules/rdp-rule",
-	                "etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
-	                "properties": {
-	                    "provisioningState": "Succeeded",
-	                    "description": "Allow RDP",
-	                    "protocol": "Tcp",
-	                    "sourcePortRange": "*",
-	                    "destinationPortRange": "3389",
-	                    "sourceAddressPrefix": "Internet",
-	                    "destinationAddressPrefix": "*",
-	                    "access": "Allow",
-	                    "priority": 100,
-	                    "direction": "Inbound"
-	                }
-	            }
-	        ],
-	        "defaultSecurityRules": [
-	            { [...],
-	        "subnets": [
-	            {
-	                "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd"
-	            }
-	        ]
-	    }
-	}
+    {
+        "name": "NSG-BackEnd",
+        "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-BackEnd",
+        "etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
+        "type": "Microsoft.Network/networkSecurityGroups",
+        "location": "westus",
+        "tags": {
+            "displayName": "NSG - Front End"
+        },
+        "properties": {
+            "provisioningState": "Succeeded",
+            "resourceGuid": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+            "securityRules": [
+                {
+                    "name": "rdp-rule",
+                    "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-BackEnd/securityRules/rdp-rule",
+                    "etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
+                    "properties": {
+                        "provisioningState": "Succeeded",
+                        "description": "Allow RDP",
+                        "protocol": "Tcp",
+                        "sourcePortRange": "*",
+                        "destinationPortRange": "3389",
+                        "sourceAddressPrefix": "Internet",
+                        "destinationAddressPrefix": "*",
+                        "access": "Allow",
+                        "priority": 100,
+                        "direction": "Inbound"
+                    }
+                }
+            ],
+            "defaultSecurityRules": [
+                { [...],
+            "subnets": [
+                {
+                    "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd"
+                }
+            ]
+        }
+    }
 
 ### Default security rules
 Default security rules have the same properties available in security rules. They exist to provide basic connectivity between resources that have NSGs applied to them. Make sure you know which [default security rules](./virtual-networks-nsg.md#Default-Rules) exist. 

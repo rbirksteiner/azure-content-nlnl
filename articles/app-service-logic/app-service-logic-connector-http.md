@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="Using the HTTP Listener and Connector in Logic Apps | Microsoft Azure App Service "
    description="How to create and configure the HTTP listener and HTTP action Connector or API app and use it in a logic app in Azure App Service"
    services="app-service\logic"
@@ -20,9 +20,9 @@
 # Get started with the HTTP listener and HTTP action and add it to your Logic App
 Connect directly to HTTP resources to listen for HTTP requests and configure HTTP web requests. There are some scenarios where you may need to work with direct HTTP connections, including:
 
-1.	To develop a logic App that supports a web or mobile user interactive front end.
-2.	To get and process data from a web service that doesn’t have an out of box connector.
-3.	To perform actions that are already exposed as a web service, but not available as an API app.
+1.  To develop a logic App that supports a web or mobile user interactive front end.
+2.  To get and process data from a web service that doesn’t have an out of box connector.
+3.  To perform actions that are already exposed as a web service, but not available as an API app.
 
 For these scenarios, there are two options:
 
@@ -36,17 +36,17 @@ A connector can be created within a logic app or be created directly from the Az
 
 1. In the Azure startboard, select **Marketplace**.
 2. Search for “HTTP”, select HTTP Listener, and select **Create**.
-3.	Configure the HTTP listener as follows:  
+3.  Configure the HTTP listener as follows:  
 ![][1]
 
-4.	When setting up the package settings, you’ll see the following option on whether the listener should respond automatically or require you to send an explicit response. Set this to **False** to send your own response:  
+4.  When setting up the package settings, you’ll see the following option on whether the listener should respond automatically or require you to send an explicit response. Set this to **False** to send your own response:  
 ![][2]
 
-5.	Click **OK** to create.
-6.	Once the API app instance is created, open the settings to configure the security. The HTTP listener currently supports Basic Authentication. You can configure this using the Security option when you open the HTTP listener:  
+5.  Click **OK** to create.
+6.  Once the API app instance is created, open the settings to configure the security. The HTTP listener currently supports Basic Authentication. You can configure this using the Security option when you open the HTTP listener:  
 ![][3]
   
-	**Known issue**  *The Security settings show "None" as the default value, however it is undefined. You must change the setting to Basic and back to None before saving it to ensure that the HTTP Listener is configured correctly.*
+    **Known issue**  *The Security settings show "None" as the default value, however it is undefined. You must change the setting to Basic and back to None before saving it to ensure that the HTTP Listener is configured correctly.*
 
 7. Lastly, set the security settings of the API App to Public (Anonymous) to allow external clients to access the end point. This setting is available under "All settings > Application Settings" of the HTTP Listener API App:
 ![][10]
@@ -56,18 +56,18 @@ Once that’s done, you can now create a logic app to use the HTTP listener.
 ## Using the HTTP listener in your Logic App
 Once your API app is created, you can now use the HTTP listener as a trigger for your Logic App. To do this, you need to:
 
-4.	Create a new Logic App.
-5.	Open “Triggers and Actions” to open the Logic Apps Designer and configure your flow. The HTTP Listener is listed in the gallery. Select it.
-6.	You can now set the HTTP Method and the relative URL on which you require the listener to trigger the flow:  
+4.  Create a new Logic App.
+5.  Open “Triggers and Actions” to open the Logic Apps Designer and configure your flow. The HTTP Listener is listed in the gallery. Select it.
+6.  You can now set the HTTP Method and the relative URL on which you require the listener to trigger the flow:  
 ![][4]  
 ![][5]
 
-7.	To get the complete URI, double click the HTTP Listener to view its configuration settings and copy the URL for the "Host" of your API app:  
+7.  To get the complete URI, double click the HTTP Listener to view its configuration settings and copy the URL for the "Host" of your API app:  
 ![][6]
-8.	You can now use the data received in the HTTP Request in other actions in the flow as follows:  
+8.  You can now use the data received in the HTTP Request in other actions in the flow as follows:  
 ![][7]  
 ![][8]
-9.	Lastly, to send a response, add another HTTP Listener and select the Send HTTP Response action. Set the Request ID to the RequestID obtained from the HTTP Listener, and populate the response body and HTTP status you want to return back:  
+9.  Lastly, to send a response, add another HTTP Listener and select the Send HTTP Response action. Set the Request ID to the RequestID obtained from the HTTP Listener, and populate the response body and HTTP status you want to return back:  
 ![][9]
 
 ## Using the HTTP action
@@ -96,3 +96,4 @@ You can also review performance statistics and control security to the connector
 [8]: ./media/app-service-logic-connector-http/8.png
 [9]: ./media/app-service-logic-connector-http/9.png
 [10]: ./media/app-service-logic-connector-http/10.png
+

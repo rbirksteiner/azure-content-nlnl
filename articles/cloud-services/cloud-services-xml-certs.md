@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure Cloud Services - Service Definition and Service Config - XML Certificate" 
-	description="Learn how to configure a certificate in the service definition and config files." 
-	services="cloud-services" 
-	documentationCenter=".net" 
-	authors="Thraka" 
-	manager="timlt" 
-	editor=""/>
+    pageTitle="Azure Cloud Services - Service Definition and Service Config - XML Certificate" 
+    description="Learn how to configure a certificate in the service definition and config files." 
+    services="cloud-services" 
+    documentationCenter=".net" 
+    authors="Thraka" 
+    manager="timlt" 
+    editor=""/>
 
 <tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/20/2015"
-	ms.author="adegeo"/>
+    ms.service="cloud-services" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/20/2015"
+    ms.author="adegeo"/>
 
 
 

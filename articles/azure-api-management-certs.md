@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Upload a Microsoft Azure Management API Certificate into the Portal" 
-	description="Learn how to upload athe Management API certficate in Microsoft Azure" 
-	services="cloud-services" 
-	documentationCenter=".net" 
-	authors="Thraka" 
-	manager="timlt" 
-	editor=""/>
+    pageTitle="Upload a Microsoft Azure Management API Certificate into the Portal" 
+    description="Learn how to upload athe Management API certficate in Microsoft Azure" 
+    services="cloud-services" 
+    documentationCenter=".net" 
+    authors="Thraka" 
+    manager="timlt" 
+    editor=""/>
 
 <tags 
-	ms.service="na" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/01/2015"
-	ms.author="adegeo"/>
+    ms.service="na" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/01/2015"
+    ms.author="adegeo"/>
 
 
 # Upload an Azure Management API Management Certificate

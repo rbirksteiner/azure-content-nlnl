@@ -30,11 +30,11 @@ Traffic Manager can help you:
 
 When you configure a Traffic Manager profile, the settings that you specify provide Traffic Manager with the information needed to determine which endpoint should service the request based on a DNS query. No actual endpoint traffic routes through Traffic Manager.
 
-*Figure 1* shows how Traffic Manager directs users to one of a set of endpoints. The numbers in Figure 1 correspond to the numbered descriptions below:
+*Figure 1* shows how Traffic Manager directs users to one of a set of endpoints. The numbers in Figure 1 correspond to the numbered descriptions below:
 
 ![How Traffic Manager works](./media/traffic-manager-overview/IC740854.jpg)
 
-**Figure 1**
+**Figure 1**
 
 1. **User traffic to company domain name**: The client requests information using the company domain name. The goal is to resolve a DNS name to an IP address. Company domains must be reserved through normal Internet domain name registrations that are maintained outside of Traffic Manager. In Figure 1, the example company domain is *www.contoso.com*.
 2. **Company domain name to Traffic Manager domain name**: The DNS resource record for the company domain points to a Traffic Manager domain name maintained in Azure Traffic Manager. This is achieved by using a CNAME resource record that maps the company domain name to the Traffic Manager domain name. In the example, the Traffic Manager domain name is *contoso.trafficmanager.net*.
@@ -47,11 +47,11 @@ Since the company domain and resolved IP address are cached on the client machin
 
 ## How to implement Traffic Manager
 
-*Figure 2* shows the steps, in order, that are necessary to implement Traffic Manager. These steps can be performed in a slightly different order once you have a firm understanding of Traffic Manager configuration and best practices. The numbers in Figure 2 correspond to the numbered descriptions below:
+*Figure 2* shows the steps, in order, that are necessary to implement Traffic Manager. These steps can be performed in a slightly different order once you have a firm understanding of Traffic Manager configuration and best practices. The numbers in Figure 2 correspond to the numbered descriptions below:
 
 ![How to configure Traffic Manager](./media/traffic-manager-overview/IC740855.jpg)
 
-**Figure 2**
+**Figure 2**
 
 1. **Deploy your Azure cloud services, Azure websites, or other endpoints to your production environment**. When you create a Traffic Manager profile, it must be associated with a subscription. You then add endpoints for cloud services and Standard tier websites in production that are part of the same subscription. If an endpoint is in staging and is not in an Azure production environment or is not in the same subscription, it can be added as an external endpoint. For more information about cloud services, see [Cloud Services](http://go.microsoft.com/fwlink/p/?LinkId=314074). For more information about websites, see [Websites](http://go.microsoft.com/fwlink/p/?LinkId=393327).
 2. **Decide a name for your Traffic Manager domain**. Consider a name for your domain with a unique prefix. The latter part of the domain, trafficmanager.net, is fixed. For more information, see [Best practices](#best-practices).
@@ -112,7 +112,7 @@ You can create and configure your Traffic Manager profile by using Windows Power
 ## Best practices
 
 - **Make your prefixes unique and easy to understand** – The DNS name of your Traffic Manager profile must be unique. You can control the first part of the DNS name only. The Traffic Manager domain name is used for identification and client request directing purposes only. Client computers will never display these names to the end user. However, profiles are identified by this domain name so it is important that you be able to quickly identify it from other domain names listed in the Azure classic portal.
-- **Use dots to add uniqueness or make domain names readable** – You can use periods to separate parts of your domain name prefix as well.  If you are planning to create multiple policies in Traffic Manager, use a consistent hierarchy to differentiate one service from the other. For example, Contoso has global services for web, billing, and utility management. The three policies would be *web.contoso.trafficmanager.net*, *bill.contoso.trafficmanager.net*, and *util.contoso.trafficmanager.net*. When setting up cloud services or websites, use names that include location. For example, *web-us-contoso.cloudapp.net* and *web-asia-contoso.cloudapp.net*. Your limitations are those imposed by DNS. Assume a domain name is a sequence of labels separated by dots (label.label.label.label.etc.). At the time of this documentation, the limits for domain names in Traffic Manager are as follows:
+- **Use dots to add uniqueness or make domain names readable** – You can use periods to separate parts of your domain name prefix as well.  If you are planning to create multiple policies in Traffic Manager, use a consistent hierarchy to differentiate one service from the other. For example, Contoso has global services for web, billing, and utility management. The three policies would be *web.contoso.trafficmanager.net*, *bill.contoso.trafficmanager.net*, and *util.contoso.trafficmanager.net*. When setting up cloud services or websites, use names that include location. For example, *web-us-contoso.cloudapp.net* and *web-asia-contoso.cloudapp.net*. Your limitations are those imposed by DNS. Assume a domain name is a sequence of labels separated by dots (label.label.label.label.etc.). At the time of this documentation, the limits for domain names in Traffic Manager are as follows:
    - Each label can be a maximum of 63 characters.
    - You cannot have more than 40 labels total. Since two labels are taken up by trafficmanager.net, that leaves 38 for your prefix.
    - The entire domain name can be a maximum of 253 characters. Keep in mind that trafficmanager.net takes up 19 of those characters.
@@ -135,7 +135,7 @@ This allows you to configure Traffic Manager so that incoming DNS name queries a
 
 ![Example of nested Traffic Manager profiles](./media/traffic-manager-overview/IC751072.png)
 
-**Figure 3**
+**Figure 3**
 
 You can nest up to 10 levels and each profile can be configured with a different traffic routing method.
 
@@ -151,7 +151,7 @@ The result is that users are directed to a regionally appropriate datacenter bas
 
 ![Example of multi-tiered Traffic Manager profiles](./media/traffic-manager-overview/IC751073.png)
 
-**Figure 4**
+**Figure 4**
 
 In *Figure 4*, the Traffic Manager profile in the top-level tier is a parent profile and the Traffic Manager profiles in the middle tier are child profiles.
 

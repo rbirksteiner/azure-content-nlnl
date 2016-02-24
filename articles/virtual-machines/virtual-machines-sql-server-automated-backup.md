@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Automated Backup for SQL Server Virtual Machines | Microsoft Azure"
-	description="Explains the Automated Backup feature for SQL Server running in Azure Virtual Machines using the Resource Manager deployment model."
-	services="virtual-machines"
-	documentationCenter="na"
-	authors="rothja"
-	manager="jeffreyg"
-	editor="monicar"
-	tags="azure-resource-manager" />
+    pageTitle="Automated Backup for SQL Server Virtual Machines | Microsoft Azure"
+    description="Explains the Automated Backup feature for SQL Server running in Azure Virtual Machines using the Resource Manager deployment model."
+    services="virtual-machines"
+    documentationCenter="na"
+    authors="rothja"
+    manager="jeffreyg"
+    editor="monicar"
+    tags="azure-resource-manager" />
 <tags
-	ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services"
-	ms.date="11/12/2015"
-	ms.author="jroth" />
+    ms.service="virtual-machines"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="vm-windows-sql-server"
+    ms.workload="infrastructure-services"
+    ms.date="11/12/2015"
+    ms.author="jroth" />
 
 # Automated Backup for SQL Server in Azure Virtual Machines
 
@@ -94,7 +94,7 @@ You can also uninstall the extension using the **Remove-AzureVMSqlServerExtensio
 
 ## Compatibility
 
-The following products are compatible with the SQL Server IaaS Agent features for Automated Backup:
+The following products are compatible with the SQL Server IaaS Agent features for Automated Backup:
 
 - Windows Server 2012
 
@@ -113,3 +113,4 @@ You can find additional backup and restore guidance for SQL Server on Azure VMs 
 A related feature for SQL Server VMs in Azure is [Automated Patching for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-automated-patching.md).
 
 Review other [resources for running SQL Server in Azure Virtual Machines](virtual-machines-sql-server-infrastructure-services.md).
+

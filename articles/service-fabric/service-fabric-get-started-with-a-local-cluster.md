@@ -35,9 +35,9 @@ The SDK provides two ways to setup a local cluster: a Windows PowerShell script 
 
 2. Run the cluster setup script from the SDK folder:
 
-	```powershell
-	& "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1"
-	```
+    ```powershell
+    & "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1"
+    ```
 
     Cluster setup will take a few moments, after which you should see output that looks something like this:
 
@@ -181,3 +181,4 @@ The new version of the application will now only count words that begin with a v
 [ps-getsfsvc-postupgrade]: ./media/service-fabric-get-started-with-a-local-cluster/PS-GetSFSvc-PostUpgrade.png
 [sfx-upgradeprogress]: ./media/service-fabric-get-started-with-a-local-cluster/SfxUpgradeOverview.png
 [sfx-service-overview]: ./media/service-fabric-get-started-with-a-local-cluster/sfx-service-overview.png
+

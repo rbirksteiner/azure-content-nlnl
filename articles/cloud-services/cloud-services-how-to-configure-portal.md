@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How to configure a cloud service  | Microsoft Azure" 
-	description="Learn how to configure cloud services in Azure. Learn to update the cloud service configuration and configure remote access to role instances. These examples use the Azure portal." 
-	services="cloud-services" 
-	documentationCenter="" 
-	authors="Thraka" 
-	manager="timlt" 
-	editor=""/>
+    pageTitle="How to configure a cloud service  | Microsoft Azure" 
+    description="Learn how to configure cloud services in Azure. Learn to update the cloud service configuration and configure remote access to role instances. These examples use the Azure portal." 
+    services="cloud-services" 
+    documentationCenter="" 
+    authors="Thraka" 
+    manager="timlt" 
+    editor=""/>
 
 <tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/22/2015"
-	ms.author="adegeo"/>
+    ms.service="cloud-services" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/22/2015"
+    ms.author="adegeo"/>
 
 
 
@@ -87,7 +87,7 @@ Azure can only ensure 99.95 percent service availability during the configuratio
 ## Configure remote access to role instances
 
 Remote access cannot be configured using the **Azure portal**, you can only change this setting through the [Azure classic portal](http://manage.windowsazure.com/). This is described [here](cloud-services-role-enable-remote-desktop.md).
-			
+            
 ## Next steps
 
 * Learn how to [deploy a cloud service](cloud-services-how-to-create-deploy-portal.md).

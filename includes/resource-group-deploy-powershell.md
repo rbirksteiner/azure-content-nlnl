@@ -67,3 +67,4 @@
 7. To get detailed information about deployment failures.
 
         Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed -DetailedOutput
+

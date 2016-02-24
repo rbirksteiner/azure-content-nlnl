@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Typical workflow for Azure Search development | Microsoft Azure | Hosted cloud search service"
-	description="A workflow or roadmap for building prototype and production applications that integrate with Azure Search, a hosted cloud search service."
-	services="search"
-	documentationCenter=""
-	authors="HeidiSteen"
-	manager="mblythe"
-	editor=""/>
+    pageTitle="Typical workflow for Azure Search development | Microsoft Azure | Hosted cloud search service"
+    description="A workflow or roadmap for building prototype and production applications that integrate with Azure Search, a hosted cloud search service."
+    services="search"
+    documentationCenter=""
+    authors="HeidiSteen"
+    manager="mblythe"
+    editor=""/>
 
 <tags
-	ms.service="search"
-	ms.devlang="rest-api"
-	ms.workload="search"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.date="11/04/2015"
-	ms.author="heidist"/>
+    ms.service="search"
+    ms.devlang="rest-api"
+    ms.workload="search"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.date="11/04/2015"
+    ms.author="heidist"/>
 
 # Typical workflow for Azure Search development
 
@@ -189,3 +189,4 @@ Remember that only the standard pricing tier can be scaled up or down. Additiona
 
 <!--Image references-->
 [1]: ./media/search-workflow/AzSearch-Workflow.png
+

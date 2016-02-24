@@ -2,7 +2,7 @@
     pageTitle="What is Microsoft Azure Active Directory licensing? | Microsoft Azure"
     description="Description of Microsoft Azure Active Directory licensing, how it works, how to get started, and best practices, including Office 365, Microsoft Intune, and Azure Active Directory Premium and Basic editions"
     services="active-directory"
-	  keywords="Azure AD licensing"
+      keywords="Azure AD licensing"
     documentationCenter=""
     authors="curtand"
     manager="stevenpo"
@@ -72,11 +72,11 @@ Here are a couple of best practices:
 As indicated, Azure AD has different paid versions. These versions have some minor differences in their purchase availability:
 
 
-| Product	| EA/VL		| Open	| 	CSP	| 	MPN use rights	| 	Direct purchase	| Trial |
+| Product   | EA/VL     | Open  |   CSP |   MPN use rights  |   Direct purchase | Trial |
 |---|---|---|---|---|---|---|
-| Enterprise Mobility Suite |	X |	X |	X |	X |	 |	 	X |
-| Azure AD Premium	| X	| X	| X	| 	| X	| X |
-| Azure AD Basic	| X	| X | X	| X	|  <br /> |  <br />  |
+| Enterprise Mobility Suite |   X | X | X | X |  |      X |
+| Azure AD Premium  | X | X | X |   | X | X |
+| Azure AD Basic    | X | X | X | X |  <br /> |  <br />  |
 
 ###Select one or more license trials
  In all cases, you can activate an Azure AD Premium or Enterprise Mobility Suite trial subscription by selecting the specific trial you want on the Licenses tab in your directory. Either trial contains a 30-day subscription with 100 licenses.
@@ -140,3 +140,4 @@ Now you might be ready to configure and use some Azure AD Premium features.
 - [Group assignment to applications](active-directory-manage-groups.md)
 - [Azure Multi-Factor Authentication](multi-factor-authentication.md)
 - [Direct purchase of Azure AD Premium licenses](http://aka.ms/buyaadp)
+

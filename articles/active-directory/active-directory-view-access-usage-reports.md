@@ -1,20 +1,20 @@
 <properties
-	pageTitle="View your access and usage reports | Microsoft Azure"
-	description="Explains how to view access and usage reports to gain insight into the integrity and security of your organization’s directory."
-	services="active-directory"
-	documentationCenter=""
-	authors="kenhoff"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="View your access and usage reports | Microsoft Azure"
+    description="Explains how to view access and usage reports to gain insight into the integrity and security of your organization’s directory."
+    services="active-directory"
+    documentationCenter=""
+    authors="kenhoff"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/07/2015"
-	ms.author="kenhoff;Justinha;curtand"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/07/2015"
+    ms.author="kenhoff;Justinha;curtand"/>
 
 
 # View your access and usage reports
@@ -38,61 +38,61 @@ In the Azure Management Portal, reports are categorized in the following ways:
 
 ## Reports
 
-|	Report												|	Description																					|
-|	------												|	-----																						|
-|	**Anomalous activity reports**
-|	[Sign ins from unknown sources](active-directory-reporting-sign-ins-from-unknown-sources.md)	|	May indicate an attempt to sign in without being traced.									|
-|	[Sign ins after multiple failures](active-directory-reporting-sign-ins-after-multiple-failures.md)		|	May indicate a successful brute force attack.												|
-|	[Sign ins from multiple geographies](active-directory-reporting-sign-ins-from-multiple-geographies.md)	|	May indicate that multiple users are signing in with the same account.						|
-|	[Sign ins from IP addresses with suspicious activity](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)	|	May indicate a successful sign in after a sustained intrusion attempt.						|
-|	[Sign ins from possibly infected devices](active-directory-reporting-sign-ins-from-possibly-infected-devices.md)				|	May indicate an attempt to sign in from possibly infected devices.							|
-|	[Irregular sign in activity](active-directory-reporting-irregular-sign-in-activity.md)							|	May indicate events anomalous to users’ sign in patterns.									|
-|	[Users with anomalous sign in activity](active-directory-reporting-users-with-anomalous-sign-in-activity.md)				|	Indicates users whose accounts may have been compromised.									|
-|	Users with leaked credentials						|	Users with leaked credentials																|
-|	**Activity logs**
-|	Audit report										|	Audited events in your directory															|
-|	Password reset activity								|	Provides a detailed view of password resets that occur in your organization.				|
-|	Password reset registration activity				|	Provides a detailed view of password reset registrations that occur in your organization.	|
-|	Self service groups activity						|	Provides an activity log to all group self service activity in your directory				|
-|	**Integrated applications**
-|	Application usage									|	Provides a usage summary for all SaaS applications integrated with your directory.			|
-|	Account provisioning activity						|	Provides a history of attempts to provision accounts to external applications.				|
-|	Password rollover status							|	Provides a detailed overview of automatic password rollover status of SaaS applications.	|
-|	Account provisioning errors							|	Indicates an impact to users’ access to external applications.								|
-|	**Rights management**
-|	RMS usage											|	Provides a summary for Rights Management usage												|
-|	Most active RMS users								|	Lists top 1000 active users who accessed RMS-protected files								|
-|	RMS device usage									|	Lists devices used for accessing RMS-protected files										|
-|	RMS enabled application usage						|	Provides usage of RMS enabled applications													|
+|   Report                                              |   Description                                                                                 |
+|   ------                                              |   -----                                                                                       |
+|   **Anomalous activity reports**
+|   [Sign ins from unknown sources](active-directory-reporting-sign-ins-from-unknown-sources.md)    |   May indicate an attempt to sign in without being traced.                                    |
+|   [Sign ins after multiple failures](active-directory-reporting-sign-ins-after-multiple-failures.md)      |   May indicate a successful brute force attack.                                               |
+|   [Sign ins from multiple geographies](active-directory-reporting-sign-ins-from-multiple-geographies.md)  |   May indicate that multiple users are signing in with the same account.                      |
+|   [Sign ins from IP addresses with suspicious activity](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)    |   May indicate a successful sign in after a sustained intrusion attempt.                      |
+|   [Sign ins from possibly infected devices](active-directory-reporting-sign-ins-from-possibly-infected-devices.md)                |   May indicate an attempt to sign in from possibly infected devices.                          |
+|   [Irregular sign in activity](active-directory-reporting-irregular-sign-in-activity.md)                          |   May indicate events anomalous to users’ sign in patterns.                                   |
+|   [Users with anomalous sign in activity](active-directory-reporting-users-with-anomalous-sign-in-activity.md)                |   Indicates users whose accounts may have been compromised.                                   |
+|   Users with leaked credentials                       |   Users with leaked credentials                                                               |
+|   **Activity logs**
+|   Audit report                                        |   Audited events in your directory                                                            |
+|   Password reset activity                             |   Provides a detailed view of password resets that occur in your organization.                |
+|   Password reset registration activity                |   Provides a detailed view of password reset registrations that occur in your organization.   |
+|   Self service groups activity                        |   Provides an activity log to all group self service activity in your directory               |
+|   **Integrated applications**
+|   Application usage                                   |   Provides a usage summary for all SaaS applications integrated with your directory.          |
+|   Account provisioning activity                       |   Provides a history of attempts to provision accounts to external applications.              |
+|   Password rollover status                            |   Provides a detailed overview of automatic password rollover status of SaaS applications.    |
+|   Account provisioning errors                         |   Indicates an impact to users’ access to external applications.                              |
+|   **Rights management**
+|   RMS usage                                           |   Provides a summary for Rights Management usage                                              |
+|   Most active RMS users                               |   Lists top 1000 active users who accessed RMS-protected files                                |
+|   RMS device usage                                    |   Lists devices used for accessing RMS-protected files                                        |
+|   RMS enabled application usage                       |   Provides usage of RMS enabled applications                                                  |
 
 ## Report editions
 
-|	Report												|	Free	|	Basic	|	Premium		|
-|	------												|	----	|	-----	|	--------	|
-|	**Anomalous activity reports**
-|	Sign ins from unknown sources						|	✓		|	✓	|	✓			|
-|	Sign ins after multiple failures					|	✓		|	✓	|	✓			|
-|	Sign ins from multiple geographies					|	✓		|	✓	|	✓			|
-|	Sign ins from IP addresses with suspicious activity	|			|		|	✓			|
-|	Sign ins from possibly infected devices				|			|		|	✓			|
-|	Irregular sign in activity							|			|		|	✓			|
-|	Users with anomalous sign in activity				|			|		|	✓			|
-|	Users with leaked credentials						|			|		|	✓			|
-|	**Activity logs**
-|	Audit report										|	✓		|	✓	|	✓			|
-|	Password reset activity								|			|		|	✓			|
-|	Password reset registration activity				|			|		|	✓			|
-|	Self service groups activity						|			|		|	✓			|
-|	**Integrated applications**
-|	Application usage									|			|		|	✓			|
-|	Account provisioning activity						|	✓		|	✓	|	✓			|
-|	Password rollover status							|			|		|	✓			|
-|	Account provisioning errors							|	✓		|	✓	|	✓			|
-|	**Rights managment**
-|	RMS usage											|			|		|	RMS Only	|
-|	Most active RMS users								|			|		|	RMS Only	|
-|	RMS device usage									|			|		|	RMS Only	|
-|	RMS enabled application usage						|			|		|	RMS Only	|
+|   Report                                              |   Free    |   Basic   |   Premium     |
+|   ------                                              |   ----    |   -----   |   --------    |
+|   **Anomalous activity reports**
+|   Sign ins from unknown sources                       |   ✓       |   ✓   |   ✓           |
+|   Sign ins after multiple failures                    |   ✓       |   ✓   |   ✓           |
+|   Sign ins from multiple geographies                  |   ✓       |   ✓   |   ✓           |
+|   Sign ins from IP addresses with suspicious activity |           |       |   ✓           |
+|   Sign ins from possibly infected devices             |           |       |   ✓           |
+|   Irregular sign in activity                          |           |       |   ✓           |
+|   Users with anomalous sign in activity               |           |       |   ✓           |
+|   Users with leaked credentials                       |           |       |   ✓           |
+|   **Activity logs**
+|   Audit report                                        |   ✓       |   ✓   |   ✓           |
+|   Password reset activity                             |           |       |   ✓           |
+|   Password reset registration activity                |           |       |   ✓           |
+|   Self service groups activity                        |           |       |   ✓           |
+|   **Integrated applications**
+|   Application usage                                   |           |       |   ✓           |
+|   Account provisioning activity                       |   ✓       |   ✓   |   ✓           |
+|   Password rollover status                            |           |       |   ✓           |
+|   Account provisioning errors                         |   ✓       |   ✓   |   ✓           |
+|   **Rights managment**
+|   RMS usage                                           |           |       |   RMS Only    |
+|   Most active RMS users                               |           |       |   RMS Only    |
+|   RMS device usage                                    |           |       |   RMS Only    |
+|   RMS enabled application usage                       |           |       |   RMS Only    |
 
 
 
@@ -225,17 +225,17 @@ Pre-integrated Microsoft applications include Office 365, Sharepoint, the Azure 
 
 Only certain types of sign in events will appear in the User Activity report.
 
-| Event type										| Included?		|
-| ----------------------								| ---------		|
-| Sign ins to the [Access Panel](http://myapps.microsoft.com/)				| Yes			|
-| Sign ins to the [Azure Management Portal](https://manage.windowsazure.com/)		| Yes			|
-| Sign ins to the [Microsoft Azure Portal](http://portal.azure.com/)			| Yes			|
-| Sign ins to the [Office 365 portal](http://portal.office.com/)			| Yes			|
-| Sign ins to a native application, like Outlook (see exception below)			| Yes			|
-| Sign ins to a federated/provisioned app through the Access Panel, like Salesforce	| Yes			|
-| Sign ins to a password-based app through the Access Panel, like Twitter		| Yes			|
-| Sign ins to a custom business app that has been added to the directory		| No (Coming soon)	|
-| Sign ins to an Azure AD Application Proxy app that has been added to the directory	| No (Coming soon)	|
+| Event type                                        | Included?     |
+| ----------------------                                | ---------     |
+| Sign ins to the [Access Panel](http://myapps.microsoft.com/)              | Yes           |
+| Sign ins to the [Azure Management Portal](https://manage.windowsazure.com/)       | Yes           |
+| Sign ins to the [Microsoft Azure Portal](http://portal.azure.com/)            | Yes           |
+| Sign ins to the [Office 365 portal](http://portal.office.com/)            | Yes           |
+| Sign ins to a native application, like Outlook (see exception below)          | Yes           |
+| Sign ins to a federated/provisioned app through the Access Panel, like Salesforce | Yes           |
+| Sign ins to a password-based app through the Access Panel, like Twitter       | Yes           |
+| Sign ins to a custom business app that has been added to the directory        | No (Coming soon)  |
+| Sign ins to an Azure AD Application Proxy app that has been added to the directory    | No (Coming soon)  |
 
 > Note: To reduce the amount of noise in this report, sign ins by the [Microsoft Online Services Sign-In Assistant](http://community.office365.com/en-us/w/sso/534.aspx) are not shown.
 
@@ -268,10 +268,10 @@ If you suspect that a user account may be compromised or any kind of suspicious 
     - Last 7 days
     - Last 30 days
 4. Click the check mark icon to run the report.
-	- Up to 1000 events will be shown in the Azure Management Portal.
+    - Up to 1000 events will be shown in the Azure Management Portal.
 5. If applicable, click **Download** to download the report to a compressed file in Comma Separated Values (CSV) format for offline viewing or archiving purposes.
-	- Up to 75,000 events will be included in the downloaded file.
-	- For more data, check out the [Azure AD Reporting API](active-directory-reporting-api-getting-started.md).
+    - Up to 75,000 events will be included in the downloaded file.
+    - For more data, check out the [Azure AD Reporting API](active-directory-reporting-api-getting-started.md).
 
 ## Ignore an event
 
@@ -285,3 +285,4 @@ For more information about Azure AD's reporting notifications, check out [Azure 
 
 - [Getting started with Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Add company branding to your Sign In and Access Panel pages](active-directory-add-company-branding.md)
+

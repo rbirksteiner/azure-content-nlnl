@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Node.js application using Socket.io | Microsoft Azure" 
-	description="Learn how to use socket.io in a node.js application hosted on Azure." 
-	services="cloud-services" 
-	documentationCenter="nodejs" 
-	authors="TomArcher" 
-	manager="wpickett" 
-	editor=""/>
+    pageTitle="Node.js application using Socket.io | Microsoft Azure" 
+    description="Learn how to use socket.io in a node.js application hosted on Azure." 
+    services="cloud-services" 
+    documentationCenter="nodejs" 
+    authors="TomArcher" 
+    manager="wpickett" 
+    editor=""/>
 
 <tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="09/01/2015" 
-	ms.author="tarcher"/>
+    ms.service="cloud-services" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="nodejs" 
+    ms.topic="article" 
+    ms.date="09/01/2015" 
+    ms.author="tarcher"/>
 
 
 
@@ -45,24 +45,24 @@ The following steps create the cloud service project that will host the Socket.I
 
 1. From the **Start Menu** or **Start Screen**, search for **Azure PowerShell**. Finally, right-click **Azure PowerShell** and select **Run As Administrator**.
 
-	![Azure PowerShell icon][powershell-menu]
+    ![Azure PowerShell icon][powershell-menu]
 
 2. Create a directory called **c:\\node**. 
  
-		PS C:\> md node
+        PS C:\> md node
 
 3. Change directories to the **c:\\node** directory
  
-		PS C:\> cd node
+        PS C:\> cd node
 
 4. Enter the following commands to create a new solution named **chatapp** and a worker role named **WorkerRole1**:
 
-		PS C:\node> New-AzureServiceProject chatapp
-		PS C:\Node> Add-AzureNodeWorkerRole
+        PS C:\node> New-AzureServiceProject chatapp
+        PS C:\Node> Add-AzureNodeWorkerRole
 
-	You will see the following response:
+    You will see the following response:
 
-	![The output of the new-azureservice and add-azurenodeworkerrolecmdlets](./media/cloud-services-nodejs-chat-app-socketio/socketio-1.png)
+    ![The output of the new-azureservice and add-azurenodeworkerrolecmdlets](./media/cloud-services-nodejs-chat-app-socketio/socketio-1.png)
 
 ## Download the Chat Example
 
@@ -94,21 +94,21 @@ server.js file:
 
 2.  Find the **Module dependencies** section at the beginning of server.js and change the line containing **sio = require('..//..//lib//socket.io')** to **sio = require('socket.io')** as shown below:
 
-		var express = require('express')
-  		, stylus = require('stylus')
-  		, nib = require('nib')
-		//, sio = require('..//..//lib//socket.io'); //Original
-  		, sio = require('socket.io');                //Updated
+        var express = require('express')
+        , stylus = require('stylus')
+        , nib = require('nib')
+        //, sio = require('..//..//lib//socket.io'); //Original
+        , sio = require('socket.io');                //Updated
 
 3.  To ensure the application listens on the correct port, open
     server.js in Notepad or your favorite editor, and then change the
     following line by replacing **3000** with **process.env.port** as shown below:
 
         //app.listen(3000, function () {            //Original
-		app.listen(process.env.port, function () {  //Updated
-		  var addr = app.address();
-		  console.log('   app listening on http://' + addr.address + ':' + addr.port);
-		});
+        app.listen(process.env.port, function () {  //Updated
+          var addr = app.address();
+          console.log('   app listening on http://' + addr.address + ':' + addr.port);
+        });
 
 After saving the changes to **server.js**, use the following steps to
 install required modules, and then test the application in the
@@ -156,13 +156,13 @@ Azure emulator:
 
         PS C:\node\chatapp\WorkerRole1> Publish-AzureServiceProject -ServiceName mychatapp -Location "East US" -Launch
 
-	> [AZURE.IMPORTANT] Be sure to use a unique name, otherwise the publish process will fail. After the deployment has completed, the browser will open and navigate to the deployed service.
-	> 
-	> If you receive an error stating that the provided subscription name doesn't exist in the imported publish profile, you must download and import the publishing profile for your subscription before deploying to Azure. See the **Deploying the Application to Azure** section of [Build and deploy a Node.js application to an Azure Cloud Service](https://www.windowsazure.com/develop/nodejs/tutorials/getting-started/)
+    > [AZURE.IMPORTANT] Be sure to use a unique name, otherwise the publish process will fail. After the deployment has completed, the browser will open and navigate to the deployed service.
+    > 
+    > If you receive an error stating that the provided subscription name doesn't exist in the imported publish profile, you must download and import the publishing profile for your subscription before deploying to Azure. See the **Deploying the Application to Azure** section of [Build and deploy a Node.js application to an Azure Cloud Service](https://www.windowsazure.com/develop/nodejs/tutorials/getting-started/)
 
     ![A browser window displaying the service hosted on Azure][completed-app]
 
-	> [AZURE.NOTE] If you receive an error stating that the provided subscription name doesn't exist in the imported publish profile, you must download and import the publishing profile for your subscription before deploying to Azure. See the **Deploying the Application to Azure** section of [Build and deploy a Node.js application to an Azure Cloud Service](https://www.windowsazure.com/develop/nodejs/tutorials/getting-started/)
+    > [AZURE.NOTE] If you receive an error stating that the provided subscription name doesn't exist in the imported publish profile, you must download and import the publishing profile for your subscription before deploying to Azure. See the **Deploying the Application to Azure** section of [Build and deploy a Node.js application to an Azure Cloud Service](https://www.windowsazure.com/develop/nodejs/tutorials/getting-started/)
 
 Your application is now running on Azure, and can relay chat
 messages between different clients using Socket.IO.
@@ -197,3 +197,4 @@ For more information, see also the [Node.js Developer Center](/develop/nodejs/).
   [The output of the Publish-AzureService command]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-9.png
   
  
+

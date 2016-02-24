@@ -1,20 +1,20 @@
 <properties
-	pageTitle="How to use Blob storage from Ruby | Microsoft Azure"
-	description="Learn how to use the Azure Blob service to upload, download, list, and delete blob content. Samples written in Ruby."
-	services="storage"
-	documentationCenter="ruby"
-	authors="tfitzmac"
-	manager="wpickett"
-	editor=""/>
+    pageTitle="How to use Blob storage from Ruby | Microsoft Azure"
+    description="Learn how to use the Azure Blob service to upload, download, list, and delete blob content. Samples written in Ruby."
+    services="storage"
+    documentationCenter="ruby"
+    authors="tfitzmac"
+    manager="wpickett"
+    editor=""/>
 
 <tags
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="ruby"
-	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="tomfitz"/>
+    ms.service="storage"
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="ruby"
+    ms.topic="article"
+    ms.date="09/01/2015"
+    ms.author="tomfitz"/>
 
 
 # How to use Blob storage from Ruby
@@ -48,15 +48,15 @@ To use Azure Storage, you need to download and use the Ruby azure package, which
 
 Using your favorite text editor, add the following to the top of the Ruby file where you intend to use storage:
 
-	require "azure"
+    require "azure"
 
 ## Setup an Azure Storage Connection
 
 The azure module will read the environment variables **AZURE\_STORAGE\_ACCOUNT** and **AZURE\_STORAGE\_ACCESS_KEY**
 for information required to connect to your Azure storage account. If these environment variables are not set, you must specify the account information before using **Azure::Blob::BlobService** with the following code:
 
-	Azure.config.storage_account_name = "<your azure storage account>"
-	Azure.config.storage_access_key = "<your azure storage access key>"
+    Azure.config.storage_account_name = "<your azure storage account>"
+    Azure.config.storage_access_key = "<your azure storage access key>"
 
 
 To obtain these values:
@@ -74,19 +74,19 @@ The **Azure::Blob::BlobService** object lets you work with containers and blobs.
 
 The following code example creates a container or print out the error if there is any.
 
-	azure_blob_service = Azure::Blob::BlobService.new
-	begin
-	  container = azure_blob_service.create_container("test-container")
-	rescue
-	  puts $!
-	end
+    azure_blob_service = Azure::Blob::BlobService.new
+    begin
+      container = azure_blob_service.create_container("test-container")
+    rescue
+      puts $!
+    end
 
 If you want to make the files in the container public, you can set the container's permissions.
 
 You can just modify the <strong>create\_container()</strong> call to pass the **:public\_access\_level** option:
 
-	container = azure_blob_service.create_container("test-container",
-	  :public_access_level => "<public access level>")
+    container = azure_blob_service.create_container("test-container",
+      :public_access_level => "<public access level>")
 
 
 Valid values for the **:public\_access\_level** option are:
@@ -99,7 +99,7 @@ Alternatively, you can modify the public access level of a container by using **
 
 The following code example changes the public access level to **container**:
 
-	azure_blob_service.set_container_acl('test-container', "container")
+    azure_blob_service.set_container_acl('test-container', "container")
 
 ## Upload a blob into a container
 
@@ -107,10 +107,10 @@ To upload content to a blob, use the **create\_block\_blob()** method to create 
 
 The following code uploads the file **test.png** as a new blob named "image-blob" in the container.
 
-	content = File.open("test.png", "rb") { |file| file.read }
-	blob = azure_blob_service.create_block_blob(container.name,
-	  "image-blob", content)
-	puts blob.name
+    content = File.open("test.png", "rb") { |file| file.read }
+    blob = azure_blob_service.create_block_blob(container.name,
+      "image-blob", content)
+    puts blob.name
 
 ## List the blobs in a container
 
@@ -119,13 +119,13 @@ To list the blobs within a container, use **list\_blobs()** method.
 
 This outputs the urls of all the blobs in all the containers for the account.
 
-	containers = azure_blob_service.list_containers()
-	containers.each do |container|
-	  blobs = azure_blob_service.list_blobs(container.name)
-	  blobs.each do |blob|
-	    puts blob.name
-	  end
-	end
+    containers = azure_blob_service.list_containers()
+    containers.each do |container|
+      blobs = azure_blob_service.list_blobs(container.name)
+      blobs.each do |blob|
+        puts blob.name
+      end
+    end
 
 ## Download blobs
 
@@ -133,13 +133,13 @@ To download blobs, use the **get\_blob()** method to retrieve the contents.
 
 The following code example demonstrates using **get\_blob()** to download the contents of "image-blob" and write it to a local file.
 
-	blob, content = azure_blob_service.get_blob(container.name,"image-blob")
-	File.open("download.png","wb") {|f| f.write(content)}
+    blob, content = azure_blob_service.get_blob(container.name,"image-blob")
+    File.open("download.png","wb") {|f| f.write(content)}
 
 ## Delete a Blob
 Finally, to delete a blob, use the **delete\_blob()** method. The following code example demonstrates how to delete a blob.
 
-	azure_blob_service.delete_blob(container.name, "image-blob")
+    azure_blob_service.delete_blob(container.name, "image-blob")
 
 ## Next steps
 

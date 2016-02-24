@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Service-side authorization of users in a .NET backend mobile service | Microsoft Azure"
-	description="Learn how to restrict access for authorize users in a .NET backend mobile service"
-	services="mobile-services"
-	documentationCenter="windows"
-	authors="krisragh"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Service-side authorization of users in a .NET backend mobile service | Microsoft Azure"
+    description="Learn how to restrict access for authorize users in a .NET backend mobile service"
+    services="mobile-services"
+    documentationCenter="windows"
+    authors="krisragh"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-multiple"
-	ms.topic="article"
-	ms.devlang="dotnet"
-	ms.date="12/09/2015"
-	ms.author="krisragh"/>
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-multiple"
+    ms.topic="article"
+    ms.devlang="dotnet"
+    ms.date="12/09/2015"
+    ms.author="krisragh"/>
 
 # Service-side authorization of users in Mobile Services
 
@@ -35,32 +35,32 @@ This tutorial is based on the Mobile Services Quick Start and builds on the [Add
 
 1. In Visual Studio, open your mobile project, expand the DataObjects folder, and open **TodoItem.cs**. The **TodoItem** class defines the data object, and you need to add a **UserId** property to use for filtering. Add the following new UserId property to the **TodoItem** class:
 
-		public string UserId { get; set; }
+        public string UserId { get; set; }
 
-	>[AZURE.NOTE] To make this data model change and maintain existing data in the database, you must use [Code First Migrations](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md).
+    >[AZURE.NOTE] To make this data model change and maintain existing data in the database, you must use [Code First Migrations](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md).
 
 2. In Visual Studio, expand the Controllers folder,  open **TodoItemController.cs** and add the following using statement:
 
-		using Microsoft.WindowsAzure.Mobile.Service.Security;
+        using Microsoft.WindowsAzure.Mobile.Service.Security;
 
 3. Locate the **PostTodoItem** method and add the following code at the beginning of the method.
 
-		// Get the logged in user
-		var currentUser = User as ServiceUser;
+        // Get the logged in user
+        var currentUser = User as ServiceUser;
 
-		// Set the user ID on the item
-		item.UserId = currentUser.Id;
+        // Set the user ID on the item
+        item.UserId = currentUser.Id;
 
-	This code adds the user ID of the authenticated user to the item, before it is inserted into the TodoItem table.
+    This code adds the user ID of the authenticated user to the item, before it is inserted into the TodoItem table.
 
 3. Locate the **GetAllTodoItems** method and replace the existing **return** statement with the following line of code:
 
-		// Get the logged in user
-		var currentUser = User as ServiceUser;
+        // Get the logged in user
+        var currentUser = User as ServiceUser;
 
-		return Query().Where(todo => todo.UserId == currentUser.Id);
+        return Query().Where(todo => todo.UserId == currentUser.Id);
 
-	This query filters the returned TodoItem objects so that each user only receives the items that they inserted.
+    This query filters the returned TodoItem objects so that each user only receives the items that they inserted.
 
 4. Republish the mobile service project to Azure.
 
@@ -83,3 +83,4 @@ This tutorial is based on the Mobile Services Quick Start and builds on the [Add
 
 <!-- URLs. -->
 [Add Authentication to Existing Mobile Services App]: mobile-services-dotnet-backend-ios-get-started-users.md
+

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Move Data to and from Azure Blob Storage | Microsoft Azure" 
-	description="Move Data to and from Azure Blob Storage" 
-	services="machine-learning,storage" 
-	documentationCenter="" 
-	authors="bradsev" 
-	manager="paulettm" 
-	editor="cgronlun" />
+    pageTitle="Move Data to and from Azure Blob Storage | Microsoft Azure" 
+    description="Move Data to and from Azure Blob Storage" 
+    services="machine-learning,storage" 
+    documentationCenter="" 
+    authors="bradsev" 
+    manager="paulettm" 
+    editor="cgronlun" />
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/12/2015" 
-	ms.author="bradsev;sunliangms;sachouks;mohabib" />
+    ms.service="machine-learning" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/12/2015" 
+    ms.author="bradsev;sunliangms;sachouks;mohabib" />
 
 # Move Data to and from Azure Blob Storage
 
@@ -43,3 +43,4 @@ This document assumes that you have an Azure subscription, a storage account and
 
 
  
+

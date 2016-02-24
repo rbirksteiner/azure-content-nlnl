@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="End-to-End Troubleshooting using Azure Storage Metrics and Logging, AzCopy, and Message Analyzer | Microsoft Azure" 
-	description="A tutorial demonstrating end-to-end troubleshooting with Azure Storage Analytics, AzCopy, and Microsoft Message Analyzer" 
-	services="storage" 
-	documentationCenter="dotnet" 
-	authors="tamram" 
-	manager="adinah"/>
+    pageTitle="End-to-End Troubleshooting using Azure Storage Metrics and Logging, AzCopy, and Message Analyzer | Microsoft Azure" 
+    description="A tutorial demonstrating end-to-end troubleshooting with Azure Storage Analytics, AzCopy, and Microsoft Message Analyzer" 
+    services="storage" 
+    documentationCenter="dotnet" 
+    authors="tamram" 
+    manager="adinah"/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="12/01/2015" 
-	ms.author="tamram"/>
+    ms.service="storage" 
+    ms.workload="storage" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="dotnet" 
+    ms.topic="article" 
+    ms.date="12/01/2015" 
+    ms.author="tamram"/>
 
 # End-to-End Troubleshooting using Azure Storage Metrics and Logging, AzCopy, and Message Analyzer 
 
@@ -32,13 +32,13 @@ This tutorial provides a hands-on exploration of an end-to-end troubleshooting s
 To troubleshoot client applications using Microsoft Azure Storage, you can use a combination of tools to determine when an issue has occurred and what the cause of the problem may be. These tools include:
 
 - **Azure Storage Analytics**. [Azure Storage Analytics](http://msdn.microsoft.com/library/azure/hh343270.aspx) provides metrics and logging for Azure Storage.
-	- **Storage metrics** tracks transaction metrics and capacity metrics for your storage account. Using metrics, you can determine how your application is performing according to a variety of different measures. See [Storage Analytics Metrics Table Schema](http://msdn.microsoft.com/library/azure/hh343264.aspx) for more information about the types of metrics tracked by Storage Analytics. 
+    - **Storage metrics** tracks transaction metrics and capacity metrics for your storage account. Using metrics, you can determine how your application is performing according to a variety of different measures. See [Storage Analytics Metrics Table Schema](http://msdn.microsoft.com/library/azure/hh343264.aspx) for more information about the types of metrics tracked by Storage Analytics. 
 
-	- **Storage logging** logs each request to the Azure Storage services to a server-side log. The log tracks detailed data for each request, including the operation performed, the status of the operation, and latency information. See [Storage Analytics Log Format](http://msdn.microsoft.com/library/azure/hh343259.aspx) for more information about the request and response data that is written to the logs by Storage Analytics.
+    - **Storage logging** logs each request to the Azure Storage services to a server-side log. The log tracks detailed data for each request, including the operation performed, the status of the operation, and latency information. See [Storage Analytics Log Format](http://msdn.microsoft.com/library/azure/hh343259.aspx) for more information about the request and response data that is written to the logs by Storage Analytics.
 
 - **Azure Classic Portal**. You can configure metrics and logging for your storage account in the [Azure Classic Portal](manage.windowsazure.com). You can also view charts and graphs that show how your application is performing over time, and configure alerts to notify you if your application performs differently than expected for a specified metric. 
-	
-	See [How to monitor a storage account](storage-monitor-storage-account.md) for information about configuring monitoring in the Azure Classic Portal.
+    
+    See [How to monitor a storage account](storage-monitor-storage-account.md) for information about configuring monitoring in the Azure Classic Portal.
 
 - **AzCopy**. Server logs for Azure Storage are stored as blobs, so you can use AzCopy to copy the log blobs to a local directory for analysis using Microsoft Message Analyzer. See [How to use AzCopy with Microsoft Azure Storage](storage-use-azcopy.md) for more information about AzCopy.
 
@@ -104,29 +104,29 @@ To get started with PowerShell for Azure, see [How to install and configure Azur
 
 1. Use the [Add-AzureAccount](http://msdn.microsoft.com/library/azure/dn722528.aspx) cmdlet to add your Azure user account to the PowerShell window:
 
-	```
-	Add-AzureAccount
-	```
+    ```
+    Add-AzureAccount
+    ```
 
 2. In the **Sign in to Microsoft Azure** window, type the email address and password associated with your account. Azure authenticates and saves the credential information, and then closes the window.
 3. Set the default storage account to the storage account you are using for the tutorial by executing these commands in the PowerShell window:
 
-	```
-	$SubscriptionName = 'Your subscription name'
-	$StorageAccountName = 'yourstorageaccount' 
-	Set-AzureSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName 
-	```
+    ```
+    $SubscriptionName = 'Your subscription name'
+    $StorageAccountName = 'yourstorageaccount' 
+    Set-AzureSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName 
+    ```
 
 4. Enable storage logging for the Blob service: 
  
-	```
-	Set-AzureStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations Read,Write,Delete -PassThru -RetentionDays 7 -Version 1.0 
-	```
+    ```
+    Set-AzureStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations Read,Write,Delete -PassThru -RetentionDays 7 -Version 1.0 
+    ```
 5. Enable storage metrics for the Blob service, making sure to set **-MetricsType** to `Minute`:
 
-	```
-	Set-AzureStorageServiceMetricsProperty -ServiceType Blob -MetricsType Minute -MetricsLevel ServiceAndApi -PassThru -RetentionDays 7 -Version 1.0 
-	```
+    ```
+    Set-AzureStorageServiceMetricsProperty -ServiceType Blob -MetricsType Minute -MetricsLevel ServiceAndApi -PassThru -RetentionDays 7 -Version 1.0 
+    ```
 
 ### Configure .NET client-side logging
 
@@ -157,10 +157,10 @@ For the tutorial, collect and save a network trace first in Message Analyzer, th
 4. Select the **Configure** link to the right of the **Microsoft-Pef-WebProxy** ETW provider.
 5. In the **Advanced Settings** dialog, click the **Provider** tab.
 6. In the **Hostname Filter** field, specify your storage endpoints, separated by spaces. For example, you can specify your endpoints as follows; change `storagesample` to the name of your storage account:
-	
-	```	
-	storagesample.blob.core.windows.net storagesample.queue.core.windows.net storagesample.table.core.windows.net 
-	```
+    
+    ``` 
+    storagesample.blob.core.windows.net storagesample.queue.core.windows.net storagesample.table.core.windows.net 
+    ```
 
 7. Exit the dialog, and click **Restart** to begin collecting the trace with the hostname filter in place, so that only Azure Storage network traffic is included in the trace.
 
@@ -192,7 +192,7 @@ Azure Storage writes server log data to blobs, while metrics are written to tabl
 
 You can use the AzCopy command-line tool to download these server-side log files to a location of your choice on your local machine. For example, you can use the following command to download the log files for blob operations that took place on January 2, 2015 to the folder `C:\Temp\Logs\Server`; replace `<storageaccountname>` with the name of your storage account, and `<storageaccountkey>` with your account access key:
 
-	AzCopy.exe /Source:http://<storageaccountname>.blob.core.windows.net/$logs /Dest:C:\Temp\Logs\Server /Pattern:"blob/2015/01/02" /SourceKey:<storageaccountkey> /S /V
+    AzCopy.exe /Source:http://<storageaccountname>.blob.core.windows.net/$logs /Dest:C:\Temp\Logs\Server /Pattern:"blob/2015/01/02" /SourceKey:<storageaccountkey> /S /V
 
 AzCopy is available for download on the [Azure Downloads](http://azure.microsoft.com/downloads/) page. For details about using AzCopy, see [How to use AzCopy with Microsoft Azure Storage](storage-use-azcopy.md).
 
@@ -210,11 +210,11 @@ Message Analyzer includes assets for Azure Storage that help you to analyze serv
 2. Launch Message Analyzer.
 3. On the **Start** page, navigate to **Downloads**, then filter on **Azure Storage**. You will see the Azure Storage Assets, as shown in the picture below.
 4. Click **Sync All Displayed Items** to install the Azure Storage Assets. The available assets include: 
-	- **Azure Storage Color Rules:** Azure Storage color rules enable you to define special filters that use color, text, and font styles to highlight messages that contain specific information in a trace.
-	- **Azure Storage Charts:** Azure Storage charts are predefined charts that graph server log data. Note that to use Azure Storage charts at this time, you may only load the server log into the Analysis Grid.
-	- **Azure Storage Parsers:** The Azure Storage parsers parse the Azure Storage client, server, and HTTP logs in order to display them in the Analysis Grid.
-	- **Azure Storage Filters:** Azure Storage filters are predefined criteria that you can use to query your data in the Analysis Grid.
-	- **Azure Storage View Layouts:** Azure Storage view layouts are predefined column layouts and groupings in the Analysis Grid.
+    - **Azure Storage Color Rules:** Azure Storage color rules enable you to define special filters that use color, text, and font styles to highlight messages that contain specific information in a trace.
+    - **Azure Storage Charts:** Azure Storage charts are predefined charts that graph server log data. Note that to use Azure Storage charts at this time, you may only load the server log into the Analysis Grid.
+    - **Azure Storage Parsers:** The Azure Storage parsers parse the Azure Storage client, server, and HTTP logs in order to display them in the Analysis Grid.
+    - **Azure Storage Filters:** Azure Storage filters are predefined criteria that you can use to query your data in the Analysis Grid.
+    - **Azure Storage View Layouts:** Azure Storage view layouts are predefined column layouts and groupings in the Analysis Grid.
 4. Restart Message Analyzer after you've installed the assets.
 
 ![Message Analyzer Start Page](./media/storage-e2e-troubleshooting-classic-portal/mma-start-page-1.png)
@@ -287,13 +287,13 @@ Next, we'll group and filter the log data to find all errors in the 400 range.
 1. Display the View Filter tool window if it is not already displayed. On the toolbar ribbon, select **Tool Windows**, then **View Filter**.
 2. To filter the log data to display only 400-range errors, add the following filter criteria to the **View Filter** window, and click **Apply**:
 
-		(AzureStorageLog.StatusCode >= 400 && AzureStorageLog.StatusCode <=499) || (HTTP.StatusCode >= 400 && HTTP.StatusCode <= 499)
+        (AzureStorageLog.StatusCode >= 400 && AzureStorageLog.StatusCode <=499) || (HTTP.StatusCode >= 400 && HTTP.StatusCode <= 499)
 
 The picture below shows the results of this grouping and filter. Expanding the **ClientRequestID** field beneath the grouping for status code 409, for example, shows an operation that resulted in that status code.
 
 ![Azure Storage View Layout](./media/storage-e2e-troubleshooting-classic-portal/400-range-errors1.png)
 
-After applying this filter, you'll see that rows from the client log are excluded, as the client log does not include a **StatusCode** column. To begin with, we'll review the server and network trace logs to locate 404 errors, and then we'll return to the client log to examine the client operations that led to them.
+After applying this filter, you'll see that rows from the client log are excluded, as the client log does not include a **StatusCode** column. To begin with, we'll review the server and network trace logs to locate 404 errors, and then we'll return to the client log to examine the client operations that led to them.
 
 >[AZURE.NOTE] You can filter on the **StatusCode** column and still display data from all three logs, including the client log, if you add an expression to the filter that includes log entries where the status code is null. To construct this filter expression, use:
 >
@@ -311,8 +311,8 @@ The Storage Assets include predefined filters that you can use to narrow log dat
 4. Edit the timestamps shown in the filter to the range you wish to view. This will help to narrow the range of data to analyze.
 5. Your filter should appear similar to the example below. Click **Apply** to apply the filter to the Analysis Grid.
 
-		((AzureStorageLog.StatusCode == 404 || HTTP.StatusCode == 404)) And 
-		(#Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39)
+        ((AzureStorageLog.StatusCode == 404 || HTTP.StatusCode == 404)) And 
+        (#Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39)
 
 ![Azure Storage View Layout](./media/storage-e2e-troubleshooting-classic-portal/404-filtered-errors1.png)
 
@@ -331,7 +331,7 @@ Next, we'll correlate this client request ID with the client log data to see wha
 2. On the toolbar ribbon, select **View Layout**, then select **All .NET Client Columns** under the **Azure Storage** section. This view layout shows data from the client log as well as the server and network trace logs. By default it is sorted on the **MessageNumber** column.
 3. Next, search the client log for the client request ID. On the toolbar ribbon, select **Find Messages**, then specify a custom filter on the client request ID in the **Find** field. Use this syntax for the filter, specifying your own client request ID:
 
-		*ClientRequestId == "398bac41-7725-484b-8a69-2a9e48fc669a"
+        *ClientRequestId == "398bac41-7725-484b-8a69-2a9e48fc669a"
 
 Message Analyzer locates and selects the first log entry where the search criteria matches the client request ID. In the client log, there are several entries for each client request ID, so you may want to group them on the **ClientRequestId** field to make it easier to see them all together. The picture below shows all of the messages in the client log for the specified client request ID. 
 
@@ -375,3 +375,4 @@ For more information about troubleshooting end-to-end scenarios in Azure Storage
 - [Microsoft Message Analyzer Operating Guide](http://technet.microsoft.com/library/jj649776.aspx)
  
  
+

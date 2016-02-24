@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Web app with table storage (Node.js) | Microsoft Azure" 
-	description="A tutorial that builds on the Web App with Express tutorial by adding Azure Storage services and the Azure module." 
-	services="cloud-services, storage" 
-	documentationCenter="nodejs" 
-	authors="TomArcher" 
-	manager="wpickett" 
-	editor=""/>
+    pageTitle="Web app with table storage (Node.js) | Microsoft Azure" 
+    description="A tutorial that builds on the Web App with Express tutorial by adding Azure Storage services and the Azure module." 
+    services="cloud-services, storage" 
+    documentationCenter="nodejs" 
+    authors="TomArcher" 
+    manager="wpickett" 
+    editor=""/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="09/01/2015" 
-	ms.author="tarcher"/>
+    ms.service="storage" 
+    ms.workload="storage" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="nodejs" 
+    ms.topic="article" 
+    ms.date="09/01/2015" 
+    ms.author="tarcher"/>
 
 
 
@@ -73,9 +73,9 @@ and add them to the web.config settings:
 
         PS C:\node\tasklist\WebRole1> Get-AzureStorageAccounts
 
-	This retrieves the list of storage accounts and account keys associated with your hosted service.
+    This retrieves the list of storage accounts and account keys associated with your hosted service.
 
-	> [AZURE.NOTE] Since the Azure SDK creates a storage account when you deploy a service, a storage account should already exist from deploying your application in the previous guides.
+    > [AZURE.NOTE] Since the Azure SDK creates a storage account when you deploy a service, a storage account should already exist from deploying your application in the previous guides.
 
 4.  Open the **ServiceDefinition.csdef** file containing the environment settings that are used when the application is deployed to Azure:
 
@@ -86,7 +86,7 @@ and add them to the web.config settings:
         <Variable name="AZURE_STORAGE_ACCOUNT" value="{STORAGE ACCOUNT}" />
         <Variable name="AZURE_STORAGE_ACCESS_KEY" value="{STORAGE ACCESS KEY}" />
 
-	![The web.cloud.config file contents](./media/storage-nodejs-use-table-storage-cloud-service-app/node37.png)
+    ![The web.cloud.config file contents](./media/storage-nodejs-use-table-storage-cloud-service-app/node37.png)
 
 6.  Save the file and close notepad.
 
@@ -94,26 +94,26 @@ and add them to the web.config settings:
 
 2. Use the following command to install the [azure], [node-uuid], [nconf] and [async] modules locally as well as to save an entry for them to the **package.json** file:
 
-		PS C:\node\tasklist\WebRole1> npm install azure-storage node-uuid async nconf --save
+        PS C:\node\tasklist\WebRole1> npm install azure-storage node-uuid async nconf --save
 
-	The output of this command should appear similar to the following:
+    The output of this command should appear similar to the following:
 
-		node-uuid@1.4.1 node_modules\node-uuid
+        node-uuid@1.4.1 node_modules\node-uuid
 
-		nconf@0.6.9 node_modules\nconf
-		├── ini@1.1.0
-		├── async@0.2.9
-		└── optimist@0.6.0 (wordwrap@0.0.2, minimist@0.0.8)
+        nconf@0.6.9 node_modules\nconf
+        ├── ini@1.1.0
+        ├── async@0.2.9
+        └── optimist@0.6.0 (wordwrap@0.0.2, minimist@0.0.8)
 
         azure-storage@0.1.0 node_modules\azure-storage
-		├── extend@1.2.1
-		├── xmlbuilder@0.4.3
-		├── mime@1.2.11
-		├── underscore@1.4.4
-		├── validator@3.1.0
-		├── node-uuid@1.4.1
-		├── xml2js@0.2.7 (sax@0.5.2)
-		└── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
+        ├── extend@1.2.1
+        ├── xmlbuilder@0.4.3
+        ├── mime@1.2.11
+        ├── underscore@1.4.4
+        ├── validator@3.1.0
+        ├── node-uuid@1.4.1
+        ├── xml2js@0.2.7 (sax@0.5.2)
+        └── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
 
 ##Using the Table service in a node application
 
@@ -128,75 +128,75 @@ In this section you will extend the basic application created by the **express**
 3. At the beginning of the **task.js** file, add the following code to reference required libraries:
 
         var azure = require('azure-storage');
-  		var uuid = require('node-uuid');
-		var entityGen = azure.TableUtilities.entityGenerator;
+        var uuid = require('node-uuid');
+        var entityGen = azure.TableUtilities.entityGenerator;
 
 4. Next, you will add code to define and export the Task object. This object is responsible for connecting to the table.
 
-  		module.exports = Task;
+        module.exports = Task;
 
-		function Task(storageClient, tableName, partitionKey) {
-		  this.storageClient = storageClient;
-		  this.tableName = tableName;
-		  this.partitionKey = partitionKey;
-		  this.storageClient.createTableIfNotExists(tableName, function tableCreated(error) {
-		    if(error) {
-		      throw error;
-		    }
-		  });
-		};
+        function Task(storageClient, tableName, partitionKey) {
+          this.storageClient = storageClient;
+          this.tableName = tableName;
+          this.partitionKey = partitionKey;
+          this.storageClient.createTableIfNotExists(tableName, function tableCreated(error) {
+            if(error) {
+              throw error;
+            }
+          });
+        };
 
 5. Next, add the following code to define additional methods on the Task object, which allow interactions with data stored in the table:
 
-		Task.prototype = {
-		  find: function(query, callback) {
-		    self = this;
-		    self.storageClient.queryEntities(query, function entitiesQueried(error, result) {
-		      if(error) {
-		        callback(error);
-		      } else {
-		        callback(null, result.entries);
-		      }
-		    });
-		  },
+        Task.prototype = {
+          find: function(query, callback) {
+            self = this;
+            self.storageClient.queryEntities(query, function entitiesQueried(error, result) {
+              if(error) {
+                callback(error);
+              } else {
+                callback(null, result.entries);
+              }
+            });
+          },
 
-		  addItem: function(item, callback) {
-		    self = this;
-			// use entityGenerator to set types
-			// NOTE: RowKey must be a string type, even though
+          addItem: function(item, callback) {
+            self = this;
+            // use entityGenerator to set types
+            // NOTE: RowKey must be a string type, even though
             // it contains a GUID in this example.
-		    var itemDescriptor = {
-		      PartitionKey: entityGen.String(self.partitionKey),
-		      RowKey: entityGen.String(uuid()),
-		      name: entityGen.String(item.name),
-		      category: entityGen.String(item.category),
-		      completed: entityGen.Boolean(false)
-		    };
+            var itemDescriptor = {
+              PartitionKey: entityGen.String(self.partitionKey),
+              RowKey: entityGen.String(uuid()),
+              name: entityGen.String(item.name),
+              category: entityGen.String(item.category),
+              completed: entityGen.Boolean(false)
+            };
 
-		    self.storageClient.insertEntity(self.tableName, itemDescriptor, function entityInserted(error) {
-		      if(error){  
-		        callback(error);
-		      }
-		      callback(null);
-		    });
-		  },
+            self.storageClient.insertEntity(self.tableName, itemDescriptor, function entityInserted(error) {
+              if(error){  
+                callback(error);
+              }
+              callback(null);
+            });
+          },
 
-		  updateItem: function(rKey, callback) {
-		    self = this;
-		    self.storageClient.retrieveEntity(self.tableName, self.partitionKey, rKey, function entityQueried(error, entity) {
-		      if(error) {
-		        callback(error);
-		      }
-		      entity.completed._ = true;
-		      self.storageClient.updateEntity(self.tableName, entity, function entityUpdated(error) {
-		        if(error) {
-		          callback(error);
-		        }
-		        callback(null);
-		      });
-		    });
-		  }
-		}
+          updateItem: function(rKey, callback) {
+            self = this;
+            self.storageClient.retrieveEntity(self.tableName, self.partitionKey, rKey, function entityQueried(error, entity) {
+              if(error) {
+                callback(error);
+              }
+              entity.completed._ = true;
+              self.storageClient.updateEntity(self.tableName, entity, function entityUpdated(error) {
+                if(error) {
+                  callback(error);
+                }
+                callback(null);
+              });
+            });
+          }
+        }
 
 6. Save and close the **task.js** file.
 
@@ -206,58 +206,58 @@ In this section you will extend the basic application created by the **express**
 
 2. Add the following code to **tasklist.js**. This loads the azure and async modules, which are used by **tasklist.js**. This also defines the **TaskList** function, which is passed an instance of the **Task** object we defined earlier:
 
-		var azure = require('azure-storage');
-		var async = require('async');
+        var azure = require('azure-storage');
+        var async = require('async');
 
-		module.exports = TaskList;
+        module.exports = TaskList;
 
-		function TaskList(task) {
-		  this.task = task;
-		}
+        function TaskList(task) {
+          this.task = task;
+        }
 
 2. Continue adding to the **tasklist.js** file by adding the methods used to **showTasks**, **addTask**, and **completeTasks**:
 
-		TaskList.prototype = {
-		  showTasks: function(req, res) {
-		    self = this;
-		    var query = azure.TableQuery()
-		      .where('completed eq ?', false);
-		    self.task.find(query, function itemsFound(error, items) {
-		      res.render('index',{title: 'My ToDo List ', tasks: items});
-		    });
-		  },
+        TaskList.prototype = {
+          showTasks: function(req, res) {
+            self = this;
+            var query = azure.TableQuery()
+              .where('completed eq ?', false);
+            self.task.find(query, function itemsFound(error, items) {
+              res.render('index',{title: 'My ToDo List ', tasks: items});
+            });
+          },
 
-		  addTask: function(req,res) {
-		    var self = this      
-		    var item = req.body.item;
-		    self.task.addItem(item, function itemAdded(error) {
-		      if(error) {
-		        throw error;
-		      }
-		      res.redirect('/');
-		    });
-		  },
+          addTask: function(req,res) {
+            var self = this      
+            var item = req.body.item;
+            self.task.addItem(item, function itemAdded(error) {
+              if(error) {
+                throw error;
+              }
+              res.redirect('/');
+            });
+          },
 
-		  completeTask: function(req,res) {
-		    var self = this;
-		    var completedTasks = Object.keys(req.body);
-		    async.forEach(completedTasks, function taskIterator(completedTask, callback) {
-		      self.task.updateItem(completedTask, function itemsUpdated(error) {
-		        if(error){
-		          callback(error);
-		        } else {
-		          callback(null);
-		        }
-		      });
-		    }, function goHome(error){
-		      if(error) {
-		        throw error;
-		      } else {
-		       res.redirect('/');
-		      }
-		    });
-		  }
-		}
+          completeTask: function(req,res) {
+            var self = this;
+            var completedTasks = Object.keys(req.body);
+            async.forEach(completedTasks, function taskIterator(completedTask, callback) {
+              self.task.updateItem(completedTask, function itemsUpdated(error) {
+                if(error){
+                  callback(error);
+                } else {
+                  callback(null);
+                }
+              });
+            }, function goHome(error){
+              if(error) {
+                throw error;
+              } else {
+               res.redirect('/');
+              }
+            });
+          }
+        }
 
 3. Save the **tasklist.js** file.
 
@@ -267,26 +267,26 @@ In this section you will extend the basic application created by the **express**
 
 2. At the beginning of the file, add the following to load the azure module and set the table name and partition key:
 
-		var azure = require('azure-storage');
-		var tableName = 'tasks';
-		var partitionKey = 'hometasks';
+        var azure = require('azure-storage');
+        var tableName = 'tasks';
+        var partitionKey = 'hometasks';
 
 3. In the app.js file, scroll down to where you see the following line:
 
-		app.use('/', routes);
-		app.use('/users', users);
+        app.use('/', routes);
+        app.use('/users', users);
 
-	Replace the above lines with the code shown below. This will initialize an instance of <strong>Task</strong> with a connection to your storage account. This is passed to the <strong>TaskList</strong>, which will use it to communicate with the Table service:
+    Replace the above lines with the code shown below. This will initialize an instance of <strong>Task</strong> with a connection to your storage account. This is passed to the <strong>TaskList</strong>, which will use it to communicate with the Table service:
 
-		var TaskList = require('./routes/tasklist');
-		var Task = require('./models/task');
-		var task = new Task(azure.createTableService(), tableName, partitionKey);
-		var taskList = new TaskList(task);
+        var TaskList = require('./routes/tasklist');
+        var Task = require('./models/task');
+        var task = new Task(azure.createTableService(), tableName, partitionKey);
+        var taskList = new TaskList(task);
 
-		app.get('/', taskList.showTasks.bind(taskList));
-		app.post('/addtask', taskList.addTask.bind(taskList));
-		app.post('/completetask', taskList.completeTask.bind(taskList));
-	
+        app.get('/', taskList.showTasks.bind(taskList));
+        app.post('/addtask', taskList.addTask.bind(taskList));
+        app.post('/completetask', taskList.completeTask.bind(taskList));
+    
 4. Save the **app.js** file.
 
 ### Modify the index view
@@ -295,42 +295,42 @@ In this section you will extend the basic application created by the **express**
 
 2. Replace the contents of the **index.jade** file with the code below. This defines the view for displaying existing tasks, as well as a form for adding new tasks and marking existing ones as completed.
 
-		extends layout
+        extends layout
 
-		block content
-		  h1= title
-		  br
-		
-		  form(action="/completetask", method="post")
-		    table.table.table-striped.table-bordered
-		      tr
-		        td Name
-		        td Category
-		        td Date
-		        td Complete
-		      if tasks != []
-		        tr
-		          td 
-		      else
-		        each task in tasks
-		          tr
-		            td #{task.name._}
-		            td #{task.category._}
-		            - var day   = task.Timestamp._.getDate();
-		            - var month = task.Timestamp._.getMonth() + 1;
-		            - var year  = task.Timestamp._.getFullYear();
-		            td #{month + "/" + day + "/" + year}
-		            td
-		              input(type="checkbox", name="#{task.RowKey._}", value="#{!task.completed._}", checked=task.completed._)
-		    button.btn(type="submit") Update tasks
-		  hr
-		  form.well(action="/addtask", method="post")
-		    label Item Name: 
-		    input(name="item[name]", type="textbox")
-		    label Item Category: 
-		    input(name="item[category]", type="textbox")
-		    br
-		    button.btn(type="submit") Add item
+        block content
+          h1= title
+          br
+        
+          form(action="/completetask", method="post")
+            table.table.table-striped.table-bordered
+              tr
+                td Name
+                td Category
+                td Date
+                td Complete
+              if tasks != []
+                tr
+                  td 
+              else
+                each task in tasks
+                  tr
+                    td #{task.name._}
+                    td #{task.category._}
+                    - var day   = task.Timestamp._.getDate();
+                    - var month = task.Timestamp._.getMonth() + 1;
+                    - var year  = task.Timestamp._.getFullYear();
+                    td #{month + "/" + day + "/" + year}
+                    td
+                      input(type="checkbox", name="#{task.RowKey._}", value="#{!task.completed._}", checked=task.completed._)
+            button.btn(type="submit") Update tasks
+          hr
+          form.well(action="/addtask", method="post")
+            label Item Name: 
+            input(name="item[name]", type="textbox")
+            label Item Category: 
+            input(name="item[category]", type="textbox")
+            br
+            button.btn(type="submit") Add item
 
 3. Save and close **index.jade** file.
 
@@ -342,17 +342,17 @@ The **layout.jade** file in the **views** directory is used as a global template
 
 2. From the **views** folder, open the **layout.jade** in your text editor and replace the contents with the following:
 
-		doctype html
-		html
-		  head
-		    title= title
-		    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
-		    link(rel='stylesheet', href='/stylesheets/style.css')
-		  body.app
-		    nav.navbar.navbar-default
-		      div.navbar-header
-		        a.navbar-brand(href='/') My Tasks
-		    block content
+        doctype html
+        html
+          head
+            title= title
+            link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+            link(rel='stylesheet', href='/stylesheets/style.css')
+          body.app
+            nav.navbar.navbar-default
+              div.navbar-header
+                a.navbar-brand(href='/') My Tasks
+            block content
 
 3. Save the **layout.jade** file.
 
@@ -360,7 +360,7 @@ The **layout.jade** file in the **views** directory is used as a global template
 
 Use the following command to start the application in the emulator.
 
-	PS C:\node\tasklist\WebRole1> start-azureemulator -launch
+    PS C:\node\tasklist\WebRole1> start-azureemulator -launch
 
 The browser will open and displays the following page:
 
@@ -379,18 +379,18 @@ Replace **myuniquename** with a unique name for this application. Replace **data
 
 After the deployment is complete, you should see a response similar to the following:
 
-	PS C:\node\tasklist> publish-azureserviceproject -servicename tasklist -location "West US"
-	WARNING: Publishing tasklist to Microsoft Azure. This may take several minutes...
-	WARNING: 2:18:42 PM - Preparing runtime deployment for service 'tasklist'
-	WARNING: 2:18:42 PM - Verifying storage account 'tasklist'...
-	WARNING: 2:18:43 PM - Preparing deployment for tasklist with Subscription ID: 65a1016d-0f67-45d2-b838-b8f373d6d52e...
-	WARNING: 2:19:01 PM - Connecting...
-	WARNING: 2:19:02 PM - Uploading Package to storage service larrystore...
-	WARNING: 2:19:40 PM - Upgrading...
-	WARNING: 2:22:48 PM - Created Deployment ID: b7134ab29b1249ff84ada2bd157f296a.
-	WARNING: 2:22:48 PM - Initializing...
-	WARNING: 2:22:49 PM - Instance WebRole1_IN_0 of role WebRole1 is ready.
-	WARNING: 2:22:50 PM - Created Website URL: http://tasklist.cloudapp.net/.
+    PS C:\node\tasklist> publish-azureserviceproject -servicename tasklist -location "West US"
+    WARNING: Publishing tasklist to Microsoft Azure. This may take several minutes...
+    WARNING: 2:18:42 PM - Preparing runtime deployment for service 'tasklist'
+    WARNING: 2:18:42 PM - Verifying storage account 'tasklist'...
+    WARNING: 2:18:43 PM - Preparing deployment for tasklist with Subscription ID: 65a1016d-0f67-45d2-b838-b8f373d6d52e...
+    WARNING: 2:19:01 PM - Connecting...
+    WARNING: 2:19:02 PM - Uploading Package to storage service larrystore...
+    WARNING: 2:19:40 PM - Upgrading...
+    WARNING: 2:22:48 PM - Created Deployment ID: b7134ab29b1249ff84ada2bd157f296a.
+    WARNING: 2:22:48 PM - Initializing...
+    WARNING: 2:22:49 PM - Instance WebRole1_IN_0 of role WebRole1 is ready.
+    WARNING: 2:22:50 PM - Created Website URL: http://tasklist.cloudapp.net/.
 
 As before, because you specified the **-launch** option, the browser opens and displays your application running in Azure when publishing is completed.
 
@@ -413,18 +413,19 @@ The following steps show you how to stop and delete your application.
 
         PS C:\node\tasklist\WebRole1> Stop-AzureService
 
-	Stopping the service may take several minutes. When the service is stopped, you receive a message indicating that it has stopped.
+    Stopping the service may take several minutes. When the service is stopped, you receive a message indicating that it has stopped.
 
 3.  To delete the service, call the following cmdlet:
 
         PS C:\node\tasklist\WebRole1> Remove-AzureService contosotasklist
 
-	When prompted, enter **Y** to delete the service.
+    When prompted, enter **Y** to delete the service.
 
-	Deleting the service may take several minutes. After the service has been deleted you receive a message indicating that the service was deleted.
+    Deleting the service may take several minutes. After the service has been deleted you receive a message indicating that the service was deleted.
 
   [Node.js Web Application using Express]: http://azure.microsoft.com/develop/nodejs/tutorials/web-app-with-express/
   [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Node.js Web Application]: http://azure.microsoft.com/develop/nodejs/tutorials/getting-started/
  
  
+

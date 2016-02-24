@@ -1,21 +1,21 @@
 <properties
-	pageTitle="About disks and VHDs | Microsoft Azure"
-	description="Learn about the basics of disks and VHDs for virtual machines in Azure."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="cynthn"
-	manager="timlt"
-	editor="tysonn"
-	tags="azure-resource-manager,azure-service-management"/>
+    pageTitle="About disks and VHDs | Microsoft Azure"
+    description="Learn about the basics of disks and VHDs for virtual machines in Azure."
+    services="virtual-machines"
+    documentationCenter=""
+    authors="cynthn"
+    manager="timlt"
+    editor="tysonn"
+    tags="azure-resource-manager,azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/04/2015"
-	ms.author="cynthn"/>
+    ms.service="virtual-machines"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/04/2015"
+    ms.author="cynthn"/>
 
 # About disks and VHDs for Azure virtual machines
 
@@ -39,7 +39,7 @@ The temporary disk is automatically created for you. On Windows virtual machines
 
 A data disk is a VHD that’s attached to a virtual machine to store application data, or other data you need to keep. Data disks are registered as SCSI drives and are labeled with a letter that you choose.  Each data disk has a maximum capacity of 1023 GB. The size of the virtual machine determines how many data disks you can attach to it and the type of storage you can use to host the disks.
 
-	For more details about virtual machines capacities, see [Sizes for virtual machines](virtual-machines-size-specs.md).
+    For more details about virtual machines capacities, see [Sizes for virtual machines](virtual-machines-size-specs.md).
 
 Azure creates an operating system disk when you create a virtual machine from an image. If you use an image that includes data disks, Azure also creates the data disks when it creates the virtual machine. (You can use an image from Azure or a partner, or one you provide.) Otherwise, you add data disks after you create the virtual machine.
 
@@ -73,3 +73,4 @@ Windows virtual machines:
 - [Change the drive letter of the Windows temporary disk](virtual-machines-windows-change-drive-letter.md)
 -  [Capture a Windows virtual machine](virtual-machines-capture-image-windows-server.md)
 -  [Detach a disk](storage-windows-detach-disk.md)
+

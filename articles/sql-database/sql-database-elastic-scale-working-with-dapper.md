@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Using elastic database client library with Dapper | Microsoft Azure" 
-	description="Using elastic database client library with Dapper." 
-	services="sql-database" 
-	documentationCenter="" 
-	manager="jeffreyg" 
-	authors="torsteng"/>
+    pageTitle="Using elastic database client library with Dapper | Microsoft Azure" 
+    description="Using elastic database client library with Dapper." 
+    services="sql-database" 
+    documentationCenter="" 
+    manager="jeffreyg" 
+    authors="torsteng"/>
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="sql-database" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/04/2015" 
-	ms.author="torsteng;sidneyh"/>
+    ms.service="sql-database" 
+    ms.workload="sql-database" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/04/2015" 
+    ms.author="torsteng;sidneyh"/>
 
 # Using elastic database client library with Dapper 
 

@@ -21,7 +21,7 @@ articles/sql-database/sql-database-connect-query.md
 
 3. Scroll and click **SQL servers**. The **SQL servers** blade is displayed. 
 
-	![Find your Azure SQL Database server in the portal][b21-FindServerInPortal]
+    ![Find your Azure SQL Database server in the portal][b21-FindServerInPortal]
 
 4. For convenience, click the minimize control on the earlier **Browse** blade.
 
@@ -33,14 +33,14 @@ articles/sql-database/sql-database-connect-query.md
 
 8. Click **Firewall**. The **Firewall Settings** blade is displayed. 
 
-	![Click Settings > Firewall][b31-SettingsFirewallNavig]
+    ![Click Settings > Firewall][b31-SettingsFirewallNavig]
 
 9. Click **Add Client IP**. Type in a name for your new rule into the first text box.
 
 10. Type in the low and high IP address values for the range you want to enable.
  - It can be handy to have the low value end with **.0** and the high with **.255**. 
 
-	![Add an IP address range to allow][b41-AddRange]
+    ![Add an IP address range to allow][b41-AddRange]
 
 11. Click **Save**.
 
@@ -62,3 +62,4 @@ These includes/ files are a sequenced set, but you can pick and choose:
 includes/sql-database-include-ip-address-22-v12portal.md
 ? includes/sql-database-include-ip-address-*.md
 -->
+

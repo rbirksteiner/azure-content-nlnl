@@ -4,3 +4,4 @@ Azure PowerShell is currently available in two releases - 1.0 and 0.9.8. If you 
 
 New features will be added to only the 1.0 release. For information about the 1.0 release, including how to install and uninstall the release, see [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
+

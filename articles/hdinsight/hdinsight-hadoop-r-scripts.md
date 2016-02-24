@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Use R in HDInsight to customize clusters | Microsoft Azure"
-	description="Learn how to install R using Script Action, and use R on HDInsight clusters."
-	services="hdinsight"
-	documentationCenter=""
-	tags="azure-portal"
-	authors="mumian"
-	manager="paulettm"
-	editor="cgronlun"/>
+    pageTitle="Use R in HDInsight to customize clusters | Microsoft Azure"
+    description="Learn how to install R using Script Action, and use R on HDInsight clusters."
+    services="hdinsight"
+    documentationCenter=""
+    tags="azure-portal"
+    authors="mumian"
+    manager="paulettm"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="hdinsight"
-	ms.workload="big-data"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/02/2015"
-	ms.author="jgao"/>
+    ms.service="hdinsight"
+    ms.workload="big-data"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/02/2015"
+    ms.author="jgao"/>
 
 # Install and use R on HDInsight Hadoop clusters
 
@@ -46,21 +46,21 @@ A [sample script](https://hdiconfigactions.blob.core.windows.net/rconfigactionv0
 1. When you create an HDInsight cluster from the Portal, click **Optional Configuration**, and then click **Script Actions**.
 2. On the **Script Actions** page, enter the following values:
 
-	![Use Script Action to customize a cluster](./media/hdinsight-hadoop-r-scripts/hdi-r-script-action.png "Use Script Action to customize a cluster")
+    ![Use Script Action to customize a cluster](./media/hdinsight-hadoop-r-scripts/hdi-r-script-action.png "Use Script Action to customize a cluster")
 
-	<table border='1'>
-		<tr><th>Property</th><th>Value</th></tr>
-		<tr><td>Name</td>
-			<td>Specify a name for the script action, for example, <b>Install R</b>.</td></tr>
-		<tr><td>Script URI</td>
-			<td>Specify the URI to the script that is invoked to customize the cluster, for example, <i>https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1</i></td></tr>
-		<tr><td>Node Type</td>
-			<td>Specify the nodes on which the customization script is run. You can choose <b>All Nodes</b>, <b>Head nodes only</b>, or <b>Worker nodes</b> only.
-		<tr><td>Parameters</td>
-			<td>Specify the parameters, if required by the script. However, the script to install R does not require any parameters, so you can leave this blank.</td></tr>
-	</table>
+    <table border='1'>
+        <tr><th>Property</th><th>Value</th></tr>
+        <tr><td>Name</td>
+            <td>Specify a name for the script action, for example, <b>Install R</b>.</td></tr>
+        <tr><td>Script URI</td>
+            <td>Specify the URI to the script that is invoked to customize the cluster, for example, <i>https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1</i></td></tr>
+        <tr><td>Node Type</td>
+            <td>Specify the nodes on which the customization script is run. You can choose <b>All Nodes</b>, <b>Head nodes only</b>, or <b>Worker nodes</b> only.
+        <tr><td>Parameters</td>
+            <td>Specify the parameters, if required by the script. However, the script to install R does not require any parameters, so you can leave this blank.</td></tr>
+    </table>
 
-	You can add more than one script action to install multiple components on the cluster. After you have added the scripts, click the check mark to start crating the cluster.
+    You can add more than one script action to install multiple components on the cluster. After you have added the scripts, click the check mark to start crating the cluster.
 
 You can also use the script to install R on HDInsight by using Azure PowerShell or the HDInsight .NET SDK. Instructions for these procedures are provided later in this article.
 
@@ -73,22 +73,22 @@ This section describes how to run an R script on the Hadoop cluster with HDInsig
 
 3. **Run the R script**: The R script can be run directly from the R console by pasting it, selecting it, and pressing ENTER. Here is a simple example script that generates the numbers 1 to 100 and then multiplies them by 2.
 
-		library(rmr2)
-		library(rhdfs)
-		ints = to.dfs(1:100)
-		calc = mapreduce(input = ints, map = function(k, v) cbind(v, 2*v))
-		from.dfs(calc)
+        library(rmr2)
+        library(rhdfs)
+        ints = to.dfs(1:100)
+        calc = mapreduce(input = ints, map = function(k, v) cbind(v, 2*v))
+        from.dfs(calc)
 
 The first two lines call the RHadoop libraries that are installed with R. The final line prints the results to the console. The output should look like this:
 
-	[1,]  1 2
-	[2,]  2 4
-	.
-	.
-	.
-	[98,]  98 196
-	[99,]  99 198
-	[100,] 100 200
+    [1,]  1 2
+    [2,]  2 4
+    .
+    .
+    .
+    [98,]  98 196
+    [99,]  99 198
+    [100,] 100 200
 
 
 ## Install R using Aure PowerShell
@@ -114,3 +114,4 @@ See [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customiz
 [hdinsight-provision]: ../hdinsight-provision-clusters/
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
+

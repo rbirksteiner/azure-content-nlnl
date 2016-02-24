@@ -62,3 +62,4 @@ To simulate the outage you can disable the web application or virtual machine co
 ####Validation
 
 - Complete the drill by verifying the application integrity post recovery (i.e. connection strings, logins, basic functionality testing or other validations part of standard application signoffs procedures).
+

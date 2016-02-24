@@ -44,7 +44,7 @@ If you want to use the A8 or A9 compute intensive instance size, see
 
 ## Prerequisites
 
-* **HPC Pack head node deployed in an Azure VM** - See [Deploy an HPC
+* **HPC Pack head node deployed in an Azure VM** - See [Deploy an HPC
 Pack Head Node in an Azure VM](virtual-machines-hpcpack-cluster-headnode.md) for
 steps to create a cluster head node in the classic (Service Management) deployment model.
 
@@ -122,3 +122,4 @@ the current workload of jobs and tasks on the cluster, see [Grow and shrink Azur
 
 <!--Image references-->
 [burst]: ./media/virtual-machines-hpcpack-cluster-node-burst/burst.png
+

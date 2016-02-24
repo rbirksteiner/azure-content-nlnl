@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure Active Directory B2C preview: Overview | Microsoft Azure"
-	description="Developing consumer-facing applications with Azure Active Directory B2C"
-	services="active-directory-b2c"
-	documentationCenter=""
-	authors="swkrish"
-	manager="msmbaldwin"
-	editor=""/>
+    pageTitle="Azure Active Directory B2C preview: Overview | Microsoft Azure"
+    description="Developing consumer-facing applications with Azure Active Directory B2C"
+    services="active-directory-b2c"
+    documentationCenter=""
+    authors="swkrish"
+    manager="msmbaldwin"
+    editor=""/>
 
 <tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/28/2015"
-	ms.author="swkrish"/>
+    ms.service="active-directory-b2c"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/28/2015"
+    ms.author="swkrish"/>
 
 # Azure Active Directory B2C preview: Sign up & Sign in Consumers in your Applications
 
@@ -62,3 +62,4 @@ These links will be useful for exploring the service in depth:
   - [App Model v2.0 Token Reference](active-directory-b2c-reference-tokens.md)
 - [Azure Active Directory B2C FAQs](active-directory-b2c-faqs.md)
 - [File support requests against Azure Active Directory B2C](active-directory-b2c-support.md)
+

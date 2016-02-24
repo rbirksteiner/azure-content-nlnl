@@ -1,20 +1,20 @@
-﻿<properties
-	pageTitle="Preparing your environment to back up Azure virtual machines | Microsoft Azure"
-	description="Make sure your environment is prepared to back up Azure virtual machines"
-	services="backup"
-	documentationCenter=""
-	authors="Jim-Parker"
-	manager="jwhit"
-	editor=""/>
+<properties
+    pageTitle="Preparing your environment to back up Azure virtual machines | Microsoft Azure"
+    description="Make sure your environment is prepared to back up Azure virtual machines"
+    services="backup"
+    documentationCenter=""
+    authors="Jim-Parker"
+    manager="jwhit"
+    editor=""/>
 
 <tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/17/2015"
-	ms.author="trinadhk; aashishr; jimpark; markgal"/>
+    ms.service="backup"
+    ms.workload="storage-backup-recovery"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/17/2015"
+    ms.author="trinadhk; aashishr; jimpark; markgal"/>
 
 # Prepare your environment to back up Azure virtual machines
 Before you back up an Azure virtual machine (VM), you need to complete these prerequisites to prepare your environment. If you've already done this, you can start [backing up your VMs](backup-azure-vms.md). Otherwise, continue through the steps below to make sure your environment is ready.
@@ -90,21 +90,21 @@ In the example below, the App VM needs to be configured to use the Proxy VM for 
 
 1. For Windows machines, run the following command in an elevated command prompt:
 
-	```
-	netsh winhttp set proxy http://<proxy IP>:<proxy port>
-	```
+    ```
+    netsh winhttp set proxy http://<proxy IP>:<proxy port>
+    ```
 
-	This will set up a machine-wide proxy configuration, and will be used for any outgoing HTTP/HTTPS traffic.
+    This will set up a machine-wide proxy configuration, and will be used for any outgoing HTTP/HTTPS traffic.
 
 2. For Linux machines, add the following line to the ```/etc/environment``` file:
 
- 	```
- 	http_proxy=http://<proxy IP>:<proxy port>
- 	```
+    ```
+    http_proxy=http://<proxy IP>:<proxy port>
+    ```
 
-	Add the following lines to the ```/etc/waagent.conf``` file:
+    Add the following lines to the ```/etc/waagent.conf``` file:
 
-	```
+    ```
 HttpProxy.Host=<proxy IP>
 HttpProxy.Port=<proxy port>
 ```
@@ -113,14 +113,14 @@ HttpProxy.Port=<proxy port>
 
 1. Open Windows Firewall on the proxy server. Right-click  **Inbound Rules** and click **New Rule...**.
 
-	![Open the Firewall](./media/backup-azure-vms-prepare/firewall-01.png)
+    ![Open the Firewall](./media/backup-azure-vms-prepare/firewall-01.png)
 
-	![Create a new rule](./media/backup-azure-vms-prepare/firewall-02.png)
+    ![Create a new rule](./media/backup-azure-vms-prepare/firewall-02.png)
 2. In the **New Inbound Rule Wizard**, choose the **Custom** option for the **Rule Type** and click **Next**. On the page to select the **Program**, choose **All Programs** and click **Next**.
 
 3. On the **Protocol and Ports** page, use the inputs in the table below and click **Next**:
 
-	![Create a new rule](./media/backup-azure-vms-prepare/firewall-03.png)
+    ![Create a new rule](./media/backup-azure-vms-prepare/firewall-03.png)
 
 | Input field | Value |
 | --- | --- |
@@ -183,9 +183,9 @@ The backup extension is installed if the VM is running. A running VM also provid
   - **Windows Server**:  Versions older than Windows Server 2008 R2 are not supported.
 - Restoring a domain controller (DC) VM that is part of a multi-DC configuration is supported only through PowerShell. Read more about [restoring a multi-DC domain controller](backup-azure-restore-vms.md#restoring-domain-controller-vms).
 - Restoring virtual machines that have the following special network configurations is supported only through PowerShell. VMs that you create by using the restore workflow in the UI will not have these network configurations after the restore operation is complete. To learn more, see [Restoring VMs with special network configurations](backup-azure-restore-vms.md#restoring-vms-with-special-netwrok-configurations).
-	- Virtual machines under load balancer configuration (internal and external)
-	- Virtual machines with multiple reserved IP addresses
-	- Virtual machines with multiple network adapters
+    - Virtual machines under load balancer configuration (internal and external)
+    - Virtual machines with multiple reserved IP addresses
+    - Virtual machines with multiple network adapters
 
 ## Questions?
 If you have questions, or if there is any feature that you would like to see included, [send us feedback](http://aka.ms/azurebackup_feedback).
@@ -195,3 +195,4 @@ If you have questions, or if there is any feature that you would like to see inc
 - [Plan your VM backup infrastructure](backup-azure-vms-introduction.md)
 - [Back up virtual machines](backup-azure-vms.md)
 - [Manage virtual machine backups](backup-azure-manage-vms.md)
+

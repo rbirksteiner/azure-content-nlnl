@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Query examples for common usage patterns in Stream Analytics | Microsoft Azure"
-	description="Common Azure Stream Analytics Query Patterns "
-	keywords="query examples"
-	services="stream-analytics"
-	documentationCenter=""
-	authors="jeffstokes72"
-	manager="paulettm"
-	editor="cgronlun"/>
+    pageTitle="Query examples for common usage patterns in Stream Analytics | Microsoft Azure"
+    description="Common Azure Stream Analytics Query Patterns "
+    keywords="query examples"
+    services="stream-analytics"
+    documentationCenter=""
+    authors="jeffstokes72"
+    manager="paulettm"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="stream-analytics"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="12/04/2015"
-	ms.author="jeffstok"/>
+    ms.service="stream-analytics"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="big-data"
+    ms.date="12/04/2015"
+    ms.author="jeffstok"/>
 
 
 # Query examples for common Stream Analytics usage patterns #
@@ -43,14 +43,14 @@ e.g. Car weight is coming on the input stream as strings and needs to be convert
 
 **Solution**:
 
-	SELECT
-    	Make,
-    	SUM(CAST(Weight AS BIGINT)) AS Weight
-	FROM
-    	Input TIMESTAMP BY Time
-	GROUP BY
-		Make,
-    	TumblingWindow(second, 10)
+    SELECT
+        Make,
+        SUM(CAST(Weight AS BIGINT)) AS Weight
+    FROM
+        Input TIMESTAMP BY Time
+    GROUP BY
+        Make,
+        TumblingWindow(second, 10)
 
 **Explanation**:
 Use a CAST statement on the Weight field to specify its type (see the list of supported Data Types [here](https://msdn.microsoft.com/library/azure/dn835065.aspx)).
@@ -76,12 +76,12 @@ e.g. Return license plates that start with A and end with 9
 
 **Solution**:
 
-	SELECT
-    	*
-	FROM
-    	Input TIMESTAMP BY Time
-	WHERE
-    	LicensePlate LIKE 'A%9'
+    SELECT
+        *
+    FROM
+        Input TIMESTAMP BY Time
+    WHERE
+        LicensePlate LIKE 'A%9'
 
 **Explanation**:
 Use the LIKE statement to check that the LicensePlate field value starts with A then has any string of zero or more characters and it ends with 9. 
@@ -108,16 +108,16 @@ e.g. Provide a string description for how many cars passed of the same make with
 **Solution**:
 
     SELECT
-    	CASE
-			WHEN COUNT(*) = 1 THEN CONCAT('1 ', Make)
-			ELSE CONCAT(CAST(COUNT(*) AS NVARCHAR(MAX)), ' ', Make, 's')
-		END AS CarsPassed,
-		System.TimeStamp AS Time
-	FROM
-		Input TIMESTAMP BY Time
-	GROUP BY
-		Make,
-		TumblingWindow(second, 10)
+        CASE
+            WHEN COUNT(*) = 1 THEN CONCAT('1 ', Make)
+            ELSE CONCAT(CAST(COUNT(*) AS NVARCHAR(MAX)), ' ', Make, 's')
+        END AS CarsPassed,
+        System.TimeStamp AS Time
+    FROM
+        Input TIMESTAMP BY Time
+    GROUP BY
+        Make,
+        TumblingWindow(second, 10)
 
 **Explanation**:
 The CASE clause allows us to provide a different computation based on some criteria (in our case the count of cars in the aggregate window).
@@ -130,8 +130,8 @@ e.g. Analyze data for a threshold-based alert and archive all events to blob sto
 
 | Make | Time |
 | --- | --- |
-| Honda	| 2015-01-01T00:00:01.0000000Z |
-| Honda	| 2015-01-01T00:00:02.0000000Z |
+| Honda | 2015-01-01T00:00:01.0000000Z |
+| Honda | 2015-01-01T00:00:02.0000000Z |
 | Toyota | 2015-01-01T00:00:01.0000000Z |
 | Toyota | 2015-01-01T00:00:02.0000000Z |
 | Toyota | 2015-01-01T00:00:03.0000000Z |
@@ -154,26 +154,26 @@ e.g. Analyze data for a threshold-based alert and archive all events to blob sto
 
 **Solution**:
 
-	SELECT
-		*
-	INTO
-		ArchiveOutput
-	FROM
-		Input TIMESTAMP BY Time
+    SELECT
+        *
+    INTO
+        ArchiveOutput
+    FROM
+        Input TIMESTAMP BY Time
 
-	SELECT
-		Make,
-		System.TimeStamp AS Time,
-		COUNT(*) AS [Count]
-	INTO
-		AlertOutput
-	FROM
-		Input TIMESTAMP BY Time
-	GROUP BY
-		Make,
-		TumblingWindow(second, 10)
-	HAVING
-		[Count] >= 3
+    SELECT
+        Make,
+        System.TimeStamp AS Time,
+        COUNT(*) AS [Count]
+    INTO
+        AlertOutput
+    FROM
+        Input TIMESTAMP BY Time
+    GROUP BY
+        Make,
+        TumblingWindow(second, 10)
+    HAVING
+        [Count] >= 3
 
 **Explanation**:
 The INTO clause tells Stream Analytics which of the outputs to write the data from this statement.
@@ -182,16 +182,16 @@ The second query does some simple aggregation and filtering and sends the result
 *Note*: You can also reuse results of CTEs (i.e. WITH statements) in multiple output statements – this has the added benefit of opening less readers to the input source.
 e.g. 
 
-	WITH AllRedCars AS (
-		SELECT
-			*
-		FROM
-			Input TIMESTAMP BY Time
-		WHERE
-			Color = 'red'
-	)
-	SELECT * INTO HondaOutput FROM AllRedCars WHERE Make = 'Honda'
-	SELECT * INTO ToyotaOutput FROM AllRedCars WHERE Make = 'Toyota'
+    WITH AllRedCars AS (
+        SELECT
+            *
+        FROM
+            Input TIMESTAMP BY Time
+        WHERE
+            Color = 'red'
+    )
+    SELECT * INTO HondaOutput FROM AllRedCars WHERE Make = 'Honda'
+    SELECT * INTO ToyotaOutput FROM AllRedCars WHERE Make = 'Toyota'
 
 ## Query example: Counting unique values
 **Description**: count the number of unique field values that appear in the stream within a time window.
@@ -216,23 +216,23 @@ e.g. How many unique make of cars passed through the toll booth in a 2 second wi
 
 **Solution:**
 
-	WITH Makes AS (
-	    SELECT
-	        Make,
-	        COUNT(*) AS CountMake
-	    FROM
-	        Input TIMESTAMP BY Time
-	    GROUP BY
-	          Make,
-	          TumblingWindow(second, 2)
-	)
-	SELECT
-	    COUNT(*) AS Count,
-	    System.TimeStamp AS Time
-	FROM
-	    Makes
-	GROUP BY
-	    TumblingWindow(second, 1)
+    WITH Makes AS (
+        SELECT
+            Make,
+            COUNT(*) AS CountMake
+        FROM
+            Input TIMESTAMP BY Time
+        GROUP BY
+              Make,
+              TumblingWindow(second, 2)
+    )
+    SELECT
+        COUNT(*) AS Count,
+        System.TimeStamp AS Time
+    FROM
+        Makes
+    GROUP BY
+        TumblingWindow(second, 1)
 
 
 **Explanation:**
@@ -258,13 +258,13 @@ e.g. Is the previous car on the Toll Road the same make as the current car?
 
 **Solution**:
 
-	SELECT
-		Make,
-		Time
-	FROM
-		Input TIMESTAMP BY Time
-	WHERE
-		LAG(Make, 1) OVER (LIMIT DURATION(minute, 1)) <> Make
+    SELECT
+        Make,
+        Time
+    FROM
+        Input TIMESTAMP BY Time
+    WHERE
+        LAG(Make, 1) OVER (LIMIT DURATION(minute, 1)) <> Make
 
 **Explanation**:
 Use LAG to peek into the input stream one event back and get the Make value. Then compare it to the Make on the current event and output the event if they are different.
@@ -293,14 +293,14 @@ Use LAG to peek into the input stream one event back and get the Make value. The
 
 **Solution**:
 
-	SELECT 
-		LicensePlate,
-		Make,
-		Time
-	FROM 
-		Input TIMESTAMP BY Time
-	WHERE 
-		IsFirst(minute, 10) = 1
+    SELECT 
+        LicensePlate,
+        Make,
+        Time
+    FROM 
+        Input TIMESTAMP BY Time
+    WHERE 
+        IsFirst(minute, 10) = 1
 
 Now let’s change the problem and find first car of particular Make in every 10 minute interval.
 
@@ -314,14 +314,14 @@ Now let’s change the problem and find first car of particular Make in every 10
 
 **Solution**:
 
-	SELECT 
-		LicensePlate,
-		Make,
-		Time
-	FROM 
-		Input TIMESTAMP BY Time
-	WHERE 
-		IsFirst(minute, 10) OVER (PARTITION BY Make) = 1
+    SELECT 
+        LicensePlate,
+        Make,
+        Time
+    FROM 
+        Input TIMESTAMP BY Time
+    WHERE 
+        IsFirst(minute, 10) OVER (PARTITION BY Make) = 1
 
 ## Query example: Find last event in a window ##
 **Description**: Find last car in every 10 minute interval.
@@ -347,24 +347,24 @@ Now let’s change the problem and find first car of particular Make in every 10
 
 **Solution**:
 
-	WITH LastInWindow AS
-	(
-		SELECT 
-			MAX(Time) AS LastEventTime
-		FROM 
-			Input TIMESTAMP BY Time
-		GROUP BY 
-			TumblingWindow(minute, 10)
-	)
-	SELECT 
-		Input.LicensePlate,
-		Input.Make,
-		Input.Time
-	FROM
-		Input TIMESTAMP BY Time 
-		INNER JOIN LastInWindow
-		ON DATEDIFF(minute, Input, LastInWindow) BETWEEN 0 AND 10
-		AND Input.Time = LastInWindow.LastEventTime
+    WITH LastInWindow AS
+    (
+        SELECT 
+            MAX(Time) AS LastEventTime
+        FROM 
+            Input TIMESTAMP BY Time
+        GROUP BY 
+            TumblingWindow(minute, 10)
+    )
+    SELECT 
+        Input.LicensePlate,
+        Input.Make,
+        Input.Time
+    FROM
+        Input TIMESTAMP BY Time 
+        INNER JOIN LastInWindow
+        ON DATEDIFF(minute, Input, LastInWindow) BETWEEN 0 AND 10
+        AND Input.Time = LastInWindow.LastEventTime
 
 **Explanation**:
 There are two steps in the query – the first one finds latest timestamp in 10 minute windows. The second step joins results of the first query with original stream to find events matching last timestamps in each window. 
@@ -390,16 +390,16 @@ e.g. Have 2 consecutive cars from the same make entered the toll road within 90 
 
 **Solution**:
 
-	SELECT
-	    Make,
-	    Time,
-	    LicensePlate AS CurrentCarLicensePlate,
-	    LAG(LicensePlate, 1) OVER (LIMIT DURATION(second, 90)) AS FirstCarLicensePlate,
-	    LAG(Time, 1) OVER (LIMIT DURATION(second, 90)) AS FirstCarTime
-	FROM
-	    Input TIMESTAMP BY Time
-	WHERE
-	    LAG(Make, 1) OVER (LIMIT DURATION(second, 90)) = Make
+    SELECT
+        Make,
+        Time,
+        LicensePlate AS CurrentCarLicensePlate,
+        LAG(LicensePlate, 1) OVER (LIMIT DURATION(second, 90)) AS FirstCarLicensePlate,
+        LAG(Time, 1) OVER (LIMIT DURATION(second, 90)) AS FirstCarTime
+    FROM
+        Input TIMESTAMP BY Time
+    WHERE
+        LAG(Make, 1) OVER (LIMIT DURATION(second, 90)) = Make
 
 **Explanation**:
 Use LAG to peek into the input stream one event back and get the Make value. Then compare it to the Make on the current event and output the event if they are the same and use LAG to get data about the previous car.
@@ -434,26 +434,26 @@ e.g. Suppose that a bug that resulted in all cars having an incorrect (above 20,
 
 **Solution**:
 
-	SELECT
-	    PrevGood.Time AS StartFault,
-	    ThisGood.Time AS Endfault,
-	    DATEDIFF(second, PrevGood.Time, ThisGood.Time) AS FaultDuraitonSeconds
-	FROM
-	    Input AS ThisGood TIMESTAMP BY Time
-	    INNER JOIN Input AS PrevGood TIMESTAMP BY Time
-	    ON DATEDIFF(second, PrevGood, ThisGood) BETWEEN 1 AND 3600
-	    AND PrevGood.Weight < 20000
-	    INNER JOIN Input AS Bad TIMESTAMP BY Time
-	    ON DATEDIFF(second, PrevGood, Bad) BETWEEN 1 AND 3600
-	    AND DATEDIFF(second, Bad, ThisGood) BETWEEN 1 AND 3600
-	    AND Bad.Weight >= 20000
-	    LEFT JOIN Input AS MidGood TIMESTAMP BY Time
-	    ON DATEDIFF(second, PrevGood, MidGood) BETWEEN 1 AND 3600
-	    AND DATEDIFF(second, MidGood, ThisGood) BETWEEN 1 AND 3600
-	    AND MidGood.Weight < 20000
-	WHERE
-	    ThisGood.Weight < 20000
-	    AND MidGood.Weight IS NULL
+    SELECT
+        PrevGood.Time AS StartFault,
+        ThisGood.Time AS Endfault,
+        DATEDIFF(second, PrevGood.Time, ThisGood.Time) AS FaultDuraitonSeconds
+    FROM
+        Input AS ThisGood TIMESTAMP BY Time
+        INNER JOIN Input AS PrevGood TIMESTAMP BY Time
+        ON DATEDIFF(second, PrevGood, ThisGood) BETWEEN 1 AND 3600
+        AND PrevGood.Weight < 20000
+        INNER JOIN Input AS Bad TIMESTAMP BY Time
+        ON DATEDIFF(second, PrevGood, Bad) BETWEEN 1 AND 3600
+        AND DATEDIFF(second, Bad, ThisGood) BETWEEN 1 AND 3600
+        AND Bad.Weight >= 20000
+        LEFT JOIN Input AS MidGood TIMESTAMP BY Time
+        ON DATEDIFF(second, PrevGood, MidGood) BETWEEN 1 AND 3600
+        AND DATEDIFF(second, MidGood, ThisGood) BETWEEN 1 AND 3600
+        AND MidGood.Weight < 20000
+    WHERE
+        ThisGood.Weight < 20000
+        AND MidGood.Weight IS NULL
 
 **Explanation**:
 We are looking for 2 good events with a bad event in between and without a good event in between which means the 2 events are the first events before and after at least 1 bad event. Getting 2 good events with 1 bad event in the middle is simple using 2 JOINs and validating that we get good -> bad -> good by checking the weight and comparing the time stamps. 
@@ -473,3 +473,4 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 - [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
+

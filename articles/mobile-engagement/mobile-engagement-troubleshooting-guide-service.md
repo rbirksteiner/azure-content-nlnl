@@ -29,7 +29,7 @@ The following are possible issues you may encounter with how Azure Mobile Engage
 - Issues that appear to be caused by Azure Mobile Engagement Service Outages can be caused by several different issues:
     - Isolated issues that originally appear systemic to all of Azure Mobile Engagement
     - Known issues caused by server outages (not always shows in server status):
-	- Scheduling delays, Targeting errors, Badge update issues, Statistics stop collecting, Push stops working, API's stop working, New apps or users can't be created, DNS errors, and Timeout errors in the UI, API, or Apps on a device.
+    - Scheduling delays, Targeting errors, Badge update issues, Statistics stop collecting, Push stops working, API's stop working, New apps or users can't be created, DNS errors, and Timeout errors in the UI, API, or Apps on a device.
     - Cloud Dependency Outages
 [Azure Service Status](http://status.azure.com/)
     - Push Notification Services (PNS) Dependency Outages
@@ -84,7 +84,7 @@ The following are possible issues you may encounter with how Azure Mobile Engage
 * Confirm that the problem is not isolated to one computer or your local network.
 * Confirm that that the Azure Mobile Engagement service has no reported outages.
 * Confirm that your App Info Tag files follow all of these rules:
-	- Use only the UTF8 character set (the ANSI character set is not supported).
+    - Use only the UTF8 character set (the ANSI character set is not supported).
     - Use a comma "," as the separator character (you can open a service request to request to change the .csv separator character from a comma "," to another character such as a semi-colon ";").
     - Use all lower case for Boolean values "true" and "false".
     - Use a file that is smaller than the maximum file size of 35MB.

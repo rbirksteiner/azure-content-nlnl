@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure AD and Applications: Guiding Developers | Microsoft Azure"
-	description="Written for the IT Pro, this article provides guidelines for integrating Azure applications with Active Directory."
-	services="active-directory"
-	documentationCenter=""
-	authors="IHenkel"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Azure AD and Applications: Guiding Developers | Microsoft Azure"
+    description="Written for the IT Pro, this article provides guidelines for integrating Azure applications with Active Directory."
+    services="active-directory"
+    documentationCenter=""
+    authors="IHenkel"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/09/2015"
-	ms.author="inhenk"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/09/2015"
+    ms.author="inhenk"/>
 
 # Azure AD and Applications: Guiding Developers
 
@@ -38,12 +38,12 @@ Registering an application allows any user to do the following:
   - Azure Active Directory as oAuth authorization server (secure an API exposed by the application)
 
 - Declare required permissions necessary for the application to function as expected. They include:
-	  - App permissions (global administrators only). For example:
-	    - Role membership in another Azure AD application or role membership relative to an Azure Resource, Resource Group or Subscription
-	  - Delegated permissions (any user). For example:
-	    - (AAD) Sign-in and Read Profile
-	    - (Exchange) Read Mail, Send Mail
-	    - (SharePoint) Read
+      - App permissions (global administrators only). For example:
+        - Role membership in another Azure AD application or role membership relative to an Azure Resource, Resource Group or Subscription
+      - Delegated permissions (any user). For example:
+        - (AAD) Sign-in and Read Profile
+        - (Exchange) Read Mail, Send Mail
+        - (SharePoint) Read
 
 > [AZURE.NOTE]By default, any member can register an application. To learn how to restrict permissions for registering applications to specific members, please refer to the document [How applications are added to Azure AD
 
@@ -77,3 +77,4 @@ By default, the user will need to consent to the permission that’s required in
 For applications that you trust, it’s possible for you to consent to application on behalf of all of the users in your organization.
 
 For more information about user consent and the consent experience in Azure, see [Integrating Applications with Azure Active Directory](active-directory-integrating-applications.md)
+

@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="How to configure data outputs for Stream Analytics jobs | Microsoft Azure" 
-	description="Configure Outputs for Stream Analytics jobs | learning path segment."
-	keywords="data output, data movement"
-	documentationCenter=""
-	services="stream-analytics"
-	authors="jeffstokes72" 
-	manager="paulettm" 
-	editor="cgronlun"/>
+    pageTitle="How to configure data outputs for Stream Analytics jobs | Microsoft Azure" 
+    description="Configure Outputs for Stream Analytics jobs | learning path segment."
+    keywords="data output, data movement"
+    documentationCenter=""
+    services="stream-analytics"
+    authors="jeffstokes72" 
+    manager="paulettm" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="stream-analytics" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="data-services" 
-	ms.date="12/04/2015" 
-	ms.author="jeffstok"/> 
+    ms.service="stream-analytics" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="data-services" 
+    ms.date="12/04/2015" 
+    ms.author="jeffstok"/> 
 
 # How to configure data outputs for Stream Analytics jobs
 

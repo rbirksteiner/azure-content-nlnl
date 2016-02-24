@@ -36,210 +36,210 @@ This article walks you through the steps to create an ExpressRoute circuit using
 
 1. **Import the PowerShell module for ExpressRoute.**
 
- 	You must import the Azure and ExpressRoute modules into the PowerShell session in order to start using the ExpressRoute cmdlets. Run the following commands to import the Azure and ExpressRoute modules into the PowerShell session.  
+    You must import the Azure and ExpressRoute modules into the PowerShell session in order to start using the ExpressRoute cmdlets. Run the following commands to import the Azure and ExpressRoute modules into the PowerShell session.  
 
-	    Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
-	    Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
+        Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
+        Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
 
 2. **Get the list of providers, locations, and bandwidths supported.**
 
-	Before creating an ExpressRoute circuit, you will need the list of connectivity providers, supported locations, and bandwidth options. The PowerShell cmdlet *Get-AzureDedicatedCircuitServiceProvider* returns this information, which you’ll use in later steps.
+    Before creating an ExpressRoute circuit, you will need the list of connectivity providers, supported locations, and bandwidth options. The PowerShell cmdlet *Get-AzureDedicatedCircuitServiceProvider* returns this information, which you’ll use in later steps.
 
-		PS C:\> Get-AzureDedicatedCircuitServiceProvider
+        PS C:\> Get-AzureDedicatedCircuitServiceProvider
 
-		Name                 DedicatedCircuitLocations      DedicatedCircuitBandwidths                                                                                                                                                                                   
-		----                 -------------------------      --------------------------                                                                                                                                                                                   
-		Aryaka Networks      Silicon Valley,Washington      200Mbps:200, 500Mbps:500, 1Gbps:1000                                                                                                                                                                         
-		                     DC,Singapore                                                                                                                                                                                                                                
-		AT&T                 Silicon Valley,Washington DC   10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
-		AT&T Netbond         Washington DC,Silicon          10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
-		                     Valley,Dallas                                                                                                                                                                                                                               
-		British Telecom      London,Amsterdam,Washington    10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
-		                     DC,Tokyo,Silicon Valley                                                                                                                                                                                                                     
-		Colt Ethernet        Amsterdam,London               200Mbps:200, 500Mbps:500, 1Gbps:1000, 10Gbps:10000                                                                                                                                                           
-		Colt IPVPN           Amsterdam,London               10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
-		Comcast              Washington DC,Silicon Valley   200Mbps:200, 500Mbps:500, 1Gbps:1000, 10Gbps:10000                                                                                                                                                           
-		Equinix              Amsterdam,Atlanta,Chicago,Dall 200Mbps:200, 500Mbps:500, 1Gbps:1000, 10Gbps:10000                                                                                                                                                           
-		                     as,New York,Seattle,Silicon                                                                                                                                                                                                                 
-		                     Valley,Washington                                                                                                                                                                                                                           
-		                     DC,London,Hong Kong,Singapore,                                                                                                                                                                                                              
-		                     Sydney,Tokyo,Sao Paulo,Los                                                                                                                                                                                                                  
-		                     Angeles,Melbourne                                                                                                                                                                                                                           
-		IIJ                  Tokyo                          10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
-		InterCloud           Washington                     200Mbps:200, 500Mbps:500, 1Gbps:1000, 10Gbps:10000                                                                                                                                                           
-		                     DC,London,Singapore,Amsterdam                                                                                                                                                                                                               
-		Internet Solutions   London,Amsterdam               10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
-		– Cloud Connect                                                                                                                                                                                                                                                  
-		Interxion            Amsterdam                      200Mbps:200, 500Mbps:500, 1Gbps:1000, 10Gbps:10000                                                                                                                                                           
-		Level 3              London,Chicago,Dallas,Seattle, 200Mbps:200, 500Mbps:500, 1Gbps:1000, 10Gbps:10000                                                                                                                                                           
-		Communications -     Silicon Valley,Washington DC                                                                                                                                                                                                                
-		Exchange                                                                                                                                                                                                                                                         
-		Level 3              London,Chicago,Dallas,Seattle, 10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
-		Communications -     Silicon Valley,Washington DC                                                                                                                                                                                                                
-		IPVPN                                                                                                                                                                                                                                                            
-		Megaport             Melbourne,Sydney               200Mbps:200, 500Mbps:500, 1Gbps:1000, 10Gbps:10000                                                                                                                                                           
-		NEXTDC               Melbourne                      200Mbps:200, 500Mbps:500, 1Gbps:1000, 10Gbps:10000                                                                                                                                                           
-		NTT Communications   Tokyo                          10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
-		Orange               Amsterdam,London,Silicon       10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
-		                     Valley,Washington DC,Hong Kong                                                                                                                                                                                                              
-		PCCW Global Limited  Hong Kong                      10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
-		SingTel Domestic     Singapore                      10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
-		SingTel              Singapore                      10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
-		International                                                                                                                                                                                                                                                    
-		Tata Communications  Hong Kong,Singapore,London,Ams 10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
-		                     terdam,Chennai,Mumbai                                                                                                                                                                                                                       
-		TeleCity Group       Amsterdam,London               200Mbps:200, 500Mbps:500, 1Gbps:1000, 10Gbps:10000                                                                                                                                                           
-		Telstra Corporation  Sydney,Melbourne               10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
-		Verizon              London,Hong Kong,Silicon       10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
-		                     Valley,Washington DC                                                                                                                                                                                                                        
-		Vodafone             London                         10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
-		Zayo Group           Washington DC                  200Mbps:200, 500Mbps:500, 1Gbps:1000, 10Gbps:10000                                                                                                                                                           
-    	
+        Name                 DedicatedCircuitLocations      DedicatedCircuitBandwidths                                                                                                                                                                                   
+        ----                 -------------------------      --------------------------                                                                                                                                                                                   
+        Aryaka Networks      Silicon Valley,Washington      200Mbps:200, 500Mbps:500, 1Gbps:1000                                                                                                                                                                         
+                             DC,Singapore                                                                                                                                                                                                                                
+        AT&T                 Silicon Valley,Washington DC   10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
+        AT&T Netbond         Washington DC,Silicon          10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
+                             Valley,Dallas                                                                                                                                                                                                                               
+        British Telecom      London,Amsterdam,Washington    10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
+                             DC,Tokyo,Silicon Valley                                                                                                                                                                                                                     
+        Colt Ethernet        Amsterdam,London               200Mbps:200, 500Mbps:500, 1Gbps:1000, 10Gbps:10000                                                                                                                                                           
+        Colt IPVPN           Amsterdam,London               10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
+        Comcast              Washington DC,Silicon Valley   200Mbps:200, 500Mbps:500, 1Gbps:1000, 10Gbps:10000                                                                                                                                                           
+        Equinix              Amsterdam,Atlanta,Chicago,Dall 200Mbps:200, 500Mbps:500, 1Gbps:1000, 10Gbps:10000                                                                                                                                                           
+                             as,New York,Seattle,Silicon                                                                                                                                                                                                                 
+                             Valley,Washington                                                                                                                                                                                                                           
+                             DC,London,Hong Kong,Singapore,                                                                                                                                                                                                              
+                             Sydney,Tokyo,Sao Paulo,Los                                                                                                                                                                                                                  
+                             Angeles,Melbourne                                                                                                                                                                                                                           
+        IIJ                  Tokyo                          10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
+        InterCloud           Washington                     200Mbps:200, 500Mbps:500, 1Gbps:1000, 10Gbps:10000                                                                                                                                                           
+                             DC,London,Singapore,Amsterdam                                                                                                                                                                                                               
+        Internet Solutions   London,Amsterdam               10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
+        – Cloud Connect                                                                                                                                                                                                                                                  
+        Interxion            Amsterdam                      200Mbps:200, 500Mbps:500, 1Gbps:1000, 10Gbps:10000                                                                                                                                                           
+        Level 3              London,Chicago,Dallas,Seattle, 200Mbps:200, 500Mbps:500, 1Gbps:1000, 10Gbps:10000                                                                                                                                                           
+        Communications -     Silicon Valley,Washington DC                                                                                                                                                                                                                
+        Exchange                                                                                                                                                                                                                                                         
+        Level 3              London,Chicago,Dallas,Seattle, 10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
+        Communications -     Silicon Valley,Washington DC                                                                                                                                                                                                                
+        IPVPN                                                                                                                                                                                                                                                            
+        Megaport             Melbourne,Sydney               200Mbps:200, 500Mbps:500, 1Gbps:1000, 10Gbps:10000                                                                                                                                                           
+        NEXTDC               Melbourne                      200Mbps:200, 500Mbps:500, 1Gbps:1000, 10Gbps:10000                                                                                                                                                           
+        NTT Communications   Tokyo                          10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
+        Orange               Amsterdam,London,Silicon       10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
+                             Valley,Washington DC,Hong Kong                                                                                                                                                                                                              
+        PCCW Global Limited  Hong Kong                      10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
+        SingTel Domestic     Singapore                      10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
+        SingTel              Singapore                      10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
+        International                                                                                                                                                                                                                                                    
+        Tata Communications  Hong Kong,Singapore,London,Ams 10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
+                             terdam,Chennai,Mumbai                                                                                                                                                                                                                       
+        TeleCity Group       Amsterdam,London               200Mbps:200, 500Mbps:500, 1Gbps:1000, 10Gbps:10000                                                                                                                                                           
+        Telstra Corporation  Sydney,Melbourne               10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
+        Verizon              London,Hong Kong,Silicon       10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
+                             Valley,Washington DC                                                                                                                                                                                                                        
+        Vodafone             London                         10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
+        Zayo Group           Washington DC                  200Mbps:200, 500Mbps:500, 1Gbps:1000, 10Gbps:10000                                                                                                                                                           
+        
 
 3. **Create an ExpressRoute circuit.**
 
-	The example below shows how to create a 200 Mbps ExpressRoute circuit through Equinix in Silicon Valley. If you are using a different provider and different settings, substitute that information when making your request.
+    The example below shows how to create a 200 Mbps ExpressRoute circuit through Equinix in Silicon Valley. If you are using a different provider and different settings, substitute that information when making your request.
 
-	Below is an example request for a new service key:
+    Below is an example request for a new service key:
 
-		#Creating a new circuit
-		$Bandwidth = 200
-		$CircuitName = "MyTestCircuit"
-		$ServiceProvider = "Equinix"
-		$Location = "Silicon Valley"
+        #Creating a new circuit
+        $Bandwidth = 200
+        $CircuitName = "MyTestCircuit"
+        $ServiceProvider = "Equinix"
+        $Location = "Silicon Valley"
 
-		New-AzureDedicatedCircuit -CircuitName $CircuitName -ServiceProviderName $ServiceProvider -Bandwidth $Bandwidth -Location $Location -sku Standard -BillingType MeteredData 
+        New-AzureDedicatedCircuit -CircuitName $CircuitName -ServiceProviderName $ServiceProvider -Bandwidth $Bandwidth -Location $Location -sku Standard -BillingType MeteredData 
 
-	Or, if you want to create an ExpressRoute circuit with the premium add-on, use the following example below. Refer to the [ExpressRoute FAQ](expressroute-faqs.md) page for more details on the premium add-on.
+    Or, if you want to create an ExpressRoute circuit with the premium add-on, use the following example below. Refer to the [ExpressRoute FAQ](expressroute-faqs.md) page for more details on the premium add-on.
 
-		New-AzureDedicatedCircuit -CircuitName $CircuitName -ServiceProviderName $ServiceProvider -Bandwidth $Bandwidth -Location $Location -sku Premium - BillingType MeteredData
-	
-	
-	The response will contain the service key. You can get detailed descriptions of all the parameters by running the following:
+        New-AzureDedicatedCircuit -CircuitName $CircuitName -ServiceProviderName $ServiceProvider -Bandwidth $Bandwidth -Location $Location -sku Premium - BillingType MeteredData
+    
+    
+    The response will contain the service key. You can get detailed descriptions of all the parameters by running the following:
 
-		get-help new-azurededicatedcircuit -detailed 
+        get-help new-azurededicatedcircuit -detailed 
 
 4. **List all ExpressRoute circuits.**
 
-	You can run the *Get-AzureDedicatedCircuit* command to get a list of all ExpressRoute circuits you created.
+    You can run the *Get-AzureDedicatedCircuit* command to get a list of all ExpressRoute circuits you created.
 
-		#Getting service key
-		Get-AzureDedicatedCircuit
+        #Getting service key
+        Get-AzureDedicatedCircuit
 
-	The response will be something similar to the example below:
+    The response will be something similar to the example below:
 
-		Bandwidth                        : 200
-		CircuitName                      : MyTestCircuit
-		Location                         : Silicon Valley
-		ServiceKey                       : *********************************
-		ServiceProviderName              : equinix
-		ServiceProviderProvisioningState : NotProvisioned
-		Sku                              : Standard
-		Status                           : Enabled
+        Bandwidth                        : 200
+        CircuitName                      : MyTestCircuit
+        Location                         : Silicon Valley
+        ServiceKey                       : *********************************
+        ServiceProviderName              : equinix
+        ServiceProviderProvisioningState : NotProvisioned
+        Sku                              : Standard
+        Status                           : Enabled
 
-	You can retrieve this information at any time using the *Get-AzureDedicatedCircuit* cmdlet. Making the call without any parameters will list all circuits. Your Service Key will be listed in the *ServiceKey* field.
+    You can retrieve this information at any time using the *Get-AzureDedicatedCircuit* cmdlet. Making the call without any parameters will list all circuits. Your Service Key will be listed in the *ServiceKey* field.
 
-		PS C:\> Get-AzureDedicatedCircuit
+        PS C:\> Get-AzureDedicatedCircuit
 
-		Bandwidth                        : 200
-		CircuitName                      : MyTestCircuit
-		Location                         : Silicon Valley
-		ServiceKey                       : *********************************
-		ServiceProviderName              : equinix
-		ServiceProviderProvisioningState : NotProvisioned
-		Sku                              : Standard
-		Status                           : Enabled
+        Bandwidth                        : 200
+        CircuitName                      : MyTestCircuit
+        Location                         : Silicon Valley
+        ServiceKey                       : *********************************
+        ServiceProviderName              : equinix
+        ServiceProviderProvisioningState : NotProvisioned
+        Sku                              : Standard
+        Status                           : Enabled
 
-	You can get detailed descriptions of all the parameters by running the following:
+    You can get detailed descriptions of all the parameters by running the following:
 
-		get-help get-azurededicatedcircuit -detailed 
+        get-help get-azurededicatedcircuit -detailed 
 
 5. **Send the Service Key to your connectivity provider for provisioning.**
 
-	When you create a new ExpressRoute circuit, the circuit will be the following state:
-	
-		ServiceProviderProvisioningState : NotProvisioned
-		
-		Status                           : Enabled
+    When you create a new ExpressRoute circuit, the circuit will be the following state:
+    
+        ServiceProviderProvisioningState : NotProvisioned
+        
+        Status                           : Enabled
 
-	The *ServiceProviderProvisioningState* provides information on the current state of provisioning on the service provider side and the Status provides the state on the Microsoft side. An ExpressRoute circuit must be in the following state for you to be able to use it.
+    The *ServiceProviderProvisioningState* provides information on the current state of provisioning on the service provider side and the Status provides the state on the Microsoft side. An ExpressRoute circuit must be in the following state for you to be able to use it.
 
-		ServiceProviderProvisioningState : Provisioned
-		
-		Status                           : Enabled
+        ServiceProviderProvisioningState : Provisioned
+        
+        Status                           : Enabled
 
-	The circuit will go to the following state when the connectivity provider is in the process of enabling it for you. 
+    The circuit will go to the following state when the connectivity provider is in the process of enabling it for you. 
 
-		ServiceProviderProvisioningState : Provisioned
-		
-		Status                           : Enabled
+        ServiceProviderProvisioningState : Provisioned
+        
+        Status                           : Enabled
 
 
 
 5. **Periodically check the status and the state of the circuit key.**
 
-	This lets you know when your provider has enabled your circuit. Once the circuit has been configured, the *ServiceProviderProvisioningState* will display as *Provisioned* as shown in the example below.
+    This lets you know when your provider has enabled your circuit. Once the circuit has been configured, the *ServiceProviderProvisioningState* will display as *Provisioned* as shown in the example below.
 
-		PS C:\> Get-AzureDedicatedCircuit
+        PS C:\> Get-AzureDedicatedCircuit
 
-		Bandwidth                        : 200
-		CircuitName                      : MyTestCircuit
-		Location                         : Silicon Valley
-		ServiceKey                       : *********************************
-		ServiceProviderName              : equinix
-		ServiceProviderProvisioningState : Provisioned
-		Sku                              : Standard
-		Status                           : Enabled
+        Bandwidth                        : 200
+        CircuitName                      : MyTestCircuit
+        Location                         : Silicon Valley
+        ServiceKey                       : *********************************
+        ServiceProviderName              : equinix
+        ServiceProviderProvisioningState : Provisioned
+        Sku                              : Standard
+        Status                           : Enabled
 
 6. **Create your routing configuration.**
-	
-	Refer to the [ExpressRoute circuit routing configuration (create and modify circuit peerings)](expressroute-howto-routing-classic.md) page for step-by-step instructions. 
+    
+    Refer to the [ExpressRoute circuit routing configuration (create and modify circuit peerings)](expressroute-howto-routing-classic.md) page for step-by-step instructions. 
 
 7. **Link a VNet to an ExpressRoute circuit.** 
 
-	Next, link a VNet to your ExpressRoute circuit. Refer to [Linking ExpressRoute circuits to VNets](expressroute-howto-linkvnet-classic.md) for step by step instructions. If you need to create a virtual network for ExpressRoute, see [Creating a virtual network for ExpressRoute](expressroute-howto-createvnet-classic.md) for instructions.
+    Next, link a VNet to your ExpressRoute circuit. Refer to [Linking ExpressRoute circuits to VNets](expressroute-howto-linkvnet-classic.md) for step by step instructions. If you need to create a virtual network for ExpressRoute, see [Creating a virtual network for ExpressRoute](expressroute-howto-createvnet-classic.md) for instructions.
 
 ##  To get the status of an ExpressRoute circuit
 
 You can retrieve this information at any time using the *Get-AzureCircuit* cmdlet. Making the call without any parameters will list all circuits. 
 
-		PS C:\> Get-AzureDedicatedCircuit
+        PS C:\> Get-AzureDedicatedCircuit
 
-		Bandwidth                        : 200
-		CircuitName                      : MyTestCircuit
-		Location                         : Silicon Valley
-		ServiceKey                       : *********************************
-		ServiceProviderName              : equinix
-		ServiceProviderProvisioningState : Provisioned
-		Sku                              : Standard
-		Status                           : Enabled
+        Bandwidth                        : 200
+        CircuitName                      : MyTestCircuit
+        Location                         : Silicon Valley
+        ServiceKey                       : *********************************
+        ServiceProviderName              : equinix
+        ServiceProviderProvisioningState : Provisioned
+        Sku                              : Standard
+        Status                           : Enabled
 
-		Bandwidth                        : 1000
-		CircuitName                      : MyAsiaCircuit
-		Location                         : Singapore
-		ServiceKey                       : #################################
-		ServiceProviderName              : equinix
-		ServiceProviderProvisioningState : Provisioned
-		Sku                              : Standard
-		Status                           : Enabled
+        Bandwidth                        : 1000
+        CircuitName                      : MyAsiaCircuit
+        Location                         : Singapore
+        ServiceKey                       : #################################
+        ServiceProviderName              : equinix
+        ServiceProviderProvisioningState : Provisioned
+        Sku                              : Standard
+        Status                           : Enabled
 
 You can get information on a specific ExpressRoute circuit by passing the service key as a parameter to the call.
 
-		PS C:\> Get-AzureDedicatedCircuit -ServiceKey "*********************************"
+        PS C:\> Get-AzureDedicatedCircuit -ServiceKey "*********************************"
 
-		Bandwidth                        : 200
-		CircuitName                      : MyTestCircuit
-		Location                         : Silicon Valley
-		ServiceKey                       : *********************************
-		ServiceProviderName              : equinix
-		ServiceProviderProvisioningState : Provisioned
-		Sku                              : Standard
-		Status                           : Enabled
+        Bandwidth                        : 200
+        CircuitName                      : MyTestCircuit
+        Location                         : Silicon Valley
+        ServiceKey                       : *********************************
+        ServiceProviderName              : equinix
+        ServiceProviderProvisioningState : Provisioned
+        Sku                              : Standard
+        Status                           : Enabled
 
 
 You can get detailed descriptions of all the parameters by running the following:
 
-		get-help get-azurededicatedcircuit -detailed 
+        get-help get-azurededicatedcircuit -detailed 
 
 ##  To modify an ExpressRoute circuit
 
@@ -255,34 +255,34 @@ Refer to the [ExpressRoute FAQ](expressroute-faqs.md) page for more information 
 ### How to enable the ExpressRoute premium add-on
 
 You can enable the ExpressRoute premium add-on for your existing circuit using the following PowerShell cmdlet:
-	
-		PS C:\> Set-AzureDedicatedCircuitProperties -ServiceKey "*********************************" -Sku Premium
-		
-		Bandwidth                        : 1000
-		CircuitName                      : TestCircuit
-		Location                         : Silicon Valley
-		ServiceKey                       : *********************************
-		ServiceProviderName              : equinix
-		ServiceProviderProvisioningState : Provisioned
-		Sku                              : Premium
-		Status                           : Enabled
+    
+        PS C:\> Set-AzureDedicatedCircuitProperties -ServiceKey "*********************************" -Sku Premium
+        
+        Bandwidth                        : 1000
+        CircuitName                      : TestCircuit
+        Location                         : Silicon Valley
+        ServiceKey                       : *********************************
+        ServiceProviderName              : equinix
+        ServiceProviderProvisioningState : Provisioned
+        Sku                              : Premium
+        Status                           : Enabled
 
 Your circuit will now have the ExpressRoute premium add-on features enabled. Note that we will start billing you for the premium add-on capability as soon as the command has successfully run.
 
 ### How to disable the ExpressRoute premium add-on
 
 You can disable the ExpressRoute premium add-on for your existing circuit using the following PowerShell cmdlet:
-	
-		PS C:\> Set-AzureDedicatedCircuitProperties -ServiceKey "*********************************" -Sku Standard
-		
-		Bandwidth                        : 1000
-		CircuitName                      : TestCircuit
-		Location                         : Silicon Valley
-		ServiceKey                       : *********************************
-		ServiceProviderName              : equinix
-		ServiceProviderProvisioningState : Provisioned
-		Sku                              : Standard
-		Status                           : Enabled
+    
+        PS C:\> Set-AzureDedicatedCircuitProperties -ServiceKey "*********************************" -Sku Standard
+        
+        Bandwidth                        : 1000
+        CircuitName                      : TestCircuit
+        Location                         : Silicon Valley
+        ServiceKey                       : *********************************
+        ServiceProviderName              : equinix
+        ServiceProviderProvisioningState : Provisioned
+        Sku                              : Standard
+        Status                           : Enabled
 
 The premium add-on is now disabled for your circuit. 
 
@@ -297,16 +297,16 @@ The premium add-on is now disabled for your circuit.
 
 Check the [ExpressRoute FAQ](expressroute-faqs.md) page for supported bandwidth options for your provider. You can pick any size greater than the size of your existing circuit. Once you decided what size you need, you can use the following command to re-size your circuit.
 
-		PS C:\> Set-AzureDedicatedCircuitProperties -ServiceKey ********************************* -Bandwidth 1000
-		
-		Bandwidth                        : 1000
-		CircuitName                      : TestCircuit
-		Location                         : Silicon Valley
-		ServiceKey                       : *********************************
-		ServiceProviderName              : equinix
-		ServiceProviderProvisioningState : Provisioned
-		Sku                              : Standard
-		Status                           : Enabled
+        PS C:\> Set-AzureDedicatedCircuitProperties -ServiceKey ********************************* -Bandwidth 1000
+        
+        Bandwidth                        : 1000
+        CircuitName                      : TestCircuit
+        Location                         : Silicon Valley
+        ServiceKey                       : *********************************
+        ServiceProviderName              : equinix
+        ServiceProviderProvisioningState : Provisioned
+        Sku                              : Standard
+        Status                           : Enabled
 
 Your circuit will have been sized up on the Microsoft side. You must contact your connectivity provider to update configurations on their side to match this change. Note that we will start billing you for the updated bandwidth option from this point on.
 
@@ -316,7 +316,7 @@ Your circuit will have been sized up on the Microsoft side. You must contact you
 
 You can delete your ExpressRoute circuit by running the following command:
 
-		PS C:\> Remove-AzureDedicatedCircuit -ServiceKey "*********************************"	
+        PS C:\> Remove-AzureDedicatedCircuit -ServiceKey "*********************************"    
 
 Note that you must unlink all virtual networks from the ExpressRoute for this operation to succeed. Check if you have any virtual networks linked to the circuit if this operation fails.
 
@@ -327,4 +327,5 @@ If the service provider has deprovisioned the circuit (the service provider prov
 ## Next steps
 
 - [Configure routing](expressroute-howto-routing-classic.md)
+
 

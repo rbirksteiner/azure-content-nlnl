@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Create a .NET MVC web app in Azure App Service with AD FS authentication" 
-	description="Learn how to create an ASP.NET MVC line-of-business application in Azure App Service Web Apps that authenticates with on-premise STS. This tutorial targets AD FS as the on-premise STS." 
-	services="app-service\web" 
-	documentationCenter=".net" 
-	authors="cephalin" 
-	manager="wpickett" 
-	editor=""/>
+    pageTitle="Create a .NET MVC web app in Azure App Service with AD FS authentication" 
+    description="Learn how to create an ASP.NET MVC line-of-business application in Azure App Service Web Apps that authenticates with on-premise STS. This tutorial targets AD FS as the on-premise STS." 
+    services="app-service\web" 
+    documentationCenter=".net" 
+    authors="cephalin" 
+    manager="wpickett" 
+    editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="web" 
-	ms.date="12/15/2015" 
-	ms.author="cephalin"/>
+    ms.service="app-service-web" 
+    ms.devlang="dotnet" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="web" 
+    ms.date="12/15/2015" 
+    ms.author="cephalin"/>
 
 # Create a .NET MVC web app in Azure App Service with AD FS authentication
 
@@ -57,13 +57,13 @@ The sample application in this tutorial, [WebApp-WSFederation-DotNet)](https://g
 <a name="bkmk_setup"></a>
 ## Set up the sample application ##
 
-2.	Clone or download the sample solution at [WebApp-WSFederation-DotNet](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet) to your local directory.
+2.  Clone or download the sample solution at [WebApp-WSFederation-DotNet](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet) to your local directory.
 
-	> [AZURE.NOTE] The instructions at [README.md](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet/blob/master/README.md) shows you how to set up the application with Azure Active Directory, but in this tutorial you will set it up with AD FS, so follow the steps here instead.
+    > [AZURE.NOTE] The instructions at [README.md](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet/blob/master/README.md) shows you how to set up the application with Azure Active Directory, but in this tutorial you will set it up with AD FS, so follow the steps here instead.
 
-3.	Open the solution, and then open Controllers\AccountController.cs in the **Solution Explorer**.
+3.  Open the solution, and then open Controllers\AccountController.cs in the **Solution Explorer**.
 
-	You will see that the code simply issues an authentication challenge to authenticate the user using WS-Federation. All authentication is configured in App_Start\Startup.Auth.cs.
+    You will see that the code simply issues an authentication challenge to authenticate the user using WS-Federation. All authentication is configured in App_Start\Startup.Auth.cs.
 
 4.  Open App_Start\Startup.Auth.cs. In the `ConfigureAuth` method, note the line:
 
@@ -74,14 +74,14 @@ The sample application in this tutorial, [WebApp-WSFederation-DotNet)](https://g
                 MetadataAddress = metadata                                      
             });
 
-	In the OWIN world, this is really the bare minimum you need to configure WS-Federation authentication. This is much simpler and more elegant than WIF, where Web.config is injected with XML all over the place. The only information you need is the relying party's (RP) identifier and the URL of your AD FS service's metadata file. Here's an example:
+    In the OWIN world, this is really the bare minimum you need to configure WS-Federation authentication. This is much simpler and more elegant than WIF, where Web.config is injected with XML all over the place. The only information you need is the relying party's (RP) identifier and the URL of your AD FS service's metadata file. Here's an example:
 
-	-	RP identifier: `https://contoso.com/MyLOBApp`
-	-	Metadata address: `http://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`
+    -   RP identifier: `https://contoso.com/MyLOBApp`
+    -   Metadata address: `http://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`
 
-5.	In App_Start\Startup.Auth.cs, change the static string definitions as highlighted below:  
-	<pre class="prettyprint">
-	private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIdentifier</mark>"];
+5.  In App_Start\Startup.Auth.cs, change the static string definitions as highlighted below:  
+    <pre class="prettyprint">
+    private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIdentifier</mark>"];
     <mark><del>private static string aadInstance = ConfigurationManager.AppSettings["ida:AADInstance"];</del></mark>
     <mark><del>private static string tenant = ConfigurationManager.AppSettings["ida:Tenant"];</del></mark>
     <mark><del>private static string metadata = string.Format("{0}/{1}/federationmetadata/2007-06/federationmetadata.xml", aadInstance, tenant);</del></mark>
@@ -90,25 +90,25 @@ The sample application in this tutorial, [WebApp-WSFederation-DotNet)](https://g
     <mark><del>string authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenant);</del></mark>
     </pre>
 
-6.	You will now make the corresponding changes in Web.config. Open the Web.config and modify the app settings as highlighted below:  
-	<pre class="prettyprint">
-	&lt;appSettings&gt;
-	  &lt;add key="webpages:Version" value="3.0.0.0" /&gt;
-	  &lt;add key="webpages:Enabled" value="false" /&gt;
-	  &lt;add key="ClientValidationEnabled" value="true" /&gt;
-	  &lt;add key="UnobtrusiveJavaScriptEnabled" value="true" /&gt;
-	  <mark><del>&lt;add key="ida:Wtrealm" value="[Enter the App ID URI of WebApp-WSFederation-DotNet https://contoso.onmicrosoft.com/WebApp-WSFederation-DotNet]" /&gt;</del></mark>
-	  <mark><del>&lt;add key="ida:AADInstance" value="https://login.windows.net" /&gt;</del></mark>
-	  <mark><del>&lt;add key="ida:Tenant" value="[Enter tenant name, e.g. contoso.onmicrosoft.com]" /&gt;</del></mark>
-	  <mark>&lt;add key="ida:RPIdentifier" value="[Enter the relying party identifier as configured in AD FS, e.g. https://localhost:44320/]" /&gt;</mark>
-	  <mark>&lt;add key="ida:ADFS" value="[Enter the FQDN of AD FS service, e.g. adfs.contoso.com]" /&gt;</mark>
+6.  You will now make the corresponding changes in Web.config. Open the Web.config and modify the app settings as highlighted below:  
+    <pre class="prettyprint">
+    &lt;appSettings&gt;
+      &lt;add key="webpages:Version" value="3.0.0.0" /&gt;
+      &lt;add key="webpages:Enabled" value="false" /&gt;
+      &lt;add key="ClientValidationEnabled" value="true" /&gt;
+      &lt;add key="UnobtrusiveJavaScriptEnabled" value="true" /&gt;
+      <mark><del>&lt;add key="ida:Wtrealm" value="[Enter the App ID URI of WebApp-WSFederation-DotNet https://contoso.onmicrosoft.com/WebApp-WSFederation-DotNet]" /&gt;</del></mark>
+      <mark><del>&lt;add key="ida:AADInstance" value="https://login.windows.net" /&gt;</del></mark>
+      <mark><del>&lt;add key="ida:Tenant" value="[Enter tenant name, e.g. contoso.onmicrosoft.com]" /&gt;</del></mark>
+      <mark>&lt;add key="ida:RPIdentifier" value="[Enter the relying party identifier as configured in AD FS, e.g. https://localhost:44320/]" /&gt;</mark>
+      <mark>&lt;add key="ida:ADFS" value="[Enter the FQDN of AD FS service, e.g. adfs.contoso.com]" /&gt;</mark>
 
-	&lt;/appSettings&gt;
-	</pre>
+    &lt;/appSettings&gt;
+    </pre>
 
-	Fill in the key values based on your respective environment.
+    Fill in the key values based on your respective environment.
 
-7.	Build the application to make sure there are no errors.
+7.  Build the application to make sure there are no errors.
 
 That's it. Now the sample application is ready to work with AD FS. You will still need to configure an RP trust with this application in AD FS later.
 
@@ -119,22 +119,22 @@ Here, you will publish the application to a web app in App Service Web Apps whil
 
 1. Right-click your project and select **Publish**.
 
-	![](./media/web-sites-dotnet-lob-application-adfs/01-publish-website.png)
+    ![](./media/web-sites-dotnet-lob-application-adfs/01-publish-website.png)
 
 2. Select **Microsoft Azure App Service**.
 3. If you haven't signed in to Azure, click **Sign In** and use the Microsoft account for your Azure subscription to sign in.
 4. Once signed in, click **New** to create a new web app.
 5. Fill in all required fields. You are going to connect to on-premise data later, so you won't create a database for this web app.
 
-	![](./media/web-sites-dotnet-lob-application-adfs/02-create-website.png)
+    ![](./media/web-sites-dotnet-lob-application-adfs/02-create-website.png)
 
 6. Click **Create**. Once the web app is created, the Publish Web dialog is opened.
 7. In **Destination URL**, change **http** to **https**. Copy the entire URL to a text editor. You will use it later. Then, click **Publish**.
 
-	![](./media/web-sites-dotnet-lob-application-adfs/03-destination-url.png)
+    ![](./media/web-sites-dotnet-lob-application-adfs/03-destination-url.png)
 
 11. In Visual Studio, open **Web.Release.config** in your project. Insert the following XML into the `<configuration>` tag, and replace the key value with your publish web app's URL.  
-	<pre class="prettyprint">
+    <pre class="prettyprint">
 &lt;appSettings&gt;
    &lt;add key="ida:RPIdentifier" value="<mark>[e.g. https://mylobapp.azurewebsites.net/]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" /&gt;
 &lt;/appSettings&gt;</pre>
@@ -150,85 +150,85 @@ Now you need to configure an RP trust in AD FS Mangement before you can use your
 
 > [AZURE.NOTE] Make sure that you repeat the steps below for both of your environments.
 
-4.	On your AD FS server, log in with credentials that have management rights to AD FS.
-5.	Open AD FS Management. Right-click **AD FS\Trusted Relationships\Relying Party Trusts** and select **Add Relying Party Trust**.
+4.  On your AD FS server, log in with credentials that have management rights to AD FS.
+5.  Open AD FS Management. Right-click **AD FS\Trusted Relationships\Relying Party Trusts** and select **Add Relying Party Trust**.
 
-	![](./media/web-sites-dotnet-lob-application-adfs/1-add-rptrust.png)
+    ![](./media/web-sites-dotnet-lob-application-adfs/1-add-rptrust.png)
 
-5.	In the **Select Data Source** page, select **Enter data about the relying party manually**. 
+5.  In the **Select Data Source** page, select **Enter data about the relying party manually**. 
 
-	![](./media/web-sites-dotnet-lob-application-adfs/2-enter-rp-manually.png)
+    ![](./media/web-sites-dotnet-lob-application-adfs/2-enter-rp-manually.png)
 
-6.	In the **Specify Display Name** page, type a display name for the application and click **Next**.
-7.	In the **Choose Protocol** page, click **Next**.
-8.	In the **Configure Certificate** page, click **Next**.
+6.  In the **Specify Display Name** page, type a display name for the application and click **Next**.
+7.  In the **Choose Protocol** page, click **Next**.
+8.  In the **Configure Certificate** page, click **Next**.
 
-	> [AZURE.NOTE] Since you should be using HTTPS already, encrypted tokens are optional. If you really want to encrypt tokens from AD FS on this page, you must also add token-decrypting logic in your code. For more information, see [Manually configuring OWIN WS-Federation middleware and accepting encrypted tokens](http://chris.59north.com/post/2014/08/21/Manually-configuring-OWIN-WS-Federation-middleware-and-accepting-encrypted-tokens.aspx).
+    > [AZURE.NOTE] Since you should be using HTTPS already, encrypted tokens are optional. If you really want to encrypt tokens from AD FS on this page, you must also add token-decrypting logic in your code. For more information, see [Manually configuring OWIN WS-Federation middleware and accepting encrypted tokens](http://chris.59north.com/post/2014/08/21/Manually-configuring-OWIN-WS-Federation-middleware-and-accepting-encrypted-tokens.aspx).
   
-5.	Before you move onto the next step, you need one piece of information from your Visual Studio project. In the project properties, note the **SSL URL** of the application. 
+5.  Before you move onto the next step, you need one piece of information from your Visual Studio project. In the project properties, note the **SSL URL** of the application. 
 
-	![](./media/web-sites-dotnet-lob-application-adfs/3-ssl-url.png)
+    ![](./media/web-sites-dotnet-lob-application-adfs/3-ssl-url.png)
 
-6.	Back in AD FS Management, in the **Configure URL** page of the **Add Relying Party Trust Wizard**, select **Enable support for the WS-Federation Passive protocol** and type in the SSL URL of your Visual Studio project that you noted in the previous step. Then, click **Next**.
+6.  Back in AD FS Management, in the **Configure URL** page of the **Add Relying Party Trust Wizard**, select **Enable support for the WS-Federation Passive protocol** and type in the SSL URL of your Visual Studio project that you noted in the previous step. Then, click **Next**.
 
-	![](./media/web-sites-dotnet-lob-application-adfs/4-configure-url.png)
+    ![](./media/web-sites-dotnet-lob-application-adfs/4-configure-url.png)
 
-	> [AZURE.NOTE] URL specifies where to send the client after authentication succeeds. For the debug environment, it should be <code>https://localhost:&lt;port&gt;/</code>. For the published web app, it should be the web app URL.
+    > [AZURE.NOTE] URL specifies where to send the client after authentication succeeds. For the debug environment, it should be <code>https://localhost:&lt;port&gt;/</code>. For the published web app, it should be the web app URL.
 
-7.	In the **Configure Identifiers** page, verify that your project SSL URL is already listed and click **Next**. Click **Next** all the way to the end of the wizard with default selections.
+7.  In the **Configure Identifiers** page, verify that your project SSL URL is already listed and click **Next**. Click **Next** all the way to the end of the wizard with default selections.
 
-	> [AZURE.NOTE] In App_Start\Startup.Auth.cs of your Visual Studio project, this identifier is matched against the value of <code>WsFederationAuthenticationOptions.Wtrealm</code> during federated authentication. By default, the application's URL from the previous step is added as an RP identifier.
+    > [AZURE.NOTE] In App_Start\Startup.Auth.cs of your Visual Studio project, this identifier is matched against the value of <code>WsFederationAuthenticationOptions.Wtrealm</code> during federated authentication. By default, the application's URL from the previous step is added as an RP identifier.
 
-8.	You have now finished configuring the RP application for your project in AD FS. Next, you will configure this application to send the claims needed by your application. The **Edit Claim Rules** dialog is opened by default for you at the end of the wizard so you can start immediately. Let's configure at least the following claims (with schemas in parentheses):
+8.  You have now finished configuring the RP application for your project in AD FS. Next, you will configure this application to send the claims needed by your application. The **Edit Claim Rules** dialog is opened by default for you at the end of the wizard so you can start immediately. Let's configure at least the following claims (with schemas in parentheses):
 
-	-	Name (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name) - used by ASP.NET to hydrate `User.Identity.Name`.
-	-	User principal name (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn) - used to uniquely identify users in the organization.
-	-	Group memberships as roles (http://schemas.microsoft.com/ws/2008/06/identity/claims/role) - can be used with `[Authorize(Roles="role1, role2,...")]` decoration to authorize controllers/actions. In reality, this may not be the most performant approach for role authorization, especially if your AD users regularly belong to hundreds of security groups, which translates to hundreds of role claims in the SAML token. An alternative approach is to send a single role claim conditionally depending on the user's membership in a particular group. However, we'll keep it simple for this tutorial.
-	-	Name ID (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier) - can be used for anti-forgery validation. For more information on how to make it work with anti-forgery validation, see the **Add line-of-business functionality to the sample application** section of [Create a .NET MVC web app in Azure App Service with Azure Active Directory authentication](web-sites-dotnet-lob-application-azure-ad.md#bkmk_crud).
+    -   Name (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name) - used by ASP.NET to hydrate `User.Identity.Name`.
+    -   User principal name (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn) - used to uniquely identify users in the organization.
+    -   Group memberships as roles (http://schemas.microsoft.com/ws/2008/06/identity/claims/role) - can be used with `[Authorize(Roles="role1, role2,...")]` decoration to authorize controllers/actions. In reality, this may not be the most performant approach for role authorization, especially if your AD users regularly belong to hundreds of security groups, which translates to hundreds of role claims in the SAML token. An alternative approach is to send a single role claim conditionally depending on the user's membership in a particular group. However, we'll keep it simple for this tutorial.
+    -   Name ID (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier) - can be used for anti-forgery validation. For more information on how to make it work with anti-forgery validation, see the **Add line-of-business functionality to the sample application** section of [Create a .NET MVC web app in Azure App Service with Azure Active Directory authentication](web-sites-dotnet-lob-application-azure-ad.md#bkmk_crud).
 
-	> [AZURE.NOTE] The claim types you need to configure for your application is determined by your application's needs. For the list of claims supported by Azure Active Directory applications (i.e. RP trusts), for example, see [Supported Token and Claim Types](http://msdn.microsoft.com/library/azure/dn195587.aspx).
+    > [AZURE.NOTE] The claim types you need to configure for your application is determined by your application's needs. For the list of claims supported by Azure Active Directory applications (i.e. RP trusts), for example, see [Supported Token and Claim Types](http://msdn.microsoft.com/library/azure/dn195587.aspx).
 
-8.	In the Edit Claim Rules dialog, click **Add Rule**.
-9.	Configure the name, UPN, and role claims as shown below and click **Finish**.
+8.  In the Edit Claim Rules dialog, click **Add Rule**.
+9.  Configure the name, UPN, and role claims as shown below and click **Finish**.
 
-	![](./media/web-sites-dotnet-lob-application-adfs/5-ldap-claims.png)
+    ![](./media/web-sites-dotnet-lob-application-adfs/5-ldap-claims.png)
 
-	Next, you will create a transient name ID claim using the steps demonstrated in [Name Identifiers in SAML assertions](http://blogs.msdn.com/b/card/archive/2010/02/17/name-identifiers-in-saml-assertions.aspx).
+    Next, you will create a transient name ID claim using the steps demonstrated in [Name Identifiers in SAML assertions](http://blogs.msdn.com/b/card/archive/2010/02/17/name-identifiers-in-saml-assertions.aspx).
 
-9.	Click **Add Rule** again.
-10.	Select **Send Claims Using a Custom Rule** and click **Next**.
-11.	Paste the following rule language into the **Custom rule** box, name the rule **Per Session Identifier** and click **Finish**.  
-	<pre class="prettyprint">
-	c1:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"] &amp;&amp;
-	c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant"]
-		=> add(
-			store = "_OpaqueIdStore",
-			types = ("<mark>http://contoso.com/internal/sessionid</mark>"),
-			query = "{0};{1};{2};{3};{4}",
-			param = "useEntropy",
-			param = c1.Value,
-			param = c1.OriginalIssuer,
-			param = "",
-			param = c2.Value);
-	</pre>
+9.  Click **Add Rule** again.
+10. Select **Send Claims Using a Custom Rule** and click **Next**.
+11. Paste the following rule language into the **Custom rule** box, name the rule **Per Session Identifier** and click **Finish**.  
+    <pre class="prettyprint">
+    c1:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"] &amp;&amp;
+    c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant"]
+        => add(
+            store = "_OpaqueIdStore",
+            types = ("<mark>http://contoso.com/internal/sessionid</mark>"),
+            query = "{0};{1};{2};{3};{4}",
+            param = "useEntropy",
+            param = c1.Value,
+            param = c1.OriginalIssuer,
+            param = "",
+            param = c2.Value);
+    </pre>
 
-	Your custom rule should look like this:
+    Your custom rule should look like this:
 
-	![](./media/web-sites-dotnet-lob-application-adfs/6-per-session-identifier.png)
+    ![](./media/web-sites-dotnet-lob-application-adfs/6-per-session-identifier.png)
 
-9.	Click **Add Rule** again.
-10.	Select **Transform an Incoming Claim** and click **Next**.
-11.	Configure the rule as shown below (using the claim type you created in the custom rule) and click **Finish**.
+9.  Click **Add Rule** again.
+10. Select **Transform an Incoming Claim** and click **Next**.
+11. Configure the rule as shown below (using the claim type you created in the custom rule) and click **Finish**.
 
-	![](./media/web-sites-dotnet-lob-application-adfs/7-transient-name-id.png)
+    ![](./media/web-sites-dotnet-lob-application-adfs/7-transient-name-id.png)
 
-	For detailed information on the steps for the transient Name ID claim above, see [Name Identifiers in SAML assertions](http://blogs.msdn.com/b/card/archive/2010/02/17/name-identifiers-in-saml-assertions.aspx).
+    For detailed information on the steps for the transient Name ID claim above, see [Name Identifiers in SAML assertions](http://blogs.msdn.com/b/card/archive/2010/02/17/name-identifiers-in-saml-assertions.aspx).
 
-12.	Click **Apply** in the **Edit Claim Rules** dialog. It should now look like the screenshot below:
+12. Click **Apply** in the **Edit Claim Rules** dialog. It should now look like the screenshot below:
 
-	![](./media/web-sites-dotnet-lob-application-adfs/8-all-claim-rules.png)
+    ![](./media/web-sites-dotnet-lob-application-adfs/8-all-claim-rules.png)
 
-	> [AZURE.NOTE] Again, make sure that you repeat these steps for both your debug environment and published web app.
+    > [AZURE.NOTE] Again, make sure that you repeat these steps for both your debug environment and published web app.
 
 <a name="bkmk_test"></a>
 ## Test federated authentication for your application
@@ -264,7 +264,7 @@ Since you have included group memberships as role claims in your RP trust config
 
 1. Open Controllers\HomeController.cs.
 2. Decorate the `About` and `Contact` action methods similar to below, using security group memberships that your authenticated user has.  
-	<pre class="prettyprint">
+    <pre class="prettyprint">
     <mark>[Authorize(Roles="Test Group")]</mark>
     public ActionResult About()
     {
@@ -280,56 +280,56 @@ Since you have included group memberships as role claims in your RP trust config
 
         return View();
     }
-	</pre>
+    </pre>
 
-	Since I added **Test User** to **Test Group** in my AD FS lab environment, I'll use Test Group to test authorization on `About`. For `Contact`, I'll test the negative case of **Domain Admins**, to which **Test User** doesn't belong.
+    Since I added **Test User** to **Test Group** in my AD FS lab environment, I'll use Test Group to test authorization on `About`. For `Contact`, I'll test the negative case of **Domain Admins**, to which **Test User** doesn't belong.
 
 3. Start the debugger by typing `F5` and sign in, then click **About**. You should now be viewing the `~/About/Index` page successfully, if your authenticated user is authorized for that action.
 4. Now click **Contact**, which in my case should not authorize **Test User** for the action. However, the browser is redirected to AD FS, which eventually shows this message:
 
-	![](./media/web-sites-dotnet-lob-application-adfs/13-authorize-adfs-error.png)
+    ![](./media/web-sites-dotnet-lob-application-adfs/13-authorize-adfs-error.png)
 
-	If you investigate this error in Event Viewer on the AD FS server, you will see this exception message:  
-	<pre class="prettyprint">
-	Microsoft.IdentityServer.Web.InvalidRequestException: MSIS7042: <mark>The same client browser session has made '6' requests in the last '11' seconds.</mark> Contact your administrator for details.
-	   at Microsoft.IdentityServer.Web.Protocols.PassiveProtocolHandler.UpdateLoopDetectionCookie(WrappedHttpListenerContext context)
-	   at Microsoft.IdentityServer.Web.Protocols.WSFederation.WSFederationProtocolHandler.SendSignInResponse(WSFederationContext context, MSISSignInResponse response)
-	   at Microsoft.IdentityServer.Web.PassiveProtocolListener.ProcessProtocolRequest(ProtocolContext protocolContext, PassiveProtocolHandler protocolHandler)
-	   at Microsoft.IdentityServer.Web.PassiveProtocolListener.OnGetContext(WrappedHttpListenerContext context)
-	</pre>
+    If you investigate this error in Event Viewer on the AD FS server, you will see this exception message:  
+    <pre class="prettyprint">
+    Microsoft.IdentityServer.Web.InvalidRequestException: MSIS7042: <mark>The same client browser session has made '6' requests in the last '11' seconds.</mark> Contact your administrator for details.
+       at Microsoft.IdentityServer.Web.Protocols.PassiveProtocolHandler.UpdateLoopDetectionCookie(WrappedHttpListenerContext context)
+       at Microsoft.IdentityServer.Web.Protocols.WSFederation.WSFederationProtocolHandler.SendSignInResponse(WSFederationContext context, MSISSignInResponse response)
+       at Microsoft.IdentityServer.Web.PassiveProtocolListener.ProcessProtocolRequest(ProtocolContext protocolContext, PassiveProtocolHandler protocolHandler)
+       at Microsoft.IdentityServer.Web.PassiveProtocolListener.OnGetContext(WrappedHttpListenerContext context)
+    </pre>
 
-	The reason this happens is that by default, MVC returns a 401 Unauthorized when a user's roles are not authorized. This triggers a reauthentication request to your identity provider (AD FS). Since the user is already authenticated, AD FS returns to the same page, which then issues another 401, creating a redirect loop. You will override AuthorizeAttribute's `HandleUnauthorizedRequest` method with simple logic to show something that makes sense instead of continuing the redirect loop.
+    The reason this happens is that by default, MVC returns a 401 Unauthorized when a user's roles are not authorized. This triggers a reauthentication request to your identity provider (AD FS). Since the user is already authenticated, AD FS returns to the same page, which then issues another 401, creating a redirect loop. You will override AuthorizeAttribute's `HandleUnauthorizedRequest` method with simple logic to show something that makes sense instead of continuing the redirect loop.
 
 5. Create a file in the project called AuthorizeAttribute.cs, and paste the code below into it.
 
-		using System;
-		using System.Web.Mvc;
-		using System.Web.Routing;
-		
-		namespace WebApp_WSFederation_DotNet
-		{
-		    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, Inherited = true, AllowMultiple = true)]
-		    public class AuthorizeAttribute : System.Web.Mvc.AuthorizeAttribute
-		    {
-		        protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext)
-		        {
-		            if (filterContext.HttpContext.Request.IsAuthenticated)
-		            {
-		                filterContext.Result = new System.Web.Mvc.HttpStatusCodeResult((int)System.Net.HttpStatusCode.Forbidden);
-		            }
-		            else
-		            {
-		                base.HandleUnauthorizedRequest(filterContext);
-		            }
-		        }
-		    }
-		}
+        using System;
+        using System.Web.Mvc;
+        using System.Web.Routing;
+        
+        namespace WebApp_WSFederation_DotNet
+        {
+            [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, Inherited = true, AllowMultiple = true)]
+            public class AuthorizeAttribute : System.Web.Mvc.AuthorizeAttribute
+            {
+                protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext)
+                {
+                    if (filterContext.HttpContext.Request.IsAuthenticated)
+                    {
+                        filterContext.Result = new System.Web.Mvc.HttpStatusCodeResult((int)System.Net.HttpStatusCode.Forbidden);
+                    }
+                    else
+                    {
+                        base.HandleUnauthorizedRequest(filterContext);
+                    }
+                }
+            }
+        }
 
-	The override code sends an HTTP 403 (Forbidden) instead of HTTP 401 (Unauthorized) in  authenticated-but-unauthorized cases.
+    The override code sends an HTTP 403 (Forbidden) instead of HTTP 401 (Unauthorized) in  authenticated-but-unauthorized cases.
 
 6. Run the debugger again with `F5`. Clicking **Contact** now shows a more informative (albeit unattractive) error message:
 
-	![](./media/web-sites-dotnet-lob-application-adfs/14-unauthorized-forbidden.png)
+    ![](./media/web-sites-dotnet-lob-application-adfs/14-unauthorized-forbidden.png)
 
 7. Publish the application to Azure App Service Web Apps again, and test the behavior of the live application.
 
@@ -355,3 +355,4 @@ Azure App Service Web Apps supports accessing on-premise databases with two appr
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
  
  
+

@@ -146,3 +146,4 @@ As of the week of August 21, 2015, the following capabilities have been added to
 - We’ve added a new “User” button and menu to our top navigation bar. This menu lets the user see the account used to log on to **Azure Data Catalog**, and to sign out if desired. This menu also displays the catalog name, which is valuable to developers using the **Azure Data Catalog** REST API.
 - Standard Edition Only: When adding owners to data assets, **Azure Data Catalog** now supports both user accounts and security groups as owners. To add a security group as an owner for selected data assets, you can enter either the group’s display name or the group’s UPN email address, if it has one.
 - Support for Azure Blob Storage data sources. Users can now register and discover Azure Storage blobs and directories.
+

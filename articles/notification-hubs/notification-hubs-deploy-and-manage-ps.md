@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Deploy and Manage Notification Hubs using PowerShell" 
-	description="How to Create and Manage Notification Hubs Using PowerShell for Automation" 
-	services="notification-hubs" 
-	documentationCenter="" 
-	authors="wesmc7777" 
-	manager="dwrede" 
-	editor="" />
+    pageTitle="Deploy and Manage Notification Hubs using PowerShell" 
+    description="How to Create and Manage Notification Hubs Using PowerShell for Automation" 
+    services="notification-hubs" 
+    documentationCenter="" 
+    authors="wesmc7777" 
+    manager="dwrede" 
+    editor="" />
 
 <tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="powershell" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/10/2015" 
-	ms.author="wesmc"/>
+    ms.service="notification-hubs" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="powershell" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/10/2015" 
+    ms.author="wesmc"/>
 
 # Deploy and Manage Notification Hubs using PowerShell
 
@@ -173,3 +173,4 @@ Some ready-made scripts are also available for download:
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
  
+

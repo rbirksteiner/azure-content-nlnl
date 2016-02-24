@@ -6,7 +6,7 @@
    authors="Blackmist"
    manager="paulettm"
    editor="cgronlun"
-	tags="azure-portal"/>
+    tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -39,7 +39,7 @@ Trident is a high-level abstraction that provides tools such as joins, aggregati
 
 Use the following code to clone the project locally.
 
-	git clone https://github.com/Blackmist/TwitterTrending
+    git clone https://github.com/Blackmist/TwitterTrending
 
 ##Topology
 
@@ -51,13 +51,13 @@ The topology for this example is as follows:
 
 The Trident code that implements the topology is as follows:
 
-	topology.newStream("spout", spout)
-	    .each(new Fields("tweet"), new HashtagExtractor(), new Fields("hashtag"))
-	    .groupBy(new Fields("hashtag"))
-	    .persistentAggregate(new MemoryMapState.Factory(), new Count(), new Fields("count"))
-	    .newValuesStream()
-	    .applyAssembly(new FirstN(10, "count"))
-		.each(new Fields("hashtag", "count"), new Debug());
+    topology.newStream("spout", spout)
+        .each(new Fields("tweet"), new HashtagExtractor(), new Fields("hashtag"))
+        .groupBy(new Fields("hashtag"))
+        .persistentAggregate(new MemoryMapState.Factory(), new Count(), new Fields("count"))
+        .newValuesStream()
+        .applyAssembly(new FirstN(10, "count"))
+        .each(new Fields("hashtag", "count"), new Debug());
 
 This code does the following:
 
@@ -105,26 +105,26 @@ Use the following steps to register a new Twitter application and obtain the con
 
 Use the following code to build the project:
 
-		cd [directoryname]
-		mvn compile
+        cd [directoryname]
+        mvn compile
 
 ##Test the topology
 
 Use the following command to test the topology locally:
 
-	mvn compile exec:java -Dstorm.topology=com.microsoft.example.TwitterTrendingTopology
+    mvn compile exec:java -Dstorm.topology=com.microsoft.example.TwitterTrendingTopology
 
 After the topology starts, you should see debug information that contains the hash tags and counts emitted by the topology. The output should appear similar to the following:
 
-	DEBUG: [Quicktellervalentine, 7]
-	DEBUG: [GRAMMYs, 7]
-	DEBUG: [AskSam, 7]
-	DEBUG: [poppunk, 1]
-	DEBUG: [rock, 1]
-	DEBUG: [punkrock, 1]
-	DEBUG: [band, 1]
-	DEBUG: [punk, 1]
-	DEBUG: [indonesiapunkrock, 1]
+    DEBUG: [Quicktellervalentine, 7]
+    DEBUG: [GRAMMYs, 7]
+    DEBUG: [AskSam, 7]
+    DEBUG: [poppunk, 1]
+    DEBUG: [rock, 1]
+    DEBUG: [punkrock, 1]
+    DEBUG: [band, 1]
+    DEBUG: [punk, 1]
+    DEBUG: [indonesiapunkrock, 1]
 
 ##Next steps
 
@@ -139,3 +139,4 @@ You may also be interested in the following Storm topics:
 For more Storm examples for HDinsight:
 
 * [Example topologies for Storm on HDInsight](hdinsight-storm-example-topology.md)
+

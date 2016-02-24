@@ -94,7 +94,7 @@ The following example provides an illustration of a schema used for searching on
       {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false},
       {"name": "baseRate", "type": "Edm.Double"},
       {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
-	  {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer": "fr.lucene"},
+      {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer": "fr.lucene"},
       {"name": "hotelName", "type": "Edm.String"},
       {"name": "category", "type": "Edm.String"},
       {"name": "tags", "type": "Collection(Edm.String)"},
@@ -187,7 +187,7 @@ The syntax for structuring the request payload is as follows. A sample request i
           "facetable": true (default where applicable) | false (Edm.GeographyPoint fields cannot be facetable),
           "key": true | false (default, only Edm.String fields can be keys),
           "retrievable": true (default) | false,
-		  "analyzer": "name of text analyzer"
+          "analyzer": "name of text analyzer"
         }
       ],
       "suggesters": [
@@ -224,8 +224,8 @@ The syntax for structuring the request payload is as follows. A sample request i
                 "referencePointParameter": "...", (parameter to be passed in queries to use as reference location, see "scoringParameter" for syntax details)
                 "boostingDistance": # (the distance in kilometers from the reference location where the boosting range ends)
               },
-			  "tag": {
-				"tagsParameter": "..." (parameter to be passed in queries to specify list of tags to compare against target field, see "scoringParameter" for syntax details)
+              "tag": {
+                "tagsParameter": "..." (parameter to be passed in queries to specify list of tags to compare against target field, see "scoringParameter" for syntax details)
               }
             }
           ],
@@ -287,7 +287,7 @@ Azure Search supports a variety of languages. Each language requires a non-stand
 
 Some developers might prefer the more familiar, simple, open-source solution of Lucene. Lucene analyzers are faster, but the Microsoft analyzers have advanced capabilities, such as lemmatization, word decompounding (in languages like German, Danish, Dutch, Swedish, Norwegian, Estonian, Finish, Hungarian, Slovak) and entity recognition (URLs, emails, dates, numbers). If possible, you should run comparisons of both the Microsoft and Lucene analyzers to decide which one is a better fit.
 
-***How they compare***
+***undefined***
 
 The Lucene analyzer for English extends the standard analyzer. It removes possessives (trailing 's) from words, applies stemming as per [Porter Stemming algorithm](http://tartarus.org/~martin/PorterStemmer/), and removes English [stop words](http://en.wikipedia.org/wiki/Stop_words).
 
@@ -295,314 +295,314 @@ In comparison, the Microsoft analyzer performs lemmatization instead of stemming
 
 Indexing with Microsoft analyzers is on average two to three times slower than their Lucene equivalents, depending on the language. Search performance should not be significantly affected for average size queries.
 
-***Configuration***
+***undefined***
 
 For each field in the index definition, you can set the `analyzer` property to an analyzer name that specifies which language and vendor. The same analyzer will be applied when indexing and searching for that field.
 For example, you can have separate fields for English, French, and Spanish hotel descriptions that exist side-by-side in the same index. Use the ['searchFields' query parameter](#SearchQueryParameters) to specify which language-specific field to search against in your queries. You can review query examples that include the `analyzer` property in [Search Documents](#SearchDocs). 
 
-***Analyzer list***
+***undefined***
 
 Below is the list of supported languages together with Lucene and Microsoft analyzer names.
 
 <table style="font-size:12">
     <tr>
-		<th>Language</th>
-		<th>Microsoft analyzer name</th>
-		<th>Lucene analyzer name</th>
-	</tr>
-    <tr>
-		<td>Arabic</td>
-		<td>ar.microsoft</td>
-		<td>ar.lucene</td>		
-	</tr>
-    <tr>
-    	<td>Armenian</td>
-		<td></td>
-    	<td>hy.lucene</td>
-  	</tr>
-    <tr>
-		<td>Bangla</td>
-		<td>bn.microsoft</td>
-		<td></td>
-	</tr>
-  	<tr>
-    	<td>Basque</td>
-		<td></td>
-    	<td>eu.lucene</td>
-    </tr>
-  	<tr>
- 		<td>Bulgarian</td>
-		<td>bg.microsoft</td>
-    	<td>bg.lucene</td>
-  	</tr>
-  	<tr>
-    	<td>Catalan</td>
-    	<td>ca.microsoft</td>
-		<td>ca.lucene</td>  		
-  	</tr>
-    <tr>
-		<td>Chinese Simplified</td>
-		<td>zh-Hans.microsoft</td>
-		<td>zh-Hans.lucene</td>		
-	</tr>
-    <tr>
-		<td>Chinese Traditional</td>
-		<td>zh-Hant.microsoft</td>
-		<td>zh-Hant.lucene</td>		
-	<tr>
-    <tr>
-		<td>Croatian</td>
-		<td>hr.microsoft</td>
-		<td/></td>
-	</tr>
-    <tr>
-		<td>Czech</td>
-		<td>cs.microsoft</td>
-		<td>cs.lucene</td>		
-	</tr>    
-    <tr>
-		<td>Danish</td>
-		<td>da.microsoft</td>
-		<td>da.lucene</td>		
-	</tr>    
-    <tr>
-		<td>Dutch</td>
-		<td>nl.microsoft</td>
-		<td>nl.lucene</td>	
-	</tr>    
-    <tr>
-		<td>English</td>		
-		<td>en.microsoft</td>
-		<td>en.lucene</td>		
-	</tr>
-    <tr>
-		<td>Estonian</td>
-		<td>et.microsoft</td>
-		<td></td>
-	</tr>
-    <tr>
-		<td>Finnish</td>
-		<td>fi.microsoft</td>
-		<td>fi.lucene</td>		
-	</tr>    
-    <tr>
-		<td>French</td>
-		<td>fr.microsoft</td>
-		<td>fr.lucene</td>		
-	</tr>
-    <tr>
-    	<td>Galician</td>
-	    <td></td>
-		<td>gl.lucene</td>    	
-  	</tr>
-    <tr>
-		<td>German</td>
-		<td>de.microsoft</td>
-		<td>de.lucene</td>		
-	</tr>
-    <tr>
-		<td>Greek</td>
-		<td>el.microsoft</td>
-		<td>el.lucene</td>		
-	</tr>
-    <tr>
-		<td>Gujarati</td>
-		<td>gu.microsoft</td>
-		<td></td>
-	</tr>
-    <tr>
-		<td>Hebrew</td>
-		<td>he.microsoft</td>
-		<td></td>
-	</tr>
-    <tr>
-		<td>Hindi</td>
-		<td>hi.microsoft</td>
-		<td>hi.lucene</td>		
-	</tr>
-    <tr>
-		<td>Hungarian</td>		
-		<td>hu.microsoft</td>
-		<td>hu.lucene</td>
-	</tr>
-    <tr>
-		<td>Icelandic</td>
-		<td>is.microsoft</td>
-		<td></td>
-	</tr>
-    <tr>
-		<td>Indonesian (Bahasa)</td>
-		<td>id.microsoft</td>
-		<td>id.lucene</td>		
-	</tr>
-    <tr>
-    	<td>Irish</td>
-		<td></td>
-      	<td>ga.lucene</td>
+        <th>Language</th>
+        <th>Microsoft analyzer name</th>
+        <th>Lucene analyzer name</th>
     </tr>
     <tr>
-		<td>Italian</td>
-		<td>it.microsoft</td>
-		<td>it.lucene</td>		
-	</tr>
+        <td>Arabic</td>
+        <td>ar.microsoft</td>
+        <td>ar.lucene</td>      
+    </tr>
     <tr>
-		<td>Japanese</td>
-		<td>ja.microsoft</td>
-		<td>ja.lucene</td>
-		
-	</tr>
+        <td>Armenian</td>
+        <td></td>
+        <td>hy.lucene</td>
+    </tr>
     <tr>
-		<td>Kannada</td>
-		<td>ka.microsoft</td>
-		<td></td>
-	</tr>
+        <td>Bangla</td>
+        <td>bn.microsoft</td>
+        <td></td>
+    </tr>
     <tr>
-		<td>Korean</td>
-		<td></td>
-		<td>ko.lucene</td>
-	</tr>
+        <td>Basque</td>
+        <td></td>
+        <td>eu.lucene</td>
+    </tr>
     <tr>
-		<td>Latvian</td>		
-		<td>lv.microsoft</td>
-		<td>lv.lucene</td>	
-	</tr>
+        <td>Bulgarian</td>
+        <td>bg.microsoft</td>
+        <td>bg.lucene</td>
+    </tr>
     <tr>
-		<td>Lithuanian</td>
-		<td>lt.microsoft</td>
-		<td></td>
-	</tr>
+        <td>Catalan</td>
+        <td>ca.microsoft</td>
+        <td>ca.lucene</td>          
+    </tr>
     <tr>
-		<td>Malayalam</td>
-		<td>ml.microsoft</td>
-		<td></td>
-	</tr>
+        <td>Chinese Simplified</td>
+        <td>zh-Hans.microsoft</td>
+        <td>zh-Hans.lucene</td>     
+    </tr>
     <tr>
-		<td>Malay (Latin)</td>
-		<td>ms.microsoft</td>
-		<td></td>
-	</tr>
+        <td>Chinese Traditional</td>
+        <td>zh-Hant.microsoft</td>
+        <td>zh-Hant.lucene</td>     
     <tr>
-		<td>Marathi</td>
-		<td>mr.microsoft</td>
-		<td></td>
-	</tr>
     <tr>
-		<td>Norwegian</td>
-		<td>nb.microsoft</td>
-		<td>no.lucene</td>		
-	</tr>
-  	<tr>
-    	<td>Persian</td>
-		<td></td>
-		<td>fa.lucene</td>    	
-  	</tr>
+        <td>Croatian</td>
+        <td>hr.microsoft</td>
+        <td/></td>
+    </tr>
     <tr>
-		<td>Polish</td>
-		<td>pl.microsoft</td>
-		<td>pl.lucene</td>		
-	</tr>
+        <td>Czech</td>
+        <td>cs.microsoft</td>
+        <td>cs.lucene</td>      
+    </tr>    
     <tr>
-		<td>Portuguese (Brazil)</td>
-		<td>pt-Br.microsoft</td>
-		<td>pt-Br.lucene</td>		
-	</tr>
+        <td>Danish</td>
+        <td>da.microsoft</td>
+        <td>da.lucene</td>      
+    </tr>    
     <tr>
-		<td>Portuguese (Portugal)</td>
-		<td>pt-Pt.microsoft</td>		
-		<td>pt-Pt.lucene</td>
-	</tr>
+        <td>Dutch</td>
+        <td>nl.microsoft</td>
+        <td>nl.lucene</td>  
+    </tr>    
     <tr>
-		<td>Punjabi</td>
-		<td>pa.microsoft</td>
-		<td></td>
-	</tr>
+        <td>English</td>        
+        <td>en.microsoft</td>
+        <td>en.lucene</td>      
+    </tr>
     <tr>
-		<td>Romanian</td>
-		<td>ro.microsoft</td>
-		<td>ro.lucene</td>
-	</tr>
+        <td>Estonian</td>
+        <td>et.microsoft</td>
+        <td></td>
+    </tr>
     <tr>
-		<td>Russian</td>
-		<td>ru.microsoft</td>
-		<td>ru.lucene</td>	
-	</tr>
+        <td>Finnish</td>
+        <td>fi.microsoft</td>
+        <td>fi.lucene</td>      
+    </tr>    
     <tr>
-		<td>Serbian (Cyrillic)</td>
-		<td>sr-cyrillic.microsoft</td>
-		<td></td>
-	</tr>
+        <td>French</td>
+        <td>fr.microsoft</td>
+        <td>fr.lucene</td>      
+    </tr>
     <tr>
-		<td>Serbian (Latin)</td>
-		<td>sr-latin.microsoft</td>
-		<td></td>
-	</tr>
+        <td>Galician</td>
+        <td></td>
+        <td>gl.lucene</td>      
+    </tr>
     <tr>
-		<td>Slovak</td>
-		<td>sk.microsoft</td>
-		<td></td>
-	</tr>
+        <td>German</td>
+        <td>de.microsoft</td>
+        <td>de.lucene</td>      
+    </tr>
     <tr>
-		<td>Slovenian</td>
-		<td>sl.microsoft</td>
-		<td></td>
-	</tr>
+        <td>Greek</td>
+        <td>el.microsoft</td>
+        <td>el.lucene</td>      
+    </tr>
     <tr>
-		<td>Spanish</td>
-		<td>es.microsoft</td>
-		<td>es.lucene</td>
-	</tr>
+        <td>Gujarati</td>
+        <td>gu.microsoft</td>
+        <td></td>
+    </tr>
     <tr>
-		<td>Swedish</td>
-		<td>sv.microsoft</td>
-		<td>sv.lucene</td>
-	</tr>
+        <td>Hebrew</td>
+        <td>he.microsoft</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Hindi</td>
+        <td>hi.microsoft</td>
+        <td>hi.lucene</td>      
+    </tr>
+    <tr>
+        <td>Hungarian</td>      
+        <td>hu.microsoft</td>
+        <td>hu.lucene</td>
+    </tr>
+    <tr>
+        <td>Icelandic</td>
+        <td>is.microsoft</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Indonesian (Bahasa)</td>
+        <td>id.microsoft</td>
+        <td>id.lucene</td>      
+    </tr>
+    <tr>
+        <td>Irish</td>
+        <td></td>
+        <td>ga.lucene</td>
+    </tr>
+    <tr>
+        <td>Italian</td>
+        <td>it.microsoft</td>
+        <td>it.lucene</td>      
+    </tr>
+    <tr>
+        <td>Japanese</td>
+        <td>ja.microsoft</td>
+        <td>ja.lucene</td>
+        
+    </tr>
+    <tr>
+        <td>Kannada</td>
+        <td>ka.microsoft</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Korean</td>
+        <td></td>
+        <td>ko.lucene</td>
+    </tr>
+    <tr>
+        <td>Latvian</td>        
+        <td>lv.microsoft</td>
+        <td>lv.lucene</td>  
+    </tr>
+    <tr>
+        <td>Lithuanian</td>
+        <td>lt.microsoft</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Malayalam</td>
+        <td>ml.microsoft</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Malay (Latin)</td>
+        <td>ms.microsoft</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Marathi</td>
+        <td>mr.microsoft</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Norwegian</td>
+        <td>nb.microsoft</td>
+        <td>no.lucene</td>      
+    </tr>
+    <tr>
+        <td>Persian</td>
+        <td></td>
+        <td>fa.lucene</td>      
+    </tr>
+    <tr>
+        <td>Polish</td>
+        <td>pl.microsoft</td>
+        <td>pl.lucene</td>      
+    </tr>
+    <tr>
+        <td>Portuguese (Brazil)</td>
+        <td>pt-Br.microsoft</td>
+        <td>pt-Br.lucene</td>       
+    </tr>
+    <tr>
+        <td>Portuguese (Portugal)</td>
+        <td>pt-Pt.microsoft</td>        
+        <td>pt-Pt.lucene</td>
+    </tr>
+    <tr>
+        <td>Punjabi</td>
+        <td>pa.microsoft</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Romanian</td>
+        <td>ro.microsoft</td>
+        <td>ro.lucene</td>
+    </tr>
+    <tr>
+        <td>Russian</td>
+        <td>ru.microsoft</td>
+        <td>ru.lucene</td>  
+    </tr>
+    <tr>
+        <td>Serbian (Cyrillic)</td>
+        <td>sr-cyrillic.microsoft</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Serbian (Latin)</td>
+        <td>sr-latin.microsoft</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Slovak</td>
+        <td>sk.microsoft</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Slovenian</td>
+        <td>sl.microsoft</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Spanish</td>
+        <td>es.microsoft</td>
+        <td>es.lucene</td>
+    </tr>
+    <tr>
+        <td>Swedish</td>
+        <td>sv.microsoft</td>
+        <td>sv.lucene</td>
+    </tr>
 
     <tr>
-		<td>Tamil</td>
-		<td>ta.microsoft</td>
-		<td></td>
-	</tr>
+        <td>Tamil</td>
+        <td>ta.microsoft</td>
+        <td></td>
+    </tr>
     <tr>
-		<td>Telugu</td>
-		<td>te.microsoft</td>
-		<td></td>
-	</tr>
+        <td>Telugu</td>
+        <td>te.microsoft</td>
+        <td></td>
+    </tr>
     <tr>
-		<td>Thai</td>
-		<td>th.microsoft</td>
-		<td>th.lucene</td>
-	</tr>
+        <td>Thai</td>
+        <td>th.microsoft</td>
+        <td>th.lucene</td>
+    </tr>
     <tr>
-		<td>Turkish</td>
-		<td>tr.microsoft</td>
-		<td>tr.lucene</td>		
-	</tr>
+        <td>Turkish</td>
+        <td>tr.microsoft</td>
+        <td>tr.lucene</td>      
+    </tr>
     <tr>
-		<td>Ukrainian</td>
-		<td>uk.microsoft</td>
-		<td></td>
-	</tr>
+        <td>Ukrainian</td>
+        <td>uk.microsoft</td>
+        <td></td>
+    </tr>
     <tr>
-		<td>Urdu</td>
-		<td>ur.microsoft</td>
-		<td></td>
-	</tr>
+        <td>Urdu</td>
+        <td>ur.microsoft</td>
+        <td></td>
+    </tr>
     <tr>
-		<td>Vietnamese</td>
-		<td>vi.microsoft</td>
-		<td></td>
-	</tr>
-	<td colspan="3">Additionally Azure Search provides language-agnostic analyzer configurations</td>
+        <td>Vietnamese</td>
+        <td>vi.microsoft</td>
+        <td></td>
+    </tr>
+    <td colspan="3">Additionally Azure Search provides language-agnostic analyzer configurations</td>
     <tr>
-		<td>Standard ASCII Folding</td>
-		<td>standardasciifolding.lucene</td>
-		<td>
-		<ul>
-			<li>Unicode text segmentation (Standard Tokenizer)</li>
-			<li>ASCII folding filter - converts Unicode characters that don't belong to the set of first 127 ASCII characters into their ASCII equivalents. This is useful for removing diacritics.</li>
-		</ul>
-		</td>
-	</tr>
+        <td>Standard ASCII Folding</td>
+        <td>standardasciifolding.lucene</td>
+        <td>
+        <ul>
+            <li>Unicode text segmentation (Standard Tokenizer)</li>
+            <li>ASCII folding filter - converts Unicode characters that don't belong to the set of first 127 ASCII characters into their ASCII equivalents. This is useful for removing diacritics.</li>
+        </ul>
+        </td>
+    </tr>
 </table>
 
 All analyzers with names annotated with <i>lucene</i> are powered by [Apache Lucene's language analyzers](http://lucene.apache.org/core/4_9_0/analyzers-common/overview-summary.html). More information about the ASCII folding filter can be found [here](http://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/miscellaneous/ASCIIFoldingFilter.html).
@@ -636,7 +636,7 @@ Client-side Javascript cannot call any APIs by default since the browser will pr
         {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false},
         {"name": "baseRate", "type": "Edm.Double"},
         {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
-	    {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, analyzer="fr.lucene"},
+        {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, analyzer="fr.lucene"},
         {"name": "hotelName", "type": "Edm.String"},
         {"name": "category", "type": "Edm.String"},
         {"name": "tags", "type": "Collection(Edm.String)"},
@@ -690,22 +690,22 @@ As part of the index definition, you can add a single suggester to the `suggeste
 
 A suggester is part of the index. Only one suggester can exist in the `suggesters` collection in the current version, alongside the fields collection and `scoringProfiles`.
 
-		{
-		  "name": "hotels",
-		  "fields": [
-		     . . .
-		   ],
-		  "suggesters": [
-		    {
-		    "name": "sg",
-		    "searchMode": "analyzingInfixMatching",
-		    "sourceFields: ["hotelName", "category"]
-		    }
-		  ],
-		  "scoringProfiles": [
-		     . . .
-		  ]
-		}
+        {
+          "name": "hotels",
+          "fields": [
+             . . .
+           ],
+          "suggesters": [
+            {
+            "name": "sg",
+            "searchMode": "analyzingInfixMatching",
+            "sourceFields: ["hotelName", "category"]
+            }
+          ],
+          "scoringProfiles": [
+             . . .
+          ]
+        }
 
 > [AZURE.NOTE]  If you used the public preview version of Azure Search, `suggesters` replaces an older boolean property (`"suggestions": false`) that only supported prefix suggestions for short strings (3-25 characters). Its replacement, `suggesters`, supports infix matching that finds matching terms at the beginning or in the middle of field content, with better tolerance for mistakes in search strings. Starting with the generally available release, this is now the only implementation of the suggestions API. The older `suggestions` property that was introduced in `api-version=2014-07-31-Preview` continues to work in that version, but is not operational in the `2015-02-28` or later versions of Azure Search.
 
@@ -757,7 +757,7 @@ The schema syntax used to create an index is reproduced here for convenience. Se
           "facetable": true (default where applicable) | false (Edm.GeographyPoint fields cannot be facetable),
           "key": true | false (default, only Edm.String fields can be keys),
           "retrievable": true (default) | false,
-		  "analyzer": "name of text analyzer"
+          "analyzer": "name of text analyzer"
         }
       ],
       "suggesters": [
@@ -794,8 +794,8 @@ The schema syntax used to create an index is reproduced here for convenience. Se
                 "referencePointParameter": "...", (parameter to be passed in queries to use as reference location, see "scoringParameter" for syntax details)
                 "boostingDistance": # (the distance in kilometers from the reference location where the boosting range ends)
               },
-			  "tag": {
-				"tagsParameter": "..." (parameter to be passed in queries to specify list of tags to compare against target field, see "scoringParameter" for syntax details)
+              "tag": {
+                "tagsParameter": "..." (parameter to be passed in queries to specify list of tags to compare against target field, see "scoringParameter" for syntax details)
               }
             }
           ],
@@ -953,7 +953,7 @@ Status Code: 204 No Content is returned for a successful response.
 
 The **Get Index Statistics** operation returns from Azure Search a document count for the current index, plus storage usage.
 
-	GET https://[service name].search.windows.net/indexes/[index name]/stats?api-version=[api-version]
+    GET https://[service name].search.windows.net/indexes/[index name]/stats?api-version=[api-version]
     api-key: [admin key]
 
 **Request**
@@ -985,7 +985,7 @@ The response body is in the following format:
 
     {
       "documentCount": number,
-	  "storageSize": number (size of the index in bytes)
+      "storageSize": number (size of the index in bytes)
     }
 
 ________________________________________
@@ -1092,12 +1092,12 @@ Status code: 429 indicates that you have exceeded your quota on the number of do
           "hotelId": "1",
           "baseRate": 199.0,
           "description": "Best hotel in town",
-		  "description_fr": "Meilleur hôtel en ville",
+          "description_fr": "Meilleur hôtel en ville",
           "hotelName": "Fancy Stay",
-		  "category": "Luxury",
+          "category": "Luxury",
           "tags": ["pool", "view", "wifi", "concierge"],
           "parkingIncluded": false,
-		  "smokingAllowed": false,
+          "smokingAllowed": false,
           "lastRenovationDate": "2010-06-27T00:00:00Z",
           "rating": 5,
           "location": { "type": "Point", "coordinates": [-122.131577, 47.678581] }
@@ -1107,12 +1107,12 @@ Status code: 429 indicates that you have exceeded your quota on the number of do
           "hotelId": "2",
           "baseRate": 79.99,
           "description": "Cheapest hotel in town",
-	      "description_fr": "Hôtel le moins cher en ville",
+          "description_fr": "Hôtel le moins cher en ville",
           "hotelName": "Roach Motel",
-		  "category": "Budget",
+          "category": "Budget",
           "tags": ["motel", "budget"],
           "parkingIncluded": true,
-		  "smokingAllowed": true,
+          "smokingAllowed": true,
           "lastRenovationDate": "1982-04-28T00:00:00Z",
           "rating": 1,
           "location": { "type": "Point", "coordinates": [-122.131577, 49.678581] }
@@ -1345,7 +1345,7 @@ Status Code: 200 OK is returned for a successful response.
 
 You can find additional examples on the [OData Expression Syntax for Azure Search](https://msdn.microsoft.com/library/azure/dn798921.aspx) page.
 
-1)	Search the Index sorted descending by date.
+1)  Search the Index sorted descending by date.
 
     GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2015-02-28-Preview
 
@@ -1355,7 +1355,7 @@ You can find additional examples on the [OData Expression Syntax for Azure Searc
       "orderby": [ "lastRenovationDate desc" ]
     }
 
-2)	In a faceted search, search the index and retrieve facets for categories, rating, tags, as well as items with baseRate in specific ranges:
+2)  In a faceted search, search the index and retrieve facets for categories, rating, tags, as well as items with baseRate in specific ranges:
 
     GET /indexes/hotels/docs?search=test&facet=category&facet=rating&facet=tags&facet=baseRate,values:80|150|220&api-version=2015-02-28-Preview
 
@@ -1365,7 +1365,7 @@ You can find additional examples on the [OData Expression Syntax for Azure Searc
       "facets": [ "category", "rating", "tags", "baseRate,values:80|150|220" ]
     }
 
-3)	Using a filter, narrow down the previous faceted query results after the user clicks on rating 3 and category "Motel":
+3)  Using a filter, narrow down the previous faceted query results after the user clicks on rating 3 and category "Motel":
 
     GET /indexes/hotels/docs?search=test&facet=tags&facet=baseRate,values:80|150|220&$filter=rating eq 3 and category eq 'Motel'&api-version=2015-02-28-Preview
 
@@ -1386,7 +1386,7 @@ You can find additional examples on the [OData Expression Syntax for Azure Searc
       "facets": [ "city,count:5" ]
     }
 
-5)	Search the Index within specific fields; For example, a language-specific field:
+5)  Search the Index within specific fields; For example, a language-specific field:
 
     GET /indexes/hotels/docs?search=hôtel&searchFields=description_fr&api-version=2015-02-28-Preview
 
@@ -1398,9 +1398,9 @@ You can find additional examples on the [OData Expression Syntax for Azure Searc
 
 6) Search the Index across multiple fields. For example, you can store and query searchable fields in multiple languages, all within the same index.  If English and French descriptions co-exist in the same document, you can return any or all in the query results:
 
-	GET /indexes/hotels/docs?search=hotel&searchFields=description,description_fr&api-version=2015-02-28-Preview
+    GET /indexes/hotels/docs?search=hotel&searchFields=description,description_fr&api-version=2015-02-28-Preview
 
-	POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
+    POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
     {
       "search": "hotel",
       "searchFields": [ "description", "description_fr" ]
@@ -1408,7 +1408,7 @@ You can find additional examples on the [OData Expression Syntax for Azure Searc
 
 Note that you can only query one index at a time. Do not create multiple indexes for each language unless you plan to query one at a time.
 
-7)	Paging - Get the 1st page of items (page size is 10):
+7)  Paging - Get the 1st page of items (page size is 10):
 
     GET /indexes/hotels/docs?search=*&$skip=0&$top=10&api-version=2015-02-28-Preview
 
@@ -1419,7 +1419,7 @@ Note that you can only query one index at a time. Do not create multiple indexes
       "top": 10
     }
 
-8)	Paging - Get the 2nd page of items (page size is 10):
+8)  Paging - Get the 2nd page of items (page size is 10):
 
     GET /indexes/hotels/docs?search=*&$skip=10&$top=10&api-version=2015-02-28-Preview
 
@@ -1430,7 +1430,7 @@ Note that you can only query one index at a time. Do not create multiple indexes
       "top": 10
     }
 
-9)	Retrieve a specific set of fields:
+9)  Retrieve a specific set of fields:
 
     GET /indexes/hotels/docs?search=*&$select=hotelName,description&api-version=2015-02-28-Preview
 
@@ -1694,7 +1694,7 @@ For POST:
 
     {
       "filter": "odata_filter_expression",
-	  "fuzzy": true | false (default),
+      "fuzzy": true | false (default),
       "highlightPreTag": "pre_tag",
       "highlightPostTag": "post_tag",
       "minimumCoverage": # (% of index that must be covered to declare query successful; default 80),
@@ -1702,7 +1702,7 @@ For POST:
       "search": "partial_search_input",
       "searchFields": "field_name_1, field_name_2, ...",
       "select": "field_name_1, field_name_2, ...",
-	  "suggesterName": "suggester_name",
+      "suggesterName": "suggester_name",
       "top": # (default 5)
     }
 
@@ -1747,3 +1747,4 @@ Retrieve 5 suggestions where the partial search input is 'lux'
       "top": 5,
       "suggesterName": "sg"
     }
+

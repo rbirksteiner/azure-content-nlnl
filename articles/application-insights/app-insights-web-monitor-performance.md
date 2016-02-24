@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Monitor your app's health and usage with Application Insights" 
-	description="Get started with Application Insights. Analyze usage, availability and performance of your on-premises or Microsoft Azure applications." 
-	services="application-insights" 
+    pageTitle="Monitor your app's health and usage with Application Insights" 
+    description="Get started with Application Insights. Analyze usage, availability and performance of your on-premises or Microsoft Azure applications." 
+    services="application-insights" 
     documentationCenter=""
-	authors="alancameronwills" 
-	manager="douge"/>
+    authors="alancameronwills" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/25/2015" 
-	ms.author="awills"/>
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/25/2015" 
+    ms.author="awills"/>
  
 # Monitor performance in web applications
 
@@ -198,3 +198,4 @@ Here are a few tips for finding and diagnosing performance issues:
 [usage]: app-insights-web-track-usage.md
 
  
+

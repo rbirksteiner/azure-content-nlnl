@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Get Started with authentication for Mobile Apps in Xamarin Android" 
-	description="Learn how to use Mobile Apps to authenticate users of your Xamarin Android app through a variety of identity providers, including AAD, Google, Facebook, Twitter, and Microsoft." 
-	services="app-service\mobile" 
-	documentationCenter="xamarin" 
-	authors="mattchenderson" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="Get Started with authentication for Mobile Apps in Xamarin Android" 
+    description="Learn how to use Mobile Apps to authenticate users of your Xamarin Android app through a variety of identity providers, including AAD, Google, Facebook, Twitter, and Microsoft." 
+    services="app-service\mobile" 
+    documentationCenter="xamarin" 
+    authors="mattchenderson" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="app-service-mobile" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-android" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="12/07/2015" 
-	ms.author="mahender"/>
+    ms.service="app-service-mobile" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="mobile-xamarin-android" 
+    ms.devlang="dotnet" 
+    ms.topic="article" 
+    ms.date="12/07/2015" 
+    ms.author="mahender"/>
 
 # Add authentication to your Xamarin.Android app
 
@@ -44,27 +44,27 @@ The app is updated to require users to tap the **Sign in** button and authentica
 
 1. Add the following code to the **TodoActivity** class:
 
-	    // Define a authenticated user.
-	    private MobileServiceUser user;
-	    private async Task<bool> Authenticate()
-	    {
-	            var success = false;
-	            try
-	            {
-	                // Sign in with Facebook login using a server-managed flow.
-	                user = await client.LoginAsync(this,
-	                    MobileServiceAuthenticationProvider.Facebook);
-	                CreateAndShowDialog(string.Format("you are now logged in - {0}",
-	                    user.UserId), "Logged in!");
-	
-	                success = true;
-	            }
-	            catch (Exception ex)
-	            {
-	                CreateAndShowDialog(ex, "Authentication failed");
-	            }
-	            return success;
-	    }
+        // Define a authenticated user.
+        private MobileServiceUser user;
+        private async Task<bool> Authenticate()
+        {
+                var success = false;
+                try
+                {
+                    // Sign in with Facebook login using a server-managed flow.
+                    user = await client.LoginAsync(this,
+                        MobileServiceAuthenticationProvider.Facebook);
+                    CreateAndShowDialog(string.Format("you are now logged in - {0}",
+                        user.UserId), "Logged in!");
+    
+                    success = true;
+                }
+                catch (Exception ex)
+                {
+                    CreateAndShowDialog(ex, "Authentication failed");
+                }
+                return success;
+        }
 
         [Java.Interop.Export()]
         public async void LoginUser(View view)
@@ -86,11 +86,11 @@ The app is updated to require users to tap the **Sign in** button and authentica
 
 3. In the **OnCreate** method, delete or comment-out the following line of code:
 
-		OnRefreshItemsSelected ();
+        OnRefreshItemsSelected ();
 
 4. In the Activity_To_Do.axml file, add the following *LoginUser* button definition before the existing *AddItem* button:
 
-      	<Button
+        <Button
             android:id="@+id/buttonLoginUser"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -99,13 +99,14 @@ The app is updated to require users to tap the **Sign in** button and authentica
 
 5. Add the following element to the Strings.xml resources file:
 
-		<string name="login_button_text">Sign in</string> 
+        <string name="login_button_text">Sign in</string> 
 
 6. In Visual Studio or Xamarin Studio, run the client project on a device or emulator and sign in with your chosen identity provider. 
 
-   	When you are successfully logged-in, the app will display your login ID and the list of todo items, and you can make updates to the data.
+    When you are successfully logged-in, the app will display your login ID and the list of todo items, and you can make updates to the data.
 
 
 <!-- URLs. -->
 [Create a Xamarin.Android app]: app-service-mobile-xamarin-android-get-started.md
  
+

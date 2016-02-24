@@ -37,11 +37,11 @@ A connector can be created within a logic app or be created directly from the Az
 1. In the Azure startboard, select **Marketplace**.
 2. Search for “Azure Service Bus connector”, select it, and select **Create**.
 3. Enter the Name, App Service Plan, and other properties:  
-	![][1]
+    ![][1]
 
 4. Enter the following package settings:
 
-	Name | Description
+    Name | Description
 --- | ---
 Connection String | The connection string for Azure Service Bus. For example, enter: *Endpoint=sb://[namespace].servicebus.windows.net;SharedAccessKeyName=[name];SharedAccessKey=[key]*.
 Entity Name | Enter the name of the Queue or Topic.
@@ -52,21 +52,21 @@ Subscription Name | Enter the name of the Subscription to receive messages from.
 ## Using the Service Bus Connector in your Logic App
 Once your connector is created, you can now use the Azure Service Bus connector as a trigger or action for your Logic App. To do this:
 
-1.	Create a new Logic App and choose the same resource group that has the Azure Service Bus Connector:  
-	![][2]
+1.  Create a new Logic App and choose the same resource group that has the Azure Service Bus Connector:  
+    ![][2]
 
-2.	Open “Triggers and Actions” to open the Logic Apps designer and configure your workflow:  
-	![][3]
+2.  Open “Triggers and Actions” to open the Logic Apps designer and configure your workflow:  
+    ![][3]
 
 3. The Azure Service Bus connector appears in the “API Apps in this resource group” section in the gallery on the right hand side:  
-	![][4]
+    ![][4]
 
 4. You can drop the Azure Service Bus Connector into the editor by clicking on the “Azure Service Bus Connector”.
 
-5.	You can now use Azure Service Bus connector in the workflow. You can use the message retrieved from the Azure Service Bus trigger ("Message Available") in other actions in the flow:  
-	![][5]  
+5.  You can now use Azure Service Bus connector in the workflow. You can use the message retrieved from the Azure Service Bus trigger ("Message Available") in other actions in the flow:  
+    ![][5]  
 
-	![][6]
+    ![][6]
 
 You can also use the Azure Service Bus "Send Message" action:  
 ![][7]  
@@ -92,3 +92,4 @@ You can also review performance statistics and control security to the connector
 [6]: ./media/app-service-logic-connector-azureservicebus/img6.PNG
 [7]: ./media/app-service-logic-connector-azureservicebus/img7.PNG
 [8]: ./media/app-service-logic-connector-azureservicebus/img8.PNG
+

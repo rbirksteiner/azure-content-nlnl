@@ -59,3 +59,4 @@ For more information on Service Fabric concepts, see the following:
 - [Partitioning Service Fabric services](service-fabric-concepts-partitioning.md)
 
 - [Defining and managing state](service-fabric-concepts-state.md)
+

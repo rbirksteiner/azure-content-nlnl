@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Build queries in Azure Search using REST calls | Microsoft Azure | Hosted cloud search service"
-	description="Build a search query in Azure search and use search parameters to filter, sort, and facet search result using the .NET library or SDK."
-	services="search"
-	documentationCenter=""
-	authors="HeidiSteen"
-	manager="mblythe"
-	editor=""
+    pageTitle="Build queries in Azure Search using REST calls | Microsoft Azure | Hosted cloud search service"
+    description="Build a search query in Azure search and use search parameters to filter, sort, and facet search result using the .NET library or SDK."
+    services="search"
+    documentationCenter=""
+    authors="HeidiSteen"
+    manager="mblythe"
+    editor=""
     tags="azure-portal"/>
 
 <tags
-	ms.service="search"
-	ms.devlang="rest-api"
-	ms.workload="search"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.date="11/17/2015"
-	ms.author="heidist"/>
+    ms.service="search"
+    ms.devlang="rest-api"
+    ms.workload="search"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.date="11/17/2015"
+    ms.author="heidist"/>
 
 # Build queries in Azure Search using REST calls
 > [AZURE.SELECTOR]
@@ -37,9 +37,9 @@ In the URL, you will have to provide your service name, index name, and as well 
 
 As request headers, you will have to define the Content-Type and provide your service's Primary or Secondary Admin Key.
 
-	GET https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2015-02-28
-	Content-Type: application/JSON
-	api-key:[primary admin key or secondary admin key]
+    GET https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2015-02-28
+    Content-Type: application/JSON
+    api-key:[primary admin key or secondary admin key]
 
 Azure Search offers many options to create extremely powerful queries. To learn more about all the different parameters of a query string, please visit [this page](https://msdn.microsoft.com/library/azure/dn798927.aspx).
 
@@ -49,20 +49,21 @@ Below are a few examples with various query strings. These samples use a dummy i
 
 Search the entire index for the term "quality":
 
-	GET https://[service name].search.windows.net/indexes/hotels/docs?search=quality&$orderby=lastRenovationDate desc&api-version=2015-02-28
-	Content-Type: application/JSON
-	api-key:[primary admin key or secondary admin key]
+    GET https://[service name].search.windows.net/indexes/hotels/docs?search=quality&$orderby=lastRenovationDate desc&api-version=2015-02-28
+    Content-Type: application/JSON
+    api-key:[primary admin key or secondary admin key]
 
 Search the entire index:
 
-	GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&api-version=2015-02-28
-	Content-Type: application/JSON
-	api-key:[primary admin key or secondary admin key]
+    GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&api-version=2015-02-28
+    Content-Type: application/JSON
+    api-key:[primary admin key or secondary admin key]
 
 Search the entire index and order by a specific field (lastRenovationDate):
 
-	GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2015-02-28
-	Content-Type: application/JSON
-	api-key:[primary admin key or secondary admin key]
+    GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2015-02-28
+    Content-Type: application/JSON
+    api-key:[primary admin key or secondary admin key]
 
 A successful query request will result in a Status Code of "200 OK" and the search results will be found in JSON format in the response body. To learn more, please visit the "Response" section of [this page](https://msdn.microsoft.com/library/azure/dn798927.aspx).
+

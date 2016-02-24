@@ -30,9 +30,9 @@ If you want to use a different tenant, use these steps to change the association
 
 
 2. Set a Microsoft account (formerly called a Live ID) as the Service administrator. (Don't know if you already are the service admin? You can find out by clicking **Settings -> Administrators**.) Now, here's how you change that:
-	1. Click the user in the upper right corner, and then click **View my bill**.
-	2. Click the subscription. Then, on the new page, scroll down and click **Edit subscription details** in the right. (Sort of the middle bottom right, if that helps you find it.)
-	3. Type the Microsoft account for the user that should be the service admin.
+    1. Click the user in the upper right corner, and then click **View my bill**.
+    2. Click the subscription. Then, on the new page, scroll down and click **Edit subscription details** in the right. (Sort of the middle bottom right, if that helps you find it.)
+    3. Type the Microsoft account for the user that should be the service admin.
 
 3. Now, sign out of the portal, and then sign back in with the Microsoft account you specified in the previous step.
 
@@ -46,3 +46,4 @@ If you want to use a different tenant, use these steps to change the association
 
 
 You can now use the new Azure AD tenant to control access to the Azure subscription and to configure user access in Azure RemoteApp.
+

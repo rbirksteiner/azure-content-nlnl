@@ -70,3 +70,4 @@ If you're interested in more on how to manage SQL Data Warehouse programmaticall
 [MSDN]:https://msdn.microsoft.com/library/azure/dn546722.aspx
 [firewall rules]:https://azure.microsoft.com/en-us/documentation/articles/sql-database-configure-firewall-settings/
 [How to install and configure Azure PowerShell]: powershell-install-configure.md
+

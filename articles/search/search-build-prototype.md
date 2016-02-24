@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Build a prototype application for Azure Search | Microsoft Azure | Hosted cloud search service" 
-	description="Create your first application prototype to get started with Azure Search, a hosted cloud search service." 
-	services="search" 
-	documentationCenter="" 
-	authors="HeidiSteen" 
-	manager="mblythe" 
-	editor=""/>
+    pageTitle="Build a prototype application for Azure Search | Microsoft Azure | Hosted cloud search service" 
+    description="Create your first application prototype to get started with Azure Search, a hosted cloud search service." 
+    services="search" 
+    documentationCenter="" 
+    authors="HeidiSteen" 
+    manager="mblythe" 
+    editor=""/>
 
 <tags 
-	ms.service="search" 
-	ms.devlang="rest-api" 
-	ms.workload="search" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.date="11/04/2015" 
-	ms.author="heidist"/>
+    ms.service="search" 
+    ms.devlang="rest-api" 
+    ms.workload="search" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.date="11/04/2015" 
+    ms.author="heidist"/>
 
 # Build a prototype application for Azure Search
 
@@ -23,7 +23,7 @@ In this article, we give you a few building blocks to speed up the prototyping p
  
 - A visual studio C# project that includes data.json and schema.json files. Having sample data lets you immediately build and run the solution, confirming the solution works on your system before you write one line of code. 
 
-	If possible, try to substitute these standalone, disconnected schema and data files with data from your business. Then, when you run the application, the index that gets created is based on your schema, and documents based on your data files, will be immediately available to work with in Azure Search.
+    If possible, try to substitute these standalone, disconnected schema and data files with data from your business. Then, when you run the application, the index that gets created is based on your schema, and documents based on your data files, will be immediately available to work with in Azure Search.
 
 - Guidance on how to structure the data you'll upload to Azure Search. You need one dataset for each  index. Azure Search uses JSON for data serialization.
 
@@ -55,17 +55,17 @@ To upload data and schema files using the code in the prototype sample applicati
 
 3. Edit app.config to add configuration settings that target your Search service and api-key. 
 
-	You can get the URL and the admin api-key from [service dashboard in the portal](search-create-service-portal.md). For the URL, type the full path of the service name, including the https prefix and the `search.windows.net` domain.
+    You can get the URL and the admin api-key from [service dashboard in the portal](search-create-service-portal.md). For the URL, type the full path of the service name, including the https prefix and the `search.windows.net` domain.
 
 4. Build the solution to ensure there are no build errors. You might need to update packages to resolve build errors. Right-click **Manage NuGet packages** on the solution to update the packages.
 
 5. Run the solution using the built-in schema and data files. This step is optional, but it confirms the solution works before you invest any time into adding your own data. The console outputs the following messages:
 
-	- Index deleted (occurs only if an index of the name "musicstoreindex" exists)
-	- Index created (a new index named "musicstoreindex" is created in your service)
-	- Documents posted (one message for each JSON file)
-	- Waiting 5 seconds (allows indexing to complete before issuing the first query)
-	- Search Results for search term 'best' with no boosting (runs a simple query proving the data is loaded in the index)
+    - Index deleted (occurs only if an index of the name "musicstoreindex" exists)
+    - Index created (a new index named "musicstoreindex" is created in your service)
+    - Documents posted (one message for each JSON file)
+    - Waiting 5 seconds (allows indexing to complete before issuing the first query)
+    - Search Results for search term 'best' with no boosting (runs a simple query proving the data is loaded in the index)
 
 6. Stop the application and delete the index to make room for yours. 
 

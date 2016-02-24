@@ -107,3 +107,4 @@ The Transact-SQL reference includes topics related to SQL Server versions 2008 t
 
 In some cases, the general subject of a topic can be used in a product, but there are minor differences between products. The differences are indicated at midpoints in the topic as appropriate.
 
+

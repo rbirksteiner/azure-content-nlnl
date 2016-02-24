@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Media Services Release Notes" 
-	description="Media Services Release Notes" 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="Media Services Release Notes" 
+    description="Media Services Release Notes" 
+    services="media-services" 
+    documentationCenter="" 
+    authors="Juliako" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="media" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="12/09/2015"   
-	ms.author="juliako"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="media" 
+    ms.devlang="dotnet" 
+    ms.topic="article" 
+    ms.date="12/09/2015"   
+    ms.author="juliako"/>
 
 
 # Azure Media Services Release Notes
@@ -85,9 +85,9 @@ For more information, see:
 
 - The [Microsoft Azure Media Services SDK for PHP](http://southworks.com/blog/2015/12/09/new-microsoft-azure-media-services-sdk-for-php-release-available-with-new-features-and-samples/) blog.
 - The following [code samples](http://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices) to help get you started quickly:
-	- **vodworkflow_aes.php**: This is a PHP file that shows how to use AES-128 Dynamic Encryption and Key Delivery Service. It is based on the .NET sample explained in [this](media-services-protect-with-aes128.md) article.
-	- **vodworkflow_aes.php**: This is a PHP file that shows how to use PlayReady Dynamic Encryption and License Delivery Service. It is based on the .NET sample explained in [this](media-services-protect-with-drm.md) article.
-	- **scale_encoding_units.php**: This is a PHP file that shows how to scale encoding reserved unit.
+    - **vodworkflow_aes.php**: This is a PHP file that shows how to use AES-128 Dynamic Encryption and Key Delivery Service. It is based on the .NET sample explained in [this](media-services-protect-with-aes128.md) article.
+    - **vodworkflow_aes.php**: This is a PHP file that shows how to use PlayReady Dynamic Encryption and License Delivery Service. It is based on the .NET sample explained in [this](media-services-protect-with-drm.md) article.
+    - **scale_encoding_units.php**: This is a PHP file that shows how to scale encoding reserved unit.
 
 
 ##<a id="nov_changes_15"></a>November 2015 Release
@@ -108,7 +108,7 @@ Azure Media Services (AMS) is now live in the following data centers: Brazil Sou
 
 - AMS now offers the ability to protect both Video-On-Demand (VOD) and Live Streams with Widevine Modular DRM technology. You can use the following delivery services partners to help you deliver Widevine licenses: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/). For more information, see [this blog](http://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/).
 
-	You can use [AMS .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/) (starting with the version 3.5.1) or REST API to configure your AssetDeliveryConfiguration to use Widevine.  
+    You can use [AMS .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/) (starting with the version 3.5.1) or REST API to configure your AssetDeliveryConfiguration to use Widevine.  
 
 - AMS added support for Apple ProRes videos. You can now upload your QuickTime source videos files that use Apple ProRes or other codecs. For more information, see [this blog](http://azure.microsoft.com/blog/announcing-support-for-apple-prores-videos-in-azure-media-services/).
 
@@ -116,29 +116,29 @@ Azure Media Services (AMS) is now live in the following data centers: Brazil Sou
 
 - The following filtering updates were made: 
 
-	- You can now use Apple HTTP Live Streaming (HLS) format with audio-only filter. This update enables you to remove audio-only track by specifying (audio-only=false) in the URL.
-	- When defining filters for your assets, you now have ability to combine multiple (up to 3) filters in a single URL.
+    - You can now use Apple HTTP Live Streaming (HLS) format with audio-only filter. This update enables you to remove audio-only track by specifying (audio-only=false) in the URL.
+    - When defining filters for your assets, you now have ability to combine multiple (up to 3) filters in a single URL.
 
-	For more information see [this](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support) blog.
+    For more information see [this](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support) blog.
 
 - AMS now supports I-Frames in HLS v4. I-Frame support optimizes fast-forward and rewind operations. By default, all HLS v4 outputs include I-Frame playlist (EXT-X-I-FRAME-STREAM-INF).
  
-	For more information see [this](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support) blog.
+    For more information see [this](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support) blog.
 
 ##<a id="august_changes_15"></a>August 2015 Release
 
 - Azure Media Services SDK for Java V0.8.0 release and new samples are now available. For more information, see:
 
-	- [Blog post](http://southworks.com/blog/2015/08/25/microsoft-azure-media-services-sdk-for-java-v0-8-0-released-and-new-samples-available/)
-	- [Java samples repository](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
+    - [Blog post](http://southworks.com/blog/2015/08/25/microsoft-azure-media-services-sdk-for-java-v0-8-0-released-and-new-samples-available/)
+    - [Java samples repository](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 - Azure Media Player update with multi-audio stream support. For more information, see:
-	- [Blog post](https://azure.microsoft.com/blog/2015/08/13/azure-media-player-update-with-multi-audio-stream-support/)
+    - [Blog post](https://azure.microsoft.com/blog/2015/08/13/azure-media-player-update-with-multi-audio-stream-support/)
 
 ##<a id="july_changes_15"></a>July 2015 Release
 
 - Announcing the general availability of Media Encoder Standard. For more information, see [this blog post](http://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
 
-	Media Encoder Standard uses presets described in [this](http://go.microsoft.com/fwlink/?LinkId=618336) section. Note that when using a preset for 4k encodes, you should get the **Premium** reserved unit type. For more information, see [How to Scale Encoding](media-services-portal-encoding-units).
+    Media Encoder Standard uses presets described in [this](http://go.microsoft.com/fwlink/?LinkId=618336) section. Note that when using a preset for 4k encodes, you should get the **Premium** reserved unit type. For more information, see [How to Scale Encoding](media-services-portal-encoding-units).
 - Live Real-time captions with Azure Media Services and Player. For more information, see  [this blog post](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/)
 
 ###Media Services .NET SDK Updates
@@ -180,10 +180,10 @@ Announcing the following new features:
 - [Announcing Azure Media Player](http://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/).
 - Starting with Media Services REST 2.10, channels that are configured to ingest an RTMP protocol, are created with primary and secondary ingest URLs. For more information, see [Channel ingest configurations](media-services-manage-channels-overview.md#channel_input)
 - Azure Media Indexer updates
-	- Support for Spanish Language
-	- New configuration xml format
-	
-	For more information see [this blog](http://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
+    - Support for Spanish Language
+    - New configuration xml format
+    
+    For more information see [this blog](http://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
 ###Media Services .NET SDK Updates
 
 Azure Media Services .NET SDK is now version 3.2.0.0.
@@ -224,7 +224,7 @@ Azure Media Services .NET SDK is now version 3.1.0.1.
 
 This release marked the default Microsoft.WindowsAzure.MediaServices.Client.ContentKeyAuthorization.TokenRestrictionTemplate constructor as obsolete. The new constructor takes TokenType as an argument.
 
-	TokenRestrictionTemplate template = new TokenRestrictionTemplate(TokenType.SWT);
+    TokenRestrictionTemplate template = new TokenRestrictionTemplate(TokenType.SWT);
 
 
 ##<a id="december_changes_14"></a>December 2014 Release
@@ -306,18 +306,18 @@ Currently, you have the following two options to solve the problem.
 
 * The [StreamingEndpoint] entity now enables you to add custom domain (host) names.
 
-	For a custom domain name to be used as the Media Services streaming endpoint name, you need to add custom host names to your streaming endpoint. Use the Media Services REST APIs or .NET SDK to add custom host names.
-	
-	The following considerations apply:
-	
-	* You must have the ownership of the custom domain name.
-	
-	* The ownership of the domain name must be validated by Azure Media Services. To validate the domain, create a CName that maps <MediaServicesAccountId>.<parent domain> to verifydns.<mediaservices-dns-zone>. 
-	
-	* You must create another CName  that maps the custom host name (for example,  sports.contoso.com) to your Media Services StreamingEndpont’s host name (for example,  amstest.streaming.mediaservices.windows.net).
+    For a custom domain name to be used as the Media Services streaming endpoint name, you need to add custom host names to your streaming endpoint. Use the Media Services REST APIs or .NET SDK to add custom host names.
+    
+    The following considerations apply:
+    
+    * You must have the ownership of the custom domain name.
+    
+    * The ownership of the domain name must be validated by Azure Media Services. To validate the domain, create a CName that maps <MediaServicesAccountId>.<parent domain> to verifydns.<mediaservices-dns-zone>. 
+    
+    * You must create another CName  that maps the custom host name (for example,  sports.contoso.com) to your Media Services StreamingEndpont’s host name (for example,  amstest.streaming.mediaservices.windows.net).
 
 
-	For more information, see the **CustomHostNames** property in the [StreamingEndpoint] topic.
+    For more information, see the **CustomHostNames** property in the [StreamingEndpoint] topic.
 
 ### <a id="sept_14_preview_changes"></a>New features\scenarios that are part of the public preview release
 
@@ -364,9 +364,9 @@ The following improvements are included in the Media Services .NET SDK 3.0.0.5 r
 
 * Improvements in retry logic and transient exception handling: 
 
-	* Transient error detection and retry logic were improved for exceptions that are caused by querying, saving changes, uploading or downloading files. 
-	
-	* When getting Web Exceptions (for example, during an ACS token request), you will notice that fatal errors are failing faster now.
+    * Transient error detection and retry logic were improved for exceptions that are caused by querying, saving changes, uploading or downloading files. 
+    
+    * When getting Web Exceptions (for example, during an ACS token request), you will notice that fatal errors are failing faster now.
 
 For more information, see [Retry Logic in the Media Services SDK for .NET].
 
@@ -432,19 +432,19 @@ The following Media Services PowerShell cmdlets are now included in [azure-sdk-t
 
 * Get-AzureMediaServices 
 
-	For example, `Get-AzureMediaServicesAccount`.
+    For example, `Get-AzureMediaServicesAccount`.
 
 * New-AzureMediaServicesAccount 
 
-	For example, `New-AzureMediaServicesAccount -Name “MediaAccountName” -Location “Region” -StorageAccountName “StorageAccountName”`.
+    For example, `New-AzureMediaServicesAccount -Name “MediaAccountName” -Location “Region” -StorageAccountName “StorageAccountName”`.
 
 * New-AzureMediaServicesKey 
 
-	For example, `New-AzureMediaServicesKey -Name “MediaAccountName” -KeyType Secondary -Force`.
+    For example, `New-AzureMediaServicesKey -Name “MediaAccountName” -KeyType Secondary -Force`.
 
 * Remove-AzureMediaServicesAccount 
 
-	For example, `Remove-AzureMediaServicesAccount -Name “MediaAccountName” -Force`.
+    For example, `Remove-AzureMediaServicesAccount -Name “MediaAccountName” -Force`.
 
 ##<a id="june_changes_13"></a>June 2013 Release
 
@@ -454,19 +454,19 @@ The changes mentioned in this section are updates included in the June 2013 Medi
 
 * Ability to link multiple storage accounts to a Media Service account. 
 
-	StorageAccount
-	
-	Asset.StorageAccountName and Asset.StorageAccount
+    StorageAccount
+    
+    Asset.StorageAccountName and Asset.StorageAccount
 
 * Ability to update Job.Priority. 
 
 * Notification related entities and properties: 
 
-	JobNotificationSubscription
-	
-	NotificationEndPoint
-	
-	Job
+    JobNotificationSubscription
+    
+    NotificationEndPoint
+    
+    Job
 
 * Asset.Uri 
 
@@ -477,30 +477,30 @@ The changes mentioned in this section are updates included in the June 2013 Medi
 The following changes are included in June 2013 Media Services SDK releases. The latest Media Services SDK is available on GitHub.
 
 * Starting with the version 2.3.0.0, the Media Services SDK supports linking multiple storage accounts to a Media Services account. The following APIs support this feature:
-	
-	The IStorageAccount type.
-	
-	The Microsoft.WindowsAzure.MediaServices.Client.CloudMediaContext.StorageAccounts property.
-	
-	The StorageAccount property.
-	
-	The StorageAccountName property.
-	
-	For more information, see [Managing Media Services Assets across Multiple Storage Accounts].
+    
+    The IStorageAccount type.
+    
+    The Microsoft.WindowsAzure.MediaServices.Client.CloudMediaContext.StorageAccounts property.
+    
+    The StorageAccount property.
+    
+    The StorageAccountName property.
+    
+    For more information, see [Managing Media Services Assets across Multiple Storage Accounts].
 
 * Notification related APIs. Starting with the version 2.2.0.0 you have the ability to listen to Azure Queue storage notifications. For more information see, [Handling Media Services Job Notifications].
-	
-	The Microsoft.WindowsAzure.MediaServices.Client.IJob.JobNotificationSubscriptions property.
-	
-	The Microsoft.WindowsAzure.MediaServices.Client.INotificationEndPoint type.
-	
-	The Microsoft.WindowsAzure.MediaServices.Client.IJobNotificationSubscription type.
-	
-	The Microsoft.WindowsAzure.MediaServices.Client.NotificationEndPointCollection type.
-	
-	The Microsoft.WindowsAzure.MediaServices.Client.NotificationEndPointType type.
-	
-	The Microsoft.WindowsAzure.MediaServices.Client.NotificationJobState type.
+    
+    The Microsoft.WindowsAzure.MediaServices.Client.IJob.JobNotificationSubscriptions property.
+    
+    The Microsoft.WindowsAzure.MediaServices.Client.INotificationEndPoint type.
+    
+    The Microsoft.WindowsAzure.MediaServices.Client.IJobNotificationSubscription type.
+    
+    The Microsoft.WindowsAzure.MediaServices.Client.NotificationEndPointCollection type.
+    
+    The Microsoft.WindowsAzure.MediaServices.Client.NotificationEndPointType type.
+    
+    The Microsoft.WindowsAzure.MediaServices.Client.NotificationJobState type.
 
 * Dependency on the Azure Storage Client SDK 2.0 (Microsoft.WindowsAzure.StorageClient.dll).
 
@@ -544,28 +544,28 @@ Fixes for issues found in the November 2012 SDK:
 The changes mentioned in this section were updates included in the November 2012 (version 2.0.0.0) SDK. These changes may require any code written for the June 2012 preview SDK release to be modified or rewritten.
 
 * Assets
-	
-	IAsset.Create(assetName) is the ONLY asset creation function. IAsset.Create no longer uploads files as part of the method call. Use IAssetFile for uploading.
-	
-	The IAsset.Publish method and the AssetState.Publish enumeration value have been removed from the Services SDK. Any code that relies on this value must be re-written.
+    
+    IAsset.Create(assetName) is the ONLY asset creation function. IAsset.Create no longer uploads files as part of the method call. Use IAssetFile for uploading.
+    
+    The IAsset.Publish method and the AssetState.Publish enumeration value have been removed from the Services SDK. Any code that relies on this value must be re-written.
 
 * FileInfo
 
-	This class has been removed and replaced by IAssetFile.
+    This class has been removed and replaced by IAssetFile.
 
-	IAssetFiles
+    IAssetFiles
 
-	IAssetFile replaces FileInfo and has a different behavior. To use it, instantiate the IAssetFiles object, followed by a file upload either using the Media Services SDK or the Azure Storage SDK. The following IAssetFile.Upload overloads can be used:
+    IAssetFile replaces FileInfo and has a different behavior. To use it, instantiate the IAssetFiles object, followed by a file upload either using the Media Services SDK or the Azure Storage SDK. The following IAssetFile.Upload overloads can be used:
 
-	* IAssetFile.Upload(filePath): A synchronous method that blocks the thread and is recommended only when uploading a single file.
-	
-	* IAssetFile.UploadAsync(filePath, blobTransferClient, locator, cancellationToken): An asynchronous method. This is the preferred upload mechanism. 
+    * IAssetFile.Upload(filePath): A synchronous method that blocks the thread and is recommended only when uploading a single file.
+    
+    * IAssetFile.UploadAsync(filePath, blobTransferClient, locator, cancellationToken): An asynchronous method. This is the preferred upload mechanism. 
 
-	Known bug: using the cancellationToken will indeed cancel the upload; however, the cancellation state of the tasks can be any of a number of states. You must properly catch and handle exceptions.
+    Known bug: using the cancellationToken will indeed cancel the upload; however, the cancellation state of the tasks can be any of a number of states. You must properly catch and handle exceptions.
 
 * Locators
-	
-	The Origin-specific versions have been removed. The SAS-specific context.Locators.CreateSasLocator(asset, accessPolicy) will be marked deprecated, or removed by GA. See the Locators section under New Functionality for updated behavior.
+    
+    The Origin-specific versions have been removed. The SAS-specific context.Locators.CreateSasLocator(asset, accessPolicy) will be marked deprecated, or removed by GA. See the Locators section under New Functionality for updated behavior.
 
 
 ##<a id="june_changes_12"></a>June 2012 Preview Release
@@ -574,17 +574,17 @@ The following functionality was new in the November release of the SDK.
 
 * Deleting Entities
 
-	IAsset, IAssetFile, ILocator, IAccessPolicy, IContentKey objects are now deleted at the object level, i.e. IObject.Delete(), instead of requiring a delete in the Collection, that is cloudMediaContext.ObjCollection.Delete(objInstance).
+    IAsset, IAssetFile, ILocator, IAccessPolicy, IContentKey objects are now deleted at the object level, i.e. IObject.Delete(), instead of requiring a delete in the Collection, that is cloudMediaContext.ObjCollection.Delete(objInstance).
 
 * Locators
 
-	Locators must now be created using the CreateLocator method and use the LocatorType.SAS or LocatorType.OnDemandOrigin enum values as an argument for the specific type of locator you want to create.
+    Locators must now be created using the CreateLocator method and use the LocatorType.SAS or LocatorType.OnDemandOrigin enum values as an argument for the specific type of locator you want to create.
 
-	New properties were added to Locators to make it easier to obtain usable URIs for your content. This redesign of Locators was meant to provide more flexibility for future third-party extensibility and increase ease-of-use for media client applications.
+    New properties were added to Locators to make it easier to obtain usable URIs for your content. This redesign of Locators was meant to provide more flexibility for future third-party extensibility and increase ease-of-use for media client applications.
 
 * Asynchronous Method Support
 
-	Asynchronous support has been added to all methods.
+    Asynchronous support has been added to all methods.
 
 
 ##Media Services learning paths
@@ -633,3 +633,4 @@ The following functionality was new in the November release of the SDK.
 [Managing Media Services Assets across Multiple Storage Accounts]: http://msdn.microsoft.com/library/azure/dn271889.aspx
 [Handling Media Services Job Notifications]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
+

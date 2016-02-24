@@ -71,19 +71,19 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
 ###To configure single sign-on, perform the following steps:
 
-1.  In the Azure AD portal, on the **Intacct** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  In the Azure AD portal, on the **Intacct** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
     ![Configure Single Sign-On](./media/active-directory-saas-intacct-tutorial/IC790033.png "Configure Single Sign-On")
 
-2.  On the **How would you like users to sign on to Intacct** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to Intacct** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-intacct-tutorial/IC790034.png "Configure Single Sign-On")
 
-3.  On the **Configure App URL** page, in the **Intacct Sign On URL** textbox, type your URL using the following pattern "*https://Intacct.com/company*", and then click **Next**.
+3.  On the **Configure App URL** page, in the **Intacct Sign On URL** textbox, type your URL using the following pattern "*https://Intacct.com/company*", and then click **Next**.
 
     ![Configure App URL](./media/active-directory-saas-intacct-tutorial/IC790035.png "Configure App URL")
 
-4.  On the **Configure single sign-on at Intacct** page, click **Download certificate**, and then save the certificate file on your computer.
+4.  On the **Configure single sign-on at Intacct** page, click **Download certificate**, and then save the certificate file on your computer.
 
     ![Configure Single Sign-On](./media/active-directory-saas-intacct-tutorial/IC790036.png "Configure Single Sign-On")
 
@@ -107,12 +107,12 @@ If you are not familiar with this procedure, see [How to convert a binary certif
     4.  In the Azure portal, on the **Configure single sign-on at Intacct** dialog page, copy the **Remote Login URL** value, and then paste it into the **Login URL** textbox.
     5.  Create a **base-64 encoded** file from your downloaded certificate.
         
-		>[AZURE.TIP]For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
+        >[AZURE.TIP]For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
 
     6.  Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **Certificate** textbox
     7.  Click **Save**.
 
-9.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+9.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
     ![Configure Single Sign-On](./media/active-directory-saas-intacct-tutorial/IC790040.png "Configure Single Sign-On")
 ##Configuring user provisioning
@@ -140,7 +140,7 @@ In the case of Intacct, provisioning is a manual task.
     2.  Select the **Admin privileges** of an Azure AD account you want to provision.
     3.  Click **Save**.
         
-		>[AZURE.NOTE] The AAD account holder will receive an email and follow a link to confirm their account before it becomes active.
+        >[AZURE.NOTE] The AAD account holder will receive an email and follow a link to confirm their account before it becomes active.
 
 >[AZURE.NOTE] You can use any other Intacct user account creation tools or APIs provided by Intacct to provision AAD user accounts.
 
@@ -152,7 +152,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 1.  In the Azure AD portal, create a test account.
 
-2.  On the **Intacct **application integration page, click **Assign users**.
+2.  On the **Intacct **application integration page, click **Assign users**.
 
     ![Assign Users](./media/active-directory-saas-intacct-tutorial/IC790044.png "Assign Users")
 

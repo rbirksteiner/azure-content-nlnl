@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Linking resources in Azure Resource Manager" 
-	description="Create a link between resources in different resource groups in Azure Resource Manager." 
-	services="azure-resource-manager" 
-	documentationCenter="" 
-	authors="tfitzmac" 
-	manager="wpickett" 
-	editor=""/>
+    pageTitle="Linking resources in Azure Resource Manager" 
+    description="Create a link between resources in different resource groups in Azure Resource Manager." 
+    services="azure-resource-manager" 
+    documentationCenter="" 
+    authors="tfitzmac" 
+    manager="wpickett" 
+    editor=""/>
 
 <tags 
-	ms.service="azure-resource-manager" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/06/2015" 
-	ms.author="tomfitz"/>
+    ms.service="azure-resource-manager" 
+    ms.workload="multiple" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/06/2015" 
+    ms.author="tomfitz"/>
 
 # Linking resources in Azure Resource Manager
 
@@ -64,3 +64,4 @@ For more examples, including how to retrieve information about links, see [Linke
 
 - You can also organize your resources with tags. To learn about tagging resources, see [Using tags to organize your resources](resource-group-using-tags.md).
 - For a description of how to create templates and define the resources to be deployed, see [Authoring templates](resource-group-authoring-templates.md).
+

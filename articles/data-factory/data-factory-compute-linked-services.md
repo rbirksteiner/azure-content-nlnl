@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Compute Linked Services | Microsoft Azure"
-	description="Learn about compute enviornments that you can use in Azure Data Factory pipelines to transform/process data."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
-	editor="monicar"/>
+    pageTitle="Compute Linked Services | Microsoft Azure"
+    description="Learn about compute enviornments that you can use in Azure Data Factory pipelines to transform/process data."
+    services="data-factory"
+    documentationCenter=""
+    authors="spelluru"
+    manager="jhubbard"
+    editor="monicar"/>
 
 <tags
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/10/2015"
-	ms.author="spelluru"/>
+    ms.service="data-factory"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/10/2015"
+    ms.author="spelluru"/>
 
 # Compute Linked Services
 
@@ -40,24 +40,24 @@ Note the following **important** points about on-demand HDInsight linked service
 
 ### Example
 
-	{
-	  "name": "HDInsightOnDemandLinkedService",
-	  "properties": {
-	    "type": "HDInsightOnDemand",
-	    "typeProperties": {
-	      "clusterSize": 4,
-	      "timeToLive": "00:05:00",
-	      "version": "3.2",
-		  "osType": "linux",
-	      "linkedServiceName": "MyBlobStore",
-		  "hcatalogLinkedServiceName": "AzureSqlLinkedService",
-	      "additionalLinkedServiceNames": [
-	        "otherLinkedServiceName1",
-	        "otherLinkedServiceName2"
-	      ]
-	    }
-	  }
-	}
+    {
+      "name": "HDInsightOnDemandLinkedService",
+      "properties": {
+        "type": "HDInsightOnDemand",
+        "typeProperties": {
+          "clusterSize": 4,
+          "timeToLive": "00:05:00",
+          "version": "3.2",
+          "osType": "linux",
+          "linkedServiceName": "MyBlobStore",
+          "hcatalogLinkedServiceName": "AzureSqlLinkedService",
+          "additionalLinkedServiceNames": [
+            "otherLinkedServiceName1",
+            "otherLinkedServiceName2"
+          ]
+        }
+      }
+    }
 
 ### Properties
 
@@ -89,39 +89,39 @@ yarnConfiguration | Specifies the Yarn configuration parameters (yarn-site.xml) 
 
 #### Example – On-demand HDInsight cluster configuration with advanced properties
 
-	{
-	  "name": " HDInsightOnDemandLinkedService",
-	  "properties": {
-	    "type": "HDInsightOnDemand",
-	    "typeProperties": {
-	      "clusterSize": 16,
-	      "timeToLive": "01:30:00",
-	      "version": "3.2",
-	      "linkedServiceName": "adfods1",
-	      "coreConfiguration": {
-	        "templeton.mapper.memory.mb": "5000"
-	      },
-	      "hiveConfiguration": {
-	        "templeton.mapper.memory.mb": "5000"
-	      },
-	      "mapReduceConfiguration": {
-	        "mapreduce.reduce.java.opts": "-Xmx4000m",
-	        "mapreduce.map.java.opts": "-Xmx4000m",
-	        "mapreduce.map.memory.mb": "5000",
-	        "mapreduce.reduce.memory.mb": "5000",
-	        "mapreduce.job.reduce.slowstart.completedmaps": "0.8"
-	      },
-	      "yarnConfiguration": {
-	        "yarn.app.mapreduce.am.resource.mb": "5000",
-	        "mapreduce.map.memory.mb": "5000"
-	      },
-	      "additionalLinkedServiceNames": [
-	        "datafeeds",
-	        "adobedatafeed"
-	      ]
-	    }
-	  }
-	}
+    {
+      "name": " HDInsightOnDemandLinkedService",
+      "properties": {
+        "type": "HDInsightOnDemand",
+        "typeProperties": {
+          "clusterSize": 16,
+          "timeToLive": "01:30:00",
+          "version": "3.2",
+          "linkedServiceName": "adfods1",
+          "coreConfiguration": {
+            "templeton.mapper.memory.mb": "5000"
+          },
+          "hiveConfiguration": {
+            "templeton.mapper.memory.mb": "5000"
+          },
+          "mapReduceConfiguration": {
+            "mapreduce.reduce.java.opts": "-Xmx4000m",
+            "mapreduce.map.java.opts": "-Xmx4000m",
+            "mapreduce.map.memory.mb": "5000",
+            "mapreduce.reduce.memory.mb": "5000",
+            "mapreduce.job.reduce.slowstart.completedmaps": "0.8"
+          },
+          "yarnConfiguration": {
+            "yarn.app.mapreduce.am.resource.mb": "5000",
+            "mapreduce.map.memory.mb": "5000"
+          },
+          "additionalLinkedServiceNames": [
+            "datafeeds",
+            "adobedatafeed"
+          ]
+        }
+      }
+    }
 
 ### Node sizes
 You can specify the sizes of head, data, and zookeeper nodes using the following properties. 
@@ -137,10 +137,10 @@ Please see the [Sizes of Virtual Machines](../virtual-machines/virtual-machines-
 
 If you want to create D4 sized head nodes and worker nodes, you need to specify **Standard_D4** as the value for headNodeSize and dataNodeSize properties. 
 
-	"headNodeSize": "Standard_D4",	
-	"dataNodeSize": "Standard_D4",
+    "headNodeSize": "Standard_D4",  
+    "dataNodeSize": "Standard_D4",
 
-If you specify a wrong value for these properties, you may receive the following **error:**	Failed to create cluster. Exception: Unable to complete the cluster create operation. Operation failed with code '400'. Cluster left behind state: 'Error'. Message: 'PreClusterCreationValidationFailure'. When you receive this error, ensure that you are using the **CMDLET & APIS** name from the table in the above article.  
+If you specify a wrong value for these properties, you may receive the following **error:** Failed to create cluster. Exception: Unable to complete the cluster create operation. Operation failed with code '400'. Cluster left behind state: 'Error'. Message: 'PreClusterCreationValidationFailure'. When you receive this error, ensure that you are using the **CMDLET & APIS** name from the table in the above article.  
 
 
 
@@ -160,19 +160,19 @@ You can create an Azure HDInsight linked service to register your own HDInsight 
 
 ### Example
 
-	{
-	  "name": "HDInsightLinkedService",
-	  "properties": {
-	    "type": "HDInsight",
-	    "typeProperties": {
-	      "clusterUri": " https://<hdinsightclustername>.azurehdinsight.net/",
-	      "userName": "admin",
-	      "password": "<password>",
-	      "location": "WestUS",
-	      "linkedServiceName": "MyHDInsightStoragelinkedService"
-	    }
-	  }
-	}
+    {
+      "name": "HDInsightLinkedService",
+      "properties": {
+        "type": "HDInsight",
+        "typeProperties": {
+          "clusterUri": " https://<hdinsightclustername>.azurehdinsight.net/",
+          "userName": "admin",
+          "password": "<password>",
+          "location": "WestUS",
+          "linkedServiceName": "MyHDInsightStoragelinkedService"
+        }
+      }
+    }
 
 ### Properties
 
@@ -198,27 +198,27 @@ See following topics if you are new to Azure Batch service:
 
 ### Example
 
-	{
-	  "name": "AzureBatchLinkedService",
-	  "properties": {
-	    "type": "AzureBatch",
-	    "typeProperties": {
-	      "accountName": "<Azure Batch account name>",
-	      "accessKey": "<Azure Batch account key>",
-	      "poolName": "<Azure Batch pool name>",
-	      "linkedServiceName": "<Specify associated storage linked service reference here>"
-	    }
-	  }
-	}
+    {
+      "name": "AzureBatchLinkedService",
+      "properties": {
+        "type": "AzureBatch",
+        "typeProperties": {
+          "accountName": "<Azure Batch account name>",
+          "accessKey": "<Azure Batch account key>",
+          "poolName": "<Azure Batch pool name>",
+          "linkedServiceName": "<Specify associated storage linked service reference here>"
+        }
+      }
+    }
 
 Append "**.<region name**" to the name of your batch account for the **accountName** property. Example:
 
-			"accountName": "mybatchaccount.eastus"
+            "accountName": "mybatchaccount.eastus"
 
 Another option is to provide the batchUri endpoint as shown below.  
 
-			"accountName": "adfteam",
-			"batchUri": "https://eastus.batch.azure.com",
+            "accountName": "adfteam",
+            "batchUri": "https://eastus.batch.azure.com",
 
 ### Properties
 
@@ -237,16 +237,16 @@ You create an Azure Machine Learning linked service to register a Machine Learni
 
 ### Example
 
-	{
-	  "name": "AzureMLLinkedService",
-	  "properties": {
-	    "type": "AzureML",
-	    "typeProperties": {
-	      "mlEndpoint": "https://[batch scoring endpoint]/jobs",
-	      "apiKey": "<apikey>"
-	    }
-	  }
-	}
+    {
+      "name": "AzureMLLinkedService",
+      "properties": {
+        "type": "AzureML",
+        "typeProperties": {
+          "mlEndpoint": "https://[batch scoring endpoint]/jobs",
+          "apiKey": "<apikey>"
+        }
+      }
+    }
 
 ### Properties
 
@@ -262,20 +262,20 @@ You create an **Azure Data Lake Analytics** linked service to link an Azure Data
 
 The following example provides JSON definition for an Azure Data Lake Analytics linked service.
 
-	{
-	    "name": "AzureDataLakeAnalyticsLinkedService",
-	    "properties": {
-	        "type": "AzureDataLakeAnalytics",
-	        "typeProperties": {
-	            "accountName": "adftestaccount",
-	            "dataLakeAnalyticsUri": "datalakeanalyticscompute.net",
-	            "authorization": "<authcode>",
-				"sessionId": "<session ID>",
-	            "subscriptionId": "<subscription id>",
-	            "resourceGroupName": "<resource group name>"
-	        }
-	    }
-	}
+    {
+        "name": "AzureDataLakeAnalyticsLinkedService",
+        "properties": {
+            "type": "AzureDataLakeAnalytics",
+            "typeProperties": {
+                "accountName": "adftestaccount",
+                "dataLakeAnalyticsUri": "datalakeanalyticscompute.net",
+                "authorization": "<authcode>",
+                "sessionId": "<session ID>",
+                "subscriptionId": "<subscription id>",
+                "resourceGroupName": "<resource group name>"
+            }
+        }
+    }
 
 
 The following table provides descriptions for the properties used in the JSON definition.
@@ -294,3 +294,4 @@ sessionId | session id from the OAuth authorization session. Each session id is 
 ## Azure SQL Linked Service
 
 You create an Azure SQL linked service and use it with the [Stored Procedure Activity](data-factory-stored-proc-activity.md) to invoke a stored procedure from a Data Factory pipeline. See [Azure SQL Connector](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) article for details about this linked service.
+

@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Create a SQL Data Warehouse database in the Azure Portal | Microsoft Azure"
-	description="Learn how to create an Azure SQL Data Warehouse in the Azure Portal"
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="barbkess"
-	manager="jhubbard"
-	editor=""
-	tags="azure-sql-data-warehouse"/>
+    pageTitle="Create a SQL Data Warehouse database in the Azure Portal | Microsoft Azure"
+    description="Learn how to create an Azure SQL Data Warehouse in the Azure Portal"
+    services="sql-data-warehouse"
+    documentationCenter="NA"
+    authors="barbkess"
+    manager="jhubbard"
+    editor=""
+    tags="azure-sql-data-warehouse"/>
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
@@ -66,12 +66,12 @@ In SQL Database and SQL Data Warehouse, each database is assigned to a server, a
 
 3. Fill in the **New server** information. 
     
-	- **Server Name**. Enter a name for your logical server. This is unique for each geographical location.
-	- **Server Admin Name**. Enter a user name for the server administrator account.
-	- **Password**. Enter the server admin password. 
-	- **Location**. Choose a geographical location for your server. To reduce data transfer time, it's best to locate your server geographically close to other data resources this database will access.
-	- **Create V12 Server**. YES is the only option for SQL Data Warehouse. 
-	- **Allow azure services to access server**. This is always checked for SQL Data Warehouse
+    - **Server Name**. Enter a name for your logical server. This is unique for each geographical location.
+    - **Server Admin Name**. Enter a user name for the server administrator account.
+    - **Password**. Enter the server admin password. 
+    - **Location**. Choose a geographical location for your server. To reduce data transfer time, it's best to locate your server geographically close to other data resources this database will access.
+    - **Create V12 Server**. YES is the only option for SQL Data Warehouse. 
+    - **Allow azure services to access server**. This is always checked for SQL Data Warehouse
 
     >[AZURE.NOTE] Be sure to store the server name, server admin name, and password somewhere.  You will need this information to log on to the server.
 
@@ -118,11 +118,11 @@ To connect to the server from your current IP address, add your client IP addres
 
 4. Click **Add Client IP** to have Azure create a rule for your Client IP address. Click **Save**.
 
-	![Add the IP address](./media/sql-data-warehouse-get-started-provision/add-client-ip.png)
+    ![Add the IP address](./media/sql-data-warehouse-get-started-provision/add-client-ip.png)
 
 1. Create a firewall rule with a range of IP addresses. You can do this now or later.
 
-	>[AZURE.IMPORTANT] You're IP address is likely to change from time to time, and you may not be able to access your server until you create a new firewall rule. To ensure consistent access, we recommend adding a range of IP addresses. For further details, see [How to configure firewall settings](../sql-database/sql-database-configure-firewall-settings.md).
+    >[AZURE.IMPORTANT] You're IP address is likely to change from time to time, and you may not be able to access your server until you create a new firewall rule. To ensure consistent access, we recommend adding a range of IP addresses. For further details, see [How to configure firewall settings](../sql-database/sql-database-configure-firewall-settings.md).
 
     To create a rule, enter a name and the IP address range, and click **Save**. 
 
@@ -133,6 +133,7 @@ Now that you have configured the firewall you will be able to make connections f
 ## Next steps
 
 Now that you have created a sample database for SQL Data Warehouse, you are ready to [Connect](./sql-data-warehouse-get-started-connect.md) to your database.
+
 
 
 

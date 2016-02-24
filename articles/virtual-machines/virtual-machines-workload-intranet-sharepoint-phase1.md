@@ -1,21 +1,21 @@
 <properties
-	pageTitle="SharePoint Server 2013 farm Phase 1 | Microsoft Azure"
-	description="Create the virtual network and other Azure infrastructure elements in Phase 1 of the SharePoint Server 2013 farm in Azure."
-	documentationCenter=""
-	services="virtual-machines"
-	authors="JoeDavies-MSFT"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    pageTitle="SharePoint Server 2013 farm Phase 1 | Microsoft Azure"
+    description="Create the virtual network and other Azure infrastructure elements in Phase 1 of the SharePoint Server 2013 farm in Azure."
+    documentationCenter=""
+    services="virtual-machines"
+    authors="JoeDavies-MSFT"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="Windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/11/2015"
-	ms.author="josephd"/>
+    ms.service="virtual-machines"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="Windows"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/11/2015"
+    ms.author="josephd"/>
 
 # SharePoint Intranet Farm Workload Phase 1: Configure Azure
 
@@ -89,26 +89,26 @@ Item | Local network address space
 
 First, start an Azure PowerShell prompt and login to your account.
 
-	Login-AzureRMAccount
+    Login-AzureRMAccount
 
 Get your subscription name using the following command.
 
-	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
+    Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
 
 Set your Azure subscription. Replace everything within the quotes, including the < and > characters, with the correct names.
 
-	$subscr="<subscription name>"
-	Get-AzureRmSubscription –SubscriptionName $subscr | Select-AzureRmSubscription
+    $subscr="<subscription name>"
+    Get-AzureRmSubscription –SubscriptionName $subscr | Select-AzureRmSubscription
 
 Next, create a new resource group for your intranet SharePoint farm. To determine a unique resource group name, use this command to list your existing resource groups.
 
-	Get-AzureRMResourceGroup | Sort ResourceGroupName | Select ResourceGroupName
+    Get-AzureRMResourceGroup | Sort ResourceGroupName | Select ResourceGroupName
 
 Create your new resource group with these commands.
 
-	$rgName="<resource group name>"
-	$locName="<an Azure location, such as West US>"
-	New-AzureRMResourceGroup -Name $rgName -Location $locName
+    $rgName="<resource group name>"
+    $locName="<an Azure location, such as West US>"
+    New-AzureRMResourceGroup -Name $rgName -Location $locName
 
 Resource Manager-based virtual machines require a Resource Manager-based storage account.
 
@@ -122,55 +122,55 @@ You will need this name when you create the virtual machines in phases 2, 3, and
 
 You must pick a globally unique name for each storage account that contains only lowercase letters and numbers. You can use this command to list the existing storage accounts.
 
-	Get-AzureRMStorageAccount | Sort StorageAccountName | Select StorageAccountName
+    Get-AzureRMStorageAccount | Sort StorageAccountName | Select StorageAccountName
 
 To create the storage account, run these commands.
 
-	$rgName="<your new resource group name>"
-	$locName="<the location of your new resource group>"
-	$saName="<Table ST – Item 1 - Storage account name column>"
-	New-AzureRMStorageAccount -Name $saName -ResourceGroupName $rgName –Type Standard_LRS -Location $locName
+    $rgName="<your new resource group name>"
+    $locName="<the location of your new resource group>"
+    $saName="<Table ST – Item 1 - Storage account name column>"
+    New-AzureRMStorageAccount -Name $saName -ResourceGroupName $rgName –Type Standard_LRS -Location $locName
 
 Next, you create the Azure Virtual Network that will host your intranet SharePoint farm.
 
-	$rgName="<name of your new resource group>"
-	$locName="<Azure location of the new resource group>"
-	$vnetName="<Table V – Item 1 – Value column>"
-	$vnetAddrPrefix="<Table V – Item 5 – Value column>"
-	$spSubnetName="<Table S – Item 2 – Subnet name column>"
-	$spSubnetPrefix="<Table S – Item 2 – Subnet address space column>"
-	$gwSubnetPrefix="<Table S – Item 1 – Subnet address space column>"
-	$dnsServers=@( "<Table D – Item 1 – DNS server IP address column>", "<Table D – Item 2 – DNS server IP address column>" )
-	$gwSubnet=New-AzureRMVirtualNetworkSubnetConfig -Name "GatewaySubnet" -AddressPrefix $gwSubnetPrefix
-	$spSubnet=New-AzureRMVirtualNetworkSubnetConfig -Name $spSubnetName -AddressPrefix $spSubnetPrefix
-	New-AzureRMVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $locName -AddressPrefix $vnetAddrPrefix -Subnet $gwSubnet,$spSubnet -DNSServer $dnsServers
+    $rgName="<name of your new resource group>"
+    $locName="<Azure location of the new resource group>"
+    $vnetName="<Table V – Item 1 – Value column>"
+    $vnetAddrPrefix="<Table V – Item 5 – Value column>"
+    $spSubnetName="<Table S – Item 2 – Subnet name column>"
+    $spSubnetPrefix="<Table S – Item 2 – Subnet address space column>"
+    $gwSubnetPrefix="<Table S – Item 1 – Subnet address space column>"
+    $dnsServers=@( "<Table D – Item 1 – DNS server IP address column>", "<Table D – Item 2 – DNS server IP address column>" )
+    $gwSubnet=New-AzureRMVirtualNetworkSubnetConfig -Name "GatewaySubnet" -AddressPrefix $gwSubnetPrefix
+    $spSubnet=New-AzureRMVirtualNetworkSubnetConfig -Name $spSubnetName -AddressPrefix $spSubnetPrefix
+    New-AzureRMVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $locName -AddressPrefix $vnetAddrPrefix -Subnet $gwSubnet,$spSubnet -DNSServer $dnsServers
 
 Next, use these commands to create the gateways for the site-to-site VPN connection.
 
-	$vnetName="<Table V – Item 1 – Value column>"
-	$vnet=Get-AzureRMVirtualNetwork -Name $vnetName -ResourceGroupName $rgName
-	
-	# Attach a virtual network gateway to a public IP address and the gateway subnet
-	$publicGatewayVipName="SPPublicIPAddress"
-	$vnetGatewayIpConfigName="SPPublicIPConfig"
-	New-AzureRMPublicIpAddress -Name $vnetGatewayIpConfigName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
-	$publicGatewayVip=Get-AzureRMPublicIpAddress -Name $vnetGatewayIpConfigName -ResourceGroupName $rgName
-	$vnetGatewayIpConfig=New-AzureRMVirtualNetworkGatewayIpConfig -Name $vnetGatewayIpConfigName -PublicIpAddressId $publicGatewayVip.Id -SubnetId $vnet.Subnets[0].Id
+    $vnetName="<Table V – Item 1 – Value column>"
+    $vnet=Get-AzureRMVirtualNetwork -Name $vnetName -ResourceGroupName $rgName
+    
+    # Attach a virtual network gateway to a public IP address and the gateway subnet
+    $publicGatewayVipName="SPPublicIPAddress"
+    $vnetGatewayIpConfigName="SPPublicIPConfig"
+    New-AzureRMPublicIpAddress -Name $vnetGatewayIpConfigName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
+    $publicGatewayVip=Get-AzureRMPublicIpAddress -Name $vnetGatewayIpConfigName -ResourceGroupName $rgName
+    $vnetGatewayIpConfig=New-AzureRMVirtualNetworkGatewayIpConfig -Name $vnetGatewayIpConfigName -PublicIpAddressId $publicGatewayVip.Id -SubnetId $vnet.Subnets[0].Id
 
-	# Create the Azure gateway
-	$vnetGatewayName="SPAzureGateway"
-	$vnetGateway=New-AzureRMVirtualNetworkGateway -Name $vnetGatewayName -ResourceGroupName $rgName -Location $locName -GatewayType Vpn -VpnType RouteBased -IpConfigurations $vnetGatewayIpConfig
-	
-	# Create the gateway for the local network
-	$localGatewayName="SPLocalNetGateway"
-	$localGatewayIP="<Table V – Item 4 – Value column>"
-	$localNetworkPrefix=@( <comma-separated, double-quote enclosed list of the local network address prefixes from Table L, example: "10.1.0.0/24", "10.2.0.0/24"> )
-	$localGateway=New-AzureRMLocalNetworkGateway -Name $localGatewayName -ResourceGroupName $rgName -Location $locName -GatewayIpAddress $localGatewayIP -AddressPrefix $localNetworkPrefix
-	
-	# Define the Azure virtual network VPN connection
-	$vnetConnectionName="SPS2SConnection"
-	$vnetConnectionKey="<Table V – Item 8 – Value column>"
-	$vnetConnection=New-AzureRMVirtualNetworkGatewayConnection -Name $vnetConnectionName -ResourceGroupName $rgName -Location $locName -ConnectionType IPsec -SharedKey $vnetConnectionKey -VirtualNetworkGateway1 $vnetGateway -LocalNetworkGateway2 $localGateway
+    # Create the Azure gateway
+    $vnetGatewayName="SPAzureGateway"
+    $vnetGateway=New-AzureRMVirtualNetworkGateway -Name $vnetGatewayName -ResourceGroupName $rgName -Location $locName -GatewayType Vpn -VpnType RouteBased -IpConfigurations $vnetGatewayIpConfig
+    
+    # Create the gateway for the local network
+    $localGatewayName="SPLocalNetGateway"
+    $localGatewayIP="<Table V – Item 4 – Value column>"
+    $localNetworkPrefix=@( <comma-separated, double-quote enclosed list of the local network address prefixes from Table L, example: "10.1.0.0/24", "10.2.0.0/24"> )
+    $localGateway=New-AzureRMLocalNetworkGateway -Name $localGatewayName -ResourceGroupName $rgName -Location $locName -GatewayIpAddress $localGatewayIP -AddressPrefix $localNetworkPrefix
+    
+    # Define the Azure virtual network VPN connection
+    $vnetConnectionName="SPS2SConnection"
+    $vnetConnectionKey="<Table V – Item 8 – Value column>"
+    $vnetConnection=New-AzureRMVirtualNetworkGatewayConnection -Name $vnetConnectionName -ResourceGroupName $rgName -Location $locName -ConnectionType IPsec -SharedKey $vnetConnectionKey -VirtualNetworkGateway1 $vnetGateway -LocalNetworkGateway2 $localGateway
 
 Next, configure your on-premises VPN device to connect to the Azure VPN gateway. For more information, see [Configure your VPN device](../virtual-networks/vpn-gateway-configure-vpn-gateway-mp.md#configure-your-vpn-device).
 
@@ -196,16 +196,16 @@ You will need these names when you create the virtual machines in phases 2, 3, a
 
 Create these new availability sets with these Azure PowerShell commands.
 
-	$rgName="<your new resource group name>"
-	$locName="<the Azure location for your new resource group>"
-	$avName="<Table A – Item 1 – Availability set name column>"
-	New-AzureRMAvailabilitySet –Name $avName –ResourceGroupName $rgName -Location $locName
-	$avName="<Table A – Item 2 – Availability set name column>"
-	New-AzureRMAvailabilitySet –Name $avName –ResourceGroupName $rgName -Location $locName
-	$avName="<Table A – Item 3 – Availability set name column>"
-	New-AzureRMAvailabilitySet –Name $avName –ResourceGroupName $rgName -Location $locName
-	$avName="<Table A – Item 4 – Availability set name column>"
-	New-AzureRMAvailabilitySet –Name $avName –ResourceGroupName $rgName -Location $locName
+    $rgName="<your new resource group name>"
+    $locName="<the Azure location for your new resource group>"
+    $avName="<Table A – Item 1 – Availability set name column>"
+    New-AzureRMAvailabilitySet –Name $avName –ResourceGroupName $rgName -Location $locName
+    $avName="<Table A – Item 2 – Availability set name column>"
+    New-AzureRMAvailabilitySet –Name $avName –ResourceGroupName $rgName -Location $locName
+    $avName="<Table A – Item 3 – Availability set name column>"
+    New-AzureRMAvailabilitySet –Name $avName –ResourceGroupName $rgName -Location $locName
+    $avName="<Table A – Item 4 – Availability set name column>"
+    New-AzureRMAvailabilitySet –Name $avName –ResourceGroupName $rgName -Location $locName
 
 This is the configuration resulting from the successful completion of this phase.
 
@@ -214,4 +214,5 @@ This is the configuration resulting from the successful completion of this phase
 ## Next step
 
 - Use [Phase 2](virtual-machines-workload-intranet-sharepoint-phase2.md) to continue with the configuration of this workload.
+
 

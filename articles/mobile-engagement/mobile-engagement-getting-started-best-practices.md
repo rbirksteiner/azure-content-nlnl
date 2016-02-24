@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure Mobile Engagement Getting Started Guide with Best Practices"
-	description="Getting Started guide for Azure Mobile Engagement and Best practices for onboarding" 
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="wesmc7777"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Azure Mobile Engagement Getting Started Guide with Best Practices"
+    description="Getting Started guide for Azure Mobile Engagement and Best practices for onboarding" 
+    services="mobile-engagement" 
+    documentationCenter="mobile" 
+    authors="wesmc7777"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="mobile-engagement"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="mobile-multiple"
-	ms.workload="mobile" 
-	ms.date="12/11/2015"
-	ms.author="wesmc"/>
+    ms.service="mobile-engagement"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="mobile-multiple"
+    ms.workload="mobile" 
+    ms.date="12/11/2015"
+    ms.author="wesmc"/>
 
 # Azure Mobile Engagement - Getting Started Guide with Best practices
 
@@ -53,24 +53,24 @@ A good plan will generally have objectives with the KPIs that measure the succes
 Business KPIs should be the easiest part to build. You probably already defined these in some form when you planned your mobile app. These KPIs generally help measure revenue and ROI for you app. The following list provides some example Business KPIs that may help guide you while defining your performance indicators:
 
 - Media Business KPIs
-	- Number of Ads clicked
-	- Number of page visits per user
-	- Number of current subscriptions
+    - Number of Ads clicked
+    - Number of page visits per user
+    - Number of current subscriptions
 - Gaming Business KPIs
-	- Number of in-app purchases
-	- Average revenue per user (ARPU)
-	- Time spent per session
-	- Days played and current in game level
+    - Number of in-app purchases
+    - Average revenue per user (ARPU)
+    - Time spent per session
+    - Days played and current in game level
 - E-Commerce Business KPIs
-	- Days app used
-	- Average revenue per user (ARPU)
-	- Average amount in cart during checkout
-	- Product category for most views and purchases
+    - Days app used
+    - Average revenue per user (ARPU)
+    - Average amount in cart during checkout
+    - Product category for most views and purchases
 - Bank and insurance Business KPIs
-	- Number of accounts
-	- Features activated
-	- Offer pages visited
-	- Alerts clicked or activated	   
+    - Number of accounts
+    - Features activated
+    - Offer pages visited
+    - Alerts clicked or activated      
 
 
 
@@ -111,10 +111,10 @@ When defining your marketing strategy, your KPIs should present a view for each 
 
 Build a KPI dashboard which contains the below information
 
-1.	What are the KPIs for the app?
-2.	What data points will I use to represent each KPI?
-3.	Where is this data located for my application (i.e. screen, settings, system…)?
-4.	Can I play an Engagement sequence for this KPI?
+1.  What are the KPIs for the app?
+2.  What data points will I use to represent each KPI?
+3.  Where is this data located for my application (i.e. screen, settings, system…)?
+4.  Can I play an Engagement sequence for this KPI?
 
 You can use the **KPI Builder** worksheet in our [Media Playbook Template][Media Playbook link] for examples and guidance.
 
@@ -406,3 +406,4 @@ After you have developed some experience you might consider adding the following
 
 <!--Link references-->
 [Media Playbook link]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
+

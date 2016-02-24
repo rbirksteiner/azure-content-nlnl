@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Secure a web app in Azure App Service"
-	description="Learn how to secure an Azure web app."
-	services="app-service"
-	documentationCenter=""
-	authors="cephalin"
-	manager="wpickett"
-	editor=""/>
+    pageTitle="Secure a web app in Azure App Service"
+    description="Learn how to secure an Azure web app."
+    services="app-service"
+    documentationCenter=""
+    authors="cephalin"
+    manager="wpickett"
+    editor=""/>
 
 <tags
-	ms.service="app-service"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="09/16/2015"
-	ms.author="cephalin"/>
+    ms.service="app-service"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="multiple"
+    ms.topic="article"
+    ms.date="09/16/2015"
+    ms.author="cephalin"/>
 
 
 #Secure a web app in Azure App Service
@@ -37,13 +37,13 @@ When developing applications, performing management tasks, or automating tasks u
 
 * A **publish settings** file contains
 
-	* Your Azure subscription ID
+    * Your Azure subscription ID
 
-	* A management certificate that allows you to perform management tasks for your subscription *without having to provide an account name or password*.
+    * A management certificate that allows you to perform management tasks for your subscription *without having to provide an account name or password*.
 
 * A **publishing profile** file contains
 
-	* Information for publishing to your web app
+    * Information for publishing to your web app
 
 If you use a utility that uses publish settings or publish profile, import the file containing the publish settings or profile into the utility and then **delete** the file. If you must keep the file, to share with others working on the project for example, store it in a secure location such as an **encrypted** directory with restricted permissions.
 
@@ -84,3 +84,4 @@ For information on logging information for web apps, which may be useful in dete
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+

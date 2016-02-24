@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure App Service Web Apps Offerings for Enterprise" 
-	description="Shows how to use Azure App Service Web Apps to create enterprise website solutions for your business" 
-	services="app-service\web" 
-	documentationCenter="" 
-	authors="apwestgarth" 
-	manager="wpickett" 
-	editor=""/>
+    pageTitle="Azure App Service Web Apps Offerings for Enterprise" 
+    description="Shows how to use Azure App Service Web Apps to create enterprise website solutions for your business" 
+    services="app-service\web" 
+    documentationCenter="" 
+    authors="apwestgarth" 
+    manager="wpickett" 
+    editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/30/2015" 
-	ms.author="anwestg"/>
+    ms.service="app-service-web" 
+    ms.workload="web" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/30/2015" 
+    ms.author="anwestg"/>
 
 # Azure App Service Web Apps Offerings for Enterprise Whitepaper #
 
@@ -111,12 +111,12 @@ Step one of the overall solution for moving a line-of-business application to We
 
 When migration application from an on-premises environment, you might want to keep in mind, few Web Apps constraints. Here are some key topics to be aware of when migrating web applications to Web Apps ([http://aka.ms/websitesmigrationresources](http://aka.ms/websitesmigrationresources)):
 
--	Port Bindings – Web Apps only supports port 80 for HTTP and port 443 for HTTPS traffic. If your application uses any other port, then once migrated the application will make use of port 80 for HTTP and port 443 for HTTPS traffic. This is often a harmless issue as it is common in on premises deployments to make use of different ports in order to overcome the use of domain names, especially in development and test environments
--	Authentication – Web Apps supports Anonymous Authentication by default and Forms Authentication as identified by an application. Web Apps can offer Windows Authentication when the application is integrated with Azure Active Directory and ADFS only. This is a feature which is discussed in more detail [here](http://aka.ms/azurebizapp) 
--	GAC based assemblies – Web Apps does not allow the deployment of assemblies to the Global Assembly Cache (GAC). Therefore, if the application being migrated makes use of this feature on-premises, consider moving the assemblies to the bin folder of the application.
--	IIS5 Compatibility Mode – Web Apps does not support IIS5 Compatibility Mode, and as such each Web Apps instance and all web applications under the parent Web Apps instance run in the same worker process within a single application pool.
--	Use of COM Libraries – Web Apps does not allow the registration of COM Components on the platform. Therefore if the application is making use of any COM Components, these would need to be rewritten in managed code and deployed with the application.
--	ISAPI Filters – ISAPI Filters can be supported on Web Apps. They will need to be deployed as part of the application and registered in the web application's web.config file. For more information, see [http://aka.ms/azurewebsitesxdt](../web-sites-transform-extend/). 
+-   Port Bindings – Web Apps only supports port 80 for HTTP and port 443 for HTTPS traffic. If your application uses any other port, then once migrated the application will make use of port 80 for HTTP and port 443 for HTTPS traffic. This is often a harmless issue as it is common in on premises deployments to make use of different ports in order to overcome the use of domain names, especially in development and test environments
+-   Authentication – Web Apps supports Anonymous Authentication by default and Forms Authentication as identified by an application. Web Apps can offer Windows Authentication when the application is integrated with Azure Active Directory and ADFS only. This is a feature which is discussed in more detail [here](http://aka.ms/azurebizapp) 
+-   GAC based assemblies – Web Apps does not allow the deployment of assemblies to the Global Assembly Cache (GAC). Therefore, if the application being migrated makes use of this feature on-premises, consider moving the assemblies to the bin folder of the application.
+-   IIS5 Compatibility Mode – Web Apps does not support IIS5 Compatibility Mode, and as such each Web Apps instance and all web applications under the parent Web Apps instance run in the same worker process within a single application pool.
+-   Use of COM Libraries – Web Apps does not allow the registration of COM Components on the platform. Therefore if the application is making use of any COM Components, these would need to be rewritten in managed code and deployed with the application.
+-   ISAPI Filters – ISAPI Filters can be supported on Web Apps. They will need to be deployed as part of the application and registered in the web application's web.config file. For more information, see [http://aka.ms/azurewebsitesxdt](../web-sites-transform-extend/). 
 
 Once these topics have been considered, your web application should be ready for the Cloud. And don’t worry if some topics are not fully met, the migration tool will give best effort to migration. 
 
@@ -160,3 +160,4 @@ For more information on the Azure App Service Web Apps service, visit [http://ak
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
  
  
+

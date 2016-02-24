@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Work with a JavaScript backend mobile service" 
-	description="Provides examples on how to define, register, and use server scripts in Azure Mobile Services." 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="RickSaling" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="Work with a JavaScript backend mobile service" 
+    description="Provides examples on how to define, register, and use server scripts in Azure Mobile Services." 
+    services="mobile-services" 
+    documentationCenter="" 
+    authors="RickSaling" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="javascript" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="12/01/2015" 
-	ms.author="ricksal"/>
+    ms.service="mobile-services" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="javascript" 
+    ms.devlang="multiple" 
+    ms.topic="article" 
+    ms.date="12/01/2015" 
+    ms.author="ricksal"/>
 
 
 # Work with a JavaScript backend mobile service
@@ -53,22 +53,22 @@ The name of the script must match the kind of operation for which it is register
 
 You write table operation scripts if you need to enforce customized business logic when the operation is executed. For example, the following script rejects insert operations where the string length of the `text` field is greater than ten characters: 
 
-	function insert(item, user, request) {
-	    if (item.text.length > 10) {
-	        request.respond(statusCodes.BAD_REQUEST, 
-				'Text length must be less than 10 characters');
-	    } else {
-	        request.execute();
-	    }
-	}
+    function insert(item, user, request) {
+        if (item.text.length > 10) {
+            request.respond(statusCodes.BAD_REQUEST, 
+                'Text length must be less than 10 characters');
+        } else {
+            request.execute();
+        }
+    }
 
 A table script function always takes three arguments.
 
 - The first argument varies depending on the table operation. 
 
-	- For inserts and updates, it is an **item** object, which is a JSON representation of the row being affected by the operation. This allows you to access column values by name, for example, *item.Owner*, where *Owner* is one of the names in the JSON representation.
-	- For a delete, it is the ID of the record to delete. 
-	- And for a read, it is a [query object] that specifies the rowset to return.
+    - For inserts and updates, it is an **item** object, which is a JSON representation of the row being affected by the operation. This allows you to access column values by name, for example, *item.Owner*, where *Owner* is one of the names in the JSON representation.
+    - For a delete, it is the ID of the record to delete. 
+    - And for a read, it is a [query object] that specifies the rowset to return.
 
 - The second argument is always a [user object][User object] that represents the user that submitted the request. 
 
@@ -91,9 +91,9 @@ You can define server scripts that are registered to a table operation in one of
 
 + In the [Azure classic portal]. Scripts for table operations are accessed in the **Scripts** tab for a given table. The following shows the default code registered to the insert script for the `TodoItem` table. You can override this code with your own custom business logic.
 
-	![1][1]
-	
-	To learn how to do this, see [Validate and modify data in Mobile Services by using server scripts].  
+    ![1][1]
+    
+    To learn how to do this, see [Validate and modify data in Mobile Services by using server scripts].  
 
 + By using source control. When you have source control enabled, simply create a file named <em>`<table>`</em>.<em>`<operation>`</em>.js in the .\service\table subfolder in your git repository, where <em>`<table>`</em> is the name of the table and <em>`<operation>`</em> is the table operation being registered. For more information, see [Source control and shared code][Source control, shared code, and helper functions].
 
@@ -110,31 +110,31 @@ A table operation script must call at least one of the following functions of th
 
 The following script calls the **execute** function to complete the data operation requested by the client: 
 
-	function insert(item, user, request) { 
-	    request.execute(); 
-	}
+    function insert(item, user, request) { 
+        request.execute(); 
+    }
 
 In this example, the item is inserted into the database and the appropriate status code is returned to the user. 
 
 When the **execute** function is called, the `item`, [query][query object], or `id` value that was passed as the first argument into the script function is used to perform the operation. For an insert, update or query operation, you can modify the item or query before you call **execute**: 
 
-	function insert(item, user, request) { 
-	    item.scriptComment =
-			'this was added by a script and will be saved to the database'; 
-	    request.execute(); 
-	} 
+    function insert(item, user, request) { 
+        item.scriptComment =
+            'this was added by a script and will be saved to the database'; 
+        request.execute(); 
+    } 
  
-	function update(item, user, request) { 
-	    item.scriptComment = 
-			'this was added by a script and will be saved to the database'; 
-	    request.execute(); 
-	} 
+    function update(item, user, request) { 
+        item.scriptComment = 
+            'this was added by a script and will be saved to the database'; 
+        request.execute(); 
+    } 
 
-	function read(query, user, request) { 
-		// Only return records for the current user 	    
-		query.where({ userid: user.userId}); 
-	    request.execute(); 
-	}
+    function read(query, user, request) { 
+        // Only return records for the current user         
+        query.where({ userid: user.userId}); 
+        request.execute(); 
+    }
  
 >[AZURE.NOTE]In a delete script, changing the value of the supplied userId variable does not affect which record gets deleted.
 
@@ -145,14 +145,14 @@ For more examples, see [Read and write data], [Modify the request] and [Validate
 
 You can also use a script to implement validation logic that can override the default response behavior. If validation fails, just call the **respond** function instead of the **execute** function and write the response to the client: 
 
-	function insert(item, user, request) {
-	    if (item.userId !== user.userId) {
-	        request.respond(statusCodes.FORBIDDEN, 
-	        'You may only insert records with your userId.');
-	    } else {
-	        request.execute();
-	    }
-	}
+    function insert(item, user, request) {
+        if (item.userId !== user.userId) {
+            request.respond(statusCodes.FORBIDDEN, 
+            'You may only insert records with your userId.');
+        } else {
+            request.execute();
+        }
+    }
 
 In this example, the request is rejected when the inserted item does not have a `userId` property that matches the `userId` of the [user object] that's supplied for the authenticated client. In this case, a database operation (*insert*) does not occur, and a response that has a 403 HTTP status code and a custom error message is returned to the client. For more examples, see [Modify the response].
 
@@ -162,17 +162,17 @@ By default in a table operation, the **execute** function writes responses autom
 
 By passing in a **success** handler when you call execute, you can modify the results of a query before you write them to the response. The following example calls `execute({ success: function(results) { ... })` to perform additional work after data is read from the database but before the response is written:
 
-	function read(query, user, request) {
-	    request.execute({
-	        success: function(results) {
-	            results.forEach(function(r) {
-	                r.scriptComment = 
-	                'this was added by a script after querying the database';
-	            });
-	            request.respond();
-	        }
-	    });
-	}
+    function read(query, user, request) {
+        request.execute({
+            success: function(results) {
+                results.forEach(function(r) {
+                    r.scriptComment = 
+                    'this was added by a script after querying the database';
+                });
+                request.respond();
+            }
+        });
+    }
 
 When you provide a **success** handler to the **execute** function, you must also call the **respond** function as part of the **success** handler so that the runtime knows that the script has completed and that a response can be written. When you call **respond** without passing any arguments, Mobile Services generates the default response. 
 
@@ -184,14 +184,14 @@ The **execute** function can fail if there is a loss of connectivity to the data
 
 You can override the default error handling by implementing explicit error handling if you want a particular compensating action or when you want to use the global console object to write more detailed information to the log. Do this by supplying an **error** handler to the **execute** function:
 
-	function update(item, user, request) { 
-	  request.execute({ 
-	    error: function(err) { 
-	      // Do some custom logging, then call respond. 
-	      request.respond(); 
-	    } 
-	  }); 
-	}
+    function update(item, user, request) { 
+      request.execute({ 
+        error: function(err) { 
+          // Do some custom logging, then call respond. 
+          request.respond(); 
+        } 
+      }); 
+    }
  
 
 When you provide an error handler, Mobile Services returns an error result to the client when **respond** is called.
@@ -210,16 +210,16 @@ String IDs provide you with the following benefits:
 
 When a string ID value is not set on an inserted records, Mobile Services generates a unique value for the ID. You can generate your own unique ID values in server scripts. The script example below generates a custom GUID and assigns it to a new record's ID. This is similar to the id value that Mobile Services would generate if you didn't pass in a value for a record's ID.
 
-	// Example of generating an id. This is not required since Mobile Services
-	// will generate an id if one is not passed in.
-	item.id = item.id || newGuid();
-	request.execute();
+    // Example of generating an id. This is not required since Mobile Services
+    // will generate an id if one is not passed in.
+    item.id = item.id || newGuid();
+    request.execute();
 
-	function newGuid() {
-		var pad4 = function(str) { return "0000".substring(str.length) + str; };
-		var hex4 = function () { return pad4(Math.floor(Math.random() * 0x10000 /* 65536 */ ).toString(16)); };
-		return (hex4() + hex4() + "-" + hex4() + "-" + hex4() + "-" + hex4() + "-" + hex4() + hex4() + hex4());
-	}
+    function newGuid() {
+        var pad4 = function(str) { return "0000".substring(str.length) + str; };
+        var hex4 = function () { return pad4(Math.floor(Math.random() * 0x10000 /* 65536 */ ).toString(16)); };
+        return (hex4() + hex4() + "-" + hex4() + "-" + hex4() + "-" + hex4() + "-" + hex4() + hex4() + hex4());
+    }
 
 
 When an application provides a value for an ID, Mobile Services stores it as-is. This includes leading or trailing white spaces. White space are not trimmed from value.
@@ -239,76 +239,76 @@ When you send a request to your mobile service, you can include custom parameter
 
 For example, the following URI for a POST request tells the service to not permit the insertion of a new *TodoItem* that has the same text value:
 
-		https://todolist.azure-mobile.net/tables/TodoItem?duplicateText=false
+        https://todolist.azure-mobile.net/tables/TodoItem?duplicateText=false
 
 These custom query parameters are accessed as JSON values from the **parameters** property of the [request object]. The **request** object is supplied by Mobile Services to any function registered to a table operation. The following server script for the insert operation checks the value of the `duplicateText` parameter before the insert operation is run:
 
-		function insert(item, user, request) {
-		    var todoItemTable = tables.getTable('TodoItem');
-		    // Check the supplied custom parameter to see if
-		    // we should allow duplicate text items to be inserted.		   
-		    if (request.parameters.duplicateText === 'false') {
-		        // Find all existing items with the same text
-		        // and that are not marked 'complete'. 
-		        todoItemTable.where({
-		            text: item.text,
-		            complete: false
-		        }).read({
-		            success: insertItemIfNotComplete
-		        });
-		    } else {
-		        request.execute();
-		    }
+        function insert(item, user, request) {
+            var todoItemTable = tables.getTable('TodoItem');
+            // Check the supplied custom parameter to see if
+            // we should allow duplicate text items to be inserted.        
+            if (request.parameters.duplicateText === 'false') {
+                // Find all existing items with the same text
+                // and that are not marked 'complete'. 
+                todoItemTable.where({
+                    text: item.text,
+                    complete: false
+                }).read({
+                    success: insertItemIfNotComplete
+                });
+            } else {
+                request.execute();
+            }
 
-		    function insertItemIfNotComplete(existingItems) {
-		        if (existingItems.length > 0) {
-		            request.respond(statusCodes.CONFLICT, 
+            function insertItemIfNotComplete(existingItems) {
+                if (existingItems.length > 0) {
+                    request.respond(statusCodes.CONFLICT, 
                         "Duplicate items are not allowed.");
-		        } else {
-		            // Insert the item as normal. 
-		            request.execute();
-		        }
-		    }
-		}
+                } else {
+                    // Insert the item as normal. 
+                    request.execute();
+                }
+            }
+        }
 
 Note that in **insertItemIfNotComplete** the **execute** function of the [request object] is invoked to insert the item when there is no duplicate text; otherwise the **respond** function is invoked to notify the client of the duplicate. 
 
 Note the syntax of the call to the **success** function in the above code:
 
- 		        }).read({
-		            success: insertItemIfNotComplete
-		        });
+                }).read({
+                    success: insertItemIfNotComplete
+                });
 
 In JavaScript it is a compact version of the lengthier equivalent: 
 
-		success: function(results) 
-		{ 
-			insertItemIfNotComplete(results); 
-		}
+        success: function(results) 
+        { 
+            insertItemIfNotComplete(results); 
+        }
 
 
 ###<a name="work-with-users"></a>How to: Work with users
 
 In Azure Mobile Services, you can use an identity provider to authenticate users. For more information, see [Get started with authentication]. When an authenticated user invokes a table operation, Mobile Services uses the [user object] to supply information about the user to the registered script function. The **userId** property can be used to store and retrieve user-specific information. The following example sets the owner property of an item based on the **userId** of an authenticated user:
 
-	function insert(item, user, request) {
-	    item.owner = user.userId;
-	    request.execute();
-	}
+    function insert(item, user, request) {
+        item.owner = user.userId;
+        request.execute();
+    }
 
 The next example adds an additional filter to the query based on the **userId** of an authenticated user. This filter restricts the result to only items that belong to the current user:  
 
-	function read(query, user, request) {
-	    query.where({
-	        owner: user.userId
-	    });
-	    request.execute();
-	}
+    function read(query, user, request) {
+        query.where({
+            owner: user.userId
+        });
+        request.execute();
+    }
 
 ##<a name="custom-api"></a>Custom APIs
 
 This section describes how you create and work with custom API endpoints, which includes the following sections: 
-	
+    
 + [Overview of custom APIs](#custom-api-overview)
 + [How to: Define a custom API]
 + [How to: Implement HTTP methods]
@@ -322,13 +322,13 @@ A custom API is an endpoint in your mobile service that is accessed by one or mo
 
 When custom API functions are called by the Mobile Services runtime, both a [request][request object] and [response][response object] object are supplied. These objects expose the functionality of the [express.js library], which can be leveraged by your scripts. The following custom API named **hello** is a very simple example that returns _Hello, world!_ in response to a POST request:
 
-		exports.post = function(request, response) {
-		    response.send(200, "{ message: 'Hello, world!' }");
-		} 
+        exports.post = function(request, response) {
+            response.send(200, "{ message: 'Hello, world!' }");
+        } 
 
 The **send** function on the [response object] returns your desired response to the client. This code is invoked by sending a POST request to the following URL:
 
-		https://todolist.azure-mobile.net/api/hello  
+        https://todolist.azure-mobile.net/api/hello  
 
 The global state is maintained between executions. 
 
@@ -338,9 +338,9 @@ You can define server scripts that are registered to HTTP methods in a custom AP
 
 + In the [Azure classic portal]. Custom API scripts are created and modified in the **API** tab. The server script code is in the **Scripts** tab of a given custom API. The following shows the script that is invoked by a POST request to the `CompleteAll` custom API endpoint. 
 
-	![2][2]
-	
-	Access permissions to custom API methods are assigned in the Permissions tab. To see how this custom API was created, see [Call a custom API from the client].  
+    ![2][2]
+    
+    Access permissions to custom API methods are assigned in the Permissions tab. To see how this custom API was created, see [Call a custom API from the client].  
 
 + By using source control. When you have source control enabled, simply create a file named <em>`<custom_api>`</em>.js in the .\service\api subfolder in your git repository, where <em>`<custom_api>`</em> is the name of the custom API being registered. This script file contains an _exported_ function for each HTTP method exposed by the custom API. Permissions are defined in a companion .json file. For more information, see [Source control and shared code][Source control, shared code, and helper functions].
 
@@ -350,11 +350,11 @@ You can define server scripts that are registered to HTTP methods in a custom AP
 
 A custom API can handle one or more of the HTTP methods, GET, POST, PUT, PATCH, and DELETE. An exported function is defined for each HTTP method handled by the custom API. A single custom API code file can export one or all of the following functions:
 
-		exports.get = function(request, response) { ... };
-		exports.post = function(request, response) { ... };
-		exports.patch = function(request, response) { ... };
-		exports.put = function(request, response) { ... };
-		exports.delete = function(request, response) { ... };
+        exports.get = function(request, response) { ... };
+        exports.post = function(request, response) { ... };
+        exports.patch = function(request, response) { ... };
+        exports.put = function(request, response) { ... };
+        exports.delete = function(request, response) { ... };
 
 The custom API endpoint cannot be called using an HTTP method that has not been implemented in the server script, and a 405 (Method Not Allowed) error response is returned. Separate permission levels can be assigned to each support HTTP method.
 
@@ -364,15 +364,15 @@ When clients store and retrieve data, Mobile Services uses JavaScript Object Not
 
 The following **OrderPizza** custom API function returns a simple XML document as the response payload:
 
-		exports.get = function(request, response) {
-		  response.set('content-type', 'application/xml');
-		  var xml = '<?xml version="1.0"?><PizzaOrderForm><PizzaOrderForm/>';
-		  response.send(200, xml);
-		};
+        exports.get = function(request, response) {
+          response.set('content-type', 'application/xml');
+          var xml = '<?xml version="1.0"?><PizzaOrderForm><PizzaOrderForm/>';
+          response.send(200, xml);
+        };
 
 This custom API function is invoked by an HTTP GET request to the following endpoint:
 
-		https://todolist.azure-mobile.net/api/orderpizza
+        https://todolist.azure-mobile.net/api/orderpizza
 
 ###<a name="get-api-user"></a>How to: Work with users and headers in a custom API
 
@@ -380,28 +380,28 @@ In Azure Mobile Services, you can use an identity provider to authenticate users
 
 The following **OrderPizza** custom API function sets the owner property of an item based on the **userId** of an authenticated user:
 
-		exports.post = function(request, response) {
-			var userTable = request.service.tables.getTable('user');
-			userTable.lookup(request.user.userId, {
-				success: function(userRecord) {
-					callPizzaAPI(userRecord, request.body, function(orderResult) {
-						response.send(201, orderResult);
-					});
-				}
-			});
-		
-		};
+        exports.post = function(request, response) {
+            var userTable = request.service.tables.getTable('user');
+            userTable.lookup(request.user.userId, {
+                success: function(userRecord) {
+                    callPizzaAPI(userRecord, request.body, function(orderResult) {
+                        response.send(201, orderResult);
+                    });
+                }
+            });
+        
+        };
 
 This custom API function is invoked by an HTTP POST request to the following endpoint:
 
-		https://<service>.azure-mobile.net/api/orderpizza
+        https://<service>.azure-mobile.net/api/orderpizza
 
 You can also access a specific HTTP header from the [request object], as shown in the following code:
 
-		exports.get = function(request, response) {    
-    		var header = request.header('my-custom-header');
-    		response.send(200, "You sent: " + header);
-		};
+        exports.get = function(request, response) {    
+            var header = request.header('my-custom-header');
+            response.send(200, "You sent: " + header);
+        };
 
 This simple example reads a custom header named `my-custom-header`, then returns the value in the response.
 
@@ -414,20 +414,20 @@ Mobile Services enables you to define multiple paths, or routes, in a custom API
 
 Multiple routes are defined by exporting a **register** function, which is passed an **api** object (similar to the [express object in express.js]) that is used to register routes under the custom API endpoint. The following example implements the **add** and **sub** methods in the **calculator** custom API: 
 
-		exports.register = function (api) {
-		    api.get('add', add);
-		    api.get('sub', subtract);
-		}
-		
-		function add(req, res) {
-		    var result = parseInt(req.query.a) + parseInt(req.query.b);
-		    res.send(200, { result: result });
-		}
-		
-		function subtract(req, res) {
-		    var result = parseInt(req.query.a) - parseInt(req.query.b);
-		    res.send(200, { result: result });
-		}
+        exports.register = function (api) {
+            api.get('add', add);
+            api.get('sub', subtract);
+        }
+        
+        function add(req, res) {
+            var result = parseInt(req.query.a) + parseInt(req.query.b);
+            res.send(200, { result: result });
+        }
+        
+        function subtract(req, res) {
+            var result = parseInt(req.query.a) - parseInt(req.query.b);
+            res.send(200, { result: result });
+        }
 
 The **api** object passed to the **register** function exposes a function for each HTTP method (**get**, **post**, **put**, **patch**, **delete**). These functions register a route to a defined function for a specific HTTP method. Each function takes two parameters, the first is the route name and the second is the function registered to the route. 
 
@@ -435,11 +435,11 @@ The two routes in the above custom API example can be invoked by HTTP GET reques
 
 + `https://<service>.azure-mobile.net/api/calculator/add?a=1&b=2`
 
-		{"result":3}
+        {"result":3}
 
 + `https://<service>.azure-mobile.net/api/calculator/sub?a=3&b=5`
 
-		{"result":-2}
+        {"result":-2}
 
 ##<a name="scheduler-scripts"></a>Job Scheduler
 
@@ -455,9 +455,9 @@ You define scheduled jobs in one of the following ways:
 
 + In the [Azure classic portal] in the **Script** tab in the scheduler:
 
-	![3][3]
+    ![3][3]
 
-	For more information about how to do this, see [Schedule backend jobs in Mobile Services]. 
+    For more information about how to do this, see [Schedule backend jobs in Mobile Services]. 
 
 + From the command prompt by using the Azure command line tool. For more information, see [Using the command line tool].
 
@@ -493,12 +493,12 @@ The following are just some of the more useful modules that can be leveraged in 
 
 Mobile Services exposes a set of modules that scripts can load by using the global **require** function. For example, a script can require **request** to make HTTP requests: 
 
-	function update(item, user, request) { 
-	    var httpRequest = require('request'); 
-	    httpRequest('http://www.google.com', function(err, response, body) { 
-	    	... 
-	    }); 
-	} 
+    function update(item, user, request) { 
+        var httpRequest = require('request'); 
+        httpRequest('http://www.google.com', function(err, response, body) { 
+            ... 
+        }); 
+    } 
 
 
 ###<a name="shared-code-source-control"></a>How to: Share code by using source control
@@ -509,7 +509,7 @@ You can use source control with the Node.js package manager (npm) to control whi
 
 + For private or custom modules, you can use npm to manually install the module into the `.\service\node_modules` directory of your source control. For an example of how to manually upload a module, see [Leverage shared code and Node.js modules in your server scripts].
 
-	>[AZURE.NOTE]When `node_modules` already exists in the directory hierarchy, NPM will create the `\node-uuid` subdirectory there instead of creating a new `node_modules` in the repository. In this case, just delete the existing `node_modules` directory.
+    >[AZURE.NOTE]When `node_modules` already exists in the directory hierarchy, NPM will create the `\node-uuid` subdirectory there instead of creating a new `node_modules` in the repository. In this case, just delete the existing `node_modules` directory.
 
 After you commit the package.json file or custom modules to the repository for your mobile service, use **require** to reference the modules by name.   
 
@@ -522,39 +522,39 @@ In addition to requiring modules, individual server scripts can include helper f
 In the following example, a table script is registered to the insert operation, which includes the helper function **handleUnapprovedItem**:
 
 
-	function insert(item, user, request) {
-	    if (!item.approved) {
-	        handleUnapprovedItem(item, user, request);
-	    } else {
-	        request.execute();
-	    }
-	}
-	
-	function handleUnapprovedItem(item, user, request) {
-	    // Do something with the supplied item, user, or request objects.
-	}
+    function insert(item, user, request) {
+        if (!item.approved) {
+            handleUnapprovedItem(item, user, request);
+        } else {
+            request.execute();
+        }
+    }
+    
+    function handleUnapprovedItem(item, user, request) {
+        // Do something with the supplied item, user, or request objects.
+    }
  
 In a script, helper functions must be declared after the main function. You must declare all variables in your script. Undeclared variables cause an error.
 
 Helper functions can also be defined once and shared between server scripts. To share a function between scripts, functions must be exported and the script file must exist in the `.\service\shared\` directory. The following is a template for how to export a shared function in a file `.\services\shared\helpers.js`:
 
-		exports.handleUnapprovedItem = function (tables, user, callback) {
-		    
-		    // Do something with the supplied tables or user objects and 
-			// return a value to the callback function.
-		};
+        exports.handleUnapprovedItem = function (tables, user, callback) {
+            
+            // Do something with the supplied tables or user objects and 
+            // return a value to the callback function.
+        };
  
 You can then use a function like this in a table operation script:
 
-		function insert(item, user, request) {
-		    var helper = require('../shared/helper');
-		    helper.handleUnapprovedItem(tables, user, function(result) {
-		        	
-					// Do something based on the result.
-		            request.execute();
-		        }
-		    }
-		}
+        function insert(item, user, request) {
+            var helper = require('../shared/helper');
+            helper.handleUnapprovedItem(tables, user, function(result) {
+                    
+                    // Do something based on the result.
+                    request.execute();
+                }
+            }
+        }
 
 In this example, you must pass both a [tables object] and a [user object] to the shared function. This is because shared scripts cannot access the global [tables object], and the [user object] only exists in the context of a request.
 
@@ -566,27 +566,27 @@ Mobile Services enables you to securely store values as app settings, which can 
 
 The following custom API example uses the supplied [service object] to retrieve an app setting value.  
 
-		exports.get = function(request, response) {
-		
-			// Get the MY_CUSTOM_SETTING value from app settings.
-		    var customSetting = 
-		        request.service.config.appSettings.my_custom_setting;
-				
-			// Do something and then send a response.
+        exports.get = function(request, response) {
+        
+            // Get the MY_CUSTOM_SETTING value from app settings.
+            var customSetting = 
+                request.service.config.appSettings.my_custom_setting;
+                
+            // Do something and then send a response.
 
-		}
+        }
 
 The following code uses the configuration module to retrieve Twitter access token values, stored in app settings, that are used in a scheduled job script:
 
-		// Get the service configuration module.
-		var config = require('mobileservice-config');
+        // Get the service configuration module.
+        var config = require('mobileservice-config');
 
-		// Get the stored Twitter consumer key and secret. 
-		var consumerKey = config.twitterConsumerKey,
-		    consumerSecret = config.twitterConsumerSecret
-		// Get the Twitter access token from app settings.    
-		var accessToken= config.appSettings.TWITTER_ACCESS_TOKEN,
-		    accessTokenSecret = config.appSettings.TWITTER_ACCESS_TOKEN_SECRET;
+        // Get the stored Twitter consumer key and secret. 
+        var consumerKey = config.twitterConsumerKey,
+            consumerSecret = config.twitterConsumerSecret
+        // Get the Twitter access token from app settings.    
+        var accessToken= config.appSettings.TWITTER_ACCESS_TOKEN,
+            accessTokenSecret = config.appSettings.TWITTER_ACCESS_TOKEN_SECRET;
 
 Note that this code also retrieves Twitter consumer key values stored in the **Identity** tab in the portal. Because a **config object** is not available in table operation and scheduled job scripts, you must require the configuration module to access app settings. For a complete example, see [Schedule backend jobs in Mobile Services].
 
@@ -600,36 +600,36 @@ Note that this directory structure is the same as the git repository when using 
 
 When uploading script files from the command line tool, you must first navigate to the `.\services\` directory. The following command uploads a script named `todoitem.insert.js` from the `table` subdirectory:
 
-		~$azure mobile script upload todolist table/todoitem.insert.js
-		info:    Executing command mobile script upload
-		info:    mobile script upload command OK
+        ~$azure mobile script upload todolist table/todoitem.insert.js
+        info:    Executing command mobile script upload
+        info:    mobile script upload command OK
 
 The following command returns information about every script file maintained in your mobile service:
 
-		~$ azure mobile script list todolist
-		info:    Executing command mobile script list
-		+ Retrieving script information
-		info:    Table scripts
-		data:    Name                       Size
-		data:    -------------------------  ----
-		data:    table/channels.insert      1980
-		data:    table/TodoItem.insert      5504
-		data:    table/TodoItem.read        64
-		info:    Shared scripts
-		data:    Name              Size
-		data:    ----------------  ----
-		data:    shared/helper.js  62
-		data:    shared/uuid.js    7452
-		info:    Scheduled job scripts
-		data:    Job name    Script name           Status    Interval     Last run  Next run
-		data:    ----------  --------------------  --------  -----------  --------  --------
-		data:    getUpdates  scheduler/getUpdates  disabled  15 [minute]  N/A       N/A
-		info:    Custom API scripts
-		data:    Name                    Get          Put          Post         Patch        Delete
-		data:    ----------------------  -----------  -----------  -----------  -----------  -----------
-		data:    completeall             application  application  application  application  application
-		data:    register_notifications  application  application  user         application  application
-		info:    mobile script list command OK
+        ~$ azure mobile script list todolist
+        info:    Executing command mobile script list
+        + Retrieving script information
+        info:    Table scripts
+        data:    Name                       Size
+        data:    -------------------------  ----
+        data:    table/channels.insert      1980
+        data:    table/TodoItem.insert      5504
+        data:    table/TodoItem.read        64
+        info:    Shared scripts
+        data:    Name              Size
+        data:    ----------------  ----
+        data:    shared/helper.js  62
+        data:    shared/uuid.js    7452
+        info:    Scheduled job scripts
+        data:    Job name    Script name           Status    Interval     Last run  Next run
+        data:    ----------  --------------------  --------  -----------  --------  --------
+        data:    getUpdates  scheduler/getUpdates  disabled  15 [minute]  N/A       N/A
+        info:    Custom API scripts
+        data:    Name                    Get          Put          Post         Patch        Delete
+        data:    ----------------------  -----------  -----------  -----------  -----------  -----------
+        data:    completeall             application  application  application  application  application
+        data:    register_notifications  application  application  user         application  application
+        info:    mobile script list command OK
 
 For more information, see [Commands to manage Azure Mobile Services]. 
 
@@ -655,55 +655,55 @@ The easiest way to access tables from your script is by using the [tables object
 
 Scripts registered to both table operations and scheduled jobs can access the [tables object] as a global object. This line of code gets a proxy for the *TodoItems* table from the global [tables object]: 
 
-		var todoItemsTable = tables.getTable('TodoItems');
+        var todoItemsTable = tables.getTable('TodoItems');
 
 Custom API scripts can access the [tables object] from the <strong>service</strong> property of the supplied [request object]. This line of code gets [tables object] from the request:
 
-		var todoItemsTable = request.service.tables.getTable('TodoItem');
+        var todoItemsTable = request.service.tables.getTable('TodoItem');
 
 > [AZURE.NOTE] Shared functions cannot access the **tables** object directly. In a shared function, you must pass the tables object to the function.
 
 Once you have a [table object], you can call one or more table operation functions: insert, update, delete or read. This example reads user permissions from a permissions table:
 
-	function insert(item, user, request) {
-		var permissionsTable = tables.getTable('permissions');
-	
-		permissionsTable
-			.where({ userId: user.userId, permission: 'submit order'})
-			.read({ success: checkPermissions });
-			
-		function checkPermissions(results) {
-			if(results.length > 0) {
-				// Permission record was found. Continue normal execution.
-				request.execute();
-			} else {
-				console.log('User %s attempted to submit an order without permissions.', user.userId);
-				request.respond(statusCodes.FORBIDDEN, 'You do not have permission to submit orders.');
-			}
-		}
-	}
+    function insert(item, user, request) {
+        var permissionsTable = tables.getTable('permissions');
+    
+        permissionsTable
+            .where({ userId: user.userId, permission: 'submit order'})
+            .read({ success: checkPermissions });
+            
+        function checkPermissions(results) {
+            if(results.length > 0) {
+                // Permission record was found. Continue normal execution.
+                request.execute();
+            } else {
+                console.log('User %s attempted to submit an order without permissions.', user.userId);
+                request.respond(statusCodes.FORBIDDEN, 'You do not have permission to submit orders.');
+            }
+        }
+    }
 
 The next example writes auditing information to an **audit** table:
 
-	function update(item, user, request) {
-		request.execute({ success: insertAuditEntry });
-		
-		function insertAuditEntry() {
-			var auditTable = tables.getTable('audit');
-			var audit = {
-				record: 'checkins',
-				recordId: item.id,
-				timestamp: new Date(),
-				values: JSON.stringify(item)
-			};
-			auditTable.insert(audit, {
-				success: function() {
-					// Write to the response now that all data operations are complete
-					request.respond();
-				}
-			});
-		}
-	}
+    function update(item, user, request) {
+        request.execute({ success: insertAuditEntry });
+        
+        function insertAuditEntry() {
+            var auditTable = tables.getTable('audit');
+            var audit = {
+                record: 'checkins',
+                recordId: item.id,
+                timestamp: new Date(),
+                values: JSON.stringify(item)
+            };
+            auditTable.insert(audit, {
+                success: function() {
+                    // Write to the response now that all data operations are complete
+                    request.respond();
+                }
+            });
+        }
+    }
 
 A final example is in the code sample here: [How to: Access custom parameters][How to: Add custom parameters].
 
@@ -713,46 +713,46 @@ If you use a **for** or **while** loop to directly insert a large number of item
 
 By using the following script, you can set the size of a batch of records to insert in parallel. We recomend that you keep the number of records small. The function **insertItems** calls itself recursively when an async insert batch has completed. The for loop at the end inserts one record at a time, and calls **insertComplete** on success and **errorHandler** on error. **insertComplete**  controls whether **insertItems** will be called recursively for the next batch, or whether the job is done and the script should exit.
 
-		var todoTable = tables.getTable('TodoItem');
-		var recordsToInsert = 1000;
-		var batchSize = 10; 
-		var totalCount = 0;
-		var errorCount = 0; 
-		
-		function insertItems() {        
-		    var batchCompletedCount = 0;  
-		
-		    var insertComplete = function() { 
-		        batchCompletedCount++; 
-		        totalCount++; 
-		        if(batchCompletedCount === batchSize || totalCount === recordsToInsert) {                        
-		            if(totalCount < recordsToInsert) {
-		                // kick off the next batch 
-		                insertItems(); 
-		            } else { 
-		                // or we are done, report the status of the job 
-		                // to the log and don't do any more processing 
-		                console.log("Insert complete. %d Records processed. There were %d errors.", totalCount, errorCount); 
-		            } 
-		        } 
-		    }; 
-		
-		    var errorHandler = function(err) { 
-		        errorCount++; 
-		        console.warn("Ignoring insert failure as part of batch.", err); 
-		        insertComplete(); 
-		    };
-		
-		    for(var i = 0; i < batchSize; i++) { 
-		        var item = { text: "This is item number: " + totalCount + i }; 
-		        todoTable.insert(item, { 
-		            success: insertComplete, 
-		            error: errorHandler 
-		        }); 
-		    } 
-		} 
-		
-		insertItems(); 
+        var todoTable = tables.getTable('TodoItem');
+        var recordsToInsert = 1000;
+        var batchSize = 10; 
+        var totalCount = 0;
+        var errorCount = 0; 
+        
+        function insertItems() {        
+            var batchCompletedCount = 0;  
+        
+            var insertComplete = function() { 
+                batchCompletedCount++; 
+                totalCount++; 
+                if(batchCompletedCount === batchSize || totalCount === recordsToInsert) {                        
+                    if(totalCount < recordsToInsert) {
+                        // kick off the next batch 
+                        insertItems(); 
+                    } else { 
+                        // or we are done, report the status of the job 
+                        // to the log and don't do any more processing 
+                        console.log("Insert complete. %d Records processed. There were %d errors.", totalCount, errorCount); 
+                    } 
+                } 
+            }; 
+        
+            var errorHandler = function(err) { 
+                errorCount++; 
+                console.warn("Ignoring insert failure as part of batch.", err); 
+                insertComplete(); 
+            };
+        
+            for(var i = 0; i < batchSize; i++) { 
+                var item = { text: "This is item number: " + totalCount + i }; 
+                todoTable.insert(item, { 
+                    success: insertComplete, 
+                    error: errorHandler 
+                }); 
+            } 
+        } 
+        
+        insertItems(); 
 
 
 The entire code sample, and accompanying discussion, can be found in this [blog posting](http://blogs.msdn.com/b/jpsanders/archive/2013/03/20/server-script-to-insert-table-items-in-windows-azure-mobile-services.aspx). If you use this code, you can adapt it to your specific situation, and thoroughly test it.
@@ -796,110 +796,110 @@ These methods give you increasingly more low-level control over the query proces
 + [How to: Run a dynamic query]
 + [How to: Join relational tables]
 + [How to: Run a query that returns *raw* results]
-+ [How to: Get access to a database connection]	
++ [How to: Get access to a database connection] 
 
 ####<a name="static-query"></a>How to: Run a static query
 
 The following query has no parameters and returns three records from the `statusupdate` table. The rowset is in standard JSON format.
 
-		mssql.query('select top 3 * from statusupdates', {
-		    success: function(results) {
-		        console.log(results);
-		    },
+        mssql.query('select top 3 * from statusupdates', {
+            success: function(results) {
+                console.log(results);
+            },
             error: function(err) {
                 console.log("error is: " + err);
-			}
-		});
+            }
+        });
 
 
 ####<a name="dynamic-query"></a>How to: Run a dynamic parameterized query
 
 The following example implements custom authorization by reading permissions for each user from the permissions table. The placeholder (?) is replaced with the supplied parameter when the query is executed.
 
-		    var sql = "SELECT _id FROM permissions WHERE userId = ? AND permission = 'submit order'";
-		    mssql.query(sql, [user.userId], {
-		        success: function(results) {
-		            if (results.length > 0) {
-		                // Permission record was found. Continue normal execution. 
-		                request.execute();
-		            } else {
-		                console.log('User %s attempted to submit an order without permissions.', user.userId);
-		                request.respond(statusCodes.FORBIDDEN, 'You do not have permission to submit orders.');
-		            }
-		        },
-            	error: function(err) {
-                	console.log("error is: " + err);
-				}	
-		    });
+            var sql = "SELECT _id FROM permissions WHERE userId = ? AND permission = 'submit order'";
+            mssql.query(sql, [user.userId], {
+                success: function(results) {
+                    if (results.length > 0) {
+                        // Permission record was found. Continue normal execution. 
+                        request.execute();
+                    } else {
+                        console.log('User %s attempted to submit an order without permissions.', user.userId);
+                        request.respond(statusCodes.FORBIDDEN, 'You do not have permission to submit orders.');
+                    }
+                },
+                error: function(err) {
+                    console.log("error is: " + err);
+                }   
+            });
 
 
 ####<a name="joins"></a>How to: Join relational tables
 
 You can join two tables by using the **query** method of the [mssql object] to pass in the TSQL code that implements the join. Let's assume we have some items in our **ToDoItem** table and each item in the table has a **priority** property, which corresponds to a column in the table. An item may look like this:
 
-		{ text: 'Take out the trash', complete: false, priority: 1}
+        { text: 'Take out the trash', complete: false, priority: 1}
 
 Let's also assume we have an additional table called **Priority** with rows that contain a priority **number** and a text **description**. For example, the priority number 1 might have the description of "Critical", with the object looking as follows:
 
-		{ number: 1, description: 'Critical'}
+        { number: 1, description: 'Critical'}
 
 We can now replace the **priority** number in our item with the text description of the priority number. We do this with a relational join of the two tables.
 
-		mssql.query('SELECT t.text, t.complete, p.description FROM ToDoItem as t INNER JOIN Priority as p ON t.priority = p.number', {
-			success: function(results) {
-				console.log(results);
-			},
+        mssql.query('SELECT t.text, t.complete, p.description FROM ToDoItem as t INNER JOIN Priority as p ON t.priority = p.number', {
+            success: function(results) {
+                console.log(results);
+            },
             error: function(err) {
                 console.log("error is: " + err);
-		});
-	
+        });
+    
 The script joins the two tables and writes the results to the log. The resulting objects could look like this:
 
-		{ text: 'Take out the trash', complete: false, description: 'Critical'}
+        { text: 'Take out the trash', complete: false, description: 'Critical'}
 
 
 ####<a name="raw"></a>How to: Run a query that returns *raw* results
 
 This example executes the query, as before, but returns the resultset in "raw" format which requires you to parse it, row by row, and column by column. A possible scenario for this is if you need access to data types that Mobile Services does not support. This code simply writes the output to the console log so you can inspect the raw format.
 
-		mssql.queryRaw('SELECT * FROM ToDoItem', {
-		    success: function(results) {
-		        console.log(results);
-		    },
+        mssql.queryRaw('SELECT * FROM ToDoItem', {
+            success: function(results) {
+                console.log(results);
+            },
             error: function(err) {
                 console.log("error is: " + err);
-			}
-		});
+            }
+        });
 
 Here is the output from running this query. It contains metadata about each column in the table, followed by a representation of the rows and columns.
 
-		{ meta: 
-		   [ { name: 'id',
-		       size: 19,
-		       nullable: false,
-		       type: 'number',
-		       sqlType: 'bigint identity' },
-		     { name: 'text',
-		       size: 0,
-		       nullable: true,
-		       type: 'text',
-		       sqlType: 'nvarchar' },
-		     { name: 'complete',
-		       size: 1,
-		       nullable: true,
-		       type: 'boolean',
-		       sqlType: 'bit' },
-		     { name: 'priority',
-		       size: 53,
-		       nullable: true,
-		       type: 'number',
-		       sqlType: 'float' } ],
-		  rows: 
-		   [ [ 1, 'good idea for the future', null, 3 ],
-		     [ 2, 'this is important but not so much', null, 2 ],
-		     [ 3, 'fix this bug now', null, 0 ],
-		     [ 4, 'we need to fix this one real soon now', null, 1 ],
-		   ] }
+        { meta: 
+           [ { name: 'id',
+               size: 19,
+               nullable: false,
+               type: 'number',
+               sqlType: 'bigint identity' },
+             { name: 'text',
+               size: 0,
+               nullable: true,
+               type: 'text',
+               sqlType: 'nvarchar' },
+             { name: 'complete',
+               size: 1,
+               nullable: true,
+               type: 'boolean',
+               sqlType: 'bit' },
+             { name: 'priority',
+               size: 53,
+               nullable: true,
+               type: 'number',
+               sqlType: 'float' } ],
+          rows: 
+           [ [ 1, 'good idea for the future', null, 3 ],
+             [ 2, 'this is important but not so much', null, 2 ],
+             [ 3, 'fix this bug now', null, 0 ],
+             [ 4, 'we need to fix this one real soon now', null, 1 ],
+           ] }
 
 ####<a name="connection"></a>How to: Get access to a database connection
 
@@ -907,14 +907,14 @@ You can use the **open** method to get access to the database connection. One re
 
 Successful execution of the **open** causes the database connection to be passed into the **success** function as a parameter. You can invoke any of the following functions on the **connection** object: *close*, *queryRaw*, *query*, *beginTransaction*, *commit*, and *rollback*.
 
-		    mssql.open({
-		        success: function(connection) {
-		            connection.query(//query to execute);
-		        },
-	            error: function(err) {
-	                console.log("error is: " + err);
-				}
-		    });
+            mssql.open({
+                success: function(connection) {
+                    connection.query(//query to execute);
+                },
+                error: function(err) {
+                    console.log("error is: " + err);
+                }
+            });
 
 ##<a name="debugging"></a>Debugging and troubleshooting
 
@@ -928,10 +928,10 @@ To write to the logs, use the global [console object]. Use the **log** or **info
 
 You can also use the logging functions of the [console object] to format your messages using parameters. The following example supplies a JSON object as a parameter to the message string:
 
-	function insert(item, user, request) {
-	    console.log("Inserting item '%j' for user '%j'.", item, user);  
-	    request.execute();
-	}
+    function insert(item, user, request) {
+        console.log("Inserting item '%j' for user '%j'.", item, user);  
+        request.execute();
+    }
 
 Notice that the string `%j` is used as the placeholder for a JSON object and that parameters are supplied in sequential order. 
 
@@ -1041,3 +1041,4 @@ To avoid overloading your log, you should remove or disable calls to console.log
 [config module]: http://msdn.microsoft.com/library/dn508125.aspx
 [Support for package.json in Azure Mobile Services]: http://go.microsoft.com/fwlink/p/?LinkId=391036
  
+

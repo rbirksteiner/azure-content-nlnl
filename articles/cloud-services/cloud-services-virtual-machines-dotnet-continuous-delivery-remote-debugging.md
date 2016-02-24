@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Enable remote debugging with continuous delivery | Microsoft Azure"
-	description="Learn how to enable remote debugging when using continuous delivery to deploy to Azure"
-	services="cloud-services"
-	documentationCenter=".net"
-	authors="TomArcher"
-	manager="douge"
-	editor=""/>
+    pageTitle="Enable remote debugging with continuous delivery | Microsoft Azure"
+    description="Learn how to enable remote debugging when using continuous delivery to deploy to Azure"
+    services="cloud-services"
+    documentationCenter=".net"
+    authors="TomArcher"
+    manager="douge"
+    editor=""/>
 
 <tags
-	ms.service="cloud-services"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-multiple"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="10/19/2015"
-	ms.author="tarcher"/>
+    ms.service="cloud-services"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-multiple"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="10/19/2015"
+    ms.author="tarcher"/>
 # Enable remote debugging when using continuous delivery to publish to Azure
 
 You can enable remote debugging in Azure, for cloud services or virtual machines, when you use [continuous delivery](cloud-services-dotnet-continuous-delivery.md) to publish to Azure by following these steps.
@@ -26,9 +26,9 @@ You can enable remote debugging in Azure, for cloud services or virtual machines
 3. Create a certificate as outlined in [Certificates Overview for Azure Cloud Services](cloud-services-certs-create.md). Keep the .pfx and RDP certificate thumbprint and upload the certificate to the target cloud service.
 4. Use the following options in the MSBuild command line to build and package with remote debug enabled. (Substitute actual paths to your system and project files for the angle-bracketed items.)
 
-		msbuild /TARGET:PUBLISH /PROPERTY:Configuration=Debug;EnableRemoteDebugger=true;VSX64RemoteDebuggerPath="<remote tools path>";RemoteDebuggerConnectorCertificateThumbprint="<thumbprint of the certificate added to the cloud service>";RemoteDebuggerConnectorVersion="2.7" "<path to your VS solution file>"
+        msbuild /TARGET:PUBLISH /PROPERTY:Configuration=Debug;EnableRemoteDebugger=true;VSX64RemoteDebuggerPath="<remote tools path>";RemoteDebuggerConnectorCertificateThumbprint="<thumbprint of the certificate added to the cloud service>";RemoteDebuggerConnectorVersion="2.7" "<path to your VS solution file>"
 
-	`VSX64RemoteDebuggerPath` is the path to the folder containing msvsmon.exe in the Remote Tools for Visual Studio.
+    `VSX64RemoteDebuggerPath` is the path to the folder containing msvsmon.exe in the Remote Tools for Visual Studio.
 
 5. Publish to the target cloud service by using the package and .cscfg file generated in the previous step.
 6. Import the certificate (.pfx file) to the machine that has Visual Studio with Azure SDK for .NET installed.
@@ -41,9 +41,9 @@ You can enable remote debugging in Azure, for cloud services or virtual machines
 4. Install Azure Powershell (version 0.7.4 or later) as outlined in [How to install and configure Azure PowerShell](powershell-install-configure.md).
 5. Run the following script to enable the RemoteDebug extension. Replace the paths and personal data with your own, such as your subscription name, service name, and thumbprint.
 
-	>[AZURE.NOTE] This script is configured for Visual Studio 2015. If you’re using Visual Studio 2013, use "RemoteDebugVS2013" for ReferenceName and ExtensionName.
+    >[AZURE.NOTE] This script is configured for Visual Studio 2015. If you’re using Visual Studio 2013, use "RemoteDebugVS2013" for ReferenceName and ExtensionName.
 
-	<pre>
+    <pre>
     Add-AzureAccount
 
     Select-AzureSubscription "My Microsoft Subscription"
@@ -86,6 +86,7 @@ You can enable remote debugging in Azure, for cloud services or virtual machines
     }
 
     $vm | Update-AzureVM
-	</pre>
+    </pre>
 
 6. Import the certificate (.pfx) to the machine that has Visual Studio with Azure SDK for .NET installed.
+

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Send personalized notification with Azure Mobile Engagement" 
-	description="How to send personalized notifications by including user profile information in the notifications like their names"		
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
-	editor="" />
+    pageTitle="Send personalized notification with Azure Mobile Engagement" 
+    description="How to send personalized notifications by including user profile information in the notifications like their names"        
+    services="mobile-engagement" 
+    documentationCenter="mobile" 
+    authors="piyushjo" 
+    manager="dwrede" 
+    editor="" />
 
 <tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="all" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/07/2015" 
-	ms.author="piyushjo" />
+    ms.service="mobile-engagement" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="all" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/07/2015" 
+    ms.author="piyushjo" />
 
 #Personalize notifications by including user name
 
@@ -31,7 +31,7 @@ Technically, with Azure Mobile Engagement, you can accomplish personalizing the 
 
 1) You start with registering App Info or Tags in the Azure portal. Go to **Settings** -> **Tag (App-Info)** for this.  
 
-![][1]	
+![][1]  
 
 2) Click on **New tag (app-info)** and provide the name as *user_name* and the type as *string* and click **Submit**. 
 
@@ -57,14 +57,14 @@ Now you are all set to send notifications using this **user_name**.
 
 1) Go to Mobile Engagement Portal on the **Reach** tab to create a notification and you can use this placeholder in the following format anywhere in the notification title or the body. 
 
-![][4]	
+![][4]  
 
 > [AZURE.NOTE] Any users for which the user_name app info is not set, will not get any notification. 
 
 2) When Mobile Engagement will select a device to send this notification then it will look at this app-info and replace the value in the placeholder.  
 For example, if we have set `str = "Scott"` for a user than the device registration will get associated with the app info of **user_name = SCOTT** for this user and this user will see an out of app push notification in the following format. 
 
-![][5]	
+![][5]  
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-send-personalized-notifications/app-info.png
@@ -72,4 +72,5 @@ For example, if we have set `str = "Scott"` for a user than the device registrat
 [3]: ./media/mobile-engagement-send-personalized-notifications/app-info-user-name.png
 [4]: ./media/mobile-engagement-send-personalized-notifications/personal-notification.png
 [5]: ./media/mobile-engagement-send-personalized-notifications/notification.png
+
 

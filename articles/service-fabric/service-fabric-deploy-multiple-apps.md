@@ -31,17 +31,17 @@ This article assumes that Node.js is not installed on the nodes in the Service f
 
 ```
 |-- NodeApplication
-	|-- bin
+    |-- bin
         |-- www
-	|-- node_modules
+    |-- node_modules
         |-- .bin
         |-- express
         |-- jade
         |-- etc.
-	|-- public
+    |-- public
         |-- images
         |-- etc.
-	|-- routes
+    |-- routes
         |-- index.js
         |-- users.js
     |-- views
@@ -73,7 +73,7 @@ If you browse to the directory that was specified in the /target parameter you c
 |--[yourtargetdirectory]
     |-- NodeApplication
         |-- C
-		      |-- bin
+              |-- bin
               |-- data
               |-- node_modules
               |-- public
@@ -83,8 +83,8 @@ If you browse to the directory that was specified in the /target parameter you c
               |-- package.json
               |-- node.exe
         |-- config
-		      |--Settings.xml
-	    |-- ServiceManifest.xml
+              |--Settings.xml
+        |-- ServiceManifest.xml
     |-- ApplicationManifest.xml
 ```
 The generated ServiceManifest.xml now has a section that describes how the Node.js web server should be launched as shown in the code snippet below:
@@ -105,7 +105,7 @@ In this sample the Node.js web server listens to port 3000, so you need to updat
 ```xml
 <Resources>
       <Endpoints>
-     	<Endpoint Name="NodeServiceEndpoint" Protocol="http" Port="3000" Type="Input" />
+        <Endpoint Name="NodeServiceEndpoint" Protocol="http" Port="3000" Type="Input" />
       </Endpoints>
 </Resources>
 ```
@@ -115,7 +115,7 @@ To package MongoDB you want to make sure you package mongod.exe and mongo.exe. B
 
 ```
 |-- MongoDB
-	|-- bin
+    |-- bin
         |-- mongod.exe
         |-- mongo.exe
         |-- etc.
@@ -147,8 +147,8 @@ Let's browse to the directory and examine what the tool has created.
                 |-- mongo.exe
                 |-- etc.
         |-- config
-		    |--Settings.xml
-	    |-- ServiceManifest.xml
+            |--Settings.xml
+        |-- ServiceManifest.xml
     |-- ApplicationManifest.xml
 ```
 As you can see the tool added a new folder MongoDB to the directory that contains the MongoDB binaries. If you open the `ApplicationManifest.xml` file you can see that the package now contains both the Node.js application and MongoDB. The code below shows the content of the application manifest.
@@ -197,3 +197,4 @@ In this tutorial tutorial you have seen how to easily package two existing appli
 ## Next steps
 
 Learn how to [package a single application manually](service-fabric-deploy-existing-app.md).
+

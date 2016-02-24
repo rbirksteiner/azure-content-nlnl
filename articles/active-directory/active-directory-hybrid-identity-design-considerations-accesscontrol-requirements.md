@@ -1,21 +1,21 @@
 
 <properties
-	pageTitle="Azure Active Directory hybrid identity design considerations - determine access control requirements| Microsoft Azure"
-	description="Covers the pillars of identity, and identifying access requirements for resources for users in a hybrid environment."
-	documentationCenter=""
-	services="active-directory"
-	authors="yuridio"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Azure Active Directory hybrid identity design considerations - determine access control requirements| Microsoft Azure"
+    description="Covers the pillars of identity, and identifying access requirements for resources for users in a hybrid environment."
+    documentationCenter=""
+    services="active-directory"
+    authors="yuridio"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="12/07/2015"
-	ms.author="yuridio"/>
+    ms.date="12/07/2015"
+    ms.author="yuridio"/>
 
 # Determine access control requirements for your hybrid identity solution
 When an organization is designing their hybrid identity solution they can also use this opportunity to review access requirements for the resources that they are planning to make it available for users. The data access cross all four pillars of identity, which are:
@@ -72,3 +72,4 @@ Make sure to take notes of each answer and understand the rationale behind the a
 
 ## See Also
 [Design considerations overview](active-directory-hybrid-identity-design-considerations-overview.md)
+

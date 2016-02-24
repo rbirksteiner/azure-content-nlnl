@@ -61,25 +61,25 @@ For example, imagine you are using the Office 365 trigger **New Email**. That re
 
 ```javascript
 {
-	...
-	"Attachments" : [
-		{
-			"name" : "Picture.png",
-			"content" : {
-				"ContentData" : "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFAQMAAAC3obSmAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAGUExURf///wAAAFXC034AAAASSURBVAjXY2BgCGBgYOhgKAAABEIBSWDJEbYAAAAASUVORK5CYII=",
-				"ContentType" : "image/png",
-				"ContentTransferEncoding" : "Base64"
-			}
-		},	
-		{
-			"name" : "File.txt",
-			"content" : {
-				"ContentData" : "Don't worry, be happy!",
-				"ContentType" : "text/plain",
-				"ContentTransferEncoding" : "None"
-			}
-		}	
-	]
+    ...
+    "Attachments" : [
+        {
+            "name" : "Picture.png",
+            "content" : {
+                "ContentData" : "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFAQMAAAC3obSmAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAGUExURf///wAAAFXC034AAAASSURBVAjXY2BgCGBgYOhgKAAABEIBSWDJEbYAAAAASUVORK5CYII=",
+                "ContentType" : "image/png",
+                "ContentTransferEncoding" : "Base64"
+            }
+        },  
+        {
+            "name" : "File.txt",
+            "content" : {
+                "ContentData" : "Don't worry, be happy!",
+                "ContentType" : "text/plain",
+                "ContentTransferEncoding" : "None"
+            }
+        }   
+    ]
 }
 ```
 
@@ -89,10 +89,10 @@ But, you want to upload these attachments to a Yammer post. Unfortunately, the s
 JArray YammerAttachments = new JObject();
 foreach(var obj in (JArray)Attachments)
 {
-	JObject att = new JObject();
-	att["Content"] = obj["content"];
-	att["FileName"] = obj["Name"];
-	YammerAttachments.Add(att);	
+    JObject att = new JObject();
+    att["Content"] = obj["content"];
+    att["FileName"] = obj["Name"];
+    YammerAttachments.Add(att); 
 }
 return YammerAttachments;
 ```
@@ -108,3 +108,4 @@ You can also review performance statistics and control security to the connector
 
 <!--Links -->
 [Creating a Logic App]: app-service-logic-create-a-logic-app.md
+

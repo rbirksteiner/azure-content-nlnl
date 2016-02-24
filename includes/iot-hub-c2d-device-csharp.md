@@ -36,3 +36,4 @@ In this section, you'll modify the simulated device application you created in [
 [IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
 
 <!-- Images -->
+

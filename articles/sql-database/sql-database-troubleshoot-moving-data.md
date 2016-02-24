@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Move databases between servers, between subscriptions, and in and out of Azure."
-	description="Quick steps to copy, move, and migrate data and databases in Azure SQL Database."
-	services="sql-database"
-	documentationCenter=""
-	authors="v-shysun"
-	manager="msmets"
-	editor=""/>
+    pageTitle="Move databases between servers, between subscriptions, and in and out of Azure."
+    description="Quick steps to copy, move, and migrate data and databases in Azure SQL Database."
+    services="sql-database"
+    documentationCenter=""
+    authors="v-shysun"
+    manager="msmets"
+    editor=""/>
 
 <tags
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/11/2015"
-	ms.author="v-shysun"/>
+    ms.service="sql-database"
+    ms.workload="data-management"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/11/2015"
+    ms.author="v-shysun"/>
 
 # Move databases between servers, between subscriptions, and in and out of Azure
 ##To move a database to a different server in the same subscription
@@ -28,3 +28,4 @@
 
 ## To create a copy of a database for use outside of Azure
 - [Export a BACPAC file.](sql-database-export.md)
+

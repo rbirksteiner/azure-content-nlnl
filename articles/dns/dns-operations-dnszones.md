@@ -30,7 +30,7 @@ This guide will show how to manage your DNS zone. It will help understanding the
 
 To create a new DNS zone to host your domain, use the New-AzureRmDnsZone cmdlet:
 
-		PS C:\> $zone = New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup [–Tag $tags] 
+        PS C:\> $zone = New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup [–Tag $tags] 
 
 The operation creates a new DNS zone in Azure DNS and returns a local object corresponding to that zone.  You can optionally specify an array of Azure Resource Manager tags, for more information see [Etags and Tags](../dns-getstarted-create-dnszone.md#Etags-and-tags).
 
@@ -42,7 +42,7 @@ The same zone name can be re-used in a different resource group or a different A
 
 To retrieve a DNS zone, use the Get-AzureRmDnsZone cmdlet:
 
-		PS C:\> $zone = Get-AzureRmDnsZone -Name contoso.com –ResourceGroupName MyAzureResourceGroup
+        PS C:\> $zone = Get-AzureRmDnsZone -Name contoso.com –ResourceGroupName MyAzureResourceGroup
 
 The operation returns a DNS zone object corresponding to an existing zone in Azure DNS.  This object contains data about the zone (such as the number of record sets), but does not contain the record sets themselves.
 
@@ -50,7 +50,7 @@ The operation returns a DNS zone object corresponding to an existing zone in Azu
 
 By omitting the zone name from Get-AzureRmDnsZone, you can enumerate all zones in a resource group:
 
-	PS C:\> $zoneList = Get-AzureRmDnsZone -ResourceGroupName MyAzureResourceGroup
+    PS C:\> $zoneList = Get-AzureRmDnsZone -ResourceGroupName MyAzureResourceGroup
 
 This operation returns an array of zone objects.
 
@@ -64,14 +64,14 @@ Use one of the following two ways to update DNS zone:
  
 Specify the zone using the zone name and resource group.
 
-	PS C:\> Set-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup [-Tag $tags]
+    PS C:\> Set-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup [-Tag $tags]
 
 ### Option 2
 Specify the zone using a $zone object from Get-AzureRmDnsZone:
 
-	PS C:\> $zone = Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
-	PS C:\> <..modify $zone.Tags here...>
-	PS C:\> Set-AzureRmDnsZone -Zone $zone [-Overwrite]
+    PS C:\> $zone = Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
+    PS C:\> <..modify $zone.Tags here...>
+    PS C:\> Set-AzureRmDnsZone -Zone $zone [-Overwrite]
 
 When using Set-AzureRmDnsZone with a $zone object, ‘Etag’ checks will be used to ensure concurrent changes are not overwritten.  You can use the optional ‘-Overwrite’ switch to suppress these checks.  See [Etags and Tags](dns-getstarted-create-dnszone.md#Etags-and-tags) for more information.
 
@@ -87,7 +87,7 @@ Use one of the following two ways to remove a DNS zone:
 
 Specify the zone using the zone name and resource group name:
 
-	PS C:\> Remove-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup [-Force] 
+    PS C:\> Remove-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup [-Force] 
 
 This operation has an optional ‘-Force’ switch which suppresses the prompt to confirm you want to remove the DNS zone.
 
@@ -95,8 +95,8 @@ This operation has an optional ‘-Force’ switch which suppresses the prompt t
 
 Specify the zone using a $zone object from Get-AzureRmDnsZone:
 
-	PS C:\> $zone = Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
-	PS C:\> Remove-AzureRmDnsZone -Zone $zone [-Force] [-Overwrite]
+    PS C:\> $zone = Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
+    PS C:\> Remove-AzureRmDnsZone -Zone $zone [-Force] [-Overwrite]
 
 The ‘-Force’ switch is the same as in Option 1.
 
@@ -105,7 +105,7 @@ The optional ‘-Overwrite’ flag suppresses these checks. See [Etags and Tags]
 
 The zone object can also be piped instead of being passed as a parameter:
 
-	PS C:\> Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup | Remove-AzureRmDnsZone [-Force] [-Overwrite]
+    PS C:\> Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup | Remove-AzureRmDnsZone [-Force] [-Overwrite]
 
 ## Next Steps
 

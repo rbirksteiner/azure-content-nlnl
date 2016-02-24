@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Security Configuration for Standard or Active Geo-Replication"
-	description="This topic explains security considerations for managing Standard or Active Geo-Replication scenarios for SQL Database."
-	services="sql-database"
-	documentationCenter="na"
-	authors="rothja"
-	manager="jeffreyg"
-	editor="monicar" />
+    pageTitle="Security Configuration for Standard or Active Geo-Replication"
+    description="This topic explains security considerations for managing Standard or Active Geo-Replication scenarios for SQL Database."
+    services="sql-database"
+    documentationCenter="na"
+    authors="rothja"
+    manager="jeffreyg"
+    editor="monicar" />
 
 
 <tags
-	ms.service="sql-database"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="data-management"
-	ms.date="10/22/2015"
-	ms.author="jroth" />
+    ms.service="sql-database"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="data-management"
+    ms.date="10/22/2015"
+    ms.author="jroth" />
 
 # Security Configuration for Standard or Active Geo-Replication
 
@@ -48,33 +48,33 @@ The first step of the process is to determine which logins must be duplicated on
 
 Only the server admin or a member of the **LoginManager** server role can determine the logins on the source server with the following SELECT statement. 
 
-	SELECT [name], [sid] 
-	FROM [sys].[sql_logins] 
-	WHERE [type_desc] = 'SQL_Login'
+    SELECT [name], [sid] 
+    FROM [sys].[sql_logins] 
+    WHERE [type_desc] = 'SQL_Login'
 
 Only a member of the db_owner database role, the dbo user, or server admin, can determine all of the database user principals in the primary database.
 
-	SELECT [name], [sid]
-	FROM [sys].[database_principals]
-	WHERE [type_desc] = 'SQL_USER'
+    SELECT [name], [sid]
+    FROM [sys].[database_principals]
+    WHERE [type_desc] = 'SQL_USER'
 
 #### 2. Find the SID for the logins identified in step 1:
 By comparing the output of the queries from the previous section and matching the SIDs, you can map the server login to database user. Logins that have a database user with a matching SID have user access to that database as that database user principal. 
 
 The following query can be used to see all of the user principals and their SIDs in a database. Only a member of the db_owner database role or server admin can run this query.
 
-	SELECT [name], [sid]
-	FROM [sys].[database_principals]
-	WHERE [type_desc] = 'SQL_USER'
+    SELECT [name], [sid]
+    FROM [sys].[database_principals]
+    WHERE [type_desc] = 'SQL_USER'
 
 >[AZURE.NOTE] The **INFORMATION_SCHEMA** and **sys** users have *NULL* SIDs, and the **guest** SID is **0x00**. The **dbo** SID may start with *0x01060000000001648000000000048454*, if the database creator was the server admin instead of a member of **DbManager**.
 
 #### 3. Generate the logins on the target server:
 The last step is to go to the target server, or servers, and generate the logins with the appropriate SIDs. The basic syntax is as follows.
 
-	CREATE LOGIN [<login name>]
-	WITH PASSWORD = <login password>,
-	SID = <desired login SID>
+    CREATE LOGIN [<login name>]
+    WITH PASSWORD = <login password>,
+    SID = <desired login SID>
 
 >[AZURE.NOTE] If you want to grant user access to the secondary, but not to the primary, you can do that by altering the user login on the primary server by using the following syntax.
 >

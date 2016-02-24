@@ -30,3 +30,4 @@ Type in your question and get your answers!
 Members of the team are actually answering your question. If you don't see the live chat icon it is because it is not visible outside of working hours. 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)] 
+

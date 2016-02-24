@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure App Service, Cloud Services and Virtual Machines comparison"
-	description="Learn when to use Azure App Service, Cloud Services, and Virtual Machines for hosting web applications."
-	services="app-service\web, virtual-machines, cloud-services"
-	documentationCenter=""
-	authors="tdykstra"
-	manager="wpickett"
-	editor="jimbe"/>
+    pageTitle="Azure App Service, Cloud Services and Virtual Machines comparison"
+    description="Learn when to use Azure App Service, Cloud Services, and Virtual Machines for hosting web applications."
+    services="app-service\web, virtual-machines, cloud-services"
+    documentationCenter=""
+    authors="tdykstra"
+    manager="wpickett"
+    editor="jimbe"/>
 
 <tags
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article" 
-	ms.date="11/19/2015"
-	ms.author="tdykstra"/>
+    ms.service="app-service-web"
+    ms.workload="web"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article" 
+    ms.date="11/19/2015"
+    ms.author="tdykstra"/>
 
 # Azure App Service, Cloud Services, and Virtual Machines comparison
 
@@ -204,3 +204,4 @@ To get started with the option(s) you choose for your application, see the follo
   [sqldatabase]: http://www.windowsazure.com/documentation/services/sql-database/
   [Storage]: http://www.windowsazure.com/documentation/services/storage/
  
+

@@ -1,30 +1,30 @@
 <properties
-	pageTitle="How to protect a Web API backend with Azure Active Directory and API Management"
-	description="Learn how to protect a Web API backend with Azure Active Directory and API Management." 
-	services="api-management"
-	documentationCenter=""
-	authors="steved0x"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="How to protect a Web API backend with Azure Active Directory and API Management"
+    description="Learn how to protect a Web API backend with Azure Active Directory and API Management." 
+    services="api-management"
+    documentationCenter=""
+    authors="steved0x"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="api-management"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/07/2015"
-	ms.author="sdanie"/>
+    ms.service="api-management"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/07/2015"
+    ms.author="sdanie"/>
 
 # How to protect a Web API backend with Azure Active Directory and API Management
 
 The following video shows how to build a Web API backend and protect it using OAuth 2.0 protocol with Azure Active Directory and API Management.  This article provides an overview and additional information for the steps in the video. This 24 minute video shows you how to:
 
--	Build a Web API backend and secure it with AAD - starting at 1:30
--	Import the API into API Management - starting at 7:10
--	Configure the Developer portal to call the API - starting at 9:09
--	Configure a desktop application to call the API - starting at 18:08
--	Configure a JWT validation policy to pre-authorize requests - starting at 20:47
+-   Build a Web API backend and secure it with AAD - starting at 1:30
+-   Import the API into API Management - starting at 7:10
+-   Configure the Developer portal to call the API - starting at 9:09
+-   Configure a desktop application to call the API - starting at 18:08
+-   Configure a JWT validation policy to pre-authorize requests - starting at 20:47
 
 >[AZURE.VIDEO protecting-web-api-backend-with-azure-active-directory-and-api-management]
 
@@ -80,7 +80,7 @@ The Web API in this example implements a basic calculator service using a model 
 
 Add the following `using` statement to the top of the `CalcInput.cs` file.
 
-	using Newtonsoft.Json;
+    using Newtonsoft.Json;
 
  Replace the generated class with the following code.
 
@@ -200,123 +200,123 @@ Create a file named `calcapi.json` with following contents and save it to your c
 ],
 "paths": {
 "/add?a={a}&b={b}": {
-		  "get": {
-			"description": "Responds with a sum of two numbers.",
-			"operationId": "Add two integers",
-			"parameters": [
-			  {
-				"name": "a",
-				"in": "query",
-				"description": "First operand. Default value is <code>51</code>.",
-				"required": true,
-				"default": "51",
-				"enum": [
-				  "51"
-				]
-			  },
-			  {
-				"name": "b",
-				"in": "query",
-				"description": "Second operand. Default value is <code>49</code>.",
-				"required": true,
-				"default": "49",
-				"enum": [
-				  "49"
-				]
-			  }
-			],
-			"responses": {}
-		  }
-		},
-		"/sub?a={a}&b={b}": {
-		  "get": {
-			"description": "Responds with a difference between two numbers.",
-			"operationId": "Subtract two integers",
-			"parameters": [
-			  {
-				"name": "a",
-				"in": "query",
-				"description": "First operand. Default value is <code>100</code>.",
-				"required": true,
-				"default": "100",
-				"enum": [
-				  "100"
-				]
-			  },
-			  {
-				"name": "b",
-				"in": "query",
-				"description": "Second operand. Default value is <code>50</code>.",
-				"required": true,
-				"default": "50",
-				"enum": [
-				  "50"
-				]
-			  }
-			],
-			"responses": {}
-		  }
-		},
-		"/div?a={a}&b={b}": {
-		  "get": {
-			"description": "Responds with a quotient of two numbers.",
-			"operationId": "Divide two integers",
-			"parameters": [
-			  {
-				"name": "a",
-				"in": "query",
-				"description": "First operand. Default value is <code>100</code>.",
-				"required": true,
-				"default": "100",
-				"enum": [
-				  "100"
-				]
-			  },
-			  {
-				"name": "b",
-				"in": "query",
-				"description": "Second operand. Default value is <code>20</code>.",
-				"required": true,
-				"default": "20",
-				"enum": [
-				  "20"
-				]
-			  }
-			],
-			"responses": {}
-		  }
-		},
-		"/mul?a={a}&b={b}": {
-		  "get": {
-			"description": "Responds with a product of two numbers.",
-			"operationId": "Multiply two integers",
-			"parameters": [
-			  {
-				"name": "a",
-				"in": "query",
-				"description": "First operand. Default value is <code>20</code>.",
-				"required": true,
-				"default": "20",
-				"enum": [
-				  "20"
-				]
-			  },
-			  {
-				"name": "b",
-				"in": "query",
-				"description": "Second operand. Default value is <code>5</code>.",
-				"required": true,
-				"default": "5",
-				"enum": [
-				  "5"
-				]
-			  }
-			],
-			"responses": {}
-		  }
-		}
-	  }
-	}
+          "get": {
+            "description": "Responds with a sum of two numbers.",
+            "operationId": "Add two integers",
+            "parameters": [
+              {
+                "name": "a",
+                "in": "query",
+                "description": "First operand. Default value is <code>51</code>.",
+                "required": true,
+                "default": "51",
+                "enum": [
+                  "51"
+                ]
+              },
+              {
+                "name": "b",
+                "in": "query",
+                "description": "Second operand. Default value is <code>49</code>.",
+                "required": true,
+                "default": "49",
+                "enum": [
+                  "49"
+                ]
+              }
+            ],
+            "responses": {}
+          }
+        },
+        "/sub?a={a}&b={b}": {
+          "get": {
+            "description": "Responds with a difference between two numbers.",
+            "operationId": "Subtract two integers",
+            "parameters": [
+              {
+                "name": "a",
+                "in": "query",
+                "description": "First operand. Default value is <code>100</code>.",
+                "required": true,
+                "default": "100",
+                "enum": [
+                  "100"
+                ]
+              },
+              {
+                "name": "b",
+                "in": "query",
+                "description": "Second operand. Default value is <code>50</code>.",
+                "required": true,
+                "default": "50",
+                "enum": [
+                  "50"
+                ]
+              }
+            ],
+            "responses": {}
+          }
+        },
+        "/div?a={a}&b={b}": {
+          "get": {
+            "description": "Responds with a quotient of two numbers.",
+            "operationId": "Divide two integers",
+            "parameters": [
+              {
+                "name": "a",
+                "in": "query",
+                "description": "First operand. Default value is <code>100</code>.",
+                "required": true,
+                "default": "100",
+                "enum": [
+                  "100"
+                ]
+              },
+              {
+                "name": "b",
+                "in": "query",
+                "description": "Second operand. Default value is <code>20</code>.",
+                "required": true,
+                "default": "20",
+                "enum": [
+                  "20"
+                ]
+              }
+            ],
+            "responses": {}
+          }
+        },
+        "/mul?a={a}&b={b}": {
+          "get": {
+            "description": "Responds with a product of two numbers.",
+            "operationId": "Multiply two integers",
+            "parameters": [
+              {
+                "name": "a",
+                "in": "query",
+                "description": "First operand. Default value is <code>20</code>.",
+                "required": true,
+                "default": "20",
+                "enum": [
+                  "20"
+                ]
+              },
+              {
+                "name": "b",
+                "in": "query",
+                "description": "Second operand. Default value is <code>5</code>.",
+                "required": true,
+                "default": "5",
+                "enum": [
+                  "5"
+                ]
+              }
+            ],
+            "responses": {}
+          }
+        }
+      }
+    }
 
 To import the calculator API, click **APIs** from the **API Management** menu on the left, and then click **Import API**.
 
@@ -495,8 +495,8 @@ The final procedure in the video starts at 20:48 and shows you how to use the [V
 For another demonstration of configuring and using this policy, see [Cloud Cover Episode 177: More API Management Features](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) and fast-forward to 13:50. Fast forward to 15:00 to see the policies configured in the policy editor and then to 18:50 for a demonstration of calling an operation from the developer portal both with and without the required authorization token.
 
 ## Next steps
--	Check out more [videos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) about API Management.
--	For other ways to secure your backend service, see [Mutual Certificate authentication](api-management-howto-mutual-certificates.md) and [Connect via VPN or ExpressRoute](api-management-howto-setup-vpn).
+-   Check out more [videos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) about API Management.
+-   For other ways to secure your backend service, see [Mutual Certificate authentication](api-management-howto-mutual-certificates.md) and [Connect via VPN or ExpressRoute](api-management-howto-setup-vpn).
 
 [api-management-management-console]: ./media/api-management-howto-protect-backend-with-aad/api-management-management-console.png
 
@@ -546,3 +546,4 @@ For another demonstration of configuring and using this policy, see [Cloud Cover
 
 [Create an API Management service instance]: api-management-get-started.md#create-service-instance
 [Manage your first API]: api-management-get-started.md
+

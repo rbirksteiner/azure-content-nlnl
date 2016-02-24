@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How to use the SendGrid email service (Node.js) | Microsoft Azure" 
-	description="Learn how send email with the SendGrid email service on Azure. Code samples written using the Node.js API." 
-	services="" 
-	documentationCenter="nodejs" 
-	authors="erikre" 
-	manager="wpickett" 
-	editor=""/>
+    pageTitle="How to use the SendGrid email service (Node.js) | Microsoft Azure" 
+    description="Learn how send email with the SendGrid email service on Azure. Code samples written using the Node.js API." 
+    services="" 
+    documentationCenter="nodejs" 
+    authors="erikre" 
+    manager="wpickett" 
+    editor=""/>
 
 <tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="08/31/2015" 
-	ms.author="erikre"/>
+    ms.service="multiple" 
+    ms.workload="na" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="nodejs" 
+    ms.topic="article" 
+    ms.date="08/31/2015" 
+    ms.author="erikre"/>
 # How to Send Email Using SendGrid from Node.js
 
 This guide demonstrates how to perform common programming tasks with the
@@ -226,3 +226,4 @@ these links to learn more.
   [SendGrid API documentation]: https://sendgrid.com/docs
   [cloud-based email service]: https://sendgrid.com/email-solutions
   [transactional email delivery]: https://sendgrid.com/transactional-email
+

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Starting and stopping virtual machines - Graph | Microsoft Azure"
-	description="PowerShell Workflow version of Azure Automation solution including runbooks to start and stop classic virtual machines."
-	services="automation"
-	documentationCenter=""
-	authors="bwren"
-	manager="stevenka"
-	editor="tysonn" />
+    pageTitle="Starting and stopping virtual machines - Graph | Microsoft Azure"
+    description="PowerShell Workflow version of Azure Automation solution including runbooks to start and stop classic virtual machines."
+    services="automation"
+    documentationCenter=""
+    authors="bwren"
+    manager="stevenka"
+    editor="tysonn" />
 <tags 
-	ms.service="automation"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="09/25/2015"
-	ms.author="bwren" />
+    ms.service="automation"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="infrastructure-services"
+    ms.date="09/25/2015"
+    ms.author="bwren" />
 
 # Azure Automation solution - starting and stopping virtual machines
 
@@ -76,8 +76,8 @@ You can use any of the methods in [Starting a runbook in Azure Automation](autom
 
 The following sample commands uses Windows PowerShell to run **StartAzureClassicVM** to start all virtual machines with the service name *MyVMService*.
 
-	$params = @{"ServiceName"="MyVMService"}
-	Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "StartAzureClassicVM" –Parameters $params
+    $params = @{"ServiceName"="MyVMService"}
+    Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "StartAzureClassicVM" –Parameters $params
 
 ### Output
 

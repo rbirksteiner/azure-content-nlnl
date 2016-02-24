@@ -137,3 +137,4 @@ Now that you know a bit about SQL Data Warehouse, learn about the [data warehous
 <!--MSDN references-->
 
 <!--Other Web references-->
+

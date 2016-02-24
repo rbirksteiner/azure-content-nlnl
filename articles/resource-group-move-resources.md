@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Move Resources to New Resource Group" 
-	description="Use Azure PowerShell or REST API to move resources to a new resource group for Azure Resource Manager." 
-	services="azure-resource-manager" 
-	documentationCenter="" 
-	authors="tfitzmac" 
-	manager="wpickett" 
-	editor=""/>
+    pageTitle="Move Resources to New Resource Group" 
+    description="Use Azure PowerShell or REST API to move resources to a new resource group for Azure Resource Manager." 
+    services="azure-resource-manager" 
+    documentationCenter="" 
+    authors="tfitzmac" 
+    manager="wpickett" 
+    editor=""/>
 
 <tags 
-	ms.service="azure-resource-manager" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/19/2015" 
-	ms.author="tomfitz"/>
+    ms.service="azure-resource-manager" 
+    ms.workload="multiple" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/19/2015" 
+    ms.author="tomfitz"/>
 
 # Move resources to new resource group or subscription
 
@@ -104,3 +104,4 @@ In the request body, you specify the target resource group and the resources to 
 - [Using the Azure CLI with Resource Manager](./virtual-machines/xplat-cli-azure-resource-manager.md)
 - [Using the Azure Portal to manage resources](azure-portal/resource-group-portal.md)
 - [Using tags to organize your resources](./resource-group-using-tags.md)
+

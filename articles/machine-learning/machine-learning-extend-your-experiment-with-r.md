@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Extend your experiment with R | Microsoft Azure"
-	description="How to extend the functionality of Azure Machine Learning Studio through the R language by using the Execute R Script module."
-	services="machine-learning"
-	documentationCenter=""
-	authors="garyericson"
-	manager="paulettm"
-	editor="cgronlun"/>
+    pageTitle="Extend your experiment with R | Microsoft Azure"
+    description="How to extend the functionality of Azure Machine Learning Studio through the R language by using the Execute R Script module."
+    services="machine-learning"
+    documentationCenter=""
+    authors="garyericson"
+    manager="paulettm"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/03/2015"
-	ms.author="garye" />
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/03/2015"
+    ms.author="garye" />
 
 
 #Extend your experiment with R
@@ -501,3 +501,4 @@ To get the complete list of packages that are currently available, see the secti
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 [convert-to-csv]: https://msdn.microsoft.com/library/azure/faa6ba63-383c-4086-ba58-7abf26b85814/
+

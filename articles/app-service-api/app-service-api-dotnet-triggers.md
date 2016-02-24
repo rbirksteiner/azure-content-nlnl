@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure App Service API app triggers" 
-	description="This article demonstrates how to implement triggers in an API App" 
-	services="app-service\logic" 
-	documentationCenter=".net" 
-	authors="guangyang"
-	manager="wpickett" 
-	editor="jimbe"/>
+    pageTitle="Azure App Service API app triggers" 
+    description="This article demonstrates how to implement triggers in an API App" 
+    services="app-service\logic" 
+    documentationCenter=".net" 
+    authors="guangyang"
+    manager="wpickett" 
+    editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-logic" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="dotnet" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/15/2015" 
-	ms.author="guayan"/>
+    ms.service="app-service-logic" 
+    ms.workload="na" 
+    ms.tgt_pltfrm="dotnet" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/15/2015" 
+    ms.author="guayan"/>
 
 # Azure App Service API app triggers
 
@@ -257,7 +257,7 @@ After you add triggers to an API app, there are a few things you can do to impro
 
 For instance, the **triggerState** parameter for poll triggers should be set to the following expression in the Logic app. This expression should evaluate the last invocation of the trigger from the Logic app, and return that value.  
 
-	@coalesce(triggers()?.outputs?.body?['triggerState'], '')
+    @coalesce(triggers()?.outputs?.body?['triggerState'], '')
 
 NOTE: For an explanation of the functions used in the expression above, refer to the documentation on [Logic App Workflow Definition Language](https://msdn.microsoft.com/library/azure/dn948512.aspx).
 
@@ -265,7 +265,7 @@ Logic app users would need to provide the expression above for the **triggerStat
 
     "/api/Messages/poll": {
       "get": {
-	    "operationId": "Messages_NewMessageTrigger",
+        "operationId": "Messages_NewMessageTrigger",
         "parameters": [
           {
             "name": "triggerState",
@@ -345,3 +345,4 @@ The following is an example of how this class can be implemented to facilitate t
         }
     }
  
+

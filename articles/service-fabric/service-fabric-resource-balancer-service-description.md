@@ -230,3 +230,4 @@ For more information: [Resource Balancer Architecture](service-fabric-resource-b
 [Image2]: media/service-fabric-resource-balancer-service-description/DM.png
 [Image3]: media/service-fabric-resource-balancer-service-description/MW.png
  
+

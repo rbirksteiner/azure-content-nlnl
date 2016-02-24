@@ -435,3 +435,4 @@ To master the creation of templates, read through the [Authoring Azure Resource 
 <!--Image references-->
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
+

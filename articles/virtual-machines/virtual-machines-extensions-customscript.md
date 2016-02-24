@@ -92,3 +92,4 @@ To learn about using Custom Script extension with templates, see the documentati
 
 <!--Image references-->
 [5]: ./media/virtual-machines-extensions-customscript/addcse.png
+

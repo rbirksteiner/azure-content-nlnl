@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Set up a virtual machine as an IPython Notebook server | Microsoft Azure"
-	description="Set up an Azure Virtual Machine for use in a data science environment with IPython Server for advanced analytics."
-	services="machine-learning"
-	documentationCenter=""
-	authors="bradsev"
-	manager="paulettm"
-	editor="cgronlun"  />
+    pageTitle="Set up a virtual machine as an IPython Notebook server | Microsoft Azure"
+    description="Set up an Azure Virtual Machine for use in a data science environment with IPython Server for advanced analytics."
+    services="machine-learning"
+    documentationCenter=""
+    authors="bradsev"
+    manager="paulettm"
+    editor="cgronlun"  />
 
 <tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/13/2015"
-	ms.author="mohabib;xibingao;bradsev" />
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/13/2015"
+    ms.author="mohabib;xibingao;bradsev" />
 
 # Set up an Azure virtual machine as an IPython Notebook server for advanced analytics
 
@@ -28,28 +28,28 @@ Before starting the process of creating a virtual machine on Azure, you need to 
 
 1. Log in to <a href="https://manage.windowsazure.com" target="_blank">Azure Classic Portal</a>, and click **New** in the bottom left corner. A window will pop up. Select **COMPUTE** -> **VIRTUAL MACHINE** -> **FROM GALLERY**.
 
-	![Create workspace][24]
+    ![Create workspace][24]
 
 2. Choose one of the following images:
 
-	* Windows Server 2012 R2 Datacenter
-	* Windows Server Essentials Experience (Windows Server 2012 R2)
+    * Windows Server 2012 R2 Datacenter
+    * Windows Server Essentials Experience (Windows Server 2012 R2)
 
-	Then, click the arrow pointing right at the lower right to go the next configuration page.
+    Then, click the arrow pointing right at the lower right to go the next configuration page.
 
-	![Create workspace][25]
+    ![Create workspace][25]
 
 3. Enter a name for the virtual machine you want to create, select the size of the machine (Default: A3) based on the size of the data the machine is going to process and how powerful you want the machine to be (memory size and the number of compute cores), enter a user name and password for the machine. Then, click the arrow pointing right to go to the next configuration page.
 
-	![Create workspace][26]
+    ![Create workspace][26]
 
 4. Select the **REGION/AFFINITY GROUP/VIRTUAL NETWORK** that contains the **STORAGE ACCOUNT** that you are planning to use for this virtual machine, and then select that storage account. Add an endpoint at the bottom in the **ENDPOINTS**  field by entering the name of the endpoint ("IPython" here). You can choose any string as the **NAME** of the end point, and any integer between 0 and 65536 that is **available** as the **PUBLIC PORT**. The **PRIVATE PORT** has to be **9999**. Users should **avoid** using public ports that have already been assigned for internet services. <a href="http://www.chebucto.ns.ca/~rakerman/port-table.html" target="_blank">Ports for Internet Services</a> provides a list of ports that have been assigned and should be avoided.
 
-	![Create workspace][27]
+    ![Create workspace][27]
 
 5. Click the check mark to start the virtual machine provisioning process.
 
-	![Create workspace][28]
+    ![Create workspace][28]
 
 
 It may take 15-25 minutes to complete the virtual machine provisioning process. After the virtual machine has been created, the status of this machine should show as **Running**.
@@ -70,7 +70,7 @@ After the virtual machine is created, use Remote Desktop Protocol (RDP) to log o
 
     set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/MachineSetup/Azure_VM_Setup_Windows.ps1'
 
-	@powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
+    @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
 
 When the installation completes, the IPython Notebook server is launched automatically in the *C:\\Users\\\<user name\>\\Documents\\IPython Notebooks* directory.
 
@@ -145,3 +145,4 @@ The next steps in the Advanced Analytics Process and Technology are mapped in th
 [28]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-5.png
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
  
+

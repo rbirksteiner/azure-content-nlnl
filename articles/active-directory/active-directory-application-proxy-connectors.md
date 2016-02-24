@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Working with Azure AD Application Proxy Connectors | Microsoft Azure"
-	description="Covers how to create and manage groups of Connectors in Azure AD Application Proxy."
-	services="active-directory"
-	documentationCenter=""
-	authors="kgremban"
-	manager="StevenPo"
-	editor=""/>
+    pageTitle="Working with Azure AD Application Proxy Connectors | Microsoft Azure"
+    description="Covers how to create and manage groups of Connectors in Azure AD Application Proxy."
+    services="active-directory"
+    documentationCenter=""
+    authors="kgremban"
+    manager="StevenPo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/19/2015"
-	ms.author="kgremban"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/19/2015"
+    ms.author="kgremban"/>
 
 
 # Publish applications on separate networks and locations using Connector groups
@@ -37,14 +37,14 @@ In order to group your Connectors, you have to make sure you [installed multiple
 
 ## Step 1: Create Connector groups
 You can create as many Connector groups as you want. Connector group creation is accomplished in the Azure portal. Select your directory and click **Configure**. Then, under Application Proxy, click **Manage Connector Groups** and create a new Connector group by giving the group a name:
-	![](./media/active-directory-application-proxy-connectors/app_proxy_connectors_creategroup.png)
-	![](./media/active-directory-application-proxy-connectors/app_proxy_connectors_namegroup.png)
+    ![](./media/active-directory-application-proxy-connectors/app_proxy_connectors_creategroup.png)
+    ![](./media/active-directory-application-proxy-connectors/app_proxy_connectors_namegroup.png)
 ## Step 2: Assign Connectors to your groups
 Once the Connector groups are created, move the Connectors to the appropriate group. Under **Application Proxy**, click **Manage Connectors** and under **Group**, select the group you want for each Connector. Note that it might take the Connectors up to 10 minutes to become active in the new group.
-	![](./media/active-directory-application-proxy-connectors/app_proxy_connectors_connectorlist.png)
+    ![](./media/active-directory-application-proxy-connectors/app_proxy_connectors_connectorlist.png)
 ## Step 3: Assign applications to your Connector groups
 The last step is to set each application to the Connector group that will serve it. In the Azure portal, in your directory, select the Application you want to assign to the group, click **Configure**. Under **Connector group**, select the group you want the application to use. This change is immediately applied.
-	![](./media/active-directory-application-proxy-connectors/app_proxy_connectors_newgroup.png)
+    ![](./media/active-directory-application-proxy-connectors/app_proxy_connectors_newgroup.png)
 For more information on publishing applications, see [Publish applications using your own domain name](active-directory-application-proxy-custom-domains.md)
 ## See also
 There's a lot more you can do with Application Proxy:
@@ -63,3 +63,4 @@ There's a lot more you can do with Application Proxy:
 ## Additional resources
 
 * [About Kerberos constrained delegation](http://technet.microsoft.com/library/cc995228.aspx)
+

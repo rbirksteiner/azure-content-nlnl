@@ -522,3 +522,4 @@ This approach is arguably the purest of the versioning mechanisms and lends itse
 
 - The [RESTful Cookbook](http://restcookbook.com/) contains an introduction to building RESTful APIs.
 - The Web [API Checklist](https://mathieu.fenniak.net/the-api-checklist/) contains a useful list of items to consider when designing and implementing a Web API.
+

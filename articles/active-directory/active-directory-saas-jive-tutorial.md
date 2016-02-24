@@ -87,3 +87,4 @@ The following screenshot shows an example of the related dialog in Azure AD:
   
 You can now create a test account, wait for 10 minutes and verify that the account has been synchronized to Jive.com.
 
+

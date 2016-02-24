@@ -1,20 +1,20 @@
-<properties 	
-	pageTitle="Azure Data Factory - Samples" 
-	description="Provides details about samples that ship with the Azure Data Factory service." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
-	editor="monicar"/>
+<properties     
+    pageTitle="Azure Data Factory - Samples" 
+    description="Provides details about samples that ship with the Azure Data Factory service." 
+    services="data-factory" 
+    documentationCenter="" 
+    authors="spelluru" 
+    manager="jhubbard" 
+    editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/13/2015" 
-	ms.author="spelluru"/>
+    ms.service="data-factory" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/13/2015" 
+    ms.author="spelluru"/>
 
 # Azure Data Factory - Samples
 
@@ -24,25 +24,25 @@ You can quickly deploy, review, and test an Azure Data Factory sample using the 
 1. Create a new data factory or open an existing data factory. See [Getting started with Azure Data Factory][data-factory-get-started] for steps to create a data factory.
 2. In the **DATA FACTORY** blade for the data factory, click the **Sample pipelines** tile.
 
-	![Sample pipelines tile](./media/data-factory-samples/SamplePipelinesTile.png)
+    ![Sample pipelines tile](./media/data-factory-samples/SamplePipelinesTile.png)
 
 2. In the **Sample pipelines** blade, click the **sample** that you want to deploy. 
-	
-	![Sample pipelines blade](./media/data-factory-samples/SampleTile.png)
+    
+    ![Sample pipelines blade](./media/data-factory-samples/SampleTile.png)
 
 3. Specify configuration settings for the sample. For example, your Azure storage account name and account key, Azure SQL server name, database, User ID, and password, etc... 
 
-	![Sample blade](./media/data-factory-samples/SampleBlade.png)
+    ![Sample blade](./media/data-factory-samples/SampleBlade.png)
 
 4. After you are done with specifying the configuration settings, click **Create** to create/deploy the sample pipelines and linked services/tables used by the pipelines.
 5. You will see the status of deployment on the sample tile you clicked earlier on the **Sample pipelines** blade.
 
-	![Deployment status](./media/data-factory-samples/DeploymentStatus.png)
+    ![Deployment status](./media/data-factory-samples/DeploymentStatus.png)
 
 6. When you see the **Deployment succeeded** message on the tile for the sample, close the **Sample pipelines** blade.  
 5. On **DATA FACTORY** blade, you will see that linked services, data sets, and pipelines are added to your data factory.  
 
-	![Data Factory blade](./media/data-factory-samples/DataFactoryBladeAfter.png)
+    ![Data Factory blade](./media/data-factory-samples/DataFactoryBladeAfter.png)
    
 
 The following table provides brief description of the samples available in the **Sample pipelines** tile. 

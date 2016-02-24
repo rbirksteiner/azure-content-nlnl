@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Using Linear Regression in Machine Learning | Microsoft Azure" 
-	description="A comparison of linear regression models in Excel and in Azure Machine Learning Studio" 
-	metaKeywords="" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="garyericson" 
-	manager="paulettm" 
-	editor="cgronlun"  />
+    pageTitle="Using Linear Regression in Machine Learning | Microsoft Azure" 
+    description="A comparison of linear regression models in Excel and in Azure Machine Learning Studio" 
+    metaKeywords="" 
+    services="machine-learning" 
+    documentationCenter="" 
+    authors="garyericson" 
+    manager="paulettm" 
+    editor="cgronlun"  />
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/11/2015" 
-	ms.author="kbaroni;garye" />
+    ms.service="machine-learning" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/11/2015" 
+    ms.author="kbaroni;garye" />
 
 # Using linear regression in Azure Machine Learning
 
@@ -48,27 +48,27 @@ We calculated *Mean Absolute % Error* and used it as the performance measure for
 ### Create comparable experiment in Azure Machine Learning  
 We followed these steps to create our experiment in Azure ML:  
 
-1.	Uploaded the dataset as a csv file to Azure ML (very small file)
-2.	Created a new experiment and used the [Project Columns][project-columns] module to select the same data features used in Excel   
-3.	Used the [Split][split] module (with *Relative Expression* mode) to divide the data into exact same train sets as had been done in Excel  
-4.	Experimented with the [Linear Regression][linear-regression] module (default options only), documented, and compared the results to our Excel regression model
+1.  Uploaded the dataset as a csv file to Azure ML (very small file)
+2.  Created a new experiment and used the [Project Columns][project-columns] module to select the same data features used in Excel   
+3.  Used the [Split][split] module (with *Relative Expression* mode) to divide the data into exact same train sets as had been done in Excel  
+4.  Experimented with the [Linear Regression][linear-regression] module (default options only), documented, and compared the results to our Excel regression model
 
 ### Review initial results
 At first, the Excel model clearly outperformed the Azure ML model:  
 
 |   |Excel|Azure ML|
 |---|:---:|:---:|
-|Performance|	|  |
+|Performance|   |  |
 |<ul style="list-style-type: none;"><li>Adjusted R Square</li></ul>| 0.96 |N/A|
-|<ul style="list-style-type: none;"><li>Coefficient of <br />Determination</li></ul>|N/A|	0.78<br />(low accuracy)|
-|Mean Absolute Error |	$9.5M|	$ 19.4M|
-|Mean Absolute Error (%)|	6.03%|	12.2%
+|<ul style="list-style-type: none;"><li>Coefficient of <br />Determination</li></ul>|N/A|   0.78<br />(low accuracy)|
+|Mean Absolute Error |  $9.5M|  $ 19.4M|
+|Mean Absolute Error (%)|   6.03%|  12.2%
 
 When we ran our process and results by the developers and data scientists on the Azure ML team, they quickly provided some useful tips.  
 
 * When you use the [Linear Regression][linear-regression] module in Azure ML, two methods are provided:
-	*  Online Gradient Descent: May be more suitable for larger-scale problems
-	*  Ordinary Least Squares: This is the method most people think of when they hear linear regression. For small datasets, Ordinary Least Squares can be a more optimal choice.
+    *  Online Gradient Descent: May be more suitable for larger-scale problems
+    *  Ordinary Least Squares: This is the method most people think of when they hear linear regression. For small datasets, Ordinary Least Squares can be a more optimal choice.
 *  Consider tweaking the L2 Regularization Weight parameter to improve performance. It is set to 0.001 by default and for our small data set, we set it to 0.005 to improve performance.    
 
 ### Mystery solved!
@@ -142,7 +142,7 @@ Some resources are listed for helping you work with regression:
 
 * Regression in Excel.  If you’ve never tried regression in Excel, this tutorial makes it easy: [http://www.excel-easy.com/examples/regression.html](http://www.excel-easy.com/examples/regression.html)
 * Regression vs forecasting.  Tyler Chessman wrote a blog article explaining how to do time series forecasting in Excel, which contains a good beginner’s description of linear regression. [http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts](http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts)  
-* 	Ordinary Least Squares Linear Regression: Flaws, Problems and Pitfalls.  For an introduction and discussion of Regression:   [http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ 
+*   Ordinary Least Squares Linear Regression: Flaws, Problems and Pitfalls.  For an introduction and discussion of Regression:   [http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ 
 ](http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ )
 
 [1]: ./media/machine-learning-linear-regression-in-azure/machine-learning-linear-regression-in-azure-1.png
@@ -157,3 +157,4 @@ Some resources are listed for helping you work with regression:
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
+

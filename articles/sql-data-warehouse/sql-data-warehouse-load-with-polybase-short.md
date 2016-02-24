@@ -95,10 +95,10 @@ SECRET = '<azure_storage_account_key>';
 -- C: Create External Data Source
 -- Specify location and credential to access your Azure blob storage.
 CREATE EXTERNAL DATA SOURCE AzureStorage 
-WITH (	
-		TYPE = Hadoop, 
-		LOCATION = 'wasbs://datacontainer@pbdemostorage.blob.core.windows.net',
-		CREDENTIAL = AzureStorageCredential
+WITH (  
+        TYPE = Hadoop, 
+        LOCATION = 'wasbs://datacontainer@pbdemostorage.blob.core.windows.net',
+        CREDENTIAL = AzureStorageCredential
 ); 
 
 
@@ -112,14 +112,14 @@ FORMAT_OPTIONS (FIELD_TERMINATOR = ','));
 -- E: Create External Table
 -- To reference data stored in Azure blob storage.
 CREATE EXTERNAL TABLE dbo.DimDate2External (
-	DateId INT NOT NULL, 
-	CalendarQuarter TINYINT NOT NULL, 
-	FiscalQuarter TINYINT NOT NULL
+    DateId INT NOT NULL, 
+    CalendarQuarter TINYINT NOT NULL, 
+    FiscalQuarter TINYINT NOT NULL
 )
 WITH (
-		LOCATION='datedimension/', 
-		DATA_SOURCE=AzureStorage, 
-		FILE_FORMAT=TextFile
+        LOCATION='datedimension/', 
+        DATA_SOURCE=AzureStorage, 
+        FILE_FORMAT=TextFile
 );
 
 
@@ -183,3 +183,4 @@ create statistics [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 <!--Article references-->
 
 [Statistics]: ./sql-data-warehouse-develop-statistics.md
+

@@ -1,20 +1,20 @@
 <properties
-	
-	pageTitle="Upgrade to the latest elastic database client library | Microsoft Azure" 
-	description="Upgrade apps and libraries using Nuget" 
-	services="sql-database" 
-	documentationCenter="" 
-	manager="jeffreyg" 
-	authors="ddove"/>
+    
+    pageTitle="Upgrade to the latest elastic database client library | Microsoft Azure" 
+    description="Upgrade apps and libraries using Nuget" 
+    services="sql-database" 
+    documentationCenter="" 
+    manager="jeffreyg" 
+    authors="ddove"/>
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="sql-database" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/04/2015" 
-	ms.author="ddove;sidneyh" />
+    ms.service="sql-database" 
+    ms.workload="sql-database" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/04/2015" 
+    ms.author="ddove;sidneyh" />
 
 # Upgrade to the latest elastic database client library
 
@@ -31,7 +31,7 @@ Performing these steps in order ensures that old versions of the client library 
  * In your Visual Studio solution, select **Tools** --> **NuGet Package Manager** -->  **Manage NuGet Packages for Solution**. 
  * (Visual Studio 2013) In the left panel, select **Updates**, and then select the **Update** button on the package **Azure SQL Database Elastic Scale Client Library** that appears in the window.
  * (Visual Studio 2015) Set the Filter box to **Upgrade available**. Select the package to update, and click the **Update** button.
-	
+    
  
  * Build and Deploy. 
 
@@ -41,7 +41,7 @@ Performing these steps in order ensures that old versions of the client library 
 
 **4. Upgrade your Shard Map Manager DBs**. Upgrade the metadata supporting your Shard Maps in Azure SQL Database.  There are two ways you can accomplish this, using PowerShell or C#. Both options are shown below.
 
-***Option 1: Upgrade metadata using PowerShell***
+***undefined***
 
 1. Download the latest command-line utility for NuGet from [here](http://nuget.org/nuget.exe) and save to a folder. 
 
@@ -55,20 +55,20 @@ Performing these steps in order ensures that old versions of the client library 
 
 5. From that folder, run “PowerShell .\upgrade.ps1” from the command prompt and follow the prompts.
  
-***Option 2: Upgrade metadata using C#***
+***undefined***
 
 Alternatively, create a Visual Studio application that opens your ShardMapManager, iterates over all shards, and performs the metadata upgrade by calling the methods [UpgradeLocalStore](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.upgradelocalstore.aspx) and [UpgradeGlobalStore](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.upgradeglobalstore.aspx) as in this example: 
 
-	ShardMapManager smm =
-	   ShardMapManagerFactory.GetSqlShardMapManager
-	   (connStr, ShardMapManagerLoadPolicy.Lazy); 
-	smm.UpgradeGlobalStore(); 
-	
-	foreach (ShardLocation loc in
-	 smm.GetDistinctShardLocations()) 
-	{   
-	   smm.UpgradeLocalStore(loc); 
-	} 
+    ShardMapManager smm =
+       ShardMapManagerFactory.GetSqlShardMapManager
+       (connStr, ShardMapManagerLoadPolicy.Lazy); 
+    smm.UpgradeGlobalStore(); 
+    
+    foreach (ShardLocation loc in
+     smm.GetDistinctShardLocations()) 
+    {   
+       smm.UpgradeLocalStore(loc); 
+    } 
 
 These techniques for metadata upgrades can be applied multiple times without harm. For example, if an older client version inadvertently creates a shard after you have already updated, you can run upgrade again across all shards to ensure that the latest metadata version is present throughout your infrastructure. 
 

@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Planned maintenance for Azure VMs | Microsoft Azure"
-	description="Understand what Azure planned maintenance is and how it affects your virtual machines running in Azure."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="kenazk"
-	manager="timlt"
-	editor=""
-	tags="azure-service-management,azure-resource-manager"/>
+    pageTitle="Planned maintenance for Azure VMs | Microsoft Azure"
+    description="Understand what Azure planned maintenance is and how it affects your virtual machines running in Azure."
+    services="virtual-machines"
+    documentationCenter=""
+    authors="kenazk"
+    manager="timlt"
+    editor=""
+    tags="azure-service-management,azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-multiple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/23/2015"
-	ms.author="kenazk"/>
+    ms.service="virtual-machines"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-multiple"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/23/2015"
+    ms.author="kenazk"/>
 
 
 # Planned maintenance for Azure virtual machines
@@ -119,3 +119,4 @@ For example, during a planned maintenance, Azure will not roll out an update to 
 <!--Link references-->
 [Virtual Machines Manage Availability]: virtual-machines-windows-tutorial.md
 [Understand planned versus unplanned maintenance]: virtual-machines-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
+

@@ -8,13 +8,13 @@
    editor=""/>
 
    <tags
-   	ms.service="batch"
-   	ms.devlang="multiple"
-   	ms.topic="article"
-   	ms.tgt_pltfrm="vm-windows"
-   	ms.workload="big-compute"
-   	ms.date="11/02/2015"
-   	ms.author="v-marsma"/>
+    ms.service="batch"
+    ms.devlang="multiple"
+    ms.topic="article"
+    ms.tgt_pltfrm="vm-windows"
+    ms.workload="big-compute"
+    ms.date="11/02/2015"
+    ms.author="v-marsma"/>
 
 # Maximize Azure Batch compute resource usage with concurrent node tasks
 
@@ -55,9 +55,9 @@ As an example of how this feature is valuable, consider the pool of Standard\_D1
 This [Batch .NET][api_net] API code snippet shows a request to create a pool containing four large nodes with a maximum of four tasks per node, and specifying a task scheduling policy that will fill each node with tasks prior to assigning tasks to another node in the pool. For more information on adding pools using the Batch .NET API, see [BatchClient.PoolOperations.CreatePool][poolcreate_net].
 
         CloudPool pool = batchClient.PoolOperations.CreatePool(poolId: "mypool",
-        													osFamily: "2",
-        													virtualMachineSize: "large",
-        													targetDedicated: 4);
+                                                            osFamily: "2",
+                                                            virtualMachineSize: "large",
+                                                            targetDedicated: 4);
         pool.MaxTasksPerComputeNode = 4;
         pool.TaskSchedulingPolicy = new TaskSchedulingPolicy(ComputeNodeFillType.Pack);
         pool.Commit();
@@ -126,3 +126,4 @@ The [Batch Explorer][batch_explorer], one of the Azure Batch [sample application
 [task_schedule]: https://msdn.microsoft.com/library/microsoft.azure.batch.cloudpool.taskschedulingpolicy.aspx
 
 [1]: ./media/batch-parallel-node-tasks\heat_map.png
+

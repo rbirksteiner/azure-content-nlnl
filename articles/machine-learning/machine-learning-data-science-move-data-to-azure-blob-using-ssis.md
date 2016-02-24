@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Move Data to or from Azure Blob Storage using SSIS connectors | Microsoft Azure" 
-	description="Move Data to or from Azure Blob Storage using SSIS connectors." 
-	services="machine-learning,storage" 
-	documentationCenter="" 
-	authors="bradsev" 
-	manager="paulettm" 
-	editor="cgronlun" />
+    pageTitle="Move Data to or from Azure Blob Storage using SSIS connectors | Microsoft Azure" 
+    description="Move Data to or from Azure Blob Storage using SSIS connectors." 
+    services="machine-learning,storage" 
+    documentationCenter="" 
+    authors="bradsev" 
+    manager="paulettm" 
+    editor="cgronlun" />
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/28/2015" 
-	ms.author="bradsev" />
+    ms.service="machine-learning" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/28/2015" 
+    ms.author="bradsev" />
 
 # Move Data to or from Azure Blob Storage using SSIS connectors
 
@@ -87,3 +87,4 @@ We note here that the SSIS feature pack allows for more complex flows to be hand
 
 - To run a Hive script on an Azure HDInsight cluster with SSIS, use [Azure HDInsight Hive Task](https://msdn.microsoft.com/library/mt146771.aspx).
 - To run a Pig script on an Azure HDInsight cluster with SSIS, use [Azure HDInsight Pig Task](https://msdn.microsoft.com/library/mt146781.aspx).
+

@@ -9,3 +9,4 @@
 |Number of connections using BizTalk Adapter Service per Unit|N/A|1|2|5|25|
 |Archiving|N/A|Available|N/A|N/A|Available|
 |High Availability |N/A|N/A|Available|Available|Available|
+

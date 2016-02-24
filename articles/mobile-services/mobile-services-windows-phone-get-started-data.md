@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Add Mobile Services to an existing app (WP8) | Microsoft Azure"
-	description="Learn how to get started using data from your Azure Mobile Services Windows Phone 8 app."
-	services="mobile-services"
-	documentationCenter="windows"
-	authors="ggailey777"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Add Mobile Services to an existing app (WP8) | Microsoft Azure"
+    description="Learn how to get started using data from your Azure Mobile Services Windows Phone 8 app."
+    services="mobile-services"
+    documentationCenter="windows"
+    authors="ggailey777"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-windows-phone"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="11/11/2015"
-	ms.author="glenga"/>
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-windows-phone"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="11/11/2015"
+    ms.author="glenga"/>
 
 
 # Add Mobile Services to an existing app
@@ -45,19 +45,19 @@ This tutorial is built on the [GetStartedWithData app][Developer Code Samples si
 
 1. Download the GetStartedWithData sample app project from the [Developer Code Samples site].
 
-	>[AZURE.NOTE]To create a Windows Phone Silverlght 8.1 app, just change the target OS in the downloaded Windows Phone Silverlight 8 app project to Windows Phone 8.1. To create a Windows Phone Store app, download the [Windows Phone Store app version](http://go.microsoft.com/fwlink/p/?LinkId=397372) of the GetStartedWithData sample app project.
+    >[AZURE.NOTE]To create a Windows Phone Silverlght 8.1 app, just change the target OS in the downloaded Windows Phone Silverlight 8 app project to Windows Phone 8.1. To create a Windows Phone Store app, download the [Windows Phone Store app version](http://go.microsoft.com/fwlink/p/?LinkId=397372) of the GetStartedWithData sample app project.
 
 2. In Visual Studio, open the downloaded project and examine the MainPage.xaml.cs file.
 
-   	Notice that added **TodoItem** objects are stored in an in-memory **ObservableCollection&lt;TodoItem&gt;**.
+    Notice that added **TodoItem** objects are stored in an in-memory **ObservableCollection&lt;TodoItem&gt;**.
 
 3. Press the **F5** key to rebuild the project and start the app.
 
 4. In the app, type some text in the text box, then click the **Save** button.
 
-   	![][0]
+    ![][0]
 
-   	Notice that the saved text is displayed in the list below.
+    Notice that the saved text is displayed in the list below.
 
 ##<a name="create-service"></a>Create a new mobile service in the Azure classic portal
 
@@ -75,35 +75,35 @@ Now that your mobile service is ready, you can update the app to store items in 
 
 2. In the left pane, select the **Online** category, search for `WindowsAzure.MobileServices`, click **Install** on the **Azure Mobile Services** package, then accept the license agreement.
 
-  	![][7]
+    ![][7]
 
-  	This adds the Mobile Services client library to the project.
+    This adds the Mobile Services client library to the project.
 
 3. In the [Azure classic portal], click **Mobile Services**, and then click the mobile service you just created.
 
 4. Click the **Dashboard** tab and make a note of the **Site URL**, then click **Manage keys** and make a note of the **Application key**.
 
-   	![][8]
+    ![][8]
 
-  	You will need these values when accessing the mobile service from your app code.
+    You will need these values when accessing the mobile service from your app code.
 
 5. In Visual Studio, open the file App.xaml.cs and add or uncomment the following `using` statement:
 
-       	using Microsoft.WindowsAzure.MobileServices;
+        using Microsoft.WindowsAzure.MobileServices;
 
 6. In this same file, uncomment the following code that defines the **MobileService** variable, and supply the URL and application key from the mobile service in the **MobileServiceClient** constructor, in that order.
 
-		//public static MobileServiceClient MobileService = new MobileServiceClient(
+        //public static MobileServiceClient MobileService = new MobileServiceClient(
         //    "AppUrl",
         //    "AppKey"
         //);
 
-  	This creates a new instance of **MobileServiceClient** that is used to access your mobile service.
+    This creates a new instance of **MobileServiceClient** that is used to access your mobile service.
 
 6. In the file MainPage.cs, add or uncomment the following `using` statements:
 
-       	using Microsoft.WindowsAzure.MobileServices;
-		using Newtonsoft.Json;
+        using Microsoft.WindowsAzure.MobileServices;
+        using Newtonsoft.Json;
 
 7. In this DataModel folder, replace the **TodoItem** class definition with the following code:
 
@@ -122,27 +122,27 @@ Now that your mobile service is ready, you can update the app to store items in 
 
         private MobileServiceCollection<TodoItem, TodoItem> items;
         private IMobileServiceTable<TodoItem> todoTable =
-			App.MobileService.GetTable<TodoItem>();
+            App.MobileService.GetTable<TodoItem>();
 
-   	This code creates a mobile services-aware binding collection (**items**) and a proxy class for the SQL Database table **TodoItem** (**todoTable**).
+    This code creates a mobile services-aware binding collection (**items**) and a proxy class for the SQL Database table **TodoItem** (**todoTable**).
 
 7. In the **InsertTodoItem** method, remove the line of code that sets the **TodoItem**.**Id** property, add the **async** modifier to the method, and uncomment the following line of code:
 
         await todoTable.InsertAsync(todoItem);
 
-  	This code inserts a new item into the table.
+    This code inserts a new item into the table.
 
 8. In the **RefreshTodoItems** method, add the **async** modifier to the method, then uncomment the following line of code:
 
         items = await todoTable.ToCollectionAsync();
 
-   	This sets the binding to the collection of items in the todoTable, which contains all TodoItem objects returned from the mobile service.
+    This sets the binding to the collection of items in the todoTable, which contains all TodoItem objects returned from the mobile service.
 
 9. In the **UpdateCheckedTodoItem** method, add the **async** modifier to the method, and uncomment the following line of code:
 
          await todoTable.UpdateAsync(item);
 
-   	This sends an item update to the mobile service.
+    This sends an item update to the mobile service.
 
 Now that the app has been updated to use Mobile Services for backend storage, it's time to test the app against Mobile Services.
 
@@ -152,15 +152,15 @@ Now that the app has been updated to use Mobile Services for backend storage, it
 
 2. As before, type text in the textbox, and then click **Save**.
 
-   	This sends a new item as an insert to the mobile service.
+    This sends a new item as an insert to the mobile service.
 
 3. In the [Azure classic portal], click **Mobile Services**, and then click your mobile service.
 
 4. Click the **Data** tab, then click **Browse**.
 
-   	![][9]
+    ![][9]
 
-   	Notice that the **TodoItem** table now contains data, with id values generated by Mobile Services, and that columns have been automatically added to the table to match the TodoItem class in the app.
+    Notice that the **TodoItem** table now contains data, with id values generated by Mobile Services, and that columns have been automatically added to the table to match the TodoItem class in the app.
 
 This concludes the tutorial.
 
@@ -197,4 +197,5 @@ This tutorial demonstrated the basics of enabling a Windows Phone 8 app to work 
 [Windows Phone 8 SDK]: http://go.microsoft.com/fwlink/p/?LinkID=268374
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkID=268375
 [Developer Code Samples site]:  http://go.microsoft.com/fwlink/p/?LinkId=271146
+
 

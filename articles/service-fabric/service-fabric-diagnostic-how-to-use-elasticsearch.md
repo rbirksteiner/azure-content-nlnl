@@ -206,8 +206,8 @@ namespace Stateless1
                     fabricRuntime.RegisterServiceType("Stateless1Type", typeof(Stateless1));
 
                     ServiceEventSource.Current.ServiceTypeRegistered(
-						Process.GetCurrentProcess().Id,
-						typeof(Stateless1).Name);
+                        Process.GetCurrentProcess().Id,
+                        typeof(Stateless1).Name);
 
                     Thread.Sleep(Timeout.Infinite);
 
@@ -249,3 +249,4 @@ That is it! Now whenever the service is run, it will start sending traces to the
 <!--Image references-->
 [1]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/listener-lib-references.png
 [2]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/kibana.png
+

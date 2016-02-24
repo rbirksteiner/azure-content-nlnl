@@ -1,20 +1,20 @@
 <properties
-	pageTitle="All topics for data-factory service | Microsoft Azure"
-	description="Table of all topics for the Azure service named data-factory that exist on http://azure.microsoft.com/documentation/articles/, Title and description."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
-	editor=""/>
+    pageTitle="All topics for data-factory service | Microsoft Azure"
+    description="Table of all topics for the Azure service named data-factory that exist on http://azure.microsoft.com/documentation/articles/, Title and description."
+    services="data-factory"
+    documentationCenter=""
+    authors="spelluru"
+    manager="jhubbard"
+    editor=""/>
 
 <tags
-	ms.service="data-factory"
-	ms.workload="data-factory"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/15/2015"
-	ms.author="spelluru"/>
+    ms.service="data-factory"
+    ms.workload="data-factory"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/15/2015"
+    ms.author="spelluru"/>
 
 
 # All topics for Azure data-factory service
@@ -150,4 +150,5 @@ This topic lists every topic that applies directly to the data-factory service o
 - [Alternative search for the documentation of Microsoft Azure](http://azure.microsoft.com/searchresults/?query=)
 - [View the latest updates to the data-factory service](http://azure.microsoft.com/updates/?service=data-factory)
 - [Learning Path graphics for Microsoft Azure services](http://azure.microsoft.com/documentation/learning-paths/)
+
 

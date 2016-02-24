@@ -74,7 +74,7 @@ The following table lists the dimensions of the enclosure in millimeters and inc
 | Width across body of enclosure | 443 | 17.44 |
 | Depth from front mounting flange to extremity of enclosure body | 577 | 22.72 |
 | Depth from operations panel to furthest extremity of enclosure | 630.5 | 24.82 |
-| Depth from mounting flange to furthest extremity of enclosure |	603 | 23.74 |
+| Depth from mounting flange to furthest extremity of enclosure |   603 | 23.74 |
 
 ### Enclosure weight  
 
@@ -110,7 +110,7 @@ This section lists the specifications related to the enclosure environment. The 
 | Vibration, relocation  | 3g 2-200 Hz sine |
 | Orientation and mounting  | 19" rack mount (2 EIA units) |
 | Rack rails  | To fit minimum 700 mm (31.50 inches) depth racks compliant with IEC 297 |
-| Safety and approvals  |	CE and UL EN 61000-3, IEC 61000-3, UL 61000-3 |
+| Safety and approvals  |   CE and UL EN 61000-3, IEC 61000-3, UL 61000-3 |
 | EMC  | EN55022 (CISPR - A), FCC A |
 
 ## International standards compliance
@@ -171,3 +171,4 @@ For the 10 GbE network interfaces, DATA 2 and DATA 3, refer to the [list of supp
 ## Next steps
 
 For more information about the StorSimple device specifications, download the [StorSimple 8000 Series Specifications](http://storsimple.seagate.com/Specifications-8000).  
+

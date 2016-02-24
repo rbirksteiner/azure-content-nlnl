@@ -1,19 +1,19 @@
 <properties
-	pageTitle="HDInsight Application Partners | Microsoft Azure" 
-	description="Customers can now easily discovery and deploy big data application alongside their HDInsight clusters right from within the provisioning portal."
-	services="hdinsight" 
-	documentationCenter="na" 
-	authors="pablissima" 
-	manager="paulettm="" 
-	tags=""/>
+    pageTitle="HDInsight Application Partners | Microsoft Azure" 
+    description="Customers can now easily discovery and deploy big data application alongside their HDInsight clusters right from within the provisioning portal."
+    services="hdinsight" 
+    documentationCenter="na" 
+    authors="pablissima" 
+    manager="paulettm="" 
+    tags=""/>
 <tags
-	ms.service="hdinsight"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="09/25/2015"
-	ms.author="paulettm"/>
+    ms.service="hdinsight"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="09/25/2015"
+    ms.author="paulettm"/>
 # HDInsight Application Partners
 
 ![](media/hdinsight-application-partners/dataguise1.png)  
@@ -29,8 +29,8 @@ compliance costs.
 
 ![](media/hdinsight-application-partners/datatorrent2.png)  
 As a native Hadoop solution, DataTorrent enables you to leverage your
-existing Hadoop environment for real-time stream analytics on a massive
-scale. Processing billions of events per second with sub-second latency,
+existing Hadoop environment for real-time stream analytics on a massive
+scale. Processing billions of events per second with sub-second latency,
 DataTorrent supports today’s most demanding, mission-critical, big-data
 applications.
 
@@ -39,8 +39,8 @@ Things, fraud detection in financial services, log analysis and IT
 operations, Geo-location services, Social apps, and more.
 
 ![](media/hdinsight-application-partners/datameer3.png)  
-Datameer’s end-to-end Big Data Discovery solution enables business users
-to discover insights in any data via wizard-based data integration,
+Datameer’s end-to-end Big Data Discovery solution enables business users
+to discover insights in any data via wizard-based data integration,
 iterative point-and-click analytics, and drag-and-drop visualizations,
 regardless of the data type, size, or source.
 
@@ -49,7 +49,7 @@ data sources of varying types, Datameer uses Hortonworks Data Platform
 for both storage and compute, and is a fully extensible solution that
 can integrate with existing DW or BI solutions. Datameer users can also
 gain instant insights via the Datameer App Market, which offers dozens
-of pre-built analytic applications across a variety of use cases and
+of pre-built analytic applications across a variety of use cases and
 data types.
 
 ![](media/hdinsight-application-partners/concurrent4.png)  
@@ -69,7 +69,7 @@ http://www.concurrentinc.com/
 Today’s businesses collect more and more data and need to explicitly
 define the scope of access that users should have to that data. Any
 disconnect between what data users have access to and what they actually
-need to do their job can leave companies exposed to unnecessary risks.
+need to do their job can leave companies exposed to unnecessary risks.
 As enterprises build big data environments, they must redefine how they
 control their data. BlueTalon delivers the best data control technology
 for today’s data challenge and keeps you in control of your data.
@@ -110,8 +110,8 @@ page.
 
 RedPoint has been rated \#1 in user surveys for speed, match quality and
 ease of use, and generally for customer and third party data
-management. [Contact
-us](http://www.redpoint.net/Products/BigData.aspx) to see how RedPoint
+management. [Contact
+us](http://www.redpoint.net/Products/BigData.aspx) to see how RedPoint
 can make managing data quality and data integration in your Hadoop
 environment easier, faster, lower-cost and more effective.
 
@@ -136,3 +136,4 @@ of traditional OLAP solutions, and enabling interactive
 multi-dimensional analytics on your Big Data. Users can visualize,
 explore and analyze their data interactively on Hadoop with no
 programming required.
+

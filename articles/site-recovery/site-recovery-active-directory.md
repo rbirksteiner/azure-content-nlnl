@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Protect Active Directory and DNS with Azure Site Recovery | Microsoft Azure" 
-	description="This article describes how to implement a disaster recovery solution for Active Directory using Azure Site Recovery." 
-	services="site-recovery" 
-	documentationCenter="" 
-	authors="prateek9us" 
-	manager="abhiag" 
-	editor=""/>
+    pageTitle="Protect Active Directory and DNS with Azure Site Recovery | Microsoft Azure" 
+    description="This article describes how to implement a disaster recovery solution for Active Directory using Azure Site Recovery." 
+    services="site-recovery" 
+    documentationCenter="" 
+    authors="prateek9us" 
+    manager="abhiag" 
+    editor=""/>
 
 <tags 
-	ms.service="site-recovery" 
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="storage-backup-recovery" 
-	ms.date="12/14/2015" 
-	ms.author="pratshar"/>
+    ms.service="site-recovery" 
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="storage-backup-recovery" 
+    ms.date="12/14/2015" 
+    ms.author="pratshar"/>
 
 # Protect Active Directory and DNS with Azure Site Recovery
 
@@ -100,24 +100,25 @@ You can use a fresh DNS server and create all the required zones. For example, i
 
 1. Ensure these settings are in place before any other virtual machine in the recovery plan comes up:
 
-	- The zone must be named after the forest root name.
-	- The zone must be file backed.
-	- The zone must be enabled for secure and non-secure updates.
-	- The resolver of the domain controller virtual machine should point to the IP address of the DNS virtual machine.
+    - The zone must be named after the forest root name.
+    - The zone must be file backed.
+    - The zone must be enabled for secure and non-secure updates.
+    - The resolver of the domain controller virtual machine should point to the IP address of the DNS virtual machine.
 
 2. Run the following command on domain controller virtual machine directory:
 
-	`nltest /dsregdns`
+    `nltest /dsregdns`
 
 3. Add a zone on the DNS server, allow non-secure updates, and add an entry for it to DNS:
 
-	    dnscmd /zoneadd contoso.com  /Primary 
-	    dnscmd /recordadd contoso.com  contoso.com. SOA %computername%.contoso.com. hostmaster. 1 15 10 1 1 
-	    dnscmd /recordadd contoso.com %computername%  A <IP_OF_DNS_VM> 
-	    dnscmd /config contoso.com /allowupdate 1
+        dnscmd /zoneadd contoso.com  /Primary 
+        dnscmd /recordadd contoso.com  contoso.com. SOA %computername%.contoso.com. hostmaster. 1 15 10 1 1 
+        dnscmd /recordadd contoso.com %computername%  A <IP_OF_DNS_VM> 
+        dnscmd /config contoso.com /allowupdate 1
 
 
 ## Next steps
 
 Read [What workloads can I protect?](../site-recovery/site-recovery-workload.md) to learn more about protecting enterprise workloads with Azure Site Recovery.
+
 

@@ -48,7 +48,7 @@ You can define a connector within a logic app or from the Azure Marketplace, lik
 5. In the Informix Connector package blade, enter the Name (e.g. "InformixConnectorNewOrders"), App Service Plan, and other properties.
 6. Select **Package settings**, and enter the following package settings.
 
-	Name | Required |  Description
+    Name | Required |  Description
 --- | --- | ---
 ConnectionString | Yes | Informix Client connection string (e.g., "Network Address=servername;Network Port=9089;User ID=username;Password=password;Initial Catalog=nwind;Default Schema=informix").
 Tables | Yes | Comma separated list of table, view and alias names required for OData operations and to generate swagger documentation with examples (e.g. "NEWORDERS").
@@ -77,7 +77,7 @@ You can define a Logic app action to add data to an Informix table using an API 
 6. In the API Apps panel, select **Informix Connector**, expand the operations list to select **Insert into NEWORDER**.
 7. Expand the parameters list to enter the following values:  
 
-	Name | Value
+    Name | Value
 --- | --- 
 CUSTID | 10042
 SHIPID | 10000
@@ -115,9 +115,9 @@ You can define a Logic app action to add data to an Informix table using an API 
 6. In the API Apps panel, select **Informix Connector**, expand the operations list to select **Bulk Insert into NEW**.
 7. Enter the **rows** value as an array. For example, copy and paste the following:  
 
-	```
+    ```
     [{"custid":10081,"shipid":10000,"shipname":"Trail's Head Gourmet Provisioners","shipaddr":"722 DaVinci Blvd.","shipcity":"Kirkland","shipreg":"WA","shipzip":"98034"},{"custid":10088,"shipid":10000,"shipname":"White Clover Markets","shipaddr":"305 14th Ave. S. Suite 3B","shipcity":"Seattle","shipreg":"WA","shipzip":"98128","shipctry":"USA"}]
-	```
+    ```
         
 8. Select the **checkmark** to save the action settings, and then **Save**. The settings should look as follows:  
 ![][6]
@@ -140,7 +140,7 @@ You can define a Logic app action to add data to an Informix table using an API 
 ## Logic App with Informix Connector Trigger to Read, Alter or Delete Data ##
 You can define a Logic app trigger to poll and read data from an Informix table using an API Poll Data composite operation. For example, you can read one or more new customer order records, returning the records to the logic app. The Informix Connection package/app settings should look as follows:
 
-	App Setting | Value
+    App Setting | Value
 --- | --- | ---
 PollToCheckData | SELECT COUNT(\*) FROM NEWORDERS WHERE SHIPDATE IS NULL
 PollToReadData | SELECT \* FROM NEWORDERS WHERE SHIPDATE IS NULL FOR UPDATE
@@ -149,7 +149,7 @@ PollToAlterData | <no value specified>
 
 Also, you can define a Logic app trigger to poll, read and alter data in an Informix table using an API Poll Data composite operation. For example, you can read one or more new customer order records, update the row values, returning the selected (before update) records to the logic app. The Informix Connection package/app settings should look as follows:
 
-	App Setting | Value
+    App Setting | Value
 --- | --- | ---
 PollToCheckData | SELECT COUNT(\*) FROM NEWORDERS WHERE SHIPDATE IS NULL
 PollToReadData | SELECT \* FROM NEWORDERS WHERE SHIPDATE IS NULL FOR UPDATE
@@ -158,7 +158,7 @@ PollToAlterData | UPDATE NEWORDERS SET SHIPDATE = CURRENT DATE WHERE CURRENT OF 
 
 Further, you can define a Logic app trigger to poll, read and remove data from an Informix table using an API Poll Data composite operation. For example, you can read one or more new customer order records, delete the rows, returning the selected (before delete) records to the logic app. The Informix Connection package/app settings should look as follows:
 
-	App Setting | Value
+    App Setting | Value
 --- | --- | ---
 PollToCheckData | SELECT COUNT(\*) FROM NEWORDERS WHERE SHIPDATE IS NULL
 PollToReadData | SELECT \* FROM NEWORDERS WHERE SHIPDATE IS NULL FOR UPDATE
@@ -215,39 +215,39 @@ You can create a new Logic app from within the Azure Marketplace, and then use t
 You can create the sample NEWORDERS table using the following Informix SQL DDL statements:
  
     create table neworders (  
- 		ordid serial(10000) unique ,  
- 		custid int not null ,  
- 		empid int not null default 10000 ,  
- 		orddate date not null default today ,  
- 		reqdate date default today ,  
- 		shipdate date ,  
- 		shipid int not null default 10000 ,  
- 		freight decimal (9,2) not null default 0.00 ,  
- 		shipname char (40) not null ,  
- 		shipaddr char (60) not null ,  
- 		shipcity char (20) not null ,  
- 		shipreg char (15) not null ,  
- 		shipzip char (10) not null ,  
- 		shipctry char (15) not null default ''USA'' 
- 		)
+        ordid serial(10000) unique ,  
+        custid int not null ,  
+        empid int not null default 10000 ,  
+        orddate date not null default today ,  
+        reqdate date default today ,  
+        shipdate date ,  
+        shipid int not null default 10000 ,  
+        freight decimal (9,2) not null default 0.00 ,  
+        shipname char (40) not null ,  
+        shipaddr char (60) not null ,  
+        shipcity char (20) not null ,  
+        shipreg char (15) not null ,  
+        shipzip char (10) not null ,  
+        shipctry char (15) not null default ''USA'' 
+        )
 
 
 You can create the sample SPORDERID stored procedure using the following Informix DDL statement:
  
     create procedure sporderid ( ord_id int)  
- 		returning int, int, int, date, date, date, int, decimal (9,2), char (40), char (60), char (20), char (15), char (10), char (15)  
- 		define xordid, xcustid, xempid, xshipid int;  
- 		define xorddate, xreqdate, xshipdate date;  
- 		define xfreight decimal (9,2);  
- 		define xshipname char (40);  
- 		define xshipaddr char (60);  
- 		define xshipcity char (20);  
- 		define xshipreg, xshipctry char (15);  
- 		define xshipzip char (10);  
- 		select ordid, custid, empid, orddate, reqdate, shipdate, shipid, freight, shipname, shipaddr, shipcity, shipreg, shipzip, shipctry  
- 			into xordid, xcustid, xempid, xorddate, xreqdate, xshipdate, xshipid, xfreight, xshipname, xshipaddr, xshipcity, xshipreg, xshipzip, xshipctry  
- 			from neworders where ordid = ord_id;  
- 		return xordid, xcustid, xempid, xorddate, xreqdate, xshipdate, xshipid, xfreight, xshipname, xshipaddr, xshipcity, xshipreg, xshipzip, xshipctry;  
+        returning int, int, int, date, date, date, int, decimal (9,2), char (40), char (60), char (20), char (15), char (10), char (15)  
+        define xordid, xcustid, xempid, xshipid int;  
+        define xorddate, xreqdate, xshipdate date;  
+        define xfreight decimal (9,2);  
+        define xshipname char (40);  
+        define xshipaddr char (60);  
+        define xshipcity char (20);  
+        define xshipreg, xshipctry char (15);  
+        define xshipzip char (10);  
+        select ordid, custid, empid, orddate, reqdate, shipdate, shipid, freight, shipname, shipaddr, shipcity, shipreg, shipzip, shipctry  
+            into xordid, xcustid, xempid, xorddate, xreqdate, xshipdate, xshipid, xfreight, xshipname, xshipaddr, xshipcity, xshipreg, xshipzip, xshipctry  
+            from neworders where ordid = ord_id;  
+        return xordid, xcustid, xempid, xorddate, xreqdate, xshipdate, xshipid, xfreight, xshipname, xshipaddr, xshipcity, xshipreg, xshipzip, xshipctry;  
     end procedure; 
 
 
@@ -283,5 +283,6 @@ You can also review performance statistics and control security to the connector
 [12]: ./media/app-service-logic-connector-informix/LogicApp_RemoveOrdersInformix_Create.png
 [13]: ./media/app-service-logic-connector-informix/LogicApp_RemoveOrdersInformix_TriggersActions.png
 [14]: ./media/app-service-logic-connector-informix/LogicApp_RemoveOrdersInformix_Outputs.png
+
 
 

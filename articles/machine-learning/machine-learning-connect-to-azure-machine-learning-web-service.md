@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Connect to a Machine Learning Web Service | Microsoft Azure"
-	description="With C# or Python, connect to an Azure Machine Learning web service using an authorization key."
-	services="machine-learning"
-	documentationCenter=""
-	authors="garyericson"
-	manager="paulettm"
-	editor="cgronlun" />
+    pageTitle="Connect to a Machine Learning Web Service | Microsoft Azure"
+    description="With C# or Python, connect to an Azure Machine Learning web service using an authorization key."
+    services="machine-learning"
+    documentationCenter=""
+    authors="garyericson"
+    manager="paulettm"
+    editor="cgronlun" />
 
 <tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/09/2015" 
-	ms.author="derrickv" />
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/09/2015" 
+    ms.author="derrickv" />
 
 
 # Connect to an Azure Machine Learning Web Service
@@ -104,3 +104,4 @@ To connect to an Azure ML web service, use the **urllib2** library passing Score
 1. Publish "Sample 1: Download dataset from UCI: Adult 2 class dataset" experiment, part of the Azure ML sample collection.
 2. Assign apiKey with the key from a web service. See How to get an Azure ML authorization key.
 3. Assign serviceUri with the Request URI. See How to get a Request URI.
+

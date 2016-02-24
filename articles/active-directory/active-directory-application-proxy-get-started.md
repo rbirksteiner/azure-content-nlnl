@@ -1,20 +1,20 @@
 <properties
-	pageTitle="How to provide secure remote access to on-premises apps"
-	description="Covers how to use Azure AD Application Proxy to provide secure remote access to your on-premises apps."
-	services="active-directory"
-	documentationCenter=""
-	authors="kgremban"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="How to provide secure remote access to on-premises apps"
+    description="Covers how to use Azure AD Application Proxy to provide secure remote access to your on-premises apps."
+    services="active-directory"
+    documentationCenter=""
+    authors="kgremban"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/02/2015"
-	ms.author="kgremban"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/02/2015"
+    ms.author="kgremban"/>
 
 # How to provide secure remote access to on-premises applications
 
@@ -61,3 +61,4 @@ There's a lot more you can do with Application Proxy:
 ## Additional resources
 * [Sign up for Azure as an organization](../sign-up-organization.md)
 * [Azure Identity](../fundamentals-identity.md)
+

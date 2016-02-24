@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Set up data science environments for use in the Cortana Analytics Process | Azure" 
-	description="Set up data science environments for use in the Cortana Analytics Process" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="bradsev" 
-	manager="paulettm" 
-	editor="cgronlun"/>
+    pageTitle="Set up data science environments for use in the Cortana Analytics Process | Azure" 
+    description="Set up data science environments for use in the Cortana Analytics Process" 
+    services="machine-learning" 
+    documentationCenter="" 
+    authors="bradsev" 
+    manager="paulettm" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/13/2015" 
-	ms.author="bradsev" /> 
+    ms.service="machine-learning" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/13/2015" 
+    ms.author="bradsev" /> 
 
 # Set up data science environments for use in the Cortana Analytics Process
 

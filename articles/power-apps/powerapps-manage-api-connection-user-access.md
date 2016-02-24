@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Add or create a new API and give users permissions in PowerApps | Microsoft Azure"
-	description="Add, create, and configure a new API, connection or connection profile, and give permissions and rights with user access in the Azure portal"
-	services=""
+    pageTitle="Add or create a new API and give users permissions in PowerApps | Microsoft Azure"
+    description="Add, create, and configure a new API, connection or connection profile, and give permissions and rights with user access in the Azure portal"
+    services=""
     suite="powerapps"
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="dwrede"
-	editor=""/>
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="dwrede"
+    editor=""/>
 
 <tags
    ms.service="powerapps"
@@ -33,9 +33,9 @@ This topic:
 - Enable [PowerApps in your Azure subscription](powerapps-get-started-azure-portal.md).
 - Create an [App Service environment](powerapps-get-started-azure-portal.md).
 - Create an API using any of the following methods:  
-	- Create a [Microsoft managed API or an IT managed API](powerapps-register-from-available-apis.md).
-	- Create an API hosted within [your App Service Environment](powerapps-register-api-hosted-in-app-service.md).
-	- Create using a [Swagger 2.0 API definition](powerapps-register-existing-api-from-api-definition.md).
+    - Create a [Microsoft managed API or an IT managed API](powerapps-register-from-available-apis.md).
+    - Create an API hosted within [your App Service Environment](powerapps-register-api-hosted-in-app-service.md).
+    - Create using a [Swagger 2.0 API definition](powerapps-register-existing-api-from-api-definition.md).
 
 
 ## Give users access to the API
@@ -89,3 +89,4 @@ Next, you can [manage and monitor your PowerApps](powerapps-manage-monitor-usage
 [2]: ./media/powerapps-manage-api-connection-user-access/connectionuseraccess.png
 [3]: ./media/powerapps-manage-api-connection-user-access/selectpermission.png
 [4]: ./media/powerapps-manage-api-connection-user-access/deleteapi.png
+

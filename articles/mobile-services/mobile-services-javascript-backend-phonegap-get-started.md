@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Get started with Azure Mobile Services for PhoneGap/cordova apps | Microsoft Azure"
-	description="Follow this tutorial to get started using Azure Mobile Services for PhoneGap development for iOS, Android, and Windows Phone."
-	services="mobile-services"
-	documentationCenter=""
-	authors="ggailey777"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Get started with Azure Mobile Services for PhoneGap/cordova apps | Microsoft Azure"
+    description="Follow this tutorial to get started using Azure Mobile Services for PhoneGap development for iOS, Android, and Windows Phone."
+    services="mobile-services"
+    documentationCenter=""
+    authors="ggailey777"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-phonegap"
-	ms.devlang="multiple"
-	ms.topic="get-started-article" 
-	ms.date="11/06/2015"
-	ms.author="ggailey777"/>
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-phonegap"
+    ms.devlang="multiple"
+    ms.topic="get-started-article" 
+    ms.date="11/06/2015"
+    ms.author="ggailey777"/>
 
 # Get started with Mobile Services
 
@@ -39,10 +39,10 @@ Completing this tutorial requires the following:
 
 + PhoneGap supports developing for multiple platforms. In addition to the PhoneGap tools themselves, you must install the tools for each platform you are targeting:
 
-	- Windows Phone: Install [Visual Studio 2012 Express for Windows Phone](https://go.microsoft.com/fwLink/p/?LinkID=268374)
-	- iOS: Install [Xcode] (v4.4+ required)
-	- Android: Install the [Android Developer Tools][Android SDK]
-		<br/>(The Mobile Services SDK for Android supports apps for Android 2.2 or a later version. Android 4.2 or higher is required to run the quick start app.)
+    - Windows Phone: Install [Visual Studio 2012 Express for Windows Phone](https://go.microsoft.com/fwLink/p/?LinkID=268374)
+    - iOS: Install [Xcode] (v4.4+ required)
+    - Android: Install the [Android Developer Tools][Android SDK]
+        <br/>(The Mobile Services SDK for Android supports apps for Android 2.2 or a later version. Android 4.2 or higher is required to run the quick start app.)
 
 ## Create a new mobile service
 
@@ -56,11 +56,11 @@ In this section you will create a new PhoneGap app that is connected to your mob
 
 2. In the quickstart tab, click **PhoneGap** under **Choose platform** and expand **Create a new PhoneGap app**.
 
-   	![][0]
+    ![][0]
 
-   	This displays the three easy steps to create a PhoneGap app connected to your mobile service.
+    This displays the three easy steps to create a PhoneGap app connected to your mobile service.
 
-  	![][1]
+    ![][1]
 
 3. If you haven't already done so, download and install PhoneGap and at least one of the platform development tools (Windows Phone, iOS, or Android).
 
@@ -68,58 +68,58 @@ In this section you will create a new PhoneGap app that is connected to your mob
 
 5. Under **Download and run your app**, click **Download**.
 
-	This downloads the project for the sample _To do list_ application that is connected to your mobile service, along with the Mobile Services JavaScript SDK. Save the compressed project file to your local computer, and make a note of where you saved it.
+    This downloads the project for the sample _To do list_ application that is connected to your mobile service, along with the Mobile Services JavaScript SDK. Save the compressed project file to your local computer, and make a note of where you saved it.
 
 ## Run your new PhoneGap app
 
 The final stage of this tutorial is to build and run your new app.
 
-1.	Browse to the location where you saved the compressed project files and expand the files on your computer.
+1.  Browse to the location where you saved the compressed project files and expand the files on your computer.
 
-2.	Open and run the project according to the instructions below for each platform.
+2.  Open and run the project according to the instructions below for each platform.
 
-	+ **Windows Phone 8**
+    + **Windows Phone 8**
 
-		1. Windows Phone 8: Open the .sln file in the **platforms\wp8** folder in Visual Studio 2012 Express for Windows Phone.
+        1. Windows Phone 8: Open the .sln file in the **platforms\wp8** folder in Visual Studio 2012 Express for Windows Phone.
 
-		2. Press the **F5** key to rebuild the project and start the app.
+        2. Press the **F5** key to rebuild the project and start the app.
 
-	  	![][2]
+        ![][2]
 
-	+ **iOS**
+    + **iOS**
 
-		1. Open the project in the **platforms/ios** folder in Xcode.
+        1. Open the project in the **platforms/ios** folder in Xcode.
 
-		2. Press the **Run** button to build the project and start the app in the iPhone emulator, which is the default for this project.
+        2. Press the **Run** button to build the project and start the app in the iPhone emulator, which is the default for this project.
 
-	  	![][3]
+        ![][3]
 
-	+ **Android**
+    + **Android**
 
-		1. In Eclipse, click **File** then **Import**, expand **Android**, click **Existing Android Code into Workspace**, and then click **Next.**
+        1. In Eclipse, click **File** then **Import**, expand **Android**, click **Existing Android Code into Workspace**, and then click **Next.**
 
-		2. Click **Browse**, browse to the location of the expanded project files, click **OK**, make sure that the TodoActivity project is checked, then click **Finish**. <p>This imports the project files into the current workspace.</p>
+        2. Click **Browse**, browse to the location of the expanded project files, click **OK**, make sure that the TodoActivity project is checked, then click **Finish**. <p>This imports the project files into the current workspace.</p>
 
-		3. From the **Run** menu, click **Run** to start the project in the Android emulator.
+        3. From the **Run** menu, click **Run** to start the project in the Android emulator.
 
-			![][4]
+            ![][4]
 
-		>[AZURE.NOTE]To be able to run the project in the Android emulator, you must define a least one Android Virtual Device (AVD). Use the AVD Manager to create and manage these devices.
+        >[AZURE.NOTE]To be able to run the project in the Android emulator, you must define a least one Android Virtual Device (AVD). Use the AVD Manager to create and manage these devices.
 
 
 3. After launching the app in one of the mobile emulators above, type some text into the textbox and then click **Add**.
 
-	This sends a POST request to the new mobile service hosted in Azure. Data from the request is inserted into the **TodoItem** table. Items stored in the table are returned by the mobile service, and the data is displayed in the list.
+    This sends a POST request to the new mobile service hosted in Azure. Data from the request is inserted into the **TodoItem** table. Items stored in the table are returned by the mobile service, and the data is displayed in the list.
 
-	> [AZURE.IMPORTANT] Changes to this platform project will be overwritten if the main project is rebuilt with the PhoneGap tools. Instead, make changes in the project's root www directory as outlined in the section below.
+    > [AZURE.IMPORTANT] Changes to this platform project will be overwritten if the main project is rebuilt with the PhoneGap tools. Instead, make changes in the project's root www directory as outlined in the section below.
 
 4. Back in the [Azure classic portal], click the **Data** tab and then click the **TodoItem** table.
 
-	![](./media/mobile-services-javascript-backend-phonegap-get-started/mobile-data-tab.png)
+    ![](./media/mobile-services-javascript-backend-phonegap-get-started/mobile-data-tab.png)
 
-	This lets you browse the data inserted by the app into the table.
+    This lets you browse the data inserted by the app into the table.
 
-	![](./media/mobile-services-javascript-backend-phonegap-get-started/mobile-data-browse.png)
+    ![](./media/mobile-services-javascript-backend-phonegap-get-started/mobile-data-browse.png)
 
 
 ## Make app updates and rebuild projects for each platform
@@ -130,23 +130,23 @@ The final stage of this tutorial is to build and run your new app.
 
 2. Open a command prompt in the root project directory, and run one of the following platform-specific commands:
 
-	+ **Windows Phone**
+    + **Windows Phone**
 
-		Run the following command from the Visual Studio Developer command prompt:
+        Run the following command from the Visual Studio Developer command prompt:
 
-    		phonegap local build wp8
+            phonegap local build wp8
 
-	+ **iOS**
+    + **iOS**
 
-		Open terminal and run the following command:
+        Open terminal and run the following command:
 
-    		phonegap local build ios
+            phonegap local build ios
 
-	+ **Android**
+    + **Android**
 
-		Open a command prompt or terminal window and run the following command.
+        Open a command prompt or terminal window and run the following command.
 
-		    phonegap local build android
+            phonegap local build android
 
 4. Open each project in the appropriate development environment as outlined in the previous section.
 

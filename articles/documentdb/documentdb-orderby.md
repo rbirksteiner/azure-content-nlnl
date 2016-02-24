@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Sorting DocumentDB data using Order By | Microsoft Azure" 
-	description="Learn how to use ORDER BY in DocumentDB queries in LINQ and SQL, and how to specify an indexing policy for ORDER BY queries." 
-	services="documentdb" 
-	authors="arramac" 
-	manager="jhubbard" 
-	editor="cgronlun" 
-	documentationCenter=""/>
+    pageTitle="Sorting DocumentDB data using Order By | Microsoft Azure" 
+    description="Learn how to use ORDER BY in DocumentDB queries in LINQ and SQL, and how to specify an indexing policy for ORDER BY queries." 
+    services="documentdb" 
+    authors="arramac" 
+    manager="jhubbard" 
+    editor="cgronlun" 
+    documentationCenter=""/>
 
 <tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/20/2015" 
-	ms.author="arramac"/>
+    ms.service="documentdb" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/20/2015" 
+    ms.author="arramac"/>
 
 # Sorting DocumentDB data using Order By
 Microsoft Azure DocumentDB supports querying documents using SQL over JSON documents. Query results can be ordered using the ORDER BY clause in SQL query statements.
@@ -44,7 +44,7 @@ You can order using any nested property within documents like Books.ShippingDeta
 
     SELECT * 
     FROM Books 
-	WHERE Books.SalePrice > 4000
+    WHERE Books.SalePrice > 4000
     ORDER BY Books.ShippingDetails.Weight
 
 ### Ordering using the LINQ Provider for .NET
@@ -176,4 +176,5 @@ Fork the [Github samples project](https://github.com/Azure/azure-documentdb-net/
 * [DocumentDB SQL Reference](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 * [DocumentDB Order By Samples](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.OrderBy)
  
+
 

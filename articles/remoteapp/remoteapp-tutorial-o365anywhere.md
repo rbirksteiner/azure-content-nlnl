@@ -66,3 +66,4 @@ When you click on any of these the application should start on the Azure virtual
 ![starting](./media/remoteapp-tutorial-o365anywhere/10-arastart.png)
 
 ![powerpoint](./media/remoteapp-tutorial-o365anywhere/11-pp.png)
+

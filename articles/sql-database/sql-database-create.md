@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Create a database in SQL Database Update V12" 
-	description="Demonstrates how to create a database in Azure SQL Database Update V12" 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="sonalmm" 
-	manager="jeffreyg" 
-	editor=""/>
+    pageTitle="Create a database in SQL Database Update V12" 
+    description="Demonstrates how to create a database in Azure SQL Database Update V12" 
+    services="sql-database" 
+    documentationCenter="" 
+    authors="sonalmm" 
+    manager="jeffreyg" 
+    editor=""/>
 
 <tags 
-	ms.service="sql-database" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="data-management" 
-	ms.date="04/28/2015" 
-	ms.author="sonalm"/>
+    ms.service="sql-database" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="data-management" 
+    ms.date="04/28/2015" 
+    ms.author="sonalm"/>
 
 
 # Create a database in SQL Database V12

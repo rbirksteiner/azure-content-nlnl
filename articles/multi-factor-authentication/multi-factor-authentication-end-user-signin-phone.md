@@ -1,21 +1,21 @@
 
 <properties 
-	pageTitle="Signing in using a call to your office or mobile phone with Azure Multi-Factor Authentication" 
-	description="This page describes how a user can signin using their mobile phones." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
-	editor="curtland"/>
+    pageTitle="Signing in using a call to your office or mobile phone with Azure Multi-Factor Authentication" 
+    description="This page describes how a user can signin using their mobile phones." 
+    services="multi-factor-authentication" 
+    documentationCenter="" 
+    authors="billmath" 
+    manager="stevenpo" 
+    editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/19/2015" 
-	ms.author="billmath"/>
+    ms.service="multi-factor-authentication" 
+    ms.workload="identity" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/19/2015" 
+    ms.author="billmath"/>
 
 # Signing in using a call to your office or mobile phone with Azure Multi-Factor Authentication
 

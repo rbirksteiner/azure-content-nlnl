@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Secure cloud and on-premises resources using Azure MFA Server with Windows Server 2012 R2 AD FS" 
-	description="This is the Azure Multi-Factor authentication page that describes how to get started with Azure MFA and AD FS on Windows Server 2012 R2." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
-	editor="curtland"/>
+    pageTitle="Secure cloud and on-premises resources using Azure MFA Server with Windows Server 2012 R2 AD FS" 
+    description="This is the Azure Multi-Factor authentication page that describes how to get started with Azure MFA and AD FS on Windows Server 2012 R2." 
+    services="multi-factor-authentication" 
+    documentationCenter="" 
+    authors="billmath" 
+    manager="stevenpo" 
+    editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/19/2015" 
-	ms.author="billmath"/>
+    ms.service="multi-factor-authentication" 
+    ms.workload="identity" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/19/2015" 
+    ms.author="billmath"/>
 
 
 # Secure cloud and on-premises resources using Azure Multi-Factor Authentication Server with Windows Server 2012 R2 AD FS

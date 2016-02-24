@@ -23,3 +23,4 @@
     |5|PDUs|
 
 4. To turn on the system, flip the power switches on both PCMs to the ON position.
+

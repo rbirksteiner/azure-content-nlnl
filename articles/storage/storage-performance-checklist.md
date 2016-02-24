@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure Storage performance and scalability checklist | Microsoft Azure"
-	description="A checklist of proven practices for use with Azure Storage in developing performant applications."
-	services="storage"
-	documentationCenter=""
-	authors="robinsh"
-	manager="carmonm"
-	editor=""/>
+    pageTitle="Azure Storage performance and scalability checklist | Microsoft Azure"
+    description="A checklist of proven practices for use with Azure Storage in developing performant applications."
+    services="storage"
+    documentationCenter=""
+    authors="robinsh"
+    manager="carmonm"
+    editor=""/>
 
 <tags
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/04/2015" 
-	ms.author="robinsh"/>
+    ms.service="storage"
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/04/2015" 
+    ms.author="robinsh"/>
 
 # Microsoft Azure Storage Performance and Scalability Checklist
 
@@ -26,58 +26,58 @@ Every application developer using Azure Storage should take the time to read thi
 ## Checklist
 This article organizes the proven practices into the following groups. Proven practices applicable to:  
 
--	All Azure Storage services (blobs, tables, queues, and files)
--	Blobs
--	Tables
--	Queues  
+-   All Azure Storage services (blobs, tables, queues, and files)
+-   Blobs
+-   Tables
+-   Queues  
 
-|Done|	Area|	Category|	Question
+|Done|  Area|   Category|   Question
 |----|------|-----------|-----------
-||All Services|	Scalability Targets|[Is your application designed to avoid approaching the scalability targets?](#subheading1)
-||All Services|	Networking|	[Do client side devices have sufficiently high bandwidth and low latency to achieve the performance needed?](#subheading2)
-||All Services|	Networking|	[Do client side devices have a high enough quality link?](#subheading3)
-||All Services|	Networking|	[Is the client application located "near" the storage account?](#subheading4)
-||All Services|	Content Distribution|	[Are you using a CDN for content distribution?](#subheading5)
-||All Services|	Direct Client Access|	[Are you using SAS and CORS to allow direct access to storage instead of proxy?](#subheading6)
-||All Services|	Caching|	[Is your application caching data that is repeatedly used and changes rarely?](#subheading7)
-||All Services|	Caching|	[Is your application batching updates (caching them client side and then uploading in larger sets)?](#subheading8)
-||All Services|	.NET Configuration|	[Have you configured your client to use a sufficient number of concurrent connections?](#subheading9)
-||All Services|	.NET Configuration|	[Have you configured .NET to use a sufficient number of threads?](#subheading10)
-||All Services|	.NET Configuration|	[Are you using .NET 4.5 or later, which has improved garbage collection?](#subheading11)
-||All Services|	Parallelism|	[Have you ensured that parallelism is bounded appropriately so that you don’t overload either your client capabilities or the scalability targets?](#subheading12)
-||All Services|	Tools|	[Are you using the latest version of Microsoft provided client libraries and tools?](#subheading13)
-||All Services|	Retries|	[Are you using an exponential backoff retry policy for throttling errors and timeouts?](#subheading14)
-||All Services|	Retries|	[Is your application avoiding retries for non-retryable errors?](#subheading15)
-||Blobs|	Scalability Targets|	[Is your application staying within the bandwidth or operations scalability target for a single blob?](#subheading16)
-||Blobs|	Copying Blobs|	[Are you copying blobs in an efficient manner?](#subheading17)
-||Blobs|	Copying Blobs|	[Are you using AzCopy for bulk copies of blobs?](#subheading18)
-||Blobs|	Copying Blobs|	[Are you using Azure Import/Export to transfer very large volumes of data?](#subheading19)
-||Blobs|	Use Metadata|	[Are you storing frequently used metadata about blobs in their metadata?](#subheading20)
-||Blobs|	Uploading Fast|	[When trying to upload one blob quickly, are you uploading blocks in parallel?](#subheading21)
-||Blobs|	Uploading Fast|	[When trying to upload many blobs quickly, are you uploading blobs in parallel?](#subheading22)
-||Blobs|	Correct Blob Type|	[Are you using page blobs or block blobs when appropriate?](#subheading23)
-||Tables|	Scalability Targets|	[Are you approaching the scalability targets for entities per second?](#subheading24)
-||Tables|	Configuration|	[Are you using JSON for your table requests?](#subheading25)
-||Tables|	Configuration|	[Have you turned Nagle off to improve the performance of small requests?](#subheading26)
-||Tables|	Tables and Partitions|	[Have you properly partitioned your data?](#subheading27)
-||Tables|	Hot Partitions|	[Are you avoiding append-only and prepend-only patterns?](#subheading28)
-||Tables|	Hot Partitions|	[Are your inserts/updates spread across many partitions?](#subheading29)  
-||Tables|	Query Scope|	[Have you designed your schema to allow for point queries to be used in most cases, and table queries to be used sparingly?](#subheading30)
-||Tables|	Query Density|	[Do your queries typically only scan and return rows that your application will use?](#subheading31)
-||Tables|	Limiting Returned Data|	[Are you using filtering to avoid returning entities that are not needed?](#subheading32)
-||Tables|	Limiting Returned Data|	[Are you using projection to avoid returning properties that are not needed?](#subheading33)
-||Tables|	Denormalization|	[Have you denormalized your data such that you avoid inefficient queries or multiple read requests when trying to get data?](#subheading34)
-||Tables|	Insert/Update/Delete|	[Are you batching requests that need to be transactional or can be done at the same time to reduce round-trips?](#subheading35)
-||Tables|	Insert/Update/Delete|	[Are you avoiding retrieving an entity just to determine whether to call insert or update?](#subheading36)
-||Tables|	Insert/Update/Delete|	[Have you considered storing series of data that will frequently be retrieved together in a single entity as properties instead of multiple entities?](#subheading37)
-||Tables|	Insert/Update/Delete|	[For entities that will always be retrieved together and can be written in batches (e.g. time series data), have you considered using blobs instead of tables?](#subheading38)
-||Queues|	Scalability Targets|	[Are you approaching the scalability targets for messages per second?](#subheading39)
-||Queues|	Configuration|	[Have you turned Nagle off to improve the performance of small requests?](#subheading40)
-||Queues|	Message Size|	[Are your messages compact to improve the performance of the queue?](#subheading41)
-||Queues|	Bulk Retrieve|	[Are you retrieving multiple messages in a single "Get" operation?](#subheading41)
-||Queues|	Polling Frequency|	[Are you polling frequently enough to reduce the perceived latency of your application?](#subheading42)
-||Queues|	Update Message|	[Are you using UpdateMessage to store progress in processing messages, avoiding having to reprocess the entire message if an error occurs?](#subheading43)
-||Queues|	Architecture|	[Are you using queues to make your entire application more scalable by keeping long-running workloads out of the critical path and scale then independently?](#subheading44)
+||All Services| Scalability Targets|[Is your application designed to avoid approaching the scalability targets?](#subheading1)
+||All Services| Networking| [Do client side devices have sufficiently high bandwidth and low latency to achieve the performance needed?](#subheading2)
+||All Services| Networking| [Do client side devices have a high enough quality link?](#subheading3)
+||All Services| Networking| [Is the client application located "near" the storage account?](#subheading4)
+||All Services| Content Distribution|   [Are you using a CDN for content distribution?](#subheading5)
+||All Services| Direct Client Access|   [Are you using SAS and CORS to allow direct access to storage instead of proxy?](#subheading6)
+||All Services| Caching|    [Is your application caching data that is repeatedly used and changes rarely?](#subheading7)
+||All Services| Caching|    [Is your application batching updates (caching them client side and then uploading in larger sets)?](#subheading8)
+||All Services| .NET Configuration| [Have you configured your client to use a sufficient number of concurrent connections?](#subheading9)
+||All Services| .NET Configuration| [Have you configured .NET to use a sufficient number of threads?](#subheading10)
+||All Services| .NET Configuration| [Are you using .NET 4.5 or later, which has improved garbage collection?](#subheading11)
+||All Services| Parallelism|    [Have you ensured that parallelism is bounded appropriately so that you don’t overload either your client capabilities or the scalability targets?](#subheading12)
+||All Services| Tools|  [Are you using the latest version of Microsoft provided client libraries and tools?](#subheading13)
+||All Services| Retries|    [Are you using an exponential backoff retry policy for throttling errors and timeouts?](#subheading14)
+||All Services| Retries|    [Is your application avoiding retries for non-retryable errors?](#subheading15)
+||Blobs|    Scalability Targets|    [Is your application staying within the bandwidth or operations scalability target for a single blob?](#subheading16)
+||Blobs|    Copying Blobs|  [Are you copying blobs in an efficient manner?](#subheading17)
+||Blobs|    Copying Blobs|  [Are you using AzCopy for bulk copies of blobs?](#subheading18)
+||Blobs|    Copying Blobs|  [Are you using Azure Import/Export to transfer very large volumes of data?](#subheading19)
+||Blobs|    Use Metadata|   [Are you storing frequently used metadata about blobs in their metadata?](#subheading20)
+||Blobs|    Uploading Fast| [When trying to upload one blob quickly, are you uploading blocks in parallel?](#subheading21)
+||Blobs|    Uploading Fast| [When trying to upload many blobs quickly, are you uploading blobs in parallel?](#subheading22)
+||Blobs|    Correct Blob Type|  [Are you using page blobs or block blobs when appropriate?](#subheading23)
+||Tables|   Scalability Targets|    [Are you approaching the scalability targets for entities per second?](#subheading24)
+||Tables|   Configuration|  [Are you using JSON for your table requests?](#subheading25)
+||Tables|   Configuration|  [Have you turned Nagle off to improve the performance of small requests?](#subheading26)
+||Tables|   Tables and Partitions|  [Have you properly partitioned your data?](#subheading27)
+||Tables|   Hot Partitions| [Are you avoiding append-only and prepend-only patterns?](#subheading28)
+||Tables|   Hot Partitions| [Are your inserts/updates spread across many partitions?](#subheading29)  
+||Tables|   Query Scope|    [Have you designed your schema to allow for point queries to be used in most cases, and table queries to be used sparingly?](#subheading30)
+||Tables|   Query Density|  [Do your queries typically only scan and return rows that your application will use?](#subheading31)
+||Tables|   Limiting Returned Data| [Are you using filtering to avoid returning entities that are not needed?](#subheading32)
+||Tables|   Limiting Returned Data| [Are you using projection to avoid returning properties that are not needed?](#subheading33)
+||Tables|   Denormalization|    [Have you denormalized your data such that you avoid inefficient queries or multiple read requests when trying to get data?](#subheading34)
+||Tables|   Insert/Update/Delete|   [Are you batching requests that need to be transactional or can be done at the same time to reduce round-trips?](#subheading35)
+||Tables|   Insert/Update/Delete|   [Are you avoiding retrieving an entity just to determine whether to call insert or update?](#subheading36)
+||Tables|   Insert/Update/Delete|   [Have you considered storing series of data that will frequently be retrieved together in a single entity as properties instead of multiple entities?](#subheading37)
+||Tables|   Insert/Update/Delete|   [For entities that will always be retrieved together and can be written in batches (e.g. time series data), have you considered using blobs instead of tables?](#subheading38)
+||Queues|   Scalability Targets|    [Are you approaching the scalability targets for messages per second?](#subheading39)
+||Queues|   Configuration|  [Have you turned Nagle off to improve the performance of small requests?](#subheading40)
+||Queues|   Message Size|   [Are your messages compact to improve the performance of the queue?](#subheading41)
+||Queues|   Bulk Retrieve|  [Are you retrieving multiple messages in a single "Get" operation?](#subheading41)
+||Queues|   Polling Frequency|  [Are you polling frequently enough to reduce the perceived latency of your application?](#subheading42)
+||Queues|   Update Message| [Are you using UpdateMessage to store progress in processing messages, avoiding having to reprocess the entire message if an error occurs?](#subheading43)
+||Queues|   Architecture|   [Are you using queues to make your entire application more scalable by keeping long-running workloads out of the critical path and scale then independently?](#subheading44)
 
 
 ##<a name="allservices"></a>All Services
@@ -86,9 +86,9 @@ This section lists proven practices that are applicable to the use of any of the
 ###<a name="subheading1"></a>Scalability Targets
 Each of the Azure Storage services has scalability targets for capacity (GB), transaction rate, and bandwidth. If your application approaches or exceeds any of the scalability targets, it may encounter increased transaction latencies or throttling. When a Storage service throttles your application, the service begins to return “503 Server busy” or “500 Operation timeout” error codes for some storage transactions. This section discusses both the general approach to dealing with scalability targets and bandwidth scalability targets in particular. Later sections that deal with individual storage services discuss scalability targets in the context of that specific service:  
 
--	[Blob bandwidth and requests per second](#subheading16)
--	[Table entities per second](#subheading24)
--	[Queue messages per second](#subheading39)  
+-   [Blob bandwidth and requests per second](#subheading16)
+-   [Table entities per second](#subheading24)
+-   [Queue messages per second](#subheading39)  
 
 ####<a name="sub1bandwidth"></a>Bandwidth Scalability Target for All Services
 At the time of writing, the bandwidth targets in the US for a geo-redundant storage (GRS) account are 10 gigabits per second (Gbps) for ingress (data sent to the storage account) and 20 Gbps for egress (data sent from the storage account). For a locally redundant storage (LRS) account, the limits are higher – 20 Gbps for ingress and 30 Gbps for egress.  International bandwidth limits may be lower and can be found on our [scalability targets page](http://msdn.microsoft.com/library/azure/dn249410.aspx).  For more information on the storage redundancy options, see the links in [Useful Resources](#sub1useful) below.  
@@ -96,16 +96,16 @@ At the time of writing, the bandwidth targets in the US for a geo-redundant stor
 ####What to do when approaching a scalability target
 If your application is approaching the scalability targets for a single storage account, consider adopting one of the following approaches:  
 
--	Reconsider the workload that causes your application to approach or exceed the scalability target. Can you design it differently to use less bandwidth or capacity, or fewer transactions?
--	If an application must exceed one of the scalability targets, you should create multiple storage accounts and partition your application data across those multiple storage accounts. If you use this pattern, then be sure to design your application so that you can add more storage accounts in the future for load balancing. At time of writing, each Azure subscription can have up to 100 storage accounts.  Storage accounts also have no cost other than your usage in terms of data stored, transactions made, or data transferred.
--	If your application hits the bandwidth targets, consider compressing data in the client to reduce the bandwidth required to send the data to the storage service.  Note that while this may save bandwidth and improve network performance, it can also have some negative impacts.  You should evaluate the performance impact of this due to the additional processing requirements for compressing and decompressing data in the client. In addition, storing compressed data can make it more difficult to troubleshoot issues since it could be more difficult to view stored data using standard tools.
--	If your application hits the scalability targets, then ensure that you are using an exponential backoff for retries (see [Retries](#subheading14)).  It’s better to make sure you never approach the scalability targets (by using one of the above methods), but this will ensure your application won’t just keep retrying rapidly, making the throttling worse.  
+-   Reconsider the workload that causes your application to approach or exceed the scalability target. Can you design it differently to use less bandwidth or capacity, or fewer transactions?
+-   If an application must exceed one of the scalability targets, you should create multiple storage accounts and partition your application data across those multiple storage accounts. If you use this pattern, then be sure to design your application so that you can add more storage accounts in the future for load balancing. At time of writing, each Azure subscription can have up to 100 storage accounts.  Storage accounts also have no cost other than your usage in terms of data stored, transactions made, or data transferred.
+-   If your application hits the bandwidth targets, consider compressing data in the client to reduce the bandwidth required to send the data to the storage service.  Note that while this may save bandwidth and improve network performance, it can also have some negative impacts.  You should evaluate the performance impact of this due to the additional processing requirements for compressing and decompressing data in the client. In addition, storing compressed data can make it more difficult to troubleshoot issues since it could be more difficult to view stored data using standard tools.
+-   If your application hits the scalability targets, then ensure that you are using an exponential backoff for retries (see [Retries](#subheading14)).  It’s better to make sure you never approach the scalability targets (by using one of the above methods), but this will ensure your application won’t just keep retrying rapidly, making the throttling worse.  
 
 ####Useful Resources
 The following links provide additional detail on scalability targets:
--	See [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md) for information about scalability targets.
--	See [Azure Storage replication](storage-redundancy.md) and the blog post [Azure Storage Redundancy Options and Read Access Geo Redundant Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx) for information about storage redundancy options.
--	For current information about pricing for Azure services, see [Azure pricing](http://azure.microsoft.com/pricing/overview/).  
+-   See [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md) for information about scalability targets.
+-   See [Azure Storage replication](storage-redundancy.md) and the blog post [Azure Storage Redundancy Options and Read Access Geo Redundant Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx) for information about storage redundancy options.
+-   For current information about pricing for Azure services, see [Azure pricing](http://azure.microsoft.com/pricing/overview/).  
 
 ###Networking
 While the API calls matter, often the physical network constraints of the application have a significant impact on performance. The following describe some of limitations users may encounter.  
@@ -161,7 +161,7 @@ If using the .NET Framework, this section lists several quick configuration sett
 ####<a name="subheading9"></a>Increase default connection limit
 In .NET, the following code increases the default connection limit (which is usually 2 in a client environment or 10 in a server environment) to 100. Typically, you should set the value to approximately the number of threads used by your application.  
 
-	ServicePointManager.DefaultConnectionLimit = 100; //(Or More)  
+    ServicePointManager.DefaultConnectionLimit = 100; //(Or More)  
 
 You must set the connection limit before opening any connections.  
 
@@ -172,7 +172,7 @@ For additional information, see the blog post [Web Services: Concurrent Connecti
 ####<a name="subheading10"></a>Increase ThreadPool Min Threads if using synchronous code with Async Tasks
 This code will increase the thread pool min threads:  
 
-	ThreadPool.SetMinThreads(100,100); //(Determine the right number for your application)  
+    ThreadPool.SetMinThreads(100,100); //(Determine the right number for your application)  
 
 For more information, see [ThreadPool.SetMinThreads Method](http://msdn.microsoft.com/library/system.threading.threadpool.setminthreads(v=vs.110).aspx).  
 
@@ -235,10 +235,10 @@ To upload blobs fast, the first question to answer is: are you uploading one blo
 ####<a name="subheading21"></a>Uploading one large blob quickly
 To upload a single large blob quickly, your client application should upload its blocks or pages in parallel (being mindful of the scalability targets for individual blobs and the storage account as a whole).  Note that the official Microsoft-provided RTM Storage Client libraries (.NET, Java) have the ability to do this.  For each of the libraries, use the below specified object/property to set the level of concurrency:  
 
--	.NET: Set ParallelOperationThreadCount on a BlobRequestOptions object to be used.
--	Java/Android: Use BlobRequestOptions.setConcurrentRequestCount()
--	Node.js: Use parallelOperationThreadCount on either the request options or on the blob service.
--	C++: Use the blob_request_options::set_parallelism_factor method.
+-   .NET: Set ParallelOperationThreadCount on a BlobRequestOptions object to be used.
+-   Java/Android: Use BlobRequestOptions.setConcurrentRequestCount()
+-   Node.js: Use parallelOperationThreadCount on either the request options or on the blob service.
+-   C++: Use the blob_request_options::set_parallelism_factor method.
 
 ####<a name="subheading22"></a>Uploading many blobs quickly
 To upload many blobs quickly, upload blobs in parallel. This is faster than uploading single blobs at a time with parallel block uploads because it spreads the upload across multiple partitions of the storage service. A single blob only supports a throughput of 60 MB/second (approximately 480 Mbps). At the time of writing, a US based LRS account supports up to 20 Gbps ingress which is far more than the throughput supported by an individual blob.  [AzCopy](#subheading18) performs uploads in parallel by default, and is recommended for this scenario.  
@@ -276,20 +276,20 @@ For more information, see our blog post [Nagle’s Algorithm is Not Friendly tow
 ###Schema
 How you represent and query your data is the biggest single factor that affects the performance of the table service. While every application is different, this section outlines some general proven practices that relate to:  
 
--	Table design
--	Efficient queries
--	Efficient data updates  
+-   Table design
+-   Efficient queries
+-   Efficient data updates  
 
 ####<a name="subheading27"></a>Tables and partitions
 Tables are divided into partitions. Every entity stored in a partition shares the same partition key and has a unique row key to identify it within that partition. Partitions provide benefits but also introduce scalability limits.  
 
--	Benefits: You can update entities in the same partition in a single, atomic, batch transaction that contains up to 100 separate storage operations (limit of 4MB total size). Assuming the same number of entities to be retrieved, you can also query data within a single partition more efficiently than data that spans partitions (though read on for further recommendations on querying table data).
--	Scalability limit: Access to entities stored in a single partition cannot be load-balanced because partitions support atomic batch transactions. For this reason, the scalability target for an individual table partition is lower than for the table service as a whole.  
+-   Benefits: You can update entities in the same partition in a single, atomic, batch transaction that contains up to 100 separate storage operations (limit of 4MB total size). Assuming the same number of entities to be retrieved, you can also query data within a single partition more efficiently than data that spans partitions (though read on for further recommendations on querying table data).
+-   Scalability limit: Access to entities stored in a single partition cannot be load-balanced because partitions support atomic batch transactions. For this reason, the scalability target for an individual table partition is lower than for the table service as a whole.  
 
 Because of these characteristics of tables and partitions, you should adopt the following design principles:  
 
--	Data that your client application frequently updated or queried in the same logical unit of work should be located in the same partition.  This may be because your application is aggregating writes, or because you want to take advantage of atomic batch operations.  Also, data in a single partition can be more efficiently queried in a single query than data across partitions.
--	Data that your client application does not insert/update or query in the same logical unit of work (single query or batch update) should be located in separate partitions.  One important note is that there is no limit to the number of partition keys in a single table, so having millions of partition keys is not a problem and will not impact performance.  For example, if your application is a popular website with user login, using the User Id as the partition key could be a good choice.  
+-   Data that your client application frequently updated or queried in the same logical unit of work should be located in the same partition.  This may be because your application is aggregating writes, or because you want to take advantage of atomic batch operations.  Also, data in a single partition can be more efficiently queried in a single query than data across partitions.
+-   Data that your client application does not insert/update or query in the same logical unit of work (single query or batch update) should be located in separate partitions.  One important note is that there is no limit to the number of partition keys in a single table, so having millions of partition keys is not a problem and will not impact performance.  For example, if your application is a popular website with user login, using the User Id as the partition key could be a good choice.  
 
 ####Hot Partitions
 A hot partition is one that is receiving a disproportionate percentage of the traffic to an account, and cannot be load balanced because it is a single partition.  In general, hot partitions are created one of two ways:  
@@ -339,8 +339,8 @@ Batch transactions are known as Entity Group Transactions (ETG) in Azure Storage
 #####<a name="subheading36"></a>Upsert
 Use table **Upsert** operations wherever possible. There are two types of **Upsert**, both of which can be more efficient than a traditional **Insert** and **Update** operations:  
 
--	**InsertOrMerge**: Use this when you want to upload a subset of the entity’s properties, but aren’t sure whether the entity already exists. If the entity exists, this call updates the properties included in the **Upsert** operation, and leaves all existing properties as they are, if the entity does not exist, it inserts the new entity. This is similar to using projection in a query, in that you only need to upload the properties that are changing.
--	**InsertOrReplace**: Use this when you want to upload an entirely new entity, but you aren’t sure whether it already exists. You should only use this when you know that the newly uploaded entity is entirely correct because it completely overwrites the old entity. For example, you want to update the entity that stores a user’s current location regardless of whether or not the application has previously stored location data for the user; the new location entity is complete, and you do not need any information from any previous entity.
+-   **InsertOrMerge**: Use this when you want to upload a subset of the entity’s properties, but aren’t sure whether the entity already exists. If the entity exists, this call updates the properties included in the **Upsert** operation, and leaves all existing properties as they are, if the entity does not exist, it inserts the new entity. This is similar to using projection in a query, in that you only need to upload the properties that are changing.
+-   **InsertOrReplace**: Use this when you want to upload an entirely new entity, but you aren’t sure whether it already exists. You should only use this when you know that the newly uploaded entity is entirely correct because it completely overwrites the old entity. For example, you want to update the entity that stores a user’s current location regardless of whether or not the application has previously stored location data for the user; the new location entity is complete, and you do not need any information from any previous entity.
 
 #####<a name="subheading37"></a>Storing Data Series in a Single Entity
 Sometimes, an application stores a series of data that it frequently needs to retrieve all at once: for example, an application might track CPU usage over time in order to plot a rolling chart of the data from the last 24 hours. One approach is to have one table entity per hour, with each entity representing a specific hour and storing the CPU usage for that hour. To plot this data, the application needs to retrieve the entities holding the data from the 24 most recent hours.  
@@ -378,8 +378,8 @@ For more information, see the article [How to: Change the contents of a queued m
 ###<a name=subheading45"></a>Application architecture
 You should use queues to make your application architecture scalable. The following lists some ways you can use queues to make your application more scalable:  
 
--	You can use queues to create backlogs of work for processing and smooth out workloads in your application. For example, you could queue up requests from users to perform processor intensive work such as resizing uploaded images.
--	You can use queues to decouple parts of your application so that you can scale them independently. For example, a web front-end could place survey results from users into a queue for later analysis and storage. You could add more worker role instances to process the queue data as required.  
+-   You can use queues to create backlogs of work for processing and smooth out workloads in your application. For example, you could queue up requests from users to perform processor intensive work such as resizing uploaded images.
+-   You can use queues to decouple parts of your application so that you can scale them independently. For example, a web front-end could place survey results from users into a queue for later analysis and storage. You could add more worker role instances to process the queue data as required.  
 
 ##Conclusion
 This article discussed some of the most common, proven practices for optimizing performance when using Azure Storage. We encourage every application developer to assess their application against each of the above practices and consider acting on the recommendations to get great performance for their applications that use Azure Storage.

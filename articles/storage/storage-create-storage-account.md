@@ -1,20 +1,20 @@
 <properties
-	pageTitle="How to create, manage, or delete a storage account | Microsoft Azure"
-	description="Create a new storage account, manage your access keys, or delete a storage account in the Azure Portal."
-	services="storage"
-	documentationCenter=""
-	authors="robinsh"
-	manager="carmonm"
-	editor=""/>
+    pageTitle="How to create, manage, or delete a storage account | Microsoft Azure"
+    description="Create a new storage account, manage your access keys, or delete a storage account in the Azure Portal."
+    services="storage"
+    documentationCenter=""
+    authors="robinsh"
+    manager="carmonm"
+    editor=""/>
 
 <tags
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="12/04/2015" 
-	ms.author="robinsh"/>
+    ms.service="storage"
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="12/04/2015" 
+    ms.author="robinsh"/>
 
 
 # About Azure storage accounts
@@ -73,17 +73,17 @@ You can also configure a custom domain name to use with your storage account. Se
 
 4. Enter a name for your storage account.
 
-	> [AZURE.NOTE] Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
-	>  
-	> Your storage account name must be unique within Azure. The Azure Portal will indicate if the storage account name you select is already taken.
+    > [AZURE.NOTE] Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
+    >  
+    > Your storage account name must be unique within Azure. The Azure Portal will indicate if the storage account name you select is already taken.
 
-	See [Storage account endpoints](#storage-account-endpoints) below for details about how the storage account name will be used to address your objects in Azure Storage.
+    See [Storage account endpoints](#storage-account-endpoints) below for details about how the storage account name will be used to address your objects in Azure Storage.
 
 5. Specify the type of storage account to create. The storage account type determines how the storage account is replication and whether it is a standard storage account or a premium storage account.
 
-	The default storage account type is **Standard-RAGRS**, which is a standard storage account with read-access geo-redundant replication. This type of storage account is replicated to a secondary region that is hundreds of miles away from the primary region, and provides read access to the secondary location. 
+    The default storage account type is **Standard-RAGRS**, which is a standard storage account with read-access geo-redundant replication. This type of storage account is replicated to a secondary region that is hundreds of miles away from the primary region, and provides read access to the secondary location. 
 
-	For more details on Azure Storage replication options, see [Azure Storage replication](storage-redundancy.md). For more details on standard and premium storage accounts, see [Introduction to Storage](storage-introduction.md) and [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](storage-premium-storage-preview-portal.md)
+    For more details on Azure Storage replication options, see [Azure Storage replication](storage-redundancy.md). For more details on standard and premium storage accounts, see [Introduction to Storage](storage-introduction.md) and [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](storage-premium-storage-preview-portal.md)
 
 6. Indicate whether you wish to enable Diagnostics for your storage account. Diagnostics include Storage Analytics logging and metrics.
 

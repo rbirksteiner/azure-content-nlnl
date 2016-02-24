@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure Mobile Engagement implementation for Media App"
-	description="Media app scenario to implement Azure Mobile Engagement" 
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Azure Mobile Engagement implementation for Media App"
+    description="Media app scenario to implement Azure Mobile Engagement" 
+    services="mobile-engagement" 
+    documentationCenter="mobile" 
+    authors="piyushjo"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="mobile-engagement"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="mobile-multiple"
-	ms.workload="mobile" 
-	ms.date="11/23/2015"
-	ms.author="piyushjo"/>
+    ms.service="mobile-engagement"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="mobile-multiple"
+    ms.workload="mobile" 
+    ms.date="11/23/2015"
+    ms.author="piyushjo"/>
 
 #Implement Mobile Engagement with Media App
 
@@ -57,7 +57,7 @@ For each KPI, he classifies the data required and he records it in the proper lo
 ## Engagement program and integration
 
 Now that John has finished defining his KPIs, he starts his Engagement strategy phase by defining 4 engagement programs and their objectives:
-	![][1]
+    ![][1]
 
 Then John goes deeper by detailing push notifications for each program. Push notification are defined by five elements:
 
@@ -67,7 +67,7 @@ Then John goes deeper by detailing push notifications for each program. Push not
 4. Content: What is the wording and the format of the notification (In App/Out of App)
 5. When: what is the best moment to send this push notification
 
-	![][2]
+    ![][2]
 
 For more information refer to the [Playbooks](https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks).
 
@@ -102,3 +102,4 @@ After these 4 first months, results reflect a good overall performance and gives
 
 <!--Link references-->
 [Media Playbook link]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
+

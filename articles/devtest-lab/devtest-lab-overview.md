@@ -1,20 +1,20 @@
     <properties 
-	pageTitle="What is the DevTest Lab service? | Microsoft Azure"
-	description="Learn how DevTest Lab can make it easy to create, manage, and monitor Azure virtual machines"
-	services="devtest-lab,virtual-machines"
-	documentationCenter="na"
-	authors="tomarcher"
-	manager="douge"
-	editor=""/>
+    pageTitle="What is the DevTest Lab service? | Microsoft Azure"
+    description="Learn how DevTest Lab can make it easy to create, manage, and monitor Azure virtual machines"
+    services="devtest-lab,virtual-machines"
+    documentationCenter="na"
+    authors="tomarcher"
+    manager="douge"
+    editor=""/>
 
 <tags
-	ms.service="devtest-lab"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/01/2015"
-	ms.author="tarcher"/>
+    ms.service="devtest-lab"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/01/2015"
+    ms.author="tarcher"/>
 
 #What is DevTest Lab?
 
@@ -65,3 +65,4 @@ Artifacts are Azure Resource Manager (ARM) based JSON files that contain instruc
 ##Next steps
 
 To get started with DevTest Lab, follow the [Create an Azure DevTest Lab](devtest-lab-create-lab.md) step-by-step tutorial.
+

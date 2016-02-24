@@ -69,9 +69,9 @@ The main hardware components in your device are summarized in the following tabl
 |Backup battery|2|Yes| [Replace the backup battery module on your StorSimple device](storsimple-battery-replacement.md) |
 |Disk drives|12|Yes| [Replace a disk drive on your StorSimple device](storsimple-disk-drive-replacement.md) |
 
-**Table 1** Hardware components in the primary enclosure
+**Table 1** Hardware components in the primary enclosure
 
-The primary enclosure and the EBOD enclosure differ in their I/O modules. Additionally, the PCMs have different wattage. The PCMs in the primary enclosure are 764 W, whereas those in the EBOD enclosure are 580 W. The PCMs in the primary enclosure also contain a backup battery module.
+The primary enclosure and the EBOD enclosure differ in their I/O modules. Additionally, the PCMs have different wattage. The PCMs in the primary enclosure are 764 W, whereas those in the EBOD enclosure are 580 W. The PCMs in the primary enclosure also contain a backup battery module.
 
 |Components|# Present|Plug-in module?| Replacement procedure
 |:---------|:--------|:--------------|:---------------------|
@@ -80,23 +80,23 @@ The primary enclosure and the EBOD enclosure differ in their I/O modules. Additi
 |580W Power and Cooling Modules (PCMs)|2|Yes| [Replace a Power and Cooling Module on your StorSimple device](storsimple-power-cooling-module-replacement.md) |
 |Disk drives|12|Yes| [Replace a disk drive on your StorSimple device](storsimple-disk-drive-replacement.md) |
 
-**Table 2** Hardware components in the EBOD enclosure
+**Table 2** Hardware components in the EBOD enclosure
 
 The plug-in modules on the device are highlighted in the following front and rear diagrams. You can use these diagrams to determine the location of the various plug-in modules if a replacement is required. The front diagram shows the disk drives, and the rear diagrams of the EBOD enclosure and the primary enclosure show the plug-in modules.
 
 ![Frontplane of device with disk drives](./media/storsimple-hardware-component-replacement/IC741028.png)
 
-**Figure 1**  Front of the device
+**Figure 1**  Front of the device
 
 |Label|Description|
 |:----|:----------|
 |0 - 11|Disk drives (total of 12)|
 
-Both the primary enclosure and the EBOD enclosure have drive carrier modules. The chassis houses twelve 3.5" disk drives arranged in a 3 by 4 format.
+Both the primary enclosure and the EBOD enclosure have drive carrier modules. The chassis houses twelve 3.5" disk drives arranged in a 3 by 4 format.
 
 ![Backplane of device primary enclosure modules](./media/storsimple-hardware-component-replacement/IC740994.png)
 
-**Figure 2**  Back of the primary enclosure
+**Figure 2**  Back of the primary enclosure
 
 |Label|Description|
 |:----|:----------|
@@ -107,7 +107,7 @@ Both the primary enclosure and the EBOD enclosure have drive carrier modules. Th
 
 ![Backplane of device EBOD enclosure plug-in modules](./media/storsimple-hardware-component-replacement/IC769599.png)
 
-**Figure 3**  Back of the EBOD enclosure
+**Figure 3**  Back of the EBOD enclosure
 
 |Label|Description|
 |:----|:----------|
@@ -122,9 +122,9 @@ The following field replaceable units (FRUs) are available for your StorSimple d
 
 - Chassis (including the integrated operations panel)
 
-- 764 W AC Power and Cooling Module
+- 764 W AC Power and Cooling Module
 
-- 580 W AC Power and Cooling Module
+- 580 W AC Power and Cooling Module
 
 - Hard disk drive with drive carrier module
 
@@ -141,3 +141,4 @@ Please [contact Microsoft Support](storsimple-contact-microsoft-support.md) to o
 ## Next steps
 
 Review all [safety information](storsimple-safety.md) before you attempt to replace a StorSimple hardware component.
+

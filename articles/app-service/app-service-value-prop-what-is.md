@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="What is Azure App Service" 
-	description="Learn why Azure App Service is the best platform for developing web and mobile apps." 
-	keywords="app service, azure app service, app service cost, scale, scalable, app deployment, azure app deployment"
-	services="app-service" 
-	documentationCenter="" 
-	authors="omarkmsft" 
-	manager="dwrede" 
-	editor="jimbe"/>
+    pageTitle="What is Azure App Service" 
+    description="Learn why Azure App Service is the best platform for developing web and mobile apps." 
+    keywords="app service, azure app service, app service cost, scale, scalable, app deployment, azure app deployment"
+    services="app-service" 
+    documentationCenter="" 
+    authors="omarkmsft" 
+    manager="dwrede" 
+    editor="jimbe"/>
 
 <tags 
-	ms.service="app-service" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/02/2015" 
-	ms.author="omark"/>
+    ms.service="app-service" 
+    ms.workload="na" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/02/2015" 
+    ms.author="omark"/>
 
 # What is Azure App Service?
 Azure App Service is the only cloud service that integrates everything you need to quickly and easily build web and mobile apps for any platform and any device. Built for developers, App Service is a fully managed platform with powerful capabilities such as built-in DevOps, continuous integration with Visual Studio Team Services and GitHub, staging and production support, and automatic patching.
@@ -59,3 +59,4 @@ With Azure App Service, this is as easy as selecting a language!
 
 [Create a new app](http://go.microsoft.com/fwlink/?LinkId=523751) right away for free. No credit card required, no commitments, no hassles.
  
+

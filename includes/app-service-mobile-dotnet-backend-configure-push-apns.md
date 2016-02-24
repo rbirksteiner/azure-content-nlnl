@@ -1,14 +1,14 @@
 
 + **.NET backend (C#)**:  
 
-	In the backend's Visual Studio project, open **Controllers** > **TodoItemController.cs**. At the top of the file, add the following `using` statement:
+    In the backend's Visual Studio project, open **Controllers** > **TodoItemController.cs**. At the top of the file, add the following `using` statement:
 
 
         using Microsoft.Azure.Mobile.Server.Config;
         using Microsoft.Azure.NotificationHubs;
 
 
-	Replace the `PostTodoItem` method with the following code:  
+    Replace the `PostTodoItem` method with the following code:  
 
       
         public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
@@ -51,8 +51,8 @@
 
 
 + **Node.js backend** :  
-	
-	Replace the todoitem.js table script with the following code:
+    
+    Replace the todoitem.js table script with the following code:
 
 
         var azureMobileApps = require('azure-mobile-apps'),
@@ -68,7 +68,7 @@
             // see http://aka.ms/nodejshubs
             logger.info('Running TodoItem.insert');
             
-			// Create a payload that contains the new item Text.
+            // Create a payload that contains the new item Text.
             var payload = "{\"aps\":{\"alert\":\"" + context.item.text + "\"}}";
             
             // Execute the insert.  The insert returns the results as a Promise,
@@ -94,5 +94,6 @@
         });
         
         module.exports = table;
+
 
 

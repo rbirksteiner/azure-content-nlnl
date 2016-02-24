@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Best Practices for Handling State in Azure Resource Manager Templates"
-	description="Shows recommended approaches for using complex objects to share state data with Azure Resource Manager templates and linked templates"
-	services="azure-resource-manager"
-	documentationCenter=""
-	authors="mmercuri"
-	manager="georgem"
-	editor="tysonn"/>
+    pageTitle="Best Practices for Handling State in Azure Resource Manager Templates"
+    description="Shows recommended approaches for using complex objects to share state data with Azure Resource Manager templates and linked templates"
+    services="azure-resource-manager"
+    documentationCenter=""
+    authors="mmercuri"
+    manager="georgem"
+    editor="tysonn"/>
 
 <tags
-	ms.service="azure-resource-manager"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/10/2015"
-	ms.author="mmercuri"/>
+    ms.service="azure-resource-manager"
+    ms.workload="multiple"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/10/2015"
+    ms.author="mmercuri"/>
 
 # Sharing state in Azure Resource Manager templates
 
@@ -54,7 +54,7 @@ operating system settings and availability settings.
           "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/shared_scripts/ubuntu/vm-disk-utils-0.1.sh"
         ],
         "imageReference": {
-	  "publisher": "Canonical",
+      "publisher": "Canonical",
           "offer": "UbuntuServer",
           "sku": "14.04.2-LTS",
           "version": "latest"
@@ -108,7 +108,7 @@ value for `variables('tshirtSize').vmTemplate`.
             "value": "[parameters('replicatorPassword')]"
           },
           "osSettings": {
-	    "value": "[variables('osSettings')]"
+        "value": "[variables('osSettings')]"
           },
           "subnet": {
             "value": "[variables('networkSettings').subnets.data]"
@@ -156,14 +156,14 @@ The following table lists commonly-used parameters in templates.
 
 Name | Value | Description
 ---- | ----- | -----------
-location	| String from a constrained list of Azure regions	| The location where the resources will be deployed.
-storageAccountNamePrefix	| String	| Unique DNS name for the Storage Account where the VM's disks will be placed
-domainName	| String	| Domain name of the publicly accessible jumpbox VM in the format: **{domainName}.{location}.cloudapp.com** For example: **mydomainname.westus.cloudapp.azure.com**
-adminUsername	| String	| Username for the VMs
-adminPassword	| String	| Password for the VMs
-tshirtSize	| String from a constrained list of offered t-shirt sizes	| The named scale unit size to provision. For example, "Small", "Medium", "Large"
-virtualNetworkName	| String	| Name of the virtual network that the consumer wants to use.
-enableJumpbox	| String from a constrained list (enabled/disabled)	| Parameter that identifies whether to enable a jumpbox for the environment. Values: "enabled", "disabled"
+location    | String from a constrained list of Azure regions   | The location where the resources will be deployed.
+storageAccountNamePrefix    | String    | Unique DNS name for the Storage Account where the VM's disks will be placed
+domainName  | String    | Domain name of the publicly accessible jumpbox VM in the format: **{domainName}.{location}.cloudapp.com** For example: **mydomainname.westus.cloudapp.azure.com**
+adminUsername   | String    | Username for the VMs
+adminPassword   | String    | Password for the VMs
+tshirtSize  | String from a constrained list of offered t-shirt sizes   | The named scale unit size to provision. For example, "Small", "Medium", "Large"
+virtualNetworkName  | String    | Name of the virtual network that the consumer wants to use.
+enableJumpbox   | String from a constrained list (enabled/disabled) | Parameter that identifies whether to enable a jumpbox for the environment. Values: "enabled", "disabled"
 
 ### Parameters sent to linked templates
 
@@ -230,7 +230,7 @@ The storage account name prefix is taken from a parameter supplied by a user, an
 
     "tshirtSizeSmall": {
       "vmSize": "Standard_A1",
-			"diskSize": 1023,
+            "diskSize": 1023,
       "vmTemplate": "[concat(variables('templateBaseUrl'), 'database-2disk-resources.json')]",
       "vmCount": 2,
       "storage": {
@@ -406,4 +406,5 @@ Within the main template, you can use that data with the following syntax:
 ## Next steps
 - [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md)
 - [Azure Resource Manager Template Functions](resource-group-template-functions.md)
+
 

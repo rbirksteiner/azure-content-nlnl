@@ -9,10 +9,10 @@
 <tags
     ms.service="application-insights"
     ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza" 
+    ms.tgt_pltfrm="ibiza" 
     ms.devlang="na"
     ms.topic="article"
-	ms.date="11/17/2015"
+    ms.date="11/17/2015"
     ms.author="awills"/>
 
 # Configure Azure Diagnostic logging to Application Insights
@@ -145,5 +145,6 @@ There are some limitations to be aware of with this functionality:
 * [Monitoring Azure Cloud Services with Application Insights](app-insights-cloudservices.md)
 * [Using PowerShell to send Azure diagnostics to Application Insights](app-insights-powershell-azure-diagnostics.md)
 * [Azure Diagnostics Configuration file](https://msdn.microsoft.com/library/azure/dn782207.aspx)
+
 
 

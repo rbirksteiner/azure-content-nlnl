@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Register for Google authentication | Microsoft Azure"
-	description="Learn how to register your apps to use Google to authenticate with Azure Mobile Services."
-	services="mobile-services"
-	documentationCenter="android"
-	authors="ggailey777"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Register for Google authentication | Microsoft Azure"
+    description="Learn how to register your apps to use Google to authenticate with Azure Mobile Services."
+    services="mobile-services"
+    documentationCenter="android"
+    authors="ggailey777"
+    manager="dwrede"
+    editor=""/>
 
 
 <tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="11/30/2015" 
-	ms.author="glenga"/>
+    ms.service="mobile-services" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="mobile-android" 
+    ms.devlang="multiple" 
+    ms.topic="article" 
+    ms.date="11/30/2015" 
+    ms.author="glenga"/>
 
 # Register your apps for Google login with Mobile Services
 
@@ -45,10 +45,10 @@ To complete the procedure in this topic, you must have a Google account that has
 7. Type your mobile service URL in **Authorized JavaScript Origins**, replace the generated URL in **Authorized Redirect URI** with one of the following URL formats, and then click **Create**:
  
 
-	+ **.NET backend**: `https://<mobile_service>.azure-mobile.net/signin-google`
-	+ **JavaScript backend**: `https://<mobile_service>.azure-mobile.net/login/google`
+    + **.NET backend**: `https://<mobile_service>.azure-mobile.net/signin-google`
+    + **JavaScript backend**: `https://<mobile_service>.azure-mobile.net/login/google`
 
-	 >[AZURE.NOTE]Make sure that you use the correct redirect URL path format for your type of Mobile Services backend. When this is incorrect, authentication will not succeed.
+     >[AZURE.NOTE]Make sure that you use the correct redirect URL path format for your type of Mobile Services backend. When this is incorrect, authentication will not succeed.
 
 8. On the next screen, make a note of the values of the client ID and client secret.
 
@@ -64,3 +64,4 @@ You are now ready to configure your mobile service to use Google sign-in for aut
 
 [Google apis]: http://go.microsoft.com/fwlink/p/?LinkId=268303
 [Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-dotnet/
+

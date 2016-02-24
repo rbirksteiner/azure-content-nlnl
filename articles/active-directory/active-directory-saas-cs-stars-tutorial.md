@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Tutorial: Azure Active Directory integration with CS Stars | Microsoft Azure"
-	description="Learn how to configure single sign-on between Azure Active Directory and CS Stars."
-	services="active-directory"
-	documentationCenter=""
-	authors="markusvi"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Tutorial: Azure Active Directory integration with CS Stars | Microsoft Azure"
+    description="Learn how to configure single sign-on between Azure Active Directory and CS Stars."
+    services="active-directory"
+    documentationCenter=""
+    authors="markusvi"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/06/2015"
-	ms.author="markusvi"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/06/2015"
+    ms.author="markusvi"/>
 
 
 # Tutorial: Azure Active Directory integration with CS Stars
@@ -233,5 +233,6 @@ When you click the CS Stars tile in the Access Panel, you should get automatical
 [205]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_general_205.png
 
 [400]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_csstars_403.png
+
 
 

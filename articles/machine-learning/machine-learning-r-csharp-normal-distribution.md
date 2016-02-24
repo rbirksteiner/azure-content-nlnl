@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Normal Distribution Web Service Suite | Microsoft Azure" 
-	description="Normal Distribution Web Service Suite" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="ireiter" 
-	manager="paulettm" 
-	editor="cgronlun"/>
+    pageTitle="Normal Distribution Web Service Suite | Microsoft Azure" 
+    description="Normal Distribution Web Service Suite" 
+    services="machine-learning" 
+    documentationCenter="" 
+    authors="ireiter" 
+    manager="paulettm" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/01/2015" 
-	ms.author="ireiter"/> 
+    ms.service="machine-learning" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/01/2015" 
+    ms.author="ireiter"/> 
 
 #Normal Distribution Suite
 
@@ -74,94 +74,94 @@ There are multiple ways of consuming the service in an automated fashion (exampl
 ###Starting C# code for web service consumption:
 
 ###Normal Distribution Quantile Calculator
-	public class Input
-	{
-	        public string p;
-	        public string mean;
-	        public string sd;
-	        public string side;
-	}
-	
-	public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
-	{
-	        byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
-	        return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
-	}
-	
-	void Main()
-	{
-	        var input = new Input() { p = TextBox1.Text, mean = TextBox2.Text, sd = TextBox3.Text, side = TextBox4.Text };
-	        var json = JsonConvert.SerializeObject(input);
-	        var acitionUri = "PutAPIURLHere,e.g.https://api.datamarket.azure.com/..../v1/Score";
-	        var httpClient = new HttpClient();
-	
-	        httpClient.DefaultRequestHeaders.Authorization = CreateBasicHeader("PutEmailAddressHere", "ChangeToAPIKey");
-	        httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-	
-	        var response = httpClient.PostAsync(acitionUri, new StringContent(json));
-	        var result = response.Result.Content;
-	    	var scoreResult = result.ReadAsStringAsync().Result;
-	}
+    public class Input
+    {
+            public string p;
+            public string mean;
+            public string sd;
+            public string side;
+    }
+    
+    public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
+    {
+            byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
+            return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
+    }
+    
+    void Main()
+    {
+            var input = new Input() { p = TextBox1.Text, mean = TextBox2.Text, sd = TextBox3.Text, side = TextBox4.Text };
+            var json = JsonConvert.SerializeObject(input);
+            var acitionUri = "PutAPIURLHere,e.g.https://api.datamarket.azure.com/..../v1/Score";
+            var httpClient = new HttpClient();
+    
+            httpClient.DefaultRequestHeaders.Authorization = CreateBasicHeader("PutEmailAddressHere", "ChangeToAPIKey");
+            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+    
+            var response = httpClient.PostAsync(acitionUri, new StringContent(json));
+            var result = response.Result.Content;
+            var scoreResult = result.ReadAsStringAsync().Result;
+    }
 
 
 ###Normal Distribution Probability Calculator
-	public class Input
-	{
-	        public string q;
-	        public string mean;
-	        public string sd;
-	        public string side;
-	}
-	
+    public class Input
+    {
+            public string q;
+            public string mean;
+            public string sd;
+            public string side;
+    }
+    
     public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
-	{
-	        byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
-	        return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
-	}
-	
-	void Main()
-	{
-	        var input = new Input() { q = TextBox1.Text, mean = TextBox2.Text, sd = TextBox3.Text, side = TextBox4.Text };
-	        var json = JsonConvert.SerializeObject(input);
-	        var acitionUri = "PutAPIURLHere,e.g.https://api.datamarket.azure.com/..../v1/Score";
-	        var httpClient = new HttpClient();
-	
-	        httpClient.DefaultRequestHeaders.Authorization = CreateBasicHeader("PutEmailAddressHere", "ChangeToAPIKey");
-	        httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-	
-	        var response = httpClient.PostAsync(acitionUri, new StringContent(json));
-	        var result = response.Result.Content;
-		    var scoreResult = result.ReadAsStringAsync().Result;
-	}
+    {
+            byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
+            return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
+    }
+    
+    void Main()
+    {
+            var input = new Input() { q = TextBox1.Text, mean = TextBox2.Text, sd = TextBox3.Text, side = TextBox4.Text };
+            var json = JsonConvert.SerializeObject(input);
+            var acitionUri = "PutAPIURLHere,e.g.https://api.datamarket.azure.com/..../v1/Score";
+            var httpClient = new HttpClient();
+    
+            httpClient.DefaultRequestHeaders.Authorization = CreateBasicHeader("PutEmailAddressHere", "ChangeToAPIKey");
+            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+    
+            var response = httpClient.PostAsync(acitionUri, new StringContent(json));
+            var result = response.Result.Content;
+            var scoreResult = result.ReadAsStringAsync().Result;
+    }
 
 ###Normal Distribution Generator
-	public class Input
-	{
-	        public string n;
-	        public string mean;
-	        public string sd;
-	}
-	
+    public class Input
+    {
+            public string n;
+            public string mean;
+            public string sd;
+    }
+    
     public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
-	{
-	        byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
-	        return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
-	}
-	
-	void Main()
-	{
-	        var input = new Input() { n = TextBox1.Text, mean = TextBox2.Text, sd = TextBox3.Text };
-	        var json = JsonConvert.SerializeObject(input);
-	        var acitionUri = "PutAPIURLHere,e.g.https://api.datamarket.azure.com/..../v1/Score";
-	        var httpClient = new HttpClient();
-	
-	        httpClient.DefaultRequestHeaders.Authorization = CreateBasicHeader("PutEmailAddressHere", "ChangeToAPIKey");
-	        httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-	
-	        var response = httpClient.PostAsync(acitionUri, new StringContent(json));
-	        var result = response.Result.Content;
-		    var scoreResult = result.ReadAsStringAsync().Result;
-	}
+    {
+            byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
+            return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
+    }
+    
+    void Main()
+    {
+            var input = new Input() { n = TextBox1.Text, mean = TextBox2.Text, sd = TextBox3.Text };
+            var json = JsonConvert.SerializeObject(input);
+            var acitionUri = "PutAPIURLHere,e.g.https://api.datamarket.azure.com/..../v1/Score";
+            var httpClient = new HttpClient();
+    
+            httpClient.DefaultRequestHeaders.Authorization = CreateBasicHeader("PutEmailAddressHere", "ChangeToAPIKey");
+            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+    
+            var response = httpClient.PostAsync(acitionUri, new StringContent(json));
+            var result = response.Result.Content;
+            var scoreResult = result.ReadAsStringAsync().Result;
+    }
 
 
 ##Creation of web service 
@@ -175,85 +175,85 @@ Experiment flow:
 
 ![Experiment flow][2]
  
-	#Data schema with example data (replaced with data from web service)
-	data.set=data.frame(p=0.1,mean=0,sd=1,side='L');
-	maml.mapOutputPort("data.set"); #send data to output port
-	
-	# Map 1-based optional input ports to variables
-	dataset1 <- maml.mapInputPort(1) # class: data.frame
+    #Data schema with example data (replaced with data from web service)
+    data.set=data.frame(p=0.1,mean=0,sd=1,side='L');
+    maml.mapOutputPort("data.set"); #send data to output port
+    
+    # Map 1-based optional input ports to variables
+    dataset1 <- maml.mapInputPort(1) # class: data.frame
 
-	param = dataset1
-	if (param$p < 0 ) {
-	print('Bad input: p must be between 0 and 1')
-	param$p = 0
-	} else if (param$p > 1) {
-	print('Bad input: p must be between 0 and 1')
-	param$p = 1
-	}
-	q = qnorm(param$p,mean=param$mean,sd=param$sd)
+    param = dataset1
+    if (param$p < 0 ) {
+    print('Bad input: p must be between 0 and 1')
+    param$p = 0
+    } else if (param$p > 1) {
+    print('Bad input: p must be between 0 and 1')
+    param$p = 1
+    }
+    q = qnorm(param$p,mean=param$mean,sd=param$sd)
 
-	if (param$side == 'U'){
-	q = 2* param$mean - q
-	} else if (param$side =='L') {
-	q = q
-	} else {
-	print("Invalid side choice")
-	}
+    if (param$side == 'U'){
+    q = 2* param$mean - q
+    } else if (param$side =='L') {
+    q = q
+    } else {
+    print("Invalid side choice")
+    }
 
-	output = as.data.frame(q)
-	
-	# Select data.frame to be sent to the output Dataset port
-	maml.mapOutputPort("output");
-	
+    output = as.data.frame(q)
+    
+    # Select data.frame to be sent to the output Dataset port
+    maml.mapOutputPort("output");
+    
 ###Normal Distribution Probability Calculator
 Experiment flow:
 
 ![Experiment flow][3]
  
- 	#Data schema with example data (replaced with data from web service)
-	data.set=data.frame(q=-1,mean=0,sd=1,side='L');
-	maml.mapOutputPort("data.set"); #send data to output port
-	
-	# Map 1-based optional input ports to variables
-	dataset1 <- maml.mapInputPort(1) # class: data.frame
+    #Data schema with example data (replaced with data from web service)
+    data.set=data.frame(q=-1,mean=0,sd=1,side='L');
+    maml.mapOutputPort("data.set"); #send data to output port
+    
+    # Map 1-based optional input ports to variables
+    dataset1 <- maml.mapInputPort(1) # class: data.frame
 
-	param = dataset1
-	prob = pnorm(param$q,mean=param$mean,sd=param$sd)
+    param = dataset1
+    prob = pnorm(param$q,mean=param$mean,sd=param$sd)
 
-	if (param$side == 'U'){
-	prob = 1 - prob
-	} else if (param$side =='B') {
-	prob = ifelse(prob<=0.5,prob * 2, 1)
-	} else if (param$side =='L') {
-	prob = prob
-	} else {
-	print("Invalid side choice")
-	}
+    if (param$side == 'U'){
+    prob = 1 - prob
+    } else if (param$side =='B') {
+    prob = ifelse(prob<=0.5,prob * 2, 1)
+    } else if (param$side =='L') {
+    prob = prob
+    } else {
+    print("Invalid side choice")
+    }
 
-	output = as.data.frame(prob)
-	
-	# Select data.frame to be sent to the output Dataset port
-	maml.mapOutputPort("output");
-	
+    output = as.data.frame(prob)
+    
+    # Select data.frame to be sent to the output Dataset port
+    maml.mapOutputPort("output");
+    
 ###Normal Distribution Generator
 Experiment flow:
 
 ![Experiment flow][4]
 
-	#Data schema with example data (replaced with data from web service)
-	data.set=data.frame(n=50,mean=0,sd=1);
-	maml.mapOutputPort("data.set"); #send data to output port
-	
-	# Map 1-based optional input ports to variables
-	dataset1 <- maml.mapInputPort(1) # class: data.frame
+    #Data schema with example data (replaced with data from web service)
+    data.set=data.frame(n=50,mean=0,sd=1);
+    maml.mapOutputPort("data.set"); #send data to output port
+    
+    # Map 1-based optional input ports to variables
+    dataset1 <- maml.mapInputPort(1) # class: data.frame
 
-	param = dataset1
-	dist = rnorm(param$n,mean=param$mean,sd=param$sd)
+    param = dataset1
+    dist = rnorm(param$n,mean=param$mean,sd=param$sd)
 
-	output = as.data.frame(t(dist))
+    output = as.data.frame(t(dist))
 
-	# Select data.frame to be sent to the output Dataset port
-	maml.mapOutputPort("output");
+    # Select data.frame to be sent to the output Dataset port
+    maml.mapOutputPort("output");
 
 ##Limitations 
 
@@ -267,3 +267,4 @@ For frequently asked questions on consumption of the web service or publishing t
 [3]: ./media/machine-learning-r-csharp-normal-distribution/normal-img3.png
 [4]: ./media/machine-learning-r-csharp-normal-distribution/normal-img4.png
  
+

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure SQL Elastic Scale FAQ | Microsoft Azure" 
-	description="Frequently Asked Questions about Azure SQL Database Elastic Scale." 
-	services="sql-database" 
-	documentationCenter="" 
-	manager="jeffreyg" 
-	authors="sidneyh" 
-	editor=""/>
+    pageTitle="Azure SQL Elastic Scale FAQ | Microsoft Azure" 
+    description="Frequently Asked Questions about Azure SQL Database Elastic Scale." 
+    services="sql-database" 
+    documentationCenter="" 
+    manager="jeffreyg" 
+    authors="sidneyh" 
+    editor=""/>
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="sql-database" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/04/2015" 
-	ms.author="sidneyh"/>
+    ms.service="sql-database" 
+    ms.workload="sql-database" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/04/2015" 
+    ms.author="sidneyh"/>
 
 # Elastic database tools FAQ 
 

@@ -6,7 +6,7 @@
    authors="Blackmist"
    manager="paulettm"
    editor="cgronlun"
-	tags="azure-portal"/>
+    tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -59,27 +59,27 @@ Use the following information if you plan on using SSH keys with your cluster. I
 
 1. Open a terminal session and use the following command to see if you have any existing SSH keys:
 
-		ls -al ~/.ssh
+        ls -al ~/.ssh
 
-	Look for the following files in the directory listing. These are common names for public SSH keys.
+    Look for the following files in the directory listing. These are common names for public SSH keys.
 
-	* id\_dsa.pub
-	* id\_ecdsa.pub
-	* id\_ed25519.pub
-	* id\_rsa.pub
+    * id\_dsa.pub
+    * id\_ecdsa.pub
+    * id\_ed25519.pub
+    * id\_rsa.pub
 
 2. If you do not want to use an existing file, or you have no existing SSH keys, use the following to generate a new file:
 
-		ssh-keygen -t rsa
+        ssh-keygen -t rsa
 
-	You will be prompted for the following information:
+    You will be prompted for the following information:
 
-	* The file location - The location defaults to ~/.ssh/id\_rsa.
-	* A passphrase - You will be prompted to re-enter this.
+    * The file location - The location defaults to ~/.ssh/id\_rsa.
+    * A passphrase - You will be prompted to re-enter this.
 
-		> [AZURE.NOTE] We strongly recommend that you use a secure passphrase for the key. However, if you forget the passphrase, there is no way to recover it.
+        > [AZURE.NOTE] We strongly recommend that you use a secure passphrase for the key. However, if you forget the passphrase, there is no way to recover it.
 
-	After the command finishes, you will have two new files, the private key (for example, **id\_rsa**) and the public key (for example, **id\_rsa.pub**).
+    After the command finishes, you will have two new files, the private key (for example, **id\_rsa**) and the public key (for example, **id\_rsa.pub**).
 
 ##Create a Linux-based HDInsight cluster
 
@@ -122,7 +122,7 @@ From a terminal session, use the SSH command to connect to the cluster head node
 
 The following example will connect to the cluster **mycluster** as the user **me**:
 
-	ssh me@mycluster-ssh.azurehdinsight.net
+    ssh me@mycluster-ssh.azurehdinsight.net
 
 If you used a password for the user account, you will be prompted to enter the password.
 
@@ -195,27 +195,27 @@ Use the following steps to connect to the worker nodes for your cluster.
 
 1. Generate a new public key and private key for the new user account, as described in the [Create an SSH key](#create-an-ssh-key-optional) section.
 
-	> [AZURE.NOTE] The private key should either be generated on a client that the user will use to connect to the cluster, or securely transferred to such a client after creation.
+    > [AZURE.NOTE] The private key should either be generated on a client that the user will use to connect to the cluster, or securely transferred to such a client after creation.
 
 1. From an SSH session to the cluster, add the new user with the following command:
 
-		sudo adduser --disabled-password <username>
+        sudo adduser --disabled-password <username>
 
-	This will create a new user account, but will disable password authentication.
+    This will create a new user account, but will disable password authentication.
 
 2. Create the directory and files to hold the key by using the following commands:
 
-		sudo mkdir -p /home/<username>/.ssh
-		sudo touch /home/<username>/.ssh/authorized_keys
-		sudo nano /home/<username>/.ssh/authorized_keys
+        sudo mkdir -p /home/<username>/.ssh
+        sudo touch /home/<username>/.ssh/authorized_keys
+        sudo nano /home/<username>/.ssh/authorized_keys
 
 3. When the nano editor opens, copy and paste in the contents of the public key for the new user account. Finally, use **Ctrl-X** to save the file and exit the editor.
 
-	![image of nano editor with example key](./media/hdinsight-hadoop-linux-use-ssh-unix/nano.png)
+    ![image of nano editor with example key](./media/hdinsight-hadoop-linux-use-ssh-unix/nano.png)
 
 4. Use the following command to change ownership of the .ssh folder and contents to the new user account:
 
-		sudo chown -hR <username>:<username> /home/<username>/.ssh
+        sudo chown -hR <username>:<username> /home/<username>/.ssh
 
 5. You should now be able to authenticate to the server with the new user account and private key.
 
@@ -238,3 +238,4 @@ Now that you understand how to authenticate by using an SSH key, learn how to us
 * [Use MapReduce jobs with HDInsight](hdinsight-use-mapreduce.md)
 
 [preview-portal]: https://portal.azure.com/
+

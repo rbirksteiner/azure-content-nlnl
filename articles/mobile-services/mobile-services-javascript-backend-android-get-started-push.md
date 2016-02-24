@@ -1,22 +1,22 @@
 
 <properties
-	pageTitle="Get started with push notifications (Android JavaScript) | Microsoft Azure"
-	description="Learn how to use Azure Mobile Services to send push notifications to your Android JavaScript app."
-	services="mobile-services, notification-hubs"
-	documentationCenter="android"
-	authors="RickSaling"
-	writer="ricksal"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Get started with push notifications (Android JavaScript) | Microsoft Azure"
+    description="Learn how to use Azure Mobile Services to send push notifications to your Android JavaScript app."
+    services="mobile-services, notification-hubs"
+    documentationCenter="android"
+    authors="RickSaling"
+    writer="ricksal"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-android"
-	ms.devlang="java"
-	ms.topic="article"
-	ms.date="10/06/2015"
-	ms.author="ricksal"/>
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-android"
+    ms.devlang="java"
+    ms.topic="article"
+    ms.date="10/06/2015"
+    ms.author="ricksal"/>
 
 
 # Add push notifications to your Mobile Services Android app
@@ -74,13 +74,13 @@ When you run this app in the emulator, make sure that you use an Android Virtual
 
 1. From the right end of the toolbar, select the Android Virtual Device Manager, select your device, click the edit icon on the right.
 
-	![](./media/mobile-services-javascript-backend-android-get-started-push/mobile-services-android-virtual-device-manager.png)
+    ![](./media/mobile-services-javascript-backend-android-get-started-push/mobile-services-android-virtual-device-manager.png)
 
 2. Select **Change** on the device description line, select **Google APIs**,  then click OK.
 
-   	![](./media/mobile-services-javascript-backend-android-get-started-push/mobile-services-android-virtual-device-manager-edit.png)
+    ![](./media/mobile-services-javascript-backend-android-get-started-push/mobile-services-android-virtual-device-manager-edit.png)
 
-	This targets the AVD to use Google APIs.
+    This targets the AVD to use Google APIs.
 
 ###Running the test
 
@@ -88,7 +88,7 @@ When you run this app in the emulator, make sure that you use an Android Virtual
 
 2. In the app, type meaningful text, such as _A new Mobile Services task_ and then click the **Add** button.
 
-  	![](./media/mobile-services-javascript-backend-android-get-started-push/mobile-quickstart-push1-android.png)
+    ![](./media/mobile-services-javascript-backend-android-get-started-push/mobile-quickstart-push1-android.png)
 
 3. Swipe down from the top of the screen to open the device's Notification Drawer to see the notification.
 
@@ -106,10 +106,10 @@ You have successfully completed this tutorial.
 <!---This tutorial demonstrated the basics of enabling an Android app to use Mobile Services and Notification Hubs to send push notifications. Next, consider completing the next tutorial, [Send push notifications to authenticated users], which shows how to use tags to send push notifications from a Mobile Service to only an authenticated user.
 
 + [Send broadcast notifications to subscribers]
-	<br/>Learn how users can register and receive push notifications for categories they're interested in.
+    <br/>Learn how users can register and receive push notifications for categories they're interested in.
 
 + [Send template-based notifications to subscribers]
-	<br/>Learn how to use templates to send push notifications from a Mobile Service, without having to craft platform-specific payloads in your back-end.
+    <br/>Learn how to use templates to send push notifications from a Mobile Service, without having to craft platform-specific payloads in your back-end.
 -->
 
 Learn more about Mobile Services and Notification Hubs in the following topics:
@@ -160,3 +160,4 @@ Learn more about Mobile Services and Notification Hubs in the following topics:
 [What are Notification Hubs?]: ../notification-hubs-overview.md
 [Send broadcast notifications to subscribers]: ../notification-hubs-android-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-android-send-localized-breaking-news.md
+

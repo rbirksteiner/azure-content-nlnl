@@ -44,7 +44,7 @@ You can change the device redirection settings for a collection by using the Mic
 
 Then use a command similar to the following to set the custom RDP properties:
 
-	Set-AzureRemoteAppCollection -CollectionName <collection name>  -CustomRdpProperty "drivestoredirect:s:*`nusbdevicestoredirect:s:*"
+    Set-AzureRemoteAppCollection -CollectionName <collection name>  -CustomRdpProperty "drivestoredirect:s:*`nusbdevicestoredirect:s:*"
 
 (Note that *`n* is used as a delimiter between individual properties.)
 
@@ -57,15 +57,15 @@ When you set custom properties you must specify all custom properties each time;
 ### Common examples
 Use the following cmdlet to enable drive redirection:  
 
-	Set-AzureRemoteAppCollection -CollectionName <collection name>  -CustomRdpProperty "drivestoredirect:s:*”
+    Set-AzureRemoteAppCollection -CollectionName <collection name>  -CustomRdpProperty "drivestoredirect:s:*”
 
 Use this cmdlet to enable both USB and Drive redirection:
 
-	Set-AzureRemoteAppCollection -CollectionName <collection name>  -CustomRdpProperty "drivestoredirect:s:*`nusbdevicestoredirect:s:*"
+    Set-AzureRemoteAppCollection -CollectionName <collection name>  -CustomRdpProperty "drivestoredirect:s:*`nusbdevicestoredirect:s:*"
 
 Use this cmdlet to disable clipboard sharing:  
 
-	Set-AzureRemoteAppCollection -CollectionName <collection name>  -CustomRdpProperty "redirectclipboard:i:0”
+    Set-AzureRemoteAppCollection -CollectionName <collection name>  -CustomRdpProperty "redirectclipboard:i:0”
 
 > [AZURE.IMPORTANT] Be sure to completely log off all users in the collection (and not just disconnect them) before you test the change. To ensure users are completely logged off, go to the **Sessions** tab in the collection in the Azure portal and log off any users who are disconnected or signed in. Sometimes it can take several seconds for the local drives to show in Explorer within the session.
 
@@ -90,7 +90,7 @@ To configure USB redirection settings on your computer:
 4. Select **Enabled**, and then select **Administrators and Users in the RemoteFX USB Redirection Access Rights**.
 5. Open a command prompt with administrative permissions, and run the following command:
 
-		gpupdate /force
+        gpupdate /force
 6. Restart the computer.
 
 You can also use the Group Policy Management tool to create and apply the USB redirection policy for all computers in your domain:
@@ -103,3 +103,4 @@ You can also use the Group Policy Management tool to create and apply the USB re
 6. Double-click **Allow RDP redirection of other supported RemoteFX USB devices from this computer**.
 7. Select **Enabled**, and then select **Administrators and Users in the RemoteFX USB Redirection Access Rights**.
 8. Click **OK**.  
+

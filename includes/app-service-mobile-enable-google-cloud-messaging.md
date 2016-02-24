@@ -4,7 +4,7 @@
 
 3. Make a note of the project number in the **Projects** section. 
 
-	Later in the tutorial you set this value as the PROJECT_ID variable in the client.
+    Later in the tutorial you set this value as the PROJECT_ID variable in the client.
 
 4. Click **Enable and manage APIs** under **User Google APIs** and click **Cloud Messaging for Android**. Then on the next page click **Enable API**. 
 
@@ -14,5 +14,6 @@
 
 7. Make a note of the **API KEY** value.
 
-	You will use this API key value to enable Azure to authenticate with GCM and send push notifications on behalf of your app.
+    You will use this API key value to enable Azure to authenticate with GCM and send push notifications on behalf of your app.
+
 

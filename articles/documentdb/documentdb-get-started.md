@@ -1,21 +1,21 @@
 <properties
-	pageTitle="NoSQL tutorial: DocumentDB .NET SDK | Microsoft Azure"
-	description="A NoSQL tutorial that creates an online database and C# console application using the DocumentDB .NET SDK. DocumentDB is a NoSQL database for JSON."
-	keywords="nosql tutorial, online database, c# console application"
-	services="documentdb"
-	documentationCenter=".net"
-	authors="AndrewHoh"
-	manager="jhubbard"
-	editor="monicar"/>
+    pageTitle="NoSQL tutorial: DocumentDB .NET SDK | Microsoft Azure"
+    description="A NoSQL tutorial that creates an online database and C# console application using the DocumentDB .NET SDK. DocumentDB is a NoSQL database for JSON."
+    keywords="nosql tutorial, online database, c# console application"
+    services="documentdb"
+    documentationCenter=".net"
+    authors="AndrewHoh"
+    manager="jhubbard"
+    editor="monicar"/>
 
 <tags
-	ms.service="documentdb"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="hero-article" 
-	ms.date="11/18/2015"
-	ms.author="anhoh"/>
+    ms.service="documentdb"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="hero-article" 
+    ms.date="11/18/2015"
+    ms.author="anhoh"/>
 
 # NoSQL tutorial: DocumentDB C# console application 
 
@@ -88,26 +88,26 @@ Next, save the DocumentDB account endpoint and either the primary or secondary a
 
 We'll start the getting started demo application by creating a new instance of the **DocumentClient**. Create a new asynchronous task called **GetStartedDemo** and instantiate our new **DocumentClient**.
 
-	private static async Task GetStartedDemo()
+    private static async Task GetStartedDemo()
     {
-		// Create a new instance of the DocumentClient
-    	var client = new DocumentClient(new Uri(EndpointUrl), AuthorizationKey);
-	}
+        // Create a new instance of the DocumentClient
+        var client = new DocumentClient(new Uri(EndpointUrl), AuthorizationKey);
+    }
 
 Call your asynchronous task from your **Main** method similar to the code below.
 
-	public static void Main(string[] args)
+    public static void Main(string[] args)
     {
-		try
-    	{
-        	GetStartedDemo().Wait();
-		}
-		catch (Exception e)
-		{
-			Exception baseException = e.GetBaseException();
-			Console.WriteLine("Error: {0}, Message: {1}", e.Message, baseException.Message);
-		}
-	}
+        try
+        {
+            GetStartedDemo().Wait();
+        }
+        catch (Exception e)
+        {
+            Exception baseException = e.GetBaseException();
+            Console.WriteLine("Error: {0}, Message: {1}", e.Message, baseException.Message);
+        }
+    }
 
 > [AZURE.WARNING] Never store credentials in source code. To keep this sample simple, the credentials are shown in the source code. See [Azure Web Sites: How Application Strings and Connection Strings Work](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/) for information on how to store credentials in a production environment. Take a look at our sample application on [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs) for an example on storing credentials outside of the source code.
 
@@ -116,24 +116,24 @@ Now that you know how to connect to a DocumentDB account and create an instance 
 ## Step 4: Create an online database
 Your DocumentDB [database](documentdb-resources.md#databases) can be created by using the [CreateDatabaseAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) method of the **DocumentClient** class. A database is the logical container of JSON document storage partitioned across collections. Create your new database in your **GetStartedDemo** method after your **DocumentClient** creation.
 
-	// Check to verify a database with the id=FamilyRegistry does not exist
-	Database database = client.CreateDatabaseQuery().Where(db => db.Id == "FamilyRegistry").AsEnumerable().FirstOrDefault();
+    // Check to verify a database with the id=FamilyRegistry does not exist
+    Database database = client.CreateDatabaseQuery().Where(db => db.Id == "FamilyRegistry").AsEnumerable().FirstOrDefault();
 
-	// If the database does not exist, create a new database
+    // If the database does not exist, create a new database
     if (database == null)
     {
-    	database = await client.CreateDatabaseAsync(
-    		new Database
+        database = await client.CreateDatabaseAsync(
+            new Database
             {
-            	Id = "FamilyRegistry"
+                Id = "FamilyRegistry"
             });
 
-		// Write the new database's id to the console
-		Console.WriteLine(database.Id);
+        // Write the new database's id to the console
+        Console.WriteLine(database.Id);
         Console.WriteLine("Press any key to continue ...");
         Console.ReadKey();
         Console.Clear();
-	}
+    }
 
 ##<a id="CreateColl"></a>Step 5: Create a collection  
 
@@ -144,21 +144,21 @@ A [collection](documentdb-resources.md#collections) can be created by using the 
     // Check to verify a document collection with the id=FamilyCollection does not exist
     DocumentCollection documentCollection = client.CreateDocumentCollectionQuery("dbs/" + database.Id).Where(c => c.Id == "FamilyCollection").AsEnumerable().FirstOrDefault();
 
-	// If the document collection does not exist, create a new collection
+    // If the document collection does not exist, create a new collection
     if (documentCollection == null)
     {
-    	documentCollection = await client.CreateDocumentCollectionAsync("dbs/" + database.Id,
-        	new DocumentCollection
+        documentCollection = await client.CreateDocumentCollectionAsync("dbs/" + database.Id,
+            new DocumentCollection
             {
-            	Id = "FamilyCollection"
+                Id = "FamilyCollection"
             });
 
-		// Write the new collection's id to the console
-		Console.WriteLine(documentCollection.Id);
+        // Write the new collection's id to the console
+        Console.WriteLine(documentCollection.Id);
         Console.WriteLine("Press any key to continue ...");
         Console.ReadKey();
         Console.Clear();
-	}
+    }
 
 ##<a id="CreateDoc"></a>Step 6: Create JSON documents
 A [document](documentdb-resources.md#documents) can be created by using the [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) method of the **DocumentClient** class. Documents are user defined (arbitrary) JSON content. We can now insert one or more documents. If you already have data you'd like to store in your database, you can use DocumentDB's [Data Migration tool](documentdb-import-data.md).
@@ -208,36 +208,36 @@ Next, create your documents within your **GetStartedDemo** async method.
     // Check to verify a document with the id=AndersenFamily does not exist
     Document document = client.CreateDocumentQuery("dbs/" + database.Id + "/colls/" + documentCollection.Id).Where(d => d.Id == "AndersenFamily").AsEnumerable().FirstOrDefault();
 
-	// If the document does not exist, create a new document
-	if (document == null)
-	{
-	    // Create the Andersen Family document
-	    Family andersonFamily = new Family
-	    {
-	        Id = "AndersenFamily",
-	        LastName = "Andersen",
-	        Parents = new Parent[] {
-	            new Parent { FirstName = "Thomas" },
-	            new Parent { FirstName = "Mary Kay"}
-	        },
-	        Children = new Child[] {
-	            new Child
-	            { 
-	                FirstName = "Henriette Thaulow", 
-	                Gender = "female", 
-	                Grade = 5, 
-	                Pets = new Pet[] {
-	                    new Pet { GivenName = "Fluffy" } 
-	                }
-	            } 
-	        },
-	        Address = new Address { State = "WA", County = "King", City = "Seattle" },
-	        IsRegistered = true
-	    };
-	
-	    // id based routing for the first argument, "dbs/FamilyRegistry/colls/FamilyCollection"
-	    await client.CreateDocumentAsync("dbs/" + database.Id + "/colls/" + documentCollection.Id, andersonFamily);
-	}
+    // If the document does not exist, create a new document
+    if (document == null)
+    {
+        // Create the Andersen Family document
+        Family andersonFamily = new Family
+        {
+            Id = "AndersenFamily",
+            LastName = "Andersen",
+            Parents = new Parent[] {
+                new Parent { FirstName = "Thomas" },
+                new Parent { FirstName = "Mary Kay"}
+            },
+            Children = new Child[] {
+                new Child
+                { 
+                    FirstName = "Henriette Thaulow", 
+                    Gender = "female", 
+                    Grade = 5, 
+                    Pets = new Pet[] {
+                        new Pet { GivenName = "Fluffy" } 
+                    }
+                } 
+            },
+            Address = new Address { State = "WA", County = "King", City = "Seattle" },
+            IsRegistered = true
+        };
+    
+        // id based routing for the first argument, "dbs/FamilyRegistry/colls/FamilyCollection"
+        await client.CreateDocumentAsync("dbs/" + database.Id + "/colls/" + documentCollection.Id, andersonFamily);
+    }
 
     // Check to verify a document with the id=AndersenFamily does not exist
     document = client.CreateDocumentQuery("dbs/" + database.Id + "/colls/" + documentCollection.Id).Where(d => d.Id == "WakefieldFamily").AsEnumerable().FirstOrDefault();
@@ -276,7 +276,7 @@ Next, create your documents within your **GetStartedDemo** async method.
 
         // id based routing for the first argument, "dbs/FamilyRegistry/colls/FamilyCollection"
         await client.CreateDocumentAsync("dbs/" + database.Id + "/colls/" + documentCollection.Id, wakefieldFamily);
-	}
+    }
 
 You have now created the following database, collection, and documents in your DocumentDB account.
 
@@ -330,132 +330,132 @@ Deleting the created database will remove the database and all children resource
 
     // Clean up/delete the database
     await client.DeleteDatabaseAsync("dbs/" + database.Id);
-	client.Dispose();
+    client.Dispose();
 
 ##<a id="Run"></a>Step 9: Run your C# console application!
 
 You are now ready to run your application. At the end of your **Main** method, add the following line of code, which will let you read the console output before the application finishes running.
 
-	Console.ReadLine();
+    Console.ReadLine();
 
 Now hit F5 in Visual Studio to build the application in debug mode.
 
 You should now see the output of your get started app. The output will show the results of the queries we added and should match the example text below.
 
-	Read {
-	  "id": "AndersenFamily",
-	  "LastName": "Andersen",
-	  "Parents": [
-		{
-		  "FamilyName": null,
-		  "FirstName": "Thomas"
-		},
-    	{
-		  "FamilyName": null,
-		  "FirstName": "Mary Kay"
-		}
-	  ],
-	  "Children": [
-		{
-		  "FamilyName": null,
-		  "FirstName": "Henriette Thaulow",
-		  "Gender": "female",
-		  "Grade": 5,
-		  "Pets": [
-			{
-			  "GivenName": "Fluffy"
-			}
-		  ]
-		}
-	  ],
-	  "Address": {
-		"State": "WA",
-		"County": "King",
-		"City": "Seattle"
-	  },
-	  "IsRegistered": true,
-	  "_rid": "ybVlALUoqAEBAAAAAAAAAA==",
-	  "_ts": 1428372205,
-	  "_self": "dbs/ybVlAA==/colls/ybVlALUoqAE=/docs/ybVlALUoqAEBAAAAAAAAAA==/",
-	  "_etag": "\"0000400c-0000-0000-0000-55233aed0000\"",
-	  "_attachments": "attachments/"
-	} from SQL
-	Read {
-	  "id": "AndersenFamily",
-	  "LastName": "Andersen",
-	  "Parents": [
-		{
-		  "FamilyName": null,
-		  "FirstName": "Thomas"
-		},
-		{
-		  "FamilyName": null,
-		  "FirstName": "Mary Kay"
-		}
-	  ],
-	  "Children": [
-		{
-		  "FamilyName": null,
-		  "FirstName": "Henriette Thaulow",
-		  "Gender": "female",
-		  "Grade": 5,
-		  "Pets": [
-			{
-			  "GivenName": "Fluffy"
-			}
-		  ]
-		}
-	  ],
-	  "Address": {
-		"State": "WA",
-		"County": "King",
-		"City": "Seattle"
-	  },
-	  "IsRegistered": true,
-	  "_rid": "ybVlALUoqAEBAAAAAAAAAA==",
-	  "_ts": 1428372205,
-	  "_self": "dbs/ybVlAA==/colls/ybVlALUoqAE=/docs/ybVlALUoqAEBAAAAAAAAAA==/",
-	  "_etag": "\"0000400c-0000-0000-0000-55233aed0000\"",
-	  "_attachments": "attachments/"
-	} from LINQ
-	Read {
-	  "id": "AndersenFamily",
-	  "LastName": "Andersen",
-	  "Parents": [
-		{
-		  "FamilyName": null,
-		  "FirstName": "Thomas"
-		},
-		{
-		  "FamilyName": null,
-		  "FirstName": "Mary Kay"
-		}
-	  ],
-	  "Children": [
-		{
-		  "FamilyName": null,
-		  "FirstName": "Henriette Thaulow",
-		  "Gender": "female",
-		  "Grade": 5,
-		  "Pets": [
-			{
-			  "GivenName": "Fluffy"
-			}
-		  ]
-		}
-	  ],
-	  "Address": {
-		"State": "WA",
-		"County": "King",
-		"City": "Seattle"
-	  },
-	  "IsRegistered": true,
-	  "_rid": "ybVlALUoqAEBAAAAAAAAAA==",
-	  "_ts": 1428372205,
-	  "_self": "dbs/ybVlAA==/colls/ybVlALUoqAE=/docs/ybVlALUoqAEBAAAAAAAAAA==/",
-	  "_etag": "\"0000400c-0000-0000-0000-55233aed0000\"",
-	  "_attachments": "attachments/"
-	} from LINQ query
+    Read {
+      "id": "AndersenFamily",
+      "LastName": "Andersen",
+      "Parents": [
+        {
+          "FamilyName": null,
+          "FirstName": "Thomas"
+        },
+        {
+          "FamilyName": null,
+          "FirstName": "Mary Kay"
+        }
+      ],
+      "Children": [
+        {
+          "FamilyName": null,
+          "FirstName": "Henriette Thaulow",
+          "Gender": "female",
+          "Grade": 5,
+          "Pets": [
+            {
+              "GivenName": "Fluffy"
+            }
+          ]
+        }
+      ],
+      "Address": {
+        "State": "WA",
+        "County": "King",
+        "City": "Seattle"
+      },
+      "IsRegistered": true,
+      "_rid": "ybVlALUoqAEBAAAAAAAAAA==",
+      "_ts": 1428372205,
+      "_self": "dbs/ybVlAA==/colls/ybVlALUoqAE=/docs/ybVlALUoqAEBAAAAAAAAAA==/",
+      "_etag": "\"0000400c-0000-0000-0000-55233aed0000\"",
+      "_attachments": "attachments/"
+    } from SQL
+    Read {
+      "id": "AndersenFamily",
+      "LastName": "Andersen",
+      "Parents": [
+        {
+          "FamilyName": null,
+          "FirstName": "Thomas"
+        },
+        {
+          "FamilyName": null,
+          "FirstName": "Mary Kay"
+        }
+      ],
+      "Children": [
+        {
+          "FamilyName": null,
+          "FirstName": "Henriette Thaulow",
+          "Gender": "female",
+          "Grade": 5,
+          "Pets": [
+            {
+              "GivenName": "Fluffy"
+            }
+          ]
+        }
+      ],
+      "Address": {
+        "State": "WA",
+        "County": "King",
+        "City": "Seattle"
+      },
+      "IsRegistered": true,
+      "_rid": "ybVlALUoqAEBAAAAAAAAAA==",
+      "_ts": 1428372205,
+      "_self": "dbs/ybVlAA==/colls/ybVlALUoqAE=/docs/ybVlALUoqAEBAAAAAAAAAA==/",
+      "_etag": "\"0000400c-0000-0000-0000-55233aed0000\"",
+      "_attachments": "attachments/"
+    } from LINQ
+    Read {
+      "id": "AndersenFamily",
+      "LastName": "Andersen",
+      "Parents": [
+        {
+          "FamilyName": null,
+          "FirstName": "Thomas"
+        },
+        {
+          "FamilyName": null,
+          "FirstName": "Mary Kay"
+        }
+      ],
+      "Children": [
+        {
+          "FamilyName": null,
+          "FirstName": "Henriette Thaulow",
+          "Gender": "female",
+          "Grade": 5,
+          "Pets": [
+            {
+              "GivenName": "Fluffy"
+            }
+          ]
+        }
+      ],
+      "Address": {
+        "State": "WA",
+        "County": "King",
+        "City": "Seattle"
+      },
+      "IsRegistered": true,
+      "_rid": "ybVlALUoqAEBAAAAAAAAAA==",
+      "_ts": 1428372205,
+      "_self": "dbs/ybVlAA==/colls/ybVlALUoqAE=/docs/ybVlALUoqAEBAAAAAAAAAA==/",
+      "_etag": "\"0000400c-0000-0000-0000-55233aed0000\"",
+      "_attachments": "attachments/"
+    } from LINQ query
 
 Congratulations! You've completed this NoSQL tutorial! 
 
@@ -470,9 +470,9 @@ To restore the references to the DocumentDB .NET SDK in Visual Studio, right-cli
 ## Next steps
 
 -   Want a more complex ASP.NET MVC NoSQL tutorial? See [Build a web application with ASP.NET MVC using DocumentDB](documentdb-dotnet-application.md).
--	Learn how to [monitor a DocumentDB account](documentdb-monitor-accounts.md).
--	Run queries against our sample dataset in the [Query Playground](https://www.documentdb.com/sql/demo).
--	Learn more about the programming model in the Development section of the [DocumentDB documentation page](../../services/documentdb/).
+-   Learn how to [monitor a DocumentDB account](documentdb-monitor-accounts.md).
+-   Run queries against our sample dataset in the [Query Playground](https://www.documentdb.com/sql/demo).
+-   Learn more about the programming model in the Development section of the [DocumentDB documentation page](../../services/documentdb/).
 
 [doc-landing-page]: ../../services/documentdb/
 [documentdb-create-account]: documentdb-create-account.md
@@ -480,3 +480,4 @@ To restore the references to the DocumentDB .NET SDK in Visual Studio, right-cli
 
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
  
+

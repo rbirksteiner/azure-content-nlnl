@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Indexes in Azure Search | Microsoft Azure | Hosted cloud search service"
-	description="What is an index in Azure Seach and how is it used?"
-	services="search"
-	documentationCenter=""
-	authors="HeidiSteen"
-	manager="mblythe"
-	editor=""
+    pageTitle="Indexes in Azure Search | Microsoft Azure | Hosted cloud search service"
+    description="What is an index in Azure Seach and how is it used?"
+    services="search"
+    documentationCenter=""
+    authors="HeidiSteen"
+    manager="mblythe"
+    editor=""
     tags="azure-portal"/>
 
 <tags
-	ms.service="search"
-	ms.devlang="na"
-	ms.workload="search"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.date="11/09/2015"
-	ms.author="heidist"/>
+    ms.service="search"
+    ms.devlang="na"
+    ms.workload="search"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.date="11/09/2015"
+    ms.author="heidist"/>
 
 # Indexes in Azure Search
 > [AZURE.SELECTOR]

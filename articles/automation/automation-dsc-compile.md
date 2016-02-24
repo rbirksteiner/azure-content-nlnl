@@ -55,9 +55,9 @@ You can use [`Start-AzureRmAutomationDscCompilationJob`](https://msdn.microsoft.
     
     $CompilationJob = Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "SampleConfig"
     
-    while($CompilationJob.EndTime –eq $null -and $CompilationJob.Exception –eq $null)       	
+    while($CompilationJob.EndTime –eq $null -and $CompilationJob.Exception –eq $null)           
     {$CompilationJob = $CompilationJob | Get-AzureRmAutomationDscCompilationJob
-    	Start-Sleep -Seconds 3
+        Start-Sleep -Seconds 3
     
     }
     
@@ -71,29 +71,29 @@ Parameter declaration in DSC configurations, including parameter types and prope
 The following example uses two parameters called **FeatureName** and **IsPresent**, to determine the values of properties in the **ParametersExample.sample** node configuration, generated during compilation.
 
     Configuration ParametersExample {
-    	param(
-    	[Parameter(Mandatory=$true)]
+        param(
+        [Parameter(Mandatory=$true)]
     
-    	[string] $FeatureName,
+        [string] $FeatureName,
     
-    	[Parameter(Mandatory=$true)]
-    	[boolean] $IsPresent
+        [Parameter(Mandatory=$true)]
+        [boolean] $IsPresent
     
     )
     
     $EnsureString = "Present"
     if($IsPresent -eq $false) {
-    	$EnsureString = "Absent"
+        $EnsureString = "Absent"
     
     }
     
     Node "sample" {
     
-    	WindowsFeature ($FeatureName + "Feature") {
-    		Ensure = $EnsureString
-    		Name = $FeatureName
-    		}
-    	}
+        WindowsFeature ($FeatureName + "Feature") {
+            Ensure = $EnsureString
+            Name = $FeatureName
+            }
+        }
     }
 
 You can compile DSC Configurations that use basic parameters in the Azure Automation DSC portal, or Azure PowerShell:
@@ -109,8 +109,8 @@ In the portal, you can enter parameter values after clicking **Compile**.
 PowerShell requires parameters in a [hashtable](http://technet.microsoft.com/library/hh847780.aspx) where the key matches the parameter name, and the value equals the parameter value.
 
     $Parameters = @{
-    		"FeatureName" = "Web-Server"
-    		"IsPresent" = $False
+            "FeatureName" = "Web-Server"
+            "IsPresent" = $False
     }
     
     
@@ -128,49 +128,49 @@ For information about passing PSCredentials as parameters, see <a href="#credent
 The following example DSC configuration uses **ConfigurationData** via the **$ConfigurationData** and **$AllNodes** keywords. You'll also need the [**xWebAdministration** module](https://www.powershellgallery.com/packages/xWebAdministration/) for this example:
 
      Configuration ConfigurationDataSample {
-    	Import-DscResource -ModuleName xWebAdministration -Name MSFT_xWebsite
+        Import-DscResource -ModuleName xWebAdministration -Name MSFT_xWebsite
     
-    	Write-Verbose $ConfigurationData.NonNodeData.SomeMessage 
+        Write-Verbose $ConfigurationData.NonNodeData.SomeMessage 
     
-    	Node $AllNodes.Where{$_.Role -eq "WebServer"}.NodeName
-    	{
+        Node $AllNodes.Where{$_.Role -eq "WebServer"}.NodeName
+        {
     
-    		xWebsite Site
-    		{
+            xWebsite Site
+            {
     
-    			Name = $Node.SiteName
-    			PhysicalPath = $Node.SiteContents
-    			Ensure   = "Present"
-    		}
+                Name = $Node.SiteName
+                PhysicalPath = $Node.SiteContents
+                Ensure   = "Present"
+            }
     
-    	}
+        }
  
     }
 
 You can compile the DSC configuration above with PowerShell, which adds two node configurations to the Azure Automation DSC Pull Server: **ConfigurationDataSample.MyVM1** and **ConfigurationDataSample.MyVM3**:
 
     $ConfigData = @{
-    	AllNodes = @(
-			@{
-    			NodeName = "MyVM1"
-    			Role = "WebServer"
-    		},
-    		@{
-    			NodeName = "MyVM2"
-    			Role = "SQLServer"
-    		},
-    		@{
-    			NodeName = "MyVM3"
-    			Role = "WebServer"
+        AllNodes = @(
+            @{
+                NodeName = "MyVM1"
+                Role = "WebServer"
+            },
+            @{
+                NodeName = "MyVM2"
+                Role = "SQLServer"
+            },
+            @{
+                NodeName = "MyVM3"
+                Role = "WebServer"
     
-    		}
+            }
     
-    	)
+        )
     
-    	NonNodeData = @{
-    		SomeMessage = "I love Azure Automation DSC!"
+        NonNodeData = @{
+            SomeMessage = "I love Azure Automation DSC!"
     
-    	}
+        }
     
     } 
     
@@ -199,16 +199,16 @@ The following example shows a DSC configuration that uses an Automation credenti
     
        $Cred = Get-AutomationPSCredential -Name "SomeCredentialAsset"
     
-    	Node $AllNodes.NodeName { 
+        Node $AllNodes.NodeName { 
     
-    		File ExampleFile { 
-    			SourcePath = "\\Server\share\path\file.ext" 
-    			DestinationPath = "C:\destinationPath" 
-    			Credential = $Cred 
+            File ExampleFile { 
+                SourcePath = "\\Server\share\path\file.ext" 
+                DestinationPath = "C:\destinationPath" 
+                Credential = $Cred 
     
-       		}
+            }
     
-    	}
+        }
     
     }
 
@@ -216,22 +216,23 @@ You can compile the DSC configuration above with PowerShell, which adds two node
 
 
     $ConfigData = @{
-    	AllNodes = @(
-    		 @{
-    			NodeName = "*"
-    			PSDscAllowPlainTextPassword = $True
-    		},
+        AllNodes = @(
+             @{
+                NodeName = "*"
+                PSDscAllowPlainTextPassword = $True
+            },
     
-    		@{
-    			NodeName = "MyVM1"
-    		},
+            @{
+                NodeName = "MyVM1"
+            },
     
-    		@{
-    			NodeName = "MyVM2"
-    		}
-    	)
+            @{
+                NodeName = "MyVM2"
+            }
+        )
     } 
     
     
     
     Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "CredentialSample" -ConfigurationData $ConfigData
+

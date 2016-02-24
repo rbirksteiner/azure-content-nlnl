@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Set up a SQL Server virtual machine as an IPython Notebook server | Microsoft Azure"
-	description="Set up a Data Science Virtual Machine with SQL Server and IPython Server."
-	services="machine-learning"
-	documentationCenter=""
-	authors="bradsev" 
-	manager="paulettm"
-	editor="cgronlun" />
+    pageTitle="Set up a SQL Server virtual machine as an IPython Notebook server | Microsoft Azure"
+    description="Set up a Data Science Virtual Machine with SQL Server and IPython Server."
+    services="machine-learning"
+    documentationCenter=""
+    authors="bradsev" 
+    manager="paulettm"
+    editor="cgronlun" />
 
 <tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/13/2015"
-	ms.author="mohabib;xibingao;bradsev" />
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/13/2015"
+    ms.author="mohabib;xibingao;bradsev" />
 
 # Set up an Azure SQL Server virtual machine as an IPython Notebook server for advanced analytics
 
@@ -31,7 +31,7 @@ The Azure virtual machine gallery includes several images that contain Microsoft
 ##<a name="Provision"></a>Connect to the Azure Classic Portal and provision an SQL Server virtual machine
 
 1.  Log in to the [Azure Classic Portal](http://manage.windowsazure.com/) using your account.
-	If you do not have an Azure account, visit [Azure free
+    If you do not have an Azure account, visit [Azure free
     trial](http://www.windowsazure.com/pricing/free-trial/).
 
 2.  On the Azure Classic Portal, at the bottom left of the web page,
@@ -43,7 +43,7 @@ The Azure virtual machine gallery includes several images that contain Microsoft
     bottom right of the page. For the most up-to-date information on the supported SQL Server images on Azure,
     see [Getting Started with SQL Server in Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=294720) topic in the [SQL Server in Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=294719) documentation set.
 
-	![Select SQL Server VM][1]
+    ![Select SQL Server VM][1]
 
 4.  On the first **Virtual Machine Configuration** page, provide the
     following information:
@@ -89,21 +89,21 @@ The Azure virtual machine gallery includes several images that contain Microsoft
     -   In the **AVAILABILITY SET** box, select **(none)**.
     -   Read and accept the pricing information.
 
-6.	In the **ENDPOINTS** section, click in the empty dropdown under **NAME**, and
-	select **MSSQL**  then type the port number of the
+6.  In the **ENDPOINTS** section, click in the empty dropdown under **NAME**, and
+    select **MSSQL**  then type the port number of the
     instance of the Database Engine (**1433** for the default instance).
 
 7.  Your SQL Server VM can also serve as an IPython Notebook Server, which will be configured in a later step.
-	Add a new endpoint to specify the port to use for your IPython Notebook server. Enter a name in the **NAME** column,	select a port number of your choice for the public port, and 9999 for the private port.
+    Add a new endpoint to specify the port to use for your IPython Notebook server. Enter a name in the **NAME** column,    select a port number of your choice for the public port, and 9999 for the private port.
 
-	Click the next arrow on the bottom right to continue.
+    Click the next arrow on the bottom right to continue.
 
-	![Select MSSQL and IPython ports][3]
+    ![Select MSSQL and IPython ports][3]
 
 8.  Accept the default **Install VM agent** option checked and click the the check mark in the bottom right
-	corner of the wizard to complete the VM provisioning process.
+    corner of the wizard to complete the VM provisioning process.
 
-	`![VM Final Options][4]
+    `![VM Final Options][4]
 
 9.  Wait while Azure prepares your virtual machine. Expect the virtual
     machine status to proceed through:
@@ -151,18 +151,18 @@ a special customization script is provided to you. To install:
 - Right-click the Windows Start icon and click **Command Prompt (Admin)**
 - Copy the following commands and paste at the command prompt.
 
-    	set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/MachineSetup/Azure_VM_Setup_Windows.ps1'
-    	@powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
+        set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/MachineSetup/Azure_VM_Setup_Windows.ps1'
+        @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
 
 - When prompted, enter a password of your choice for the IPython Notebook server.
 - The customization script automates several post-install procedures, which include:
-	+ Installation and setup of IPython Notebook server
-	+ Opening TCP ports in the Windows firewall for the endpoints created earlier:
-	+ For SQL Server remote connectivity
-	+ For IPython Notebook server remote connectivity
-	+ Fetching sample IPython notebooks and SQL scripts
-	+ Downloading and installing useful Data Science Python packages
-	+ Downloading and installing Azure tools such as AzCopy and Azure Storage Explorer  
+    + Installation and setup of IPython Notebook server
+    + Opening TCP ports in the Windows firewall for the endpoints created earlier:
+    + For SQL Server remote connectivity
+    + For IPython Notebook server remote connectivity
+    + Fetching sample IPython notebooks and SQL scripts
+    + Downloading and installing useful Data Science Python packages
+    + Downloading and installing Azure tools such as AzCopy and Azure Storage Explorer  
 <br>
 - You may access and run IPython Notebook from any local or remote browser using a URL of the form `https://<virtual_machine_DNS_name>:<port>`, where port is the IPython public port you selected while provisioning the virtual machine.
 - IPython Notebook server is running as a background service and will be restarted automatically when you restart the virtual machine.
@@ -207,18 +207,18 @@ directly from your SQL Server VM databases in the
 
     ![Connect to Server][6]
 
-	<br>
+    <br>
 
-	 > [AZURE.TIP] You may change the SQL Server authentication mode using a Windows registry key change or using the SQL Server Management Studio. To change authentication mode using the registry key change, start a **New Query** and execute the following script:
+     > [AZURE.TIP] You may change the SQL Server authentication mode using a Windows registry key change or using the SQL Server Management Studio. To change authentication mode using the registry key change, start a **New Query** and execute the following script:
 
-		USE master
-    	go
+        USE master
+        go
 
-    	EXEC xp_instance_regwrite N'HKEY_LOCAL_MACHINE', N'Software\Microsoft\MSSQLServer\MSSQLServer', N'LoginMode', REG_DWORD, 2
-    	go
+        EXEC xp_instance_regwrite N'HKEY_LOCAL_MACHINE', N'Software\Microsoft\MSSQLServer\MSSQLServer', N'LoginMode', REG_DWORD, 2
+        go
 
 
-	To change the authentication mode using SQL Server management Studio:
+    To change the authentication mode using SQL Server management Studio:
 
 3.  In SQL Server Management Studio Object Explorer, right-click the
     name of the instance of SQL Server (the virtual machine name), and
@@ -255,8 +255,8 @@ at least one SQL Server authentication login.
     go
 
     CREATE LOGIN <new user name> WITH PASSWORD = N'<new password>',
-    	CHECK_POLICY = OFF,
-    	CHECK_EXPIRATION = OFF;
+        CHECK_POLICY = OFF,
+        CHECK_EXPIRATION = OFF;
 
     EXEC sp_addsrvrolemember @loginame = N'<new user name>', @rolename = N'sysadmin';
 
@@ -356,15 +356,15 @@ because it can be redirected to a new IP address.)
 
 In later stages of the Advanced Analytics Process and Technology, you will use the [Azure Machine Learning Studio](https://studio.azureml.net) to build and deploy machine learning models. To ingest data from your SQL Server VM databases directly into Azure Machine Learning for training or scoring, use the Reader module in a new [Azure Machine Learning Studio](https://studio.azureml.net) experiment. This topic is covered in more details through the Advanced Analytics Process and Technology guide links. For an introduction, see [What is Azure Machine Learning Studio?](machine-learning-what-is-ml-studio.md).
 
-2.	In the **Properties** pane of the [Reader module](https://msdn.microsoft.com/library/azure/dn905997.aspx), select **Azure SQL Database** from the **Data Source** 	dropdown list.
+2.  In the **Properties** pane of the [Reader module](https://msdn.microsoft.com/library/azure/dn905997.aspx), select **Azure SQL Database** from the **Data Source**   dropdown list.
 
-3.	In the **Database server name** text box, enter `tcp:<DNS name of your virtual machine>,1433`
+3.  In the **Database server name** text box, enter `tcp:<DNS name of your virtual machine>,1433`
 
-4.	Enter the SQL user name in the **Server user account name** text box.
+4.  Enter the SQL user name in the **Server user account name** text box.
 
-5.	Enter the sql user's password in the **Server user account password** text box.
+5.  Enter the sql user's password in the **Server user account password** text box.
 
-	![Azure ML Reader][13]
+    ![Azure ML Reader][13]
 
 ##<a name="shutdown"></a>Shutdown and deallocate virtual machine when not in use
 

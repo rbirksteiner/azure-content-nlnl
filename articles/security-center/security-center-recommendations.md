@@ -106,7 +106,7 @@ Using the Antimalware recommendation, let’s walk through an example on how to 
 A recommendation may be to deploy an integrated security solution from a Microsoft partner. Let’s walk through an example on how to do this:
 
 1. Return to the **Recommendations** blade.
-2.	Select recommendation **Secure web application using web application firewall**. This opens the **Unprotected Web Applications** blade.
+2.  Select recommendation **Secure web application using web application firewall**. This opens the **Unprotected Web Applications** blade.
 ![][7]
 3. Select a web application, the **Add a Web Application Firewall** blade opens.
 4. Select **Barracuda Web Application Firewall**. A blade opens that provides you information about the **Barracuda Web Application Firewall**.
@@ -143,3 +143,4 @@ In this document, you were introduced to security recommendations in Azure Secur
 [8]: ./media/security-center-recommendations/vm-configuration.png
 [9]: ./media/security-center-recommendations/finalize-waf.png
 [10]: ./media/security-center-recommendations/restrict-traffic.png
+

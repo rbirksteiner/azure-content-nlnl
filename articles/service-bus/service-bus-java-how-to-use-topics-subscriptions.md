@@ -1,20 +1,20 @@
 <properties
-	pageTitle="How to use Service Bus topics with Java | Microsoft Azure"
-	description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Java applications."
-	services="service-bus"
-	documentationCenter="java"
-	authors="sethmanheim"
-	manager="timlt"
-	editor=""/>
+    pageTitle="How to use Service Bus topics with Java | Microsoft Azure"
+    description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Java applications."
+    services="service-bus"
+    documentationCenter="java"
+    authors="sethmanheim"
+    manager="timlt"
+    editor=""/>
 
 <tags
-	ms.service="service-bus"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="10/07/2015"
-	ms.author="sethm"/>
+    ms.service="service-bus"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="Java"
+    ms.topic="article"
+    ms.date="10/07/2015"
+    ms.author="sethm"/>
 
 # How to use Service Bus topics and subscriptions
 
@@ -54,24 +54,24 @@ and delete topics. The following example shows how a **ServiceBusService** objec
 can be used to create a topic named `TestTopic`, with a namespace called `HowToSample`:
 
     Configuration config =
-    	ServiceBusConfiguration.configureWithSASAuthentication(
+        ServiceBusConfiguration.configureWithSASAuthentication(
           "HowToSample",
           "RootManageSharedAccessKey",
           "SAS_key_value",
           ".servicebus.windows.net"
           );
 
-	ServiceBusContract service = ServiceBusService.create(config);
+    ServiceBusContract service = ServiceBusService.create(config);
     TopicInfo topicInfo = new TopicInfo("TestTopic");
-	try  
-	{
-    	CreateTopicResult result = service.createTopic(topicInfo);
-	}
-	catch (ServiceException e) {
-		System.out.print("ServiceException encountered: ");
-	    System.out.println(e.getMessage());
-		System.exit(-1);
-	}
+    try  
+    {
+        CreateTopicResult result = service.createTopic(topicInfo);
+    }
+    catch (ServiceException e) {
+        System.out.print("ServiceException encountered: ");
+        System.out.println(e.getMessage());
+        System.exit(-1);
+    }
 
 There are methods on **TopicInfo** that enable properties of the topic to
 be tuned (for example: to set the default time-to-live (TTL) value to be
@@ -79,7 +79,7 @@ applied to messages sent to the topic). The following example shows how
 to create a topic named `TestTopic` with a maximum size of 5 GB:
 
     long maxSizeInMegabytes = 5120;  
-	TopicInfo topicInfo = new TopicInfo("TestTopic");  
+    TopicInfo topicInfo = new TopicInfo("TestTopic");  
     topicInfo.setMaxSizeInMegabytes(maxSizeInMegabytes);
     CreateTopicResult result = service.createTopic(topicInfo);
 
@@ -123,26 +123,26 @@ The following example creates a subscription named `HighMessages` with a
 **MessageNumber** property greater than 3:
 
     // Create a "HighMessages" filtered subscription  
-	SubscriptionInfo subInfo = new SubscriptionInfo("HighMessages");
+    SubscriptionInfo subInfo = new SubscriptionInfo("HighMessages");
     CreateSubscriptionResult result =
-		service.createSubscription("TestTopic", subInfo);
-	RuleInfo ruleInfo = new RuleInfo("myRuleGT3");
-	ruleInfo = ruleInfo.withSqlExpressionFilter("MessageNumber > 3");
-	CreateRuleResult ruleResult =
-		service.createRule("TestTopic", "HighMessages", ruleInfo);
+        service.createSubscription("TestTopic", subInfo);
+    RuleInfo ruleInfo = new RuleInfo("myRuleGT3");
+    ruleInfo = ruleInfo.withSqlExpressionFilter("MessageNumber > 3");
+    CreateRuleResult ruleResult =
+        service.createRule("TestTopic", "HighMessages", ruleInfo);
     // Delete the default rule, otherwise the new rule won't be invoked.
     service.deleteRule("TestTopic", "HighMessages", "$Default");
 
 Similarly, the following example creates a subscription named `LowMessages` with a [SqlFilter][] object that only selects messages that have a **MessageNumber** property less than or equal to 3:
 
     // Create a "LowMessages" filtered subscription
-	SubscriptionInfo subInfo = new SubscriptionInfo("LowMessages");
-	CreateSubscriptionResult result =
-		service.createSubscription("TestTopic", subInfo);
+    SubscriptionInfo subInfo = new SubscriptionInfo("LowMessages");
+    CreateSubscriptionResult result =
+        service.createSubscription("TestTopic", subInfo);
     RuleInfo ruleInfo = new RuleInfo("myRuleLE3");
-	ruleInfo = ruleInfo.withSqlExpressionFilter("MessageNumber <= 3");
-	CreateRuleResult ruleResult =
-		service.createRule("TestTopic", "LowMessages", ruleInfo);
+    ruleInfo = ruleInfo.withSqlExpressionFilter("MessageNumber <= 3");
+    CreateRuleResult ruleResult =
+        service.createRule("TestTopic", "LowMessages", ruleInfo);
     // Delete the default rule, otherwise the new rule won't be invoked.
     service.deleteRule("TestTopic", "LowMessages", "$Default");
 
@@ -177,13 +177,13 @@ the iteration of the loop (this will determine which subscriptions
 receive it):
 
     for (int i=0; i<5; i++)  {
-       	// Create message, passing a string message for the body
-		BrokeredMessage message = new BrokeredMessage("Test message " + i);
-		// Set some additional custom app-specific property
-		message.setProperty("MessageNumber", i);
-		// Send message to the topic
-		service.sendTopicMessage("TestTopic", message);
-	}
+        // Create message, passing a string message for the body
+        BrokeredMessage message = new BrokeredMessage("Test message " + i);
+        // Set some additional custom app-specific property
+        message.setProperty("MessageNumber", i);
+        // Send message to the topic
+        service.sendTopicMessage("TestTopic", message);
+    }
 
 Service Bus topics support a maximum message size of 256 MB (the header,
 which includes the standard and custom application properties, can have
@@ -224,56 +224,56 @@ The example below demonstrates how messages can be received and
 processed using **PeekLock** mode (not the default mode). The example
 below performs a loop and processes messages in the "HighMessages" subscription and then exits when there are no more messages (alternatively, it could be set to wait for new messages).
 
-	try
-	{
-		ReceiveMessageOptions opts = ReceiveMessageOptions.DEFAULT;
-		opts.setReceiveMode(ReceiveMode.PEEK_LOCK);
+    try
+    {
+        ReceiveMessageOptions opts = ReceiveMessageOptions.DEFAULT;
+        opts.setReceiveMode(ReceiveMode.PEEK_LOCK);
 
-		while(true)  {
-		    ReceiveSubscriptionMessageResult  resultSubMsg =
-		        service.receiveSubscriptionMessage("TestTopic", "HighMessages", opts);
-		    BrokeredMessage message = resultSubMsg.getValue();
-		    if (message != null && message.getMessageId() != null)
-		    {
-			    System.out.println("MessageID: " + message.getMessageId());
-			    // Display the topic message.
-			    System.out.print("From topic: ");
-			    byte[] b = new byte[200];
-			    String s = null;
-			    int numRead = message.getBody().read(b);
-			    while (-1 != numRead)
-	            {
-	                s = new String(b);
-	                s = s.trim();
-	                System.out.print(s);
-	                numRead = message.getBody().read(b);
-			    }
-	            System.out.println();
-			    System.out.println("Custom Property: " +
-			        message.getProperty("MessageNumber"));
-			    // Delete message.
-			    System.out.println("Deleting this message.");
-			    service.deleteMessage(message);
-		    }  
-		    else  
-		    {
-		        System.out.println("Finishing up - no more messages.");
-		        break;
-		        // Added to handle no more messages.
-		        // Could instead wait for more messages to be added.
-		    }
-	    }
-	}
-	catch (ServiceException e) {
-	    System.out.print("ServiceException encountered: ");
-	    System.out.println(e.getMessage());
-	    System.exit(-1);
-	}
-	catch (Exception e) {
-	    System.out.print("Generic exception encountered: ");
-	    System.out.println(e.getMessage());
-	    System.exit(-1);
-	}
+        while(true)  {
+            ReceiveSubscriptionMessageResult  resultSubMsg =
+                service.receiveSubscriptionMessage("TestTopic", "HighMessages", opts);
+            BrokeredMessage message = resultSubMsg.getValue();
+            if (message != null && message.getMessageId() != null)
+            {
+                System.out.println("MessageID: " + message.getMessageId());
+                // Display the topic message.
+                System.out.print("From topic: ");
+                byte[] b = new byte[200];
+                String s = null;
+                int numRead = message.getBody().read(b);
+                while (-1 != numRead)
+                {
+                    s = new String(b);
+                    s = s.trim();
+                    System.out.print(s);
+                    numRead = message.getBody().read(b);
+                }
+                System.out.println();
+                System.out.println("Custom Property: " +
+                    message.getProperty("MessageNumber"));
+                // Delete message.
+                System.out.println("Deleting this message.");
+                service.deleteMessage(message);
+            }  
+            else  
+            {
+                System.out.println("Finishing up - no more messages.");
+                break;
+                // Added to handle no more messages.
+                // Could instead wait for more messages to be added.
+            }
+        }
+    }
+    catch (ServiceException e) {
+        System.out.print("ServiceException encountered: ");
+        System.out.println(e.getMessage());
+        System.exit(-1);
+    }
+    catch (Exception e) {
+        System.out.print("Generic exception encountered: ");
+        System.out.println(e.getMessage());
+        System.exit(-1);
+    }
 
 ## How to handle application crashes and unreadable messages
 
@@ -315,7 +315,7 @@ with the topic. Subscriptions can also be deleted independently.
     service.deleteSubscription("TestTopic", "LowMessages");
 
     // Delete a topic
-	service.deleteTopic("TestTopic");
+    service.deleteTopic("TestTopic");
 
 ## Next Steps
 

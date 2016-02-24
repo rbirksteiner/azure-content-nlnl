@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Security considerations for Azure Resource Manager"
-	description="Shows recommended approaches in Azure Resource Manager for securing resources with keys and secrets, role-based access control and network security groups."
-	services="azure-resource-manager"
-	documentationCenter=""
-	authors="george-moore"
-	manager="georgem"
-	editor="tysonn"/>
+    pageTitle="Security considerations for Azure Resource Manager"
+    description="Shows recommended approaches in Azure Resource Manager for securing resources with keys and secrets, role-based access control and network security groups."
+    services="azure-resource-manager"
+    documentationCenter=""
+    authors="george-moore"
+    manager="georgem"
+    editor="tysonn"/>
 
 <tags
-	ms.service="azure-resource-manager"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/13/2015"
-	ms.author="georgem"/>
+    ms.service="azure-resource-manager"
+    ms.workload="multiple"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/13/2015"
+    ms.author="georgem"/>
 
 
 # Security considerations for Azure Resource Manager
@@ -51,8 +51,8 @@ datacenter.  Once the keys are in the Key Vault, they never see 'daylight' over 
 
 A best practice is to maintain separate templates for:
 
-1.	Creation of vaults (which will contain the key material)
-2.	Deployment of the VMs (with URI references to the keys contained in the vaults)
+1.  Creation of vaults (which will contain the key material)
+2.  Deployment of the VMs (with URI references to the keys contained in the vaults)
 
 A typical enterprise scenario is to have a small group of Trusted Operators who have access to critical secrets within the deployed workloads, with a broader group 
 of dev/ops personnel who can create or update VM deployments.  Below is an example ARM template which creates and configures a new vault in the context 
@@ -175,12 +175,12 @@ In these use cases, your organization would require an identity that could be gi
 
 These scenarios bring with them a certain set of considerations for your customer:
 
--	For security reasons, access may need to be scoped to certain types of actions, e.g. read only access.
--	As deployed resources are provided at a cost, there may be similar constraints on access required for financial reasons.
--	For security reasons, access may need to be scoped only to a specific resource (storage accounts) or resources (resource group containing an environment or solution)
--	As a relationship with a vendor may change, the customer will want to have the ability to enable/disable access to SI or CSV
--	As actions against this account having billing implications, the customer desires support for auditability and accountability for billing.
--	From a compliance perspective, the customer will want to be able to audit your behavior within their environment
+-   For security reasons, access may need to be scoped to certain types of actions, e.g. read only access.
+-   As deployed resources are provided at a cost, there may be similar constraints on access required for financial reasons.
+-   For security reasons, access may need to be scoped only to a specific resource (storage accounts) or resources (resource group containing an environment or solution)
+-   As a relationship with a vendor may change, the customer will want to have the ability to enable/disable access to SI or CSV
+-   As actions against this account having billing implications, the customer desires support for auditability and accountability for billing.
+-   From a compliance perspective, the customer will want to be able to audit your behavior within their environment
 
 A combination of a service principal and RBAC can be used to address these requirements.
 
@@ -214,15 +214,15 @@ such as 200. Once a match is found, no more rules are processed.
 
 A rule specifies the following:
 
--	Name: A unique identifier for the rule
--	Type: Inbound/Outbound
--	Priority: An integer between 100 and 4096 (rules processed from low to high)
--	Source IP Address: CIDR of source IP range
--	Source Port Range: An integer or range between 0 and 65536
--	Destination IP Range: CIDR of the destination IP Range
--	Destination Port Range: An integer or range between 0 and 65536
--	Protocol: TCP, UDP or ‘\*’
--	Access: Allow/Deny
+-   Name: A unique identifier for the rule
+-   Type: Inbound/Outbound
+-   Priority: An integer between 100 and 4096 (rules processed from low to high)
+-   Source IP Address: CIDR of source IP range
+-   Source Port Range: An integer or range between 0 and 65536
+-   Destination IP Range: CIDR of the destination IP Range
+-   Destination Port Range: An integer or range between 0 and 65536
+-   Protocol: TCP, UDP or ‘\*’
+-   Access: Allow/Deny
 
 ### Default rules
 
@@ -237,19 +237,19 @@ The default rules are shown in the tables below.
 
 **Inbound default rules**
 
-Name |	Priority |	Source IP |	Source Port |	Destination IP |	Destination Port |	Protocol |	Access
+Name |  Priority |  Source IP | Source Port |   Destination IP |    Destination Port |  Protocol |  Access
 --- | --- | --- | --- | --- | --- | --- | ---
-ALLOW VNET INBOUND	| 65000	| VIRTUAL_NETWORK |	\* |	VIRTUAL_NETWORK	| \* |	\*	| ALLOW
-ALLOW AZURE LOAD BALANCER INBOUND	| 65001	| AZURE_LOADBALANCER	| \*	| \*	| \*	| \*	| ALLOW
-DENY ALL INBOUND	| 65500	| \*	| \*	| \*	| \*	| \*	| DENY
+ALLOW VNET INBOUND  | 65000 | VIRTUAL_NETWORK | \* |    VIRTUAL_NETWORK | \* |  \*  | ALLOW
+ALLOW AZURE LOAD BALANCER INBOUND   | 65001 | AZURE_LOADBALANCER    | \*    | \*    | \*    | \*    | ALLOW
+DENY ALL INBOUND    | 65500 | \*    | \*    | \*    | \*    | \*    | DENY
 
 **Outbound default rules**
 
-Name |	Priority |	Source IP |	Source Port |	Destination IP |	Destination Port |	Protocol |	Access
+Name |  Priority |  Source IP | Source Port |   Destination IP |    Destination Port |  Protocol |  Access
 --- | --- | --- | --- | --- | --- | --- | ---
-ALLOW VNET OUTBOUND	| 65000	| VIRTUAL_NETWORK	| \*	| VIRTUAL_NETWORK	| \*	| \*	| ALLOW
-ALLOW INTERNET OUTBOUND	| 65001	| \*	| \*	| INTERNET	| \*	| \*	| ALLOW
-DENY ALL OUTBOUND	| 65500	| \*	| \*	| \*	| \*	| \*	| DENY
+ALLOW VNET OUTBOUND | 65000 | VIRTUAL_NETWORK   | \*    | VIRTUAL_NETWORK   | \*    | \*    | ALLOW
+ALLOW INTERNET OUTBOUND | 65001 | \*    | \*    | INTERNET  | \*    | \*    | ALLOW
+DENY ALL OUTBOUND   | 65500 | \*    | \*    | \*    | \*    | \*    | DENY
 
 ### Special infrastructure rules
 
@@ -269,9 +269,9 @@ Default tags are system-provided identifiers to address a category of IP address
 
 **Default tags for NSGs**
 
-Tag |	Description
+Tag |   Description
 --- | ---
-VIRTUAL_NETWORK |	Denotes all of your network address space. It includes the virtual network address space (IP CIDR in Azure) as well as all connected on-premises address space (Local Networks). This also includes virtual network-to-virtual network address spaces.
+VIRTUAL_NETWORK |   Denotes all of your network address space. It includes the virtual network address space (IP CIDR in Azure) as well as all connected on-premises address space (Local Networks). This also includes virtual network-to-virtual network address spaces.
 AZURE_LOADBALANCER | Denotes the Azure Infrastructure load balancer and will translate to an Azure datacenter IP where Azure’s health probes will originate. This is needed only if the VM or set of VMs associated with the NSG is participating in a load balanced set.
 INTERNET | Denotes the IP address space that is outside the virtual network and can be reached by public Internet. This range includes Azure-owned public IP space as well.
 
@@ -316,9 +316,9 @@ you add a rule similar to the following table to the NSG.
 
 **Explicit rule allowing traffic to a particular port**
 
-Name |	Priority |	Source IP |	Source Port |	Destination IP |	Destination Port |	Protocol |	Access
+Name |  Priority |  Source IP | Source Port |   Destination IP |    Destination Port |  Protocol |  Access
 --- | --- | --- | --- | --- | --- | --- | ---
-WEB	| 100	| INTERNET | *	| *	| 80	| TCP	| ALLOW
+WEB | 100   | INTERNET | *  | * | 80    | TCP   | ALLOW
 
 ## User-defined routes
 
@@ -345,7 +345,7 @@ routes used to decide where to forward packets based on the destination IP addre
   - Internet. Represents the default Internet gateway provided by the Azure Infrastructure
   - Virtual Appliance. Represents a virtual appliance you added to your Azure virtual network.
   - NULL. Represents a black hole. Packets forwarded to a black hole will not be forwarded at all.
--	Nexthop Value. The next hop value contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is *Virtual Appliance*. The next hop needs to be on the subnet (the local interface of the virtual appliance according to the network ID), not a remote subnet. 
+-   Nexthop Value. The next hop value contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is *Virtual Appliance*. The next hop needs to be on the subnet (the local interface of the virtual appliance according to the network ID), not a remote subnet. 
 
 ![Routing](./media/best-practices-resource-manager-security/routing.png)
 
@@ -371,8 +371,8 @@ BGP routes are used in the same way as default routes and user defined routes in
 You cannot view the default routes specified above in your Azure environment, and for most environments, those are the only routes you will need. 
 However, you may need to create a route table and add one or more routes in specific cases, such as:
 
--	Forced tunneling to the Internet via your on-premises network.
--	Use of virtual appliances in your Azure environment.
+-   Forced tunneling to the Internet via your on-premises network.
+-   Use of virtual appliances in your Azure environment.
 
 In the scenarios above, you will have to create a route table and add user defined routes to it. You can have multiple route tables, and the same route table can 
 be associated to one or more subnets. And each subnet can only be associated to a single route table. All VMs and cloud services in a subnet use the route table 
@@ -382,9 +382,9 @@ Subnets rely on default routes until a route table is associated to the subnet. 
 among both user defined routes and default routes. If there is more than one route with the same LPM match then a route is selected based on its origin in the following 
 order:
 
-1.	User defined route
-2.	BGP route (when ExpressRoute is used)
-3.	Default route
+1.  User defined route
+2.  BGP route (when ExpressRoute is used)
+3.  Default route
 
 >[AZURE.NOTE] User defined routes are only applied to Azure VMs and cloud services. For instance, if you want to add a firewall virtual appliance between your on-premises network and Azure, you will have to create a user defined route for your Azure route tables that forwards all traffic going to the on-premises address space to the virtual appliance. However, incoming traffic from the on-premises address space will flow through your VPN gateway or ExpressRoute circuit straight to the Azure environment, bypassing the virtual appliance.
 
@@ -401,3 +401,4 @@ you must enable IP Forwarding in the VM.
 - If you need to lock access to a resource, you can use management locks. See [Lock Resources with Azure Resource Manager](resource-group-lock-resources.md)
 - To configure routing and IP forwarding, see [How to Create Routes and Enable IP Forwarding in Azure](virtual-network/virtual-networks-udr-how-to.md) 
 - For an overview of role-based access control, see [Role-based access control in the Microsoft Azure portal](role-based-access-control-configure.md)
+

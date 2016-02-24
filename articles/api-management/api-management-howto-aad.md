@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How to authorize developer accounts using Azure Active Directory in Azure API Management" 
-	description="Learn how to authorize users using Azure Active Directory in API Management." 
-	services="api-management" 
-	documentationCenter="API Management" 
-	authors="steved0x" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="How to authorize developer accounts using Azure Active Directory in Azure API Management" 
+    description="Learn how to authorize users using Azure Active Directory in API Management." 
+    services="api-management" 
+    documentationCenter="API Management" 
+    authors="steved0x" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="api-management" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/07/2015" 
-	ms.author="sdanie"/>
+    ms.service="api-management" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/07/2015" 
+    ms.author="sdanie"/>
 
 # How to authorize developer accounts using Azure Active Directory in Azure API Management
 
@@ -227,4 +227,5 @@ Your user is now logged into the developer portal for your API Management servic
 [Next steps]: #next-steps
 
 [Log in to the Developer portal using an Azure Active Directory account]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
+
 

@@ -52,3 +52,4 @@ Now that you reviewed the prerequisites and completed the necessary tasks, you c
 
 
 [link-acct-creation]:marketplace-publishing-accounts-creation-registration.md
+

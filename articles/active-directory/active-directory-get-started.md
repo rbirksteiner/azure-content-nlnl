@@ -1,20 +1,20 @@
 <properties
-	pageTitle="How to get started using Azure AD"
-	description="Covers how to sign up for Azure and first steps you can try with Azure AD."
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="How to get started using Azure AD"
+    description="Covers how to sign up for Azure and first steps you can try with Azure AD."
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/21/2015"
-	ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/21/2015"
+    ms.author="curtand"/>
 
 # How to get started using Azure AD
 
@@ -47,3 +47,4 @@ Azure AD provides a number of reports for administrators. Even more reports are 
 
 * [Sign up for Azure as an organization](sign-up-organization.md)
 * [Azure Identity](fundamentals-identity.md)
+

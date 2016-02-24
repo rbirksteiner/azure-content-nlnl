@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure Mobile Engagement iOS SDK Overview"
-	description="Latest updates and procedures for iOS SDK for Azure Mobile Engagement"
-	services="mobile-engagement"
-	documentationCenter="mobile"
-	authors="piyushjo"
-	manager="dwrede"
-	editor="" />
+    pageTitle="Azure Mobile Engagement iOS SDK Overview"
+    description="Latest updates and procedures for iOS SDK for Azure Mobile Engagement"
+    services="mobile-engagement"
+    documentationCenter="mobile"
+    authors="piyushjo"
+    manager="dwrede"
+    editor="" />
 
 <tags
-	ms.service="mobile-engagement"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-ios"
-	ms.devlang="objective-c"
-	ms.topic="article"
-	ms.date="08/05/2015"
-	ms.author="MehrdadMzfr" />
+    ms.service="mobile-engagement"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-ios"
+    ms.devlang="objective-c"
+    ms.topic="article"
+    ms.date="08/05/2015"
+    ms.author="MehrdadMzfr" />
 
 #iOS SDK for Azure Mobile Engagement
 
@@ -55,6 +55,7 @@ The method `application:didReceiveRemoteNotification:` needs to be replaced by `
 
 "AEPushDelegate.h" is deprecated interface and you need to remove all references. This includes removing `[[EngagementAgent shared] setPushDelegate:self]` and the delegate methods from your application delegate:
 
-	-(void)willRetrieveLaunchMessage;
-	-(void)didFailToRetrieveLaunchMessage;
-	-(void)didReceiveLaunchMessage:(AEPushMessage*)launchMessage;
+    -(void)willRetrieveLaunchMessage;
+    -(void)didFailToRetrieveLaunchMessage;
+    -(void)didReceiveLaunchMessage:(AEPushMessage*)launchMessage;
+

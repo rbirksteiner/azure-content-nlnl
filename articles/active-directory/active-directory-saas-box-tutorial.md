@@ -81,25 +81,25 @@ As part of this procedure, you are required to upload metadata to Box.com.
 
 ###To configure single sign-on, perform the following steps:
 
-1.  In the Azure AD portal, on the **Box** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  In the Azure AD portal, on the **Box** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
     ![Configure single sign-on](./media/active-directory-saas-box-tutorial/IC769538.png "Configure single sign-on")
 
-2.  On the **How would you like users to sign on to Box** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to Box** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure single sign-on](./media/active-directory-saas-box-tutorial/IC769539.png "Configure single sign-on")
 
-3.  On the **Configure App URL** page, in the **Box Tenant URL** textbox, type your Box tenant URL (e.g.: https://<mydomainname>.box.com), and then click **Next**.
+3.  On the **Configure App URL** page, in the **Box Tenant URL** textbox, type your Box tenant URL (e.g.: https://<mydomainname>.box.com), and then click **Next**.
 
     ![Configure app URL](./media/active-directory-saas-box-tutorial/IC669826.png "Configure app URL")
 
-4.  On the **Configure single sign-on at Box** page, to download your metadata, click **Download metadata**, and then the data file locally on your computer.
+4.  On the **Configure single sign-on at Box** page, to download your metadata, click **Download metadata**, and then the data file locally on your computer.
 
     ![Configure single sign-on](./media/active-directory-saas-box-tutorial/IC669824.png "Configure single sign-on")
 
 5.  Forward that metadata file to Box support team. The support team needs configures single sign-on for you.
 
-6.  Select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+6.  Select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
     ![Configure single sign-on](./media/active-directory-saas-box-tutorial/IC769540.png "Configure single sign-on")
 ##Configuring user provisioning
@@ -129,7 +129,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 1. In the Azure AD portal, create a test account.
 
-2. On the **Box **application integration page, click **Assign users**. <br><br> ![Assign users](./media/active-directory-saas-box-tutorial/IC769552.png "Assign users")
+2. On the **Box **application integration page, click **Assign users**. <br><br> ![Assign users](./media/active-directory-saas-box-tutorial/IC769552.png "Assign users")
 
 3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment. <br><br> ![Yes](./media/active-directory-saas-box-tutorial/IC767830.png "Yes")
   

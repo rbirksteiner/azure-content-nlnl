@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Compute Hosting Options Provided by Azure" 
-	description="Learn about Azure compute hosting options and how they work: Virtual Machines, Websites, Cloud Services, and others." 
-	headerExpose="" 
-	footerExpose="" 
-	services="cloud-services,virtual-machines"
-	authors="Thraka" 
-	documentationCenter=""
-	manager="timlt"/>
+    pageTitle="Compute Hosting Options Provided by Azure" 
+    description="Learn about Azure compute hosting options and how they work: Virtual Machines, Websites, Cloud Services, and others." 
+    headerExpose="" 
+    footerExpose="" 
+    services="cloud-services,virtual-machines"
+    authors="Thraka" 
+    documentationCenter=""
+    manager="timlt"/>
 
 <tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/08/2015" 
-	ms.author="adegeo;cephalin;kathydav"/>
+    ms.service="multiple" 
+    ms.workload="multiple" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/08/2015" 
+    ms.author="adegeo;cephalin;kathydav"/>
 
 
 
@@ -80,3 +80,4 @@ As the figure illustrates, the Cloud Services VMs run in a separate cloud servic
 * Learn more about [App Service](../app-service-web-overview.md)
 * Learn more about [Cloud Service](services/cloud-services/)
 * Learn more about [Virtual Machines](https://msdn.microsoft.com/library/azure/jj156143.aspx) 
+

@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Install Symantec Endpoint Protection on a VM | Microsoft Azure"
-	description="Learn how to install and configure the Symantec Endpoint Protection security extension on a new or existing Azure VM created with the classic deployment model."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="dsk-2015"
-	manager="timlt"
-	editor=""
-	tags="azure-service-management"/>
+    pageTitle="Install Symantec Endpoint Protection on a VM | Microsoft Azure"
+    description="Learn how to install and configure the Symantec Endpoint Protection security extension on a new or existing Azure VM created with the classic deployment model."
+    services="virtual-machines"
+    documentationCenter=""
+    authors="dsk-2015"
+    manager="timlt"
+    editor=""
+    tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-multiple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/14/2015"
-	ms.author="dkshir"/>
+    ms.service="virtual-machines"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-multiple"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/14/2015"
+    ms.author="dkshir"/>
 
 # How to install and configure Symantec Endpoint Protection on a Windows VM
 
@@ -36,14 +36,14 @@ This **From Gallery** option opens a wizard that helps you set up the virtual ma
 
 For general instructions, see [Create a Virtual Machine Running Windows Server][Create]. When you get to the last page of the wizard:
 
-1.	Under VM Agent, **Install VM Agent** should already be checked.
+1.  Under VM Agent, **Install VM Agent** should already be checked.
 
-2.	Under Security Extensions, check **Symantec Endpoint Protection**.
+2.  Under Security Extensions, check **Symantec Endpoint Protection**.
 
 
-	![Install the VM Agent and the Endpoint Protection Client](./media/virtual-machines-install-symantec/InstallVMAgentandSymantec.png)
+    ![Install the VM Agent and the Endpoint Protection Client](./media/virtual-machines-install-symantec/InstallVMAgentandSymantec.png)
 
-3.	Click the check mark at the bottom of the page to create the virtual machine.
+3.  Click the check mark at the bottom of the page to create the virtual machine.
 
 ## Install Symantec Endpoint Protection on an existing virtual machine
 
@@ -57,24 +57,24 @@ First, verify that the VM Agent is already installed on the virtual machine. Fil
 
 > [AZURE.TIP] If you don't know the cloud service and virtual machine names, run **Get-AzureVM** to list the names for all virtual machines in your current subscription.
 
-	$CSName = "<cloud service name>"
-	$VMName = "<virtual machine name>"
-	$vm = Get-AzureVM -ServiceName $CSName -Name $VMName
-	write-host $vm.VM.ProvisionGuestAgent
+    $CSName = "<cloud service name>"
+    $VMName = "<virtual machine name>"
+    $vm = Get-AzureVM -ServiceName $CSName -Name $VMName
+    write-host $vm.VM.ProvisionGuestAgent
 
 If the **write-host** command displays **True**, the VM Agent is installed. If it displays **False**, see the instructions and a link to the download in the Azure blog post [VM Agent and Extensions - Part 2][Agent].
 
 If the VM Agent is installed, run these commands to install the Symantec Endpoint Protection agent.
 
-	$Agent = Get-AzureVMAvailableExtension -Publisher Symantec -ExtensionName SymantecEndpointProtection
+    $Agent = Get-AzureVMAvailableExtension -Publisher Symantec -ExtensionName SymantecEndpointProtection
 
-	Set-AzureVMExtension -Publisher Symantec –Version $Agent.Version -ExtensionName SymantecEndpointProtection -VM $vm | Update-AzureVM
+    Set-AzureVMExtension -Publisher Symantec –Version $Agent.Version -ExtensionName SymantecEndpointProtection -VM $vm | Update-AzureVM
 
 To verify that the Symantec security extension has been installed and is up-to-date:
 
-1.	Log on to the virtual machine. For instructions, see [How to Log on to a Virtual Machine Running Windows Server][Logon].
-2.	For Windows Server 2008 R2, click **Start > Symantec Endpoint Protection**. For Windows Server 2012 or Windows Server 2012 R2, from the start screen, type **Symantec**, and then click **Symantec Endpoint Protection**.
-3.	From the **Status** tab of the **Status-Symantec Endpoint Protection** window, apply updates or restart if needed.
+1.  Log on to the virtual machine. For instructions, see [How to Log on to a Virtual Machine Running Windows Server][Logon].
+2.  For Windows Server 2008 R2, click **Start > Symantec Endpoint Protection**. For Windows Server 2012 or Windows Server 2012 R2, from the start screen, type **Symantec**, and then click **Symantec Endpoint Protection**.
+3.  From the **Status** tab of the **Status-Symantec Endpoint Protection** window, apply updates or restart if needed.
 
 ## Additional resources
 
@@ -97,3 +97,4 @@ To verify that the Symantec security extension has been installed and is up-to-d
 [Logon]: virtual-machines-log-on-windows-server.md
 
 [Ext]: http://go.microsoft.com/fwlink/p/?linkid=390493
+

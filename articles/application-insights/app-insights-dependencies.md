@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Diagnosing issues with dependencies in Application Insights" 
-	description="Find failures and slow performance caused by dependencies" 
-	services="application-insights" 
+    pageTitle="Diagnosing issues with dependencies in Application Insights" 
+    description="Find failures and slow performance caused by dependencies" 
+    services="application-insights" 
     documentationCenter=""
-	authors="alancameronwills" 
-	manager="douge"/>
+    authors="alancameronwills" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/17/2015" 
-	ms.author="awills"/>
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/17/2015" 
+    ms.author="awills"/>
  
 # Diagnosing issues with dependencies in Application Insights
 

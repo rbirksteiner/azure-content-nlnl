@@ -48,7 +48,7 @@ A connector can be created within a logic app or be created directly from the Az
 3. Enter the Name, App Service Plan, and other properties.
 4. Enter the following package settings:
 
-	Property | Description
+    Property | Description
 --- | --- 
 Database Connection String | Enter the ADO.NET connection string to the Azure SQL Database you created. When you copy the connection string, the password is not added to the connection string. Be sure to enter the password in the connection string before you paste.
 Enable Archiving for incoming messages | Optional. Enable this property to store the message properties of an incoming AS2 message received from a partner. 
@@ -64,16 +64,16 @@ Steps involved in creating a trading partner agreement are documented [here][2].
 ## Use the Connector as a Trigger
 
 1. When creating or editing a logic app, select the AS2 Connector you created from the right pane:  
-	![Trigger settings][3]
+    ![Trigger settings][3]
 
 2. Click the right arrow →:  
-	![Trigger options][4]
+    ![Trigger options][4]
 
 3. The AS2 Connector exposes a single trigger. Select *Receive & Decode*:  
-	![Receive and decode input][5]
+    ![Receive and decode input][5]
 
 4. This trigger has no inputs. Click the right arrow →:  
-	![Receive and decode configured][6]
+    ![Receive and decode configured][6]
 
 As part of the output, the connector returns the AS2 payload as well as the AS2-specific metadata.
 
@@ -81,20 +81,20 @@ The Trigger is fired when an AS2 Payload is as a POST to https://{Host URL}/deco
 
 ## Use the Connector as an Action
 1. After your trigger (or choose 'run this logic manually'), add the AS2 connector you created from the right pane:  
-	![Action settings][7]
+    ![Action settings][7]
 
 2. Click the right arrow →:  
-	![List of Actions][8]
+    ![List of Actions][8]
 
 3. The AS2 connector supports only one action. Select *Encode and Send*:  
-	![Encode and send input][9]
+    ![Encode and send input][9]
 
 4. Enter the inputs for the action and configure it:  
-	![Encode and send configured][10]
+    ![Encode and send configured][10]
 
-	Parameters include: 
+    Parameters include: 
 
-	Parameter | Type | Description
+    Parameter | Type | Description
 --- | --- | ---
 Payload | object| The content of the payload to encode and post to the configured end point. The payload needs to be provided as a JSON Object.
 AS2 From | string | The AS2 identity of the sender of the AS2 message. This parameter is used to lookup the appropriate agreement for sending the message.
@@ -124,3 +124,4 @@ You can also review performance statistics and control security to the connector
 [8]: ./media/app-service-logic-connector-as2/ListOfActions.PNG
 [9]: ./media/app-service-logic-connector-as2/EncodeAndSendInput.PNG
 [10]: ./media/app-service-logic-connector-as2/EncodeAndSendConfigured.PNG
+

@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure Active Directory B2C preview: Application registration | Microsoft Azure"
-	description="How to register your application with Azure Active Directory B2C"
-	services="active-directory-b2c"
-	documentationCenter=""
-	authors="swkrish"
-	manager="mbaldwin"
-	editor="bryanla"/>
+    pageTitle="Azure Active Directory B2C preview: Application registration | Microsoft Azure"
+    description="How to register your application with Azure Active Directory B2C"
+    services="active-directory-b2c"
+    documentationCenter=""
+    authors="swkrish"
+    manager="mbaldwin"
+    editor="bryanla"/>
 
 <tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/08/2015"
-	ms.author="swkrish"/>
+    ms.service="active-directory-b2c"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/08/2015"
+    ms.author="swkrish"/>
 
 # Azure Active Directory B2C preview: how to Register your Application
 
@@ -64,3 +64,4 @@ You can also find the **Manage B2C settings** link (in the **B2C Administration*
 Now that you have an application registered with Azure AD B2C, you can complete one of our quick start tutorials to get up & running. Here are a few recommendations:
 
 [AZURE.INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-b2c-quickstart-table.md)]
+

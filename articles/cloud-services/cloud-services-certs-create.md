@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Cloud Services and management certificates | Microsoft Azure" 
-	description="Learn how to create and use certificates with Microsoft Azure" 
-	services="cloud-services" 
-	documentationCenter=".net" 
-	authors="Thraka" 
-	manager="timlt" 
-	editor=""/>
+    pageTitle="Cloud Services and management certificates | Microsoft Azure" 
+    description="Learn how to create and use certificates with Microsoft Azure" 
+    services="cloud-services" 
+    documentationCenter=".net" 
+    authors="Thraka" 
+    manager="timlt" 
+    editor=""/>
 
 <tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/09/2015"
-	ms.author="adegeo"/>
+    ms.service="cloud-services" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/09/2015"
+    ms.author="adegeo"/>
 
 # Certificates overview for Azure Cloud Services
 Certificates are used in Azure for cloud services ([service certificates](#what-are-service-certificates)) and for authenticating with the management API ([management certificates](#what-are-management-certificates)). This topic gives a general overview of both certificate types, how to [create](#create) them, and how to [deploy](#deploy) them to Azure.
@@ -79,3 +79,4 @@ You can use Java to [create a certificate](../app-service-web/java-create-azure-
 Upload a [management API certificate](../azure-api-management-certs.md) to the Azure classic portal.
 
 >[AZURE.NOTE] The Azure portal does not use management certificates to access the API but instead uses user accounts.
+

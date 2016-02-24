@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure AD B2C Preview | Microsoft Azure"
-	description="The types of tokens issued in the Azure AD B2C preview."
-	services="active-directory-b2c"
-	documentationCenter=""
-	authors="dstrockis"
-	manager="msmbaldwin"
-	editor=""/>
+    pageTitle="Azure AD B2C Preview | Microsoft Azure"
+    description="The types of tokens issued in the Azure AD B2C preview."
+    services="active-directory-b2c"
+    documentationCenter=""
+    authors="dstrockis"
+    manager="msmbaldwin"
+    editor=""/>
 
 <tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/22/2015"
-	ms.author="dastrock"/>
+    ms.service="active-directory-b2c"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/22/2015"
+    ms.author="dastrock"/>
 
 # Azure AD B2C Preview: Token Reference
 
@@ -105,9 +105,9 @@ Id_Tokens are signed using industry standard asymmetric encryption algorithms, s
 
 ```
 {
-		"typ": "JWT",
-		"alg": "RS256",
-		"kid": "GvnPApfWMdLRi8PDmisFn7bprKg"
+        "typ": "JWT",
+        "alg": "RS256",
+        "kid": "GvnPApfWMdLRi8PDmisFn7bprKg"
 }
 ```
 
@@ -154,3 +154,4 @@ The following token lifetimes are provided purely for your understanding, as the
 | Id_Tokens | 1 hour | Id_Tokens are typically valid for an hour.  Your web app can use this same lifetime in maintaining its own session with the user (recommended), or choose a completely different session lifetime.  If your app needs to get a new id_token, it simply needs to make a new sign-in request Azure AD.  If the user has a valid browser session with Azure AD, they may not be required to enter their credentials again. |
 | Refresh Tokens | Up to 14 days | A single refresh token is valid for a maximum of 14 days.  However, the refresh token may become invalid at any time for any number of reasons, so your app should continue to try and use a refresh token until it fails, or until your app replaces it with a new refresh token.  A refresh token will also become invalid if it has been 90 days since the user has entered their credentials. |
 | Authorization Codes | 5 minutes | Authorization codes are purposefully short-lived, and should be immediately redeemed for access_tokens, id_tokens, and refresh_tokens when they are received. |
+

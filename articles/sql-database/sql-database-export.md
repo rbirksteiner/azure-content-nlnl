@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Create and export a BACPAC of an Azure SQL database"
-	description="Create and export a BACPAC of an Azure SQL database"
-	services="sql-database"
-	documentationCenter=""
-	authors="stevestein"
-	manager="jeffreyg"
-	editor=""/>
+    pageTitle="Create and export a BACPAC of an Azure SQL database"
+    description="Create and export a BACPAC of an Azure SQL database"
+    services="sql-database"
+    documentationCenter=""
+    authors="stevestein"
+    manager="jeffreyg"
+    editor=""/>
 
 <tags
-	ms.service="sql-database"
-	ms.devlang="NA"
-	ms.date="12/01/2015"
-	ms.author="sstein"
-	ms.workload="data-management"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"/>
+    ms.service="sql-database"
+    ms.devlang="NA"
+    ms.date="12/01/2015"
+    ms.author="sstein"
+    ms.workload="data-management"
+    ms.topic="article"
+    ms.tgt_pltfrm="NA"/>
 
 
 # Create and export a BACPAC of an Azure SQL database
@@ -47,11 +47,11 @@ Open the SQL Database blade for the database you want to export.
 
 > [AZURE.IMPORTANT] To guarantee a transactionally consistent BACPAC file you should first [create a copy of your database](sql-database-copy.md) and then export the database copy. 
 
-1.	Go to the [Azure portal](https://portal.azure.com).
-2.	Click **BROWSE ALL**.
-3.	Click **SQL databases**.
-2.	Click the database you want to export as a BACPAC.
-3.	In the SQL Database blade click **Export** to open the **Export database** blade:
+1.  Go to the [Azure portal](https://portal.azure.com).
+2.  Click **BROWSE ALL**.
+3.  Click **SQL databases**.
+2.  Click the database you want to export as a BACPAC.
+3.  In the SQL Database blade click **Export** to open the **Export database** blade:
 
     ![export button][1]
 
@@ -66,22 +66,22 @@ Clicking **Create** creates an export database request and submits it to the ser
 
 ## Monitor the progress of the export operation
 
-2.	Click **BROWSE ALL**.
-3.	Click **SQL servers**.
-2.	Click the server containing the original (source) database you just exported.
-3.	In the SQL server blade click **Import/Export history**:
+2.  Click **BROWSE ALL**.
+3.  Click **SQL servers**.
+2.  Click the server containing the original (source) database you just exported.
+3.  In the SQL server blade click **Import/Export history**:
 
     ![import export history][3]
     ![import export history][4]
 
 ## Verify the BACPAC is in your storage container
 
-2.	Click **BROWSE ALL**.
-3.	Click **Storage accounts (classic)**.
-2.	Click the storage account where you stored the BACPAC.
-3.	Click **Containers** and select the container you exported the database into for details (you can download and save the BACPAC from here).
+2.  Click **BROWSE ALL**.
+3.  Click **Storage accounts (classic)**.
+2.  Click the storage account where you stored the BACPAC.
+3.  Click **Containers** and select the container you exported the database into for details (you can download and save the BACPAC from here).
 
-    ![.bacpac file details][5]	
+    ![.bacpac file details][5]  
 
 
 ## Next steps
@@ -103,3 +103,4 @@ Clicking **Create** creates an export database request and submits it to the ser
 [3]: ./media/sql-database-export/export-history.png
 [4]: ./media/sql-database-export/export-status.png
 [5]: ./media/sql-database-export/bacpac-details.png
+

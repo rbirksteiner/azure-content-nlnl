@@ -30,8 +30,8 @@ In order to get started with Reliable Actors you just need to understand 4 basic
 * **Actor Interface**. The Actor interface is used to define the public interface of an actor. In Actor model terminology it defines the type of messages that the actor is able to understand and process. The Actor interface is used by other Actors or client applications to 'send' (asynchronously) messages to the Actor. Reliable Actors can implement multiple interfaces, as we will see, an HelloWorld Actor can implement the IHelloWorld interface but also an ILogging interface that defines different messages/functionalities.
 * **Actor Registration**. In the Actor Service, the Actor Type needs to be registered so Service Fabric is aware of the new type and can use it to create new actors.
 * **ActorProxy Class**. The ActorProxy class is used to bind to an Actor and invoke the methods exposed through its interfaces. The ActorProxy class provides two important functionalities:
-	* Name resolution: it is able to locate the Actor in the cluster (find in which node of the cluster it is hosted).
-	* Handle failures: it can re-try method invocations and re-determine the Actor location after, for instance, a failure that requires the actor to be relocated to another node in the cluster.
+    * Name resolution: it is able to locate the Actor in the cluster (find in which node of the cluster it is hosted).
+    * Handle failures: it can re-try method invocations and re-determine the Actor location after, for instance, a failure that requires the actor to be relocated to another node in the cluster.
 
 ## Create a new project in Visual Studio
 After you install the Service Fabric Tools for Visual Studio, you can create a new project types. The new project types are under the 'Cloud' category of the New Project Dialog
@@ -159,3 +159,4 @@ During the deployment process you can see progress in the Output Window
 [3]: ./media/service-fabric-reliable-actors-get-started/debugging-output.PNG
 [4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
 [5]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject1.PNG
+

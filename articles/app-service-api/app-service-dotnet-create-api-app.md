@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Create an ASP.NET API app in Azure App Service | Microsoft Azure"
-	description="Learn how to create an ASP.NET API app in Azure App Service, by using Visual Studio 2013."
-	services="app-service\api"
-	documentationCenter=".net"
-	authors="bradygaster"
-	manager="wpickett"
-	editor="jimbe"/>
+    pageTitle="Create an ASP.NET API app in Azure App Service | Microsoft Azure"
+    description="Learn how to create an ASP.NET API app in Azure App Service, by using Visual Studio 2013."
+    services="app-service\api"
+    documentationCenter=".net"
+    authors="bradygaster"
+    manager="wpickett"
+    editor="jimbe"/>
 
 <tags
-	ms.service="app-service-api"
-	ms.workload="na"
-	ms.tgt_pltfrm="dotnet"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="10/08/2015"
-	ms.author="tdykstra"/>
+    ms.service="app-service-api"
+    ms.workload="na"
+    ms.tgt_pltfrm="dotnet"
+    ms.devlang="na"
+    ms.topic="hero-article"
+    ms.date="10/08/2015"
+    ms.author="tdykstra"/>
 
 # Create an ASP.NET API app in Azure App Service
 
@@ -55,3 +55,4 @@ For information about how to create, delete, and configure API apps in the Azure
 For information about authenticating users of API apps, see [Authentication for API apps and mobile apps in Azure App Service](../app-service/app-service-authentication-overview.md).
 
 For information about API Apps features, see [What are API apps?](app-service-api-apps-why-best-platform.md).
+

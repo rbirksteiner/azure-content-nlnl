@@ -63,3 +63,4 @@ Perform the following steps to install the chassis in a Microsoft Azure StorSimp
 
 Learn more about [StorSimple hardware component replacement](storsimple-hardware-component-replacement.md).
 
+

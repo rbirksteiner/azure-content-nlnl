@@ -33,9 +33,9 @@ This page helps you with setting up of a Service Fabric cluster. It is assumed t
 4. Navigate to the Service Fabric Cluster Blade and click on **Create** and provide details on your cluster
 5. Create a **new Resource Group (RG)** - make it the same as the Cluster name - it is better for finding them later. it is especially useful, when you are trying to make changes to your deployment and/or delete your cluster.
 
-  	Note - Although you can decide to use an existing resource group, it is a good practice to create a new resource group. This makes deleting of clsuters you do not need very easy
+    Note - Although you can decide to use an existing resource group, it is a good practice to create a new resource group. This makes deleting of clsuters you do not need very easy
 
- 	 ![CreateRG][CreateRG]
+     ![CreateRG][CreateRG]
 
 
 6. Make sure to select the **subscription** you want your cluster to be deployed to, especially if you have multiple subsciptions..
@@ -43,22 +43,22 @@ This page helps you with setting up of a Service Fabric cluster. It is assumed t
 7. Select a **location** from the dropdown (if you want to create it another location, else it will default to West US)
 
 8. Configure your **Node Type**. The Node Type can be seen as equivalents to "Roles" in Cloud Services. They define the VM Sizes, the number of VMs and its properties.  Your cluster can have more than one Node Type. The only constraint is that you will need at least one NodeType (primary or the first one you define on the portal) to be of at least 5 VMs.
-	1. Select the VM size /Pricing tier you need. (default is D4 Standard, if you are just going to use this cluster for testing your application, it is fine to select D2 or any smaller size VM )	
-	2. Choose the number of VMs, You can scale up or down the number of VMs in a NodeType later on, however the primary or the first node type has to have atleast 5 VMs
-	3. Choose a name for your NodeType (1 to 12  characters in length containing only alphabets and numbers)	
-	4. Choose the VM remote desktop User Name and Password
-	5. **Node type considerations when you have multiple node types**. If you are planning to deploy a single Node type cluster, then skip to the next step.
+    1. Select the VM size /Pricing tier you need. (default is D4 Standard, if you are just going to use this cluster for testing your application, it is fine to select D2 or any smaller size VM ) 
+    2. Choose the number of VMs, You can scale up or down the number of VMs in a NodeType later on, however the primary or the first node type has to have atleast 5 VMs
+    3. Choose a name for your NodeType (1 to 12  characters in length containing only alphabets and numbers)    
+    4. Choose the VM remote desktop User Name and Password
+    5. **Node type considerations when you have multiple node types**. If you are planning to deploy a single Node type cluster, then skip to the next step.
 
-		- To explain this concept, let us take an example.  If you wanted to deploy an application that contains  a "Front End" service and a "Back End" service and You want to put  the "Front End" service  on smaller VMs (VM sizes like A2, D2 etc) that have ports open to the internet and the "Back End" service that is compute intensive on larger VMs (with VM sizes like D4, D6, D12 etc) that are not internet facing.
-		- Although, you can put both the services on one NodeType, it is recommended that you place them in a cluster with two node types, each node type can have distinct properties like internet connectivity and VM size and number of VMs that can be scalled independently.
-		- Define the Node type that will end up having atleast 5 VMs first. The other node types can have a minimum of 1 VMs.
-					
+        - To explain this concept, let us take an example.  If you wanted to deploy an application that contains  a "Front End" service and a "Back End" service and You want to put  the "Front End" service  on smaller VMs (VM sizes like A2, D2 etc) that have ports open to the internet and the "Back End" service that is compute intensive on larger VMs (with VM sizes like D4, D6, D12 etc) that are not internet facing.
+        - Although, you can put both the services on one NodeType, it is recommended that you place them in a cluster with two node types, each node type can have distinct properties like internet connectivity and VM size and number of VMs that can be scalled independently.
+        - Define the Node type that will end up having atleast 5 VMs first. The other node types can have a minimum of 1 VMs.
+                    
 
-  	![CreateNodeType][CreateNodeType]
+    ![CreateNodeType][CreateNodeType]
 
 9. **Application ports**- If you plan to deploy your applications to the cluster right away, then add ports you want to open for your applications on this Node type (or the nodeTypes you have created). You can add  ports to the Node Type later on by  modifying the load balancer assocaited with this Node Type (you need to add a probe and then add the probe to the load blanancer rules). Doing it now, it a bit easier, since the portal automation will add the needed probes and rules to the LB. 
-	1. You can find the application ports in your service manifests that are a part of the application package. Go to each of your applications, open up the service manifests and take note of all the  "input" endpoints your applications needs to communicate to the outside world.
-	2. Add all the ports , comma separated  in the "Application input endpoints" field. The  TCP client connection end point - 19000 by default, so you do not need to specify them. For example my application needs port "83" to be open. You will find this in the servicemanifest.xml in your  application package (there could be more than one servicemanifest.xml).
+    1. You can find the application ports in your service manifests that are a part of the application package. Go to each of your applications, open up the service manifests and take note of all the  "input" endpoints your applications needs to communicate to the outside world.
+    2. Add all the ports , comma separated  in the "Application input endpoints" field. The  TCP client connection end point - 19000 by default, so you do not need to specify them. For example my application needs port "83" to be open. You will find this in the servicemanifest.xml in your  application package (there could be more than one servicemanifest.xml).
 
   Most of the sample application use port 80 and 8081, so add them if you plan to deploy samples to this cluster.
 
@@ -212,4 +212,5 @@ http://sfcluster4doc.westus.cloudapp.azure.com:31000
 [BrowseCluster]: ./media/service-fabric-cluster-creation-via-portal/browse.png
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png
 [SecureConnection]: ./media/service-fabric-cluster-creation-via-portal/SecureConnection.png
+
 

@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Get started with SQL database auditing | Microsoft Azure"
-	description="Get started with SQL database auditing"
-	services="sql-database"
-	documentationCenter=""
-	authors="jeffgoll"
-	manager="jeffreyg"
-	editor=""/>
+    pageTitle="Get started with SQL database auditing | Microsoft Azure"
+    description="Get started with SQL database auditing"
+    services="sql-database"
+    documentationCenter=""
+    authors="jeffgoll"
+    manager="jeffreyg"
+    editor=""/>
 
 <tags
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/12/2015"
-	ms.author="jeffreyg; ronitr"/>
+    ms.service="sql-database"
+    ms.workload="data-management"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/12/2015"
+    ms.author="jeffreyg; ronitr"/>
  
 # Get started with SQL database auditing
 Azure SQL Database Auditing tracks database events and writes audited events to an audit log in your Azure Storage account. Auditing is generally available for Basic, Standard, and Premium service tiers.
@@ -66,20 +66,20 @@ Before setting up auditing check if you are using a ["Downlevel Client"](sql-dat
 
 2. Navigate to the settings blade of the SQL Database / SQL Server you want to audit. In the Settings blade select **Auditing & Threat detection**.
 
-	![Navigation pane][1]
+    ![Navigation pane][1]
 
 3. In the auditing configuration blade, turn **ON** Auditing.
 
 4. Select **Storage Details** to open the Audit Logs Storage Blade. Select the Azure storage account where logs will be saved, and the retention period. **Tip:** Use the same storage account for all audited databases to get the most out of the auditing reports templates.
 
-	![Navigation pane][2]
+    ![Navigation pane][2]
 
 5. Click on **Audited Events** to customize which events to audit. In the **Logging by event** blade, click **Success** and **Failure** to log all events, or choose individual event categories.
 
 
 6. You can check the **Inherit Auditing settings from server** checkbox to designate that this database will be audited according to its server's settings. Once you check this option, you will see a link that allows you to view or modify the server auditing settings from this context.
 
-	![Navigation pane][3]
+    ![Navigation pane][3]
 
 7. Once you've configured your auditing settings, you can turn **ON** Threat Detection and configure the emails to receive security alerts. See the [Threat Detection Getting Started](sql-database-threat-detection-get-started.md) page for more details.
 
@@ -107,15 +107,15 @@ You can import your audit logs into the Excel template directly from your Azure 
 
 3. Set Auditing to **ENABLED**.
 
-	![Navigation pane][5]
+    ![Navigation pane][5]
 
 4. Edit the **LOGGING BY EVENT** as needed, to customize which events to audit.
 
-	![Navigation pane][6]
+    ![Navigation pane][6]
 
 5. Select a **STORAGE ACCOUNT** and configure **RETENTION**.
 
-	![Navigation pane][7]
+    ![Navigation pane][7]
 
 6. Click **SAVE**.
 
@@ -133,7 +133,7 @@ In production you are likely to refresh your storage keys periodically. When ref
 
 1. In the auditing configuration blade switch the **Storage Access Key** from *Primary* to *Secondary* and click **SAVE**.
 
-	![][8]
+    ![][8]
 
 2. Go to the storage configuration blade and **regenerate** the *Primary Access Key*.
 
@@ -177,3 +177,4 @@ There are several PowerShell cmdlets you can use to configure auditing in Azure 
 
 
  
+

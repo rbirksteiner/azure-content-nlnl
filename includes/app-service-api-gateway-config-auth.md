@@ -1,16 +1,16 @@
 4. Navigate to your API app's gateway blade.
 
-	![Click gateway](./media/app-service-api-gateway-config-auth/gateway.png)
+    ![Click gateway](./media/app-service-api-gateway-config-auth/gateway.png)
 
 7. In the **Gateway** blade, click **Settings**, and then click **Identity**.
 
-	![Click Settings](./media/app-service-api-gateway-config-auth/clicksettingsingateway.png)
+    ![Click Settings](./media/app-service-api-gateway-config-auth/clicksettingsingateway.png)
 
-	![Click Identity](./media/app-service-api-gateway-config-auth/clickidentity.png)
+    ![Click Identity](./media/app-service-api-gateway-config-auth/clickidentity.png)
 
-	From the **Identity** blade you can navigate to different blades for configuring authentication using Azure Active Directory and several other providers.
+    From the **Identity** blade you can navigate to different blades for configuring authentication using Azure Active Directory and several other providers.
 
-	![Identity blade](./media/app-service-api-gateway-config-auth/identityblade.png)
+    ![Identity blade](./media/app-service-api-gateway-config-auth/identityblade.png)
   
 3. Choose the identity provider you want to use, and follow the steps in the corresponding article to configure your API app with that provider. These articles were written for mobile apps, but the procedures are the same for API apps. Some of the procedures require you to use the [Azure portal]. 
 
@@ -37,3 +37,4 @@ In the Azure portal, the **Configure** tab for the application you created in th
 ![](./media/app-service-api-gateway-config-auth/oldportal4.png)
 
 (The Reply URL in the image shows the same URL twice, once with `http:` and once with `https:`.)
+

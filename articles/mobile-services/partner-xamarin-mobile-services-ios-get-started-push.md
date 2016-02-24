@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Add push notifications to your Mobile Services app (Xamarin.iOS) - Mobile Services"
-	description="Learn how to use push notifications in Xamarin.iOS apps with Azure Mobile Services."
-	documentationCenter="xamarin"
-	authors="ysxu"
-	manager="dwrede"
-	services="mobile-services"
-	editor=""/>
+    pageTitle="Add push notifications to your Mobile Services app (Xamarin.iOS) - Mobile Services"
+    description="Learn how to use push notifications in Xamarin.iOS apps with Azure Mobile Services."
+    documentationCenter="xamarin"
+    authors="ysxu"
+    manager="dwrede"
+    services="mobile-services"
+    editor=""/>
 
 <tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-xamarin-ios"
-	ms.devlang="objective-c"
-	ms.topic="article"
-	ms.date="12/03/2015"
-	ms.author="yuaxu"/>
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-xamarin-ios"
+    ms.devlang="objective-c"
+    ms.topic="article"
+    ms.date="12/03/2015"
+    ms.author="yuaxu"/>
 
 # Add push notifications to your Mobile Services app
 
@@ -402,3 +402,4 @@ You have successfully completed this tutorial.
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 [completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331303
 [Xamarin.iOS]: http://xamarin.com/download
+

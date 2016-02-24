@@ -3,7 +3,7 @@
     pageTitle="Azure AD + Active Directory requirements for Azure RemoteApp | Microsoft Azure" 
     description="Learn how to set up Active Directory to work with Azure RemoteApp." 
     services="remoteapp" 
-	documentationCenter="" 
+    documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 

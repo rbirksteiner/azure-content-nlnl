@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Create and configure Microsoft managed and IT managed APIs in PowerApps Enterprise | Microsoft Azure"
-	description="Learn about the available APIs in PowerApps and how to register them in the Azure portal"
-	services=""
+    pageTitle="Create and configure Microsoft managed and IT managed APIs in PowerApps Enterprise | Microsoft Azure"
+    description="Learn about the available APIs in PowerApps and how to register them in the Azure portal"
+    services=""
     suite="powerapps"
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="dwrede"
-	editor=""/>
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="dwrede"
+    editor=""/>
 
 <tags
    ms.service="powerapps"
@@ -113,9 +113,9 @@ The following table compares the capabilities of the Microsoft managed and IT ma
 ![][18]  
 3. In **Add API**, enter the API properties:  
 
-	- In **Name**, enter a name for your API. Notice that the name you enter is included in the runtime URL of the API. Make the name meaningful and unique within your organization.
-	- In **Source**, select **From available APIs**:  
-	![][19]
+    - In **Name**, enter a name for your API. Notice that the name you enter is included in the runtime URL of the API. Make the name meaningful and unique within your organization.
+    - In **Source**, select **From available APIs**:  
+    ![][19]
 4. Select **API** and then choose the API you want to register:  
 ![][20]
 5. Select your specific API and add any configurable properties.
@@ -154,3 +154,4 @@ In this topic, you've seen how to register your own instance of the available AP
 [41]: ./media/powerapps-register-from-available-apis/sharepointserver.png
 [42]: ./media/powerapps-register-from-available-apis/sqlserver.png
 [43]: ./media/powerapps-register-from-available-apis/twitter.png
+

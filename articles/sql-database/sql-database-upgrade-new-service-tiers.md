@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Upgrade SQL Database Web or Business Databases to New Service Tiers" 
-	description="Upgrade Azure SQL Database Web or Business databases to the new Azure SQL Database Basic, Standard, and Premium service tiers and performance levels." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="stevestein" 
-	manager="jeffreyg" 
-	editor=""/>
+    pageTitle="Upgrade SQL Database Web or Business Databases to New Service Tiers" 
+    description="Upgrade Azure SQL Database Web or Business databases to the new Azure SQL Database Basic, Standard, and Premium service tiers and performance levels." 
+    services="sql-database" 
+    documentationCenter="" 
+    authors="stevestein" 
+    manager="jeffreyg" 
+    editor=""/>
 
 <tags 
-	ms.service="sql-database"
-	ms.devlang="NA"
-	ms.date="10/08/2015" 
-	ms.author="sstein" 
-	ms.workload="data-management" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="NA"/>
+    ms.service="sql-database"
+    ms.devlang="NA"
+    ms.date="10/08/2015" 
+    ms.author="sstein" 
+    ms.workload="data-management" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="NA"/>
 
 
 # Upgrade SQL Database Web or Business Databases to New Service Tiers
@@ -159,11 +159,11 @@ Run the following query on the master database to retrieve the average DTU consu
  
                    
      SELECT start_time, end_time
-	 ,(SELECT Max(v)
+     ,(SELECT Max(v)
          FROM (VALUES (avg_cpu_percent)
                     , (avg_physical_data_read_percent)
                     , (avg_log_write_percent)
-    	   ) AS value(v)) AS [avg_DTU_percent]
+           ) AS value(v)) AS [avg_DTU_percent]
     FROM sys.resource_stats
     WHERE database_name = '<your db name>'
     ORDER BY end_time DESC;
@@ -194,10 +194,10 @@ Here is a query on the master database that performs the calculation for your We
     ( SELECT start_time, end_time
            , (SELECT Max(v)
                 FROM (VALUES (avg_cpu_percent)
-                       		, (avg_physical_data_read_percent)
-                       		, (avg_log_write_percent)
+                            , (avg_physical_data_read_percent)
+                            , (avg_log_write_percent)
                    ) AS value(v)) as [avg_DTU_percent]
-        FROM sys.resource_stats	
+        FROM sys.resource_stats 
        WHERE database_name = 'WebDB'
     )
     SELECT rc.*
@@ -232,7 +232,7 @@ To more clearly understand the differences between Web/Business and the Basic, S
 If your overall DTU percentage is extremely high, you should start looking into the detailed metrics that the DTUs are comprised of; specifically drilling into the finer details of the database’s Log I/O and memory usage. It may uncover potential areas where you can optimize and reduce DTU consumption.
 
 
-## 4.	Tuning your database workload to fit a lower performance level
+## 4.   Tuning your database workload to fit a lower performance level
 If the analysis of your database's historical resource usage indicates that you should upgrade to a performance level that is more costly than you would like, you can look into areas where additional performance tuning may help. 
 
 Considering your knowledge regarding the details of your application, if the resource usage seems extremely high compared to what you expect the typical workload should be, then perhaps you have some opportunities where performance tuning can benefit your application.
@@ -264,7 +264,7 @@ After you determine the appropriate service tier and performance level for your 
 For details, see [Changing Database Service Tiers and Performance Levels](sql-database-scale-up.md)
 
 
-## 6.	Monitor the upgrade to the new service tier/performance level
+## 6.   Monitor the upgrade to the new service tier/performance level
 Azure SQL Database provides progress information on management operations (like CREATE, ALTER, DROP) performed on a database in the sys.dm_operation_status dynamic management view in the master database of the logical server where your current database is located [see sys.dm _operation _status documentation.](http://msdn.microsoft.com/library/azure/dn270022.aspx) Use the operation status DMV to determine progress of the upgrade operation for a database. This sample query shows all of the management operations performed on a database:
 
     SELECT o.operation, o.state_desc, o.percent_complete
@@ -277,18 +277,18 @@ Azure SQL Database provides progress information on management operations (like 
 
 If you used the Classic Portal for the upgrade, a notification is also available from within the portal for the operation.
 
-## 7.	Monitor the database after the upgrade
+## 7.   Monitor the database after the upgrade
 After upgrade of the Web/Business database into the new tier, it is recommended to monitor the database actively to ensure applications are running at the desired performance and optimize usage as needed. The following additional steps are recommended for monitoring the database.
 
 
 **Resource consumption data:** For Basic, Standard, and Premium databases more granular resource consumption data is available through a new DMV called [sys.dm_ db_ resource_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) in the user database. This DMV provides near real time resource consumption information at 15 second granularity for the previous hour of operation. The DTU percentage consumption for an interval is computed as the maximum percentage consumption of the CPU, IO & log dimensions. Here is a query to compute the average DTU percentage consumption over the last hour:
 
     SELECT end_time
-    	 , (SELECT Max(v)
+         , (SELECT Max(v)
              FROM (VALUES (avg_cpu_percent)
                          , (avg_data_io_percent)
                          , (avg_log_write_percent)
-    	   ) AS value(v)) AS [avg_DTU_percent]
+           ) AS value(v)) AS [avg_DTU_percent]
     FROM sys.dm_db_resource_stats
     ORDER BY end_time DESC;
 
@@ -298,12 +298,12 @@ Additional [documentation](http://msdn.microsoft.com/library/dn800981.aspx) cont
 
 - **Alerts:** Set up 'Alerts' in the Azure Classic Portal to notify you when the DTU consumption for an upgraded database approaches certain high level. Database alerts can be setup in the Azure Classic Portal for various performance metrics like DTU, CPU, IO, and Log. 
 
-	For example, you can set up an email alert on “DTU Percentage” if the average DTU percentage value exceeds 75% over the last 5 minutes. Refer to [Receive alert notifications](insights-receive-alert-notifications.md) to learn more about how to configure alert notifications.
+    For example, you can set up an email alert on “DTU Percentage” if the average DTU percentage value exceeds 75% over the last 5 minutes. Refer to [Receive alert notifications](insights-receive-alert-notifications.md) to learn more about how to configure alert notifications.
 
 
 - **Scheduled performance level upgrade/downgrade:** If your application has specific scenarios that require more performance only at certain times of the day/week, you can use [Azure Automation](https://azure.microsoft.com/documentation/services/automation/) to upsize/downsize your database to a higher/lower performance level as a planned operation.
 
-	For example, upgrade the database to a higher performance level for the duration of a weekly batch/maintenance job and downsize it after the job completes. This kind of scheduling is also useful for any large resource-intensive operations like data loading, index rebuilding etc.  Note that the Azure SQL Database billing model is based on hourly usage of a service tier/performance level. This flexibility allows you to plan for scheduled or planned upgrades more cost efficiently.
+    For example, upgrade the database to a higher performance level for the duration of a weekly batch/maintenance job and downsize it after the job completes. This kind of scheduling is also useful for any large resource-intensive operations like data loading, index rebuilding etc.  Note that the Azure SQL Database billing model is based on hourly usage of a service tier/performance level. This flexibility allows you to plan for scheduled or planned upgrades more cost efficiently.
 
 
 

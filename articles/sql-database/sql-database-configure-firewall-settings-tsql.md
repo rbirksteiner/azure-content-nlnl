@@ -1,21 +1,21 @@
 <properties
-	pageTitle="How to: Configure firewall settings | Microsoft Azure"
-	description="Learn how to configure the firewall for IP addresses that access Azure SQL databases."
-	services="sql-database"
-	documentationCenter=""
-	authors="BYHAM"
-	manager="jeffreyg"
-	editor=""/>
+    pageTitle="How to: Configure firewall settings | Microsoft Azure"
+    description="Learn how to configure the firewall for IP addresses that access Azure SQL databases."
+    services="sql-database"
+    documentationCenter=""
+    authors="BYHAM"
+    manager="jeffreyg"
+    editor=""/>
 
 
 <tags
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article" 
-	ms.date="11/13/2015"
-	ms.author="rickbyh"/>
+    ms.service="sql-database"
+    ms.workload="data-management"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="article" 
+    ms.date="11/13/2015"
+    ms.author="rickbyh"/>
 
 
 # How to: Configure firewall settings on SQL Database using TSQL
@@ -40,16 +40,16 @@ Microsoft Azure SQL Database uses firewall rules to allow connections to your se
 3. Server-level firewall rules can be selected, created, updated, or deleted from within the query window.
 4. To create or update server-level firewall rules, execute the sp_set_firewall rule stored procedure. The following example enables a range of IP addresses on the server Contoso.<br/>Start by seeing what rules already exist.
 
-		SELECT * FROM sys.firewall_rules ORDER BY name;
+        SELECT * FROM sys.firewall_rules ORDER BY name;
 
-	Next, add a firewall rule.
+    Next, add a firewall rule.
 
-		EXECUTE sp_set_firewall_rule @name = N'ContosoFirewallRule',
-			@start_ip_address = '192.168.1.1', @end_ip_address = '192.168.1.10'
+        EXECUTE sp_set_firewall_rule @name = N'ContosoFirewallRule',
+            @start_ip_address = '192.168.1.1', @end_ip_address = '192.168.1.10'
 
-	To delete a server-level firewall rule, execute the sp_delete_firewall_rule stored procedure. The following example deletes the rule named ContosoFirewallRule.
+    To delete a server-level firewall rule, execute the sp_delete_firewall_rule stored procedure. The following example deletes the rule named ContosoFirewallRule.
  
-		EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
+        EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
  
  
 ## Database-level firewall rules
@@ -57,13 +57,13 @@ Microsoft Azure SQL Database uses firewall rules to allow connections to your se
 1. After creating a server-level firewall for your IP address, launch a query window through the Classic Portal or through SQL Server Management Studio.
 2. Connect to the database for which you want to create a database-level firewall rule.
 
-	To create a new or update an existing database-level firewall rule, execute the sp_set_database_firewall_rule stored procedure. The following example creates a new firewall rule named ContosoFirewallRule.
+    To create a new or update an existing database-level firewall rule, execute the sp_set_database_firewall_rule stored procedure. The following example creates a new firewall rule named ContosoFirewallRule.
  
-		EXEC sp_set_database_firewall_rule @name = N'ContosoFirewallRule', @start_ip_address = '192.168.1.11', @end_ip_address = '192.168.1.11'
+        EXEC sp_set_database_firewall_rule @name = N'ContosoFirewallRule', @start_ip_address = '192.168.1.11', @end_ip_address = '192.168.1.11'
  
-	To delete an existing database-level firewall rule, execute the sp_delete_database_firewall_rule stored procedure. The following example deletes the rule named ContosoFirewallRule.
+    To delete an existing database-level firewall rule, execute the sp_delete_database_firewall_rule stored procedure. The following example deletes the rule named ContosoFirewallRule.
  
-		EXEC sp_delete_database_firewall_rule @name = N'ContosoFirewallRule'
+        EXEC sp_delete_database_firewall_rule @name = N'ContosoFirewallRule'
 
 
 ## Next steps
@@ -71,4 +71,5 @@ Microsoft Azure SQL Database uses firewall rules to allow connections to your se
 For a tutorial on creating a database, see [Create your first Azure SQL Database](sql-database-get-started.md).
 For help in connecting to an Azure SQL database from open source or third-party applications, see [Guidelines for Connecting to Azure SQL Database Programmatically](https://msdn.microsoft.com/library/azure/ee336282.aspx).
 To understand how to navigate to databases see [Managing Databases and Logins in Azure SQL Database](https://msdn.microsoft.com/library/azure/ee336235.aspx).
+
 

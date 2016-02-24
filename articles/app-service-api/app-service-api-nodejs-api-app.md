@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Build and deploy a Node.js API app in Azure App Service"
-	description="Learn how to create a Node.js API app package and deploy it to Azure App Service."
-	services="app-service\api"
-	documentationCenter="node"
-	authors="bradygaster"
-	manager="mohisri",
-	editor="tdykstra "/>
+    pageTitle="Build and deploy a Node.js API app in Azure App Service"
+    description="Learn how to create a Node.js API app package and deploy it to Azure App Service."
+    services="app-service\api"
+    documentationCenter="node"
+    authors="bradygaster"
+    manager="mohisri",
+    editor="tdykstra "/>
 
 <tags
-	ms.service="app-service-api"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="node"
-	ms.topic="get-started-article"
-	ms.date="11/27/2015"
-	ms.author="bradygaster"/>
+    ms.service="app-service-api"
+    ms.workload="web"
+    ms.tgt_pltfrm="na"
+    ms.devlang="node"
+    ms.topic="get-started-article"
+    ms.date="11/27/2015"
+    ms.author="bradygaster"/>
 
 # Build and deploy a Node.js API app in Azure App Service
 
@@ -32,12 +32,12 @@ The commands below should be performed using the Node.js command line. By using 
 1. Install **yo** and the **generator-swaggerize** NPM modules globally.
 
         npm install -g yo
-	    npm install -g generator-swaggerize
-		
+        npm install -g generator-swaggerize
+        
 1. Clone the [GitHub repository containing the sample code](https://github.com/Azure-Samples/app-service-api-node-contact-list).
 
-		git clone https://github.com/Azure-Samples/app-service-api-node-contact-list.git
-				
+        git clone https://github.com/Azure-Samples/app-service-api-node-contact-list.git
+                
 1. Execute the command to scaffold the API based on the **api.json** file included with the source code. The **api.json** file is a Swagger file representing the actual API you will scaffold using the "yo swaggerize" command during the next step. 
 
         yo swaggerize
@@ -46,7 +46,7 @@ The commands below should be performed using the Node.js command line. By using 
 
 1. Swaggerize will scaffold the handlers and config for the Swagger metadata included in **api.json**. During the scaffolding proces you will be asked a variety of questions, like your GitHub username and email address. This information is used to generate the **package.json** file in your application's folder. Of all the questions asked during the scaffolding process, the most important is that you select **express** when asked, as this sample will make use of the express view engine to generate the Swagger help page later when your API App is running in Azure (or locally).  
 
-	![Swaggerize Command Line](media/app-service-api-nodejs-api-app/swaggerize-command-line.png)
+    ![Swaggerize Command Line](media/app-service-api-nodejs-api-app/swaggerize-command-line.png)
     
 1. Move into the folder containing the scaffolded code (in this case, the *ContactList* subfolder). Then, install the **jsonpath** NPM module. 
 

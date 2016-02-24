@@ -199,3 +199,4 @@ Timer callbacks can be marked with the `Readonly` attribute in a similar way. Fo
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-introduction/concurrency.png
+

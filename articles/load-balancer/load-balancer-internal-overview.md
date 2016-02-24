@@ -20,7 +20,7 @@
 # Internal Load balancer Overview
 
 Internal Load Balancer (ILB) is a security enhancement over the current Internet facing load balancer that is offered in Azure. Access to the ILB can only be done by resources inside the cloud service or using VPN to access the Azure infrastructure to reach the ILB.
-			
+            
 The infrastructure  restricts the accessibility and creates a trust boundary between the load balanced virtual IP addresses to a Cloud Service or a Virtual Network and will never be exposed to a Internet endpoint directly. This enables internal Line of Business applications to run in Azure and be accessed within the cloud or from on-premises.
 
 ## Scenarios for internal load balancer

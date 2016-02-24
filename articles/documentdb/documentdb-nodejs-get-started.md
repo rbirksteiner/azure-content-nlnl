@@ -1,21 +1,21 @@
 <properties
-	pageTitle="NoSQL Node.js tutorial for DocumentDB | Microsoft Azure"
-	description="A NoSQL Node.js tutorial that creates a node database and console application using the DocumentDB Node.js SDK. DocumentDB is a NoSQL database for JSON."
+    pageTitle="NoSQL Node.js tutorial for DocumentDB | Microsoft Azure"
+    description="A NoSQL Node.js tutorial that creates a node database and console application using the DocumentDB Node.js SDK. DocumentDB is a NoSQL database for JSON."
     keywords="node.js tutorial, node database"
-	services="documentdb"
-	documentationCenter="node.js"
-	authors="AndrewHoh"
-	manager="jhubbard"
-	editor="monicar"/>
+    services="documentdb"
+    documentationCenter="node.js"
+    authors="AndrewHoh"
+    manager="jhubbard"
+    editor="monicar"/>
 
 <tags
-	ms.service="documentdb"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="node"
-	ms.topic="hero-article" 
-	ms.date="11/18/2015"
-	ms.author="anhoh"/>
+    ms.service="documentdb"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="node"
+    ms.topic="hero-article" 
+    ms.date="11/18/2015"
+    ms.author="anhoh"/>
 
 # NoSQL Node.js tutorial: DocumentDB Node.js console application  
 
@@ -59,11 +59,11 @@ Let's create a DocumentDB account. If you already have an account you want to us
 1. Open your favorite terminal.
 2. Locate the folder or directory where you'd like to save your Node.js application.
 3. Create two empty JavaScript files with the following commands:
-	- Windows:    
-	    * **fsutil file createnew app.js 0**
+    - Windows:    
+        * **fsutil file createnew app.js 0**
         * **fsutil file createnew config.js 0**
-	- Linux/OS X: 
-	    * **touch app.js**
+    - Linux/OS X: 
+        * **touch app.js**
         * **touch config.js**
 4. Install the documentdb module via npm. Use the following command:
     * **npm install documentdb --save**
@@ -439,12 +439,13 @@ Next, in the *config.js* file, update the config.endpoint and config.authKey val
 ## Next steps
 
 -   Want a more complex Node.js sample? See [Build a Node.js web application using DocumentDB](documentdb-nodejs-application.md).
--	Learn how to [monitor a DocumentDB account](documentdb-monitor-accounts.md).
--	Run queries against our sample dataset in the [Query Playground](https://www.documentdb.com/sql/demo).
--	Learn more about the programming model in the Develop section of the [DocumentDB documentation page](../../services/documentdb/).
+-   Learn how to [monitor a DocumentDB account](documentdb-monitor-accounts.md).
+-   Run queries against our sample dataset in the [Query Playground](https://www.documentdb.com/sql/demo).
+-   Learn more about the programming model in the Develop section of the [DocumentDB documentation page](../../services/documentdb/).
 
 [doc-landing-page]: ../../services/documentdb/
 [documentdb-create-account]: documentdb-create-account.md
 [documentdb-manage]: documentdb-manage.md
 
 [keys]: media/documentdb-nodejs-get-started/node-js-tutorial-keys.png
+

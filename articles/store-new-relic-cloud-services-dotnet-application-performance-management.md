@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Using New Relic with Azure | Microsoft Azure" 
-	description="Learn how to use the New Relic service to manage and monitor your Azure application." 
-	services="" 
-	documentationCenter=".net" 
-	authors="nickfloyd" 
-	manager="timlt" 
-	editor=""/>
+    pageTitle="Using New Relic with Azure | Microsoft Azure" 
+    description="Learn how to use the New Relic service to manage and monitor your Azure application." 
+    services="" 
+    documentationCenter=".net" 
+    authors="nickfloyd" 
+    manager="timlt" 
+    editor=""/>
 
 <tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="03/16/2015" 
-	ms.author="nickfloyd@newrelic.com"/>
+    ms.service="cloud-services" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="dotnet" 
+    ms.topic="article" 
+    ms.date="03/16/2015" 
+    ms.author="nickfloyd@newrelic.com"/>
 
 
 
@@ -79,37 +79,37 @@ To sign up for New Relic directly from the Azure Store, follow these three easy 
 1. Open your Visual Studio solution, or create a new one by selecting
    **File > New > Project**.
 
-	![Visual Studio](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget01.png)
+    ![Visual Studio](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget01.png)
 
 2. If you don't already have an Azure Cloud Service Project in your
    solution, add one by right-clicking your app in the Solution Explorer and
    selecting **Add Azure Cloud Service Project**.
 
-	![Create cloud service](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget02.png)
+    ![Create cloud service](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget02.png)
 
 3. Open the Package Manager console by selecting **Tools > Library Package Manager > 
    Package Manager Console**. Set your project to be the Default Project at the
    top of the Package Manager Console window.
 
-	![Package manager console](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget04.png)
+    ![Package manager console](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget04.png)
 
 4. On the Package Manager command prompt, type `Install-Package
    NewRelicWindowsAzure` and press **Enter**.
 
-	![install in package manager](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget06.png)
+    ![install in package manager](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget06.png)
 
 5. At the license key prompt, enter the license key you received from the Azure Store.
 
-	![enter license key](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget07.png)
+    ![enter license key](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget07.png)
 
 6. Optional: At the application name prompt, enter your app's name as it will
    appear in New Relic's dashboard. Or, use your solution name as the default.
 
-	![enter application name](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget08.png)
+    ![enter application name](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget08.png)
 
 7. From the Solution Explorer, right-click your Azure Cloud Service Project, and select **Publish**.
 
-	![public the cloud project](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget09.png)
+    ![public the cloud project](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget09.png)
 
 
 **Note:** If this is your first time deploying this app to Azure, you will be prompted to enter your 
@@ -125,11 +125,11 @@ To view your New Relic dashboard:
 2. Sign in with your New Relic account email and password.
 3. From the New Relic menu bar, select **Applications > (application's name)**.
 
-	The **Monitoring > Overview** dashboard automatically appears.
+    The **Monitoring > Overview** dashboard automatically appears.
 
-	![New Relic monitoring dashboard](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelic_app.png)
+    ![New Relic monitoring dashboard](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelic_app.png)
 
-	After you select an app from the list on your **Applications** menu, the **Overview** dashboard shows current app server and browser information.
+    After you select an app from the list on your **Applications** menu, the **Overview** dashboard shows current app server and browser information.
 
 ### <a id="using-new-relic"></a>Using New Relic
 
@@ -169,3 +169,4 @@ Overview of the New Relic UI, setting user rights and profiles, using standard f
  * [Real User Monitoring](https://newrelic.com/docs/features/real-user-monitoring): Overview of how RUM details the time it takes for your users' 
 browsers to load your webpages, where they come from, and what browsers they use
  * [Finding Help](https://newrelic.com/docs/site/finding-help): Resources available through New Relic's online Help Center
+

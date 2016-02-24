@@ -37,7 +37,7 @@ You can reconfigure DATA 0 network settings by connecting to the Windows PowerSh
 2. At the command prompt, type:
 
 
-	`Invoke-HcsSetupWizard`
+    `Invoke-HcsSetupWizard`
 
 3. A setup wizard will appear to help you configure the DATA 0 interface of your device. Provide new values for the IP address, gateway, and netmask.
 
@@ -53,22 +53,23 @@ An alternate way to reconfigure DATA 0 network interface is through the use of  
 
 2. At the command prompt, type:
 
-	`Set-HCSNetInterface -InterfaceAlias Data0 -IPv4Address <> -IPv4Netmask <> -IPv4Gateway <> -Controller0IPv4Address <> -Controller1IPv4Address <> -IsiScsiEnabled 1 -IsCloudEnabled 1`
-	
+    `Set-HCSNetInterface -InterfaceAlias Data0 -IPv4Address <> -IPv4Netmask <> -IPv4Gateway <> -Controller0IPv4Address <> -Controller1IPv4Address <> -IsiScsiEnabled 1 -IsCloudEnabled 1`
+    
     In the angled brackets, type the following values for DATA 0:
-											
-	- IPv4 address
-	
-	- IPv4 gateway
-	
-	- IPv4 subnet mask
-	
-	- Fixed IPv4 address for Controller 0
+                                            
+    - IPv4 address
+    
+    - IPv4 gateway
+    
+    - IPv4 subnet mask
+    
+    - Fixed IPv4 address for Controller 0
 
-	- Fixed IPv4 address for Controller 1
+    - Fixed IPv4 address for Controller 1
 
 ## Next steps
 
 - To configure network interfaces other than DATA 0, you can use the [Configure page in the Azure classic portal](storsimple-modify-device-config.md). 
 - If you experience any issues when configuring your network interfaces, refer to [Troubleshoot deployment issues](storsimple-troubleshoot-deployment.md).
+
 

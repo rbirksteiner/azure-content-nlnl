@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Get started with elastic database tools" 
-	description="Basic explanation of elastic database tools feature of Azure SQL Database, including easy to run sample app." 
-	services="sql-database" 
-	documentationCenter="" 
-	manager="jeffreyg" 
-	authors="ddove" 
-	editor="sidneyh"/>
+    pageTitle="Get started with elastic database tools" 
+    description="Basic explanation of elastic database tools feature of Azure SQL Database, including easy to run sample app." 
+    services="sql-database" 
+    documentationCenter="" 
+    manager="jeffreyg" 
+    authors="ddove" 
+    editor="sidneyh"/>
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="sql-database" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/04/2015" 
-	ms.author="ddove;sidneyh"/>
+    ms.service="sql-database" 
+    ms.workload="sql-database" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/04/2015" 
+    ms.author="ddove;sidneyh"/>
 
 # Get started with Elastic Database tools
 
@@ -98,3 +98,4 @@ For more information about the elastic database tools, see:
 [3]: ./media/sql-database-elastic-scale-get-started/click-CSharp.png
 [4]: ./media/sql-database-elastic-scale-get-started/output2.png
  
+

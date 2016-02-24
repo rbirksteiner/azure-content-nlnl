@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure AD Connect: Next steps and how to manage Azure AD Connect | Microsoft Azure"
-	description="Learn how to extend the default configuration and operational tasks for Azure AD Connect."
-	services="active-directory"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
-	editor="curtand"/>
+    pageTitle="Azure AD Connect: Next steps and how to manage Azure AD Connect | Microsoft Azure"
+    description="Learn how to extend the default configuration and operational tasks for Azure AD Connect."
+    services="active-directory"
+    documentationCenter=""
+    authors="billmath"
+    manager="stevenpo"
+    editor="curtand"/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/01/2015"
-	ms.author="billmath"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/01/2015"
+    ms.author="billmath"/>
 
 # Next steps and how to manage Azure AD Connect
 The following are advanced operational topics that allow you to customize Azure Active Directory Connect to meet your organization's needs and requirements.  
@@ -68,3 +68,4 @@ Enable Staging Mode |  This allows you to stage information that will later be s
 
 ## Next steps
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
+

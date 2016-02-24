@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Performance test and scale results for on-premises to on-premises Hyper-V replication with Site Recovery | Microsoft Azure"
-	description="This article provides information about performance testing for on-premises to on-premises replication using Azure Site Recovery."
-	services="site-recovery" 
-	documentationCenter=""
-	authors="rayne-wiselman"
-	manager="jwhit"
-	editor="tysonn"/>
+    pageTitle="Performance test and scale results for on-premises to on-premises Hyper-V replication with Site Recovery | Microsoft Azure"
+    description="This article provides information about performance testing for on-premises to on-premises replication using Azure Site Recovery."
+    services="site-recovery" 
+    documentationCenter=""
+    authors="rayne-wiselman"
+    manager="jwhit"
+    editor="tysonn"/>
 
 <tags
-	ms.service="site-recovery"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="storage-backup-recovery"
-	ms.date="12/14/2015"
-	ms.author="raynew"/>
+    ms.service="site-recovery"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.workload="storage-backup-recovery"
+    ms.date="12/14/2015"
+    ms.author="raynew"/>
 
 # Performance test and scale results for on-premises to on-premises Hyper-V replication with Site Recovery
 
@@ -209,3 +209,4 @@ The table summarizes the performance metrics and counters that were measured in 
 - [Set up protection between two on-premises VMM sites](site-recovery-vmm-to-vmm.md)
 
  
+

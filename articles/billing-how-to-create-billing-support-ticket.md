@@ -1,22 +1,22 @@
 <properties
-	pageTitle="How to Create a Support Ticket for Azure Billing and Subscription Issues | Microsoft Azure"
-	description="Describes How to Create a Support Ticket for Azure Billing and Subscription Issues"
-	services="billing"
-	documentationCenter=""
-	authors="genlin"
-	manager="jarrettr"
-	editor="na"
-	tags="billing"
-	/>
+    pageTitle="How to Create a Support Ticket for Azure Billing and Subscription Issues | Microsoft Azure"
+    description="Describes How to Create a Support Ticket for Azure Billing and Subscription Issues"
+    services="billing"
+    documentationCenter=""
+    authors="genlin"
+    manager="jarrettr"
+    editor="na"
+    tags="billing"
+    />
 
 <tags
-	ms.service="billing"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/26/2015"
-	ms.author="genli"/>
+    ms.service="billing"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/26/2015"
+    ms.author="genli"/>
 
 # How to create a support ticket for Azure billing and subscription issues
 
@@ -48,3 +48,4 @@ This article provides the information you will need to open a ticket with Azure 
 8. If you accept the Agreement for Microsoft Services, click **Submit**.
 
 You will be contacted by an Azure Support representative in accordance with the terms of the agreement.
+

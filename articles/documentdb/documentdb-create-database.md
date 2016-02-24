@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="How to create a database in DocumentDB | Microsoft Azure" 
-	description="Learn how to create a database using the online service portal for Azure DocumentDB, a NoSQL document database for JSON. Get a free trial today." 
-	keywords="how to create a database" 
-	services="documentdb" 
-	authors="mimig1" 
-	manager="jhubbard" 
-	editor="monicar" 
-	documentationCenter=""/>
+    pageTitle="How to create a database in DocumentDB | Microsoft Azure" 
+    description="Learn how to create a database using the online service portal for Azure DocumentDB, a NoSQL document database for JSON. Get a free trial today." 
+    keywords="how to create a database" 
+    services="documentdb" 
+    authors="mimig1" 
+    manager="jhubbard" 
+    editor="monicar" 
+    documentationCenter=""/>
 
 <tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/18/2015" 
-	ms.author="mimig"/>
+    ms.service="documentdb" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/18/2015" 
+    ms.author="mimig"/>
 
 # How to create a database for DocumentDB
 
@@ -35,7 +35,7 @@ To use Microsoft Azure DocumentDB, you must have a [DocumentDB account](document
 
 7. The new database now appears in the **Databases** lens on the **DocumentDB Account** blade.
  
-	![Screen shot of the new database in the DocumentDB Account blade](./media/documentdb-create-database/docdb-database-creation-7.png)
+    ![Screen shot of the new database in the DocumentDB Account blade](./media/documentdb-create-database/docdb-database-creation-7.png)
 
 ## Other ways to create a DocumentDB database
 
@@ -48,3 +48,4 @@ Now that you know how to create a database for DocumentDB, the next step is to [
 Once your collection is created, you can [add JSON documents](../documentdb-view-json-document-explorer.md) by using the Document Explorer in the Portal, [import documents](documentdb-import-data.md) into the collection by using the DocumentDB Data Migration Tool, or use one of the [DocumentDB SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx) to perform CRUD operations. DocumentDB has .NET, Java, Python, Node.js, and JavaScript API SDKs. For .NET code samples showing how to create, remove, update and delete documents, see [Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/DocumentManagement/Program.cs) in the DocumentManagement project in the azure-documentdb-net repository on GitHub.com.  
 
 After you have documents in a collection, you can use [DocumentDB SQL](documentdb-sql-query.md) to [execute queries](documentdb-sql-query.md#executing-queries) against your documents by using the [Query Explorer](documentdb-query-collections-query-explorer.md) in the Portal, the [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx), or one of the [SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx). 
+

@@ -30,15 +30,15 @@ ASP.NET 5 is a lightweight, cross-platform web development framework, enabling t
 
 1. In Solution Explorer, right-click **Services** within the application project and choose **Add Fabric Service**.
 
-	![Adding a new service to an existing application][vs-add-new-service]
+    ![Adding a new service to an existing application][vs-add-new-service]
 
 2. In the new service dialog, choose **ASP.NET 5** and give it a name.
 
-	![Choosing ASP.NET Web Service in the new service dialog][vs-new-service-dialog]
+    ![Choosing ASP.NET Web Service in the new service dialog][vs-new-service-dialog]
 
 3. The next dialog provides a set of ASP.NET 5 project templates. Note that these are the same templates you would see if you created an ASP.NET 5 project outside of a Service Fabric application. For this tutorial, we will choose **Web API** but you can apply the same concepts to building a full web application.
 
-	![Choosing ASP.NET project type][vs-new-aspnet-project-dialog]
+    ![Choosing ASP.NET project type][vs-new-aspnet-project-dialog]
 
     Once your Web API project is created, you will have two services in your application. As you continue to build your application, you will add more services in exactly the same way and each can be independently versioned and upgraded.
 
@@ -220,3 +220,4 @@ To learn how to configure different values for different environment, see [Manag
 [vs-add-class-library-reference]: ./media/service-fabric-add-a-web-frontend/vs-add-class-library-reference.png
 [vs-services-nuget-package]: ./media/service-fabric-add-a-web-frontend/vs-services-nuget-package.png
 [browser-aspnet-counter-value]: ./media/service-fabric-add-a-web-frontend/browser-aspnet-counter-value.png
+

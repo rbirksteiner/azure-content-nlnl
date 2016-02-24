@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Get started with Azure Key Vault | Microsoft Azure"
-	description="Use this tutorial to help you get started with Azure Key Vault to create a hardened container in Azure, to store and manage cryptographic keys and secrets in Azure."
-	services="key-vault"
-	documentationCenter=""
-	authors="cabailey"
-	manager="mbaldwin"
-	tags="azure-resource-manager"/>
+    pageTitle="Get started with Azure Key Vault | Microsoft Azure"
+    description="Use this tutorial to help you get started with Azure Key Vault to create a hardened container in Azure, to store and manage cryptographic keys and secrets in Azure."
+    services="key-vault"
+    documentationCenter=""
+    authors="cabailey"
+    manager="mbaldwin"
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="key-vault"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="11/10/2015"
-	ms.author="cabailey"/>
+    ms.service="key-vault"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="hero-article"
+    ms.date="11/10/2015"
+    ms.author="cabailey"/>
 
 # Get started with Azure Key Vault #
 Azure Key Vault is available in most regions. For more information, see the [Key Vault pricing page](../../../../pricing/details/key-vault/).
@@ -43,11 +43,11 @@ This tutorial is designed for Azure PowerShell beginners, but it assumes that yo
 
 To get detailed help for any cmdlet that you see in this tutorial, use the **Get-Help** cmdlet.
 
-	Get-Help <cmdlet-name> -Detailed
+    Get-Help <cmdlet-name> -Detailed
 
 For example, to get help for the **Add-AzureAccount** cmdlet, type:
 
-	Get-Help Add-AzureAccount -Detailed
+    Get-Help Add-AzureAccount -Detailed
 
 You can also read the following tutorials to get familiar with Azure Resource Manager in Azure PowerShell:
 
@@ -78,7 +78,7 @@ For more information about configuring Azure PowerShell, see  [How to install an
 
 When you use Azure Resource Manager, all related resources are created inside a resource group. We will create a new resource group named **ContosoResourceGroup** for this tutorial:
 
-	New-AzureRmResourceGroup –Name 'ContosoResourceGroup' –Location 'East Asia'
+    New-AzureRmResourceGroup –Name 'ContosoResourceGroup' –Location 'East Asia'
 
 
 ## <a id="vault"></a>Create a key vault ##
@@ -115,21 +115,21 @@ You can now reference this key that you created or uploaded to Azure Key Vault, 
 
 To display the URI for this key, type:
 
-	$Key.key.kid
+    $Key.key.kid
 
 To add a secret to the vault, which is a password named SQLPassword and has the value of Pa$$w0rd to Azure Key Vault, first convert the value of Pa$$w0rd to a secure string by typing the following:
 
-	$secretvalue = ConvertTo-SecureString 'Pa$$w0rd' -AsPlainText -Force
+    $secretvalue = ConvertTo-SecureString 'Pa$$w0rd' -AsPlainText -Force
 
 Then, type the following:
 
-	$secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword' -SecretValue $secretvalue
+    $secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword' -SecretValue $secretvalue
 
 You can now reference this password that you added to Azure Key Vault, by using its URI. Use **https://ContosoVault.vault.azure.net/secrets/SQLPassword** to always get the current version, and use **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** to get this specific version.
 
 To display the URI for this secret, type:
 
-	$secret.Id
+    $secret.Id
 
 Let’s view the key or secret that you just created:
 
@@ -156,13 +156,13 @@ To register the application in Azure Active Directory:
 2. On the left, click **Active Directory**, and then select the directory in which you will register your application. <br> <br> **Note:** You must select the same directory that contains the Azure subscription with which you created your key vault. If you do not know which directory this is, click **Settings**, identify the subscription with which you created your key vault, and note the name of the directory displayed in the last column.
 
 3. Click **APPLICATIONS**. If no apps have been added to your directory, this page shows only the **Add an App** link. Click the link, or alternatively, you can click **ADD** on the command bar.
-4.	In the **ADD APPLICATION** wizard, on the **What do you want to do?** page, click **Add an application my organization is developing**.
-5.	On the **Tell us about your application** page, specify a name for your application, and then select **WEB APPLICATION AND/OR WEB API** (the default). Click the **Next** icon.
-6.	On the **App properties** page, specify the **SIGN-ON URL** and **APP ID URI** for your web application. If your application does not have these values, you can make them up for this step (for example, you could specify http://test1.contoso.com for both boxes). It does not matter if these sites exist; what is important is that the app ID URI for each application is different for every application in your directory. The directory uses this string to identify your app.
-7.	Click the **Complete** icon to save your changes in the wizard.
-8.	On the **Quick Start** page, click **CONFIGURE**.
-9.	Scroll to the **keys** section, select the duration, and then click **SAVE**. The page refreshes and now shows a key value. You must configure your application with this key value and the **CLIENT ID** value. (Instructions for this configuration will be application-specific.)
-10.	Copy the client ID value from this page, which you will use in the next step to set permissions on your vault.
+4.  In the **ADD APPLICATION** wizard, on the **What do you want to do?** page, click **Add an application my organization is developing**.
+5.  On the **Tell us about your application** page, specify a name for your application, and then select **WEB APPLICATION AND/OR WEB API** (the default). Click the **Next** icon.
+6.  On the **App properties** page, specify the **SIGN-ON URL** and **APP ID URI** for your web application. If your application does not have these values, you can make them up for this step (for example, you could specify http://test1.contoso.com for both boxes). It does not matter if these sites exist; what is important is that the app ID URI for each application is different for every application in your directory. The directory uses this string to identify your app.
+7.  Click the **Complete** icon to save your changes in the wizard.
+8.  On the **Quick Start** page, click **CONFIGURE**.
+9.  Scroll to the **keys** section, select the duration, and then click **SAVE**. The page refreshes and now shows a key value. You must configure your application with this key value and the **CLIENT ID** value. (Instructions for this configuration will be application-specific.)
+10. Copy the client ID value from this page, which you will use in the next step to set permissions on your vault.
 
 ## <a id="authorize"></a>Authorize the application to use the key or secret ##
 
@@ -172,12 +172,12 @@ To authorize the application to access the key or secret in the vault, use the
 For example, if your vault name is **ContosoKeyVault** and the application you want to authorize has a client ID of 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed, and you want to authorize the application to decrypt and sign with keys in your vault, run the following:
 
 
-	Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign
+    Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign
 
 If you want to authorize that same application to read secrets in your vault, run the following:
 
 
-	Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToSecrets Get
+    Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToSecrets Get
 
 ## <a id="HSM"></a>If you want to use a hardware security module (HSM) ##
 
@@ -189,22 +189,22 @@ To create these HSM-protected keys, you must have a [vault subscription that sup
 When you create the vault, add the **-SKU** parameter:
 
 
-	New-AzureRmKeyVault -VaultName 'ContosoKeyVaultHSM' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia' -SKU 'Premium'
+    New-AzureRmKeyVault -VaultName 'ContosoKeyVaultHSM' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia' -SKU 'Premium'
 
 
 
 You can add software-protected keys (as shown earlier) and HSM-protected keys to this vault. To create an HSM-protected key, set the **-Destination** parameter to 'HSM':
 
-	$key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -Destination 'HSM'
+    $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -Destination 'HSM'
 
 You can use the following command to import a key from a .PFX file on your computer. This command imports the key into HSMs in the Key Vault service:
 
-	$key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -KeyFilePath 'c:\softkey.pfx' -KeyFilePassword $securepfxpwd -Destination 'HSM'
+    $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -KeyFilePath 'c:\softkey.pfx' -KeyFilePassword $securepfxpwd -Destination 'HSM'
 
 
 The next command imports a “bring your own key" (BYOK) package. This lets you generate your key in your local HSM, and transfer it to HSMs in the Key Vault service, without the key leaving the HSM boundary:
 
-	$key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -KeyFilePath 'c:\ITByok.byok' -Destination 'HSM'
+    $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -KeyFilePath 'c:\ITByok.byok' -Destination 'HSM'
 
 For more detailed instructions about how to generate this BYOK package, see [How to generate and transfer HSM-protected keys for Azure Key Vault](key-vault-hsm-protected-keys.md).
 
@@ -212,11 +212,11 @@ For more detailed instructions about how to generate this BYOK package, see [How
 
 If you no longer need the key vault and the key or secret that it contains, you can delete the key vault by using the [Remove-AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt619485.aspx) cmdlet:
 
-	Remove-AzureRmKeyVault -VaultName 'ContosoKeyVault'
+    Remove-AzureRmKeyVault -VaultName 'ContosoKeyVault'
 
 Or, you can delete an entire Azure resource group, which includes the key vault and any other resources that you included in that group:
 
-	Remove-AzureRmResourceGroup -ResourceGroupName 'ContosoResourceGroup'
+    Remove-AzureRmResourceGroup -ResourceGroupName 'ContosoResourceGroup'
 
 
 ## <a id="other"></a>Other Azure PowerShell Cmdlets ##
@@ -238,3 +238,4 @@ For a list of Azure PowerShell 1.0 cmdlets for Azure Key Vault, see [Azure Key V
  
 
 For programming references, see [the Azure Key Vault developer's guide](key-vault-developers-guide.md).
+

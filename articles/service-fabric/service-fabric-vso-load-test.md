@@ -1,4 +1,4 @@
-﻿<properties
+<properties
     pageTitle="Load test your application using Visual Studio Team Services | Microsoft Azure"
     description="Learn how to stress test your Azure Service Fabric applications by using Visual Studio Team Services."
     services="service-fabric"
@@ -139,3 +139,4 @@ Visual Studio Team Services Load Test provides APIs to enable you to manage load
 [7]: ./media/service-fabric-vso-load-test/RunTest.png
 [8]: ./media/service-fabric-vso-load-test/RunTest2.png
 [9]: ./media/service-fabric-vso-load-test/Graph.png
+

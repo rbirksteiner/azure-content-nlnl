@@ -1,22 +1,22 @@
 <properties
-	pageTitle="What do I do if my Azure subscription becomes disabled? | Microsoft Azure"
-	description="Describes the reasons and resolution for Azure subscription becomes disabled"
-	services="billing"
-	documentationCenter=""
-	authors="genlin"
-	manager="jarrettr"
-	editor="na"
-	tags="billing"
-	/>
+    pageTitle="What do I do if my Azure subscription becomes disabled? | Microsoft Azure"
+    description="Describes the reasons and resolution for Azure subscription becomes disabled"
+    services="billing"
+    documentationCenter=""
+    authors="genlin"
+    manager="jarrettr"
+    editor="na"
+    tags="billing"
+    />
 
 <tags
-	ms.service="billing"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/23/2015"
-	ms.author="genli"/>
+    ms.service="billing"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/23/2015"
+    ms.author="genli"/>
 
 # What do I do if my Azure subscription becomes disabled?
 
@@ -33,3 +33,4 @@ To resolve this, see the article [Why have you received a notification that your
 ### The Azure subscription is cancelled
 
 To reactivate a subscription, you must create a support ticket. To create a support ticket to re-enable an Azure subscription see the article [How to Create a Support Ticket for Azure Billing and Subscription Issues](../billing-how-to-create-billing-support-ticket.md).
+

@@ -1,21 +1,21 @@
 <properties
 
-	pageTitle="Managing security groups in Azure Active Directory | Microsoft Azure"
-	description="How to create and manage security groups to manage Azure resource access using Azure Active Directory."
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Managing security groups in Azure Active Directory | Microsoft Azure"
+    description="How to create and manage security groups to manage Azure resource access using Azure Active Directory."
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/17/2015"
-	ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/17/2015"
+    ms.author="curtand"/>
 
 
 #Managing security groups in Azure Active Directory
@@ -73,3 +73,4 @@ These articles provide additional information on Azure Active Directory.
 * [What is Azure Active Directory?](active-directory-whatis.md)
 
 * [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
+

@@ -37,13 +37,13 @@ VNets that are currently associated with affinity groups are enabled for migrati
 
 1. Edit your network configuration file, replacing the old values with the new values. 
 
-	> [AZURE.NOTE] The **Location** is the region that you specified for the affinity group that is associated with your VNet. For example, if your VNet is associated with an affinity group that is located in West US, when you migrate, your Location must point to West US. 
-	
-	Edit the following lines in your network configuration file, replacing the values with your own: 
+    > [AZURE.NOTE] The **Location** is the region that you specified for the affinity group that is associated with your VNet. For example, if your VNet is associated with an affinity group that is located in West US, when you migrate, your Location must point to West US. 
+    
+    Edit the following lines in your network configuration file, replacing the values with your own: 
 
-	**Old value:** \<VirtualNetworkSitename="VNetUSWest" AffinityGroup="VNetDemoAG"\> 
+    **Old value:** \<VirtualNetworkSitename="VNetUSWest" AffinityGroup="VNetDemoAG"\> 
 
-	**New value:** \<VirtualNetworkSitename="VNetUSWest" Location="West US"\>
+    **New value:** \<VirtualNetworkSitename="VNetUSWest" Location="West US"\>
 
 1. Save your changes and [import](../virtual-networks-using-network-configuration-file/) the network configuration to Azure.
 
@@ -65,3 +65,4 @@ VMs that are currently in an affinity group do not need to be removed from the a
 
 Once a VM is deployed, it is deployed to a single scale unit. Affinity groups can restrict the set of available VM sizes for a new VM deployment, but any existing VM that is deployed is already restricted to the set of VM sizes available in the scale unit in which the VM is deployed. Because of this, removing a VM from the affinity group will have no effect.
  
+

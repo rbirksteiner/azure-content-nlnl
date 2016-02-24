@@ -22,13 +22,13 @@ Use the [Azure preview portal](http://portal.azure.com/) to obtain the connectio
 
 4. After the blade appears for your database, for visual convenience you can click the standard minimize controls to collapse the blades  you used for browsing and database filtering. 
  
-	![Filter to isolate your database][10-FilterDatabase]
+    ![Filter to isolate your database][10-FilterDatabase]
 
 5. On the blade for your database, click **Show database connection strings**.
 
 6. If you intend to use the ADO.NET connection library, copy the string labeled **ADO**. 
  
-	![Copy the ADO connection string for your database][20-CopyAdoConnectionString]
+    ![Copy the ADO connection string for your database][20-CopyAdoConnectionString]
  
 7. In one format or another, paste the connection string information into your client program code.
 
@@ -52,3 +52,4 @@ includes/sql-database-include-connection-string-20-portalshots.md
 includes/sql-database-include-connection-string-30-compare.md
 includes/sql-database-include-connection-string-40-config.md
 -->
+

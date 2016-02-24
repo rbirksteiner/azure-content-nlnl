@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Get Started with Azure Mobile Engagement for iOS in Objective C"
-	description="Learn how to use Azure Mobile Engagement with analytics and push notifications for iOS apps."
-	services="mobile-engagement"
-	documentationCenter="Mobile"
-	authors="piyushjo"
-	manager="dwrede"
-	editor="" />
+    pageTitle="Get Started with Azure Mobile Engagement for iOS in Objective C"
+    description="Learn how to use Azure Mobile Engagement with analytics and push notifications for iOS apps."
+    services="mobile-engagement"
+    documentationCenter="Mobile"
+    authors="piyushjo"
+    manager="dwrede"
+    editor="" />
 
 <tags
-	ms.service="mobile-engagement"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-ios"
-	ms.devlang="objective-c"
-	ms.topic="hero-article"
-	ms.date="09/22/2015"
-	ms.author="piyushjo" />
+    ms.service="mobile-engagement"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-ios"
+    ms.devlang="objective-c"
+    ms.topic="hero-article"
+    ms.date="09/22/2015"
+    ms.author="piyushjo" />
 
 # Get Started with Azure Mobile Engagement for iOS apps in Objective C
 
@@ -58,36 +58,36 @@ We will create a basic app with XCode to demonstrate the integration.
 2. Extract the .tar.gz file to a folder in your computer.
 3. Right-click the project, and then select **Add files to**.
 
-	![][1]
+    ![][1]
 
 4. Navigate to the folder where you extracted the SDK, select the `EngagementSDK` folder, and then press **OK**.
 
-	![][2]
+    ![][2]
 
 5. Open the **Build Phases** tab, and in the **Link Binary With Libraries** menu, add the frameworks as shown below:
 
-	![][3]
+    ![][3]
 
 6. For **XCode 7** - add `libxml2.tbd` instead of `libxml2.dylib`.
 
 7. Go back to the Azure portal in your app's **Connection Info** page and copy the connection string.
 
-	![][4]
+    ![][4]
 
 8. Add the following line of code in your **AppDelegate.m** file.
 
-		#import "EngagementAgent.h"
+        #import "EngagementAgent.h"
 
 9. Now paste the connection string in the `didFinishLaunchingWithOptions` delegate.
 
-		- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-		{
-  			[...]
-			//[EngagementAgent setTestLogEnabled:YES];
+        - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+        {
+            [...]
+            //[EngagementAgent setTestLogEnabled:YES];
    
-  			[EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}"];
-  			[...]
-		}
+            [EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}"];
+            [...]
+        }
 
 10. `setTestLogEnabled` is an optional statement which enables SDK logs for you to identify issues. 
 
@@ -101,7 +101,7 @@ In order to start sending data and ensuring that the users are active, you must 
 
 2. Now replace the super class of the **ViewController** interface by `EngagementViewController`:
 
-	`@interface ViewController : EngagementViewController`
+    `@interface ViewController : EngagementViewController`
 
 ##<a id="monitor"></a>Connect app with real-time monitoring
 
@@ -128,52 +128,52 @@ The following sections set up your app to receive them.
 
 1. Back in **AppDeletegate.m** file, import the Engagement Reach module.
 
-		#import "AEReachModule.h"
+        #import "AEReachModule.h"
 
 2. Inside the `application:didFinishLaunchingWithOptions` method, create a Reach module and pass it to your existing Engagement initialization line:
 
-		- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-			AEReachModule * reach = [AEReachModule moduleWithNotificationIcon:[UIImage imageNamed:@"icon.png"]];
-			[EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}" modules:reach, nil];
-			[...]
-			return YES;
-		}
+        - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+            AEReachModule * reach = [AEReachModule moduleWithNotificationIcon:[UIImage imageNamed:@"icon.png"]];
+            [EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}" modules:reach, nil];
+            [...]
+            return YES;
+        }
 
 ###Enable your app to receive APNS Push Notifications
 
 1. Add the following line to the `application:didFinishLaunchingWithOptions` method:
 
-		if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
-			[application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert) categories:nil]];
-			[application registerForRemoteNotifications];
-		}
-		else {
+        if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
+            [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert) categories:nil]];
+            [application registerForRemoteNotifications];
+        }
+        else {
 
-			[application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
-		}
+            [application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+        }
 
 2. Add the `application:didRegisterForRemoteNotificationsWithDeviceToken` method as follows:
 
-		- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
-		{
- 			[[EngagementAgent shared] registerDeviceToken:deviceToken];
-			NSLog(@"Registered Token: %@", deviceToken);
-		}
+        - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+        {
+            [[EngagementAgent shared] registerDeviceToken:deviceToken];
+            NSLog(@"Registered Token: %@", deviceToken);
+        }
 
 3. Add the `didFailToRegisterForRemoteNotificationsWithError` method as follows:
 
-		- (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
-		{
-		   
-		   NSLog(@"Failed to get token, error: %@", error);
-		}
+        - (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
+        {
+           
+           NSLog(@"Failed to get token, error: %@", error);
+        }
 
 4. Add the `didReceiveRemoteNotification:fetchCompletionHandler` method as follows:
 
-		- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))handler
-		{
-			[[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:handler];
-		}
+        - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))handler
+        {
+            [[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:handler];
+        }
 
 [AZURE.INCLUDE [mobile-engagement-ios-send-push-push](../../includes/mobile-engagement-ios-send-push.md)]
 
@@ -185,4 +185,5 @@ The following sections set up your app to receive them.
 [2]: ./media/mobile-engagement-ios-get-started/xcode-select-engagement-sdk.png
 [3]: ./media/mobile-engagement-ios-get-started/xcode-build-phases.png
 [4]: ./media/mobile-engagement-ios-get-started/app-connection-info-page.png
+
 

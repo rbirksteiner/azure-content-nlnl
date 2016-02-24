@@ -155,3 +155,4 @@ See [Getting started with the Reporting API](active-directory-reporting-api-gett
 Email [aadreportinghelp@microsoft.com](mailto:aadreportinghelp@microsoft.com) for feedback, help, or any questions you might have!
 
 > [AZURE.TIP] For more documentation on Azure AD Reporting, check out [View your access and usage reports](active-directory-view-access-usage-reports.md).
+

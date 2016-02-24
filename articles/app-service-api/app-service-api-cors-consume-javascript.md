@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Consume an API app from JavaScript using CORS | Microsoft Azure"
-	description="Learn how to consume an API app in Azure App Service, from a JavaScript client and using CORS."
-	services="app-service\api"
-	documentationCenter=".net"
-	authors="tdykstra"
-	manager="wpickett"
-	editor=""/>
+    pageTitle="Consume an API app from JavaScript using CORS | Microsoft Azure"
+    description="Learn how to consume an API app in Azure App Service, from a JavaScript client and using CORS."
+    services="app-service\api"
+    documentationCenter=".net"
+    authors="tdykstra"
+    manager="wpickett"
+    editor=""/>
 
 <tags
-	ms.service="app-service-api"
-	ms.workload="na"
-	ms.tgt_pltfrm="dotnet"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="12/04/2015"
-	ms.author="tdykstra"/>
+    ms.service="app-service-api"
+    ms.workload="na"
+    ms.tgt_pltfrm="dotnet"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="12/04/2015"
+    ms.author="tdykstra"/>
 
 # Consume an API app from JavaScript using CORS
 
@@ -44,33 +44,33 @@ In the [ContactsList sample application](https://github.com/Azure-Samples/app-se
 
 The AngularJS JavaScript code that calls the API is in the *index.html* file in the ContactsList.Angular project. The code defines the functions and adds them to the `$scope` object, as shown here where the API's Get method is defined as `$scope.refresh()`.
 
-		angular.module('myApp', []).controller('contactListCtrl', function ($scope, $http) {
-		    $scope.baseurl = 'http://localhost:51864';
-		
-		    $scope.refresh = function () {
-		        $scope.status = "Refreshing Contacts...";
-		        $http({
-		            method: 'GET',
-		            url: $scope.baseUrl + '/api/contacts',
-		            headers: {
-		                'Content-Type': 'application/json'
-		            }
-		        }).then(function (results) {
-		            $scope.contacts = results.data;
-		            $scope.status = "Contacts loaded";
-		        }, function (err) {
-		            $scope.status = "Error loading contacts";
-		        });
-		    };
-		
-		    // POST and DELETE not shown
-		
-		    $scope.refresh();
-		});
+        angular.module('myApp', []).controller('contactListCtrl', function ($scope, $http) {
+            $scope.baseurl = 'http://localhost:51864';
+        
+            $scope.refresh = function () {
+                $scope.status = "Refreshing Contacts...";
+                $http({
+                    method: 'GET',
+                    url: $scope.baseUrl + '/api/contacts',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(function (results) {
+                    $scope.contacts = results.data;
+                    $scope.status = "Contacts loaded";
+                }, function (err) {
+                    $scope.status = "Error loading contacts";
+                });
+            };
+        
+            // POST and DELETE not shown
+        
+            $scope.refresh();
+        });
 
 The code calls $scope.refresh() method when the page loads (at the end of of the snippet shown above) and is wired up to the **Refresh** button in the UI.
 
-		<th><button class="btn btn-sm btn-info" ng-click="refresh()">Refresh</button></th>
+        <th><button class="btn btn-sm btn-info" ng-click="refresh()">Refresh</button></th>
 
 ## Run the AngularJS project locally
 
@@ -80,9 +80,9 @@ In this section you verify that you can run the client locally and can call the 
 
 2. Press F5 to start the projects.
 
-	The AngularJS UI displays the contacts that are stored locally, and you can use the UI to add and delete contacts.
+    The AngularJS UI displays the contacts that are stored locally, and you can use the UI to add and delete contacts.
 
-	![](./media/app-service-api-cors-consume-javascript/homepagelocal.png)
+    ![](./media/app-service-api-cors-consume-javascript/homepagelocal.png)
 
 3. Close the browser windows.
 
@@ -94,8 +94,8 @@ Next, you'll run the AngularJS frontend in the cloud and call the API backend th
 
 2. Comment out the line that sets `baseUrl` to the localhost URL, uncomment the line that sets `baseUrl` to an azurewebsites.net URL, and replace the placeholder with the actual name of the API app you created earlier.  If you named the API app ContactsListAPI, the code now looks like the following example.
 
-		$scope.baseUrl = 'https://ContactsListAPI.azurewebsites.net';
-		//$scope.baseUrl = 'http://localhost:51864';
+        $scope.baseUrl = 'https://ContactsListAPI.azurewebsites.net';
+        //$scope.baseUrl = 'http://localhost:51864';
 
 ### Deploy the ContactsList.Angular project to the web app
 
@@ -117,21 +117,21 @@ You could create a new web app to deploy the AngularJS project to, but for this 
 
 9. Expand **File Publish Options**, and then select **Remove additional files at destination**.
 
-	![](./media/app-service-api-cors-consume-javascript/removeadditionalfiles.png)
+    ![](./media/app-service-api-cors-consume-javascript/removeadditionalfiles.png)
 
-	Normally when you deploy a web project to an existing App Service web app you don't want the "remove additional files" option because any changes are typically updates or new files. In this case you're deploying a different project to the same web app, so there are likely to be many files from the earlier deployment that aren't needed in the new one. 
+    Normally when you deploy a web project to an existing App Service web app you don't want the "remove additional files" option because any changes are typically updates or new files. In this case you're deploying a different project to the same web app, so there are likely to be many files from the earlier deployment that aren't needed in the new one. 
 
 10. Click **Publish**.
 
-	Visual Studio deploys the ContactsList.Angular project to the web app and opens a browser to the URL of the web app. The browser shows the same AngularJS UI that you saw running locally, except now it fails because your frontend is running in a different domain (the web app URL) than the backend (the API app URL). 
+    Visual Studio deploys the ContactsList.Angular project to the web app and opens a browser to the URL of the web app. The browser shows the same AngularJS UI that you saw running locally, except now it fails because your frontend is running in a different domain (the web app URL) than the backend (the API app URL). 
 
-	![](./media/app-service-api-cors-consume-javascript/corserror.png)
+    ![](./media/app-service-api-cors-consume-javascript/corserror.png)
 
 ## <a id="corsconfig"></a> Configure CORS for the target API app in Azure
 
 8. In another browser window go to the [Azure portal](https://portal.azure.com/).
 
-9. Click **Browse > API Apps**, and then select the target API app.	For this tutorial, that is the API app that you created in the first tutorial for the ContactsList.API project.
+9. Click **Browse > API Apps**, and then select the target API app. For this tutorial, that is the API app that you created in the first tutorial for the ContactsList.API project.
 
 10. In the **API app** blade, click **Settings**.
 
@@ -139,17 +139,17 @@ You could create a new web app to deploy the AngularJS project to, but for this 
 
 12. In the text box enter the URL that you want to allow calls to come from. For example, if you deployed your JavaScript application to a web app named ContactsListMVC, enter "http://contactslistmvc.azurewebsites.net".
 
-	Note that as an alternative to entering a URL, you can enter an asterisk (*) to specify that all origin domains are accepted.
+    Note that as an alternative to entering a URL, you can enter an asterisk (*) to specify that all origin domains are accepted.
 
 13. Click **Save**.
 
-	![](./media/app-service-api-cors-consume-javascript/corsinportal.png)
+    ![](./media/app-service-api-cors-consume-javascript/corsinportal.png)
 
 14. Go to the browser window that displays the AngularJS client, and refresh the page or click the **Refresh** button.
 
-	The page now shows the contacts that are stored in the Azure API app's file system.
+    The page now shows the contacts that are stored in the Azure API app's file system.
 
-	![](./media/app-service-api-cors-consume-javascript/homepageazure.png)
+    ![](./media/app-service-api-cors-consume-javascript/homepageazure.png)
 
 ### CORS in Azure Resource Manager tooling
 
@@ -157,11 +157,11 @@ You can also configure CORS for an API app by using Azure Resource Manager tooli
 
 Set the `cors` property on the Microsoft.Web/sites/config resource type for your <site name>/web resource. For example, in **Resource Explorer**, go to **subscriptions > {your subscription} > resourceGroups > {your resource group} > providers > Microsoft.Web > sites > {your site} > config > web**, and you'll see the cors property:
 
-		"cors": {
-		    "allowedOrigins": [
-		        "contactslistmvc.azurewebsites.net"
-		    ]
-		}
+        "cors": {
+            "allowedOrigins": [
+                "contactslistmvc.azurewebsites.net"
+            ]
+        }
 
 ### App Service CORS versus Web API CORS
 
@@ -174,36 +174,37 @@ In a Web API project you can install the [Microsoft.AspNet.WebApi.Cors](https://
 
 1. In a Web API project, include a `config.EnableCors()` line of code in the **Register** method of the **WebApiConfig**, as in the following example. 
 
-		public static class WebApiConfig
-	    {
-	        public static void Register(HttpConfiguration config)
-	        {
-	            // Web API configuration and services
-	            
-		        // The following line enables you to control CORS by using Web API code
-				config.EnableCors();
-	
-	            // Web API routes
-	            config.MapHttpAttributeRoutes();
-	
-	            config.Routes.MapHttpRoute(
-	                name: "DefaultApi",
-	                routeTemplate: "api/{controller}/{id}",
-	                defaults: new { id = RouteParameter.Optional }
-	            );
-	        }
-	    }
+        public static class WebApiConfig
+        {
+            public static void Register(HttpConfiguration config)
+            {
+                // Web API configuration and services
+                
+                // The following line enables you to control CORS by using Web API code
+                config.EnableCors();
+    
+                // Web API routes
+                config.MapHttpAttributeRoutes();
+    
+                config.Routes.MapHttpRoute(
+                    name: "DefaultApi",
+                    routeTemplate: "api/{controller}/{id}",
+                    defaults: new { id = RouteParameter.Optional }
+                );
+            }
+        }
 
 1. In your Web API controller, add the `EnableCors` attribute to the `ContactsController` class or to individual action methods. In the following example CORS support applies to the entire controller.
 
-		namespace ContactList.Controllers
-		{
-		    [HttpOperationExceptionFilterAttribute]
-		    [EnableCors(origins:"*", headers:"*", methods: "*")]
-		    public class ContactsController : ApiController
+        namespace ContactList.Controllers
+        {
+            [HttpOperationExceptionFilterAttribute]
+            [EnableCors(origins:"*", headers:"*", methods: "*")]
+            public class ContactsController : ApiController
  
-	> **Note**: Use of wildcards for all of the parameters with the `EnableCors` attribute is intended only for demonstration purposes, and will open your API up to all origins and all HTTP requests. Use this attribute with caution.
+    > **Note**: Use of wildcards for all of the parameters with the `EnableCors` attribute is intended only for demonstration purposes, and will open your API up to all origins and all HTTP requests. Use this attribute with caution.
 
 ## Next steps 
 
 In this tutorial you saw how to enable App Service CORS support so that client JavaScript code can call to an API in a different domain. In the next article in the API Apps getting started series, you'll learn about [authentication for App Service API apps](app-service-api-authentication.md).
+

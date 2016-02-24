@@ -1,19 +1,19 @@
 <properties
-	pageTitle="Monitor availability and responsiveness of any web site | Microsoft Azure"
-	description="Set up web tests in Application Insights. Get alerts if a website becomes unavailable or responds slowly."
-	services="application-insights"
+    pageTitle="Monitor availability and responsiveness of any web site | Microsoft Azure"
+    description="Set up web tests in Application Insights. Get alerts if a website becomes unavailable or responds slowly."
+    services="application-insights"
     documentationCenter=""
-	authors="alancameronwills"
-	manager="douge"/>
+    authors="alancameronwills"
+    manager="douge"/>
 
 <tags
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="11/04/2015"
-	ms.author="awills"/>
+    ms.service="application-insights"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="ibiza"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="11/04/2015"
+    ms.author="awills"/>
 
 # Monitor availability and responsiveness of any web site
 
@@ -251,3 +251,4 @@ You might want to disable web tests while you are performing maintenance on your
 [diagnostic]: app-insights-diagnostic-search.md
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
+

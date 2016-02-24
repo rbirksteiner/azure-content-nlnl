@@ -65,3 +65,4 @@ Now that you reviewed the pre-requisites and completed the necessary tasks, you 
 Or, if you would like to review the overall process and the respective articles for each of the publishing phases, please visit the article [Getting Started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md).
 
 [link-acct]:marketplace-publishing-accounts-creation-registration.md
+

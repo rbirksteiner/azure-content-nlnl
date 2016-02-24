@@ -1,19 +1,19 @@
 <properties
-	pageTitle="Detect, Triage, Diagnose"
-	description="Analyse crashes and detect  and diagnose performance issues in your applications"
-	authors="alancameronwills"
-	services="application-insights"
+    pageTitle="Detect, Triage, Diagnose"
+    description="Analyse crashes and detect  and diagnose performance issues in your applications"
+    authors="alancameronwills"
+    services="application-insights"
     documentationCenter=""
-	manager="douge"/>
+    manager="douge"/>
 
 <tags
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article" 
-	ms.date="11/06/2015"
-	ms.author="awills"/>
+    ms.service="application-insights"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="ibiza"
+    ms.devlang="na"
+    ms.topic="article" 
+    ms.date="11/06/2015"
+    ms.author="awills"/>
 
 # Detect, Triage and Diagnose with Application Insights
 
@@ -263,3 +263,4 @@ So that's how one team use Application Insights not just to fix individual issue
 [perf]: app-insights-web-monitor-performance.md
 [usage]: app-insights-web-track-usage.md
  
+

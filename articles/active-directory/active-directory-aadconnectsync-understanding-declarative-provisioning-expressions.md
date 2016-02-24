@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure AD Connect sync: Understanding Declarative Provisioning Expressions | Microsoft Azure"
-	description="Explains the declarative provisioning expressions."
-	services="active-directory"
-	documentationCenter=""
-	authors="markusvi"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Azure AD Connect sync: Understanding Declarative Provisioning Expressions | Microsoft Azure"
+    description="Explains the declarative provisioning expressions."
+    services="active-directory"
+    documentationCenter=""
+    authors="markusvi"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/10/2015"
-	ms.author="markusvi;andkjell"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/10/2015"
+    ms.author="markusvi;andkjell"/>
 
 
 # Azure AD Connect sync: Understanding Declarative Provisioning Expressions
@@ -130,3 +130,4 @@ For a complete list of functions, see [Azure AD Connect sync: Functions Referenc
 * [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
 
 <!--Image references-->
+

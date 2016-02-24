@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Create a Logic App with an API app | Microsoft Azure" 
-	description="Use an Azure Resource Manager template to deploy a Logic App and an API app." 
-	services="app-service\logic" 
-	documentationCenter="" 
-	authors="tfitzmac" 
-	manager="wpickett" 
-	editor=""/>
+    pageTitle="Create a Logic App with an API app | Microsoft Azure" 
+    description="Use an Azure Resource Manager template to deploy a Logic App and an API app." 
+    services="app-service\logic" 
+    documentationCenter="" 
+    authors="tfitzmac" 
+    manager="wpickett" 
+    editor=""/>
 
 <tags 
-	ms.service="app-service-logic" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/16/2015" 
-	ms.author="tomfitz"/>
+    ms.service="app-service-logic" 
+    ms.workload="integration" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/16/2015" 
+    ms.author="tomfitz"/>
 
 # Create a Logic App plus API app using a template
 
@@ -395,3 +395,4 @@ Notice that the logic app uses the token to call the gateway.
 
 
  
+

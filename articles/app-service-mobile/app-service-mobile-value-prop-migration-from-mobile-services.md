@@ -1,20 +1,20 @@
 <properties
-	pageTitle="I use Mobile Services, how does App Service help?"
-	description="Learn what advantages does App Service bring to your existing Mobile Services projects."
-	services="app-service\mobile"
-	documentationCenter="ios"
-	authors="kirillg"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="I use Mobile Services, how does App Service help?"
+    description="Learn what advantages does App Service bring to your existing Mobile Services projects."
+    services="app-service\mobile"
+    documentationCenter="ios"
+    authors="kirillg"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-multiple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/05/2015"
-	ms.author="kirillg"/>
+    ms.service="app-service-mobile"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-multiple"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/05/2015"
+    ms.author="kirillg"/>
 
 # <a name="getting-started"> </a>I use Mobile Services, how does App Service help?
 
@@ -68,3 +68,4 @@ With *Azure App Service* you can now create multiple private testing and staging
 
 By the time *Azure App Service Mobile App* feature becomes Generally Available, we will provide seamless migration experience for your existing Mobile Services to App Service should you choose to migrate. In the meantime, you can start exploring *App Service* and take advantage of *App Service* for your existing Mobile Service by following this [tutorial](app-service-mobile-migrating-from-mobile-services.md).
  
+

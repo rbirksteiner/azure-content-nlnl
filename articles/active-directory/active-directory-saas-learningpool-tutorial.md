@@ -74,20 +74,20 @@ The following screenshot shows an example for this.
 
 ###To configure single sign-on, perform the following steps:
 
-1.  In the Azure AD portal, on the **Learningpool** application integration page, in the menu on the top, click **Attributes** to open the **SAML Token Attributes** dialog.
+1.  In the Azure AD portal, on the **Learningpool** application integration page, in the menu on the top, click **Attributes** to open the **SAML Token Attributes** dialog.
 
     ![Attributes](./media/active-directory-saas-learningpool-tutorial/IC795075.png "Attributes")
 
 2.  To add the required attribute mappings, perform the following steps:
 
-    ###  
+    ###  
 
     |Attribute Name                |Attribute Value            |
-	|------------------------------|---------------------------|
+    |------------------------------|---------------------------|
 
      urn:oid:1.2.840.113556.1.4.221 | User.userprincipalname
-	|-------------------------------|--------------------------|  
-	 urn:oid:2.5.4.42|User.givenname   
+    |-------------------------------|--------------------------|  
+     urn:oid:2.5.4.42|User.givenname   
     |urn:oid:0.9.2342.19200300.100.1.3|User.mail
     |urn:oid:2.5.4.4|User.surname
 
@@ -100,20 +100,20 @@ The following screenshot shows an example for this.
 
 4.  In your browser, click **Back** to open the **Quick Start** dialog again.
 
-5.  Click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+5.  Click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
     ![Configure Singel Sign-On](./media/active-directory-saas-learningpool-tutorial/IC795076.png "Configure Singel Sign-On")
 
-6.  On the **How would you like users to sign on to Learningpool** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+6.  On the **How would you like users to sign on to Learningpool** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-learningpool-tutorial/IC795077.png "Configure Single Sign-On")
 
-7.  On the **Configure App URL** page, in the **Learningpool Sign On URL** textbox, type the URL used by your users to sign on to your Learningpool application ( e.g.: 
+7.  On the **Configure App URL** page, in the **Learningpool Sign On URL** textbox, type the URL used by your users to sign on to your Learningpool application ( e.g.: 
 https://parliament.preview.learningpool.com/auth/shibboleth/index.php), and then click **Next**.
 
     ![Configure App URL](./media/active-directory-saas-learningpool-tutorial/IC795078.png "Configure App URL")
 
-8.  On the **Configure single sign-on at Learningpool** page, to download your metadata, click **Download metadata**, and then save the certificate file locally on your computer.
+8.  On the **Configure single sign-on at Learningpool** page, to download your metadata, click **Download metadata**, and then save the certificate file locally on your computer.
 
     ![Configure Single Sign-On](./media/active-directory-saas-learningpool-tutorial/IC795079.png "Configure Single Sign-On")
 
@@ -121,7 +121,7 @@ https://parliament.preview.learningpool.com/auth/shibboleth/index.php), and then
 
     >[AZURE.NOTE]Single sign-on has to be enabled by the Learningpool support team.
 
-10. On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+10. On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
     ![Configure Single Sign-On](./media/active-directory-saas-learningpool-tutorial/IC795080.png "Configure Single Sign-On")
 ##Configuring user provisioning
@@ -141,7 +141,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 1.  In the Azure AD portal, create a test account.
 
-2.  On the **Learningpool **application integration page, click **Assign users**.
+2.  On the **Learningpool **application integration page, click **Assign users**.
 
     ![Assign Users](./media/active-directory-saas-learningpool-tutorial/IC795081.png "Assign Users")
 

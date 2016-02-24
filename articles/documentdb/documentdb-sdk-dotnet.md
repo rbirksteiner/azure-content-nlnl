@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="DocumentDB .NET SDK | Microsoft Azure" 
-	description="Learn all about the .NET SDK including release dates, retirement dates, and changes made between each version of the DocumentDB .NET SDK." 
-	services="documentdb" 
-	documentationCenter=".net" 
-	authors="ryancrawcour" 
-	manager="jhubbard" 
-	editor="cgronlun"/>
+    pageTitle="DocumentDB .NET SDK | Microsoft Azure" 
+    description="Learn all about the .NET SDK including release dates, retirement dates, and changes made between each version of the DocumentDB .NET SDK." 
+    services="documentdb" 
+    documentationCenter=".net" 
+    authors="ryancrawcour" 
+    manager="jhubbard" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="11/16/2015" 
-	ms.author="ryancraw"/>
+    ms.service="documentdb" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="dotnet" 
+    ms.topic="article" 
+    ms.date="11/16/2015" 
+    ms.author="ryancraw"/>
 
 # DocumentDB SDK
 
@@ -84,9 +84,9 @@
   - LINQ provider support for OrderBy() or OrderByDescending()
   - IndexingPolicy to support Order By 
   
-		**NB: Possible breaking change** 
+        **NB: Possible breaking change** 
   
-    	If you have existing code that provisions collections with a custom indexing policy, then your existing code will need to be updated to support the new IndexingPolicy class. If you have no custom indexing policy, then this change does not affect you.
+        If you have existing code that provisions collections with a custom indexing policy, then your existing code will need to be updated to support the new IndexingPolicy class. If you have no custom indexing policy, then this change does not affect you.
 
 ### <a name="1.1.0"/>[1.1.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.1.0)
 - Support for partitioning data by using the new HashPartitionResolver and RangePartitionResolver classes and the IPartitionResolver
@@ -118,7 +118,7 @@ All versions of the Azure DocumentDB SDK for .NET prior to version **1.0.0** wil
 <br/>
  
 | Version | Release Date | Retirement Date 
-| ---	  | ---	         | ---
+| ---     | ---          | ---
 | [1.5.2](#1.5.2) | December 14, 2015 |---
 | [1.5.1](#1.5.1) | November 23, 2015 |---
 | [1.5.0](#1.5.0) | October 05, 2015 |---
@@ -139,3 +139,4 @@ All versions of the Azure DocumentDB SDK for .NET prior to version **1.0.0** wil
 ## See Also
 
 To learn more about DocumentDB, see [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) service page. 
+

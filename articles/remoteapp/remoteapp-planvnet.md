@@ -47,11 +47,12 @@ We recommend you use a [large enough  subnet for Azure RemoteApp](remoteapp-vnet
 
 Following are the things you will need to enable on your virtual network subnet: 
 
-2.	Outbound traffic from the subnet should be allowed on port range 10101-10175 to communicate with one of the internal Azure RemoteApp services.
-3.	Outbound traffic should be allowed from your subnet to connect to Azure Storage on port 443
-4.	If you have Active Directory hosted in Azure, make sure any VM within the virtual network subnet for Azure RemoteApp is able to connect to that domain controller. The DNS in the virtual network should be able to resolve the FQDN of this domain controller.
+2.  Outbound traffic from the subnet should be allowed on port range 10101-10175 to communicate with one of the internal Azure RemoteApp services.
+3.  Outbound traffic should be allowed from your subnet to connect to Azure Storage on port 443
+4.  If you have Active Directory hosted in Azure, make sure any VM within the virtual network subnet for Azure RemoteApp is able to connect to that domain controller. The DNS in the virtual network should be able to resolve the FQDN of this domain controller.
 
 
 ## Virtual network with forced tunneling
 
 [Forced tunneling](vpn-gateway-about-forced-tunneling.md) is now supported for all new Azure RemoteApp collections. We currently do not support the migration of an existing collection to support forced tunneling.  You will have to delete all your existing collections using the VNET that you are linking to Azure RemoteApp and create a new one to get forced tunneling enabled on your collections. 
+

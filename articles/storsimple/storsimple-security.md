@@ -268,3 +268,4 @@ The following are some questions and answers about security and Microsoft Azure 
 
 [Deploy your StorSimple device](storsimple-deployment-walkthrough.md).
  
+

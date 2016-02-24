@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Use Resource Manager to allocate resources to the Apache Spark cluster in HDInsight| Microsoft Azure" 
-	description="Learn how to use the Resource Manager for Spark clusters on HDInsight for better performance." 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="nitinme" 
-	manager="paulettm" 
-	editor="cgronlun"
-	tags="azure-portal"/>
+    pageTitle="Use Resource Manager to allocate resources to the Apache Spark cluster in HDInsight| Microsoft Azure" 
+    description="Learn how to use the Resource Manager for Spark clusters on HDInsight for better performance." 
+    services="hdinsight" 
+    documentationCenter="" 
+    authors="nitinme" 
+    manager="paulettm" 
+    editor="cgronlun"
+    tags="azure-portal"/>
 
 <tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/03/2015" 
-	ms.author="nitinme"/>
+    ms.service="hdinsight" 
+    ms.workload="big-data" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/03/2015" 
+    ms.author="nitinme"/>
 
 
 # Manage resources for the Apache Spark cluster in Azure HDInsight
@@ -28,7 +28,7 @@ Resource manager is a component of the Spark cluster dashboard that enables you 
  
 2. From the Spark cluster blade, click **Dashboard**. When prompted, enter the admin credentials for the Spark cluster.
 
-	![Launch Resource Manager](./media/hdinsight-apache-spark-resource-manager/HDI.Cluster.Launch.Dashboard.png "Start Resource Manager")   
+    ![Launch Resource Manager](./media/hdinsight-apache-spark-resource-manager/HDI.Cluster.Launch.Dashboard.png "Start Resource Manager")   
 
 ##<a name="scenariosrm"></a>How do I fix these issues using the Resource Manager?
 
@@ -43,18 +43,18 @@ Apache Spark cluster in HDInsight is designed for multi-tenancy, so resources ar
 
 1. From the **Spark Dashboard**, click the **Spark UI** tab to find out the maximum number of cores and the maximum RAM that you can allocate to the applications.
 
-	![Resource allocation](./media/hdinsight-apache-spark-resource-manager/HDI.Spark.UI.Resource.png "Find resources allocated to a Spark cluster")
+    ![Resource allocation](./media/hdinsight-apache-spark-resource-manager/HDI.Spark.UI.Resource.png "Find resources allocated to a Spark cluster")
 
-	Going by the screen capture above, the maximum cores that you can allocate is 7 (total 8 cores of which 1 is in use), and the maximum RAM that you can allocate is 9GB (total 12GB RAM, of which 2GB must be set aside for system use and 1GB that is in use by other applications).
+    Going by the screen capture above, the maximum cores that you can allocate is 7 (total 8 cores of which 1 is in use), and the maximum RAM that you can allocate is 9GB (total 12GB RAM, of which 2GB must be set aside for system use and 1GB that is in use by other applications).
 
-	You should also factor any applications that are running. You can look at the running applications from the **Spark UI** tab.
+    You should also factor any applications that are running. You can look at the running applications from the **Spark UI** tab.
 
-	![Running applications](./media/hdinsight-apache-spark-resource-manager/HDI.Spark.UI.Running.Apps.png "Applications running on the cluster")
+    ![Running applications](./media/hdinsight-apache-spark-resource-manager/HDI.Spark.UI.Running.Apps.png "Applications running on the cluster")
 
-	
+    
 2. From the HDInsight Spark Dashboard, click the **Resource Manager** tab and specify the values for **Default application core count** and **Default executor memory per worker node**. Set other properties to 0.
 
-	![Resource allocation](./media/hdinsight-apache-spark-resource-manager/HDI.Spark.UI.Allocate.Resources.png "Allocate resources to your applications")
+    ![Resource allocation](./media/hdinsight-apache-spark-resource-manager/HDI.Spark.UI.Allocate.Resources.png "Allocate resources to your applications")
 
 ### I do not use BI tools with the Spark cluster. How can I take resources back? 
 
@@ -81,3 +81,4 @@ Specify thrift server core Count and thrift Server executor memory as 0. With no
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/ 
+

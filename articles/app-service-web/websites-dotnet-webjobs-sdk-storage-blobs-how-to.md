@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How to use Azure blob storage with the WebJobs SDK" 
-	description="Learn how to use Azure blob storage with the WebJobs SDK. Trigger a process when a new blob appears in a container and handle 'poison blobs'." 
-	services="app-service\web, storage" 
-	documentationCenter=".net" 
-	authors="tdykstra" 
-	manager="wpickett" 
-	editor="jimbe"/>
+    pageTitle="How to use Azure blob storage with the WebJobs SDK" 
+    description="Learn how to use Azure blob storage with the WebJobs SDK. Trigger a process when a new blob appears in a container and handle 'poison blobs'." 
+    services="app-service\web, storage" 
+    documentationCenter=".net" 
+    authors="tdykstra" 
+    manager="wpickett" 
+    editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="09/22/2015" 
-	ms.author="tdykstra"/>
+    ms.service="app-service-web" 
+    ms.workload="web" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="dotnet" 
+    ms.topic="article" 
+    ms.date="09/22/2015" 
+    ms.author="tdykstra"/>
 
 # How to use Azure blob storage with the WebJobs SDK
 
@@ -23,7 +23,7 @@
 This guide provides C# code samples that show how to trigger a process when an Azure blob is created or updated. The code samples use [WebJobs SDK](websites-dotnet-webjobs-sdk.md) version 1.x.
 
 For code samples that show how to create blobs, see [How to use Azure queue storage with the WebJobs SDK](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
-		
+        
 The guide assumes you know [how to create a WebJob project in Visual Studio with connection strings that point to your storage account](websites-dotnet-webjobs-sdk-get-started.md).
 
 ## <a id="trigger"></a> How to trigger a function when a blob is created or updated
@@ -36,31 +36,31 @@ This section shows how to use the `BlobTrigger` attribute.
 
 The following code sample copies text blobs that appear in the *input* container to the *output* container:
 
-		public static void CopyBlob([BlobTrigger("input/{name}")] TextReader input,
-		    [Blob("output/{name}")] out string output)
-		{
-		    output = input.ReadToEnd();
-		}
+        public static void CopyBlob([BlobTrigger("input/{name}")] TextReader input,
+            [Blob("output/{name}")] out string output)
+        {
+            output = input.ReadToEnd();
+        }
 
 The attribute constructor takes a string parameter that specifies the container name and a placeholder for the blob name. In this example, if a blob named *Blob1.txt* is created in the *input* container, the function creates a blob named *Blob1.txt* in the *output* container. 
 
 You can specify a name pattern with the blob name placeholder, as shown in the following code sample:
 
-		public static void CopyBlob([BlobTrigger("input/original-{name}")] TextReader input,
-		    [Blob("output/copy-{name}")] out string output)
-		{
-		    output = input.ReadToEnd();
-		}
+        public static void CopyBlob([BlobTrigger("input/original-{name}")] TextReader input,
+            [Blob("output/copy-{name}")] out string output)
+        {
+            output = input.ReadToEnd();
+        }
 
 This code copies only blobs that have names beginning with "original-". For example, *original-Blob1.txt* in the *input* container is copied to *copy-Blob1.txt* in the *output* container.
 
 If you need to specify a name pattern for blob names that have curly braces in the name, double the curly braces. For example, if you want to find blobs in the *images* container that have names like this:
 
-		{20140101}-soundfile.mp3
+        {20140101}-soundfile.mp3
 
 use this for your pattern:
 
-		images/{{20140101}}-{name}
+        images/{{20140101}}-{name}
 
 In the example, the *name* placeholder value would be *soundfile.mp3*. 
 
@@ -68,16 +68,16 @@ In the example, the *name* placeholder value would be *soundfile.mp3*.
 
 The following code sample changes the file extension as it copies blobs that appear in the *input* container to the *output* container. The code logs the extension of the *input* blob and sets the extension of the *output* blob to *.txt*.
 
-		public static void CopyBlobToTxtFile([BlobTrigger("input/{name}.{ext}")] TextReader input,
-		    [Blob("output/{name}.txt")] out string output,
-		    string name,
-		    string ext,
-		    TextWriter logger)
-		{
-		    logger.WriteLine("Blob name:" + name);
-		    logger.WriteLine("Blob extension:" + ext);
-		    output = input.ReadToEnd();
-		}
+        public static void CopyBlobToTxtFile([BlobTrigger("input/{name}.{ext}")] TextReader input,
+            [Blob("output/{name}.txt")] out string output,
+            string name,
+            string ext,
+            TextWriter logger)
+        {
+            logger.WriteLine("Blob name:" + name);
+            logger.WriteLine("Blob extension:" + ext);
+            output = input.ReadToEnd();
+        }
 
 ## <a id="types"></a> Types that you can bind to blobs
 
@@ -97,52 +97,52 @@ If you want to work directly with the Azure storage account, you can also add a 
 
 If text blobs are expected, `BlobTrigger` can be applied to a `string` parameter. The following code sample binds a text blob to a `string` parameter named `logMessage`. The function uses that parameter to write the contents of the blob to the WebJobs SDK dashboard. 
  
-		public static void WriteLog([BlobTrigger("input/{name}")] string logMessage,
-		    string name, 
-		    TextWriter logger)
-		{
-		     logger.WriteLine("Blob name: {0}", name);
-		     logger.WriteLine("Content:");
-		     logger.WriteLine(logMessage);
-		}
+        public static void WriteLog([BlobTrigger("input/{name}")] string logMessage,
+            string name, 
+            TextWriter logger)
+        {
+             logger.WriteLine("Blob name: {0}", name);
+             logger.WriteLine("Content:");
+             logger.WriteLine(logMessage);
+        }
 
 ## <a id="icbsb"></a> Getting serialized blob content by using ICloudBlobStreamBinder
 
 The following code sample uses a class that implements `ICloudBlobStreamBinder` to enable the `BlobTrigger` attribute to bind a blob to the `WebImage` type.
 
-		public static void WaterMark(
-		    [BlobTrigger("images3/{name}")] WebImage input,
-		    [Blob("images3-watermarked/{name}")] out WebImage output)
-		{
-		    output = input.AddTextWatermark("WebJobs SDK", 
-		        horizontalAlign: "Center", verticalAlign: "Middle",
-		        fontSize: 48, opacity: 50);
-		}
-		public static void Resize(
-		    [BlobTrigger("images3-watermarked/{name}")] WebImage input,
-		    [Blob("images3-resized/{name}")] out WebImage output)
-		{
-		    var width = 180;
-		    var height = Convert.ToInt32(input.Height * 180 / input.Width);
-		    output = input.Resize(width, height);
-		}
+        public static void WaterMark(
+            [BlobTrigger("images3/{name}")] WebImage input,
+            [Blob("images3-watermarked/{name}")] out WebImage output)
+        {
+            output = input.AddTextWatermark("WebJobs SDK", 
+                horizontalAlign: "Center", verticalAlign: "Middle",
+                fontSize: 48, opacity: 50);
+        }
+        public static void Resize(
+            [BlobTrigger("images3-watermarked/{name}")] WebImage input,
+            [Blob("images3-resized/{name}")] out WebImage output)
+        {
+            var width = 180;
+            var height = Convert.ToInt32(input.Height * 180 / input.Width);
+            output = input.Resize(width, height);
+        }
 
 The `WebImage` binding code is provided in a `WebImageBinder` class that derives from `ICloudBlobStreamBinder`.
 
-		public class WebImageBinder : ICloudBlobStreamBinder<WebImage>
-		{
-		    public Task<WebImage> ReadFromStreamAsync(Stream input, 
-		        System.Threading.CancellationToken cancellationToken)
-		    {
-		        return Task.FromResult<WebImage>(new WebImage(input));
-		    }
-		    public Task WriteToStreamAsync(WebImage value, Stream output,
-		        System.Threading.CancellationToken cancellationToken)
-		    {
-		        var bytes = value.GetBytes();
-		        return output.WriteAsync(bytes, 0, bytes.Length, cancellationToken);
-		    }
-		}
+        public class WebImageBinder : ICloudBlobStreamBinder<WebImage>
+        {
+            public Task<WebImage> ReadFromStreamAsync(Stream input, 
+                System.Threading.CancellationToken cancellationToken)
+            {
+                return Task.FromResult<WebImage>(new WebImage(input));
+            }
+            public Task WriteToStreamAsync(WebImage value, Stream output,
+                System.Threading.CancellationToken cancellationToken)
+            {
+                var bytes = value.GetBytes();
+                return output.WriteAsync(bytes, 0, bytes.Length, cancellationToken);
+            }
+        }
 
 ## <a id="poison"></a> How to handle poison blobs
 
@@ -160,34 +160,34 @@ The queue message for poison blobs is a JSON object that contains the following 
 
 In the following code sample, the `CopyBlob` function has code that causes it to fail every time it's called. After the SDK calls it for the maximum number of retries, a message is created on the poison blob queue, and that message is processed by the `LogPoisonBlob` function. 
 
-		public static void CopyBlob([BlobTrigger("input/{name}")] TextReader input,
-		    [Blob("textblobs/output-{name}")] out string output)
-		{
-		    throw new Exception("Exception for testing poison blob handling");
-		    output = input.ReadToEnd();
-		}
-		
-		public static void LogPoisonBlob(
-		[QueueTrigger("webjobs-blobtrigger-poison")] PoisonBlobMessage message,
-		    TextWriter logger)
-		{
-		    logger.WriteLine("FunctionId: {0}", message.FunctionId);
-		    logger.WriteLine("BlobType: {0}", message.BlobType);
-		    logger.WriteLine("ContainerName: {0}", message.ContainerName);
-		    logger.WriteLine("BlobName: {0}", message.BlobName);
-		    logger.WriteLine("ETag: {0}", message.ETag);
-		}
+        public static void CopyBlob([BlobTrigger("input/{name}")] TextReader input,
+            [Blob("textblobs/output-{name}")] out string output)
+        {
+            throw new Exception("Exception for testing poison blob handling");
+            output = input.ReadToEnd();
+        }
+        
+        public static void LogPoisonBlob(
+        [QueueTrigger("webjobs-blobtrigger-poison")] PoisonBlobMessage message,
+            TextWriter logger)
+        {
+            logger.WriteLine("FunctionId: {0}", message.FunctionId);
+            logger.WriteLine("BlobType: {0}", message.BlobType);
+            logger.WriteLine("ContainerName: {0}", message.ContainerName);
+            logger.WriteLine("BlobName: {0}", message.BlobName);
+            logger.WriteLine("ETag: {0}", message.ETag);
+        }
 
 The SDK automatically deserializes the JSON message. Here is the `PoisonBlobMessage` class: 
 
-		public class PoisonBlobMessage
-		{
-		    public string FunctionId { get; set; }
-		    public string BlobType { get; set; }
-		    public string ContainerName { get; set; }
-		    public string BlobName { get; set; }
-		    public string ETag { get; set; }
-		}
+        public class PoisonBlobMessage
+        {
+            public string FunctionId { get; set; }
+            public string BlobType { get; set; }
+            public string ContainerName { get; set; }
+            public string BlobName { get; set; }
+            public string ETag { get; set; }
+        }
 
 ### <a id="polling"></a> Blob polling algorithm
 
@@ -231,3 +231,4 @@ Related topics covered in that article include the following:
 
 This guide has provided code samples that show how to handle common scenarios for working with Azure blobs. For more information about how to use Azure WebJobs and the WebJobs SDK, see [Azure WebJobs Recommended Resources](http://go.microsoft.com/fwlink/?linkid=390226).
  
+

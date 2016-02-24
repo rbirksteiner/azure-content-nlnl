@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="DocumentDB Java SDK | Microsoft Azure" 
-	description="Learn all about the Java SDK including release dates, retirement dates, and changes made between each version of the DocumentDB Java SDK." 
-	services="documentdb" 
-	documentationCenter="java" 
-	authors="ryancrawcour" 
-	manager="jhubbard" 
-	editor="cgronlun"/>
+    pageTitle="DocumentDB Java SDK | Microsoft Azure" 
+    description="Learn all about the Java SDK including release dates, retirement dates, and changes made between each version of the DocumentDB Java SDK." 
+    services="documentdb" 
+    documentationCenter="java" 
+    authors="ryancrawcour" 
+    manager="jhubbard" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="java" 
-	ms.topic="article" 
-	ms.date="12/07/2015" 
-	ms.author="ryancraw"/>
+    ms.service="documentdb" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="java" 
+    ms.topic="article" 
+    ms.date="12/07/2015" 
+    ms.author="ryancraw"/>
 
 # DocumentDB SDK
 
@@ -70,7 +70,7 @@ All versions of the Azure DocumentDB SDK for Java prior to version **1.0.0** wil
 <br/>
 
 | Version | Release Date | Retirement Date 
-| ---	  | ---	         | ---
+| ---     | ---          | ---
 | [1.5.0](#1.5.0) | December 04, 2015 |---
 | [1.4.0](#1.4.0) | October 05, 2015 |---
 | [1.3.0](#1.3.0) | October 05, 2015 |---
@@ -91,3 +91,4 @@ All versions of the Azure DocumentDB SDK for Java prior to version **1.0.0** wil
 ## See Also
 
 To learn more about DocumentDB, see [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) service page. 
+

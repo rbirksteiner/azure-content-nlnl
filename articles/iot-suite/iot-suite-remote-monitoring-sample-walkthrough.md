@@ -65,7 +65,7 @@ The simulated devices can handle the following commands sent from an IoT hub:
 | Command                | Description                                         |
 |------------------------|-----------------------------------------------------|
 | PingDevice             | Sends a _ping_ to the device to check it is alive   |
-| StartTelemetry         | Starts the device sending telemetry 				   |
+| StartTelemetry         | Starts the device sending telemetry                 |
 | StopTelemetry          | Stops the device from sending telemetry             |
 | ChangeSetPointTemp     | Changes the set point value around which the random data is generated |
 | DiagnosticTelemetry    | Triggers the device simulator to send an additional telemetry value (externalTemp) |
@@ -143,3 +143,4 @@ Using the solution portal you can search for devices with specific characteristi
 You can disable a device, and after it is disabled you can remove it:
 
 ![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_08.png)
+

@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Add authentication on Android with Mobile Apps| Azure App Service"
-	description="Learn how to use Mobile Apps in Azure App Service to authenticate users of your Android app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft."
-	services="app-service\mobile"
-	documentationCenter="android"
-	authors="ggailey777"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Add authentication on Android with Mobile Apps| Azure App Service"
+    description="Learn how to use Mobile Apps in Azure App Service to authenticate users of your Android app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft."
+    services="app-service\mobile"
+    documentationCenter="android"
+    authors="ggailey777"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-android"
-	ms.devlang="java"
-	ms.topic="article"
-	ms.date="12/06/2015"
-	ms.author="glenga"/>
+    ms.service="app-service-mobile"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-android"
+    ms.devlang="java"
+    ms.topic="article"
+    ms.date="12/06/2015"
+    ms.author="glenga"/>
 
 # Add authentication to your Android app
 
@@ -36,7 +36,7 @@ In this tutorial, you add authentication to the todolist quickstart project on A
 
 + In Android Studio, open the project that you created when you completed the tutorial [Get started with Mobile Apps], then from the **Run** menu click **Run app** and verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts.
 
-	 This happens because the app attempts to access the backend as an unauthenticated user, but the _TodoItem_ table now requires authentication.
+     This happens because the app attempts to access the backend as an unauthenticated user, but the _TodoItem_ table now requires authentication.
 
 Next, you will update the app to authenticate users before requesting resources from the Mobile App backend.
 
@@ -71,3 +71,4 @@ Now that you completed this basic authentication tutorial, consider continuing o
 
 <!-- URLs. -->
 [Get started with Mobile Apps]: app-service-mobile-android-get-started.md
+

@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure Backup for SQL Server workloads using DPM | Microsoft Azure"
-	description="An introduction to backing up SQL Server databases using the Azure Backup service"
-	services="backup"
-	documentationCenter=""
-	authors="giridharreddy"
-	manager="shreeshd"
-	editor=""/>
+    pageTitle="Azure Backup for SQL Server workloads using DPM | Microsoft Azure"
+    description="An introduction to backing up SQL Server databases using the Azure Backup service"
+    services="backup"
+    documentationCenter=""
+    authors="giridharreddy"
+    manager="shreeshd"
+    editor=""/>
 
 <tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/26/2015"
-	ms.author="aashishr", "giridham"; "jimpark"/>
+    ms.service="backup"
+    ms.workload="storage-backup-recovery"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/26/2015"
+    ms.author="aashishr", "giridham"; "jimpark"/>
 
 
 # Azure Backup for SQL Server workloads using DPM
@@ -172,4 +172,5 @@ The following steps are required to recover a protected entity (SQL Server datab
 
 ### Next Steps:
 
-•	[Azure Backup FAQ](backup-azure-backup-faq.md)
+•   [Azure Backup FAQ](backup-azure-backup-faq.md)
+

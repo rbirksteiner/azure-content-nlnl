@@ -122,7 +122,7 @@ The following example applies a read-only lock to a web app.
                     "targetId": "[resourceId('Microsoft.Storage/storageAccounts','storagecontoso')]",
                     "notes": "This web site uses the storage account to store user information."
                 }
-    	    }
+            }
         ],
         "outputs": {}
     }
@@ -131,3 +131,4 @@ The following example applies a read-only lock to a web app.
 ## Next steps
 
 - For information about the template structure, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
+

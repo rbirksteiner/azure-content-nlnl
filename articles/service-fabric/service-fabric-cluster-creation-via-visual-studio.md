@@ -51,16 +51,16 @@ The Visual Studio Service Fabric ARM template creates a secure cluster, one that
 Another aspect of the template that you might want to change before deploying it are the **public application ports** for the cluster. By default the template opens up just two public TCP ports (80 and 8081); if you need more for your applications, you will need to modify the Azure load balancer definition in the template. The definition is stored in the main template file (`SecureFabricCluster.json`). Open that file and search for "loadBalancedAppPort". You will notice that each port is associated with three artifacts:
 
 1. A template parameter that defines the TCP port value for the port:
-	```json
-	"loadBalancedAppPort1": {
-	    "type": "int",
-	    "defaultValue": 80
-	}
-	```
+    ```json
+    "loadBalancedAppPort1": {
+        "type": "int",
+        "defaultValue": 80
+    }
+    ```
 
 2. A *probe* that defines how frequently and for how long the Azure load balancer will attempt to use a specific Service Fabric node before failing over to another one. The probes are part of the load balancer resource. Here is the probe definition for the first default application port:
-	```json
-	{
+    ```json
+    {
         "name": "AppPortProbe1",
         "properties": {
             "intervalInSeconds": 5,
@@ -69,29 +69,29 @@ Another aspect of the template that you might want to change before deploying it
             "protocol": "tcp"
         }
     }
-	```
+    ```
 
 3. A *load balancing rule* that ties together the port and the probe and enables load balancing across a set of Service Fabric cluster nodes:
     ```json
-	{
-	    "name": "AppPortLBRule1",
-	    "properties": {
-	        "backendAddressPool": {
-	            "id": "[variables('lbPoolID0')]"
-	        },
-	        "backendPort": "[parameters('loadBalancedAppPort1')]",
-	        "enableFloatingIP": false,
-	        "frontendIPConfiguration": {
-	            "id": "[variables('lbIPConfig0')]"
-	        },
-	        "frontendPort": "[parameters('loadBalancedAppPort1')]",
-	        "idleTimeoutInMinutes": 5,
-	        "probe": {
-	            "id": "[concat(variables('lbID0'),'/probes/AppPortProbe1')]"
-	        },
-	        "protocol": "tcp"
-	    }
-	}
+    {
+        "name": "AppPortLBRule1",
+        "properties": {
+            "backendAddressPool": {
+                "id": "[variables('lbPoolID0')]"
+            },
+            "backendPort": "[parameters('loadBalancedAppPort1')]",
+            "enableFloatingIP": false,
+            "frontendIPConfiguration": {
+                "id": "[variables('lbIPConfig0')]"
+            },
+            "frontendPort": "[parameters('loadBalancedAppPort1')]",
+            "idleTimeoutInMinutes": 5,
+            "probe": {
+                "id": "[concat(variables('lbID0'),'/probes/AppPortProbe1')]"
+            },
+            "protocol": "tcp"
+        }
+    }
     ```
 If applications that you plan to deploy to the cluster need more ports, you will have to add them by creating additional probe and load balancing rule definitions. For more information on how to work with Azure load balancer through ARM templates please see [Get started configuring internal load balancer using Azure Resource Manager](https://azure.microsoft.com/documentation/articles/load-balancer-internal-arm-powershell/) article.
 
@@ -120,3 +120,4 @@ If there are any errors, go to [Azure portal](https://portal.azure.com/) and che
 [1]: ./media/service-fabric-cluster-creation-via-visual-studio/azure-resource-group-project-creation.png
 [2]: ./media/service-fabric-cluster-creation-via-visual-studio/selecting-azure-template.png
 [3]: ./media/service-fabric-cluster-creation-via-visual-studio/deploy-to-azure.png
+

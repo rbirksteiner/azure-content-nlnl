@@ -34,3 +34,4 @@ All traffic requests to *www.contoso.com* will now be directed to *contoso.traff
 [Traffic Manager - Disable, enable or delete a profile](disable-enable-or-delete-a-profile.md)
 
 [Traffic Manager - Disable or enable an endpoint](disable-or-enable-an-endpoint.md)
+

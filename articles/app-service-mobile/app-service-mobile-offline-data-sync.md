@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Offline Data Sync in Azure Mobile Apps | Microsoft Azure"
-	description="Conceptual reference and overview of the offline data sync feature for Azure Mobile Apps"
-	documentationCenter="windows"
-	authors="wesmc7777"
-	manager="dwrede"
-	editor=""
-	services="app-service\mobile"/>
+    pageTitle="Offline Data Sync in Azure Mobile Apps | Microsoft Azure"
+    description="Conceptual reference and overview of the offline data sync feature for Azure Mobile Apps"
+    documentationCenter="windows"
+    authors="wesmc7777"
+    manager="dwrede"
+    editor=""
+    services="app-service\mobile"/>
 
 <tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="11/30/2015"
-	ms.author="wesmc"/>
+    ms.service="app-service-mobile"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="na"
+    ms.devlang="multiple"
+    ms.topic="article"
+    ms.date="11/30/2015"
+    ms.author="wesmc"/>
 
 # Offline Data Sync in Azure Mobile Apps
 
@@ -36,10 +36,10 @@ Offline sync has a number of benefits:
 
 The following tutorials show how to add offline sync to your mobile clients using Azure Mobile Apps:
 
-* [iOS: Enable offline sync]			
-* [Xamarin iOS: Enable offline sync]	
+* [iOS: Enable offline sync]            
+* [Xamarin iOS: Enable offline sync]    
 * [Xamarin Android: Enable offline sync]
-* [Windows 8.1: Enable offline sync]	
+* [Windows 8.1: Enable offline sync]    
 
 ## What is a sync table?
 
@@ -72,12 +72,12 @@ The sync table uses the [System Properties](https://msdn.microsoft.com/library/a
 
 
 * The data objects on the client should have some system properties, most are not required.
-	* Managed
-		* Write out the attributes
-	* iOS
-		*table for the entity
+    * Managed
+        * Write out the attributes
+    * iOS
+        *table for the entity
 * Note: because the iOS local store is based on Core Data, the developer must define the following tables:
-	* System tables  -->
+    * System tables  -->
 
 
 ## How offline synchronization works
@@ -98,7 +98,7 @@ When using sync tables, your client code controls when local changes will be syn
 
   If the query has a parameter, one way to create a unique query name is to incorporate the parameter value. For instance, if you are filtering on userid, your query name could be as follows:
 
-		await todoTable.PullAsync("todoItems" + userid, syncTable.Where(u => u.UserId = userid));
+        await todoTable.PullAsync("todoItems" + userid, syncTable.Where(u => u.UserId = userid));
 
   If you want to opt out of incremental sync, pass `null` as the query ID. In this case, all records will be retrieved on every call to `PullAsync`, which is potentially inefficient.
 
@@ -106,7 +106,7 @@ When using sync tables, your client code controls when local changes will be syn
 
 <!--   mymobileservice-code.azurewebsites.net/tables/TodoItem?$filter=(__updatedAt ge datetimeoffset'1970-01-01T00:00:00.0000000%2B00:00')&$orderby=__updatedAt&$skip=0&$top=50&__includeDeleted=true&__systemproperties=__updatedAt%2C__deleted
  -->
- 	
+    
 * **Purging**: You can clear the contents of the local store using `IMobileServiceSyncTable.PurgeAsync`. This may be necessary if you have stale data in the client database, or if you wish to discard all pending changes.
 
   A purge will clear a table from the local store. If there are operations pending synchronization with the server database, the purge will throw an exception unless the *force purge* parameter is set.
@@ -115,10 +115,10 @@ When using sync tables, your client code controls when local changes will be syn
  
 ## Next steps
 
-* [iOS: Enable offline sync]			
-* [Xamarin iOS: Enable offline sync]	
+* [iOS: Enable offline sync]            
+* [Xamarin iOS: Enable offline sync]    
 * [Xamarin Android: Enable offline sync]
-* [Windows 8.1: Enable offline sync]	
+* [Windows 8.1: Enable offline sync]    
 
 <!-- Links -->
 
@@ -126,3 +126,4 @@ When using sync tables, your client code controls when local changes will be syn
 [Xamarin iOS: Enable offline sync]: ../app-service-mobile-xamarin-ios-get-started-offline-data.md
 [Xamarin Android: Enable offline sync]: ../app-service-mobile-xamarin-ios-get-started-offline-data.md
 [Windows 8.1: Enable offline sync]: ../app-service-mobile-windows-store-dotnet-get-started-offline-data.md
+

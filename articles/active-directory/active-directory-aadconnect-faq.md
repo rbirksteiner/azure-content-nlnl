@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure AD Connect: FAQ | Microsoft Azure"
-	description="This page has frequently asked questions about Azure AD Connect."
-	services="active-directory"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
-	editor="curtand"/>
+    pageTitle="Azure AD Connect: FAQ | Microsoft Azure"
+    description="This page has frequently asked questions about Azure AD Connect."
+    services="active-directory"
+    documentationCenter=""
+    authors="billmath"
+    manager="stevenpo"
+    editor="curtand"/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/02/2015"
-	ms.author="billmath"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/02/2015"
+    ms.author="billmath"/>
 
 # Azure AD Connect FAQ
 
@@ -89,3 +89,4 @@ No. This option will not retrieve all configuration settings and should not be u
 [Azure AD Connect customer support](https://manage.windowsazure.com/?getsupport=true)
 
 - Use this link to get support through the Azure portal.
+

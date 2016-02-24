@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Authentication and authorization for API Apps in Azure App Service | Microsoft Azure"
-	description="Learn about the authentication and authorization services that Azure App Service provides for API Apps."
-	services="app-service\api"
-	documentationCenter=".net"
-	authors="tdykstra"
-	manager="wpickett"
-	editor=""/>
+    pageTitle="Authentication and authorization for API Apps in Azure App Service | Microsoft Azure"
+    description="Learn about the authentication and authorization services that Azure App Service provides for API Apps."
+    services="app-service\api"
+    documentationCenter=".net"
+    authors="tdykstra"
+    manager="wpickett"
+    editor=""/>
 
 <tags
-	ms.service="app-service-api"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="12/04/2015"
-	ms.author="tdykstra"/>
+    ms.service="app-service-api"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="hero-article"
+    ms.date="12/04/2015"
+    ms.author="tdykstra"/>
 
 # Authentication and authorization for API Apps in Azure App Service
 
@@ -39,19 +39,19 @@ App Service can prevent anonymous HTTP requests from reaching your API app, or a
 
 1. Allow only authenticated requests to reach your API app.
 
-	If an anonymous request is received from a browser, App Service will redirect to a logon page. 
+    If an anonymous request is received from a browser, App Service will redirect to a logon page. 
 
-	That works if you know in advance which authentication provider (Google, Twitter, etc.) you want to use, you can configure App Service to handle the logon process for you.  As an alternative, you can specify your own URL to which App Service will redirect anonymous requests. You can then give users a choice of authentication providers.
+    That works if you know in advance which authentication provider (Google, Twitter, etc.) you want to use, you can configure App Service to handle the logon process for you.  As an alternative, you can specify your own URL to which App Service will redirect anonymous requests. You can then give users a choice of authentication providers.
 
-	With this option, you don't need to write any authentication code at all in your app, and authorization is simplified because the most important claims are provided in the HTTP headers.
+    With this option, you don't need to write any authentication code at all in your app, and authorization is simplified because the most important claims are provided in the HTTP headers.
 
 2. Allow all requests to reach your API app, but validate authenticated requests and pass along authentication information in the HTTP headers.
 
-	This option gives you more flexibility in handling anonymous requests, and makes it easy to write code that needs access to the most common claims. Unlike option 1, you have to write code if you want to prevent anonymous users from using your API. 
+    This option gives you more flexibility in handling anonymous requests, and makes it easy to write code that needs access to the most common claims. Unlike option 1, you have to write code if you want to prevent anonymous users from using your API. 
 
 3. Allow all requests to reach your API, take no action on authentication information in the requests.
 
-	This option leaves the tasks of authentication and authorization entirely up to your application code.
+    This option leaves the tasks of authentication and authorization entirely up to your application code.
 
 In the [Azure portal](https://portal.azure.com/), you select the option you want on the **Authentication / Authorization** blade.
 
@@ -95,3 +95,4 @@ This article has explained authentication and authorization features of App Serv
 If you are following the getting started sequence of tutorials for ASP.NET and API Apps, try out these features in the next tutorial, [user authentication in App Service API Apps](app-service-api-dotnet-user-principal-auth.md).
 
 For more information about using Node and Java in Azure App Service, see the [Node.js Developer Center](/develop/nodejs/) and the [Java Developer Center](/develop/java/).
+

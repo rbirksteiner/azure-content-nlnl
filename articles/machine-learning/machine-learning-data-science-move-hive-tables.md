@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Create and load data into Hive tables from Blob storage | Microsoft Azure" 
-	description="Create Hive tables and load data in blob to hive tables" 
-	services="machine-learning,storage" 
-	documentationCenter="" 
-	authors="hangzh-msft" 
-	manager="jacob.spoelstra" 
-	editor="cgronlun"  />
+    pageTitle="Create and load data into Hive tables from Blob storage | Microsoft Azure" 
+    description="Create Hive tables and load data in blob to hive tables" 
+    services="machine-learning,storage" 
+    documentationCenter="" 
+    authors="hangzh-msft" 
+    manager="jacob.spoelstra" 
+    editor="cgronlun"  />
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/12/2015" 
-	ms.author="hangzh;bradsev" />
+    ms.service="machine-learning" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/12/2015" 
+    ms.author="hangzh;bradsev" />
 
  
 #Create and load data into Hive tables from Azure blob storage
@@ -71,7 +71,7 @@ Users have three ways to submit Hive queries in Hadoop Command Line console:
 
 Users can run command like
 
-	hive -e "<your hive query>;
+    hive -e "<your hive query>;
 
 to submit simple Hive queries directly in the Hadoop command line. Here is an example, where the red box outlines the command that submits the Hive query, and the green box outlines the output from the Hive query.
 
@@ -81,15 +81,15 @@ to submit simple Hive queries directly in the Hadoop command line. Here is an ex
 
 When the Hive query is more complicated and has multiple lines, editing queries in Hadoop command line or Hive command console is not practical. An alternative is to use a text editor in the head node of the Hadoop cluster and to save the Hive queries in a .hql file in a local directory of the head node. Then the Hive query in the .hql file can be submitted by using the `-f` argument in the `hive` command as follows:
 
-	`hive -f "<path to the .hql file>"`
+    `hive -f "<path to the .hql file>"`
 
 
 #### Suppress progress status screen print of Hive queries
 
 By default, after Hive query is submitted in the Hadoop Command Line console, the progress of the Map/Reduce job will be printed out on screen. To suppress the screen print of the Map/Reduce job progress, you can use the argument `-S` (case-sensitive) argument in the command line as follows:
 
-	hive -S -f "<path to the .hql file>"
-	hive -S -e "<Hive queries>"
+    hive -S -f "<path to the .hql file>"
+    hive -S -e "<Hive queries>"
 
 #### Submit Hive queries in Hive command console.
 
@@ -105,14 +105,14 @@ The previous examples directly output the Hive query results on screen. Users ca
 
 To output Hive query results to a local directory on the head node, users have to submit the Hive query in the Hadoop Command Line as follows:
 
-	`hive -e "<hive query>" > <local path in the head node>`
+    `hive -e "<hive query>" > <local path in the head node>`
 
 
 #### Output Hive query results to an Azure blob
 
 Users can also output the Hive query results to an Azure blob, within the default container of the Hadoop cluster. The Hive query to do this looks like this:
 
-	insert overwrite directory wasb:///<directory within the default container> <select clause from ...>
+    insert overwrite directory wasb:///<directory within the default container> <select clause from ...>
 
 In the following example, the output of Hive query is written to a blob directory `queryoutputdir` within the default container of the Hadoop cluster. Here, you must only provide the directory name, without the blob name. An error will be thrown out if you provide both the directory and the blob name, such as *wasb:///queryoutputdir/queryoutput.txt*.
 
@@ -140,17 +140,17 @@ The Hive queries are shared in the [Github repository](https://github.com/Azure/
 Here is the Hive query that creates a Hive table.
 
     create database if not exists <database name>;
-	CREATE EXTERNAL TABLE if not exists <database name>.<table name>
-	(
-		field1 string, 
-		field2 int, 
-		field3 float, 
-		field4 double, 
-		...,
-		fieldN string
-	) 
-	ROW FORMAT DELIMITED FIELDS TERMINATED BY '<field separator>' lines terminated by '<line separator>' 
-	STORED AS TEXTFILE LOCATION '<storage location>' TBLPROPERTIES("skip.header.line.count"="1");
+    CREATE EXTERNAL TABLE if not exists <database name>.<table name>
+    (
+        field1 string, 
+        field2 int, 
+        field3 float, 
+        field4 double, 
+        ...,
+        fieldN string
+    ) 
+    ROW FORMAT DELIMITED FIELDS TERMINATED BY '<field separator>' lines terminated by '<line separator>' 
+    STORED AS TEXTFILE LOCATION '<storage location>' TBLPROPERTIES("skip.header.line.count"="1");
 
 Here are the descriptions of the fields that users need to plug in and other configurations:
 
@@ -168,7 +168,7 @@ Here is the Hive query that loads data into a Hive table.
 
 - **&#60;path to blob data>**: If the blob file to be uploaded to the Hive table is in the default container of the HDInsight Hadoop cluster, the *&#60;path to blob data>* should be in the format *'wasb:///&#60;directory in this container>/&#60;blob file name>'*. The blob file can also be in an additional container of the HDInsight Hadoop cluster. In this case, *&#60;path to blob data>* should be in the format *'wasb://&#60;container name>@&#60;storage account name>.blob.core.windows.net/&#60;blob file name>'*.
 
-	>[AZURE.NOTE] The blob data to be uploaded to Hive table has to be in the default or additional container of the storage account for the Hadoop cluster. Otherwise, the *LOAD DATA* query will fail complaining that it cannot access the data. 
+    >[AZURE.NOTE] The blob data to be uploaded to Hive table has to be in the default or additional container of the storage account for the Hadoop cluster. Otherwise, the *LOAD DATA* query will fail complaining that it cannot access the data. 
 
 
 ## <a name="partition-orc"></a>Advanced topics: partitioned table and store Hive data in ORC format
@@ -181,21 +181,21 @@ In addition to partitioning Hive tables, it is also beneficial to store the Hive
 Here is the Hive query that creates a partitioned table and loads data into it.
 
     CREATE EXTERNAL TABLE IF NOT EXISTS <database name>.<table name>
-	(field1 string,
-	...
-	fieldN string
-	)
+    (field1 string,
+    ...
+    fieldN string
+    )
     PARTITIONED BY (<partitionfieldname> vartype) ROW FORMAT DELIMITED FIELDS TERMINATED BY '<field separator>'
-		 lines terminated by '<line separator>' TBLPROPERTIES("skip.header.line.count"="1");
-	LOAD DATA INPATH '<path to the source file>' INTO TABLE <database name>.<partitioned table name> 
-		PARTITION (<partitionfieldname>=<partitionfieldvalue>);
+         lines terminated by '<line separator>' TBLPROPERTIES("skip.header.line.count"="1");
+    LOAD DATA INPATH '<path to the source file>' INTO TABLE <database name>.<partitioned table name> 
+        PARTITION (<partitionfieldname>=<partitionfieldvalue>);
 
 When querying partitioned tables, it is recommended to add the partition condition in the **beginning** of the `where` clause as this improves the efficacy of searching significantly. 
 
     select 
-		field1, field2, ..., fieldN
-	from <database name>.<partitioned table name> 
-	where <partitionfieldname>=<partitionfieldvalue> and ...;
+        field1, field2, ..., fieldN
+    from <database name>.<partitioned table name> 
+    where <partitionfieldname>=<partitionfieldvalue> and ...;
 
 ### <a name="orc"></a>Store Hive data in ORC format
 
@@ -203,45 +203,45 @@ Users cannot directly load data from blob storage into Hive tables that is store
 
 1. Create an external table **STORED AS TEXTFILE** and load data from blob storage to the table.
 
-		CREATE EXTERNAL TABLE IF NOT EXISTS <database name>.<external textfile table name>
-		(
-			field1 string,
-			field2 int,
-			...
-			fieldN date
-		)
-		ROW FORMAT DELIMITED FIELDS TERMINATED BY '<field separator>' 
-			lines terminated by '<line separator>' STORED AS TEXTFILE 
-			LOCATION 'wasb:///<directory in Azure blob>' TBLPROPERTIES("skip.header.line.count"="1");
+        CREATE EXTERNAL TABLE IF NOT EXISTS <database name>.<external textfile table name>
+        (
+            field1 string,
+            field2 int,
+            ...
+            fieldN date
+        )
+        ROW FORMAT DELIMITED FIELDS TERMINATED BY '<field separator>' 
+            lines terminated by '<line separator>' STORED AS TEXTFILE 
+            LOCATION 'wasb:///<directory in Azure blob>' TBLPROPERTIES("skip.header.line.count"="1");
 
-		LOAD DATA INPATH '<path to the source file>' INTO TABLE <database name>.<table name>;
+        LOAD DATA INPATH '<path to the source file>' INTO TABLE <database name>.<table name>;
 
 2. Create an internal table with the same schema as the external table in step 1, with the same field delimiter, and store the Hive data in the ORC format.
 
-		CREATE TABLE IF NOT EXISTS <database name>.<ORC table name> 
-		(
-			field1 string,
-			field2 int,
-			...
-			fieldN date
-		) 
-		ROW FORMAT DELIMITED FIELDS TERMINATED BY '<field separator>' STORED AS ORC;
+        CREATE TABLE IF NOT EXISTS <database name>.<ORC table name> 
+        (
+            field1 string,
+            field2 int,
+            ...
+            fieldN date
+        ) 
+        ROW FORMAT DELIMITED FIELDS TERMINATED BY '<field separator>' STORED AS ORC;
 
 3. Select data from the external table in step 1 and insert into the ORC table
 
-		INSERT OVERWRITE TABLE <database name>.<ORC table name>
+        INSERT OVERWRITE TABLE <database name>.<ORC table name>
             SELECT * FROM <database name>.<external textfile table name>;
 
-	>[AZURE.NOTE] If the TEXTFILE table *&#60;database name>.&#60;external textfile table name>* has partitions, in STEP 3, the `SELECT * FROM <database name>.<external textfile table name>` command will select the partition variable as a field in the returned data set. Inserting it into the *&#60;database name>.&#60;ORC table name>* will fail since *&#60;database name>.&#60;ORC table name>* does not have the partition variable as a field in the table schema. In this case, users need to specifically select the fields to be inserted to *&#60;database name>.&#60;ORC table name>* as follows:
+    >[AZURE.NOTE] If the TEXTFILE table *&#60;database name>.&#60;external textfile table name>* has partitions, in STEP 3, the `SELECT * FROM <database name>.<external textfile table name>` command will select the partition variable as a field in the returned data set. Inserting it into the *&#60;database name>.&#60;ORC table name>* will fail since *&#60;database name>.&#60;ORC table name>* does not have the partition variable as a field in the table schema. In this case, users need to specifically select the fields to be inserted to *&#60;database name>.&#60;ORC table name>* as follows:
 
-		INSERT OVERWRITE TABLE <database name>.<ORC table name> PARTITION (<partition variable>=<partition value>)
-		   SELECT field1, field2, ..., fieldN
-		   FROM <database name>.<external textfile table name> 
-		   WHERE <partition variable>=<partition value>;
+        INSERT OVERWRITE TABLE <database name>.<ORC table name> PARTITION (<partition variable>=<partition value>)
+           SELECT field1, field2, ..., fieldN
+           FROM <database name>.<external textfile table name> 
+           WHERE <partition variable>=<partition value>;
 
 4. It is safe to drop the *&#60;external textfile table name>* when using the following query after all data has been inserted into *&#60;database name>.&#60;ORC table name>*:
 
-		DROP TABLE IF EXISTS <database name>.<external textfile table name>;
+        DROP TABLE IF EXISTS <database name>.<external textfile table name>;
 
 After following this procedure, you should have a table with data in the ORC format ready to use.  
 

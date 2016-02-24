@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Store JavaScript backend project code in source control | Azure Mobile Services"
-	description="Learn how to store your server script files and modules in a local Git repo on your computer."
-	services="mobile-services"
-	documentationCenter=""
-	authors="ggailey777"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Store JavaScript backend project code in source control | Azure Mobile Services"
+    description="Learn how to store your server script files and modules in a local Git repo on your computer."
+    services="mobile-services"
+    documentationCenter=""
+    authors="ggailey777"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="12/07/2015"
-	ms.author="glenga"/>
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="na"
+    ms.devlang="multiple"
+    ms.topic="article"
+    ms.date="12/07/2015"
+    ms.author="glenga"/>
 
 # Store your mobile service project code in source control
 
@@ -39,10 +39,10 @@ To complete this tutorial, you must have already created a mobile service by com
 
 1. Install Git on your local computer.
 
-	The steps required to install Git vary between operating systems. See [Installing Git] for operating system specific distributions and installation guidance.
+    The steps required to install Git vary between operating systems. See [Installing Git] for operating system specific distributions and installation guidance.
 
-	> [AZURE.NOTE]
-	> On some operating systems, both a command-line and GUI version of Git are available. The instructions provided in this article use the command-line version.
+    > [AZURE.NOTE]
+    > On some operating systems, both a command-line and GUI version of Git are available. The instructions provided in this article use the command-line version.
 
 2. Open a command-line, such as **GitBash** (Windows) or **Bash** (Unix Shell). On OS X systems you can access the command-line through the **Terminal** application.
 
@@ -50,24 +50,24 @@ To complete this tutorial, you must have already created a mobile service by com
 
 4. Use the following command to create a local copy of your new Git repository, replacing `<your_git_URL>` with the URL of the Git repository for your mobile service:
 
-		git clone <your_git_URL>
+        git clone <your_git_URL>
 
 5. When prompted, type in the user name and password that you set when you enabled source control in your mobile service. After successful authentication, you will see a series of responses like this:
 
-		remote: Counting objects: 8, done.
-		remote: Compressing objects: 100% (4/4), done.
-		remote: Total 8 (delta 1), reused 0 (delta 0)
-		Unpacking objects: 100% (8/8), done.
+        remote: Counting objects: 8, done.
+        remote: Compressing objects: 100% (4/4), done.
+        remote: Total 8 (delta 1), reused 0 (delta 0)
+        Unpacking objects: 100% (8/8), done.
 
 6. Browse to the directory from which you ran the `git clone` command, and notice the following directory structure:
 
-	![4][4]
+    ![4][4]
 
-	In this case, a new directory is created with the name of the mobile service, which is the local repository for the data service.
+    In this case, a new directory is created with the name of the mobile service, which is the local repository for the data service.
 
 7. Open the .\service\table subfolder and notice that it contains a TodoItem.json file, which is a JSON representation of the operation permissions on the TodoItem table.
 
-	When server scripts have been defined on this table, you will also have one or more files named <code>TodoItem._&lt;operation&gt;_.js</code> that contain the scripts for the given table operation. Scheduler and custom API scripts are maintained in separate folders with those respective names. For more information, see [Source control].
+    When server scripts have been defined on this table, you will also have one or more files named <code>TodoItem._&lt;operation&gt;_.js</code> that contain the scripts for the given table operation. Scheduler and custom API scripts are maintained in separate folders with those respective names. For more information, see [Source control].
 
 Now that you have created your local repository, you can make changes to server scripts and push the changes back to the mobile service.
 
@@ -77,27 +77,27 @@ Now that you have created your local repository, you can make changes to server 
 
 2. Open the new file todoitem.insert.js in a text editor and paste in the following code and save your changes:
 
-		function insert(item, user, request) {
-		    request.execute();
-		    console.log(JSON.stringify(item, null, 4));
-		}
+        function insert(item, user, request) {
+            request.execute();
+            console.log(JSON.stringify(item, null, 4));
+        }
 
-	This code simply writes the inserted item to the log. If this file already contains code, simply add some valid JavaScript code to this file, such as a call to `console.log()`, then save your changes.
+    This code simply writes the inserted item to the log. If this file already contains code, simply add some valid JavaScript code to this file, such as a call to `console.log()`, then save your changes.
 
 3. In the Git command prompt, type the following command to start tracking the new script file:
 
-		$ git add .
+        $ git add .
 
 
 4. Type the following command to commit changes:
 
-		$ git commit -m "updated the insert script"
+        $ git commit -m "updated the insert script"
 
 5. Type the following command to upload the changes to the remote repository:
 
-		$ git push origin master
+        $ git push origin master
 
-	You should see a series of commands that indicates that the commit is deployed to the mobile service.
+    You should see a series of commands that indicates that the commit is deployed to the mobile service.
 
 6. Back in the [Azure classic portal], click the **Data** tab, then click the **TodoItem** table, click  **Script**, then select the **Insert** operation. Notice that the displayed insert operation script is the same as the JavaScript code that you just uploaded to the repository.
 
@@ -109,35 +109,35 @@ The recommended way to add Node.js modules to your mobile service is by adding r
 
 2. Navigate to the `.\service` folder of your local Git repository, and open the package.json file in a text editor, and add the following field to the **dependencies** object:
 
-		"node-uuid": "~1.4.3"
+        "node-uuid": "~1.4.3"
 
-	>[AZURE.NOTE]This update to the package.json file will cause a restart in your mobile service after the commit is pushed.
+    >[AZURE.NOTE]This update to the package.json file will cause a restart in your mobile service after the commit is pushed.
 
 4. Now browse to the .\service\table subfolder, open the todoitem.insert.js file and modify it as follows:
 
-		function insert(item, user, request) {
-		    var uuid = require('node-uuid');
-		    item.uuid = uuid.v1();
-		    request.execute();
-		    console.log(item);
-		}
+        function insert(item, user, request) {
+            var uuid = require('node-uuid');
+            item.uuid = uuid.v1();
+            request.execute();
+            console.log(item);
+        }
 
-	This code adds a uuid column to the table, populating it with unique GUID identifiers.
+    This code adds a uuid column to the table, populating it with unique GUID identifiers.
 
 5. As in the previous section, type the following command in the Git command prompt:
 
-		$ git add .
-		$ git commit -m "added node-uuid module"
-		$ git push origin master
+        $ git add .
+        $ git commit -m "added node-uuid module"
+        $ git push origin master
 
-	This adds the new file, commits your changes, and pushes the new node-uuid module and changes to the todoitem.insert.js script to your mobile service.
+    This adds the new file, commits your changes, and pushes the new node-uuid module and changes to the todoitem.insert.js script to your mobile service.
 
 ## <a name="next-steps"> </a>Next steps
 
 Now that you have completed this tutorial you know how to store your scripts in source control. Consider learning more about working with server scripts and with custom APIs:
 
 + [Work with server scripts in Mobile Services]
-	<br/>Shows how to work with server scripts, job scheduler, and custom APIs.
+    <br/>Shows how to work with server scripts, job scheduler, and custom APIs.
 
 <!-- Anchors. -->
 [Enable source control in your mobile service]: #enable-source-control
@@ -159,3 +159,4 @@ Now that you have completed this tutorial you know how to store your scripts in 
 [Azure classic portal]: https://manage.windowsazure.com/
 [Modules]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
+

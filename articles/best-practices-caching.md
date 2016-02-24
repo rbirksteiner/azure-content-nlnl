@@ -1141,3 +1141,4 @@ The following pattern may also be relevant to your scenario when implementing ca
 - The [Basic Usage](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Basics.md) page on the StackExchange.Redis website.
 - The [Transactions in Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Transactions.md) page on the StackExchange.Redis repo.
 - The [Data Partitioning Guide](http://msdn.microsoft.com/library/dn589795.aspx) on the Microsoft website.
+

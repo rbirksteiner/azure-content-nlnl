@@ -63,3 +63,4 @@ The instance size of the hosting plan (small, medium, or large).
     }
     
 The template defines the values that are permitted for this parameter (0, 1, or 2), and assigns a default value (0) if no value is specified. The values correspond to small, medium and large.
+

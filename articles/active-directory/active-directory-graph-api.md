@@ -65,3 +65,4 @@ The Graph API enables many application scenarios. The following scenarios are th
 [AD Graph REST documentation](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)
 
 [Azure Active Directory developer's guide](active-directory-developers-guide.md)
+

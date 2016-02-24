@@ -1,21 +1,21 @@
-﻿<properties
-	pageTitle="Troubleshooting VM allocation failure | Microsoft Azure"
-	description="Troubleshooting allocation failure when you create, restart or resize a VM in Azure"
-	services="virtual-machines, azure-resource-manager"
-	documentationCenter=""
-	authors="jiangchen79"
-	manager="felixwu"
-	editor=""
-	tags="top-support-issue"/>
+<properties
+    pageTitle="Troubleshooting VM allocation failure | Microsoft Azure"
+    description="Troubleshooting allocation failure when you create, restart or resize a VM in Azure"
+    services="virtual-machines, azure-resource-manager"
+    documentationCenter=""
+    authors="jiangchen79"
+    manager="felixwu"
+    editor=""
+    tags="top-support-issue"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.workload="na"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/29/2015"
-	ms.author="kenazk"/>
+    ms.service="virtual-machines"
+    ms.workload="na"
+    ms.tgt_pltfrm="ibiza"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/29/2015"
+    ms.author="kenazk"/>
 
 
 
@@ -43,19 +43,19 @@ When an allocation request is pinned to a cluster, there's a higher chance of fa
 These steps can help resolve many allocation failures in virtual machines.
 
 - Resize the VM to a different VM size.<br>
-	Click Browse all > Virtual machines (classic) > your virtual machine > Settings > **Size**. For detailed steps, see [Resize the virtual machine](https://msdn.microsoft.com/library/dn168976.aspx).
+    Click Browse all > Virtual machines (classic) > your virtual machine > Settings > **Size**. For detailed steps, see [Resize the virtual machine](https://msdn.microsoft.com/library/dn168976.aspx).
 
 - Delete all VMs from the Cloud Service and recreate VMs.<br>
-	Click Browse all > Virtual machines (classic) > your virtual machine > Delete. Then, click New > Compute > [Virtual Machine Image]
+    Click Browse all > Virtual machines (classic) > your virtual machine > Delete. Then, click New > Compute > [Virtual Machine Image]
 
 ### Troubleshooting common allocation failures in the Resource Manager deployment model
 
 These steps can help resolve many allocation failures in virtual machines.
 
 - Stop-deallocate all VMs in the same Availability Set, then restart each one.<br>
-	To stop: Click Resource Groups > your Resource Group > Resources > Your Availability Set > Virtual Machines > your Virtual Machine. > Stop
+    To stop: Click Resource Groups > your Resource Group > Resources > Your Availability Set > Virtual Machines > your Virtual Machine. > Stop
 
-	After all VMs stopped, select the first VM and click Start.
+    After all VMs stopped, select the first VM and click Start.
 
 ## Detailed troubleshooting steps
 ### Troubleshooting specific allocation failure scenarios in the classic deployment model
@@ -107,8 +107,8 @@ GeneralError*
 **Workaround**
 
 If it's acceptable to use a different VIP, delete the stopped (de-allocated) VMs (but keep the associated disks) and add the VMs back through a different Cloud Service. Use Regional Virtual Network to connect your Cloud Services:
-1.	If your existing Cloud Service uses Regional Virtual Network, simply add the new Cloud Service to the same Virtual Network.
-2.	If your existing Cloud Service does not use Regional Virtual Network, create a new Virtual Network for the new Cloud Service, and then [connect your existing VNet to the new VNet](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). See more about [Regional Virtual Network](http://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
+1.  If your existing Cloud Service uses Regional Virtual Network, simply add the new Cloud Service to the same Virtual Network.
+2.  If your existing Cloud Service does not use Regional Virtual Network, create a new Virtual Network for the new Cloud Service, and then [connect your existing VNet to the new VNet](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). See more about [Regional Virtual Network](http://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
 
 #### Allocation scenario: restarting stopped (de-allocated) VMs - full de-allocation
 **Error**
@@ -233,3 +233,4 @@ Unable to upgrade the deployment. The requested VM size XXX may not be available
 **GeneralError***
 
 The server encountered an internal error. Please retry the request." or "Failed to produce an allocation for the service.
+

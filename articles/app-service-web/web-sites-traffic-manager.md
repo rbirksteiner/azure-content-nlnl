@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Controlling Azure web app traffic with Azure Traffic Manager" 
-	description="This article provides summary information for  Azure Traffic Manager as it relates to Azure web apps." 
-	services="app-service\web" 
-	documentationCenter="" 
-	authors="cephalin" 
-	writer="cephalin" 
-	manager="wpickett" 
-	editor="mollybos"/>
+    pageTitle="Controlling Azure web app traffic with Azure Traffic Manager" 
+    description="This article provides summary information for  Azure Traffic Manager as it relates to Azure web apps." 
+    services="app-service\web" 
+    documentationCenter="" 
+    authors="cephalin" 
+    writer="cephalin" 
+    manager="wpickett" 
+    editor="mollybos"/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/10/2015" 
-	ms.author="cephalin"/>
+    ms.service="app-service-web" 
+    ms.workload="web" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/10/2015" 
+    ms.author="cephalin"/>
 
 # Controlling Azure web app traffic with Azure Traffic Manager
 
@@ -28,9 +28,9 @@ You can use Azure Traffic Manager to control how requests from web clients are d
 Azure Traffic Manager uses three different load balancing methods. These are described  in the following list as they pertain to Azure web apps. 
 
 * **Failover**: If you have web app clones in different regions, you can use this method to configure one web app to service all web client traffic, and configure another web app in a different region to service that traffic in case the first web app becomes unavailable. 
-	
+    
 * **Round Robin**: If you have web app clones in different regions, you can use this method to distribute traffic equally across the web apps in different regions. 
-	
+    
 * **Performance**: The Performance method distributes traffic based on the shortest round trip time to clients. The Performance method can be used for web apps within the same region or in different regions. 
 
 For detailed information about load balancing in Azure Traffic Manager, see [About Traffic Manager Load Balancing Methods](../traffic-manager/traffic-manager-load-balancing-methods.md).
@@ -63,3 +63,4 @@ For detailed information about load balancing in Azure Traffic Manager, see [Abo
 For more information about using Traffic Manager with Web Apps, see the blog posts 
 [Using Azure Traffic Manager with Azure Web Sites](http://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx) and [Azure Traffic Manager can now integrate with Azure Web Sites](http://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/).
  
+

@@ -308,3 +308,4 @@ You can use these articles to gain a deeper understanding of workload protection
 - [SQL Server backup](backup-azure-backup-sql.md)
 - [SharePoint server backup](backup-azure-backup-sharepoint.md)
 - [Alternate server backup](backup-azure-alternate-dpm-server.md)
+

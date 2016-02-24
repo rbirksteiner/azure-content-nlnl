@@ -115,16 +115,16 @@ The following procedures provide step by step instructions on how to change the 
 2. On the left banner, select **SETTINGS**. 
 3. Your subscriptions appear in the settings screen. If the desired subscription does not appear, click **Subscriptions** at the top, drop down the **FILTER BY DIRECTORY** box and select the directory that contains your subscriptions, and then click **APPLY**.
 
-	![select subscription][4]
+    ![select subscription][4]
 4. In the **settings** area, click your subscription, and then click  **EDIT DIRECTORY** at the bottom of the page.
 
-	![ad-settings-portal][5]
+    ![ad-settings-portal][5]
 5. In the **EDIT DIRECTORY** box, select the Azure Active Directory that is associated with your SQL Server, and then click the arrow for next.
 
-	![edit-directory-select][6]
+    ![edit-directory-select][6]
 6. In the **CONFIRM** directory Mapping dialog box, confirm that "**All co-administrators will be removed.**"
 
-	![edit-directory-confirm][7]
+    ![edit-directory-confirm][7]
 7. Click the check to reload the portal.
 
 > [AZURE.NOTE] When you change the directory, access to all co-administrators, Azure AD users and groups, and directory-backed resource users will be removed and they will no longer have access to this subscription or its resources. Only you, as a service administrator, will be able to configure access for principals based on the new directory. This change might take a substantial amount of time to propagate to all resources. Changing the directory will also change the Azure AD administrator for SQL Database and disallow SQL Database access for any existing Azure AD users. The Azure AD admin must be re-set (as described below) and new Azure AD users must be created.
@@ -139,18 +139,18 @@ Each Azure SQL Server starts with a single server administrator account which is
 
 1. In the [Azure Classic Portal](https://portal.azure.com/), in the upper-right corner, click your connection to drop down a list of possible Active Directories. Choose the correct Active Directory as the default Azure AD. This step links the subscription association with Active Directory with Azure SQL Database making sure that the same subscription is used for both Azure AD and SQL Server.
 
-	![choose-ad][8]
+    ![choose-ad][8]
 2. In the left banner select **SQL servers**, select your **SQL server**, and then in the **SQL Server** blade, at the top click **Settings**.
 
-	![ad settings][9]
+    ![ad settings][9]
 3. In the **Settings** blade, click **Active Directory admin (preview)**, and accept the preview clause.
 4. In the **Active Directory admin (preview)** blade, click to review, and then click **OK** to accept the preview terms.
 5. In the **Active Directory admin (preview)** blade, click **Active Directory admin**, and then at the top, click **Set admin**.
 6. In the **Add admin** blade, search for a user, select the user or group to be an administrator, and then click **Select**. (The Active Directory admin blade will show all members and groups of your Active Directory. Users or groups that are grayed out cannot be selected because they are not supported as Azure AD administrators. (See the list of supported admins in **Azure AD Features and Limitations** above.) Role-based access control (RBAC) applies only to the portal and is not propagated to SQL Server.
 7. At the top of the **Active Directory admin** blade, click **SAVE**. 
-	![choose admin][10]
+    ![choose admin][10]
 
-	The process of changing the administrator may take several minutes. Then the new administrator will appear in the **Active Directory admin** box.
+    The process of changing the administrator may take several minutes. Then the new administrator will appear in the **Active Directory admin** box.
 
 > [AZURE.NOTE] When setting up the Azure AD admin the new admin name (user or group) cannot already be present in the master database as a SQL Server authentication login. If present, the Azure AD admin setup will fail; rolling back its creation and indicating that such an admin (name) already exists. Since such a SQL Server authentication login is not part of the Azure AD, any effort to connect to the server using Azure AD authentication will fail.
 
@@ -259,8 +259,8 @@ Use this method if you are logged into Windows using credentials from a domain t
 
 To create an Azure AD based contained database user (other than the server administrator that owns the database), connect to the database with an Azure AD identity (as described in the previous procedure) as a user with at least the **ALTER ANY USER** permission. Then use the following Transact-SQL syntax:
 
-	CREATE USER Azure_AD_principal_name 
-	FROM EXTERNAL PROVIDER;
+    CREATE USER Azure_AD_principal_name 
+    FROM EXTERNAL PROVIDER;
 
 
 *Azure_AD_principal_name* can be the user principal name of an Azure AD user or the display name for an Azure AD group.
@@ -268,12 +268,12 @@ To create an Azure AD based contained database user (other than the server admin
 **Examples:**
 To create a contained database user representing an Azure AD federated or managed domain user:
 
-	CREATE USER [bob@contoso.com] FROM EXTERNAL PROVIDER;
-	CREATE USER [alice@fabrikam.onmicrosoft.com] FROM EXTERNAL PROVIDER;
+    CREATE USER [bob@contoso.com] FROM EXTERNAL PROVIDER;
+    CREATE USER [alice@fabrikam.onmicrosoft.com] FROM EXTERNAL PROVIDER;
 
 To create a contained database user representing an Azure AD or federated domain group:
 
-	CREATE USER [Nurses] FROM EXTERNAL PROVIDER;
+    CREATE USER [Nurses] FROM EXTERNAL PROVIDER;
 
 
 For more information about creating contained database users based on Azure Active Directory identities, see [CREATE USER (Transact-SQL)](http://msdn.microsoft.com/library/ms173463.aspx).
@@ -297,20 +297,20 @@ To use integrated Windows authentication, your domain’s Active Directory must 
 
 To connect to a database using integrated authentication and an Azure AD identity, the Authentication keyword in the database connection string must be set to Active Directory Integrated. The following C# code sample uses ADO .NET.
 
-	string ConnectionString = 
-	@"Data Source=n9lxnyuzhv.database.windows.net; Authentication=Active Directory Integrated;";
-	SqlConnection conn = new SqlConnection(ConnectionString);
-	conn.Open();
+    string ConnectionString = 
+    @"Data Source=n9lxnyuzhv.database.windows.net; Authentication=Active Directory Integrated;";
+    SqlConnection conn = new SqlConnection(ConnectionString);
+    conn.Open();
 
 Note that the connection string keyword ``Integrated Security=True`` is not supported for connecting to Azure SQL Database.
 
 ### 7.2. Connecting with an Azure AD principal name and a password 
 To connect to a database using integrated authentication and an Azure AD identity, the Authentication keyword must be set to Active Directory Password and the connection string must contain User ID/UID and Password/PWD keywords and values. The following C# code sample uses ADO .NET.
 
-	string ConnectionString =
-	  @"Data Source=n9lxnyuzhv.database.windows.net; Authentication=Active Directory Password; UID=bob@contoso.onmicrosoft.com; PWD=MyPassWord!";
-	SqlConnection conn = new SqlConnection(ConnectionString);
-	conn.Open();
+    string ConnectionString =
+      @"Data Source=n9lxnyuzhv.database.windows.net; Authentication=Active Directory Password; UID=bob@contoso.onmicrosoft.com; PWD=MyPassWord!";
+    SqlConnection conn = new SqlConnection(ConnectionString);
+    conn.Open();
 
 For specific code examples related to Azure AD authentication see the [SQL Server Security Blog](http://blogs.msdn.com/b/sqlsecurity/) on MSDN.
 
@@ -334,4 +334,5 @@ For specific code examples related to Azure AD authentication see the [SQL Serve
 [8]: ./media/sql-database-aad-authentication/8choose-ad.png
 [9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
+
 

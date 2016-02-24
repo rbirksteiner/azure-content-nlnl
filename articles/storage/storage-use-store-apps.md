@@ -1,18 +1,18 @@
 <properties
-	pageTitle="Use Azure storage in Windows Store apps | Microsoft Azure"
-	description="Learn how to use Azure blobs, queues, and tables to store data for a Windows Store app."
-	services="storage"
-	documentationCenter=""
-	authors="tamram"
-	manager="adinah" />
+    pageTitle="Use Azure storage in Windows Store apps | Microsoft Azure"
+    description="Learn how to use Azure blobs, queues, and tables to store data for a Windows Store app."
+    services="storage"
+    documentationCenter=""
+    authors="tamram"
+    manager="adinah" />
 <tags
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="mobile-windows-store"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="09/03/2015"
-	ms.author="tamram"/>
+    ms.service="storage"
+    ms.workload="storage"
+    ms.tgt_pltfrm="mobile-windows-store"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="09/03/2015"
+    ms.author="tamram"/>
 # How to use Azure Storage in Windows Store apps
 
 ## Overview
@@ -85,3 +85,4 @@ You can also add a reference to Microsoft.WindowsAzure.Storage.Table.dll, which 
 [store-apps-storage-vs-project]: ./media/storage-use-store-apps/store-apps-storage-vs-project.png
 [store-apps-storage-choose-library]: ./media/storage-use-store-apps/store-apps-storage-choose-library.png
 [store-apps-storage-package-manager]: ./media/storage-use-store-apps/store-apps-storage-package-manager.png
+

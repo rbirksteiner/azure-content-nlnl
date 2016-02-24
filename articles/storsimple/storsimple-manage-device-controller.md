@@ -43,7 +43,7 @@ Restarting a device is not disruptive to connected initiators, assuming the pass
 
 > [AZURE.IMPORTANT] 
 
-> - **A running controller should never be physically removed as this would result in a loss of redundancy and an increased risk of downtime.**
+> - **A running controller should never be physically removed as this would result in a loss of redundancy and an increased risk of downtime.**
 
 > - The following procedure applies only to the StorSimple physical device. For information about how to start, stop, and restart the virtual device, see [Work with the virtual device](storsimple-virtual-device-u1.md#work-with-the-storsimple-virtual-device).
 
@@ -57,32 +57,32 @@ To manage your device controllers from the Azure classic portal, perform the fol
 
 1. Go to **Hardware Status** and verify that the status of both the controllers on your device is **Healthy**.
 
-	![Verify StorSimple device controllers are healthy](./media/storsimple-manage-device-controller/IC766017.png)
+    ![Verify StorSimple device controllers are healthy](./media/storsimple-manage-device-controller/IC766017.png)
 
 1. From the bottom of the **Maintenance** page, click **Manage Controllers**.
 
-	![Manage StorSimple device controllers](./media/storsimple-manage-device-controller/IC766018.png)</br>
+    ![Manage StorSimple device controllers](./media/storsimple-manage-device-controller/IC766018.png)</br>
 
-	>[AZURE.NOTE] If you cannot see **Manage Controllers**, then you need to install updates. For more information, see [Update your StorSimple device](storsimple-update-device.md).
+    >[AZURE.NOTE] If you cannot see **Manage Controllers**, then you need to install updates. For more information, see [Update your StorSimple device](storsimple-update-device.md).
 
 1. In the **Change Controller Settings** dialog box, do the following:
 
 
-	- From the **Select Controller** drop-down list, select the controller that you want to manage. The options are Controller 0 and Controller 1. These controllers are also identified as active or passive.
+    - From the **Select Controller** drop-down list, select the controller that you want to manage. The options are Controller 0 and Controller 1. These controllers are also identified as active or passive.
 
-		>[AZURE.NOTE] A controller cannot be managed if it is unavailable or turned off, and it will not appear in the drop-down list.
-	
+        >[AZURE.NOTE] A controller cannot be managed if it is unavailable or turned off, and it will not appear in the drop-down list.
+    
 
 
-	- From the **Select Action** drop-down list, choose **Restart controller** or **Shut down controller**.
-	
-		![Restart StorSimple device passive controller](./media/storsimple-manage-device-controller/IC766020.png)
+    - From the **Select Action** drop-down list, choose **Restart controller** or **Shut down controller**.
+    
+        ![Restart StorSimple device passive controller](./media/storsimple-manage-device-controller/IC766020.png)
  
 
-	- Click the check icon ![Check Icon](./media/storsimple-manage-device-controller/IC740895.png).
+    - Click the check icon ![Check Icon](./media/storsimple-manage-device-controller/IC740895.png).
 
-This will restart or shut down the controller. The table below summarizes the details of what happens depending on the selections you have made in the **Change Controller Settings** dialog box.  
-													
+This will restart or shut down the controller. The table below summarizes the details of what happens depending on the selections you have made in the **Change Controller Settings** dialog box.  
+                                                    
 
 |Selection #|If you choose to...|This will happen.|
 |---|---|---|
@@ -101,20 +101,20 @@ Perform the following steps to shut down or restart a single controller on your 
 1. In the serial console menu, choose option 1, **Log in with full access**.
 
 1. In the banner message, make a note of the controller you are connected to (Controller 0 or Controller 1) and whether it is the active or the passive (standby) controller.
-	
+    
 
-	- To shut down a single controller, at the prompt, type:
+    - To shut down a single controller, at the prompt, type:
 
-		`Stop-HcsController`
+        `Stop-HcsController`
 
-		This will shut down the controller that you are connected to. If you stop the active controller, then it will fail over to the passive controller before it shuts down.
+        This will shut down the controller that you are connected to. If you stop the active controller, then it will fail over to the passive controller before it shuts down.
 
 
-	- To restart a controller, at the prompt, type:
+    - To restart a controller, at the prompt, type:
 
-		`Restart-HcsController`
+        `Restart-HcsController`
 
-		This will restart the controller that you are connected to. If you restart the active controller, it will fail over to the passive controller before the restart.
+        This will restart the controller that you are connected to. If you restart the active controller, it will fail over to the passive controller before the restart.
 
 
 ## Shut down a StorSimple device
@@ -140,9 +140,9 @@ This section explains how to shut down a running or a failed StorSimple device f
 
 1. At the prompt, type:
 
-	`Stop-HCSController`
+    `Stop-HCSController`
 
-	This should shut down the current controller. To verify whether the shutdown has finished, check the back of the device. The controller status LED should be solid red.
+    This should shut down the current controller. To verify whether the shutdown has finished, check the back of the device. The controller status LED should be solid red.
 
 1. Repeat steps 1 through 4 to connect to the active controller and then shut it down.
 
@@ -162,15 +162,15 @@ Perform the following steps to reset your Microsoft Azure StorSimple device to f
 
 1. At the prompt, type the following command:
 
-	`Reset-HcsFactoryDefault`
+    `Reset-HcsFactoryDefault`
 
-	The system will reboot multiple times. You will be notified when the reset has successfully completed. Depending on the system model, it can take 45-60 minutes for an 8100 device and 60-90 minutes for an 8600 to finish this process.
+    The system will reboot multiple times. You will be notified when the reset has successfully completed. Depending on the system model, it can take 45-60 minutes for an 8100 device and 60-90 minutes for an 8600 to finish this process.
 
-	> [AZURE.TIP] 
-	
-	> - Use the `Reset-HcsFactoryDefault –SkipFirmwareVersionCheck` command to skip the firmware version check if the factory reset cmdlet (as used above) reports the firmware mismatch error: Factory reset cannot continue due to a mismatch in the firmware versions. You must skip the firmware check (by using the `–SkipFirmwareCheck` option) when performing a factory reset on a device that was previously updated using Microsoft Update or a hotfix mechanism.
-	
-	> - For more information on how to use this cmdlet, go to the [cmdlet reference for Windows PowerShell for StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
+    > [AZURE.TIP] 
+    
+    > - Use the `Reset-HcsFactoryDefault –SkipFirmwareVersionCheck` command to skip the firmware version check if the factory reset cmdlet (as used above) reports the firmware mismatch error: Factory reset cannot continue due to a mismatch in the firmware versions. You must skip the firmware check (by using the `–SkipFirmwareCheck` option) when performing a factory reset on a device that was previously updated using Microsoft Update or a hotfix mechanism.
+    
+    > - For more information on how to use this cmdlet, go to the [cmdlet reference for Windows PowerShell for StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
 
 
 ## Questions and answers about managing device controllers

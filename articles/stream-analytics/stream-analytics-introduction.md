@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Introduction to Stream Analytics | Microsoft Azure" 
-	description="Learn about Stream Analytics, a managed service that helps you analyze streaming data from the Internet of Things (IoT) in real-time." 
-	keywords="analytics as a service, managed services, stream processing, streaming analytics, what is stream analytics"
-	services="stream-analytics" 
-	documentationCenter="" 
-	authors="jeffstokes72" 
-	manager="paulettm" 
-	editor="cgronlun"/>
+    pageTitle="Introduction to Stream Analytics | Microsoft Azure" 
+    description="Learn about Stream Analytics, a managed service that helps you analyze streaming data from the Internet of Things (IoT) in real-time." 
+    keywords="analytics as a service, managed services, stream processing, streaming analytics, what is stream analytics"
+    services="stream-analytics" 
+    documentationCenter="" 
+    authors="jeffstokes72" 
+    manager="paulettm" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="stream-analytics" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="data-services" 
-	ms.date="12/04/2015" 
-	ms.author="jeffstok"/>
+    ms.service="stream-analytics" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="data-services" 
+    ms.date="12/04/2015" 
+    ms.author="jeffstok"/>
 
 
 # What is Stream Analytics?
@@ -52,4 +52,5 @@ You've been introduced to Stream Analytics, a managed service for streaming anal
 - [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
 - [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+
 

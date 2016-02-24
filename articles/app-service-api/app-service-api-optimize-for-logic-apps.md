@@ -1,21 +1,21 @@
 
 <properties
-	pageTitle="Enhance your API App for Logic Apps"
-	description="This article demonstrates how to decorate your API App to work nicely with Logic Apps"
-	services="app-service\logic"
-	documentationCenter=".net"
-	authors="sameerch"
-	manager="wpickett"
-	editor="jimbe"/>
+    pageTitle="Enhance your API App for Logic Apps"
+    description="This article demonstrates how to decorate your API App to work nicely with Logic Apps"
+    services="app-service\logic"
+    documentationCenter=".net"
+    authors="sameerch"
+    manager="wpickett"
+    editor="jimbe"/>
 
 <tags
-	ms.service="app-service-logic"
-	ms.workload="na"
-	ms.tgt_pltfrm="dotnet"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/15/2015"
-	ms.author="sameerch"/>
+    ms.service="app-service-logic"
+    ms.workload="na"
+    ms.tgt_pltfrm="dotnet"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/15/2015"
+    ms.author="sameerch"/>
 
 # Enhance your API App for Logic Apps #
 
@@ -48,24 +48,24 @@ For development using Visual Studio, it is common practice to annotate your API 
 
 2. From the **Solution Explorer**, right-click the project and select **Properties**.
 
-	![Project Properties](./media/app-service-api-optimize-for-logic-apps/project-properties.png)
+    ![Project Properties](./media/app-service-api-optimize-for-logic-apps/project-properties.png)
 
 3. When the project's property pages appear, perform the following steps:
 
-	- Select the **Configuration** for which the settings will apply. Typically, you will select All Configurations so that the settings you specify apply to both Debug and Release builds.
-	
-	- Select the **Build** tab on the left
-	
-	- Confirm that the **XML documentation file** option is checked. Visual Studio will supply a default file name based on your project's name. You can set its value to whatever your naming convention requires or leave it as-is.
+    - Select the **Configuration** for which the settings will apply. Typically, you will select All Configurations so that the settings you specify apply to both Debug and Release builds.
+    
+    - Select the **Build** tab on the left
+    
+    - Confirm that the **XML documentation file** option is checked. Visual Studio will supply a default file name based on your project's name. You can set its value to whatever your naming convention requires or leave it as-is.
 
-	![Set XML Doc property](./media/app-service-api-optimize-for-logic-apps/xml-documentation-file-property.png)
+    ![Set XML Doc property](./media/app-service-api-optimize-for-logic-apps/xml-documentation-file-property.png)
 
 4. Open the *SwaggerConfig.cs* file (located in the project's **App_Start** folder).
 
 5. Add **using** directives to the top of the *SwaggerConfig.cs* file for the **System** and **System.Globalization** namespaces.
 
-		using System;
-		using System.Globalization;
+        using System;
+        using System.Globalization;
  
 6. Search the *SwaggerConfig.cs* file for a call to **GetXmlCommentsPath**, and uncomment the line so that it executes. Since you have not yet implemented this method, Visual Studio will underline the call to **GetXmlCommentsPath** and indicate that it's not defined in the current context. That's okay. You'll implement it in the next step.
 
@@ -74,8 +74,8 @@ For development using Visual Studio, it is common practice to annotate your API 
         public static string GetXmlCommentsPath()
         {
             return String.Format(CultureInfo.InvariantCulture, 
-								 @"{0}\bin\ContactsList.xml", 
-								 AppDomain.CurrentDomain.BaseDirectory);
+                                 @"{0}\bin\ContactsList.xml", 
+                                 AppDomain.CurrentDomain.BaseDirectory);
         }
 
 8. Finally, specify the XML comments for your controller methods. To do this, open one of your API app's controller files and type /// on an empty line preceding a controller method you want to document. Visual Studio will automatically insert a commented section within which you can specify a method summary as well as parameter and return value information. 
@@ -108,51 +108,51 @@ For API apps that use dynamic metadata, you can make use of custom attributes to
 
 1. Define an attribute class called **CustomSummaryAttribute** that will be used to annotate your code.
 
-	    [AttributeUsage(AttributeTargets.All)]
-	    public class CustomSummaryAttribute : Attribute
-	    {
-	        public string SummaryText { get; internal set; }
+        [AttributeUsage(AttributeTargets.All)]
+        public class CustomSummaryAttribute : Attribute
+        {
+            public string SummaryText { get; internal set; }
 
-	        public CustomSummaryAttribute(string summaryText)
-	        {
-	            this.SummaryText = summaryText;
-	        }
-	    }
+            public CustomSummaryAttribute(string summaryText)
+            {
+                this.SummaryText = summaryText;
+            }
+        }
 
 2. Define an operation filter called **AddCustomSummaryFilter** that will look for this custom attribute in the operation parameters.
 
 
-	    using Swashbuckle.Swagger;
+        using Swashbuckle.Swagger;
 
-		...
+        ...
 
-		public class AddCustomSummaryFilter : IOperationFilter
-	    {
-	        public void Apply(Operation operation, SchemaRegistry schemaRegistry, System.Web.Http.Description.ApiDescription apiDescription)
-	        {
-	            if (operation.parameters == null)
-	            {
-	                // no parameter
-	                return;
-	            }
+        public class AddCustomSummaryFilter : IOperationFilter
+        {
+            public void Apply(Operation operation, SchemaRegistry schemaRegistry, System.Web.Http.Description.ApiDescription apiDescription)
+            {
+                if (operation.parameters == null)
+                {
+                    // no parameter
+                    return;
+                }
 
-	            foreach (var param in operation.parameters)
-	            {
-	                var summaryAttributes = apiDescription.ParameterDescriptions.First(x => x.Name.Equals(param.name))
-	                                        .ParameterDescriptor.GetCustomAttributes<CustomSummaryAttribute>();
+                foreach (var param in operation.parameters)
+                {
+                    var summaryAttributes = apiDescription.ParameterDescriptions.First(x => x.Name.Equals(param.name))
+                                            .ParameterDescriptor.GetCustomAttributes<CustomSummaryAttribute>();
 
-	                if (summaryAttributes != null && summaryAttributes.Count > 0)
-	                {
-	                    // add x-ms-summary extension
-	                    if (param.vendorExtensions == null)
-	                    {
-	                        param.vendorExtensions = new Dictionary<string, object>();
-	                    }
-	                    param.vendorExtensions.Add("x-ms-summary", summaryAttributes[0].SummaryText);
-	                }
-	            }
-	        }
-	    }
+                    if (summaryAttributes != null && summaryAttributes.Count > 0)
+                    {
+                        // add x-ms-summary extension
+                        if (param.vendorExtensions == null)
+                        {
+                            param.vendorExtensions = new Dictionary<string, object>();
+                        }
+                        param.vendorExtensions.Add("x-ms-summary", summaryAttributes[0].SummaryText);
+                    }
+                }
+            }
+        }
 
 3. Edit the *SwaggerConfig.cs* file and add the filter class defined above.
 
@@ -179,10 +179,10 @@ For API apps that use dynamic metadata, you can make use of custom attributes to
              ...
         }
 
-	When you build the above API app, it would generate the following API metadata:
+    When you build the above API app, it would generate the following API metadata:
 
 
-			...
+            ...
             "post": {
                 ...
                 "parameters": [
@@ -207,36 +207,37 @@ For API apps that use dynamic metadata, you can make use of custom attributes to
 
 5. Similarly, you can define schema filter **AddCustomSummarySchemaFilter** to automatically annotate the **x-ms-summary** extension property for your schema models, as in the following example.
 
-	    public class AddCustomSummarySchemaFilter: ISchemaFilter
-	    {
-	        public void Apply(Schema schema, SchemaRegistry schemaRegistry, Type type)
-	        {
-	            SetCustomSummary(schema, type.GetCustomAttribute<CustomSummaryAttribute>());
+        public class AddCustomSummarySchemaFilter: ISchemaFilter
+        {
+            public void Apply(Schema schema, SchemaRegistry schemaRegistry, Type type)
+            {
+                SetCustomSummary(schema, type.GetCustomAttribute<CustomSummaryAttribute>());
 
-	            if (schema.properties != null)
-	            {
-	                foreach (var property in schema.properties)
-	                {
-	                    var summaryAttribute = type.GetProperty(property.Key).GetCustomAttribute<CustomSummaryAttribute>();
-	                    SetCustomSummary(property.Value, summaryAttribute);
-	                }
-	            }
-	        }
+                if (schema.properties != null)
+                {
+                    foreach (var property in schema.properties)
+                    {
+                        var summaryAttribute = type.GetProperty(property.Key).GetCustomAttribute<CustomSummaryAttribute>();
+                        SetCustomSummary(property.Value, summaryAttribute);
+                    }
+                }
+            }
 
-	        private static void SetCustomSummary(Schema schema, CustomSummaryAttribute summaryAttribute)
-	        {
-	            if (summaryAttribute != null)
-	            {
-	                if (schema.vendorExtensions == null)
-	                {
-	                    schema.vendorExtensions = new Dictionary<string, object>();
-	                }
-	                schema.vendorExtensions.Add("x-ms-summary", summaryAttribute.SummaryText);
-	            }
-	        }
-	    }
+            private static void SetCustomSummary(Schema schema, CustomSummaryAttribute summaryAttribute)
+            {
+                if (summaryAttribute != null)
+                {
+                    if (schema.vendorExtensions == null)
+                    {
+                        schema.vendorExtensions = new Dictionary<string, object>();
+                    }
+                    schema.vendorExtensions.Add("x-ms-summary", summaryAttribute.SummaryText);
+                }
+            }
+        }
 
 ## Summary
 
 In this article, you have seen how to enhance the user experience of your API app when it is used in the Logic Apps designer.  As a best practice, it is recommended that you provide proper friendly names for all operations (actions and triggers), parameters and properties.  It is also recommended that you provide no more than 5 basic operations.  For input parameters, the recommendation is to restrict the number of basic properties to no more than 4, and for properties, the recommendation is 5 or less. The remainder of your operations and properties should be marked as advanced.
  
+

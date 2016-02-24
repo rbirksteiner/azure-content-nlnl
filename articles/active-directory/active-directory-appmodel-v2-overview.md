@@ -1,25 +1,25 @@
 <properties
-	pageTitle="App Model v2.0 Overview | Microsoft Azure"
-	description="An introduction to building apps with both Microsoft Account and Azure Active Directory sign-in."
-	services="active-directory"
-	documentationCenter=""
-	authors="dstrockis"
-	manager="mbaldwin"
-	editor=""/>
+    pageTitle="App Model v2.0 Overview | Microsoft Azure"
+    description="An introduction to building apps with both Microsoft Account and Azure Active Directory sign-in."
+    services="active-directory"
+    documentationCenter=""
+    authors="dstrockis"
+    manager="mbaldwin"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/06/2015"
-	ms.author="dastrock"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/06/2015"
+    ms.author="dastrock"/>
 
 # App model v2.0 preview: Sign-in Microsoft Account & Azure AD users in a single app
 
 > [AZURE.NOTE]
-	This information applies to the v2.0 app model public preview.  For instructions on how to integrate with the generally available Azure AD service, please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
+    This information applies to the v2.0 app model public preview.  For instructions on how to integrate with the generally available Azure AD service, please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
 
 In the past, an app developer who wanted to support both Microsoft accounts and Azure Active Directory was required to integrate with two separate systems. With the v2.0 app model, you can now sign users in with both types of accounts. One simple integration allows you to reach an audience that spans millions of users with both personal and work/school accounts.
 
@@ -57,3 +57,4 @@ These links will be useful for exploring the platform in depth:
 - [ADAL Library Reference]()
 - [v2 Endpoint FAQs](active-directory-v2-faq.md)
 -->
+

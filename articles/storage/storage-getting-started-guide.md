@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Get started with Azure Storage in five minutes | Microsoft Azure" 
-	description="Quickly ramp up on Microsoft Azure Blobs, Table, and Queues using Azure QuickStarts, Visual Studio, and the Azure Storage emulator. Run your first Azure Storage application in five minutes." 
-	services="storage" 
-	documentationCenter=".net" 
-	authors="tamram" 
-	manager="adinah" 
-	editor=""/>
+    pageTitle="Get started with Azure Storage in five minutes | Microsoft Azure" 
+    description="Quickly ramp up on Microsoft Azure Blobs, Table, and Queues using Azure QuickStarts, Visual Studio, and the Azure Storage emulator. Run your first Azure Storage application in five minutes." 
+    services="storage" 
+    documentationCenter=".net" 
+    authors="tamram" 
+    manager="adinah" 
+    editor=""/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="11/12/2015" 
-	ms.author="tamram;selcint"/>
+    ms.service="storage" 
+    ms.workload="storage" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="dotnet" 
+    ms.topic="article" 
+    ms.date="11/12/2015" 
+    ms.author="tamram;selcint"/>
 
 # Get started with Azure Storage in five minutes 
 
@@ -47,19 +47,19 @@ To try it, let’s create a simple Azure Storage application using one of the Az
 1. Start Visual Studio.
 2. From the **File** menu, click **New Project**.
 3. In the **New Project** dialog box, click **Installed** > **Templates** > **Visual C#** > **Cloud** > **Quick Starts** > **Data Services**.
-	- 3.a.  Choose one of the following templates: Azure Blob Storage, Azure Table Storage, or Azure Storage Queues. 
-	- 3.b. Make sure that **.NET Framework 4.5** is selected as the target framework.	
-	- 3.c. Specify a name for your project and create the new Visual Studio solution, as shown:
-	
-	![Azure QuickStarts][Image1]
+    - 3.a.  Choose one of the following templates: Azure Blob Storage, Azure Table Storage, or Azure Storage Queues. 
+    - 3.b. Make sure that **.NET Framework 4.5** is selected as the target framework.   
+    - 3.c. Specify a name for your project and create the new Visual Studio solution, as shown:
+    
+    ![Azure QuickStarts][Image1]
 
 You may want to review the source code before running the application. To review the code, select **Solution Explorer** on the **View** menu in Visual Studio. Then, double click the Program.cs file. 
 
 Next, run the sample application in the Azure Storage Emulator:
 
-1.	Press the **Start** button or the Windows key, search for *Azure Storage emulator*, and start the application.
-2.	In Visual Studio, click **Build Solution** on the **Build** menu. 
-3.	On the **Debug** menu, Press **F11** to run the solution step by step, or press **F5** to run the solution from start to finish.
+1.  Press the **Start** button or the Windows key, search for *Azure Storage emulator*, and start the application.
+2.  In Visual Studio, click **Build Solution** on the **Build** menu. 
+3.  On the **Debug** menu, Press **F11** to run the solution step by step, or press **F5** to run the solution from start to finish.
 
 ## Run your first Azure Storage application against Azure Storage in the cloud
 
@@ -73,26 +73,26 @@ Once you have an account, you can create a simple Azure Storage application usin
 1. Start Visual Studio.
 2. From the **File** menu, click **New Project**.
 3. In the **New Project** dialog box, click **Installed** > **Templates** > **Visual C#** > **Cloud** > **Quick Starts** > **Data Services**.
-	- 3.a. Choose one of the following templates: Azure Blob Storage, Azure Table Storage, or Azure Storage Queues.
-	- 3.b. Make sure that **.NET Framework 4.5** is selected as the target framework.
-	- 3.c. Specify a name for your project and create the new Visual Studio solution. 
+    - 3.a. Choose one of the following templates: Azure Blob Storage, Azure Table Storage, or Azure Storage Queues.
+    - 3.b. Make sure that **.NET Framework 4.5** is selected as the target framework.
+    - 3.c. Specify a name for your project and create the new Visual Studio solution. 
 
 You may want to review the source code before running the application. To review the code, select **Solution Explorer** on the **View** menu in Visual Studio. Then, double click the Program.cs file. 
 
 Next, run the sample application:
 
-1.	In Visual Studio, select **Solution Explorer** on the **View** menu. Double click the App.config file and comment out the connection string for the Azure SDK Storage Emulator:
+1.  In Visual Studio, select **Solution Explorer** on the **View** menu. Double click the App.config file and comment out the connection string for the Azure SDK Storage Emulator:
 
-	`<!--<add key="StorageConnectionString" value = "UseDevelopmentStorage=true;"/>-->`
+    `<!--<add key="StorageConnectionString" value = "UseDevelopmentStorage=true;"/>-->`
 
-2.	Uncomment the connection string for the Azure Storage Service and provide the storage account name and access key in the App.config file:
-	`<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]"`
+2.  Uncomment the connection string for the Azure Storage Service and provide the storage account name and access key in the App.config file:
+    `<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]"`
 
-	To find the storage account name and access key, see [What is a Storage Account](storage-whatis-account.md).
+    To find the storage account name and access key, see [What is a Storage Account](storage-whatis-account.md).
 
-3.	After you provide the storage account name and access key in the App.config file, on the **File** menu, click **Save All** to save all the project files.
-4.	On the **Build** menu, click **Build Solution**.
-5.	On the **Debug** menu, Press **F11** to run the solution step by step or press **F5** to run the solution.
+3.  After you provide the storage account name and access key in the App.config file, on the **File** menu, click **Save All** to save all the project files.
+4.  On the **Build** menu, click **Build Solution**.
+5.  On the **Debug** menu, Press **F11** to run the solution step by step or press **F5** to run the solution.
 
 
 ## Next Steps
@@ -110,3 +110,4 @@ See these resources to learn more about Azure Storage:
 
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
  
+

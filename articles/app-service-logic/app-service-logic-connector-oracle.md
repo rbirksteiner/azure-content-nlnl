@@ -46,7 +46,7 @@ A connector can be created within a logic app or be created directly from the Az
 3. Enter the Name, App Service Plan, and other properties.
 4. Enter the following package settings:
 
-	Name | Required |  Description
+    Name | Required |  Description
 --- | --- | ---
 Data Source | Yes | A data source (net service) name that is specified in the tnsnames.ora file on the computer where the Oracle client is installed. For information about data source names and tnsnames.ora, see [Configuring the Oracle Client](http://msdn.microsoft.com/library/dd787872.aspx).
 User Name | Yes | Enter a user name to connect to the Oracle server.
@@ -133,3 +133,4 @@ You can also review performance statistics and control security to the connector
 [10]: ./media/app-service-logic-connector-oracle/LogicApp6.png
 [11]: ./media/app-service-logic-connector-oracle/LogicApp7.png
 [12]: ./media/app-service-logic-connector-oracle/LogicApp8.png
+

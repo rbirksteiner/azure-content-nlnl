@@ -9,10 +9,10 @@
 <tags
     ms.service="application-insights"
     ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza" 
+    ms.tgt_pltfrm="ibiza" 
     ms.devlang="na"
     ms.topic="get-started-article"
-	ms.date="11/17/2015"
+    ms.date="11/17/2015"
     ms.author="awills"/>
 
 # Using PowerShell to send Azure Diagnostics to Application Insights
@@ -115,4 +115,5 @@ To remove the diagnostics extension from each individual role:
 
 * [Monitor Azure Cloud Services apps with Application Insights](app-insights-cloudservices.md)
 * [Send Azure Diagnostics to Application Insights](app-insights-azure-diagnostics.md)
+
 

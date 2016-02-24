@@ -37,3 +37,4 @@ In this section you will register your mobile service with the Azure Active Dire
 
 <!-- URLs. -->
 [How to Register with the Azure Active Directory]: ../articles/mobile-services/mobile-services-how-to-register-active-directory-authentication.md
+

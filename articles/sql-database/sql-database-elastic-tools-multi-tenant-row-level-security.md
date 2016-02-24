@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Multi-tenant applications with elastic database tools and row-level security" 
-	description="Learn how to use elastic database tools together with row-level security to build an application with a highly scalable data tier on Azure SQL Database that supports multi-tenant shards." 
-	metaKeywords="azure sql database elastic tools multi tenant row level security rls" 
-	services="sql-database" documentationCenter=""  
-	manager="jeffreyg" 
-	authors="tmullaney"/>
+    pageTitle="Multi-tenant applications with elastic database tools and row-level security" 
+    description="Learn how to use elastic database tools together with row-level security to build an application with a highly scalable data tier on Azure SQL Database that supports multi-tenant shards." 
+    metaKeywords="azure sql database elastic tools multi tenant row level security rls" 
+    services="sql-database" documentationCenter=""  
+    manager="jeffreyg" 
+    authors="tmullaney"/>
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="sql-database" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/03/2015" 
-	ms.author="thmullan;torsteng;sidneyh" />
+    ms.service="sql-database" 
+    ms.workload="sql-database" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/03/2015" 
+    ms.author="thmullan;torsteng;sidneyh" />
 
 # Multi-tenant applications with elastic database tools and row-level security 
 
@@ -109,18 +109,18 @@ Now the SESSION_CONTEXT is automatically set with the specified TenantId wheneve
 // Program.cs 
 SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() => 
 {   
-	using (var db = new ElasticScaleContext<int>(sharding.ShardMap, tenantId, connStrBldr.ConnectionString))   
-	{     
-		var query = from b in db.Blogs
-	                orderby b.Name
-	                select b;
-		
-		Console.WriteLine("All blogs for TenantId {0}:", tenantId);     
-		foreach (var item in query)     
-		{       
-			Console.WriteLine(item.Name);     
-		}   
-	} 
+    using (var db = new ElasticScaleContext<int>(sharding.ShardMap, tenantId, connStrBldr.ConnectionString))   
+    {     
+        var query = from b in db.Blogs
+                    orderby b.Name
+                    select b;
+        
+        Console.WriteLine("All blogs for TenantId {0}:", tenantId);     
+        foreach (var item in query)     
+        {       
+            Console.WriteLine(item.Name);     
+        }   
+    } 
 }); 
 ```
 
@@ -199,19 +199,19 @@ CREATE SCHEMA rls -- separate schema to organize RLS objects
 GO
 
 CREATE FUNCTION rls.fn_tenantAccessPredicate(@TenantId int)     
-	RETURNS TABLE     
-	WITH SCHEMABINDING
+    RETURNS TABLE     
+    WITH SCHEMABINDING
 AS
-	RETURN SELECT 1 AS fn_accessResult          
-		WHERE DATABASE_PRINCIPAL_ID() = DATABASE_PRINCIPAL_ID('dbo') -- the user in your application’s connection string (dbo is only for demo purposes!)         
-		AND CAST(SESSION_CONTEXT(N'TenantId') AS int) = @TenantId
+    RETURN SELECT 1 AS fn_accessResult          
+        WHERE DATABASE_PRINCIPAL_ID() = DATABASE_PRINCIPAL_ID('dbo') -- the user in your application’s connection string (dbo is only for demo purposes!)         
+        AND CAST(SESSION_CONTEXT(N'TenantId') AS int) = @TenantId
 GO
 
 CREATE SECURITY POLICY rls.tenantAccessPolicy
-	ADD FILTER PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.Blogs,
-	ADD BLOCK PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.Blogs,
-	ADD FILTER PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.Posts,
-	ADD BLOCK PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.Posts
+    ADD FILTER PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.Blogs,
+    ADD BLOCK PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.Blogs,
+    ADD FILTER PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.Posts,
+    ADD BLOCK PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.Posts
 GO 
 ```
 
@@ -223,8 +223,8 @@ If you add a new table later on, simply ALTER the security policy and add filter
 
 ```
 ALTER SECURITY POLICY rls.tenantAccessPolicy     
-	ADD FILTER PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.MyNewTable,
-	ADD BLOCK PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.MyNewTable
+    ADD FILTER PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.MyNewTable,
+    ADD BLOCK PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.MyNewTable
 GO 
 ```
 
@@ -235,13 +235,13 @@ You can put a default constraint on each table to automatically populate the Ten
 ```
 -- Create default constraints to auto-populate TenantId with the value of SESSION_CONTEXT for inserts 
 ALTER TABLE Blogs     
-	ADD CONSTRAINT df_TenantId_Blogs      
-	DEFAULT CAST(SESSION_CONTEXT(N'TenantId') AS int) FOR TenantId 
+    ADD CONSTRAINT df_TenantId_Blogs      
+    DEFAULT CAST(SESSION_CONTEXT(N'TenantId') AS int) FOR TenantId 
 GO
 
 ALTER TABLE Posts     
-	ADD CONSTRAINT df_TenantId_Posts      
-	DEFAULT CAST(SESSION_CONTEXT(N'TenantId') AS int) FOR TenantId 
+    ADD CONSTRAINT df_TenantId_Posts      
+    DEFAULT CAST(SESSION_CONTEXT(N'TenantId') AS int) FOR TenantId 
 GO 
 ```
 
@@ -250,12 +250,12 @@ Now the application does not need to specify a TenantId when inserting rows:
 ```
 SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() => 
 {   
-	using (var db = new ElasticScaleContext<int>(sharding.ShardMap, tenantId, connStrBldr.ConnectionString))
-	{
-		var blog = new Blog { Name = name }; // default constraint sets TenantId automatically     
-		db.Blogs.Add(blog);     
-		db.SaveChanges();   
-	} 
+    using (var db = new ElasticScaleContext<int>(sharding.ShardMap, tenantId, connStrBldr.ConnectionString))
+    {
+        var blog = new Blog { Name = name }; // default constraint sets TenantId automatically     
+        db.Blogs.Add(blog);     
+        db.SaveChanges();   
+    } 
 }); 
 ```
 
@@ -311,3 +311,4 @@ Elastic database tools and row-level security can be used together to scale out 
 <!--anchors-->
 
  
+

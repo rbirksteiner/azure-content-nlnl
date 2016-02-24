@@ -69,3 +69,4 @@ Check out [Partitioning Service Fabric Services][10] to learn more about partiti
 
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [10]: service-fabric-concepts-partitioning.md
+

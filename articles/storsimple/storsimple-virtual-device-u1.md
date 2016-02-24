@@ -76,10 +76,10 @@ Before you provision the virtual device, you need to make the following preparat
 
 >[AZURE.IMPORTANT] **Make sure that the virtual network is in the same region as the cloud storage accounts that you are going to be using with the virtual device.**
 
-- You can create [Azure Virtual Machines](../virtual-machines/virtual-machines-about.md) (host servers) in the virtual network that can use the volumes exposed by the virtual device. These servers must meet the following requirements: 							
-	- Be Windows or Linux VMs with iSCSI Initiator software installed
-	- Be running in the same virtual network as the virtual device
-	- Be able to connect to the iSCSI target of the virtual device through the internal IP address of the virtual device
+- You can create [Azure Virtual Machines](../virtual-machines/virtual-machines-about.md) (host servers) in the virtual network that can use the volumes exposed by the virtual device. These servers must meet the following requirements:                          
+    - Be Windows or Linux VMs with iSCSI Initiator software installed
+    - Be running in the same virtual network as the virtual device
+    - Be able to connect to the iSCSI target of the virtual device through the internal IP address of the virtual device
 
 - Make sure you have configured support for iSCSI and cloud traffic on the same virtual network.
 
@@ -126,23 +126,23 @@ Perform the following steps to create the StorSimple virtual device.
 
      ![StorSimple create virtual device](./media/storsimple-virtual-device-u1/StorSimple_CreateVirtualDevice1.png)
 
-	1. **Name** – A unique name for your virtual device.
+    1. **Name** – A unique name for your virtual device.
 
-	2. **Version** - Choose the version of the virtual device. This option will be absent if you only have Update 1 (or above) physical devices registered with this service. This field is presented only if you have a combination of pre-update 1 and post-update 1 physical devices registered with the service. Given the version of the virtual device will determine which physical device you can failover or clone from, it is important that you create an appropriate version of the virtual device. Select:
+    2. **Version** - Choose the version of the virtual device. This option will be absent if you only have Update 1 (or above) physical devices registered with this service. This field is presented only if you have a combination of pre-update 1 and post-update 1 physical devices registered with the service. Given the version of the virtual device will determine which physical device you can failover or clone from, it is important that you create an appropriate version of the virtual device. Select:
 
-	   - Version Update 0.3 if you will fail over or clone from a physical device with GA Release or Updates 0.1 to 0.3. 
-	   - Version Update 1 if you will fail over or clone from a physical device with Update 1 (or above). Choosing Update 1 in the dropdown will actually provision a Update 1.1 virtual device.
+       - Version Update 0.3 if you will fail over or clone from a physical device with GA Release or Updates 0.1 to 0.3. 
+       - Version Update 1 if you will fail over or clone from a physical device with Update 1 (or above). Choosing Update 1 in the dropdown will actually provision a Update 1.1 virtual device.
  
-	3. **Virtual Network** – The name of the virtual network that you want to use with this virtual device.
+    3. **Virtual Network** – The name of the virtual network that you want to use with this virtual device.
 
-	4. **Subnet** – The subnet on the virtual network for use with the virtual device.
+    4. **Subnet** – The subnet on the virtual network for use with the virtual device.
 
-	5. **Storage Account for Virtual Device Creation** – This storage account will be used to hold the image of the virtual device during provisioning, and will host the disks of the virtal device after provisioning. This storage account should be in the same region as the virtual device and virtual network. It should not be used for data storage by either the physical device or the virtual device. By default, a new storage account will be created for this purpose. However, if you know that you already have a storage account that is suitable for this use, you can select it from the list. 
+    5. **Storage Account for Virtual Device Creation** – This storage account will be used to hold the image of the virtual device during provisioning, and will host the disks of the virtal device after provisioning. This storage account should be in the same region as the virtual device and virtual network. It should not be used for data storage by either the physical device or the virtual device. By default, a new storage account will be created for this purpose. However, if you know that you already have a storage account that is suitable for this use, you can select it from the list. 
 
     >[AZURE.NOTE] The virtual device can only work with the Azure storage accounts. Other cloud service providers such as Amazon, HP and OpenStack (that are supported for the physical device) are not supported for the StorSimple virtual device.
-	
+    
 4. Click the check mark to indicate that you understand that the data stored on the virtual device will be hosted in a Microsoft datacenter. When you use only a physical device, your encryption key is kept with your device; therefore, Microsoft cannot decrypt it. 
-	![StorSimple virtual device creating stage](./media/storsimple-virtual-device-u1/StorSimple_VirtualDeviceCreating1M.png)
+    ![StorSimple virtual device creating stage](./media/storsimple-virtual-device-u1/StorSimple_VirtualDeviceCreating1M.png)
 
     When you use a virtual device, both the encryption key and the decryption key are stored in Microsoft Azure. For more information, see [Security considerations for using a virtual device](#security-considerations-for-using-a-virtual-device).
 
@@ -300,7 +300,7 @@ Perform the following steps to create a public endpoint on the virtual device.
 
 - Click **Endpoints**. The Endpoints page lists all endpoints for the virtual machine.
 
-- Click **Add**. The Add Endpoint dialog box appears. Click the arrow to continue.
+- Click **Add**. The Add Endpoint dialog box appears. Click the arrow to continue.
 
 - For the **Name**, type the following name for the endpoint: **WinRMHttps**.
 
@@ -393,3 +393,4 @@ If you delete or shut down the virtual device, it will appear as **Offline** on 
 ## Next steps
 
 Learn how to [Restore a StorSimple volume from a backup set](storsimple-restore-from-backup-set.md). 
+

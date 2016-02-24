@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Register for Facebook authentication | Azure Mobile Services"
-	description="Learn how to use Facebook authentication in your Azure Mobile Services app."
-	services="mobile-services"
-	documentationCenter=""
-	authors="ggailey777"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Register for Facebook authentication | Azure Mobile Services"
+    description="Learn how to use Facebook authentication in your Azure Mobile Services app."
+    services="mobile-services"
+    documentationCenter=""
+    authors="ggailey777"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="11/15/2015"
-	ms.author="glenga"/>
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="na"
+    ms.devlang="multiple"
+    ms.topic="article"
+    ms.date="11/15/2015"
+    ms.author="glenga"/>
 
 # Register your apps for Facebook authentication with Mobile Services
 
@@ -39,33 +39,33 @@ To complete the procedure in this topic, you must have a Facebook account that h
 
 4. Type a unique **Display name** for your app, choose **Apps for Pages** under **Category**, then click **Create App ID** and complete the security exercise.
 
-	This creates a new Facebook app ID.
+    This creates a new Facebook app ID.
 
 5. Click **Settings**, type the domain of your mobile service in **App Domains**, enter an optional **Contact Email**, click **Add Platform** and select **Website**.
 
-   	![][3]
+    ![][3]
 
 6. Type the URL of your mobile service in **Site URL**, then click **Save Changes**.
 
 7. Click **Show**, provide your password if requested, then make a note of the values of **App ID** and **App Secret**.
 
-   	![][5]
-	&nbsp;
+    ![][5]
+    &nbsp;
 
     >[AZURE.IMPORTANT] The app secret is an important security credential. Do not share this secret with anyone or distribute it with your app.
-	&nbsp;
+    &nbsp;
 
 8. Click the **Advanced** tab, type one of the following URL formats in **Valid OAuth redirect URIs**, then click **Save Changes**:
 
-	+ **.NET backend**: `https://<mobile_service>.azure-mobile.net/signin-facebook`
-	+ **JavaScript backend**: `https://<mobile_service>.azure-mobile.net/login/facebook`
+    + **.NET backend**: `https://<mobile_service>.azure-mobile.net/signin-facebook`
+    + **JavaScript backend**: `https://<mobile_service>.azure-mobile.net/login/facebook`
 
-	 >[AZURE.NOTE]Make sure that you use the correct redirect URL path format for your type of Mobile Services backend. When this is incorrect, authentication will not succeed.
+     >[AZURE.NOTE]Make sure that you use the correct redirect URL path format for your type of Mobile Services backend. When this is incorrect, authentication will not succeed.
 
 
 9. Click **Status & Review** > **Yes** to enable general public access to your app.
 
-	The Facebook account you used to register the new app is an administrator of the app and has access to the app as administrator. This step grants the general public access so that the app can authenticate by using other Facebook accounts.
+    The Facebook account you used to register the new app is an administrator of the app and has access to the app as administrator. This step grants the general public access so that the app can authenticate by using other Facebook accounts.
 
 
 You are now ready to use a Facebook login for authentication in your app by providing the App ID and App Secret values to Mobile Services.
@@ -80,3 +80,4 @@ You are now ready to use a Facebook login for authentication in your app by prov
 [Facebook Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268286
 [Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-dotnet/
 [Azure Mobile Services]: http://azure.microsoft.com/services/mobile-services/
+

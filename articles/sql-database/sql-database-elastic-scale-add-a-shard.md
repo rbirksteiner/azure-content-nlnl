@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Adding a shard using elastic database tools | Microsoft Azure" 
-	description="How to use Elastic Scale APIs to add new shards to a shard set." 
-	services="sql-database" 
-	documentationCenter="" 
-	manager="jeffreyg" 
-	authors="ddove" 
-	editor=""/>
+    pageTitle="Adding a shard using elastic database tools | Microsoft Azure" 
+    description="How to use Elastic Scale APIs to add new shards to a shard set." 
+    services="sql-database" 
+    documentationCenter="" 
+    manager="jeffreyg" 
+    authors="ddove" 
+    editor=""/>
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="sql-database" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/04/2015" 
-	ms.author="ddove;sidneyh"/>
+    ms.service="sql-database" 
+    ms.workload="sql-database" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/04/2015" 
+    ms.author="ddove;sidneyh"/>
 
 # Adding a shard using Elastic Database tools
 
@@ -78,3 +78,4 @@ A database named “sample_shard_2” and all necessary schema objects inside of
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
+

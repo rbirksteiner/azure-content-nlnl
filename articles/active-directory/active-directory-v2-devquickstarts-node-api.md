@@ -1,20 +1,20 @@
 <properties
-	pageTitle="App Model v2.0 Node.js Web API | Microsoft Azure"
-	description="How to build a NodeJS Web API accepts tokens from both personal Microsoft Account and work or school accounts."
-	services="active-directory"
-	documentationCenter="nodejs"
-	authors="brandwe"
-	manager="mbaldwin"
-	editor=""/>
+    pageTitle="App Model v2.0 Node.js Web API | Microsoft Azure"
+    description="How to build a NodeJS Web API accepts tokens from both personal Microsoft Account and work or school accounts."
+    services="active-directory"
+    documentationCenter="nodejs"
+    authors="brandwe"
+    manager="mbaldwin"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-  	ms.tgt_pltfrm="na"
-	ms.devlang="javascript"
-	ms.topic="article"
-	ms.date="12/09/2015"
-	ms.author="brandwe"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="javascript"
+    ms.topic="article"
+    ms.date="12/09/2015"
+    ms.author="brandwe"/>
 
 # App Model v2.0 Preview: Secure a Web API using node.js
 
@@ -107,26 +107,26 @@ Restify provides a powerful mechanism to trace REST calls using DTrace. However,
 The output of this command should appear similar to the following:
 
 
-	restify@2.6.1 node_modules/restify
-	├── assert-plus@0.1.4
-	├── once@1.3.0
-	├── deep-equal@0.0.0
-	├── escape-regexp-component@1.0.2
-	├── qs@0.6.5
-	├── tunnel-agent@0.3.0
-	├── keep-alive-agent@0.0.1
-	├── lru-cache@2.3.1
-	├── node-uuid@1.4.0
-	├── negotiator@0.3.0
-	├── mime@1.2.11
-	├── semver@2.2.1
-	├── spdy@1.14.12
-	├── backoff@2.3.0
-	├── formidable@1.0.14
-	├── verror@1.3.6 (extsprintf@1.0.2)
-	├── csv@0.3.6
-	├── http-signature@0.10.0 (assert-plus@0.1.2, asn1@0.1.11, ctype@0.5.2)
-	└── bunyan@0.22.0 (mv@0.0.5)
+    restify@2.6.1 node_modules/restify
+    ├── assert-plus@0.1.4
+    ├── once@1.3.0
+    ├── deep-equal@0.0.0
+    ├── escape-regexp-component@1.0.2
+    ├── qs@0.6.5
+    ├── tunnel-agent@0.3.0
+    ├── keep-alive-agent@0.0.1
+    ├── lru-cache@2.3.1
+    ├── node-uuid@1.4.0
+    ├── negotiator@0.3.0
+    ├── mime@1.2.11
+    ├── semver@2.2.1
+    ├── spdy@1.14.12
+    ├── backoff@2.3.0
+    ├── formidable@1.0.14
+    ├── verror@1.3.6 (extsprintf@1.0.2)
+    ├── csv@0.3.6
+    ├── http-signature@0.10.0 (assert-plus@0.1.2, asn1@0.1.11, ctype@0.5.2)
+    └── bunyan@0.22.0 (mv@0.0.5)
 
 
 ## 5: Install Passport.js into your Web API
@@ -141,9 +141,9 @@ Enter the following command to install passport.js
 
 The output of the commadn should appear similar to the following:
 
-	passport@0.1.17 node_modules\passport
-	├── pause@0.0.1
-	└── pkginfo@0.2.3
+    passport@0.1.17 node_modules\passport
+    ├── pause@0.0.1
+    └── pkginfo@0.2.3
 
 ## 6: Add Passport-Azure-AD to your Web API
 
@@ -818,12 +818,12 @@ Let's use `curl` again to see if we now have OAuth2 protection against our endpo
 
 First, make sure that your monogoDB isntance is running..
 
-	$sudo mongod
+    $sudo mongod
 
 Then, change to the directory and start curling..
 
-	$ cd azuread
-	$ node server.js
+    $ cd azuread
+    $ node server.js
 
 Try a basic POST:
 
@@ -859,3 +859,4 @@ You can now move onto more advanced topics.  You may want to try:
 For additional resources, check out:
 - [The App Model v2.0 Preview >>](active-directory-appmodel-v2-overview.md)
 - [StackOverflow "azure-active-directory" tag >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
+

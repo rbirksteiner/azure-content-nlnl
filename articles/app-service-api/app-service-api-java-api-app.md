@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Build and deploy a Java API app in Azure App Service"
-	description="Learn how to create a Java API app package and deploy it to Azure App Service."
-	services="app-service\api"
-	documentationCenter="java"
-	authors="bradygaster"
-	manager="mohisri",
-	editor="tdykstra"/>
+    pageTitle="Build and deploy a Java API app in Azure App Service"
+    description="Learn how to create a Java API app package and deploy it to Azure App Service."
+    services="app-service\api"
+    documentationCenter="java"
+    authors="bradygaster"
+    manager="mohisri",
+    editor="tdykstra"/>
 
 <tags
-	ms.service="app-service-api"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="java"
-	ms.topic="get-started-article"
-	ms.date="11/27/2015"
-	ms.author="bradygaster"/>
+    ms.service="app-service-api"
+    ms.workload="web"
+    ms.tgt_pltfrm="na"
+    ms.devlang="java"
+    ms.topic="get-started-article"
+    ms.date="11/27/2015"
+    ms.author="bradygaster"/>
 
 # Build and deploy a Java API app in Azure App Service
 
@@ -36,99 +36,99 @@ This demonstration will begin with a Swagger JSON body that will be pasted into 
 
 1. Copy the Swagger JSON code below to your clipboard
 
-		{
-			"swagger": "2.0",
-			"info": {
-				"version": "v1",
-				"title": "Contact List",
-				"description": "A Contact list API based on Swagger and built using Java"
-			},
-			"host": "localhost",
-			"schemes": [
-				"http",
-				"https"
-			],
-			"basePath": "/api",
-			"paths": {
-				"/contacts": {
-					"get": {
-						"tags": [
-							"Contact"
-						],
-						"operationId": "contacts_get",
-						"consumes": [],
-						"produces": [
-							"application/json",
-							"text/json"
-						],
-						"responses": {
-							"200": {
-								"description": "OK",
-								"schema": {
-									"type": "array",
-									"items": {
-										"$ref": "#/definitions/Contact"
-									}
-								}
-							}
-						},
-						"deprecated": false
-					}
-				},
-				"/contacts/{id}": {
-					"get": {
-						"tags": [
-							"Contact"
-						],
-						"operationId": "contacts_getById",
-						"consumes": [],
-						"produces": [
-							"application/json",
-							"text/json"
-						],
-						"parameters": [
-							{
-								"name": "id",
-								"in": "path",
-								"required": true,
-								"type": "integer",
-								"format": "int32"
-							}
-						],
-						"responses": {
-							"200": {
-								"description": "OK",
-								"schema": {
-									"type": "array",
-									"items": {
-										"$ref": "#/definitions/Contact"
-									}
-								}
-							}
-						},
-						"deprecated": false
-					}
-				}
-			},
-			"definitions": {
-				"Contact": {
-					"type": "object",
-					"properties": {
-						"Id": {
-							"format": "int32",
-							"type": "integer"
-						},
-						"Name": {
-							"type": "string"
-						},
-						"EmailAddress": {
-							"type": "string"
-						}
-					}
-				}
-			}
-		}
-		
+        {
+            "swagger": "2.0",
+            "info": {
+                "version": "v1",
+                "title": "Contact List",
+                "description": "A Contact list API based on Swagger and built using Java"
+            },
+            "host": "localhost",
+            "schemes": [
+                "http",
+                "https"
+            ],
+            "basePath": "/api",
+            "paths": {
+                "/contacts": {
+                    "get": {
+                        "tags": [
+                            "Contact"
+                        ],
+                        "operationId": "contacts_get",
+                        "consumes": [],
+                        "produces": [
+                            "application/json",
+                            "text/json"
+                        ],
+                        "responses": {
+                            "200": {
+                                "description": "OK",
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/definitions/Contact"
+                                    }
+                                }
+                            }
+                        },
+                        "deprecated": false
+                    }
+                },
+                "/contacts/{id}": {
+                    "get": {
+                        "tags": [
+                            "Contact"
+                        ],
+                        "operationId": "contacts_getById",
+                        "consumes": [],
+                        "produces": [
+                            "application/json",
+                            "text/json"
+                        ],
+                        "parameters": [
+                            {
+                                "name": "id",
+                                "in": "path",
+                                "required": true,
+                                "type": "integer",
+                                "format": "int32"
+                            }
+                        ],
+                        "responses": {
+                            "200": {
+                                "description": "OK",
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/definitions/Contact"
+                                    }
+                                }
+                            }
+                        },
+                        "deprecated": false
+                    }
+                }
+            },
+            "definitions": {
+                "Contact": {
+                    "type": "object",
+                    "properties": {
+                        "Id": {
+                            "format": "int32",
+                            "type": "integer"
+                        },
+                        "Name": {
+                            "type": "string"
+                        },
+                        "EmailAddress": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+        
 1. Navigate to the [Online Swagger editor](http://editor.swagger.io/). Once there, click the **File -> Paste JSON** menu item.
 
     ![Paste Json](media/app-service-api-java-api-app/paste-json.png)
@@ -144,8 +144,8 @@ This demonstration will begin with a Swagger JSON body that will be pasted into 
 1. Select the **Generate Server -> JAX-RS** menu option to scaffold the server-side code you'll edit later to add mock implementation. 
 
     ![Generate Code Menu Item](media/app-service-api-java-api-app/generate-code-menu-item.png)
-	
-	Once the code is generated you'll be provided a ZIP file to download. This file contains the code scaffolded by the Swagger code generator and all of the associated build scripts. Unzip the entire library to a directory on your development workstation. 
+    
+    Once the code is generated you'll be provided a ZIP file to download. This file contains the code scaffolded by the Swagger code generator and all of the associated build scripts. Unzip the entire library to a directory on your development workstation. 
 
 ## Edit the Code to add API Implementation
 In this section you'll replace the generated code's server-side implementation with your custom code. The new code will return an ArrayList of Contact entities to the calling client. 
@@ -157,11 +157,11 @@ In this section you'll replace the generated code's server-side implementation w
 1. Add the following constructor to the **Contact** class. 
 
         public Contact(Integer id, String name, String email) 
-		{
-			this.id = id;
-			this.name = name;
-			this.emailAddress = email;
-		}
+        {
+            this.id = id;
+            this.name = name;
+            this.emailAddress = email;
+        }
 
 1. Open the *ContactsApiServiceImpl.java* service implementation file, located in the *src/main/java/swagger/api/impl* folder, using [Visual Studio Code](https://code.visualstudio.com) or in your favorite text editor.
 
@@ -222,75 +222,76 @@ In this section you'll replace the generated code's server-side implementation w
 
 1. Execute the following Maven command to build the code and run it using the Jetty app server locally. 
 
-		mvn package jetty:run
-		
+        mvn package jetty:run
+        
 1. You should see the command window reflect that Jetty has started your code on port 8080. 
 
-	![Open Contact Service Code File](media/app-service-api-java-api-app/run-jetty-war.png)
-	
+    ![Open Contact Service Code File](media/app-service-api-java-api-app/run-jetty-war.png)
+    
 1. Use [Postman](https://www.getpostman.com/) to make a request to the "get all contacts" API method located at http://localhost:8080/api/contacts.
 
-	![Call the Contacts API](media/app-service-api-java-api-app/calling-contacts-api.png)
-	
+    ![Call the Contacts API](media/app-service-api-java-api-app/calling-contacts-api.png)
+    
 1. Use [Postman](https://www.getpostman.com/) to make a request to the "get specific contact" API method located at http://localhost:8080/api/contacts/2.
 
-	![Call the Contacts API](media/app-service-api-java-api-app/calling-specific-contact-api.png)
-	
+    ![Call the Contacts API](media/app-service-api-java-api-app/calling-specific-contact-api.png)
+    
 1. Finally, build the Java WAR (Web ARchive) file by executing the following Maven command in your console. 
 
-		mvn package war:war
-		
-	Once the WAR file is built, it will be placed into the **target** folder. Navigate into the **target** folder and rename the WAR file **ROOT.war** (make sure the capitalization matches this format).
-	
-		rename swagger-jaxrs-server-1.0.0.war ROOT.war
-		
-	Finally, execute the following commands to create a **deploy** folder to use to deploy the WAR file to Azure. 
-	
-		mkdir deploy
-		mkdir deploy\webapps
-		copy target\ROOT.war deploy\webapps
-		cd deploy
-	
+        mvn package war:war
+        
+    Once the WAR file is built, it will be placed into the **target** folder. Navigate into the **target** folder and rename the WAR file **ROOT.war** (make sure the capitalization matches this format).
+    
+        rename swagger-jaxrs-server-1.0.0.war ROOT.war
+        
+    Finally, execute the following commands to create a **deploy** folder to use to deploy the WAR file to Azure. 
+    
+        mkdir deploy
+        mkdir deploy\webapps
+        copy target\ROOT.war deploy\webapps
+        cd deploy
+    
 ## Publish the output to Azure App Service
 In this section you'll learn how to create a new API App using the Azure Portal, prepare that API App for hosting Java applications, and deploy the newly-created WAR file to Azure App Service to run your new API App. 
 
 1. Create a new API app in the [Azure portal](http://portal.azure.com), by clicking on the **New -> Web + Mobile -> API app** menu item.
-	
-	![Create a new API App](media/app-service-api-java-api-app/create-api-app.png)
+    
+    ![Create a new API App](media/app-service-api-java-api-app/create-api-app.png)
 
 1. Click the **Application settings** option in the API App's settings blade. Then, select the latest Java versions from the Java version menus, and select the latest Tomcat from the Web container menu.
 
-	![Set up Java in the API App blade](media/app-service-api-java-api-app/set-up-java.png)
+    ![Set up Java in the API App blade](media/app-service-api-java-api-app/set-up-java.png)
 
 1. Click the **Deployment credentials** settings menu item, and provide a username and passowrd you wish to use for publishing files to your API App. 
 
-	![Set deployment credentials](media/app-service-api-java-api-app/deployment-credentials.png)
+    ![Set deployment credentials](media/app-service-api-java-api-app/deployment-credentials.png)
 
 1. Click the **Continuous Deployment** settings menu item. Once there, click the **Choose source** button and select the **Local Git Repository** option. This will create a Git repository running in Azure, that has an association with your API App. Each time you commit code to the *master* branch of your Git repository, your code will be published into your live running API App instance. 
 
-	![Set up a new local Git repository](media/app-service-api-java-api-app/select-git-repo.png)
+    ![Set up a new local Git repository](media/app-service-api-java-api-app/select-git-repo.png)
 
 1. Copy the new Git repository's URL to your clipboard. Save this as it will be important in a moment. 
 
-	![Set up a new Git reposutory for your app](media/app-service-api-java-api-app/copy-git-repo-url.png)
+    ![Set up a new Git reposutory for your app](media/app-service-api-java-api-app/copy-git-repo-url.png)
 
 1. Git push the WAR file to the online repository. To do this, navigate into the **deploy** folder you created earlier so that you can easily commit the code up to the repository running in your App Service. Once you're in the console window and navigated into the folder where the webapps folder is located, issue the following Git commands to launch the process and fire off a deployment. 
 
-		git init
-		git add .
-		git commit -m "initial commit"
-		git remote add azure [YOUR GIT URL]		
-		git push azure master
-		
-	Once you issue the **push** request, you'll be asked for the password you created for the deployment credential earlier. If you enter it in you should see your portal display the update has arrived and was deployed. 
-		
+        git init
+        git add .
+        git commit -m "initial commit"
+        git remote add azure [YOUR GIT URL]     
+        git push azure master
+        
+    Once you issue the **push** request, you'll be asked for the password you created for the deployment credential earlier. If you enter it in you should see your portal display the update has arrived and was deployed. 
+        
 1. If you once again use Postman to hit the newly-deployed API App running in Azure App Service, you'll see that the behavior is consistent and that now it is returning contact data as expected, and using simple code changes to the Swagger.io scaffolded Java code. 
 
-	![Using your Java Contacts REST API live in Azure](media/app-service-api-java-api-app/postman-calling-azure-contacts.png)
-	
+    ![Using your Java Contacts REST API live in Azure](media/app-service-api-java-api-app/postman-calling-azure-contacts.png)
+    
 ## Next steps
 In this article you were able to start with a Swagger JSON file and some scaffolded Java code obtained from the Swagger.io editor. From there, your simple changes and a Git deploy process resulted in having a functional API app written in Java. The next tutorial in the API Apps getting started series shows how to [consume API apps from JavaScript clients, using CORS](app-service-api-cors-consume-javascript.md).
 
 To build on this sample, you can learn more about the [Storage SDK for Java](../storage/storage-java-how-to-use-blob-storage.md) to persist the JSON blobs. Or, you could use the [Document DB Java SDK](../documentdb/documentdb-java-application.md) to save your Contact data to Azure Document DB. 
 
 For more information about using Java in Azure, see the [Java Developer Center](/develop/java/).
+

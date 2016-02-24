@@ -46,7 +46,7 @@ A connector can be created within a logic app or be created directly from the Az
 3. Enter the Name, App Service Plan, and other properties.
 4. Enter the following package settings:
 
-	Name | Required |  Description
+    Name | Required |  Description
 --- | --- | ---
 Server Name | Yes | Enter the SQL Server name. For example, enter *SQLserver/sqlexpress* or *SQLserver.mydomain.com*.
 Port | No | Default is 1433.
@@ -78,16 +78,16 @@ To use the SQL connector as a trigger, enter the **Data Available Query** and **
 
 #### Data Available Query Example
 
-	SELECT COUNT(*) FROM [Order] WHERE OrderStatus = 'ProcessedForCollection'
+    SELECT COUNT(*) FROM [Order] WHERE OrderStatus = 'ProcessedForCollection'
 
 #### Poll Data Query Example
 
-	SELECT *, GetData() as 'PollTime' FROM [Order]
-		WHERE OrderStatus = 'ProcessedForCollection'
-		ORDER BY Id DESC;
-	UPDATE [Order] SET OrderStatus = 'ProcessedForFrontDesk'
-		WHERE Id =
-		(SELECT Id FROM [Order] WHERE OrderStatus = 'ProcessedForCollection' ORDER BY Id DESC)
+    SELECT *, GetData() as 'PollTime' FROM [Order]
+        WHERE OrderStatus = 'ProcessedForCollection'
+        ORDER BY Id DESC;
+    UPDATE [Order] SET OrderStatus = 'ProcessedForFrontDesk'
+        WHERE Id =
+        (SELECT Id FROM [Order] WHERE OrderStatus = 'ProcessedForCollection' ORDER BY Id DESC)
 
 ### Add the Trigger
 1. When creating or editing a logic app, select the SQL Connector you created as the trigger. This lists the available triggers: **Poll Data (JSON)** and **Poll Data (XML)**:  
@@ -160,3 +160,4 @@ You can also review performance statistics and control security to the connector
 [10]: ./media/app-service-logic-connector-sql/LogicApp6.png
 [11]: ./media/app-service-logic-connector-sql/LogicApp7.png
 [12]: ./media/app-service-logic-connector-sql/LogicApp8.png
+

@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Introduction to Azure DPM backup | Microsoft Azure"
-	description="An introduction to backing up DPM servers using the Azure Backup service"
-	services="backup"
-	documentationCenter=""
-	authors="giridharreddy"
-	manager="jwhit"
-	editor=""/>
+    pageTitle="Introduction to Azure DPM backup | Microsoft Azure"
+    description="An introduction to backing up DPM servers using the Azure Backup service"
+    services="backup"
+    documentationCenter=""
+    authors="giridharreddy"
+    manager="jwhit"
+    editor=""/>
 
 <tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/10/2015"
-	ms.author="giridham;jimpark"/>
+    ms.service="backup"
+    ms.workload="storage-backup-recovery"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/10/2015"
+    ms.author="giridham;jimpark"/>
 
 # Preparing to back up workloads to Azure with DPM
 
@@ -91,3 +91,4 @@ And these are unsupported:
 - Sparse stream
 
 >[AZURE.NOTE] From in System Center 2012 DPM with SP1 onwards you can backup up workloads protected by DPM to Azure using Microsoft Azure Backup.
+

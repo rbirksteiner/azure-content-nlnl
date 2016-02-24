@@ -19,7 +19,7 @@
 
 ## Overview
 
-The Power and Cooling Module (PCM) in your Microsoft Azure StorSimple device consists of a power supply and cooling fans that are controlled through the primary and EBOD enclosures. There is only one model of PCM that is certified for each enclosure. The primary enclosure is certified for a 764 W PCM and the EBOD enclosure is certified for a 580 W PCM. Although the PCMs for the primary enclosure and the EBOD enclosure are different, the replacement procedure is identical.
+The Power and Cooling Module (PCM) in your Microsoft Azure StorSimple device consists of a power supply and cooling fans that are controlled through the primary and EBOD enclosures. There is only one model of PCM that is certified for each enclosure. The primary enclosure is certified for a 764 W PCM and the EBOD enclosure is certified for a 580 W PCM. Although the PCMs for the primary enclosure and the EBOD enclosure are different, the replacement procedure is identical.
 
 This tutorial explains how to:
 
@@ -44,7 +44,7 @@ Be aware of the following important issues before you replace your PCM:
 
 Follow these instructions when you are ready to remove a Power and Cooling Module (PCM) from your Microsoft Azure StorSimple device.
 
->[AZURE.NOTE] Before you remove your PCM, verify that you have a correct replacement (764 W for the primary enclosure or 580 W for the EBOD enclosure).
+>[AZURE.NOTE] Before you remove your PCM, verify that you have a correct replacement (764 W for the primary enclosure or 580 W for the EBOD enclosure).
 
 #### To remove a PCM
 
@@ -60,7 +60,7 @@ Follow these instructions when you are ready to remove a Power and Cooling Modul
 
     ![System ID on front OPS panel](./media/storsimple-power-cooling-module-replacement/IC740991.png)
 
-     **Figure 1** Front panel of the device  
+     **Figure 1** Front panel of the device  
 
     |Label|Description|
     |:---|:-----------|
@@ -70,7 +70,7 @@ Follow these instructions when you are ready to remove a Power and Cooling Modul
     |4|Logical fault|
     |5|Unit ID display|
 
-3. The monitoring indicator LEDs in the back of the primary enclosure can also be used to identify the faulty PCM. See the following diagram and table to understand how to use the LEDs to locate the faulty PCM. For example, if the LED corresponding to the **Fan Fail** is lit, the fan has failed. Likewise, if the LED corresponding to **AC Fail** is lit, the power supply has failed. 
+3. The monitoring indicator LEDs in the back of the primary enclosure can also be used to identify the faulty PCM. See the following diagram and table to understand how to use the LEDs to locate the faulty PCM. For example, if the LED corresponding to the **Fan Fail** is lit, the fan has failed. Likewise, if the LED corresponding to **AC Fail** is lit, the power supply has failed. 
 
     ![Backplane of device PCM monitoring indicator LEDs](./media/storsimple-power-cooling-module-replacement/IC740992.png)
 
@@ -89,7 +89,7 @@ Follow these instructions when you are ready to remove a Power and Cooling Modul
 
      ![Backplane of device primary enclosure modules](./media/storsimple-power-cooling-module-replacement/IC740994.png)
 
-     **Figure 3** Back of device with plug-in modules 
+     **Figure 3** Back of device with plug-in modules 
 
     |Label|Description|
     |:---|:-----------|
@@ -104,13 +104,13 @@ Follow these instructions when you are ready to remove a Power and Cooling Modul
 
     ![Opening PCM Handle](./media/storsimple-power-cooling-module-replacement/IC740995.png)
 
-    **Figure 4** Opening the PCM handle
+    **Figure 4** Opening the PCM handle
 
 7. Grip the handle and remove the PCM.
 
     ![Removing Device PCM](./media/storsimple-power-cooling-module-replacement/IC740996.png)
 
-    **Figure 5** Removing the PCM
+    **Figure 5** Removing the PCM
 
 ## Install a replacement PCM
 
@@ -118,24 +118,24 @@ Follow these instructions to install a PCM in your StorSimple device.
 
 #### To install a PCM
 
-1. Verify that you have the correct replacement PCM for this enclosure. The primary enclosure needs a 764 W PCM and the EBOD enclosure needs a 580 W PCM. You should not attempt to use the 580 W PCM in the Primary enclosure, or the 764 W PCM in the EBOD enclosure. The following image shows where to identify this information on the label that is affixed to the PCM.
+1. Verify that you have the correct replacement PCM for this enclosure. The primary enclosure needs a 764 W PCM and the EBOD enclosure needs a 580 W PCM. You should not attempt to use the 580 W PCM in the Primary enclosure, or the 764 W PCM in the EBOD enclosure. The following image shows where to identify this information on the label that is affixed to the PCM.
 
     ![Device PCM Label](./media/storsimple-power-cooling-module-replacement/IC740973.png)
 
-    **Figure 6** PCM label
+    **Figure 6** PCM label
 
 2. Check for damage to the enclosure, paying particular attention to the connectors. 
-										
+                                        
     >[AZURE.NOTE] **Do not install the module if any connector pins are bent.**
 
 3. With the PCM handle in the open position, slide the module into the enclosure.
 
     ![Installing Device PCM](./media/storsimple-power-cooling-module-replacement/IC740975.png)
 
-    **Figure 7** Installing the PCM
+    **Figure 7** Installing the PCM
 
 4. Manually close the PCM handle. You should hear a click as the handle latch engages. 
-										
+                                        
     >[AZURE.NOTE] To ensure that the connector pins have engaged, you can gently tug on the handle without releasing the latch. If the PCM slides out, it implies that the latch was closed before the connectors engaged.
 
 5. Connect the power cables to the power source and to the PCM.
@@ -145,9 +145,10 @@ Follow these instructions to install a PCM in your StorSimple device.
 7. Turn on the PCM.
 
 8. Verify that the replacement was successful: in the Azure classic portal of your StorSimple Manager service, navigate to **Devices** > **Maintenance** > **Hardware Status**. Under **Shared Components**, the status of the PCM should be green. 
-										
+                                        
     >[AZURE.NOTE] It may take a few minutes for the replacement PCM to completely initialize.
 
 ## Next steps
 
 Learn more about [StorSimple hardware component replacement](storsimple-hardware-component-replacement.md).
+

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="What’s new in the latest update to Azure Search | Microsoft Azure | Hosted cloud search service" 
-	description="Release notes for Azure Search describing the latest updates to the service" 
-	services="search" 
-	documentationCenter="" 
-	authors="HeidiSteen" 
-	manager="mblythe" 
-	editor=""/>
+    pageTitle="What’s new in the latest update to Azure Search | Microsoft Azure | Hosted cloud search service" 
+    description="Release notes for Azure Search describing the latest updates to the service" 
+    services="search" 
+    documentationCenter="" 
+    authors="HeidiSteen" 
+    manager="mblythe" 
+    editor=""/>
 
 <tags 
-	ms.service="search" 
-	ms.devlang="rest-api" 
-	ms.workload="search" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.date="11/04/2015" 
-	ms.author="heidist"/>
+    ms.service="search" 
+    ms.devlang="rest-api" 
+    ms.workload="search" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.date="11/04/2015" 
+    ms.author="heidist"/>
 
 #What’s new in the latest update to Azure Search#
 

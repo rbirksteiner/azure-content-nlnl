@@ -1,21 +1,21 @@
 <properties
-	pageTitle="How to debug a Node.js web app in Azure App Service"
-	description="Learn how to debug a Node.js web app in Azure App Service."
-	tags="azure-portal"
-	services="app-service\web"
-	documentationCenter="nodejs"
-	authors="TomArcher"
-	manager="wpickett"
-	editor="mollybos"/>
+    pageTitle="How to debug a Node.js web app in Azure App Service"
+    description="Learn how to debug a Node.js web app in Azure App Service."
+    tags="azure-portal"
+    services="app-service\web"
+    documentationCenter="nodejs"
+    authors="TomArcher"
+    manager="wpickett"
+    editor="mollybos"/>
 
 <tags
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="nodejs"
-	ms.topic="article"
-	ms.date="11/18/2015"
-	ms.author="tarcher"/>
+    ms.service="app-service-web"
+    ms.workload="web"
+    ms.tgt_pltfrm="na"
+    ms.devlang="nodejs"
+    ms.topic="article"
+    ms.date="11/18/2015"
+    ms.author="tarcher"/>
 
 # How to debug a Node.js web app in Azure App Service
 
@@ -30,13 +30,13 @@ By default, an App Service web app only captures diagnostic information about de
 
 To enable the logging of stdout and stderr streams, you must create an **IISNode.yml** file at the root of your Node.js application and add the following:
 
-	loggingEnabled: true
+    loggingEnabled: true
 
 This enables the logging of stderr and stdout from your Node.js application.
 
 The **IISNode.yml** file can also be used to control whether friendly errors or developer errors are returned to the browser when a failure occurs. To enable developer errors, add the following line to the **IISNode.yml** file:
 
-	devErrorsEnabled: true
+    devErrorsEnabled: true
 
 Once this option is enabled, IISNode will return the last 64K of information sent to stderr instead of a friendly error such as "an internal server error occurred".
 
@@ -52,7 +52,7 @@ To restart the web app, select the web app in the [Azure Portal](https://portal.
 
 If the Azure Command-Line Tools are installed in your development environment, you can use the following command to restart the web app:
 
-	azure site restart [sitename]
+    azure site restart [sitename]
 
 > [AZURE.NOTE] While loggingEnabled and devErrorsEnabled are the most commonly used IISNode.yml configuration options for capturing diagnostic information, IISNode.yml can be used to configure a variety of options for your hosting environment. For a full list of the configuration options, see the [iisnode_schema.xml](https://github.com/tjanczuk/iisnode/blob/master/src/config/iisnode_schema.xml) file.
 
@@ -61,7 +61,7 @@ If the Azure Command-Line Tools are installed in your development environment, y
 
 Diagnostic logs can be accessed in three ways; Using the File Transfer Protocol (FTP), downloading a Zip archive, or as a live updated stream of the log (also known as a tail). Downloading the Zip archive of the log files or viewing the live stream require the Azure Command-Line Tools. These can be installed by using the following command:
 
-	npm install azure-cli -g
+    npm install azure-cli -g
 
 Once installed, the tools can be accessed using the 'azure' command. The command-line tools must first be configured to use your Azure subscription. For information on how to accomplish this task, see the **How to download and import publish settings** section of the [How to Use The Azure Command-Line Tools](../xplat-cli-connect) article.
 
@@ -81,7 +81,7 @@ The FTP URL returned in the dashboard is for the **LogFiles** directory, which w
 
 To download a Zip archive of the diagnostic logs, use the following command from the Azure Command-Line Tools:
 
-	azure site log download [sitename]
+    azure site log download [sitename]
 
 This will download a **diagnostics.zip** in the current directory. This archive contains the following directory structure:
 
@@ -89,15 +89,15 @@ This will download a **diagnostics.zip** in the current directory. This archive 
 
 * LogFiles
 
-	* [Deployment method](web-sites-deploy) - If you use a deployment method such as Git, a directory of the same name will be created and will contain information related to deployments.
+    * [Deployment method](web-sites-deploy) - If you use a deployment method such as Git, a directory of the same name will be created and will contain information related to deployments.
 
-	* nodejs - Stdout and stderr information captured from all instances of your application (when loggingEnabled is true.)
+    * nodejs - Stdout and stderr information captured from all instances of your application (when loggingEnabled is true.)
 
 ###Live stream (tail)
 
 To view a live stream of diagnostic log information, use the following command from the Azure Command-Line Tools:
 
-	azure site log tail [sitename]
+    azure site log tail [sitename]
 
 This will return a stream of log events that are updated as they occur on the server. This stream will return deployment information as well as stdout and stderr information (when loggingEnabled is true.)
 
@@ -125,3 +125,4 @@ For more information, see also the [Node.js Developer Center](/develop/nodejs/).
 
 [restart-button]: ./media/web-sites-nodejs-debug/restartbutton.png
  
+

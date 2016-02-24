@@ -1,27 +1,27 @@
 <properties
-	pageTitle="Azure AD B2C Preview | Microsoft Azure"
-	description="How to build a web application that calls a web API using Azure AD B2C."
-	services="active-directory-b2c"
-	documentationCenter=".net"
-	authors="dstrockis"
-	manager="msmbaldwin"
-	editor=""/>
+    pageTitle="Azure AD B2C Preview | Microsoft Azure"
+    description="How to build a web application that calls a web API using Azure AD B2C."
+    services="active-directory-b2c"
+    documentationCenter=".net"
+    authors="dstrockis"
+    manager="msmbaldwin"
+    editor=""/>
 
 <tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="09/22/2015"
-	ms.author="dastrock"/>
+    ms.service="active-directory-b2c"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="09/22/2015"
+    ms.author="dastrock"/>
 
 # Azure AD B2C Preview: Calling a web API from a .NET web app
 
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
 
 With Azure AD B2C, you can add powerful self-service identity managment features to your web apps and web apis in a few short steps.  This article will show you how
-to create a .NET MVC "To-Do List" web app that calls a 	.NET web API using OAuth 2.0 bearer tokens.  Both the web app and web api use Azure AD B2C to manage user identities
+to create a .NET MVC "To-Do List" web app that calls a  .NET web API using OAuth 2.0 bearer tokens.  Both the web app and web api use Azure AD B2C to manage user identities
 and authenticate users.
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
@@ -175,58 +175,58 @@ and the application you created:
 
 public partial class Startup
 {
-	public const string AcrClaimType = "http://schemas.microsoft.com/claims/authnclassreference";
-	public const string PolicyKey = "b2cpolicy";
-	public const string OIDCMetadataSuffix = "/.well-known/openid-configuration";
+    public const string AcrClaimType = "http://schemas.microsoft.com/claims/authnclassreference";
+    public const string PolicyKey = "b2cpolicy";
+    public const string OIDCMetadataSuffix = "/.well-known/openid-configuration";
 
-	// App config settings
-	public static string clientId = ConfigurationManager.AppSettings["ida:ClientId"];
-	public static string clientSecret = ConfigurationManager.AppSettings["ida:ClientSecret"];
-	public static string aadInstance = ConfigurationManager.AppSettings["ida:AadInstance"];
-	public static string tenant = ConfigurationManager.AppSettings["ida:Tenant"];
-	public static string redirectUri = ConfigurationManager.AppSettings["ida:RedirectUri"];
+    // App config settings
+    public static string clientId = ConfigurationManager.AppSettings["ida:ClientId"];
+    public static string clientSecret = ConfigurationManager.AppSettings["ida:ClientSecret"];
+    public static string aadInstance = ConfigurationManager.AppSettings["ida:AadInstance"];
+    public static string tenant = ConfigurationManager.AppSettings["ida:Tenant"];
+    public static string redirectUri = ConfigurationManager.AppSettings["ida:RedirectUri"];
 
-	// B2C policy identifiers
-	public static string SignUpPolicyId = ConfigurationManager.AppSettings["ida:SignUpPolicyId"];
-	public static string SignInPolicyId = ConfigurationManager.AppSettings["ida:SignInPolicyId"];
-	public static string ProfilePolicyId = ConfigurationManager.AppSettings["ida:UserProfilePolicyId"];
+    // B2C policy identifiers
+    public static string SignUpPolicyId = ConfigurationManager.AppSettings["ida:SignUpPolicyId"];
+    public static string SignInPolicyId = ConfigurationManager.AppSettings["ida:SignInPolicyId"];
+    public static string ProfilePolicyId = ConfigurationManager.AppSettings["ida:UserProfilePolicyId"];
 
-	public void ConfigureAuth(IAppBuilder app)
-	{
-		app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
+    public void ConfigureAuth(IAppBuilder app)
+    {
+        app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
 
-		app.UseCookieAuthentication(new CookieAuthenticationOptions());
+        app.UseCookieAuthentication(new CookieAuthenticationOptions());
 
-		OpenIdConnectAuthenticationOptions options = new OpenIdConnectAuthenticationOptions
-		{
-			// These are standard OpenID Connect parameters, with values pulled from web.config
-			ClientId = clientId,
-			RedirectUri = redirectUri,
-			PostLogoutRedirectUri = redirectUri,
-			Notifications = new OpenIdConnectAuthenticationNotifications
-			{
-				AuthenticationFailed = OnAuthenticationFailed,
-				RedirectToIdentityProvider = OnRedirectToIdentityProvider,
-				AuthorizationCodeReceived = OnAuthorizationCodeReceived,
-			},
-			Scope = "openid offline_access",
+        OpenIdConnectAuthenticationOptions options = new OpenIdConnectAuthenticationOptions
+        {
+            // These are standard OpenID Connect parameters, with values pulled from web.config
+            ClientId = clientId,
+            RedirectUri = redirectUri,
+            PostLogoutRedirectUri = redirectUri,
+            Notifications = new OpenIdConnectAuthenticationNotifications
+            {
+                AuthenticationFailed = OnAuthenticationFailed,
+                RedirectToIdentityProvider = OnRedirectToIdentityProvider,
+                AuthorizationCodeReceived = OnAuthorizationCodeReceived,
+            },
+            Scope = "openid offline_access",
 
-			// The PolicyConfigurationManager takes care of getting the correct Azure AD authentication
-			// endpoints from the OpenID Connect metadata endpoint.  It is included in the PolicyAuthHelpers folder.
-			ConfigurationManager = new PolicyConfigurationManager(
-				String.Format(CultureInfo.InvariantCulture, aadInstance, tenant, "/v2.0", OIDCMetadataSuffix),
-				new string[] { SignUpPolicyId, SignInPolicyId, ProfilePolicyId }),
+            // The PolicyConfigurationManager takes care of getting the correct Azure AD authentication
+            // endpoints from the OpenID Connect metadata endpoint.  It is included in the PolicyAuthHelpers folder.
+            ConfigurationManager = new PolicyConfigurationManager(
+                String.Format(CultureInfo.InvariantCulture, aadInstance, tenant, "/v2.0", OIDCMetadataSuffix),
+                new string[] { SignUpPolicyId, SignInPolicyId, ProfilePolicyId }),
 
-			// This piece is optional - it is used for displaying the user's name in the navigation bar.
-			TokenValidationParameters = new System.IdentityModel.Tokens.TokenValidationParameters
-			{
-				NameClaimType = "name",
-			},
-		};
+            // This piece is optional - it is used for displaying the user's name in the navigation bar.
+            TokenValidationParameters = new System.IdentityModel.Tokens.TokenValidationParameters
+            {
+                NameClaimType = "name",
+            },
+        };
 
-		app.UseOpenIdConnectAuthentication(options);
-	}
-	...
+        app.UseOpenIdConnectAuthentication(options);
+    }
+    ...
 }
 ```
 
@@ -254,23 +254,23 @@ In `App_Start\Startup.Auth.cs`, implement the `OnAuthorizationCodeReceived` noti
 
 private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification)
 {
-	// The user's objectId is extracted from the claims provided in the id_token, and used to cache tokens in ADAL
-	// The authority is constructed by appending your B2C directory's name to "https://login.microsoftonline.com/"
-	// The client credential is where you provide your application secret, and is used to authenticate the application to Azure AD
-	string userObjectID = notification.AuthenticationTicket.Identity.FindFirst("http://schemas.microsoft.com/identity/claims/objectidentifier").Value;
-	string authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenant, string.Empty, string.Empty);
-	ClientCredential credential = new ClientCredential(clientId, clientSecret);
+    // The user's objectId is extracted from the claims provided in the id_token, and used to cache tokens in ADAL
+    // The authority is constructed by appending your B2C directory's name to "https://login.microsoftonline.com/"
+    // The client credential is where you provide your application secret, and is used to authenticate the application to Azure AD
+    string userObjectID = notification.AuthenticationTicket.Identity.FindFirst("http://schemas.microsoft.com/identity/claims/objectidentifier").Value;
+    string authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenant, string.Empty, string.Empty);
+    ClientCredential credential = new ClientCredential(clientId, clientSecret);
 
-	// We don't care which policy is used to access the TaskService, so let's use the most recent policy as indicated in the sign-in token
-	string mostRecentPolicy = notification.AuthenticationTicket.Identity.FindFirst(Startup.AcrClaimType).Value;
+    // We don't care which policy is used to access the TaskService, so let's use the most recent policy as indicated in the sign-in token
+    string mostRecentPolicy = notification.AuthenticationTicket.Identity.FindFirst(Startup.AcrClaimType).Value;
 
-	// The Authentication Context is ADAL's primary class, which represents your connection to your B2C directory
-	// ADAL uses an in-memory token cache by default.  In this case, we've extended the default cache to use a simple per-user session cache
-	AuthenticationContext authContext = new AuthenticationContext(authority, new NaiveSessionCache(userObjectID));
+    // The Authentication Context is ADAL's primary class, which represents your connection to your B2C directory
+    // ADAL uses an in-memory token cache by default.  In this case, we've extended the default cache to use a simple per-user session cache
+    AuthenticationContext authContext = new AuthenticationContext(authority, new NaiveSessionCache(userObjectID));
 
-	// Here you ask for a token using the web app's clientId as the scope, since the web app and service share the same clientId.
-	// The token will be stored in the ADAL token cache, for use in our controllers
-	AuthenticationResult result = await authContext.AcquireTokenByAuthorizationCodeAsync(notification.Code, new Uri(redirectUri), credential, new string[] { clientId }, mostRecentPolicy);
+    // Here you ask for a token using the web app's clientId as the scope, since the web app and service share the same clientId.
+    // The token will be stored in the ADAL token cache, for use in our controllers
+    AuthenticationResult result = await authContext.AcquireTokenByAuthorizationCodeAsync(notification.Code, new Uri(redirectUri), credential, new string[] { clientId }, mostRecentPolicy);
 }
 ``` 
 
@@ -285,29 +285,29 @@ and delete tasks.  Before sending an HTTP request, get an access token from ADAL
 
 public async Task<ActionResult> Index()
 {
-	AuthenticationResult result = null;
-	try
-	{
-		string userObjectID = ClaimsPrincipal.Current.FindFirst("http://schemas.microsoft.com/identity/claims/objectidentifier").Value;
-		string authority = String.Format(CultureInfo.InvariantCulture, Startup.aadInstance, Startup.tenant, string.Empty, string.Empty);
-		ClientCredential credential = new ClientCredential(Startup.clientId, Startup.clientSecret);
+    AuthenticationResult result = null;
+    try
+    {
+        string userObjectID = ClaimsPrincipal.Current.FindFirst("http://schemas.microsoft.com/identity/claims/objectidentifier").Value;
+        string authority = String.Format(CultureInfo.InvariantCulture, Startup.aadInstance, Startup.tenant, string.Empty, string.Empty);
+        ClientCredential credential = new ClientCredential(Startup.clientId, Startup.clientSecret);
 
-		// We don't care which policy is used to access the TaskService, so let's use the most recent policy
-		string mostRecentPolicy = ClaimsPrincipal.Current.FindFirst(Startup.AcrClaimType).Value;
-		
-		// Here you ask for a token using the web app's clientId as the scope, since the web app and service share the same clientId.
-		// AcquireTokenSilentAsync will return a token from the token cache, and throw an exception if it cannot do so.
-		AuthenticationContext authContext = new AuthenticationContext(authority, new NaiveSessionCache(userObjectID));
-		result = await authContext.AcquireTokenSilentAsync(new string[] { Startup.clientId }, credential, UserIdentifier.AnyUser, mostRecentPolicy);
+        // We don't care which policy is used to access the TaskService, so let's use the most recent policy
+        string mostRecentPolicy = ClaimsPrincipal.Current.FindFirst(Startup.AcrClaimType).Value;
+        
+        // Here you ask for a token using the web app's clientId as the scope, since the web app and service share the same clientId.
+        // AcquireTokenSilentAsync will return a token from the token cache, and throw an exception if it cannot do so.
+        AuthenticationContext authContext = new AuthenticationContext(authority, new NaiveSessionCache(userObjectID));
+        result = await authContext.AcquireTokenSilentAsync(new string[] { Startup.clientId }, credential, UserIdentifier.AnyUser, mostRecentPolicy);
 
-		...
-	}
-	catch (AdalException ee)
-	{
-		// If ADAL could not get a token silently, show the user an error indicating they might need to sign in again.
-		return new RedirectResult("/Error?message=An Error Occurred Reading To Do List: " + ee.Message + " You might need to log out and log back in.");
-	}
-	...
+        ...
+    }
+    catch (AdalException ee)
+    {
+        // If ADAL could not get a token silently, show the user an error indicating they might need to sign in again.
+        return new RedirectResult("/Error?message=An Error Occurred Reading To Do List: " + ee.Message + " You might need to log out and log back in.");
+    }
+    ...
 }
 ``` 
 
@@ -323,44 +323,44 @@ Now that you have a token, you can attach it to the HTTP GET request in the `Aut
 
 public async Task<ActionResult> Index()
 {
-	... 
-	
-	try 
-	{
-		HttpClient client = new HttpClient();
-		HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, serviceUrl + "/api/tasks");
+    ... 
+    
+    try 
+    {
+        HttpClient client = new HttpClient();
+        HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, serviceUrl + "/api/tasks");
 
-		// Add the token acquired from ADAL to the request headers
-		request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", result.Token);
-		HttpResponseMessage response = await client.SendAsync(request);
+        // Add the token acquired from ADAL to the request headers
+        request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", result.Token);
+        HttpResponseMessage response = await client.SendAsync(request);
 
-		if (response.IsSuccessStatusCode)
-		{
-			String responseString = await response.Content.ReadAsStringAsync();
-			JArray tasks = JArray.Parse(responseString);
-			ViewBag.Tasks = tasks;
-			return View();
-		}
-		else
-		{
-			// If the call failed with access denied, then drop the current access token from the cache, 
-			// and show the user an error indicating they might need to sign-in again.
-			if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
-			{
-				var todoTokens = authContext.TokenCache.ReadItems().Where(a => a.Scope.Contains(Startup.clientId));
-				foreach (TokenCacheItem tci in todoTokens)
-					authContext.TokenCache.DeleteItem(tci);
+        if (response.IsSuccessStatusCode)
+        {
+            String responseString = await response.Content.ReadAsStringAsync();
+            JArray tasks = JArray.Parse(responseString);
+            ViewBag.Tasks = tasks;
+            return View();
+        }
+        else
+        {
+            // If the call failed with access denied, then drop the current access token from the cache, 
+            // and show the user an error indicating they might need to sign-in again.
+            if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
+            {
+                var todoTokens = authContext.TokenCache.ReadItems().Where(a => a.Scope.Contains(Startup.clientId));
+                foreach (TokenCacheItem tci in todoTokens)
+                    authContext.TokenCache.DeleteItem(tci);
 
-				return new RedirectResult("/Error?message=Error: " + response.ReasonPhrase + " You might need to sign in again.");
-			}
-		}
+                return new RedirectResult("/Error?message=Error: " + response.ReasonPhrase + " You might need to sign in again.");
+            }
+        }
 
-		return new RedirectResult("/Error?message=An Error Occurred Reading To Do List: " + response.StatusCode);
-	}
-	catch (Exception ex)
-	{
-		return new RedirectResult("/Error?message=An Error Occurred Reading To Do List: " + ex.Message);
-	}
+        return new RedirectResult("/Error?message=An Error Occurred Reading To Do List: " + response.StatusCode);
+    }
+    catch (Exception ex)
+    {
+        return new RedirectResult("/Error?message=An Error Occurred Reading To Do List: " + ex.Message);
+    }
 }
 
 ```
@@ -380,21 +380,21 @@ One final detail.  When the user signs out of the web app, you'll want to clear 
 
 public void SignOut()
 {
-	if (Request.IsAuthenticated)
-	{
-		// When the user signs out, clear their token cache in the process
-		string userObjectID = ClaimsPrincipal.Current.FindFirst("http://schemas.microsoft.com/identity/claims/objectidentifier").Value;
-		string authority = String.Format(CultureInfo.InvariantCulture, Startup.aadInstance, Startup.tenant, string.Empty, string.Empty);
-		AuthenticationContext authContext = new AuthenticationContext(authority, new NaiveSessionCache(userObjectID));
-		authContext.TokenCache.Clear();
+    if (Request.IsAuthenticated)
+    {
+        // When the user signs out, clear their token cache in the process
+        string userObjectID = ClaimsPrincipal.Current.FindFirst("http://schemas.microsoft.com/identity/claims/objectidentifier").Value;
+        string authority = String.Format(CultureInfo.InvariantCulture, Startup.aadInstance, Startup.tenant, string.Empty, string.Empty);
+        AuthenticationContext authContext = new AuthenticationContext(authority, new NaiveSessionCache(userObjectID));
+        authContext.TokenCache.Clear();
 
-		HttpContext.GetOwinContext().Authentication.SignOut(
-		new AuthenticationProperties(
-			new Dictionary<string, string> 
-			{ 
-				{Startup.PolicyKey, ClaimsPrincipal.Current.FindFirst(Startup.AcrClaimType).Value}
-			}), OpenIdConnectAuthenticationDefaults.AuthenticationType, CookieAuthenticationDefaults.AuthenticationType);
-	}
+        HttpContext.GetOwinContext().Authentication.SignOut(
+        new AuthenticationProperties(
+            new Dictionary<string, string> 
+            { 
+                {Startup.PolicyKey, ClaimsPrincipal.Current.FindFirst(Startup.AcrClaimType).Value}
+            }), OpenIdConnectAuthenticationDefaults.AuthenticationType, CookieAuthenticationDefaults.AuthenticationType);
+    }
 }
 ```
 

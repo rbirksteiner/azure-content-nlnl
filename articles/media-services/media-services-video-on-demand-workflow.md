@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Delivering Media on-Demand with Azure Media Services" 
-	description="This topic talks about common scenarios of delivering media on-demand with Azure Media Services." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="Delivering Media on-Demand with Azure Media Services" 
+    description="This topic talks about common scenarios of delivering media on-demand with Azure Media Services." 
+    services="media-services" 
+    documentationCenter="" 
+    authors="Juliako" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/05/2015"   
-	ms.author="juliako"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/05/2015"   
+    ms.author="juliako"/>
 
 
 #Delivering Media on-Demand with Azure Media Services
@@ -33,19 +33,19 @@ The following diagram shows the major parts of the Media Services platform that 
 ###Protect content in storage and deliver streaming media in the clear (non-encrypted)
 
 1. Upload a high-quality mezzanine file into an asset.
-	
-	It is recommended to apply storage encryption option to your asset in order to protect your content during upload and while at rest in storage. 
+    
+    It is recommended to apply storage encryption option to your asset in order to protect your content during upload and while at rest in storage. 
 1. Encode to adaptive bitrate MP4 set. 
 
-	It is recommended to apply storage encryption option to the output asset in order to protect your content at rest.
-	
+    It is recommended to apply storage encryption option to the output asset in order to protect your content at rest.
+    
 1. Configure asset delivery policy (used by dynamic packaging). 
-	
-	If your asset is storage encrypted, you **must** configure asset delivery policy. 
+    
+    If your asset is storage encrypted, you **must** configure asset delivery policy. 
 
 1. Publish the asset by creating an OnDemand locator.
 
-	Make sure to have at least one streaming reserved unit on the streaming endpoint from which you want to stream content.
+    Make sure to have at least one streaming reserved unit on the streaming endpoint from which you want to stream content.
 
 1. Stream published content.
 
@@ -66,7 +66,7 @@ To be able to use dynamic encryption, you must first get at least one streaming 
 1. Upload a high-quality mezzanine file into an Asset.
 1. Index content.
 
-	The indexing job generates files that can be used as Closed Captions (CC) in video playback. It also generates files that enable you to do in-video search and jump to the exact location of the video.	
+    The indexing job generates files that can be used as Closed Captions (CC) in video playback. It also generates files that enable you to do in-video search and jump to the exact location of the video. 
 
 1. Consume indexed content.
 
@@ -77,9 +77,9 @@ To be able to use dynamic encryption, you must first get at least one streaming 
 1. Encode to adaptive bitrate MP4 set or a single MP4.
 1. Publish the asset by creating an OnDemand or SAS locator.
 
-	If using OnDemand locator, make sure to have at least one streaming reserved unit on the streaming endpoint from which you plan to progressively download content.
+    If using OnDemand locator, make sure to have at least one streaming reserved unit on the streaming endpoint from which you plan to progressively download content.
 
-	If using SAS locator, the content is downloaded from the Azure blob storage. In this case, you do not need to have streaming reserved units.
+    If using SAS locator, the content is downloaded from the Azure blob storage. In this case, you do not need to have streaming reserved units.
   
 1. Progressively download content.
 
@@ -102,3 +102,4 @@ players.md).
 
 [vod-overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
  
+

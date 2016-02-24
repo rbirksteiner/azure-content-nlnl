@@ -3,7 +3,7 @@
     pageTitle="Azure RemoteApp image requirements | Microsoft Azure"
     description="Learn about the requirements for creating images to be used with Azure RemoteApp"
     services="remoteapp"
-	documentationCenter=""
+    documentationCenter=""
     authors="lizap"
     manager="mbaldwin" />
 
@@ -43,3 +43,4 @@ The requirements for the image that can be uploaded for use with Azure RemoteApp
 - Uploading your VHD from a snapshot chain is not supported.
 
 See [Create an Azure RemoteApp image](remoteapp-imageoptions.md) for more information about creating images for Azure RemoteApp.
+

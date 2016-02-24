@@ -71,19 +71,19 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
 ###To configure single sign-on, perform the following steps:
 
-1.  In the Azure AD portal, on the **AnswerHub** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  In the Azure AD portal, on the **AnswerHub** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
     ![Configure single sign-on](./media/active-directory-saas-answerhub-tutorial/IC785168.png "Configure single sign-on")
 
-2.  On the **How would you like users to sign on to AnswerHub** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to AnswerHub** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure single sign-on](./media/active-directory-saas-answerhub-tutorial/IC785169.png "Configure single sign-on")
 
-3.  On the **Configure App URL** page, in the **AnswerHub Sign In URL** textbox, type your URL using the following pattern "*https://company.answerhub.com*", and then click **Next**.
+3.  On the **Configure App URL** page, in the **AnswerHub Sign In URL** textbox, type your URL using the following pattern "*https://company.answerhub.com*", and then click **Next**.
 
     ![Configure App URL](./media/active-directory-saas-answerhub-tutorial/IC785170.png "Configure App URL")
 
-4.  On the **Configure single sign-on at AnswerHub** page, to download your certificate, click **Download certificate**, and then save the certificate file locally on your computer.
+4.  On the **Configure single sign-on at AnswerHub** page, to download your certificate, click **Download certificate**, and then save the certificate file locally on your computer.
 
     ![Configure single sign-on](./media/active-directory-saas-answerhub-tutorial/IC785171.png "Configure single sign-on")
 
@@ -112,14 +112,14 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
     1.  Create a **base-64 encoded** file from your downloaded certificate.  
 
-		>[AZURE.TIP] For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
+        >[AZURE.TIP] For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
 
     2.  Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **IDP Public Key (x509 Format)** textbox.
     3.  Click **Save**.
 
 12. On the **IDP Config** tab, click **Save**.
 
-13. On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+13. On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
     ![Configure single sign-on](./media/active-directory-saas-answerhub-tutorial/IC785174.png "Configure single sign-on")
 ##Configuring user provisioning
@@ -151,7 +151,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 1.  In the Azure AD portal, create a test account.
 
-2.  On the **AnswerHub **application integration page, click **Assign users**.
+2.  On the **AnswerHub **application integration page, click **Assign users**.
 
     ![Assign users](./media/active-directory-saas-answerhub-tutorial/IC785176.png "Assign users")
 
@@ -160,3 +160,4 @@ To test your configuration, you need to grant the Azure AD users you want to all
     ![Yes](./media/active-directory-saas-answerhub-tutorial/IC767830.png "Yes")
 
 If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+

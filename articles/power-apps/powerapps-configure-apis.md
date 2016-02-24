@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Change or update your PowerApps API properties in the Azure portal | Microsoft Azure"
-	description="Add a custom icon, update the XML policy, or update the Swagger definition of your PowerApps API"
-	services=""
+    pageTitle="Change or update your PowerApps API properties in the Azure portal | Microsoft Azure"
+    description="Add a custom icon, update the XML policy, or update the Swagger definition of your PowerApps API"
+    services=""
     suite="powerapps"
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="dwrede"
-	editor=""/>
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="dwrede"
+    editor=""/>
 
 <tags
    ms.service="powerapps"
@@ -60,10 +60,10 @@ Authenticate with backend service | After registering your backend service in th
 
 - To learn more about Swagger 2.0, see the [official Swagger website](http://swagger.io).
 - To learn more about how to get Swagger 2.0 when developing your API, see:  
-	- [Create an ASP.NET API app in Azure App Service](../app-service-dotnet-create-api-app.md)
-	- [Build and deploy a Java API app in Azure App Service](../app-service-api-java-api-app.md)
-	- [Build and deploy a Node.js API app in Azure App Service](../app-service-api-nodejs-api-app.md)
-	- [Customize Swashbuckle-generated API definitions](../app-service-api-dotnet-swashbuckle-customize.md)
+    - [Create an ASP.NET API app in Azure App Service](../app-service-dotnet-create-api-app.md)
+    - [Build and deploy a Java API app in Azure App Service](../app-service-api-java-api-app.md)
+    - [Build and deploy a Node.js API app in Azure App Service](../app-service-api-nodejs-api-app.md)
+    - [Customize Swashbuckle-generated API definitions](../app-service-api-dotnet-swashbuckle-customize.md)
 - To learn more about best practices of using Swagger 2.0 for PowerApps, see [Develop an API for PowerApps](powerapps-develop-api.md).
 
 ## Update the XML policy of your API
@@ -90,3 +90,4 @@ Here are some related topics and resources for learning more about PowerApps.
 [12]: ./media/powerapps-configure-apis/api-default-icon.png
 [13]: ./media/powerapps-configure-apis/api-settings-api-definition.png
 [14]: ./media/powerapps-configure-apis/api-settings-policy.png
+

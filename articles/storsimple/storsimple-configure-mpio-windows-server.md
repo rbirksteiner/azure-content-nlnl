@@ -49,13 +49,13 @@ To install this feature on your Windows Server host, complete the following proc
 ![Add Roles And Features Wizard 1](./media/storsimple-configure-mpio-windows-server/IC740998.png)
 3. In the **Add Roles and Features** wizard, do the following:
 
-	- On the **Before you begin** page, click **Next**.
-	- On the **Select installation type** page, accept the default setting of **Role-based or feature-based** installation. Click **Next**.![Add Roles And Features Wizard 2](./media/storsimple-configure-mpio-windows-server/IC740999.png)
-	- On the **Select destination server** page, choose **Select a server from the server pool**. Your host server should be discovered automatically. Click **Next**.
-	- On the **Select server roles** page, click **Next**.
-	- On the **Select features** page, select **Multipath I/O**, and click **Next**.![Add Roles And Features Wizard 5](./media/storsimple-configure-mpio-windows-server/IC741000.png)
-	- On the **Confirm installation selections** page, confirm the selection and then select **Restart the destination server automatically if required**, as shown below. Click **Install**.![Add Roles And Features Wizard 8](./media/storsimple-configure-mpio-windows-server/IC741001.png)
-	- You will be notified when the installation is complete. Click **Close** to close the wizard.![Add Roles And Features Wizard 9](./media/storsimple-configure-mpio-windows-server/IC741002.png)
+    - On the **Before you begin** page, click **Next**.
+    - On the **Select installation type** page, accept the default setting of **Role-based or feature-based** installation. Click **Next**.![Add Roles And Features Wizard 2](./media/storsimple-configure-mpio-windows-server/IC740999.png)
+    - On the **Select destination server** page, choose **Select a server from the server pool**. Your host server should be discovered automatically. Click **Next**.
+    - On the **Select server roles** page, click **Next**.
+    - On the **Select features** page, select **Multipath I/O**, and click **Next**.![Add Roles And Features Wizard 5](./media/storsimple-configure-mpio-windows-server/IC741000.png)
+    - On the **Confirm installation selections** page, confirm the selection and then select **Restart the destination server automatically if required**, as shown below. Click **Install**.![Add Roles And Features Wizard 8](./media/storsimple-configure-mpio-windows-server/IC741001.png)
+    - You will be notified when the installation is complete. Click **Close** to close the wizard.![Add Roles And Features Wizard 9](./media/storsimple-configure-mpio-windows-server/IC741002.png)
 
 ## Step 2: Configure MPIO for StorSimple volumes
 
@@ -72,9 +72,9 @@ MPIO needs to be configured to identify StorSimple volumes. To configure MPIO to
 
 4. Reboot the server when prompted.
 5. In the **MPIO Properties** dialog box, click the **MPIO Devices** tab. Click **Add**.
-	</br>![MPIO Properties MPIO Devices](./media/storsimple-configure-mpio-windows-server/IC741004.png)
+    </br>![MPIO Properties MPIO Devices](./media/storsimple-configure-mpio-windows-server/IC741004.png)
 6. In the **Add MPIO Support** dialog box, under **Device Hardware ID**, enter your device serial number.You can get the device serial number by accessing your StorSimple Manager service and navigating to **Devices > Dashboard**. The device serial number is displayed in the right **Quick Glance** pane of the device dashboard.
-	</br>![Add MPIO Support](./media/storsimple-configure-mpio-windows-server/IC741005.png)
+    </br>![Add MPIO Support](./media/storsimple-configure-mpio-windows-server/IC741005.png)
 7. Reboot the server when prompted.
 
 ## Step 3: Mount StorSimple volumes on the host
@@ -86,32 +86,32 @@ After MPIO is configured on Windows Server, volume(s) created on the StorSimple 
 1. Open the **iSCSI Initiator Properties** window on the Windows Server host. Click **Server Manager > Dashboard > Tools > iSCSI Initiator**.
 2. In the **iSCSI Initiator Properties** dialog box, click the Discovery tab, and then click **Discover Target Portal**.
 3. In the **Discover Target Portal** dialog box, do the following:
-	
-	- Enter the IP address of the DATA port of your StorSimple device (for example, enter DATA 0).
-	- Click **OK** to return to the **iSCSI Initiator Properties** dialog box.
+    
+    - Enter the IP address of the DATA port of your StorSimple device (for example, enter DATA 0).
+    - Click **OK** to return to the **iSCSI Initiator Properties** dialog box.
 
-	>[AZURE.IMPORTANT] **If you are using a private network for iSCSI connections, enter the IP address of the DATA port that is connected to the private network.**
+    >[AZURE.IMPORTANT] **If you are using a private network for iSCSI connections, enter the IP address of the DATA port that is connected to the private network.**
 
-4. Repeat steps 2-3 for a second network interface (for example, DATA 1) on your device. Keep in mind that these interfaces should be enabled for iSCSI. To learn more about this, see [Modify network interfaces](storsimple-modify-device-config.md#modify-network-interfaces).
+4. Repeat steps 2-3 for a second network interface (for example, DATA 1) on your device. Keep in mind that these interfaces should be enabled for iSCSI. To learn more about this, see [Modify network interfaces](storsimple-modify-device-config.md#modify-network-interfaces).
 5. Select the **Targets** tab in the **iSCSI Initiator Properties** dialog box. You should see the StorSimple device target IQN under **Discovered Targets**.
  ![iSCSI Initiator Properties Targets Tab](./media/storsimple-configure-mpio-windows-server/IC741007.png)
 6. Click **Connect** to establish an iSCSI session with your StorSimple device. A **Connect to Target** dialog box will appear.
 
 7. In the **Connect to Target** dialog box, select the **Enable multi-path** check box. Click **Advanced**.
 
-8. In the **Advanced Settings** dialog box, do the following:										
-	- 	 On the **Local Adapter** drop-down list, select **Microsoft iSCSI Initiator**.
-	- 	 On the **Initiator IP** drop-down list, select the IP address of the host.
-	- 	 On the **Target Portal** IP drop-down list, select the IP of device interface.
-	- 	 Click **OK** to return to the **iSCSI Initiator Properties** dialog box.
+8. In the **Advanced Settings** dialog box, do the following:                                       
+    -    On the **Local Adapter** drop-down list, select **Microsoft iSCSI Initiator**.
+    -    On the **Initiator IP** drop-down list, select the IP address of the host.
+    -    On the **Target Portal** IP drop-down list, select the IP of device interface.
+    -    Click **OK** to return to the **iSCSI Initiator Properties** dialog box.
 
 9. Click **Properties**. In the **Properties** dialog box, click **Add Session**.
 10. In the **Connect to Target** dialog box, select the **Enable multi-path** check box. Click **Advanced**.
-11. In the **Advanced Settings** dialog box:										
-	-  On the **Local adapter** drop-down list, select Microsoft iSCSI Initiator.
-	-  On the **Initiator IP** drop-down list, select the IP address corresponding to the host. In this case, you are connecting two network interfaces on the device to a single network interface on the host. Therefore, this interface is the same as that provided for the first session.
-	-  On the **Target Portal IP** drop-down list, select the IP address for the second data interface enabled on the device.
-	-  Click **OK** to return to the iSCSI Initiator Properties dialog box. You have added a second session to the target.
+11. In the **Advanced Settings** dialog box:                                        
+    -  On the **Local adapter** drop-down list, select Microsoft iSCSI Initiator.
+    -  On the **Initiator IP** drop-down list, select the IP address corresponding to the host. In this case, you are connecting two network interfaces on the device to a single network interface on the host. Therefore, this interface is the same as that provided for the first session.
+    -  On the **Target Portal IP** drop-down list, select the IP address for the second data interface enabled on the device.
+    -  Click **OK** to return to the iSCSI Initiator Properties dialog box. You have added a second session to the target.
 
 12. Open **Computer Management** by navigating to **Server Manager > Dashboard > Computer Management**. In the left pane, click **Storage > Disk Management**. The volume(s) created on the StorSimple device that are visible to this host will appear under **Disk Management** as new disk(s).
 
@@ -123,11 +123,11 @@ After MPIO is configured on Windows Server, volume(s) created on the StorSimple 
 
 16. In the **DSM Name** section, click **Details** and verify that the parameters are set to the default parameters.The default parameters are:
 
-	- Path Verify Period = 30
-	- Retry Count = 3
-	- PDO Remove Period = 20
-	- Retry Interval = 1
-	- Path Verify Enabled = Unchecked.
+    - Path Verify Period = 30
+    - Retry Count = 3
+    - PDO Remove Period = 20
+    - Retry Interval = 1
+    - Path Verify Enabled = Unchecked.
 
 
 >[AZURE.NOTE] **Please do not modify the default parameters.**
@@ -149,26 +149,26 @@ The following procedure describes how to add sessions when a StorSimple device w
 4. In the **iSCSI Initiator Properties** dialog box, select the **Targets** tab, highlight the discovered target, and then click **Connect**. The **Connect to Target** dialog box appears.
 
 5. In the **Connect to Target** dialog box:
-	
-	- Leave the default selected target setting for **Add this connection** to the list of favorite targets. This will make the device automatically attempt to restart the connection every time this computer restarts.
-	- Select the **Enable multi-path** check box.
-	- Click **Advanced**.
+    
+    - Leave the default selected target setting for **Add this connection** to the list of favorite targets. This will make the device automatically attempt to restart the connection every time this computer restarts.
+    - Select the **Enable multi-path** check box.
+    - Click **Advanced**.
 
 6. In the **Advanced Settings** dialog box:
-	- On the **Local Adapter** drop-down list, select **Microsoft iSCSI Initiator**.
-	- On the **Initiator IP** drop-down list, select the IP address of the host.
-	- On the **Target Portal IP** drop-down list, select the IP address of the data interface enabled on the device.
-	- Click **OK** to return to the iSCSI Initiator Properties dialog box.
+    - On the **Local Adapter** drop-down list, select **Microsoft iSCSI Initiator**.
+    - On the **Initiator IP** drop-down list, select the IP address of the host.
+    - On the **Target Portal IP** drop-down list, select the IP address of the data interface enabled on the device.
+    - Click **OK** to return to the iSCSI Initiator Properties dialog box.
 
 7. Click **Properties**, and in the **Properties** dialog box, click **Add Session**.
 
 8. In the **Connect to Target** dialog box, select the **Enable multi-path** check box, and then click **Advanced**.
 
 9. In the **Advanced Settings** dialog box:
-	1. On the **Local adapter** drop-down list, select **Microsoft iSCSI Initiator**.
-	2. On the **Initiator IP** drop-down list, select the IP address corresponding to the second interface on the host.
-	3. On the **Target Portal IP** drop-down list, select the IP address for the second data interface enabled on the device.
-	4. Click **OK** to return to the **iSCSI Initiator Properties** dialog box. You have now added a second session to the target.
+    1. On the **Local adapter** drop-down list, select **Microsoft iSCSI Initiator**.
+    2. On the **Initiator IP** drop-down list, select the IP address corresponding to the second interface on the host.
+    3. On the **Target Portal IP** drop-down list, select the IP address for the second data interface enabled on the device.
+    4. Click **OK** to return to the **iSCSI Initiator Properties** dialog box. You have now added a second session to the target.
 
 10. Repeat Steps 8-10 to add additional sessions (paths) to the target. With two interfaces on the host and two on the device, you can add a total of four sessions.
 

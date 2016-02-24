@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure Notification Hubs - Diagnosis Guidelines" 
-	description="Guidelines on how to diagnose common issues with Azure Notification Hubs." 
-	services="notification-hubs" 
-	documentationCenter="Mobile" 
-	authors="wesmc7777" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="Azure Notification Hubs - Diagnosis Guidelines" 
+    description="Guidelines on how to diagnose common issues with Azure Notification Hubs." 
+    services="notification-hubs" 
+    documentationCenter="Mobile" 
+    authors="wesmc7777" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="NA" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="10/27/2015" 
-	ms.author="wesmc"/>
+    ms.service="notification-hubs" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="NA" 
+    ms.devlang="multiple" 
+    ms.topic="article" 
+    ms.date="10/27/2015" 
+    ms.author="wesmc"/>
 
 #Azure Notification Hubs - Diagnosis guidelines
 
@@ -35,32 +35,32 @@ Azure Notification Hubs needs to authenticate itself in the context of the devel
 
 1. **General**
  
-	a) Make sure that your notification hub name (without typos) is the same:
+    a) Make sure that your notification hub name (without typos) is the same:
 
-	- Where you are registering from the client, 
-	- Where you are sending notifications from the backend,  
-	- Where you have configured the PNS credentials and 
-	- Whose SAS credentials you have configured on the client and the backend. 
-		
-	b) Make sure that you are using the correct SAS configuration strings on the client and the application backend. As a rule of thumb, you must be using the **DefaultListenSharedAccessSignature** on the client and **DefaultFullSharedAccessSignature** on the application backend (which gives permission to be able to send notification to the NH)
+    - Where you are registering from the client, 
+    - Where you are sending notifications from the backend,  
+    - Where you have configured the PNS credentials and 
+    - Whose SAS credentials you have configured on the client and the backend. 
+        
+    b) Make sure that you are using the correct SAS configuration strings on the client and the application backend. As a rule of thumb, you must be using the **DefaultListenSharedAccessSignature** on the client and **DefaultFullSharedAccessSignature** on the application backend (which gives permission to be able to send notification to the NH)
 
 2. **Apple Push Notification Service (APNS) configuration**
  
-	You must maintain two different hubs - one for production and another for testing purpose. This means uploading the certificate you are going to use in sandbox environment to a separate hub and the certificate you are going to use in production to a separate hub. Do not try to upload different types of certificates to the same hub as it may cause notification failures down the line. If you do find yourself in a position where you have inadvertently uploaded different types of certificate to the same hub, it is recommended to delete the hub and start fresh. If for some reason, you are not able to delete the hub then at the very least, you must delete all the existing registrations from the hub. 
+    You must maintain two different hubs - one for production and another for testing purpose. This means uploading the certificate you are going to use in sandbox environment to a separate hub and the certificate you are going to use in production to a separate hub. Do not try to upload different types of certificates to the same hub as it may cause notification failures down the line. If you do find yourself in a position where you have inadvertently uploaded different types of certificate to the same hub, it is recommended to delete the hub and start fresh. If for some reason, you are not able to delete the hub then at the very least, you must delete all the existing registrations from the hub. 
 
 3. **Google Cloud Messaging (GCM) configuration** 
 
-	a) Make sure that you are enabling "Google Cloud Messaging for Android" under your cloud project. 
-	
-	![][2]
-	
-	b) Make sure that you create a "Server Key" while obtaining the credentials which NH will use to authenticate with GCM. 
-	
-	![][3]
-	
-	c) Make sure that you have configured "Project ID" on the client which is an entirely numerical entity that you can obtain from the dashboard:
-	
-	![][1]
+    a) Make sure that you are enabling "Google Cloud Messaging for Android" under your cloud project. 
+    
+    ![][2]
+    
+    b) Make sure that you create a "Server Key" while obtaining the credentials which NH will use to authenticate with GCM. 
+    
+    ![][3]
+    
+    c) Make sure that you have configured "Project ID" on the client which is an entirely numerical entity that you can obtain from the dashboard:
+    
+    ![][1]
 
 ##Application issues
 
@@ -97,51 +97,51 @@ Here we will examine the various avenues to diagnose and root cause any Notifica
 
 1. **PNS developer portal**
 
-	Verify them at the respective PNS developer portal (APNS, GCM, WNS etc) using our [Getting Started Tutorials].
+    Verify them at the respective PNS developer portal (APNS, GCM, WNS etc) using our [Getting Started Tutorials].
 
 2. **Azure Classic portal**
 
-	Go to the Configure tab to review and match the credentials with those obtained from the PNS developer portal. 
+    Go to the Configure tab to review and match the credentials with those obtained from the PNS developer portal. 
 
-	![][4]
+    ![][4]
 
 ###Verify registrations
 
 1. **Visual Studio**
 
-	If you use Visual Studio for development then you can connect to Microsoft Azure and view and manage a bunch of Azure services including Notifications Hub from "Server Explorer". This is primarily useful for your dev/test environment. 
+    If you use Visual Studio for development then you can connect to Microsoft Azure and view and manage a bunch of Azure services including Notifications Hub from "Server Explorer". This is primarily useful for your dev/test environment. 
 
-	![][9]
+    ![][9]
 
-	You can view and manage all the registrations in your hub which are nicely categorized for platform, native or template registration, any tags, PNS identifier, registration id and the expiration date. You can also edit a registration on the fly - which is useful say if you want to edit any tags. 
+    You can view and manage all the registrations in your hub which are nicely categorized for platform, native or template registration, any tags, PNS identifier, registration id and the expiration date. You can also edit a registration on the fly - which is useful say if you want to edit any tags. 
 
-	![][8]
+    ![][8]
  
-	> [AZURE.NOTE] Visual Studio functionality to edit registrations should only be used during dev/test with limited number of registrations. If there arises a need to fix your registrations in bulk, consider using the Export/Import registration functionality described here - [Export/Import Registrations] (https://msdn.microsoft.com/library/dn790624.aspx)
+    > [AZURE.NOTE] Visual Studio functionality to edit registrations should only be used during dev/test with limited number of registrations. If there arises a need to fix your registrations in bulk, consider using the Export/Import registration functionality described here - [Export/Import Registrations] (https://msdn.microsoft.com/library/dn790624.aspx)
 
 2. **Service Bus explorer**
 
-	Many customers use ServiceBus explorer described here - [ServiceBus Explorer] for viewing and managing their notification hub. It is an open source project available from code.microsoft.com - [ServiceBus Explorer code]
+    Many customers use ServiceBus explorer described here - [ServiceBus Explorer] for viewing and managing their notification hub. It is an open source project available from code.microsoft.com - [ServiceBus Explorer code]
 
 ###Verify message notifications
 
 1. **Azure Classic Portal**
 
-	You can go to the "Debug" tab to send test notifications to your clients without needing any service backend up and running. 
+    You can go to the "Debug" tab to send test notifications to your clients without needing any service backend up and running. 
 
-	![][7]
+    ![][7]
 
 2. **Visual Studio**
 
-	You can also send test notifications from the comforts of Visual Studio:
+    You can also send test notifications from the comforts of Visual Studio:
 
-	![][10]
+    ![][10]
 
-	You can read more on the Visual Studio Notification Hub Azure explorer functionality here - 
-	
-	- [VS Server Explorer Overview]
-	- [VS Server Explorer Blog post - 1]
-	- [VS Server Explorer Blog post - 2]
+    You can read more on the Visual Studio Notification Hub Azure explorer functionality here - 
+    
+    - [VS Server Explorer Overview]
+    - [VS Server Explorer Blog post - 1]
+    - [VS Server Explorer Blog post - 2]
 
 ###Debug failed notifications/ Review notification outcome
 
@@ -150,7 +150,7 @@ Here we will examine the various avenues to diagnose and root cause any Notifica
 When you send a notification via Notification Hubs, initially it just gets queued up for NH to do processing to figure out all its targets and then eventually NH sends it to the PNS. This means that when you are using REST API or any of the client SDK, the successful return of your send call only means that the message has been successfully queued up with Notification Hub. It doesn’t give an insight into what happened when NH eventually got to send the message to PNS. If your notification is not arriving at the client device, there is a possibility that when NH tried to deliver the message to PNS, there was an error e.g. the payload size exceeded the maximum allowed by the PNS or the credentials configured in NH are invalid etc. 
 To get an insight into the PNS errors, we have introduced a property called [EnableTestSend feature]. This property is automatically enabled when you send test messages from the portal or Visual Studio client and therefore allows you to see detailed debugging information. You can use this via APIs taking the example of the .NET SDK where it is available now and will be added to all client SDKs eventually. To use this with the REST call, simply append a querystring parameter called "test" at the end of your send call e.g. 
 
-	https://mynamespace.servicebus.windows.net/mynotificationhub/messages?api-version=2013-10&test
+    https://mynamespace.servicebus.windows.net/mynotificationhub/messages?api-version=2013-10&test
 
 *Example (.NET SDK)*
  
@@ -163,16 +163,16 @@ Suppose you are using .NET SDK to send a native toast notification:
 `result.State` will simply state `Enqueued` at the end of the execution without any insight into what happened to your push. 
 Now you can use the `EnableTestSend` boolean property while initializing the `NotificationHubClient` and can get detailed status about the PNS errors encountered while sending the notification. The send call here will take additional time to return because it is only returning after NH has delivered the notification to PNS to determine the outcome. 
  
-	bool enableTestSend = true;
-	NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(connString, hubName, enableTestSend);
-	
-	var outcome = await hub.SendWindowsNativeNotificationAsync(toast);
-	Console.WriteLine(outcome.State);
-	
-	foreach (RegistrationResult result in outcome.Results)
-	{
-	    Console.WriteLine(result.ApplicationPlatform + "\n" + result.RegistrationId + "\n" + result.Outcome);
-	}
+    bool enableTestSend = true;
+    NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(connString, hubName, enableTestSend);
+    
+    var outcome = await hub.SendWindowsNativeNotificationAsync(toast);
+    Console.WriteLine(outcome.State);
+    
+    foreach (RegistrationResult result in outcome.Results)
+    {
+        Console.WriteLine(result.ApplicationPlatform + "\n" + result.RegistrationId + "\n" + result.Outcome);
+    }
 
 *Sample Output*
 
@@ -189,19 +189,19 @@ This message indicates either invalid credentials are configured in the notifica
 
 1. **Use Azure Classic Portal**
 
-	The portal enables you to get a quick overview of all the activity on your Notification Hub. 
-	
-	a) From the "dashboard" tab you can view an aggregated view of the registrations, notifications as well as errors per platform. 
-	
-	![][5]
-	
-	b) You can also add many other platform specific metrics from the "Monitor" tab to take a deeper look particularly at any PNS specific errors returned when NH tries to send the notification to the PNS. 
-	
-	![][6]
-	
-	c) You should start with reviewing the **Incoming Messages**, **Registration Operations**, **Successful Notifications** and then go to per platform tab to review the PNS specific errors. 
-	
-	d) If you have the notification hub misconfigured with the authentication settings then you will see PNS Authentication Error. This is a good indication to check the PNS credentials. 
+    The portal enables you to get a quick overview of all the activity on your Notification Hub. 
+    
+    a) From the "dashboard" tab you can view an aggregated view of the registrations, notifications as well as errors per platform. 
+    
+    ![][5]
+    
+    b) You can also add many other platform specific metrics from the "Monitor" tab to take a deeper look particularly at any PNS specific errors returned when NH tries to send the notification to the PNS. 
+    
+    ![][6]
+    
+    c) You should start with reviewing the **Incoming Messages**, **Registration Operations**, **Successful Notifications** and then go to per platform tab to review the PNS specific errors. 
+    
+    d) If you have the notification hub misconfigured with the authentication settings then you will see PNS Authentication Error. This is a good indication to check the PNS credentials. 
 
 2) **Programmatic access**
 

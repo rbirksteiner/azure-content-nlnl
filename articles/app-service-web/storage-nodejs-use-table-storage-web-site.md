@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Node.js web app using the Azure Table Service"
-	description="A tutorial that teaches you how to use the Azure Table service to store data from a Node.js application hosted in Azure App Service Web Apps."
-	tags="azure-portal"
-	services="app-service\web, storage"
-	documentationCenter="nodejs"
-	authors="rmcmurray"
-	manager="wpickett"
-	editor=""/>
+    pageTitle="Node.js web app using the Azure Table Service"
+    description="A tutorial that teaches you how to use the Azure Table service to store data from a Node.js application hosted in Azure App Service Web Apps."
+    tags="azure-portal"
+    services="app-service\web, storage"
+    documentationCenter="nodejs"
+    authors="rmcmurray"
+    manager="wpickett"
+    editor=""/>
 
 <tags
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="nodejs"
-	ms.topic="article"
-	ms.date="11/20/2015"
-	ms.author="robmcm"/>
+    ms.service="storage"
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="nodejs"
+    ms.topic="article"
+    ms.date="11/20/2015"
+    ms.author="robmcm"/>
 
 
 
@@ -61,9 +61,9 @@ Create an Azure storage account. The app will use this account to store the to-d
 
 2. Click the **New** icon on the bottom left of the portal, then click **Data + Storage** > **Storage**. Give the storage account a unique name and create a new [resource group](../resource-group-overview.md) for it.
 
-  	![New Button](./media/storage-nodejs-use-table-storage-web-site/configure-storage.png)
+    ![New Button](./media/storage-nodejs-use-table-storage-web-site/configure-storage.png)
 
-	When the storage account has been created, the **Notifications** button will flash a green **SUCCESS** and the storage account's blade is open to show that it belongs to the new resource group you created.
+    When the storage account has been created, the **Notifications** button will flash a green **SUCCESS** and the storage account's blade is open to show that it belongs to the new resource group you created.
 
 5. In the storage account's blade, click **Settings** > **Keys**. Copy the primary access key to the clipboard.
 
@@ -80,51 +80,51 @@ In this section you will create a new Node application and use npm to add module
 
 2. Enter the following command to install the Express module.
 
-		npm install express-generator@4.2.0 -g
+        npm install express-generator@4.2.0 -g
 
     Depending on the operating system, you may need to put 'sudo' before the command:
 
-		sudo npm install express-generator@4.2.0 -g
+        sudo npm install express-generator@4.2.0 -g
 
     The output appears similar to the following example:
 
-		express-generator@4.2.0 /usr/local/lib/node_modules/express-generator
-		├── mkdirp@0.3.5
-		└── commander@1.3.2 (keypress@0.1.0)
+        express-generator@4.2.0 /usr/local/lib/node_modules/express-generator
+        ├── mkdirp@0.3.5
+        └── commander@1.3.2 (keypress@0.1.0)
 
-	> [AZURE.NOTE] The '-g' parameter installs the module globally. That way, we can use **express** to generate web app scaffolding without having to type in additional path information.
+    > [AZURE.NOTE] The '-g' parameter installs the module globally. That way, we can use **express** to generate web app scaffolding without having to type in additional path information.
 
 4. To create the scaffolding for the application, enter the **express** command:
 
         express
 
-	The output of this command appears similar to the following example:
+    The output of this command appears similar to the following example:
 
-		   create : .
-		   create : ./package.json
-		   create : ./app.js
-		   create : ./public
-		   create : ./public/images
-		   create : ./routes
-		   create : ./routes/index.js
-		   create : ./routes/users.js
-		   create : ./public/stylesheets
-		   create : ./public/stylesheets/style.css
-		   create : ./views
-		   create : ./views/index.jade
-		   create : ./views/layout.jade
-		   create : ./views/error.jade
-		   create : ./public/javascripts
-		   create : ./bin
-		   create : ./bin/www
+           create : .
+           create : ./package.json
+           create : ./app.js
+           create : ./public
+           create : ./public/images
+           create : ./routes
+           create : ./routes/index.js
+           create : ./routes/users.js
+           create : ./public/stylesheets
+           create : ./public/stylesheets/style.css
+           create : ./views
+           create : ./views/index.jade
+           create : ./views/layout.jade
+           create : ./views/error.jade
+           create : ./public/javascripts
+           create : ./bin
+           create : ./bin/www
 
-		   install dependencies:
-		     $ cd . && npm install
+           install dependencies:
+             $ cd . && npm install
 
-		   run the app:
-		     $ DEBUG=my-application ./bin/www
+           run the app:
+             $ DEBUG=my-application ./bin/www
 
-	You now have several new directories and files in the **tasklist** directory.
+    You now have several new directories and files in the **tasklist** directory.
 
 ### Install additional modules
 
@@ -136,33 +136,33 @@ From the command-line, enter the following command to install the modules descri
 
 The output of this command appears similar to the following example:
 
-	debug@0.7.4 node_modules\debug
+    debug@0.7.4 node_modules\debug
 
-	cookie-parser@1.0.1 node_modules\cookie-parser
-	├── cookie-signature@1.0.3
-	└── cookie@0.1.0
+    cookie-parser@1.0.1 node_modules\cookie-parser
+    ├── cookie-signature@1.0.3
+    └── cookie@0.1.0
 
     [...]
 
 
 Next, enter the following command to install the [azure], [node-uuid], [nconf] and [async] modules:
 
-	npm install azure-storage node-uuid async nconf --save
+    npm install azure-storage node-uuid async nconf --save
 
 The **--save** flag adds entries for these modules to the **package.json** file.
 
 The output of this command appears similar to the following example:
 
-	async@0.9.0 node_modules\async
+    async@0.9.0 node_modules\async
 
-	node-uuid@1.4.1 node_modules\node-uuid
+    node-uuid@1.4.1 node_modules\node-uuid
 
-	nconf@0.6.9 node_modules\nconf
-	├── ini@1.2.1
-	├── async@0.2.9
-	└── optimist@0.6.0 (wordwrap@0.0.2, minimist@0.0.10)
+    nconf@0.6.9 node_modules\nconf
+    ├── ini@1.2.1
+    ├── async@0.2.9
+    └── optimist@0.6.0 (wordwrap@0.0.2, minimist@0.0.10)
 
-	[...]
+    [...]
 
 
 ## Create the application
@@ -189,74 +189,74 @@ A *model* is an object that represents the data in your application. For the app
 3. At the beginning of the **task.js** file, add the following code to reference required libraries:
 
         var azure = require('azure-storage');
-  		var uuid = require('node-uuid');
-		var entityGen = azure.TableUtilities.entityGenerator;
+        var uuid = require('node-uuid');
+        var entityGen = azure.TableUtilities.entityGenerator;
 
 4. Add the following code to define and export the Task object. This object is responsible for connecting to the table.
 
-  		module.exports = Task;
+        module.exports = Task;
 
-		function Task(storageClient, tableName, partitionKey) {
-		  this.storageClient = storageClient;
-		  this.tableName = tableName;
-		  this.partitionKey = partitionKey;
-		  this.storageClient.createTableIfNotExists(tableName, function tableCreated(error) {
-		    if(error) {
-		      throw error;
-		    }
-		  });
-		};
+        function Task(storageClient, tableName, partitionKey) {
+          this.storageClient = storageClient;
+          this.tableName = tableName;
+          this.partitionKey = partitionKey;
+          this.storageClient.createTableIfNotExists(tableName, function tableCreated(error) {
+            if(error) {
+              throw error;
+            }
+          });
+        };
 
 5. Add the following code to define additional methods on the Task object, which allow interactions with data stored in the table:
 
-		Task.prototype = {
-		  find: function(query, callback) {
-		    self = this;
-		    self.storageClient.queryEntities(this.tableName, query, null, function entitiesQueried(error, result) {
-		      if(error) {
-		        callback(error);
-		      } else {
-		        callback(null, result.entries);
-		      }
-		    });
-		  },
+        Task.prototype = {
+          find: function(query, callback) {
+            self = this;
+            self.storageClient.queryEntities(this.tableName, query, null, function entitiesQueried(error, result) {
+              if(error) {
+                callback(error);
+              } else {
+                callback(null, result.entries);
+              }
+            });
+          },
 
-		  addItem: function(item, callback) {
-		    self = this;
-		    // use entityGenerator to set types
-			// NOTE: RowKey must be a string type, even though
+          addItem: function(item, callback) {
+            self = this;
+            // use entityGenerator to set types
+            // NOTE: RowKey must be a string type, even though
             // it contains a GUID in this example.
-		    var itemDescriptor = {
-		      PartitionKey: entityGen.String(self.partitionKey),
-		      RowKey: entityGen.String(uuid()),
-		      name: entityGen.String(item.name),
-		      category: entityGen.String(item.category),
-		      completed: entityGen.Boolean(false)
-		    };
-		    self.storageClient.insertEntity(self.tableName, itemDescriptor, function entityInserted(error) {
-		      if(error){  
-		        callback(error);
-		      }
-		      callback(null);
-		    });
-		  },
+            var itemDescriptor = {
+              PartitionKey: entityGen.String(self.partitionKey),
+              RowKey: entityGen.String(uuid()),
+              name: entityGen.String(item.name),
+              category: entityGen.String(item.category),
+              completed: entityGen.Boolean(false)
+            };
+            self.storageClient.insertEntity(self.tableName, itemDescriptor, function entityInserted(error) {
+              if(error){  
+                callback(error);
+              }
+              callback(null);
+            });
+          },
 
-		  updateItem: function(rKey, callback) {
-		    self = this;
-		    self.storageClient.retrieveEntity(self.tableName, self.partitionKey, rKey, function entityQueried(error, entity) {
-		      if(error) {
-		        callback(error);
-		      }
-		      entity.completed._ = true;
-		      self.storageClient.updateEntity(self.tableName, entity, function entityUpdated(error) {
-		        if(error) {
-		          callback(error);
-		        }
-		        callback(null);
-		      });
-		    });
-		  }
-		}
+          updateItem: function(rKey, callback) {
+            self = this;
+            self.storageClient.retrieveEntity(self.tableName, self.partitionKey, rKey, function entityQueried(error, entity) {
+              if(error) {
+                callback(error);
+              }
+              entity.completed._ = true;
+              self.storageClient.updateEntity(self.tableName, entity, function entityUpdated(error) {
+                if(error) {
+                  callback(error);
+                }
+                callback(null);
+              });
+            });
+          }
+        }
 
 6. Save and close the **task.js** file.
 
@@ -268,61 +268,61 @@ A *controller* handles HTTP requests and renders the HTML response.
 
 2. Add the following code to **tasklist.js**. This loads the azure and async modules, which are used by **tasklist.js**. This also defines the **TaskList** function, which is passed an instance of the **Task** object we defined earlier:
 
-		var azure = require('azure-storage');
-		var async = require('async');
+        var azure = require('azure-storage');
+        var async = require('async');
 
-		module.exports = TaskList;
+        module.exports = TaskList;
 
 3. Define a **TaskList** object.
 
-		function TaskList(task) {
-		  this.task = task;
-		}
+        function TaskList(task) {
+          this.task = task;
+        }
 
 
 4. Add the following methods to **TaskList**:
 
-		TaskList.prototype = {
-		  showTasks: function(req, res) {
-		    self = this;
-		    var query = new azure.TableQuery()
-		      .where('completed eq ?', false);
-		    self.task.find(query, function itemsFound(error, items) {
-		      res.render('index',{title: 'My ToDo List ', tasks: items});
-		    });
-		  },
+        TaskList.prototype = {
+          showTasks: function(req, res) {
+            self = this;
+            var query = new azure.TableQuery()
+              .where('completed eq ?', false);
+            self.task.find(query, function itemsFound(error, items) {
+              res.render('index',{title: 'My ToDo List ', tasks: items});
+            });
+          },
 
-		  addTask: function(req,res) {
-		    var self = this
-		    var item = req.body.item;
-		    self.task.addItem(item, function itemAdded(error) {
-		      if(error) {
-		        throw error;
-		      }
-		      res.redirect('/');
-		    });
-		  },
+          addTask: function(req,res) {
+            var self = this
+            var item = req.body.item;
+            self.task.addItem(item, function itemAdded(error) {
+              if(error) {
+                throw error;
+              }
+              res.redirect('/');
+            });
+          },
 
-		  completeTask: function(req,res) {
-		    var self = this;
-		    var completedTasks = Object.keys(req.body);
-		    async.forEach(completedTasks, function taskIterator(completedTask, callback) {
-		      self.task.updateItem(completedTask, function itemsUpdated(error) {
-		        if(error){
-		          callback(error);
-		        } else {
-		          callback(null);
-		        }
-		      });
-		    }, function goHome(error){
-		      if(error) {
-		        throw error;
-		      } else {
-		       res.redirect('/');
-		      }
-		    });
-		  }
-		}
+          completeTask: function(req,res) {
+            var self = this;
+            var completedTasks = Object.keys(req.body);
+            async.forEach(completedTasks, function taskIterator(completedTask, callback) {
+              self.task.updateItem(completedTask, function itemsUpdated(error) {
+                if(error){
+                  callback(error);
+                } else {
+                  callback(null);
+                }
+              });
+            }, function goHome(error){
+              if(error) {
+                throw error;
+              } else {
+               res.redirect('/');
+              }
+            });
+          }
+        }
 
 
 ### Modify app.js
@@ -331,32 +331,32 @@ A *controller* handles HTTP requests and renders the HTML response.
 
 2. At the beginning of the file, add the following to load the azure module, set the table name, partition key, and set the storage credentials used by this example:
 
-		var azure = require('azure-storage');
-		var nconf = require('nconf');
-		nconf.env()
-		     .file({ file: 'config.json', search: true });
-		var tableName = nconf.get("TABLE_NAME");
-		var partitionKey = nconf.get("PARTITION_KEY");
-		var accountName = nconf.get("STORAGE_NAME");
-		var accountKey = nconf.get("STORAGE_KEY");
+        var azure = require('azure-storage');
+        var nconf = require('nconf');
+        nconf.env()
+             .file({ file: 'config.json', search: true });
+        var tableName = nconf.get("TABLE_NAME");
+        var partitionKey = nconf.get("PARTITION_KEY");
+        var accountName = nconf.get("STORAGE_NAME");
+        var accountKey = nconf.get("STORAGE_KEY");
 
-	> [AZURE.NOTE] nconf will load the configuration values from either environment variables or the **config.json** file, which we will create later.
+    > [AZURE.NOTE] nconf will load the configuration values from either environment variables or the **config.json** file, which we will create later.
 
 3. In the app.js file, scroll down to where you see the following line:
 
-		app.use('/', routes);
-		app.use('/users', users);
+        app.use('/', routes);
+        app.use('/users', users);
 
-	Replace the above lines with the code shown below. This will initialize an instance of <strong>Task</strong> with a connection to your storage account. This is passed to the <strong>TaskList</strong>, which will use it to communicate with the Table service:
+    Replace the above lines with the code shown below. This will initialize an instance of <strong>Task</strong> with a connection to your storage account. This is passed to the <strong>TaskList</strong>, which will use it to communicate with the Table service:
 
-		var TaskList = require('./routes/tasklist');
-		var Task = require('./models/task');
-		var task = new Task(azure.createTableService(accountName, accountKey), tableName, partitionKey);
-		var taskList = new TaskList(task);
+        var TaskList = require('./routes/tasklist');
+        var Task = require('./models/task');
+        var task = new Task(azure.createTableService(accountName, accountKey), tableName, partitionKey);
+        var taskList = new TaskList(task);
 
-		app.get('/', taskList.showTasks.bind(taskList));
-		app.post('/addtask', taskList.addTask.bind(taskList));
-		app.post('/completetask', taskList.completeTask.bind(taskList));
+        app.get('/', taskList.showTasks.bind(taskList));
+        app.post('/addtask', taskList.addTask.bind(taskList));
+        app.post('/completetask', taskList.completeTask.bind(taskList));
 
 4. Save the **app.js** file.
 
@@ -366,42 +366,42 @@ A *controller* handles HTTP requests and renders the HTML response.
 
 2. Replace the entire contents of the file with the following code. This defines a view that displays existing tasks and includes a form for adding new tasks and marking existing ones as completed.
 
-		extends layout
+        extends layout
 
-		block content
-		  h1= title
-		  br
+        block content
+          h1= title
+          br
 
-		  form(action="/completetask", method="post")
-		    table.table.table-striped.table-bordered
-		      tr
-		        td Name
-		        td Category
-		        td Date
-		        td Complete
-		      if (typeof tasks === "undefined")
-		        tr
-		          td
-		      else
-		        each task in tasks
-		          tr
-		            td #{task.name._}
-		            td #{task.category._}
-		            - var day   = task.Timestamp._.getDate();
-		            - var month = task.Timestamp._.getMonth() + 1;
-		            - var year  = task.Timestamp._.getFullYear();
-		            td #{month + "/" + day + "/" + year}
-		            td
-		              input(type="checkbox", name="#{task.RowKey._}", value="#{!task.completed._}", checked=task.completed._)
-		    button.btn(type="submit") Update tasks
-		  hr
-		  form.well(action="/addtask", method="post")
-		    label Item Name:
-		    input(name="item[name]", type="textbox")
-		    label Item Category:
-		    input(name="item[category]", type="textbox")
-		    br
-		    button.btn(type="submit") Add item
+          form(action="/completetask", method="post")
+            table.table.table-striped.table-bordered
+              tr
+                td Name
+                td Category
+                td Date
+                td Complete
+              if (typeof tasks === "undefined")
+                tr
+                  td
+              else
+                each task in tasks
+                  tr
+                    td #{task.name._}
+                    td #{task.category._}
+                    - var day   = task.Timestamp._.getDate();
+                    - var month = task.Timestamp._.getMonth() + 1;
+                    - var year  = task.Timestamp._.getFullYear();
+                    td #{month + "/" + day + "/" + year}
+                    td
+                      input(type="checkbox", name="#{task.RowKey._}", value="#{!task.completed._}", checked=task.completed._)
+            button.btn(type="submit") Update tasks
+          hr
+          form.well(action="/addtask", method="post")
+            label Item Name:
+            input(name="item[name]", type="textbox")
+            label Item Category:
+            input(name="item[category]", type="textbox")
+            br
+            button.btn(type="submit") Add item
 
 3. Save and close **index.jade** file.
 
@@ -413,43 +413,43 @@ Download and extract the files for [Twitter Bootstrap](http://getbootstrap.com/)
 
 From the **views** folder, open **layout.jade** and replace the entire contents with the following:
 
-	doctype html
-	html
-	  head
-	    title= title
-	    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
-	    link(rel='stylesheet', href='/stylesheets/style.css')
-	  body.app
-	    nav.navbar.navbar-default
-	      div.navbar-header
-	      a.navbar-brand(href='/') My Tasks
-	    block content
+    doctype html
+    html
+      head
+        title= title
+        link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+        link(rel='stylesheet', href='/stylesheets/style.css')
+      body.app
+        nav.navbar.navbar-default
+          div.navbar-header
+          a.navbar-brand(href='/') My Tasks
+        block content
 
 ### Create a config file
 
 To run the app locally, we'll put Azure Storage credentials into a config file. Create a file named **config.json* *with the following JSON:
 
-	{
-		"STORAGE_NAME": "<storage account name>",
-		"STORAGE_KEY": "<storage access key>",
-		"PARTITION_KEY": "mytasks",
-		"TABLE_NAME": "tasks"
-	}
+    {
+        "STORAGE_NAME": "<storage account name>",
+        "STORAGE_KEY": "<storage access key>",
+        "PARTITION_KEY": "mytasks",
+        "TABLE_NAME": "tasks"
+    }
 
 Replace **storage account name** with the name of the storage account you created earlier, and replace **storage access key** with the primary access key for your storage account. For example:
 
-	{
-	    "STORAGE_NAME": "nodejsappstorage",
-	    "STORAGE_KEY": "KG0oDd..."
-	    "PARTITION_KEY": "mytasks",
-	    "TABLE_NAME": "tasks"
-	}
+    {
+        "STORAGE_NAME": "nodejsappstorage",
+        "STORAGE_KEY": "KG0oDd..."
+        "PARTITION_KEY": "mytasks",
+        "TABLE_NAME": "tasks"
+    }
 
 Save this file *one directory level higher* than the **tasklist** directory, like this:
 
-	parent/
-	  |-- config.json
-	  |-- tasklist/
+    parent/
+      |-- config.json
+      |-- tasklist/
 
 The reason for doing this is to avoid checking the config file into source control, where it might become public. When we deploy the app to Azure, we will use environment variables instead of a config file.
 
@@ -466,15 +466,15 @@ To test the application on your local machine, perform the following steps:
 
 3. Open a web browser and navigate to http://127.0.0.1:3000.
 
-	A web page similar to the following example appears.
+    A web page similar to the following example appears.
 
-	![A webpage displaying an empty tasklist][node-table-finished]
+    ![A webpage displaying an empty tasklist][node-table-finished]
 
 4. To create a new to-do item, enter a name and category and click **Add Item**. 
 
 6. To mark a task as complete, check **Complete** and click **Update Tasks**.
 
-	![An image of the new item in the list of tasks][node-table-list-items]
+    ![An image of the new item in the list of tasks][node-table-list-items]
 
 Even though the application is running locally, it is storing the data in the Azure Table service.
 
@@ -488,7 +488,7 @@ The steps in this section use the Azure command-line tools to create a new web a
 
 To get started, install the [Azure CLI] by entering the following command from the command line:
 
-	npm install azure-cli -g
+    npm install azure-cli -g
 
 ### Import publishing settings
 
@@ -496,19 +496,19 @@ In this step, you will download a file containing information about your subscri
 
 1. Enter the following command:
 
-		azure account download
+        azure account download
 
-	This command launches a browser and navigates to the download page. If prompted, log in with the account associated with your Azure subscription.
+    This command launches a browser and navigates to the download page. If prompted, log in with the account associated with your Azure subscription.
 
-	<!-- ![The download page][download-publishing-settings] -->
+    <!-- ![The download page][download-publishing-settings] -->
 
-	The file download begins automatically; if it does not, you can click the link at the beginning of the page to manually download the file. Save the file and note the file path.
+    The file download begins automatically; if it does not, you can click the link at the beginning of the page to manually download the file. Save the file and note the file path.
 
 2. Enter the following command to import the settings:
 
-		azure account import <path-to-file>
+        azure account import <path-to-file>
 
-	Specify the path and file name of the publishing settings file you downloaded in the previous step.
+    Specify the path and file name of the publishing settings file you downloaded in the previous step.
 
 3. After the settings are imported, delete the publish settings file. It is no longer needed, and contains sensitive information regarding your Azure subscription.
 
@@ -518,36 +518,36 @@ In this step, you will download a file containing information about your subscri
 
 2. Use the following command to create a new web app.
 
-		azure site create --git
+        azure site create --git
 
-	You will be prompted for the web app name and location. Provide a unique name and select the same geographical location as your Azure Storage account.
+    You will be prompted for the web app name and location. Provide a unique name and select the same geographical location as your Azure Storage account.
 
-	The `--git` parameter creates a Git repository on Azure for this web app. It also initializes a Git repository in the current directory if none exists, and adds a [Git remote] named 'azure', which is used to publish the application to Azure. Finally, it creates a **web.config** file, which contains settings used by Azure to host node applications. If you omit the `--git` parameter but the directory contains a Git repository, the command will still create the 'azure' remote.
+    The `--git` parameter creates a Git repository on Azure for this web app. It also initializes a Git repository in the current directory if none exists, and adds a [Git remote] named 'azure', which is used to publish the application to Azure. Finally, it creates a **web.config** file, which contains settings used by Azure to host node applications. If you omit the `--git` parameter but the directory contains a Git repository, the command will still create the 'azure' remote.
 
-	Once this command has completed, you will see output similar to the following. Note that the line beginning with **Website created at** contains the URL for the web app.
+    Once this command has completed, you will see output similar to the following. Note that the line beginning with **Website created at** contains the URL for the web app.
 
-		info:   Executing command site create
-		help:   Need a site name
-		Name: TableTasklist
-		info:   Using location southcentraluswebspace
-		info:   Executing `git init`
-		info:   Creating default .gitignore file
-		info:   Creating a new web site
-		info:   Created web site at  tabletasklist.azurewebsites.net
-		info:   Initializing repository
-		info:   Repository initialized
-		info:   Executing `git remote add azure https://username@tabletasklist.azurewebsites.net/TableTasklist.git`
-		info:   site create command OK
+        info:   Executing command site create
+        help:   Need a site name
+        Name: TableTasklist
+        info:   Using location southcentraluswebspace
+        info:   Executing `git init`
+        info:   Creating default .gitignore file
+        info:   Creating a new web site
+        info:   Created web site at  tabletasklist.azurewebsites.net
+        info:   Initializing repository
+        info:   Repository initialized
+        info:   Executing `git remote add azure https://username@tabletasklist.azurewebsites.net/TableTasklist.git`
+        info:   site create command OK
 
-	> [AZURE.NOTE] If this is the first App Service web app for your subscription, you will be instructed to use the Azure Portal to create the web app. For more information, see [Build and deploy a Node.js web app in Azure App Service].
+    > [AZURE.NOTE] If this is the first App Service web app for your subscription, you will be instructed to use the Azure Portal to create the web app. For more information, see [Build and deploy a Node.js web app in Azure App Service].
 
 ### Set environment variables
 
 In this step, you will add environment variables to your web app configuration on Azure.
 From the command line, enter the following:
 
-	azure site appsetting add
-		STORAGE_NAME=<storage account name>;STORAGE_KEY=<storage access key>;PARTITION_KEY=mytasks;TABLE_NAME=tasks
+    azure site appsetting add
+        STORAGE_NAME=<storage account name>;STORAGE_KEY=<storage access key>;PARTITION_KEY=mytasks;TABLE_NAME=tasks
 
 
 Replace **<storage account name>** with the name of the storage account you created earlier, and replace **<storage access key>** with the primary access key for your storage account. (Use the same values as the config.json file that you created earlier.)
@@ -558,11 +558,11 @@ Alternatively, you can set environment variables in the [Azure Portal](https://p
 
 1.  In your web app's blade, click **All Settings** > **Application Settings**.
 
-  	<!-- ![Top Menu](./media/storage-nodejs-use-table-storage-web-site/PollsCommonWebSiteTopMenu.png) -->
+    <!-- ![Top Menu](./media/storage-nodejs-use-table-storage-web-site/PollsCommonWebSiteTopMenu.png) -->
 
 1.  Scroll down to the **App settings** section and add the key/value pairs.
 
-  	![App Settings](./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png)
+    ![App Settings](./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png)
 
 1. Click **SAVE**.
 
@@ -573,21 +573,21 @@ To publish the app, commit the code files to Git and then push to azure/master.
 
 1. Set your deployment credentials.
 
-		azure site deployment user set <name> <password>
+        azure site deployment user set <name> <password>
 
 2. Add and commit your application files.
 
-		git add .
-		git commit -m "adding files"
+        git add .
+        git commit -m "adding files"
 
 3. Push the commit to the App Service web app:
 
-		git push azure master
+        git push azure master
 
-	Use **master** as the target branch. At the end of the deployment, you see a statement similar to the following example:
+    Use **master** as the target branch. At the end of the deployment, you see a statement similar to the following example:
 
-		To https://username@tabletasklist.azurewebsites.net/TableTasklist.git
- 		 * [new branch]      master -> master
+        To https://username@tabletasklist.azurewebsites.net/TableTasklist.git
+         * [new branch]      master -> master
 
 4. Once the push operation has completed, browse to the web app URL returned previously by the `azure create site` command to view your application.
 
@@ -641,3 +641,4 @@ While the steps in this article describe using the Table Service to store inform
 
 [Create and deploy a Node.js application to an Azure Web Site]: web-sites-nodejs-develop-deploy-mac.md
  
+

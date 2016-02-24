@@ -24,7 +24,7 @@ The [Azure Classic Portal][] is a web-based Classic Portal where you can create,
 
 The portal includes metrics covering the current and historical performance DWU settings, the amount of storage being used, successful and failed SQL connections, and a set of visualizations and data that allow you to understand the queries running on your instance and the details of those queries.  
 
-## SQL Server Data Tools in Visual Studio	
+## SQL Server Data Tools in Visual Studio   
 [SQL Server Data Tools][] (SSDT) in Visual Studio is a client tool that runs on your computer and allows you to connect to, manage, and develop your database in the Cloud. If you're an application developer familiar with Visual Studio or other integrated development environments (IDEs), try using SSDT in Visual Studio. 
 
 SSDT includes the SQL Server Explorer which enables you to visualize, connect, and execute scripts against SQL Data Warehouse databases. To quickly connect to SQL Data Warehouse, you can simply click the **Open in Visual Studio** button in the command bar when viewing the database details in the Azure Classic Portal.  

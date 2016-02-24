@@ -1,19 +1,19 @@
 <properties
-	pageTitle="Application Insights: languages, platforms and integrations| Microsoft Azure"
-	description="Languages, platforms and integrations available for Application Insights"
-	services="application-insights"
+    pageTitle="Application Insights: languages, platforms and integrations| Microsoft Azure"
+    description="Languages, platforms and integrations available for Application Insights"
+    services="application-insights"
     documentationCenter=""
-	authors="OlegAnaniev-MSFT"
-	manager="douge"/>
+    authors="OlegAnaniev-MSFT"
+    manager="douge"/>
 
 <tags
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="12/07/2015"
-	ms.author="awills"/>
+    ms.service="application-insights"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="ibiza"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="12/07/2015"
+    ms.author="awills"/>
 
 # Application Insights: languages, platforms and integrations
 
@@ -58,8 +58,8 @@ These are implementations we've heard about, including some by third parties.
 
 ## Logging frameworks
 
-+	[Log4Net, NLog, or System.Diagnostics.Trace](app-insights-diagnostic-search.md)
-+	[Java, Log4J, or Logback](app-insights-java-trace-logs.md)
++   [Log4Net, NLog, or System.Diagnostics.Trace](app-insights-diagnostic-search.md)
++   [Java, Log4J, or Logback](app-insights-java-trace-logs.md)
 +   [Semantic Logging (SLAB)](https://github.com/fidmor89/SLAB_AppInsights)&#151;integrates with [Semantic Logging Application Block](https://msdn.microsoft.com/library/dn440729.aspx)
 +   [Cloud-based load testing](http://blogs.msdn.com/b/visualstudioalm/archive/2015/07/30/getting-application-insights-counters-with-cloud-based-load-testing.aspx)
 
@@ -82,4 +82,5 @@ These are implementations we've heard about, including some by third parties.
 ## <a name="projects"></a> Build your own SDK
 
 If there isn't yet an SDK for your language or platform, perhaps you'd like to build one? Take a look at the code of the existing SDKs listed in the [Application Insights SDK project on GitHub](https://github.com/Microsoft/AppInsights-Home).
+
 

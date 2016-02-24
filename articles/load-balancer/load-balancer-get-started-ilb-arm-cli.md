@@ -49,11 +49,11 @@ You can get more information about load balancer components with Azure resource 
 
 2. Run the **azure config mode** command to switch to Resource Manager mode, as shown below.
 
-		azure config mode arm
+        azure config mode arm
 
-	Expected output:
+    Expected output:
 
-		info:    New mode is arm
+        info:    New mode is arm
 
 ## Step by step creating an internal load balancer 
 
@@ -67,7 +67,7 @@ If you haven't done yet, download the latest version of [Azure command line inte
 
 After installing it, authenticate your account.
 
-	azure login
+    azure login
 
 The authentication process will request your use name and password for your azure subscription.
 
@@ -75,13 +75,13 @@ The authentication process will request your use name and password for your azur
 
 Change the command tools to Azure resource manager mode.
 
-	azure config mode arm
+    azure config mode arm
 
 ## Create a resource group
 
 All resources in Azure resource manager are associated to a resource group. If you haven't done yet, create a resource group.
 
-	azure group create <resource group name> <location>
+    azure group create <resource group name> <location>
 
 
 ## Create an internal  load balancer set 
@@ -90,8 +90,8 @@ All resources in Azure resource manager are associated to a resource group. If y
 ### Step 1 
 
 Create an internal load balancer using `azure network lb create` command. In the following scenario, a resource group named nrprg is created in East US region.
- 	
-	azure network lb create -n nrprg -l westus
+    
+    azure network lb create -n nrprg -l westus
 
 >[AZURE.NOTE] all resources for an internal load balancer such as virtual network and virtual network subnet must be in the same resource group and in the same region.
 
@@ -100,8 +100,8 @@ Create an internal load balancer using `azure network lb create` command. In the
 
 Create a front end IP address for the internal load balancer. The IP address used has to be within the subnet range of your virtual network.
 
-	
-	azure network lb frontend-ip create -g nrprg -l ilbset -n feilb -a 10.0.0.7 -e nrpvnetsubnet -m nrpvnet
+    
+    azure network lb frontend-ip create -g nrprg -l ilbset -n feilb -a 10.0.0.7 -e nrpvnetsubnet -m nrpvnet
 
 Parameters used:
 
@@ -116,7 +116,7 @@ Parameters used:
 
 Create the back end address pool. 
 
-	azure network lb address-pool create -g nrprg -l ilbset -n beilb
+    azure network lb address-pool create -g nrprg -l ilbset -n beilb
 
 Parameters used:
 
@@ -131,7 +131,7 @@ After defining a front end IP address and a back end address pool, you can creat
 
 Create a load balancer rule for internal load balancer. Following the scenario above, the command creates a load balancer rule listening to port 1433 in the front end pool and sending load balanced network traffic to back end address pool also using port 1433. 
 
-	azure network lb rule create -g nrprg -l ilbset -n ilbrule -p tcp -f 1433 -b 1433 -t feilb -o beilb
+    azure network lb rule create -g nrprg -l ilbset -n ilbrule -p tcp -f 1433 -b 1433 -t feilb -o beilb
 
 Parameters used:
 
@@ -147,9 +147,9 @@ Parameters used:
 Create inbound NAT rules. Inbound NAT rules are used to create endpoints in a load balancer which will go to a specific virtual machine instance.
 Following the example above, 2 NAT rules were created for remote desktop access.
 
-	azure network lb inbound-nat-rule create -g nrprg -l ilbset -n NATrule1 -p TCP -f 5432 -b 3389
-	
-	azure network lb inbound-nat-rule create -g nrprg -l ilbset -n NATrule2 -p TCP -f 5433 -b 3389
+    azure network lb inbound-nat-rule create -g nrprg -l ilbset -n NATrule1 -p TCP -f 5432 -b 3389
+    
+    azure network lb inbound-nat-rule create -g nrprg -l ilbset -n NATrule2 -p TCP -f 5433 -b 3389
 
 Parameters used:
 
@@ -164,7 +164,7 @@ Parameters used:
 
 Create health probes for the load balancer. A health probe checks all virtual machine instances to make sure it can send network traffic. The virtual machine instance with failed probe checks is removed from the load balancer until it goes back online and probe checks as healthy.
 
-	azure network lb probe create -g nrprg -l ilbset -n ilbprobe -p tcp -i 300 -c 4
+    azure network lb probe create -g nrprg -l ilbset -n ilbprobe -p tcp -i 300 -c 4
 
 **-g** - resource group 
 **-l** - name of the internal load balancer set
@@ -183,8 +183,8 @@ You need to create NICs (or modify existing ones) and associate them to NAT rule
 ### Step 1 
 
 Create a NIC named *lb-nic1-be*, and associate it with the *rdp1* NAT rule, and the *beilb* back end address pool.
-	
-	azure network nic create -g nrprg -n lb-nic1-be --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet -d "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/beilb" -e "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp1" eastus
+    
+    azure network nic create -g nrprg -n lb-nic1-be --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet -d "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/beilb" -e "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp1" eastus
 
 Parameters:
 
@@ -198,41 +198,41 @@ Parameters:
 
 Expected output:
 
-	info:    Executing command network nic create
-	+ Looking up the network interface "lb-nic1-be"
-	+ Looking up the subnet "nrpvnetsubnet"
-	+ Creating network interface "lb-nic1-be"
-	+ Looking up the network interface "lb-nic1-be"
-	data:    Id                              : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/networkInterfaces/lb-nic1-be
-	data:    Name                            : lb-nic1-be
-	data:    Type                            : Microsoft.Network/networkInterfaces
-	data:    Location                        : eastus
-	data:    Provisioning state              : Succeeded
-	data:    Enable IP forwarding            : false
-	data:    IP configurations:
-	data:      Name                          : NIC-config
-	data:      Provisioning state            : Succeeded
-	data:      Private IP address            : 10.0.0.4
-	data:      Private IP Allocation Method  : Dynamic
-	data:      Subnet                        : /subscriptions/####################################/resourceGroups/NRPRG/providers/Microsoft.Network/virtualNetworks/NRPVnet/subnets/NRPVnetSubnet
-	data:      Load balancer backend address pools
-	data:        Id                          : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/NRPbackendpool
-	data:      Load balancer inbound NAT rules:
-	data:        Id                          : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp1
-	data:
-	info:    network nic create command OK
+    info:    Executing command network nic create
+    + Looking up the network interface "lb-nic1-be"
+    + Looking up the subnet "nrpvnetsubnet"
+    + Creating network interface "lb-nic1-be"
+    + Looking up the network interface "lb-nic1-be"
+    data:    Id                              : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/networkInterfaces/lb-nic1-be
+    data:    Name                            : lb-nic1-be
+    data:    Type                            : Microsoft.Network/networkInterfaces
+    data:    Location                        : eastus
+    data:    Provisioning state              : Succeeded
+    data:    Enable IP forwarding            : false
+    data:    IP configurations:
+    data:      Name                          : NIC-config
+    data:      Provisioning state            : Succeeded
+    data:      Private IP address            : 10.0.0.4
+    data:      Private IP Allocation Method  : Dynamic
+    data:      Subnet                        : /subscriptions/####################################/resourceGroups/NRPRG/providers/Microsoft.Network/virtualNetworks/NRPVnet/subnets/NRPVnetSubnet
+    data:      Load balancer backend address pools
+    data:        Id                          : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/NRPbackendpool
+    data:      Load balancer inbound NAT rules:
+    data:        Id                          : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp1
+    data:
+    info:    network nic create command OK
 
 ### Step 2
 
 Create a NIC named *lb-nic2-be*, and associate it with the *rdp2* NAT rule, and the *beilb* back end address pool.
 
- 	azure network nic create -g nrprg -n lb-nic2-be --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet -d "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/beilb" -e "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp2" eastus
+    azure network nic create -g nrprg -n lb-nic2-be --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet -d "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/beilb" -e "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp2" eastus
 
 ### Step 3 
 
 Create a virtual machine (VM) named *DB1*, and associate it with the NIC named *lb-nic1-be*. A storage account called *web1nrp* was created before running the command below.
 
-	azure vm create --resource-group nrprg --name DB1 --location eastus --vnet-name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic1-be --availset-name nrp-avset --storage-account-name web1nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
+    azure vm create --resource-group nrprg --name DB1 --location eastus --vnet-name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic1-be --availset-name nrp-avset --storage-account-name web1nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
 
 >[AZURE.IMPORTANT] VMs in a load balancer need to be in the same availability set. Use `azure availset create` to create an availability set. 
 
@@ -240,14 +240,14 @@ Create a virtual machine (VM) named *DB1*, and associate it with the NIC named *
 
 Create a virtual machine (VM) named *DB2*, and associate it with the NIC named *lb-nic2-be*. A storage account called *web1nrp* was created before running the command below.
 
-	azure vm create --resource-group nrprg --name DB2 --location eastus --vnet-	name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic2-be --availset-name nrp-avset --storage-account-name web2nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
+    azure vm create --resource-group nrprg --name DB2 --location eastus --vnet- name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic2-be --availset-name nrp-avset --storage-account-name web2nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
 
 ## Delete a load balancer 
 
 
 To remove a load balancer use the following command
 
-	azure network lb delete -g nrprg -n ilbset 
+    azure network lb delete -g nrprg -n ilbset 
 
 Where **nrprg** is the resource group and **ilbset** the internal load balancer name.
 
@@ -257,4 +257,5 @@ Where **nrprg** is the resource group and **ilbset** the internal load balancer 
 [Configure a load balancer distribution mode using source IP affinity](load-balancer-distribution-mode.md)
 
 [Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
+
 

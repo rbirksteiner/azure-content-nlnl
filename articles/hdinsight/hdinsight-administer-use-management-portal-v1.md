@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Manage Hadoop clusters in HDInsight using Azure Classic Portal | Microsoft Azure"
-	description="Learn how to administer HDInsight Service. Create an HDInsight cluster, open the interactive JavaScript console, and open the Hadoop command console."
-	services="hdinsight"
-	documentationCenter=""
-	authors="mumian"
-	manager="paulettm"
-	editor="cgronlun"/>
+    pageTitle="Manage Hadoop clusters in HDInsight using Azure Classic Portal | Microsoft Azure"
+    description="Learn how to administer HDInsight Service. Create an HDInsight cluster, open the interactive JavaScript console, and open the Hadoop command console."
+    services="hdinsight"
+    documentationCenter=""
+    authors="mumian"
+    manager="paulettm"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="hdinsight"
-	ms.workload="big-data"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/04/2015"
-	ms.author="jgao"/>
+    ms.service="hdinsight"
+    ms.workload="big-data"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/04/2015"
+    ms.author="jgao"/>
 
 # Manage Hadoop clusters in HDInsight by using the Azure Classic Portal
 
@@ -58,9 +58,9 @@ HDInsight works with a wide range of Hadoop components. For the list of the comp
 - Some native Java components, like Mahout and Cascading, can be run on the cluster as JAR files. These JAR files can be distributed to Azure Blob storage, and submitted to HDInsight clusters through Hadoop job submission mechanisms. For more information, see [Submit Hadoop jobs programmatically](hdinsight-submit-hadoop-jobs-programmatically.md).
 
 
-	>[AZURE.NOTE] If you have issues deploying JAR files to HDInsight clusters or calling JAR files on HDInsight clusters, contact [Microsoft Support](http://azure.microsoft.com/support/options/).
+    >[AZURE.NOTE] If you have issues deploying JAR files to HDInsight clusters or calling JAR files on HDInsight clusters, contact [Microsoft Support](http://azure.microsoft.com/support/options/).
 
-	> Cascading is not supported by HDInsight, and is not eligible for Microsoft Support. For lists of supported components, see [What's new in the cluster versions provided by HDInsight?](hdinsight-component-versioning.md).
+    > Cascading is not supported by HDInsight, and is not eligible for Microsoft Support. For lists of supported components, see [What's new in the cluster versions provided by HDInsight?](hdinsight-component-versioning.md).
 
 
 Installation of custom software on the cluster by using Remote Desktop Connection is not supported. You should avoid storing any files on the drives of the head node, as they will be lost if you need to re-create the clusters. We recommend storing files on Azure Blob storage. Blob storage is persistent.
@@ -94,7 +94,7 @@ The credentials for the cluster that you provided at its creation give access to
 5. From the bottom of the page, click **ENABLE REMOTE**.
 6. In the **Configure Remote Desktop** wizard, enter a user name and password for the remote desktop. Note that the user name must be different from the one used to create the cluster (**admin** by default with the Quick Create option). Enter an expiration date in the **EXPIRES ON** box. Note that the expiration date must be in the future and up to 90 days from today. The expiration time of day is assumed by default to be midnight of the specified date. Then click the check icon.
 
-	![HDI.CreateRDPUser][image-hdi-create-rpd-user]
+    ![HDI.CreateRDPUser][image-hdi-create-rpd-user]
 
 
 > [AZURE.NOTE] You can also use the HDInsight .NET SDK to enable Remote Desktop on a cluster. Use the **EnableRdp** method on the HDInsight client object in the following manner: **client.EnableRdp(clustername, location, "rdpuser", "rdppassword", DateTime.Now.AddDays(6))**. Similarly, to disable Remote Desktop on the cluster, you can use **client.DisableRdp(clustername, location)**. For more information on these methods, see [HDInsight .NET SDK Reference](http://go.microsoft.com/fwlink/?LinkId=529017). This is applicable only for HDInsight clusters running on Windows.
@@ -123,7 +123,7 @@ If you want to perform any operations on the cluster by using the .NET SDK, you 
 
 3. Import the certificate into the Azure Classic Portal. From the portal, click **SETTINGS** on the bottom left of the page, and then click **MANAGEMENT CERTIFICATES**. From the bottom of the page, click **UPLOAD** and follow the instructions to upload the .cer file you created in the previous step.
 
-	![HDI.ClusterCreate.UploadCert][image-hdiclustercreate-uploadcert]
+    ![HDI.ClusterCreate.UploadCert][image-hdiclustercreate-uploadcert]
 
 
 ##Grant/revoke HTTP services access
@@ -168,18 +168,18 @@ To connect to the cluster by using Remote Desktop and use the Hadoop command lin
 7. Click **Yes**.
 8. From the desktop, double-click **Hadoop Command Line**.
 
-	![HDI.HadoopCommandLine][image-hadoopcommandline]
+    ![HDI.HadoopCommandLine][image-hadoopcommandline]
 
 
-	For more information on Hadoop commands, see [Hadoop commands reference](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CommandsManual.html).
+    For more information on Hadoop commands, see [Hadoop commands reference](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CommandsManual.html).
 
 In the previous screenshot, the folder name has the Hadoop version number embedded. The version number can changed based on the version of the Hadoop components installed on the cluster. You can use Hadoop environment variables to refer to those folders. For example:
 
-	cd %hadoop_home%
-	cd %hive_home%
-	cd %pig_home%
-	cd %sqoop_home%
-	cd %hcatalog_home%
+    cd %hadoop_home%
+    cd %hive_home%
+    cd %pig_home%
+    cd %sqoop_home%
+    cd %hcatalog_home%
 
 ##Scale clusters
 See [Scale Hadoop clusters in HDInsight](hdinsight-hadoop-cluster-scaling.md).
@@ -197,3 +197,4 @@ In this article, you have learned how to create an HDInsight cluster by using th
 [image-hdi-create-rpd-user]: ./media/hdinsight-administer-use-management-portal-v1/hdi.createrdpuser.png
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal-v1/hdinsight-hadoop-command-line.png "Hadoop command line"
 [image-hdiclustercreate-uploadcert]: ./media/hdinsight-administer-use-management-portal-v1/hdi.clustercreate.uploadcert.png
+

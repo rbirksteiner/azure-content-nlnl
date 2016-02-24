@@ -125,3 +125,4 @@ For more information on Azure AD entities and types that are exposed by Graph an
 ## Next steps
 
 Learn more about the [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)
+

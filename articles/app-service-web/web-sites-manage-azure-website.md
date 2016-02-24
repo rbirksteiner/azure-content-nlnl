@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Manage a web app in Azure App Service" 
-	description="Links to resources for managing a web app in Azure App Service." 
-	services="app-service\web" 
-	documentationCenter="" 
-	authors="erikre" 
-	manager="wpickett" 
-	editor=""/>
+    pageTitle="Manage a web app in Azure App Service" 
+    description="Links to resources for managing a web app in Azure App Service." 
+    services="app-service\web" 
+    documentationCenter="" 
+    authors="erikre" 
+    manager="wpickett" 
+    editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/28/2015" 
-	ms.author="erikre"/>
+    ms.service="app-service-web" 
+    ms.workload="web" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/28/2015" 
+    ms.author="erikre"/>
 
 # Manage a web app in Azure App Service
 
@@ -102,3 +102,4 @@ If you use Visual Studio Team Services, you can set up continuous deployment fro
 [When you update your website]: #when-you-update-your-website
 
   
+

@@ -5,3 +5,4 @@
 2. Click **Virtual Machines**, and then select the virtual device.
 
 3. Click **Shutdown**.
+

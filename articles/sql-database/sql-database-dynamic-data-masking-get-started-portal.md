@@ -71,9 +71,9 @@ Dynamic data masking can be configured by the Azure Database admin, server admin
 
 4. Type the SQL users or AAD identities that should be excluded from masking, and have access to the unmasked sensitive data. This should be a semicolon-separated list of users. Note that users with administrator privileges always have access to the original unmasked data.
 
-	>[AZURE.TIP] To make it so the application layer can display sensitive data for application privileged users, add the SQL user or AAD identity the application uses to query the database. It is highly recommended that this list contain a minimal number of privileged users to minimize exposure of the sensitive data.
+    >[AZURE.TIP] To make it so the application layer can display sensitive data for application privileged users, add the SQL user or AAD identity the application uses to query the database. It is highly recommended that this list contain a minimal number of privileged users to minimize exposure of the sensitive data.
 
-	![Navigation pane](./media/sql-database-dynamic-data-masking-get-started-portal/4_ddm_policy_classic_portal.png)
+    ![Navigation pane](./media/sql-database-dynamic-data-masking-get-started-portal/4_ddm_policy_classic_portal.png)
 
 5. At the bottom of the page in the menu bar, click **Add MASK** to open the masking rule configuration window.
 
@@ -81,7 +81,7 @@ Dynamic data masking can be configured by the Azure Database admin, server admin
 
 7. Choose a **MASKING FUNCTION** from the list of sensitive data masking categories.
 
-	![Navigation pane](./media/sql-database-dynamic-data-masking-get-started-portal/5_DDM_Add_Masking_Rule_Classic_Portal.png)
+    ![Navigation pane](./media/sql-database-dynamic-data-masking-get-started-portal/5_DDM_Add_Masking_Rule_Classic_Portal.png)
 
 8. Click **OK** in the data masking rule window to update the set of masking rules in the dynamic data masking policy.
 
@@ -95,3 +95,4 @@ See [Azure SQL Database Cmdlets](https://msdn.microsoft.com/library/azure/mt5740
 ## Set up dynamic data masking for your database using REST API
 
 See [Operations for Azure SQL Databases](https://msdn.microsoft.com/library/dn505719.aspx).
+

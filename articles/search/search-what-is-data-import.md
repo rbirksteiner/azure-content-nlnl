@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Data Import in Azure Search | Microsoft Azure | Hosted cloud search service"
-	description="How to upload data to an index in Azure Search"
-	services="search"
-	documentationCenter=""
-	authors="HeidiSteen"
-	manager="mblythe"
-	editor=""
+    pageTitle="Data Import in Azure Search | Microsoft Azure | Hosted cloud search service"
+    description="How to upload data to an index in Azure Search"
+    services="search"
+    documentationCenter=""
+    authors="HeidiSteen"
+    manager="mblythe"
+    editor=""
     tags=""/>
 
 <tags
-	ms.service="search"
-	ms.devlang="na"
-	ms.workload="search"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.date="11/09/2015"
-	ms.author="heidist"/>
+    ms.service="search"
+    ms.devlang="na"
+    ms.workload="search"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.date="11/09/2015"
+    ms.author="heidist"/>
 
 # Import data to Azure Search
 > [AZURE.SELECTOR]

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Get Started with authentication for Mobile Apps in Xamarin.Forms app" 
-	description="Learn how to use Mobile Apps to authenticate users of your Xamarin Forms app through a variety of identity providers, including AAD, Google, Facebook, Twitter, and Microsoft." 
-	services="app-service\mobile" 
-	documentationCenter="xamarin" 
-	authors="wesmc7777"
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="Get Started with authentication for Mobile Apps in Xamarin.Forms app" 
+    description="Learn how to use Mobile Apps to authenticate users of your Xamarin Forms app through a variety of identity providers, including AAD, Google, Facebook, Twitter, and Microsoft." 
+    services="app-service\mobile" 
+    documentationCenter="xamarin" 
+    authors="wesmc7777"
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="app-service-mobile" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin" 
-	ms.devlang="dotnet" 
-	ms.topic="article"
-	ms.date="12/07/2015" 
-	ms.author="wesmc"/>
+    ms.service="app-service-mobile" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="mobile-xamarin" 
+    ms.devlang="dotnet" 
+    ms.topic="article"
+    ms.date="12/07/2015" 
+    ms.author="wesmc"/>
 
 # Add authentication to your Xamarin.Forms app
 
@@ -46,28 +46,28 @@ You will also update the user interface defined in the portable class library, a
 
 1. In Visual Studio or Xamarin Studio, open App.cs from the **portable** project. Add the following `using` statement to the file.
 
-		using System.Threading.Tasks;
+        using System.Threading.Tasks;
 
 2. In App.cs, add the following `IAuthenticate` interface definition immediately before the `App` class definition.
 
-	    public interface IAuthenticate
-	    {
-	        Task<bool> Authenticate();
-	    };
+        public interface IAuthenticate
+        {
+            Task<bool> Authenticate();
+        };
 
 3. In App.cs, add the following static members to initialize the interface with a platform specific implementation.
 
-		public class App : Application
-		{
-	
-	        public static IAuthenticate Authenticator { get; private set; }
-	
-	        public static void Init(IAuthenticate authenticator)
-	        {
-	            Authenticator = authenticator;
-	        }
-	
-			...
+        public class App : Application
+        {
+    
+            public static IAuthenticate Authenticator { get; private set; }
+    
+            public static void Init(IAuthenticate authenticator)
+            {
+                Authenticator = authenticator;
+            }
+    
+            ...
 
 
 4. Open TodoList.xaml.cs from the **portable** project.  Add the following flag to the `TodoList` class to indicate whether or not the user has authenticated.
@@ -110,7 +110,7 @@ You will also update the user interface defined in the portable class library, a
             bp.Orientation = StackOrientation.Vertical;
             bp.Children.Add(loginButton);
 
-			...
+            ...
 
 7. In TodoList.xaml.cs, add the following handler for the login button click event
 
@@ -138,21 +138,21 @@ In this section you will add authentication for the droid project. If you are no
 
 3. Next, open MainActivity.cs in the droid project and add the following `using` statement.
 
-		using Microsoft.WindowsAzure.MobileServices;
-		using System.Threading.Tasks;
+        using Microsoft.WindowsAzure.MobileServices;
+        using System.Threading.Tasks;
 
 4. Update the `MainActivity` class to implement the `IAuthenticate` interface.
 
-		public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity, IAuthenticate
+        public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity, IAuthenticate
 
 
 5. Update the `MainActivity` class by adding a `MobileServiceUser` field and the `Authenticate` method shown below to support the `IAuthenticate` interface. 
  
-	If you want to use a different `MobileServiceAuthenticationProvider` instead of Facebook, make that change as well.
+    If you want to use a different `MobileServiceAuthenticationProvider` instead of Facebook, make that change as well.
 
-		// Define a authenticated user.
-		private MobileServiceUser user;
-	
+        // Define a authenticated user.
+        private MobileServiceUser user;
+    
         public async Task<bool> Authenticate()
         {
             var success = false;
@@ -205,21 +205,21 @@ In this section you will add authentication for the iOS project. If you are not 
 
 3. Next, open AppDelegate.cs in the iOS project and add the following `using` statement.
 
-		using Microsoft.WindowsAzure.MobileServices;
-		using System.Threading.Tasks;
+        using Microsoft.WindowsAzure.MobileServices;
+        using System.Threading.Tasks;
 
 4. Update the `AppDelegate` class to implement the `IAuthenticate` interface.
 
-		public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate, IAuthenticate
+        public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate, IAuthenticate
 
 
 5. Update the `AppDelegate` class by adding a `MobileServiceUser` field and the `Authenticate` method shown below to support the `IAuthenticate` interface. 
  
-	If you want to use a different `MobileServiceAuthenticationProvider` instead of Facebook, make that change as well.
+    If you want to use a different `MobileServiceAuthenticationProvider` instead of Facebook, make that change as well.
 
-		// Define a authenticated user.
-		private MobileServiceUser user;
-	
+        // Define a authenticated user.
+        private MobileServiceUser user;
+    
         public async Task<bool> Authenticate()
         {
             var success = false;
@@ -251,7 +251,7 @@ In this section you will add authentication for the iOS project. If you are not 
 
         App.Init(this);
 
-		LoadApplication (new App ());
+        LoadApplication (new App ());
 
 
 
@@ -270,18 +270,18 @@ In this section you will add authentication for the WinApp project. If you are n
 
 3. Next, open MainPage.xaml.cs in the WinApp project and add the following `using` statement. Replace <*Your portable class library namespace*> with the namespace for your portable class library.
 
-		using Microsoft.WindowsAzure.MobileServices;
-		using System.Threading.Tasks;
-		using <Your portable class library namespace>;
+        using Microsoft.WindowsAzure.MobileServices;
+        using System.Threading.Tasks;
+        using <Your portable class library namespace>;
 
 4. Update the `MainPage` class to implement the `IAuthenticate` interface.
 
-	    public sealed partial class MainPage : IAuthenticate
+        public sealed partial class MainPage : IAuthenticate
 
 
 5. Update the `MainPage` class by adding a `MobileServiceUser` field and the `Authenticate` method shown below to support the `IAuthenticate` interface. 
  
-	If you want to use a different `MobileServiceAuthenticationProvider` instead of Facebook, make that change as well.
+    If you want to use a different `MobileServiceAuthenticationProvider` instead of Facebook, make that change as well.
 
         // Define a authenticated user.
         private MobileServiceUser user;
@@ -295,12 +295,12 @@ In this section you will add authentication for the WinApp project. If you are n
                 if (user == null)
                 {
                     user = await TodoItemManager.DefaultManager.CurrentClient.LoginAsync(MobileServiceAuthenticationProvider.Facebook);
-					if (user != null)
-					{
-	                    var messageDialog = new Windows.UI.Popups.MessageDialog(
-								string.Format("you are now logged in - {0}", user.UserId), "Authentication");
-	                    messageDialog.ShowAsync();
-					}
+                    if (user != null)
+                    {
+                        var messageDialog = new Windows.UI.Popups.MessageDialog(
+                                string.Format("you are now logged in - {0}", user.UserId), "Authentication");
+                        messageDialog.ShowAsync();
+                    }
                 }
 
                 success = true;
@@ -340,18 +340,18 @@ In this section you will add authentication for the WinPhone81 project. If you a
 
 3. Next, open MainPage.xaml.cs in the WinPhone81 project and add the following `using` statement. Replace <*Your portable class library namespace*> with the namespace for your portable class library.
 
-		using Microsoft.WindowsAzure.MobileServices;
-		using System.Threading.Tasks;
-		using <Your portable class library namespace>;
+        using Microsoft.WindowsAzure.MobileServices;
+        using System.Threading.Tasks;
+        using <Your portable class library namespace>;
 
 4. Update the `MainPage` class to implement the `IAuthenticate` interface.
 
-	    public sealed partial class MainPage : IAuthenticate
+        public sealed partial class MainPage : IAuthenticate
 
 
 5. Update the `MainPage` class by adding a `MobileServiceUser` field and the `Authenticate` method shown below to support the `IAuthenticate` interface. 
  
-	If you want to use a different `MobileServiceAuthenticationProvider` instead of Facebook, make that change as well.
+    If you want to use a different `MobileServiceAuthenticationProvider` instead of Facebook, make that change as well.
 
         // Define a authenticated user.
         private MobileServiceUser user;
@@ -365,12 +365,12 @@ In this section you will add authentication for the WinPhone81 project. If you a
                 if (user == null)
                 {
                     user = await TodoItemManager.DefaultManager.CurrentClient.LoginAsync(MobileServiceAuthenticationProvider.Facebook);
-					if (user != null)
-					{
-	                    var messageDialog = new Windows.UI.Popups.MessageDialog(
-								string.Format("you are now logged in - {0}", user.UserId), "Authentication");
-	                    messageDialog.ShowAsync();
-					}
+                    if (user != null)
+                    {
+                        var messageDialog = new Windows.UI.Popups.MessageDialog(
+                                string.Format("you are now logged in - {0}", user.UserId), "Authentication");
+                        messageDialog.ShowAsync();
+                    }
                 }
 
                 success = true;
@@ -398,20 +398,20 @@ In this section you will add authentication for the WinPhone81 project. If you a
 
 7. On Windows Phone you need to additionally complete the login. Open App.xaml.cs and add the following `using` statement and code to the `OnActivated` handler in the `App` class.
 
-	```
-		using Microsoft.WindowsAzure.MobileServices;
-	```
+    ```
+        using Microsoft.WindowsAzure.MobileServices;
+    ```
 
-		protected override void OnActivated(IActivatedEventArgs args)
-		{
-		    base.OnActivated(args);
-		
-		    if (args.Kind == ActivationKind.WebAuthenticationBrokerContinuation)
-		    {
-		        var client = TodoItemManager.DefaultManager.CurrentClient as MobileServiceClient;
-		        client.LoginComplete(args as WebAuthenticationBrokerContinuationEventArgs);
-		    }
-		}
+        protected override void OnActivated(IActivatedEventArgs args)
+        {
+            base.OnActivated(args);
+        
+            if (args.Kind == ActivationKind.WebAuthenticationBrokerContinuation)
+            {
+                var client = TodoItemManager.DefaultManager.CurrentClient as MobileServiceClient;
+                client.LoginComplete(args as WebAuthenticationBrokerContinuationEventArgs);
+            }
+        }
 
 
 

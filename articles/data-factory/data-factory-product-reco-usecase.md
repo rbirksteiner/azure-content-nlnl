@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Data Factory Use Case - Product Recommendations" 
-	description="Learn about an use case implemented by using Azure Data Factory along with other services." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
-	editor="monicar"/>
+    pageTitle="Data Factory Use Case - Product Recommendations" 
+    description="Learn about an use case implemented by using Azure Data Factory along with other services." 
+    services="data-factory" 
+    documentationCenter="" 
+    authors="spelluru" 
+    manager="jhubbard" 
+    editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/20/2015" 
-	ms.author="spelluru"/>
+    ms.service="data-factory" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/20/2015" 
+    ms.author="spelluru"/>
 
 # Use Case - Product Recommendations 
 

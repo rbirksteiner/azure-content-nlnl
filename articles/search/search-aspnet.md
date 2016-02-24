@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Connect Azure Search with ASP.NET MVC Web Apps | Microsoft Azure | Hosted cloud search service"
-	description="Hook up an ASP.NET MVC Web app with Azure Search, a hosted cloud search service. Learn how to connect, query, and render results using the .Net library or REST API."
-	services="search"
-	documentationCenter=""
-	authors="HeidiSteen"
-	manager="mblythe"
-	editor="v-lincan"/>
+    pageTitle="Connect Azure Search with ASP.NET MVC Web Apps | Microsoft Azure | Hosted cloud search service"
+    description="Hook up an ASP.NET MVC Web app with Azure Search, a hosted cloud search service. Learn how to connect, query, and render results using the .Net library or REST API."
+    services="search"
+    documentationCenter=""
+    authors="HeidiSteen"
+    manager="mblythe"
+    editor="v-lincan"/>
 
 <tags
-	ms.service="search"
-	ms.devlang="na"
-	ms.workload="search"
-	ms.topic="hero-article"
-	ms.tgt_pltfrm="na"
-	ms.date="11/04/2015"
-	ms.author="heidist"/>
+    ms.service="search"
+    ms.devlang="na"
+    ms.workload="search"
+    ms.topic="hero-article"
+    ms.tgt_pltfrm="na"
+    ms.date="11/04/2015"
+    ms.author="heidist"/>
 
 #How to integrate Azure Search with ASP.NET MVC Web Apps
 
@@ -43,9 +43,9 @@ You can find the URL and API key in the [portal](search-create-service-portal.md
 Typically, both URL and key are placed in the web.config file of your user interaction program:
 
       <appSettings>
-    	<add key="SearchServiceName" value="[SEARCH SERVICE NAME]" />
-    	<add key="SearchServiceApiKey" value="[API KEY]" />
-    	. . .
+        <add key="SearchServiceName" value="[SEARCH SERVICE NAME]" />
+        <add key="SearchServiceApiKey" value="[API KEY]" />
+        . . .
       </appSettings>
 
 The Search service name can be the short name you specified during provisioning as long as you append the domain (search.windows.net) on the connection, or you could specify the fully qualified name (<service-name>.search.windows.net) in web.config, without the HTTPS prefix.
@@ -210,89 +210,89 @@ A .NET method for invoking **Search** might look like this, contained in the mai
 
 Search results are returned as a rowset composed of fields that are marked in the index schema as isRetrievable. One of the simpler ways to render a result set is by using the ViewBag system object in MVC. The following code snippet is from Index.cshtml in the [AdventureWorksDemo project on CodePlex](https://azuresearchadventureworksdemo.codeplex.com/).
 
-	@model dynamic
-	
-	@{
-	    ViewBag.Title = "Search";
-	}
-	
-	<h2>Product search</h2>
-	
-	@if (@ViewBag.errorMessage != null) {
-	    @ViewBag.errorMessage
-	} else {
-	    <div class="container">
-	        <form action="/Home/Search" method="get">
-	            <input type="search" name="q" id="q" value="@ViewBag.searchString" autocomplete="off" size="100" /> <button type="submit">Search</button>
-	            <input type="hidden" name="color" id="color" value="@ViewBag.color" />
-	            <input type="hidden" name="category" id="category" value="@ViewBag.category" />
-	            <input type="hidden" name="priceFrom" id="priceFrom" value="@ViewBag.priceFrom" />
-	            <input type="hidden" name="priceTo" id="priceTo" value="@ViewBag.priceTo" />
-	            <input type="hidden" name="sort" id="sort" value="@ViewBag.sort" />
-	        </form>
-	    </div>
+    @model dynamic
+    
+    @{
+        ViewBag.Title = "Search";
+    }
+    
+    <h2>Product search</h2>
+    
+    @if (@ViewBag.errorMessage != null) {
+        @ViewBag.errorMessage
+    } else {
+        <div class="container">
+            <form action="/Home/Search" method="get">
+                <input type="search" name="q" id="q" value="@ViewBag.searchString" autocomplete="off" size="100" /> <button type="submit">Search</button>
+                <input type="hidden" name="color" id="color" value="@ViewBag.color" />
+                <input type="hidden" name="category" id="category" value="@ViewBag.category" />
+                <input type="hidden" name="priceFrom" id="priceFrom" value="@ViewBag.priceFrom" />
+                <input type="hidden" name="priceTo" id="priceTo" value="@ViewBag.priceTo" />
+                <input type="hidden" name="sort" id="sort" value="@ViewBag.sort" />
+            </form>
+        </div>
 
 ###Faceted navigation
 
 In the same Index.cshmtl file, you can find the HTML used to build a faceted navigation structure that provides classifications for self-directed filtering, progressively narrowing search results by color, price or category. 
 
-	    if (@Model != null)
-	    {
-	        <div class="container">
-	            <div class="row">
-	                <div class="col-md-4">
-	                    Colors:
-	                    <ul>
-	                        @foreach (var colorFacet in Model["@search.facets"].color)
-	                        {
-	                            <li><a href="#" onclick="document.getElementById('color').value='@colorFacet.value'; 
-	document.forms[0].submit(); 
-	return false;">@colorFacet.value</a> (@colorFacet.count)</li>
-	                        }
-	                    </ul>
-	                    Categories:
-	                    <ul>
-	                        @foreach (var categoryFacet in Model["@search.facets"].categoryName)
-	                        {
-	                            <li><a href="#" onclick="document.getElementById('category').value='@categoryFacet.value'; document.forms[0].submit(); return false;">@categoryFacet.value</a> (@categoryFacet.count)</li>
-	                        }
-	                    </ul>
-	                    Prices:
-	                    <ul>
-	                        @foreach (var priceFacet in Model["@search.facets"].listPrice)
-	                        {
-	                            if (priceFacet.count > 0)
-	                            {
-	                       <li><a href="#" onclick="document.getElementById('priceFrom').value=@(priceFacet.from ?? 0); document.getElementById('priceTo').value=@(priceFacet.to ?? 0); 
-	document.forms[0].submit(); return false;
-	">@(priceFacet.from ?? 0) - @(priceFacet.to ?? "more")</a> (@priceFacet.count)</li>
-	                            }
-	                        }
-	                    </ul>
-	                </div>
-	                <div class="col-md-8">
-	                    <p>
-	                        Sort -
-	                        <a href="#" onclick="document.getElementById('sort').value=null; document.forms[0].submit(); return false;">by relevance</a>
-	                        <a href="#" onclick="document.getElementById('sort').value='listPrice'; document.forms[0].submit(); return false;">by list price</a>
-	                        <a href="#" onclick="document.getElementById('sort').value='color'; document.forms[0].submit(); return false;">by color</a>
-	                    </p>
-	                    <p>Found @Model["@odata.count"] products in the catalog</p>
-	
-	                    <ul>
-	                        @foreach (var product in Model.value)
-	                        {
-	                            <li>
-	                                <h3><b>@product.name</b></h3>
-	                                price: @product.listPrice, color: @product.color, weight: @product.weight, size: @product.size
-	                            </li>
-	                        }
-	                    </ul>
-	                </div>
-	            </div>
-	        </div>
-	    }
-	}
+        if (@Model != null)
+        {
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        Colors:
+                        <ul>
+                            @foreach (var colorFacet in Model["@search.facets"].color)
+                            {
+                                <li><a href="#" onclick="document.getElementById('color').value='@colorFacet.value'; 
+    document.forms[0].submit(); 
+    return false;">@colorFacet.value</a> (@colorFacet.count)</li>
+                            }
+                        </ul>
+                        Categories:
+                        <ul>
+                            @foreach (var categoryFacet in Model["@search.facets"].categoryName)
+                            {
+                                <li><a href="#" onclick="document.getElementById('category').value='@categoryFacet.value'; document.forms[0].submit(); return false;">@categoryFacet.value</a> (@categoryFacet.count)</li>
+                            }
+                        </ul>
+                        Prices:
+                        <ul>
+                            @foreach (var priceFacet in Model["@search.facets"].listPrice)
+                            {
+                                if (priceFacet.count > 0)
+                                {
+                           <li><a href="#" onclick="document.getElementById('priceFrom').value=@(priceFacet.from ?? 0); document.getElementById('priceTo').value=@(priceFacet.to ?? 0); 
+    document.forms[0].submit(); return false;
+    ">@(priceFacet.from ?? 0) - @(priceFacet.to ?? "more")</a> (@priceFacet.count)</li>
+                                }
+                            }
+                        </ul>
+                    </div>
+                    <div class="col-md-8">
+                        <p>
+                            Sort -
+                            <a href="#" onclick="document.getElementById('sort').value=null; document.forms[0].submit(); return false;">by relevance</a>
+                            <a href="#" onclick="document.getElementById('sort').value='listPrice'; document.forms[0].submit(); return false;">by list price</a>
+                            <a href="#" onclick="document.getElementById('sort').value='color'; document.forms[0].submit(); return false;">by color</a>
+                        </p>
+                        <p>Found @Model["@odata.count"] products in the catalog</p>
+    
+                        <ul>
+                            @foreach (var product in Model.value)
+                            {
+                                <li>
+                                    <h3><b>@product.name</b></h3>
+                                    price: @product.listPrice, color: @product.color, weight: @product.weight, size: @product.size
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        }
+    }
 
 
 ###Hit highlighting
@@ -301,50 +301,50 @@ Applying a style to the instance of the search term in a search result is called
 
 First, specify hit highlights as a search parameter and list the fields to check for matching terms. Specify the HTML style to use on hit highlight.
 
-	// Set the Search parameters used when executing the search request
-	     var sp = new SearchParameters
-	{
-	// Include a count of results in the query result
-	     IncludeTotalResultCount = true,
-	// Limit the results to 20 documents
-	     Top = 20,
-	// Enable hit-highlighting
-	     HighlightFields = new[] { "FEATURE_NAME", "DESCRIPTION", "FEATURE_CLASS", "COUNTY_NAME", "STATE_ALPHA" },
-	     HighlightPreTag = "<b>",
-	     HighlightPostTag = "</b>",
-	};
+    // Set the Search parameters used when executing the search request
+         var sp = new SearchParameters
+    {
+    // Include a count of results in the query result
+         IncludeTotalResultCount = true,
+    // Limit the results to 20 documents
+         Top = 20,
+    // Enable hit-highlighting
+         HighlightFields = new[] { "FEATURE_NAME", "DESCRIPTION", "FEATURE_CLASS", "COUNTY_NAME", "STATE_ALPHA" },
+         HighlightPreTag = "<b>",
+         HighlightPostTag = "</b>",
+    };
 
 Next, iterate through the search results to find the string that needs to be highlighted.
 private HtmlString RenderHitHighlightedString(SearchResult item, string fieldName)
 
-	  {
-	     if (item.Highlights != null && item.Highlights.ContainsKey(fieldName))
-	      {
-	      string highlightedResult = string.Join("...", item.Highlights[fieldName]);
-	      return new HtmlString(highlightedResult);
-	      }
-	      return new HtmlString(item.Document[fieldName].ToString());
-	   }
+      {
+         if (item.Highlights != null && item.Highlights.ContainsKey(fieldName))
+          {
+          string highlightedResult = string.Join("...", item.Highlights[fieldName]);
+          return new HtmlString(highlightedResult);
+          }
+          return new HtmlString(item.Document[fieldName].ToString());
+       }
 
 Last, provide the layout of the search results, specifying the result set that was evaluated in the previous snippet.
 
-	<div class="col-xs-12 col-sm-6 col-md-10">
-	  <p style="padding-top:20px">1 - @response.Results.Count of @response.Count results for "@searchText"</p>
-	
-	  <ul class="list-unstyled">
-	    <!-- Cycle through the search results -->
-	   @foreach (var item in response.Results)
-	    {
-	     <li>
-	       <h3>@RenderHitHighlightedString(item, "FEATURE_NAME")</h3>
-	       <p>@RenderHitHighlightedString(item, "DESCRIPTION")</p>
-	       <p>@RenderHitHighlightedString(item, "FEATURE_CLASS"), elevation: @item.Document["ELEV_IN_M"] meters</p>
-	       <p>@RenderHitHighlightedString(item, "COUNTY_NAME") County, @RenderHitHighlightedString(item, "STATE_ALPHA")</p>
-	       <br />
-	     </li>
-	    }
-	  </ul>
-	</div>
+    <div class="col-xs-12 col-sm-6 col-md-10">
+      <p style="padding-top:20px">1 - @response.Results.Count of @response.Count results for "@searchText"</p>
+    
+      <ul class="list-unstyled">
+        <!-- Cycle through the search results -->
+       @foreach (var item in response.Results)
+        {
+         <li>
+           <h3>@RenderHitHighlightedString(item, "FEATURE_NAME")</h3>
+           <p>@RenderHitHighlightedString(item, "DESCRIPTION")</p>
+           <p>@RenderHitHighlightedString(item, "FEATURE_CLASS"), elevation: @item.Document["ELEV_IN_M"] meters</p>
+           <p>@RenderHitHighlightedString(item, "COUNTY_NAME") County, @RenderHitHighlightedString(item, "STATE_ALPHA")</p>
+           <br />
+         </li>
+        }
+      </ul>
+    </div>
 
 
 ##Common coding practices
@@ -377,69 +377,69 @@ Unlike the .NET library which does this step for you, the Service REST APIs must
 
 Code for JSON serialization can be found in several of samples, in a file named **AzureSearchHelper.cs**:
 
-	using System;
-	using System.Net.Http;
-	using System.Text;
-	using Newtonsoft.Json;
-	using Newtonsoft.Json.Converters;
-	using Newtonsoft.Json.Serialization;
-	
-	namespace CatalogCommon
-	{
-	    public class AzureSearchHelper
-	    {
-	        public const string ApiVersionString = "api-version=2014-07-31-Preview";
-	
-	        private static readonly JsonSerializerSettings _jsonSettings;
-	
-	        static AzureSearchHelper()
-	        {
-	            _jsonSettings = new JsonSerializerSettings
-	            {
-	                Formatting = Formatting.Indented, // for readability, change to None for compactness
-	                ContractResolver = new CamelCasePropertyNamesContractResolver(),
-	                DateTimeZoneHandling = DateTimeZoneHandling.Utc
-	            };
-	
-	            _jsonSettings.Converters.Add(new StringEnumConverter());
-	        }
-	
-	        public static string SerializeJson(object value)
-	        {
-	            return JsonConvert.SerializeObject(value, _jsonSettings);
-	        }
-	
-	        public static T DeserializeJson<T>(string json)
-	        {
-	            return JsonConvert.DeserializeObject<T>(json, _jsonSettings);
-	        }
-	
-	        public static HttpResponseMessage SendSearchRequest(HttpClient client, HttpMethod method, Uri uri, string json = null)
-	        {
-	            UriBuilder builder = new UriBuilder(uri);
-	            string separator = string.IsNullOrWhiteSpace(builder.Query) ? string.Empty : "&";
-	            builder.Query = builder.Query.TrimStart('?') + separator + ApiVersionString;
-	
-	            var request = new HttpRequestMessage(method, builder.Uri);
-	
-	            if (json != null)
-	            {
-	                request.Content = new StringContent(json, Encoding.UTF8, "application/json");
-	            }
-	
-	            return client.SendAsync(request).Result;
-	        }
-	
-	        public static void EnsureSuccessfulSearchResponse(HttpResponseMessage response)
-	        {
-	            if (!response.IsSuccessStatusCode)
-	            {
-	                string error = response.Content == null ? null : response.Content.ReadAsStringAsync().Result;
-	                throw new Exception("Search request failed: " + error);
-	            }
-	        }
-	    }
-	}
+    using System;
+    using System.Net.Http;
+    using System.Text;
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Converters;
+    using Newtonsoft.Json.Serialization;
+    
+    namespace CatalogCommon
+    {
+        public class AzureSearchHelper
+        {
+            public const string ApiVersionString = "api-version=2014-07-31-Preview";
+    
+            private static readonly JsonSerializerSettings _jsonSettings;
+    
+            static AzureSearchHelper()
+            {
+                _jsonSettings = new JsonSerializerSettings
+                {
+                    Formatting = Formatting.Indented, // for readability, change to None for compactness
+                    ContractResolver = new CamelCasePropertyNamesContractResolver(),
+                    DateTimeZoneHandling = DateTimeZoneHandling.Utc
+                };
+    
+                _jsonSettings.Converters.Add(new StringEnumConverter());
+            }
+    
+            public static string SerializeJson(object value)
+            {
+                return JsonConvert.SerializeObject(value, _jsonSettings);
+            }
+    
+            public static T DeserializeJson<T>(string json)
+            {
+                return JsonConvert.DeserializeObject<T>(json, _jsonSettings);
+            }
+    
+            public static HttpResponseMessage SendSearchRequest(HttpClient client, HttpMethod method, Uri uri, string json = null)
+            {
+                UriBuilder builder = new UriBuilder(uri);
+                string separator = string.IsNullOrWhiteSpace(builder.Query) ? string.Empty : "&";
+                builder.Query = builder.Query.TrimStart('?') + separator + ApiVersionString;
+    
+                var request = new HttpRequestMessage(method, builder.Uri);
+    
+                if (json != null)
+                {
+                    request.Content = new StringContent(json, Encoding.UTF8, "application/json");
+                }
+    
+                return client.SendAsync(request).Result;
+            }
+    
+            public static void EnsureSuccessfulSearchResponse(HttpResponseMessage response)
+            {
+                if (!response.IsSuccessStatusCode)
+                {
+                    string error = response.Content == null ? null : response.Content.ReadAsStringAsync().Result;
+                    throw new Exception("Search request failed: " + error);
+                }
+            }
+        }
+    }
 
 ###Organize your code
 
@@ -462,4 +462,5 @@ To further your understanding of Azure Search and ASP.NET integration, visit the
 - [How to use Azure Search from a .NET Application](search-howto-dotnet-sdk.md) 
 - [Azure Search Developer Case Study](search-dev-case-study-whattopedia.md)
 - [Typical workflow for Azure Search development](search-workflow.md) 
+
 

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Security Best Practices for using Azure MFA" 
-	description="This document provides best practices around using Azure MFA with Azure accounts" 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
-	editor="curtland"/>
+    pageTitle="Security Best Practices for using Azure MFA" 
+    description="This document provides best practices around using Azure MFA with Azure accounts" 
+    services="multi-factor-authentication" 
+    documentationCenter="" 
+    authors="billmath" 
+    manager="stevenpo" 
+    editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/19/2015" 
-	ms.author="billmath"/>
+    ms.service="multi-factor-authentication" 
+    ms.workload="identity" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/19/2015" 
+    ms.author="billmath"/>
 
 # Security Best Practices for using Azure Multi-Factor Authentication with Azure AD accounts
 
@@ -125,3 +125,4 @@ While this article highlights some best practices for Azure MFA, there are other
 - [Reports in Azure Multi-Factor Authentication](multi-factor-authentication-manage-reports.md)
 - [Setup experience for Azure Multi-Factor Authentication](multi-factor-authentication-end-user-first-time.md)
 - [Azure Multi-Factor Authentication FAQ](multi-factor-authentication-faq.md)
+

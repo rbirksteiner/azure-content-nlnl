@@ -26,25 +26,25 @@ You must edit real names in for the placeholders:
 
 
 
-		<?xml version="1.0" encoding="utf-8" ?>
-		<configuration>
-		    <startup> 
-		        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
-		    </startup>
-		
-		    <connectionStrings>
-		        <clear />
-		        <add name="ConnectionString4NoUserIDNoPassword"
-		        providerName="System.Data.ProviderName"
-		
-		        connectionString=
-				"Server=tcp:{your_serverName_here}.database.windows.net,1433;
-				Database={your_databaseName_here};
-				Connection Timeout=30;
-				Encrypt=True;
-				TrustServerCertificate=False;" />
-		    </connectionStrings>
-		</configuration>
+        <?xml version="1.0" encoding="utf-8" ?>
+        <configuration>
+            <startup> 
+                <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
+            </startup>
+        
+            <connectionStrings>
+                <clear />
+                <add name="ConnectionString4NoUserIDNoPassword"
+                providerName="System.Data.ProviderName"
+        
+                connectionString=
+                "Server=tcp:{your_serverName_here}.database.windows.net,1433;
+                Database={your_databaseName_here};
+                Connection Timeout=30;
+                Encrypt=True;
+                TrustServerCertificate=False;" />
+            </connectionStrings>
+        </configuration>
 
 
 
@@ -65,3 +65,4 @@ includes/sql-database-include-connection-string-20-portalshots.md
 includes/sql-database-include-connection-string-30-compare.md
 includes/sql-database-include-connection-string-40-config.md
 -->
+

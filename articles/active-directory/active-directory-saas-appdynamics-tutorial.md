@@ -70,19 +70,19 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
 ###To configure single sign-on, perform the following steps:
 
-1.  In the Azure AD portal, on the **AppDynamics** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  In the Azure AD portal, on the **AppDynamics** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
     ![Configure Single SignOn](./media/active-directory-saas-appdynamics-tutorial/IC790212.png "Configure Single SignOn")
 
-2.  On the **How would you like users to sign on to AppDynamics** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to AppDynamics** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single SignOn](./media/active-directory-saas-appdynamics-tutorial/IC790213.png "Configure Single SignOn")
 
-3.  On the **Configure App URL** page, in the **AppDynamics Sign On URL** textbox, type your URL used by your users to sign-on to AppDynamics ("*https://companyname.saas.appdynamics.com*"), and then click **Next**.
+3.  On the **Configure App URL** page, in the **AppDynamics Sign On URL** textbox, type your URL used by your users to sign-on to AppDynamics ("*https://companyname.saas.appdynamics.com*"), and then click **Next**.
 
     ![Configure App URL](./media/active-directory-saas-appdynamics-tutorial/IC790214.png "Configure App URL")
 
-4.  On the **Configure single sign-on at AppDynamics** page, to download your certificate, click **Download certificate**, and then save the certificate file on your computer.
+4.  On the **Configure single sign-on at AppDynamics** page, to download your certificate, click **Download certificate**, and then save the certificate file on your computer.
 
     ![Configure Single SignOn](./media/active-directory-saas-appdynamics-tutorial/IC790215.png "Configure Single SignOn")
 
@@ -111,7 +111,7 @@ If you are not familiar with this procedure, see [How to convert a binary certif
     6.  Click **Save**.
         ![Save](./media/active-directory-saas-appdynamics-tutorial/IC777673.png "Save")
 
-9.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+9.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
     ![Configure Single SignOn](./media/active-directory-saas-appdynamics-tutorial/IC790226.png "Configure Single SignOn")
 ##Configuring user provisioning
@@ -144,7 +144,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 1.  In the Azure AD portal, create a test account.
 
-2.  On the **AppDynamics **application integration page, click **Assign users**.
+2.  On the **AppDynamics **application integration page, click **Assign users**.
 
     ![Assign Users](./media/active-directory-saas-appdynamics-tutorial/IC790231.png "Assign Users")
 
@@ -153,3 +153,4 @@ To test your configuration, you need to grant the Azure AD users you want to all
     ![Yes](./media/active-directory-saas-appdynamics-tutorial/IC767830.png "Yes")
 
 If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+

@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Capture an image of an Azure Windows VM | Microsoft Azure"
-	description="Capture an image of an Azure Windows virtual machine created with the classic deployment model."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="cynthn"
-	manager="timlt"
-	editor="tysonn"
-	tags="azure-service-management"/>
+    pageTitle="Capture an image of an Azure Windows VM | Microsoft Azure"
+    description="Capture an image of an Azure Windows virtual machine created with the classic deployment model."
+    services="virtual-machines"
+    documentationCenter=""
+    authors="cynthn"
+    manager="timlt"
+    editor="tysonn"
+    tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/05/2015"
-	ms.author="cynthn"/>
+    ms.service="virtual-machines"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-windows"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/05/2015"
+    ms.author="cynthn"/>
 
 #Capture an image of an Azure Windows virtual machine created with the classic deployment model.
 
@@ -42,37 +42,37 @@ This is not intended as a way to back up a virtual machine. One possible way to 
 
 1. In the [Azure classic portal](http://manage.windowsazure.com), **Connect** to the virtual machine. For instructions, see [How to sign in to a virtual machine running Windows Server] [].
 
-2.	Open a Command Prompt window as an administrator.
+2.  Open a Command Prompt window as an administrator.
 
-3.	Change the directory to `%windir%\system32\sysprep`, and then run sysprep.exe.
+3.  Change the directory to `%windir%\system32\sysprep`, and then run sysprep.exe.
 
-4. 	The **System Preparation Tool** dialog box appears. Do the following:
+4.  The **System Preparation Tool** dialog box appears. Do the following:
 
-	- In **System Cleanup Action**, select **Enter System Out-of-Box Experience (OOBE)** and make sure that **Generalize** is checked. For more information about using Sysprep, see [How to Use Sysprep: An Introduction][].
+    - In **System Cleanup Action**, select **Enter System Out-of-Box Experience (OOBE)** and make sure that **Generalize** is checked. For more information about using Sysprep, see [How to Use Sysprep: An Introduction][].
 
-	- In **Shutdown Options**, select **Shutdown**.
+    - In **Shutdown Options**, select **Shutdown**.
 
-	- Click **OK**.
+    - Click **OK**.
 
-	![Run Sysprep](./media/virtual-machines-capture-image-windows-server/SysprepGeneral.png)
+    ![Run Sysprep](./media/virtual-machines-capture-image-windows-server/SysprepGeneral.png)
 
-7.	Sysprep shuts down the virtual machine, which changes the status of the virtual machine in the Azure classic portal to **Stopped**.
+7.  Sysprep shuts down the virtual machine, which changes the status of the virtual machine in the Azure classic portal to **Stopped**.
 
-8.	In the Azure classic portal, click **Virtual Machines** and select the virtual machine you want to capture.
+8.  In the Azure classic portal, click **Virtual Machines** and select the virtual machine you want to capture.
 
-9.	On the command bar, click **Capture**.
+9.  On the command bar, click **Capture**.
 
-	![Capture virtual machine](./media/virtual-machines-capture-image-windows-server/CaptureVM.png)
+    ![Capture virtual machine](./media/virtual-machines-capture-image-windows-server/CaptureVM.png)
 
-	The **Capture the Virtual Machine** dialog box appears.
+    The **Capture the Virtual Machine** dialog box appears.
 
-10.	In **Image Name**, type a name for the new image.
+10. In **Image Name**, type a name for the new image.
 
-11.	Before you add a Windows Server image to your set of custom images, it must be generalized by running Sysprep as instructed in the previous steps. Click **I have run Sysprep on the virtual machine** to indicate you did that.
+11. Before you add a Windows Server image to your set of custom images, it must be generalized by running Sysprep as instructed in the previous steps. Click **I have run Sysprep on the virtual machine** to indicate you did that.
 
-12.	Click the check mark to capture the image. The new image is now available under **Images**.
+12. Click the check mark to capture the image. The new image is now available under **Images**.
 
- 	![Image capture successful](./media/virtual-machines-capture-image-windows-server/VMCapturedImageAvailable.png)
+    ![Image capture successful](./media/virtual-machines-capture-image-windows-server/VMCapturedImageAvailable.png)
 
 ##Next steps
 
@@ -89,3 +89,4 @@ The image is ready to be used to create virtual machines. To do this, you'll cre
 [Enter the image name]: ./media/virtual-machines-capture-image-windows-server/Capture.png
 [Image capture successful]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
 [Use the captured image]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
+

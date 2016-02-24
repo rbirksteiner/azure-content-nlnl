@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Create and upload a Linux VHD | Microsoft Azure"
-	description="Create and upload an Azure virtual hard disk (VHD) with the classic deployment model that contains the Linux operating system."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="dsk-2015"
-	manager="timlt"
-	editor="tysonn"
-	tags="azure-service-management"/>
+    pageTitle="Create and upload a Linux VHD | Microsoft Azure"
+    description="Create and upload an Azure virtual hard disk (VHD) with the classic deployment model that contains the Linux operating system."
+    services="virtual-machines"
+    documentationCenter=""
+    authors="dsk-2015"
+    manager="timlt"
+    editor="tysonn"
+    tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/04/2015"
-	ms.author="dkshir"/>
+    ms.service="virtual-machines"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-linux"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/04/2015"
+    ms.author="dkshir"/>
 
 # Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System
 
@@ -40,9 +40,9 @@ This article assumes that you have the following items:
 
 - **Linux operating system installed in a .vhd file**  - You have installed a supported Linux operating system to a virtual hard disk. Multiple tools exist to create .vhd files, for example you can use a virtualization solution such as Hyper-V to create the .vhd file and install the operating system. For instructions, see [Install the Hyper-V Role and Configure a Virtual Machine](http://technet.microsoft.com/library/hh846766.aspx).
 
-	**Important**: The newer VHDX format is not supported in Azure. You can convert the disk to VHD format using Hyper-V Manager or the convert-vhd cmdlet.
+    **Important**: The newer VHDX format is not supported in Azure. You can convert the disk to VHD format using Hyper-V Manager or the convert-vhd cmdlet.
 
-	For a list of endorsed distributions, see [Linux on Azure-Endorsed Distributions](../linux-endorsed-distributions.md). For a general list of Linux distributions, see [Information for Non-Endorsed Distributions](virtual-machines-linux-create-upload-vhd-generic.md).
+    For a list of endorsed distributions, see [Linux on Azure-Endorsed Distributions](../linux-endorsed-distributions.md). For a general list of Linux distributions, see [Information for Non-Endorsed Distributions](virtual-machines-linux-create-upload-vhd-generic.md).
 
 - **Azure Command-line Interface** - if you are using a Linux operating system to create your image, you use the [Azure Command-Line Interface](../virtual-machines-command-line-tools.md) to upload the VHD.
 
@@ -75,7 +75,7 @@ Before you can upload a .vhd file, you need to establish a secure connection bet
 
 The latest Azure CLI defaults into Resource Manager deployment model, so make sure you are in the classic deployment model by using this command:
 
-		azure config mode asm  
+        azure config mode asm  
 
 Next, use any of the following login methods to connect to your Azure subscription. 
 
@@ -85,9 +85,9 @@ Use Azure AD method to login:
 
 2. Type:
 
-	`azure login`
+    `azure login`
 
-	When prompted, type your username and password.
+    When prompted, type your username and password.
 
 **OR**, use a PublishSettings file instead:
 
@@ -95,19 +95,19 @@ Use Azure AD method to login:
 
 2. Type:
 
-	`azure account download`
+    `azure account download`
 
-	This command opens a browser window and automatically downloads a .publishsettings file that contains information and a certificate for your Azure subscription.
+    This command opens a browser window and automatically downloads a .publishsettings file that contains information and a certificate for your Azure subscription.
 
 3. Save the .publishsettings file
 
 4. Type:
 
-	`azure account import <PathToFile>`
+    `azure account import <PathToFile>`
 
-	Where `<PathToFile>` is the full path to the .publishsettings file.
+    Where `<PathToFile>` is the full path to the .publishsettings file.
 
-	For more information, read [Connect to Azure from Azure CLI](../xplat-cli-connect.md).
+    For more information, read [Connect to Azure from Azure CLI](../xplat-cli-connect.md).
 
 
 ### If using Azure PowerShell
@@ -118,9 +118,9 @@ Use Azure AD method to login:
 
 2. Type:
 
-	`Add-AzureAccount`
+    `Add-AzureAccount`
 
-	When prompted, enter your organizational user id and password.
+    When prompted, enter your organizational user id and password.
 
 **OR**, use the PublishSettings files instead:
 
@@ -128,19 +128,19 @@ Use Azure AD method to login:
 
 2. Type:
 
-	`Get-AzurePublishSettingsFile`
+    `Get-AzurePublishSettingsFile`
 
-	This command opens a browser window and automatically downloads a .publishsettings file that contains information and a certificate for your Azure subscription.
+    This command opens a browser window and automatically downloads a .publishsettings file that contains information and a certificate for your Azure subscription.
 
 3. Save the .publishsettings file.
 
 4. Type:
 
-	`Import-AzurePublishSettingsFile <PathToFile>`
+    `Import-AzurePublishSettingsFile <PathToFile>`
 
-	Where `<PathToFile>` is the full path to the .publishsettings file.
+    Where `<PathToFile>` is the full path to the .publishsettings file.
 
-	For more information, see [How to install and configure Azure PowerShell](powershell-install-configure.md)
+    For more information, see [How to install and configure Azure PowerShell](powershell-install-configure.md)
 
 > [AZURE.NOTE] We recommend you use the newer Azure Active Directory method to login to your Azure subscription, either from the Azure CLI or the Azure PowerShell.
 
@@ -151,7 +151,7 @@ Use Azure AD method to login:
 
 Use the Azure CLI to upload the image. You can upload an image by using the following command:
 
-		azure vm image create <image-name> --location <location-of-the-data-center> --os Linux <source-path-to the vhd>
+        azure vm image create <image-name> --location <location-of-the-data-center> --os Linux <source-path-to the vhd>
 
 ### If using PowerShell
 
@@ -161,7 +161,7 @@ When you upload the .vhd file, you can place the .vhd file anywhere within your 
 
 From the Azure PowerShell window you used in the previous step, type:
 
-		Add-AzureVhd -Destination <BlobStorageURL>/<YourImagesFolder>/<VHDName> -LocalFilePath <PathToVHDFile>
+        Add-AzureVhd -Destination <BlobStorageURL>/<YourImagesFolder>/<VHDName> -LocalFilePath <PathToVHDFile>
 
 For more information, see [Add-AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx).
 
@@ -171,3 +171,4 @@ For more information, see [Add-AzureVhd](https://msdn.microsoft.com/library/azur
 [Step 1: Prepare the image to be uploaded]: #prepimage
 [Step 2: Prepare the connection to Azure]: #connect
 [Step 3: Upload the image to Azure]: #upload
+

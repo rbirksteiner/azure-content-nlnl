@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Create a geospatial search app using Azure Search | Microsoft Azure | Hosted cloud search service" 
-	description="Create a geospatial search app using Bing and Azure Search, a hosted cloud search service on Microsoft Azure." 
-	services="search" 
-	documentationCenter="" 
-	authors="HeidiSteen" 
-	manager="mblythe" 
-	editor=""/>
+    pageTitle="Create a geospatial search app using Azure Search | Microsoft Azure | Hosted cloud search service" 
+    description="Create a geospatial search app using Bing and Azure Search, a hosted cloud search service on Microsoft Azure." 
+    services="search" 
+    documentationCenter="" 
+    authors="HeidiSteen" 
+    manager="mblythe" 
+    editor=""/>
 
 <tags 
-	ms.service="search" 
-	ms.devlang="rest-api" 
-	ms.workload="search" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.date="11/04/2015" 
-	ms.author="heidist"/>
+    ms.service="search" 
+    ms.devlang="rest-api" 
+    ms.workload="search" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.date="11/04/2015" 
+    ms.author="heidist"/>
 
 # Create a geospatial search app using Azure Search
 
@@ -31,17 +31,17 @@ This tutorial builds on the [Azure Search – Adventure Works Demo](http://azure
 <a id="sub-1"></a>
 ## Prerequisites
 
-+	Visual Studio 2012 or higher with ASP.NET MVC 4 and SQL Server installed. You can download the free Express editions if you don't already have the software installed: [Visual Studio 2013 Express](http://www.visualstudio.com/products/visual-studio-express-vs.aspx) and [Microsoft SQL Server 2014 Express](http://msdn.microsoft.com/evalcenter/dn434042.aspx).
-+	An Azure Search service. You'll need the Search service name, plus the admin key. See [Create an Azure Search service in the portal](search-create-service-portal.md) for details.
-+	A Bing map service and a key to access it. Instructions are provided in the next section
-+	[Azure Search GeoSearch Sample on CodePlex](https://azuresearchgeospatial.codeplex.com/). On the Source tab, click **Download** to get a zip file of the solution. 
++   Visual Studio 2012 or higher with ASP.NET MVC 4 and SQL Server installed. You can download the free Express editions if you don't already have the software installed: [Visual Studio 2013 Express](http://www.visualstudio.com/products/visual-studio-express-vs.aspx) and [Microsoft SQL Server 2014 Express](http://msdn.microsoft.com/evalcenter/dn434042.aspx).
++   An Azure Search service. You'll need the Search service name, plus the admin key. See [Create an Azure Search service in the portal](search-create-service-portal.md) for details.
++   A Bing map service and a key to access it. Instructions are provided in the next section
++   [Azure Search GeoSearch Sample on CodePlex](https://azuresearchgeospatial.codeplex.com/). On the Source tab, click **Download** to get a zip file of the solution. 
 
     ![][12]
 
 This solution contains two projects:
 
-+	**StoreIndexer** creates an Azure Search index and loads data.
-+	**AdventureWorksWebGeo** is an MVC4-based application that queries the Azure Search index and shows store locations on a Bing map.
++   **StoreIndexer** creates an Azure Search index and loads data.
++   **AdventureWorksWebGeo** is an MVC4-based application that queries the Azure Search index and shows store locations on a Bing map.
 
 [AZURE.INCLUDE [You need an Azure account to complete this tutorial:](../../includes/free-trial-note.md)]
 
@@ -98,15 +98,15 @@ Let's walk through the code that explains how this works.
 
 In this step, you'll build and run the search application in a web browser that will load search for stores and then plot them on top of a Bing Map.
 
-1.	In Visual Studio, open up the Azure Search Demo Solution named AdventureWorksGeo.sln. 
-	
-2.	Right-click **AdventureWorksWebGeo** in the Solution Explorer and select **Set as startup project**.
-	
-3.	Open Web.config in this project and update the values for "SearchServiceName", "SearchServiceApiKey" and "BingMapsAPI" to those of your Azure Search service and Bing Maps API. For Search service name, if your service is "mysearch.search.windows.net", you would enter "mysearch".
+1.  In Visual Studio, open up the Azure Search Demo Solution named AdventureWorksGeo.sln. 
+    
+2.  Right-click **AdventureWorksWebGeo** in the Solution Explorer and select **Set as startup project**.
+    
+3.  Open Web.config in this project and update the values for "SearchServiceName", "SearchServiceApiKey" and "BingMapsAPI" to those of your Azure Search service and Bing Maps API. For Search service name, if your service is "mysearch.search.windows.net", you would enter "mysearch".
 
-4.	Save Web.config.
-	
-5.	Press **F5** to launch the project. Follow these [Troubleshooting](#err-mvc) steps if you get a build error.
+4.  Save Web.config.
+    
+5.  Press **F5** to launch the project. Follow these [Troubleshooting](#err-mvc) steps if you get a build error.
 
 Notice how the stores are overlayed as points on the map. Click on one of the stores and you will see a pop-up that outlines the details of the store. All of this information is coming from an Azure Search index called "stores" that was created in the previous steps. 
 
@@ -115,19 +115,19 @@ Notice how the stores are overlayed as points on the map. Click on one of the st
 
 The project **AdventureWorksWebGeo** shows us how ASP.NET MVC 4 can be used to interact with Azure Search to build a mapping application that leverages geosearch. In this section, we'll review individual parts of the application code to see what they do.
 
-1.	In Solution Explorer, expand **AdventureWorksWebGeo** | **Controller** and open HomeController.cs. The **Index()** function is called when the application starts and the Index page loads. In this function the Bing Maps API is loaded from the Web.config and passed to the Index view as ViewBag.BingAPI.
+1.  In Solution Explorer, expand **AdventureWorksWebGeo** | **Controller** and open HomeController.cs. The **Index()** function is called when the application starts and the Index page loads. In this function the Bing Maps API is loaded from the Web.config and passed to the Index view as ViewBag.BingAPI.
 
-2.	Open Index.cshtml from **Views** | **Home**.
+2.  Open Index.cshtml from **Views** | **Home**.
 
-3.	This file follows the typical way that you would add Bing Maps to a web application, however a few things to point out are:
+3.  This file follows the typical way that you would add Bing Maps to a web application, however a few things to point out are:
 
-+	The ViewBag from the controller is used to load the credentials for the map using: credentials: '@ViewBag.BingAPI' 
++   The ViewBag from the controller is used to load the credentials for the map using: credentials: '@ViewBag.BingAPI' 
 
-+	Once the map is loaded a JQuery $.post is made to the HomeController **Search** function by referring to: /home/search
++   Once the map is loaded a JQuery $.post is made to the HomeController **Search** function by referring to: /home/search
 
-+	The **Search** function retrieves the store locations which are then received and added as PushPins to the Bing Map. 
++   The **Search** function retrieves the store locations which are then received and added as PushPins to the Bing Map. 
 
-4.	Open HomeController.cs under **Controllers** and look at the **Search** function. Notice how it makes a call to _storeSearch.Search(lat, lon, 10000). This will cause a query to be executed to find all stores within 10,000 KM of the specified latitude (lat) and longitude (lon). The results of this query are processed and then sent back to the Index view to be processed as PushPins overlayed on the Bing Map.
+4.  Open HomeController.cs under **Controllers** and look at the **Search** function. Notice how it makes a call to _storeSearch.Search(lat, lon, 10000). This will cause a query to be executed to find all stores within 10,000 KM of the specified latitude (lat) and longitude (lon). The results of this query are processed and then sent back to the Index view to be processed as PushPins overlayed on the Bing Map.
 
 This concludes the demo. You have now walked through all of the main operations that you'll need to know before building out a Map based ASP.NET MVC4 application using Azure Search.
 

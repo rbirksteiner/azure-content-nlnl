@@ -114,10 +114,10 @@ A set of mounting rails is provided for use with the 19-inch rack cabinet. The r
 
    **Attaching inner rail slides to the sides of the enclosure**
 
-    	Label | Description
-    	----- | -----------
-    	1     | M 3x4 button-head screws
-   		2     | Chassis slides
+        Label | Description
+        ----- | -----------
+        1     | M 3x4 button-head screws
+        2     | Chassis slides
 
 
 3. Attach the outer left rail and outer right rail assemblies to the rack cabinet vertical members. The brackets are marked **LH**, **RH**, and **This side up** to guide you through the correct orientation. 
@@ -227,13 +227,13 @@ To support this redundant controller failover, you need to cable your device net
 
 2. See the following diagram for network cabling. (The minimum network configuration is shown by solid blue lines. Additional configuration required for high availability and performance is shown by dotted lines.) 
 
-		
+        
     ![Cable your 2U device for network](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforNetwork.png)
 
     **Network cabling for your device**
 
    
-	|Label | Description |
+    |Label | Description |
     |----- | ----------- |
     | A    | LAN with Internet access |
     | B    | Controller 0 |
@@ -244,14 +244,14 @@ To support this redundant controller failover, you need to cable your device net
     | 0-5  | Network interfaces |
 
 
-	
+    
 When cabling the device, the minimum configuration requires:
 
 
 - At least two network interfaces connected on each controller with one for cloud access and one for iSCSI. The DATA 0 port is automatically enabled and configured via the serial console of the device. Apart from DATA 0, another data port also needs to be configured through the Azure classic portal. In this case, connect DATA 0 port to the primary LAN (network with Internet access). The other data ports can be connected to SAN/iSCSI LAN (VLAN) segment of the network, depending on the intended role.
 
 - Identical interfaces on each controller connected to the same network to ensure availability if a controller failover occurs. For instance, if you choose to connect DATA 0 and DATA 3 for one of the controllers, you need to connect the corresponding DATA 0 and DATA 3 on the other controller.
-	
+    
 Keep in mind for high availability and performance:
 
 

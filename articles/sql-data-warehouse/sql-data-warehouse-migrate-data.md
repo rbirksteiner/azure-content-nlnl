@@ -32,7 +32,7 @@ PolyBase also provides a very high performance option for loading the data. Howe
 
 Head over to the following article for some great [ADF Copy examples].
 
-## Integration Services ##
+## Integration Services ##
 Integration Services (SSIS) is a powerful and flexible Extract Transform and Load (ETL) tool that supports complex workflows, data transformation, and several data loading options. Use SSIS to simply transfer data to Azure or as part of a broader migration.
 
 > [AZURE.NOTE] SSIS can export to UTF-8 without the byte order mark in the file. To configure this you must first use the derived column component to convert the character data in the data flow to use the 65001 UTF-8 code page. Once the columns have been converted, write the data to the flat file destination adapter ensuring that 65001 has also been selected as the code page for the file.
@@ -194,4 +194,5 @@ For more development tips, see [development overview][].
 [preview version]: http://aka.ms/downloadazcopypr/
 [ADO.NET destination adapter]: https://msdn.microsoft.com/library/bb934041.aspx
 [SSIS documentation]: https://msdn.microsoft.com/library/ms141026.aspx
+
 

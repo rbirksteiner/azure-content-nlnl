@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Python web apps with Bottle in Azure" 
-	description="A tutorial that introduces you to running a Python web app in Azure App Service Web Apps." 
-	services="app-service\web" 
-	documentationCenter="python" 
-	tags="python"
-	authors="huguesv" 
-	manager="wpickett" 
-	editor=""/>
+    pageTitle="Python web apps with Bottle in Azure" 
+    description="A tutorial that introduces you to running a Python web app in Azure App Service Web Apps." 
+    services="app-service\web" 
+    documentationCenter="python" 
+    tags="python"
+    authors="huguesv" 
+    manager="wpickett" 
+    editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="11/17/2015"
-	ms.author="huvalo"/>
+    ms.service="app-service-web" 
+    ms.workload="web" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="python" 
+    ms.topic="article" 
+    ms.date="11/17/2015"
+    ms.author="huvalo"/>
 
 
 # Creating web apps with Bottle in Azure
@@ -298,7 +298,7 @@ For Python 3.4:
 
     python -m venv env
 or
-	pyvenv env
+    pyvenv env
 
 Install any external packages required by your application. You can use the requirements.txt file at the root of the repository to install the packages in your virtual environment:
 
@@ -397,3 +397,4 @@ For information on using Azure Table Storage and MongoDB:
 [Python Tools for Visual Studio Documentation]: http://aka.ms/ptvsdocs 
 [Bottle Documentation]: http://bottlepy.org/docs/dev/index.html
  
+

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How to delegate user registration and product subscription" 
-	description="Learn how to delegate user registration and product subscription to a third party in Azure API Management." 
-	services="api-management" 
-	documentationCenter="" 
-	authors="antonba" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="How to delegate user registration and product subscription" 
+    description="Learn how to delegate user registration and product subscription to a third party in Azure API Management." 
+    services="api-management" 
+    documentationCenter="" 
+    authors="antonba" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="api-management" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/03/2015" 
-	ms.author="antonba"/>
+    ms.service="api-management" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/03/2015" 
+    ms.author="antonba"/>
 
 # How to delegate user registration and product subscription
 
@@ -44,20 +44,20 @@ Now you need to create the **delegation endpoint**. It has to perform a number o
 
 1. Receive a request in the following form:
 
-	> *http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL of source page}&salt={string}&sig={string}*
+    > *http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL of source page}&salt={string}&sig={string}*
 
-	Query parameters for the sign-in / sign-up case:
-	- **operation**: identifies what type of delegation request it is - it can only be **SignIn** in this case
-	- **returnUrl**: the URL of the page where the user clicked on a sign-in or sign-up link
-	- **salt**: a special salt string used for computing a security hash
-	- **sig**: a computed security hash to be used for comparison to your own computed hash
+    Query parameters for the sign-in / sign-up case:
+    - **operation**: identifies what type of delegation request it is - it can only be **SignIn** in this case
+    - **returnUrl**: the URL of the page where the user clicked on a sign-in or sign-up link
+    - **salt**: a special salt string used for computing a security hash
+    - **sig**: a computed security hash to be used for comparison to your own computed hash
 
 2. Verify that the request is coming from Azure API Management (optional, but highly recommended for security)
 
-	* Compute an HMAC-SHA512 hash of a string based on the **returnUrl** and **salt** query parameters ([example code provided below]):
+    * Compute an HMAC-SHA512 hash of a string based on the **returnUrl** and **salt** query parameters ([example code provided below]):
         > HMAC(**salt** + '\n' + **returnUrl**)
-		 
-	* Compare the above-computed hash to the value of the **sig** query parameter. If the two hashes match, move on to the next step, otherwise deny the request.
+         
+    * Compare the above-computed hash to the value of the **sig** query parameter. If the two hashes match, move on to the next step, otherwise deny the request.
 
 2. Verify that you are receiving a request for sign-in/sign-up: the **operation** query parameter will be set to "**SignIn**".
 
@@ -67,25 +67,25 @@ Now you need to create the **delegation endpoint**. It has to perform a number o
 
 5. When the user is successfully authenticated:
 
-	* [request a single-sign-on (SSO) token] via the API Management REST API
+    * [request a single-sign-on (SSO) token] via the API Management REST API
 
-	* append a returnUrl query parameter to the SSO URL you have received from the API call above:
-		> e.g. https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url 
+    * append a returnUrl query parameter to the SSO URL you have received from the API call above:
+        > e.g. https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url 
 
-	* redirect the user to the above produced URL
+    * redirect the user to the above produced URL
 
 In addition to the **SignIn** operation, you can also perform account management by following the previous steps and using one of the following operations.
 
--	**ChangePassword**
--	**ChangeProfile**
--	**CloseAccount**
+-   **ChangePassword**
+-   **ChangeProfile**
+-   **CloseAccount**
 
 You must pass the following query parameters for account management operations.
 
--	**operation**: identifies what type of delegation request it is (ChangePassword, ChangeProfile, or CloseAccount)
--	**userId**: the user id of the account to manage
--	**salt**: a special salt string used for computing a security hash
--	**sig**: a computed security hash to be used for comparison to your own computed hash
+-   **operation**: identifies what type of delegation request it is (ChangePassword, ChangeProfile, or CloseAccount)
+-   **userId**: the user id of the account to manage
+-   **salt**: a special salt string used for computing a security hash
+-   **sig**: a computed security hash to be used for comparison to your own computed hash
 
 ## <a name="delegate-product-subscription"> </a>Delegating product subscription
 
@@ -103,26 +103,26 @@ Then ensure the delegation endpoint performs the following actions:
 
 1. Receive a request in the following form:
 
-	> *http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={product to subscribe to}&userId={user making request}&salt={string}&sig={string}*
+    > *http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={product to subscribe to}&userId={user making request}&salt={string}&sig={string}*
 
-	Query parameters for the product subscription case:
-	- **operation**: identifies what type of delegation request it is. For product subscription requests the valid options are:
-		- "Subscribe": a request to subscribe the user to a given product with provided ID (see below)
-		- "Unsubscribe": a request to unsubscribe a user from a product
-		- "Renew": a requst to renew a subscription (e.g. that may be expiring)
-	- **productId**: the ID of the product the user requested to subscribe to
-	- **userId**: the ID of the user for whom the request is made
-	- **salt**: a special salt string used for computing a security hash
-	- **sig**: a computed security hash to be used for comparison to your own computed hash
+    Query parameters for the product subscription case:
+    - **operation**: identifies what type of delegation request it is. For product subscription requests the valid options are:
+        - "Subscribe": a request to subscribe the user to a given product with provided ID (see below)
+        - "Unsubscribe": a request to unsubscribe a user from a product
+        - "Renew": a requst to renew a subscription (e.g. that may be expiring)
+    - **productId**: the ID of the product the user requested to subscribe to
+    - **userId**: the ID of the user for whom the request is made
+    - **salt**: a special salt string used for computing a security hash
+    - **sig**: a computed security hash to be used for comparison to your own computed hash
 
 
 2. Verify that the request is coming from Azure API Management (optional, but highly recommended for security)
 
-	* Compute an HMAC-SHA512 of a string based on the **productId**, **userId** and **salt** query parameters:
-		> HMAC(**salt** + '\n' + **productId** + '\n' + **userId**)
-		 
-	* Compare the above-computed hash to the value of the **sig** query parameter. If the two hashes match, move on to the next step, otherwise deny the request.
-	
+    * Compute an HMAC-SHA512 of a string based on the **productId**, **userId** and **salt** query parameters:
+        > HMAC(**salt** + '\n' + **productId** + '\n' + **userId**)
+         
+    * Compare the above-computed hash to the value of the **sig** query parameter. If the two hashes match, move on to the next step, otherwise deny the request.
+    
 3. Perform any product subscription processing based on the type of operation requested in **operation** - e.g. billing, further questions, etc.
 
 4. On successfully subscribing the user to the product on your side, subscribe the user to the API Management product by [calling the REST API for product subscription].
@@ -149,18 +149,18 @@ These code samples show how to take the *delegation validation key*, which is se
 
 **NodeJS code to generate hash of returnUrl**
 
-	var crypto = require('crypto');
-	
-	var key = 'delegation validation key'; 
-	var returnUrl = 'returnUrl query parameter';
-	var salt = 'salt query parameter';
-	
-	var hmac = crypto.createHmac('sha512', new Buffer(key, 'base64'));
-	var digest = hmac.update(salt + '\n' + returnUrl).digest();
+    var crypto = require('crypto');
+    
+    var key = 'delegation validation key'; 
+    var returnUrl = 'returnUrl query parameter';
+    var salt = 'salt query parameter';
+    
+    var hmac = crypto.createHmac('sha512', new Buffer(key, 'base64'));
+    var digest = hmac.update(salt + '\n' + returnUrl).digest();
     // change to (salt + "\n" + productId + "\n" + userId) when delegating product subscription
     // compare signature to sig query parameter
-	
-	var signature = digest.toString('base64');
+    
+    var signature = digest.toString('base64');
 
 ## Next steps
 

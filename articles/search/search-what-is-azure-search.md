@@ -1,21 +1,21 @@
 <properties
-	pageTitle="What is Azure Search | Microsoft Azure | Hosted cloud search service"
-	description="Azure Search is a hosted cloud search service. Learn more in this technical overview and feature summary."
-	services="search"
-	documentationCenter=""
-	authors="HeidiSteen"
-	manager="mblythe"
-	editor=""
+    pageTitle="What is Azure Search | Microsoft Azure | Hosted cloud search service"
+    description="Azure Search is a hosted cloud search service. Learn more in this technical overview and feature summary."
+    services="search"
+    documentationCenter=""
+    authors="HeidiSteen"
+    manager="mblythe"
+    editor=""
     tags="azure-portal"/>
 
 <tags
-	ms.service="search"
-	ms.devlang="NA"
-	ms.workload="search"
-	ms.topic="article" 
-	ms.tgt_pltfrm="na"
-	ms.date="11/04/2015"
-	ms.author="heidist"/>
+    ms.service="search"
+    ms.devlang="NA"
+    ms.workload="search"
+    ms.topic="article" 
+    ms.tgt_pltfrm="na"
+    ms.date="11/04/2015"
+    ms.author="heidist"/>
 
 # What is Azure Search?
 
@@ -132,3 +132,4 @@ You can also try these tutorials:
 [How to use Azure Search in .NET](search-howto-dotnet-sdk.md)
 [Get Started with Azure Search .NET](search-get-started-dotnet.md)
 [Azure Search: tutorials, video demos, and samples](search-video-demo-tutorial-list.md)
+

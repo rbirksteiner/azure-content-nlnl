@@ -6,7 +6,7 @@
  authors="Blackmist"
  manager="paulettm"
  editor="cgronlun"
-	tags="azure-portal"/>
+    tags="azure-portal"/>
 <tags
  ms.service="hdinsight"
  ms.devlang="na"
@@ -235,15 +235,15 @@ In this document, learn how to use Maven to create a basic word count MapReduce 
 
 2. Start Azure PowerShell and Log in to your Azure account. After providing your credentials, the command returns information about your account.
 
-		Add-AzureRMAccount
+        Add-AzureRMAccount
 
-		Id                             Type       ...
-		--                             ----
-		someone@example.com            User       ...
+        Id                             Type       ...
+        --                             ----
+        someone@example.com            User       ...
 
 3. If you have multiple subscriptions, provide the subscription id you wish to use for deployment.
 
-		Select-AzureRMSubscription -SubscriptionID <YourSubscriptionId>
+        Select-AzureRMSubscription -SubscriptionID <YourSubscriptionId>
 
     > [AZURE.NOTE] You can use `Get-AzureRMSubscription` to get a list of all subscriptions associated with your account, which includes the subscription Id for each one.
 
@@ -343,3 +343,4 @@ Now that you have learned how to use Scalding to create MapReduce jobs for HDIns
 * [Use Pig with HDInsight](hdinsight-use-pig.md)
 
 * [Use MapReduce jobs with HDInsight](hdinsight-use-mapreduce.md)
+

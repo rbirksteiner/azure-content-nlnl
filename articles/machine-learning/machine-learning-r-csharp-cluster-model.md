@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Cluster Model | Microsoft Azure" 
-	description="Cluster Model" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="FrancescaLazzeri" 
-	manager="paulettm" 
-	editor="cgronlun"/>
+    pageTitle="Cluster Model | Microsoft Azure" 
+    description="Cluster Model" 
+    services="machine-learning" 
+    documentationCenter="" 
+    authors="FrancescaLazzeri" 
+    manager="paulettm" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/24/2015" 
-	ms.author="lazzeri"/> 
+    ms.service="machine-learning" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/24/2015" 
+    ms.author="lazzeri"/> 
 
 
 #Cluster Model    
@@ -41,32 +41,32 @@ There are multiple ways of consuming the service in an automated fashion (an exa
 
 ###Starting C# code for web service consumption:
 
-	public class Input
-	{
-	        public string value;
-	        public string k;
-	}
-	
-	public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
-	{
-	        byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
-	        return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
-	}
-	
-	void Main()
-	{
-	        var input = new Input() { value = TextBox1.Text, k = TextBox2.Text };
-	        var json = JsonConvert.SerializeObject(input);
-	        var acitionUri = "PutAPIURLHere,e.g.https://api.datamarket.azure.com/..../v1/Score";
-	        var httpClient = new HttpClient();
-	
-	        httpClient.DefaultRequestHeaders.Authorization = CreateBasicHeader("PutEmailAddressHere", "ChangeToAPIKey");
-	        httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-	
-	        var response = httpClient.PostAsync(acitionUri, new StringContent(json));
-	        var result = response.Result.Content;
-	    	var scoreResult = result.ReadAsStringAsync().Result;
-	}
+    public class Input
+    {
+            public string value;
+            public string k;
+    }
+    
+    public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
+    {
+            byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
+            return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
+    }
+    
+    void Main()
+    {
+            var input = new Input() { value = TextBox1.Text, k = TextBox2.Text };
+            var json = JsonConvert.SerializeObject(input);
+            var acitionUri = "PutAPIURLHere,e.g.https://api.datamarket.azure.com/..../v1/Score";
+            var httpClient = new HttpClient();
+    
+            httpClient.DefaultRequestHeaders.Authorization = CreateBasicHeader("PutEmailAddressHere", "ChangeToAPIKey");
+            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+    
+            var response = httpClient.PostAsync(acitionUri, new StringContent(json));
+            var result = response.Result.Content;
+            var scoreResult = result.ReadAsStringAsync().Result;
+    }
 
 
 
@@ -81,36 +81,36 @@ From within Azure Machine Learning, a new blank experiment was created and two [
 ![Experiment flow][3]
 
 ####Module 1: 
-	#Enter the input data as a string 
-	mydata <- data.frame(value = "1; 3; 5; 6; 7; 7, 5; 5; 6; 7; 2; 1, 3; 7; 2; 9; 56; 6, 1; 4; 5; 26; 4; 23, 15; 35; 6; 7; 12; 1, 32; 51; 62; 7; 21; 1", k=5, stringsAsFactors=FALSE)
-	
-	maml.mapOutputPort("mydata");     
-	
+    #Enter the input data as a string 
+    mydata <- data.frame(value = "1; 3; 5; 6; 7; 7, 5; 5; 6; 7; 2; 1, 3; 7; 2; 9; 56; 6, 1; 4; 5; 26; 4; 23, 15; 35; 6; 7; 12; 1, 32; 51; 62; 7; 21; 1", k=5, stringsAsFactors=FALSE)
+    
+    maml.mapOutputPort("mydata");     
+    
 
 ####Module 2:
-	# Map 1-based optional input ports to variables
-	mydata <- maml.mapInputPort(1) # class: data.frame
+    # Map 1-based optional input ports to variables
+    mydata <- maml.mapInputPort(1) # class: data.frame
 
-	data.split <- strsplit(mydata[1,1], ",")[[1]]
-	data.split <- sapply(data.split, strsplit, ";", simplify = TRUE)
-	data.split <- sapply(data.split, strsplit, ";", simplify = TRUE)
-	data.split <- as.data.frame(t(data.split))
+    data.split <- strsplit(mydata[1,1], ",")[[1]]
+    data.split <- sapply(data.split, strsplit, ";", simplify = TRUE)
+    data.split <- sapply(data.split, strsplit, ";", simplify = TRUE)
+    data.split <- as.data.frame(t(data.split))
 
-	data.split <- data.matrix(data.split)
-	data.split <- data.frame(data.split)
+    data.split <- data.matrix(data.split)
+    data.split <- data.frame(data.split)
 
-	# K-Means cluster analysis
-	fit <- kmeans(data.split, mydata$k) # k-cluster solution
+    # K-Means cluster analysis
+    fit <- kmeans(data.split, mydata$k) # k-cluster solution
 
-	# Get cluster means 
-	aggregate(data.split,by=list(fit$cluster),FUN=mean)
-	# Append cluster assignment
-	mydatafinal <- data.frame(t(fit$cluster))
-	n_col=ncol(mydatafinal)
-	colnames(mydatafinal) <- paste("V",1:n_col,sep="")
+    # Get cluster means 
+    aggregate(data.split,by=list(fit$cluster),FUN=mean)
+    # Append cluster assignment
+    mydatafinal <- data.frame(t(fit$cluster))
+    n_col=ncol(mydatafinal)
+    colnames(mydatafinal) <- paste("V",1:n_col,sep="")
 
-	# Select data.frame to be sent to the output Dataset port
-	maml.mapOutputPort("mydatafinal");
+    # Select data.frame to be sent to the output Dataset port
+    maml.mapOutputPort("mydatafinal");
    
  
 ##Limitations
@@ -127,3 +127,4 @@ For frequently asked questions on consumption of the web service or publishing t
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
  
+

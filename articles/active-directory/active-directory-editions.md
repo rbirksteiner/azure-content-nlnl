@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure Active Directory editions | Microsoft Azure"
-	description="A topic that explains choices for free and paid editions of Azure Active Directory."
-	services="active-directory"
-	documentationCenter=""
-	authors="MarkusVi"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Azure Active Directory editions | Microsoft Azure"
+    description="A topic that explains choices for free and paid editions of Azure Active Directory."
+    services="active-directory"
+    documentationCenter=""
+    authors="MarkusVi"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/04/2015"
-	ms.author="markvi"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/04/2015"
+    ms.author="markvi"/>
 
 # Azure Active Directory editions
 
@@ -43,7 +43,7 @@ To sign up and start using Active Directory Premium today, see [Getting started 
 >
 >- Active Directory B2C is the identity and access management solution for your consumer-facing applications. For more details, see [Azure Active Directory B2C](https://azure.microsoft.com/documentation/services/active-directory-b2c/)
  
->-	Azure Multi-Factor Authentication can be used through per user or per authentication providers. For more details, see [What is Azure Multi-Factor Authentication?](multi-factor-authentication.md) 
+>-  Azure Multi-Factor Authentication can be used through per user or per authentication providers. For more details, see [What is Azure Multi-Factor Authentication?](multi-factor-authentication.md) 
 
 
 <br>
@@ -95,3 +95,4 @@ To sign up and start using Active Directory Premium today, see [Getting started 
 
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
+

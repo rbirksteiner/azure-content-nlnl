@@ -83,10 +83,10 @@ Before you provision the virtual device, you need to make the following preparat
 - For the virtual device, [configure a virtual network on Azure](../virtual-network/virtual-networks-create-vnet.md). If using Premium Storage, you must create a virtual network in an Azure region that supports Premium Storage. More information on [regions that currently support Premium Storage](https://azure.microsoft.com/regions/#services).
 - It is advisable to use the default DNS server provided by Azure instead of specifying your own DNS server name. If your DNS server name is not valid or if the DNS server is not able to resolve IP addresses correctly, the creation of the virtual device will fail.
 - Point-to-site and site-to-site are optional, but not required. If you wish, you can configure these options for more advanced scenarios. 
-- You can create [Azure Virtual Machines](../virtual-machines/virtual-machines-about.md) (host servers) in the virtual network that can use the volumes exposed by the virtual device. These servers must meet the following requirements: 							
-	- Be Windows or Linux VMs with iSCSI Initiator software installed.
-	- Be running in the same virtual network as the virtual device.
-	- Be able to connect to the iSCSI target of the virtual device through the internal IP address of the virtual device.
+- You can create [Azure Virtual Machines](../virtual-machines/virtual-machines-about.md) (host servers) in the virtual network that can use the volumes exposed by the virtual device. These servers must meet the following requirements:                          
+    - Be Windows or Linux VMs with iSCSI Initiator software installed.
+    - Be running in the same virtual network as the virtual device.
+    - Be able to connect to the iSCSI target of the virtual device through the internal IP address of the virtual device.
 
 - Make sure you have configured support for iSCSI and cloud traffic on the same virtual network.
 
@@ -259,4 +259,5 @@ If you delete or shut down the virtual device, it will appear as **Offline** on 
 - Learn how to [Use the StorSimple Manager service to manage a virtual device](storsimple-manager-service-administration.md).
  
 - Understand how to [Restore a StorSimple volume from a backup set](storsimple-restore-from-backup-set.md). 
+
 

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Access on-premises resources using hybrid connections in Azure App Service" 
-	description="Create a connection between a web app in Azure App Service and an on-premises resource that uses a static TCP port" 
-	services="app-service" 
-	documentationCenter="" 
-	authors="cephalin" 
-	manager="wpickett" 
-	editor="mollybos"/>
+    pageTitle="Access on-premises resources using hybrid connections in Azure App Service" 
+    description="Create a connection between a web app in Azure App Service and an on-premises resource that uses a static TCP port" 
+    services="app-service" 
+    documentationCenter="" 
+    authors="cephalin" 
+    manager="wpickett" 
+    editor="mollybos"/>
 
 <tags 
-	ms.service="app-service" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/24/2015" 
-	ms.author="cephalin"/>
+    ms.service="app-service" 
+    ms.workload="na" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/24/2015" 
+    ms.author="cephalin"/>
 
 #Access on-premises resources using hybrid connections in Azure App Service
 
@@ -29,8 +29,8 @@ You can connect a web app in Azure App Service to any on-premises resource that 
 
 - The computer on which you install the on-premises Hybrid Connection Manager agent described later in this article:
 
-	- Must be able to connect to Azure over port 5671
-	- Must be able to reach the *hostname*:*portnumber* of your on-premises resource. 
+    - Must be able to connect to Azure over port 5671
+    - Must be able to reach the *hostname*:*portnumber* of your on-premises resource. 
 
 > [AZURE.NOTE] The steps in this article assume that you are using the browser from the computer that will host the on-premises hybrid connection agent.
 
@@ -40,119 +40,119 @@ You can connect a web app in Azure App Service to any on-premises resource that 
 > [AZURE.NOTE] If you have already created a web app in the Azure Portal that you want to use for this tutorial, you can skip ahead to [Create a Hybrid Connection and a BizTalk Service](#CreateHC) and start from there.
 
 1. In the upper left corner of the [Azure Portal](https://portal.azure.com), click **New** > **Web + Mobile** > **Web App**.
-	
-	![New web app][NewWebsite]
-	
+    
+    ![New web app][NewWebsite]
+    
 2. On the **Web app** blade, provide a URL and click **Create**. 
-	
-	![Website name][WebsiteCreationBlade]
-	
+    
+    ![Website name][WebsiteCreationBlade]
+    
 3. After a few moments, the web app is created and its web app blade appears. The blade is a vertically scrollable dashboard that lets you manage your site.
-	
-	![Website running][WebSiteRunningBlade]
-	
+    
+    ![Website running][WebSiteRunningBlade]
+    
 4. To verify the site is live, you can click the **Browse** icon to display the default page.
-	
-	![Click browse to see your web app][Browse]
-	
-	![Default web app page][DefaultWebSitePage]
-	
+    
+    ![Click browse to see your web app][Browse]
+    
+    ![Default web app page][DefaultWebSitePage]
+    
 Next, you will create a hybrid connection and a BizTalk service for the web app.
 
 <a name="CreateHC"></a>
 ## Create a Hybrid Connection and a BizTalk Service ##
 
 1. In your web app blade click on **All settings** > **Networking** > **Configure your hybrid connection endpoints**.
-	
-	![Hybrid connections][CreateHCHCIcon]
-	
+    
+    ![Hybrid connections][CreateHCHCIcon]
+    
 2. On the Hybrid connections blade, click **Add**.
-	
-	<!-- ![Add a hybrid connnection][CreateHCAddHC]
+    
+    <!-- ![Add a hybrid connnection][CreateHCAddHC]
 -->
-	
+    
 3. The **Add a hybrid connection** blade opens.  Since this is your first hybrid connection, the **New hybrid connection** option is preselected, and the **Create hybrid connection** blade opens for you.
-	
-	![Create a hybrid connection][TwinCreateHCBlades]
-	
-	On the **Create hybrid connection blade**:
-	- For **Name**, provide a name for the connection.
-	- For **Hostname**, enter the name of the on-premises computer that hosts your resource.
-	- For **Port**, enter the port number that your on-premises resource uses (1433 for a SQL Server default instance).
-	- Click **Biz Talk Service**
+    
+    ![Create a hybrid connection][TwinCreateHCBlades]
+    
+    On the **Create hybrid connection blade**:
+    - For **Name**, provide a name for the connection.
+    - For **Hostname**, enter the name of the on-premises computer that hosts your resource.
+    - For **Port**, enter the port number that your on-premises resource uses (1433 for a SQL Server default instance).
+    - Click **Biz Talk Service**
 
 
 4. The **Create BizTalk Service** blade opens. Enter a name for the BizTalk service, and then click **OK**.
-	
-	![Create BizTalk service][CreateHCCreateBTS]
-	
-	The **Create BizTalk Service** blade closes and you are returned to the **Create hybrid connection** blade.
-	
+    
+    ![Create BizTalk service][CreateHCCreateBTS]
+    
+    The **Create BizTalk Service** blade closes and you are returned to the **Create hybrid connection** blade.
+    
 5. On the Create hybrid connection blade, click **OK**. 
-	
-	![Click OK][CreateBTScomplete]
-	
+    
+    ![Click OK][CreateBTScomplete]
+    
 6. When the process completes, the notifications area in the Portal informs you that the connection has been successfully created.
-	<!-- TODO
+    <!-- TODO
 
     Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the classic portal
-	(full portal) and created the BizTalk service but it doesn't seem to let you connnect them - When you finish the
-	Create hybrid conn step, you get the following error
-	Failed to create hybrid connection RelecIoudHC. The 
-	resource type could not be found in the namespace 
-	'Microsoft.BizTaIkServices for api version 2014-06-01'.
-	
-	The error indicates it couldn't find the type, not the instance.
-	![Success notification][CreateHCSuccessNotification]
-	-->
+    (full portal) and created the BizTalk service but it doesn't seem to let you connnect them - When you finish the
+    Create hybrid conn step, you get the following error
+    Failed to create hybrid connection RelecIoudHC. The 
+    resource type could not be found in the namespace 
+    'Microsoft.BizTaIkServices for api version 2014-06-01'.
+    
+    The error indicates it couldn't find the type, not the instance.
+    ![Success notification][CreateHCSuccessNotification]
+    -->
 7. On the web app's blade, the **Hybrid connections** icon now shows that 1 hybrid connection has been created.
-	
-	![One hybrid connection created][CreateHCOneConnectionCreated]
-	
+    
+    ![One hybrid connection created][CreateHCOneConnectionCreated]
+    
 At this point, you have completed an important part of the cloud hybrid connection infrastructure. Next, you will create a corresponding on-premises piece.
 
 <a name="InstallHCM"></a>
 ## Install the on-premises Hybrid Connection Manager to complete the connection ##
 
 1. On the web app's blade, click **All settings** > **Networking** > **Configure your hybrid connection endpoints**. 
-	
-	![Hybrid connections icon][HCIcon]
-	
+    
+    ![Hybrid connections icon][HCIcon]
+    
 2. On the **Hybrid connections** blade, the **Status** column for the recently added endpoint shows **Not connected**. Click the connection to configure it.
-	
-	![Not connected][NotConnected]
-	
-	The Hybrid connection blade opens.
-	
-	![NotConnectedBlade][NotConnectedBlade]
-	
+    
+    ![Not connected][NotConnected]
+    
+    The Hybrid connection blade opens.
+    
+    ![NotConnectedBlade][NotConnectedBlade]
+    
 3. On the blade, click **Listener Setup**.
-	
-	![Click Listener Setup][ClickListenerSetup]
-	
+    
+    ![Click Listener Setup][ClickListenerSetup]
+    
 4. The **Hybrid connection properties** blade opens. Under **On-premises Hybrid Connection Manager**, choose **Click here to install**.
-	
-	![Click here to install][ClickToInstallHCM]
-	
+    
+    ![Click here to install][ClickToInstallHCM]
+    
 5. In the Application Run security warning dialog, choose **Run** to continue.
-	
-	![Choose Run to continue][ApplicationRunWarning]
-	
-6.	In the **User Account Control** dialog, choose **Yes**.
-	
-	![Choose Yes][UAC]
-	
+    
+    ![Choose Run to continue][ApplicationRunWarning]
+    
+6.  In the **User Account Control** dialog, choose **Yes**.
+    
+    ![Choose Yes][UAC]
+    
 7. The Hybrid Connection Manager is downloaded and installed for you. 
-	
-	![Installing][HCMInstalling]
-	
+    
+    ![Installing][HCMInstalling]
+    
 8. When the install completes, click **Close**.
-	
-	![Click Close][HCMInstallComplete]
-	
-	On the **Hybrid connections** blade, the **Status** column now shows **Connected**. 
-	
-	![Connected Status][HCStatusConnected]
+    
+    ![Click Close][HCMInstallComplete]
+    
+    On the **Hybrid connections** blade, the **Status** column now shows **Connected**. 
+    
+    ![Connected Status][HCStatusConnected]
 
 Now that the hybrid connection infrastructure is complete, you can create a hybrid application that uses it. 
 

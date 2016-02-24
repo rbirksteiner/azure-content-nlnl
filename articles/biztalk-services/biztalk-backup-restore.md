@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Create and restore a backup in BizTalk Services | Microsoft Azure" 
-	description="BizTalk Services includes Backup and Restore. Learn how to create and restore a backup and determine what gets backed up. MABS, WABS" 
-	services="biztalk-services" 
-	documentationCenter="" 
-	authors="MandiOhlinger" 
-	manager="dwrede" 
-	editor="cgronlun"/>
+    pageTitle="Create and restore a backup in BizTalk Services | Microsoft Azure" 
+    description="BizTalk Services includes Backup and Restore. Learn how to create and restore a backup and determine what gets backed up. MABS, WABS" 
+    services="biztalk-services" 
+    documentationCenter="" 
+    authors="MandiOhlinger" 
+    manager="dwrede" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="biztalk-services" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/08/2015" 
-	ms.author="mandia"/>
+    ms.service="biztalk-services" 
+    ms.workload="integration" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/08/2015" 
+    ms.author="mandia"/>
 
 
 # BizTalk Services: Backup and Restore
@@ -35,13 +35,13 @@ You can also back up BizTalk Services using the [BizTalk Services REST API](http
 
 - BizTalk Services can be restored to the same edition or a higher edition. Restoring BizTalk Services to a lower edition, from when the backup was taken, is not supported.
 
-	For example, a backup using the Basic Edition can be restored to the Premium Edition. A backup using the Premium Edition cannot be restored to the Standard Edition.
+    For example, a backup using the Basic Edition can be restored to the Premium Edition. A backup using the Premium Edition cannot be restored to the Standard Edition.
 
 - The EDI Control numbers are backed up to maintain continuity of the control numbers. If messages are processed after the last backup, restoring this backup content can cause duplicate control numbers.
 
 - If a batch has active messages, process the batch **before** running a backup. When creating a backup (as needed or scheduled), messages in batches are never stored. 
 
-	**If a backup is taken with active messages in a batch, these messages are not backed up and are therefore lost.**
+    **If a backup is taken with active messages in a batch, these messages are not backed up and are therefore lost.**
 
 - Optional: In the BizTalk Services Portal, stop any management operations.
 
@@ -68,12 +68,12 @@ Once the backup completes, a container with the backup name you enter is created
 2. Set the **Backup Status** to **Automatic**. 
 3. Select the **Storage Account** to store the backup, enter the **Frequency** to create the backups, and how long to keep the backups (**Retention Days**):
 
-	![][AutomaticBU]
+    ![][AutomaticBU]
 
-	**Notes** 	
-	- In **Retention Days**, the retention period must be greater than the backup frequency.
-	- Select **Always keep at least one backup**, even if it is past the retention period.
-	
+    **Notes**   
+    - In **Retention Days**, the retention period must be greater than the backup frequency.
+    - Select **Always keep at least one backup**, even if it is past the retention period.
+    
 
 4. Select **Save**.
 
@@ -100,7 +100,7 @@ You can restore backups from the Azure classic portal or from the [Restore BizTa
 
 1. In the Azure classic portal, select **New** > **App Services** > **BizTalk Service** > **Restore**:
 
-	![Restore a backup][Restore]
+    ![Restore a backup][Restore]
 
 2. In **Backup URL**, select the folder icon and expand the Azure storage account that stores the BizTalk Service configuration backup. Expand the container and in the right pane, select the corresponding back up .txt file. 
 <br/><br/>
@@ -108,16 +108,16 @@ Select **Open**.
 
 3. On the **Restore BizTalk Service** page, enter a **BizTalk Service Name** and verify the **Domain URL**, **Edition**, and **Region** for the restored BizTalk Service. **Create a new SQL database instance** for the tracking database:
 
-	![][RestoreBizTalkService]
+    ![][RestoreBizTalkService]
 
-	Select the next arrow.
+    Select the next arrow.
 
-4. 	Verify the name of the SQL database, enter the physical server where the SQL database will be created, and a username/password for that server.
+4.  Verify the name of the SQL database, enter the physical server where the SQL database will be created, and a username/password for that server.
 
 
-	If you want to configure the SQL database edition, size, and other properties, select  **Configure Advanced Database Settings**. 
+    If you want to configure the SQL database edition, size, and other properties, select  **Configure Advanced Database Settings**. 
 
-	Select the next arrow.
+    Select the next arrow.
 
 5. Create a new storage account or enter an existing storage account for the BizTalk Service.
 
@@ -236,3 +236,4 @@ To create Azure BizTalk Services in the Azure classic portal, go to [BizTalk Ser
 [AutomaticBU]: ./media/biztalk-backup-restore/AutomaticBU.png
 [RestoreBizTalkService]: ./media/biztalk-backup-restore/RestoreBizTalkServiceWindow.png
  
+

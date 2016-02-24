@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How to use Queue storage from Python | Microsoft Azure" 
-	description="Learn how to use the Azure Queue service from Python to create and delete queues, and insert, get, and delete messages." 
-	services="storage" 
-	documentationCenter="python" 
-	authors="emgerner-msft" 
-	manager="wpickett" 
-	editor=""/>
+    pageTitle="How to use Queue storage from Python | Microsoft Azure" 
+    description="Learn how to use the Azure Queue service from Python to create and delete queues, and insert, get, and delete messages." 
+    services="storage" 
+    documentationCenter="python" 
+    authors="emgerner-msft" 
+    manager="wpickett" 
+    editor=""/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="12/11/2015" 
-	ms.author="emgerner"/>
+    ms.service="storage" 
+    ms.workload="storage" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="python" 
+    ms.topic="article" 
+    ms.date="12/11/2015" 
+    ms.author="emgerner"/>
 
 # How to use Queue storage from Python
 
@@ -37,13 +37,13 @@ deleting queues**. For more information on queues, refer to the [Next Steps][] s
 
 The **QueueService** object lets you work with queues. The following code creates a **QueueService** object. Add the following near the top of any Python file in which you wish to programmatically access Azure Storage:
 
-	from azure.storage.queue import QueueService
+    from azure.storage.queue import QueueService
 
 The following code creates a **QueueService** object using the storage account name and account key. Replace 'myaccount' and 'mykey' with the real account and key.
 
-	queue_service = QueueService(account_name='myaccount', account_key='mykey')
+    queue_service = QueueService(account_name='myaccount', account_key='mykey')
 
-	queue_service.create_queue('taskqueue')
+    queue_service.create_queue('taskqueue')
 
 
 ## How To: Insert a Message into a Queue
@@ -51,7 +51,7 @@ The following code creates a **QueueService** object using the storage account n
 To insert a message into a queue, use the **put\_message** method to
 create a new message and add it to the queue.
 
-	queue_service.put_message('taskqueue', 'Hello World')
+    queue_service.put_message('taskqueue', 'Hello World')
 
 
 ## How To: Peek at the Next Message
@@ -60,9 +60,9 @@ You can peek at the message in the front of a queue without removing it
 from the queue by calling the **peek\_messages** method. By default,
 **peek\_messages** peeks at a single message.
 
-	messages = queue_service.peek_messages('taskqueue')
-	for message in messages:
-		print(message.message_text)
+    messages = queue_service.peek_messages('taskqueue')
+    for message in messages:
+        print(message.message_text)
 
 
 ## How To: Dequeue the Next Message
@@ -78,10 +78,10 @@ hardware or software failure, another instance of your code can get the
 same message and try again. Your code calls **delete\_message** right
 after the message has been processed.
 
-	messages = queue_service.get_messages('taskqueue')
-	for message in messages:
-		print(message.message_text)
-		queue_service.delete_message('taskqueue', message.message_id, message.pop_receipt)
+    messages = queue_service.get_messages('taskqueue')
+    for message in messages:
+        print(message.message_text)
+        queue_service.delete_message('taskqueue', message.message_id, message.pop_receipt)
 
 
 ## How To: Change the Contents of a Queued Message
@@ -91,9 +91,9 @@ message represents a work task, you could use this feature to update the
 status of the work task. The code below uses the **update\_message**
 method to update a message.
 
-	messages = queue_service.get_messages('taskqueue')
-	for message in messages:
-		queue_service.update_message('taskqueue', message.message_id, 'Hello World Again', message.pop_receipt, 0)
+    messages = queue_service.get_messages('taskqueue')
+    for message in messages:
+        queue_service.update_message('taskqueue', message.message_id, 'Hello World Again', message.pop_receipt, 0)
 
 ## How To: Additional Options for Dequeuing Messages
 
@@ -105,10 +105,10 @@ time to fully process each message. The following code example uses the
 each message using a for loop. It also sets the invisibility timeout to
 five minutes for each message.
 
-	messages = queue_service.get_messages('taskqueue', numofmessages=16, visibilitytimeout=5*60)
-	for message in messages:
-		print(message.message_text)
-		queue_service.delete_message('taskqueue', message.message_id, message.pop_receipt)
+    messages = queue_service.get_messages('taskqueue', numofmessages=16, visibilitytimeout=5*60)
+    for message in messages:
+        print(message.message_text)
+        queue_service.delete_message('taskqueue', message.message_id, message.pop_receipt)
 
 ## How To: Get the Queue Length
 
@@ -118,15 +118,15 @@ about the queue, and the **x-ms-approximate-messages-count** should be used as t
 The result is only approximate because messages can be added or removed after the
 queue service responds to your request.
 
-	queue_metadata = queue_service.get_queue_metadata('taskqueue')
-	count = queue_metadata['x-ms-approximate-messages-count']
+    queue_metadata = queue_service.get_queue_metadata('taskqueue')
+    count = queue_metadata['x-ms-approximate-messages-count']
 
 ## How To: Delete a Queue
 
 To delete a queue and all the messages contained in it, call the
 **delete\_queue** method.
 
-	queue_service.delete_queue('taskqueue')
+    queue_service.delete_queue('taskqueue')
 
 ## Next Steps
 
@@ -141,3 +141,4 @@ For more information, see also the [Python Developer Center](/develop/python/).
 [Python Azure package]: https://pypi.python.org/pypi/azure
 [Python Azure Storage package]: https://pypi.python.org/pypi/azure-storage 
  
+

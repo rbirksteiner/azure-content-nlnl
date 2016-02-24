@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure Active Directory B2C preview: Limitations & restrictions | Microsoft Azure"
-	description="A list of limitations & restrictions with Azure Active Directory B2C"
-	services="active-directory-b2c"
-	documentationCenter=""
-	authors="swkrish"
-	manager="msmbaldwin"
-	editor="curtand"/>
+    pageTitle="Azure Active Directory B2C preview: Limitations & restrictions | Microsoft Azure"
+    description="A list of limitations & restrictions with Azure Active Directory B2C"
+    services="active-directory-b2c"
+    documentationCenter=""
+    authors="swkrish"
+    manager="msmbaldwin"
+    editor="curtand"/>
 
 <tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/28/2015"
-	ms.author="swkrish"/>
+    ms.service="active-directory-b2c"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/28/2015"
+    ms.author="swkrish"/>
 
 # Azure Active Directory B2C preview: Limitations & Restrictions
 
@@ -87,3 +87,4 @@ If you reset the password for a local account-based consumer on the Azure Portal
 ## Restriction on Deletion of Azure AD B2C Directories
 
 You won't be able to delete an Azure AD B2C tenant in the Azure portal.
+

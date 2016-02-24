@@ -77,7 +77,7 @@ You can enable Geo-Replication using Azure Classic Portal or by calling REST API
 Use the [New-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603689.aspx) PowerShell cmdlet to create Geo-Replication configuration. This command is synchronous an returns when the primary and secondary databases are in sync. 
 
 To configure Geo-Replication with a non-readable secondary for a Premium or Standard database:
-		
+        
     $database = Get-AzureRmSqlDatabase –DatabaseName "mydb"
     $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" -AllowConnections "None"
 
@@ -85,7 +85,7 @@ To create Geo-Replication with a readable secondary for a Premium database:
 
     $database = Get-AzureRmSqlDatabase –DatabaseName "mydb"
     $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" -AllowConnections "All"
-		 
+         
 
 ###REST API 
 
@@ -97,3 +97,4 @@ This API is asynchronous. After it returns use the [Get Replication Link](https:
 ##How to choose the failover configuration 
 
 When designing your application for business continuity you should consider several configuration options. The choice will depend on the application deployment topology and what parts of your applications are most vulnerable to an outage. Please refer to [Designing Cloud Solutions for Disaster Recovery Using  Geo-Replication](sql-database-designing-cloud-solutions-for-disaster-recovery.md) for guidance.
+

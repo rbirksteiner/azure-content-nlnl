@@ -39,16 +39,16 @@ Outbound: TCP: 443, TCP: 10101-10175
 ## Does your VNET have network security groups defined? ##
 If you have network security groups defined on the subnet you are using for your collection, make sure the following URLs are accessible from within your subnet:
 
-	https://management.remoteapp.windowsazure.com  
-	https://opsapi.mohoro.com  
-	https://telemetry.remoteapp.windowsazure.com  
-	https://*.remoteapp.windowsazure.com  
-	https://login.windows.net (if you have Active Directory)  
-	https://login.microsoftonline.com  
-	Azure storage *.remoteapp.windowsazure.com  
-	*.core.windows.net  
-	https://www.remoteapp.windowsazure.com  
-	https://www.remoteapp.windowsazure.com  
+    https://management.remoteapp.windowsazure.com  
+    https://opsapi.mohoro.com  
+    https://telemetry.remoteapp.windowsazure.com  
+    https://*.remoteapp.windowsazure.com  
+    https://login.windows.net (if you have Active Directory)  
+    https://login.microsoftonline.com  
+    Azure storage *.remoteapp.windowsazure.com  
+    *.core.windows.net  
+    https://www.remoteapp.windowsazure.com  
+    https://www.remoteapp.windowsazure.com  
 
 Open the following ports on the virtual network subnet:
 
@@ -64,13 +64,13 @@ Make sure the DNS servers for your collection are accessible and available from 
 
 For example:
 
-	<VirtualNetworkConfiguration>
+    <VirtualNetworkConfiguration>
     <Dns>
       <DnsServers>
         <DnsServer name="" IPAddress=""/>
       </DnsServers>
     </Dns>
-	</VirtualNetworkConfiguration>
+    </VirtualNetworkConfiguration>
 
 ![Define your DNS](./media/remoteapp-hybridtrouble/dnsvpn.png)
 
@@ -84,3 +84,4 @@ Make sure the domain details provided are valid and the domain controller is rea
 ## What domain name did you specify when you created your collection? ##
 
 The domain name you created or added must be an internal domain name (not your Azure AD domain name) and must be in resolvable DNS format (contoso.local). For example, you have an Active Directory internal name (contoso.local) and an Active Directory UPN (contoso.com) - you have to use the internal name when you create your collection.
+

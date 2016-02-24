@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Create and upload an Ubuntu Linux VHD in Azure"
-	description="Learn to create and upload an Azure virtual hard disk (VHD) that contains an Ubuntu Linux operating system."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="szarkos"
-	manager="timlt"
-	editor="tysonn"
-	tags="azure-resource-manager,azure-service-management"/>
+    pageTitle="Create and upload an Ubuntu Linux VHD in Azure"
+    description="Learn to create and upload an Azure virtual hard disk (VHD) that contains an Ubuntu Linux operating system."
+    services="virtual-machines"
+    documentationCenter=""
+    authors="szarkos"
+    manager="timlt"
+    editor="tysonn"
+    tags="azure-resource-manager,azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/05/2015"
-	ms.author="szarkos"/>
+    ms.service="virtual-machines"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-linux"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/05/2015"
+    ms.author="szarkos"/>
 
 # Prepare an Ubuntu Virtual Machine for Azure
 
@@ -42,73 +42,73 @@ This article assumes that you have already installed an Ubuntu Linux operating s
 
 2. Click **Connect** to open the window for the virtual machine.
 
-3.	Replace the current repositories in the image to use Ubuntu's Azure repos. The steps vary slightly depending on the Ubuntu version.
+3.  Replace the current repositories in the image to use Ubuntu's Azure repos. The steps vary slightly depending on the Ubuntu version.
 
-	Before editing /etc/apt/sources.list, it is recommended to make a backup:
+    Before editing /etc/apt/sources.list, it is recommended to make a backup:
 
-		# sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
+        # sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
 
-	Ubuntu 12.04:
+    Ubuntu 12.04:
 
-		# sudo sed -i "s/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g" /etc/apt/sources.list
-		# sudo apt-add-repository 'http://archive.canonical.com/ubuntu precise-backports main'
-		# sudo apt-get update
+        # sudo sed -i "s/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g" /etc/apt/sources.list
+        # sudo apt-add-repository 'http://archive.canonical.com/ubuntu precise-backports main'
+        # sudo apt-get update
 
-	Ubuntu 14.04:
+    Ubuntu 14.04:
 
-		# sudo sed -i "s/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g" /etc/apt/sources.list
-		# sudo apt-get update
+        # sudo sed -i "s/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g" /etc/apt/sources.list
+        # sudo apt-get update
 
 4. The Ubuntu Azure images are now following the *HardWare Enablement* (HWE) kernel. Update the operating system to the latest kernel by running the following commands:
 
-	Ubuntu 12.04:
+    Ubuntu 12.04:
 
-		# sudo apt-get update
-		# sudo apt-get install linux-image-generic-lts-trusty linux-cloud-tools-generic-lts-trusty
-		# sudo apt-get install hv-kvp-daemon-init
-		(recommended) sudo apt-get dist-upgrade
+        # sudo apt-get update
+        # sudo apt-get install linux-image-generic-lts-trusty linux-cloud-tools-generic-lts-trusty
+        # sudo apt-get install hv-kvp-daemon-init
+        (recommended) sudo apt-get dist-upgrade
 
-		# sudo reboot
+        # sudo reboot
 
-	Ubuntu 14.04:
+    Ubuntu 14.04:
 
-		# sudo apt-get update
-		# sudo apt-get install linux-image-virtual-lts-vivid linux-lts-vivid-tools-common
-		# sudo apt-get install hv-kvp-daemon-init
-		(recommended) sudo apt-get dist-upgrade
+        # sudo apt-get update
+        # sudo apt-get install linux-image-virtual-lts-vivid linux-lts-vivid-tools-common
+        # sudo apt-get install hv-kvp-daemon-init
+        (recommended) sudo apt-get dist-upgrade
 
-		# sudo reboot
+        # sudo reboot
 
-5.	(optional) If the Ubuntu system encounters an error and reboots, then it will often wait at the grub boot prompt for user input preventing the system from booting properly. To prevent this, complete the following steps:
+5.  (optional) If the Ubuntu system encounters an error and reboots, then it will often wait at the grub boot prompt for user input preventing the system from booting properly. To prevent this, complete the following steps:
 
-	a) Open the /etc/grub.d/00_header file.
+    a) Open the /etc/grub.d/00_header file.
 
-	b) In the function **make_timeout()**, search for **if ["\${recordfail}" = 1 ]; then**
+    b) In the function **make_timeout()**, search for **if ["\${recordfail}" = 1 ]; then**
 
-	c) Change the statement below this line to **set timeout=5**.
+    c) Change the statement below this line to **set timeout=5**.
 
-	d) Run 'sudo update-grub'.
+    d) Run 'sudo update-grub'.
 
 6. Modify the kernel boot line for Grub to include additional kernel parameters for Azure. To do this open "/etc/default/grub" in a text editor, find the variable called `GRUB_CMDLINE_LINUX_DEFAULT` (or add it if needed) and edit it to include the following parameters:
 
-		GRUB_CMDLINE_LINUX_DEFAULT="console=tty1 console=ttyS0 earlyprintk=ttyS0 rootdelay=300"
+        GRUB_CMDLINE_LINUX_DEFAULT="console=tty1 console=ttyS0 earlyprintk=ttyS0 rootdelay=300"
 
-	Save and close this file, and then run '`sudo update-grub`'. This will ensure all console messages are sent to the first serial port, which can assist Azure technical support with debugging issues.
+    Save and close this file, and then run '`sudo update-grub`'. This will ensure all console messages are sent to the first serial port, which can assist Azure technical support with debugging issues.
 
-8.	Ensure that the SSH server is installed and configured to start at boot time.  This is usually the default.
+8.  Ensure that the SSH server is installed and configured to start at boot time.  This is usually the default.
 
-9.	Install the Azure Linux Agent:
+9.  Install the Azure Linux Agent:
 
-		# sudo apt-get update
-		# sudo apt-get install walinuxagent
+        # sudo apt-get update
+        # sudo apt-get install walinuxagent
 
-	Note that installing the `walinuxagent` package will remove the `NetworkManager` and `NetworkManager-gnome` packages, if they are installed.
+    Note that installing the `walinuxagent` package will remove the `NetworkManager` and `NetworkManager-gnome` packages, if they are installed.
 
-10.	Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
+10. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
-		# sudo waagent -force -deprovision
-		# export HISTSIZE=0
-		# logout
+        # sudo waagent -force -deprovision
+        # export HISTSIZE=0
+        # logout
 
 11. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
 
@@ -118,3 +118,4 @@ Ubuntu HardWare Enablement (HWE) Kernel
 
 - [http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html](http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html)
 - [http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html](http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html)
+

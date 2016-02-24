@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Web Apps overview"
-	description="Learn more about App Service Web Apps"
-	services="app-service\web"
-	documentationCenter=""
-	authors="jaime-espinosa"
-	manager="wpickett"
-	editor="jimbe"/>
+    pageTitle="Web Apps overview"
+    description="Learn more about App Service Web Apps"
+    services="app-service\web"
+    documentationCenter=""
+    authors="jaime-espinosa"
+    manager="wpickett"
+    editor="jimbe"/>
 
 <tags
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/27/2015"
-	ms.author="jaime.espinosa"/>
+    ms.service="app-service-web"
+    ms.workload="web"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/27/2015"
+    ms.author="jaime.espinosa"/>
 
 
 #Web Apps overview
@@ -63,3 +63,4 @@ For more information on Azure App Service platform, see [Azure App Service][apps
 [Slots]: web-sites-staged-publishing.md
 
  
+

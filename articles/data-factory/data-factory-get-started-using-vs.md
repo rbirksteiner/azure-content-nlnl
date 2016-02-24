@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Tutorial: Create a pipeline with Copy Activity using Visual Studio" 
-	description="In this tutorial, you will create an Azure Data Factory pipeline with a Copy Activity by using Visual Studio." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
-	editor="monicar"/>
+    pageTitle="Tutorial: Create a pipeline with Copy Activity using Visual Studio" 
+    description="In this tutorial, you will create an Azure Data Factory pipeline with a Copy Activity by using Visual Studio." 
+    services="data-factory" 
+    documentationCenter="" 
+    authors="spelluru" 
+    manager="jhubbard" 
+    editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="11/02/2015" 
-	ms.author="spelluru"/>
+    ms.service="data-factory" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="get-started-article" 
+    ms.date="11/02/2015" 
+    ms.author="spelluru"/>
 
 # Tutorial: Create and monitor a data factory using Visual Studio
 > [AZURE.SELECTOR]
@@ -45,11 +45,11 @@ You must have the following installed on your computer:
 1. Launch **Visual Studio 2013**. Click **File**, point to **New**, and click **Project**. You should see the **New Project** dialog box.  
 2. In the **New Project** dialog, select the **DataFactory** template, and click **Empty Data Factory Project**. If you don't see the DataFactory template, close Visual Studio, install Azure SDK for Visual Studio 2013, and reopen Visual Studio.  
 
-	![New project dialog box](./media/data-factory-get-started-using-vs/new-project-dialog.png)
+    ![New project dialog box](./media/data-factory-get-started-using-vs/new-project-dialog.png)
 
 3. Enter a **name** for the project, **location**, and a name for the **solution**, and click **OK**.
 
-	![Solution Explorer](./media/data-factory-get-started-using-vs/solution-explorer.png)	
+    ![Solution Explorer](./media/data-factory-get-started-using-vs/solution-explorer.png)   
 
 #### Create linked services
 Linked services link data stores or compute services to an Azure data factory. A data store can be an Azure Storage, Azure SQL Database or an on-premises SQL Server database.
@@ -61,11 +61,11 @@ In this step, you will create two linked services: **AzureStorageLinkedService1*
 4. Right-click **Linked Services** in the solution explorer, point to **Add**, and click **New Item**.      
 5. In the **Add New Item** dialog box, select **Azure Storage Linked Service** from the list, and click **Add**. 
 
-	![New Linked Service](./media/data-factory-get-started-using-vs/new-linked-service-dialog.png)
+    ![New Linked Service](./media/data-factory-get-started-using-vs/new-linked-service-dialog.png)
  
 3. Replace **accountname** and **accountkey** with the name of your Azure storage account and its key. 
 
-	![Azure Storage Linked Service](./media/data-factory-get-started-using-vs/azure-storage-linked-service.png)
+    ![Azure Storage Linked Service](./media/data-factory-get-started-using-vs/azure-storage-linked-service.png)
 
 4. Save the **AzureStorageLinkedService1.json** file.
 
@@ -86,35 +86,35 @@ In the previous step, you created linked services **AzureStorageLinkedService1**
 10. In the **Add New Item** dialog box, select **Azure Blob**, and click **Add**.   
 10. Replace the JSON text with the following text and save the **AzureBlobLocation1.json** file. 
 
-		{
-		  "name": "EmpTableFromBlob",
-		  "properties": {
-		    "structure": [
-		      {
-		        "name": "FirstName",
-		        "type": "String"
-		      },
-		      {
-		        "name": "LastName",
-		        "type": "String"
-		      }
-		    ],
-		    "type": "AzureBlob",
-		    "linkedServiceName": "AzureStorageLinkedService1",
-		    "typeProperties": {
-		      "folderPath": "adftutorial/",
-		      "format": {
-		        "type": "TextFormat",
-		        "columnDelimiter": ","
-		      }
-		    },
-		    "external": true,
-		    "availability": {
-		      "frequency": "Hour",
-		      "interval": 1
-		    }
-		  }
-		}
+        {
+          "name": "EmpTableFromBlob",
+          "properties": {
+            "structure": [
+              {
+                "name": "FirstName",
+                "type": "String"
+              },
+              {
+                "name": "LastName",
+                "type": "String"
+              }
+            ],
+            "type": "AzureBlob",
+            "linkedServiceName": "AzureStorageLinkedService1",
+            "typeProperties": {
+              "folderPath": "adftutorial/",
+              "format": {
+                "type": "TextFormat",
+                "columnDelimiter": ","
+              }
+            },
+            "external": true,
+            "availability": {
+              "frequency": "Hour",
+              "interval": 1
+            }
+          }
+        }
 
 #### Create the output table
 
@@ -122,30 +122,30 @@ In the previous step, you created linked services **AzureStorageLinkedService1**
 12. In the **Add New Item** dialog box, select **Azure SQL**, and click **Add**. 
 13. Replace the JSON text with the following JSON and save the **AzureSqlTableLocation1.json** file.
 
-		{
-		  "name": "EmpSQLTable",
-		  "properties": {
-		    "structure": [
-		      {
-		        "name": "FirstName",
-		        "type": "String"
-		      },
-		      {
-		        "name": "LastName",
-		        "type": "String"
-		      }
-		    ],
-		    "type": "AzureSqlTable",
-		    "linkedServiceName": "AzureSqlLinkedService1",
-		    "typeProperties": {
-		      "tableName": "emp"
-		    },
-		    "availability": {
-		      "frequency": "Hour",
-		      "interval": 1
-		    }
-		  }
-		}
+        {
+          "name": "EmpSQLTable",
+          "properties": {
+            "structure": [
+              {
+                "name": "FirstName",
+                "type": "String"
+              },
+              {
+                "name": "LastName",
+                "type": "String"
+              }
+            ],
+            "type": "AzureSqlTable",
+            "linkedServiceName": "AzureSqlLinkedService1",
+            "typeProperties": {
+              "tableName": "emp"
+            },
+            "availability": {
+              "frequency": "Hour",
+              "interval": 1
+            }
+          }
+        }
 
 #### Create the pipeline 
 You have created input/output linked services and tables so far. Now, you will create a pipeline with a **Copy Activity** to copy data from the Azure blob to Azure SQL database. 
@@ -154,50 +154,50 @@ You have created input/output linked services and tables so far. Now, you will c
 1. Right-click **Pipelines** in the **Solution Explorer**, point to **Add**, and click **New Item**.  
 15. Select **Copy Data Pipeline** in the **Add New Item** dialog box and click **Add**. 
 16. Replace the JSON with the following JSON and save the **CopyActivity1.json** file..
-			
-		{
-		  "name": "ADFTutorialPipeline",
-		  "properties": {
-		    "description": "Copy data from a blob to Azure SQL table",
-		    "activities": [
-		      {
-		        "name": "CopyFromBlobToSQL",
-		        "description": "Push Regional Effectiveness Campaign data to Azure SQL database",
-		        "type": "Copy",
-		        "inputs": [
-		          {
-		            "name": "EmpTableFromBlob"
-		          }
-		        ],
-		        "outputs": [
-		          {
-		            "name": "EmpSQLTable"
-		          }
-		        ],
-		        "typeProperties": {
-		          "source": {
-		            "type": "BlobSource"
-		          },
-		          "sink": {
-		            "type": "SqlSink",
-		            "writeBatchSize": 10000,
-		            "writeBatchTimeout": "60:00:00"
-		          }
-		        },
-		        "Policy": {
-		          "concurrency": 1,
-		          "executionPriorityOrder": "NewestFirst",
-		          "style": "StartOfInterval",
-		          "retry": 0,
-		          "timeout": "01:00:00"
-		        }
-		      }
-		    ],
-		    "start": "2015-07-12T00:00:00Z",
-		    "end": "2015-07-13T00:00:00Z",
-		    "isPaused": false
-		  }
-		}
+            
+        {
+          "name": "ADFTutorialPipeline",
+          "properties": {
+            "description": "Copy data from a blob to Azure SQL table",
+            "activities": [
+              {
+                "name": "CopyFromBlobToSQL",
+                "description": "Push Regional Effectiveness Campaign data to Azure SQL database",
+                "type": "Copy",
+                "inputs": [
+                  {
+                    "name": "EmpTableFromBlob"
+                  }
+                ],
+                "outputs": [
+                  {
+                    "name": "EmpSQLTable"
+                  }
+                ],
+                "typeProperties": {
+                  "source": {
+                    "type": "BlobSource"
+                  },
+                  "sink": {
+                    "type": "SqlSink",
+                    "writeBatchSize": 10000,
+                    "writeBatchTimeout": "60:00:00"
+                  }
+                },
+                "Policy": {
+                  "concurrency": 1,
+                  "executionPriorityOrder": "NewestFirst",
+                  "style": "StartOfInterval",
+                  "retry": 0,
+                  "timeout": "01:00:00"
+                }
+              }
+            ],
+            "start": "2015-07-12T00:00:00Z",
+            "end": "2015-07-13T00:00:00Z",
+            "isPaused": false
+          }
+        }
 
 #### Publish/deploy Data Factory entities
   
@@ -205,20 +205,20 @@ You have created input/output linked services and tables so far. Now, you will c
 19. If you see **Sign in to your Microsoft account** dialog box, enter your credentials for the account that has Azure subscription, and click **sign in**.
 20. You should see the following dialog box:
 
-	![Publish dialog box](./media/data-factory-get-started-using-vs/publish.png)
+    ![Publish dialog box](./media/data-factory-get-started-using-vs/publish.png)
 
 21. In the Configure data factory page, do the following: 
-	1. select **Create New Data Factory** option.
-	2. Enter **VSTutorialFactory** for **Name**.  
-	
-		> [AZURE.NOTE]  
-		> The name of the Azure data factory must be globally unique. If you receive an eror about the name of data factory when publishing, change the name of the data factory (for example, yournameVSTutorialFactory) and try publishing again. See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.
-		> 
-		> The name of the data factory may be registered as a DNS name in the future and hence become publically visible.
-	3. Select the right subscription for the **Subscription** field. 
-	4. Select the **resource group** for the data factory to be created. 
-	5. Select the **region** for the data factory. 
-	6. Click **Next** to switch to the **Publish Items** page. 
+    1. select **Create New Data Factory** option.
+    2. Enter **VSTutorialFactory** for **Name**.  
+    
+        > [AZURE.NOTE]  
+        > The name of the Azure data factory must be globally unique. If you receive an eror about the name of data factory when publishing, change the name of the data factory (for example, yournameVSTutorialFactory) and try publishing again. See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.
+        > 
+        > The name of the data factory may be registered as a DNS name in the future and hence become publically visible.
+    3. Select the right subscription for the **Subscription** field. 
+    4. Select the **resource group** for the data factory to be created. 
+    5. Select the **region** for the data factory. 
+    6. Click **Next** to switch to the **Publish Items** page. 
 23. In the **Publish Items** page, ensure that all the Data Factories entities are selected, and click **Next** to switch to the **Summary** page.     
 24. Review the summary and click **Next** to start the deployment process and view the **Deployment Status**.
 25. In the **Deployment Status** page, you should see the status of the deployment process. Click Finish after the deployment is done. 
@@ -228,9 +228,9 @@ You have created input/output linked services and tables so far. Now, you will c
 
 1. In **Visual Studio**, click **View** on the menu, and click **Server Explorer**.
 2. In the Server Explorer window, expand **Azure** and expand **Data Factory**. If you see **Sign in to Visual Studio**, enter the **account** associated with your Azure subscription and click **Continue**. Enter **password**, and click **Sign in**. Visual Studio tries to get information about all Azure data factories in your subscription. You will see the status of this operation in the **Data Factory Task List** window.
-	![Server Explorer](./media/data-factory-get-started-using-vs/server-explorer.png)
+    ![Server Explorer](./media/data-factory-get-started-using-vs/server-explorer.png)
 3. You can right-click on a data factory, and select Export Data Factory to New Project to create a Visual Studio project based on an existing data factory.
-	![Export data factory to a VS project](./media/data-factory-get-started-using-vs/export-data-factory-menu.png)  
+    ![Export data factory to a VS project](./media/data-factory-get-started-using-vs/export-data-factory-menu.png)  
 
 ## Update Data Factory tools for Visual Studio
 To update Azure Data Factory tools for Visual Studio, do the following:
@@ -240,5 +240,6 @@ To update Azure Data Factory tools for Visual Studio, do the following:
 4. Select **Azure Data Factory tools for Visual Studio** and click **Update**. If you do not see this entry, you already have the latest version of the tools. 
 
 See [Monitor datasets and pipeline](data-factory-get-started-using-editor.md#MonitorDataSetsAndPipeline) for instructions on how to use the Azure Portal to monitor the pipeline and datasets you have created in this tutorial.
+
 
 

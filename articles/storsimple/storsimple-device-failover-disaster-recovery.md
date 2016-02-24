@@ -75,19 +75,19 @@ Perform the following steps to restore your device to a target physical device.
 
 1. In the wizard that opens up, under **Choose volume container to failover**:
 
-	1. In the list of volume containers, select the volume containers you would like to fail over.
+    1. In the list of volume containers, select the volume containers you would like to fail over.
 
-		>[AZURE.NOTE] **Only the volume containers with associated cloud snapshots and offline volumes are displayed.**
+        >[AZURE.NOTE] **Only the volume containers with associated cloud snapshots and offline volumes are displayed.**
 
-	1. Under **Choose a target device** for the volumes in the selected containers, select a target device from the drop-down list of available devices. Only the devices that have the available capacity are displayed in the drop-down list.
+    1. Under **Choose a target device** for the volumes in the selected containers, select a target device from the drop-down list of available devices. Only the devices that have the available capacity are displayed in the drop-down list.
 
-	1. Finally, review all the failover settings under **Confirm failover**. Click the check icon ![Check icon](./media/storsimple-device-failover-disaster-recovery/IC740895.png).
+    1. Finally, review all the failover settings under **Confirm failover**. Click the check icon ![Check icon](./media/storsimple-device-failover-disaster-recovery/IC740895.png).
 
-1. After the failover is completed, go to the **Devices** page.											
+1. After the failover is completed, go to the **Devices** page.                                         
 
-	1. Select the device that was used as the target device for the failover process.
+    1. Select the device that was used as the target device for the failover process.
 
-	1. Go to the **Volume Containers** page. All the volume containers, along with the volumes from the old device, should be listed.
+    1. Go to the **Volume Containers** page. All the volume containers, along with the volumes from the old device, should be listed.
 
 ## Failover using a single device
 
@@ -102,8 +102,8 @@ Perform the following steps if you only have a single device and need to perform
 1. On the **Devices** page, the old device should show as **Offline**. The newly registered device should show as **Online**.
 
 1. For the new device, complete the minimum configuration of the device first. 
-												
-	>[AZURE.IMPORTANT] **If the minimum configuration is not completed first, your DR will fail as a result of a bug in the current implementation. This behavior will be fixed in a later release.**
+                                                
+    >[AZURE.IMPORTANT] **If the minimum configuration is not completed first, your DR will fail as a result of a bug in the current implementation. This behavior will be fixed in a later release.**
 
 1. Select the old device (status offline) and click **Failover**. In the wizard that is presented, fail over this device and specify the target device as the newly registered device. For detailed instructions, refer to [Fail over to another physical device](#fail-over-to-another-physical-device).
 
@@ -128,21 +128,21 @@ Perform the following steps to restore the device to a target StorSimple virtual
 1. On the **Devices** page, click **Failover**.
 
 1. In the wizard that opens up, under **Choose volume container to failover**, complete the following:
-													
-	a. In the list of volume containers, select the volume containers you would like to fail over.
+                                                    
+    a. In the list of volume containers, select the volume containers you would like to fail over.
 
-	>[AZURE.NOTE] **Only the volume containers with associated cloud snapshots and offline volumes are displayed.**
+    >[AZURE.NOTE] **Only the volume containers with associated cloud snapshots and offline volumes are displayed.**
 
-	b. Under **Choose a target device for the volumes in the selected containers**, select the StorSimple virtual device from the drop-down list of available devices. Only the devices that have sufficient capacity are displayed in the drop-down list.  
-	
+    b. Under **Choose a target device for the volumes in the selected containers**, select the StorSimple virtual device from the drop-down list of available devices. Only the devices that have sufficient capacity are displayed in the drop-down list.  
+    
 
 1. Finally, review all the failover settings under **Confirm failover**. Click the check icon ![Check icon](./media/storsimple-device-failover-disaster-recovery/IC740895.png).
 
 1. After the failover is completed, go to the **Devices** page.
-													
-	a. Select the StorSimple virtual device that was used as the target device for the failover process.
-	
-	b. 	Go to the **Volume Containers** page. All the volume containers, along with the volumes from the old device should now be listed.
+                                                    
+    a. Select the StorSimple virtual device that was used as the target device for the failover process.
+    
+    b.  Go to the **Volume Containers** page. All the volume containers, along with the volumes from the old device should now be listed.
 
 ![Video available](./media/storsimple-device-failover-disaster-recovery/Video_icon.png) **Video available**
 
@@ -164,3 +164,4 @@ After you have performed a failover, you may need to:
 
 For information about how to use the StorSimple Manager service, go to [Use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
  
+

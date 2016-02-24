@@ -98,3 +98,4 @@ There is no extra cost for using Virtual Networks in Azure. The compute instance
 - [Reserve a public IP address](../virtual-networks-reserved-public-ip.md).
 - Learn about [user defined routes and IP forwarding](virtual-networks-udr-overview.md).
 
+

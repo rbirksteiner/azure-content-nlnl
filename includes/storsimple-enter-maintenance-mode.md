@@ -13,3 +13,4 @@
 4. You will see a warning message telling you that Maintenance mode will disrupt all I/O requests and sever the connection to the Azure classic portal, and you will be prompted for confirmation. Type **Y** to enter Maintenance mode.
 
     Both controllers will restart. When the restart is complete, another message will appear indicating that the device is in Maintenance mode.
+

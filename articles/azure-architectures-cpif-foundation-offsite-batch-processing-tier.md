@@ -52,3 +52,4 @@ This document describes a pattern for offsite batch processing utilizing worker 
 
 [Azure Search Tier](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-e581d65d) 
 
+

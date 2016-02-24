@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Add Push Notifications to iOS App with Azure  Mobile Apps"
-	description="Learn how to use Azure Mobile Apps to send push notifications to your iOS app."
-	services="app-service\mobile"
-	documentationCenter="ios"
-	manager="dwrede"
-	editor=""
-	authors="krisragh"/>
+    pageTitle="Add Push Notifications to iOS App with Azure  Mobile Apps"
+    description="Learn how to use Azure Mobile Apps to send push notifications to your iOS app."
+    services="app-service\mobile"
+    documentationCenter="ios"
+    manager="dwrede"
+    editor=""
+    authors="krisragh"/>
 
 <tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-ios"
-	ms.devlang="objective-c"
-	ms.topic="article"
-	ms.date="11/25/2015"
-	ms.author="krisragh"/>
+    ms.service="app-service-mobile"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-ios"
+    ms.devlang="objective-c"
+    ms.topic="article"
+    ms.date="11/25/2015"
+    ms.author="krisragh"/>
 
 
 # Add Push Notifications to your iOS App
@@ -75,3 +75,4 @@ The [iOS simulator does not support push notifications](https://developer.apple.
 
 <!-- URLs. -->
 [iOS quick start]: app-service-mobile-ios-get-started.md
+

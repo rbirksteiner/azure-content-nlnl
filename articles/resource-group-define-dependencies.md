@@ -77,3 +77,4 @@ To learn more, see [reference function](../resource-group-template-functions/#re
 - To learn about creating Azure Resource Manager templates, see [Authoring templates](resource-group-authoring-templates.md). 
 - For a list of the available functions in a template, see [Template functions](resource-group-template-functions.md).
 
+

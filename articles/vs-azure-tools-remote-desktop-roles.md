@@ -76,3 +76,4 @@ After you publish your cloud service on Azure, you can use Server Explorer to lo
 1. Enter the user name and password that you created previously. You are now logged into your remote session.
 
 
+

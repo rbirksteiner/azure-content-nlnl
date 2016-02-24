@@ -118,3 +118,4 @@ For more development tips, see [development overview][].
 
 <!--Other Web references-->
 [Role-based access control in Azure Portal]: http://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-configure.aspx
+

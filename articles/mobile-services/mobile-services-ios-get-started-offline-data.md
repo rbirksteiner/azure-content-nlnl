@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Get Started with Offline Data Sync in Mobile Services (iOS) | Microsoft Azure"
-	description="Learn how to use Azure Mobile Services to cache and sync offline data in your iOS application"
-	documentationCenter="ios"
-	authors="krisragh"
-	manager="dwrede"
-	editor=""
-	services="mobile-services"/>
+    pageTitle="Get Started with Offline Data Sync in Mobile Services (iOS) | Microsoft Azure"
+    description="Learn how to use Azure Mobile Services to cache and sync offline data in your iOS application"
+    documentationCenter="ios"
+    authors="krisragh"
+    manager="dwrede"
+    editor=""
+    services="mobile-services"/>
 
 <tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-ios"
-	ms.devlang="objective-c"
-	ms.topic="article"
-	ms.date="10/01/2015"
-	ms.author="krisragh;donnam"/>
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-ios"
+    ms.devlang="objective-c"
+    ms.topic="article"
+    ms.date="10/01/2015"
+    ms.author="krisragh;donnam"/>
 
 # Get Started with Offline Data Sync in Mobile Services
 
@@ -46,7 +46,7 @@ Azure Mobile Services offline sync allows end users to interact with a local dat
 * In **QSTodoService.m**, notice the type of member `syncTable` is `MSSyncTable`. Offline sync uses this instead of `MSTable`. When a sync table is used, all operations go to the local store and are synchronized with the remote service only with explicit push and pull operations.
 
 ```
-		@property (nonatomic, strong)   MSSyncTable *syncTable;
+        @property (nonatomic, strong)   MSSyncTable *syncTable;
 ```
 
 To get a reference to a sync table, use the method `syncTableWithName`. To remove offline sync functionality, use `tableWithName` instead.
@@ -54,8 +54,8 @@ To get a reference to a sync table, use the method `syncTableWithName`. To remov
 * In **QSTodoService.m**, before table operations are performed, the local store is initialized in `QSTodoService.init`:
 
 ```
-		MSCoreDataStore *store = [[MSCoreDataStore alloc] initWithManagedObjectContext:context];
-		self.client.syncContext = [[MSSyncContext alloc] initWithDelegate:nil dataSource:store callback:nil];
+        MSCoreDataStore *store = [[MSCoreDataStore alloc] initWithManagedObjectContext:context];
+        self.client.syncContext = [[MSSyncContext alloc] initWithDelegate:nil dataSource:store callback:nil];
 ```
 
 This creates a local store using the `MSCoreDataStore` interface. You may provide a different local store by implementing the `MSSyncContextDataSource` protocol.
@@ -218,9 +218,9 @@ When using a Core Data local store, you define several tables with the [correct 
 
 To synchronize the local store with the server, you used `MSSyncTable.pullWithQuery` and `MSClient.syncContext.pushWithCompletion`:
 
-		* To push changes to the server, you called `pushWithCompletion`. This method is in `MSSyncContext` instead of the sync table because it will push changes across all tables. Only records that are modified in some way locally (through CUD operations) are be sent to the server.
+        * To push changes to the server, you called `pushWithCompletion`. This method is in `MSSyncContext` instead of the sync table because it will push changes across all tables. Only records that are modified in some way locally (through CUD operations) are be sent to the server.
 
-		* To pull data from a table on the server to the app, you called `MSSyncTable.pullWithQuery`. A pull always issues a push first. This is to ensure all tables in the local store along with relationships remain consistent. `pullWithQuery` can also be used to filter the data that is stored on the client, by customizing the `query` parameter.
+        * To pull data from a table on the server to the app, you called `MSSyncTable.pullWithQuery`. A pull always issues a push first. This is to ensure all tables in the local store along with relationships remain consistent. `pullWithQuery` can also be used to filter the data that is stored on the client, by customizing the `query` parameter.
 
 ## Next Steps
 
@@ -275,3 +275,4 @@ To synchronize the local store with the server, you used `MSSyncTable.pullWithQu
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
 [Mobile Services Quick Start tutorial]: mobile-services-ios-get-started.md
+

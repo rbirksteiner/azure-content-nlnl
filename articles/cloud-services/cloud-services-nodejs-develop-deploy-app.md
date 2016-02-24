@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Node.js Getting Started Guide | Microsoft Azure"
-	description="Learn how to create a simple Node.js web application and deploy it to an Azure cloud service."
-	services="cloud-services"
-	documentationCenter="nodejs"
-	authors="rmcmurray"
-	manager="wpickett"
-	editor=""/>
+    pageTitle="Node.js Getting Started Guide | Microsoft Azure"
+    description="Learn how to create a simple Node.js web application and deploy it to an Azure cloud service."
+    services="cloud-services"
+    documentationCenter="nodejs"
+    authors="rmcmurray"
+    manager="wpickett"
+    editor=""/>
 
 <tags
-	ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs"
-	ms.topic="hero-article"
-	ms.date="11/20/2015"
-	ms.author="robmcm"/>
+    ms.service="cloud-services"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na" 
+    ms.devlang="nodejs"
+    ms.topic="hero-article"
+    ms.date="11/20/2015"
+    ms.author="robmcm"/>
 
 
 # Build and deploy a Node.js application to an Azure Cloud Service
@@ -64,46 +64,46 @@ Perform the following tasks to create a new Azure Cloud Service project, along w
 
         New-AzureServiceProject helloworld
 
-	![The result of the New-AzureService helloworld command](./media/cloud-services-nodejs-develop-deploy-app/node9.png)
+    ![The result of the New-AzureService helloworld command](./media/cloud-services-nodejs-develop-deploy-app/node9.png)
 
-	The **New-AzureServiceProject** cmdlet generates a basic structure for publishing a Node.js application to a Cloud Service. It contains configuration files necessary for publishing to Azure. The cmdlet also changes your working directory to the directory for the service.
+    The **New-AzureServiceProject** cmdlet generates a basic structure for publishing a Node.js application to a Cloud Service. It contains configuration files necessary for publishing to Azure. The cmdlet also changes your working directory to the directory for the service.
 
-	The cmdlet creates the following files:
+    The cmdlet creates the following files:
 
-	-   **ServiceConfiguration.Cloud.cscfg**,
+    -   **ServiceConfiguration.Cloud.cscfg**,
         **ServiceConfiguration.Local.cscfg** and **ServiceDefinition.csdef**:
         Azure-specific files necessary for publishing your
         application. For more information, see
         [Overview of Creating a Hosted Service for Azure][].
 
-	-   **deploymentSettings.json**: Stores local settings that are used by
+    -   **deploymentSettings.json**: Stores local settings that are used by
         the Azure PowerShell deployment cmdlets.
 
 4.  Enter the following command to add a new web role:
 
         Add-AzureNodeWebRole
 
-	![The output of the Add-AzureNodeWebRole command.](./media/cloud-services-nodejs-develop-deploy-app/node11.png)
+    ![The output of the Add-AzureNodeWebRole command.](./media/cloud-services-nodejs-develop-deploy-app/node11.png)
 
-	The **Add-AzureNodeWebRole** cmdlet creates a basic Node.js application. It also modifies the **.csfg** and **.csdef** files to add configuration entries for the new role.
+    The **Add-AzureNodeWebRole** cmdlet creates a basic Node.js application. It also modifies the **.csfg** and **.csdef** files to add configuration entries for the new role.
 
-	> [AZURE.NOTE] If you do not specify a role name, a default name is used. You can provide a name as the first cmdlet parameter: `Add-AzureNodeWebRole MyRole`
+    > [AZURE.NOTE] If you do not specify a role name, a default name is used. You can provide a name as the first cmdlet parameter: `Add-AzureNodeWebRole MyRole`
 
 
 The Node.js app is defined in the file **server.js**, located in the directory for the web role (**WebRole1** by default). Here is the code:
 
-	var http = require('http');
-	var port = process.env.port || 1337;
-	http.createServer(function (req, res) {
-	    res.writeHead(200, { 'Content-Type': 'text/plain' });
-	    res.end('Hello World\n');
-	}).listen(port);
+    var http = require('http');
+    var port = process.env.port || 1337;
+    http.createServer(function (req, res) {
+        res.writeHead(200, { 'Content-Type': 'text/plain' });
+        res.end('Hello World\n');
+    }).listen(port);
 
 This code is essentially the same as the "Hello World" sample on the [nodejs.org][] website, except it uses the port number assigned by the cloud environment.
 
 ## Deploy the application to Azure
 
-	[AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
+    [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
 
 ### Download the Azure publishing settings
@@ -114,24 +114,24 @@ To deploy your application to Azure, you must first download the publishing sett
 
         Get-AzurePublishSettingsFile
 
-	This will use your browser to navigate to the publish settings download page. You may be prompted to log in with a Microsoft Account. If so, use the account associated with your Azure subscription.
+    This will use your browser to navigate to the publish settings download page. You may be prompted to log in with a Microsoft Account. If so, use the account associated with your Azure subscription.
 
-	Save the downloaded profile to a file location you can easily access.
+    Save the downloaded profile to a file location you can easily access.
 
 2.  Run following cmdlet to import the publishing profile you downloaded:
 
         Import-AzurePublishSettingsFile [path to file]
 
 
-	> [AZURE.NOTE] After importing the publish settings, consider deleting the downloaded .publishSettings file, because it contains information that could allow someone to access your account.
+    > [AZURE.NOTE] After importing the publish settings, consider deleting the downloaded .publishSettings file, because it contains information that could allow someone to access your account.
 
 
 ### Publish the application
 
 To publish, run the following commands:
 
-  	$ServiceName = "NodeHelloWorld" + $(Get-Date -Format ('ddhhmm'))   
-	Publish-AzureServiceProject -ServiceName $ServiceName  -Location "East US" -Launch
+    $ServiceName = "NodeHelloWorld" + $(Get-Date -Format ('ddhhmm'))   
+    Publish-AzureServiceProject -ServiceName $ServiceName  -Location "East US" -Launch
 
 - **-ServiceName** specifies the name for the deployment. This must be a unique name, otherwise the publish process will fail. The **Get-Date** command tacks on a date/time string that should make the name unique.
 
@@ -173,21 +173,21 @@ After deploying your application, you may want to disable it so you can avoid ex
 
         Stop-AzureService
 
-	Stopping the service may take several minutes. When the service is stopped, you receive a message indicating that it has stopped.
+    Stopping the service may take several minutes. When the service is stopped, you receive a message indicating that it has stopped.
 
-	![The status of the Stop-AzureService command](./media/cloud-services-nodejs-develop-deploy-app/node48.png)
+    ![The status of the Stop-AzureService command](./media/cloud-services-nodejs-develop-deploy-app/node48.png)
 
 2.  To delete the service, call the following cmdlet:
 
         Remove-AzureService
 
-	When prompted, enter **Y** to delete the service.
+    When prompted, enter **Y** to delete the service.
 
-	Deleting the service may take several minutes. After the service has been deleted you receive a message indicating that the service was deleted.
+    Deleting the service may take several minutes. After the service has been deleted you receive a message indicating that the service was deleted.
 
-	![The status of the Remove-AzureService command](./media/cloud-services-nodejs-develop-deploy-app/node49.png)
+    ![The status of the Remove-AzureService command](./media/cloud-services-nodejs-develop-deploy-app/node49.png)
 
-	> [AZURE.NOTE] Deleting the service does not delete the storage account that was created when the service was initially published, and you will continue to be billed for storage used. For more information on deleting a storage account, see [How to Delete a Storage Account from an Azure Subscription](http://msdn.microsoft.com/library/windowsazure/hh531562.aspx).
+    > [AZURE.NOTE] Deleting the service does not delete the storage account that was created when the service was initially published, and you will continue to be billed for storage used. For more information on deleting a storage account, see [How to Delete a Storage Account from an Azure Subscription](http://msdn.microsoft.com/library/windowsazure/hh531562.aspx).
 
 ## Next steps
 
@@ -208,3 +208,4 @@ For more information, see the [Node.js Developer Center](/develop/nodejs/).
 [How to Delete a Storage Account from an Azure Subscription]: https://www.windowsazure.com/manage/services/storage/how-to-manage-a-storage-account/
 [powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
  
+

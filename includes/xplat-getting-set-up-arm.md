@@ -63,3 +63,4 @@ To use the Azure Resource Management (ARM) mode with the Azure CLI, type `azure 
     info:    New mode is arm
 
 > [AZURE.NOTE] You can switch back to use Azure service management commands by typing `azure config mode asm`.
+

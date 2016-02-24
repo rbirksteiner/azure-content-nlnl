@@ -1,21 +1,21 @@
 <properties
-	pageTitle="JSON output for Stream Analytics | Microsoft Azure"
-	description="Learn how Stream Analytics can target Azure DocumentDB for JSON output, for data archiving and low-latency queries on unstructured JSON data."
-	keywords="JSON output"
-	documentationCenter=""
-	services="stream-analytics,documentdb"
-	authors="jeffstokes72"
-	manager="paulettm"
-	editor="cgronlun"/>
+    pageTitle="JSON output for Stream Analytics | Microsoft Azure"
+    description="Learn how Stream Analytics can target Azure DocumentDB for JSON output, for data archiving and low-latency queries on unstructured JSON data."
+    keywords="JSON output"
+    documentationCenter=""
+    services="stream-analytics,documentdb"
+    authors="jeffstokes72"
+    manager="paulettm"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="stream-analytics"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="data-services"
-	ms.date="11/23/2015"
-	ms.author="jeffstok"/>
+    ms.service="stream-analytics"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="data-services"
+    ms.date="11/23/2015"
+    ms.author="jeffstok"/>
 
 # Target Azure DocumentDB for JSON output from Stream Analytics
 
@@ -40,7 +40,7 @@ DocumentDB collections can be created at 3 different performance levels (S1, S2 
 
 Stream Analytics integration with DocumentDB allows you to insert or update records into your DocumentDB collection based on a given Document ID column. This is also referred to as an *Upsert*.
 
-Stream Analytics utilizes an optimistic Upsert approach, where updates are only done when insert fails due to a Document ID conflict. This update is performed by Stream Analytics as a PATCH, so it enables partial updates to the document, i.e. addition of new properties or replacing an existing property is performed incrementally. Note that changes in the values of array properties in your JSON document result in the entire array getting overwritten, i.e. the array is not merged.
+Stream Analytics utilizes an optimistic Upsert approach, where updates are only done when insert fails due to a Document ID conflict. This update is performed by Stream Analytics as a PATCH, so it enables partial updates to the document, i.e. addition of new properties or replacing an existing property is performed incrementally. Note that changes in the values of array properties in your JSON document result in the entire array getting overwritten, i.e. the array is not merged.
 
 ## Data partitioning in DocumentDB
 
@@ -63,3 +63,4 @@ Creating DocumentDB as an output in Stream Analytics generates a prompt for info
    2\) MyCollection{partition} – Such collections must exist– "MyCollection0”, “MyCollection1”, “MyCollection2” and so on.  
 -   **Partition Key** – The name of the field in output events used to specify the key for partitioning output across collections. For single collection output, any arbitrary output column can be used e.g. PartitionId.  
 -   **Document ID** – Optional. The name of the field in output events used to specify the primary key on which insert or update operations are based.  
+

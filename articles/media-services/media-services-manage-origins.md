@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="How to Manage Streaming Endpoints in a Media Services Account" 
-	description="This topic shows how to manage Streaming Endpoints using the Azure Classic Portal." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	writer="juliako" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="How to Manage Streaming Endpoints in a Media Services Account" 
+    description="This topic shows how to manage Streaming Endpoints using the Azure Classic Portal." 
+    services="media-services" 
+    documentationCenter="" 
+    authors="Juliako" 
+    writer="juliako" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/09/2015"
-	ms.author="juliako"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/09/2015"
+    ms.author="juliako"/>
 
 
 #<a id="managemediaservicesorigins"></a>How to Manage Streaming Endpoints in a Media Services Account
@@ -61,17 +61,17 @@ To change the number of streaming units using the Portal, do the following:
 
 1. To specify the number of streaming units, select the SCALE tab and move the **reserved capacity** slider.
 
-	![Scale page](./media/media-services-manage-origins/media-services-origin-scale.png)
+    ![Scale page](./media/media-services-manage-origins/media-services-origin-scale.png)
 
 4. Press the SAVE button to save your changes.
 
-	The allocation of any new streaming units takes around 20 minutes to complete. 
+    The allocation of any new streaming units takes around 20 minutes to complete. 
 
-	 
-	>[AZURE.NOTE] Currently, going from any positive value of streaming units back to none, can disable on-demand streaming for up to an hour.
+     
+    >[AZURE.NOTE] Currently, going from any positive value of streaming units back to none, can disable on-demand streaming for up to an hour.
 
-	>[AZURE.NOTE] The highest number of units specified for the 24-hour period is used in calculating the cost. For information about pricing details, see [Media Services Pricing Details](http://go.microsoft.com/fwlink/?LinkId=275107).
-	
+    >[AZURE.NOTE] The highest number of units specified for the 24-hour period is used in calculating the cost. For information about pricing details, see [Media Services Pricing Details](http://go.microsoft.com/fwlink/?LinkId=275107).
+    
 ##<a id="configure_streaming_endpoints"></a>Configuring the Streaming Endpoint
 
 Streaming Endpoint enables you to configure the following properties when you have at least 1 scale unit: 

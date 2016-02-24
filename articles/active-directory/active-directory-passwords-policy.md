@@ -1,29 +1,29 @@
 <properties
-	pageTitle="Password policies and restrictions in Azure Active Directory | Microsoft Azure"
-	description="Describes the policies that apply to passwords in Azure Active Directory, including allowed characters, length, and expiration"
+    pageTitle="Password policies and restrictions in Azure Active Directory | Microsoft Azure"
+    description="Describes the policies that apply to passwords in Azure Active Directory, including allowed characters, length, and expiration"
   services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="stevenpo"
-	editor=""/>
+    documentationCenter=""
+    authors="curtand"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/03/2015"
-	ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/03/2015"
+    ms.author="curtand"/>
 
 
 # Password policies and restrictions in Azure Active Directory
 
-This article describes the password policies and complexity	requirements associated with user accounts stored in your Azure AD directory.
+This article describes the password policies and complexity requirements associated with user accounts stored in your Azure AD directory.
 
 ## UserPrincipalName policies that apply to all user accounts
 
-Every user account that needs to sign in to the Azure AD authentication	system must have a unique user principal name (UPN) attribute value	associated with that account. The following table outlines the polices	that apply to both on-premises Active Directory-sourced user accounts	(synced to the cloud) and to cloud-only user accounts.
+Every user account that needs to sign in to the Azure AD authentication system must have a unique user principal name (UPN) attribute value associated with that account. The following table outlines the polices  that apply to both on-premises Active Directory-sourced user accounts   (synced to the cloud) and to cloud-only user accounts.
 
 |   Property           |     UserPrincipalName requirements  |
 |   ----------------------- |   ----------------------- |
@@ -33,7 +33,7 @@ Every user account that needs to sign in to the Azure AD authentication	system m
 
 ## Password policies that apply only to cloud user accounts
 
-The following table describes the available password policy settings that can be applied to user accounts that are created and managed in	Azure AD.
+The following table describes the available password policy settings that can be applied to user accounts that are created and managed in   Azure AD.
 
 |  Property       |    Requirements          |
 |   ----------------------- |   ----------------------- |
@@ -59,3 +59,4 @@ The following table describes the available password policy settings that can be
 * [Password Management FAQ](active-directory-passwords-faq.md)
 * [Troubleshoot Password Management](active-directory-passwords-troubleshoot.md)
 * [Learn More](active-directory-passwords-learn-more.md)
+

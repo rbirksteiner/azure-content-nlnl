@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How to Set Up Computer for Media Services Development with .NET" 
-	description="Learn about the prerequisites for Media Services using the Media Services SDK for .NET. Also learn how to create a Visual Studio app." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="juliako" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="How to Set Up Computer for Media Services Development with .NET" 
+    description="Learn about the prerequisites for Media Services using the Media Services SDK for .NET. Also learn how to create a Visual Studio app." 
+    services="media-services" 
+    documentationCenter="" 
+    authors="juliako" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="10/05/2015"
-	ms.author="juliako"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="dotnet" 
+    ms.topic="article" 
+    ms.date="10/05/2015"
+    ms.author="juliako"/>
 
 #Media Services development with .NET
 
@@ -76,25 +76,25 @@ To obtain the **account name** and **account key** information, open the **Azure
 
 
 <configuration>
-	...
-	  <appSettings>
-	    <add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
-	    <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
-	  </appSettings>
-	  
-	</configuration>
+    ...
+      <appSettings>
+        <add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
+        <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
+      </appSettings>
+      
+    </configuration>
 
 5. Overwrite the existing using statements at the beginning of the Program.cs file with the following code.
 
-		using System;
-		using System.Collections.Generic;
-		using System.Linq;
-		using System.Text;
-		using System.Threading.Tasks;
-		using System.Configuration;
-		using System.Threading;
-		using System.IO;
-		using Microsoft.WindowsAzure.MediaServices.Client;
+        using System;
+        using System.Collections.Generic;
+        using System.Linq;
+        using System.Text;
+        using System.Threading.Tasks;
+        using System.Configuration;
+        using System.Threading;
+        using System.IO;
+        using Microsoft.WindowsAzure.MediaServices.Client;
 
 At this point, you are ready to start developing a Media Services application.    
 
@@ -107,3 +107,4 @@ At this point, you are ready to start developing a Media Services application.
 ##Provide feedback
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+

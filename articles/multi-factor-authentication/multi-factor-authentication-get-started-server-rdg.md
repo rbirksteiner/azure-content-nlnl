@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS" 
-	description="This is the Azure Multi-factor authentication page that will assist in deploying Remote Desktop (RD) Gateway and Azure Multi-Factor Authentication Server using RADIUS." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
-	editor="curtand"/>
+    pageTitle="Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS" 
+    description="This is the Azure Multi-factor authentication page that will assist in deploying Remote Desktop (RD) Gateway and Azure Multi-Factor Authentication Server using RADIUS." 
+    services="multi-factor-authentication" 
+    documentationCenter="" 
+    authors="billmath" 
+    manager="stevenpo" 
+    editor="curtand"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/19/2015" 
-	ms.author="billmath"/>
+    ms.service="multi-factor-authentication" 
+    ms.workload="identity" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/19/2015" 
+    ms.author="billmath"/>
 
 # Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS
 
@@ -58,3 +58,4 @@ The Azure Multi-Factor Authentication Server is configured as a RADIUS proxy bet
 4. Click the Add… button. Enter the IP address, shared secret and ports of the NPS server. Unless using a central NPS, the RADIUS client and RADIUS target will be the same. The shared secret must match the one setup in the RADIUS client section of the NPS server. 
 
 ![Radius Authentication](./media/multi-factor-authentication-get-started-server-rdg/radius.png)
+

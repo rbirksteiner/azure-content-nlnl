@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How to Encode an Asset using Azure Media Encoder" 
-	description="Learn how to use the Azure Media Encoder to encode media content on Media Services. Code samples are written in C# and use the Media Services SDK for .NET." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="How to Encode an Asset using Azure Media Encoder" 
+    description="Learn how to use the Azure Media Encoder to encode media content on Media Services. Code samples are written in C# and use the Media Services SDK for .NET." 
+    services="media-services" 
+    documentationCenter="" 
+    authors="Juliako" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="12/08/2015"  
-	ms.author="juliako"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="dotnet" 
+    ms.topic="article" 
+    ms.date="12/08/2015"  
+    ms.author="juliako"/>
 
 
 #How to encode an asset using Azure Media Encoder
@@ -150,7 +150,7 @@ In many application scenarios, developers want to create a series of processing 
 
 The following **CreateChainedTaskEncodingJob** method creates a job that contains two chained tasks. As a result, the method returns a job that contains two output assets.
 
-	
+    
     public static IJob CreateChainedTaskEncodingJob(IAsset asset)
     {
         // Declare a new job.

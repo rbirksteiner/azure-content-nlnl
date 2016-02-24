@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Azure Machine Learning FAQ | Microsoft Azure"
-	description="Azure Machine Learning introduction: FAQ covering billing, capabilities, and limitations of a cloud service for streamlined predictive modeling."
-	keywords="machine learning introduction,predictive modeling,what is machine learning"
-	services="machine-learning"
-	documentationCenter=""
-	authors="pablissima"
-	manager="paulettm"
-	editor="cgronlun"/>
+    pageTitle="Azure Machine Learning FAQ | Microsoft Azure"
+    description="Azure Machine Learning introduction: FAQ covering billing, capabilities, and limitations of a cloud service for streamlined predictive modeling."
+    keywords="machine learning introduction,predictive modeling,what is machine learning"
+    services="machine-learning"
+    documentationCenter=""
+    authors="pablissima"
+    manager="paulettm"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/09/2015"
-	ms.author="paulettm"/>
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/09/2015"
+    ms.author="paulettm"/>
 
 # Azure Machine Learning Frequently Asked Questions (FAQ): Billing, capabilities, limitations, and support
 
@@ -315,3 +315,4 @@ Azure Machine Learning also has a community forum on MSDN, where you can ask Azu
 [partition-and-sample]: https://msdn.microsoft.com/library/azure/a8726e34-1b3e-4515-b59a-3e4a475654b8/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
+

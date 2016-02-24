@@ -45,3 +45,4 @@ This document describes a core pattern for using Azure Search with two variation
 [Hybrid Networking](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-5e401f38)
 
 [Batch Processing Tier](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-0bc3f8b1)
+

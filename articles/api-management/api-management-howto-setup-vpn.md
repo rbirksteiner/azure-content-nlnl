@@ -1,20 +1,20 @@
 <properties
-	pageTitle="How to setup VPN connections in Azure API Management"
-	description="Learn how to setup a VPN connection in Azure API Management and access web services through it."
-	services="api-management"
-	documentationCenter=""
-	authors="antonba"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="How to setup VPN connections in Azure API Management"
+    description="Learn how to setup a VPN connection in Azure API Management and access web services through it."
+    services="api-management"
+    documentationCenter=""
+    authors="antonba"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="api-management"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/03/2015"
-	ms.author="antonba"/>
+    ms.service="api-management"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/03/2015"
+    ms.author="antonba"/>
 
 # How to setup VPN connections in Azure API Management
 
@@ -65,3 +65,4 @@ After your API Management service is connected to the VPN, accessing web service
 
 [Tutorial: Create a Cross-Premises Virtual Network for Site-to-Site Connectivity]: ../virtual-networks-create-site-to-site-cross-premises-connectivity
 [How to use the API Inspector to trace calls in Azure API Management]: api-management-howto-api-inspector.md
+

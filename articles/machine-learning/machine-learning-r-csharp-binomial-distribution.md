@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Binomial Distribution Suite | Microsoft Azure" 
-	description="Binomial Distribution Suite" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="ireiter" 
-	manager="paulettm" 
-	editor="cgronlun"/>
+    pageTitle="Binomial Distribution Suite | Microsoft Azure" 
+    description="Binomial Distribution Suite" 
+    services="machine-learning" 
+    documentationCenter="" 
+    authors="ireiter" 
+    manager="paulettm" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/01/2015" 
-	ms.author="ireiter"/> 
+    ms.service="machine-learning" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/01/2015" 
+    ms.author="ireiter"/> 
 
 
 #Binomial Distribution Suite
@@ -73,94 +73,94 @@ There are multiple ways of consuming the service in an automated fashion (exampl
 ###Starting C# code for web service consumption:
 
 ###Binomial Distribution Quantile Calculator
-	public class Input
-	{
-	        public string p;
-	        public string size;
-	        public string prob;
-	        public string side;
-	}
-	
+    public class Input
+    {
+            public string p;
+            public string size;
+            public string prob;
+            public string side;
+    }
+    
     public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
-	{
-	        byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
-	        return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
-	}
-	
+    {
+            byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
+            return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
+    }
+    
     void main()
-	{
-	        var input = new Input() { p = TextBox1.Text, size = TextBox2.Text, prob = TextBox3.Text, side = TextBox4.Text };
-	        var json = JsonConvert.SerializeObject(input);
-	        var acitionUri = "PutAPIURLHere,e.g.https://api.datamarket.azure.com/..../v1/Score";
-	        var httpClient = new HttpClient();
-	
-	        httpClient.DefaultRequestHeaders.Authorization = CreateBasicHeader("PutEmailAddressHere", "ChangeToAPIKey");
-	        httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-	
-	        var response = httpClient.PostAsync(acitionUri, new StringContent(json));
-	        var result = response.Result.Content;
-		    var scoreResult = result.ReadAsStringAsync().Result;
-	}
+    {
+            var input = new Input() { p = TextBox1.Text, size = TextBox2.Text, prob = TextBox3.Text, side = TextBox4.Text };
+            var json = JsonConvert.SerializeObject(input);
+            var acitionUri = "PutAPIURLHere,e.g.https://api.datamarket.azure.com/..../v1/Score";
+            var httpClient = new HttpClient();
+    
+            httpClient.DefaultRequestHeaders.Authorization = CreateBasicHeader("PutEmailAddressHere", "ChangeToAPIKey");
+            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+    
+            var response = httpClient.PostAsync(acitionUri, new StringContent(json));
+            var result = response.Result.Content;
+            var scoreResult = result.ReadAsStringAsync().Result;
+    }
 
 ###Binomial Distribution Probability Calculator
-	public class Input
-	{
-	        public string q;
-	        public string size;
-	        public string prob;
-	        public string side;
-	}
-	
+    public class Input
+    {
+            public string q;
+            public string size;
+            public string prob;
+            public string side;
+    }
+    
     public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
-	{
-	        byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
-	        return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
-	}
-	
-	void Main()
-	{
-	        var input = new Input() { q = TextBox1.Text, size = TextBox2.Text, prob = TextBox3.Text, side = TextBox4.Text };
-	        var json = JsonConvert.SerializeObject(input);
-	        var acitionUri = " PutAPIURLHere,e.g.https://api.datamarket.azure.com/..../v1/Score";
-	        var httpClient = new HttpClient();
-	
-	        httpClient.DefaultRequestHeaders.Authorization = CreateBasicHeader("PutEmailAddressHere", "ChangeToAPIKey");
-	        httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-	
-	        var response = httpClient.PostAsync(acitionUri, new StringContent(json));
-	        var result = response.Result.Content;
-		    var scoreResult = result.ReadAsStringAsync().Result;
-	}
+    {
+            byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
+            return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
+    }
+    
+    void Main()
+    {
+            var input = new Input() { q = TextBox1.Text, size = TextBox2.Text, prob = TextBox3.Text, side = TextBox4.Text };
+            var json = JsonConvert.SerializeObject(input);
+            var acitionUri = " PutAPIURLHere,e.g.https://api.datamarket.azure.com/..../v1/Score";
+            var httpClient = new HttpClient();
+    
+            httpClient.DefaultRequestHeaders.Authorization = CreateBasicHeader("PutEmailAddressHere", "ChangeToAPIKey");
+            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+    
+            var response = httpClient.PostAsync(acitionUri, new StringContent(json));
+            var result = response.Result.Content;
+            var scoreResult = result.ReadAsStringAsync().Result;
+    }
 
 
 ###Binomial Distribution Generator
-	public class Input
-	{
-	        public string n;
-	        public string size;
-	        public string p;
-	}
-	
+    public class Input
+    {
+            public string n;
+            public string size;
+            public string p;
+    }
+    
     public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
-	{
-	        byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
-	        return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
-	}
-	
-	void Main()
-	{
-	        var input = new Input() { n = TextBox1.Text, size = TextBox2.Text, p = TextBox3.Text };
-	        var json = JsonConvert.SerializeObject(input);
-	        var acitionUri = "PutAPIURLHere,e.g.https://api.datamarket.azure.com/..../v1/Score";
-	        var httpClient = new HttpClient();
-	
-	        httpClient.DefaultRequestHeaders.Authorization = CreateBasicHeader("PutEmailAddressHere", "ChangeToAPIKey");
-	        httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-	
-	        var response = httpClient.PostAsync(acitionUri, new StringContent(json));
-	        var result = response.Result.Content;
-		    var scoreResult = result.ReadAsStringAsync().Result;
-	}
+    {
+            byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
+            return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
+    }
+    
+    void Main()
+    {
+            var input = new Input() { n = TextBox1.Text, size = TextBox2.Text, p = TextBox3.Text };
+            var json = JsonConvert.SerializeObject(input);
+            var acitionUri = "PutAPIURLHere,e.g.https://api.datamarket.azure.com/..../v1/Score";
+            var httpClient = new HttpClient();
+    
+            httpClient.DefaultRequestHeaders.Authorization = CreateBasicHeader("PutEmailAddressHere", "ChangeToAPIKey");
+            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+    
+            var response = httpClient.PostAsync(acitionUri, new StringContent(json));
+            var result = response.Result.Content;
+            var scoreResult = result.ReadAsStringAsync().Result;
+    }
 
 
 
@@ -183,19 +183,19 @@ There are multiple ways of consuming the service in an automated fashion (exampl
     dataset1 <- maml.mapInputPort(1) # class: data.frame
     param = dataset1
     if (param$p < 0 ) {
-	print('Bad input: p must be between 0 and 1')
-	param$p = 0
+    print('Bad input: p must be between 0 and 1')
+    param$p = 0
     } else if (param$p > 1) {
-	print('Bad input: p must be between 0 and 1')
-	param$p = 1
+    print('Bad input: p must be between 0 and 1')
+    param$p = 1
     }
 
     if (param$prob < 0 ) {
-	print('Bad input: prob must be between 0 and 1')
-	param$prob = 0
+    print('Bad input: prob must be between 0 and 1')
+    param$prob = 0
     } else if (param$prob > 1) {
-	print('Bad input: prob must be between 0 and 1')
-	param$prob = 1
+    print('Bad input: prob must be between 0 and 1')
+    param$prob = 1
     }
 
     quantile = qbinom(param$p,size=param$size,prob=param$prob)
@@ -203,18 +203,18 @@ There are multiple ways of consuming the service in an automated fashion (exampl
     quantile
 
     if (param$side == 'U'){
-	quantile = qbinom(param$p,size=param$size,prob=param$prob,lower.tail = F)
-	band=subset(df,x>quantile)
+    quantile = qbinom(param$p,size=param$size,prob=param$prob,lower.tail = F)
+    band=subset(df,x>quantile)
     } else if (param$side =='L') {
-	quantile = qbinom(param$p,size=param$size,prob=param$prob,lower.tail = T)
-	band=subset(df,x<=quantile)
+    quantile = qbinom(param$p,size=param$size,prob=param$prob,lower.tail = T)
+    band=subset(df,x<=quantile)
     } else {
-	print("Invalid side choice")
+    print("Invalid side choice")
     }
 
     output = as.data.frame(quantile)
     
-	# Select data.frame to be sent to the output Dataset port
+    # Select data.frame to be sent to the output Dataset port
     maml.mapOutputPort("output");
 
 
@@ -238,21 +238,21 @@ There are multiple ways of consuming the service in an automated fashion (exampl
     prob
 
     if (param$side == 'U'){
-	prob = 1 - prob
-	band=subset(df,x>param$q)
+    prob = 1 - prob
+    band=subset(df,x>param$q)
     } else if (param$side =='E') {
-	prob = prob.eq
-	band=subset(df,x==param$q)
+    prob = prob.eq
+    band=subset(df,x==param$q)
     } else if (param$side =='L') {
-	prob = prob
-	band=subset(df,x<=param$q)
+    prob = prob
+    band=subset(df,x<=param$q)
     } else {
-	print("Invalid side choice")
+    print("Invalid side choice")
     }
 
     output = as.data.frame(prob)
     
-	# Select data.frame to be sent to the output Dataset port
+    # Select data.frame to be sent to the output Dataset port
     maml.mapOutputPort("output");
 
 ###Binomial Distribution Generator
@@ -272,7 +272,7 @@ There are multiple ways of consuming the service in an automated fashion (exampl
 
     output = as.data.frame(t(dist))
     
-	# Select data.frame to be sent to the output Dataset port
+    # Select data.frame to be sent to the output Dataset port
     maml.mapOutputPort("output");
 
 ##Limitations 
@@ -294,3 +294,4 @@ For frequently asked questions on consumption of the web service or publishing t
 
 [6]: ./media/machine-learning-r-csharp-binomial-distribution/binomial_6.png
  
+

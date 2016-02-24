@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Update the Azure Resource Group project PowerShell script | Microsoft Azure"
-	description="Describes the steps needed to manually update the PowerShell script that comes with an Azure Resource Group deployment project."
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tlee" />
+    pageTitle="Update the Azure Resource Group project PowerShell script | Microsoft Azure"
+    description="Describes the steps needed to manually update the PowerShell script that comes with an Azure Resource Group deployment project."
+    services="visual-studio-online"
+    documentationCenter="na"
+    authors="kempb"
+    manager="douge"
+    editor="tlee" />
 
  <tags
-	ms.service="azure-resource-manager"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="11/20/2015"
-	ms.author="kempb" />
+    ms.service="azure-resource-manager"
+    ms.devlang="multiple"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="11/20/2015"
+    ms.author="kempb" />
 
 # Update the Azure Resource Group project PowerShell script
 
@@ -30,7 +30,7 @@ After installing the new Azure PowerShell, problems can manifest in two ways in 
 
 - If you run the script outside of Visual Studio in the PowerShell command window, you may get the error:
 
-	*The term 'Switch-AzureMode' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.*
+    *The term 'Switch-AzureMode' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.*
 
 If the new Azure PowerShell prevents you from deploying your Azure Resource Group project, here are the following options to fix it.
 
@@ -43,72 +43,72 @@ These instructions refer to line numbers. To enable line numbering in Visual Stu
 
 1. In line 61, replace the following code:
 
-	```
-	if ($StorageAccountResourceGroupName) {
-	        Switch-AzureMode AzureResourceManager
-	        $StorageAccountKey = (Get-AzureStorageAccountKey -ResourceGroupName $StorageAccountResourceGroupName -Name $StorageAccountName).Key1
-	    }
-	    else {
-	        Switch-AzureMode AzureServiceManagement
-	        $StorageAccountKey = (Get-AzureStorageKey -StorageAccountName $StorageAccountName).Primary
-	    }
-	$StorageAccountContext = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
-	```
+    ```
+    if ($StorageAccountResourceGroupName) {
+            Switch-AzureMode AzureResourceManager
+            $StorageAccountKey = (Get-AzureStorageAccountKey -ResourceGroupName $StorageAccountResourceGroupName -Name $StorageAccountName).Key1
+        }
+        else {
+            Switch-AzureMode AzureServiceManagement
+            $StorageAccountKey = (Get-AzureStorageKey -StorageAccountName $StorageAccountName).Primary
+        }
+    $StorageAccountContext = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+    ```
 
-	with:
+    with:
 
-	```
-	$StorageAccountKey = (Get-AzureRMStorageAccountKey -ResourceGroupName $StorageAccountResourceGroupName -Name $StorageAccountName).Key1
-	$StorageAccountContext = (Get-AzureRmStorageAccount -ResourceGroupName $StorageAccountResourceGroupName -Name $StorageAccountName).Context
-	```
+    ```
+    $StorageAccountKey = (Get-AzureRMStorageAccountKey -ResourceGroupName $StorageAccountResourceGroupName -Name $StorageAccountName).Key1
+    $StorageAccountContext = (Get-AzureRmStorageAccount -ResourceGroupName $StorageAccountResourceGroupName -Name $StorageAccountName).Context
+    ```
 
 1. In line 87, replace the following code:
 
-	```
-	$ArtifactsLocationSasToken = New-AzureStorageContainerSASToken -Container $StorageContainerName -Context $StorageAccountContext -Permission are
-	```
+    ```
+    $ArtifactsLocationSasToken = New-AzureStorageContainerSASToken -Container $StorageContainerName -Context $StorageAccountContext -Permission are
+    ```
 
-	with:
+    with:
 
-	```
-	$ArtifactsLocationSasToken = New-AzureRMStorageContainerSASToken -Container $StorageContainerName -Context $StorageAccountContext -Permission r -ExpiryTime (Get-Date).AddHours(4)
-	```
+    ```
+    $ArtifactsLocationSasToken = New-AzureRMStorageContainerSASToken -Container $StorageContainerName -Context $StorageAccountContext -Permission r -ExpiryTime (Get-Date).AddHours(4)
+    ```
 1. In line 95, replace this code:
 
-	```
-	Switch-AzureMode AzureResourceManager
-	New-AzureResourceGroup
-		-Name $ResourceGroupName `
-		-Location $ResourceGroupLocation `
-		-TemplateFile $TemplateFile `
-		-TemplateParameterFile $TemplateParametersFile `
-		@OptionalParameters `
-		-Force –Verbose
-	```
+    ```
+    Switch-AzureMode AzureResourceManager
+    New-AzureResourceGroup
+        -Name $ResourceGroupName `
+        -Location $ResourceGroupLocation `
+        -TemplateFile $TemplateFile `
+        -TemplateParameterFile $TemplateParametersFile `
+        @OptionalParameters `
+        -Force –Verbose
+    ```
 
-	with the following code:
+    with the following code:
 
-	```
-	New-AzureRMResourceGroup `
-		-Name $ResourceGroupName `
-		-Location $ResourceGroupLocation `
-		-Verbose -Force -ErrorAction Stop
+    ```
+    New-AzureRMResourceGroup `
+        -Name $ResourceGroupName `
+        -Location $ResourceGroupLocation `
+        -Verbose -Force -ErrorAction Stop
 
-	Test-AzureRmResourceGroupDeployment `
-		-ResourceGroupName $ResourceGroupName `
-		-TemplateFile $TemplateFile `
-		-TemplateParameterFile $TemplateParametersFile `
-		@OptionalParameters `
-		-ErrorAction Stop 	
+    Test-AzureRmResourceGroupDeployment `
+        -ResourceGroupName $ResourceGroupName `
+        -TemplateFile $TemplateFile `
+        -TemplateParameterFile $TemplateParametersFile `
+        @OptionalParameters `
+        -ErrorAction Stop   
 
-	New-AzureRMResourceGroupDeployment
-		-Name ((Get-ChildItem $TemplateFile).BaseName + '-' + ((Get-Date).ToUniversalTime()).ToString('MMdd-HHmm')) `
-	    -ResourceGroupName $ResourceGroupName `
-	    -TemplateFile $TemplateFile `
-	    -TemplateParameterFile $TemplateParametersFile `
-	    @OptionalParameters `
-		-Verbose -Force
-	```
+    New-AzureRMResourceGroupDeployment
+        -Name ((Get-ChildItem $TemplateFile).BaseName + '-' + ((Get-Date).ToUniversalTime()).ToString('MMdd-HHmm')) `
+        -ResourceGroupName $ResourceGroupName `
+        -TemplateFile $TemplateFile `
+        -TemplateParameterFile $TemplateParametersFile `
+        @OptionalParameters `
+        -Verbose -Force
+    ```
 
 ## Updated script
 The following is the modified script with all of the previously mentioned updates made.
@@ -208,23 +208,23 @@ if ($UploadArtifacts) {
 
 # Create or update the resource group using the specified template file and template parameters file
 New-AzureRMResourceGroup `
-	-Name $ResourceGroupName `
-	-Location $ResourceGroupLocation `
-	-Verbose -Force -ErrorAction Stop
+    -Name $ResourceGroupName `
+    -Location $ResourceGroupLocation `
+    -Verbose -Force -ErrorAction Stop
 
 Test-AzureRmResourceGroupDeployment `
-	-ResourceGroupName $ResourceGroupName `
-	-TemplateFile $TemplateFile `
-	-TemplateParameterFile $TemplateParametersFile `
-	@OptionalParameters `
-	-ErrorAction Stop 	
-
-New-AzureRMResourceGroupDeployment `
-	-Name ((Get-ChildItem $TemplateFile).BaseName + '-' + ((Get-Date).ToUniversalTime()).ToString('MMdd-HHmm')) `
     -ResourceGroupName $ResourceGroupName `
     -TemplateFile $TemplateFile `
     -TemplateParameterFile $TemplateParametersFile `
     @OptionalParameters `
-	-Verbose -Force
+    -ErrorAction Stop   
+
+New-AzureRMResourceGroupDeployment `
+    -Name ((Get-ChildItem $TemplateFile).BaseName + '-' + ((Get-Date).ToUniversalTime()).ToString('MMdd-HHmm')) `
+    -ResourceGroupName $ResourceGroupName `
+    -TemplateFile $TemplateFile `
+    -TemplateParameterFile $TemplateParametersFile `
+    @OptionalParameters `
+    -Verbose -Force
 
 ```

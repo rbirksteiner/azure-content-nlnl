@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Manage experiment iterations in Machine Learning Studio | Microsoft Azure"
-	description="How to manage experiment iterations in Azure Machine Learning Studio"
-	services="machine-learning"
-	documentationCenter=""
-	authors="garyericson"
-	manager="paulettm"
-	editor="cgronlun"/>
+    pageTitle="Manage experiment iterations in Machine Learning Studio | Microsoft Azure"
+    description="How to manage experiment iterations in Azure Machine Learning Studio"
+    services="machine-learning"
+    documentationCenter=""
+    authors="garyericson"
+    manager="paulettm"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/15/2015"
-	ms.author="garye"/>
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/15/2015"
+    ms.author="garye"/>
 
 # Manage experiment iterations in Azure Machine Learning Studio
 
@@ -83,3 +83,4 @@ You can now continue to modify and run this version of your experiment, building
 
 <!-- Module References -->
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
+

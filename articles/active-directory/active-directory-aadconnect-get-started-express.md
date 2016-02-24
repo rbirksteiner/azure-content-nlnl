@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure AD Connect: Getting Started using express settings | Microsoft Azure"
-	description="Learn how to download, install and run the setup wizard for Azure AD Connect."
-	services="active-directory"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
-	editor="curtand"/>
+    pageTitle="Azure AD Connect: Getting Started using express settings | Microsoft Azure"
+    description="Learn how to download, install and run the setup wizard for Azure AD Connect."
+    services="active-directory"
+    documentationCenter=""
+    authors="billmath"
+    manager="stevenpo"
+    editor="curtand"/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/13/2015"
-	ms.author="billmath;andkjell"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/13/2015"
+    ms.author="billmath;andkjell"/>
 
 # Getting started with Azure AD Connect using express settings
 The following documentation will help you get started with Azure Active Directory Connect. This documentation deals with using the express installation for Azure AD Connect.  
@@ -48,8 +48,8 @@ Selecting Express Settings is the default option and is one of the most common s
 6. On the Connect to AD DS screen enter the username and password for an enterprise admin account.  Click **Next**.
 ![Welcome to Azure AD Connect](./media/active-directory-aadconnect-get-started/install4.png)
 7. On the Ready to configure screen, click **Install**.
-	- Optionally on the Ready to Configure page, you can un-check the “**Start the synchronization process as soon as configuration completes**” checkbox.  If you do this, the wizard will configure sync but will leave the task disabled so it will not run until you enable it manually in the Task Scheduler.  Once the task is enabled, synchronization will run every three hours.
-	- Also optionally you can choose to configure sync services for **Exchange Hybrid deployment** by checking the corresponding checkbox.  If you don’t plan to have Exchange mailboxes both in the cloud and on premises, you do not need this.
+    - Optionally on the Ready to Configure page, you can un-check the “**Start the synchronization process as soon as configuration completes**” checkbox.  If you do this, the wizard will configure sync but will leave the task disabled so it will not run until you enable it manually in the Task Scheduler.  Once the task is enabled, synchronization will run every three hours.
+    - Also optionally you can choose to configure sync services for **Exchange Hybrid deployment** by checking the corresponding checkbox.  If you don’t plan to have Exchange mailboxes both in the cloud and on premises, you do not need this.
 ![Welcome to Azure AD Connect](./media/active-directory-aadconnect-get-started/readyinstall.png)<br>
 8. Once the installation completes, click **Exit**.
 9. After the installation has completed, Logoff and Login again before you use Synchronization Service Manager or Synchronization Rule Editor.
@@ -66,3 +66,4 @@ For a video on using the express installation check out the following:
 Now that you have Azure AD Connect installed you can [verify the installation and assign licenses](active-directory-aadconnect-whats-next.md).
 
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
+

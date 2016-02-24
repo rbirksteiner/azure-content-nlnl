@@ -1,20 +1,20 @@
 <properties
-	pageTitle="How to work with the Node.js backend server SDK for Mobile Apps | Azure App Service"
-	description="Learn how to work with the Node.js backend server SDK for Azure App Service Mobile Apps."
-	services="app-service\mobile"
-	documentationCenter=""
-	authors="adrianhall"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="How to work with the Node.js backend server SDK for Mobile Apps | Azure App Service"
+    description="Learn how to work with the Node.js backend server SDK for Azure App Service Mobile Apps."
+    services="app-service\mobile"
+    documentationCenter=""
+    authors="adrianhall"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-multiple"
-	ms.devlang="node"
-	ms.topic="article"
-	ms.date="12/02/2015"
-	ms.author="adrianhall"/>
+    ms.service="app-service-mobile"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-multiple"
+    ms.devlang="node"
+    ms.topic="article"
+    ms.date="12/02/2015"
+    ms.author="adrianhall"/>
 
 # How to use the Azure Mobile Apps Node.js SDK
 
@@ -64,20 +64,20 @@ available for Node.js.  You can create a basic [Express] application as follows:
 
 4. Create an app.js file to implement the basic mobile server.
 
-		var express = require('express'),
-			azureMobileApps = require('azure-mobile-apps');
+        var express = require('express'),
+            azureMobileApps = require('azure-mobile-apps');
 
-		var app = express(),
-			mobile = azureMobileApps();
+        var app = express(),
+            mobile = azureMobileApps();
 
-		// Define a TodoItem table
-		mobile.tables.add('TodoItem');
+        // Define a TodoItem table
+        mobile.tables.add('TodoItem');
 
-		// Add the mobile API so it is accessible as a Web API
-		app.use(mobile);
+        // Add the mobile API so it is accessible as a Web API
+        app.use(mobile);
 
-		// Start listening on HTTP
-		app.listen(process.env.PORT || 3000);
+        // Start listening on HTTP
+        app.listen(process.env.PORT || 3000);
 
 This application creates a simple mobile-optimized WebAPI with a single endpoint (`/tables/TodoItem`) that provides
 unauthenticated access to an underlying SQL data store using a dynamic schema.  It is suitable for following the
@@ -105,7 +105,7 @@ Visual Studio 2015 requires an extension to develop Node.js applications within 
 
 4. Fill in the project name.  Click on *OK*.
 
-	![Visual Studio 2015 New Project][1]
+    ![Visual Studio 2015 New Project][1]
 
 5. Right-click on the **npm** node and select **Install New npm packages...**.
 
@@ -113,7 +113,7 @@ Visual Studio 2015 requires an extension to develop Node.js applications within 
 
 7. Enter _azure-mobile-apps_ in the search box.  Click on the **azure-mobile-apps 2.0.0** package, then click on **Install Package**.
 
-	![Install New npm packages][2]
+    ![Install New npm packages][2]
 
 8. Click on **Close**.
 
@@ -147,16 +147,16 @@ When you create a new Node.js Mobile App backend by using the portal **Quick sta
 
 4.  Execute the `git clone` command in a Git-aware command-line tool using the Git clone URL, entering your password when required, as in the following example:
 
-		$ git clone https://username@todolist.scm.azurewebsites.net:443/todolist.git
+        $ git clone https://username@todolist.scm.azurewebsites.net:443/todolist.git
 
 5. Browse to local directory, which in the above example is /todolist, and notice that project files have been downloaded. In the /tables subfolder you will find a todoitem.json file, which defines permissions on the table, and todoitem.js file, which defines that CRUD operation scripts for the table.
 
 6. After you have made changes to project files, execute the following commands to add, commit, then upload the changes to the site:
 
-		$ git commit -m "updated the table script"
-		$ git push origin master
+        $ git commit -m "updated the table script"
+        $ git push origin master
 
-	When you add new files to the project, you first need to execute the `git add .` command.
+    When you add new files to the project, you first need to execute the `git add .` command.
 
 The site is republished every time a new set of commits is pushed to the site.
 
@@ -194,7 +194,7 @@ Extending the basic-app, the app.js file would be adjusted:
         azureMobileApps = require('azure-mobile-apps');
 
     var app = express(),
-	    mobile = azureMobileApps();
+        mobile = azureMobileApps();
 
     // Define the database schema that is exposed
     mobile.tables.import('./tables');
@@ -268,7 +268,7 @@ require 64 Bit support, the 32 Bit version will consume less memory when running
   5. Click on the **IP Addresses** tab.
   6. Find the **IPAll** node.  In the **TCP Port** field, enter **1433**.
 
-	 	 ![Configure SQL Express for TCP/IP][3]
+         ![Configure SQL Express for TCP/IP][3]
   7. Click on **OK**.  Click on **OK** in the pop-up dialog.
   8. Click on **SQL Server Services** in the left hand tree menu.
   9. Right-click on **SQL Server (SQLEXPRESS)** and select **Restart**
@@ -281,14 +281,14 @@ require 64 Bit support, the 32 Bit version will consume less memory when running
   3. Ensure the **SQL Server and Windows Authentication mode** is selected
   4. Click on **OK**
 
-  		![Configure SQL Express Authentication][4]
+        ![Configure SQL Express Authentication][4]
 
   5. Expand **Security** > **Logins** in the Object Explorer
   6. Right-click on **Logins** and select **New Login...**
   7. Enter a Login name.  Select **SQL Server authentication**.  Enter a Password, then enter the same password in **Confirm password**.  Note that the password must meet Windows complexity requirement.
   8. Click on **OK**
 
-  		![Add a new user to SQL Express][5]
+        ![Add a new user to SQL Express][5]
 
   9. Right-click on your new login and select **Properties**
   10. Select the **Server Roles** page
@@ -387,7 +387,7 @@ Once the Mobile App backend is created, you can choose to either connect an exis
 
 8. Click **Server**.  In the **New server** blade, enter a unique server name in the **Server name** field, and provide a suitable **Server admin login** and **Password**.  Ensure **Allow azure services to access server** is checked.  Click on **OK**.
 
-	![Create an Azure SQL Database][6]
+    ![Create an Azure SQL Database][6]
 
 9. On the **New database** blade, click on **OK**.
 
@@ -484,14 +484,14 @@ will provide this functionality:
 
     // Ensure that only records for the authenticated user are retrieved
     table.read(function (context) {
-		context.query.where({ userId: context.user.id });
-		return context.execute();
-	});
+        context.query.where({ userId: context.user.id });
+        return context.execute();
+    });
 
     // When adding records, add or overwrite the userId with the authenticated user
     table.insert(function (context) {
-	    context.item.userId = context.user.id;
-	    return context.execute();
+        context.item.userId = context.user.id;
+        return context.execute();
     }
 
     module.exports = table;
@@ -513,19 +513,19 @@ Soft Delete does not actually delete records.  Instead it marks them as deleted 
     // Define the columns within the table
     table.columns = {
         "text": "string",
-		"complete": "boolean"
-	};
+        "complete": "boolean"
+    };
 
-	// Turn off dynamic schema
-	table.dynamicSchema = false;
+    // Turn off dynamic schema
+    table.dynamicSchema = false;
 
-	// Turn on Soft Delete
-	table.softDelete = true;
+    // Turn on Soft Delete
+    table.softDelete = true;
 
-	// Require authentication to access the table
-	table.access = 'authenticated';
+    // Require authentication to access the table
+    table.access = 'authenticated';
 
-	module.exports = table;
+    module.exports = table;
 
 You will need to establish a mechanism for purging records - either from a client application, via a WebJob or through a custom mechanism.
 
@@ -534,27 +534,27 @@ You will need to establish a mechanism for purging records - either from a clien
 When creating a new application, you may wish to seed a table with data.  This can be done within the table definition JavaScript file as
 follows:
 
-	var azureMobileApps = require('azure-mobile-apps');
+    var azureMobileApps = require('azure-mobile-apps');
 
-	var table = azureMobileApps.table();
+    var table = azureMobileApps.table();
 
-	// Define the columns within the table
-	table.columns = {
-		"text": "string",
-		"complete": "boolean"
-	};
-	table.seed = [
-		{ text: 'Example 1', complete: false },
-		{ text: 'Example 2', complete: true }
-	];
+    // Define the columns within the table
+    table.columns = {
+        "text": "string",
+        "complete": "boolean"
+    };
+    table.seed = [
+        { text: 'Example 1', complete: false },
+        { text: 'Example 2', complete: true }
+    ];
 
-	// Turn off dynamic schema
-	table.dynamicSchema = false;
+    // Turn off dynamic schema
+    table.dynamicSchema = false;
 
-	// Require authentication to access the table
-	table.access = 'authenticated';
+    // Require authentication to access the table
+    table.access = 'authenticated';
 
-	module.exports = table;
+    module.exports = table;
 
 It is important to note that seeding of data is only done when the table is created by the Azure Mobile Apps SDK.  If the table already
 exists within the database, no data is injected into the table.  If dynamic schema is turned on, then the schema will be inferred from
@@ -586,31 +586,31 @@ Custom APIs are defined in much the same way as the Tables API.
 
 Here is the prototype api definition based on the basic-app sample we used earlier.
 
-	var express = require('express'),
-		azureMobileApps = require('azure-mobile-apps');
+    var express = require('express'),
+        azureMobileApps = require('azure-mobile-apps');
 
-	var app = express(),
-		mobile = azureMobileApps();
+    var app = express(),
+        mobile = azureMobileApps();
 
-	// Import the Custom API
-	mobile.api.import('./api');
+    // Import the Custom API
+    mobile.api.import('./api');
 
-	// Add the mobile API so it is accessible as a Web API
-	app.use(mobile);
+    // Add the mobile API so it is accessible as a Web API
+    app.use(mobile);
 
-	// Start listening on HTTP
-	app.listen(process.env.PORT || 3000);
+    // Start listening on HTTP
+    app.listen(process.env.PORT || 3000);
 
 Let's take a simple API that will return the server date using the _Date.now()_ method.  Here is the api/date.js file:
 
-	var api = {
-		get: function (req, res, next) {
-			var date = { currentTime: Date.now() };
-			res.status(200).type('application/json').send(date);
-		});
-	};
+    var api = {
+        get: function (req, res, next) {
+            var date = { currentTime: Date.now() };
+            res.status(200).type('application/json').send(date);
+        });
+    };
 
-	module.exports = api;
+    module.exports = api;
 
 Each parameter is one of the standard RESTful verbs - GET, POST, PATCH or DELETE.  The method is a standard [ExpressJS Middleware] function that sends the required output.
 
@@ -618,29 +618,29 @@ Each parameter is one of the standard RESTful verbs - GET, POST, PATCH or DELETE
 
 Azure Mobile Apps SDK implements authentication in the same way for both the tables endpoint and custom APIs.  To add authentication to the API developed in the previous section, add an **access** property:
 
-	var api = {
-		get: function (req, res, next) {
-			var date = { currentTime: Date.now() };
-			res.status(200).type('application/json').send(date);
-		});
-	};
-	// All methods must be authenticated.
-	api.access = 'authenticated';
+    var api = {
+        get: function (req, res, next) {
+            var date = { currentTime: Date.now() };
+            res.status(200).type('application/json').send(date);
+        });
+    };
+    // All methods must be authenticated.
+    api.access = 'authenticated';
 
-	module.exports = api;
+    module.exports = api;
 
 You can also specify authentication on specific operations:
 
-	var api = {
-		get: function (req, res, next) {
-			var date = { currentTime: Date.now() };
-			res.status(200).type('application/json').send(date);
-		});
-	};
-	// The GET methods must be authenticated.
-	api.get.access = 'authenticated';
+    var api = {
+        get: function (req, res, next) {
+            var date = { currentTime: Date.now() };
+            res.status(200).type('application/json').send(date);
+        });
+    };
+    // The GET methods must be authenticated.
+    api.get.access = 'authenticated';
 
-	module.exports = api;
+    module.exports = api;
 
 The same token that is used for the tables endpoint must be used for custom APIs requiring authentication.
 
@@ -690,7 +690,7 @@ The Azure portal lets you edit your Node.js backend script files in Visual Studi
 
 1. In your Mobile App backend blade, click **All settings** > either **Easy tables** or **Easy APIs**, click a table or API, then click **Edit script**. The script file is opened in the Visual Studio Team Services editor.
 
-	![Visual Studio Team Services code editor](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
+    ![Visual Studio Team Services code editor](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
 
 2. Make your changes to the code file in the online editor. Changes are saved automatically as you type.
 
@@ -743,3 +743,4 @@ From the editor, you can also execute the code on the site
 [Microsoft SQL Server 2014 Express]: http://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
+

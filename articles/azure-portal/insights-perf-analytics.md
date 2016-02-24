@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Monitor Azure web app performance" 
-	description="Chart load and response time, dependency information and set alerts on performance." 
-	services="azure-portal"
+    pageTitle="Monitor Azure web app performance" 
+    description="Chart load and response time, dependency information and set alerts on performance." 
+    services="azure-portal"
     documentationCenter="na"
-	authors="alancameronwills" 
-	manager="douge"/>
+    authors="alancameronwills" 
+    manager="douge"/>
 
 <tags 
-	ms.service="azure-portal" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/23/2015" 
-	ms.author="awills"/>
+    ms.service="azure-portal" 
+    ms.workload="na" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/23/2015" 
+    ms.author="awills"/>
 
 # Monitor Azure web app performance
 

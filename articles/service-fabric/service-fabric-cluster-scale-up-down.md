@@ -54,7 +54,7 @@ Removing nodes is a two-step process:
 
   >[AZURE.NOTE] You must maintain a minimum of 5 VMs for the primary Node Type.
 
-	Once that deployment is complete, you will get notified of the VM names that can now be deleted. You now need to navigate to the VM resource and delete it.
+    Once that deployment is complete, you will get notified of the VM names that can now be deleted. You now need to navigate to the VM resource and delete it.
 
 2. Return to the cluster dashboard and click on the Resource Group. It will open up the Resource Group Blade.
 
@@ -80,3 +80,4 @@ This article covered scaling clusters using the portal. However, you can perform
 
 <!--Image references-->
 [BrowseServiceFabricClusterResource]: ./media/service-fabric-cluster-scale-up-down/BrowseServiceFabricClusterResource.png
+

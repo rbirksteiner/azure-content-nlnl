@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure Active Directory hybrid identity design considerations - determine data protection requirements | Microsoft Azure"
-	description="When planning your hybrid identity solution, identify the data protection requirements for your business and which options are available to best fulfil these requirements."
-	documentationCenter=""
-	services="active-directory"
-	authors="yuridio"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Azure Active Directory hybrid identity design considerations - determine data protection requirements | Microsoft Azure"
+    description="When planning your hybrid identity solution, identify the data protection requirements for your business and which options are available to best fulfil these requirements."
+    documentationCenter=""
+    services="active-directory"
+    authors="yuridio"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/11/2015"
-	ms.author="yuridio"/>
+    ms.date="11/11/2015"
+    ms.author="yuridio"/>
 
 #Plan for enhancing data security through strong identity solution
 
@@ -80,4 +80,5 @@ Make sure to take notes of each answer and understand the rationale behind the a
 
 ## See Also
 [Design considerations overview](active-directory-hybrid-identity-design-considerations-directory-overview.md)
+
 

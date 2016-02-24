@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="DocumentDB SQL cheat sheet PDF | Microsoft Azure" 
-	description="A printable SQL cheat sheet PDF that helps you use DocumentDB's SQL syntax to query JSON documents in its NoSQL database." 
-	keywords="sql cheat sheet, sql cheat sheet pdf, sql query cheat sheet"
-	services="documentdb" 
-	documentationCenter="" 
-	authors="mimig1" 
-	manager="jhubbard" 
-	editor="monicar"/>
+    pageTitle="DocumentDB SQL cheat sheet PDF | Microsoft Azure" 
+    description="A printable SQL cheat sheet PDF that helps you use DocumentDB's SQL syntax to query JSON documents in its NoSQL database." 
+    keywords="sql cheat sheet, sql cheat sheet pdf, sql query cheat sheet"
+    services="documentdb" 
+    documentationCenter="" 
+    authors="mimig1" 
+    manager="jhubbard" 
+    editor="monicar"/>
 
 <tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/18/2015" 
-	ms.author="mimig"/>
+    ms.service="documentdb" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/18/2015" 
+    ms.author="mimig"/>
 
 # DocumentDB SQL cheat sheet PDF
 
@@ -38,4 +38,5 @@ Write your queries faster by downloading the SQL query cheat sheet and using it 
 
 - For a walk through of the query options available in DocumentDB, see [Query DocumentDB](documentdb-sql-query.md).
 - For the related reference documentation, see [DocumentDB SQL Query Language](https://msdn.microsoft.com/library/azure/dn782250.aspx).
+
 

@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Data Science Virtual machines in Azure | Microsoft Azure"
-	description="Set up a Data Science Virtual Machine"
-	services="machine-learning"
-	documentationCenter=""
-	authors="bradsev"
-	manager="paulettm" 
-	editor="cgronlun"  />
+    pageTitle="Data Science Virtual machines in Azure | Microsoft Azure"
+    description="Set up a Data Science Virtual Machine"
+    services="machine-learning"
+    documentationCenter=""
+    authors="bradsev"
+    manager="paulettm" 
+    editor="cgronlun"  />
 
 <tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/23/2015"
-	ms.author="mohabib;xibingao;bradsev" />
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/23/2015"
+    ms.author="mohabib;xibingao;bradsev" />
 
 # Data Science Virtual machines in Azure
 

@@ -90,9 +90,9 @@ We could have created the request message, stored that in a variable until the r
 The policy to send the response HTTP message looks very similar to the request and so the complete policy configuration looks like this:
 
       <policies>
-      	<inbound>
-      		<set-variable name="message-id" value="@(Guid.NewGuid())" />
-      		<log-to-eventhub logger-id="conferencelogger" partition-id="0">
+        <inbound>
+            <set-variable name="message-id" value="@(Guid.NewGuid())" />
+            <log-to-eventhub logger-id="conferencelogger" partition-id="0">
               @{
                   var requestLine = string.Format("{0} {1} HTTP/1.1\r\n",
                                                               context.Request.Method,
@@ -115,12 +115,12 @@ The policy to send the response HTTP message looks very similar to the request a
                                       + requestLine + headerString + "\r\n" + body;
               }
           </log-to-eventhub>
-      	</inbound>
-      	<backend>
-      		<forward-request follow-redirects="true" />
-      	</backend>
-      	<outbound>
-      		<log-to-eventhub logger-id="conferencelogger" partition-id="1">
+        </inbound>
+        <backend>
+            <forward-request follow-redirects="true" />
+        </backend>
+        <outbound>
+            <log-to-eventhub logger-id="conferencelogger" partition-id="1">
               @{
                   var statusLine = string.Format("HTTP/1.1 {0} {1}\r\n",
                                                       context.Response.StatusCode,
@@ -142,7 +142,7 @@ The policy to send the response HTTP message looks very similar to the request a
                                       + statusLine + headerString + "\r\n" + body;
              }
           </log-to-eventhub>
-      	</outbound>
+        </outbound>
       </policies>
 
 The `set-variable` policy creates a value that is accessible by both the `log-to-eventhub` policy in the `<inbound>` section and the `<outbound>` section.  
@@ -259,12 +259,12 @@ In the following animated image, you can see a request being made to an API in t
 Azure API Management service provides an ideal place to capture the HTTP traffic travelling to and from your APIs. Azure Event Hubs is a highly scalable, low cost solution for capturing that traffic and feeding it into secondary processing systems for logging, monitoring and other sophisticated analytics. Connecting to 3rd party traffic monitoring systems like Runscope is a simple as a few dozen lines of code.
 
 ## Next steps
--	Learn more about Azure Event Hubs
-	-	[Get started with Azure Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-	-	[Receive messages with EventProcessorHost](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost)
-	-	[Event Hubs programming guide](../event-hubs/event-hubs-programming-guide.md)
--	Learn more about API Management and Event Hubs integration
-	-	[How to log events to Azure Event Hubs in Azure API Management](api-management-howto-log-event-hubs.md)
-	-	[Logger entity reference](https://msdn.microsoft.com/library/azure/mt592020.aspx)
-	-	[log-to-eventhub policy reference](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
-	
+-   Learn more about Azure Event Hubs
+    -   [Get started with Azure Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+    -   [Receive messages with EventProcessorHost](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost)
+    -   [Event Hubs programming guide](../event-hubs/event-hubs-programming-guide.md)
+-   Learn more about API Management and Event Hubs integration
+    -   [How to log events to Azure Event Hubs in Azure API Management](api-management-howto-log-event-hubs.md)
+    -   [Logger entity reference](https://msdn.microsoft.com/library/azure/mt592020.aspx)
+    -   [log-to-eventhub policy reference](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
+    

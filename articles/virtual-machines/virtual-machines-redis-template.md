@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Redis Cluster Resource Manager Template"
-	description="Learn to easily deploy a new Redis cluster on Ubuntu VMs using Azure PowerShell or the Azure CLI and a Resource Manager template"
-	services="virtual-machines"
-	documentationCenter=""
-	authors="timwieman"
-	manager="timlt"
-	editor="tysonn"
-	tags="azure-resource-manager"/>
+    pageTitle="Redis Cluster Resource Manager Template"
+    description="Learn to easily deploy a new Redis cluster on Ubuntu VMs using Azure PowerShell or the Azure CLI and a Resource Manager template"
+    services="virtual-machines"
+    documentationCenter=""
+    authors="timwieman"
+    manager="timlt"
+    editor="tysonn"
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="05/04/2015"
-	ms.author="twieman"/>
+    ms.service="virtual-machines"
+    ms.workload="multiple"
+    ms.tgt_pltfrm="vm-windows"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="05/04/2015"
+    ms.author="twieman"/>
 
 # Redis cluster with a Resource Manager template
 
@@ -110,103 +110,103 @@ Look for the "parameters" section at the top of the file, which lists the set of
 
 ```json
 "parameters": {
-	"adminUsername": {
-		"type": "string",
-		"metadata": {
-			"Description": "Administrator user name used when provisioning virtual machines"
-		}
-	},
-	"adminPassword": {
-		"type": "securestring",
-		"metadata": {
-			"Description": "Administrator password used when provisioning virtual machines"
-		}
-	},
-	"storageAccountName": {
-		"type": "string",
-		"defaultValue": "",
-		"metadata": {
-			"Description": "Unique namespace for the Storage account where the virtual machine's disks will be placed"
-		}
-	},
-	"location": {
-		"type": "string",
-		"metadata": {
-			"Description": "Location where resources will be provisioned"
-		}
-	},
-	"virtualNetworkName": {
-		"type": "string",
-		"defaultValue": "redisVirtNet",
-		"metadata": {
-			"Description": "The arbitrary name of the virtual network provisioned for the Redis cluster"
-		}
-	},
-	"addressPrefix": {
-		"type": "string",
-		"defaultValue": "10.0.0.0/16",
-		"metadata": {
-			"Description": "The network address space for the virtual network"
-		}
-	},
-	"subnetName": {
-		"type": "string",
-		"defaultValue": "redisSubnet1",
-		"metadata": {
-			"Description": "Subnet name for the virtual network that resources will be provisioned into"
-		}
-	},
-	"subnetPrefix": {
-		"type": "string",
-		"defaultValue": "10.0.0.0/24",
-		"metadata": {
-			"Description": "Address space for the virtual network subnet"
-		}
-	},
-	"nodeAddressPrefix": {
-		"type": "string",
-		"defaultValue": "10.0.0.1",
-		"metadata": {
-			"Description": "The IP address prefix that will be used for constructing a static private IP address for each node in the cluster"
-		}
-	},
-	"jumpbox": {
-		"type": "string",
-		"defaultValue": "Disabled",
-		"allowedValues": [
-			"Enabled",
-			"Disabled"
-		],
-		"metadata": {
-			"Description": "The flag allowing to enable or disable provisioning of the jump-box VM that can be used to access the Redis nodes"
-		}
-	},
-	"tshirtSize": {
-		"type": "string",
-		"defaultValue": "Small",
-		"allowedValues": [
-			"Small",
-			"Medium",
-			"Large"
-		],
-		"metadata": {
-			"Description": "T-shirt size of the Redis deployment"
-		}
-	},
-	"redisVersion": {
-		"type": "string",
-		"defaultValue": "stable",
-		"metadata": {
-			"Description": "The version of the Redis package to be deployed on the cluster (or use 'stable' to pull in the latest and greatest)"
-		}
-	},
-	"redisClusterName": {
-		"type": "string",
-		"defaultValue": "redis-cluster",
-		"metadata": {
-			"Description": "The arbitrary name of the Redis cluster"
-		}
-	}
+    "adminUsername": {
+        "type": "string",
+        "metadata": {
+            "Description": "Administrator user name used when provisioning virtual machines"
+        }
+    },
+    "adminPassword": {
+        "type": "securestring",
+        "metadata": {
+            "Description": "Administrator password used when provisioning virtual machines"
+        }
+    },
+    "storageAccountName": {
+        "type": "string",
+        "defaultValue": "",
+        "metadata": {
+            "Description": "Unique namespace for the Storage account where the virtual machine's disks will be placed"
+        }
+    },
+    "location": {
+        "type": "string",
+        "metadata": {
+            "Description": "Location where resources will be provisioned"
+        }
+    },
+    "virtualNetworkName": {
+        "type": "string",
+        "defaultValue": "redisVirtNet",
+        "metadata": {
+            "Description": "The arbitrary name of the virtual network provisioned for the Redis cluster"
+        }
+    },
+    "addressPrefix": {
+        "type": "string",
+        "defaultValue": "10.0.0.0/16",
+        "metadata": {
+            "Description": "The network address space for the virtual network"
+        }
+    },
+    "subnetName": {
+        "type": "string",
+        "defaultValue": "redisSubnet1",
+        "metadata": {
+            "Description": "Subnet name for the virtual network that resources will be provisioned into"
+        }
+    },
+    "subnetPrefix": {
+        "type": "string",
+        "defaultValue": "10.0.0.0/24",
+        "metadata": {
+            "Description": "Address space for the virtual network subnet"
+        }
+    },
+    "nodeAddressPrefix": {
+        "type": "string",
+        "defaultValue": "10.0.0.1",
+        "metadata": {
+            "Description": "The IP address prefix that will be used for constructing a static private IP address for each node in the cluster"
+        }
+    },
+    "jumpbox": {
+        "type": "string",
+        "defaultValue": "Disabled",
+        "allowedValues": [
+            "Enabled",
+            "Disabled"
+        ],
+        "metadata": {
+            "Description": "The flag allowing to enable or disable provisioning of the jump-box VM that can be used to access the Redis nodes"
+        }
+    },
+    "tshirtSize": {
+        "type": "string",
+        "defaultValue": "Small",
+        "allowedValues": [
+            "Small",
+            "Medium",
+            "Large"
+        ],
+        "metadata": {
+            "Description": "T-shirt size of the Redis deployment"
+        }
+    },
+    "redisVersion": {
+        "type": "string",
+        "defaultValue": "stable",
+        "metadata": {
+            "Description": "The version of the Redis package to be deployed on the cluster (or use 'stable' to pull in the latest and greatest)"
+        }
+    },
+    "redisClusterName": {
+        "type": "string",
+        "defaultValue": "redis-cluster",
+        "metadata": {
+            "Description": "The arbitrary name of the Redis cluster"
+        }
+    }
 },
 ```
 
@@ -220,45 +220,45 @@ Here is an example you can find in the azuredeploy-parameters.json file.  Note t
 
 ```json
 {
-	"storageAccountName": {
-		"value": "redisdeploy1"
-	},
-	"adminUsername": {
-		"value": ""
-	},
-	"adminPassword": {
-		"value": ""
-	},
-	"location": {
-		"value": "West US"
-	},
-	"virtualNetworkName": {
-		"value": "redisClustVnet"
-	},
-	"subnetName": {
-		"value": "Subnet1"
-	},
-	"addressPrefix": {
-		"value": "10.0.0.0/16"
-	},
-	"subnetPrefix": {
-		"value": "10.0.0.0/24"
-	},
-	"nodeAddressPrefix": {
-		"value": "10.0.0.1"
-	},
-	"redisVersion": {
-		"value": "3.0.0"
-	},
-	"redisClusterName": {
-		"value": "redis-arm-cluster"
-	},
-	"jumpbox": {
-		"value": "Enabled"
-	},
-	"tshirtSize":  {
-		"value": "Small"
-	}
+    "storageAccountName": {
+        "value": "redisdeploy1"
+    },
+    "adminUsername": {
+        "value": ""
+    },
+    "adminPassword": {
+        "value": ""
+    },
+    "location": {
+        "value": "West US"
+    },
+    "virtualNetworkName": {
+        "value": "redisClustVnet"
+    },
+    "subnetName": {
+        "value": "Subnet1"
+    },
+    "addressPrefix": {
+        "value": "10.0.0.0/16"
+    },
+    "subnetPrefix": {
+        "value": "10.0.0.0/24"
+    },
+    "nodeAddressPrefix": {
+        "value": "10.0.0.1"
+    },
+    "redisVersion": {
+        "value": "3.0.0"
+    },
+    "redisClusterName": {
+        "value": "redis-arm-cluster"
+    },
+    "jumpbox": {
+        "value": "Enabled"
+    },
+    "tshirtSize":  {
+        "value": "Small"
+    }
 }
 ```
 
@@ -287,40 +287,40 @@ When deploying, please keep in mind that a new Azure Storage account needs to be
 
 During the deployment, you will see something like this:
 
-	PS C:\> New-AzureResourceGroup –Name $RGName –Location $locName
+    PS C:\> New-AzureResourceGroup –Name $RGName –Location $locName
 
-	ResourceGroupName : TestRG
-	Location          : westus
-	ProvisioningState : Succeeded
-	Tags              :
-	Permissions       :
+    ResourceGroupName : TestRG
+    Location          : westus
+    ProvisioningState : Succeeded
+    Tags              :
+    Permissions       :
                     Actions  NotActions
                     =======  ==========
                     *
 
-	ResourceId        : /subscriptions/1234abc1-abc1-1234-12a1-ab1ab12345ab/resourceGroups/TestRG
+    ResourceId        : /subscriptions/1234abc1-abc1-1234-12a1-ab1ab12345ab/resourceGroups/TestRG
 
-	PS C:\> New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateParameterFile $templateParameterFile -TemplateFile $templateFile
-	VERBOSE: 2:39:10 PM - Template is valid.
-	VERBOSE: 2:39:14 PM - Create template deployment 'TestDeployment'.
-	VERBOSE: 2:39:25 PM - Resource Microsoft.Resources/deployments 'shared-resources' provisioning status is running
-	VERBOSE: 2:40:04 PM - Resource Microsoft.Resources/deployments 'node-resources0' provisioning status is running
-	VERBOSE: 2:40:05 PM - Resource Microsoft.Resources/deployments 'jumpbox-resources' provisioning status is running
-	VERBOSE: 2:40:05 PM - Resource Microsoft.Resources/deployments 'node-resources1' provisioning status is running
-	VERBOSE: 2:40:05 PM - Resource Microsoft.Resources/deployments 'shared-resources' provisioning status is succeeded
-	VERBOSE: 2:42:23 PM - Resource Microsoft.Resources/deployments 'jumpbox-resources' provisioning status is succeeded
-	VERBOSE: 2:47:44 PM - Resource Microsoft.Resources/deployments 'node-resources1' provisioning status is succeeded
-	VERBOSE: 2:47:57 PM - Resource Microsoft.Resources/deployments 'node-resources0' provisioning status is succeeded
-	VERBOSE: 2:48:01 PM - Resource Microsoft.Resources/deployments 'lastnode-resources' provisioning status is running
-	VERBOSE: 2:58:24 PM - Resource Microsoft.Resources/deployments 'lastnode-resources' provisioning status is succeeded
+    PS C:\> New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateParameterFile $templateParameterFile -TemplateFile $templateFile
+    VERBOSE: 2:39:10 PM - Template is valid.
+    VERBOSE: 2:39:14 PM - Create template deployment 'TestDeployment'.
+    VERBOSE: 2:39:25 PM - Resource Microsoft.Resources/deployments 'shared-resources' provisioning status is running
+    VERBOSE: 2:40:04 PM - Resource Microsoft.Resources/deployments 'node-resources0' provisioning status is running
+    VERBOSE: 2:40:05 PM - Resource Microsoft.Resources/deployments 'jumpbox-resources' provisioning status is running
+    VERBOSE: 2:40:05 PM - Resource Microsoft.Resources/deployments 'node-resources1' provisioning status is running
+    VERBOSE: 2:40:05 PM - Resource Microsoft.Resources/deployments 'shared-resources' provisioning status is succeeded
+    VERBOSE: 2:42:23 PM - Resource Microsoft.Resources/deployments 'jumpbox-resources' provisioning status is succeeded
+    VERBOSE: 2:47:44 PM - Resource Microsoft.Resources/deployments 'node-resources1' provisioning status is succeeded
+    VERBOSE: 2:47:57 PM - Resource Microsoft.Resources/deployments 'node-resources0' provisioning status is succeeded
+    VERBOSE: 2:48:01 PM - Resource Microsoft.Resources/deployments 'lastnode-resources' provisioning status is running
+    VERBOSE: 2:58:24 PM - Resource Microsoft.Resources/deployments 'lastnode-resources' provisioning status is succeeded
 
-	DeploymentName    : TestDeployment
-	ResourceGroupName : TestRG
-	ProvisioningState : Succeeded
-	Timestamp         : 4/28/2015 7:58:23 PM
-	Mode              : Incremental
-	TemplateLink      :
-	Parameters        :
+    DeploymentName    : TestDeployment
+    ResourceGroupName : TestRG
+    ProvisioningState : Succeeded
+    Timestamp         : 4/28/2015 7:58:23 PM
+    Mode              : Incremental
+    TemplateLink      :
+    Parameters        :
                     Name             Type                       Value
                     ===============  =========================  ==========
                     adminUsername    String                     myadmin
@@ -337,14 +337,14 @@ During the deployment, you will see something like this:
                     redisVersion     String                     3.0.0
                     redisClusterName  String                     redis-arm-cluster
 
-	Outputs           :
+    Outputs           :
                     Name             Type                       Value
                     ===============  =========================  ==========
                     installCommand   String                     bash redis-cluster-install.sh -n redis-arm-cluster -v
                     3.0.0 -c 3 -m 3 -s 0 -p 10.0.0.1
                     setupCommand     String                     bash redis-cluster-install.sh -n redis-arm-cluster -v
                     3.0.0 -c 3 -m 3 -s 0 -p 10.0.0.1 -l
-	...
+    ...
 
 During and after deployment, you can check all the requests that were made during provisioning, including any errors that occurred.
 
@@ -411,16 +411,16 @@ Here is an example of a parameter for the “t-shirt size”:
 
 ```json
 "tshirtSize": {
-	"type": "string",
-	"defaultValue": "Small",
-	"allowedValues": [
-		"Small",
-		"Medium",
-		"Large"
-	],
-	"metadata": {
-		"Description": "T-shirt size of the Redis deployment"
-	}
+    "type": "string",
+    "defaultValue": "Small",
+    "allowedValues": [
+        "Small",
+        "Medium",
+        "Large"
+    ],
+    "metadata": {
+        "Description": "T-shirt size of the Redis deployment"
+    }
 },
 ```
 
@@ -436,24 +436,24 @@ The "variables" section specifies variables that can be used throughout this tem
 "vnetID": "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
 ...
 "machineSettings": {
-	"adminUsername": "[parameters('adminUsername')]",
-	"machineNamePrefix": "redisnode-",
-	"osImageReference": {
-		"publisher": "[variables('osFamilyUbuntu').imagePublisher]",
-		"offer": "[variables('osFamilyUbuntu').imageOffer]",
-		"sku": "[variables('osFamilyUbuntu').imageSKU]",
-		"version": "latest"
-	}
+    "adminUsername": "[parameters('adminUsername')]",
+    "machineNamePrefix": "redisnode-",
+    "osImageReference": {
+        "publisher": "[variables('osFamilyUbuntu').imagePublisher]",
+        "offer": "[variables('osFamilyUbuntu').imageOffer]",
+        "sku": "[variables('osFamilyUbuntu').imageSKU]",
+        "version": "latest"
+    }
 },
 ...
 "vmScripts": {
-	"scriptsToDownload": [
-		"[concat(variables('scriptUrl'), 'redis-cluster-install.sh')]",
-		"[concat(variables('scriptUrl'), 'redis-cluster-setup.sh')]",
-		"[concat(variables('scriptUrl'), 'redis-sentinel-startup.sh')]"
-	],
-	"installCommand": "[concat('bash ', variables('installCommand'))]",
-	"setupCommand": "[concat('bash ', variables('installCommand'), ' -l')]"
+    "scriptsToDownload": [
+        "[concat(variables('scriptUrl'), 'redis-cluster-install.sh')]",
+        "[concat(variables('scriptUrl'), 'redis-cluster-setup.sh')]",
+        "[concat(variables('scriptUrl'), 'redis-sentinel-startup.sh')]"
+    ],
+    "installCommand": "[concat('bash ', variables('installCommand'))]",
+    "setupCommand": "[concat('bash ', variables('installCommand'), ' -l')]"
 }
 ```
 
@@ -463,29 +463,29 @@ If you want to customize the size of the Redis Cluster deployment, then you can 
 
 ```json
 "tshirtSizeSmall": {
-	"vmSizeMember": "Standard_A1",
-	"numberOfMasters": 3,
-	"numberOfSlaves": 0,
-	"totalMemberCount": 3,
-	"totalMemberCountExcludingLast": 2,
-	"vmTemplate": "[concat(variables('templateBaseUrl'), 'node-resources.json')]"
+    "vmSizeMember": "Standard_A1",
+    "numberOfMasters": 3,
+    "numberOfSlaves": 0,
+    "totalMemberCount": 3,
+    "totalMemberCountExcludingLast": 2,
+    "vmTemplate": "[concat(variables('templateBaseUrl'), 'node-resources.json')]"
 },
 "tshirtSizeMedium": {
-	"vmSizeMember": "Standard_A2",
-	"numberOfMasters": 3,
-	"numberOfSlaves": 3,
-	"totalMemberCount": 6,
-	"totalMemberCountExcludingLast": 5,
-	"vmTemplate": "[concat(variables('templateBaseUrl'), 'node-resources.json')]"
+    "vmSizeMember": "Standard_A2",
+    "numberOfMasters": 3,
+    "numberOfSlaves": 3,
+    "totalMemberCount": 6,
+    "totalMemberCountExcludingLast": 5,
+    "vmTemplate": "[concat(variables('templateBaseUrl'), 'node-resources.json')]"
 },
 "tshirtSizeLarge": {
-	"vmSizeMember": "Standard_A5",
-	"numberOfMasters": 3,
-	"numberOfSlaves": 6,
-	"totalMemberCount": 9,
-	"totalMemberCountExcludingLast": 8,
-	"arbiter": "Enabled",
-	"vmTemplate": "[concat(variables('templateBaseUrl'), 'node-resources.json')]"
+    "vmSizeMember": "Standard_A5",
+    "numberOfMasters": 3,
+    "numberOfSlaves": 6,
+    "totalMemberCount": 9,
+    "totalMemberCountExcludingLast": 8,
+    "arbiter": "Enabled",
+    "vmTemplate": "[concat(variables('templateBaseUrl'), 'node-resources.json')]"
 },
 ```
 
@@ -588,44 +588,44 @@ As was previously mentioned, the last node needs to wait for provisioning until 
 
 ```json
 {
-	"name": "lastnode-resources",
-	"type": "Microsoft.Resources/deployments",
-	"apiVersion": "2015-01-01",
-	"dependsOn": [
-		"memberNodesLoop"
-	],
-	"properties": {
-		"mode": "Incremental",
-		"templateLink": {
-			"uri": "[variables('clusterSpec').vmTemplate]",
-			"contentVersion": "1.0.0.0"
-		},
-		"parameters": {
-			"commonSettings": {
-				"value": "[variables('commonSettings')]"
-			},
-			"storageSettings": {
-				"value": "[variables('storageSettings')]"
-			},
-			"networkSettings": {
-				"value": "[variables('networkSettings')]"
-			},
-			"machineSettings": {
-				"value": {
-					"adminUsername": "[variables('machineSettings').adminUsername]",
-					"machineNamePrefix": "[variables('machineSettings').machineNamePrefix]",
-					"osImageReference": "[variables('machineSettings').osImageReference]",
-					"vmSize": "[variables('clusterSpec').vmSizeMember]",
-					"machineIndex": "[variables('clusterSpec').totalMemberCountExcludingLast]",
-					"vmScripts": "[variables('vmScripts').scriptsToDownload]",
-					"commandToExecute": "[concat(variables('vmScripts').setupCommand, ' -i ', variables('clusterSpec').totalMemberCountExcludingLast)]"
-				}
-			},
-			"adminPassword": {
-				"value": "[parameters('adminPassword')]"
-			}
-		}
-	}
+    "name": "lastnode-resources",
+    "type": "Microsoft.Resources/deployments",
+    "apiVersion": "2015-01-01",
+    "dependsOn": [
+        "memberNodesLoop"
+    ],
+    "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+            "uri": "[variables('clusterSpec').vmTemplate]",
+            "contentVersion": "1.0.0.0"
+        },
+        "parameters": {
+            "commonSettings": {
+                "value": "[variables('commonSettings')]"
+            },
+            "storageSettings": {
+                "value": "[variables('storageSettings')]"
+            },
+            "networkSettings": {
+                "value": "[variables('networkSettings')]"
+            },
+            "machineSettings": {
+                "value": {
+                    "adminUsername": "[variables('machineSettings').adminUsername]",
+                    "machineNamePrefix": "[variables('machineSettings').machineNamePrefix]",
+                    "osImageReference": "[variables('machineSettings').osImageReference]",
+                    "vmSize": "[variables('clusterSpec').vmSizeMember]",
+                    "machineIndex": "[variables('clusterSpec').totalMemberCountExcludingLast]",
+                    "vmScripts": "[variables('vmScripts').scriptsToDownload]",
+                    "commandToExecute": "[concat(variables('vmScripts').setupCommand, ' -i ', variables('clusterSpec').totalMemberCountExcludingLast)]"
+                }
+            },
+            "adminPassword": {
+                "value": "[parameters('adminPassword')]"
+            }
+        }
+    }
 }
 ```
 
@@ -669,3 +669,4 @@ In essence, this approach suggests to:
 - For all post-deployment tasks (product installation, configurations, etc.), leverage script deployment extensions and create scripts specific to each technology.
 
 For more information, see [Azure Resource Manager Template Language](../resource-group-authoring-templates.md).
+

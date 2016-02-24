@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Spark on Ubuntu Resource Manager Template | Microsoft Azure"
-	description="How to deploy a new Spark cluster on Ubuntu VMs using Azure PowerShell or the Azure CLI and a Resource Manager template"
-	services="virtual-machines"
-	documentationCenter=""
-	authors="paolosalvatori"
-	manager="timlt"
-	editor="tysonn"
-	tags="azure-resource-manager"/>
+    pageTitle="Spark on Ubuntu Resource Manager Template | Microsoft Azure"
+    description="How to deploy a new Spark cluster on Ubuntu VMs using Azure PowerShell or the Azure CLI and a Resource Manager template"
+    services="virtual-machines"
+    documentationCenter=""
+    authors="paolosalvatori"
+    manager="timlt"
+    editor="tysonn"
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-linux"
-	ms.workload="multiple"
-	ms.date="05/16/2015"
-	ms.author="paolosalvatori"/>
+    ms.service="virtual-machines"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="vm-linux"
+    ms.workload="multiple"
+    ms.date="05/16/2015"
+    ms.author="paolosalvatori"/>
 
 # Spark on Ubuntu with a Resource Manager template
 
@@ -40,12 +40,12 @@ Newly deployed clusters based on this template will have the topology described 
 
 As shown in the above image, the deployment topology consists of the following elements:
 
--	A new storage account hosting the OS disk of newly created virtual machines.
--	A virtual network with a subnet. All the virtual machines created by the template are provisioned inside this virtual network.
--	An availability set for master and slave nodes.
--	A master node in the newly created availability set.
--	Four slave nodes running in the same virtual subnet and availability set as the master node.
--	A jump-box VM located in the same virtual network and subnet that can be used to access the cluster.
+-   A new storage account hosting the OS disk of newly created virtual machines.
+-   A virtual network with a subnet. All the virtual machines created by the template are provisioned inside this virtual network.
+-   An availability set for master and slave nodes.
+-   A master node in the newly created availability set.
+-   Four slave nodes running in the same virtual subnet and availability set as the master node.
+-   A jump-box VM located in the same virtual network and subnet that can be used to access the cluster.
 
 Spark version 3.0.0 is the default version and can be changed to any pre-built binaries available on the Spark repository. There is also a provision in the script to uncomment the build from source. A static IP address will be assigned to each Spark master node: 10.0.0.10. A static IP address will be assigned to each Spark slave node in order to work around the current limitation of not being able to dynamically compose a list of IP addresses from within the template. (By default, the first node will be assigned the private IP address of 10.0.0.30, the second node will be assigned 10.0.0.31, and so on.) To check deployment errors, go to the Azure portal and look under **Resource Group** > **Last deployment** > **Check Operation Details**.
 
@@ -93,7 +93,7 @@ foreach ($file in $files)
 
 Clone the entire template repository by using a Git client of your choice, for example:
 
-	git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
+    git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 
 When the cloning is completed, look for the **spark-on-ubuntu** folder in your C:\Azure\Templates directory.
 
@@ -105,138 +105,138 @@ In the "parameters" section at the top of the azuredeploy.json file, you'll find
 
 ```json
 "parameters": {
-	"adminUsername": {
-		"type": "string",
-		"metadata": {
-			"Description": "Administrator user name used when provisioning virtual machines"
-		}
-	},
-	"adminPassword": {
-		"type": "securestring",
-		"metadata": {
-			"Description": "Administrator password used when provisioning virtual machines"
-		}
-	},
-	"imagePublisher": {
-		"type": "string",
-		"defaultValue": "Canonical",
-		"metadata": {
-			"Description": "Image publisher"
-		}
-	},
-	"imageOffer": {
-		"type": "string",
-		"defaultValue": "UbuntuServer",
-		"metadata": {
-			"Description": "Image offer"
-		}
-	},
-	"imageSKU": {
-		"type": "string",
-		"defaultValue": "14.04.2-LTS",
-		"metadata": {
-			"Description": "Image SKU"
-		}
-	},
-	"storageAccountName": {
-		"type": "string",
-		"defaultValue": "uniquesparkstoragev12",
-		"metadata": {
-			"Description": "Unique namespace for the Storage account where the virtual machine's disks will be placed"
-		}
-	},
-	"region": {
-		"type": "string",
-		"defaultValue": "West US",
-		"metadata": {
-			"Description": "Location where resources will be provisioned"
-		}
-	},
-	"virtualNetworkName": {
-		"type": "string",
-		"defaultValue": "myVNETspark",
-		"metadata": {
-			"Description": "The arbitrary name of the virtual network provisioned for the cluster"
-		}
-	},
-	"dataDiskSize": {
-		"type": "int",
-		"defaultValue": 100,
-		"metadata": {
-			"Description": "Size of the data disk attached to Spark nodes (in GB)"
-		}
-	},
-	"addressPrefix": {
-		"type": "string",
-		"defaultValue": "10.0.0.0/16",
-		"metadata": {
-			"Description": "The network address space for the virtual network"
-		}
-	},
-	"subnetName": {
-		"type": "string",
-		"defaultValue": "Subnet-1",
-		"metadata": {
-			"Description": "Subnet name for the virtual network that resources will be provisioned into"
-		}
-	},
-	"subnetPrefix": {
-		"type": "string",
-		"defaultValue": "10.0.0.0/24",
-		"metadata": {
-			"Description": "Address space for the virtual network subnet"
-		}
-	},
-	"sparkVersion": {
-		"type": "string",
-		"defaultValue": "stable",
-		"metadata": {
-			"Description": "The version of the Spark package to be deployed on the cluster (or use 'stable' to pull in the latest and greatest)"
-		}
-	},
-	"sparkClusterName": {
-		"type": "string",
-		"metadata": {
-			"Description": "The arbitrary name of the Spark cluster (maps to cluster's configuration file name)"
-		}
-	},
-	"sparkNodeIPAddressPrefix": {
-		"type": "string",
-		"defaultValue": "10.0.0.1",
-		"metadata": {
-			"Description": "The IP address prefix that will be used for constructing a static private IP address for each node in the cluster"
-		}
-	},
-	"sparkSlaveNodeIPAddressPrefix": {
-		"type": "string",
-		"defaultValue": "10.0.0.3",
-		"metadata": {
-			"Description": "The IP address prefix that will be used for constructing a static private IP address for each node in the cluster"
-		}
-	},
-	"jumpbox": {
-		"type": "string",
-		"defaultValue": "enabled",
-		"allowedValues": [
-		"enabled",
-		"disabled"
-		],
-		"metadata": {
-			"Description": "The flag allowing to enable or disable provisioning of the jump-box VM that can be used to access the Spark nodes"
-		}
-	},
-	"tshirtSize": {
-		"type": "string",
-		"defaultValue": "S",
-		"allowedValues": [
-		"S",
-		"M",
-		"L"
-		],
-		"metadata": {
-			"Description": "T-shirt size of the Spark cluster"
-		}
-	}
+    "adminUsername": {
+        "type": "string",
+        "metadata": {
+            "Description": "Administrator user name used when provisioning virtual machines"
+        }
+    },
+    "adminPassword": {
+        "type": "securestring",
+        "metadata": {
+            "Description": "Administrator password used when provisioning virtual machines"
+        }
+    },
+    "imagePublisher": {
+        "type": "string",
+        "defaultValue": "Canonical",
+        "metadata": {
+            "Description": "Image publisher"
+        }
+    },
+    "imageOffer": {
+        "type": "string",
+        "defaultValue": "UbuntuServer",
+        "metadata": {
+            "Description": "Image offer"
+        }
+    },
+    "imageSKU": {
+        "type": "string",
+        "defaultValue": "14.04.2-LTS",
+        "metadata": {
+            "Description": "Image SKU"
+        }
+    },
+    "storageAccountName": {
+        "type": "string",
+        "defaultValue": "uniquesparkstoragev12",
+        "metadata": {
+            "Description": "Unique namespace for the Storage account where the virtual machine's disks will be placed"
+        }
+    },
+    "region": {
+        "type": "string",
+        "defaultValue": "West US",
+        "metadata": {
+            "Description": "Location where resources will be provisioned"
+        }
+    },
+    "virtualNetworkName": {
+        "type": "string",
+        "defaultValue": "myVNETspark",
+        "metadata": {
+            "Description": "The arbitrary name of the virtual network provisioned for the cluster"
+        }
+    },
+    "dataDiskSize": {
+        "type": "int",
+        "defaultValue": 100,
+        "metadata": {
+            "Description": "Size of the data disk attached to Spark nodes (in GB)"
+        }
+    },
+    "addressPrefix": {
+        "type": "string",
+        "defaultValue": "10.0.0.0/16",
+        "metadata": {
+            "Description": "The network address space for the virtual network"
+        }
+    },
+    "subnetName": {
+        "type": "string",
+        "defaultValue": "Subnet-1",
+        "metadata": {
+            "Description": "Subnet name for the virtual network that resources will be provisioned into"
+        }
+    },
+    "subnetPrefix": {
+        "type": "string",
+        "defaultValue": "10.0.0.0/24",
+        "metadata": {
+            "Description": "Address space for the virtual network subnet"
+        }
+    },
+    "sparkVersion": {
+        "type": "string",
+        "defaultValue": "stable",
+        "metadata": {
+            "Description": "The version of the Spark package to be deployed on the cluster (or use 'stable' to pull in the latest and greatest)"
+        }
+    },
+    "sparkClusterName": {
+        "type": "string",
+        "metadata": {
+            "Description": "The arbitrary name of the Spark cluster (maps to cluster's configuration file name)"
+        }
+    },
+    "sparkNodeIPAddressPrefix": {
+        "type": "string",
+        "defaultValue": "10.0.0.1",
+        "metadata": {
+            "Description": "The IP address prefix that will be used for constructing a static private IP address for each node in the cluster"
+        }
+    },
+    "sparkSlaveNodeIPAddressPrefix": {
+        "type": "string",
+        "defaultValue": "10.0.0.3",
+        "metadata": {
+            "Description": "The IP address prefix that will be used for constructing a static private IP address for each node in the cluster"
+        }
+    },
+    "jumpbox": {
+        "type": "string",
+        "defaultValue": "enabled",
+        "allowedValues": [
+        "enabled",
+        "disabled"
+        ],
+        "metadata": {
+            "Description": "The flag allowing to enable or disable provisioning of the jump-box VM that can be used to access the Spark nodes"
+        }
+    },
+    "tshirtSize": {
+        "type": "string",
+        "defaultValue": "S",
+        "allowedValues": [
+        "S",
+        "M",
+        "L"
+        ],
+        "metadata": {
+            "Description": "T-shirt size of the Spark cluster"
+        }
+    }
 }
 ```
 
@@ -281,7 +281,7 @@ Here is an example set of parameters from the azuredeploy-parameters.json file. 
     "value": "spark-arm-cluster"
   },
   "sparkNodeIPAddressPrefix": {
-		"value": "10.0.0.1"
+        "value": "10.0.0.1"
   },
   "sparkSlaveNodeIPAddressPrefix": {
     "value": "10.0.0.3"
@@ -369,7 +369,7 @@ Parameters        :
                     region           String                     West US
                     virtualNetworkName  String                  sparkClustVnet
                     addressPrefix    String                     10.0.0.0/16
-										subnetName       String                     Subnet1
+                                        subnetName       String                     Subnet1
                     subnetPrefix     String                     10.0.0.0/24
                     sparkVersion     String                     3.0.0
                     sparkClusterName  String                    spark-arm-cluster
@@ -400,15 +400,15 @@ Remove-AzureResourceGroup -Name "<resource group name>" -Force
 
 To deploy a Spark cluster via the Azure CLI, first create a resource group by specifying a name and a location:
 
-	azure group create SparkResourceGroup "West US"
+    azure group create SparkResourceGroup "West US"
 
 Pass this resource group name, the location of the JSON template file, and the location of the parameters file (see the above Azure PowerShell section for details) into the following command:
 
-	azure group deployment create SparkResourceGroup -f .\azuredeploy.json -e .\azuredeploy-parameters.json
+    azure group deployment create SparkResourceGroup -f .\azuredeploy.json -e .\azuredeploy-parameters.json
 
 You can check the status of individual resources deployments by using the following command:
 
-	azure group deployment list SparkResourceGroup
+    azure group deployment list SparkResourceGroup
 
 ## A tour of the Spark template structure and file organization
 
@@ -461,32 +461,32 @@ The "variables" section specifies variables that can be used throughout this tem
 
 ```json
 "variables": {
-	"vmStorageAccountContainerName": "vhd",
-	"vnetID": "[resourceId('Microsoft.Network/virtualNetworks',parameters('virtualNetworkName'))]",
-	"subnetRef": "[concat(variables('vnetID'),'/subnets/',parameters('subnetName'))]",
-	"computerNamePrefix": "sparknode",
-	"scriptUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/spark-on-ubuntu/",
-	"templateUrl": "[variables('scriptUrl')]",
-	"sharedTemplateName": "shared-resources",
-	"jumpboxTemplateName": "jumpbox-resources-",
-	"tshirtSizeS": {
-		"numberOfMasterInstances": 1,
-		"numberOfSlavesInstances" : 1,
-		"vmSize": "Standard_A2"
-	},
-	"tshirtSizeM": {
-		"numberOfMasterInstances": 1,
-		"numberOfSlavesInstances" : 4,
-		"vmSize": "Standard_A4"
-	},
-	"tshirtSizeL": {
-		"numberOfMasterInstances": 1,
-		"numberOfSlavesInstances" : 6,
-		"vmSize": "Standard_A7"
-	},
-	"numberOfMasterInstances": "[variables(concat('tshirtSize', parameters('tshirtSize'))).numberOfMasterInstances]",
-	"numberOfSlavesInstances": "[variables(concat('tshirtSize', parameters('tshirtSize'))).numberOfSlavesInstances]",
-	"vmSize": "[variables(concat('tshirtSize', parameters('tshirtSize'))).vmSize]"
+    "vmStorageAccountContainerName": "vhd",
+    "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',parameters('virtualNetworkName'))]",
+    "subnetRef": "[concat(variables('vnetID'),'/subnets/',parameters('subnetName'))]",
+    "computerNamePrefix": "sparknode",
+    "scriptUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/spark-on-ubuntu/",
+    "templateUrl": "[variables('scriptUrl')]",
+    "sharedTemplateName": "shared-resources",
+    "jumpboxTemplateName": "jumpbox-resources-",
+    "tshirtSizeS": {
+        "numberOfMasterInstances": 1,
+        "numberOfSlavesInstances" : 1,
+        "vmSize": "Standard_A2"
+    },
+    "tshirtSizeM": {
+        "numberOfMasterInstances": 1,
+        "numberOfSlavesInstances" : 4,
+        "vmSize": "Standard_A4"
+    },
+    "tshirtSizeL": {
+        "numberOfMasterInstances": 1,
+        "numberOfSlavesInstances" : 6,
+        "vmSize": "Standard_A7"
+    },
+    "numberOfMasterInstances": "[variables(concat('tshirtSize', parameters('tshirtSize'))).numberOfMasterInstances]",
+    "numberOfSlavesInstances": "[variables(concat('tshirtSize', parameters('tshirtSize'))).numberOfSlavesInstances]",
+    "vmSize": "[variables(concat('tshirtSize', parameters('tshirtSize'))).vmSize]"
 },
 ```
 
@@ -504,36 +504,36 @@ The "resources" section is where most of the action happens. Looking carefully i
 ```json
 "resources": [
 {
-	"name": "shared-resources",
-	"type": "Microsoft.Resources/deployments",
-	"apiVersion": "2015-01-01",
-	"properties": {
-		"mode": "Incremental",
-		"templateLink": {
-			"uri": "[concat(variables('templateUrl'), variables('sharedTemplateName'), '.json')]",
-			"contentVersion": "1.0.0.0"
-		},
-		"parameters": {
-			"region": {
-				"value": "[parameters('region')]"
-			},
-			"storageAccountName": {
-				"value": "[parameters('storageAccountName')]"
-			},
-			"virtualNetworkName": {
-				"value": "[parameters('virtualNetworkName')]"
-			},
-			"addressPrefix": {
-				"value": "[parameters('addressPrefix')]"
-			},
-			"subnetName": {
-				"value": "[parameters('subnetName')]"
-			},
-			"subnetPrefix": {
-				"value": "[parameters('subnetPrefix')]"
-			}
-		}
-	}
+    "name": "shared-resources",
+    "type": "Microsoft.Resources/deployments",
+    "apiVersion": "2015-01-01",
+    "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+            "uri": "[concat(variables('templateUrl'), variables('sharedTemplateName'), '.json')]",
+            "contentVersion": "1.0.0.0"
+        },
+        "parameters": {
+            "region": {
+                "value": "[parameters('region')]"
+            },
+            "storageAccountName": {
+                "value": "[parameters('storageAccountName')]"
+            },
+            "virtualNetworkName": {
+                "value": "[parameters('virtualNetworkName')]"
+            },
+            "addressPrefix": {
+                "value": "[parameters('addressPrefix')]"
+            },
+            "subnetName": {
+                "value": "[parameters('subnetName')]"
+            },
+            "subnetPrefix": {
+                "value": "[parameters('subnetPrefix')]"
+            }
+        }
+    }
 },
 ```
 
@@ -541,8 +541,8 @@ From this first example, it is clear how azuredeploy.json in this scenario has b
 
 In particular, the following linked templates will be used for this deployment:
 
--	**shared-resource.json**: contains the definition of all resources that will be shared across the deployment. Examples are Storage accounts used to store a VM's OS disks and virtual networks.
--	**jumpbox-resources-enabled.json**: deploys the "jump box" VM and all related resources, such as network interface, public IP address, and the input endpoint used to SSH into the environment.
+-   **shared-resource.json**: contains the definition of all resources that will be shared across the deployment. Examples are Storage accounts used to store a VM's OS disks and virtual networks.
+-   **jumpbox-resources-enabled.json**: deploys the "jump box" VM and all related resources, such as network interface, public IP address, and the input endpoint used to SSH into the environment.
 
 After invoking these two templates, azuredeploy.json provisions all Spark cluster node VMs and connected resources (network adapters, private IPs, etc.). This template will also deploy VM extensions (custom scripts for Linux) and invoke a bash script (spark-cluster-install.sh) to physically install and set up Spark on each node.  
 
@@ -552,216 +552,216 @@ A resource that uses the **copy** element will "copy" itself for the number of t
 
 ```json
 {
-	"apiVersion": "2015-05-01-preview",
-	"type": "Microsoft.Network/networkInterfaces",
-	"name": "[concat('nic', copyindex())]",
-	"location": "[parameters('region')]",
-	"copy": {
-		"name": "nicLoop",
-		"count": "[variables('numberOfMasterInstances')]"
-	},
-	"dependsOn": [
-	"[concat('Microsoft.Resources/deployments/', 'shared-resources')]"
-	],
-	"properties": {
-		"ipConfigurations": [
-		{
-			"name": "ipconfig1",
-			"properties": {
-				"privateIPAllocationMethod": "Static",
-				"privateIPAddress": "[concat(parameters('sparkNodeIPAddressPrefix'), copyindex())]",
-				"subnet": {
-					"id": "[variables('subnetRef')]"
-				}
-			}
-		}
-		]
-	}
+    "apiVersion": "2015-05-01-preview",
+    "type": "Microsoft.Network/networkInterfaces",
+    "name": "[concat('nic', copyindex())]",
+    "location": "[parameters('region')]",
+    "copy": {
+        "name": "nicLoop",
+        "count": "[variables('numberOfMasterInstances')]"
+    },
+    "dependsOn": [
+    "[concat('Microsoft.Resources/deployments/', 'shared-resources')]"
+    ],
+    "properties": {
+        "ipConfigurations": [
+        {
+            "name": "ipconfig1",
+            "properties": {
+                "privateIPAllocationMethod": "Static",
+                "privateIPAddress": "[concat(parameters('sparkNodeIPAddressPrefix'), copyindex())]",
+                "subnet": {
+                    "id": "[variables('subnetRef')]"
+                }
+            }
+        }
+        ]
+    }
 },
 {
-	"apiVersion": "2015-05-01-preview",
-	"type": "Microsoft.Network/networkInterfaces",
-	"name": "[concat('nicsl', copyindex())]",
-	"location": "[parameters('region')]",
-	"copy": {
-		"name": "nicslLoop",
-		"count": "[variables('numberOfSlavesInstances')]"
-	},
-	"dependsOn": [
-	"[concat('Microsoft.Resources/deployments/', 'shared-resources')]"
-	],
-	"properties": {
-		"ipConfigurations": [
-		{
-			"name": "ipconfig1",
-			"properties": {
-				"privateIPAllocationMethod": "Static",
-				"privateIPAddress": "[concat(parameters('sparkSlaveNodeIPAddressPrefix'), copyindex())]",
-				"subnet": {
-					"id": "[variables('subnetRef')]"
-				}
-			}
-		}
-		]
-	}
+    "apiVersion": "2015-05-01-preview",
+    "type": "Microsoft.Network/networkInterfaces",
+    "name": "[concat('nicsl', copyindex())]",
+    "location": "[parameters('region')]",
+    "copy": {
+        "name": "nicslLoop",
+        "count": "[variables('numberOfSlavesInstances')]"
+    },
+    "dependsOn": [
+    "[concat('Microsoft.Resources/deployments/', 'shared-resources')]"
+    ],
+    "properties": {
+        "ipConfigurations": [
+        {
+            "name": "ipconfig1",
+            "properties": {
+                "privateIPAllocationMethod": "Static",
+                "privateIPAddress": "[concat(parameters('sparkSlaveNodeIPAddressPrefix'), copyindex())]",
+                "subnet": {
+                    "id": "[variables('subnetRef')]"
+                }
+            }
+        }
+        ]
+    }
 },
 {
-	"apiVersion": "2015-05-01-preview",
-	"type": "Microsoft.Compute/virtualMachines",
-	"name": "[concat('mastervm', copyindex())]",
-	"location": "[parameters('region')]",
-	"copy": {
-		"name": "virtualMachineLoopMaster",
-		"count": "[variables('numberOfMasterInstances')]"
-	},
-	"dependsOn": [
-	"[concat('Microsoft.Resources/deployments/', 'shared-resources')]",
-	"[concat('Microsoft.Network/networkInterfaces/', 'nic', copyindex())]"
-	],
-	"properties": {
-		"availabilitySet": {
-			"id": "[resourceId('Microsoft.Compute/availabilitySets', 'sparkCluserAS')]"
-		},
-		"hardwareProfile": {
-			"vmSize": "[variables('vmSize')]"
-		},
-		"osProfile": {
-			"computername": "[concat(variables('computerNamePrefix'), copyIndex())]",
-			"adminUsername": "[parameters('adminUsername')]",
-			"adminPassword": "[parameters('adminPassword')]",
-			"linuxConfiguration": {
-				"disablePasswordAuthentication": "false"
-			}
-		},
-		"storageProfile": {
-			"imageReference": {
-				"publisher": "[parameters('imagePublisher')]",
-				"offer": "[parameters('imageOffer')]",
-				"sku" : "[parameters('imageSKU')]",
-				"version":"latest"
-			},
-			"osDisk" : {
-				"name": "osdisk",
-				"vhd": {
-					"uri": "[concat('https://',parameters('storageAccountName'),'.blob.core.windows.net/',variables('vmStorageAccountContainerName'),'/','osdisk', copyindex() ,'.vhd')]"
-					},
-					"caching": "ReadWrite",
-					"createOption": "FromImage"
-				}
-			},
-			"networkProfile": {
-				"networkInterfaces": [
-				{
-					"id": "[resourceId('Microsoft.Network/networkInterfaces',concat('nic', copyindex()))]"
-				}
-				]
-			}
-		}
-	},
-	{
-		"apiVersion": "2015-05-01-preview",
-		"type": "Microsoft.Compute/virtualMachines",
-		"name": "[concat('slavevm', copyindex())]",
-		"location": "[parameters('region')]",
-		"copy": {
-			"name": "virtualMachineLoop",
-			"count": "[variables('numberOfSlavesInstances')]"
-		},
-		"dependsOn": [
-		"[concat('Microsoft.Resources/deployments/', 'shared-resources')]",
-		"[concat('Microsoft.Network/networkInterfaces/', 'nicsl', copyindex())]",
-		"virtualMachineLoopMaster"
-		],
-		"properties": {
-			"availabilitySet": {
-				"id": "[resourceId('Microsoft.Compute/availabilitySets', 'sparkCluserAS')]"
-			},
-			"hardwareProfile": {
-				"vmSize": "[variables('vmSize')]"
-			},
-			"osProfile": {
-				"computername": "[concat(variables('computerNamePrefix'),'sl', copyIndex())]",
-				"adminUsername": "[parameters('adminUsername')]",
-				"adminPassword": "[parameters('adminPassword')]",
-				"linuxConfiguration": {
-					"disablePasswordAuthentication": "false"
-				}
-			},
-			"storageProfile": {
-				"imageReference": {
-					"publisher": "[parameters('imagePublisher')]",
-					"offer": "[parameters('imageOffer')]",
-					"sku" : "[parameters('imageSKU')]",
-					"version":"latest"
-				},
-				"osDisk" : {
-					"name": "osdisksl",
-					"vhd": {
-						"uri": "[concat('https://',parameters('storageAccountName'),'.blob.core.windows.net/',variables('vmStorageAccountContainerName'),'/','osdisksl', copyindex() ,'.vhd')]"
-					},
-					"caching": "ReadWrite",
-					"createOption": "FromImage"
-				}
-			},
-			"networkProfile": {
-				"networkInterfaces": [
-				{
-					"id": "[resourceId('Microsoft.Network/networkInterfaces',concat('nicsl', copyindex()))]"
-				}
-				]
-			}
-		}
-	},
-	{
-		"type": "Microsoft.Compute/virtualMachines/extensions",
-		"name": "[concat('mastervm', copyindex(), '/installsparkmaster')]",
-		"apiVersion": "2015-05-01-preview",
-		"location": "[parameters('region')]",
-		"copy": {
-			"name": "virtualMachineExtensionsLoopMaster",
-			"count": "[variables('numberOfMasterInstances')]"
-		},
-		"dependsOn": [
-		"[concat('Microsoft.Compute/virtualMachines/', 'mastervm', copyindex())]",
-		"[concat('Microsoft.Network/networkInterfaces/', 'nic', copyindex())]"
-		],
-		"properties": {
-			"publisher": "Microsoft.OSTCExtensions",
-			"type": "CustomScriptForLinux",
-			"typeHandlerVersion": "1.2",
-			"settings": {
-				"fileUris": [
-				"[concat(variables('scriptUrl'), 'spark-cluster-install.sh')]"
-				],
-				"commandToExecute": "[concat('bash spark-cluster-install.sh -k ',parameters('sparkVersion'),' -d ', reference('nic0').ipConfigurations[0].properties.privateIPAddress,' -s ',variables('numberOfSlavesInstances'),' -m ', ' 1 ')]"
-			}
-		}
-	},
-	{
-		"type": "Microsoft.Compute/virtualMachines/extensions",
-		"name": "[concat('slavevm', copyindex(), '/installsparkslave')]",
-		"apiVersion": "2015-05-01-preview",
-		"location": "[parameters('region')]",
-		"copy": {
-			"name": "virtualMachineExtensionsLoopSlave",
-			"count": "[variables('numberOfSlavesInstances')]"
-		},
-		"dependsOn": [
-		"[concat('Microsoft.Compute/virtualMachines/', 'slavevm', copyindex())]",
-		"[concat('Microsoft.Network/networkInterfaces/', 'nicsl', copyindex())]"
-		],
-		"properties": {
-			"publisher": "Microsoft.OSTCExtensions",
-			"type": "CustomScriptForLinux",
-			"typeHandlerVersion": "1.2",
-			"settings": {
-				"fileUris": [
-				"[concat(variables('scriptUrl'), 'spark-cluster-install.sh')]"
-				],
-				"commandToExecute": "[concat('bash spark-cluster-install.sh -k ',parameters('sparkVersion'),' -m ', ' 0 ')]"
-			}
-		}
-	}
+    "apiVersion": "2015-05-01-preview",
+    "type": "Microsoft.Compute/virtualMachines",
+    "name": "[concat('mastervm', copyindex())]",
+    "location": "[parameters('region')]",
+    "copy": {
+        "name": "virtualMachineLoopMaster",
+        "count": "[variables('numberOfMasterInstances')]"
+    },
+    "dependsOn": [
+    "[concat('Microsoft.Resources/deployments/', 'shared-resources')]",
+    "[concat('Microsoft.Network/networkInterfaces/', 'nic', copyindex())]"
+    ],
+    "properties": {
+        "availabilitySet": {
+            "id": "[resourceId('Microsoft.Compute/availabilitySets', 'sparkCluserAS')]"
+        },
+        "hardwareProfile": {
+            "vmSize": "[variables('vmSize')]"
+        },
+        "osProfile": {
+            "computername": "[concat(variables('computerNamePrefix'), copyIndex())]",
+            "adminUsername": "[parameters('adminUsername')]",
+            "adminPassword": "[parameters('adminPassword')]",
+            "linuxConfiguration": {
+                "disablePasswordAuthentication": "false"
+            }
+        },
+        "storageProfile": {
+            "imageReference": {
+                "publisher": "[parameters('imagePublisher')]",
+                "offer": "[parameters('imageOffer')]",
+                "sku" : "[parameters('imageSKU')]",
+                "version":"latest"
+            },
+            "osDisk" : {
+                "name": "osdisk",
+                "vhd": {
+                    "uri": "[concat('https://',parameters('storageAccountName'),'.blob.core.windows.net/',variables('vmStorageAccountContainerName'),'/','osdisk', copyindex() ,'.vhd')]"
+                    },
+                    "caching": "ReadWrite",
+                    "createOption": "FromImage"
+                }
+            },
+            "networkProfile": {
+                "networkInterfaces": [
+                {
+                    "id": "[resourceId('Microsoft.Network/networkInterfaces',concat('nic', copyindex()))]"
+                }
+                ]
+            }
+        }
+    },
+    {
+        "apiVersion": "2015-05-01-preview",
+        "type": "Microsoft.Compute/virtualMachines",
+        "name": "[concat('slavevm', copyindex())]",
+        "location": "[parameters('region')]",
+        "copy": {
+            "name": "virtualMachineLoop",
+            "count": "[variables('numberOfSlavesInstances')]"
+        },
+        "dependsOn": [
+        "[concat('Microsoft.Resources/deployments/', 'shared-resources')]",
+        "[concat('Microsoft.Network/networkInterfaces/', 'nicsl', copyindex())]",
+        "virtualMachineLoopMaster"
+        ],
+        "properties": {
+            "availabilitySet": {
+                "id": "[resourceId('Microsoft.Compute/availabilitySets', 'sparkCluserAS')]"
+            },
+            "hardwareProfile": {
+                "vmSize": "[variables('vmSize')]"
+            },
+            "osProfile": {
+                "computername": "[concat(variables('computerNamePrefix'),'sl', copyIndex())]",
+                "adminUsername": "[parameters('adminUsername')]",
+                "adminPassword": "[parameters('adminPassword')]",
+                "linuxConfiguration": {
+                    "disablePasswordAuthentication": "false"
+                }
+            },
+            "storageProfile": {
+                "imageReference": {
+                    "publisher": "[parameters('imagePublisher')]",
+                    "offer": "[parameters('imageOffer')]",
+                    "sku" : "[parameters('imageSKU')]",
+                    "version":"latest"
+                },
+                "osDisk" : {
+                    "name": "osdisksl",
+                    "vhd": {
+                        "uri": "[concat('https://',parameters('storageAccountName'),'.blob.core.windows.net/',variables('vmStorageAccountContainerName'),'/','osdisksl', copyindex() ,'.vhd')]"
+                    },
+                    "caching": "ReadWrite",
+                    "createOption": "FromImage"
+                }
+            },
+            "networkProfile": {
+                "networkInterfaces": [
+                {
+                    "id": "[resourceId('Microsoft.Network/networkInterfaces',concat('nicsl', copyindex()))]"
+                }
+                ]
+            }
+        }
+    },
+    {
+        "type": "Microsoft.Compute/virtualMachines/extensions",
+        "name": "[concat('mastervm', copyindex(), '/installsparkmaster')]",
+        "apiVersion": "2015-05-01-preview",
+        "location": "[parameters('region')]",
+        "copy": {
+            "name": "virtualMachineExtensionsLoopMaster",
+            "count": "[variables('numberOfMasterInstances')]"
+        },
+        "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/', 'mastervm', copyindex())]",
+        "[concat('Microsoft.Network/networkInterfaces/', 'nic', copyindex())]"
+        ],
+        "properties": {
+            "publisher": "Microsoft.OSTCExtensions",
+            "type": "CustomScriptForLinux",
+            "typeHandlerVersion": "1.2",
+            "settings": {
+                "fileUris": [
+                "[concat(variables('scriptUrl'), 'spark-cluster-install.sh')]"
+                ],
+                "commandToExecute": "[concat('bash spark-cluster-install.sh -k ',parameters('sparkVersion'),' -d ', reference('nic0').ipConfigurations[0].properties.privateIPAddress,' -s ',variables('numberOfSlavesInstances'),' -m ', ' 1 ')]"
+            }
+        }
+    },
+    {
+        "type": "Microsoft.Compute/virtualMachines/extensions",
+        "name": "[concat('slavevm', copyindex(), '/installsparkslave')]",
+        "apiVersion": "2015-05-01-preview",
+        "location": "[parameters('region')]",
+        "copy": {
+            "name": "virtualMachineExtensionsLoopSlave",
+            "count": "[variables('numberOfSlavesInstances')]"
+        },
+        "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/', 'slavevm', copyindex())]",
+        "[concat('Microsoft.Network/networkInterfaces/', 'nicsl', copyindex())]"
+        ],
+        "properties": {
+            "publisher": "Microsoft.OSTCExtensions",
+            "type": "CustomScriptForLinux",
+            "typeHandlerVersion": "1.2",
+            "settings": {
+                "fileUris": [
+                "[concat(variables('scriptUrl'), 'spark-cluster-install.sh')]"
+                ],
+                "commandToExecute": "[concat('bash spark-cluster-install.sh -k ',parameters('sparkVersion'),' -m ', ' 0 ')]"
+            }
+        }
+    }
 ```
 
 Another important concept in resource creation is the ability to specify dependencies and precedencies between resources, as you can see in the **dependsOn** JSON array. In this particular template, you can see that the Spark cluster nodes are dependent on the shared resources and **networkInterfaces** resources being created first.
@@ -770,54 +770,54 @@ Another interesting fragment to explore is the one related to **CustomScriptForL
 
 ```json
 {
-	"type": "Microsoft.Compute/virtualMachines/extensions",
-	"name": "[concat('mastervm', copyindex(), '/installsparkmaster')]",
-	"apiVersion": "2015-05-01-preview",
-	"location": "[parameters('region')]",
-	"copy": {
-		"name": "virtualMachineExtensionsLoopMaster",
-		"count": "[variables('numberOfMasterInstances')]"
-	},
-	"dependsOn": [
-		"[concat('Microsoft.Compute/virtualMachines/', 'mastervm', copyindex())]",
-		"[concat('Microsoft.Network/networkInterfaces/', 'nic', copyindex())]"
-	],
-	"properties": {
-		"publisher": "Microsoft.OSTCExtensions",
-		"type": "CustomScriptForLinux",
-		"typeHandlerVersion": "1.2",
-		"settings": {
-			"fileUris": [
-				"[concat(variables('scriptUrl'), 'spark-cluster-install.sh')]"
-			],
-			"commandToExecute": "[concat('bash spark-cluster-install.sh -k ',parameters('sparkVersion'),' -d ', reference('nic0').ipConfigurations[0].properties.privateIPAddress,' -s ',variables('numberOfSlavesInstances'),' -m ', ' 1 ')]"
-		}
-	}
+    "type": "Microsoft.Compute/virtualMachines/extensions",
+    "name": "[concat('mastervm', copyindex(), '/installsparkmaster')]",
+    "apiVersion": "2015-05-01-preview",
+    "location": "[parameters('region')]",
+    "copy": {
+        "name": "virtualMachineExtensionsLoopMaster",
+        "count": "[variables('numberOfMasterInstances')]"
+    },
+    "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/', 'mastervm', copyindex())]",
+        "[concat('Microsoft.Network/networkInterfaces/', 'nic', copyindex())]"
+    ],
+    "properties": {
+        "publisher": "Microsoft.OSTCExtensions",
+        "type": "CustomScriptForLinux",
+        "typeHandlerVersion": "1.2",
+        "settings": {
+            "fileUris": [
+                "[concat(variables('scriptUrl'), 'spark-cluster-install.sh')]"
+            ],
+            "commandToExecute": "[concat('bash spark-cluster-install.sh -k ',parameters('sparkVersion'),' -d ', reference('nic0').ipConfigurations[0].properties.privateIPAddress,' -s ',variables('numberOfSlavesInstances'),' -m ', ' 1 ')]"
+        }
+    }
 },
 {
-	"type": "Microsoft.Compute/virtualMachines/extensions",
-	"name": "[concat('slavevm', copyindex(), '/installsparkslave')]",
-	"apiVersion": "2015-05-01-preview",
-	"location": "[parameters('region')]",
-	"copy": {
-		"name": "virtualMachineExtensionsLoopSlave",
-		"count": "[variables('numberOfSlavesInstances')]"
-	},
-	"dependsOn": [
-		"[concat('Microsoft.Compute/virtualMachines/', 'slavevm', copyindex())]",
-		"[concat('Microsoft.Network/networkInterfaces/', 'nicsl', copyindex())]"
-	],
-	"properties": {
-		"publisher": "Microsoft.OSTCExtensions",
-		"type": "CustomScriptForLinux",
-		"typeHandlerVersion": "1.2",
-		"settings": {
-			"fileUris": [
-				"[concat(variables('scriptUrl'), 'spark-cluster-install.sh')]"
-			],
-			"commandToExecute": "[concat('bash spark-cluster-install.sh -k ',parameters('sparkVersion'),' -m ', ' 0 ')]"
-		}
-	}
+    "type": "Microsoft.Compute/virtualMachines/extensions",
+    "name": "[concat('slavevm', copyindex(), '/installsparkslave')]",
+    "apiVersion": "2015-05-01-preview",
+    "location": "[parameters('region')]",
+    "copy": {
+        "name": "virtualMachineExtensionsLoopSlave",
+        "count": "[variables('numberOfSlavesInstances')]"
+    },
+    "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/', 'slavevm', copyindex())]",
+        "[concat('Microsoft.Network/networkInterfaces/', 'nicsl', copyindex())]"
+    ],
+    "properties": {
+        "publisher": "Microsoft.OSTCExtensions",
+        "type": "CustomScriptForLinux",
+        "typeHandlerVersion": "1.2",
+        "settings": {
+            "fileUris": [
+                "[concat(variables('scriptUrl'), 'spark-cluster-install.sh')]"
+            ],
+            "commandToExecute": "[concat('bash spark-cluster-install.sh -k ',parameters('sparkVersion'),' -m ', ' 0 ')]"
+        }
+    }
 }
 ```
 
@@ -831,11 +831,11 @@ By familiarizing yourself with the other files included in this deployment, you 
 
 In essence, this approach suggests to:
 
--	Define your core template file as a central orchestration point for all specific deployment activities, leveraging template linking to invoke sub-template executions.
--	Create a specific template file that will deploy all resources shared across all other specific deployment tasks (storage accounts, virtual network configuration, etc.). This can be heavily reused between deployments that have similar requirements in terms of common infrastructure.
--	Include optional resource templates for spot requirements specific to a given resource.
--	For identical members of a group of resources (nodes in a cluster, etc.), create specific templates that leverage resource looping in order to deploy multiple instances with unique properties.
--	For all post-deployment tasks (product installation, configurations, etc.), leverage script deployment extensions and create scripts specific to each technology.
+-   Define your core template file as a central orchestration point for all specific deployment activities, leveraging template linking to invoke sub-template executions.
+-   Create a specific template file that will deploy all resources shared across all other specific deployment tasks (storage accounts, virtual network configuration, etc.). This can be heavily reused between deployments that have similar requirements in terms of common infrastructure.
+-   Include optional resource templates for spot requirements specific to a given resource.
+-   For identical members of a group of resources (nodes in a cluster, etc.), create specific templates that leverage resource looping in order to deploy multiple instances with unique properties.
+-   For all post-deployment tasks (product installation, configurations, etc.), leverage script deployment extensions and create scripts specific to each technology.
 
 For more information, see [Azure Resource Manager Template Language](../resource-group-authoring-templates.md).
 
@@ -846,3 +846,4 @@ Read more details on [deploying a template](../resource-group-template-deploy.md
 Discover more [application frameworks](virtual-machines-app-frameworks.md).
 
 [Troubleshoot template deployments](resource-group-deploy-debug.md).
+

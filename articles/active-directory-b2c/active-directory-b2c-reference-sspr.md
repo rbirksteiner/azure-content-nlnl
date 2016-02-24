@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure Active Directory B2C preview: Self-service password reset | Microsoft Azure"
-	description="A topic demonstrating how to setup self-service password reset for your consumers in Azure Active Directory B2C"
-	services="active-directory-b2c"
-	documentationCenter=""
-	authors="swkrish"
-	manager="msmbaldwin"
-	editor="curtand"/>
+    pageTitle="Azure Active Directory B2C preview: Self-service password reset | Microsoft Azure"
+    description="A topic demonstrating how to setup self-service password reset for your consumers in Azure Active Directory B2C"
+    services="active-directory-b2c"
+    documentationCenter=""
+    authors="swkrish"
+    manager="msmbaldwin"
+    editor="curtand"/>
 
 <tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/22/2015"
-	ms.author="swkrish"/>
+    ms.service="active-directory-b2c"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/22/2015"
+    ms.author="swkrish"/>
 
 # Azure Active Directory B2C preview: setup Self-service Password Reset for your Consumers
 
@@ -36,3 +36,4 @@ To test, use the "Run now" feature on any sign-in policy (which has local accoun
 
 > [AZURE.NOTE]
 The self-service password reset pages are customizable using the [company branding feature](active-directory-add-company-branding.md).
+

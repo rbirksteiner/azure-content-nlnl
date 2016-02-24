@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="Reliable Actors patterns &amp; anti-patterns | Microsoft Azure"
    description="Provides an overview of the actor programming model, design patterns that work well with Service Fabric Reliable Actors, and some anti-patterns to avoid."
    services="service-fabric"
@@ -79,3 +79,4 @@ The Reliable Actors programming model is designed to guide programmers down a pa
 * *Efficient scheduling.* The Reliable Actors runtime schedules execution of a large number of single-threaded actors across a custom thread pool with a thread per physical processor core. With actor code written in the non-blocking continuation-based style (a requirement of the programming model) application code runs in a very efficient “cooperative” multi-threaded manner with no contention. This allows the system to reach high throughput and run at very high CPU utilization (up to 90 + %) with great stability. The fact that a growth in the number of actors in the system and the load does not lead to additional threads or other OS primitives helps scalability of individual nodes and the whole system.
 
 * *Explicit asynchrony.* The Reliable Actors programming model makes the asynchronous nature of a distributed application explicit and guides programmers to write non-blocking asynchronous code. This enables a large degree of distributed parallelism and overall throughput without the explicit use of multi-threading.
+

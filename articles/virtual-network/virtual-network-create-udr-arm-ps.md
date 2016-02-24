@@ -38,201 +38,202 @@ To create the route table and route needed for the front end subnet based on the
 
 3. Create a route used to send all traffic destined to the back end subnet (192.168.2.0/24) to be routed to the **FW1** virtual appliance (192.168.0.4).
 
-		$route = New-AzureRmRouteConfig -Name RouteToBackEnd `
-		    -AddressPrefix 192.168.2.0/24 -NextHopType VirtualAppliance `
-		    -NextHopIpAddress 192.168.0.4
+        $route = New-AzureRmRouteConfig -Name RouteToBackEnd `
+            -AddressPrefix 192.168.2.0/24 -NextHopType VirtualAppliance `
+            -NextHopIpAddress 192.168.0.4
 
 4. Create a route table named **UDR-FrontEnd** in the **westus** region that contains the route created above.
 
-		$routeTable = New-AzureRmRouteTable -ResourceGroupName TestRG -Location westus `
-		    -Name UDR-FrontEnd -Route $route
+        $routeTable = New-AzureRmRouteTable -ResourceGroupName TestRG -Location westus `
+            -Name UDR-FrontEnd -Route $route
 
 5. Create a variable that contains the VNet where the subnet is. In our scenario, the VNet is named **TestVNet**.
 
-		$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
+        $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
 
 6. Associate the route table created above to the **FrontEnd** subnet.
-		
-		Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd `
-			-AddressPrefix 192.168.1.0/24 -RouteTable $routeTable
+        
+        Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd `
+            -AddressPrefix 192.168.1.0/24 -RouteTable $routeTable
 
 >[AZURE.WARNING] The output for the command above shows the content for the virtual network configuration object, which only exists on the computer where you are running PowerShell. You need to run the **Set-AzureVirtualNetwork** cmdlet to save these settings to Azure.
 
 7. Save the new subnet configuration in Azure.
 
-		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
+        Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
-	Expected output:
+    Expected output:
 
-		Name              : TestVNet
-		ResourceGroupName : TestRG
-		Location          : westus
-		Id                : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
-		Etag              : W/"7df26c0e-652f-4754-bc4e-733fef7d5b2b"
-		ProvisioningState : Succeeded
-		Tags              : 
-		                    Name         Value
-		                    ===========  =====
-		                    displayName  VNet 
-		                    
-		AddressSpace      : {
-		                      "AddressPrefixes": [
-		                        "192.168.0.0/16"
-		                      ]
-		                    }
-		DhcpOptions       : {
-		                      "DnsServers": null
-		                    }
-		NetworkInterfaces : null
-		Subnets           : [
-								...,
-		                      {
-		                        "Name": "FrontEnd",
-		                        "Etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
-		                        "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
-		                        "AddressPrefix": "192.168.1.0/24",
-		                        "IpConfigurations": [
-		                          {
-		                            "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICWEB2/ipConfigurations/ipconfig1"
-		                          },
-		                          {
-		                            "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICWEB1/ipConfigurations/ipconfig1"
-		                          }
-		                        ],
-		                        "NetworkSecurityGroup": {
-		                          "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd"
-		                        },
-		                        "RouteTable": {
-		                          "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/routeTables/UDR-FrontEnd"
-		                        },
-		                        "ProvisioningState": "Succeeded"
-		                      },
-								...
-		                    ]	
+        Name              : TestVNet
+        ResourceGroupName : TestRG
+        Location          : westus
+        Id                : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
+        Etag              : W/"7df26c0e-652f-4754-bc4e-733fef7d5b2b"
+        ProvisioningState : Succeeded
+        Tags              : 
+                            Name         Value
+                            ===========  =====
+                            displayName  VNet 
+                            
+        AddressSpace      : {
+                              "AddressPrefixes": [
+                                "192.168.0.0/16"
+                              ]
+                            }
+        DhcpOptions       : {
+                              "DnsServers": null
+                            }
+        NetworkInterfaces : null
+        Subnets           : [
+                                ...,
+                              {
+                                "Name": "FrontEnd",
+                                "Etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
+                                "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
+                                "AddressPrefix": "192.168.1.0/24",
+                                "IpConfigurations": [
+                                  {
+                                    "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICWEB2/ipConfigurations/ipconfig1"
+                                  },
+                                  {
+                                    "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICWEB1/ipConfigurations/ipconfig1"
+                                  }
+                                ],
+                                "NetworkSecurityGroup": {
+                                  "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd"
+                                },
+                                "RouteTable": {
+                                  "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/routeTables/UDR-FrontEnd"
+                                },
+                                "ProvisioningState": "Succeeded"
+                              },
+                                ...
+                            ]   
 
 ## Create the UDR for the back end subnet
 To create the route table and route needed for the back end subnet based on the scenario above, follow the steps below.
 
 1. Create a route used to send all traffic destined to the front end subnet (192.168.1.0/24) to be routed to the **FW1** virtual appliance (192.168.0.4).
 
-		$route = New-AzureRmRouteConfig -Name RouteToFrontEnd `
-		    -AddressPrefix 192.168.1.0/24 -NextHopType VirtualAppliance `
-		    -NextHopIpAddress 192.168.0.4
+        $route = New-AzureRmRouteConfig -Name RouteToFrontEnd `
+            -AddressPrefix 192.168.1.0/24 -NextHopType VirtualAppliance `
+            -NextHopIpAddress 192.168.0.4
 
 4. Create a route table named **UDR-BackEnd** in the **uswest** region that contains the route created above.
 
-		$routeTable = New-AzureRmRouteTable -ResourceGroupName TestRG -Location westus `
-		    -Name UDR-BackEnd -Route $route
+        $routeTable = New-AzureRmRouteTable -ResourceGroupName TestRG -Location westus `
+            -Name UDR-BackEnd -Route $route
 
 5. Associate the route table created above to the **BackEnd** subnet.
 
-		Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name BackEnd `
-			-AddressPrefix 192.168.2.0/24 -RouteTable $routeTable
+        Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name BackEnd `
+            -AddressPrefix 192.168.2.0/24 -RouteTable $routeTable
 
 7. Save the new subnet configuration in Azure.
 
-		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
+        Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
-	Expected output:
+    Expected output:
 
-		Name              : TestVNet
-		ResourceGroupName : TestRG
-		Location          : westus
-		Id                : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
-		Etag              : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-		ProvisioningState : Succeeded
-		Tags              : 
-		                    Name         Value
-		                    ===========  =====
-		                    displayName  VNet 
-		                    
-		AddressSpace      : {
-		                      "AddressPrefixes": [
-		                        "192.168.0.0/16"
-		                      ]
-		                    }
-		DhcpOptions       : {
-		                      "DnsServers": null
-		                    }
-		NetworkInterfaces : null
-		Subnets           : [
-		                      ...,
-		                      {
-		                        "Name": "BackEnd",
-		                        "Etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
-		                        "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd",
-		                        "AddressPrefix": "192.168.2.0/24",
-		                        "IpConfigurations": [
-		                          {
-		                            "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICSQL2/ipConfigurations/ipconfig1"
-		                          },
-		                          {
-		                            "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICSQL1/ipConfigurations/ipconfig1"
-		                          }
-		                        ],
-		                        "NetworkSecurityGroup": {
-		                          "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-BacEnd"
-		                        },
-		                        "RouteTable": {
-		                          "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/routeTables/UDR-BackEnd"
-		                        },
-		                        "ProvisioningState": "Succeeded"
-		                      }
-		                    ]
+        Name              : TestVNet
+        ResourceGroupName : TestRG
+        Location          : westus
+        Id                : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
+        Etag              : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+        ProvisioningState : Succeeded
+        Tags              : 
+                            Name         Value
+                            ===========  =====
+                            displayName  VNet 
+                            
+        AddressSpace      : {
+                              "AddressPrefixes": [
+                                "192.168.0.0/16"
+                              ]
+                            }
+        DhcpOptions       : {
+                              "DnsServers": null
+                            }
+        NetworkInterfaces : null
+        Subnets           : [
+                              ...,
+                              {
+                                "Name": "BackEnd",
+                                "Etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
+                                "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd",
+                                "AddressPrefix": "192.168.2.0/24",
+                                "IpConfigurations": [
+                                  {
+                                    "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICSQL2/ipConfigurations/ipconfig1"
+                                  },
+                                  {
+                                    "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICSQL1/ipConfigurations/ipconfig1"
+                                  }
+                                ],
+                                "NetworkSecurityGroup": {
+                                  "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-BacEnd"
+                                },
+                                "RouteTable": {
+                                  "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/routeTables/UDR-BackEnd"
+                                },
+                                "ProvisioningState": "Succeeded"
+                              }
+                            ]
 
 ## Enable IP forwarding on FW1
 To enable IP forwarding in the NIC used by **FW1**, follow the steps below.
 
 1. Create a variable that contains the settings for the NIC used by FW1. In our scenario, the NIC is named **NICFW1**.
 
-		$nicfw1 = Get-AzureRmNetworkInterface -ResourceGroupName TestRG -Name NICFW1
+        $nicfw1 = Get-AzureRmNetworkInterface -ResourceGroupName TestRG -Name NICFW1
 
 2. Enable IP forwarding, and save the NIC settings.
 
-		$nicfw1.EnableIPForwarding = 1
-		Set-AzureRmNetworkInterface -NetworkInterface $nicfw1
+        $nicfw1.EnableIPForwarding = 1
+        Set-AzureRmNetworkInterface -NetworkInterface $nicfw1
 
-	Expected output:
+    Expected output:
 
-		Name                 : NICFW1
-		ResourceGroupName    : TestRG
-		Location             : westus
-		Id                   : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICFW1
-		Etag                 : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-		ProvisioningState    : Succeeded
-		Tags                 : 
-		                       Name         Value                  
-		                       ===========  =======================
-		                       displayName  NetworkInterfaces - DMZ
-		                       
-		VirtualMachine       : {
-		                         "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Compute/virtualMachines/FW1"
-		                       }
-		IpConfigurations     : [
-		                         {
-		                           "Name": "ipconfig1",
-		                           "Etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
-		                           "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICFW1/ipConfigurations/ipconfig1",
-		                           "PrivateIpAddress": "192.168.0.4",
-		                           "PrivateIpAllocationMethod": "Static",
-		                           "Subnet": {
-		                             "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/DMZ"
-		                           },
-		                           "PublicIpAddress": {
-		                             "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/publicIPAddresses/PIPFW1"
-		                           },
-		                           "LoadBalancerBackendAddressPools": [],
-		                           "LoadBalancerInboundNatRules": [],
-		                           "ProvisioningState": "Succeeded"
-		                         }
-		                       ]
-		DnsSettings          : {
-		                         "DnsServers": [],
-		                         "AppliedDnsServers": [],
-		                         "InternalDnsNameLabel": null,
-		                         "InternalFqdn": null
-		                       }
-		EnableIPForwarding   : True
-		NetworkSecurityGroup : null
-		Primary              : True
+        Name                 : NICFW1
+        ResourceGroupName    : TestRG
+        Location             : westus
+        Id                   : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICFW1
+        Etag                 : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+        ProvisioningState    : Succeeded
+        Tags                 : 
+                               Name         Value                  
+                               ===========  =======================
+                               displayName  NetworkInterfaces - DMZ
+                               
+        VirtualMachine       : {
+                                 "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Compute/virtualMachines/FW1"
+                               }
+        IpConfigurations     : [
+                                 {
+                                   "Name": "ipconfig1",
+                                   "Etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
+                                   "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICFW1/ipConfigurations/ipconfig1",
+                                   "PrivateIpAddress": "192.168.0.4",
+                                   "PrivateIpAllocationMethod": "Static",
+                                   "Subnet": {
+                                     "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/DMZ"
+                                   },
+                                   "PublicIpAddress": {
+                                     "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/publicIPAddresses/PIPFW1"
+                                   },
+                                   "LoadBalancerBackendAddressPools": [],
+                                   "LoadBalancerInboundNatRules": [],
+                                   "ProvisioningState": "Succeeded"
+                                 }
+                               ]
+        DnsSettings          : {
+                                 "DnsServers": [],
+                                 "AppliedDnsServers": [],
+                                 "InternalDnsNameLabel": null,
+                                 "InternalFqdn": null
+                               }
+        EnableIPForwarding   : True
+        NetworkSecurityGroup : null
+        Primary              : True
+
 

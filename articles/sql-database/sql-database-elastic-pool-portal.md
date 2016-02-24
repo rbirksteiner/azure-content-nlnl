@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Create scalable elastic database pools | Microsoft Azure"
-	description="How to add an scalable elastic database pool to your SQL database configuration for easier administration and resource sharing across many databases."
-	keywords="scalable database,database configuration"
-	services="sql-database"
-	documentationCenter=""
-	authors="stevestein"
-	manager="jeffreyg"
-	editor=""/>
+    pageTitle="Create scalable elastic database pools | Microsoft Azure"
+    description="How to add an scalable elastic database pool to your SQL database configuration for easier administration and resource sharing across many databases."
+    keywords="scalable database,database configuration"
+    services="sql-database"
+    documentationCenter=""
+    authors="stevestein"
+    manager="jeffreyg"
+    editor=""/>
 
 <tags
-	ms.service="sql-database"
-	ms.devlang="NA"
-	ms.date="12/01/2015"
-	ms.author="sstein"
-	ms.workload="data-management"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="NA"/>
+    ms.service="sql-database"
+    ms.devlang="NA"
+    ms.date="12/01/2015"
+    ms.author="sstein"
+    ms.workload="data-management"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="NA"/>
 
 
 # Create a scalable elastic database pool for SQL databases in Azure portal
@@ -201,3 +201,4 @@ After creating an elastic database pool, you can manage the databases in the poo
 [10]: ./media/sql-database-elastic-pool-portal/star.png
 [11]: ./media/sql-database-elastic-pool-portal/recommended-pool.png
 [12]: ./media/sql-database-elastic-pool-portal/pools-message.png
+

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Integrate an app with an Azure Virtual Network" 
-	description="Shows you how to connect an app in Azure App Service to a new or existing Azure virtual network" 
-	services="app-service" 
-	documentationCenter="" 
-	authors="ccompy" 
-	manager="wpickett" 
-	editor="cephalin"/>
+    pageTitle="Integrate an app with an Azure Virtual Network" 
+    description="Shows you how to connect an app in Azure App Service to a new or existing Azure virtual network" 
+    services="app-service" 
+    documentationCenter="" 
+    authors="ccompy" 
+    manager="wpickett" 
+    editor="cephalin"/>
 
 <tags 
-	ms.service="app-service" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/18/2015" 
-	ms.author="ccompy"/>
+    ms.service="app-service" 
+    ms.workload="na" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/18/2015" 
+    ms.author="ccompy"/>
 
 # Integrate your app with an Azure Virtual Network #
 
@@ -271,3 +271,4 @@ Beyond the functional differences there are also pricing differences.  The App S
 [ASPricing]: http://azure.microsoft.com/pricing/details/app-service/
 [VNETPricing]: http://azure.microsoft.com/pricing/details/vpn-gateway/
 [DataPricing]: http://azure.microsoft.com/pricing/details/data-transfers/
+

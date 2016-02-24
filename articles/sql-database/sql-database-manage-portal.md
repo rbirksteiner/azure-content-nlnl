@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Manage Azure SQL Databases using the Azure Classic Portal" 
-	description="Learn how to use the Azure Classic Portal to manage a relational database in the cloud using the Azure Classic Portal." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="stevestein" 
-	manager="jeffreyg" 
-	editor=""/>
+    pageTitle="Manage Azure SQL Databases using the Azure Classic Portal" 
+    description="Learn how to use the Azure Classic Portal to manage a relational database in the cloud using the Azure Classic Portal." 
+    services="sql-database" 
+    documentationCenter="" 
+    authors="stevestein" 
+    manager="jeffreyg" 
+    editor=""/>
 
 <tags 
-	ms.service="sql-database" 
-	ms.devlang="NA" 
-	ms.workload="data-management" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="NA" 
-	ms.date="09/11/2015" 
-	ms.author="sstein"/>
+    ms.service="sql-database" 
+    ms.devlang="NA" 
+    ms.workload="data-management" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="NA" 
+    ms.date="09/11/2015" 
+    ms.author="sstein"/>
 
 
 # Managing Azure SQL Databases using the Azure Classic Portal

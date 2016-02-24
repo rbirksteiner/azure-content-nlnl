@@ -1,20 +1,20 @@
 <properties
-	pageTitle="How to use Hudson with the Azure Blob service | Microsoft Azure"
-	description="Describes how to use Hudson with Azure Blob storage as a repository for build artifacts."
-	services="storage"
-	documentationCenter="java"
-	authors="rmcmurray"
-	manager="wpickett"
-	editor="jimbe"/>
+    pageTitle="How to use Hudson with the Azure Blob service | Microsoft Azure"
+    description="Describes how to use Hudson with Azure Blob storage as a repository for build artifacts."
+    services="storage"
+    documentationCenter="java"
+    authors="rmcmurray"
+    manager="wpickett"
+    editor="jimbe"/>
 
 <tags
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="10/12/2015" 
-	ms.author="robmcm"/>
+    ms.service="storage"
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="Java"
+    ms.topic="article"
+    ms.date="10/12/2015" 
+    ms.author="robmcm"/>
 
 # Using Azure Storage with a Hudson Continuous Integration solution
 
@@ -176,3 +176,4 @@ The following provides an overview of the Blob service components.
 
   [How to Create a Storage Account]: http://go.microsoft.com/fwlink/?LinkId=279823
   [Meet Hudson]: http://wiki.eclipse.org/Hudson-ci/Meet_Hudson
+

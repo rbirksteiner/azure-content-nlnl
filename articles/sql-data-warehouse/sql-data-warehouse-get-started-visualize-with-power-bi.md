@@ -76,7 +76,7 @@ You are now ready to use Power BI to analyze your AdventureWorksDW sample data. 
 
 3. This step creates a line chart that shows sales amount per order date. To create this go to the expanded AggregateSales view. Click SalesAmount and OrderDate. In the Visualizations column click the Line Chart icon; this is the first icon in the second line under visualizations.
 
-	![Power BI select line chart][10]
+    ![Power BI select line chart][10]
 
     You now have a report that shows three different visualizations of the data.
 
@@ -110,3 +110,4 @@ Now that we've given you some time to warm up with the sample data, see how to [
 [Power BI]: http://www.powerbi.com/
 [connecting to SQL Data Warehouse]: ./sql-data-warehouse-integrate-power-bi.md
 [Create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
+

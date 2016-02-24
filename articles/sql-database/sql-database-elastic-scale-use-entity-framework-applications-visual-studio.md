@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Using elastic database client library with Entity Framework | Microsoft Azure" 
-	description="Use Elastic Database client library and Entity Framework for coding databases" 
-	services="sql-database" 
-	documentationCenter="" 
-	manager="jeffreyg" 
-	authors="torsteng" 
-	editor=""/>
+    pageTitle="Using elastic database client library with Entity Framework | Microsoft Azure" 
+    description="Use Elastic Database client library and Entity Framework for coding databases" 
+    services="sql-database" 
+    documentationCenter="" 
+    manager="jeffreyg" 
+    authors="torsteng" 
+    editor=""/>
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="sql-database" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/04/2015" 
-	ms.author="torsteng;sidneyh"/>
+    ms.service="sql-database" 
+    ms.workload="sql-database" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/04/2015" 
+    ms.author="torsteng;sidneyh"/>
 
 # Elastic Database client library with Entity Framework 
  

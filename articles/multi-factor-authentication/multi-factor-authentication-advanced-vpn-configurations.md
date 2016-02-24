@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Advanced Scenarios with Azure Multi-Factor Authentication and 3rd Party VPNs" 
-	description="This page provides information on step-by-step setup configuration for Azure MFA with 3rd party prodcuts." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
-	editor="curtland"/>
+    pageTitle="Advanced Scenarios with Azure Multi-Factor Authentication and 3rd Party VPNs" 
+    description="This page provides information on step-by-step setup configuration for Azure MFA with 3rd party prodcuts." 
+    services="multi-factor-authentication" 
+    documentationCenter="" 
+    authors="billmath" 
+    manager="stevenpo" 
+    editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/19/2015" 
-	ms.author="billmath"/>
+    ms.service="multi-factor-authentication" 
+    ms.workload="identity" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/19/2015" 
+    ms.author="billmath"/>
 
 # Advanced Scenarios with Azure Multi-Factor Authentication and 3rd Party VPN
 Azure Multi-Factor Authentication can be used to seamlessly connect with a variety of 3rd party VPN solutions.  This includes Cisco® ASA VPN appliance, Citrix NetScaler SSL VPN appliance, and the Juniper Networks Secure Access/Pulse Secure Connect Secure SSL VPN appliance. 
@@ -42,3 +42,4 @@ Configuration Guide  | Description
 ------------- | ------------- |
 [Juniper/Pulse Secure SSL VPN and Azure MFA Configuration for LDAP](http://download.microsoft.com/download/6/5/8/6587B418-75B1-4FCB-84D4-984BC479309E/JuniperPulse_Azure_MFA_LDAP.docx)| Seamlessly integrate your Juniper/Pulse Secure SSL VPN with Azure MFA appliance using LDAP|
 [Juniper/Pulse Secure SSL VPN and Azure MFA Configuration for RADIUS](http://download.microsoft.com/download/7/9/A/79AB3DAD-4799-4379-B1DA-B95ABDF231DC/JuniperPulse_Azure_MFA_RADIUS.docx) | Seamlessly integrate your Juniper/Pulse Secure SSL VPN appliance with Azure MFA using RADIUS
+

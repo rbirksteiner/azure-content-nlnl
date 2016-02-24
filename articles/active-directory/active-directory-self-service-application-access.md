@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Self-service application access and delegated management with Azure Active Directory | Microsoft Azure"
-	description="This article describes how to enable self-service application access and delegated management with Azure Active Directory."
-	services="active-directory"
-	documentationCenter=""
-	authors="asmalser-msft"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Self-service application access and delegated management with Azure Active Directory | Microsoft Azure"
+    description="This article describes how to enable self-service application access and delegated management with Azure Active Directory."
+    services="active-directory"
+    documentationCenter=""
+    authors="asmalser-msft"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/14/2015"
-	ms.author="asmalser"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/14/2015"
+    ms.author="asmalser"/>
 
 #Self-service application access and delegated management with Azure Active Directory
 
@@ -40,7 +40,7 @@ To enable self-service application access and configured which applications can 
 
 **1:** Sign into the [Azure classic portal](https://manage.windowsazure.com/).
 
-**2:**	Under the **Active Directory** section, select your directory, then select the **Applications** tab. 
+**2:**  Under the **Active Directory** section, select your directory, then select the **Applications** tab. 
 
 **3:** Select the **Add** button, and use the gallery option to select and add an application.
 
@@ -106,3 +106,4 @@ The **Configure** tile is only shown if the application was configured by the IT
 [1]: ./media/active-directory-self-service-application-access/ssaa_admin.PNG
 [2]: ./media/active-directory-self-service-application-access/ssaa_ap_manage_app.PNG
 [3]: ./media/active-directory-self-service-application-access/ssaa_ap_manage_app_config.PNG
+

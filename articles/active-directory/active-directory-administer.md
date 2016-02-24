@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Administer your Azure AD directory | Microsoft Azure"
-	description="A topic that explains what an Azure AD tenant is, and how to manage an Azure AD directory."
-	services="active-directory"
-	documentationCenter=""
-	authors="markusvi"
-	writer="markvi"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Administer your Azure AD directory | Microsoft Azure"
+    description="A topic that explains what an Azure AD tenant is, and how to manage an Azure AD directory."
+    services="active-directory"
+    documentationCenter=""
+    authors="markusvi"
+    writer="markvi"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="12/01/2015"
-	ms.author="markvi"/>
+    ms.service="active-directory"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="12/01/2015"
+    ms.author="markvi"/>
 
 # Administer your Azure AD directory
 
@@ -148,3 +148,4 @@ The following conditions are checked:
 <!--Image references-->
 [1]: ./media/active-directory-administer/aad_portals.png
 [2]: ./media/active-directory-administer/azure_tenants.png
+

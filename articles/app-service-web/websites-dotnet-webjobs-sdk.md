@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="What is the Azure WebJobs SDK" 
-	description="An introduction to the Azure WebJobs SDK. Explains what the SDK is, typical scenarios it is useful for, and code samples." 
-	services="app-service\web, storage" 
-	documentationCenter=".net" 
-	authors="tdykstra" 
-	manager="wpickett" 
-	editor="jimbe"/>
+    pageTitle="What is the Azure WebJobs SDK" 
+    description="An introduction to the Azure WebJobs SDK. Explains what the SDK is, typical scenarios it is useful for, and code samples." 
+    services="app-service\web, storage" 
+    documentationCenter=".net" 
+    authors="tdykstra" 
+    manager="wpickett" 
+    editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/14/2015" 
-	ms.author="tdykstra"/>
+    ms.service="app-service-web" 
+    ms.workload="web" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/14/2015" 
+    ms.author="tdykstra"/>
 
 # What is the Azure WebJobs SDK
 
@@ -60,17 +60,17 @@ For example, the [QueueTrigger](websites-dotnet-webjobs-sdk-storage-queues-how-t
 
 Here is a simple program that polls a queue and creates a blob for each queue message received:
 
-		public static void Main()
-		{
-		    JobHost host = new JobHost();
-		    host.RunAndBlock();
-		}
+        public static void Main()
+        {
+            JobHost host = new JobHost();
+            host.RunAndBlock();
+        }
 
-		public static void ProcessQueueMessage([QueueTrigger("webjobsqueue")] string inputText, 
+        public static void ProcessQueueMessage([QueueTrigger("webjobsqueue")] string inputText, 
             [Blob("containername/blobname")]TextWriter writer)
-		{
-		    writer.WriteLine(inputText);
-		}
+        {
+            writer.WriteLine(inputText);
+        }
 
 The `JobHost` object is a container for a set of background functions. The `JobHost` object monitors the functions, watches for events that trigger them, and executes the functions when trigger events occur. You call a `JobHost` method to indicate whether you want the container process to run on the current thread or a background thread. In the example, the `RunAndBlock` method runs the process continuously on the current thread.
 
@@ -78,12 +78,12 @@ Because the `ProcessQueueMessage` method in this example has a `QueueTrigger` at
 
 The `QueueTrigger` attribute binds the `inputText` parameter to the value of the queue message. And the `Blob` attribute binds a `TextWriter` object to a blob named "blobname" in a container named "containername".  
 
-		public static void ProcessQueueMessage([QueueTrigger("webjobsqueue")]] string inputText, 
-		    [Blob("containername/blobname")]TextWriter writer)
+        public static void ProcessQueueMessage([QueueTrigger("webjobsqueue")]] string inputText, 
+            [Blob("containername/blobname")]TextWriter writer)
 
 The function then uses these parameters to write the value of the queue message to the blob:
 
-		writer.WriteLine(inputText);
+        writer.WriteLine(inputText);
 
 The trigger and binder features of the WebJobs SDK greatly simplify the code you have to write. The low-level code required to process queues, blobs, or files, or to initiate scheduled tasks, is done for you by the WebJobs SDK framework. For example, the framework creates queues that don't exist yet, opens the queue, reads queue messages, deletes queue messages when processing is completed, creates blob containers that don't exist yet, writes to blobs, and so on.
 
@@ -179,3 +179,4 @@ For more information about the WebJobs SDK, see [Azure WebJobs Recommended Resou
 
 For information about the latest enhancements to the WebJobs SDK, see the [Release Notes](https://github.com/Azure/azure-webjobs-sdk/wiki/Release-Notes).
  
+

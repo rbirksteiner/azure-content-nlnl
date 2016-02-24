@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How to choose parameters to optimize your algorithms in Azure Machine Learning | Microsoft Azure" 
-	description="Explains how to choose the optimal parameter set for an algorithm in Azure Machine Learning." 
-	services="machine-learning"
-	documentationCenter="" 
-	authors="bradsev" 
-	manager="paulettm" 
-	editor="cgronlun"/>
+    pageTitle="How to choose parameters to optimize your algorithms in Azure Machine Learning | Microsoft Azure" 
+    description="Explains how to choose the optimal parameter set for an algorithm in Azure Machine Learning." 
+    services="machine-learning"
+    documentationCenter="" 
+    authors="bradsev" 
+    manager="paulettm" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/04/2015" 
-	ms.author="bradsev" />
+    ms.service="machine-learning" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/04/2015" 
+    ms.author="bradsev" />
 
 
 # How to choose parameters to optimize your algorithms in Azure Machine Learning
@@ -27,10 +27,10 @@ There are various ways in which model selection can be done. In machine learning
 
 There are four steps in the process of finding the best parameter set. 
 
-1.	**Define parameter space**: For the algorithm, we first decide the exact parameter values we would like to consider. 
-2.	**Define cross-validation settings**: For the dataset, we need to decide how to choose cross-validation folds. 
-3.	**Define metric**: Then we decide what metric to use for determining the best set of parameters, e.g. accuracy, root mean squared error, precision, recall, or f-score. 
-4.	**Train, evaluate and compare**: For each unique combination of the parameter values, cross-validation is carried out and based on the error metric defined by the user, the best performing model can be chosen.
+1.  **Define parameter space**: For the algorithm, we first decide the exact parameter values we would like to consider. 
+2.  **Define cross-validation settings**: For the dataset, we need to decide how to choose cross-validation folds. 
+3.  **Define metric**: Then we decide what metric to use for determining the best set of parameters, e.g. accuracy, root mean squared error, precision, recall, or f-score. 
+4.  **Train, evaluate and compare**: For each unique combination of the parameter values, cross-validation is carried out and based on the error metric defined by the user, the best performing model can be chosen.
 
 The following experiment shows how this can be achieved in Azure Machine Learning. 
 

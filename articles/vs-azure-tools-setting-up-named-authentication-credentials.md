@@ -70,3 +70,4 @@ The following procedure assumes that the **New Subscription** dialog box is open
     1. On the **Certificates** tab, choose the **Upload** button.
 
     1. Paste the full path of the .cer file that you just created, and then enter the password that you specified.
+

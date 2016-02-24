@@ -39,7 +39,7 @@ Service Bus queues enable you to store messages in a first-in, first-out queue. 
 
 The code in this tutorial does the following.
 
-- Uses your service namespace and [Shared Access Signature](service-bus-sas-overview.md) (SAS) key to to gain access to your Service Bus namespace resources.
+- Uses your service namespace and [Shared Access Signature](service-bus-sas-overview.md) (SAS) key to to gain access to your Service Bus namespace resources.
 
 - Creates a queue, sends a message to the queue, and reads the message from the queue.
 
@@ -61,98 +61,98 @@ After obtaining the service namespace and credentials in the first step, you nex
 
 1. In Program.cs, make sure your `using` statements appear as follows:
 
-	```
-	using System;
-	using System.Globalization;
-	using System.IO;
-	using System.Net;
-	using System.Security.Cryptography;
-	using System.Text;
-	using System.Xml;
-	```
+    ```
+    using System;
+    using System.Globalization;
+    using System.IO;
+    using System.Net;
+    using System.Security.Cryptography;
+    using System.Text;
+    using System.Xml;
+    ```
 
 1. If necessary, rename the namespace for the program from the Visual Studio default to `Microsoft.ServiceBus.Samples`.
 
 1. Inside the `Program` class, add the following global variables:
-	
-	```
-	static string serviceNamespace;
-	static string baseAddress;
-	static string token;
-	const string sbHostName = "servicebus.windows.net";
-	```
+    
+    ```
+    static string serviceNamespace;
+    static string baseAddress;
+    static string token;
+    const string sbHostName = "servicebus.windows.net";
+    ```
 
 1. Inside `Main()`, paste the following code:
 
-	```
-	Console.Write("Enter your service namespace: ");
-	serviceNamespace = Console.ReadLine();
-	
-	Console.Write("Enter your SAS key: ");
-	string SASKey = Console.ReadLine();
-	
-	baseAddress = "https://" + serviceNamespace + "." + sbHostName + "/";
-	try
-	{
-	    token = GetSASToken("RootManageSharedAccessKey", SASKey);
-	
-	    string queueName = "Queue" + Guid.NewGuid().ToString();
-	
-	    // Create and put a message in the queue
-	    CreateQueue(queueName, token);
-	    SendMessage(queueName, "msg1");
-	    string msg = ReceiveAndDeleteMessage(queueName);
-	
-	    string topicName = "Topic" + Guid.NewGuid().ToString();
-	    string subscriptionName = "Subscription" + Guid.NewGuid().ToString();
-	    CreateTopic(topicName);
-	    CreateSubscription(topicName, subscriptionName);
-	    SendMessage(topicName, "msg2");
-	
-	    Console.WriteLine(ReceiveAndDeleteMessage(topicName + "/Subscriptions/" + subscriptionName));
-	
-	    // Get an Atom feed with all the queues in the namespace
-	    Console.WriteLine(GetResources("$Resources/Queues"));
-	
-	    // Get an Atom feed with all the topics in the namespace
-	    Console.WriteLine(GetResources("$Resources/Topics"));
-	
-	    // Get an Atom feed with all the subscriptions for the topic we just created
-	    Console.WriteLine(GetResources(topicName + "/Subscriptions"));
-	
-	    // Get an Atom feed with all the rules for the topic and subscription we just created
-	    Console.WriteLine(GetResources(topicName + "/Subscriptions/" + subscriptionName + "/Rules"));
-	
-	    // Delete the queue we created
-	    DeleteResource(queueName);
-	
-	    // Delete the topic we created
-	    DeleteResource(topicName);
-	
-	    // Get an Atom feed with all the topics in the namespace, it shouldn't have the one we created now
-	    Console.WriteLine(GetResources("$Resources/Topics"));
-	
-	    // Get an Atom feed with all the queues in the namespace, it shouldn't have the one we created now
-	    Console.WriteLine(GetResources("$Resources/Queues"));
-	}
-	catch (WebException we)
-	{
-	    using (HttpWebResponse response = we.Response as HttpWebResponse)
-	    {
-	        if (response != null)
-	        {
-	            Console.WriteLine(new StreamReader(response.GetResponseStream()).ReadToEnd());
-	        }
-	        else
-	        {
-	            Console.WriteLine(we.ToString());
-	        }
-	    }
-	}
-	
-	Console.WriteLine("\nPress ENTER to exit.");
-	Console.ReadLine();
-	```
+    ```
+    Console.Write("Enter your service namespace: ");
+    serviceNamespace = Console.ReadLine();
+    
+    Console.Write("Enter your SAS key: ");
+    string SASKey = Console.ReadLine();
+    
+    baseAddress = "https://" + serviceNamespace + "." + sbHostName + "/";
+    try
+    {
+        token = GetSASToken("RootManageSharedAccessKey", SASKey);
+    
+        string queueName = "Queue" + Guid.NewGuid().ToString();
+    
+        // Create and put a message in the queue
+        CreateQueue(queueName, token);
+        SendMessage(queueName, "msg1");
+        string msg = ReceiveAndDeleteMessage(queueName);
+    
+        string topicName = "Topic" + Guid.NewGuid().ToString();
+        string subscriptionName = "Subscription" + Guid.NewGuid().ToString();
+        CreateTopic(topicName);
+        CreateSubscription(topicName, subscriptionName);
+        SendMessage(topicName, "msg2");
+    
+        Console.WriteLine(ReceiveAndDeleteMessage(topicName + "/Subscriptions/" + subscriptionName));
+    
+        // Get an Atom feed with all the queues in the namespace
+        Console.WriteLine(GetResources("$Resources/Queues"));
+    
+        // Get an Atom feed with all the topics in the namespace
+        Console.WriteLine(GetResources("$Resources/Topics"));
+    
+        // Get an Atom feed with all the subscriptions for the topic we just created
+        Console.WriteLine(GetResources(topicName + "/Subscriptions"));
+    
+        // Get an Atom feed with all the rules for the topic and subscription we just created
+        Console.WriteLine(GetResources(topicName + "/Subscriptions/" + subscriptionName + "/Rules"));
+    
+        // Delete the queue we created
+        DeleteResource(queueName);
+    
+        // Delete the topic we created
+        DeleteResource(topicName);
+    
+        // Get an Atom feed with all the topics in the namespace, it shouldn't have the one we created now
+        Console.WriteLine(GetResources("$Resources/Topics"));
+    
+        // Get an Atom feed with all the queues in the namespace, it shouldn't have the one we created now
+        Console.WriteLine(GetResources("$Resources/Queues"));
+    }
+    catch (WebException we)
+    {
+        using (HttpWebResponse response = we.Response as HttpWebResponse)
+        {
+            if (response != null)
+            {
+                Console.WriteLine(new StreamReader(response.GetResponseStream()).ReadToEnd());
+            }
+            else
+            {
+                Console.WriteLine(we.ToString());
+            }
+        }
+    }
+    
+    Console.WriteLine("\nPress ENTER to exit.");
+    Console.ReadLine();
+    ```
 
 ## Create management credentials
 
@@ -208,35 +208,35 @@ In this step, you add a method that uses the REST-style HTTP POST command to sen
 
 1. Paste the following code directly after the `CreateQueue()` code you added in the previous step:
 
-	```
-	// Sends a message to the "queueName" queue, given the name and the value to enqueue
-	// Uses an HTTP POST request.privatestaticvoid SendMessage(string queueName, string body)
-	{
-	    string fullAddress = baseAddress + queueName + "/messages" + "?timeout=60&api-version=2013-08 ";
-	    Console.WriteLine("\nSending message {0} - to address {1}", body, fullAddress);
-	    WebClient webClient = new WebClient();
-	    webClient.Headers[HttpRequestHeader.Authorization] = token;
-	
-	    webClient.UploadData(fullAddress, "POST", Encoding.UTF8.GetBytes(body));
-	}
-	```
+    ```
+    // Sends a message to the "queueName" queue, given the name and the value to enqueue
+    // Uses an HTTP POST request.privatestaticvoid SendMessage(string queueName, string body)
+    {
+        string fullAddress = baseAddress + queueName + "/messages" + "?timeout=60&api-version=2013-08 ";
+        Console.WriteLine("\nSending message {0} - to address {1}", body, fullAddress);
+        WebClient webClient = new WebClient();
+        webClient.Headers[HttpRequestHeader.Authorization] = token;
+    
+        webClient.UploadData(fullAddress, "POST", Encoding.UTF8.GetBytes(body));
+    }
+    ```
 
 1. Standard brokered message properties are placed in a `BrokerProperties` HTTP header. The broker properties must be serialized in JSON format. To specify a **TimeToLive** value of 30 seconds and to add a message label "M1" to the message, add the following code immediately before the `webClient.UploadData()` call shown in the previous example:
 
-	```
-	// Add brokered message properties "TimeToLive" and "Label"
-	webClient.Headers.Add("BrokerProperties", "{ \"TimeToLive\":30, \"Label\":\"M1\"}");
-	```
+    ```
+    // Add brokered message properties "TimeToLive" and "Label"
+    webClient.Headers.Add("BrokerProperties", "{ \"TimeToLive\":30, \"Label\":\"M1\"}");
+    ```
 
-	Note that brokered message properties have been and will be added. Therefore, the send request must specify an API version that supports all of the brokered message properties that are part of the request. If the specified API version does not support a brokered message property, that property is ignored.
+    Note that brokered message properties have been and will be added. Therefore, the send request must specify an API version that supports all of the brokered message properties that are part of the request. If the specified API version does not support a brokered message property, that property is ignored.
 
 1. Custom message properties are defined as a set of key-value pairs. Each custom property is stored in its own TPPT header. To add the custom properties "Priority" and "Customer", add the following code immediately before the `webClient.UploadData()` call shown in the previous example:
 
-	```
-	// Add custom properties "Priority" and "Customer".
-	webClient.Headers.Add("Priority", "High");
-	webClient.Headers.Add("Customer", "12345");
-	```
+    ```
+    // Add custom properties "Priority" and "Customer".
+    webClient.Headers.Add("Priority", "High");
+    webClient.Headers.Add("Customer", "12345");
+    ```
 
 ## Receive and delete a message from the queue
 

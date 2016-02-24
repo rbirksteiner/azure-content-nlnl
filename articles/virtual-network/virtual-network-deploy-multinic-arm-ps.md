@@ -57,36 +57,36 @@ You can download the full PowerShell script used [here](https://raw.githubuserco
 
 1. Change the values of the variables below based on your existing resource group deployed above in [Prerequisites](#Prerequisites).
 
-		$existingRGName        = "IaaSStory"
-		$location              = "West US"
-		$vnetName              = "WTestVNet"
-		$backendSubnetName     = "BackEnd"
-		$remoteAccessNSGName   = "NSG-RemoteAccess"
-		$stdStorageAccountName = "wtestvnetstoragestd"
+        $existingRGName        = "IaaSStory"
+        $location              = "West US"
+        $vnetName              = "WTestVNet"
+        $backendSubnetName     = "BackEnd"
+        $remoteAccessNSGName   = "NSG-RemoteAccess"
+        $stdStorageAccountName = "wtestvnetstoragestd"
 
 2. Change the values of the variables below based on the values you want to use for your backend deployment.
 
-		$backendRGName         = "IaaSStory-Backend"
-		$prmStorageAccountName = "wtestvnetstorageprm"
-		$avSetName             = "ASDB"
-		$vmSize                = "Standard_DS3"
-		$publisher             = "MicrosoftSQLServer"
-		$offer                 = "SQL2014SP1-WS2012R2"
-		$sku                   = "Standard"
-		$version               = "latest"
-		$vmNamePrefix          = "DB"
-		$osDiskPrefix          = "osdiskdb"
-		$dataDiskPrefix        = "datadisk"
-		$nicNamePrefix         = "NICDB"
-		$ipAddressPrefix       = "192.168.2."
-		$numberOfVMs           = 2
+        $backendRGName         = "IaaSStory-Backend"
+        $prmStorageAccountName = "wtestvnetstorageprm"
+        $avSetName             = "ASDB"
+        $vmSize                = "Standard_DS3"
+        $publisher             = "MicrosoftSQLServer"
+        $offer                 = "SQL2014SP1-WS2012R2"
+        $sku                   = "Standard"
+        $version               = "latest"
+        $vmNamePrefix          = "DB"
+        $osDiskPrefix          = "osdiskdb"
+        $dataDiskPrefix        = "datadisk"
+        $nicNamePrefix         = "NICDB"
+        $ipAddressPrefix       = "192.168.2."
+        $numberOfVMs           = 2
 
 3. Retrieve the existing resources needed for your deployment.
 
-		$vnet                  = Get-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $existingRGName
-		$backendSubnet         = $vnet.Subnets|?{$_.Name -eq $backendSubnetName}
-		$remoteAccessNSG       = Get-AzureRmNetworkSecurityGroup -Name $remoteAccessNSGName -ResourceGroupName $existingRGName
-		$stdStorageAccount     = Get-AzureRmStorageAccount -Name $stdStorageAccountName -ResourceGroupName $existingRGName
+        $vnet                  = Get-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $existingRGName
+        $backendSubnet         = $vnet.Subnets|?{$_.Name -eq $backendSubnetName}
+        $remoteAccessNSG       = Get-AzureRmNetworkSecurityGroup -Name $remoteAccessNSGName -ResourceGroupName $existingRGName
+        $stdStorageAccount     = Get-AzureRmStorageAccount -Name $stdStorageAccountName -ResourceGroupName $existingRGName
 
 ### Step 2 - Create necessary resources for your VMs
 
@@ -94,20 +94,20 @@ You need to create a new resource group, a storage account for the data disks, a
 
 1. Create a new resource group.
 
-		New-AzureRmResourceGroup -Name $backendRGName -Location $location
+        New-AzureRmResourceGroup -Name $backendRGName -Location $location
 
 2. Create a new premium storage account in the resource group created above.
 
-		$prmStorageAccount = New-AzureRmStorageAccount -Name $prmStorageAccountName `
-			-ResourceGroupName $backendRGName -Type Premium_LRS -Location $location
+        $prmStorageAccount = New-AzureRmStorageAccount -Name $prmStorageAccountName `
+            -ResourceGroupName $backendRGName -Type Premium_LRS -Location $location
 
 3. Create a new availability set.
 
-		$avSet = New-AzureRmAvailabilitySet -Name $avSetName -ResourceGroupName $backendRGName -Location $location
+        $avSet = New-AzureRmAvailabilitySet -Name $avSetName -ResourceGroupName $backendRGName -Location $location
 
 4. Get the local administrator account credentials to be used for each VM.
 
-		$cred = Get-Credential -Message "Type the name and password for the local administrator account."
+        $cred = Get-Credential -Message "Type the name and password for the local administrator account."
 
 ### Step 3 - Create the NICs and backend VMs
 
@@ -115,57 +115,57 @@ You need to use a loop to create as many VMs as you want, and create the necessa
 
 1. Start a `for` loop to repeat the commands to create a VM and two NICs as many times as necessary, based on the value of the `$numberOfVMs` variable.
 
-		for ($suffixNumber = 1; $suffixNumber -le $numberOfVMs; $suffixNumber++){
+        for ($suffixNumber = 1; $suffixNumber -le $numberOfVMs; $suffixNumber++){
 
 2. Create the NIC used for database access.
-		
-		    $nic1Name = $nicNamePrefix + $suffixNumber + "-DA"
-		    $ipAddress1 = $ipAddressPrefix + ($suffixNumber + 3)
-		    $nic1 = New-AzureRmNetworkInterface -Name $nic1Name -ResourceGroupName $backendRGName `
-				-Location $location -SubnetId $backendSubnet.Id -PrivateIpAddress $ipAddress1
+        
+            $nic1Name = $nicNamePrefix + $suffixNumber + "-DA"
+            $ipAddress1 = $ipAddressPrefix + ($suffixNumber + 3)
+            $nic1 = New-AzureRmNetworkInterface -Name $nic1Name -ResourceGroupName $backendRGName `
+                -Location $location -SubnetId $backendSubnet.Id -PrivateIpAddress $ipAddress1
 
 3. Create the NIC used for remote access. Notice how this NIC has an NSG associated to it.
 
-		    $nic2Name = $nicNamePrefix + $suffixNumber + "-RA"
-		    $ipAddress2 = $ipAddressPrefix + (53 + $suffixNumber)
-		    $nic2 = New-AzureRmNetworkInterface -Name $nic2Name -ResourceGroupName $backendRGName `
-				-Location $location -SubnetId $backendSubnet.Id -PrivateIpAddress $ipAddress2 `
-				-NetworkSecurityGroupId $remoteAccessNSG.Id
+            $nic2Name = $nicNamePrefix + $suffixNumber + "-RA"
+            $ipAddress2 = $ipAddressPrefix + (53 + $suffixNumber)
+            $nic2 = New-AzureRmNetworkInterface -Name $nic2Name -ResourceGroupName $backendRGName `
+                -Location $location -SubnetId $backendSubnet.Id -PrivateIpAddress $ipAddress2 `
+                -NetworkSecurityGroupId $remoteAccessNSG.Id
 
 4. Create `vmConfig` object.
 
-		    $vmName = $vmNamePrefix + $suffixNumber
-		    $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avSet.Id
+            $vmName = $vmNamePrefix + $suffixNumber
+            $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avSet.Id
 
 5. Create two data disks per VM. Notice that the data disks are in the premium storage account created earlier.
 
-		    $dataDisk1Name = $vmName + "-" + $dataDiskSuffix + "-1"    
-		    $data1VhdUri = $prmStorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $dataDisk1Name + ".vhd"
-		    Add-AzureRmVMDataDisk -VM $vmConfig -Name $dataDisk1Name -DiskSizeInGB $diskSize `
-				-VhdUri $data1VhdUri -CreateOption empty -Lun 0
-		
-		    $dataDisk2Name = $vmName + "-" + $dataDiskSuffix + "-2"    
-		    $data2VhdUri = $prmStorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $dataDisk2Name + ".vhd"
-		    Add-AzureRmVMDataDisk -VM $vmConfig -Name $dataDisk2Name -DiskSizeInGB $diskSize `
-				-VhdUri $data2VhdUri -CreateOption empty -Lun 1
+            $dataDisk1Name = $vmName + "-" + $dataDiskSuffix + "-1"    
+            $data1VhdUri = $prmStorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $dataDisk1Name + ".vhd"
+            Add-AzureRmVMDataDisk -VM $vmConfig -Name $dataDisk1Name -DiskSizeInGB $diskSize `
+                -VhdUri $data1VhdUri -CreateOption empty -Lun 0
+        
+            $dataDisk2Name = $vmName + "-" + $dataDiskSuffix + "-2"    
+            $data2VhdUri = $prmStorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $dataDisk2Name + ".vhd"
+            Add-AzureRmVMDataDisk -VM $vmConfig -Name $dataDisk2Name -DiskSizeInGB $diskSize `
+                -VhdUri $data2VhdUri -CreateOption empty -Lun 1
 
 6. Configure the operating system, and image to be used for the VM.
-		    
-		    $vmConfig = Set-AzureRmVMOperatingSystem -VM $vmConfig -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-		    $vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig -PublisherName $publisher -Offer $offer -Skus $sku -Version $version
+            
+            $vmConfig = Set-AzureRmVMOperatingSystem -VM $vmConfig -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+            $vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig -PublisherName $publisher -Offer $offer -Skus $sku -Version $version
 
 7. Add the two NICs created above to the `vmConfig` object.
 
-		    $vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic1.Id -Primary
-		    $vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic2.Id
+            $vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic1.Id -Primary
+            $vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic2.Id
 
 8. Create the OS disk and create the VM. Notice the `}` ending the `for` loop. 
 
-		    $osDiskName = $vmName + "-" + $osDiskSuffix
-		    $osVhdUri = $stdStorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $osDiskName + ".vhd"
-		    $vmConfig = Set-AzureRmVMOSDisk -VM $vmConfig -Name $osDiskName -VhdUri $osVhdUri -CreateOption fromImage
-		    New-AzureRmVM -VM $vmConfig -ResourceGroupName $backendRGName -Location $location
-		}
+            $osDiskName = $vmName + "-" + $osDiskSuffix
+            $osVhdUri = $stdStorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $osDiskName + ".vhd"
+            $vmConfig = Set-AzureRmVMOSDisk -VM $vmConfig -Name $osDiskName -VhdUri $osVhdUri -CreateOption fromImage
+            New-AzureRmVM -VM $vmConfig -ResourceGroupName $backendRGName -Location $location
+        }
 
 ### Step 4 - Run the script
 
@@ -173,139 +173,140 @@ Now that you downloaded and changed the script based on your needs, runt he scri
 
 1. Save your script and run it from the **PowerShell** command prompt, or **PowerShell ISE**. You will see the initial output, as shown below.
 
-		ResourceGroupName : IaaSStory-Backend
-		Location          : westus
-		ProvisioningState : Succeeded
-		Tags              : 
-		Permissions       : 
-		                    Actions  NotActions
-		                    =======  ==========
-		                    *                  
-		                    
-		ResourceId        : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/IaaSStory-Backend
+        ResourceGroupName : IaaSStory-Backend
+        Location          : westus
+        ProvisioningState : Succeeded
+        Tags              : 
+        Permissions       : 
+                            Actions  NotActions
+                            =======  ==========
+                            *                  
+                            
+        ResourceId        : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/IaaSStory-Backend
 
 2. After a few minutes, fill out the credentials prompt and click **OK**. The output below represents a single VM. Notice the entire process took 8 minutes to complete.
 
-		ResourceGroupName            : 
-		Id                           : 
-		Name                         : DB2
-		Type                         : 
-		Location                     : 
-		Tags                         : 
-		TagsText                     : null
-		AvailabilitySetReference     : Microsoft.Azure.Management.Compute.Models.AvailabilitySetReference
-		AvailabilitySetReferenceText : {
-		                                 "ReferenceUri": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory-Backend/providers/
-		                               Microsoft.Compute/availabilitySets/ASDB"
-		                               }
-		Extensions                   : 
-		ExtensionsText               : null
-		HardwareProfile              : Microsoft.Azure.Management.Compute.Models.HardwareProfile
-		HardwareProfileText          : {
-		                                 "VirtualMachineSize": "Standard_DS3"
-		                               }
-		InstanceView                 : 
-		InstanceViewText             : null
-		NetworkProfile               : 
-		NetworkProfileText           : null
-		OSProfile                    : 
-		OSProfileText                : null
-		Plan                         : 
-		PlanText                     : null
-		ProvisioningState            : 
-		StorageProfile               : Microsoft.Azure.Management.Compute.Models.StorageProfile
-		StorageProfileText           : {
-		                                 "DataDisks": [
-		                                   {
-		                                     "Lun": 0,
-		                                     "Caching": null,
-		                                     "CreateOption": "empty",
-		                                     "DiskSizeGB": 127,
-		                                     "Name": "DB2-datadisk-1",
-		                                     "SourceImage": null,
-		                                     "VirtualHardDisk": {
-		                                       "Uri": "https://wtestvnetstorageprm.blob.core.windows.net/vhds/DB2-datadisk-1.vhd"
-		                                     }
-		                                   }
-		                                 ],
-		                                 "ImageReference": null,
-		                                 "OSDisk": null
-		                               }
-		DataDiskNames                : {DB2-datadisk-1}
-		NetworkInterfaceIDs          : 
-		RequestId                    : 
-		StatusCode                   : 0
-		
-		
-		ResourceGroupName            : 
-		Id                           : 
-		Name                         : DB2
-		Type                         : 
-		Location                     : 
-		Tags                         : 
-		TagsText                     : null
-		AvailabilitySetReference     : Microsoft.Azure.Management.Compute.Models.AvailabilitySetReference
-		AvailabilitySetReferenceText : {
-		                                 "ReferenceUri": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory-Backend/providers/
-		                               Microsoft.Compute/availabilitySets/ASDB"
-		                               }
-		Extensions                   : 
-		ExtensionsText               : null
-		HardwareProfile              : Microsoft.Azure.Management.Compute.Models.HardwareProfile
-		HardwareProfileText          : {
-		                                 "VirtualMachineSize": "Standard_DS3"
-		                               }
-		InstanceView                 : 
-		InstanceViewText             : null
-		NetworkProfile               : 
-		NetworkProfileText           : null
-		OSProfile                    : 
-		OSProfileText                : null
-		Plan                         : 
-		PlanText                     : null
-		ProvisioningState            : 
-		StorageProfile               : Microsoft.Azure.Management.Compute.Models.StorageProfile
-		StorageProfileText           : {
-		                                 "DataDisks": [
-		                                   {
-		                                     "Lun": 0,
-		                                     "Caching": null,
-		                                     "CreateOption": "empty",
-		                                     "DiskSizeGB": 127,
-		                                     "Name": "DB2-datadisk-1",
-		                                     "SourceImage": null,
-		                                     "VirtualHardDisk": {
-		                                       "Uri": "https://wtestvnetstorageprm.blob.core.windows.net/vhds/DB2-datadisk-1.vhd"
-		                                     }
-		                                   },
-		                                   {
-		                                     "Lun": 1,
-		                                     "Caching": null,
-		                                     "CreateOption": "empty",
-		                                     "DiskSizeGB": 127,
-		                                     "Name": "DB2-datadisk-2",
-		                                     "SourceImage": null,
-		                                     "VirtualHardDisk": {
-		                                       "Uri": "https://wtestvnetstorageprm.blob.core.windows.net/vhds/DB2-datadisk-2.vhd"
-		                                     }
-		                                   }
-		                                 ],
-		                                 "ImageReference": null,
-		                                 "OSDisk": null
-		                               }
-		DataDiskNames                : {DB2-datadisk-1, DB2-datadisk-2}
-		NetworkInterfaceIDs          : 
-		RequestId                    : 
-		StatusCode                   : 0
-		
-		
-		EndTime             : 10/30/2015 9:30:03 AM -08:00
-		Error               : 
-		Output              : 
-		StartTime           : 10/30/2015 9:22:54 AM -08:00
-		Status              : Succeeded
-		TrackingOperationId : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-		RequestId           : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-		StatusCode          : OK
+        ResourceGroupName            : 
+        Id                           : 
+        Name                         : DB2
+        Type                         : 
+        Location                     : 
+        Tags                         : 
+        TagsText                     : null
+        AvailabilitySetReference     : Microsoft.Azure.Management.Compute.Models.AvailabilitySetReference
+        AvailabilitySetReferenceText : {
+                                         "ReferenceUri": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory-Backend/providers/
+                                       Microsoft.Compute/availabilitySets/ASDB"
+                                       }
+        Extensions                   : 
+        ExtensionsText               : null
+        HardwareProfile              : Microsoft.Azure.Management.Compute.Models.HardwareProfile
+        HardwareProfileText          : {
+                                         "VirtualMachineSize": "Standard_DS3"
+                                       }
+        InstanceView                 : 
+        InstanceViewText             : null
+        NetworkProfile               : 
+        NetworkProfileText           : null
+        OSProfile                    : 
+        OSProfileText                : null
+        Plan                         : 
+        PlanText                     : null
+        ProvisioningState            : 
+        StorageProfile               : Microsoft.Azure.Management.Compute.Models.StorageProfile
+        StorageProfileText           : {
+                                         "DataDisks": [
+                                           {
+                                             "Lun": 0,
+                                             "Caching": null,
+                                             "CreateOption": "empty",
+                                             "DiskSizeGB": 127,
+                                             "Name": "DB2-datadisk-1",
+                                             "SourceImage": null,
+                                             "VirtualHardDisk": {
+                                               "Uri": "https://wtestvnetstorageprm.blob.core.windows.net/vhds/DB2-datadisk-1.vhd"
+                                             }
+                                           }
+                                         ],
+                                         "ImageReference": null,
+                                         "OSDisk": null
+                                       }
+        DataDiskNames                : {DB2-datadisk-1}
+        NetworkInterfaceIDs          : 
+        RequestId                    : 
+        StatusCode                   : 0
+        
+        
+        ResourceGroupName            : 
+        Id                           : 
+        Name                         : DB2
+        Type                         : 
+        Location                     : 
+        Tags                         : 
+        TagsText                     : null
+        AvailabilitySetReference     : Microsoft.Azure.Management.Compute.Models.AvailabilitySetReference
+        AvailabilitySetReferenceText : {
+                                         "ReferenceUri": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory-Backend/providers/
+                                       Microsoft.Compute/availabilitySets/ASDB"
+                                       }
+        Extensions                   : 
+        ExtensionsText               : null
+        HardwareProfile              : Microsoft.Azure.Management.Compute.Models.HardwareProfile
+        HardwareProfileText          : {
+                                         "VirtualMachineSize": "Standard_DS3"
+                                       }
+        InstanceView                 : 
+        InstanceViewText             : null
+        NetworkProfile               : 
+        NetworkProfileText           : null
+        OSProfile                    : 
+        OSProfileText                : null
+        Plan                         : 
+        PlanText                     : null
+        ProvisioningState            : 
+        StorageProfile               : Microsoft.Azure.Management.Compute.Models.StorageProfile
+        StorageProfileText           : {
+                                         "DataDisks": [
+                                           {
+                                             "Lun": 0,
+                                             "Caching": null,
+                                             "CreateOption": "empty",
+                                             "DiskSizeGB": 127,
+                                             "Name": "DB2-datadisk-1",
+                                             "SourceImage": null,
+                                             "VirtualHardDisk": {
+                                               "Uri": "https://wtestvnetstorageprm.blob.core.windows.net/vhds/DB2-datadisk-1.vhd"
+                                             }
+                                           },
+                                           {
+                                             "Lun": 1,
+                                             "Caching": null,
+                                             "CreateOption": "empty",
+                                             "DiskSizeGB": 127,
+                                             "Name": "DB2-datadisk-2",
+                                             "SourceImage": null,
+                                             "VirtualHardDisk": {
+                                               "Uri": "https://wtestvnetstorageprm.blob.core.windows.net/vhds/DB2-datadisk-2.vhd"
+                                             }
+                                           }
+                                         ],
+                                         "ImageReference": null,
+                                         "OSDisk": null
+                                       }
+        DataDiskNames                : {DB2-datadisk-1, DB2-datadisk-2}
+        NetworkInterfaceIDs          : 
+        RequestId                    : 
+        StatusCode                   : 0
+        
+        
+        EndTime             : 10/30/2015 9:30:03 AM -08:00
+        Error               : 
+        Output              : 
+        StartTime           : 10/30/2015 9:22:54 AM -08:00
+        Status              : Succeeded
+        TrackingOperationId : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+        RequestId           : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+        StatusCode          : OK
+
 
 

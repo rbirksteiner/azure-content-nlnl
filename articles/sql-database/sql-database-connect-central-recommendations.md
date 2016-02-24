@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Connect to SQL Database: Best Practices | Microsoft Azure" 
-	description="A starting point topic that gathers together links and best practice recommendations for client programs that connect to Azure SQL Database from technologies such as ADO.NET and PHP." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="MightyPen" 
-	manager="jeffreyg" 
-	editor=""/>
+    pageTitle="Connect to SQL Database: Best Practices | Microsoft Azure" 
+    description="A starting point topic that gathers together links and best practice recommendations for client programs that connect to Azure SQL Database from technologies such as ADO.NET and PHP." 
+    services="sql-database" 
+    documentationCenter="" 
+    authors="MightyPen" 
+    manager="jeffreyg" 
+    editor=""/>
 
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/13/2015" 
-	ms.author="genemi"/>
+    ms.service="sql-database" 
+    ms.workload="data-management" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/13/2015" 
+    ms.author="genemi"/>
 
 
 # Connecting to SQL Database: Best Practices and Design Guidelines
@@ -172,4 +172,5 @@ Various code samples are given for clients that run on both Windows, Linux, and 
 **Driver libraries:** For information about connection driver libraries, including recommended versions, see:
 
 - [Connection Libraries for SQL Database and SQL Server](sql-database-libraries.md)
+
 

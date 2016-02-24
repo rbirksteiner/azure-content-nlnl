@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Intro to Azure | Microsoft Azure" 
-	description="New to Microsoft Azure? Get a basic overview of the services it offers with examples of how they are useful." 
-	services=" " 
-	documentationCenter=".net" 
-	authors="Rboucher" 
-	manager="jwhit"
-	editor=""/>
+    pageTitle="Intro to Azure | Microsoft Azure" 
+    description="New to Microsoft Azure? Get a basic overview of the services it offers with examples of how they are useful." 
+    services=" " 
+    documentationCenter=".net" 
+    authors="Rboucher" 
+    manager="jwhit"
+    editor=""/>
 
 <tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/30/2015"  
-	ms.author="robb"/>
+    ms.service="multiple" 
+    ms.workload="multiple" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="06/30/2015"  
+    ms.author="robb"/>
 
 # Introducing Microsoft Azure
 
@@ -69,9 +69,9 @@ This quite general approach to cloud computing can be used to address many diffe
 
 **Virtual Machine Scenarios**
 
-1.	**Dev/Test** - You might use them to create an inexpensive development and test platform that you can shut down when you've finished using it. You might also create and run applications that use whatever languages and libraries you like. Those applications can use any of the data management options that Azure provides, and you can also choose to use SQL Server or another DBMS running in one or more virtual machines. 
-2.	**Move Applications to Azure (Lift-and-shift)** - "Lift-and-shift" refers to moving you application much like you'd use a forklift to move a large object.  You "lift" the VHD from your local datacenter, and "shift" it to Azure and run it there.  You will typically have to do some work to remove dependencies on other systems. If there are too many, you may choose option 3 instead.  
-3.	**Extend your Datacenter** - Use Azure VMs as an extension of your on-premises datacenter, running SharePoint or other applications. To support this, it's possible to create Windows domains in the cloud by running Active Directory in Azure VMs. You can use Azure Virtual Network (mentioned later) to tie your local network and your network in Azure together.
+1.  **Dev/Test** - You might use them to create an inexpensive development and test platform that you can shut down when you've finished using it. You might also create and run applications that use whatever languages and libraries you like. Those applications can use any of the data management options that Azure provides, and you can also choose to use SQL Server or another DBMS running in one or more virtual machines. 
+2.  **Move Applications to Azure (Lift-and-shift)** - "Lift-and-shift" refers to moving you application much like you'd use a forklift to move a large object.  You "lift" the VHD from your local datacenter, and "shift" it to Azure and run it there.  You will typically have to do some work to remove dependencies on other systems. If there are too many, you may choose option 3 instead.  
+3.  **Extend your Datacenter** - Use Azure VMs as an extension of your on-premises datacenter, running SharePoint or other applications. To support this, it's possible to create Windows domains in the cloud by running Active Directory in Azure VMs. You can use Azure Virtual Network (mentioned later) to tie your local network and your network in Azure together.
  
 
 
@@ -625,3 +625,4 @@ Now that you have the big-picture, the next step is to write your first Azure ap
 
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
+

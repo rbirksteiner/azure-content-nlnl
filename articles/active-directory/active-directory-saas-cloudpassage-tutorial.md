@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Tutorial: Azure Active Directory integration with CloudPassage | Microsoft Azure"
-	description="Learn how to configure single sign-on between Azure Active Directory and CloudPassage."
-	services="active-directory"
-	documentationCenter=""
-	authors="markusvi"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Tutorial: Azure Active Directory integration with CloudPassage | Microsoft Azure"
+    description="Learn how to configure single sign-on between Azure Active Directory and CloudPassage."
+    services="active-directory"
+    documentationCenter=""
+    authors="markusvi"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/30/2015"
-	ms.author="markvi"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/30/2015"
+    ms.author="markvi"/>
 
 
 # Tutorial: Azure Active Directory integration with CloudPassage
@@ -212,13 +212,13 @@ The objective of this section is to create a user called Britta Simon in CloudPa
 
 #### To create a user called Britta Simon in CloudPassage, perform the following steps:
 
-1.	Sign-on to your **CloudPassage** company site as an administrator. 
+1.  Sign-on to your **CloudPassage** company site as an administrator. 
 
-2.	In the toolbar on the top, click **Settings**, and then click **Site Administration**. <br>![Creating a CloudPassage test user][22] 
+2.  In the toolbar on the top, click **Settings**, and then click **Site Administration**. <br>![Creating a CloudPassage test user][22] 
 
-3.	Click the **Users** tab, and then click **Add New User**. <br>![Creating a CloudPassage test user][23]
-	
-4.	In the **Add New User** section, perform the following steps: <br>![Creating a CloudPassage test user][24]
+3.  Click the **Users** tab, and then click **Add New User**. <br>![Creating a CloudPassage test user][23]
+    
+4.  In the **Add New User** section, perform the following steps: <br>![Creating a CloudPassage test user][24]
 
      4.1. In the **First Name** textbox, type Britta.
 
@@ -301,6 +301,7 @@ When you click the CloudPassage tile in the Access Panel, you should get automat
 [28]: ./media/active-directory-saas-cloudpassage-tutorial/tutorial_cloudpassage_15.png
 [29]: ./media/active-directory-saas-cloudpassage-tutorial/tutorial_general_16.png
 [30]: ./media/active-directory-saas-cloudpassage-tutorial/tutorial_general_17.png
+
 
 
 

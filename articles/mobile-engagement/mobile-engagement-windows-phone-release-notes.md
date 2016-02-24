@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Windows Phone Silverlight SDK Release Notes" 
-	description="Azure Mobile Engagement - Windows Phone Silverlight SDK Release Notes" 					
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
-	editor="" />
+    pageTitle="Windows Phone Silverlight SDK Release Notes" 
+    description="Azure Mobile Engagement - Windows Phone Silverlight SDK Release Notes"                     
+    services="mobile-engagement" 
+    documentationCenter="mobile" 
+    authors="piyushjo" 
+    manager="dwrede" 
+    editor="" />
 
 <tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/10/2015" 
-	ms.author="piyushjo" />
+    ms.service="mobile-engagement" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="mobile-windows-phone" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/10/2015" 
+    ms.author="piyushjo" />
 
 #Windows Phone Silverlight SDK Release Notes
 
@@ -36,3 +36,4 @@ Part of the *MicrosoftAzure.MobileEngagement* nuget package **v3.2.0**
 -   appId/sdkKey configuration is replaced by a connection string configuration.
 -   Security improvements.
  
+

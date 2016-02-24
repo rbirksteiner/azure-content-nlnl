@@ -20,9 +20,9 @@
 # Get started with the SAP Connector and add it to your Logic App
 Connect to on-premises SAP to call RFC or get metadata. There are scenarios where you may need to work with SAP, which is installed on-premises and behind the firewall. By leveraging the SAP Connector in your flow, you can achieve a variety of scenarios. A few examples:  
 
-1.	Expose a section of the data residing in your SAP via a web or mobile user front end.
-2.	Publish data to your SAP after due processing
-3.	Extract data from SAP for use in a business process
+1.  Expose a section of the data residing in your SAP via a web or mobile user front end.
+2.  Publish data to your SAP after due processing
+3.  Extract data from SAP for use in a business process
 
 Connectors can be used in Logic apps to fetch, process or push data as a part of a flow. You can add the SAP Connector to your business workflow and process data as part of this workflow within a Logic App. 
 
@@ -41,11 +41,11 @@ A connector can be created within a logic app or be created directly from the Az
 1. In the Azure startboard, select **Marketplace**.
 2. Search for “SAP Connector”, select it, and select **Create**.
 3. Configure it as follows:
-	1. Provide the generic details such as Name, App service plan, and so on in the first blade
+    1. Provide the generic details such as Name, App service plan, and so on in the first blade
 
-	2. As part of Package settings provide the SAP Credentials. Also provide an Azure Service Bus connection string. This is used to establish hybrid connectivity with your on-premises SAP. 
+    2. As part of Package settings provide the SAP Credentials. Also provide an Azure Service Bus connection string. This is used to establish hybrid connectivity with your on-premises SAP. 
 
-	3. RFCs, TRFCs, BAPIs and IDOCs need to be configured based on the scenario need. If multiple values need to be provided then they can be separated by commas
+    3. RFCs, TRFCs, BAPIs and IDOCs need to be configured based on the scenario need. If multiple values need to be provided then they can be separated by commas
 
 ![][1]  
 
@@ -99,3 +99,4 @@ You can also review performance statistics and control security to the connector
 [5]: ./media/app-service-logic-connector-sap/LogicApp1.jpg
 [6]: ./media/app-service-logic-connector-sap/LogicApp2.jpg
 [7]: ./media/app-service-logic-connector-sap/LogicApp3.jpg
+

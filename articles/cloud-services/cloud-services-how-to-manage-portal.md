@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How to manage a cloud service  | Microsoft Azure" 
-	description="Learn how to manage cloud services in the Azure portal. These examples use the Azure portal." 
-	services="cloud-services" 
-	documentationCenter="" 
-	authors="Thraka" 
-	manager="timlt" 
-	editor=""/>
+    pageTitle="How to manage a cloud service  | Microsoft Azure" 
+    description="Learn how to manage cloud services in the Azure portal. These examples use the Azure portal." 
+    services="cloud-services" 
+    documentationCenter="" 
+    authors="Thraka" 
+    manager="timlt" 
+    editor=""/>
 
 <tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/22/2015"
-	ms.author="adegeo"/>
+    ms.service="cloud-services" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/22/2015"
+    ms.author="adegeo"/>
 
 
 # How to Manage Cloud Services
@@ -44,11 +44,11 @@ If you need to update the application code for your cloud service, use **Update*
 
 5. If the update changes the number of roles or the size of any role, select the **Allow update if role sizes or number of roles changes** check box to enable the update to proceed. 
 
-	>[AZURE.WARNING] Be aware that if you change the size of a role (that is, the size of a virtual machine that hosts a role instance) or the number of roles, each role instance (virtual machine) must be re-imaged, and any local data will be lost.
+    >[AZURE.WARNING] Be aware that if you change the size of a role (that is, the size of a virtual machine that hosts a role instance) or the number of roles, each role instance (virtual machine) must be re-imaged, and any local data will be lost.
 
 6. If any service roles have only one role instance, select the **Update even if one or more role contain a single instance check box** to enable the upgrade to proceed. 
 
-	Azure can only guarantee 99.95 percent service availability during a cloud service update if each role has at least two role instances (virtual machines). That enables one virtual machine to process client requests while the other is being updated.
+    Azure can only guarantee 99.95 percent service availability during a cloud service update if each role has at least two role instances (virtual machines). That enables one virtual machine to process client requests while the other is being updated.
 
 8. Click **OK** to begin updating the service.
 
@@ -68,13 +68,13 @@ You can swap deployments from the **Cloud Services** page or the dashboard.
 
 3. The following confirmation prompt opens.
 
-	![Cloud Services Swap](./media/cloud-services-how-to-manage-portal/swap-prompt.png)
+    ![Cloud Services Swap](./media/cloud-services-how-to-manage-portal/swap-prompt.png)
 
 4. After you verify the deployment information, click **OK** to swap the deployments.
 
-	The deployment swap happens quickly because the only thing that changes is the virtual IP addresses (VIPs) for the deployments.
+    The deployment swap happens quickly because the only thing that changes is the virtual IP addresses (VIPs) for the deployments.
 
-	To save compute costs, you can delete the deployment in the staging environment when you're sure the new production deployment is performing as expected.
+    To save compute costs, you can delete the deployment in the staging environment when you're sure the new production deployment is performing as expected.
 
 ## How to: Link a resource to a cloud service
 

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Transition from preview api-version=2014* to api-version=2015* | Microsoft Azure | Hosted cloud search service" 
-	description="Learn about breaking changes and how to migrate code written against 2014-07-31-preview or 2014-10-20-preview to Azure Search, api-version=2015-02-28." 
-	services="search" 
-	documentationCenter="" 
-	authors="HeidiSteen" 
-	manager="mblythe" 
-	editor=""/>
+    pageTitle="Transition from preview api-version=2014* to api-version=2015* | Microsoft Azure | Hosted cloud search service" 
+    description="Learn about breaking changes and how to migrate code written against 2014-07-31-preview or 2014-10-20-preview to Azure Search, api-version=2015-02-28." 
+    services="search" 
+    documentationCenter="" 
+    authors="HeidiSteen" 
+    manager="mblythe" 
+    editor=""/>
 
 <tags 
-	ms.service="search" 
-	ms.devlang="rest-api" 
-	ms.workload="search" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.date="11/04/2015" 
-	ms.author="heidist"/>
+    ms.service="search" 
+    ms.devlang="rest-api" 
+    ms.workload="search" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.date="11/04/2015" 
+    ms.author="heidist"/>
 
 #Transition from preview api-version=2014* to api-version=2015*#
 

@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic" 	
+   ms.service="app-service-logic"   
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -89,4 +89,5 @@ The action returns the output as a string - Flat File. Output contains the flat 
 [9]: ./media/app-service-logic-flatfile-encoder/flatfileencoder.shemauploaded.PNG
 
  
+
 

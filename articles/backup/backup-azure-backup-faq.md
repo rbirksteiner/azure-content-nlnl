@@ -11,11 +11,11 @@
 <tags
    ms.service="backup"
    ms.workload="storage-backup-recovery"
-	 ms.tgt_pltfrm="na"
-	 ms.devlang="na"
-	 ms.topic="article"
-	 ms.date="11/17/2015"
-	 ms.author="trinadhk";"giridham"; "arunak"; "jimpark"; "aashishr"/>
+     ms.tgt_pltfrm="na"
+     ms.devlang="na"
+     ms.topic="article"
+     ms.date="11/17/2015"
+     ms.author="trinadhk";"giridham"; "arunak"; "jimpark"; "aashishr"/>
 
 # Azure Backup service- FAQ
 The following is a list of commonly asked questions about Azure Backup. If you have any additional questions about the Azure Backup solution, please go to the the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) and post your questions. Someone from our community will help you get your answers. If a question is commonly asked, we will add it to this article so that it can be found quickly and easily.
@@ -31,13 +31,13 @@ A1. The following list of operating systems is supported by Azure Backup
 | Windows 7 and latest SPs      | 64 bit | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter |
 | Windows 8.1 and latest SPs | 64 bit      |    Enterprise, Pro |
 | Windows 10      | 64 bit | Enterprise, Pro, Home |
-|Windows Server 2012 R2 and latest SPs|	64 bit|	Standard, Datacenter, Foundation|
-|Windows Server 2012 and latest SPs|	64 bit|	Datacenter, Foundation, Standard|
-|Windows Storage Server 2012 R2 and latest SPs	|64 bit|	Standard, Workgroup|
-|Windows Storage Server 2012 and latest SPs	|64 bit	|Standard, Workgroup
-|Windows Server 2012 R2 and latest SPs	|64 bit|	Essential|
-|Windows Server 2008 R2 SP1	|64 bit|	Standard, Enterprise, Datacenter, Foundation|
-|Windows Server 2008 SP2	|64 bit|	Standard, Enterprise, Datacenter, Foundation|
+|Windows Server 2012 R2 and latest SPs| 64 bit| Standard, Datacenter, Foundation|
+|Windows Server 2012 and latest SPs|    64 bit| Datacenter, Foundation, Standard|
+|Windows Storage Server 2012 R2 and latest SPs  |64 bit|    Standard, Workgroup|
+|Windows Storage Server 2012 and latest SPs |64 bit |Standard, Workgroup
+|Windows Server 2012 R2 and latest SPs  |64 bit|    Essential|
+|Windows Server 2008 R2 SP1 |64 bit|    Standard, Enterprise, Datacenter, Foundation|
+|Windows Server 2008 SP2    |64 bit|    Standard, Enterprise, Datacenter, Foundation|
 
 **Q2. Where can I download the latest Azure Backup agent?** <br/>
 A2. You can download the latest agent from [here](http://aka.ms/azurebackup_agent). This can be installed on Windows Server, SCDPM server or Windows client
@@ -125,7 +125,7 @@ A20. Ensure firewall rules enable communication with URLs below for seamless bac
 **Q1. Is there a limit on the size of each data source being backed up?** <br/>
 A1. As of August 2015, The maximum size of data source is as mentioned below for various operating systems
 
-|S.No |	Operating system |	Maximum size of data source |
+|S.No | Operating system |  Maximum size of data source |
 | :-------------: |:-------------| :-----|
 |1| Windows Server 2012 or above| 54400 GB|
 |2| Windows 8 or above| 54400 GB|
@@ -134,7 +134,7 @@ A1. As of August 2015, The maximum size of data source is as mentioned below for
 
 The datasource size is measured as mentioned below
 
-|	Datasource  |	Details |
+|   Datasource  |   Details |
 | :-------------: |:-------------|
 |Volume |The amount of data being backed up from single volume of a machine. This is applicable for the volumes being protected on both server and client machines.|
 |Hyper-V virtual machine|Sum of data of all the VHDs of the virtual machine being backed up|
@@ -210,10 +210,10 @@ A4. The key used to encrypt the backup data is present only on the customer prem
 + Update following registry entries with the path to new cache space folder:
 
 
-	| Registry path | Registry Key | Value |
-	| ------ | ------- | ------ |
-	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |  ScratchLocation | <i>New cache folder location</i> |
-	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` | ScratchLocation | <i>New cache folder location</i> |
+    | Registry path | Registry Key | Value |
+    | ------ | ------- | ------ |
+    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |  ScratchLocation | <i>New cache folder location</i> |
+    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` | ScratchLocation | <i>New cache folder location</i> |
 
 
 + Start the OBEngine by executing the below command in an elevated command prompt:
@@ -221,3 +221,4 @@ A4. The key used to encrypt the backup data is present only on the customer prem
   ```PS C:\> Net start obengine```
 
 Once the backups happen successfully with the new cache location, you can remove the original cache folder.
+

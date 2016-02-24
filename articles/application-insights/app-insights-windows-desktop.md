@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Application Insights for Windows desktop apps and services" 
-	description="Analyze usage and performance of your Windows desktop app with Application Insights." 
-	services="application-insights" 
+    pageTitle="Application Insights for Windows desktop apps and services" 
+    description="Analyze usage and performance of your Windows desktop app with Application Insights." 
+    services="application-insights" 
     documentationCenter="windows"
-	authors="alancameronwills" 
-	manager="douge"/>
+    authors="alancameronwills" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/05/2015" 
-	ms.author="awills"/>
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/05/2015" 
+    ms.author="awills"/>
 
 # Application Insights on Windows Desktop apps, services and worker roles
 
@@ -298,3 +298,4 @@ The code of the persistence channel is on [github](https://github.com/Microsoft/
 [api]: app-insights-api-custom-events-metrics.md
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
+

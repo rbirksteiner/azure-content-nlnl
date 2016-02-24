@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Create a digital marketing campaign on Azure App Service Web Apps" 
-	description="This guide provides a technical overview of how to use Azure App Service Web Apps to create digital marketing campaigns. This includes deployment, social media integration, scaling strategies, and monitoring." 
-	editor="jimbe" 
-	manager="wpickett" 
-	authors="cephalin" 
-	services="app-service\web" 
-	documentationCenter=""/>
+    pageTitle="Create a digital marketing campaign on Azure App Service Web Apps" 
+    description="This guide provides a technical overview of how to use Azure App Service Web Apps to create digital marketing campaigns. This includes deployment, social media integration, scaling strategies, and monitoring." 
+    editor="jimbe" 
+    manager="wpickett" 
+    authors="cephalin" 
+    services="app-service\web" 
+    documentationCenter=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/10/2015" 
-	ms.author="cephalin"/>
+    ms.service="app-service-web" 
+    ms.workload="web" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/10/2015" 
+    ms.author="cephalin"/>
 
 # Create a digital marketing campaign on Azure App Service Web Apps
 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) Web Apps is a great choice for digital marketing campaigns. Digital marketing campaigns are typically short-lived and are meant to drive short-term marketing goals. There are two main scenarios to consider. In the first scenario, a third-party marketing firm creates and manages the campaign for their customer for the duration of the promotion. A second scenario involves the marketing firm creating and then transferring ownership of the digital marketing campaign resources to their customer. The customer then runs and manages the digital marketing campaign on their own. is a good match for both scenarios. 
@@ -138,3 +138,4 @@ In the **Standard** tier, monitor app responsiveness receive email notifications
   
   [gitstaging]:http://www.bradygaster.com/post/multiple-environments-with-windows-azure-web-sites  
  
+

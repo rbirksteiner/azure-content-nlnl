@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Using Azure Storage with a Jenkins Continuous Integration Solution | Microsoft Azure" 
-	description="This tutorial show how to use the Azure blob service as a repository for build artifacts created by a Jenkins continuous integration solution." 
-	services="storage" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
-	editor="jimbe"/>
+    pageTitle="Using Azure Storage with a Jenkins Continuous Integration Solution | Microsoft Azure" 
+    description="This tutorial show how to use the Azure blob service as a repository for build artifacts created by a Jenkins continuous integration solution." 
+    services="storage" 
+    documentationCenter="java" 
+    authors="rmcmurray" 
+    manager="wpickett" 
+    editor="jimbe"/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="10/12/2015" 
-	ms.author="robmcm"/>
+    ms.service="storage" 
+    ms.workload="storage" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="Java" 
+    ms.topic="article" 
+    ms.date="10/12/2015" 
+    ms.author="robmcm"/>
 
 # Using Azure Storage with a Jenkins Continuous Integration solution
 

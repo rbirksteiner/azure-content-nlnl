@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Azure SQL Database Resource Limits"
-	description="This page describes some common resource limits for Azure SQL Database."
-	services="sql-database"
-	documentationCenter="na"
-	authors="rothja"
-	manager="jeffreyg"
-	editor="monicar" />
+    pageTitle="Azure SQL Database Resource Limits"
+    description="This page describes some common resource limits for Azure SQL Database."
+    services="sql-database"
+    documentationCenter="na"
+    authors="rothja"
+    manager="jeffreyg"
+    editor="monicar" />
 
 
 <tags
-	ms.service="sql-database"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="data-management"
-	ms.date="11/03/2015"
-	ms.author="jroth" />
+    ms.service="sql-database"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="data-management"
+    ms.date="11/03/2015"
+    ms.author="jroth" />
 
 
 # Azure SQL Database resource limits
@@ -32,11 +32,11 @@ As on a dedicated machine, utilizing all available resources will result in a lo
 ### Recommendations:
 Monitor the resource utilization as well as the average response times of queries when nearing the maximum utilization of a database. When encountering higher query latencies you generally have three options:
 
-1.	Reduce the amount of incoming requests to the database to prevent timeout and the pile up of requests.
+1.  Reduce the amount of incoming requests to the database to prevent timeout and the pile up of requests.
 
-2.	Assign a higher performance level to the database.
+2.  Assign a higher performance level to the database.
 
-3.	Optimize queries to reduce the resource utilization of each query. For more information, see the Query Tuning/Hinting section in the Azure SQL Database Performance Guidance article.
+3.  Optimize queries to reduce the resource utilization of each query. For more information, see the Query Tuning/Hinting section in the Azure SQL Database Performance Guidance article.
 
 ## Enforcement of limits
 Resources other than CPU, Memory, Log I/O, and Data I/O are enforced by denying new requests when limits are reached. Clients will receive an [error message](sql-database-develop-error-messages.md) depending on the limit that has been reached.
@@ -74,3 +74,4 @@ Azure SQL Database has a DTU quota per logical server of currently 15000 DTUs. T
 [Azure SQL Database Service Tiers and Performance Levels](sql-database-service-tiers.md)
 
 [Error messages for SQL Database client programs](sql-database-develop-error-messages.md)
+

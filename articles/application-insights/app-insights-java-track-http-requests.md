@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Track HTTP requests in a Java web application" 
-	description="Application Insights lets you measure performance of your web Java web application" 
-	services="application-insights" 
+    pageTitle="Track HTTP requests in a Java web application" 
+    description="Application Insights lets you measure performance of your web Java web application" 
+    services="application-insights" 
     documentationCenter=""
-	authors="alancameronwills" 
-	manager="douge"/>
+    authors="alancameronwills" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/21/2015" 
-	ms.author="awills"/>
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/21/2015" 
+    ms.author="awills"/>
  
 # Track HTTP requests in a Java web application
 

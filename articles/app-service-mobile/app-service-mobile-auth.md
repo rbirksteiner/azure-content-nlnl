@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Authentication and Authorization in Azure Mobile Apps | Microsoft Azure"
-	description="Conceptual reference and overview of the Authentication / Authorization feature for Azure Mobile Apps"
-	services="app-service\mobile"
-	documentationCenter=""
-	authors="mattchenderson" 
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Authentication and Authorization in Azure Mobile Apps | Microsoft Azure"
+    description="Conceptual reference and overview of the Authentication / Authorization feature for Azure Mobile Apps"
+    services="app-service\mobile"
+    documentationCenter=""
+    authors="mattchenderson" 
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="11/30/2015"
-	ms.author="mahender"/>
+    ms.service="app-service-mobile"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="na"
+    ms.devlang="multiple"
+    ms.topic="article"
+    ms.date="11/30/2015"
+    ms.author="mahender"/>
 
 # Authentication and Authorization in Azure Mobile Apps
 

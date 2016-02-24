@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Machine Learning example app: Frequently Bought Together | Microsoft Azure" 
-	description="A Machine Learning web service that performs online shopping cart analysis to produce product recommendations of items frequently bought together from historical transactions provided by the user." 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="CoromT" 
-	manager="paulettm" 
-	editor="cgronlun"/>
+    pageTitle="Machine Learning example app: Frequently Bought Together | Microsoft Azure" 
+    description="A Machine Learning web service that performs online shopping cart analysis to produce product recommendations of items frequently bought together from historical transactions provided by the user." 
+    services="machine-learning" 
+    documentationCenter="" 
+    authors="CoromT" 
+    manager="paulettm" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/08/2015" 
-	ms.author="luisca"/> 
+    ms.service="machine-learning" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/08/2015" 
+    ms.author="luisca"/> 
 
 # Machine Learning example app: Frequently Bought Together
 
@@ -38,3 +38,4 @@ After you have subscribed to the Frequently Bought Together web service, you can
 This service contains APIs to create Frequently Bought Together models, upload historical transactions, and retrieve the best-ranked, frequently bought together product set for a given product. Examples that demonstrate how to use these APIs can be found on the [Azure-MachineLearning-DataScience](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Apps/FrequentlyBoughtTogether) repository on GitHub.
 
  
+

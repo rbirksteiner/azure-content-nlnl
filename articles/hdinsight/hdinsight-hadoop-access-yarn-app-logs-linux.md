@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Access Hadoop YARN application logs on Linux-based HDInsight | Microsoft Azure"
-	description="Learn how to access YARN application logs on a Linux-based HDInsight (Hadoop) cluster using both the command-line and a web browser."
-	services="hdinsight"
-	documentationCenter=""
-	tags="azure-portal"
-	authors="Blackmist" 
-	manager="paulettm"
-	editor="cgronlun"/>
+    pageTitle="Access Hadoop YARN application logs on Linux-based HDInsight | Microsoft Azure"
+    description="Learn how to access YARN application logs on a Linux-based HDInsight (Hadoop) cluster using both the command-line and a web browser."
+    services="hdinsight"
+    documentationCenter=""
+    tags="azure-portal"
+    authors="Blackmist" 
+    manager="paulettm"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="hdinsight"
-	ms.workload="big-data"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/04/2015"
-	ms.author="larryfr"/>
+    ms.service="hdinsight"
+    ms.workload="big-data"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/04/2015"
+    ms.author="larryfr"/>
 
 # Access YARN application logs on Linux-based HDInsight
 
@@ -51,7 +51,7 @@ Furthermore, each application may consist of multiple *application attempts* in 
 
 Application logs (and the associated container logs) are critical in debugging problematic Hadoop applications. YARN provides a nice framework for collecting, aggregating, and storing application logs with the [Log Aggregation][log-aggregation] feature. The Log Aggregation feature makes accessing application logs more deterministic, as it aggregates logs across all containers on a worker node and stores them as one aggregated log file per worker node on the default file system after an application finishes. Your application may use hundreds or thousands of containers, but logs for all containers run on a single worker node will always be aggregated to a single file, resulting in one log file per worker node used by your application. Log Aggregation is enabled by default on HDInsight clusters (version 3.0 and above), and aggregated logs can be found in the default container of your cluster at the following location:
 
-	wasb:///app-logs/<user>/logs/<applicationId>
+    wasb:///app-logs/<user>/logs/<applicationId>
 
 In that location, *user* is the name of the user who started the application, and *applicationId* is the unique identifier of an application as assigned by the YARN RM.
 
@@ -64,12 +64,12 @@ In order to use the YARN CLI tools, you must first connect to the HDInsight clus
 - [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 - [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
-	
+    
 You can view these logs as plain text by running one of the following commands:
 
-	yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application>
-	yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application> -containerId <containerId> -nodeAddress <worker-node-address>
-	
+    yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application>
+    yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application> -containerId <containerId> -nodeAddress <worker-node-address>
+    
 You must specify the &lt;applicationId>, &lt;user-who-started-the-application>, &lt;containerId>, and &ltworker-node-address> information when running these commands.
 
 ##YARN ResourceManager UI
@@ -82,16 +82,17 @@ Once you have created an SSH tunnel, use the following steps to view the YARN lo
 
 2. From the list of services on the left, select __YARN__.
 
-	![Yarn service selected](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarnservice.png)
+    ![Yarn service selected](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarnservice.png)
 
 3. From the __Quick Links__ dropdown, select one of the cluster head nodes and then select __ResourceManager Log__.
 
-	![Yarn quick linnks](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarnquicklinks.png)
-	
-	You will be presented with a list of links to YARN logs.
+    ![Yarn quick linnks](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarnquicklinks.png)
+    
+    You will be presented with a list of links to YARN logs.
 
 [YARN-timeline-server]:http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html
 [log-aggregation]:http://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/
 [T-file]:https://issues.apache.org/jira/secure/attachment/12396286/TFile%20Specification%2020081217.pdf
 [binary-format]:https://issues.apache.org/jira/browse/HADOOP-3315
 [YARN-concepts]:http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
+

@@ -102,3 +102,4 @@ A private IP address can be assigned to an [Azure Application Gateway](applicati
 
 [Template deployments](https://msdn.microsoft.com/library/azure/dn790549.aspx) 
 
+

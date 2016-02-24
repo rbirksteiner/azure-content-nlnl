@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Who's using Azure Search: case studies and customer stories | Microsoft Azure | Hosted cloud search service"
-	description="Case studies and customer stories about Azure Search, a hosted cloud search service on Microsoft Azure."
-	services="search"
-	documentationCenter=""
-	authors="HeidiSteen"
-	manager="mblythe"
-	editor=""
+    pageTitle="Who's using Azure Search: case studies and customer stories | Microsoft Azure | Hosted cloud search service"
+    description="Case studies and customer stories about Azure Search, a hosted cloud search service on Microsoft Azure."
+    services="search"
+    documentationCenter=""
+    authors="HeidiSteen"
+    manager="mblythe"
+    editor=""
     tags="azure-portal"/>
 
 <tags
-	ms.service="search"
-	ms.devlang="NA"
-	ms.workload="search"
-	ms.topic="article" 
-	ms.tgt_pltfrm="na"
-	ms.date="11/13/2015"
-	ms.author="heidist"/>
+    ms.service="search"
+    ms.devlang="NA"
+    ms.workload="search"
+    ms.topic="article" 
+    ms.tgt_pltfrm="na"
+    ms.date="11/13/2015"
+    ms.author="heidist"/>
 
 # Who's using Azure Search: case studies and customer stories
 

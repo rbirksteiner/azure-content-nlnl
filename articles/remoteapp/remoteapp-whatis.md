@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="What is Azure RemoteApp? | Microsoft Azure" 
-	description="Learn how to share apps and resources to any device through Azure RemoteApp." 
-	services="remoteapp" 
-	documentationCenter="" 
-	authors="lizap" 
-	manager="mbaldwin" 
-	editor=""/>
+    pageTitle="What is Azure RemoteApp? | Microsoft Azure" 
+    description="Learn how to share apps and resources to any device through Azure RemoteApp." 
+    services="remoteapp" 
+    documentationCenter="" 
+    authors="lizap" 
+    manager="mbaldwin" 
+    editor=""/>
 
 <tags 
-	ms.service="remoteapp" 
-	ms.workload="compute" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="11/04/2015" 
-	ms.author="elizapo"/>
+    ms.service="remoteapp" 
+    ms.workload="compute" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="get-started-article" 
+    ms.date="11/04/2015" 
+    ms.author="elizapo"/>
 
 # What is Azure RemoteApp?
 
@@ -36,17 +36,17 @@ There are two kinds of [Azure RemoteApp collections](remoteapp-collections.md):
 
 - A **cloud collection** is hosted in and stores data for programs in the cloud. Users can access apps by logging in with their Microsoft account or corporate credentials synchronized or federated with Azure Active Directory.
 
-	Choose a cloud collection when the application you want to share does not require a connection to any resource your company's private network (for example, through a VPN device). If the application uses resources on the Internet, OneDrive, or Azure, a cloud collection will work for you. It's also the quickest to create.
+    Choose a cloud collection when the application you want to share does not require a connection to any resource your company's private network (for example, through a VPN device). If the application uses resources on the Internet, OneDrive, or Azure, a cloud collection will work for you. It's also the quickest to create.
 
 - A **hybrid collection** is hosted in and stores data in the Azure cloud but also lets users access data and resources stored on your local network. Users can access apps by logging in with their corporate credentials synchronized or federated with Azure Active Directory.
 
-	Choose a hybrid collection if you require a connection to resources on your company's private network. For example, if the application needs access to one of the following:
+    Choose a hybrid collection if you require a connection to resources on your company's private network. For example, if the application needs access to one of the following:
 
-	- File servers located on your intranet
-	- Quicken
-	- Databases behind a firewall
+    - File servers located on your intranet
+    - Quicken
+    - Databases behind a firewall
 
-	This is generally more useful for large companies with lots of resources on their private networks that can't be moved to the cloud.
+    This is generally more useful for large companies with lots of resources on their private networks that can't be moved to the cloud.
 
 The different collections have different options, including networks, so figure out [which collection](remoteapp-collections.md) works best for you. 
 

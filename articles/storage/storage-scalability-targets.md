@@ -70,11 +70,11 @@ Partitions affect load balancing and scalability for each of the storage service
 
 - **Entities**: The partition key for an entity is table name + partition key, where the partition key is the value of the required user-defined **PartitionKey** property for the entity.  
 
-	All entities with the same partition key value are grouped into the same partition and are stored on the same partition server. This is an important point to understand in designing your application. Your application should balance the scalability benefits of spreading entities across multiple partitions with the data access advantages of grouping entities in a single partition. 
+    All entities with the same partition key value are grouped into the same partition and are stored on the same partition server. This is an important point to understand in designing your application. Your application should balance the scalability benefits of spreading entities across multiple partitions with the data access advantages of grouping entities in a single partition. 
 
-	A key advantage to grouping a set of entities in a table into a single partition is that it's possible to perform atomic batch operations across entities in the same partition, since a partition exists on a single server. Therefore if you wish to perform batch operations, consider grouping entities with the same partition key.
+    A key advantage to grouping a set of entities in a table into a single partition is that it's possible to perform atomic batch operations across entities in the same partition, since a partition exists on a single server. Therefore if you wish to perform batch operations, consider grouping entities with the same partition key.
 
-	On the other hand, entities that are in the same table but that belong to different partitions can be load balanced across different servers, making it possible to have a large table with greater scalability.
+    On the other hand, entities that are in the same table but that belong to different partitions can be load balanced across different servers, making it possible to have a large table with greater scalability.
 
 ## See Also
 
@@ -84,3 +84,4 @@ Partitions affect load balancing and scalability for each of the storage service
 - [Azure Storage Replication](storage-redundancy.md)
 - [Microsoft Azure Storage Performance and Scalability Checklist](storage-performance-checklist.md)
 - [Microsoft Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
+

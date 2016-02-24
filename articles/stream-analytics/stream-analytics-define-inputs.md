@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Data connection: Data stream inputs from an event stream | Microsoft Azure"
-	description="Learn about setting up a data connection to Stream Analytics called 'inputs'. Inputs include a data stream from events, and also reference data."
-	keywords="data stream, data connection, event stream"
-	services="stream-analytics"
-	documentationCenter=""
-	authors="jeffstokes72"
-	manager="paulettm"
-	editor="cgronlun"/>
+    pageTitle="Data connection: Data stream inputs from an event stream | Microsoft Azure"
+    description="Learn about setting up a data connection to Stream Analytics called 'inputs'. Inputs include a data stream from events, and also reference data."
+    keywords="data stream, data connection, event stream"
+    services="stream-analytics"
+    documentationCenter=""
+    authors="jeffstokes72"
+    manager="paulettm"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="stream-analytics"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="data-services"
-	ms.date="11/23/2015"
-	ms.author="jeffstok"/>
+    ms.service="stream-analytics"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="data-services"
+    ms.date="11/23/2015"
+    ms.author="jeffstok"/>
 
 # Data connection: Learn about data stream inputs from events to Stream Analytics
 
@@ -29,7 +29,7 @@ A data stream is unbounded sequence of events coming over time. Stream Analytics
 
 ### Reference data
 Stream Analytics supports a second type of input known as reference data. This is auxiliary data which is either static or slowly changing over time and is typically used for performing correlation and look-ups. Azure Blob storage is currently the only supported input source for reference data. Reference data source blobs are limited to 50MB in size.
-	To learn how to create reference data inputs, see [Use Reference Data](stream-analytics-use-reference-data.md)  
+    To learn how to create reference data inputs, see [Use Reference Data](stream-analytics-use-reference-data.md)  
 
 ## Create a data stream input with an Event Hub
 
@@ -68,9 +68,9 @@ For example, you may write a query like the following:
 
 ````
 SELECT
-	EventProcessedUtcTime,
-	EventEnqueuedUtcTime,
-	PartitionId
+    EventProcessedUtcTime,
+    EventEnqueuedUtcTime,
+    PartitionId
 FROM Input
 ````
 
@@ -184,9 +184,9 @@ For example, you may write a query like the following:
 
 ````
 SELECT
-	BlobName,
-	EventProcessedUtcTime,
-	BlobLastModifiedUtcTime
+    BlobName,
+    EventProcessedUtcTime,
+    BlobLastModifiedUtcTime
 FROM Input
 ````
 
@@ -209,3 +209,4 @@ You've learned about data connection options in Azure for your Stream Analytics 
 [stream.analytics.get.started]: stream-analytics-get-started.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
+

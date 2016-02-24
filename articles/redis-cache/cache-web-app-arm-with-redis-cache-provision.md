@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Provision Web App with Redis Cache" 
-	description="Use Azure Resource Manager template to deploy web app with Redis Cache." 
-	services="app-service" 
-	documentationCenter="" 
-	authors="tfitzmac" 
-	manager="wpickett" 
-	editor=""/>
+    pageTitle="Provision Web App with Redis Cache" 
+    description="Use Azure Resource Manager template to deploy web app with Redis Cache." 
+    services="app-service" 
+    documentationCenter="" 
+    authors="tfitzmac" 
+    manager="wpickett" 
+    editor=""/>
 
 <tags 
-	ms.service="app-service" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/16/2015" 
-	ms.author="tomfitz"/>
+    ms.service="app-service" 
+    ms.workload="web" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/16/2015" 
+    ms.author="tomfitz"/>
 
 # Create a Web App plus Redis Cache using a template
 
@@ -125,5 +125,6 @@ Notice that the web app is configured with app setting properties that enable it
 ### Azure CLI
 
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-with-redis-cache/azuredeploy.json -g ExampleDeployGroup
+
 
 

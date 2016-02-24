@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How to use io.js with Azure App Service Web Apps" 
-	description="Learn how to use a web app in Azure App Service with io.js." 
-	services="app-service\web" 
-	documentationCenter="nodejs" 
-	authors="rmcmurray" 
-	manager="wpickett" 
-	editor=""/>
+    pageTitle="How to use io.js with Azure App Service Web Apps" 
+    description="Learn how to use a web app in Azure App Service with io.js." 
+    services="app-service\web" 
+    documentationCenter="nodejs" 
+    authors="rmcmurray" 
+    manager="wpickett" 
+    editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="11/20/2015"
-	ms.author="robmcm" />
+    ms.service="app-service-web" 
+    ms.workload="web" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="nodejs" 
+    ms.topic="article" 
+    ms.date="11/20/2015"
+    ms.author="robmcm" />
 
 # How to use io.js with Azure App Service Web Apps
 

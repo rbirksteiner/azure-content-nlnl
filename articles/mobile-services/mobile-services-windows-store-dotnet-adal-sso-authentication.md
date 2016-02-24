@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Authenticate your app with Active Directory Authentication Library Single Sign-On (Windows Store) | Microsoft Azure"
-	description="Learn how to authentication users for single sign-on with ADAL in your Windows Store application."
-	documentationCenter="windows"
-	authors="wesmc7777"
-	manager="dwrede"
-	editor=""
-	services="mobile-services"/>
+    pageTitle="Authenticate your app with Active Directory Authentication Library Single Sign-On (Windows Store) | Microsoft Azure"
+    description="Learn how to authentication users for single sign-on with ADAL in your Windows Store application."
+    documentationCenter="windows"
+    authors="wesmc7777"
+    manager="dwrede"
+    editor=""
+    services="mobile-services"/>
 
 <tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-windows-store"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="08/18/2015"
-	ms.author="wesmc"/>
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-windows-store"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="08/18/2015"
+    ms.author="wesmc"/>
 
 # Authenticate your app with Active Directory Authentication Library Single Sign-On
 

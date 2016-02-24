@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Scale mobile services backed by Azure SQL Database | Microsoft Azure"
-	description="Learn how to diagnose and fix scalability issues in your mobile services backed by SQL Database"
-	services="mobile-services"
-	documentationCenter=""
-	authors="lindydonna"
-	manager="dwrede"
-	editor="mollybos"/>
+    pageTitle="Scale mobile services backed by Azure SQL Database | Microsoft Azure"
+    description="Learn how to diagnose and fix scalability issues in your mobile services backed by SQL Database"
+    services="mobile-services"
+    documentationCenter=""
+    authors="lindydonna"
+    manager="dwrede"
+    editor="mollybos"/>
 
 
 <tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="12/01/2015" 
-	ms.author="donnam;ricksal"/>
+    ms.service="mobile-services" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="multiple" 
+    ms.topic="article" 
+    ms.date="12/01/2015" 
+    ms.author="donnam;ricksal"/>
 
 # Scale mobile services backed by Azure SQL Database
 
@@ -119,7 +119,7 @@ For more information on diagnosing SQL issues, see [Advanced Diagnostics](#Advan
 <a name="Indexing"></a>
 ## Indexing
 
-When you start to see problems with your query performance, the first thing you should investigate is the design of your indexes. Indexes are important because they directly affect how the SQL engine executes a query. 
+When you start to see problems with your query performance, the first thing you should investigate is the design of your indexes. Indexes are important because they directly affect how the SQL engine executes a query. 
 
 For instance, if you often need to look up an element by a certain field, you should consider adding an index for that column. Otherwise, the SQL engine will be forced to perform a table scan and read each physical record (or at least the query column) and the records could be substantially spread out on disk.
 
@@ -159,7 +159,7 @@ To set the index for a column in the JavaScript backend, do the following:
 4. Click the **Columns** tab.
 5. Select the column. In the command bar, click **Set Index**:
 
-	![Mobile Services Portal - Set Index][SetIndexJavaScriptPortal]
+    ![Mobile Services Portal - Set Index][SetIndexJavaScriptPortal]
 
 You can also remove indexes within this view.
 
@@ -171,7 +171,7 @@ To define an index in Entity Framework, use the attribute `[Index]` on the field
     {
         public string Text { get; set; }
 
-		[Index]
+        [Index]
         public bool Complete { get; set; }
     }
 
@@ -333,19 +333,19 @@ The key should be **static** and **ever-increasing** to avoid having to maintain
 The clustered index will be most valuable for queries that do the following:
 
 - Return a range of values by using operators such as BETWEEN, >, >=, <, and <=.
-	- After the row with the first value is found by using the clustered index, rows with subsequent indexed values are guaranteed to be physically adjacent.
+    - After the row with the first value is found by using the clustered index, rows with subsequent indexed values are guaranteed to be physically adjacent.
 - Use JOIN clauses; typically these are foreign key columns.
 - Use ORDER BY, or GROUP BY clauses.
-	- An index on the columns specified in the ORDER BY or GROUP BY clause may remove the need for the Database Engine to sort the data, because the rows are already sorted. This improves query performance.
+    - An index on the columns specified in the ORDER BY or GROUP BY clause may remove the need for the Database Engine to sort the data, because the rows are already sorted. This improves query performance.
 
 #### Creating clustered indexes in Entity Framework
 
 To set the clustered index in the .NET backend using Entity Framework, set the `IsClustered` property of the annotation. For example, this is the definition of `CreatedAt` in `Microsoft.WindowsAzure.Mobile.Service.EntityData`:
 
-	[Index(IsClustered = true)]
-	[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-	[TableColumnAttribute(TableColumnType.CreatedAt)]
-	public DateTimeOffset? CreatedAt { get; set; }
+    [Index(IsClustered = true)]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    [TableColumnAttribute(TableColumnType.CreatedAt)]
+    public DateTimeOffset? CreatedAt { get; set; }
 
 #### Creating indexes in the database schema
 
@@ -394,20 +394,20 @@ Frequently it's difficult to diagnose what queries are most expensive for the da
 
 The following example returns information about the top five queries ranked by average CPU time. This example aggregates the queries according to their query hash, so that logically equivalent queries are grouped by their cumulative resource consumption.
 
-	SELECT TOP 5 query_stats.query_hash AS "Query Hash",
-	    SUM(query_stats.total_worker_time) / SUM(query_stats.execution_count) AS "Avg CPU Time",
-	    MIN(query_stats.statement_text) AS "Statement Text"
-	FROM
-	    (SELECT QS.*,
-	    SUBSTRING(ST.text, (QS.statement_start_offset/2) + 1,
-	    ((CASE statement_end_offset
-	        WHEN -1 THEN DATALENGTH(st.text)
-	        ELSE QS.statement_end_offset END
-	            - QS.statement_start_offset)/2) + 1) AS statement_text
-	     FROM sys.dm_exec_query_stats AS QS
-	     CROSS APPLY sys.dm_exec_sql_text(QS.sql_handle) as ST) as query_stats
-	GROUP BY query_stats.query_hash
-	ORDER BY 2 DESC;
+    SELECT TOP 5 query_stats.query_hash AS "Query Hash",
+        SUM(query_stats.total_worker_time) / SUM(query_stats.execution_count) AS "Avg CPU Time",
+        MIN(query_stats.statement_text) AS "Statement Text"
+    FROM
+        (SELECT QS.*,
+        SUBSTRING(ST.text, (QS.statement_start_offset/2) + 1,
+        ((CASE statement_end_offset
+            WHEN -1 THEN DATALENGTH(st.text)
+            ELSE QS.statement_end_offset END
+                - QS.statement_start_offset)/2) + 1) AS statement_text
+         FROM sys.dm_exec_query_stats AS QS
+         CROSS APPLY sys.dm_exec_sql_text(QS.sql_handle) as ST) as query_stats
+    GROUP BY query_stats.query_hash
+    ORDER BY 2 DESC;
 
 For more information, see [Monitoring SQL Database Using Dynamic Management Views][]. In addition to executing the query, the **SQL Database Management Portal** gives you a nice shortcut to see this data, by selecting **Summary** for your database and then selecting **Query Performance**:
 
@@ -493,4 +493,5 @@ To analyze the query plan in the **SQL Database Management Portal**, use the hig
 
 <!-- BLOG LINKS -->
 [How much does that key cost?]: http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/
+
 

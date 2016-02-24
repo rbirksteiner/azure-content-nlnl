@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Back up a web app in Azure App Service" 
-	description="Learn how to create backups of your web apps in Azure App Service." 
-	services="app-service" 
-	documentationCenter="" 
-	authors="cephalin" 
-	manager="wpickett" 
-	editor="jimbe"/>
+    pageTitle="Back up a web app in Azure App Service" 
+    description="Learn how to create backups of your web apps in Azure App Service." 
+    services="app-service" 
+    documentationCenter="" 
+    authors="cephalin" 
+    manager="wpickett" 
+    editor="jimbe"/>
 
 <tags 
-	ms.service="app-service" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/10/2015" 
-	ms.author="cephalin"/>
+    ms.service="app-service" 
+    ms.workload="na" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/10/2015" 
+    ms.author="cephalin"/>
 
 # Back up a web app in Azure App Service
 
@@ -51,31 +51,31 @@ This information is backed up to the Azure storage account and container that yo
 
 1. In the Azure Portal, choose your web app from the Web Apps blade. This will display the details of your web app in a new blade.
 2. In your app's blade, select **Settings**, then **Backups**. The **Backups** blade will be displayed.
-	
-	![Backups page][ChooseBackupsPage]
+    
+    ![Backups page][ChooseBackupsPage]
 
 3. In the **Backups** blade, click **Storage: Not configured** to configure a storage account.
 
-	![Choose storage account][ChooseStorageAccount]
-	
+    ![Choose storage account][ChooseStorageAccount]
+    
 4. Choose your backup destination by selecting a **Storage Account** and **Container**. The storage account must belong to the same subscription as the web app that you are going to back up. If you wish, you can create a new storage account or a new container in the respective blades. When you're done, click **Select**.
-	
-	![Choose storage account](./media/web-sites-backup/02ChooseStorageAccount1.png)
-	
+    
+    ![Choose storage account](./media/web-sites-backup/02ChooseStorageAccount1.png)
+    
 5. In the **Configure Backup Settings** blade that is still left open, click **Database Settings**, then select the databases you want to include in the backups (SQL database or MySQL), then click **OK**.  
 
-	![Choose storage account](./media/web-sites-backup/03ConfigureDatabase.png)
+    ![Choose storage account](./media/web-sites-backup/03ConfigureDatabase.png)
 
-	> [AZURE.NOTE] 	For a database to appear in this list, its connection string must exist in the **Connection strings** section of the **Web app settings** blade in the Portal.
+    > [AZURE.NOTE]  For a database to appear in this list, its connection string must exist in the **Connection strings** section of the **Web app settings** blade in the Portal.
 
-6. In the **Configure Backup Settings** blade, click **Save**.	
+6. In the **Configure Backup Settings** blade, click **Save**.  
 6. In the **Backups** blade, select the **Backup destination**. You must choose an existing storage account and container.
 7. In the command bar of the **Backups** blade, click **Backup Now**.
-	
-	![BackUpNow button][BackUpNow]
-	
-	You will see a progress message during the backup process.
-	
+    
+    ![BackUpNow button][BackUpNow]
+    
+    You will see a progress message during the backup process.
+    
 
 You can make a manual backup at any time.  
 
@@ -84,23 +84,23 @@ You can make a manual backup at any time.
 
 1. In the **Backups** blade, click **Schedule: Not configured**. 
 
-	![Choose storage account](./media/web-sites-backup/05ScheduleBackup.png)
-	
+    ![Choose storage account](./media/web-sites-backup/05ScheduleBackup.png)
+    
 1. On the **Backup Schedule Settings** blade, set **Scheduled Backup** to **On**, then configure the backup schedule as desired and click **OK**.
-	
-	![Enable automated backups][SetAutomatedBackupOn]
-	
+    
+    ![Enable automated backups][SetAutomatedBackupOn]
+    
 4. In the **Configure Backup Settings** blade that is still left open, click **Storage Settings**, then choose your backup destination by selecting a **Storage Account** and **Container**. The storage account must belong to the same subscription as the web app that you are going to back up. If you wish, you can create a new storage account or a new container in the respective blades. When you're done, click **Select**.
-	
-	![Choose storage account](./media/web-sites-backup/02ChooseStorageAccount1.png)
-	
+    
+    ![Choose storage account](./media/web-sites-backup/02ChooseStorageAccount1.png)
+    
 5. In the **Configure Backup Settings** blade, click **Database Settings**, then select the databases you want to include in the backups (SQL database or MySQL), then click **OK**.  
 
-	![Choose storage account](./media/web-sites-backup/03ConfigureDatabase.png)
+    ![Choose storage account](./media/web-sites-backup/03ConfigureDatabase.png)
 
-	> [AZURE.NOTE] 	For a database to appear in this list, its connection string must exist in the **Connection strings** section of the **Web app settings** blade in the Portal.
+    > [AZURE.NOTE]  For a database to appear in this list, its connection string must exist in the **Connection strings** section of the **Web app settings** blade in the Portal.
 
-6. In the **Configure Backup Settings** blade, click **Save**.	
+6. In the **Configure Backup Settings** blade, click **Save**.  
 
 <a name="notes"></a>
 ## Notes
@@ -114,9 +114,9 @@ You can make a manual backup at any time.
 
 Sometimes you don't want to backup everything on your web app. Here are a few examples:
 
--	You [set up weekly backups](web-sites-backup.md#configure-automated-backups) of your web app that contains static content that never changes, such as old blog posts or images.
--	Your web app has over 10GB of content (that's the max amount you can backup at a time).
--	You don't want to back up the log files.
+-   You [set up weekly backups](web-sites-backup.md#configure-automated-backups) of your web app that contains static content that never changes, such as old blog posts or images.
+-   Your web app has over 10GB of content (that's the max amount you can backup at a time).
+-   You don't want to back up the log files.
 
 Partial backups will let you choose exactly which files you want to back up.
 
@@ -128,18 +128,18 @@ Suppose you have a web app that contains log files and static images from past y
 
 ![Logs Folder][LogsFolder]
 ![Images Folder][ImagesFolder]
-	
+    
 The below steps show how you would exclude these files from the backup.
 
 1. Go to `http://{yourapp}.scm.azurewebsites.net/DebugConsole` and identify the folders that you want to exclude from your backups. In this example, you would want to exclude the following files and folders shown in that UI:
 
-		D:\home\site\wwwroot\Logs
-		D:\home\LogFiles
-		D:\home\site\wwwroot\Images\2013
-		D:\home\site\wwwroot\Images\2014
-		D:\home\site\wwwroot\Images\brand.png
+        D:\home\site\wwwroot\Logs
+        D:\home\LogFiles
+        D:\home\site\wwwroot\Images\2013
+        D:\home\site\wwwroot\Images\2014
+        D:\home\site\wwwroot\Images\brand.png
 
-	[AZURE.NOTE] The last line illustrates that you can exclude individuals files as well as folders.
+    [AZURE.NOTE] The last line illustrates that you can exclude individuals files as well as folders.
 
 2. Create a file called `_backup.filter` and put the list above in the file, but remove `D:\home`. List one directory or file per line. So the content of the file should be:
 

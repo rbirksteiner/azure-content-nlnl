@@ -25,9 +25,9 @@ You specify the storage account that you want to use in the ServiceConfiguration
 
 
 ```
-	<ConfigurationSettings>
-	   <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
-	</ConfigurationSettings>
+    <ConfigurationSettings>
+       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+    </ConfigurationSettings>
 ```
 
 You can change this connection string to provide account information for an Azure storage account.
@@ -64,7 +64,7 @@ Log data is stored in either Blob or Table storage with the following names:
 
 - **WADDiagnosticInfrastructureLogsTable** - Diagnostic monitor and configuration changes.
 
-- **WADDirectoriesTable** – Directories that the diagnostic monitor is monitoring.  This includes IIS logs, IIS failed request logs, and custom directories.  The location of the blob log file is specified in the Container field and the name of the blob is in the RelativePath field.  The AbsolutePath field indicates the location and name of the file as it existed on the Azure virtual machine.
+- **WADDirectoriesTable** – Directories that the diagnostic monitor is monitoring.  This includes IIS logs, IIS failed request logs, and custom directories.  The location of the blob log file is specified in the Container field and the name of the blob is in the RelativePath field.  The AbsolutePath field indicates the location and name of the file as it existed on the Azure virtual machine.
 
 - **WADPerformanceCountersTable** – Performance counters.
 
@@ -78,7 +78,7 @@ Log data is stored in either Blob or Table storage with the following names:
 
 - **wad-iis-logfiles** – Contains information about IIS logs.
 
-- **"custom"** – A custom container based on configuring directories that are monitored by the diagnostic monitor.  The name of this blob container will be specified in WADDirectoriesTable.
+- **"custom"** – A custom container based on configuring directories that are monitored by the diagnostic monitor.  The name of this blob container will be specified in WADDirectoriesTable.
 
 ## Tools to view diagnostic data
 Several tools are available to view the data after it is transferred to storage. For example:
@@ -92,3 +92,4 @@ Several tools are available to view the data after it is transferred to storage.
 ## Next Steps
 
 [Trace the flow in a Cloud Services application with Azure Diagnostics](cloud-services-dotnet-diagnostics-trace-flow.md)
+

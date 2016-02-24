@@ -47,13 +47,13 @@ Perform the following steps in the classic portal to create a support package:
 
 3. In the **Create and upload support package** dialog box, do the following:
 
-	![Create Support Package](./media/storsimple-create-manage-support-package/IC740923.png)
-											
-	- Provide the **Support Passkey**. This key should be sent to you by your Microsoft Support Engineer in an email.
- 	
-	- Check the combo box to provide consent to **automatically upload the support package to the Microsoft Support site**.
- 	
-	- Click the check icon ![Check icon](./media/storsimple-create-manage-support-package/IC740895.png).
+    ![Create Support Package](./media/storsimple-create-manage-support-package/IC740923.png)
+                                            
+    - Provide the **Support Passkey**. This key should be sent to you by your Microsoft Support Engineer in an email.
+    
+    - Check the combo box to provide consent to **automatically upload the support package to the Microsoft Support site**.
+    
+    - Click the check icon ![Check icon](./media/storsimple-create-manage-support-package/IC740895.png).
 
 
 ## Create a support package in Windows PowerShell for StorSimple
@@ -67,43 +67,43 @@ Perform the following steps to create a support package in Windows PowerShell fo
 
 1. Type the following command to start a Windows PowerShell session as an administrator on the remote computer used to connect to your StorSimple device:
 
-	`Start PowerShell`
+    `Start PowerShell`
 
 2. In the Windows PowerShell session, connect to the SSAdmin Console runspace of your device: 
 
 
-	- At the command prompt, type: 
-			
-		`$MS = New-PSSession -ComputerName <IP address for DATA 0> -Credential SSAdmin -ConfigurationName "SSAdminConsole"`
-		
-		
-	1. In the dialog box that opens, type your device administrator password. The default password is:
-	 
-		`Password1`
+    - At the command prompt, type: 
+            
+        `$MS = New-PSSession -ComputerName <IP address for DATA 0> -Credential SSAdmin -ConfigurationName "SSAdminConsole"`
+        
+        
+    1. In the dialog box that opens, type your device administrator password. The default password is:
+     
+        `Password1`
 
-		![PowerShell Session To SSAdminConsole Runspace](./media/storsimple-create-manage-support-package/IC740962.png)
+        ![PowerShell Session To SSAdminConsole Runspace](./media/storsimple-create-manage-support-package/IC740962.png)
 
-	2. Click **OK**.
-	1. At the command prompt, type: 
-		
-		`Enter-PSSession $MS`
+    2. Click **OK**.
+    1. At the command prompt, type: 
+        
+        `Enter-PSSession $MS`
 
 
 3. In the session that opens, type the appropriate command. 
 
 
-	- For network shares that are password protected, type:
+    - For network shares that are password protected, type:
 
-		`Export-HcsSupportPackage –PackageTag "MySupportPackage" –Credential "Username" -Force`
+        `Export-HcsSupportPackage –PackageTag "MySupportPackage" –Credential "Username" -Force`
 
-		You will be prompted for a password, a path to the network shared folder, and an encryption passphrase (because the support package is encrypted). When these are provided, a support package will be created in the specified folder.
-											
+        You will be prompted for a password, a path to the network shared folder, and an encryption passphrase (because the support package is encrypted). When these are provided, a support package will be created in the specified folder.
+                                            
 
-	- For open network shared folders (those that are not password protected), you do not need the `-Credential` parameter. Type the following: 
+    - For open network shared folders (those that are not password protected), you do not need the `-Credential` parameter. Type the following: 
 
-		`Export-HcsSupportPackage –PackageTag "MySupportPackage" -Force`
+        `Export-HcsSupportPackage –PackageTag "MySupportPackage" -Force`
 
-		The support package will be created for both controllers in the specified network shared folder. It is an encrypted, compressed file that can be sent to Microsoft Support for troubleshooting. For more information, see [Contact Microsoft Support](storsimple-contact-microsoft-support.md).
+        The support package will be created for both controllers in the specified network shared folder. It is an encrypted, compressed file that can be sent to Microsoft Support for troubleshooting. For more information, see [Contact Microsoft Support](storsimple-contact-microsoft-support.md).
 
 
 ### More information about the Export-HcsSupportPackage cmdlet
@@ -135,35 +135,35 @@ To edit a support package before uploading it on the Microsoft Support site, you
 
 3. Import the Windows PowerShell module. You will need to specify the path to the local folder in which you downloaded the script. To import the module, type:
  
-	`Import-module <Path to the folder that contains the Windows PowerShell script>`
+    `Import-module <Path to the folder that contains the Windows PowerShell script>`
 
 4. Open the support package folder. Note that all the files are *.aes* files that are compressed and encrypted. Open the files. To open files, type:
 
-	`Open-HcsSupportPackage <Path to the folder that contains support package files>`
+    `Open-HcsSupportPackage <Path to the folder that contains support package files>`
 
-	This will decompress and decrypt the files. You will note that the actual file extensions are now displayed for all the files.
-	
-	![Edit Support Package 3](./media/storsimple-create-manage-support-package/IC750706.png)
+    This will decompress and decrypt the files. You will note that the actual file extensions are now displayed for all the files.
+    
+    ![Edit Support Package 3](./media/storsimple-create-manage-support-package/IC750706.png)
 
 
 5. When prompted for the encryption passphrase, type the passphrase used when the support package was created.
 
-    	cmdlet Open-HcsSupportPackage at command pipeline position 1
+        cmdlet Open-HcsSupportPackage at command pipeline position 1
     
-    	Supply values for the following parameters:EncryptionPassphrase: ****
-	
+        Supply values for the following parameters:EncryptionPassphrase: ****
+    
 6. Navigate to the folder that contains the log files. As the log files are now decompressed and decrypted, these will have original file extensions. Modify these files to remove any customer-specific information such as volume names and device IP addresses and save the files.
 
 7. Close the files. Closing the files will compress them with Gzip and then encrypt them with AES-256. This is for security and speed when transferring the support package over a network. To close files, type:
 
-	`Close-HcsSupportPackage <Path to the folder that contains support package files>`
+    `Close-HcsSupportPackage <Path to the folder that contains support package files>`
 
-	![Edit Support Package 2](./media/storsimple-create-manage-support-package/IC750707.png)
+    ![Edit Support Package 2](./media/storsimple-create-manage-support-package/IC750707.png)
 
 8. When prompted, provide an encryption passphrase for the modified support package.
 
-	    cmdlet Close-HcsSupportPackage at command pipeline position 1
-    	Supply values for the following parameters:EncryptionPassphrase: ****
+        cmdlet Close-HcsSupportPackage at command pipeline position 1
+        Supply values for the following parameters:EncryptionPassphrase: ****
 
 9. Write down the new passphrase so that you can share it with Microsoft Support when requested.
 
@@ -174,29 +174,30 @@ An example demonstrating how to decrypt, edit and re-encrypt a support package i
 
 ![Edit Support Package1](./media/storsimple-create-manage-support-package/IC750708.png)
 
-    	PS C:\WINDOWS\system32> Import-module C:\Users\Default\StorSimple\SupportPackage\HCSSupportPackageTools.psm1
+        PS C:\WINDOWS\system32> Import-module C:\Users\Default\StorSimple\SupportPackage\HCSSupportPackageTools.psm1
     
-    	PS C:\WINDOWS\system32> Open-HcsSupportPackage \\hcsfs\Logs\TD48\TD48Logs\C0-A\etw
+        PS C:\WINDOWS\system32> Open-HcsSupportPackage \\hcsfs\Logs\TD48\TD48Logs\C0-A\etw
     
-    	cmdlet Open-HcsSupportPackage at command pipeline position 1
+        cmdlet Open-HcsSupportPackage at command pipeline position 1
     
-    	Supply values for the following parameters:
+        Supply values for the following parameters:
     
-    	EncryptionPassphrase: ****
+        EncryptionPassphrase: ****
     
-    	PS C:\WINDOWS\system32> Close-HcsSupportPackage \\hcsfs\Logs\TD48\TD48Logs\C0-A\etw
+        PS C:\WINDOWS\system32> Close-HcsSupportPackage \\hcsfs\Logs\TD48\TD48Logs\C0-A\etw
     
-    	cmdlet Close-HcsSupportPackage at command pipeline position 1
+        cmdlet Close-HcsSupportPackage at command pipeline position 1
     
-    	Supply values for the following parameters:
+        Supply values for the following parameters:
     
-    	EncryptionPassphrase: ****
+        EncryptionPassphrase: ****
     
-    	PS C:\WINDOWS\system32>
+        PS C:\WINDOWS\system32>
 
 ## Next steps
 
 - Learn how to [use support packages and device logs to troubleshoot your device deployment](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting). 
 - Learn how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
+
 
 

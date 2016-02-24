@@ -70,7 +70,7 @@ The DDM recommendations engine flags certain fields from your database as potent
 
 3. Click the **Dynamic Data Masking** tile which launches the **Dynamic Data Masking** configuration blade.
 
-	* Alternatively, you can scroll down to the **Operations** section and click **Dynamic Data Masking**.
+    * Alternatively, you can scroll down to the **Operations** section and click **Dynamic Data Masking**.
 
     ![Navigation pane](./media/sql-database-dynamic-data-masking-get-started/4_ddm_settings_tile.png)<br/><br/>
 
@@ -88,7 +88,7 @@ The DDM recommendations engine flags certain fields from your database as potent
 
 7. Choose a **Masking Field Format** from the list of sensitive data masking categories.
 
-    ![Navigation pane](./media/sql-database-dynamic-data-masking-get-started/7_ddm_mask_field_format.png)<br/><br/>		
+    ![Navigation pane](./media/sql-database-dynamic-data-masking-get-started/7_ddm_mask_field_format.png)<br/><br/>     
 
 8. Click **Save** in the data masking rule blade to update the set of masking rules in the dynamic data masking policy.
 
@@ -96,7 +96,7 @@ The DDM recommendations engine flags certain fields from your database as potent
 
     ![Navigation pane](./media/sql-database-dynamic-data-masking-get-started/8_ddm_excluded_users.png)
 
-	>[AZURE.TIP] To make it so the application layer can display sensitive data for application privileged users, add the SQL user or AAD identity the application uses to query the database. It is highly recommended that this list contain a minimal number of privileged users to minimize exposure of the sensitive data.
+    >[AZURE.TIP] To make it so the application layer can display sensitive data for application privileged users, add the SQL user or AAD identity the application uses to query the database. It is highly recommended that this list contain a minimal number of privileged users to minimize exposure of the sensitive data.
 
 10. Click **Save** in the data masking configuration blade to save the new or updated masking policy.
 
@@ -108,3 +108,4 @@ See [Azure SQL Database Cmdlets](https://msdn.microsoft.com/library/azure/mt5740
 ## Set up dynamic data masking for your database using REST API
 
 See [Operations for Azure SQL Databases](https://msdn.microsoft.com/library/dn505719.aspx).
+

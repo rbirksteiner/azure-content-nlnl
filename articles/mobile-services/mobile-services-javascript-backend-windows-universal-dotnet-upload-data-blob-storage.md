@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Upload images to Azure Blob storage from a universal Windows app | Microsoft Azure" 
-	description="Learn how to use a JavaScript backend mobile service to upload images to Azure Blob Storage and access the images from your universal Windows app." 
-	services="mobile-services,storage" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="Upload images to Azure Blob storage from a universal Windows app | Microsoft Azure" 
+    description="Learn how to use a JavaScript backend mobile service to upload images to Azure Blob Storage and access the images from your universal Windows app." 
+    services="mobile-services,storage" 
+    documentationCenter="windows" 
+    authors="ggailey777" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="11/16/2015" 
-	ms.author="glenga"/>
+    ms.service="mobile-services" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="mobile-windows-store" 
+    ms.devlang="dotnet" 
+    ms.topic="article" 
+    ms.date="11/16/2015" 
+    ms.author="glenga"/>
 
 # Upload images to Azure Blob storage by using Mobile Services
 
@@ -50,7 +50,7 @@ Now that you have been able to securely upload images by integrating your mobile
 
 + [Schedule backend jobs in Mobile Services]
 
-  	Learn how to use the Mobile Services job scheduler functionality to define server script code that is executed on a schedule that you define.
+    Learn how to use the Mobile Services job scheduler functionality to define server script code that is executed on a schedule that you define.
 
 + [Mobile Services server script reference]
 

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Telemetry sampling in Application Insights" 
-	description="How to keep the volume of telemetry under control." 
-	services="application-insights" 
+    pageTitle="Telemetry sampling in Application Insights" 
+    description="How to keep the volume of telemetry under control." 
+    services="application-insights" 
     documentationCenter="windows"
-	authors="vgorbenko" 
-	manager="douge"/>
+    authors="vgorbenko" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/23/2015" 
-	ms.author="awills"/>
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/23/2015" 
+    ms.author="awills"/>
 
 #  Sampling in Application Insights
 
@@ -128,20 +128,20 @@ You can configure web pages for fixed-rate sampling from any server.
 When you [configure the web pages for Application Insights](app-insights-javascript.md), modify the snippet that you get from the Application Insights portal. (In ASP.NET apps, the snippet typically goes in _Layout.cshtml.)  Insert a line like `samplingPercentage: 10,` before the instrumentation key:
 
     <script>
-	var appInsights= ... 
-	}({ 
+    var appInsights= ... 
+    }({ 
 
 
     // Value must be 100/N where N is an integer.
     // Valid examples: 50, 25, 20, 10, 5, 1, 0.1, ...
-	samplingPercentage: 10, 
+    samplingPercentage: 10, 
 
-	instrumentationKey:...
-	}); 
-	
-	window.appInsights=appInsights; 
-	appInsights.trackPageView(); 
-	</script> 
+    instrumentationKey:...
+    }); 
+    
+    window.appInsights=appInsights; 
+    appInsights.trackPageView(); 
+    </script> 
 
 For the sampling percentage, choose a percentage that is close to 100/N where N is an integer.  Currently sampling doesn't support other values.
 
@@ -297,3 +297,4 @@ The client-side (JavaScript) SDK participates in sampling in conjunction with se
 *There are certain rare events I always want to see. How can I get them past the sampling module?*
 
  * Initialize a separate instance of TelemetryClient with a new TelemetryConfiguration (not the default Active one). Use that to send your rare events.
+

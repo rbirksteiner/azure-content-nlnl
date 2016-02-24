@@ -42,14 +42,15 @@ You can find the IP address, as well as the **awverify** name and **.azurewebsit
 
 2. In the **Web Apps** blade, click the name of your web app, select **All Settings**, and then select **Custom domains and SSL** from the bottom of the page.
 
-	![](./media/custom-dns-web-site/dncmntask-cname-6.png)
+    ![](./media/custom-dns-web-site/dncmntask-cname-6.png)
 
 3. In the **Custom Domains and SSL** blade, click **Bring external domains**.
 
-	![](./media/custom-dns-web-site/dncmntask-cname-7.png)
+    ![](./media/custom-dns-web-site/dncmntask-cname-7.png)
 
-	> [AZURE.NOTE] You cannot use custom domain names with a **Free** web app, and must upgrade the App Service plan to **Shared**, **Basic**, **Standard**, or **Premium** tier. For more information on the App Service plan's pricing tiers, including how to change the pricing tier of your web app, see [How to scale web apps](../articles/web-sites-scale.md).
+    > [AZURE.NOTE] You cannot use custom domain names with a **Free** web app, and must upgrade the App Service plan to **Shared**, **Basic**, **Standard**, or **Premium** tier. For more information on the App Service plan's pricing tiers, including how to change the pricing tier of your web app, see [How to scale web apps](../articles/web-sites-scale.md).
 
 6. In the **Bring external domains** blade, you will see the **awverify** information, the currently assigned **.azurewebsites.net** domain name, and the virtual IP address. Save this information, as it will be used when creating DNS records.
 
-	![](./media/custom-dns-web-site/dncmntask-cname-8.png)
+    ![](./media/custom-dns-web-site/dncmntask-cname-8.png)
+

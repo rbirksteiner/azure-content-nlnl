@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Use REST to back up and restore Azure Web Apps"
-	description="Learn how to use RESTful API calls to back up and restore a web app in Azure App Service"
-	services="app-service"
-	documentationCenter=""
-	authors="nking92"
-	manager="edlauare"
+    pageTitle="Use REST to back up and restore Azure Web Apps"
+    description="Learn how to use RESTful API calls to back up and restore a web app in Azure App Service"
+    services="app-service"
+    documentationCenter=""
+    authors="nking92"
+    manager="edlauare"
     editor="" />
 
 <tags
-	ms.service="app-service"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/18/2015"
-	ms.author="nicking"/>
+    ms.service="app-service"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/18/2015"
+    ms.author="nicking"/>
 
 # Use REST to back up and restore Azure Web Apps
 [Azure Web Apps](https://azure.microsoft.com/services/app-service/web/) can be backed up as blobs in Azure storage. The backup can also contain the app’s databases. If the app is ever accidentally deleted, or if the app needs to be reverted to a previous version, it can be restored from any previous backup. Backups can be done at any time on demand, or backups can be scheduled at suitable intervals.
@@ -229,3 +229,4 @@ In the request body, send a JSON object that contains the new SAS URL. Here is a
 
 <!-- IMAGES -->
 [SampleWebsiteInformation]: ./media/websites-csm-backup/01siteconfig.png
+

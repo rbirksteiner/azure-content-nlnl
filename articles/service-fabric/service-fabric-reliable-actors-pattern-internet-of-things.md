@@ -52,12 +52,12 @@ public interface IThing : IActor
 [DataContract]
 class ThingState
 {
-	[DataMember]
-	public List<ThingTelemetry> _telemetry;
-	[DataMember]
-	public ThingInfo _deviceInfo;
-	[DataMember]
-	long _deviceGroupId;
+    [DataMember]
+    public List<ThingTelemetry> _telemetry;
+    [DataMember]
+    public ThingInfo _deviceInfo;
+    [DataMember]
+    long _deviceGroupId;
 }
 
 public class Thing : StatefulActor<ThingState>, IThing
@@ -222,3 +222,4 @@ We conclude that more and more customers will look at Azure Service Fabric Actor
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-internet-of-things/internet-of-things-1.png
 [2]: ./media/service-fabric-reliable-actors-pattern-internet-of-things/internet-of-things-2.png
+

@@ -1,20 +1,20 @@
 <properties
-	pageTitle=".NET multi-tier application | Microsoft Azure"
-	description="A .NET tutorial that helps you develop a multi-tier app in Azure that uses Service Bus queues to communicate between tiers."
-	services="service-bus"
-	documentationCenter=".net"
-	authors="sethmanheim"
-	manager="timlt"
-	editor=""/>
+    pageTitle=".NET multi-tier application | Microsoft Azure"
+    description="A .NET tutorial that helps you develop a multi-tier app in Azure that uses Service Bus queues to communicate between tiers."
+    services="service-bus"
+    documentationCenter=".net"
+    authors="sethmanheim"
+    manager="timlt"
+    editor=""/>
 
 <tags
-	ms.service="service-bus"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="hero-article"
-	ms.date="10/07/2015"
-	ms.author="sethm"/>
+    ms.service="service-bus"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="hero-article"
+    ms.date="10/07/2015"
+    ms.author="sethm"/>
 
 # .NET multi-tier application using Azure Service Bus queues
 
@@ -107,11 +107,11 @@ Before you can begin developing your Azure application, download the tools and s
 
     [Get Tools and SDK][]
 
-2. 	Click the link for the version of Visual Studio you are using. The steps in this tutorial use Visual Studio 2013.
+2.  Click the link for the version of Visual Studio you are using. The steps in this tutorial use Visual Studio 2013.
 
-	![][32]
+    ![][32]
 
-4. 	When prompted to run or save the installation file, click
+4.  When prompted to run or save the installation file, click
     **Run**.
 
     ![][3]
@@ -162,15 +162,15 @@ application.
     namespace and enables it. You might have to wait several minutes as
     the system provisions resources for your account.
 
-	![][27]
+    ![][27]
 
 7.  In the main window, click the name of your service namespace.
 
-	![][30]
+    ![][30]
 
 8. Click **Connection Information**.
 
-	![][31]
+    ![][31]
 
 9.  In the **Access connection information** pane, find the connection string that contains the SAS key and key name.
 
@@ -296,9 +296,9 @@ In this section, you create the various pages that your application displays.
                 // Controller method for handling submissions from the submission
                 // form.
                 [HttpPost]
-				// Attribute to help prevent cross-site scripting attacks and
-				// cross-site request forgery.  
-    			[ValidateAntiForgeryToken]
+                // Attribute to help prevent cross-site scripting attacks and
+                // cross-site request forgery.  
+                [ValidateAntiForgeryToken]
                 public ActionResult Submit(OnlineOrder order)
                 {
                     if (ModelState.IsValid)
@@ -338,7 +338,7 @@ In this section, you create the various pages that your application displays.
 
 10. Remove the **Home**, **About**, and **Contact** links. Delete the highlighted code:
 
-	![][28]
+    ![][28]
 
 11. Finally, modify the submission page to include some information about
     the queue. In **Solution Explorer**, double-click the
@@ -503,28 +503,28 @@ receiving messages.
 
 To instantiate a client (for example, a Service Bus [QueueClient][]), you can represent the configuration information as a connection string. On the client side, there is a `CreateFromConnectionString()` method that instantiates that client type by using that connection string. For example, given the following configuration section
 
-	<ConfigurationSettings>
+    <ConfigurationSettings>
     ...
-    	<Setting name="Microsoft.ServiceBus.ConnectionString" value="Endpoint=sb://[yourServiceNamespace].servicebus.windows.net/;SharedSecretIssuer=RootManageSharedAccessKey;SharedSecretValue=[yourKey]" />
-	</ConfigurationSettings>
+        <Setting name="Microsoft.ServiceBus.ConnectionString" value="Endpoint=sb://[yourServiceNamespace].servicebus.windows.net/;SharedSecretIssuer=RootManageSharedAccessKey;SharedSecretValue=[yourKey]" />
+    </ConfigurationSettings>
 
 The following code retrieves the connection string, creates a queue, and initializes the connection to the queue.
 
-	QueueClient Client;
+    QueueClient Client;
 
-	string connectionString =
+    string connectionString =
      CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
     var namespaceManager =
      NamespaceManager.CreateFromConnectionString(connectionString);
 
-	if (!namespaceManager.QueueExists(QueueName))
+    if (!namespaceManager.QueueExists(QueueName))
     {
         namespaceManager.CreateQueue(QueueName);
     }
 
-	// Initialize the connection to Service Bus queue.
-	Client = QueueClient.CreateFromConnectionString(connectionString, QueueName);
+    // Initialize the connection to Service Bus queue.
+    Client = QueueClient.CreateFromConnectionString(connectionString, QueueName);
 
 The code in the following section uses the [CloudConfigurationManager][Microsoft.WindowsAzure.Configuration.CloudConfigurationManager] class.
 
@@ -540,23 +540,23 @@ submissions. This example uses the **Worker Role with Service Bus Queue** Visual
 
 3.  Click **Add**, and then click **New Worker Role Project**. The **Add New Role Project** dialog box appears.
 
-	![][26]
+    ![][26]
 
 4.  In the **Add New Role Project** dialog box, click **Worker Role with Service Bus Queue**.
 
-	![][23]
+    ![][23]
 
 5.  In the **Name** box, name the project **OrderProcessingRole**. Then click **Add**.
 
 6.  In **Server Explorer**, right-click the name of your service namespace, then click **Properties**. In the Visual Studio **Properties** pane, the first entry contains a connection string that is populated with the namespace endpoint containing the required authorization credentials. For example, see the following screen shot. Double-click **ConnectionString**, and then press **Ctrl+C** to copy this string to the clipboard.
 
-	![][24]
+    ![][24]
 
 7.  In **Solution Explorer**, right-click the **OrderProcessingRole** you created in step 5 (make sure that you right-click **OrderProcessingRole** under **Roles**, and not the class). Then click **Properties**.
 
 8.  On the **Settings** tab of the **Properties** dialog box, click inside the **Value** box for **Microsoft.ServiceBus.ConnectionString**, and then paste the endpoint value you copied in step 6.
 
-	![][25]
+    ![][25]
 
 9.  Create an **OnlineOrder** class to represent the orders as you process them from the queue. You can reuse a class you have already created. In **Solution Explorer**, right-click the **OrderProcessingRole** project (right-click the project, not the role). Click **Add**, then click **Existing Item**.
 
@@ -564,20 +564,20 @@ submissions. This example uses the **Worker Role with Service Bus Queue** Visual
 
 11. In **WorkerRole.cs**, replace the value of the **QueueName** variable in **WorkerRole.cs** from `"ProcessingQueue"` to `"OrdersQueue"` as shown in the following code.
 
-		// The name of your queue.
-		const string QueueName = "OrdersQueue";
+        // The name of your queue.
+        const string QueueName = "OrdersQueue";
 
 12. Add the following using statement at the top of the WorkerRole.cs file.
 
-		using FrontendWebRole.Models;
+        using FrontendWebRole.Models;
 
 13. In the `Run()` function, inside the `OnMessage` call, add the following code inside the `try` clause.
 
-		Trace.WriteLine("Processing", receivedMessage.SequenceNumber.ToString());
-		// View the message as an OnlineOrder.
-		OnlineOrder order = receivedMessage.GetBody<OnlineOrder>();
-		Trace.WriteLine(order.Customer + ": " + order.Product, "ProcessingMessage");
-		receivedMessage.Complete();
+        Trace.WriteLine("Processing", receivedMessage.SequenceNumber.ToString());
+        // View the message as an OnlineOrder.
+        OnlineOrder order = receivedMessage.GetBody<OnlineOrder>();
+        Trace.WriteLine(order.Customer + ": " + order.Product, "ProcessingMessage");
+        receivedMessage.Complete();
 
 14. You have completed the application. You can test the full
     application by right-clicking the MultiTierApp project in Solution Explorer,
@@ -668,3 +668,4 @@ To learn how to deploy the front end to an Azure website, see [Create an ASP.NET
   [sbwacomqhowto]: service-bus-dotnet-how-to-use-queues.md  
   [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
   [executionmodels]: ../cloud-services/fundamentals-application-models.md
+

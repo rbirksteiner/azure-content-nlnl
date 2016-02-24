@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Using the BizTalk Transform in logic apps in Azure App Service| Microsoft Azure" 
-	description="Learn how to transform XML documents from one schema to another" 
-	authors="anuragdalmia" 
-	manager="dwrede" 
-	editor="" 
-	services="app-service\logic" 
-	documentationCenter=""/>
+    pageTitle="Using the BizTalk Transform in logic apps in Azure App Service| Microsoft Azure" 
+    description="Learn how to transform XML documents from one schema to another" 
+    authors="anuragdalmia" 
+    manager="dwrede" 
+    editor="" 
+    services="app-service\logic" 
+    documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/07/2015"
-	ms.author="anuragdalmia"/>
+    ms.service="app-service-logic"
+    ms.workload="integration"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/07/2015"
+    ms.author="anuragdalmia"/>
 
 # BizTalk Transform
 
@@ -49,27 +49,27 @@ For help creating a Map, see [Create a Map in Visual Studio](http://aka.ms/creat
 
 If the map changes or is modified after it is uploaded, you can upload the updated map to replace the existing map in the Transform API App.
 
-1.	Select **Browse** on Azure portal (left of the screen) and select **API Apps**. If **API Apps** isn't displayed, select **Everything**, and select **API Apps** from the available list:
+1.  Select **Browse** on Azure portal (left of the screen) and select **API Apps**. If **API Apps** isn't displayed, select **Everything**, and select **API Apps** from the available list:
 
-	![][7]
+    ![][7]
 
-2.	The list of all **API Apps** created in your Azure subscription is shown:
+2.  The list of all **API Apps** created in your Azure subscription is shown:
 
-	![][8]
+    ![][8]
 
-3.	Select the BizTalk Transform API App you created in the previous section.
+3.  Select the BizTalk Transform API App you created in the previous section.
 
-4.	The configuration blade for the API App opens. You can see **Maps** in the Components section:
+4.  The configuration blade for the API App opens. You can see **Maps** in the Components section:
 
-	![][9]
+    ![][9]
 
-5.	Select **Maps** to open the new blade with the list of maps.
+5.  Select **Maps** to open the new blade with the list of maps.
 
-6.	Select the **Add Map** icon on the top to open the **Add Map** blade:
+6.  Select the **Add Map** icon on the top to open the **Add Map** blade:
 
-	![][10]
+    ![][10]
 
-7.	Select the File icon and browse for a map file (.trfm) from your local computer.
+7.  Select the File icon and browse for a map file (.trfm) from your local computer.
 
 8.  Select **OK** and a new map is created. It is shown in the list of maps.
 
@@ -79,21 +79,21 @@ Once the map has been authored and tested, it is now ready for consumption.
 
 1. Within the Logic App, BizTalk Transform is available in the gallery to the right. Select  **BizTalk Transform Service** from the gallery. The Transform is added to the flow:
 
-	![][11]
+    ![][11]
 
 2. Select the **Transform** action. The input parameters are displayed:
 
-	![][12]
+    ![][12]
 
 3. Enter the following parameters to complete the **Transform** action configuration:
-		 
-	- Input XML
-		- Enter the valid XML content that conforms to the source schema of a map in Transform API App. This can be an output from a previous action in Logic App such as ‘Call RFC – SAP’ or ‘Insert Into Table – SQL’.
-		
-	- Map Name (optional)
-		- Enter a valid map name that is already uploaded in your Transform API App. If no map is entered, the map is automatically selected based on the source schema to which the input XML conforms to.
+         
+    - Input XML
+        - Enter the valid XML content that conforms to the source schema of a map in Transform API App. This can be an output from a previous action in Logic App such as ‘Call RFC – SAP’ or ‘Insert Into Table – SQL’.
+        
+    - Map Name (optional)
+        - Enter a valid map name that is already uploaded in your Transform API App. If no map is entered, the map is automatically selected based on the source schema to which the input XML conforms to.
 
-	![][13]
+    ![][13]
 
 4. The output of the action 'Output XML' can be used in subsequent actions in your Logic Apps.
 

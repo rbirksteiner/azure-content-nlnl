@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Resetting Linux VM password from Azure CLI | Microsoft Azure"
-	description="How to use VMAccess extension from Azure classic portal or CLI to reset Linux VM passwords and SSH keys, SSH configurations, and delete users accounts."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="cynthn"
-	manager="timlt"
-	editor=""
-	tags="azure-service-management"/>
+    pageTitle="Resetting Linux VM password from Azure CLI | Microsoft Azure"
+    description="How to use VMAccess extension from Azure classic portal or CLI to reset Linux VM passwords and SSH keys, SSH configurations, and delete users accounts."
+    services="virtual-machines"
+    documentationCenter=""
+    authors="cynthn"
+    manager="timlt"
+    editor=""
+    tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/28/2015"
-	ms.author="cynthn"/>
+    ms.service="virtual-machines"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-linux"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/28/2015"
+    ms.author="cynthn"/>
 
 # How to Reset a Password or SSH for Linux Virtual Machines #
 
@@ -66,42 +66,42 @@ With the Azure CLI, you can do the following tasks:
 
 Step 1: Create a file named PrivateConf.json with these contents, substituting for the placeholder values.
 
-	{
-	"username":"currentusername",
-	"password":"newpassword",
-	"expiration":"2016-01-01",
-	}
+    {
+    "username":"currentusername",
+    "password":"newpassword",
+    "expiration":"2016-01-01",
+    }
 
 Step 2: Run this command, substituting the name of your virtual machine for "vmname".
 
-	azure vm extension set vmname VMAccessForLinux Microsoft.OSTCExtensions 1.* –-private-config-path PrivateConf.json
+    azure vm extension set vmname VMAccessForLinux Microsoft.OSTCExtensions 1.* –-private-config-path PrivateConf.json
 
 ### <a name="sshkeyresetcli"></a>Reset the SSH key
 
 Step 1: Create a file named PrivateConf.json with these contents, substituting for the placeholder values.
 
-	{
-	"username":"currentusername",
-	"ssh_key":"contentofsshkey",
-	}
+    {
+    "username":"currentusername",
+    "ssh_key":"contentofsshkey",
+    }
 
 Step 2: Run this command, substituting the name of your virtual machine for "vmname".
 
-	azure vm extension set vmname VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
+    azure vm extension set vmname VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
 
 ### <a name="resetbothcli"></a>Reset the password and the SSH key
 
 Step 1: Create a file named PrivateConf.json with these contents, substituting for the placeholder values.
 
-	{
-	"username":"currentusername",
-	"ssh_key":"contentofsshkey",
-	"password":"newpassword",
-	}
+    {
+    "username":"currentusername",
+    "ssh_key":"contentofsshkey",
+    "password":"newpassword",
+    }
 
 Step 2: Run this command, substituting the name of your virtual machine for "vmname".
 
-	azure vm extension set vmname VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
+    azure vm extension set vmname VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
 
 ### <a name="createnewsudocli"></a>Create a new sudo user account
 
@@ -121,13 +121,13 @@ If the SSH configuration is in an undesired state, you might also lose access to
 
 Step 1: Create a file named PrivateConf.json with this content.
 
-	{
-	"reset_ssh":"True",
-	}
+    {
+    "reset_ssh":"True",
+    }
 
 Step 2: Run this command, substituting the name of your virtual machine for "vmname".
 
-	azure vm extension set vmname VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
+    azure vm extension set vmname VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
 
 ### <a name="deletecli"></a>Delete a user
 
@@ -135,19 +135,19 @@ If you want to delete a user account without logging into to the VM directly, yo
 
 Step 1: Create a file named PrivateConf.json with this content, substituting for the placeholder value.
 
-	{
-	"remove_user":"usernametoremove",
-	}
+    {
+    "remove_user":"usernametoremove",
+    }
 
 Step 2: Run this command, substituting the name of your virtual machine for "vmname".
 
-	azure vm extension set vmname VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
+    azure vm extension set vmname VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
 
 ### <a name="statuscli"></a>Display the status of the VMAccess extension
 
 To display the status of the VMAccess extension, run this command.
 
-	azure vm extension get
+    azure vm extension get
 
 
 ## Use Azure PowerShell
@@ -156,9 +156,9 @@ You'll use the **Set-AzureVMExtension** cmdlet to make any of the changes that V
 
 Fill in the cloud service and virtual machine names, and then run the following commands at an administrator-level Azure PowerShell command prompt. Replace everything within the quotes, including the < and > characters.
 
-	$CSName = "<cloud service name>"
-	$VMName = "<virtual machine name>"
-	$vm = Get-AzureVM -ServiceName $CSName -Name $VMName
+    $CSName = "<cloud service name>"
+    $VMName = "<virtual machine name>"
+    $vm = Get-AzureVM -ServiceName $CSName -Name $VMName
 
 If you don't know the cloud service and virtual machine name, run **Get-AzureVM** to display that information for all the VMs in your current subscription.
 
@@ -167,7 +167,7 @@ If you don't know the cloud service and virtual machine name, run **Get-AzureVM*
 
 If you created the virtual machine with the Azure classic portal, run the following additional command:
 
-	$vm.GetInstance().ProvisionGuestAgent = $true
+    $vm.GetInstance().ProvisionGuestAgent = $true
 
 This command will prevent the “Provision Guest Agent must be enabled on the VM object before setting IaaS VM Access Extension” error when running the Set-AzureVMExtension command in the following sections.
 
@@ -184,13 +184,13 @@ Then, you can do the following tasks:
 
 Fill in the current Linux user name and the new password, and then run these commands.
 
-	$UserName = "<current Linux account name>"
-	$Password = "<new password>"
-	$PrivateConfig = '{"username":"' + $UserName + '", "password": "' +  $Password + '"}'
-	$ExtensionName = "VMAccessForLinux"
-	$Publisher = "Microsoft.OSTCExtensions"
-	$Version =  "1.*"
-	Set-AzureVMExtension -ExtensionName $ExtensionName -VM $vm -Publisher $Publisher -Version $Version -PrivateConfiguration $PrivateConfig | Update-AzureVM
+    $UserName = "<current Linux account name>"
+    $Password = "<new password>"
+    $PrivateConfig = '{"username":"' + $UserName + '", "password": "' +  $Password + '"}'
+    $ExtensionName = "VMAccessForLinux"
+    $Publisher = "Microsoft.OSTCExtensions"
+    $Version =  "1.*"
+    Set-AzureVMExtension -ExtensionName $ExtensionName -VM $vm -Publisher $Publisher -Version $Version -PrivateConfiguration $PrivateConfig | Update-AzureVM
 
 > [AZURE.NOTE] If you want to reset the password or SSH key for an existing user account, be sure to type the exact user name. If you type a different name, the VMAccess extension creates a new user account and assigns the password to that account.
 
@@ -199,26 +199,26 @@ Fill in the current Linux user name and the new password, and then run these com
 
 Fill in the current Linux user name and the path to the certificate containing the SSH keys, and then run these commands.
 
-	$UserName = "<current Linux user name>"
-	$Cert = Get-Content "<certificate path>"
-	$PrivateConfig = '{"username":"' + $UserName + '", "ssh_key":"' + $cert + '"}'
-	$ExtensionName = "VMAccessForLinux"
-	$Publisher = "Microsoft.OSTCExtensions"
-	$Version =  "1.*"
-	Set-AzureVMExtension -ExtensionName $ExtensionName -VM  $vm -Publisher $Publisher -Version $Version -PrivateConfiguration $PrivateConfig | Update-AzureVM
+    $UserName = "<current Linux user name>"
+    $Cert = Get-Content "<certificate path>"
+    $PrivateConfig = '{"username":"' + $UserName + '", "ssh_key":"' + $cert + '"}'
+    $ExtensionName = "VMAccessForLinux"
+    $Publisher = "Microsoft.OSTCExtensions"
+    $Version =  "1.*"
+    Set-AzureVMExtension -ExtensionName $ExtensionName -VM  $vm -Publisher $Publisher -Version $Version -PrivateConfiguration $PrivateConfig | Update-AzureVM
 
 ### <a name="both"></a>Reset the password and the SSH key
 
 Fill in the current Linux user name, the new password, and the path to the certificate containing the SSH keys, and then run these commands.
 
-	$UserName = "<current Linux user name>"
-	$Password = "<new password>"
-	$Cert = Get-Content "<certificate path>"
-	$PrivateConfig = '{"username":"' + $UserName + '", "password": "' +  $Password + '", "ssh_key":"' + $cert + '"}'
-	$ExtensionName = "VMAccessForLinux"
-	$Publisher = "Microsoft.OSTCExtensions"
-	$Version =  "1.*"
-	Set-AzureVMExtension -ExtensionName $ExtensionName -VM  $vm -Publisher $Publisher -Version $Version -PrivateConfiguration $PrivateConfig | Update-AzureVM
+    $UserName = "<current Linux user name>"
+    $Password = "<new password>"
+    $Cert = Get-Content "<certificate path>"
+    $PrivateConfig = '{"username":"' + $UserName + '", "password": "' +  $Password + '", "ssh_key":"' + $cert + '"}'
+    $ExtensionName = "VMAccessForLinux"
+    $Publisher = "Microsoft.OSTCExtensions"
+    $Version =  "1.*"
+    Set-AzureVMExtension -ExtensionName $ExtensionName -VM  $vm -Publisher $Publisher -Version $Version -PrivateConfiguration $PrivateConfig | Update-AzureVM
 
 ### <a name="config"></a>Reset the SSH configuration
 
@@ -226,11 +226,11 @@ Errors in SSH configuration can prevent you from accessing the virtual machine. 
 
 Run these commands.
 
-	$PrivateConfig = '{"reset_ssh": "True"}'
-	$ExtensionName = "VMAccessForLinux"
-	$Publisher = "Microsoft.OSTCExtensions"
-	$Version = "1.*"
-	Set-AzureVMExtension -ExtensionName $ExtensionName -VM  $vm -Publisher $Publisher -Version $Version -PrivateConfiguration $PrivateConfig | Update-AzureVM
+    $PrivateConfig = '{"reset_ssh": "True"}'
+    $ExtensionName = "VMAccessForLinux"
+    $Publisher = "Microsoft.OSTCExtensions"
+    $Version = "1.*"
+    Set-AzureVMExtension -ExtensionName $ExtensionName -VM  $vm -Publisher $Publisher -Version $Version -PrivateConfiguration $PrivateConfig | Update-AzureVM
 
 > [AZURE.NOTE] The SSH configuration file is located at /etc/ssh/sshd_config.
 
@@ -238,19 +238,19 @@ Run these commands.
 
 Fill in the Linux user name to delete, and then run these commands.
 
-	$UserName = "<Linux user name to delete>"
-	$PrivateConfig = "{"remove_user": "' + $UserName + '"}"
-	$ExtensionName = "VMAccessForLinux"
-	$Publisher = "Microsoft.OSTCExtensions"
-	$Version = "1.*"
-	Set-AzureVMExtension -ExtensionName $ExtensionName -VM $vm -Publisher $Publisher -Version $Version -PrivateConfiguration $PrivateConfig | Update-AzureVM
+    $UserName = "<Linux user name to delete>"
+    $PrivateConfig = "{"remove_user": "' + $UserName + '"}"
+    $ExtensionName = "VMAccessForLinux"
+    $Publisher = "Microsoft.OSTCExtensions"
+    $Version = "1.*"
+    Set-AzureVMExtension -ExtensionName $ExtensionName -VM $vm -Publisher $Publisher -Version $Version -PrivateConfiguration $PrivateConfig | Update-AzureVM
 
 
 ### <a name="status"></a>Display the status of the VMAccess extension
 
 To display the status of the VMAccess extension, run this command.
 
-	$vm.GuestAgentStatus
+    $vm.GuestAgentStatus
 
 
 ## Additional resources
@@ -265,3 +265,4 @@ To display the status of the VMAccess extension, run this command.
 [How to install and configure Azure PowerShell]: ../install-configure-powershell.md
 [Azure VM Extensions and Features]: virtual-machines-extensions-features.md
 [Connect to an Azure virtual machine with RDP or SSH]: http://msdn.microsoft.com/library/azure/dn535788.aspx
+

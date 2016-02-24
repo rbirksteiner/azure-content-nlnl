@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Overview: management tools for SQL Database" 
-	description="Compares tools and options for managing Azure SQL Database" 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="TigerMint" 
-	manager="" 
-	editor=""/>
+    pageTitle="Overview: management tools for SQL Database" 
+    description="Compares tools and options for managing Azure SQL Database" 
+    services="sql-database" 
+    documentationCenter="" 
+    authors="TigerMint" 
+    manager="" 
+    editor=""/>
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/15/2015" 
-	ms.author="vinsonyu"/>
+    ms.service="sql-database" 
+    ms.workload="data-management" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="04/15/2015" 
+    ms.author="vinsonyu"/>
 
 # Overview: management tools for SQL Database
 
@@ -43,3 +43,4 @@ You can use command line tools such as PowerShell to manage databases and elasti
 
 For more information on managing your Azure SQL Databases with command line tools, [Manage SQL Database with PowerShell](sql-database-command-line-tools.md)
  
+

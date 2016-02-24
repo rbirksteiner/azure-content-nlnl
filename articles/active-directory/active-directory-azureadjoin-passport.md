@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Authenticating identities without passwords through Microsoft Passport | Microsoft Azure" 
-	description="Provides an overview of Microsoft Passport and additional information on deploying Microsoft Passport." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="femila" 
-	manager="stevenpo" 
-	editor=""
-	tags="azure-classic-portal"/>
+    pageTitle="Authenticating identities without passwords through Microsoft Passport | Microsoft Azure" 
+    description="Provides an overview of Microsoft Passport and additional information on deploying Microsoft Passport." 
+    services="active-directory" 
+    documentationCenter="" 
+    authors="femila" 
+    manager="stevenpo" 
+    editor=""
+    tags="azure-classic-portal"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/19/2015" 
-	ms.author="femila"/>
+    ms.service="active-directory" 
+    ms.workload="identity" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/19/2015" 
+    ms.author="femila"/>
 
 # Authenticating identities without passwords through Microsoft Passport
 
@@ -80,5 +80,6 @@ For detailed deployment instructions, see [Enable Microsoft Passport for work in
 * [Learn about usage scenarios for Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Connect domain-joined devices to Azure AD for Windows 10 experiences](active-directory-azureadjoin-devices-group-policy.md)
 * [Set up Azure AD Join](active-directory-azureadjoin-setup.md)
+
 
 

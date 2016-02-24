@@ -73,19 +73,19 @@ The following screenshot shows an example for this.
 
 ###To configure single sign-on, perform the following steps:
 
-1.  In the Azure AD portal, on the **PolicyStat** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  In the Azure AD portal, on the **PolicyStat** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
     ![Configure Single Sign-On](./media/active-directory-saas-policystat-tutorial/IC808629.png "Configure Single Sign-On")
 
-2.  On the **How would you like users to sign on to PolicyStat** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to PolicyStat** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-policystat-tutorial/IC808630.png "Configure Single Sign-On")
 
-3.  On the **Configure App Settings** page, in the **Sign On URL** textbox, type the URL used by your users to sign-on to your URL PolicyStat application (e.g.: *“https://demo-azure.policystat.com”*), and then click **Next**.
+3.  On the **Configure App Settings** page, in the **Sign On URL** textbox, type the URL used by your users to sign-on to your URL PolicyStat application (e.g.: *“https://demo-azure.policystat.com”*), and then click **Next**.
 
     ![Configure App Settings](./media/active-directory-saas-policystat-tutorial/IC808631.png "Configure App Settings")
 
-4.  On the **Configure single sign-on at PolicyStat** page, click **Download metadata**, and then save the metadata file on your computer.
+4.  On the **Configure single sign-on at PolicyStat** page, click **Download metadata**, and then save the metadata file on your computer.
 
     ![Configure Single Sign-On](./media/active-directory-saas-policystat-tutorial/IC808632.png "Configure Single Sign-On")
 
@@ -116,11 +116,11 @@ The following screenshot shows an example for this.
     1.  Open your downloaded metadata file, copy the content, and then paste it into the **Your Identity Provider Metadata** textbox
     2.  Click **Save Changes**.
 
-10. On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+10. On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
     ![Configure Single Sign-On](./media/active-directory-saas-policystat-tutorial/IC771723.png "Configure Single Sign-On")
 
-11. 12. In the menu on the top, click **Attributes** to open the **SAML Token Attributes** dialog.
+11. 12. In the menu on the top, click **Attributes** to open the **SAML Token Attributes** dialog.
 
     ![Attributes](./media/active-directory-saas-policystat-tutorial/IC795920.png "Attributes")
 
@@ -149,7 +149,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 1.  In the Azure AD portal, create a test account.
 
-2.  On the **PolicyStat **application integration page, click **Assign users**.
+2.  On the **PolicyStat **application integration page, click **Assign users**.
 
     ![Assign Users](./media/active-directory-saas-policystat-tutorial/IC808636.png "Assign Users")
 

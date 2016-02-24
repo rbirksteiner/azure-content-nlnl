@@ -6,7 +6,7 @@
    authors="Blackmist"
    manager="paulettm"
    editor="cgronlun"
-	tags="azure-portal"/>
+    tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -31,7 +31,7 @@ After completing the steps in this document, you will have a basic topology that
 
 * A text editor such as Notepad, <a href="http://www.gnu.org/software/emacs/" target="_blank">Emacs<a>, <a href="http://www.sublimetext.com/" target="_blank">Sublime Text</a>, <a href="https://atom.io/" target="_blank">Atom.io</a>, <a href="http://brackets.io/" target="_blank">Brackets.io</a>. Or you can use an integrated development environment (IDE) such as <a href="https://eclipse.org/" target="_blank">Eclipse</a> (version Luna or later).
 
-	> [AZURE.NOTE] Your editor or IDE may have specific functionality for working with Maven that is not addressed in this document. For information about the capabilities of your editing environment, see the documentation for the product you are using.
+    > [AZURE.NOTE] Your editor or IDE may have specific functionality for working with Maven that is not addressed in this document. For information about the capabilities of your editing environment, see the documentation for the product you are using.
 
 ##Configure environment variables
 
@@ -41,17 +41,17 @@ The following environment variables may be set when you install Java and the JDK
 
 * **PATH** - should contain the following paths:
 
-	* **JAVA_HOME** (or the equivalent path)
+    * **JAVA_HOME** (or the equivalent path)
 
-	* **JAVA_HOME\bin** (or the equivalent path)
+    * **JAVA_HOME\bin** (or the equivalent path)
 
-	* The directory where Maven is installed
+    * The directory where Maven is installed
 
 ##Create a new Maven project
 
 From the command line, use the following code to create a new Maven project named **WordCount**:
 
-	mvn archetype:generate -DarchetypeArtifactId=maven-archetype-quickstart -DgroupId=com.microsoft.example -DartifactId=WordCount -DinteractiveMode=false
+    mvn archetype:generate -DarchetypeArtifactId=maven-archetype-quickstart -DgroupId=com.microsoft.example -DartifactId=WordCount -DinteractiveMode=false
 
 This will create a new directory named **WordCount** at the current location, which contains a basic Maven project.
 
@@ -75,13 +75,13 @@ Because we will be creating our application, delete the generated test and the a
 
 Because this is a Storm topology, you must add a dependency for Storm components. Open the **pom.xml** file and add the following code in the **&lt;dependencies>** section:
 
-	<dependency>
-	  <groupId>org.apache.storm</groupId>
-	  <artifactId>storm-core</artifactId>
-	  <version>0.9.2-incubating</version>
-	  <!-- keep storm out of the jar-with-dependencies -->
-	  <scope>provided</scope>
-	</dependency>
+    <dependency>
+      <groupId>org.apache.storm</groupId>
+      <artifactId>storm-core</artifactId>
+      <version>0.9.2-incubating</version>
+      <!-- keep storm out of the jar-with-dependencies -->
+      <scope>provided</scope>
+    </dependency>
 
 At compile time, Maven uses this information to look up **storm-core** in the Maven repository. It first looks in the repository on your local computer. If the files aren't there, it will download them from the public Maven repository and store them in the local repository.
 
@@ -91,10 +91,10 @@ At compile time, Maven uses this information to look up **storm-core** in the Ma
 
 Maven plug-ins allow you to customize the build stages of the project, such as how the project is compiled or how to package it into a JAR file. Open the **pom.xml** file and add the following code directly above the `</project>` line.
 
-	<build>
-	  <plugins>
-	  </plugins>
-	</build>
+    <build>
+      <plugins>
+      </plugins>
+    </build>
 
 This section will be used to add plug-ins and other build configuration options.
 
@@ -102,7 +102,7 @@ This section will be used to add plug-ins and other build configuration options.
 
 For Storm topologies, the <a href="http://mojo.codehaus.org/exec-maven-plugin/" target="_blank">Exec Maven Plugin</a> is useful because it allows you to easily run the topology locally in your development environment. Add the following to the `<plugins>` section of the **pom.xml** file to include the Exec Maven plugin:
 
-	<plugin>
+    <plugin>
       <groupId>org.codehaus.mojo</groupId>
       <artifactId>exec-maven-plugin</artifactId>
       <executions>
@@ -125,7 +125,7 @@ Another useful plug-in is the <a href="http://maven.apache.org/plugins/maven-com
 
 Add the following in the `<plugins>` section of the **pom.xml** file to include the Apache Maven Compiler plugin and set the source and target versions to 1.7.
 
-	<plugin>
+    <plugin>
       <groupId>org.apache.maven.plugins</groupId>
       <artifactId>maven-compiler-plugin</artifactId>
       <configuration>
@@ -355,7 +355,7 @@ The following is a basic diagram of the graph of components for this topology.
 
 To implement the topology, create a new file named **WordCountTopology.java** in the **src\main\java\com\microsoft\example** directory. Use the following as the contents for the file:
 
-	package com.microsoft.example;
+    package com.microsoft.example;
 
     import backtype.storm.Config;
     import backtype.storm.LocalCluster;
@@ -419,7 +419,7 @@ Take a moment to read through the code comments to understand how the topology i
 
 After you save the files, use the following command to test the topology locally.
 
-	mvn compile exec:java -Dstorm.topology=com.microsoft.example.WordCountTopology
+    mvn compile exec:java -Dstorm.topology=com.microsoft.example.WordCountTopology
 
 As it runs, the topology will display startup information. Then it begins to display lines similar to the following as sentences are emitted from the spout and processed by the bolts.
 
@@ -466,3 +466,4 @@ You have learned how to create a Storm topology by using Java. Now learn how to:
 * [Develop C# topologies for Apache Storm on HDInsight using Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 
 You can find more example Storm topologies by visiting [Example topologies for Storm on HDInsight](hdinsight-storm-example-topology.md).
+

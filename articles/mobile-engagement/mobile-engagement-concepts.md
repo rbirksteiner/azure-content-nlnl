@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Mobile Engagement concepts | Microsoft Azure"
-	description="Azure Mobile Engagement concepts"
-	services="mobile-engagement"
-	documentationCenter="mobile"
-	authors="piyushjo"
-	manager="dwrede"
-	editor="" />
+    pageTitle="Mobile Engagement concepts | Microsoft Azure"
+    description="Azure Mobile Engagement concepts"
+    services="mobile-engagement"
+    documentationCenter="mobile"
+    authors="piyushjo"
+    manager="dwrede"
+    editor="" />
 
 <tags
-	ms.service="mobile-engagement"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-android"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/10/2015"
-	ms.author="piyushjo" />
+    ms.service="mobile-engagement"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-android"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/10/2015"
+    ms.author="piyushjo" />
 
 # Azure Mobile Engagement concepts
 
@@ -84,3 +84,4 @@ The whole tree of key/value pairs is stored as a JSON object. Nevertheless, only
 - [Windows Phone Silverlight SDK overview for Azure Mobile Engagement](mobile-engagement-windows-phone-sdk-overview.md)
 - [iOS SDK for Azure Mobile Engagement](mobile-engagement-ios-sdk-overview.md)
 - [Android SDK for Azure Mobile Engagement](mobile-engagement-android-sdk-overview.md)
+

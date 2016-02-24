@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Import data to Azure Search using .NET | Microsoft Azure | Hosted cloud search service"
-	description="How to upload data to an index in Azure Search using the .NET SDK or .NET library"
-	services="search"
-	documentationCenter=""
-	authors="HeidiSteen"
-	manager="mblythe"
-	editor=""
+    pageTitle="Import data to Azure Search using .NET | Microsoft Azure | Hosted cloud search service"
+    description="How to upload data to an index in Azure Search using the .NET SDK or .NET library"
+    services="search"
+    documentationCenter=""
+    authors="HeidiSteen"
+    manager="mblythe"
+    editor=""
     tags=""/>
 
 <tags
-	ms.service="search"
-	ms.devlang="dotnet"
-	ms.workload="search"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.date="11/09/2015"
-	ms.author="heidist"/>
+    ms.service="search"
+    ms.devlang="dotnet"
+    ms.workload="search"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.date="11/09/2015"
+    ms.author="heidist"/>
 
 # Import data to Azure Search using .NET
 > [AZURE.SELECTOR]
@@ -123,3 +123,4 @@ The second part creates an `IndexAction` for each `Hotel`, then groups those tog
 The third part of this method is a catch block that handles an important error case for indexing. If your Azure Search service fails to index some of the documents in the batch, an `IndexBatchException` is thrown by `Documents.Index`. This can happen if you are indexing documents while your service is under heavy load. **We strongly recommend explicitly handling this case in your code.** You can delay and then retry indexing the documents that failed, or you can log and continue like the sample does, or you can do something else depending on your application's data consistency requirements.
 
 Finally, the method delays for two seconds. Indexing happens asynchronously in your Azure Search service, so the sample application needs to wait a short time to ensure that the documents are available for searching. Delays like this are typically only necessary in demos, tests, and sample applications.
+

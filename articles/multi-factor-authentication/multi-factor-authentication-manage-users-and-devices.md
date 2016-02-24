@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication Reports" 
-	description="This describes how to change user settings such as forcing the users to do the proof-up process again." 
-	documentationCenter="" 
-	services="multi-factor-authentication" 
-	authors="billmath" 
-	manager="stevenpo" 
-	editor="curtand"/>
+    pageTitle="Azure Multi-Factor Authentication Reports" 
+    description="This describes how to change user settings such as forcing the users to do the proof-up process again." 
+    documentationCenter="" 
+    services="multi-factor-authentication" 
+    authors="billmath" 
+    manager="stevenpo" 
+    editor="curtand"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/19/2015" 
-	ms.author="billmath"/>
+    ms.service="multi-factor-authentication" 
+    ms.workload="identity" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/19/2015" 
+    ms.author="billmath"/>
 
 # Managing user settings with Azure Multi-Factor Authentication in the cloud
 
@@ -94,5 +94,6 @@ Administrators have the ability to reset Multi-Factor Authentication on their de
 ![Delete app passwords](./media/multi-factor-authentication-manage-users-and-devices/rememberdevices.png)
 <li>Click save.</li>
 <li>Click close.</li>
+
 
 

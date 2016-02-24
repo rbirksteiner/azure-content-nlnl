@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Create Swagger 2.0 API Definition from an API in PowerApps Enterprise | Microsoft Azure"
-	description="Learn how to register an API from Swagger 2.0 API defition created from an existing API"
-	services=""
+    pageTitle="Create Swagger 2.0 API Definition from an API in PowerApps Enterprise | Microsoft Azure"
+    description="Learn how to register an API from Swagger 2.0 API defition created from an existing API"
+    services=""
     suite="powerapps"
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="dwrede"
-	editor=""/>
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="dwrede"
+    editor=""/>
 
 <tags
    ms.service="powerapps"
@@ -37,12 +37,12 @@ It's very easy to register these existing APIs. Steps include:
 
 1. Create the [Swagger 2.0](http://swagger.io) API definition for your existing API. PowerApps uses Swagger 2.0 as the API definition format. You can use the tools referenced on the [Swagger 2.0 website](http://swagger.io) to help you easily author a Swagger 2.0 API definition. A few things to note:  
 
-	- The ``host`` property should point to the actual endpoint of your existing API. Do you not use scheme or any sub-paths. For example, enter ``api.contoso.com``.  <br/><br/>
-	- The ``basePath`` property should list the sub paths of your existing API endpoint, if there is any. Start with a forward slash ``/``. For example,  enter ``/purchaseorderapi``.
+    - The ``host`` property should point to the actual endpoint of your existing API. Do you not use scheme or any sub-paths. For example, enter ``api.contoso.com``.  <br/><br/>
+    - The ``basePath`` property should list the sub paths of your existing API endpoint, if there is any. Start with a forward slash ``/``. For example,  enter ``/purchaseorderapi``.
 
 2. Make sure your existing API is accessible by your app service environment securely:  <br/><br/>
-	a) If you are comfortable with making your API accessible using the internet, you can set up HTTP basic access authentication between your app service environment and your existing API. Go [here](powerapps-configure-apis.md) to see how.  <br/><br/>
-	b) If you want to keep your API within your organization's network, you can set up a virtual network on the app service environment to access your organization's network securely. Go [here](../app-service-app-service-environment-intro.md) to see how.
+    a) If you are comfortable with making your API accessible using the internet, you can set up HTTP basic access authentication between your app service environment and your existing API. Go [here](powerapps-configure-apis.md) to see how.  <br/><br/>
+    b) If you want to keep your API within your organization's network, you can set up a virtual network on the app service environment to access your organization's network securely. Go [here](../app-service-app-service-environment-intro.md) to see how.
 
 3. In the [Azure portal](https://portal.azure.com/), select **PowerApps**, and then select **Manage APIs**:  
 ![][11]
@@ -50,8 +50,8 @@ It's very easy to register these existing APIs. Steps include:
 ![][12]
 5. In **Add API**, enter the API properties:  
 
-	- In **Name**, enter a name for your API. Notice that the name you enter is included in the runtime URL of the API. Make the name meaningful and unique within your organization.
-	- In **Source**, select **Import from Swagger 2.0**.
+    - In **Name**, enter a name for your API. Notice that the name you enter is included in the runtime URL of the API. Make the name meaningful and unique within your organization.
+    - In **Source**, select **Import from Swagger 2.0**.
 
 6. In **API definition (Swagger 2.0)**, upload your Swagger 2.0 API definition file:  
  ![][13]
@@ -71,3 +71,4 @@ In this topic, you've seen how to register an API from Swagger 2.0 API definitio
 [11]: ./media/powerapps-register-existing-api-from-api-definition/registered-apis-part.png
 [12]: ./media/powerapps-register-existing-api-from-api-definition/add-api-button.png
 [13]: ./media/powerapps-register-existing-api-from-api-definition/add-api-blade.png
+

@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Send push notifications to authenticated users (Universal Windows 8.1) | Azure Mobile Services"
-	description="Learn how to use Azure Mobile Services to send push notifications to a specific authenticated user running your Universal Windows 8.1 app."
-	services="mobile-services,notification-hubs"
-	documentationCenter="windows"
-	authors="ggailey777"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Send push notifications to authenticated users (Universal Windows 8.1) | Azure Mobile Services"
+    description="Learn how to use Azure Mobile Services to send push notifications to a specific authenticated user running your Universal Windows 8.1 app."
+    services="mobile-services,notification-hubs"
+    documentationCenter="windows"
+    authors="ggailey777"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-windows"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="10/05/2015"
-	ms.author="glenga"/>
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-windows"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="10/05/2015"
+    ms.author="glenga"/>
 
 # Send push notifications to authenticated users
 
@@ -67,4 +67,5 @@ After you have completed both tutorials, you can prevent unauthenticated users f
 <!-- URLs. -->
 [Get started with authentication]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md
 [Get started with push notifications]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md
+
 

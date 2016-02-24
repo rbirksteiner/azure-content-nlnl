@@ -152,3 +152,4 @@ The Reliable Actors runtime emits the following events related to [actor activat
 |---|---|---|---|---|
 |ActorActivated|5|Informational|0x1|An actor has been activated.|
 |ActorDeactivated|6|Informational|0x1|An actor has been deactivated.|
+

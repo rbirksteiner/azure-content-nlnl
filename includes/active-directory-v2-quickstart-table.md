@@ -7,3 +7,4 @@
 | [Call Office 365 Rest APIs from an app](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) | [Secure a .NET Web API](active-directory-v2-devquickstarts-dotnet-api.md) | Server Side Daemons (Coming Soon) |
 |  |  [Secure a NodeJS Web API](active-directory-v2-devquickstarts-node-api.md) |
 |  | [Call Office 365 REST APIs from the web](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) |
+

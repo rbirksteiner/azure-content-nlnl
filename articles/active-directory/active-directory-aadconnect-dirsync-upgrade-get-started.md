@@ -76,8 +76,8 @@ The passwords used by DirSync for the service accounts cannot be retrieved and w
 4. Collect credentials for an enterprise admin account (only used during the installation of Azure AD Connect)
 5. Installation of Azure AD Connect
     * Uninstall DirSync
-	* Install Azure AD Connect
-	* Optionally begin synchronization
+    * Install Azure AD Connect
+    * Optionally begin synchronization
 
 Additional steps are required when:
 
@@ -155,8 +155,8 @@ When you install Azure AD Connect on a new server it will assume that you want t
 5. Select the settings file that exported from your DirSync installation.
 6. Configure any advanced options including:
     - A custom installation location for Azure AD Connect.
-	- An existing instance of SQL Server (Default: Azure AD Connect installs SQL Server 2012 Express). Do not use the same database instance as your DirSync server.
-	- A service account used to connect to SQL Server (If your SQL Server database is remote then this account must be a domain service account).
+    - An existing instance of SQL Server (Default: Azure AD Connect installs SQL Server 2012 Express). Do not use the same database instance as your DirSync server.
+    - A service account used to connect to SQL Server (If your SQL Server database is remote then this account must be a domain service account).
 These options can be seen on this screen:
 ![Enter your Azure AD credentials](./media/active-directory-aadconnect-dirsync-upgrade-get-started/advancedsettings.png)
 7. Click **Next**.
@@ -213,3 +213,4 @@ Azure AD Connect is now your active server.
 Now that you have Azure AD Connect installed you can [verify the installation and assign licenses](active-directory-aadconnect-whats-next.md).
 
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
+

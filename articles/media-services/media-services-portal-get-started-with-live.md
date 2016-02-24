@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Use the Azure Classic Portal to create channels that receive multi-bitrate live streams from on-premises encoders | Microsoft Azure"
-	description="This tutorial walks you through the steps of implementing a basic Media Services live streaming application where a channel receives a multi-bitrate live stream from an on-premises live encoder."
-	services="media-services"
-	documentationCenter=""
-	authors="Juliako,cenkdin" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="Use the Azure Classic Portal to create channels that receive multi-bitrate live streams from on-premises encoders | Microsoft Azure"
+    description="This tutorial walks you through the steps of implementing a basic Media Services live streaming application where a channel receives a multi-bitrate live stream from an on-premises live encoder."
+    services="media-services"
+    documentationCenter=""
+    authors="Juliako,cenkdin" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="ne" 
-	ms.topic="article" 
-	ms.date="10/15/2015"  
-	ms.author="juliako"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="ne" 
+    ms.topic="article" 
+    ms.date="10/15/2015"  
+    ms.author="juliako"/>
 
 
 # Use the Azure Classic Portal to create channels that receive multi-bitrate live streams from on-premises encoders
@@ -212,3 +212,4 @@ If this topic didn't contain what you were expecting, is missing something, or i
 [Azure Classic Portal]: http://manage.windowsazure.com/
 
 <!-- Images -->
+

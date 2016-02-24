@@ -1,20 +1,20 @@
 <properties
-	pageTitle="What is Azure Event Hubs? | Microsoft Azure"
-	description="Overview of Azure Event Hubs"
-	services="event-hubs"
-	documentationCenter=".net"
-	authors="nberdy"
-	manager="timlt"
-	editor=""/>
+    pageTitle="What is Azure Event Hubs? | Microsoft Azure"
+    description="Overview of Azure Event Hubs"
+    services="event-hubs"
+    documentationCenter=".net"
+    authors="nberdy"
+    manager="timlt"
+    editor=""/>
 
 <tags
-	ms.service="event-hubs"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/05/2015"
-	ms.author="sethm"/>
+    ms.service="event-hubs"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/05/2015"
+    ms.author="sethm"/>
 
 # What is Azure Event Hubs?
 

@@ -334,11 +334,11 @@ The following are supported ranking functions:
 
 **Syntax:**
 
-	[ RANK() | DENSE_RANK() | ROW_NUMBER() | NTILE(<numgroups>) ]
-	    OVER (
-	        [PARTITION BY <identifier, > …[n]]
-	        [ORDER BY <identifier, > …[n] [ASC|DESC]] 
-	) AS <alias>
+    [ RANK() | DENSE_RANK() | ROW_NUMBER() | NTILE(<numgroups>) ]
+        OVER (
+            [PARTITION BY <identifier, > …[n]]
+            [ORDER BY <identifier, > …[n] [ASC|DESC]] 
+    ) AS <alias>
 
 - The ORDER BY clause is optional for ranking functions. If ORDERY BY is specified then it determines the order of the ranking. If ORDER BY is not specified then U-SQL assigns values based on the order it reads record. Thus resulting into non deterministic value of row number, rank or dense rank in the case were order by clause is not specified.
 - NTILE requires an expression that evaluates to a positive integer. This number specifies the number of groups into which each partition must be divided. This identifier is used only with the NTILE ranking function. 
@@ -386,7 +386,7 @@ You can see this pattern repeat with the sequence (2,2,4) in the Web vertical.
 ![U-SQL window function RANK](./media/data-lake-analytics-use-windowing-functions/u-sql-windowing-function-rank-result.png)
 
 ### DENSE_RANK
-	
+    
 DENSE_RANK is just like RANK except it doesn’t “skip” to the next ROW_NUMBER, instead it goes to the next number in the sequence. Notice the sequences (1,1,2) and (2,2,3) in the sample.
 
 ![U-SQL window function DENSE_RANK](./media/data-lake-analytics-use-windowing-functions/u-sql-windowing-function-dense-rank-result.png)
@@ -396,9 +396,9 @@ DENSE_RANK is just like RANK except it doesn’t “skip” to the next ROW_NUMB
 - If ORDER BY is not specified than ranking function will be applied to rowset without any ordering. This will result into non deterministic behavior on how ranking function is applied
 - There is no guarantee that the rows returned by a query using ROW_NUMBER will be ordered exactly the same with each execution unless the following conditions are true.
 
-	- Values of the partitioned column are unique.
-	- Values of the ORDER BY columns are unique.
-	- Combinations of values of the partition column and ORDER BY columns are unique.
+    - Values of the partitioned column are unique.
+    - Values of the ORDER BY columns are unique.
+    - Combinations of values of the partition column and ORDER BY columns are unique.
 
 ### NTILE
 
@@ -416,7 +416,7 @@ The Web vertical has 6 rows, the two extra rows are distributed to the first two
             *,
             NTILE(4) OVER(PARTITION BY Vertical ORDER BY Latency) AS Quartile   
         FROM @querylog;
-		
+        
 The results:
 
 |Query|Latency|Vertical|Quartile
@@ -510,7 +510,7 @@ The results:
         FROM @result
         WHERE Rank <= 3;
 
-The results:	
+The results:    
 
 |Query|Latency|Vertical|Rank
 |-----|-----------|--------|---------
@@ -626,7 +626,7 @@ Note: The ORDER BY clause is not allowed if the SELECT statement is not followed
 ### PERCENT_RANK
 
 PERCENT_RANK calculates the relative rank of a row within a group of rows. PERCENT_RANK is used to evaluate the relative standing of a value within a rowset or partition. The range of values returned by PERCENT_RANK is greater than 0 and less than or equal to 1. Unlike CUME_DIST, PERCENT_RANK is always 0 for the first row.
-	
+    
 ** Syntax**
 
     PERCENT_RANK() 
@@ -747,3 +747,4 @@ PERCENTILE_DISC does not interpolate values, so the median for Web is 200 - whic
 - [Manage Azure Data Lake Analytics using Azure Portal](data-lake-analytics-use-portal.md)
 - [Manage Azure Data Lake Analytics using Azure PowerShell](data-lake-analytics-use-powershell.md)
 - [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+

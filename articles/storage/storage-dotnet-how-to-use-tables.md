@@ -1,20 +1,20 @@
 <properties
-	pageTitle="How to use Table storage from .NET | Microsoft Azure"
-	description="Learn how to use Microsoft Azure Table storage to create and delete tables and insert and query entities in a table."
-	services="storage"
-	documentationCenter=".net"
-	authors="tamram"
-	manager="adinah"
-	editor=""/>
+    pageTitle="How to use Table storage from .NET | Microsoft Azure"
+    description="Learn how to use Microsoft Azure Table storage to create and delete tables and insert and query entities in a table."
+    services="storage"
+    documentationCenter=".net"
+    authors="tamram"
+    manager="adinah"
+    editor=""/>
 
 <tags
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="hero-article"
-	ms.date="08/04/2015"
-	ms.author="tamram"/>
+    ms.service="storage"
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="hero-article"
+    ms.date="08/04/2015"
+    ms.author="tamram"/>
 
 
 # How to use Table storage from .NET
@@ -45,7 +45,7 @@ Add the following code namespace declarations to the top of any C\# file
 in which you wish to programmatically access Azure Storage.
 
     using Microsoft.WindowsAzure.Storage;
-	using Microsoft.WindowsAzure.Storage.Auth;
+    using Microsoft.WindowsAzure.Storage.Auth;
     using Microsoft.WindowsAzure.Storage.Table;
 
 Make sure you reference the `Microsoft.WindowsAzure.Storage.dll` assembly.
@@ -110,8 +110,8 @@ is represented by a **TableOperation** object.  The following code example shows
     // Create the table client.
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
-	// Create the CloudTable object that represents the "people" table.
-	CloudTable table = tableClient.GetTableReference("people");
+    // Create the CloudTable object that represents the "people" table.
+    CloudTable table = tableClient.GetTableReference("people");
 
     // Create a new customer entity.
     CustomerEntity customer1 = new CustomerEntity("Harp", "Walter");
@@ -147,28 +147,28 @@ to **TableBatchOperation** by using the **Insert** method. Then, **CloudTable.Ex
     // Create the table client.
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
-	// Create the CloudTable object that represents the "people" table.
+    // Create the CloudTable object that represents the "people" table.
     CloudTable table = tableClient.GetTableReference("people");
 
     // Create the batch operation.
     TableBatchOperation batchOperation = new TableBatchOperation();
 
     // Create a customer entity and add it to the table.
-	CustomerEntity customer1 = new CustomerEntity("Smith", "Jeff");
-	customer1.Email = "Jeff@contoso.com";
-	customer1.PhoneNumber = "425-555-0104";
+    CustomerEntity customer1 = new CustomerEntity("Smith", "Jeff");
+    customer1.Email = "Jeff@contoso.com";
+    customer1.PhoneNumber = "425-555-0104";
 
-	// Create another customer entity and add it to the table.
-	CustomerEntity customer2 = new CustomerEntity("Smith", "Ben");
-	customer2.Email = "Ben@contoso.com";
-	customer2.PhoneNumber = "425-555-0102";
+    // Create another customer entity and add it to the table.
+    CustomerEntity customer2 = new CustomerEntity("Smith", "Ben");
+    customer2.Email = "Ben@contoso.com";
+    customer2.PhoneNumber = "425-555-0102";
 
-	// Add both customer entities to the batch insert operation.
-	batchOperation.Insert(customer1);
-	batchOperation.Insert(customer2);
+    // Add both customer entities to the batch insert operation.
+    batchOperation.Insert(customer1);
+    batchOperation.Insert(customer2);
 
-	// Execute the batch operation.
-	table.ExecuteBatch(batchOperation);
+    // Execute the batch operation.
+    table.ExecuteBatch(batchOperation);
 
 ## Retrieve all entities in a partition
 
@@ -215,7 +215,7 @@ prints the query results.
     // Create the CloudTable object that represents the "people" table.
     CloudTable table = tableClient.GetTableReference("people");
 
-	// Create the table query.
+    // Create the table query.
     TableQuery<CustomerEntity> rangeQuery = new TableQuery<CustomerEntity>().Where(
         TableQuery.CombineFilters(
             TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Smith"),
@@ -255,10 +255,10 @@ retrieve a single entity from the Table service.
     TableResult retrievedResult = table.Execute(retrieveOperation);
 
     // Print the phone number of the result.
-	if (retrievedResult.Result != null)
-	   Console.WriteLine(((CustomerEntity)retrievedResult.Result).PhoneNumber);
-	else
-	   Console.WriteLine("The phone number could not be retrieved.");
+    if (retrievedResult.Result != null)
+       Console.WriteLine(((CustomerEntity)retrievedResult.Result).PhoneNumber);
+    else
+       Console.WriteLine("The phone number could not be retrieved.");
 
 ## Replace an entity
 
@@ -295,21 +295,21 @@ show you how to override this behavior.
     CustomerEntity updateEntity = (CustomerEntity)retrievedResult.Result;
 
     if (updateEntity != null)
-	{
-	   // Change the phone number.
-	   updateEntity.PhoneNumber = "425-555-0105";
+    {
+       // Change the phone number.
+       updateEntity.PhoneNumber = "425-555-0105";
 
-	   // Create the InsertOrReplace TableOperation.
-	   TableOperation updateOperation = TableOperation.Replace(updateEntity);
+       // Create the InsertOrReplace TableOperation.
+       TableOperation updateOperation = TableOperation.Replace(updateEntity);
 
-	   // Execute the operation.
-	   table.Execute(updateOperation);
+       // Execute the operation.
+       table.Execute(updateOperation);
 
-	   Console.WriteLine("Entity updated.");
-	}
+       Console.WriteLine("Entity updated.");
+    }
 
-	else
-	   Console.WriteLine("Entity could not be retrieved.");
+    else
+       Console.WriteLine("Entity could not be retrieved.");
 
 ## Insert-or-replace an entity
 
@@ -345,21 +345,21 @@ overwritten.
     CustomerEntity updateEntity = (CustomerEntity)retrievedResult.Result;
 
     if (updateEntity != null)
-	{
-	   // Change the phone number.
-	   updateEntity.PhoneNumber = "425-555-1234";
+    {
+       // Change the phone number.
+       updateEntity.PhoneNumber = "425-555-1234";
 
-	   // Create the InsertOrReplace TableOperation.
-	   TableOperation insertOrReplaceOperation = TableOperation.InsertOrReplace(updateEntity);
+       // Create the InsertOrReplace TableOperation.
+       TableOperation insertOrReplaceOperation = TableOperation.InsertOrReplace(updateEntity);
 
-	   // Execute the operation.
-	   table.Execute(insertOrReplaceOperation);
+       // Execute the operation.
+       table.Execute(insertOrReplaceOperation);
 
-	   Console.WriteLine("Entity was updated.");
-	}
+       Console.WriteLine("Entity was updated.");
+    }
 
-	else
-	   Console.WriteLine("Entity could not be retrieved.");
+    else
+       Console.WriteLine("Entity could not be retrieved.");
 
 ## Query a subset of entity properties
 
@@ -415,18 +415,18 @@ retrieves and deletes a customer entity.
     CustomerEntity deleteEntity = (CustomerEntity)retrievedResult.Result;
 
     // Create the Delete TableOperation.
-	if (deleteEntity != null)
-	{
-	   TableOperation deleteOperation = TableOperation.Delete(deleteEntity);
+    if (deleteEntity != null)
+    {
+       TableOperation deleteOperation = TableOperation.Delete(deleteEntity);
 
-	   // Execute the operation.
-	   table.Execute(deleteOperation);
+       // Execute the operation.
+       table.Execute(deleteOperation);
 
-	   Console.WriteLine("Entity deleted.");
-	}
+       Console.WriteLine("Entity deleted.");
+    }
 
-	else
-	   Console.WriteLine("Could not retrieve the entity.");
+    else
+       Console.WriteLine("Could not retrieve the entity.");
 
 ## Delete a table
 
@@ -503,3 +503,4 @@ to learn about more complex storage tasks:
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [How to: Programmatically access Table storage]: #tablestorage
+

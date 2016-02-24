@@ -10,7 +10,7 @@
 
 4. Click **Download** under **Download and publish your service to the cloud**.
 
-	This downloads the Visual Studio project that implements your mobile service. Save the compressed project file to your local computer, and make a note of where you saved it.
+    This downloads the Visual Studio project that implements your mobile service. Save the compressed project file to your local computer, and make a note of where you saved it.
 
 
 5. Scroll down to the bottom of that **Get Started** section to the step titled **Download and publish your service to the cloud**. Click the link shown in the screenshot below to download a publish profile file for the mobile service you just downloaded. 
@@ -18,6 +18,7 @@
     > [AZURE.NOTE] Save the file in a safe place because it does contain sensitive information pertaining to your Azure account. You will delete this file after publishing the mobile service later in this tutorial. 
 
     ![](./media/mobile-services-ios-download-service-locally/download-publish-profile.png)
+
 
 
 

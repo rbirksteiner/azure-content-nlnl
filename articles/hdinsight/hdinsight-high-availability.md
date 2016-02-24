@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Availability of Hadoop clusters in HDInsight | Microsoft Azure"
-	description="HDInsight deploys highly available and reliable clusters with an addtional head node."
-	services="hdinsight"
-	tags="azure-portal"
-	editor="cgronlun"
-	manager="paulettm"
-	authors="mumian"
-	documentationCenter=""/>
+    pageTitle="Availability of Hadoop clusters in HDInsight | Microsoft Azure"
+    description="HDInsight deploys highly available and reliable clusters with an addtional head node."
+    services="hdinsight"
+    tags="azure-portal"
+    editor="cgronlun"
+    manager="paulettm"
+    authors="mumian"
+    documentationCenter=""/>
 
 <tags
-	ms.service="hdinsight"
-	ms.workload="big-data"
-	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="10/29/2015"
-	ms.author="jgao"/>
+    ms.service="hdinsight"
+    ms.workload="big-data"
+    ms.tgt_pltfrm="na"
+    ms.devlang="multiple"
+    ms.topic="article"
+    ms.date="10/29/2015"
+    ms.author="jgao"/>
 
 
 #Availability and reliability of Hadoop clusters in HDInsight
@@ -26,18 +26,18 @@ HDInsight allows customers to deploy a variety of cluster types, for different d
 
 
 - Hadoop clusters for HDInsight are deployed with two roles:
-	- Head node (2 nodes)
-	- Data node (at least 1 node)
+    - Head node (2 nodes)
+    - Data node (at least 1 node)
 
 - HBase clusters for HDInsight are deployed with three roles:
-	- Head servers (2 nodes)
-	- Region servers (at least 1 node)
-	- Master/Zookeeper nodes (3 nodes)
+    - Head servers (2 nodes)
+    - Region servers (at least 1 node)
+    - Master/Zookeeper nodes (3 nodes)
 
 - Storm clusters for HDInsight are deployed with three roles:
-	- Nimbus nodes (2 nodes)
-	- Supervisor servers (at least 1 node)
-	- Zookeeper nodes (3 nodes)
+    - Nimbus nodes (2 nodes)
+    - Supervisor servers (at least 1 node)
+    - Zookeeper nodes (3 nodes)
 
 Standard implementations of Hadoop clusters typically have a single head node. HDInsight removes this single point of failure with the addition of a secondary head node /head server/Nimbus node to increase the availability and reliability of the service needed to manage workloads. These head  nodes/head servers/Nimbus nodes are designed to manage the failure of worker nodes smoothly, but any outages of master services running on the head node would cause the cluster to cease to work.
 
@@ -71,32 +71,32 @@ Extra-large VMs can be configured by using either Azure PowerShell cmdlets or th
 The creation and provisioning of a cluster by using Azure PowerShell is documented in [Administer HDInsight using PowerShell](hdinsight-administer-use-powershell.md). The configuration of an extra-large head node requires the addition of the `-HeadNodeVMSize ExtraLarge` parameter to the `New-AzureRmHDInsightcluster` cmdlet used in this code.
 
     # Create a new HDInsight cluster in Azure PowerShell
-	# Configured with an ExtraLarge head-node VM
+    # Configured with an ExtraLarge head-node VM
     New-AzureRmHDInsightCluster `
-				-ResourceGroupName $resourceGroupName `
-				-ClusterName $clusterName ` 
-				-Location $location `
-				-HeadNodeVMSize ExtraLarge `
-				-DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" `
-				-DefaultStorageAccountKey $storageAccountKey `
-				-DefaultStorageContainerName $containerName  `
-				-ClusterSizeInNodes $clusterNodes
+                -ResourceGroupName $resourceGroupName `
+                -ClusterName $clusterName ` 
+                -Location $location `
+                -HeadNodeVMSize ExtraLarge `
+                -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" `
+                -DefaultStorageAccountKey $storageAccountKey `
+                -DefaultStorageContainerName $containerName  `
+                -ClusterSizeInNodes $clusterNodes
 
 For the SDK, the story is similar. The creation and provisioning of a cluster by using the SDK is documented in [Using HDInsight .NET SDK](hdinsight-provision-clusters.md#sdk). The configuration of an extra-large head node requires the addition of the `HeadNodeSize = NodeVMSize.ExtraLarge` parameter to the `ClusterCreateParameters()` method used in this code.
 
     # Create a new HDInsight cluster with the HDInsight SDK
-	# Configured with an ExtraLarge head-node VM
+    # Configured with an ExtraLarge head-node VM
     ClusterCreateParameters clusterInfo = new ClusterCreateParameters()
     {
-		Name = clustername,
-		Location = location,
-		HeadNodeSize = NodeVMSize.ExtraLarge,
-		DefaultStorageAccountName = storageaccountname,
-		DefaultStorageAccountKey = storageaccountkey,
-		DefaultStorageContainer = containername,
-		UserName = username,
-		Password = password,
-		ClusterSizeInNodes = clustersize
+        Name = clustername,
+        Location = location,
+        HeadNodeSize = NodeVMSize.ExtraLarge,
+        DefaultStorageAccountName = storageaccountname,
+        DefaultStorageAccountKey = storageaccountkey,
+        DefaultStorageContainer = containername,
+        UserName = username,
+        Password = password,
+        ClusterSizeInNodes = clustersize
     };
 
 
@@ -105,3 +105,4 @@ For the SDK, the story is similar. The creation and provisioning of a cluster by
 - [ZooKeeper](http://zookeeper.apache.org/ )
 - [Connect to HDInsight clusters using RDP](hdinsight-administer-use-management-portal.md#rdp)
 - [Using HDInsight .NET SDK](hdinsight-provision-clusters.md#sdk)
+

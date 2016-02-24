@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Get Started with Mobile Services for Windows Store JavaScript apps | Azure Mobile Services"
-	description="Follow this tutorial to get started using Azure Mobile Services for Windows Store development in JavaScript."
-	services="mobile-services"
-	documentationCenter="windows"
-	authors="ggailey777"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Get Started with Mobile Services for Windows Store JavaScript apps | Azure Mobile Services"
+    description="Follow this tutorial to get started using Azure Mobile Services for Windows Store development in JavaScript."
+    services="mobile-services"
+    documentationCenter="windows"
+    authors="ggailey777"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-windows-store"
-	ms.devlang="javascript"
-	ms.topic="get-started-article"
-	ms.date="11/06/2015"
-	ms.author="glenga"/>
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-windows-store"
+    ms.devlang="javascript"
+    ms.topic="get-started-article"
+    ms.date="11/06/2015"
+    ms.author="glenga"/>
 
 # Get started with Mobile Services
 
@@ -49,7 +49,7 @@ Once you have created your mobile service, you can follow an easy quickstart in 
 
 5. Under **Download and run your app**, select a language for your app, then click **Download**.
 
-  	This downloads the project for the sample *To do list* application that is connected to your mobile service. Save the compressed project file to your local computer, and make a note of where you save it.
+    This downloads the project for the sample *To do list* application that is connected to your mobile service. Save the compressed project file to your local computer, and make a note of where you save it.
 
 ## Run your Windows app
 
@@ -61,13 +61,13 @@ The final stage of this tutorial is to build and run your new app.
 
 3. In the app, type meaningful text, such as *Complete the tutorial*, in **Insert a TodoItem**, and then click **Save**.
 
-   	This sends a POST request to the new mobile service hosted in Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the second column in the app.
+    This sends a POST request to the new mobile service hosted in Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the second column in the app.
 
 4. (Optional) Run the app again, and notice that data saved from the previous step is loaded from the mobile service after the app starts.
  
 4. Back in the [Azure classic portal], click the **Data** tab and then click the **TodoItems** table.
 
-   	This lets you browse the data inserted by the app into the table.
+    This lets you browse the data inserted by the app into the table.
 
 >[AZURE.NOTE] You can review the code that accesses your mobile service to query and insert data, which is found in the default.js file.
 
@@ -88,3 +88,4 @@ Now that you have completed the quickstart, learn how to work with the [Mobile S
 [Visual Studio 2013 Express for Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Azure classic portal]: https://manage.windowsazure.com/
+

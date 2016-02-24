@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Automatic Indexing in DocumentDB | Microsoft Azure" 
-	description="Learn about how automatic indexing works in Azure DocumentDB." 
-	services="documentdb" 
-	authors="arramac" 
-	manager="jhubbard" 
-	editor="mimig" 
-	documentationCenter=""/>
+    pageTitle="Automatic Indexing in DocumentDB | Microsoft Azure" 
+    description="Learn about how automatic indexing works in Azure DocumentDB." 
+    services="documentdb" 
+    authors="arramac" 
+    manager="jhubbard" 
+    editor="mimig" 
+    documentationCenter=""/>
 
 <tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/03/2015" 
-	ms.author="arramac"/>
-	
+    ms.service="documentdb" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/03/2015" 
+    ms.author="arramac"/>
+    
 # Automatic Indexing in Azure DocumentDB
 
 This article is excerpted from the ["Schema-Agnostic Indexing with Azure DocumentDB"](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) paper, which will be presented at the [41st Internal Conference on Very Large Databases](http://www.vldb.org/2015/) between August 31 - September 4, 2015, and is an introduction into how indexing works in Azure DocumentDB. 
@@ -66,3 +66,4 @@ DocumentDB’s indexing is designed for storage efficiency and to handle multi-t
 - [Query with DocumentDB SQL](documentdb-sql-query.md)
 - Learn about how to customize the DocumentDB index [here](documentdb-indexing-policies.md)
  
+

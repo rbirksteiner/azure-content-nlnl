@@ -9,3 +9,4 @@
     ![iSCSI initiator properties](./media/storsimple-get-iqn/HCS_iSCSIInitiatorPropertiesFigureIQN-include.png)
 
 3. Save this string.
+

@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Routing and Tag Expressions"
-	description="This topic explains routing and tag expressions for Azure notification hubs."
-	services="notification-hubs"
-	documentationCenter=".net"
-	authors="wesmc7777"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Routing and Tag Expressions"
+    description="This topic explains routing and tag expressions for Azure notification hubs."
+    services="notification-hubs"
+    documentationCenter=".net"
+    authors="wesmc7777"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="notification-hubs"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-multiple"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="11/25/2015"
-	ms.author="wesmc"/>
+    ms.service="notification-hubs"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-multiple"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="11/25/2015"
+    ms.author="wesmc"/>
 
 # Routing and tag expressions
 
@@ -45,17 +45,17 @@ For more information about creating registrations for tags, see [Registration Ma
 You can send notifications to tags using the send notifications methods of the `Microsoft.Azure.NotificationHubs.NotificationHubClient` class in the [Microsoft Azure Notification Hubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) SDK. You can also use Node.js, or the Push Notifications REST APIs.  Here's an example using the SDK.
 
 
-	Microsoft.Azure.NotificationHubs.NotificationOutcome outcome = null;
+    Microsoft.Azure.NotificationHubs.NotificationOutcome outcome = null;
 
-	// Windows 8.1 / Windows Phone 8.1
-	var toast = @"<toast><visual><binding template=""ToastText01""><text id=""1"">" +
-	"You requested a Beatles notification</text></binding></visual></toast>";
-	outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, "Beatles);
+    // Windows 8.1 / Windows Phone 8.1
+    var toast = @"<toast><visual><binding template=""ToastText01""><text id=""1"">" +
+    "You requested a Beatles notification</text></binding></visual></toast>";
+    outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, "Beatles);
 
-	// Windows 10
-	toast = @"<toast><visual><binding template=""ToastGeneric""><text id=""1"">" +
-	"You requested a Wailers notification</text></binding></visual></toast>";
-	outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, "Wailers");
+    // Windows 10
+    toast = @"<toast><visual><binding template=""ToastGeneric""><text id=""1"">" +
+    "You requested a Wailers notification</text></binding></visual></toast>";
+    outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, "Wailers");
 
 
 
@@ -89,7 +89,7 @@ There are cases in which a notification has to target a set of registrations tha
 
 Consider a sports application that sends a reminder to everyone in Boston about a game between the Red Sox and Cardinals. If the client app registers tags about interest in teams and location, then the notification should be targeted to everyone in Boston who is interested in either the Red Sox or the Cardinals. This condition can be expressed with the following Boolean expression:
 
-	(follows_RedSox || follows_Cardinals) && location_Boston
+    (follows_RedSox || follows_Cardinals) && location_Boston
 
 
 ![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags4.png)
@@ -99,16 +99,17 @@ Tag expressions can contain all Boolean operators, such as AND (&&), OR (||), an
 Here's an example for sending notifications with tag expressions using the SDK.
 
 
-	Microsoft.Azure.NotificationHubs.NotificationOutcome outcome = null;
+    Microsoft.Azure.NotificationHubs.NotificationOutcome outcome = null;
 
-	String userTag = "(location_Boston && !follows_Cardinals)";	
+    String userTag = "(location_Boston && !follows_Cardinals)"; 
 
-	// Windows 8.1 / Windows Phone 8.1
-	var toast = @"<toast><visual><binding template=""ToastText01""><text id=""1"">" +
-	"You want info on the Red Socks</text></binding></visual></toast>";
-	outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, userTag);
+    // Windows 8.1 / Windows Phone 8.1
+    var toast = @"<toast><visual><binding template=""ToastText01""><text id=""1"">" +
+    "You want info on the Red Socks</text></binding></visual></toast>";
+    outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, userTag);
 
-	// Windows 10
-	toast = @"<toast><visual><binding template=""ToastGeneric""><text id=""1"">" +
-	"You want info on the Red Socks</text></binding></visual></toast>";
-	outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, userTag);
+    // Windows 10
+    toast = @"<toast><visual><binding template=""ToastGeneric""><text id=""1"">" +
+    "You want info on the Red Socks</text></binding></visual></toast>";
+    outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, userTag);
+

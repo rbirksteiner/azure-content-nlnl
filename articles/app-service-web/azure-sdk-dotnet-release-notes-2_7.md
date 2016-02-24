@@ -123,21 +123,21 @@ For more detailed explanation about HDInsight tools updates, see [this blog](htt
 
 - Hive Job Operator View (a new feature)
 
-	To help you understand your Hive query better, the Hive Operator View feature was added. To see all the operators inside a vertex, double click on the vertices of the job graph. To view more details of a particular operator, hover over that operator.
+    To help you understand your Hive query better, the Hive Operator View feature was added. To see all the operators inside a vertex, double click on the vertices of the job graph. To view more details of a particular operator, hover over that operator.
 - Hive Error Marker (a new feature)
 
-	To enable you to view the grammar errors instantly, the Hive Error Marker feature was added. Also, error messages were enhanced and you can now see detailed grammar errors instantly (until this release, you had to submit a Hive script to the cluster and wait for some time before getting details about your error message).  
+    To enable you to view the grammar errors instantly, the Hive Error Marker feature was added. Also, error messages were enhanced and you can now see detailed grammar errors instantly (until this release, you had to submit a Hive script to the cluster and wait for some time before getting details about your error message).  
 - Storm Topology Graph (a new feature)
 
-	Visualizing is very important when you want to see if your topology is working as expected. In this release we added visualization for Storm graphs. You can visualize the important metrics for your topology (for example, a color indicates weather a certain Bolt is “busy” or not). You can also double click the Bolt/Spout to view more details.
+    Visualizing is very important when you want to see if your topology is working as expected. In this release we added visualization for Storm graphs. You can visualize the important metrics for your topology (for example, a color indicates weather a certain Bolt is “busy” or not). You can also double click the Bolt/Spout to view more details.
 
 - Support for HDInsight clusters that were created in the Azure Portal (a bug fix)
 
-	You can now use Visual Studio to view and submit jobs to all your HDInsight clusters no matter where the cluster were created.
+    You can now use Visual Studio to view and submit jobs to all your HDInsight clusters no matter where the cluster were created.
 
 - More IntelliSense Support& Faster Hive Metadata Loading (an improvement)
 
-	We have improved the IntelliSense by adding more user friendly suggestions. For example, table alias can now also be suggested in IntelliSense so you can write your query more easily. Also, we have improved the Hive metadata loading so it will just take several seconds to list all the databases, tables and columns of your Hive metastore.
+    We have improved the IntelliSense by adding more user friendly suggestions. For example, table alias can now also be suggested in IntelliSense so you can write your query more easily. Also, we have improved the Hive metadata loading so it will just take several seconds to list all the databases, tables and columns of your Hive metastore.
 
 For more detailed explanation about HDInsight tools updates, see [this blog](http://go.microsoft.com/fwlink/?LinkId=623831).
 
@@ -158,3 +158,4 @@ LightSwitch projects are not compatibile with this release. This issue will be r
 [Azure SDK 2.7 announcement post](https://azure.microsoft.com/blog/2015/07/20/announcing-the-azure-sdk-2-7-for-net/)
 
 [Support and Retirement Information for the Azure SDK for .NET and APIs](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
+

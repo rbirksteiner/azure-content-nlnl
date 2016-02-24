@@ -49,43 +49,43 @@ Open a command prompt, shell, or a terminal session and run the following comman
 
 1. Log in to your Azure subscription:
 
-		azure login
+        azure login
 
-	You will be prompted to open a web page and enter an authentication code. Follow the instructions on the page to log in to your Azure subscription. 
+    You will be prompted to open a web page and enter an authentication code. Follow the instructions on the page to log in to your Azure subscription. 
 
 2. Switch to Azure Resource Manager mode using the following command:
 
-		azure config mode arm
+        azure config mode arm
 
 
 3. List the Azure subscriptions for your account.
 
-		azure account list
+        azure account list
 
 
 4. If you have multiple Azure subscriptions, use the following command to set the subscription that the Azure CLI commands will use:
 
-		azure account set <subscriptionname>
+        azure account set <subscriptionname>
 
 5. Create a new resource group. In the following command, provide the parameter values you want to use.
 
-		azure group create <resourceGroup> <location>
+        azure group create <resourceGroup> <location>
 
-	If the location name contains spaces, put it in quotes. For example "East US 2".
+    If the location name contains spaces, put it in quotes. For example "East US 2".
 
 5. Create the Data Lake Store account.
 
-		azure datalake store account create <dataLakeStoreAccountName> <location> <resourceGroup>
+        azure datalake store account create <dataLakeStoreAccountName> <location> <resourceGroup>
 
 ## Create folders in your Data Lake Store
 
 You can create folders under your Azure Data Lake Store account to manage and store data. Use the following command to create a folder called "mynewfolder" at the root of the Data Lake Store.
 
-	azure datalake store filesystem create <dataLakeStoreAccountName> <path> --folder
+    azure datalake store filesystem create <dataLakeStoreAccountName> <path> --folder
 
 For example:
 
-	azure datalake store filesystem create mynewdatalakestore /mynewfolder --folder
+    azure datalake store filesystem create mynewdatalakestore /mynewfolder --folder
 
 ## Upload data to your Data Lake Store
 
@@ -93,87 +93,87 @@ You can upload your data to Data Lake Store directly at the root level or to a f
 
 If you are looking for some sample data to upload, you can get the **Ambulance Data** folder from the [Azure Data Lake Git Repository](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData). Download the file and store it in a local directory on your computer, such as  C:\sampledata\.
 
-	azure datalake store filesystem import <dataLakeStoreAccountName> "<source path>" "<destination path>"
+    azure datalake store filesystem import <dataLakeStoreAccountName> "<source path>" "<destination path>"
 
 For example:
 
-	azure datalake store filesystem import mynewdatalakestore "C:\SampleData\AmbulanceData\vehicle1_09142014.csv" "/mynewfolder/vehicle1_09142014.csv"
+    azure datalake store filesystem import mynewdatalakestore "C:\SampleData\AmbulanceData\vehicle1_09142014.csv" "/mynewfolder/vehicle1_09142014.csv"
 
 
 ## List files in Data Lake Store
 
 Use the following command to list the files in a Data Lake Store account.
 
-	azure datalake store filesystem list <dataLakeStoreAccountName> <path>
+    azure datalake store filesystem list <dataLakeStoreAccountName> <path>
 
 For example:
 
-	azure datalake store filesystem list mynewdatalakestore /mynewfolder
+    azure datalake store filesystem list mynewdatalakestore /mynewfolder
 
 The output of this should be similar to the following:
 
-	info:    Executing command datalake store filesystem list
-	data:    accessTime: 1446245025257
-	data:    blockSize: 268435456
-	data:    group: NotSupportYet
-	data:    length: 1589881
-	data:    modificationTime: 1446245105763
-	data:    owner: NotSupportYet
-	data:    pathSuffix: vehicle1_09142014.csv
-	data:    permission: 777
-	data:    replication: 0
-	data:    type: FILE
-	data:    ------------------------------------------------------------------------------------
-	info:    datalake store filesystem list command OK
+    info:    Executing command datalake store filesystem list
+    data:    accessTime: 1446245025257
+    data:    blockSize: 268435456
+    data:    group: NotSupportYet
+    data:    length: 1589881
+    data:    modificationTime: 1446245105763
+    data:    owner: NotSupportYet
+    data:    pathSuffix: vehicle1_09142014.csv
+    data:    permission: 777
+    data:    replication: 0
+    data:    type: FILE
+    data:    ------------------------------------------------------------------------------------
+    info:    datalake store filesystem list command OK
 
 ## Rename, download, and delete data from your Data Lake Store
 
 * **To rename a file**, use the following command:
 
-    	azure datalake store filesystem move <dataLakeStoreAccountName> <path/old_file_name> <path/new_file_name>
+        azure datalake store filesystem move <dataLakeStoreAccountName> <path/old_file_name> <path/new_file_name>
 
-	For example:
+    For example:
 
-		azure datalake store filesystem move mynewdatalakestore /mynewfolder/vehicle1_09142014.csv /mynewfolder/vehicle1_09142014_copy.csv
+        azure datalake store filesystem move mynewdatalakestore /mynewfolder/vehicle1_09142014.csv /mynewfolder/vehicle1_09142014_copy.csv
 
 * **To download a file**, use the following command. Make sure the destination path you specify already exists.
 
-		azure datalake store filesystem export <dataLakeStoreAccountName> <source_path> <destination_path>
+        azure datalake store filesystem export <dataLakeStoreAccountName> <source_path> <destination_path>
 
-	For example:
+    For example:
 
-		azure datalake store filesystem export mynewdatalakestore /mynewfolder/vehicle1_09142014_copy.csv "C:\mysampledata\vehicle1_09142014_copy.csv"
+        azure datalake store filesystem export mynewdatalakestore /mynewfolder/vehicle1_09142014_copy.csv "C:\mysampledata\vehicle1_09142014_copy.csv"
 
 * **To delete a file**, use the following command:
 
-		azure datalake store filesystem delete <dataLakeStoreAccountName> <path> 
+        azure datalake store filesystem delete <dataLakeStoreAccountName> <path> 
 
-	For example:
+    For example:
 
-		azure datalake store filesystem delete mynewdatalakestore /mynewfolder/vehicle1_09142014_copy.csv
-	
-	When prompted, enter **Y** to delete the item.
+        azure datalake store filesystem delete mynewdatalakestore /mynewfolder/vehicle1_09142014_copy.csv
+    
+    When prompted, enter **Y** to delete the item.
 
 ## View the access control list for a folder in Data Lake Store
 
 Use the following command to view the ACLs on a Data Lake Store folder. In the current release, ACLs can be set only on the root of the Data Lake Store. So, the path parameter below will always be root (/).
 
-	azure datalake store permissions show <dataLakeStoreName> <path>
+    azure datalake store permissions show <dataLakeStoreName> <path>
 
 For example:
 
-	azure datalake store permissions show mynewdatalakestore /
+    azure datalake store permissions show mynewdatalakestore /
 
 
 ## Delete your Data Lake Store account
 
 Use the following command to delete a Data Lake Store account.
 
-	azure datalake store account delete <dataLakeStoreAccountName>
+    azure datalake store account delete <dataLakeStoreAccountName>
 
 For example:
 
-	azure datalake store account delete mynewdatalakestore
+    azure datalake store account delete mynewdatalakestore
 
 When prompted, enter **Y** to delete the account.
 
@@ -192,3 +192,4 @@ When prompted, enter **Y** to delete the account.
 
 
 [azure-command-line-tools]: ../xplat-cli-install.md
+

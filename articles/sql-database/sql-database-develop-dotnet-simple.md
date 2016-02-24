@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Connect to SQL Database by using .NET (C#)"
-	description="Use the sample code in this quick start to build a modern application with C# and backed by a powerful relational database in the cloud with Azure SQL Database."
-	services="sql-database"
-	documentationCenter=""
-	authors="tobbox"
-	manager="jeffreyg"
-	editor=""/>
+    pageTitle="Connect to SQL Database by using .NET (C#)"
+    description="Use the sample code in this quick start to build a modern application with C# and backed by a powerful relational database in the cloud with Azure SQL Database."
+    services="sql-database"
+    documentationCenter=""
+    authors="tobbox"
+    manager="jeffreyg"
+    editor=""/>
 
 
 <tags
-	ms.service="sql-database"
-	ms.workload="sql-database"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="12/08/2015"
-	ms.author="tobiast"/>
+    ms.service="sql-database"
+    ms.workload="sql-database"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="12/08/2015"
+    ms.author="tobiast"/>
 
 
 # Using SQL Database from .NET (C#)
@@ -50,10 +50,10 @@ class Sample
 {
   static void Main()
   {
-	  using(var conn = new SqlConnection("Server=tcp:yourserver.database.windows.net,1433;Database=yourdatabase;User ID=yourlogin@yourserver;Password={yourpassword};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
-	  {
-		  conn.Open();
-	  }
+      using(var conn = new SqlConnection("Server=tcp:yourserver.database.windows.net,1433;Database=yourdatabase;User ID=yourlogin@yourserver;Password={yourpassword};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
+      {
+          conn.Open();
+      }
   }
 }
 ```
@@ -68,32 +68,32 @@ using System.Data.SqlClient;
 
 class Sample
 {
-	static void Main()
-	{
-	  using(var conn = new SqlConnection("Server=tcp:yourserver.database.windows.net,1433;Database=yourdatabase;User ID=yourlogin@yourserver;Password={yourpassword};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
-		{
-			var cmd = conn.CreateCommand();
-			cmd.CommandText = @"
-					SELECT
-						c.CustomerID
-						,c.CompanyName
-						,COUNT(soh.SalesOrderID) AS OrderCount
-					FROM SalesLT.Customer AS c
-					LEFT OUTER JOIN SalesLT.SalesOrderHeader AS soh ON c.CustomerID = soh.CustomerID
-					GROUP BY c.CustomerID, c.CompanyName
-					ORDER BY OrderCount DESC;";
+    static void Main()
+    {
+      using(var conn = new SqlConnection("Server=tcp:yourserver.database.windows.net,1433;Database=yourdatabase;User ID=yourlogin@yourserver;Password={yourpassword};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
+        {
+            var cmd = conn.CreateCommand();
+            cmd.CommandText = @"
+                    SELECT
+                        c.CustomerID
+                        ,c.CompanyName
+                        ,COUNT(soh.SalesOrderID) AS OrderCount
+                    FROM SalesLT.Customer AS c
+                    LEFT OUTER JOIN SalesLT.SalesOrderHeader AS soh ON c.CustomerID = soh.CustomerID
+                    GROUP BY c.CustomerID, c.CompanyName
+                    ORDER BY OrderCount DESC;";
 
-			conn.Open();
+            conn.Open();
 
-			using(var reader = cmd.ExecuteReader())
-			{
-				while(reader.Read())
-				{
-					Console.WriteLine("ID: {0} Name: {1} Order Count: {2}", reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2));
-				}
-			}					
-		}
-	}
+            using(var reader = cmd.ExecuteReader())
+            {
+                while(reader.Read())
+                {
+                    Console.WriteLine("ID: {0} Name: {1} Order Count: {2}", reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2));
+                }
+            }                   
+        }
+    }
 }
 
 ```  
@@ -110,7 +110,7 @@ class Sample
 {
     static void Main()
     {
-		using(var conn = new SqlConnection("Server=tcp:yourserver.database.windows.net,1433;Database=yourdatabase;User ID=yourlogin@yourserver;Password={yourpassword};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
+        using(var conn = new SqlConnection("Server=tcp:yourserver.database.windows.net,1433;Database=yourdatabase;User ID=yourlogin@yourserver;Password={yourpassword};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
         {
             var cmd = conn.CreateCommand();
             cmd.CommandText = @"
@@ -132,3 +132,4 @@ class Sample
     }
 }
 ```
+

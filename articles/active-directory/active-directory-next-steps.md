@@ -1,20 +1,20 @@
 <properties
-	pageTitle="What are the next steps I can take using Azure Active Directory?"
-	description="Advanced tasks such as managing passwords, managing users, managing groups, and conditional access using Azure Active Directory"
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="What are the next steps I can take using Azure Active Directory?"
+    description="Advanced tasks such as managing passwords, managing users, managing groups, and conditional access using Azure Active Directory"
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/21/2015"
-	ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/21/2015"
+    ms.author="curtand"/>
 
 # What are the next steps I can take using Azure AD?
 
@@ -44,3 +44,4 @@ Azure AD Device Registration provisions devices with an identity that is used to
 * [Sign up for Azure as an organization](sign-up-organization.md)
 * [Azure Identity](fundamentals-identity.md)
  
+

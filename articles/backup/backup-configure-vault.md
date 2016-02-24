@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Configure Azure Backup Services to prepare for back up of Windows Server | Microsoft Azure"
-	description="Use this tutorial to learn how to use the Backup service in Microsoft's Azure cloud offering to back up Windows Server to the cloud."
-	services="backup"
-	documentationCenter=""
-	authors="Jim-Parker"
-	manager="jwhit"
-	editor=""/>
+    pageTitle="Configure Azure Backup Services to prepare for back up of Windows Server | Microsoft Azure"
+    description="Use this tutorial to learn how to use the Backup service in Microsoft's Azure cloud offering to back up Windows Server to the cloud."
+    services="backup"
+    documentationCenter=""
+    authors="Jim-Parker"
+    manager="jwhit"
+    editor=""/>
 
 <tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="11/26/2015"
-	ms.author="jimpark"; "aashishr"/>
+    ms.service="backup"
+    ms.workload="storage-backup-recovery"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="hero-article"
+    ms.date="11/26/2015"
+    ms.author="jimpark"; "aashishr"/>
 
 # Prepare your environment to back up Windows machines
 
@@ -40,3 +40,4 @@ To back up files and data from your Windows Server to Azure, you must first:
 - [Restore Windows Server or Windows Client from Azure](backup-azure-restore-windows-server.md)
 - [Azure Backup FAQ](backup-azure-backup-faq.md)
 - [Azure Backup Forum](http://go.microsoft.com/fwlink/p/?LinkId=290933)
+

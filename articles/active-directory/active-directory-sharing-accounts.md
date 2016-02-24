@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Sharing accounts using Azure AD |  Microsoft Azure"
-	description="Describes how Azure Active Directory enables organizations to securely share accounts for on-premises apps and consumer cloud services."
-	services="active-directory"
-	documentationCenter=""
-	authors="msStevenPo"
- 	manager="stevenpo"
-	editor=""/>
+    pageTitle="Sharing accounts using Azure AD |  Microsoft Azure"
+    description="Describes how Azure Active Directory enables organizations to securely share accounts for on-premises apps and consumer cloud services."
+    services="active-directory"
+    documentationCenter=""
+    authors="msStevenPo"
+    manager="stevenpo"
+    editor=""/>
 
  <tags
-	ms.service="active-directory"
- 	ms.workload="identity"
- 	ms.tgt_pltfrm="na"
- 	ms.devlang="na"
- 	ms.topic="article"
- 	ms.date="10/16/2015"  
- 	ms.author="stevenpo"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/16/2015"  
+    ms.author="stevenpo"/>
 
 # Sharing accounts with Azure AD
 
@@ -71,3 +71,4 @@ You can also make your shared account more secure with Multi-Factor Authenticati
 
 - [Protecting apps with conditional access](active-directory-conditional-access.md)
 - [Self-service group management/SSAA](active-directory-accessmanagement-self-service-group-management.md)
+

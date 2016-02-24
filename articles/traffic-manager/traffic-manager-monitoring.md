@@ -70,7 +70,7 @@ An example timeline illustrating the monitoring process with a single cloud serv
 
 ![Traffic Manager Monitoring Sequence](./media/traffic-manager-monitoring/IC697947.jpg)
 
-**Figure 1** – Monitoring sequence example. The numbers in the diagram correspond to the numbered explanation below.
+**Figure 1** – Monitoring sequence example. The numbers in the diagram correspond to the numbered explanation below.
 
 1. **GET** – The Traffic Manager monitoring system performs a GET on the path and file you specified in the monitoring settings.
 2. **200 OK** – The monitoring system expects an HTTP 200 OK message back within 10 seconds. When it receives this response, it assumes that the cloud service is available. 
@@ -93,7 +93,7 @@ The following table describes the behavior of Traffic Manager monitoring for chi
 
 |Child Profile Monitor status|Parent Endpoint Monitor status|Notes|
 |---|---|---|
-|Disabled This is due to the profile being disabled by you.|Stopped|The parent endpoint state is Stopped, not Disabled. The Disabled state is reserved for indicating that you have disabled the endpoint in the parent profile.|
+|Disabled This is due to the profile being disabled by you.|Stopped|The parent endpoint state is Stopped, not Disabled. The Disabled state is reserved for indicating that you have disabled the endpoint in the parent profile.|
 |DegradedAt least one is child endpoint is in a Degraded state.|Online state, if the number of Online endpoints in the child profile is at least the value of minChildEndpoints.CheckingEndpoint state, if the number of Online plus CheckingEndpoint endpoints in the child profile is at least the value of minChildEndpoints.Otherwise, in the Degraded state.|Traffic is routed to an endpoint of status CheckingEndpoint.If minChildEndpoints is set too high, the parent endpoint will always be degraded.|
 |OnlineAt least one child is an Online state and none are in the Degraded state.|Same as above.||
 |CheckingEndpointsAt least one is ‘CheckingEndpoint’; none are ‘Online’ or ‘Degraded’|Same as above.||

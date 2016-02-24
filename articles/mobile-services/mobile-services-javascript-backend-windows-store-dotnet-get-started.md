@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Get Started with Mobile Services for Windows Store apps (C#) | Microsoft Azure"
-	description="Follow this tutorial to get started using Azure Mobile Services for Windows Store development in C#."
-	services="mobile-services"
-	documentationCenter="windows"
-	authors="ggailey777"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Get Started with Mobile Services for Windows Store apps (C#) | Microsoft Azure"
+    description="Follow this tutorial to get started using Azure Mobile Services for Windows Store development in C#."
+    services="mobile-services"
+    documentationCenter="windows"
+    authors="ggailey777"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-windows"
-	ms.devlang="dotnet"
-	ms.topic="get-started-article" 
-	ms.date="11/06/2015"
-	ms.author="glenga"/>
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-windows"
+    ms.devlang="dotnet"
+    ms.topic="get-started-article" 
+    ms.date="11/06/2015"
+    ms.author="glenga"/>
 
 # <a name="getting-started"> </a>Get started with Mobile Services
 
@@ -49,9 +49,9 @@ In this section you will create a new universal Windows app that is connected to
 
 2. In the quickstart tab, click **Windows** under **Choose platform** and expand **Create a new Windows Store app**.
 
-   	This displays the three easy steps to create a Windows Store app connected to your mobile service.
+    This displays the three easy steps to create a Windows Store app connected to your mobile service.
 
-  	![Mobile Services quickstart steps](./media/mobile-services-javascript-backend-windows-store-dotnet-get-started/mobile-quickstart-steps.png)
+    ![Mobile Services quickstart steps](./media/mobile-services-javascript-backend-windows-store-dotnet-get-started/mobile-quickstart-steps.png)
 
 3. If you haven't already done so, download and install [Visual Studio 2013 Express for Windows] on your local computer or virtual machine.
 
@@ -59,7 +59,7 @@ In this section you will create a new universal Windows app that is connected to
 
 5. Under **Download and run your app**, select a language for your app, then click **Download**.
 
-  	This downloads the project for the sample *To do list* application that is connected to your mobile service. Save the compressed project file to your local computer, and make a note of where you save it.
+    This downloads the project for the sample *To do list* application that is connected to your mobile service. Save the compressed project file to your local computer, and make a note of where you save it.
 
 ## Run your Windows app
 

@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Client quick start code samples to SQL Database | Microsoft Azure" 
-	description="Provides code samples and drivers for Node.js on Linux, Python on Mac OS, Java and Windows, Enterprise Library, and many more all for Azure SQL Database clients."
-	services="sql-database" 
-	documentationCenter="" 
-	authors="MightyPen" 
-	manager="jeffreyg" 
-	editor=""/>
+    pageTitle="Client quick start code samples to SQL Database | Microsoft Azure" 
+    description="Provides code samples and drivers for Node.js on Linux, Python on Mac OS, Java and Windows, Enterprise Library, and many more all for Azure SQL Database clients."
+    services="sql-database" 
+    documentationCenter="" 
+    authors="MightyPen" 
+    manager="jeffreyg" 
+    editor=""/>
 
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/29/2015" 
-	ms.author="genemi"/>
+    ms.service="sql-database" 
+    ms.workload="data-management" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/29/2015" 
+    ms.author="genemi"/>
 
 
 # Client quick-start code samples to SQL Database
@@ -93,4 +93,5 @@ This section provides links to code sample topics for client programs that run o
 - [Connecting to SQL Database: Links, Best Practices and Design Guidelines](sql-database-connect-central-recommendations.md)
 - [Create your first Azure SQL Database](sql-database-get-started.md)
 - [Entity Framework 6 here, EF 7 on GitHub](http://entityframework.codeplex.com/)
+
 

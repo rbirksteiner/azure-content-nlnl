@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Create a virtual machine running Windows in Azure"
-	description="Create a Windows virtual machine in the Azure classic portal."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="cynthn"
-	manager="timlt"
-	editor=""
-	tags="azure-service-management"/>
+    pageTitle="Create a virtual machine running Windows in Azure"
+    description="Create a Windows virtual machine in the Azure classic portal."
+    services="virtual-machines"
+    documentationCenter=""
+    authors="cynthn"
+    manager="timlt"
+    editor=""
+    tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/11/2015"
-	ms.author="cynthn"/>
+    ms.service="virtual-machines"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-windows"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/11/2015"
+    ms.author="cynthn"/>
 
 # Create a virtual machine running Windows in the Azure classic portal
 
@@ -52,3 +52,4 @@ This section shows you how to use the **From Gallery** option in the Azure class
 - Log on to the virtual machine. For instructions, see [How to log on to a virtual machine running Windows Server](virtual-machines-log-on-windows-server.md).
 
 - Attach a disk to store data. You can attach both empty disks and disks that contain data. For instructions, see the [Attach a data disk tutorial](storage-windows-attach-disk.md).
+

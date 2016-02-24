@@ -54,7 +54,7 @@ Perform these required steps to configure your StorSimple device and connect it 
 | Step 7: Mount, initialize, and format a volume.</br>Optional: Configure MPIO.            | Connect your servers to the iSCSI storage provided by the device. Optionally configure MPIO to ensure that your servers can tolerate link, network, and interface failure.                                                                                                                                                              |
 | Step 8: Take a backup.                                                                  | Set up your backup policy to protect your data                                                                                                                 |
 |                                                                                        |                                                                                                                                                               |
-| **OTHER PROCEDURES**                                                                   | You may need to refer to these procedures as you deploy your solution.                                                                                     	 |
+| **OTHER PROCEDURES**                                                                   | You may need to refer to these procedures as you deploy your solution.                                                                                        |
 | Configure a new storage account for the service.                                      |                                                                                                                                                               |
 | Use PuTTY to connect to the device serial console.                                    |                                                                                                                                                               |
 | Get the IQN of a Windows Server host.                                                   |                                                                                                                                                               |
@@ -70,7 +70,7 @@ The following deployment configuration checklist describes the information that 
 | **Cable your device**                      | Serial access                                     | Initial device configuration                                                                  | Yes/No |
 |   |   |  |  |
 | **Configure and register device**          | Data 0 network settings                           | Data 0 IP Address:</br>Subnet mask:</br>Gateway:</br>Primary DNS server:</br>Primary NTP server:</br>Web proxy server IP/FQDN (optional):</br>Web proxy port:|        |
-|                                        | Device administrator password                   	 | Password must be between 8 and 15 characters containing lowercase, uppercase, numeric and special characters. |        |
+|                                        | Device administrator password                     | Password must be between 8 and 15 characters containing lowercase, uppercase, numeric and special characters. |        |
 |                                        | StorSimple Snapshot Manager password              | Password must be 14 or 15 characters containing lowercase, uppercase, numeric and special characters.|        |
 |                                        | Service Registration Key                          | This key is generated from the Azure classic portal.    |        |
 |                                        | Service Data Encryption Key                       | This key is created when the device is registered with the management service via the Windows PowerShell for StorSimple. Copy this key and save it in a safe location.|  |
@@ -78,7 +78,7 @@ The following deployment configuration checklist describes the information that 
 | **Complete minimum device setup**          | Friendly name for your device                     | This is a descriptive name for the device. |        |
 |                                        | Timezone                                          | Your device will use this time zone for all scheduled operations.  |        |
 |                                        | Secondary DNS server                              | This is a required configuration.                                  |        |
-|                                        | Network interface: Data 0 controller fixed IPs    							      | These IP’s should be routable to the Internet.</br>Controller 0 fixed IP address:</br>Controller 1 fixed IP address:|
+|                                        | Network interface: Data 0 controller fixed IPs                                     | These IP’s should be routable to the Internet.</br>Controller 0 fixed IP address:</br>Controller 1 fixed IP address:|
 |   |   |  |  |
 | **Additional network interface settings**  | Network interface: Data 1</br>If iSCSI enabled, do not configure the Gateway.      | Purpose: Cloud/iSCSI/Not used</br>IP address:</br>Subnet mask:</br>Gateway:|
 |                                        | Network interface: Data 2</br>If iSCSI enabled, do not configure the Gateway.      | Purpose: Cloud/iSCSI/Not used</br>IP address:</br>Subnet mask:</br>Gateway:|
@@ -123,8 +123,8 @@ Before configuring the device, make sure that:
 
 - Your device is fully unpacked, mounted on a rack and fully cabled for power, network, and serial access as described in:
 
-	-  [Unpack, rack mount, and cable your 8100 device](storsimple-8100-hardware-installation.md)
-	-  [Unpack, rack mount, and cable your 8600 device](storsimple-8600-hardware-installation.md)
+    -  [Unpack, rack mount, and cable your 8100 device](storsimple-8100-hardware-installation.md)
+    -  [Unpack, rack mount, and cable your 8600 device](storsimple-8600-hardware-installation.md)
 
 
 ### For the network in the datacenter
@@ -144,7 +144,7 @@ Before you begin, make sure that:
 | **NTP**                       | We trigger a time sync as soon as NTP server is input. Check UDP port 123 is open when you input `time.windows.com` or public time servers). | [Download and use this script](https://gallery.technet.microsoft.com/scriptcenter/Get-Network-NTP-Time-with-07b216ca).                                                                                                                                                           |
 |                           |                                                                                                                                                                    |                                                                                                                                                                                         |
 | **Proxy (optional)**          | Is this a valid proxy URI and port? </br> Is the authentication mode correct?                                                                                                                                | <code>wget http://bing.com &#124; % {$_.StatusCode}</code></br>This command should be run immediately after configuring web proxy. If a status code of 200 is returned, it indicates that the connection is successful.                                                                                                                                 |
-|                           | Is traffic routable through proxy?                                                                                                                                 | Run the DNS validation, NTP check or HTTP check once after configuring proxy on your device. This will give a clear picture if traffic is getting blocked at proxy or elsewhere.                                                                                   								     |
+|                           | Is traffic routable through proxy?                                                                                                                                 | Run the DNS validation, NTP check or HTTP check once after configuring proxy on your device. This will give a clear picture if traffic is getting blocked at proxy or elsewhere.                                                                                                                      |
 |                           |                                                                                                                                                                    |                                                                                                                                                                                         |
 | **Registration**              | Check if outbound TCP ports 443, 80, 9354 are open.                                                                                                                |  `Test-NetConnection -Port   443 -InformationLevel Detailed`</br>[More information for Test-NetConnection cmdlet](https://technet.microsoft.com/library/dn372891.aspx)                                                                           |
 
@@ -261,13 +261,13 @@ Updating your device can take anywhere from 1-4 hours. Perform the following ste
 > [AZURE.NOTE] If you have a gateway configured on a network interface other than Data 0, you will need to disable Data 2 and Data 3 network interfaces before installing the update. Go to **Devices > Configure** and disable Data 2 and Data 3 interfaces. You should re-enable these interfaces after the device is updated.
 
 #### To update your device
-1.	On the device **Quick Start** page, click **Devices**. Select the physical device, click **Maintenance** and then click **Scan Updates**.  
-2.	A job to scan for available updates is created. If updates are available, the **Scan Updates** changes to **Install Updates**. Click **Install Updates**. You may be requested to disable Data 2 and Data 3 prior to installing the updates. You must disable these network interfaces or the updates may fail.
-3.	An update job will be created. Monitor the status of your update by navigating to **Jobs**.
+1.  On the device **Quick Start** page, click **Devices**. Select the physical device, click **Maintenance** and then click **Scan Updates**.  
+2.  A job to scan for available updates is created. If updates are available, the **Scan Updates** changes to **Install Updates**. Click **Install Updates**. You may be requested to disable Data 2 and Data 3 prior to installing the updates. You must disable these network interfaces or the updates may fail.
+3.  An update job will be created. Monitor the status of your update by navigating to **Jobs**.
 
-	> [AZURE.NOTE] When the update job starts, it immediately displays the status as 50 percent. The status then changes to 100 percent only after the update job is complete. There is no real time status for the updates process.
+    > [AZURE.NOTE] When the update job starts, it immediately displays the status as 50 percent. The status then changes to 100 percent only after the update job is complete. There is no real time status for the updates process.
 
-4.	After the device is successfully updated, enable Data 2 and Data 3 network interfaces if these were disabled.
+4.  After the device is successfully updated, enable Data 2 and Data 3 network interfaces if these were disabled.
 
 
 
@@ -290,3 +290,4 @@ Perform the following steps in the Azure classic portal to create an on-demand m
 - Configure a [virtual device](storsimple-virtual-device.md).
 
 - Use the [StorSimple Manager service](https://msdn.microsoft.com/library/azure/dn772396.aspx) to manage your StorSimple device.
+

@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure AD Connect Multiple Domains"
-	description="This document describes setting up and configuring multiple top level domains with O365 and Azure AD."
-	services="active-directory"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
-	editor="curtand"/>
+    pageTitle="Azure AD Connect Multiple Domains"
+    description="This document describes setting up and configuring multiple top level domains with O365 and Azure AD."
+    services="active-directory"
+    documentationCenter=""
+    authors="billmath"
+    manager="stevenpo"
+    editor="curtand"/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/02/2015"
-	ms.author="billmath"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/02/2015"
+    ms.author="billmath"/>
 
 #Multiple Domain Support
 
@@ -93,3 +93,4 @@ Luckily, we have a workaround for this as well, but it is not as well built in t
 You have to configure the custom claim rule so that it strips off any subdomains from the user’s UPN suffix when constructing the custom Issuer value.  You can find the exact steps to do this in the steps below.
 
 So in summary, you can have multiple domains with disparate names, as well as sub domains, all federated to the same AD FS server, it just takes a few extra steps to ensure the Issuer values are set correctly for all users.
+

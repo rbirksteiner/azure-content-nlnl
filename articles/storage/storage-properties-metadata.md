@@ -1,21 +1,21 @@
 
-<properties 
-  pageTitle="Set and retrieve properties and metadata for objects in Azure Storage | Microsoft Azure" 
-  description="Store custom metadata on objects in Azure Storage, and set and retrieve system properties." 
-  services="storage" 
-  documentationCenter="" 
-  authors="tamram" 
-  manager="adinah" 
-  editor=""/>
+<properties 
+  pageTitle="Set and retrieve properties and metadata for objects in Azure Storage | Microsoft Azure" 
+  description="Store custom metadata on objects in Azure Storage, and set and retrieve system properties." 
+  services="storage" 
+  documentationCenter="" 
+  authors="tamram" 
+  manager="adinah" 
+  editor=""/>
 
-<tags 
-  ms.service="storage" 
-  ms.workload="storage" 
-  ms.tgt_pltfrm="na" 
-  ms.devlang="na" 
-  ms.topic="article" 
-  ms.date="10/26/2015" 
-  ms.author="tamram"/>
+<tags 
+  ms.service="storage" 
+  ms.workload="storage" 
+  ms.tgt_pltfrm="na" 
+  ms.devlang="na" 
+  ms.topic="article" 
+  ms.date="10/26/2015" 
+  ms.author="tamram"/>
 
 
 # Set and Retrieve Properties and Metadata #
@@ -43,8 +43,8 @@ The following code example creates a container and writes some of its property v
     //Parse the connection string for the storage account.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
-	
-	//Create the service client object for credentialed access to the Blob service.
+    
+    //Create the service client object for credentialed access to the Blob service.
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
     // Retrieve a reference to a container. 

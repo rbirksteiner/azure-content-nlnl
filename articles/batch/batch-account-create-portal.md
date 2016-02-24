@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Create an Azure Batch account | Microsoft Azure"
-	description="Learn how to create an Azure Batch account in the Azure portal to run large-scale parallel workloads in the cloud"
-	services="batch"
-	documentationCenter=""
-	authors="dlepow"
-	manager="timlt"
-	editor=""/>
+    pageTitle="Create an Azure Batch account | Microsoft Azure"
+    description="Learn how to create an Azure Batch account in the Azure portal to run large-scale parallel workloads in the cloud"
+    services="batch"
+    documentationCenter=""
+    authors="dlepow"
+    manager="timlt"
+    editor=""/>
 
 <tags
-	ms.service="batch"
-	ms.workload="big-compute"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/10/2015"
-	ms.author="danlep"/>
+    ms.service="batch"
+    ms.workload="big-compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/10/2015"
+    ms.author="danlep"/>
 
 
 
@@ -34,23 +34,23 @@ This article shows you how to use the [Azure portal](https://portal.azure.com) t
 
 2. Click **New** > **Compute** > **Batch Service**.
 
-	![Batch in the Marketplace][marketplace_portal]
+    ![Batch in the Marketplace][marketplace_portal]
 
 3. Review the information and then click **Create**.
 
 4. In the **New Batch Account** blade, enter the following information:
 
-	a. In **Account Name**, enter a unique name to use in the Batch account URL.
+    a. In **Account Name**, enter a unique name to use in the Batch account URL.
 
-	>[AZURE.NOTE] The Batch account name must be unique to Azure, contain between 3 and 24 characters, and use only lowercase letters and numbers.
+    >[AZURE.NOTE] The Batch account name must be unique to Azure, contain between 3 and 24 characters, and use only lowercase letters and numbers.
 
-	b. If you have more than one subscription, click **Subscription** to select an available subscription where the account will be created.
+    b. If you have more than one subscription, click **Subscription** to select an available subscription where the account will be created.
 
-	c. Click **Resource group** to select an existing resource group for the account, or create a new one.
+    c. Click **Resource group** to select an existing resource group for the account, or create a new one.
 
-	d. In **Location**, select an Azure region in which Batch is available.
+    d. In **Location**, select an Azure region in which Batch is available.
 
-	![Create a Batch account][account_portal]
+    ![Create a Batch account][account_portal]
 
 5. Click **Create** to complete the account creation.
 
@@ -83,3 +83,4 @@ To see and manage the access keys, click the key icon.
 [marketplace_portal]: ./media/batch-account-create-portal/marketplace_batch.PNG
 [account_portal]: ./media/batch-account-create-portal/batch_acct_portal.png
 [account_keys]: ./media/batch-account-create-portal/account_keys.PNG
+

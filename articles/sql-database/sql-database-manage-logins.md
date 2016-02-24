@@ -169,3 +169,4 @@ SELECT * FROM sys.databases;
 
 [Azure SQL Database Security Guidelines and Limitations](sql-database-security-guidelines.md) 
 [Connecting to SQL Database By Using Azure Active Directory Authentication](sql-database-aad-authentication.md)
+

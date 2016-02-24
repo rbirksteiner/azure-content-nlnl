@@ -93,3 +93,4 @@ You can also provide additional explanation to help end-users recognize whether 
 ## Supporting both Azure AD and Microsoft Accounts in Your App
 
 If your app supports both Azure AD and Microsoft accounts, you need to include two separate sign-in buttons in your app. We are actively working on an update that will allow you to integrate once and support both personal and work accounts from Microsoft. When this is available, you’ll be able to show a single “sign-in with Microsoft” button in your app.
+

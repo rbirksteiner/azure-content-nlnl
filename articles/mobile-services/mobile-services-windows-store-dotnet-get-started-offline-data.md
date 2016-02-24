@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Using offline data in your universal Windows app | Microsoft Azure"
-	description="Learn how to use Azure Mobile Services to cache and sync offline data in your universal Windows app."
-	documentationCenter="mobile-services"
-	authors="lindydonna"
-	manager="dwrede"
-	editor=""
-	services="mobile-services"/>
+    pageTitle="Using offline data in your universal Windows app | Microsoft Azure"
+    description="Learn how to use Azure Mobile Services to cache and sync offline data in your universal Windows app."
+    documentationCenter="mobile-services"
+    authors="lindydonna"
+    manager="dwrede"
+    editor=""
+    services="mobile-services"/>
 
 <tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-windows"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="11/06/2015"
-	ms.author="donnam"/>
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-windows"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="11/06/2015"
+    ms.author="donnam"/>
 
 # Using offline data sync in Mobile Services
 
@@ -283,3 +283,4 @@ In this section you reconnect the app to the mobile service. This simulates the 
 [Mobile Services SDK Nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0
 [SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
 [Azure classic portal]: https://manage.windowsazure.com
+

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Develop video player applications" 
-	description="The topic provides links to Player Frameworks and plugins that you can use to develop your own client applications that can consume streaming media from Media Services." 
-	authors="Juliako" 
-	manager="dwrede" 
-	editor="" 
-	services="media-services" 
-	documentationCenter=""/>
+    pageTitle="Develop video player applications" 
+    description="The topic provides links to Player Frameworks and plugins that you can use to develop your own client applications that can consume streaming media from Media Services." 
+    authors="Juliako" 
+    manager="dwrede" 
+    editor="" 
+    services="media-services" 
+    documentationCenter=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/02/2015" 
-	ms.author="juliako"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/02/2015" 
+    ms.author="juliako"/>
 
 
 #Develop video player applications
@@ -81,3 +81,4 @@ For information about closed captioning and ads support in Live streaming videos
 
 [GitHub dash.js repository](https://github.com/Dash-Industry-Forum/dash.js)
  
+

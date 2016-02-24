@@ -43,11 +43,11 @@ Step 2 - Create a dynamic routing gateway.
 1. Log in to the **Azure Classic Portal** (Not the Azure Portal).
 1. In the lower left corner of the screen, click **New**. In the navigation pane, click **Network Services**, and then click **Virtual Network**. Click **Custom Create** to begin the configuration wizard.
 1. On the **Virtual Network Details** page, enter the following information, and then click the next arrow on the lower right.
-	- **Name**: Name your virtual network. For example, "VNetEast". This will be the name that you'll refer to when you deploy VMs and PaaS instances to this VNet.
-	- **Location**: The location is directly related to the physical location (region) where you want your resources (VMs) to reside. For example, if you want the VMs that you deploy to this virtual network to be physically located in East US, select that location. You can't change the region associated with your virtual network after you create it.
+    - **Name**: Name your virtual network. For example, "VNetEast". This will be the name that you'll refer to when you deploy VMs and PaaS instances to this VNet.
+    - **Location**: The location is directly related to the physical location (region) where you want your resources (VMs) to reside. For example, if you want the VMs that you deploy to this virtual network to be physically located in East US, select that location. You can't change the region associated with your virtual network after you create it.
 1. On the **DNS Servers and VPN Connectivity** page, enter the following information, and then click the next arrow on the lower right.
-	- **DNS Servers**: Enter the DNS server name and IP address, or select a previously registered DNS server from the shortcut menu. This setting does not create a DNS server, it allows you to specify the DNS servers that you want to use for name resolution for this virtual network. If you want to use the Azure default name resolution service, leave this section blank.
-	- **Configure Point-To-Site VPN**: Select the checkbox.
+    - **DNS Servers**: Enter the DNS server name and IP address, or select a previously registered DNS server from the shortcut menu. This setting does not create a DNS server, it allows you to specify the DNS servers that you want to use for name resolution for this virtual network. If you want to use the Azure default name resolution service, leave this section blank.
+    - **Configure Point-To-Site VPN**: Select the checkbox.
 1. On the  **Point-To-Site Connectivity** page, specify the IP address range from which your VPN clients will receive an IP address when connected. There are a few rules regarding the address ranges that you are able to specify. It's very important to verify that the range that you specify doesn't overlap with any of the ranges located on your on-premises network.
 1. Enter the following information, and then click the next arrow.
  - **Address Space**: Include the Starting IP and CIDR (Address Count).
@@ -174,15 +174,15 @@ Example:
 
 
     PPP adapter VNetEast:
-		Connection-specific DNS Suffix .:
-		Description.....................: VNetEast
-		Physical Address................:
-		DHCP Enabled....................: No
-		Autoconfiguration Enabled.......: Yes
-		IPv4 Address....................: 192.168.130.2(Preferred)
-		Subnet Mask.....................: 255.255.255.255
-		Default Gateway.................:
-		NetBIOS over Tcpip..............: Enabled
+        Connection-specific DNS Suffix .:
+        Description.....................: VNetEast
+        Physical Address................:
+        DHCP Enabled....................: No
+        Autoconfiguration Enabled.......: Yes
+        IPv4 Address....................: 192.168.130.2(Preferred)
+        Subnet Mask.....................: 255.255.255.255
+        Default Gateway.................:
+        NetBIOS over Tcpip..............: Enabled
 
 ## Next steps
 
@@ -193,3 +193,4 @@ If you want to configure a site-to-site VPN connection, see [Configure a virtual
 You can add virtual machines to your virtual network. See [How to create a custom virtual machine](../virtual-machines/virtual-machines-create-custom.md).
 
 If you want more information about Virtual Networks, see the [Virtual Network Documentation](https://azure.microsoft.com/documentation/services/virtual-network/) page.
+

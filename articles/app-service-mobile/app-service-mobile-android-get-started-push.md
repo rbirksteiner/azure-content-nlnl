@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Add Push Notifications to Android App with Azure  Mobile Apps"
-	description="Learn how to use Azure Mobile Apps to send push notifications to your Android app."
-	services="app-service\mobile"
-	documentationCenter="android"
-	manager="dwrede"
-	editor=""
-	authors="ysxu"/>
+    pageTitle="Add Push Notifications to Android App with Azure  Mobile Apps"
+    description="Learn how to use Azure Mobile Apps to send push notifications to your Android app."
+    services="app-service\mobile"
+    documentationCenter="android"
+    manager="dwrede"
+    editor=""
+    authors="ysxu"/>
 
 <tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-android"
-	ms.devlang="java"
-	ms.topic="article"
-	ms.date="12/02/2015"
-	ms.author="yuaxu"/>
+    ms.service="app-service-mobile"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-android"
+    ms.devlang="java"
+    ms.topic="article"
+    ms.date="12/02/2015"
+    ms.author="yuaxu"/>
 
 # Add Push Notifications to your Android App
 

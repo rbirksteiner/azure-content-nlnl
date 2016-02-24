@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Windows Universal Apps SDK Upgrade Procedures" 
-	description="Windows Universal Apps SDK Upgrade Procedures for Azure Mobile Engagement" 					
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
-	editor="" />
+    pageTitle="Windows Universal Apps SDK Upgrade Procedures" 
+    description="Windows Universal Apps SDK Upgrade Procedures for Azure Mobile Engagement"                     
+    services="mobile-engagement" 
+    documentationCenter="mobile" 
+    authors="piyushjo" 
+    manager="dwrede" 
+    editor="" />
 
 <tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="08/10/2015" 
-	ms.author="piyushjo" />
+    ms.service="mobile-engagement" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="mobile-windows-store" 
+    ms.devlang="dotnet" 
+    ms.topic="article" 
+    ms.date="08/10/2015" 
+    ms.author="piyushjo" />
 
 #Windows Universal Apps SDK Upgrade Procedures
 
@@ -33,8 +33,8 @@ Make sure that your integration of the webview match the following:
 
 In your XAML page ():
 
-			<WebView x:Name="engagement_notification_content" Visibility="Collapsed" Height="80" HorizontalAlignment="Right" VerticalAlignment="Top"/>
-			<WebView x:Name="engagement_announcement_content" Visibility="Collapsed" HorizontalAlignment="Right" VerticalAlignment="Top"/> 
+            <WebView x:Name="engagement_notification_content" Visibility="Collapsed" Height="80" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+            <WebView x:Name="engagement_announcement_content" Visibility="Collapsed" HorizontalAlignment="Right" VerticalAlignment="Top"/> 
 
 And in your associated .cs file:
 
@@ -47,20 +47,20 @@ And in your associated .cs file:
 
     namespace My.Namespace.Example
     {
-			/// <summary>
-			/// An empty page that can be used on its own or navigated to within a Frame.
-			/// </summary>
-			public sealed partial class ExampleEngagementReachPage : EngagementPage
-			{
-			  public ExampleEngagementReachPage()
-			  {
-			    this.InitializeComponent();
-			
-			    /* Set your webview elements to the correct size. */
-			    SetWebView(width, height);
-			  }
-			
-			  #region to implement
+            /// <summary>
+            /// An empty page that can be used on its own or navigated to within a Frame.
+            /// </summary>
+            public sealed partial class ExampleEngagementReachPage : EngagementPage
+            {
+              public ExampleEngagementReachPage()
+              {
+                this.InitializeComponent();
+            
+                /* Set your webview elements to the correct size. */
+                SetWebView(width, height);
+              }
+            
+              #region to implement
               /* Attach events when page is navigated. */
               protected override void OnNavigatedTo(NavigationEventArgs e)
               {
@@ -74,73 +74,73 @@ And in your associated .cs file:
                 base.OnNavigatedTo(e);
               }
 
-			  /* When page is left ensure to detach SizeChanged handler. */
-			  protected override void OnNavigatedFrom(NavigationEventArgs e)
-			  {
-			    Window.Current.SizeChanged -= DisplayProperties_OrientationChanged;
+              /* When page is left ensure to detach SizeChanged handler. */
+              protected override void OnNavigatedFrom(NavigationEventArgs e)
+              {
+                Window.Current.SizeChanged -= DisplayProperties_OrientationChanged;
     #if WINDOWS_PHONE_APP || WINDOWS_UWP
                 ApplicationView.GetForCurrentView().VisibleBoundsChanged -= DisplayProperties_VisibleBoundsChanged;
     #endif
-			    base.OnNavigatedFrom(e);
-			  }
-			  
-			  /* "width" and "height" are the current size of your application display. */
+                base.OnNavigatedFrom(e);
+              }
+              
+              /* "width" and "height" are the current size of your application display. */
     #if WINDOWS_PHONE_APP || WINDOWS_UWP
-			  double width = ApplicationView.GetForCurrentView().VisibleBounds.Width;
-			  double height = ApplicationView.GetForCurrentView().VisibleBounds.Height;
+              double width = ApplicationView.GetForCurrentView().VisibleBounds.Width;
+              double height = ApplicationView.GetForCurrentView().VisibleBounds.Height;
     #else
-			  double width =  Window.Current.Bounds.Width;
-			  double height =  Window.Current.Bounds.Height;
+              double width =  Window.Current.Bounds.Width;
+              double height =  Window.Current.Bounds.Height;
     #endif
-			
-			  /// <summary>
-			  /// Set your webview elements to the correct size.
-			  /// </summary>
-			  /// <param name="width">The width of your current display.</param>
-			  /// <param name="height">The height of your current display.</param>
-			  private void SetWebView(double width, double height)
-			  {
-			    #pragma warning disable 4014
-			    CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal,
-			            () =>
-			            {
-			              this.engagement_notification_content.Width = width;
-			              this.engagement_announcement_content.Width = width;
-			              this.engagement_announcement_content.Height = height;
-			            });
-			  }
-			
-			  /// <summary>
-			  /// Handler that takes the Windows.Current.SizeChanged and indicates that webviews have to be resized.
-			  /// </summary>
-			  /// <param name="sender">Original event trigger.</param>
-			  /// <param name="e">Window Size Changed Event arguments.</param>
-			  private void DisplayProperties_OrientationChanged(object sender, Windows.UI.Core.WindowSizeChangedEventArgs e)
-			  {
-			    double width = e.Size.Width;
-			    double height = e.Size.Height;
-			
-			    /* Set your webview elements to the correct size. */
-			    SetWebView(width, height);
-			  }
+            
+              /// <summary>
+              /// Set your webview elements to the correct size.
+              /// </summary>
+              /// <param name="width">The width of your current display.</param>
+              /// <param name="height">The height of your current display.</param>
+              private void SetWebView(double width, double height)
+              {
+                #pragma warning disable 4014
+                CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal,
+                        () =>
+                        {
+                          this.engagement_notification_content.Width = width;
+                          this.engagement_announcement_content.Width = width;
+                          this.engagement_announcement_content.Height = height;
+                        });
+              }
+            
+              /// <summary>
+              /// Handler that takes the Windows.Current.SizeChanged and indicates that webviews have to be resized.
+              /// </summary>
+              /// <param name="sender">Original event trigger.</param>
+              /// <param name="e">Window Size Changed Event arguments.</param>
+              private void DisplayProperties_OrientationChanged(object sender, Windows.UI.Core.WindowSizeChangedEventArgs e)
+              {
+                double width = e.Size.Width;
+                double height = e.Size.Height;
+            
+                /* Set your webview elements to the correct size. */
+                SetWebView(width, height);
+              }
 
-    #if WINDOWS_PHONE_APP || WINDOWS_UWP			  
-			  /// <summary>
-			  /// Handler that takes the ApplicationView.VisibleBoundsChanged and indicates that webviews have to be resized
-			  /// </summary>
-			  /// <param name="sender">The related application view.</param>
-			  /// <param name="e">Related event arguments.</param>
-			  private void DisplayProperties_VisibleBoundsChanged(ApplicationView sender, Object e)
-			  {
-			    double width = sender.VisibleBounds.Width;
-			    double height = sender.VisibleBounds.Height;
-			
-			    /* Set your webview elements to the correct size. */
-			    SetWebView(width, height);
-			  }
+    #if WINDOWS_PHONE_APP || WINDOWS_UWP              
+              /// <summary>
+              /// Handler that takes the ApplicationView.VisibleBoundsChanged and indicates that webviews have to be resized
+              /// </summary>
+              /// <param name="sender">The related application view.</param>
+              /// <param name="e">Related event arguments.</param>
+              private void DisplayProperties_VisibleBoundsChanged(ApplicationView sender, Object e)
+              {
+                double width = sender.VisibleBounds.Width;
+                double height = sender.VisibleBounds.Height;
+            
+                /* Set your webview elements to the correct size. */
+                SetWebView(width, height);
+              }
     #endif
-			  #endregion
-			}
+              #endregion
+            }
     }
 
 ##From 2.0.0 to 3.0.0
@@ -176,73 +176,73 @@ When those steps are completed you only have to replace old Capptain references 
 
 1. All Capptain namespaces have to be updated.
 
-	Before migration:
-	
-		using Capptain.Agent;
-		using Capptain.Reach;
-	
-	After migration:
-	
-		using Microsoft.Azure.Engagement;
+    Before migration:
+    
+        using Capptain.Agent;
+        using Capptain.Reach;
+    
+    After migration:
+    
+        using Microsoft.Azure.Engagement;
 
 2. All Capptain classes that contain "Capptain" should contain "Engagement".
 
-	Before migration:
-	
-		public sealed partial class MainPage : CapptainPage
-		{
-		  protected override string GetCapptainPageName()
-		  {
-		    return "Capptain Demo";
-		  }
-		  ...
-		}
-	
-	After migration:
-	
-		public sealed partial class MainPage : EngagementPage
-		{
-		  protected override string GetEngagementPageName()
-		  {
-		    return "Engagement Demo";
-		  }
-		  ...
-		}
+    Before migration:
+    
+        public sealed partial class MainPage : CapptainPage
+        {
+          protected override string GetCapptainPageName()
+          {
+            return "Capptain Demo";
+          }
+          ...
+        }
+    
+    After migration:
+    
+        public sealed partial class MainPage : EngagementPage
+        {
+          protected override string GetEngagementPageName()
+          {
+            return "Engagement Demo";
+          }
+          ...
+        }
 
 3. For xaml files Capptain namespace and attributes also change.
 
-	Before migration:
-	
-		<capptain:CapptainPage
-		...
-		xmlns:capptain="clr-namespace:Capptain.Agent;assembly=Capptain.Agent.WP"
-		...
-		</capptain:CapptainPage>
-	
-	After migration:
-	
-		<engagement:EngagementPage
-		...
-		xmlns:engagement="clr-namespace:Microsoft.Azure.Engagement;assembly=Microsoft.Azure.Engagement.EngagementAgent.WP"
-		...
-		</engagement:EngagementPage>
+    Before migration:
+    
+        <capptain:CapptainPage
+        ...
+        xmlns:capptain="clr-namespace:Capptain.Agent;assembly=Capptain.Agent.WP"
+        ...
+        </capptain:CapptainPage>
+    
+    After migration:
+    
+        <engagement:EngagementPage
+        ...
+        xmlns:engagement="clr-namespace:Microsoft.Azure.Engagement;assembly=Microsoft.Azure.Engagement.EngagementAgent.WP"
+        ...
+        </engagement:EngagementPage>
 
 4. Overlay page changes
-	> [AZURE.IMPORTANT] Overlay also changes. Its new namespace is `Microsoft.Azure.Engagement.Overlay`. It has to be used in both xaml and cs files. Moreover `CapptainGrid` is to be named `EngagementGrid`, `capptain_notification_content` and `capptain_announcement_content` are named `engagement_notification_content` and `engagement_announcement_content`.
-	
-	For overlay :
-	
-		<capptain:CapptainPageOverlay
-		  xmlns:capptain="using:Capptain.Overlay"
-		  ...
-		</capptain:CapptainPageOverlay>
-	
-	It becomes :
-	
-		<EngagementPageOverlay
-		  engagement="using:Microsoft.Azure.Engagement.Overlay"
-		  ...
-		</engagement:EngagementPageOverlay>
+    > [AZURE.IMPORTANT] Overlay also changes. Its new namespace is `Microsoft.Azure.Engagement.Overlay`. It has to be used in both xaml and cs files. Moreover `CapptainGrid` is to be named `EngagementGrid`, `capptain_notification_content` and `capptain_announcement_content` are named `engagement_notification_content` and `engagement_announcement_content`.
+    
+    For overlay :
+    
+        <capptain:CapptainPageOverlay
+          xmlns:capptain="using:Capptain.Overlay"
+          ...
+        </capptain:CapptainPageOverlay>
+    
+    It becomes :
+    
+        <EngagementPageOverlay
+          engagement="using:Microsoft.Azure.Engagement.Overlay"
+          ...
+        </engagement:EngagementPageOverlay>
 
 5. For the other resources like Capptain pictures and HTML files, please note that they also have been renamed to use "Engagement".
 
@@ -265,12 +265,12 @@ Edit this file to specify:
 
 If you want to specify it at runtime instead, you can call the following method before the Engagement agent initialization:
 
-	/* Engagement configuration. */
-	EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
-	engagementConfiguration.Agent.ConnectionString = "Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}";
-	
-	/* Initialize Engagement agent with above configuration. */
-	EngagementAgent.Instance.Init(args, engagementConfiguration);
+    /* Engagement configuration. */
+    EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
+    engagementConfiguration.Agent.ConnectionString = "Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}";
+    
+    /* Initialize Engagement agent with above configuration. */
+    EngagementAgent.Instance.Init(args, engagementConfiguration);
 
 The connection string for your application is displayed on the Azure Classic Portal.
 

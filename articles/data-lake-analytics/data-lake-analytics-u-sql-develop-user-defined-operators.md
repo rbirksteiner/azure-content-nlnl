@@ -37,97 +37,97 @@ Learn how to develop user defined operators to be used and reused in Data Lake A
 1. From the **File** menu, click **New**, and then click **Project**.
 2. Select the **U-SQL Project** type.
 
-	![new U-SQL Visual Studio project](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
+    ![new U-SQL Visual Studio project](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
 
 3. Click **OK**. Visual studio creates a solution with a Script.usql file.
 4. From **Solution Explorer**, expand Script.usql, and then double-click **Script.usql.cs**.
 5. Paste the following code into the file:
 
-		using Microsoft.Analytics.Interfaces;
-		using System.Collections.Generic;
-		
-		namespace USQL_UDO
-		{
-			public class CountryName : IProcessor
-			{
-				private static IDictionary<string, string> CountryTranslation = new Dictionary<string, string>
-				{
-					{
-						"Deutschland", "Germany"
-					},
-					{
-						"Schwiiz", "Switzerland"
-					},
-					{
-						"UK", "United Kingdom"
-					},
-					{
-						"USA", "United States of America"
-					},
-					{
-						"中国", "PR China"
-					}
-				};
-		
-				public override IRow Process(IRow input, IUpdatableRow output)
-				{
-		
-					string UserID = input.Get<string>("UserID");
-					string Name = input.Get<string>("Name");
-					string Address = input.Get<string>("Address");
-					string City = input.Get<string>("City");
-					string State = input.Get<string>("State");
-					string PostalCode = input.Get<string>("PostalCode");
-					string Country = input.Get<string>("Country");
-					string Phone = input.Get<string>("Phone");
-		
-					if (CountryTranslation.Keys.Contains(Country))
-					{
-						Country = CountryTranslation[Country];
-					}
-					output.Set<string>(0, UserID);
-					output.Set<string>(1, Name);
-					output.Set<string>(2, Address);
-					output.Set<string>(3, City);
-					output.Set<string>(4, State);
-					output.Set<string>(5, PostalCode);
-					output.Set<string>(6, Country);
-					output.Set<string>(7, Phone);
-		
-					return output.AsReadOnly();
-				}
-			}
-		}
+        using Microsoft.Analytics.Interfaces;
+        using System.Collections.Generic;
+        
+        namespace USQL_UDO
+        {
+            public class CountryName : IProcessor
+            {
+                private static IDictionary<string, string> CountryTranslation = new Dictionary<string, string>
+                {
+                    {
+                        "Deutschland", "Germany"
+                    },
+                    {
+                        "Schwiiz", "Switzerland"
+                    },
+                    {
+                        "UK", "United Kingdom"
+                    },
+                    {
+                        "USA", "United States of America"
+                    },
+                    {
+                        "中国", "PR China"
+                    }
+                };
+        
+                public override IRow Process(IRow input, IUpdatableRow output)
+                {
+        
+                    string UserID = input.Get<string>("UserID");
+                    string Name = input.Get<string>("Name");
+                    string Address = input.Get<string>("Address");
+                    string City = input.Get<string>("City");
+                    string State = input.Get<string>("State");
+                    string PostalCode = input.Get<string>("PostalCode");
+                    string Country = input.Get<string>("Country");
+                    string Phone = input.Get<string>("Phone");
+        
+                    if (CountryTranslation.Keys.Contains(Country))
+                    {
+                        Country = CountryTranslation[Country];
+                    }
+                    output.Set<string>(0, UserID);
+                    output.Set<string>(1, Name);
+                    output.Set<string>(2, Address);
+                    output.Set<string>(3, City);
+                    output.Set<string>(4, State);
+                    output.Set<string>(5, PostalCode);
+                    output.Set<string>(6, Country);
+                    output.Set<string>(7, Phone);
+        
+                    return output.AsReadOnly();
+                }
+            }
+        }
 
 5. Open Script.usql, and paste the following U-SQL script:
 
-		@drivers =
-			EXTRACT UserID      string,
-					Name        string,
-					Address     string,
-					City        string,
-					State       string,
-					PostalCode  string,
-					Country     string,
-					Phone       string
-			FROM "/Samples/Data/AmbulanceData/Drivers.txt"
-			USING Extractors.Tsv(Encoding.Unicode);
-		
-		@drivers_CountryName =
-			PROCESS @drivers
-			PRODUCE UserID string,
-					Name string,
-					Address string,
-					City string,
-					State string,
-					PostalCode string,
-					Country string,
-					Phone string
-			USING new USQL_UDO.CountryName();    
-		
-		OUTPUT @drivers_CountryName
-			TO "/Samples/Outputs/Drivers.csv"
-			USING Outputters.Csv(Encoding.Unicode);
+        @drivers =
+            EXTRACT UserID      string,
+                    Name        string,
+                    Address     string,
+                    City        string,
+                    State       string,
+                    PostalCode  string,
+                    Country     string,
+                    Phone       string
+            FROM "/Samples/Data/AmbulanceData/Drivers.txt"
+            USING Extractors.Tsv(Encoding.Unicode);
+        
+        @drivers_CountryName =
+            PROCESS @drivers
+            PRODUCE UserID string,
+                    Name string,
+                    Address string,
+                    City string,
+                    State string,
+                    PostalCode string,
+                    Country string,
+                    Phone string
+            USING new USQL_UDO.CountryName();    
+        
+        OUTPUT @drivers_CountryName
+            TO "/Samples/Outputs/Drivers.csv"
+            USING Outputters.Csv(Encoding.Unicode);
 
 6. From **Solution Explorer**, right click **Script.usql**, and then click **Build Script**.
 6. From **Solution Explorer**, right click **Script.usql**, and then click **Submit Script**.

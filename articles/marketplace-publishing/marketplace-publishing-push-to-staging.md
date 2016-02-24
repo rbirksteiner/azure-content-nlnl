@@ -28,7 +28,7 @@ In this step of the publishing process, you will need to provide certain marketi
 
 ### Details
 1. Enter the offer summary, long summary, and description for your offer.
-2.	Upload images of the required specifications (mentioned in the publishing portal) in PNG format, one for each size.
+2.  Upload images of the required specifications (mentioned in the publishing portal) in PNG format, one for each size.
 
   ![drawing](media/marketplace-publishing-push-to-staging/pubportal-02.png)
 
@@ -78,15 +78,15 @@ On the **Legal** tab, provide a link to your policies/terms of use. Enter or pas
 ### 2.1. Set your VM prices
 > [AZURE.NOTE] BYOL is supported only for virtual machines.
 
-1.	Under the **Pricing** tab, you will see all of the supported markets. Select the appropriate one to bring up the pricing fields.
-2.	The provided link in the publishing portal will show pricing information to help you in determining the prices of your SKU(s).
-3.	If your SKU is BYOL, select the check box for externally licensed (BYOL) SKU availability.
-4.	If your SKU is hourly, enter the pricing for your software. SKUs without pricing will not be available for purchase or use.
+1.  Under the **Pricing** tab, you will see all of the supported markets. Select the appropriate one to bring up the pricing fields.
+2.  The provided link in the publishing portal will show pricing information to help you in determining the prices of your SKU(s).
+3.  If your SKU is BYOL, select the check box for externally licensed (BYOL) SKU availability.
+4.  If your SKU is hourly, enter the pricing for your software. SKUs without pricing will not be available for purchase or use.
 
   > [AZURE.NOTE] If you have both BYOL and hourly SKUs, then make sure both the requisites are covered: BYOL check box and price values for hourly.
 
-5.	A pricing wizard will open. Proceed through this to complete your pricing, including pricing for other countries, if you choose to allow purchases from outside your specified market.
-6.	Some countries are ISV Remit countries. To sell in an ISV Remit country, you must be able to charge and collect tax on your SKUs, and you should calculate and pay tax to the government of the country. Microsoft is not in a position to provide legal or tax guidance.  See the section “Sell-to countries of the offer” in the introduction of this document for more information on sell-to countries.
+5.  A pricing wizard will open. Proceed through this to complete your pricing, including pricing for other countries, if you choose to allow purchases from outside your specified market.
+6.  Some countries are ISV Remit countries. To sell in an ISV Remit country, you must be able to charge and collect tax on your SKUs, and you should calculate and pay tax to the government of the country. Microsoft is not in a position to provide legal or tax guidance.  See the section “Sell-to countries of the offer” in the introduction of this document for more information on sell-to countries.
 
 ### 2.2. Set your developer service prices
 Plans can be any combination of base + consumption, where base is the monthly price and overage is the pay-per-use price. (See below for more details.)
@@ -106,10 +106,10 @@ Plans can be any combination of base + consumption, where base is the monthly pr
 ## Step 3: Provide support information
 Some of this information will have been completed during the certification step. You may add or edit information by using the steps below. The contact details are used for internal communications between the partner and Microsoft only. The support URL will be available to the end customers.
 
-1.	Go to the **Support** heading on the left side of the publishing portal.
-2.	Enter information under **Engineering Contact**.
-3.	Enter information under **Customer Support**. If you provide only email support, enter a dummy phone number, and your provided email will be used instead.
-4.	Enter the support URL.
+1.  Go to the **Support** heading on the left side of the publishing portal.
+2.  Enter information under **Engineering Contact**.
+3.  Enter information under **Customer Support**. If you provide only email support, enter a dummy phone number, and your provided email will be used instead.
+4.  Enter the support URL.
 
 ## Step 4: Choose Azure Marketplace categories
 The **Categories** tab provides an array of selections. Your offer may fall under these, and you may select up to five categories.
@@ -159,3 +159,4 @@ Now that your Marketplace content is loaded, let's move forward with testing you
 
 [link-pubportal]:https://publish.windowsazure.com
 [link-push-to-production]:marketplace-publishing-push-to-production.md
+
