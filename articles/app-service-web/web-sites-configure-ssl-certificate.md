@@ -22,5 +22,5 @@
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-[AZURE.INCLUDE [configure-ssl-web-site](../../includes/configure-ssl-web-site.md)]
+[AZURE.INCLUDE [configure-ssl-web-site](../../includes/app-service-web-to-api-and-mobile.md)]
 

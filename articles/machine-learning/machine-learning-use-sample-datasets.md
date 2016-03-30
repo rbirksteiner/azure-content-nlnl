@@ -30,7 +30,7 @@ You can use any of these data sets in your own experiment by dragging it to your
 
 
 <!--
-For a list of sample experiments available in ML Studio, see [Machine Learning Sample Experiments][sample-experiments].
+For a list of sample experiments available in ML Studio, see [Machine Learning Sample Experiments].
 
 -->mple-experiments]: machine-learning-sample-experiments.md
 -->

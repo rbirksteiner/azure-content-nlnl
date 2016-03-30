@@ -67,6 +67,6 @@ This tutorial assumes that you have a basic understanding of Azure App Services,
 
 <!--Image references-->
 [1]: ./media/app-service-logic-create-a-b2b-process/Flow.png
-[2]: ./media/app-service-logic-create-a-b2b-process/Tracking.png
+[2]: ./media/app-service-logic-create-a-b2b-process/Tracking.jpg
  
 

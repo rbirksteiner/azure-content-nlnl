@@ -3,7 +3,7 @@
     description="Compares tools and options for managing Azure SQL Database" 
     services="sql-database" 
     documentationCenter="" 
-    authors="TigerMint" 
+    authors="NataliaL" 
     manager="" 
     editor=""/>
 
@@ -14,7 +14,7 @@
     ms.devlang="na" 
     ms.topic="article" 
     ms.date="04/15/2015" 
-    ms.author="vinsonyu"/>
+    ms.author="NataliaL"/>
 
 # Overview: management tools for SQL Database
 
