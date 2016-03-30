@@ -2,8 +2,8 @@
     pageTitle="Azure App Service and its impact on existing Azure services" 
     description="Explains how the new Azure App Service and its features impact existing services in Azure." 
     authors="yochayk" 
-    writer="yochayk" 
-    editor="yochayk" 
+    writer="NataliaL" 
+    editor="NataliaL" 
     manager="nirma" 
     services="app-service" 
     documentationCenter=""/>
@@ -15,7 +15,7 @@
     ms.devlang="na" 
     ms.topic="article" 
     ms.date="09/15/2015" 
-    ms.author="yochayk"/>
+    ms.author="NataliaL"/>
 
 
 # Azure App Service and existing Azure services
