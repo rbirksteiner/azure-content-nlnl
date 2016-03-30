@@ -72,7 +72,7 @@ The most probable reason for a failure in an Azure datacenter is a failed upgrad
 -   Electrical outage (power supply and generating power disappear).
 -   Connectivity (Internet break between your clients and Azure).
 
-In both cases, a natural or man-made disaster caused the issue. To work around this and make sure that you can still send messages, you can use paired namespaces to allow messages to be sent to a second location while the primary location is made healthy again. For more information, see [Best Practices for Insulating Service Bus Applications Against Service Bus Outages and Disasters][].
+In both cases, a natural or man-made disaster caused the issue. To work around this and make sure that you can still send messages, you can use paired namespaces to allow messages to be sent to a second location while the primary location is made healthy again. For more information, see [Best Practices for Insulating Service Bus Applications Against Service Bus Outages and Disasters][].
 
 ## Paired Namespaces
 

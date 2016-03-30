@@ -153,3 +153,4 @@ You must configure any role that accesses storage services to use the Azure stor
 ## Next steps
 
 To learn more about publishing apps to Azure from Visual Studio, see [Publishing a Cloud Service using the Azure Tools](vs-azure-tools-publishing-a-cloud-service.md).
+

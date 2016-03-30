@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How to configure Virtual Network support for a Premium Azure Redis Cache" 
-	description="Learn how to create and manage Virtual Network support for your Premium tier Azure Redis Cache instances" 
-	services="redis-cache" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="How to configure Virtual Network support for a Premium Azure Redis Cache" 
+    description="Learn how to create and manage Virtual Network support for your Premium tier Azure Redis Cache instances" 
+    services="redis-cache" 
+    documentationCenter="" 
+    authors="steved0x" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="cache" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="cache-redis" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/14/2015" 
-	ms.author="sdanie"/>
+    ms.service="cache" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="cache-redis" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/14/2015" 
+    ms.author="sdanie"/>
 
 # How to configure Virtual Network Support for a Premium Azure Redis Cache
 Azure Redis Cache has different cache offerings which provide flexibility in the choice of cache size and features, including the new Premium tier.
@@ -59,18 +59,18 @@ Once the cache is created, it can be accessed only by clients within the same VN
 
 >[AZURE.IMPORTANT] To access your Azure Redis cache instance when using a VNET, pass the static IP address of the cache in the VNET as the first parameter, and pass in an `sslhost` parameter with the endpoint of your cache. In the following example the static IP address is `10.10.1.5` and the cache endpoint is `contoso5.redis.cache.windows.net`.
 
-	private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
-	{
-	    return ConnectionMultiplexer.Connect("10.10.1.5,sslhost=contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=password");
-	});
-	
-	public static ConnectionMultiplexer Connection
-	{
-	    get
-	    {
-	        return lazyConnection.Value;
-	    }
-	}
+    private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
+    {
+        return ConnectionMultiplexer.Connect("10.10.1.5,sslhost=contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=password");
+    });
+    
+    public static ConnectionMultiplexer Connection
+    {
+        get
+        {
+            return lazyConnection.Value;
+        }
+    }
 
 ## Azure Redis Cache VNET FAQ
 
@@ -80,13 +80,13 @@ The following list contains answers to commonly asked questions about the Azure 
 
 The following list contains some common configuration errors that can prevent Azure Redis Cache from working properly.
 
--	Lack of access to DNS. Azure Redis Cache instances in a VNET require access to DNS for parts of the monitoring and runtime system of the cache. If the cache instance does not have access to DNS, monitoring won't work and the cache will not function correctly.
--	Blocked TCP ports that clients use to connect to redis, i.e. 6379 or 6380.
--	Blocked or intercepted outgoing HTTPS traffic from the virtual network. Azure Redis Cache uses outgoing HTTPS traffic to Azure services, especially Storage.
--	Blocked redis role instance VMs from communicating with each other inside the subnet. Redis role instances should be allowed to talk to each other using TCP on any of the ports used, which may be subject to change, but at a minimum can be assumed to be all the ports used in the redis CSDEF file.
--	Blocked Azure Load Balancer from connecting to the redis VMs on TCP/HTTP port 16001. Azure Redis Cache depends on the default Azure load balancer probe to determine which role instances are up. The default load balancer probe works by pinging the Azure Guest Agent on port 16001. Only the role instances which respond to the ping will be placed in rotation to receive traffic forwarded by the ILB. When no instances are in rotation because pings fail because the ports are blocked, then the ILB will not accept any incoming TCP connections.
--	Blocked client application's web traffic used for SSL public key validation. Clients of redis (within the virtual network) must to be able to do HTTP traffic to the public internet in order to download CA certificates and certificate revocation lists in order to do SSL certificate validation when they use port 6380 to connect to Redis and do SSL server authentication.
--	Blocked Azure Load Balancer from connecting to Redis VMs in a cluster via TCP on port 1300x (13000, 13001, etc.) or 1500x (15000, 15001, etc.). VNets are configured in the csdef file with a load balancer probe to open these ports. The Azure load balancer needs to be permitted by NSGs, the default NSGs do this using the tag AZURE_LOADBALANCER. The Azure load balancer has a single static IP address of 168.63.126.16. For more information, see [What is a Network Security Group (NSG)?](../virtual-network/virtual-networks-nsg.md).
+-   Lack of access to DNS. Azure Redis Cache instances in a VNET require access to DNS for parts of the monitoring and runtime system of the cache. If the cache instance does not have access to DNS, monitoring won't work and the cache will not function correctly.
+-   Blocked TCP ports that clients use to connect to redis, i.e. 6379 or 6380.
+-   Blocked or intercepted outgoing HTTPS traffic from the virtual network. Azure Redis Cache uses outgoing HTTPS traffic to Azure services, especially Storage.
+-   Blocked redis role instance VMs from communicating with each other inside the subnet. Redis role instances should be allowed to talk to each other using TCP on any of the ports used, which may be subject to change, but at a minimum can be assumed to be all the ports used in the redis CSDEF file.
+-   Blocked Azure Load Balancer from connecting to the redis VMs on TCP/HTTP port 16001. Azure Redis Cache depends on the default Azure load balancer probe to determine which role instances are up. The default load balancer probe works by pinging the Azure Guest Agent on port 16001. Only the role instances which respond to the ping will be placed in rotation to receive traffic forwarded by the ILB. When no instances are in rotation because pings fail because the ports are blocked, then the ILB will not accept any incoming TCP connections.
+-   Blocked client application's web traffic used for SSL public key validation. Clients of redis (within the virtual network) must to be able to do HTTP traffic to the public internet in order to download CA certificates and certificate revocation lists in order to do SSL certificate validation when they use port 6380 to connect to Redis and do SSL server authentication.
+-   Blocked Azure Load Balancer from connecting to Redis VMs in a cluster via TCP on port 1300x (13000, 13001, etc.) or 1500x (15000, 15001, etc.). VNets are configured in the csdef file with a load balancer probe to open these ports. The Azure load balancer needs to be permitted by NSGs, the default NSGs do this using the tag AZURE_LOADBALANCER. The Azure load balancer has a single static IP address of 168.63.126.16. For more information, see [What is a Network Security Group (NSG)?](../virtual-network/virtual-networks-nsg.md).
 
 ## Can I use VNETs with a standard or basic cache?
 
@@ -95,8 +95,8 @@ VNETs can only be used with premium caches.
 ## Next steps
 Learn how to use more premium cache features.
 
--	[How to configure persistence for a Premium Azure Redis Cache](cache-how-to-premium-persistence.md)
--	[How to configure clustering for a Premium Azure Redis Cache](cache-how-to-premium-clustering.md)
+-   [How to configure persistence for a Premium Azure Redis Cache](cache-how-to-premium-persistence.md)
+-   [How to configure clustering for a Premium Azure Redis Cache](cache-how-to-premium-clustering.md)
 
 
 
@@ -116,4 +116,5 @@ Learn how to use more premium cache features.
 [redis-cache-vnet-ip]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-ip.png
 
 [redis-cache-vnet-subnet]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-subnet.png
+
 

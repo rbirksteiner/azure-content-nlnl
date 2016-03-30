@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Analyzing Customer Churn using Machine Learning | Microsoft Azure"
-	description="Case study of developing an integrated model for analyzing and scoring customer churn"
-	services="machine-learning"
-	documentationCenter=""
-	authors="jeannt"
-	manager="paulettm"
-	editor="cgronlun"/>
+    pageTitle="Analyzing Customer Churn using Machine Learning | Microsoft Azure"
+    description="Case study of developing an integrated model for analyzing and scoring customer churn"
+    services="machine-learning"
+    documentationCenter=""
+    authors="jeannt"
+    manager="paulettm"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/28/2015" 
-	ms.author="jeannt"/>
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/28/2015" 
+    ms.author="jeannt"/>
 
 # Analyzing Customer Churn by using Azure Machine Learning
 
@@ -45,9 +45,9 @@ Using big data sets on their customers, organizations are performing big data an
 ##Methodology to model customer churn
 A common problem-solving process to solve customer churn is depicted in Figures 1-3:  
 
-1.	A risk model allows you to consider how actions affect probability and risk.
-2.	An intervention model allows you to consider how the level of intervention could affect the probability of churn and the amount of customer lifetime value (CLV).
-3.	This analysis lends itself to a qualitative analysis that is escalated to a proactive marketing campaign that targets customer segments to deliver the optimal offer.  
+1.  A risk model allows you to consider how actions affect probability and risk.
+2.  An intervention model allows you to consider how the level of intervention could affect the probability of churn and the amount of customer lifetime value (CLV).
+3.  This analysis lends itself to a qualitative analysis that is escalated to a proactive marketing campaign that targets customer segments to deliver the optimal offer.  
 
 ![][1]
 
@@ -108,10 +108,10 @@ The following diagrams illustrate the data that was used.
 
 We used the following four machine learning algorithms to build the prototype (no customization):  
 
-1.	Logistic regression (LR)
-2.	Boosted decision tree (BT)
-3.	Averaged perceptron (AP)
-4.	Support vector machine (SVM)  
+1.  Logistic regression (LR)
+2.  Boosted decision tree (BT)
+3.  Averaged perceptron (AP)
+4.  Support vector machine (SVM)  
 
 
 The following diagram illustrates a portion of the experiment design surface, which indicates the sequence in which the models were created:  
@@ -147,8 +147,8 @@ AUC is generally used as a measure of worth for different algorithms (or differe
 ###Comparing misclassification rates
 We compared the misclassification rates on the dataset in question by using the CRM data of approximately 8,000 subscriptions.  
 
--	The SAS misclassification rate was 10-15%.
--	The Machine Learning Studio misclassification rate was 15-20% for the top 200-300 churners.  
+-   The SAS misclassification rate was 10-15%.
+-   The Machine Learning Studio misclassification rate was 15-20% for the top 200-300 churners.  
 
 In the telecommunications industry, it is important to address only those customers who have the highest risk to churn by offering them a concierge service or other special treatment. In that respect, the Machine Learning Studio implementation achieves results on par with the SAS model.  
 
@@ -175,21 +175,21 @@ The following table summarizes the performance of the algorithms:
 
 *Table 1. General performance (accuracy) of the algorithms*
 
-**LR**|	**BT**|	**AP**|	**SVM**|
+**LR**| **BT**| **AP**| **SVM**|
 --|--|--|--|
-Average Model|	The Best Model|	Underperforming|	Average Model
+Average Model|  The Best Model| Underperforming|    Average Model
 
 The models hosted in Machine Learning Studio outperformed SAS by 15-25% for speed of execution, but accuracy was largely on par.  
 
 ##Discussion and recommendations
 In the telecommunications industry, several practices have emerged to analyze churn, including:  
 
--	Derive metrics for four fundamental categories:
-	-	**Entity (for example, a subscription)**. Provision basic information about the subscription and/or customer that is the subject of churn.
-	-	**Activity**. Obtain all possible usage information that is related to the entity, for example, the number of logins.
-	-	**Customer support**. Harvest information from customer support logs to indicate whether the subscription had issues or interactions with customer support.
-	-	**Competitive and business data**. Obtain any information possible about the customer (for example, can be unavailable or hard to track).
--	Use importance to drive feature selection. This implies that the boosted decision tree model is always a promising approach.  
+-   Derive metrics for four fundamental categories:
+    -   **Entity (for example, a subscription)**. Provision basic information about the subscription and/or customer that is the subject of churn.
+    -   **Activity**. Obtain all possible usage information that is related to the entity, for example, the number of logins.
+    -   **Customer support**. Harvest information from customer support logs to indicate whether the subscription had issues or interactions with customer support.
+    -   **Competitive and business data**. Obtain any information possible about the customer (for example, can be unavailable or hard to track).
+-   Use importance to drive feature selection. This implies that the boosted decision tree model is always a promising approach.  
 
 The use of the previous four categories creates the illusion that a simple *deterministic* approach, based on indexes formed on reasonable factors per category, should suffice to identify customers at risk for churn. Unfortunately, although this notion seems plausible, it is a false understanding. The reason is that churn is a temporal effect and the factors contributing to churn are usually in transient states. What leads a customer to consider leaving today might be different tomorrow, and it certainly will be different six months from now. Therefore, a *probabilistic* model is a necessity.  
 
@@ -208,8 +208,8 @@ This paper describes a sensible approach to tackling the common problem of custo
 
 Did this paper help you? Please give us your feedback. Tell us on a scale of 1 (poor) to 5 (excellent), how would you rate this paper and why have you given it this rating? For example:  
 
--	Are you rating it high due to having good examples, excellent screen shots, clear writing, or another reason?
--	Are you rating it low due to poor examples, fuzzy screen shots, or unclear writing?  
+-   Are you rating it high due to having good examples, excellent screen shots, clear writing, or another reason?
+-   Are you rating it low due to poor examples, fuzzy screen shots, or unclear writing?  
 
 This feedback will help us improve the quality of white papers we release.   
 
@@ -243,3 +243,4 @@ This feedback will help us improve the quality of white papers we release.
 [8]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-8.png
 [9]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-9.png
 [10]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-10.png
+

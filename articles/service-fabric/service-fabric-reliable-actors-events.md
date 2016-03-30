@@ -71,3 +71,4 @@ On the actor, simply publish the events as they happen. If there are subscribers
 var ev = GetEvent<IGameEvents>();
 ev.GameScoreUpdated(Id.GetGuidId(), State.Status.Score);
 ```
+

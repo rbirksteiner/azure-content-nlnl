@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure AD Connect sync: Technical concepts | Microsoft Azure"
-	description="Explains the technical concepts of Azure AD Connect sync."
-	services="active-directory"
-	documentationCenter=""
-	authors="markusvi"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Azure AD Connect sync: Technical concepts | Microsoft Azure"
+    description="Explains the technical concepts of Azure AD Connect sync."
+    services="active-directory"
+    documentationCenter=""
+    authors="markusvi"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/09/2015"
-	ms.author="markusvi;andkjell"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/09/2015"
+    ms.author="markusvi;andkjell"/>
 
 
 # Azure AD Connect sync: Technical Concepts
@@ -93,3 +93,4 @@ Whenever a rule determines that a new connector space object needs to be created
 
 <!--Image references-->
 [1]: ./media/active-directory-aadsync-technical-concepts/ic750598.png
+

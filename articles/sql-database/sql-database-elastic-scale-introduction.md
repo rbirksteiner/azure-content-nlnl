@@ -107,3 +107,4 @@ What can we do better? Does this topic explain the feature clearly? Or are you p
 [2]:./media/sql-database-elastic-scale-introduction/h_versus_vert.png
 [3]:./media/sql-database-elastic-scale-introduction/overview.png
 [4]:./media/sql-database-elastic-scale-introduction/single_v_multi_tenant.png
+

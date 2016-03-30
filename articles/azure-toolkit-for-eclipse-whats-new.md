@@ -315,3 +315,4 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 [ic710876]: ./media/azure-toolkit-for-eclipse-whats-new/ic710876.png
 [ic710882]: ./media/azure-toolkit-for-eclipse-whats-new/ic710882.png
 [ic710883]: ./media/azure-toolkit-for-eclipse-whats-new/ic710883.png
+

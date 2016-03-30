@@ -73,19 +73,19 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
 
 ###To configure single sign-on, perform the following steps:
 
-1.  In the Azure AD portal, on the **Zendesk** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  In the Azure AD portal, on the **Zendesk** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
     ![Single sign-on](./media/active-directory-saas-zendesk-tutorial/IC773086.png "Single sign-on")
 
-2.  On the **How would you like users to sign on to Zendesk** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to Zendesk** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure single sign-on](./media/active-directory-saas-zendesk-tutorial/IC773087.png "Configure single sign-on")
 
-3.  On the **Configure App URL** page, in the **Zendesk Sign In URL** textbox, type your URL using the following pattern "*https://\<tenant-name\>.zendesk.com*", and then click **Next**.
+3.  On the **Configure App URL** page, in the **Zendesk Sign In URL** textbox, type your URL using the following pattern "*https://\<tenant-name\>.zendesk.com*", and then click **Next**.
 
     ![Configure app URL](./media/active-directory-saas-zendesk-tutorial/IC773088.png "Configure app URL")
 
-4.  On the **Configure single sign-on at Zendesk** page, to download your certificate, click **Download certificate**, and then save the certificate file locally as **c:\\zendesk.cer**.
+4.  On the **Configure single sign-on at Zendesk** page, to download your certificate, click **Download certificate**, and then save the certificate file locally as **c:\\zendesk.cer**.
 
     ![Configure single sign-on](./media/active-directory-saas-zendesk-tutorial/IC777534.png "Configure single sign-on")
 
@@ -101,19 +101,19 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
 
 9.  Select **Single sign-on (SSO) and SAML**, and then select **SAML**.
 
-10. In the Azure AD portal, on the **Configure single sign-on at Zendesk** page, copy the **SAML SSO URL** value, and then paste it into the **SAML SSO URL** textbox.
+10. In the Azure AD portal, on the **Configure single sign-on at Zendesk** page, copy the **SAML SSO URL** value, and then paste it into the **SAML SSO URL** textbox.
 
-11. In the Azure AD portal, on the **Configure single sign-on at Zendesk** page, copy the **Remote Logout URL** value, and then paste it into the **Remote Logout URL** textbox.
+11. In the Azure AD portal, on the **Configure single sign-on at Zendesk** page, copy the **Remote Logout URL** value, and then paste it into the **Remote Logout URL** textbox.
 
     ![Single sign-on](./media/active-directory-saas-zendesk-tutorial/IC773090.png "Single sign-on")
 
 12. Copy the **Thumbprint** value from the exported certificate, and then paste it into the **Certificate Fingerprint** textbox.
 
-	>[AZURE.TIP] For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI)
+    >[AZURE.TIP] For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI)
 
 13. Click **Save**.
 
-14. On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+14. On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
     ![Configure single sign-on](./media/active-directory-saas-zendesk-tutorial/IC773093.png "Configure single sign-on")
 
@@ -146,7 +146,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 1.  In the Azure AD portal, create a test account.
 
-2.  On the **Zendesk **application integration page, click **Assign users**.
+2.  On the **Zendesk **application integration page, click **Assign users**.
 
     ![Assign users](./media/active-directory-saas-zendesk-tutorial/IC773094.png "Assign users")
 

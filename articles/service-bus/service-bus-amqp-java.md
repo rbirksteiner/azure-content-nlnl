@@ -19,7 +19,7 @@
 
 [AZURE.INCLUDE [service-bus-selector-amqp](../../includes/service-bus-selector-amqp.md)]
 
-The Java Message Service (JMS) is a standard API for working with message-oriented middleware on the Java platform. Azure Service Bus has been tested with the AMQP 1.0 based JMS client library developed by the Apache Qpid project. This library supports the full JMS 1.1 API and can be used with any AMQP 1.0 compliant messaging service. This scenario is also supported in Service Bus for Windows Server (Service Bus on-premises). For more information, see [AMQP in Service Bus for Windows Server][].
+The Java Message Service (JMS) is a standard API for working with message-oriented middleware on the Java platform. Azure Service Bus has been tested with the AMQP 1.0 based JMS client library developed by the Apache Qpid project. This library supports the full JMS 1.1 API and can be used with any AMQP 1.0 compliant messaging service. This scenario is also supported in Service Bus for Windows Server (Service Bus on-premises). For more information, see [AMQP in Service Bus for Windows Server][].
 
 ## Downloading the Apache Qpid AMQP 1.0 JMS client library
 
@@ -179,8 +179,8 @@ The JMS specification defines how the exception contract of the API methods and 
 -   Register an **ExceptionListener** with the JMS connection using **connection.setExceptionListener**. This enables a client to be notified of a problem asynchronously. This notification is particularly important for connections that only consume messages, as they would have no other way to learn that their connection has failed. The **ExceptionListener** is called if there is a problem with the underlying AMQP connection, session, or link. In this situation, the application program should recreate the **JMS Connection**, **Session**, **MessageProducer** and **MessageConsumer** objects from scratch.
 
 -   To verify that a message has been successfully sent from a **MessageProducer** to a Service Bus entity, ensure that the application has been configured with the **qpid.sync\_publish** system property set. You can do this by starting the program with the **-Dqpid.sync\_publish=true** Java VM option set on the command line when starting the application. Setting this option configures the library to not return from the send call until confirmation has been received that the message has been accepted by Service Bus. If a problem occurs during the send operation, a **JMSException** is raised. There are two possible causes: 
-	1. If the problem is due to Service Bus rejecting the particular message being sent, then a **MessageRejectedException** exception will be raised. This error is either transitory, or due to some problem with the message. The recommended course of action is to make several attempts to retry the operation with some back-off logic. If the problem persists, then the message should be abandoned with an error logged locally. There is no need to recreate the **JMS Connection**, **Session**, or **MessageProducer** objects in this situation. 
-	2. If the problem is due to Service Bus closing the AMQP Link, then an **InvalidDestinationException** exception will be raised. This can be due to a transient problem, or due to the message entity being deleted. In either case, the **JMS Connection**, **Session**, and **MessageProducer** objects should be recreated. If the error condition was transient, then this operation will eventually be successful. If the entity has been deleted, the failure will be permanent.
+    1. If the problem is due to Service Bus rejecting the particular message being sent, then a **MessageRejectedException** exception will be raised. This error is either transitory, or due to some problem with the message. The recommended course of action is to make several attempts to retry the operation with some back-off logic. If the problem persists, then the message should be abandoned with an error logged locally. There is no need to recreate the **JMS Connection**, **Session**, or **MessageProducer** objects in this situation. 
+    2. If the problem is due to Service Bus closing the AMQP Link, then an **InvalidDestinationException** exception will be raised. This can be due to a transient problem, or due to the message entity being deleted. In either case, the **JMS Connection**, **Session**, and **MessageProducer** objects should be recreated. If the error condition was transient, then this operation will eventually be successful. If the entity has been deleted, the failure will be permanent.
 
 ## Messaging between .NET and JMS
 
@@ -445,3 +445,4 @@ Ready to learn more? Visit the following links:
 
 [Service Bus AMQP overview]: service-bus-amqp-overview.md
 [Azure classic portal]: http://manage.windowsazure.com
+

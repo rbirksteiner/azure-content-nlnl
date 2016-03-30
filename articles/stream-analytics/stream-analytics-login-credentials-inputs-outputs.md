@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Stream Analytics: Rotate log-in credentials for inputs and outputs | Microsoft Azure" 
-	description="Learn how to update the credentials for Stream Analytics inputs and outputs."
-	keywords="login credentials"
-	services="stream-analytics" 
-	documentationCenter="" 
-	authors="jeffstokes72" 
-	manager="paulettm" 
-	editor="cgronlun"/>
+    pageTitle="Stream Analytics: Rotate log-in credentials for inputs and outputs | Microsoft Azure" 
+    description="Learn how to update the credentials for Stream Analytics inputs and outputs."
+    keywords="login credentials"
+    services="stream-analytics" 
+    documentationCenter="" 
+    authors="jeffstokes72" 
+    manager="paulettm" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="stream-analytics" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="data-services" 
-	ms.date="12/04/2015" 
-	ms.author="jeffstok"/>
+    ms.service="stream-analytics" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="data-services" 
+    ms.date="12/04/2015" 
+    ms.author="jeffstok"/>
 
 #Rotate login credentials
 
@@ -121,47 +121,47 @@ Wait for the job to stop.
 ##Part 3: Editing the credentials on the Stream Analytics Job
 
 ###Blob storage/Table storage
-1.	Find the Storage Account Key field and paste your newly generated key into it:  
+1.  Find the Storage Account Key field and paste your newly generated key into it:  
 ![graphic31][graphic31]
-2.	Click the Save command and confirm saving your changes:  
+2.  Click the Save command and confirm saving your changes:  
 ![graphic32][graphic32]
-3.	A connection test will automatically start when you save your changes, make sure that is has successfully passed.
-4.	Proceed to Part 4.
+3.  A connection test will automatically start when you save your changes, make sure that is has successfully passed.
+4.  Proceed to Part 4.
 
 ###Event hubs
-1.	Find the Event Hub Policy Key field and paste your newly generated key into it:  
+1.  Find the Event Hub Policy Key field and paste your newly generated key into it:  
 ![graphic33][graphic33]
-2.	Click the Save command and confirm saving your changes:  
+2.  Click the Save command and confirm saving your changes:  
 ![graphic34][graphic34]
-3.	A connection test will automatically start when you save your changes, make sure that it has successfully passed.
-4.	Proceed to Part 4.
+3.  A connection test will automatically start when you save your changes, make sure that it has successfully passed.
+4.  Proceed to Part 4.
 
 ###Power BI
-1.	Click the Renew authorization:  
+1.  Click the Renew authorization:  
 * ![graphic35][graphic35]
 * You will get the following confirmation:  
 * ![graphic36][graphic36]
-2.	Click the Save command and confirm saving your changes:  
+2.  Click the Save command and confirm saving your changes:  
 ![graphic37][graphic37]
-3.	A connection test will automatically start when you save your changes, make sure it has successfully passed.
-4.	Proceed to Part 4.
+3.  A connection test will automatically start when you save your changes, make sure it has successfully passed.
+4.  Proceed to Part 4.
 
 ###SQL Database
-1.	Find the User Name and Password fields and paste your newly created set of credentials into them:  
+1.  Find the User Name and Password fields and paste your newly created set of credentials into them:  
 ![graphic38][graphic38]
-2.	Click the Save command and confirm saving your changes:  
+2.  Click the Save command and confirm saving your changes:  
 ![graphic39][graphic39]
-3.	A connection test will automatically start when you save your changes, make sure that it has successfully passed.  
-4.	Proceed to Part 4.
+3.  A connection test will automatically start when you save your changes, make sure that it has successfully passed.  
+4.  Proceed to Part 4.
 
 ##Part 4: Starting your job from last stopped time
-1.	Navigate away from the Input/Output:  
+1.  Navigate away from the Input/Output:  
 ![graphic40][graphic40]
-2.	Click the Start command:  
+2.  Click the Start command:  
 ![graphic41][graphic41]
-3.	Pick the Last Stopped Time and click OK:  
+3.  Pick the Last Stopped Time and click OK:  
  ![graphic42][graphic42]
-4.	Proceed to Part 5.  
+4.  Proceed to Part 5.  
 
 ##Part 5: Removing the old set of credentials
 This part is applicable to the following inputs/outputs:
@@ -177,14 +177,14 @@ Repeat Part 1 for the Access Key that was previously used by your job to renew t
 Repeat Part 1 for the Key that was previously used by your job to renew the now unused Key.
 
 ###SQL Database
-1.	Go back to the query window from Part 1 Step 7 and type in the following query, replacing <previous_login_name> with the User Name that was previously used by your job:  
+1.  Go back to the query window from Part 1 Step 7 and type in the following query, replacing <previous_login_name> with the User Name that was previously used by your job:  
 `DROP LOGIN <previous_login_name>`  
-2.	Click Run:  
-	![graphic43][graphic43]  
+2.  Click Run:  
+    ![graphic43][graphic43]  
 
 You should get the following confirmation: 
 
-	Command(s) completed successfully.
+    Command(s) completed successfully.
 
 ## Get help
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
@@ -242,3 +242,4 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 [graphic42]: ./media/stream-analytics-login-credentials-inputs-outputs/42-stream-analytics-login-credentials-inputs-outputs.png
 [graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
  
+

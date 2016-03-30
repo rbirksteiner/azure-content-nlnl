@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="Using Windows PowerShell Scripts to Publish to Dev and Test Environments | Microsoft Azure"
    description="Learn how to use Windows PowerShell scripts from Visual Studio to publish to development and test environments."
    services="visual-studio-online"
@@ -218,9 +218,9 @@ To automate building your project, add code that calls MSBuild to `New-WebDeploy
 
     ```
     [Parameter(Mandatory = $false)]
-    [ValidateScript({Test-Path $_ -PathType Leaf})]
-    [String]
-    $ProjectFile,
+    [ValidateScript({Test-Path $_ -PathType Leaf})]
+    [String]
+    $ProjectFile,
     ```
 
 1. Copy the function `Get-MSBuildCmd` into your script file.
@@ -228,19 +228,19 @@ To automate building your project, add code that calls MSBuild to `New-WebDeploy
     ```
     function Get-MSBuildCmd
     {
-            process
+            process
             {
 
-                 $path =  Get-ChildItem "HKLM:\SOFTWARE\Microsoft\MSBuild\ToolsVersions\" |
-                                       Sort-Object {[double]$_.PSChildName} -Descending |
-                                       Select-Object -First 1 |
-                                       Get-ItemProperty -Name MSBuildToolsPath |
-                                       Select -ExpandProperty MSBuildToolsPath
-           
-                $path = (Join-Path -Path $path -ChildPath 'msbuild.exe')
+                 $path =  Get-ChildItem "HKLM:\SOFTWARE\Microsoft\MSBuild\ToolsVersions\" |
+                                       Sort-Object {[double]$_.PSChildName} -Descending |
+                                       Select-Object -First 1 |
+                                       Get-ItemProperty -Name MSBuildToolsPath |
+                                       Select -ExpandProperty MSBuildToolsPath
+           
+                $path = (Join-Path -Path $path -ChildPath 'msbuild.exe')
 
-            return Get-Item $path
-        }
+            return Get-Item $path
+        }
     }
     ```
 
@@ -249,19 +249,19 @@ To automate building your project, add code that calls MSBuild to `New-WebDeploy
     ```
     function New-WebDeployPackage
       {
-        #Write a function to build and package your web application
-          
+        #Write a function to build and package your web application
+          
         #To build your web application, use MsBuild.exe. For help, see MSBuild Command-Line Reference at: http://go.microsoft.com/fwlink/?LinkId=391339
-          
+          
         Write-VerboseWithTime 'Build-WebDeployPackage: Start'
-          
+          
         $msbuildCmd = '"{0}" "{1}" /T:Rebuild;Package /P:VisualStudioVersion=14.0 /p:OutputPath="{2}\MSBuildOutputPath" /flp:logfile=msbuild.log,v=d' -f (Get-MSBuildCmd), $ProjectFile, $scriptDirectory
-          
+          
         Write-VerboseWithTime ('Build-WebDeployPackage: ' + $msbuildCmd)
-          
+          
         #Start execution of the build command
         $job = Start-Process cmd.exe -ArgumentList('/C "' + $msbuildCmd + '"') -WindowStyle Normal -Wait -PassThru
-          
+          
         if ($job.ExitCode -ne 0)
         {
           throw('MsBuild exited with an error. ExitCode:' + $job.ExitCode)
@@ -269,16 +269,16 @@ To automate building your project, add code that calls MSBuild to `New-WebDeploy
 
         #Obtain the project name
         $projectName = (Get-Item $ProjectFile).BaseName
-          
+          
         #Construct the path to web deploy zip package
-        $DeployPackageDir =  '.\MSBuildOutputPath\_PublishedWebsites\{0}_Package\{0}.zip' -f $projectName
-          
-          
+        $DeployPackageDir =  '.\MSBuildOutputPath\_PublishedWebsites\{0}_Package\{0}.zip' -f $projectName
+          
+          
         #Get the full path for the web deploy zip package. This is required for MSDeploy to work
         $WebDeployPackage = Resolve-Path –LiteralPath $DeployPackageDir
-          
+          
         Write-VerboseWithTime 'Build-WebDeployPackage: End'
-          
+          
         return $WebDeployPackage
       }
     ```
@@ -350,3 +350,4 @@ To get help for functions you can use at the Windows PowerShell command prompt, 
 ## Next steps
 
 Learn more about PowerShell scripting by reading [Scripting with Windows PowerShell](https://technet.microsoft.com/library/bb978526.aspx) and see other Azure PowerShell scripts at the [Script Center](https://azure.microsoft.com/documentation/scripts/).
+

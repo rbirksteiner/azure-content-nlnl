@@ -1,22 +1,22 @@
 <properties
-	pageTitle="DocumentDB Automation - Resource Manager - CLI | Microsoft Azure"
-	description="Use Azure Resource Manager templates or CLI to deploy a DocumentDB database account. DocumentDB is a cloud-based NoSQL database for JSON data."
-	services="documentdb"
-	authors="mimig1"
-	manager="jhubbard"
-	editor=""
+    pageTitle="DocumentDB Automation - Resource Manager - CLI | Microsoft Azure"
+    description="Use Azure Resource Manager templates or CLI to deploy a DocumentDB database account. DocumentDB is a cloud-based NoSQL database for JSON data."
+    services="documentdb"
+    authors="mimig1"
+    manager="jhubbard"
+    editor=""
     tags="azure-resource-manager"
-	documentationCenter=""/>
+    documentationCenter=""/>
 
 
 <tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/03/2015" 
-	ms.author="mimig"/>
+    ms.service="documentdb" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/03/2015" 
+    ms.author="mimig"/>
 
 # Automate DocumentDB account creation using Azure Resource Manager templates and Azure CLI
 
@@ -39,7 +39,7 @@ Before you can use the Azure CLI with Azure resource groups, you need to have th
 
 At the command prompt, type `azure --version` to see whether you have already installed version 0.9.11 or later.
 
-	azure --version
+    azure --version
     0.9.11 (node: 0.12.7)
 
 If your version is not 0.9.11 or later, you need to either [install the Azure CLI](../xplat-cli-install.md) or update by using one of the native installers, or through **npm** by typing `npm update -g azure-cli` to update or `npm install -g azure-cli` to install.
@@ -50,7 +50,7 @@ If you don't already have an Azure subscription but you do have a Visual Studio 
 
 You need to have a work or school account or a Microsoft account identity to use Azure resource management templates. If you have one of these accounts, type the following command.
 
-	azure login
+    azure login
 
 Which produces the following output: 
 
@@ -76,8 +76,8 @@ You'll receive the following confirmation screen when you're successfully logged
 The command shell also provides the following output.
 
     -info:    Added subscription Visual Studio Ultimate with MSDN
-	+
-	info:    login command OK
+    +
+    info:    login command OK
 
 In addition to the interactive login method described here, there are additional Azure CLI login methods available. For more information about the other methods and information about handling multiple subscriptions, see [Connect to an Azure subscription from the Azure Command-Line Interface (Azure CLI)](../xplat-cli-connect.md).
 
@@ -85,11 +85,11 @@ In addition to the interactive login method described here, there are additional
 
 By default, the Azure CLI starts in the service management mode (**asm** mode). Type the following to switch to resource group mode.
 
-	azure config mode arm
+    azure config mode arm
 
 Which provides the following output:
 
-	info:    New mode is arm
+    info:    New mode is arm
 
 You can switch back to the default set of commands by typing `azure config mode asm`.
 
@@ -107,14 +107,14 @@ To review a list of all of your current resource groups, run the following comma
 
 To create a new resource group, run the following command, specify the name of the new resource group to create, and the region in which to create the resource group: 
 
-	azure group create <resourcegroupname> <resourcegrouplocation>
+    azure group create <resourcegroupname> <resourcegrouplocation>
 
  - `<resourcegroupname>` can only use alphanumeric characters, periods, underscores, the '-' character, and parenthesis and cannot end in a period. 
  - `<resourcegrouplocation>` must be one of the regions in which DocumentDB is generally available. The current list of regions is provided on the [Azure Regions page](https://azure.microsoft.com/regions/#services).
 
 Example input:
 
-	azure group create new_res_group westus
+    azure group create new_res_group westus
 
 Which produces the following output:
 
@@ -235,14 +235,14 @@ To review a list of all of your current resource groups, run the following comma
 
 To create a new resource group, run the following command, specify the name of the new resource group to create, and the region in which to create the resource group: 
 
-	azure group create <resourcegroupname> <databaseaccountlocation>
+    azure group create <resourcegroupname> <databaseaccountlocation>
 
  - `<resourcegroupname>` can only use alphanumeric characters, periods, underscores, the '-' character, and parenthesis and cannot end in a period. 
  - `<databaseaccountlocation>` must be one of the regions in which DocumentDB is generally available. The current list of regions is provided on the [Azure Regions page](https://azure.microsoft.com/regions/#services).
 
 Example input:
 
-	azure group create new_res_group westus
+    azure group create new_res_group westus
 
 Which produces the following output:
 
@@ -320,11 +320,11 @@ If you receive errors like `Deployment provisioning state was not successful` wh
 
 - You may find useful info in the log file for the resource group. To view the log file, run the following command:
 
-    	azure group log show <resourcegroupname> --last-deployment
+        azure group log show <resourcegroupname> --last-deployment
 
     Example input:
 
-    	azure group log show new_res_group --last-deployment
+        azure group log show new_res_group --last-deployment
 
     Then see [Troubleshooting resource group deployments in Azure](../resource-group-deploy-debug.md) for additional  information.
 
@@ -346,7 +346,7 @@ After you have documents in a collection, you can use [DocumentDB SQL](documentd
 
 To learn more about DocumentDB, explore these resources:
 
--	[Learning path for DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
--	[DocumentDB resource model and concepts](documentdb-resources.md)
+-   [Learning path for DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
+-   [DocumentDB resource model and concepts](documentdb-resources.md)
 
 For more templates you can use, see [Azure Quickstart templates](http://azure.microsoft.com/documentation/templates/).

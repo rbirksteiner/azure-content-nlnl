@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Move data to and from DocumentDB | Azure Data Factory" 
-	description="Learn how move data to/from Azure DocumentDB collection using Azure Data Factory" 
-	services="data-factory, documentdb" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
-	editor="monicar"/>
+    pageTitle="Move data to and from DocumentDB | Azure Data Factory" 
+    description="Learn how move data to/from Azure DocumentDB collection using Azure Data Factory" 
+    services="data-factory, documentdb" 
+    documentationCenter="" 
+    authors="spelluru" 
+    manager="jhubbard" 
+    editor="monicar"/>
 
 <tags 
-	ms.service="multiple" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/15/2015" 
-	ms.author="spelluru"/>
+    ms.service="multiple" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/15/2015" 
+    ms.author="spelluru"/>
 
 # Move data to and from DocumentDB using Azure Data Factory
 
@@ -34,27 +34,27 @@ The sample copies data in Azure DocumentDB to Azure Blob. The JSON properties us
 
 **Azure DocumentDB linked service:**
 
-	{
-	  "name": "DocumentDbLinkedService",
-	  "properties": {
-	    "type": "DocumentDb",
-	    "typeProperties": {
-	      "connectionString": "AccountEndpoint=<EndpointUrl>;AccountKey=<AccessKey>;Database=<Database>"
-	    }
-	  }
-	}
+    {
+      "name": "DocumentDbLinkedService",
+      "properties": {
+        "type": "DocumentDb",
+        "typeProperties": {
+          "connectionString": "AccountEndpoint=<EndpointUrl>;AccountKey=<AccessKey>;Database=<Database>"
+        }
+      }
+    }
 
 **Azure Blob storage linked service:**
 
-	{
-	  "name": "StorageLinkedService",
-	  "properties": {
-	    "type": "AzureStorage",
-	    "typeProperties": {
-	      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-	    }
-	  }
-	}
+    {
+      "name": "StorageLinkedService",
+      "properties": {
+        "type": "AzureStorage",
+        "typeProperties": {
+          "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+        }
+      }
+    }
 
 **Azure Document DB input dataset:**
 
@@ -62,104 +62,104 @@ The sample assumes you have a collection named **Person** in an Azure DocumentDB
  
 Setting “external”: ”true” and specifying externalData policy information the Azure Data Factory service that the table is external to the data factory and not produced by an activity in the data factory.
 
-	{
-	  "name": "PersonDocumentDbTable",
-	  "properties": {
-	    "type": "DocumentDbCollection",
-	    "linkedServiceName": "DocumentDbLinkedService",
-	    "typeProperties": {
-	      "collectionName": "Person"
-	    },
-	    "external": true,
-	    "availability": {
-	      "frequency": "Day",
-	      "interval": 1
-	    }
-	  }
-	}
+    {
+      "name": "PersonDocumentDbTable",
+      "properties": {
+        "type": "DocumentDbCollection",
+        "linkedServiceName": "DocumentDbLinkedService",
+        "typeProperties": {
+          "collectionName": "Person"
+        },
+        "external": true,
+        "availability": {
+          "frequency": "Day",
+          "interval": 1
+        }
+      }
+    }
 
 
 **Azure Blob output dataset:**
 
 Data is copied to a new blob every hour with the path for the blob reflecting the specific datetime with hour granularity.
 
-	{
-	  "name": "PersonBlobTableOut",
-	  "properties": {
-	    "type": "AzureBlob",
-	    "linkedServiceName": "StorageLinkedService",
-	    "typeProperties": {
-	      "folderPath": "docdb",
-	      "format": {
-	        "type": "TextFormat",
-	        "columnDelimiter": ",",
-	        "nullValue": "NULL"
-	      }
-	    },
-	    "availability": {
-	      "frequency": "Day",
-	      "interval": 1
-	    }
-	  }
-	}
+    {
+      "name": "PersonBlobTableOut",
+      "properties": {
+        "type": "AzureBlob",
+        "linkedServiceName": "StorageLinkedService",
+        "typeProperties": {
+          "folderPath": "docdb",
+          "format": {
+            "type": "TextFormat",
+            "columnDelimiter": ",",
+            "nullValue": "NULL"
+          }
+        },
+        "availability": {
+          "frequency": "Day",
+          "interval": 1
+        }
+      }
+    }
 
 Sample JSON document in the Person collection in a DocumentDB database: 
 
-	{
-	  "PersonId": 2,
-	  "Name": {
-	    "First": "Jane",
-	    "Middle": "",
-	    "Last": "Doe"
-	  }
-	}
+    {
+      "PersonId": 2,
+      "Name": {
+        "First": "Jane",
+        "Middle": "",
+        "Last": "Doe"
+      }
+    }
 
 DocumentDB supports querying documents using a SQL like syntax over hierarchical JSON documents. 
 
 Example: 
-	SELECT Person.PersonId, Person.Name.First AS FirstName, Person.Name.Middle as MiddleName, Person.Name.Last AS LastName FROM Person
+    SELECT Person.PersonId, Person.Name.First AS FirstName, Person.Name.Middle as MiddleName, Person.Name.Last AS LastName FROM Person
 
 The following pipeline copies data from the Person collection in the DocumentDB database to an Azure blob. As part of the copy activity the input and output datasets have been specified.  
-	
-	{
-	  "name": "DocDbToBlobPipeline",
-	  "properties": {
-	    "activities": [
-	      {
-	        "type": "Copy",
-	        "typeProperties": {
-	          "source": {
-	            "type": "DocumentDbCollectionSource",
-	            "query": "SELECT Person.Id, Person.Name.First AS FirstName, Person.Name.Middle as MiddleName, Person.Name.Last AS LastName FROM Person",
-	            "nestingSeparator": "."
-	          },
-	          "sink": {
-	            "type": "BlobSink",
-	            "blobWriterAddHeader": true,
-	            "writeBatchSize": 1000,
-	            "writeBatchTimeout": "00:00:59"
-	          }
-	        },
-	        "inputs": [
-	          {
-	            "name": "PersonDocumentDbTable"
-	          }
-	        ],
-	        "outputs": [
-	          {
-	            "name": "PersonBlobTableOut"
-	          }
-	        ],
-	        "policy": {
-	          "concurrency": 1
-	        },
-	        "name": "CopyFromDocDbToBlob"
-	      }
-	    ],
-	    "start": "2015-04-01T00:00:00Z",
-	    "end": "2015-04-02T00:00:00Z"
-	  }
-	}
+    
+    {
+      "name": "DocDbToBlobPipeline",
+      "properties": {
+        "activities": [
+          {
+            "type": "Copy",
+            "typeProperties": {
+              "source": {
+                "type": "DocumentDbCollectionSource",
+                "query": "SELECT Person.Id, Person.Name.First AS FirstName, Person.Name.Middle as MiddleName, Person.Name.Last AS LastName FROM Person",
+                "nestingSeparator": "."
+              },
+              "sink": {
+                "type": "BlobSink",
+                "blobWriterAddHeader": true,
+                "writeBatchSize": 1000,
+                "writeBatchTimeout": "00:00:59"
+              }
+            },
+            "inputs": [
+              {
+                "name": "PersonDocumentDbTable"
+              }
+            ],
+            "outputs": [
+              {
+                "name": "PersonBlobTableOut"
+              }
+            ],
+            "policy": {
+              "concurrency": 1
+            },
+            "name": "CopyFromDocDbToBlob"
+          }
+        ],
+        "start": "2015-04-01T00:00:00Z",
+        "end": "2015-04-02T00:00:00Z"
+      }
+    }
 
 ## Sample: Copy data from Azure Blob to Azure DocumentDB
 
@@ -175,168 +175,168 @@ The sample below shows:
 The sample copies data from Azure blob to Azure DocumentDB. The JSON properties used in these samples are described in sections following the samples.
 
 **Azure Blob storage linked service:**
-	
-	{
-	  "name": "StorageLinkedService",
-	  "properties": {
-	    "type": "AzureStorage",
-	    "typeProperties": {
-	      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-	    }
-	  }
-	}
+    
+    {
+      "name": "StorageLinkedService",
+      "properties": {
+        "type": "AzureStorage",
+        "typeProperties": {
+          "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+        }
+      }
+    }
 
 **Azure DocumentDB linked service:**
-	
-	{
-	  "name": "DocumentDbLinkedService",
-	  "properties": {
-	    "type": "DocumentDb",
-	    "typeProperties": {
-	      "connectionString": "AccountEndpoint=<EndpointUrl>;AccountKey=<AccessKey>;Database=<Database>"
-	    }
-	  }
-	}
+    
+    {
+      "name": "DocumentDbLinkedService",
+      "properties": {
+        "type": "DocumentDb",
+        "typeProperties": {
+          "connectionString": "AccountEndpoint=<EndpointUrl>;AccountKey=<AccessKey>;Database=<Database>"
+        }
+      }
+    }
 
 **Azure Blob input dataset:**
 
-	{
-	  "name": "PersonBlobTableIn",
-	  "properties": {
-	    "structure": [
-	      {
-	        "name": "Id",
-	        "type": "Int"
-	      },
-	      {
-	        "name": "FirstName",
-	        "type": "String"
-	      },
-	      {
-	        "name": "MiddleName",
-	        "type": "String"
-	      },
-	      {
-	        "name": "LastName",
-	        "type": "String"
-	      }
-	    ],
-	    "type": "AzureBlob",
-	    "linkedServiceName": "StorageLinkedService",
-	    "typeProperties": {
-	      "fileName": "input.csv",
-	      "folderPath": "docdb",
-	      "format": {
-	        "type": "TextFormat",
-	        "columnDelimiter": ",",
-	        "nullValue": "NULL"
-	      }
-	    },
-	    "external": true,
-	    "availability": {
-	      "frequency": "Day",
-	      "interval": 1
-	    }
-	  }
-	}
+    {
+      "name": "PersonBlobTableIn",
+      "properties": {
+        "structure": [
+          {
+            "name": "Id",
+            "type": "Int"
+          },
+          {
+            "name": "FirstName",
+            "type": "String"
+          },
+          {
+            "name": "MiddleName",
+            "type": "String"
+          },
+          {
+            "name": "LastName",
+            "type": "String"
+          }
+        ],
+        "type": "AzureBlob",
+        "linkedServiceName": "StorageLinkedService",
+        "typeProperties": {
+          "fileName": "input.csv",
+          "folderPath": "docdb",
+          "format": {
+            "type": "TextFormat",
+            "columnDelimiter": ",",
+            "nullValue": "NULL"
+          }
+        },
+        "external": true,
+        "availability": {
+          "frequency": "Day",
+          "interval": 1
+        }
+      }
+    }
 
 **Azure DocumentDB output dataset:**
 
 The sample copies data to a collection named “Person”.
 
-	{
-	  "name": "PersonDocumentDbTableOut",
-	  "properties": {
-	    "structure": [
-	      {
-	        "name": "Id",
-	        "type": "Int"
-	      },
-	      {
-	        "name": "Name.First",
-	        "type": "String"
-	      },
-	      {
-	        "name": "Name.Middle",
-	        "type": "String"
-	      },
-	      {
-	        "name": "Name.Last",
-	        "type": "String"
-	      }
-	    ],
-	    "type": "DocumentDbCollection",
-	    "linkedServiceName": "DocumentDbLinkedService",
-	    "typeProperties": {
-	      "collectionName": "Person"
-	    },
-	    "availability": {
-	      "frequency": "Day",
-	      "interval": 1
-	    }
-	  }
-	}
+    {
+      "name": "PersonDocumentDbTableOut",
+      "properties": {
+        "structure": [
+          {
+            "name": "Id",
+            "type": "Int"
+          },
+          {
+            "name": "Name.First",
+            "type": "String"
+          },
+          {
+            "name": "Name.Middle",
+            "type": "String"
+          },
+          {
+            "name": "Name.Last",
+            "type": "String"
+          }
+        ],
+        "type": "DocumentDbCollection",
+        "linkedServiceName": "DocumentDbLinkedService",
+        "typeProperties": {
+          "collectionName": "Person"
+        },
+        "availability": {
+          "frequency": "Day",
+          "interval": 1
+        }
+      }
+    }
 
-The following pipeline copies data from Azure Blob to the Person collection in the 	DocumentDB. As part of the copy activity the input and output datasets have been specified. 
-	
-	{
-	  "name": "BlobToDocDbPipeline",
-	  "properties": {
-	    "activities": [
-	      {
-	        "type": "Copy",
-	        "typeProperties": {
-	          "source": {
-	            "type": "BlobSource"
-	          },
-	          "sink": {
-	            "type": "DocumentDbCollectionSink",
-	            "nestingSeparator": ".",
-	            "writeBatchSize": 2,
-	            "writeBatchTimeout": "00:00:00"
-	          }
-	          "translator": {
-	              "type": "TabularTranslator",
-	              "ColumnMappings": "FirstName: Name.First, MiddleName: Name.Middle, LastName: Name.Last, BusinessEntityID: BusinessEntityID, PersonType: PersonType, NameStyle: NameStyle, Title: Title, Suffix: Suffix, EmailPromotion: EmailPromotion, rowguid: rowguid, ModifiedDate: ModifiedDate"
-	          }
-	        },
-	        "inputs": [
-	          {
-	            "name": "PersonBlobTableIn"
-	          }
-	        ],
-	        "outputs": [
-	          {
-	            "name": "PersonDocumentDbTableOut"
-	          }
-	        ],
-	        "policy": {
-	          "concurrency": 1
-	        },
-	        "name": "CopyFromBlobToDocDb"
-	      }
-	    ],
-	    "start": "2015-04-14T00:00:00Z",
-	    "end": "2015-04-15T00:00:00Z"
-	  }
-	}
+The following pipeline copies data from Azure Blob to the Person collection in the  DocumentDB. As part of the copy activity the input and output datasets have been specified. 
+    
+    {
+      "name": "BlobToDocDbPipeline",
+      "properties": {
+        "activities": [
+          {
+            "type": "Copy",
+            "typeProperties": {
+              "source": {
+                "type": "BlobSource"
+              },
+              "sink": {
+                "type": "DocumentDbCollectionSink",
+                "nestingSeparator": ".",
+                "writeBatchSize": 2,
+                "writeBatchTimeout": "00:00:00"
+              }
+              "translator": {
+                  "type": "TabularTranslator",
+                  "ColumnMappings": "FirstName: Name.First, MiddleName: Name.Middle, LastName: Name.Last, BusinessEntityID: BusinessEntityID, PersonType: PersonType, NameStyle: NameStyle, Title: Title, Suffix: Suffix, EmailPromotion: EmailPromotion, rowguid: rowguid, ModifiedDate: ModifiedDate"
+              }
+            },
+            "inputs": [
+              {
+                "name": "PersonBlobTableIn"
+              }
+            ],
+            "outputs": [
+              {
+                "name": "PersonDocumentDbTableOut"
+              }
+            ],
+            "policy": {
+              "concurrency": 1
+            },
+            "name": "CopyFromBlobToDocDb"
+          }
+        ],
+        "start": "2015-04-14T00:00:00Z",
+        "end": "2015-04-15T00:00:00Z"
+      }
+    }
  
 If the sample blob input is as 
 
-	1,John,,Doe
+    1,John,,Doe
 
 Then the output JSON in DocumentDB will be as:
 
-	{
-	  "Id": 1,
-	  "Name": {
-	    "First": "John",
-	    "Middle": null,
-	    "Last": "Doe"
-	  },
-	  "id": "a5e8595c-62ec-4554-a118-3940f4ff70b6"
-	}
-	
+    {
+      "Id": 1,
+      "Name": {
+        "First": "John",
+        "Middle": null,
+        "Last": "Doe"
+      },
+      "id": "a5e8595c-62ec-4554-a118-3940f4ff70b6"
+    }
+    
 DocumentDB is a NoSQL store for JSON documents, where nested structures are allowed. Azure Data Factory enables user to denote hierarchy via **nestingSeparator**, which is “.” in this example. With the separator, the copy activity will generate the “Name” object with three children elements First, Middle and Last, according to “Name.First”, “Name.Middle” and “Name.Last” in the table definition.
 
 ## Azure DocumentDB Linked Service properties
@@ -361,21 +361,21 @@ The typeProperties section is different for each type of dataset and provides in
 
 Example:
 
-	{
-	  "name": "PersonDocumentDbTable",
-	  "properties": {
-	    "type": "DocumentDbCollection",
-	    "linkedServiceName": "DocumentDbLinkedService",
-	    "typeProperties": {
-	      "collectionName": "Person"
-	    },
-	    "external": true,
-	    "availability": {
-	      "frequency": "Day",
-	      "interval": 1
-	    }
-	  }
-	}
+    {
+      "name": "PersonDocumentDbTable",
+      "properties": {
+        "type": "DocumentDbCollection",
+        "linkedServiceName": "DocumentDbLinkedService",
+        "typeProperties": {
+          "collectionName": "Person"
+        },
+        "external": true,
+        "availability": {
+          "frequency": "Day",
+          "interval": 1
+        }
+      }
+    }
 
 ## Azure DocumentDB Copy Activity type properties
 
@@ -397,31 +397,32 @@ the following properties are available in **typeProperties** section:
 
 | **Property** | **Description** | **Allowed values** | **Required** |
 | -------- | ----------- | -------------- | -------- |
-| nestingSeparator | A special character in the source column name to indicate that nested document is needed. <p>For example above: Name.First in the output table produces the following JSON structure in the DocumentDB document:</p><p>"Name": {<br/>	"First": "John"<br/>},</p> | Character that is used to separate nesting levels.<p>Default value is . (dot).</p> | Character that is used to separate nesting levels. <p>Default value is . (dot).</p> | No | 
+| nestingSeparator | A special character in the source column name to indicate that nested document is needed. <p>For example above: Name.First in the output table produces the following JSON structure in the DocumentDB document:</p><p>"Name": {<br/>  "First": "John"<br/>},</p> | Character that is used to separate nesting levels.<p>Default value is . (dot).</p> | Character that is used to separate nesting levels. <p>Default value is . (dot).</p> | No | 
 | writeBatchSize | Number of parallel requests to DocumentDB service to create documents.<p>You can fine tune the performance when copying data to/from DocumentDB by using this property. You can expect a better performance when you increase writeBatchSize because more parallel requests to DocumentDB are sent. However you’ll need to avoid throttling that can throw the error message: "Request rate is large".</p><p>Throttling is decided by a number of factors, including size of documents, number of terms in documents, indexing policy of target collection, etc. For copy operations, you can use a better collection (e.g. S3) to have the most throughput available (2,500 request units/second).</p> | Integer Value | No |
 | writeBatchTimeout | Wait time for the operation to complete before it times out. | (Unit = timespan) Example: “00:30:00” (30 minutes). | No |
  
 ## Appendix
 1. **Question:** 
-	Does the Copy Activity support update of existing records?
+    Does the Copy Activity support update of existing records?
 
-	**Answer:** 
-	No.
+    **Answer:** 
+    No.
 
 2. **Question:** 
-	How does a retry of a copy to DocumentDB deal with already copied records?
+    How does a retry of a copy to DocumentDB deal with already copied records?
 
-	**Answer:** 
-	If records have an "ID" field and the copy operation tries to insert a record with the same ID, the copy operation throws an error.  
+    **Answer:** 
+    If records have an "ID" field and the copy operation tries to insert a record with the same ID, the copy operation throws an error.  
  
 3. **Question:**
-	Does Data Factory support [range or hash-based data partitioning](https://azure.microsoft.com/documentation/articles/documentdb-partition-data/)? 
+    Does Data Factory support [range or hash-based data partitioning](https://azure.microsoft.com/documentation/articles/documentdb-partition-data/)? 
 
-	**Answer:**
-	No. 
+    **Answer:**
+    No. 
 4. **Question:**
-	Can I specify more than one DocumentDB collection for a table?
-	
-	**Answer:**
-	No. Only one collection can be specified at this time.
+    Can I specify more than one DocumentDB collection for a table?
+    
+    **Answer:**
+    No. Only one collection can be specified at this time.
      
+

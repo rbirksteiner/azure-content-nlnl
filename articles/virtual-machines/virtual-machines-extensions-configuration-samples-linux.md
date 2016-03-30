@@ -196,3 +196,4 @@ In the examples above, replace the version number with the latest version number
 Here is a full VM template for creating a Linux VM with an extension:
 
 [Custom Script Extension on a Linux VM](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
+

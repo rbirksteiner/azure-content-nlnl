@@ -22,3 +22,4 @@
 ## Virtual Network Cross-premises Connectivity (VPNs)
 
 For the latest FAQ on virtual network VPNs, see the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md).
+

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Configure Content Key Authorization Policy using Portal" 
-	description="Learn how to configure an authorization policy for a content key." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="juliako" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="Configure Content Key Authorization Policy using Portal" 
+    description="Learn how to configure an authorization policy for a content key." 
+    services="media-services" 
+    documentationCenter="" 
+    authors="juliako" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/04/2015" 
-	ms.author="juliako"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/04/2015" 
+    ms.author="juliako"/>
 
 
 
@@ -47,7 +47,7 @@ If you plan to have multiple content keys or want to specify a **Key\License Del
 ##How to: configure the key authorization policy
 
 To configure the key authorization policy, select the **CONTENT PROTECTION** page.
-	
+    
 Media Services supports multiple ways of authenticating users who make key requests. The content key authorization policy can have **open**, **token**, or **IP** authorization restrictions (**IP** can be configured with REST or .NET SDK). 
 
 ###Open restriction
@@ -69,18 +69,18 @@ When configuring the **TOKEN** restricted policy, you must set values for **veri
 ###PlayReady
 
 When protecting your content with **PlayReady**, one of the things you need to specify in your authorization policy is an XML string that defines the PlayReady license template. By default, the following policy is set:
-		
-	<PlayReadyLicenseResponseTemplate xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1">
-	  <LicenseTemplates>
-	    <PlayReadyLicenseTemplate><AllowTestDevices>true</AllowTestDevices>
-	      <ContentKey i:type="ContentEncryptionKeyFromHeader" />
-	      <LicenseType>Nonpersistent</LicenseType>
-	      <PlayRight>
-	        <AllowPassingVideoContentToUnknownOutput>Allowed</AllowPassingVideoContentToUnknownOutput>
-	      </PlayRight>
-	    </PlayReadyLicenseTemplate>
-	  </LicenseTemplates>
-	</PlayReadyLicenseResponseTemplate>
+        
+    <PlayReadyLicenseResponseTemplate xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1">
+      <LicenseTemplates>
+        <PlayReadyLicenseTemplate><AllowTestDevices>true</AllowTestDevices>
+          <ContentKey i:type="ContentEncryptionKeyFromHeader" />
+          <LicenseType>Nonpersistent</LicenseType>
+          <PlayRight>
+            <AllowPassingVideoContentToUnknownOutput>Allowed</AllowPassingVideoContentToUnknownOutput>
+          </PlayRight>
+        </PlayReadyLicenseTemplate>
+      </LicenseTemplates>
+    </PlayReadyLicenseResponseTemplate>
 
 You can click the **import policy xml** button and provide a different XML which conforms to the  XML Schema defined [here](https://msdn.microsoft.com/library/azure/dn783459.aspx).
 

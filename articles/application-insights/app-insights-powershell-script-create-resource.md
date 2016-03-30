@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="PowerShell script to create an Application Insights resource" 
-	description="Automate creation of Application Insights resources." 
-	services="application-insights" 
+    pageTitle="PowerShell script to create an Application Insights resource" 
+    description="Automate creation of Application Insights resources." 
+    services="application-insights" 
     documentationCenter="windows"
-	authors="alancameronwills" 
-	manager="douge"/>
+    authors="alancameronwills" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/21/2015" 
-	ms.author="awills"/>
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/21/2015" 
+    ms.author="awills"/>
 
 #  PowerShell script to create an Application Insights resource
 

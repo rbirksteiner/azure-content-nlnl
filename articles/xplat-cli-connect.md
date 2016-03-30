@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Log in to Azure from the CLI | Microsoft Azure"
-	description="Connect to your Azure subscription from the Azure Command-Line Interface (Azure CLI) for Mac, Linux, and Windows"
-	editor="tysonn"
-	manager="timlt"
-	documentationCenter=""
-	authors="dlepow"
-	services=""
-	tags="azure-resource-manager,azure-service-management"/>
+    pageTitle="Log in to Azure from the CLI | Microsoft Azure"
+    description="Connect to your Azure subscription from the Azure Command-Line Interface (Azure CLI) for Mac, Linux, and Windows"
+    editor="tysonn"
+    manager="timlt"
+    documentationCenter=""
+    authors="dlepow"
+    services=""
+    tags="azure-resource-manager,azure-service-management"/>
 
 <tags
-	ms.service="multiple"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="command-line-interface"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/30/2015"
-	ms.author="danlep"/>
+    ms.service="multiple"
+    ms.workload="multiple"
+    ms.tgt_pltfrm="command-line-interface"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/30/2015"
+    ms.author="danlep"/>
 
 # Connect to an Azure subscription from the Azure Command-Line Interface (Azure CLI)
 
@@ -52,39 +52,39 @@ Use the `azure login` command -- without any arguments -- to authenticate intera
 
 Interactively logging in is easy: type `azure login` and follow the prompts as shown below:
 
-	azure login                                                                                                                                                                                         
-	info:    Executing command login
-	info:    To sign in, use a web browser to open the page http://aka.ms/devicelogin. Enter the code XXXXXXXXX to authenticate. If you're signing in as an Azure AD application, use the --username and --password parameters.
+    azure login                                                                                                                                                                                         
+    info:    Executing command login
+    info:    To sign in, use a web browser to open the page http://aka.ms/devicelogin. Enter the code XXXXXXXXX to authenticate. If you're signing in as an Azure AD application, use the --username and --password parameters.
 
 Copy the code offered to you, above, and open a browser to http://aka.ms/devicelogin. Enter the code, and then you are prompted to enter the username and password for the identity you want to use. When that process completes, the command shell completes the log in process. It might look something like:
 
-	info:    Added subscription Visual Studio Ultimate with MSDN
-	info:    Added subscription Azure Free Trial
-	info:    Setting subscription "Visual Studio Ultimate with MSDN" as default
-	+
-	info:    login command OK
+    info:    Added subscription Visual Studio Ultimate with MSDN
+    info:    Added subscription Azure Free Trial
+    info:    Setting subscription "Visual Studio Ultimate with MSDN" as default
+    +
+    info:    login command OK
 
 ## Use non-interactive log in with a work or school account
 
 
 The non-interactive log in method only works with a work or school account, also called an *organizational account*. This account is managed by your organization, and defined in your organization's Azure Active Directory. You can [create an orgnizational account](#create-an-organizational-account) if you don't have one, or you can [create a work or school ID from your Microsoft account id](./virtual-machines/resource-group-create-work-id-from-personal.md). This requires you to specify either a username or a username and a password to the `azure login` command, like so:
 
-	azure login -u ahmet@contoso.onmicrosoft.com
-	info:    Executing command login
-	Password: *********
-	|info:    Added subscription Visual Studio Ultimate with MSDN
-	+
-	info:    login command OK
+    azure login -u ahmet@contoso.onmicrosoft.com
+    info:    Executing command login
+    Password: *********
+    |info:    Added subscription Visual Studio Ultimate with MSDN
+    +
+    info:    login command OK
 
 Enter your password when prompted.
 
-	If this is your first time logging in with these credentials, you are asked to verify that you wish to cache an authentication token. This prompt also occurs if you have previously used the `azure logout` command (described below). To bypass this prompt for automation scenarios, run `azure login` with the `-q` parameter.
+    If this is your first time logging in with these credentials, you are asked to verify that you wish to cache an authentication token. This prompt also occurs if you have previously used the `azure logout` command (described below). To bypass this prompt for automation scenarios, run `azure login` with the `-q` parameter.
 
 * **To log out**, use the following command:
 
-		azure logout -u <username>
+        azure logout -u <username>
 
-	If the subscriptions associated with the account were only authenticated with Active Directory, logging out deletes the subscription information from the local profile. However, if a publish settings file had also been imported for the subscriptions, logging out only deletes Active Directory related information from the local profile.
+    If the subscriptions associated with the account were only authenticated with Active Directory, logging out deletes the subscription information from the local profile. However, if a publish settings file had also been imported for the subscriptions, logging out only deletes Active Directory related information from the local profile.
 
 ## Use the publish settings file method
 
@@ -92,34 +92,34 @@ If you only need to use the classic (Service Management) CLI commands, you can c
 
 * **To download the publish settings file** for your account, use the following command:
 
-		azure account download
+        azure account download
 
 This opens your default browser and prompts you to sign in to the [Azure classic portal][portal]. After you sign in, a `.publishsettings` file downloads. Make note of where this file is saved.
 
-	> [AZURE.NOTE] If your account is associated with multiple Azure Active Directory tenants, you may be prompted to select which Active Directory you wish to download a publish settings file for.
-	>
-	> Once selected using the download page, or by visiting the Azure classic portal, the selected Active Directory becomes the default used by the classic portal and download page. Once a default has been established, you will see the text '__click here to return to the selection page__' at the top of the download page. Use the provided link to return to the selection page.
+    > [AZURE.NOTE] If your account is associated with multiple Azure Active Directory tenants, you may be prompted to select which Active Directory you wish to download a publish settings file for.
+    >
+    > Once selected using the download page, or by visiting the Azure classic portal, the selected Active Directory becomes the default used by the classic portal and download page. Once a default has been established, you will see the text '__click here to return to the selection page__' at the top of the download page. Use the provided link to return to the selection page.
 
 * **To import the publish settings file**, run the following command:
 
-		azure account import <path to your .publishsettings file>
+        azure account import <path to your .publishsettings file>
 
-	After importing your publish settings, you should delete the `.publishsettings` file, as it is no longer required by the Azure CLI and presents a security risk as it can be used to gain access to your subscription.
+    After importing your publish settings, you should delete the `.publishsettings` file, as it is no longer required by the Azure CLI and presents a security risk as it can be used to gain access to your subscription.
 
 
 ## Multiple subscriptions
 
 If you have multiple Azure subscriptions, connecting to Azure will grant access to all subscriptions associated with your credentials. One subscription is selected as the default, and used by the Azure CLI when performing operations. You can view the subscriptions, as well as which one is the default, using the `azure account list` command. This command returns information similar to the following:
 
-	info:    Executing command account list
-	data:    Name              Id                                    Current
-	data:    ----------------  ------------------------------------  -------
-	data:    Azure-sub-1       ####################################  true
-	data:    Azure-sub-2       ####################################  false
+    info:    Executing command account list
+    data:    Name              Id                                    Current
+    data:    ----------------  ------------------------------------  -------
+    data:    Azure-sub-1       ####################################  true
+    data:    Azure-sub-2       ####################################  false
 
 In the above list, the **Current** column indicates the current default subscription as Azure-sub-1. To change the default subscription, use the `azure account set` command, and specify the subscription that you wish to be the default. For example:
 
-	azure account set Azure-sub-2
+    azure account set Azure-sub-2
 
 This changes the default subscription to Azure-sub-2.
 
@@ -157,3 +157,4 @@ Whether you log in with a work or school account or import publish settings, you
 [signuporg]: http://azure.microsoft.com/en-us/documentation/articles/sign-up-organization/
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: xplat-cli-azure-resource-manager.md
+

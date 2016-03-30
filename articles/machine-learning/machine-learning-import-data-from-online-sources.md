@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Import data into Machine Learning Studio from online data sources | Microsoft Azure"
-	description="How to import your training data Azure Machine Learning Studio from various online sources."
-	keywords="import data,data format,data types,data sources,training data"
-	services="machine-learning"
-	documentationCenter=""
-	authors="bradsev"
-	manager="paulettm"
-	editor="cgronlun"/>
+    pageTitle="Import data into Machine Learning Studio from online data sources | Microsoft Azure"
+    description="How to import your training data Azure Machine Learning Studio from various online sources."
+    keywords="import data,data format,data types,data sources,training data"
+    services="machine-learning"
+    documentationCenter=""
+    authors="bradsev"
+    manager="paulettm"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/07/2015"
-	ms.author="bradsev;garye;gopitk" />
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/07/2015"
+    ms.author="bradsev;garye;gopitk" />
 
 
 # Import data into Azure Machine Learning Studio from various online data sources with the Reader module
@@ -57,3 +57,4 @@ Data Feed Provider | Reads data from a supported feed provider. Currently only t
 
 <!-- Module References -->
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+

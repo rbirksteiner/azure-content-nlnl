@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How to add encoding units" 
-	description="Learn how to how to add encoding units with .NET"  
-	services="media-services" 
-	documentationCenter="" 
-	authors="juliako,milangada,gtrifonov" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="How to add encoding units" 
+    description="Learn how to how to add encoding units with .NET"  
+    services="media-services" 
+    documentationCenter="" 
+    authors="juliako,milangada,gtrifonov" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/15/2015"
-	ms.author="juliako"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/15/2015"
+    ms.author="juliako"/>
 
 
 #How to Scale Encoding with .NET SDK
@@ -35,15 +35,15 @@ In addition to specifying the reserved unit type, you can specify to provision y
 
 To change the reserved unit type and the number of encoding reserved units using .NET SDK, do the following:
 
-	IEncodingReservedUnit encodingBasicReservedUnit = _context.EncodingReservedUnits.FirstOrDefault();
-	encodingBasicReservedUnit.ReservedUnitType = ReservedUnitType.Basic;
-	encodingBasicReservedUnit.Update();
-	Console.WriteLine("Reserved Unit Type: {0}", encodingBasicReservedUnit.ReservedUnitType);
-	
-	encodingBasicReservedUnit.CurrentReservedUnits = 2;
-	encodingBasicReservedUnit.Update();
-	
-	Console.WriteLine("Number of reserved units: {0}", encodingBasicReservedUnit.CurrentReservedUnits);
+    IEncodingReservedUnit encodingBasicReservedUnit = _context.EncodingReservedUnits.FirstOrDefault();
+    encodingBasicReservedUnit.ReservedUnitType = ReservedUnitType.Basic;
+    encodingBasicReservedUnit.Update();
+    Console.WriteLine("Reserved Unit Type: {0}", encodingBasicReservedUnit.ReservedUnitType);
+    
+    encodingBasicReservedUnit.CurrentReservedUnits = 2;
+    encodingBasicReservedUnit.Update();
+    
+    Console.WriteLine("Number of reserved units: {0}", encodingBasicReservedUnit.CurrentReservedUnits);
 
 ##Opening a Support Ticket
 
@@ -80,3 +80,4 @@ To open a support ticket do the following:
 ##Provide feedback
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+

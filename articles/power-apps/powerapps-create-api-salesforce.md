@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Add the Salesforce API to PowerApps Enterprise | Microsoft Azure"
-	description="Create or configure a new Salesforce API in your organization's app service environment"
-	services=""
+    pageTitle="Add the Salesforce API to PowerApps Enterprise | Microsoft Azure"
+    description="Create or configure a new Salesforce API in your organization's app service environment"
+    services=""
     suite="powerapps"
-	documentationCenter="" 
-	authors="rajeshramabathiran"
-	manager="dwerde"
-	editor=""/>
+    documentationCenter="" 
+    authors="rajeshramabathiran"
+    manager="dwerde"
+    editor=""/>
 
 <tags
    ms.service="powerapps"
@@ -36,7 +36,7 @@
 ![Add API][2]
 
 6. Enter a descriptive **name** for your API.  
-	
+    
 7. In **Source**, select **Available APIs** to select the pre-built APIs, and select **Salesforce**:  
 ![select Salesforce api][3]
 
@@ -45,7 +45,7 @@
 
 9. Enter the *App Key* and *App Secret* of your Salesforce application. If you don't have one, see the "Register a Salesforce app for use with PowerApps" section in this topic to create the key and secret values you need.  
 
-	> [AZURE.IMPORTANT] Save the **redirect URL**. You may need this value later in this topic.
+    > [AZURE.IMPORTANT] Save the **redirect URL**. You may need this value later in this topic.
 
 10. Select **OK** to complete the steps.
 
@@ -66,17 +66,17 @@ If you don't have an existing Salesforce app with the key and secret values, the
 
 4. In **New Connected App**:  
 
-	a) Enter the value for **Connected App Name**.  
-	b) Enter the value for **API Name**.  
-	c) Enter the value for **Contact Email**.  
-	d) Under _API (Enable OAuth Settings)_, select **Enable OAuth Settings**, and set the **Callback URL** to the redirect URL you received when you added the new Salesforce API in the Azure Portal (in this topic).  
+    a) Enter the value for **Connected App Name**.  
+    b) Enter the value for **API Name**.  
+    c) Enter the value for **Contact Email**.  
+    d) Under _API (Enable OAuth Settings)_, select **Enable OAuth Settings**, and set the **Callback URL** to the redirect URL you received when you added the new Salesforce API in the Azure Portal (in this topic).  
 
 5. Under _Selected OAuth scopes_, add the following scopes to the **Selected OAuth Scopes**:  
 
-	- Access and manage your Chatter data (chatter_api)
-	- Access and manage your data (api)
-	- Allow access to your unique identifier (openid)
-	- Perform requests on your behalf at any time (refresh_token, offline_access)
+    - Access and manage your Chatter data (chatter_api)
+    - Access and manage your data (api)
+    - Allow access to your unique identifier (openid)
+    - Perform requests on your behalf at any time (refresh_token, offline_access)
 
 6. **Save** your changes:  
 ![Salesforce new app][8]

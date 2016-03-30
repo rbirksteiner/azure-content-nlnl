@@ -1,19 +1,19 @@
 <properties
-	pageTitle="Application Insights for JavaScript web apps | Microsoft Azure"
-	description="Get page view and session counts, web client data, and track usage patterns. Detect exceptions and performance issues in JavaScript web pages."
-	services="application-insights"
+    pageTitle="Application Insights for JavaScript web apps | Microsoft Azure"
+    description="Get page view and session counts, web client data, and track usage patterns. Detect exceptions and performance issues in JavaScript web pages."
+    services="application-insights"
     documentationCenter=""
-	authors="alancameronwills"
-	manager="douge"/>
+    authors="alancameronwills"
+    manager="douge"/>
 
 <tags
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="11/17/2015"
-	ms.author="awills"/>
+    ms.service="application-insights"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="ibiza"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="11/17/2015"
+    ms.author="awills"/>
 
 # Application Insights for JavaScript web apps
 
@@ -186,5 +186,6 @@ Or if your web app is already live, you can still add server telemetry without r
 * [Track usage](app-insights-web-track-usage.md)
 * [Custom events and metrics](app-insights-api-custom-events-metrics.md)
 * [Build-measure-learn](app-insights-overview-usage.md)
+
 
 

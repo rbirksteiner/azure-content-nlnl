@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Scheduling and Execution with Data Factory" 
-	description="Learn scheduling and execution aspects of Azure Data Factory application model." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
-	editor="monicar"/>
+    pageTitle="Scheduling and Execution with Data Factory" 
+    description="Learn scheduling and execution aspects of Azure Data Factory application model." 
+    services="data-factory" 
+    documentationCenter="" 
+    authors="spelluru" 
+    manager="jhubbard" 
+    editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/20/2015" 
-	ms.author="spelluru"/>
+    ms.service="data-factory" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/20/2015" 
+    ms.author="spelluru"/>
 
 # Scheduling & Execution with Data Factory
   
@@ -24,10 +24,10 @@ This article explains the scheduling and execution aspects of Azure Data Factory
 
 With the **scheduler** section in the activity JSON, you can specify a recurring schedule for the activity. For example you can schedule activity runs every hour as follows:
 
-	"scheduler": {
-		"frequency": "Hour",
-	    "interval": 1
-	},  
+    "scheduler": {
+        "frequency": "Hour",
+        "interval": 1
+    },  
     
 ![Scheduler example](./media/data-factory-scheduling-and-execution/scheduler-example.png)
 
@@ -64,81 +64,81 @@ Let’s put some thing together and in action by revisiting the sample for copy 
 
 **Input: Azure SQL dataset**
 
-	{
-	    "name": "AzureSqlInput",
-	    "properties": {
-	        "published": false,
-	        "type": "AzureSqlTable",
-	        "linkedServiceName": "AzureSqlLinkedService",
-	        "typeProperties": {
-	            "tableName": "MyTable"
-	        },
-	        "availability": {
-	            "frequency": "Hour",
-	            "interval": 1
-	        },
-	        "external": true,
-	        "policy": {}
-	    }
-	}
+    {
+        "name": "AzureSqlInput",
+        "properties": {
+            "published": false,
+            "type": "AzureSqlTable",
+            "linkedServiceName": "AzureSqlLinkedService",
+            "typeProperties": {
+                "tableName": "MyTable"
+            },
+            "availability": {
+                "frequency": "Hour",
+                "interval": 1
+            },
+            "external": true,
+            "policy": {}
+        }
+    }
 
 
 Note that the **frequency** is set to **Hour** and **interval** is set to **1** in the **availability** section. 
 
 **Output: Azure Blob dataset**
-	
-	{
-	    "name": "AzureBlobOutput",
-	    "properties": {
-	        "published": false,
-	        "type": "AzureBlob",
-	        "linkedServiceName": "StorageLinkedService",
-	        "typeProperties": {
-	            "folderPath": "mypath/{Year}/{Month}/{Day}/{Hour}",
-	            "format": {
-	                "type": "TextFormat"
-	            },
-	            "partitionedBy": [
-	                {
-	                    "name": "Year",
-	                    "value": {
-	                        "type": "DateTime",
-	                        "date": "SliceStart",
-	                        "format": "yyyy"
-	                    }
-	                },
-	                {
-	                    "name": "Month",
-	                    "value": {
-	                        "type": "DateTime",
-	                        "date": "SliceStart",
-	                        "format": "%M"
-	                    }
-	                },
-	                {
-	                    "name": "Day",
-	                    "value": {
-	                        "type": "DateTime",
-	                        "date": "SliceStart",
-	                        "format": "%d"
-	                    }
-	                },
-	                {
-	                    "name": "Hour",
-	                    "value": {
-	                        "type": "DateTime",
-	                        "date": "SliceStart",
-	                        "format": "%H"
-	                    }
-	                }
-	            ]
-	        },
-	        "availability": {
-	            "frequency": "Hour",
-	            "interval": 1
-	        }
-	    }
-	}
+    
+    {
+        "name": "AzureBlobOutput",
+        "properties": {
+            "published": false,
+            "type": "AzureBlob",
+            "linkedServiceName": "StorageLinkedService",
+            "typeProperties": {
+                "folderPath": "mypath/{Year}/{Month}/{Day}/{Hour}",
+                "format": {
+                    "type": "TextFormat"
+                },
+                "partitionedBy": [
+                    {
+                        "name": "Year",
+                        "value": {
+                            "type": "DateTime",
+                            "date": "SliceStart",
+                            "format": "yyyy"
+                        }
+                    },
+                    {
+                        "name": "Month",
+                        "value": {
+                            "type": "DateTime",
+                            "date": "SliceStart",
+                            "format": "%M"
+                        }
+                    },
+                    {
+                        "name": "Day",
+                        "value": {
+                            "type": "DateTime",
+                            "date": "SliceStart",
+                            "format": "%d"
+                        }
+                    },
+                    {
+                        "name": "Hour",
+                        "value": {
+                            "type": "DateTime",
+                            "date": "SliceStart",
+                            "format": "%H"
+                        }
+                    }
+                ]
+            },
+            "availability": {
+                "frequency": "Hour",
+                "interval": 1
+            }
+        }
+    }
 
 
 Note that the **frequency** is set to **Hour** and **interval** is set to **1** in the **availability** section.
@@ -147,46 +147,46 @@ Note that the **frequency** is set to **Hour** and **interval** is set to **1** 
 
 **Activity: Copy activity**
 
-	{
-	    "name": "SamplePipeline",
-	    "properties": {
-	        "description": "copy activity",
-	        "activities": [
-	            {
-	                "type": "Copy",
-	                "name": "AzureSQLtoBlob",
-	                "description": "copy activity",	
-	                "typeProperties": {
-	                    "source": {
-	                        "type": "SqlSource",
-	                        "sqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
-	                    },
-	                    "sink": {
-	                        "type": "BlobSink",
-	                        "writeBatchSize": 100000,
-	                        "writeBatchTimeout": "00:05:00"
-	                    }
-	                },
-	                "inputs": [
-	                    {
-	                        "name": "AzureSQLInput"
-	                    }
-	                ],
-	                "outputs": [
-	                    {
-	                        "name": "AzureBlobOutput"
-	                    }
-	                ],
-	       			"scheduler": {
-	          			"frequency": "Hour",
-	          			"interval": 1
-	        		}
-	            }
-	        ],
-	        "start": "2015-01-01T08:00:00Z",
-	        "end": "2015-01-01T11:00:00Z"
-	    }
-	}
+    {
+        "name": "SamplePipeline",
+        "properties": {
+            "description": "copy activity",
+            "activities": [
+                {
+                    "type": "Copy",
+                    "name": "AzureSQLtoBlob",
+                    "description": "copy activity", 
+                    "typeProperties": {
+                        "source": {
+                            "type": "SqlSource",
+                            "sqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
+                        },
+                        "sink": {
+                            "type": "BlobSink",
+                            "writeBatchSize": 100000,
+                            "writeBatchTimeout": "00:05:00"
+                        }
+                    },
+                    "inputs": [
+                        {
+                            "name": "AzureSQLInput"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "AzureBlobOutput"
+                        }
+                    ],
+                    "scheduler": {
+                        "frequency": "Hour",
+                        "interval": 1
+                    }
+                }
+            ],
+            "start": "2015-01-01T08:00:00Z",
+            "end": "2015-01-01T11:00:00Z"
+        }
+    }
 
 
 The sample above shows activity schedule and dataset availability sections set to hourly frequency. The sample shows how you can leverage the **WindowStart** and **WindowEnd** variables to select the relevant data for the given activity run and send it to a blob with appropriate dynamic **folderPath** parameterized to have the folder for every hour.
@@ -199,19 +199,19 @@ Suppose the data in Azure SQL is as follows:
 
 On deploying the above pipeline the Azure blob will populated as follows:
 
-1.	File mypath/2015/1/1/8/Data.<Guid>.txt with data 
+1.  File mypath/2015/1/1/8/Data.<Guid>.txt with data 
 
-		10002345,334,2,2015-01-01 08:24:00.3130000
-		10002345,347,15,2015-01-01 08:24:00.6570000
-		10991568,2,7,2015-01-01 08:56:34.5300000
+        10002345,334,2,2015-01-01 08:24:00.3130000
+        10002345,347,15,2015-01-01 08:24:00.6570000
+        10991568,2,7,2015-01-01 08:56:34.5300000
 
-	**Note:** <Guid> will be replaced with an actual guid. Example file name: Data.bcde1348-7620-4f93-bb89-0eed3455890b.txt
-2.	File mypath/2015/1/1/9/Data.<Guid>.txt with data:
+    **Note:** <Guid> will be replaced with an actual guid. Example file name: Data.bcde1348-7620-4f93-bb89-0eed3455890b.txt
+2.  File mypath/2015/1/1/9/Data.<Guid>.txt with data:
 
-		10002345,334,1,2015-01-01 09:13:00.3900000
-		24379245,569,23,2015-01-01 09:25:00.3130000
-		16777799,21,115,2015-01-01 09:47:34.3130000
-3.	File mypath/2015/1/1/10/Data.<Guid>.txt with no data.
+        10002345,334,1,2015-01-01 09:13:00.3900000
+        24379245,569,23,2015-01-01 09:25:00.3130000
+        16777799,21,115,2015-01-01 09:47:34.3130000
+3.  File mypath/2015/1/1/10/Data.<Guid>.txt with no data.
 
 
 ## Data Slices, Active Period for Pipeline and Concurrent Slice Execution
@@ -257,106 +257,106 @@ Here is how you can model this with data factory:
 
 The hourly input files are dropped in the folder for the given day. Availability for input is set Hourly (frequency: Hour, interval: 1).
 
-	{
-	  "name": "AzureBlobInput",
-	  "properties": {
-	    "type": "AzureBlob",
-	    "linkedServiceName": "StorageLinkedService",
-	    "typeProperties": {
-	      "folderPath": "mycontainer/myfolder/{Year}/{Month}/{Day}/",
-	      "partitionedBy": [
-	        { "name": "Year", "value": {"type": "DateTime","date": "SliceStart","format": "yyyy"}},
-	        { "name": "Month","value": {"type": "DateTime","date": "SliceStart","format": "%M"}},
-	        { "name": "Day","value": {"type": "DateTime","date": "SliceStart","format": "%d"}}
-	      ],
-	      "format": {
-	        "type": "TextFormat"
-	      }
-	    },
-		"external": true,
-	    "availability": {
-	      "frequency": "Hour",
-	      "interval": 1
-	    }
-	  }
-	}
+    {
+      "name": "AzureBlobInput",
+      "properties": {
+        "type": "AzureBlob",
+        "linkedServiceName": "StorageLinkedService",
+        "typeProperties": {
+          "folderPath": "mycontainer/myfolder/{Year}/{Month}/{Day}/",
+          "partitionedBy": [
+            { "name": "Year", "value": {"type": "DateTime","date": "SliceStart","format": "yyyy"}},
+            { "name": "Month","value": {"type": "DateTime","date": "SliceStart","format": "%M"}},
+            { "name": "Day","value": {"type": "DateTime","date": "SliceStart","format": "%d"}}
+          ],
+          "format": {
+            "type": "TextFormat"
+          }
+        },
+        "external": true,
+        "availability": {
+          "frequency": "Hour",
+          "interval": 1
+        }
+      }
+    }
 
 **Output Azure blob dataset**
 
 One output file will be dropped every day in the folder for the day. Availability of output is set Daily (frequency: Day and interval: 1).
 
 
-	{
-	  "name": "AzureBlobOutput",
-	  "properties": {
-	    "type": "AzureBlob",
-	    "linkedServiceName": "StorageLinkedService",
-	    "typeProperties": {
-	      "folderPath": "mycontainer/myfolder/{Year}/{Month}/{Day}/",
-	      "partitionedBy": [
-	        { "name": "Year", "value": {"type": "DateTime","date": "SliceStart","format": "yyyy"}},
-	        { "name": "Month","value": {"type": "DateTime","date": "SliceStart","format": "%M"}},
-	        { "name": "Day","value": {"type": "DateTime","date": "SliceStart","format": "%d"}}
-	      ],
-	      "format": {
-	        "type": "TextFormat"
-	      }
-	    },
-	    "availability": {
-	      "frequency": "Day",
-	      "interval": 1
-	    }
-	  }
-	}
+    {
+      "name": "AzureBlobOutput",
+      "properties": {
+        "type": "AzureBlob",
+        "linkedServiceName": "StorageLinkedService",
+        "typeProperties": {
+          "folderPath": "mycontainer/myfolder/{Year}/{Month}/{Day}/",
+          "partitionedBy": [
+            { "name": "Year", "value": {"type": "DateTime","date": "SliceStart","format": "yyyy"}},
+            { "name": "Month","value": {"type": "DateTime","date": "SliceStart","format": "%M"}},
+            { "name": "Day","value": {"type": "DateTime","date": "SliceStart","format": "%d"}}
+          ],
+          "format": {
+            "type": "TextFormat"
+          }
+        },
+        "availability": {
+          "frequency": "Day",
+          "interval": 1
+        }
+      }
+    }
 
 **Activity: Hive activity in a pipeline**
 
 The hive script receives the appropriate datetime information as parameters leveraging the **WindowStart** variable as shown below. The hive script uses this variable to load the data from the right folder for the day and run the aggregation to generate the output.
 
-		{  
-		    "name":"SamplePipeline",
-		    "properties":{  
-		    "start":"2015-01-01T08:00:00",
-		    "end":"2015-01-01T11:00:00",
-		    "description":"hive activity",
-		    "activities": [
-		        {
-		            "name": "SampleHiveActivity",
-		            "inputs": [
-		                {
-		                    "name": "AzureBlobInput"
-		                }
-		            ],
-		            "outputs": [
-		                {
-		                    "name": "AzureBlobOutput"
-		                }
-		            ],
-		            "linkedServiceName": "HDInsightLinkedService",
-		            "type": "HDInsightHive",
-		            "typeProperties": {
-		                "scriptPath": "adftutorial\\hivequery.hql",
-		                "scriptLinkedService": "StorageLinkedService",
-		                "defines": {
-		                    "Year": "$$Text.Format('{0:yyyy}',WindowsStart)",
-		                    "Month": "$$Text.Format('{0:%M}',WindowStart)",
-		                    "Day": "$$Text.Format('{0:%d}',WindowStart)"
-		                }
-		            },
-		            "scheduler": {
-		                "frequency": "Day",
-		                "interval": 1
-		            },			
-		            "policy": {
-		                "concurrency": 1,
-		                "executionPriorityOrder": "OldestFirst",
-		                "retry": 2,
-		                "timeout": "01:00:00"
-		            }
-	             }
-		     ]
-		   }
-		}
+        {  
+            "name":"SamplePipeline",
+            "properties":{  
+            "start":"2015-01-01T08:00:00",
+            "end":"2015-01-01T11:00:00",
+            "description":"hive activity",
+            "activities": [
+                {
+                    "name": "SampleHiveActivity",
+                    "inputs": [
+                        {
+                            "name": "AzureBlobInput"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "AzureBlobOutput"
+                        }
+                    ],
+                    "linkedServiceName": "HDInsightLinkedService",
+                    "type": "HDInsightHive",
+                    "typeProperties": {
+                        "scriptPath": "adftutorial\\hivequery.hql",
+                        "scriptLinkedService": "StorageLinkedService",
+                        "defines": {
+                            "Year": "$$Text.Format('{0:yyyy}',WindowsStart)",
+                            "Month": "$$Text.Format('{0:%M}',WindowStart)",
+                            "Day": "$$Text.Format('{0:%d}',WindowStart)"
+                        }
+                    },
+                    "scheduler": {
+                        "frequency": "Day",
+                        "interval": 1
+                    },          
+                    "policy": {
+                        "concurrency": 1,
+                        "executionPriorityOrder": "OldestFirst",
+                        "retry": 2,
+                        "timeout": "01:00:00"
+                    }
+                 }
+             ]
+           }
+        }
 
 Here is how this looks like from data dependency point of view.
 
@@ -376,139 +376,139 @@ You need a way to specify for every activity run the data factory should use las
 **Input1: Azure Blob**
 
 First input is Azure blob updated **daily**.
-	
-	{
-	  "name": "AzureBlobInputDaily",
-	  "properties": {
-	    "type": "AzureBlob",
-	    "linkedServiceName": "StorageLinkedService",
-	    "typeProperties": {
-	      "folderPath": "mycontainer/myfolder/{Year}/{Month}/{Day}/",
-	      "partitionedBy": [
-	        { "name": "Year", "value": {"type": "DateTime","date": "SliceStart","format": "yyyy"}},
-	        { "name": "Month","value": {"type": "DateTime","date": "SliceStart","format": "%M"}},
-	        { "name": "Day","value": {"type": "DateTime","date": "SliceStart","format": "%d"}}
-	      ],
-	      "format": {
-	        "type": "TextFormat"
-	      }
-	    },
-		"external": true,
-	    "availability": {
-	      "frequency": "Day",
-	      "interval": 1
-	    }
-	  }
-	}
+    
+    {
+      "name": "AzureBlobInputDaily",
+      "properties": {
+        "type": "AzureBlob",
+        "linkedServiceName": "StorageLinkedService",
+        "typeProperties": {
+          "folderPath": "mycontainer/myfolder/{Year}/{Month}/{Day}/",
+          "partitionedBy": [
+            { "name": "Year", "value": {"type": "DateTime","date": "SliceStart","format": "yyyy"}},
+            { "name": "Month","value": {"type": "DateTime","date": "SliceStart","format": "%M"}},
+            { "name": "Day","value": {"type": "DateTime","date": "SliceStart","format": "%d"}}
+          ],
+          "format": {
+            "type": "TextFormat"
+          }
+        },
+        "external": true,
+        "availability": {
+          "frequency": "Day",
+          "interval": 1
+        }
+      }
+    }
 
 **Input2: Azure Blob**
 
 Input2 is Azure blob updated **weekly**.
 
-	{
-	  "name": "AzureBlobInputWeekly",
-	  "properties": {
-	    "type": "AzureBlob",
-	    "linkedServiceName": "StorageLinkedService",
-	    "typeProperties": {
-	      "folderPath": "mycontainer/myfolder/{Year}/{Month}/{Day}/",
-	      "partitionedBy": [
-	        { "name": "Year", "value": {"type": "DateTime","date": "SliceStart","format": "yyyy"}},
-	        { "name": "Month","value": {"type": "DateTime","date": "SliceStart","format": "%M"}},
-	        { "name": "Day","value": {"type": "DateTime","date": "SliceStart","format": "%d"}}
-	      ],
-	      "format": {
-	        "type": "TextFormat"
-	      }
-	    },
-		"external": true,
-	    "availability": {
-	      "frequency": "Day",
-	      "interval": 7
-	    }
-	  }
-	}
+    {
+      "name": "AzureBlobInputWeekly",
+      "properties": {
+        "type": "AzureBlob",
+        "linkedServiceName": "StorageLinkedService",
+        "typeProperties": {
+          "folderPath": "mycontainer/myfolder/{Year}/{Month}/{Day}/",
+          "partitionedBy": [
+            { "name": "Year", "value": {"type": "DateTime","date": "SliceStart","format": "yyyy"}},
+            { "name": "Month","value": {"type": "DateTime","date": "SliceStart","format": "%M"}},
+            { "name": "Day","value": {"type": "DateTime","date": "SliceStart","format": "%d"}}
+          ],
+          "format": {
+            "type": "TextFormat"
+          }
+        },
+        "external": true,
+        "availability": {
+          "frequency": "Day",
+          "interval": 7
+        }
+      }
+    }
 
 **Output: Azure Blob**
 
 One output file will be dropped every day in the folder for the day. Availability of output is set Daily (frequency: Day, interval: 1).
-	
-	{
-	  "name": "AzureBlobOutputDaily",
-	  "properties": {
-	    "type": "AzureBlob",
-	    "linkedServiceName": "StorageLinkedService",
-	    "typeProperties": {
-	      "folderPath": "mycontainer/myfolder/{Year}/{Month}/{Day}/",
-	      "partitionedBy": [
-	        { "name": "Year", "value": {"type": "DateTime","date": "SliceStart","format": "yyyy"}},
-	        { "name": "Month","value": {"type": "DateTime","date": "SliceStart","format": "%M"}},
-	        { "name": "Day","value": {"type": "DateTime","date": "SliceStart","format": "%d"}}
-	      ],
-	      "format": {
-	        "type": "TextFormat"
-	      }
-	    },
-	    "availability": {
-	      "frequency": "Day",
-	      "interval": 1
-	    }
-	  }
-	}
+    
+    {
+      "name": "AzureBlobOutputDaily",
+      "properties": {
+        "type": "AzureBlob",
+        "linkedServiceName": "StorageLinkedService",
+        "typeProperties": {
+          "folderPath": "mycontainer/myfolder/{Year}/{Month}/{Day}/",
+          "partitionedBy": [
+            { "name": "Year", "value": {"type": "DateTime","date": "SliceStart","format": "yyyy"}},
+            { "name": "Month","value": {"type": "DateTime","date": "SliceStart","format": "%M"}},
+            { "name": "Day","value": {"type": "DateTime","date": "SliceStart","format": "%d"}}
+          ],
+          "format": {
+            "type": "TextFormat"
+          }
+        },
+        "availability": {
+          "frequency": "Day",
+          "interval": 1
+        }
+      }
+    }
 
 **Activity: Hive activity in a pipeline**
 
 The hive activity takes the 2 inputs and produces an output slice every day. You can specify every day’s output slice to depend on last week’s input slice for weekly input as follows.
-	
-	{  
-	    "name":"SamplePipeline",
-	    "properties":{  
-	    "start":"2015-01-01T08:00:00",
-	    "end":"2015-01-01T11:00:00",
-	    "description":"hive activity",
-	    "activities": [
-	      {
-	        "name": "SampleHiveActivity",
-	        "inputs": [
-	          {
-	            "name": "AzureBlobInputDaily"
-	          },
-	          {
-	            "name": "AzureBlobInputWeekly",
-	            "startTime": "Date.AddDays(SliceStart,  -7 - Date.DayOfWeek(SliceStart))",
-	            "endTime": "Date.AddDays(SliceEnd,  -Date.DayOfWeek(SliceEnd))"  
-	          }
-	        ],
-	        "outputs": [
-	          {
-	            "name": "AzureBlobOutputDaily"
-	          }
-	        ],
-	        "linkedServiceName": "HDInsightLinkedService",
-	        "type": "HDInsightHive",
-	        "typeProperties": {
-	          "scriptPath": "adftutorial\\hivequery.hql",
-	          "scriptLinkedService": "StorageLinkedService",
-	          "defines": {
-	            "Year": "$$Text.Format('{0:yyyy}',WindowsStart)",
-	            "Month": "$$Text.Format('{0:%M}',WindowStart)",
-	            "Day": "$$Text.Format('{0:%d}',WindowStart)"
-	          }
-	        },
-	        "scheduler": {
-	          "frequency": "Day",
-	          "interval": 1
-	        },			
-	        "policy": {
-	          "concurrency": 1,
-	          "executionPriorityOrder": "OldestFirst",
-	          "retry": 2,  
-	          "timeout": "01:00:00"
-	        }
-		   } 
-	     ]
-	   }
-	}
+    
+    {  
+        "name":"SamplePipeline",
+        "properties":{  
+        "start":"2015-01-01T08:00:00",
+        "end":"2015-01-01T11:00:00",
+        "description":"hive activity",
+        "activities": [
+          {
+            "name": "SampleHiveActivity",
+            "inputs": [
+              {
+                "name": "AzureBlobInputDaily"
+              },
+              {
+                "name": "AzureBlobInputWeekly",
+                "startTime": "Date.AddDays(SliceStart,  -7 - Date.DayOfWeek(SliceStart))",
+                "endTime": "Date.AddDays(SliceEnd,  -Date.DayOfWeek(SliceEnd))"  
+              }
+            ],
+            "outputs": [
+              {
+                "name": "AzureBlobOutputDaily"
+              }
+            ],
+            "linkedServiceName": "HDInsightLinkedService",
+            "type": "HDInsightHive",
+            "typeProperties": {
+              "scriptPath": "adftutorial\\hivequery.hql",
+              "scriptLinkedService": "StorageLinkedService",
+              "defines": {
+                "Year": "$$Text.Format('{0:yyyy}',WindowsStart)",
+                "Month": "$$Text.Format('{0:%M}',WindowStart)",
+                "Day": "$$Text.Format('{0:%d}',WindowStart)"
+              }
+            },
+            "scheduler": {
+              "frequency": "Day",
+              "interval": 1
+            },          
+            "policy": {
+              "concurrency": 1,
+              "executionPriorityOrder": "OldestFirst",
+              "retry": 2,  
+              "timeout": "01:00:00"
+            }
+           } 
+         ]
+       }
+    }
 
 
 ## Chaining activities
@@ -529,19 +529,19 @@ SliceEnd | End of time interval for current data slice being produced | activity
 
 You can use functions in data factory along with above mentioned system variables for the following purposes:
 
-1.	Specifying data selection queries (see connector articles referenced by the [Data Movement Activities](data-factory-data-movement-activities.md) article.
+1.  Specifying data selection queries (see connector articles referenced by the [Data Movement Activities](data-factory-data-movement-activities.md) article.
 
-	The syntax to invoke a data factory function is: **$$<function>** for data selection  queries and other properties in the activity and datasets.  
+    The syntax to invoke a data factory function is: **$$<function>** for data selection  queries and other properties in the activity and datasets.  
 2. Specifying input dependencies with data factory functions in activity inputs collection (see sample above).
 
-	$$ is not needed for specifying input dependency expressions. 	
+    $$ is not needed for specifying input dependency expressions.   
 
 In the following sample, **sqlReaderQuery** property in a JSON file is assigned to a value returned by the **Text.Format** function. This sample also uses a system variable named **WindowStart**, which represents the start time of the activity run window.
-	
-	{
-	    "Type": "SqlSource",
-	    "sqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartTime = \\'{0:yyyyMMdd-HH}\\'', WindowStart)"
-	}
+    
+    {
+        "Type": "SqlSource",
+        "sqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartTime = \\'{0:yyyyMMdd-HH}\\'', WindowStart)"
+    }
 
 ### Functions
 
@@ -570,12 +570,12 @@ Text | Format(X) | X: String variable | Formats the text.
 
 #### Text.Format example
 
-	"defines": { 
-	    "Year" : "$$Text.Format('{0:yyyy}',WindowStart)",
-	    "Month" : "$$Text.Format('{0:MM}',WindowStart)",
-	    "Day" : "$$Text.Format('{0:dd}',WindowStart)",
-	    "Hour" : "$$Text.Format('{0:hh}',WindowStart)"
-	}
+    "defines": { 
+        "Year" : "$$Text.Format('{0:yyyy}',WindowStart)",
+        "Month" : "$$Text.Format('{0:MM}',WindowStart)",
+        "Day" : "$$Text.Format('{0:dd}',WindowStart)",
+        "Hour" : "$$Text.Format('{0:hh}',WindowStart)"
+    }
 
 > [AZURE.NOTE] When using a function within another function, you do not need to use **$$** prefix for the inner function. For example: $$Text.Format('PartitionKey eq \\'my_pkey_filter_value\\' and RowKey ge \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6)). In this example, notice that **$$** prefix is not used for the **Time.AddHours** function. 
   
@@ -589,9 +589,9 @@ The time range of the input dataset(s) required to generate the output dataset s
 An activity run generates a dataset slice only after the data slices in input dataset(s) within the dependency period are available. It means that all the input slices comprising the dependency period must be in **Ready** status  for the output dataset slice to be produced by an activity run. 
 
 To generate the dataset slice [start, end], a function is needed to map the dataset slice to its dependency period. This function is essentially a formula that converts the start and end of the dataset slice to the start and end of the dependency period. More formally, 
-	
-	DatasetSlice = [start, end]
-	DependecyPeriod = [f(start, end), g(start, end)]
+    
+    DatasetSlice = [start, end]
+    DependecyPeriod = [f(start, end), g(start, end)]
 
 where f and g are mapping functions that calculate the start and end of the dependency period for each activity input.
 
@@ -617,33 +617,33 @@ A dataset can be marked as external (as shown in the JSON below), implying it wa
 
 Similar to datasets that are produced by data factory the data slices for external data need to be ready   before dependent slices can be processed.
 
-	{
-		"name": "AzureSqlInput",
-		"properties": 
-		{
-			"type": "AzureSqlTable",
-			"linkedServiceName": "AzureSqlLinkedService",
-			"typeProperties": 
-			{
-				"tableName": "MyTable"	
-			},
-			"availability": 
-			{
-				"frequency": "Hour",
-				"interval": 1     
-			},
-			"external": true,
-			"policy": 
-			{
-				"externalData": 
-				{
-					"retryInterval": "00:01:00",
-					"retryTimeout": "00:10:00",
-					"maximumRetry": 3
-				}
-			}  
-		} 
-	} 
+    {
+        "name": "AzureSqlInput",
+        "properties": 
+        {
+            "type": "AzureSqlTable",
+            "linkedServiceName": "AzureSqlLinkedService",
+            "typeProperties": 
+            {
+                "tableName": "MyTable"  
+            },
+            "availability": 
+            {
+                "frequency": "Hour",
+                "interval": 1     
+            },
+            "external": true,
+            "policy": 
+            {
+                "externalData": 
+                {
+                    "retryInterval": "00:01:00",
+                    "retryTimeout": "00:10:00",
+                    "maximumRetry": 3
+                }
+            }  
+        } 
+    } 
 
 
 
@@ -677,6 +677,7 @@ Similar to datasets that are produced by data factory the data slices for extern
       
 
   
+
 
 
 

@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure AD Connect sync: Functions Reference | Microsoft Azure"
-	description="Reference of declarative provisioning expressions in Azure AD Connect sync."
-	services="active-directory"
-	documentationCenter=""
-	authors="markusvi"
-	manager="StevenPo"
-	editor=""/>
+    pageTitle="Azure AD Connect sync: Functions Reference | Microsoft Azure"
+    description="Reference of declarative provisioning expressions in Azure AD Connect sync."
+    services="active-directory"
+    documentationCenter=""
+    authors="markusvi"
+    manager="StevenPo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/13/2015"
-	ms.author="markusvi"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/13/2015"
+    ms.author="markusvi"/>
 
 
 # Azure AD Connect sync: Functions Reference
@@ -1324,3 +1324,4 @@ Would return “has”
 
 
 <!--Image references-->
+

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Troubleshoot Application Insights in a Java web project" 
-	description="Troubleshooting guide - monitoring live Java apps with Application Insights." 
-	services="application-insights" 
+    pageTitle="Troubleshoot Application Insights in a Java web project" 
+    description="Troubleshooting guide - monitoring live Java apps with Application Insights." 
+    services="application-insights" 
     documentationCenter="java"
-	authors="alancameronwills" 
-	manager="douge"/>
+    authors="alancameronwills" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/21/2015" 
-	ms.author="awills"/>
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/21/2015" 
+    ms.author="awills"/>
  
 # Troubleshooting and Q and A for Application Insights for Java
 

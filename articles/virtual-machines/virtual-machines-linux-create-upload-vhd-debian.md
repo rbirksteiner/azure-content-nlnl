@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Prepare Debian Linux VHD | Microsoft Azure"
-	description="Learn how to create Debian 7 & 8 VHD files for deployment in Azure."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="SuperScottz"
-	manager="timlt"
-	editor=""/>
+    pageTitle="Prepare Debian Linux VHD | Microsoft Azure"
+    description="Learn how to create Debian 7 & 8 VHD files for deployment in Azure."
+    services="virtual-machines"
+    documentationCenter=""
+    authors="SuperScottz"
+    manager="timlt"
+    editor=""/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/01/2015"
-	ms.author="mingzhan"/>
+    ms.service="virtual-machines"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-linux"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/01/2015"
+    ms.author="mingzhan"/>
 
 
 
@@ -53,12 +53,12 @@ This section assumes that you have already installed a Debian Linux operating sy
 
         # apt-get install -y git parted
 
-7.	Install the Azure Linux Agent from Github using [guidance](virtual-machines-linux-update-agent.md) and choose version 2.0.14:
+7.  Install the Azure Linux Agent from Github using [guidance](virtual-machines-linux-update-agent.md) and choose version 2.0.14:
 
-			# wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-2.0.14/waagent
-			# chmod +x waagent
-			# cp waagent /usr/sbin
-			# /usr/sbin/waagent -install -verbose
+            # wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-2.0.14/waagent
+            # chmod +x waagent
+            # cp waagent /usr/sbin
+            # /usr/sbin/waagent -install -verbose
 
 8. Deprovision the virtual machine and prepare it for provisioning on Azure and run:
 
@@ -79,3 +79,4 @@ If any issue to use this script, just file a issue to Credativ [here](https://gi
 ## Next Steps
 
 You're now ready to use your Debian .vhd to create new Azure Virtual Machines.
+

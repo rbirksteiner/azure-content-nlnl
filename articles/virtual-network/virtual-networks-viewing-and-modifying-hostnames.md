@@ -70,3 +70,4 @@ You can modify the host name for any virtual machine or role instance by uploadi
 [Azure Virtual Network Configuration Schema)](http://go.microsoft.com/fwlink/?LinkId=248093)
 
 [Specify DNS settings using network configuration files](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
+

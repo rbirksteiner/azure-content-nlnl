@@ -71,19 +71,19 @@ The objective of this section is to outline how to enable users to authenticate 
 
 ###To configure single sign-on, perform the following steps:
 
-1.  In the Azure AD portal, on the **Directions on Microsoft** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  In the Azure AD portal, on the **Directions on Microsoft** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
     ![Enable Single Sign-On](./media/active-directory-saas-directions-microsoft-tutorial/IC786879.png "Enable Single Sign-On")
 
-2.  On the **How would you like users to sign on to Directions on Microsoft** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to Directions on Microsoft** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Microsoft Azure AD Singel Sign-On](./media/active-directory-saas-directions-microsoft-tutorial/IC786880.png "Microsoft Azure AD Singel Sign-On")
 
-3.  On the **Configure App URL** page, in the Sign On URL textbox, type **https://www.directionsonmicrosoft.com/user/login**, and then click **Next**.
+3.  On the **Configure App URL** page, in the Sign On URL textbox, type **https://www.directionsonmicrosoft.com/user/login**, and then click **Next**.
 
     ![Configure App URL](./media/active-directory-saas-directions-microsoft-tutorial/IC786881.png "Configure App URL")
 
-4.  On the **Configure single sign-on at Directions on Microsoft** page, click **Download metadata**, and then save the metadata file locally on your computer.
+4.  On the **Configure single sign-on at Directions on Microsoft** page, click **Download metadata**, and then save the metadata file locally on your computer.
 
     ![Configure Single Sign-On](./media/active-directory-saas-directions-microsoft-tutorial/IC786882.png "Configure Single Sign-On")
 
@@ -92,7 +92,7 @@ The objective of this section is to outline how to enable users to authenticate 
     >[AZURE.NOTE] Single sign-on for Directions on Microsoft needs to be enabled by the Directions on Microsoft support team.
     You will receive a notification when single sign-on has been enabled.
 
-6.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+6.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
     ![Configure Single Sign-On](./media/active-directory-saas-directions-microsoft-tutorial/IC786883.png "Configure Single Sign-On")
 ##Configuring user provisioning
@@ -107,10 +107,11 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 1.  In the Azure AD portal, create a test account.
 
-2.  On the **Directions on Microsoft **application integration page, click **Assign users**.
+2.  On the **Directions on Microsoft **application integration page, click **Assign users**.
 
     ![Assign users](./media/active-directory-saas-directions-microsoft-tutorial/IC786884.png "Assign users")
 
 3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
 
     ![Yes](./media/active-directory-saas-directions-microsoft-tutorial/IC767830.png "Yes")
+

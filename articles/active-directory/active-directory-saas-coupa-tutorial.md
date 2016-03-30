@@ -83,15 +83,15 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
 
 4.  In a different browser window, sign on to the Azure Active Directory portal.
 
-5.  On the **Coupa** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+5.  On the **Coupa** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
     ![Configure Single Sign-On](./media/active-directory-saas-coupa-tutorial/IC791902.png "Configure Single Sign-On")
 
-6.  On the **How would you like users to sign on to Coupa** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+6.  On the **How would you like users to sign on to Coupa** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-coupa-tutorial/IC791903.png "Configure Single Sign-On")
 
-7.  On the **Configure App URL** page, perform the following steps:
+7.  On the **Configure App URL** page, perform the following steps:
 
     ![Configure App URL](./media/active-directory-saas-coupa-tutorial/IC791904.png "Configure App URL")
 
@@ -100,7 +100,7 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
     3.  In the **Coupa Reply URL** textbox, paste the **AssertionConsumerService index/URL** value.
     4.  Click **Next**.
 
-8.  On the **Configure single sign-on at Coupa** page, to download your metadata file, click **Download metadata**, and then save the file locally on your computer.
+8.  On the **Configure single sign-on at Coupa** page, to download your metadata file, click **Download metadata**, and then save the file locally on your computer.
 
     ![Configure Single Sign-On](./media/active-directory-saas-coupa-tutorial/IC791905.png "Configure Single Sign-On")
 
@@ -116,7 +116,7 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
     2.  Click **Browse** to upload your downloaded Azure Active metadata file.
     3.  Click **Save**.
 
-11. On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+11. On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
     ![Configure Single Sign-On](./media/active-directory-saas-coupa-tutorial/IC791907.png "Configure Single Sign-On")
 ##Configuring user provisioning
@@ -155,7 +155,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 1.  In the Azure AD portal, create a test account.
 
-2.  On the **Coupa **application integration page, click **Assign users**.
+2.  On the **Coupa **application integration page, click **Assign users**.
 
     ![Assign Users](./media/active-directory-saas-coupa-tutorial/IC791911.png "Assign Users")
 
@@ -164,3 +164,4 @@ To test your configuration, you need to grant the Azure AD users you want to all
     ![Yes](./media/active-directory-saas-coupa-tutorial/IC767830.png "Yes")
 
 If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+

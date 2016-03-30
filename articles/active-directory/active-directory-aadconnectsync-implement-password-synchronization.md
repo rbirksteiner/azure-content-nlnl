@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure AD Connect sync: Implement password synchronization | Microsoft Azure"
-	description="Provides you with the information you need to understand how password synchronization works and how to enable it in your environment."
-	services="active-directory"
-	documentationCenter=""
-	authors="markusvi"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Azure AD Connect sync: Implement password synchronization | Microsoft Azure"
+    description="Provides you with the information you need to understand how password synchronization works and how to enable it in your environment."
+    services="active-directory"
+    documentationCenter=""
+    authors="markusvi"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/16/2015"
-	ms.author="markusvi;andkjell"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/16/2015"
+    ms.author="markusvi;andkjell"/>
 
 
 # Azure AD Connect sync: Implement password synchronization
@@ -160,3 +160,4 @@ Forcing a full sync of all passwords should not be required, but if for some rea
 
 * [Azure AD Connect Sync: Customizing Synchronization options](active-directory-aadconnectsync-whatis.md)
 * [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
+

@@ -100,3 +100,4 @@ If you attempt to connect to Service Fabric Explorer on a secure cluster, your b
 [sfx-application-tree]: ./media/service-fabric-visualizing-your-cluster/SfxApplicationTree.png
 [sfx-service-essentials]: ./media/service-fabric-visualizing-your-cluster/SfxServiceEssentials.png
 [sfx-delete-application]: ./media/service-fabric-visualizing-your-cluster/SfxDeleteApplication.png
+

@@ -29,7 +29,7 @@ This article will walk you through the steps to create and connect virtual netwo
 **About Azure deployment models**
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
-	
+    
 If you want to connect a VNet created in the Classic deployment model to a VNet created using the Resource Manager model. See [Connecting classic VNets to new VNets](../virtual-network/virtual-networks-arm-asm-s2s.md).
 
 Connecting a virtual network to another virtual network (VNet-to-VNet) is very similar to connecting a virtual network to an on-premises site location. Both connectivity types use a VPN gateway to provide a secure tunnel using IPsec/IKE. The VNets you connect can be in different subscriptions and different regions. You can even combine VNet to VNet communication with multi-site configurations. This lets you establish network topologies that combine cross-premises connectivity with inter-virtual network connectivity, as shown in the diagram below:
@@ -41,15 +41,15 @@ Connecting a virtual network to another virtual network (VNet-to-VNet) is very s
 You may want to connect virtual networks for the following reasons:
 
 - **Cross region geo-redundancy and geo-presence**
-	- You can set up your own geo-replication or synchronization with secure connectivity without going over internet-facing endpoints.
-	- With Azure Load Balancer and Microsoft or third-party clustering technology, you can setup highly available workload with geo-redundancy across multiple Azure regions. One important example is to setup SQL Always On with Availability Groups spreading across multiple Azure regions.
+    - You can set up your own geo-replication or synchronization with secure connectivity without going over internet-facing endpoints.
+    - With Azure Load Balancer and Microsoft or third-party clustering technology, you can setup highly available workload with geo-redundancy across multiple Azure regions. One important example is to setup SQL Always On with Availability Groups spreading across multiple Azure regions.
 
 - **Regional multi-tier applications with strong isolation boundary**
-	- Within the same region, you can setup multi-tier applications with multiple virtual networks connected together with strong isolation and secure inter-tier communication.
+    - Within the same region, you can setup multi-tier applications with multiple virtual networks connected together with strong isolation and secure inter-tier communication.
 
 - **Cross subscription, inter-organization communication in Azure**
-	- If you have multiple Azure subscriptions, you can connect workloads from different subscriptions together securely between virtual networks.
-	- For enterprises or service providers, you can enable cross organization communication with secure VPN technology within Azure.
+    - If you have multiple Azure subscriptions, you can connect workloads from different subscriptions together securely between virtual networks.
+    - For enterprises or service providers, you can enable cross organization communication with secure VPN technology within Azure.
 
 ## VNet-to-VNet FAQ
 
@@ -211,11 +211,11 @@ When all of the previous steps have been completed, you’ll set the IPsec/IKE p
 
 For VNet1
 
-	PS C:\> Set-AzureVNetGatewayKey -VNetName VNet1 -LocalNetworkSiteName VNet2 -SharedKey A1b2C3D4
+    PS C:\> Set-AzureVNetGatewayKey -VNetName VNet1 -LocalNetworkSiteName VNet2 -SharedKey A1b2C3D4
 
 For VNet2
 
-	PS C:\> Set-AzureVNetGatewayKey -VNetName VNet2 -LocalNetworkSiteName VNet1 -SharedKey A1b2C3D4
+    PS C:\> Set-AzureVNetGatewayKey -VNetName VNet2 -LocalNetworkSiteName VNet1 -SharedKey A1b2C3D4
 
 Wait for the connections to initialize. Once the gateway has initialized, the gateway will look like the graphic below and your virtual networks are connected.
 
@@ -231,3 +231,4 @@ Once your connection is complete, you can add virtual machines to your virtual n
 [1]: ../hdinsight-hbase-geo-replication-configure-vnets.md
 [2]: http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Configure-the-VPN-connectivity-between-two-Azure-virtual-networks
  
+

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Code sample: Parse data exported from Application Insights" 
-	description="Code your own analysis of telemetry in Application Insights by using the continuous export feature. Save data to SQL." 
-	services="application-insights" 
+    pageTitle="Code sample: Parse data exported from Application Insights" 
+    description="Code your own analysis of telemetry in Application Insights by using the continuous export feature. Save data to SQL." 
+    services="application-insights" 
     documentationCenter=""
-	authors="mazharmicrosoft" 
-	manager="douge"/>
+    authors="mazharmicrosoft" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/28/2015" 
-	ms.author="awills"/>
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/28/2015" 
+    ms.author="awills"/>
  
 # Code sample: Parse data exported from Application Insights
 
@@ -142,7 +142,7 @@ In Solution Explorer, right-click your Worker Role project and choose Manage NuG
 Search for and install these packages: 
 
  * EntityFramework 6.1.2 or later - We'll use this to generate the DB table schema on the fly, based on the content of the JSON in the blob.
- * JsonFx -	We'll use this for flattening the JSON to C# class properties.
+ * JsonFx - We'll use this for flattening the JSON to C# class properties.
 
 Use this tool to generate C# Class out of our single JSON document. It requires some minor changes like flattening JSON arrays into single C# property in turn single column in DB table (ex. urlData_port) 
 
@@ -200,7 +200,7 @@ Replace the existing run method, and choose the interval you prefer. It should b
         foreach (CloudBlobDirectory directory in container.ListBlobs())//Parent directory
         {
           foreach (CloudBlobDirectory subDirectory in directory.ListBlobs())//PageViewPerformance
-       	  {
+          {
             foreach (CloudBlobDirectory dir in subDirectory.ListBlobs())//2015-01-31
             {
               foreach (CloudBlobDirectory subdir in dir.ListBlobs())//22
@@ -218,7 +218,7 @@ Replace the existing run method, and choose the interval you prefer. It should b
       }
       catch (Exception ex)
       {
-		//handle exception
+        //handle exception
       }
     }
 
@@ -258,7 +258,7 @@ Replace the existing run method, and choose the interval you prefer. It should b
               if (dict.ContainsKey("clientPerformance"))
                 {
                   GenerateDictionary(((System.Dynamic.ExpandoObject[])dict["clientPerformance"])[0], dict, "");
-    	        }
+                }
     
               if (dict.ContainsKey("context_custom_dimensions"))
               {
@@ -323,8 +323,8 @@ Replace the existing run method, and choose the interval you prefer. It should b
             }
             catch (Exception ex)
             {
-      		//handle exception 
-    	    }
+            //handle exception 
+            }
         }
 
 #### Cast the JSON document into C# class telemetry object properties
@@ -358,8 +358,8 @@ Replace the existing run method, and choose the interval you prefer. It should b
             }
             catch (Exception ex)
             {
-      		//handle exception 
-    	    }
+            //handle exception 
+            }
 
             return res;
         }
@@ -370,7 +370,7 @@ Replace the existing run method, and choose the interval you prefer. It should b
 
     public class PageViewPerformance
     {
-    	[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
 
         public string url { get; set; }
@@ -453,7 +453,7 @@ Replace the existing run method, and choose the interval you prefer. It should b
 
 #### DBcontext for SQL interaction by Entity Framework
 
-	public class TelemetryContext : DbContext
+    public class TelemetryContext : DbContext
     {
         public DbSet<PageViewPerformance> PageViewPerformanceContext { get; set; }
         public TelemetryContext()
@@ -471,46 +471,46 @@ This is the schema for the table that will be generated for PageView.
 > [AZURE.NOTE] You don't have to run this script. The attributes in the JSON determine the columns in the table.
 
     CREATE TABLE [dbo].[PageViewPerformances](
-	[Id] [uniqueidentifier] NOT NULL,
-	[url] [nvarchar](max) NULL,
-	[urlData_port] [int] NOT NULL,
-	[urlData_protocol] [nvarchar](max) NULL,
-	[urlData_host] [nvarchar](max) NULL,
-	[urlData_base] [nvarchar](max) NULL,
-	[urlData_hashTag] [nvarchar](max) NULL,
-	[total_value] [float] NOT NULL,
-	[networkConnection_value] [float] NOT NULL,
-	[sendRequest_value] [float] NOT NULL,
-	[receiveRequest_value] [float] NOT NULL,
-	[clientProcess_value] [float] NOT NULL,
-	[name] [nvarchar](max) NULL,
-	[User] [nvarchar](max) NULL,
-	[internal_data_id] [nvarchar](max) NULL,
-	[internal_data_documentVersion] [nvarchar](max) NULL,
-	[context_data_eventTime] [datetime] NULL,
-	[context_device_id] [nvarchar](max) NULL,
-	[context_device_type] [nvarchar](max) NULL,
-	[context_device_os] [nvarchar](max) NULL,
-	[context_device_osVersion] [nvarchar](max) NULL,
-	[context_device_locale] [nvarchar](max) NULL,
-	[context_device_userAgent] [nvarchar](max) NULL,
-	[context_device_browser] [nvarchar](max) NULL,
-	[context_device_browserVersion] [nvarchar](max) NULL,
-	[context_device_screenResolution_value] [nvarchar](max) NULL,
-	[context_user_anonId] [nvarchar](max) NULL,
-	[context_user_anonAcquisitionDate] [nvarchar](max) NULL,
-	[context_user_authAcquisitionDate] [nvarchar](max) NULL,
-	[context_user_accountAcquisitionDate] [nvarchar](max) NULL,
-	[context_session_id] [nvarchar](max) NULL,
-	[context_session_isFirst] [bit] NOT NULL,
-	[context_operation_id] [nvarchar](max) NULL,
-	[context_location_point_lat] [float] NOT NULL,
-	[context_location_point_lon] [float] NOT NULL,
-	[context_location_clientip] [nvarchar](max) NULL,
-	[context_location_continent] [nvarchar](max) NULL,
-	[context_location_country] [nvarchar](max) NULL,
-	[context_location_province] [nvarchar](max) NULL,
-	[context_location_city] [nvarchar](max) NULL,
+    [Id] [uniqueidentifier] NOT NULL,
+    [url] [nvarchar](max) NULL,
+    [urlData_port] [int] NOT NULL,
+    [urlData_protocol] [nvarchar](max) NULL,
+    [urlData_host] [nvarchar](max) NULL,
+    [urlData_base] [nvarchar](max) NULL,
+    [urlData_hashTag] [nvarchar](max) NULL,
+    [total_value] [float] NOT NULL,
+    [networkConnection_value] [float] NOT NULL,
+    [sendRequest_value] [float] NOT NULL,
+    [receiveRequest_value] [float] NOT NULL,
+    [clientProcess_value] [float] NOT NULL,
+    [name] [nvarchar](max) NULL,
+    [User] [nvarchar](max) NULL,
+    [internal_data_id] [nvarchar](max) NULL,
+    [internal_data_documentVersion] [nvarchar](max) NULL,
+    [context_data_eventTime] [datetime] NULL,
+    [context_device_id] [nvarchar](max) NULL,
+    [context_device_type] [nvarchar](max) NULL,
+    [context_device_os] [nvarchar](max) NULL,
+    [context_device_osVersion] [nvarchar](max) NULL,
+    [context_device_locale] [nvarchar](max) NULL,
+    [context_device_userAgent] [nvarchar](max) NULL,
+    [context_device_browser] [nvarchar](max) NULL,
+    [context_device_browserVersion] [nvarchar](max) NULL,
+    [context_device_screenResolution_value] [nvarchar](max) NULL,
+    [context_user_anonId] [nvarchar](max) NULL,
+    [context_user_anonAcquisitionDate] [nvarchar](max) NULL,
+    [context_user_authAcquisitionDate] [nvarchar](max) NULL,
+    [context_user_accountAcquisitionDate] [nvarchar](max) NULL,
+    [context_session_id] [nvarchar](max) NULL,
+    [context_session_isFirst] [bit] NOT NULL,
+    [context_operation_id] [nvarchar](max) NULL,
+    [context_location_point_lat] [float] NOT NULL,
+    [context_location_point_lon] [float] NOT NULL,
+    [context_location_clientip] [nvarchar](max) NULL,
+    [context_location_continent] [nvarchar](max) NULL,
+    [context_location_country] [nvarchar](max) NULL,
+    [context_location_province] [nvarchar](max) NULL,
+    [context_location_city] [nvarchar](max) NULL,
     CONSTRAINT [PK_dbo.PageViewPerformances] PRIMARY KEY CLUSTERED 
     (
      [Id] ASC
@@ -543,3 +543,4 @@ To see this example in action, [download](https://sesitai.codeplex.com/) the com
 [start]: app-insights-overview.md
 
  
+

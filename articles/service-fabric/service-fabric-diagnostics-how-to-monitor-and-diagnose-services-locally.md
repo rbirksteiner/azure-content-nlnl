@@ -61,3 +61,4 @@ After adding custom ETW tracing to your service code, you can build, deploy, and
 The same tracing code that you added to your application above for local diagnostics will work with tools that you can use to view these events when running your application on an Azure cluster, checkout these articles that discuss the different options for the tools and describe how you can set them up.
 * [Collecting logs from a Service Fabric cluster in Azure using WAD(Windows Azure Diagnostics) and Operational Insights](service-fabric-diagnostics-how-to-setup-wad-operational-insights.md)
 * [Using ElasticSearch as a Service Fabric application trace store](service-fabric-diagnostic-how-to-use-elasticsearch.md)
+

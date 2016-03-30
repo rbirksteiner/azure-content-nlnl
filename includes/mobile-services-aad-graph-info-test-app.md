@@ -10,3 +10,4 @@ The instructions and screenshots below apply to testing a Windows Store client b
 
     ![](./media/mobile-services-aad-graph-info-test-app/custom-greeting.png)
 
+

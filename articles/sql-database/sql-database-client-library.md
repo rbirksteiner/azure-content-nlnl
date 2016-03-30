@@ -798,3 +798,4 @@ To delete a resource group:
 [7]: ./media/sql-database-client-library/add-application.png
 [8]: ./media/sql-database-client-library/add-application2.png
 [9]: ./media/sql-database-client-library/clientid.png
+

@@ -29,10 +29,10 @@ The dashboard contains the following information:
 
      In this context, *primary storage* refers to the total amount of data written by the host. It can include both locally stored data and data tiered to the cloud. *Cloud storage*, on the other hand, is a measurement of the total amount of data stored in the cloud. This includes tiered data and backups. Note that data stored in the cloud is deduplicated and compressed, whereas primary storage indicates the amount of storage used before the data is deduplicated and compressed. (You can compare these two numbers to get an idea of the compression rate.) For both primary and cloud storage, the amounts shown will be based on the tracking frequency you configure. For example, if you choose a one week frequency, then the chart will show data for each day in the previous week.
  
-	 You can configure the chart as follows:
+     You can configure the chart as follows:
 
-	 - To see the amount of cloud storage consumed over time, select the **CLOUD STORAGE USED** option. To see the total storage that has been written by the host, select the **PRIMARY STORAGE USED** option. In the illustration, both options are selected; therefore, the chart shows storage amounts for both cloud and primary storage. 
-	 - Use the drop-down menu in the top-right corner of the chart to specify a 1-week, 1-month, 3-month, or 1-year time period. Note that the top-level chart is refreshed only one time per day, and therefore will reflect the previous day's totals.
+     - To see the amount of cloud storage consumed over time, select the **CLOUD STORAGE USED** option. To see the total storage that has been written by the host, select the **PRIMARY STORAGE USED** option. In the illustration, both options are selected; therefore, the chart shows storage amounts for both cloud and primary storage. 
+     - Use the drop-down menu in the top-right corner of the chart to specify a 1-week, 1-month, 3-month, or 1-year time period. Note that the top-level chart is refreshed only one time per day, and therefore will reflect the previous day's totals.
 
      For more information, see [Use the StorSimple Manager service to monitor your StorSimple device](storsimple-monitor-device.md).
 
@@ -99,3 +99,4 @@ You may need the device target IQN when you configure the Challenge Handshake Au
 
 - Learn more about the [StorSimple Manager service dashboard](storsimple-service-dashboard.md).
 - Learn more about [using the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
+

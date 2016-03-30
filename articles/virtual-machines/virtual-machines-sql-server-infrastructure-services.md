@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Overview of SQL Server on Virtual Machines | Microsoft Azure"
-	description="This article provides an overview of SQL Server hosted on Azure Virtual Machines. This includes links to depth content." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="rothja" 
-	manager="jeffreyg"
-	editor=""
-	tags="azure-service-management"/>
+    pageTitle="Overview of SQL Server on Virtual Machines | Microsoft Azure"
+    description="This article provides an overview of SQL Server hosted on Azure Virtual Machines. This includes links to depth content." 
+    services="virtual-machines" 
+    documentationCenter="" 
+    authors="rothja" 
+    manager="jeffreyg"
+    editor=""
+    tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services" 
-	ms.date="11/12/2015"
-	ms.author="jroth"/>
+    ms.service="virtual-machines"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="vm-windows-sql-server"
+    ms.workload="infrastructure-services" 
+    ms.date="11/12/2015"
+    ms.author="jroth"/>
 
 # SQL Server on Azure Virtual Machines overview
 
@@ -132,7 +132,7 @@ The following database engine settings are configured. For more settings, examin
 
 ### Customer Experience Improvement Program (CEIP)
 
-The [Customer Experience Improvement Program (CEIP)](https://technet.microsoft.com/library/cc730757.aspx) is enabled. You can disable the CEIP by using the SQL Server Error and Usage Reporting utility. To launch the SQL Server Error and Usage Reporting utility; on the Start menu, click All Programs, click Microsoft SQL Server version, click Configuration Tools, and then click SQL Server Error and Usage Reporting. If you do not want to use an instance of SQL Server with CEIP enabled, you might also consider deploying your own virtual machine image to Azure.  For more information, see [Creating and Uploading a Virtual Hard Disk that Contains the Windows Server Operating System](virtual-machines-create-upload-vhd-windows-server.md).
+The [Customer Experience Improvement Program (CEIP)](https://technet.microsoft.com/library/cc730757.aspx) is enabled. You can disable the CEIP by using the SQL Server Error and Usage Reporting utility. To launch the SQL Server Error and Usage Reporting utility; on the Start menu, click All Programs, click Microsoft SQL Server version, click Configuration Tools, and then click SQL Server Error and Usage Reporting. If you do not want to use an instance of SQL Server with CEIP enabled, you might also consider deploying your own virtual machine image to Azure.  For more information, see [Creating and Uploading a Virtual Hard Disk that Contains the Windows Server Operating System](virtual-machines-create-upload-vhd-windows-server.md).
 
 ## Run SQL Server setup from the platform-provided SQL Server image
 
@@ -147,3 +147,4 @@ If you create a virtual machine by using a platform-provided SQL Server image, y
 - [High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md)
 - [Application Patterns and Development Strategies for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
 - [Azure Virtual Machines](virtual-machines-about.md) 
+

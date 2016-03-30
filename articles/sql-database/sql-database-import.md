@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Import a BACPAC file to create a new Azure SQL database"
-	description="Create a new Azure SQL database by importing an existing BACPAC file."
-	services="sql-database"
-	documentationCenter=""
-	authors="stevestein"
-	manager="jeffreyg"
-	editor=""/>
+    pageTitle="Import a BACPAC file to create a new Azure SQL database"
+    description="Create a new Azure SQL database by importing an existing BACPAC file."
+    services="sql-database"
+    documentationCenter=""
+    authors="stevestein"
+    manager="jeffreyg"
+    editor=""/>
 
 <tags
-	ms.service="sql-database"
-	ms.devlang="NA"
-	ms.date="12/01/2015"
-	ms.author="sstein"
-	ms.workload="data-management"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"/>
+    ms.service="sql-database"
+    ms.devlang="NA"
+    ms.date="12/01/2015"
+    ms.author="sstein"
+    ms.workload="data-management"
+    ms.topic="article"
+    ms.tgt_pltfrm="NA"/>
 
 
 # Import a BACPAC file to create a new Azure SQL database
@@ -47,11 +47,11 @@ To import a SQL database from a .bacpac you need the following:
 
 Open the SQL Server blade for the database you want to import:
 
-1.	Go to the [Azure portal](https://portal.azure.com).
-2.	Click **BROWSE ALL**.
-3.	Click **SQL servers**.
-2.	Click the server to restore the database into.
-3.	In the SQL Server blade click **Import database** to open the **Import database** blade:
+1.  Go to the [Azure portal](https://portal.azure.com).
+2.  Click **BROWSE ALL**.
+3.  Click **SQL servers**.
+2.  Click the server to restore the database into.
+3.  In the SQL Server blade click **Import database** to open the **Import database** blade:
 
     ![import database][1]
 
@@ -73,10 +73,10 @@ Clicking **Create** submits an import database request to the service. Depending
 
 ## Monitor the progress of the import operation
 
-2.	Click **BROWSE ALL**.
-3.	Click **SQL servers**.
-2.	Click the server you are restoring to.
-3.	In the SQL server blade click **Import/Export history**:
+2.  Click **BROWSE ALL**.
+3.  Click **SQL servers**.
+2.  Click the server you are restoring to.
+3.  In the SQL server blade click **Import/Export history**:
 
     ![import export history][5]
     ![import export history][6]
@@ -87,8 +87,8 @@ Clicking **Create** submits an import database request to the service. Depending
 
 ## Verify the database is live on the server
 
-2.	Click **BROWSE ALL**.
-3.	Click **SQL databases** and verify the new database is **Online**.
+2.  Click **BROWSE ALL**.
+3.  Click **SQL databases** and verify the new database is **Online**.
 
 
 
@@ -110,3 +110,4 @@ Clicking **Create** submits an import database request to the service. Depending
 [4]: ./media/sql-database-import/create.png
 [5]: ./media/sql-database-import/import-history.png
 [6]: ./media/sql-database-import/import-status.png
+

@@ -9,13 +9,13 @@
    tags="azure-resource-manager,azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/01/2015"
-	ms.author="davidmu"/>
+    ms.service="virtual-machines"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/01/2015"
+    ms.author="davidmu"/>
 
 # Azure Resource Manager Architecture
 
@@ -82,3 +82,4 @@ You can also see the componentization and dependent relationships between resour
 [Azure Compute, Network and Storage Providers under Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md)
 
 [Azure Resource Manager Overview](resource-group-overview.md)
+

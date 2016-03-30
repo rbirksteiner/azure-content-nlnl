@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Define your Mobile Engagement strategy | Microsoft Azure"
-	description="Learn how to onboard and optimize your Mobile Engagement with analytics and push notifications."
-	services="mobile-engagement"
-	documentationCenter="Mobile"
-	authors="piyushjo"
-	manager="dwrede"
-	editor="" />
+    pageTitle="Define your Mobile Engagement strategy | Microsoft Azure"
+    description="Learn how to onboard and optimize your Mobile Engagement with analytics and push notifications."
+    services="mobile-engagement"
+    documentationCenter="Mobile"
+    authors="piyushjo"
+    manager="dwrede"
+    editor="" />
 
 <tags
-	ms.service="mobile-engagement"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/10/2015"
-	ms.author="piyushjo" />
+    ms.service="mobile-engagement"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/10/2015"
+    ms.author="piyushjo" />
 
 # Define your Mobile Engagement strategy
 
@@ -39,8 +39,8 @@ Your use-cases are a simple list of campaigns you'd like to make to communicate 
 1. A very short designation (for example, a "Welcome campaign").
 2. **What**: A message example (for example, "Glad to have you onboard! Remember to login to get your 1st month free!"). This message is by no means final, you'll be able to change it any time you like, but it usually helps to start thinking about what we want to say.
 3. **Who**: The segment that will receive this message (for example, "All users who launched the app for the first time 3 days ago, have visited the login page but have not logged-in").
-	- Yes, you can do that very easily with Azure Mobile Engagement :)
-	- Again, this does not have to be final as you can define your segments at any time, but it is important to define early on your segmentation criteria to ensure you collect the right data.
+    - Yes, you can do that very easily with Azure Mobile Engagement :)
+    - Again, this does not have to be final as you can define your segments at any time, but it is important to define early on your segmentation criteria to ensure you collect the right data.
 4. **When**: The timing of your campaign. It may be on a given date, or after a specific action, based on a trigger. Mobile Engagement offers an important amount of possibilities to rightly time your communication.
 
 Once use-cases and segment are defined, it gives a guideline to define the data that must be collected within an application. This is the role of a *“tag plan”*. A tag plan allows you to ensure that the data collection is specified to the developers. Hence, developers are able to embed Mobile Engagement with the right setup for you to work your campaigns with the right data. It will also be very important to run tests to ensure the integration is correct and collects what you need.
@@ -108,15 +108,15 @@ All of this type of data can be augmented with parameters (*extra-information* i
 
 *Use-case: Segment audience behavior to target the right end-user with the right push notification content*
 
-1.	Send push notification to promote a category of product: Gather behavior data to segment audience based on the category of product they have visited x times in a given period or a specific item they have added in a cart. The data collected will allow you to segment and then send a push notification to the right audience.
-2.	Rate the app: Collect data based on the content shared by the audience on a social network. Aims to segment the audience by determining the *ambassadors* of your app. Using a push notification in-app, the ambassadors are the best audience of your app to ask to rate your app 5 stars in the store.
+1.  Send push notification to promote a category of product: Gather behavior data to segment audience based on the category of product they have visited x times in a given period or a specific item they have added in a cart. The data collected will allow you to segment and then send a push notification to the right audience.
+2.  Rate the app: Collect data based on the content shared by the audience on a social network. Aims to segment the audience by determining the *ambassadors* of your app. Using a push notification in-app, the ambassadors are the best audience of your app to ask to rate your app 5 stars in the store.
 
-	![][1]
+    ![][1]
 
 *Use-case: Declarative data*
-1.	Segment alert news: Collect declarative data to segment audience based on their preferences. It allows sending push notification of a specific topic that really interests a specific audience.
-2.	Segment audience based on login status. Collect data to know if a user is connected or has created an account. Helps target end-users that have not yet logged in and sends a push notification to encourage end-user to convert.
-	![][2]
+1.  Segment alert news: Collect declarative data to segment audience based on their preferences. It allows sending push notification of a specific topic that really interests a specific audience.
+2.  Segment audience based on login status. Collect data to know if a user is connected or has created an account. Helps target end-users that have not yet logged in and sends a push notification to encourage end-user to convert.
+    ![][2]
 
 ### Next steps
 
@@ -134,4 +134,5 @@ All of this type of data can be augmented with parameters (*extra-information* i
 <!-- URLs. -->
 [Mobile Engagement Concepts]: http://azure.microsoft.com/documentation/articles/mobile-engagement-concepts/
 [Tutorials]: http://azure.microsoft.com/documentation/articles/mobile-engagement-ios-get-started/
+
 

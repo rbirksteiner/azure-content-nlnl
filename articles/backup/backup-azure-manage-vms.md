@@ -1,21 +1,21 @@
 
 <properties
-	pageTitle="Manage and monitor Azure virtual machine backups | Microsoft Azure"
-	description="Learn how to manage and monitor an Azure virtual machine backups"
-	services="backup"
-	documentationCenter=""
-	authors="trinadhk"
-	manager="shreeshd"
-	editor=""/>
+    pageTitle="Manage and monitor Azure virtual machine backups | Microsoft Azure"
+    description="Learn how to manage and monitor an Azure virtual machine backups"
+    services="backup"
+    documentationCenter=""
+    authors="trinadhk"
+    manager="shreeshd"
+    editor=""/>
 
 <tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/29/2015"
-	ms.author="aashishr"; "jimpark"; "trinadhk"/>
+    ms.service="backup"
+    ms.workload="storage-backup-recovery"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/29/2015"
+    ms.author="aashishr"; "jimpark"; "trinadhk"/>
 
 # Manage and monitor Azure virtual machine backups
 
@@ -255,3 +255,4 @@ Event based alerts are subjected to following limitations:
 ## Next steps
 
 - [Restore Azure VMs](backup-azure-restore-vms.md)
+

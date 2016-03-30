@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Set up staging environments for web apps in Azure App Service"
-	description="Learn how to use staged publishing for web apps in Azure App Service."
-	services="app-service"
-	documentationCenter=""
-	authors="cephalin"
-	writer="cephalin"
-	manager="wpickett"
-	editor="mollybos"/>
+    pageTitle="Set up staging environments for web apps in Azure App Service"
+    description="Learn how to use staged publishing for web apps in Azure App Service."
+    services="app-service"
+    documentationCenter=""
+    authors="cephalin"
+    writer="cephalin"
+    manager="wpickett"
+    editor="mollybos"/>
 
 <tags
-	ms.service="app-service"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/21/2015"
-	ms.author="cephalin"/>
+    ms.service="app-service"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/21/2015"
+    ms.author="cephalin"/>
 
 # Set up staging environments for web apps in Azure App Service
 <a name="Overview"></a>
@@ -47,24 +47,24 @@ The web app must be running in the **Standard** or **Premium** mode in order for
 1. In the [Azure Portal](https://portal.azure.com/), open your web app's blade.
 2. Click **Deployment slots**. Then, in the **Deployment slots** blade, click **Add Slot**.
 
-	![Add a new deployment slot][QGAddNewDeploymentSlot]
+    ![Add a new deployment slot][QGAddNewDeploymentSlot]
 
-	> [AZURE.NOTE]
-	> If the web app is not already in the **Standard** or **Premium** mode, you will receive a message indicating the supported modes for enabling staged publishing. At this point, you have the option to select **Upgrade** and navigate to the **Scale** tab of your web app before continuing.
+    > [AZURE.NOTE]
+    > If the web app is not already in the **Standard** or **Premium** mode, you will receive a message indicating the supported modes for enabling staged publishing. At this point, you have the option to select **Upgrade** and navigate to the **Scale** tab of your web app before continuing.
 
 2. In the **Add a slot** blade, give the slot a name, and select whether to clone web app configuration from another existing deployment slot. Click the check mark to continue.
 
-	![Configuration Source][ConfigurationSource1]
+    ![Configuration Source][ConfigurationSource1]
 
-	The first time you add a slot, you will only have two choices: clone configuration from the default slot in production or not at all.
+    The first time you add a slot, you will only have two choices: clone configuration from the default slot in production or not at all.
 
-	After you have created several slots, you will be able to clone configuration from a slot other than the one in production:
+    After you have created several slots, you will be able to clone configuration from a slot other than the one in production:
 
-	![Configuration sources][MultipleConfigurationSources]
+    ![Configuration sources][MultipleConfigurationSources]
 
 5. In the **Deployment slots** blade, click the deployment slot to open a blade for the slot, with a set of metrics and configuration just like any other web app. **your-web-app-name-deployment-slot-name** will appear at the top of blade to remind you that you are viewing the deployment slot.
 
-	![Deployment Slot Title][StagingTitle]
+    ![Deployment Slot Title][StagingTitle]
 
 5. Click the app URL in the slot's blade. Notice the the deployment slot has its own hostname and is also a live app. To limit public access to the deployment slot, see [App Service Web App – block web access to non-production deployment slots](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/).
 
@@ -102,7 +102,7 @@ To configure an app setting or connection string to stick to a slot (not swapped
 
 1. To swap deployment slots, click the **Swap** button in the command bar of the web app or in the command bar of a deployment slot. Make sure that the swap source and swap target are set properly. Usually, the swap target would be the production slot.  
 
-	![Swap Button][SwapButtonBar]
+    ![Swap Button][SwapButtonBar]
 
 3. Click **OK** to complete the operation. When the operation finishes, the deployment slots have been swapped.
 
@@ -116,15 +116,15 @@ Configuring Auto Swap for a slot is easy. Follow the steps below:
 
 1. In the **Deployment Slots** blade, select a non-production slot, click **All Settings** for that slot's blade.  
 
-	![][Autoswap1]
+    ![][Autoswap1]
 
 2. Click **Application Settings**. Select **On** for **Auto Swap**, select the desired target slot in **Auto Swap Slot**, and click **Save** in the command bar. Make sure configuration for the slot is exactly the configuration intended for the target slot.
 
-	The **Notifications** tab will flash a green **SUCCESS** once the operation is complete.
+    The **Notifications** tab will flash a green **SUCCESS** once the operation is complete.
 
-	![][Autoswap2]
+    ![][Autoswap2]
 
-	>[AZURE.NOTE] To test Auto Swap for your web app, you can first select a non-production target slot in **Auto Swap Slot** to become familiar with the feature.  
+    >[AZURE.NOTE] To test Auto Swap for your web app, you can first select a non-production target slot in **Auto Swap Slot** to become familiar with the feature.  
 
 3. Execute a code push to that deployment slot. Auto Swap will happen after a short time and the update will be reflected at your target slot's URL.
 
@@ -261,3 +261,4 @@ To delete a deployment slot that is no longer needed, use the **azure site delet
 [Autoswap2]: ./media/web-sites-staged-publishing/AutoSwap02.png
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
  
+

@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Introduction to Apache Storm on HDInsight | Microsoft Azure"
-	description="Get an introduction to Apache Storm, and learn how you can use Storm on HDInsight to build real-time data analytics solutions in the cloud."
-	services="hdinsight"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="paulettm"
-	editor="cgronlun"
-	tags="azure-portal"/>
+    pageTitle="Introduction to Apache Storm on HDInsight | Microsoft Azure"
+    description="Get an introduction to Apache Storm, and learn how you can use Storm on HDInsight to build real-time data analytics solutions in the cloud."
+    services="hdinsight"
+    documentationCenter=""
+    authors="Blackmist"
+    manager="paulettm"
+    editor="cgronlun"
+    tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -33,17 +33,17 @@ Apache Storm on HDInsight is a managed cluster integrated into the Azure environ
 
 * Use the language of your choice: Provides support for Storm components written in **Java**, **C#**, and **Python**
 
-	* Supports a mix of programming languages: Read data using Java, then process it using C#
-	
-		> [AZURE.NOTE] C# topologies are only supported on Windows-based HDInsight clusters.
+    * Supports a mix of programming languages: Read data using Java, then process it using C#
+    
+        > [AZURE.NOTE] C# topologies are only supported on Windows-based HDInsight clusters.
 
-	* Use the **Trident** Java interface to create Storm topologies that support "exactly once" processing of messages, "transactional" datastore persistence, and a set of common stream analytics operations
+    * Use the **Trident** Java interface to create Storm topologies that support "exactly once" processing of messages, "transactional" datastore persistence, and a set of common stream analytics operations
 
 * Includes built-in scale-up and scale-down features: Scale an HDInsight cluster with no impact to running Storm topologies
 
 * Integrate with other Azure services, including Event Hub, Azure Virtual Network, SQL Database, Blob storage, and DocumentDB
 
-	* Combine the capabilities of multiple HDInsight clusters by using Azure Virtual Network: Create analytic pipelines that use HDInsight, HBase, or Hadoop clusters
+    * Combine the capabilities of multiple HDInsight clusters by using Azure Virtual Network: Create analytic pipelines that use HDInsight, HBase, or Hadoop clusters
 
 For a list of companies that are using Apache Storm for their real-time analytics solutions, see [Companies Using Apache Storm](https://storm.apache.org/documentation/Powered-By.html).
 
@@ -137,13 +137,13 @@ Apache Storm runs **topologies** instead of the MapReduce jobs that you may be f
 
 * **Spout**: Consumes data from a data source and emits one or more **streams**.
 
-	> [AZURE.NOTE] In many cases, data is read from a queue, such as Kafka, Azure Service Bus queues, or Event hubs. The queue ensures that data is persisted if there is an outage.
+    > [AZURE.NOTE] In many cases, data is read from a queue, such as Kafka, Azure Service Bus queues, or Event hubs. The queue ensures that data is persisted if there is an outage.
 
 * **Bolt**: Consumes **streams**, performs processing on **tuples**, and may emit **streams**. Bolts are also responsible for writing data to external storage, such as a queue, HDInsight, HBase, a blob, or other data store.
 
 * **Apache Thrift**: A software framework for scalable cross-language service development. It allows you to build services that work between C++, Java, Python, PHP, Ruby, Erlang, Perl, Haskell, C#, Cocoa, JavaScript, Node.js, Smalltalk, and other languages.
 
-	* **Nimbus** is a Thrift service, and a **topology** is a Thrift definition, so it is possible to develop topologies using a variety of programming languages.
+    * **Nimbus** is a Thrift service, and a **topology** is a Thrift definition, so it is possible to develop topologies using a variety of programming languages.
 
 For more information about Storm components, see the [Storm tutorial][apachetutorial] at apache.org.
 
@@ -186,7 +186,7 @@ Joining two streams of data will vary between applications. For example, you cou
 
 In the following Java example, fieldsGrouping is used to route tuples that originate from components "1", "2", and "3" to the **MyJoiner** bolt.
 
-	builder.setBolt("join", new MyJoiner(), parallelism) .fieldsGrouping("1", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("2", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("3", new Fields("joinfield1", "joinfield2"));
+    builder.setBolt("join", new MyJoiner(), parallelism) .fieldsGrouping("1", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("2", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("3", new Fields("joinfield1", "joinfield2"));
 
 ###Batching
 
@@ -218,3 +218,4 @@ Learn more about real-time analytics solutions with Apache Storm in HDInsight:
 [samoa]: http://yahooeng.tumblr.com/post/65453012905/introducing-samoa-an-open-source-platform-for-mining
 [apachetutorial]: https://storm.incubator.apache.org/documentation/Tutorial.html
 [gettingstarted]: hdinsight-apache-storm-tutorial-get-started-linux.md
+

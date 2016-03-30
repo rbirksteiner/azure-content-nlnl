@@ -20,13 +20,13 @@ Perform the following tasks to create a new Git repository.
 
 3. From the command line, change to the MyGitRepository directory.
 
-		cd MyGitRepository
+        cd MyGitRepository
 
 4. Use the following command to initialize a new Git repository:
 
-		git init
+        git init
 
-	This should return a message such as **Initialized empty Git repository in [path]**.
+    This should return a message such as **Initialized empty Git repository in [path]**.
 
 ## <a id="Step3"></a>Step 3: Add a web page
 
@@ -36,23 +36,23 @@ Web Apps supports applications created in a variety of programming languages. Fo
 
 2. Add the following text as the contents for the index.html file and save it.
 
-		Hello Git!
+        Hello Git!
 
 3. From the command-line, verify that you are in the root of your Git repository. Then use the following command to add the **index.html** file to the repository:
 
-		git add index.html 
+        git add index.html 
 
-	> [AZURE.NOTE] You can find help for any git command by typing -help or --help after the command. For example, for parameter options for the add command, type 'git add -help' for command-line help or 'git add --help' for more detailed help.
+    > [AZURE.NOTE] You can find help for any git command by typing -help or --help after the command. For example, for parameter options for the add command, type 'git add -help' for command-line help or 'git add --help' for more detailed help.
 
 4. Next, commit the changes to the repository by using the following command:
 
-		git commit -m "Adding index.html to the repository"
+        git commit -m "Adding index.html to the repository"
 
-	You should see output similar to the following:
+    You should see output similar to the following:
 
-		[master (root-commit) 369a79c] Adding index.html to the repository
-		 1 file changed, 1 insertion(+)
-		 create mode 100644 index.html
+        [master (root-commit) 369a79c] Adding index.html to the repository
+         1 file changed, 1 insertion(+)
+         create mode 100644 index.html
 
 ## <a id="Step4"></a>Enable the web app repository
 
@@ -62,11 +62,11 @@ Perform the following steps to enable a Git repository for your web app.
 
 2. In your web app's blade, click **Settings > Continuous deployment**. Click **Choose Source**, then click **Local Git Repository**, and then click **OK**.  
 
-	![Local Git Repository](./media/publishing-with-git/azure1-local-git.png)
+    ![Local Git Repository](./media/publishing-with-git/azure1-local-git.png)
 
 4. If this is your first time setting up a repository in Azure, you need to create login credentials for it. You will use them to log into the Azure repository and push changes from your local Git repository. From your web app's blade, click **Settings > Deployment credentials**, then configure your deployment username and password. When you're done, click **OK**.
 
-	![](./media/publishing-with-git/azure2-credentials.png)
+    ![](./media/publishing-with-git/azure2-credentials.png)
 
 ## <a id="Step5"></a>Deploy your project
 
@@ -78,55 +78,55 @@ Use the following steps to publish your web app to Azure using Local Git.
 
 1. In your web app's blade, click **Settings > Properties** for the **Git URL**.
 
-	![](./media/publishing-with-git/azure3-repo-details.png)
+    ![](./media/publishing-with-git/azure3-repo-details.png)
 
-	**Git URL** is the remote reference to deploy to from your local repository. You'll use this URL in the following steps.
+    **Git URL** is the remote reference to deploy to from your local repository. You'll use this URL in the following steps.
 
 1. Using the command-line, verify that you are in the root of your local Git repository that contains the previously created index.html file.
 
 2. Use `git remote` to add the remote reference listed in **Git URL** from step 1. Your command will look similar to the following:
 
-		git remote add azure https://username@needsmoregit.scm.azurewebsites.net:443/NeedsMoreGit.git
+        git remote add azure https://username@needsmoregit.scm.azurewebsites.net:443/NeedsMoreGit.git
 
     > [AZURE.NOTE] The **remote** command adds a named reference to a remote repository. In this example, it creates a reference named 'azure' for your web app's repository.
 
 1. Use the following from the command-line to push the current repository contents from the local repository to the 'azure' remote:
 
-		git push azure master
+        git push azure master
 
-	You will be prompted for the password you created earlier when you reset your deployment credentials in the Portal. Enter the password (note that Gitbash does not echo asterisks to the console as you type your password). You should see output similar to the following:
+    You will be prompted for the password you created earlier when you reset your deployment credentials in the Portal. Enter the password (note that Gitbash does not echo asterisks to the console as you type your password). You should see output similar to the following:
 
-		Counting objects: 6, done.
-		Compressing objects: 100% (2/2), done.
-		Writing objects: 100% (6/6), 486 bytes, done.
-		Total 6 (delta 0), reused 0 (delta 0)
-		remote: New deployment received.
-		remote: Updating branch 'master'.
-		remote: Preparing deployment for commit id '369a79c929'.
-		remote: Preparing files for deployment.
-		remote: Deployment successful.
-		To https://username@needsmoregit.scm.azurewebsites.net:443/NeedsMoreGit.git
-		* [new branch]		master -> master
+        Counting objects: 6, done.
+        Compressing objects: 100% (2/2), done.
+        Writing objects: 100% (6/6), 486 bytes, done.
+        Total 6 (delta 0), reused 0 (delta 0)
+        remote: New deployment received.
+        remote: Updating branch 'master'.
+        remote: Preparing deployment for commit id '369a79c929'.
+        remote: Preparing files for deployment.
+        remote: Deployment successful.
+        To https://username@needsmoregit.scm.azurewebsites.net:443/NeedsMoreGit.git
+        * [new branch]      master -> master
 
-	> [AZURE.NOTE] The repository created for your web app expects push requests to target the <strong>master</strong> branch of its repository, which will then be used as the content of the web app.
+    > [AZURE.NOTE] The repository created for your web app expects push requests to target the <strong>master</strong> branch of its repository, which will then be used as the content of the web app.
 
 2. Go back to your web app's blade in the Azure Portal. **No deployment found** should be changed to **Active Deployment** with a log entry of your most recent push. 
 
-	![](./media/publishing-with-git/azure4-deployed.png)
+    ![](./media/publishing-with-git/azure4-deployed.png)
 
 2. Click the link under **URL** at the top of the web app blade to verify that the **index.html** has been deployed. A page containing 'Hello Git!' will appear.
 
-	![A webpage containing 'Hello Git!'][hello-git]
+    ![A webpage containing 'Hello Git!'][hello-git]
 
 3. Using a text editor, change the **index.html** file so that it contains 'Yay!', and then save the file.
 
 4. Use the following commands from the command-line to **add** and **commit** the changes, and then **push** the changes to the remote repository:
 
-		git add index.html
-		git commit -m "Celebration"
-		git push azure master
+        git add index.html
+        git commit -m "Celebration"
+        git push azure master
 
-	Once the **push** command has completed, refresh the browser (you may have to press Ctrl+F5 for the browser to properly refresh) and note that the content of the page now reflects the latest commit change.
+    Once the **push** command has completed, refresh the browser (you may have to press Ctrl+F5 for the browser to properly refresh) and note that the content of the page now reflects the latest commit change.
 
 ### <a id="Step7"></a>Deploy files from a repository site like BitBucket, CodePlex, Dropbox, GitHub, or Mercurial
 
@@ -140,17 +140,17 @@ Deploying files from either GitHub, CodePlex, or BitBucket requires that you hav
 
 2. In your web app's blade in the Portal, click **Settings > Continuous delivery**. Click **Choose Source**, then click **GitHub**, for example.  
 
-	![](./media/publishing-with-git/azure6-setup-github.png)
-	
+    ![](./media/publishing-with-git/azure6-setup-github.png)
+    
 2. In the **Continous Deployment** blade, click **Authorization**, then click **Authorize**. The Azure Portal will redirect you to the repository site to complete the authorization process. 
 
 4. When you're done, go back to the Azure Portal and click **OK** in the **Authorization** blade.
 
 5. In the **Continous Deployment** blade, choose the organization, project, and branch you want to deploy from. When you're done, click **OK**.
   
-	![](./media/publishing-with-git/azure7-setup-github-configure.png)
+    ![](./media/publishing-with-git/azure7-setup-github-configure.png)
 
-	> [AZURE.NOTE] When enabling continuous deployment with GitHub or BitBucket, both public and private projects will be displayed.
+    > [AZURE.NOTE] When enabling continuous deployment with GitHub or BitBucket, both public and private projects will be displayed.
 
 Azure creates an association with the selected repository, and pulls in the files from the specified branch. After this process completes, the **Deployment** section of your web app's blade will show an **Active Deployment** message that indicates deployment has succeeded.
 
@@ -164,29 +164,29 @@ Pushing a Visual Studio solution to Web Apps in Azure App Service is just as eas
 
 The steps for pushing your Visual Studio solution to Web Apps is the same as in the [previous section](#Step7), provided that you configure your solution and repository as follows:
 
--	In your repository root, add a `.gitignore` file, then specify all files and folders that you want to exclude from your repository, such as the `Obj`, `Bin`, and `packages` folders (see [gitignore documentation](http://git-scm.com/docs/gitignore) for formatting information). For example:
+-   In your repository root, add a `.gitignore` file, then specify all files and folders that you want to exclude from your repository, such as the `Obj`, `Bin`, and `packages` folders (see [gitignore documentation](http://git-scm.com/docs/gitignore) for formatting information). For example:
 
-		[Oo]bj/
-		[Bb]in/
-		*.user
-		/TestResults
-		*.vspscc
-		*.vssscc
-		*.suo
-		*.cache
-		*.csproj.user
-		packages/*
-		App_Data/
-		/apps
-		msbuild.log
-		_app/
-		nuget.exe
+        [Oo]bj/
+        [Bb]in/
+        *.user
+        /TestResults
+        *.vspscc
+        *.vssscc
+        *.suo
+        *.cache
+        *.csproj.user
+        packages/*
+        App_Data/
+        /apps
+        msbuild.log
+        _app/
+        nuget.exe
 
-	>[AZURE.NOTE] If you use GitHub, you can optionally generate a Visual Studio specific .gitignore file when you create your repository, which includes all the common temporary files, build results, etc. You can then customize it to suit your specific needs.
+    >[AZURE.NOTE] If you use GitHub, you can optionally generate a Visual Studio specific .gitignore file when you create your repository, which includes all the common temporary files, build results, etc. You can then customize it to suit your specific needs.
 
--	Add the entire solution's directory tree to your repository, with the .sln file in the repository root.
+-   Add the entire solution's directory tree to your repository, with the .sln file in the repository root.
 
--	In your Visual Studio solution, [enable NuGet Package Restore](http://docs.nuget.org/Consume/Package-Restore) to make Visual Studio automatically restore missing packages.
+-   In your Visual Studio solution, [enable NuGet Package Restore](http://docs.nuget.org/Consume/Package-Restore) to make Visual Studio automatically restore missing packages.
 
 Once you have set up your repository as described, and configured your web app in Azure for continuous publishing from one of the online Git repositories, you can develop your ASP.NET application locally in Visual Studio and continuously deploy your code simply by pushing your changes to your online Git repository.
 
@@ -194,7 +194,7 @@ Once you have set up your repository as described, and configured your web app i
 
 Continuous deployment can be disabled from the **Deployments** blade. From your web app's blade, click **Settings > Continuous deployment**. Then click **Disconnect**.
 
-![git-DisconnectFromGitHub](./media/publishing-with-git/azure5-disconnect.png)	
+![git-DisconnectFromGitHub](./media/publishing-with-git/azure5-disconnect.png)  
 
 After answering **Yes** to the confirmation message, you can return to your web app's blade and click **Settings > Continuous deployment** if you would like to set up publishing from another source.
 
@@ -227,7 +227,7 @@ The following are errors or problems commonly encountered when using Git to publ
 
 **Resolution**: Perform the push operation again, specifying the master branch. For example:
 
-	git push azure master
+    git push azure master
 
 ****
 
@@ -237,7 +237,7 @@ The following are errors or problems commonly encountered when using Git to publ
 
 **Resolution**: Perform the push operation again, specifying the master branch. For example:
 
-	git push azure master
+    git push azure master
 
 ****
 
@@ -251,11 +251,11 @@ The following are errors or problems commonly encountered when using Git to publ
 
 * **Native module that does not have a binary distribution for Windows**:
 
-	* npm ERR! \`cmd "/c" "node-gyp rebuild"\` failed with 1
+    * npm ERR! \`cmd "/c" "node-gyp rebuild"\` failed with 1
 
-		OR
+        OR
 
-	* npm ERR! [modulename@version] preinstall: \`make || gmake\`
+    * npm ERR! [modulename@version] preinstall: \`make || gmake\`
 
 
 ## Additional Resources
@@ -296,3 +296,4 @@ The following are errors or problems commonly encountered when using Git to publ
 [Quick Start - Mercurial]: http://mercurial.selenic.com/wiki/QuickStart
 [Using Dropbox to Share Git Repositories]: https://gist.github.com/trey/2722927
 [Continuous delivery to Azure using Visual Studio Team Services]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
+

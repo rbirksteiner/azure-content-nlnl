@@ -241,3 +241,4 @@ You can connect to the Windows PowerShell for StorSimple through the device seri
 
 [Contact Microsoft Support](storsimple-contact-microsoft-support.md) if you encounter problems when turning on or shutting down a StorSimple device.
 
+

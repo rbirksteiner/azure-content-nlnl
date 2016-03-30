@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Data movement activities" 
-	description="Learn about Data Factory entities that you can use in a Data Factory pipelines to move data." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
-	editor="monicar"/>
+    pageTitle="Data movement activities" 
+    description="Learn about Data Factory entities that you can use in a Data Factory pipelines to move data." 
+    services="data-factory" 
+    documentationCenter="" 
+    authors="spelluru" 
+    manager="jhubbard" 
+    editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/01/2015" 
-	ms.author="spelluru"/>
+    ms.service="data-factory" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/01/2015" 
+    ms.author="spelluru"/>
 
 # Data movement activities
 The [Copy Activity](#copyactivity) performs the data movement in Azure Data Factory and the activity is powered by a [globally available Data Movement Service](#global) that can copy data between various data stores in a secure, reliable, and scalable way. The service automatically chooses the most optimal region to perform the data movement operation based on the location of the source and sink data stores. Currently the region closest to the sink data store is used.
@@ -25,8 +25,8 @@ Let’s understand how this data movement occurs in different scenarios.
 When both the source and sink (destination) data stores reside in the cloud, the copy Activity goes through the following stages to copy/move data from the source to the sink. The data movement service
 
 1. Reads data from source data store
-2.	Performs serialization/deserialization, compression/decompression, column mapping, and type conversion based on the configurations of input dataset, output dataset and the Copy Activity 
-3.	Writes data to the destination data store
+2.  Performs serialization/deserialization, compression/decompression, column mapping, and type conversion based on the configurations of input dataset, output dataset and the Copy Activity 
+3.  Writes data to the destination data store
 
 ![cloud-to-cloud copy](.\media\data-factory-data-movement-activities\cloud-to-cloud.png)
 
@@ -82,9 +82,9 @@ One of the challenges for modern data integration is to seamlessly move data to 
 
 The data gateway provides the following capabilities: 
 
-1.	Manage access to on-premises data stores securely.
-2.	Model on-premises data stores and cloud data stores within the same data factory and move data.
-3.	Have a single pane of glass for monitoring and management with visibility into gateway status with data factory cloud based dashboard.
+1.  Manage access to on-premises data stores securely.
+2.  Model on-premises data stores and cloud data stores within the same data factory and move data.
+3.  Have a single pane of glass for monitoring and management with visibility into gateway status with data factory cloud based dashboard.
 
 You should treat your data source as an on-premises data source (that is behind a firewall) even when you use **ExpressRoute** and **use the gateway** to establish connectivity between the service and the data source. 
 
@@ -108,5 +108,6 @@ Copy Activity supports a variety of file formats including binary, text and Avro
 Properties like name, description, input and output tables, various policies etc are available for all types of activities. Properties available in the **typeProperties** section of the activity on the other hand vary with each activity type. 
 
 In case of Copy Activity the **typeProperties** section varies depending on the types of sources and sinks. Each of the data store specific page listed above documents these properties specific to the data store type.
+
 
 

@@ -56,14 +56,15 @@ The cmdlets in the following table are used to create and manage variables with 
 
 The [New-AzureAutomationSchedule](http://msdn.microsoft.com/library/dn690271.aspx) cmdlet creates a new schedule and sets the value for an existing schedule.  The following sample Windows PowerShell commands create a new schedule called My Daily Schedule that starts on tomorrow at noon and fires every day one year:
 
-	$automationAccountName = "MyAutomationAccount"
-	$scheduleName = "My Daily Schedule"
-	$startTime = (Get-Date).Date.AddDays(1).AddHours(12)
-	$expiryTime = $startTime.AddYears(1)
-	
-	New-AzureAutomationSchedule –AutomationAccountName $automationAccountName –Name $scheduleName –StartTime $startTime –ExpiryTime $expiryTime –DayInterval 1
+    $automationAccountName = "MyAutomationAccount"
+    $scheduleName = "My Daily Schedule"
+    $startTime = (Get-Date).Date.AddDays(1).AddHours(12)
+    $expiryTime = $startTime.AddYears(1)
+    
+    New-AzureAutomationSchedule –AutomationAccountName $automationAccountName –Name $scheduleName –StartTime $startTime –ExpiryTime $expiryTime –DayInterval 1
 
 
 ## See Also
 - [Scheduling a runbook in Azure Automation](automation-scheduling-a-runbook.md)
  
+

@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Base Configuration Test Environment with Azure Resource Manager"
-	description="Learn how to create a simple dev/test environment that simulates a simplified intranet in Microsoft Azure using Resource Manager."
-	documentationCenter=""
-	services="virtual-machines"
-	authors="JoeDavies-MSFT"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    pageTitle="Base Configuration Test Environment with Azure Resource Manager"
+    description="Learn how to create a simple dev/test environment that simulates a simplified intranet in Microsoft Azure using Resource Manager."
+    documentationCenter=""
+    services="virtual-machines"
+    authors="JoeDavies-MSFT"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="Windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/11/2015"
-	ms.author="josephd"/>
+    ms.service="virtual-machines"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="Windows"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/11/2015"
+    ms.author="josephd"/>
 
 # Base Configuration test environment with Azure Resource Manager
 
@@ -45,10 +45,10 @@ This configuration allows DC1, APP1, CLIENT1, and additional Corpnet subnet comp
 
 There are four phases to setting up the Corpnet subnet of the Windows Server 2012 R2 Base Configuration test environment in Azure.
 
-1.	Create the virtual network.
-2.	Configure DC1.
-3.	Configure APP1.
-4.	Configure CLIENT1.
+1.  Create the virtual network.
+2.  Configure DC1.
+3.  Configure APP1.
+4.  Configure CLIENT1.
 
 If you do not already have an Azure account, you can sign up for a free trial at [Try Azure](http://azure.microsoft.com/pricing/free-trial/). If you have an MSDN Subscription, see [Azure benefit for MSDN subscribers](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
@@ -62,44 +62,44 @@ First, start an Azure PowerShell prompt.
 
 Login to your account.
 
-	Login-AzureRMAccount
+    Login-AzureRMAccount
 
 Get your subscription name using the following command.
 
-	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
+    Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
 
 Set your Azure subscription. Replace everything within the quotes, including the < and > characters, with the correct names.
 
-	$subscr="<subscription name>"
-	Get-AzureRmSubscription –SubscriptionName $subscr | Select-AzureRmSubscription
+    $subscr="<subscription name>"
+    Get-AzureRmSubscription –SubscriptionName $subscr | Select-AzureRmSubscription
 
 Next, create a new resource group for your Base Configuration test lab. To determine a unique resource group name, use this command to list your existing resource groups.
 
-	Get-AzureRMResourceGroup | Sort ResourceGroupName | Select ResourceGroupName
+    Get-AzureRMResourceGroup | Sort ResourceGroupName | Select ResourceGroupName
 
 Create your new resource group with these commands. Replace everything within the quotes, including the < and > characters, with the correct names.
 
-	$rgName="<resource group name>"
-	$locName="<location name, such as West US>"
-	New-AzureRMResourceGroup -Name $rgName -Location $locName
+    $rgName="<resource group name>"
+    $locName="<location name, such as West US>"
+    New-AzureRMResourceGroup -Name $rgName -Location $locName
 
 Resource Manager-based virtual machines require a Resource Manager-based storage account. You must pick a globally unique name for your storage account that contains only lowercase letters and numbers. You can use this command to list the existing storage accounts.
 
-	Get-AzureRMStorageAccount | Sort StorageAccountName | Select StorageAccountName
+    Get-AzureRMStorageAccount | Sort StorageAccountName | Select StorageAccountName
 
 Create a new storage account for your new test environment with these commands.
 
-	$rgName="<your new resource group name>"
-	$locName="<the location of your new resource group>"
-	$saName="<storage account name>"
-	New-AzureRMStorageAccount -Name $saName -ResourceGroupName $rgName –Type Standard_LRS -Location $locName
+    $rgName="<your new resource group name>"
+    $locName="<the location of your new resource group>"
+    $saName="<storage account name>"
+    New-AzureRMStorageAccount -Name $saName -ResourceGroupName $rgName –Type Standard_LRS -Location $locName
 
 Next, you create the TestLab Azure Virtual Network that will host the Corpnet subnet of the base configuration.
 
-	$rgName="<name of your new resource group>"
-	$locName="<Azure location name, such as West US>"
-	$corpnetSubnet=New-AzureRMVirtualNetworkSubnetConfig -Name Corpnet -AddressPrefix 10.0.0.0/24
-	New-AzureRMVirtualNetwork -Name TestLab -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/8 -Subnet $corpnetSubnet –DNSServer 10.0.0.4
+    $rgName="<name of your new resource group>"
+    $locName="<Azure location name, such as West US>"
+    $corpnetSubnet=New-AzureRMVirtualNetworkSubnetConfig -Name Corpnet -AddressPrefix 10.0.0.0/24
+    New-AzureRMVirtualNetwork -Name TestLab -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/8 -Subnet $corpnetSubnet –DNSServer 10.0.0.4
 
 This is your current configuration.
 
@@ -111,68 +111,68 @@ DC1 is a domain controller for the corp.contoso.com Active Directory Domain Serv
 
 First, fill in the name of your resource group, Azure location, and storage account name and run these commands at the Azure PowerShell command prompt on your local computer to create an Azure Virtual Machine for DC1.
 
-	$rgName="<resource group name>"
-	$locName="<Azure location, such as West US>"
-	$saName="<storage account name>"
-	$vnet=Get-AzureRMVirtualNetwork -Name TestLab -ResourceGroupName $rgName
-	$pip = New-AzureRMPublicIpAddress -Name DC1-NIC -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
-	$nic = New-AzureRMNetworkInterface -Name DC1-NIC -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -PrivateIpAddress 10.0.0.4
-	$vm=New-AzureRMVMConfig -VMName DC1 -VMSize Standard_A1
-	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
-	$vhdURI=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/DC1-TestLab-ADDSDisk.vhd"
-	Add-AzureRMVMDataDisk -VM $vm -Name ADDS-Data -DiskSizeInGB 20 -VhdUri $vhdURI  -CreateOption empty
-	$cred=Get-Credential -Message "Type the name and password of the local administrator account for DC1."
-	$vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName DC1 -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-	$vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
-	$vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id
-	$osDiskUri=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/DC1-TestLab-OSDisk.vhd"
-	$vm=Set-AzureRMVMOSDisk -VM $vm -Name DC1-TestLab-OSDisk -VhdUri $osDiskUri -CreateOption fromImage
-	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
+    $rgName="<resource group name>"
+    $locName="<Azure location, such as West US>"
+    $saName="<storage account name>"
+    $vnet=Get-AzureRMVirtualNetwork -Name TestLab -ResourceGroupName $rgName
+    $pip = New-AzureRMPublicIpAddress -Name DC1-NIC -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
+    $nic = New-AzureRMNetworkInterface -Name DC1-NIC -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -PrivateIpAddress 10.0.0.4
+    $vm=New-AzureRMVMConfig -VMName DC1 -VMSize Standard_A1
+    $storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
+    $vhdURI=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/DC1-TestLab-ADDSDisk.vhd"
+    Add-AzureRMVMDataDisk -VM $vm -Name ADDS-Data -DiskSizeInGB 20 -VhdUri $vhdURI  -CreateOption empty
+    $cred=Get-Credential -Message "Type the name and password of the local administrator account for DC1."
+    $vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName DC1 -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+    $vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
+    $vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id
+    $osDiskUri=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/DC1-TestLab-OSDisk.vhd"
+    $vm=Set-AzureRMVMOSDisk -VM $vm -Name DC1-TestLab-OSDisk -VhdUri $osDiskUri -CreateOption fromImage
+    New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
 Next, connect to the DC1 virtual machine.
 
-1.	In the Azure portal, click **Virtual machines**, and then click the **DC1** virtual machine.  
-2.	In the **DC1** pane,, click **Connect**.
-3.	When prompted, open the DC1.rdp downloaded file.
-4.	When prompted with a Remote Desktop Connection message box, click **Connect**.
-5.	When prompted for credentials, use the following:
+1.  In the Azure portal, click **Virtual machines**, and then click the **DC1** virtual machine.  
+2.  In the **DC1** pane,, click **Connect**.
+3.  When prompted, open the DC1.rdp downloaded file.
+4.  When prompted with a Remote Desktop Connection message box, click **Connect**.
+5.  When prompted for credentials, use the following:
 - Name: **DC1\\**[Local administrator account name]
 - Password: [Local administrator account password]
-6.	When prompted with a Remote Desktop Connection message box referring to certificates, click **Yes**.
+6.  When prompted with a Remote Desktop Connection message box referring to certificates, click **Yes**.
 
 Next, add an extra data disk as a new volume with the drive letter F:.
 
-1.	In the left pane of Server Manager, click **File and Storage Services**, and then click **Disks**.
-2.	In the contents pane, in the **Disks** group, click **disk 2** (with the **Partition** set to **Unknown**).
-3.	Click **Tasks**, and then click **New Volume**.
-4.	On the Before you begin page of the New Volume Wizard, click **Next**.
-5.	On the Select the server and disk page, click **Disk 2**, and then click **Next**. When prompted, click **OK**.
-6.	On the Specify the size of the volume page, click **Next**.
-7.	On the Assign to a drive letter or folder page, click **Next**.
-8.	On the Select file system settings page, click **Next**.
-9.	On the Confirm selections page, click **Create**.
-10.	When complete, click **Close**.
+1.  In the left pane of Server Manager, click **File and Storage Services**, and then click **Disks**.
+2.  In the contents pane, in the **Disks** group, click **disk 2** (with the **Partition** set to **Unknown**).
+3.  Click **Tasks**, and then click **New Volume**.
+4.  On the Before you begin page of the New Volume Wizard, click **Next**.
+5.  On the Select the server and disk page, click **Disk 2**, and then click **Next**. When prompted, click **OK**.
+6.  On the Specify the size of the volume page, click **Next**.
+7.  On the Assign to a drive letter or folder page, click **Next**.
+8.  On the Select file system settings page, click **Next**.
+9.  On the Confirm selections page, click **Create**.
+10. When complete, click **Close**.
 
 Next, configure DC1 as a domain controller and DNS server for the corp.contoso.com domain. Run these commands at an administrator-level Windows PowerShell command prompt.
 
-	Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
-	Install-ADDSForest -DomainName corp.contoso.com -DatabasePath "F:\NTDS" -SysvolPath "F:\SYSVOL" -LogPath "F:\Logs"
+    Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
+    Install-ADDSForest -DomainName corp.contoso.com -DatabasePath "F:\NTDS" -SysvolPath "F:\SYSVOL" -LogPath "F:\Logs"
 
 After DC1 restarts, reconnect to the DC1 virtual machine.
 
-1.	In the Azure portal, click **Virtual machines**, and then click the **DC1** virtual machine.
-2.	In the **DC1** pane, click** Connect**.
-3.	When prompted to open DC1.rdp, click **Open**.
-4.	When prompted with a Remote Desktop Connection message box, click **Connect**.
-5.	When prompted for credentials, use the following:
+1.  In the Azure portal, click **Virtual machines**, and then click the **DC1** virtual machine.
+2.  In the **DC1** pane, click** Connect**.
+3.  When prompted to open DC1.rdp, click **Open**.
+4.  When prompted with a Remote Desktop Connection message box, click **Connect**.
+5.  When prompted for credentials, use the following:
 - Name: **CORP\\**[Local administrator account name]
 - Password: [Local administrator account password]
-6.	When prompted by a Remote Desktop Connection message box referring to certificates, click **Yes**.
+6.  When prompted by a Remote Desktop Connection message box referring to certificates, click **Yes**.
 
 Next, create a user account in Active Directory that will be used when logging in to CORP domain member computers. Run these commands one at a time at an administrator-level Windows PowerShell command prompt.
 
-	New-ADUser -SamAccountName User1 -AccountPassword (read-host "Set user password" -assecurestring) -name "User1" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false
-	Add-ADPrincipalGroupMembership -Identity "CN=User1,CN=Users,DC=corp,DC=contoso,DC=com" -MemberOf "CN=Enterprise Admins,CN=Users,DC=corp,DC=contoso,DC=com","CN=Domain Admins,CN=Users,DC=corp,DC=contoso,DC=com"
+    New-ADUser -SamAccountName User1 -AccountPassword (read-host "Set user password" -assecurestring) -name "User1" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false
+    Add-ADPrincipalGroupMembership -Identity "CN=User1,CN=Users,DC=corp,DC=contoso,DC=com" -MemberOf "CN=Enterprise Admins,CN=Users,DC=corp,DC=contoso,DC=com","CN=Domain Admins,CN=Users,DC=corp,DC=contoso,DC=com"
 
 Note that the first command results in a prompt to supply the User1 account password. Because this account will be used for remote desktop connections for all CORP domain member computers, choose a strong password. To check its strength, see [Password Checker: Using Strong Passwords](https://www.microsoft.com/security/pc-security/password-checker.aspx). Record the User1 account password and store it in a secured location.
 
@@ -180,7 +180,7 @@ Close the Remote Desktop session with DC1 and then reconnect using the CORP\User
 
 Next, to allow traffic for the Ping tool, run this command at an administrator-level Windows PowerShell command prompt.
 
-	Set-NetFirewallRule -DisplayName "File and Printer Sharing (Echo Request - ICMPv4-In)" -enabled True
+    Set-NetFirewallRule -DisplayName "File and Printer Sharing (Echo Request - ICMPv4-In)" -enabled True
 
 This is your current configuration.
 
@@ -192,21 +192,21 @@ APP1 provides web and file sharing services.
 
 First, fill in the name of your resource group, Azure location, and storage account name and run these commands at the Azure PowerShell command prompt on your local computer to create an Azure Virtual Machine for APP1.
 
-	$rgName="<resource group name>"
-	$locName="<Azure location, such as West US>"
-	$saName="<storage account name>"
-	$vnet=Get-AzureRMVirtualNetwork -Name TestLab -ResourceGroupName $rgName
-	$pip = New-AzureRMPublicIpAddress -Name APP1-NIC -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
-	$nic = New-AzureRMNetworkInterface -Name APP1-NIC -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
-	$vm=New-AzureRMVMConfig -VMName APP1 -VMSize Standard_A1
-	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
-	$cred=Get-Credential -Message "Type the name and password of the local administrator account for APP1."
-	$vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName APP1 -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-	$vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
-	$vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id
-	$osDiskUri=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/APP1-TestLab-OSDisk.vhd"
-	$vm=Set-AzureRMVMOSDisk -VM $vm -Name APP1-TestLab-OSDisk -VhdUri $osDiskUri -CreateOption fromImage
-	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
+    $rgName="<resource group name>"
+    $locName="<Azure location, such as West US>"
+    $saName="<storage account name>"
+    $vnet=Get-AzureRMVirtualNetwork -Name TestLab -ResourceGroupName $rgName
+    $pip = New-AzureRMPublicIpAddress -Name APP1-NIC -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
+    $nic = New-AzureRMNetworkInterface -Name APP1-NIC -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
+    $vm=New-AzureRMVMConfig -VMName APP1 -VMSize Standard_A1
+    $storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
+    $cred=Get-Credential -Message "Type the name and password of the local administrator account for APP1."
+    $vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName APP1 -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+    $vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
+    $vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id
+    $osDiskUri=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/APP1-TestLab-OSDisk.vhd"
+    $vm=Set-AzureRMVMOSDisk -VM $vm -Name APP1-TestLab-OSDisk -VhdUri $osDiskUri -CreateOption fromImage
+    New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
 Next, connect to the APP1 virtual machine using the APP1 local administrator account name and password, and then open an administrator-level Windows PowerShell command prompt.
 
@@ -214,8 +214,8 @@ To check name resolution and network communication between APP1 and DC1, run the
 
 Next, join the APP1 virtual machine to the CORP domain with these commands at the Windows PowerShell prompt.
 
-	Add-Computer -DomainName corp.contoso.com
-	Restart-Computer
+    Add-Computer -DomainName corp.contoso.com
+    Restart-Computer
 
 Note that you must supply your CORP\User1 domain account credentials after entering the Add-Computer command.
 
@@ -223,13 +223,13 @@ After APP1 restarts, connect to it using the CORP\User1 account name and passwor
 
 Next, make APP1 a web server with this command at the Windows PowerShell command prompt.
 
-	Install-WindowsFeature Web-WebServer –IncludeManagementTools
+    Install-WindowsFeature Web-WebServer –IncludeManagementTools
 
 Next, create a shared folder and a text file within the folder on APP1 with these commands.
 
-	New-Item -path c:\files -type directory
-	Write-Output "This is a shared file." | out-file c:\files\example.txt
-	New-SmbShare -name files -path c:\files -changeaccess CORP\User1
+    New-Item -path c:\files -type directory
+    Write-Output "This is a shared file." | out-file c:\files\example.txt
+    New-SmbShare -name files -path c:\files -changeaccess CORP\User1
 
 This is your current configuration.
 
@@ -241,21 +241,21 @@ CLIENT1 acts as a typical laptop, tablet, or desktop computer on the Contoso int
 
 First, fill in the name of your resource group, Azure location, and storage account name and run these commands at the Azure PowerShell command prompt on your local computer to create an Azure Virtual Machine for CLIENT1.
 
-	$rgName="<resource group name>"
-	$locName="<Azure location, such as West US>"
-	$saName="<storage account name>"
-	$vnet=Get-AzureRMVirtualNetwork -Name TestLab -ResourceGroupName $rgName
-	$pip = New-AzureRMPublicIpAddress -Name CLIENT1-NIC -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
-	$nic = New-AzureRMNetworkInterface -Name CLIENT1-NIC -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
-	$vm=New-AzureRMVMConfig -VMName CLIENT1 -VMSize Standard_A1
-	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
-	$cred=Get-Credential -Message "Type the name and password of the local administrator account for CLIENT1."
-	$vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName CLIENT1 -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-	$vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
-	$vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id
-	$osDiskUri=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/CLIENT1-TestLab-OSDisk.vhd"
-	$vm=Set-AzureRMVMOSDisk -VM $vm -Name CLIENT1-TestLab-OSDisk -VhdUri $osDiskUri -CreateOption fromImage
-	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
+    $rgName="<resource group name>"
+    $locName="<Azure location, such as West US>"
+    $saName="<storage account name>"
+    $vnet=Get-AzureRMVirtualNetwork -Name TestLab -ResourceGroupName $rgName
+    $pip = New-AzureRMPublicIpAddress -Name CLIENT1-NIC -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
+    $nic = New-AzureRMNetworkInterface -Name CLIENT1-NIC -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
+    $vm=New-AzureRMVMConfig -VMName CLIENT1 -VMSize Standard_A1
+    $storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
+    $cred=Get-Credential -Message "Type the name and password of the local administrator account for CLIENT1."
+    $vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName CLIENT1 -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+    $vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
+    $vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id
+    $osDiskUri=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/CLIENT1-TestLab-OSDisk.vhd"
+    $vm=Set-AzureRMVMOSDisk -VM $vm -Name CLIENT1-TestLab-OSDisk -VhdUri $osDiskUri -CreateOption fromImage
+    New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
 Next, connect to the CLIENT1 virtual machine using the CLIENT1 local administrator account name and password, and then open an administrator-level Windows PowerShell command prompt.
 
@@ -263,8 +263,8 @@ To check name resolution and network communication between CLIENT1 and DC1, run 
 
 Next, join the CLIENT1 virtual machine to the CORP domain with these commands at the Windows PowerShell prompt.
 
-	Add-Computer -DomainName corp.contoso.com
-	Restart-Computer
+    Add-Computer -DomainName corp.contoso.com
+    Restart-Computer
 
 Note that you must supply your CORP\User1 domain account credentials after entering the Add-Computer command.
 
@@ -272,16 +272,16 @@ After CLIENT1 restarts, connect to it using the CORP\User1 account name and pass
 
 Next, verify that you can access web and file share resources on APP1 from CLIENT1.
 
-1.	In Server Manager, in the tree pane, click **Local Server**.
-2.	In **Properties for CLIENT1**, click **On** next to **IE Enhanced Security Configuration**.
-3.	In **Internet Explorer Enhanced Security Configuration**, click **Off** for **Administrators** and **Users**, and then click **OK**.
-4.	From the Start screen, click **Internet Explorer**, and then click **OK**.
-5.	In the Address bar, type **http://app1.corp.contoso.com/**, and then press ENTER.  You should see the default Internet Information Services web page for APP1.
-6.	From the desktop taskbar, click the File Explorer icon.
-7.	In the address bar, type **\\\app1\Files**, and then press ENTER.
-8.	You should see a folder window with the contents of the Files shared folder.
-9.	In the **Files** shared folder window, double-click the **Example.txt** file. You should see the contents of the Example.txt file.
-10.	Close the **example.txt - Notepad** and the **Files** shared folder windows.
+1.  In Server Manager, in the tree pane, click **Local Server**.
+2.  In **Properties for CLIENT1**, click **On** next to **IE Enhanced Security Configuration**.
+3.  In **Internet Explorer Enhanced Security Configuration**, click **Off** for **Administrators** and **Users**, and then click **OK**.
+4.  From the Start screen, click **Internet Explorer**, and then click **OK**.
+5.  In the Address bar, type **http://app1.corp.contoso.com/**, and then press ENTER.  You should see the default Internet Information Services web page for APP1.
+6.  From the desktop taskbar, click the File Explorer icon.
+7.  In the address bar, type **\\\app1\Files**, and then press ENTER.
+8.  You should see a folder window with the contents of the Files shared folder.
+9.  In the **Files** shared folder window, double-click the **Example.txt** file. You should see the contents of the Example.txt file.
+10. Close the **example.txt - Notepad** and the **Files** shared folder windows.
 
 This is your final configuration.
 
@@ -303,20 +303,21 @@ To minimize the cost of running the test environment virtual machines, you can d
 
 To shut down the virtual machines with Azure PowerShell, fill in the resource group name and run these commands.
 
-	$rgName="<your resource group name>"
-	Stop-AzureRMVM -ResourceGroupName $rgName -Name "CLIENT1"
-	Stop-AzureRMVM -ResourceGroupName $rgName -Name "APP1"
-	Stop-AzureRMVM -ResourceGroupName $rgName -Name "DC1" -Force -StayProvisioned
+    $rgName="<your resource group name>"
+    Stop-AzureRMVM -ResourceGroupName $rgName -Name "CLIENT1"
+    Stop-AzureRMVM -ResourceGroupName $rgName -Name "APP1"
+    Stop-AzureRMVM -ResourceGroupName $rgName -Name "DC1" -Force -StayProvisioned
 
 To ensure that your virtual machines work properly when starting all of them from the Stopped (Deallocated) state, you should start them in the following order:
 
-1.	DC1
-2.	APP1
-3.	CLIENT1
+1.  DC1
+2.  APP1
+3.  CLIENT1
 
 To start the virtual machines in order with Azure PowerShell, fill in the resource group name and run these commands.
 
-	$rgName="<your resource group name>"
-	Start-AzureRMVM -ResourceGroupName $rgName -Name "DC1"
-	Start-AzureRMVM -ResourceGroupName $rgName -Name "APP1"
-	Start-AzureRMVM -ResourceGroupName $rgName -Name "CLIENT1"
+    $rgName="<your resource group name>"
+    Start-AzureRMVM -ResourceGroupName $rgName -Name "DC1"
+    Start-AzureRMVM -ResourceGroupName $rgName -Name "APP1"
+    Start-AzureRMVM -ResourceGroupName $rgName -Name "CLIENT1"
+

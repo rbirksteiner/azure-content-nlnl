@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="Get started with Azure Batch PowerShell | Microsoft Azure"
    description="Get a quick introduction to the Azure PowerShell cmdlets you can use to manage the Azure Batch service"
    services="batch"
@@ -151,3 +151,4 @@ To remove the upper bound, set **MaxCount** to 0 or less.
 * [How to install and configure Azure PowerShell](../powershell-install-configure.md)
 * [Azure Batch cmdlet reference](https://msdn.microsoft.com/library/azure/mt125957.aspx)
 * [Query the Batch service efficiently](batch-efficient-list-queries.md)
+

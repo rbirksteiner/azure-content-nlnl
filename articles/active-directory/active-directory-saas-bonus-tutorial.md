@@ -68,19 +68,19 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
 
 ###To configure single sign-on, perform the following steps:
 
-1.  In the Azure AD portal, on the **Bonus.ly** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  In the Azure AD portal, on the **Bonus.ly** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
     ![Configure single sign-on](./media/active-directory-saas-bonus-tutorial/IC749323.png "Configure single sign-on")
 
-2.  On the **How would you like users to sign on to Bonus.ly** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to Bonus.ly** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure single sign-on](./media/active-directory-saas-bonus-tutorial/IC773683.png "Configure single sign-on")
 
-3.  On the **Configure App URL** page, in the **Bonus.ly Tenant URL** textbox, type your URL using the following pattern "*https://\<tenant-name\>.Bonus.ly*", and then click **Next**: 
+3.  On the **Configure App URL** page, in the **Bonus.ly Tenant URL** textbox, type your URL using the following pattern "*https://\<tenant-name\>.Bonus.ly*", and then click **Next**: 
 
     ![Configure app URL](./media/active-directory-saas-bonus-tutorial/IC773684.png "Configure app URL")
 
-4.  On the **Configure single sign-on at Bonus.ly** page, click **download Certificate**, and then save the certificate file locally as **c:\\Bonusly.cer**.
+4.  On the **Configure single sign-on at Bonus.ly** page, click **download Certificate**, and then save the certificate file locally as **c:\\Bonusly.cer**.
 
     ![Configure single sign-on](./media/active-directory-saas-bonus-tutorial/IC773685.png "Configure single sign-on")
 
@@ -152,7 +152,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 1.  In the Azure AD portal, create a test account.
 
-2.  On the Bonus.ly application integration page, click **Assign users**.
+2.  On the Bonus.ly application integration page, click **Assign users**.
 
     ![Assign users](./media/active-directory-saas-bonus-tutorial/IC773690.png "Assign users")
 
@@ -161,3 +161,4 @@ To test your configuration, you need to grant the Azure AD users you want to all
     ![Yes](./media/active-directory-saas-bonus-tutorial/IC767830.png "Yes")
 
 If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+

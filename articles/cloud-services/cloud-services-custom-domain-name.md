@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Configure a custom domain name in Cloud Services | Microsoft Azure"
-	description="Learn how to expose your Azure application or data on a custom domain by configuring DNS settings."
-	services="cloud-services"
-	documentationCenter=".net"
-	authors="Thraka"
-	manager="timlt"
-	editor=""/>
+    pageTitle="Configure a custom domain name in Cloud Services | Microsoft Azure"
+    description="Learn how to expose your Azure application or data on a custom domain by configuring DNS settings."
+    services="cloud-services"
+    documentationCenter=".net"
+    authors="Thraka"
+    manager="timlt"
+    editor=""/>
 
 <tags
-	ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/22/2015"
-	ms.author="adegeo"/>
+    ms.service="cloud-services"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/22/2015"
+    ms.author="adegeo"/>
 
 # Configuring a custom domain name for an Azure cloud service
 

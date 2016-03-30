@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Connecting Azure SQL Database to Azure Search Using Indexers | Microsoft Azure | Hosted cloud search service" 
-	description="Learn how to pull data from Azure SQL Database to an Azure Search index using indexers." 
-	services="search" 
-	documentationCenter="" 
-	authors="chaosrealm" 
-	manager="pablocas" 
-	editor=""/>
+    pageTitle="Connecting Azure SQL Database to Azure Search Using Indexers | Microsoft Azure | Hosted cloud search service" 
+    description="Learn how to pull data from Azure SQL Database to an Azure Search index using indexers." 
+    services="search" 
+    documentationCenter="" 
+    authors="chaosrealm" 
+    manager="pablocas" 
+    editor=""/>
 
 <tags 
-	ms.service="search" 
-	ms.devlang="rest-api" 
-	ms.workload="search" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.date="11/04/2015" 
-	ms.author="eugenesh"/>
+    ms.service="search" 
+    ms.devlang="rest-api" 
+    ms.workload="search" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.date="11/04/2015" 
+    ms.author="eugenesh"/>
 
 #Connecting Azure SQL Database to Azure Search Using Indexers
 
@@ -43,10 +43,10 @@ An **indexer** is a resource that connects data sources with target search index
 Depending on several factors relating to your data, the use of Azure SQL indexer may or may not be appropriate. If your data fits the following requirements, you can use Azure SQL indexer: 
 
 - All the data comes from a single table or view
-	- If the data is scattered across multiple tables, you can create a view and use that view with the indexer. However, be aware that if you use a view, you won’t be able to use SQL Server integrated change detection. See this section for more details. 
+    - If the data is scattered across multiple tables, you can create a view and use that view with the indexer. However, be aware that if you use a view, you won’t be able to use SQL Server integrated change detection. See this section for more details. 
 - The data types used in the data source are supported by the indexer. Most but not all of the SQL types are supported. For details, see [Mapping data types in Azure Search](http://go.microsoft.com/fwlink/p/?LinkID=528105). 
 - You don’t need near real-time updates to the index when a row changes. 
-	- The indexer can re-index your table at most every 5 minutes. If your data changes frequently and the changes need to be reflected in the index within seconds or single minutes, we recommend using [Azure Search Index API](https://msdn.microsoft.com/library/azure/dn798930.aspx) directly. 
+    - The indexer can re-index your table at most every 5 minutes. If your data changes frequently and the changes need to be reflected in the index within seconds or single minutes, we recommend using [Azure Search Index API](https://msdn.microsoft.com/library/azure/dn798930.aspx) directly. 
 - If you have a large data set and plan to run the indexer on a schedule, your schema allows to us to efficiently identify changed (and deleted, if applicable) rows. For more details, see "Capturing Changed and Deleted Rows" below. 
 - The size of the indexed fields in a row doesn’t exceed the maximum size of an Azure Search indexing request, which is 16 MB. 
 
@@ -54,16 +54,16 @@ Depending on several factors relating to your data, the use of Azure SQL indexer
 
 First, create the data source: 
 
-	POST https://myservice.search.windows.net/datasources?api-version=2015-02-28 
-	Content-Type: application/json
-	api-key: admin-key
-	
-	{ 
-	    "name" : "myazuresqldatasource",
-	    "type" : "azuresql",
-	    "credentials" : { "connectionString" : "Server=tcp:<your server>.database.windows.net,1433;Database=<your database>;User ID=<your user name>;Password=<your password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;" },
-	    "container" : { "name" : "name of the table or view that you want to index" }
-	}
+    POST https://myservice.search.windows.net/datasources?api-version=2015-02-28 
+    Content-Type: application/json
+    api-key: admin-key
+    
+    { 
+        "name" : "myazuresqldatasource",
+        "type" : "azuresql",
+        "credentials" : { "connectionString" : "Server=tcp:<your server>.database.windows.net,1433;Database=<your database>;User ID=<your user name>;Password=<your password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;" },
+        "container" : { "name" : "name of the table or view that you want to index" }
+    }
 
 
 You can get the connection string from the [Azure Classic Portal](https://portal.azure.com); use the `ADO.NET connection string` option.
@@ -88,60 +88,60 @@ Then, create the target Azure Search index if you don’t have one already. You 
 
 Finally, create the indexer by giving it a name and referencing the data source and target index:
 
-	POST https://myservice.search.windows.net/indexers?api-version=2015-02-28 
-	Content-Type: application/json
-	api-key: admin-key
-	
-	{ 
-	    "name" : "myindexer",
-	    "dataSourceName" : "myazuresqldatasource",
-	    "targetIndexName" : "target index name"
-	}
+    POST https://myservice.search.windows.net/indexers?api-version=2015-02-28 
+    Content-Type: application/json
+    api-key: admin-key
+    
+    { 
+        "name" : "myindexer",
+        "dataSourceName" : "myazuresqldatasource",
+        "targetIndexName" : "target index name"
+    }
 
 An indexer created in this way doesn’t have a schedule. It automatically runs once as soon as it’s created. You can run it again at any time using a **run indexer** request:
 
-	POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2015-02-28 
-	api-key: admin-key
+    POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2015-02-28 
+    api-key: admin-key
  
 You may need to allow Azure services to connect to your database. See [Connecting From Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) for instructions on how to do that.
 
 To monitor the indexer status and execution history (number of items indexed, failures, etc.), use an **indexer status** request: 
 
-	GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2015-02-28 
-	api-key: admin-key
+    GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2015-02-28 
+    api-key: admin-key
 
 The response should look similar to the following: 
 
-	{
-		"@odata.context":"https://myservice.search.windows.net/$metadata#Microsoft.Azure.Search.V2015_02_28.IndexerExecutionInfo",
-		"status":"running",
-		"lastResult": {
-			"status":"success",
-			"errorMessage":null,
-			"startTime":"2015-02-21T00:23:24.957Z",
-			"endTime":"2015-02-21T00:36:47.752Z",
-			"errors":[],
-			"itemsProcessed":1599501,
-			"itemsFailed":0,
-			"initialTrackingState":null,
-			"finalTrackingState":null 
+    {
+        "@odata.context":"https://myservice.search.windows.net/$metadata#Microsoft.Azure.Search.V2015_02_28.IndexerExecutionInfo",
+        "status":"running",
+        "lastResult": {
+            "status":"success",
+            "errorMessage":null,
+            "startTime":"2015-02-21T00:23:24.957Z",
+            "endTime":"2015-02-21T00:36:47.752Z",
+            "errors":[],
+            "itemsProcessed":1599501,
+            "itemsFailed":0,
+            "initialTrackingState":null,
+            "finalTrackingState":null 
         },
-		"executionHistory":
-		[
-			{
-				"status":"success",
-				"errorMessage":null,
-				"startTime":"2015-02-21T00:23:24.957Z",
-				"endTime":"2015-02-21T00:36:47.752Z",
-				"errors":[],
-				"itemsProcessed":1599501,
-				"itemsFailed":0,
-				"initialTrackingState":null,
-				"finalTrackingState":null 
-			},
-			... earlier history items 
-		]
-	}
+        "executionHistory":
+        [
+            {
+                "status":"success",
+                "errorMessage":null,
+                "startTime":"2015-02-21T00:23:24.957Z",
+                "endTime":"2015-02-21T00:36:47.752Z",
+                "errors":[],
+                "itemsProcessed":1599501,
+                "itemsFailed":0,
+                "initialTrackingState":null,
+                "finalTrackingState":null 
+            },
+            ... earlier history items 
+        ]
+    }
 
 Execution history contains up to 50 of the most recently completed executions, which are sorted in the reverse chronological order (so that the latest execution comes first in the response). 
 Additional information about the response can be found in [Get Indexer Status](http://go.microsoft.com/fwlink/p/?LinkId=528198)
@@ -150,15 +150,15 @@ Additional information about the response can be found in [Get Indexer Status](h
 
 You can also arrange the indexer to run periodically on a schedule. To do this, just add the **schedule** property when creating or updating the indexer. The example below shows a PUT request to update the indexer:
 
-	PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2015-02-28 
-	Content-Type: application/json
-	api-key: admin-key 
+    PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2015-02-28 
+    Content-Type: application/json
+    api-key: admin-key 
 
-	{ 
-	    "dataSourceName" : "myazuresqldatasource",
-	    "targetIndexName" : "target index name",
-	    "schedule" : { "interval" : "PT10M", "startTime" : "2015-01-01T00:00:00Z" }
-	}
+    { 
+        "dataSourceName" : "myazuresqldatasource",
+        "targetIndexName" : "target index name",
+        "schedule" : { "interval" : "PT10M", "startTime" : "2015-01-01T00:00:00Z" }
+    }
 
 The **interval** parameter is required. The interval refers to the time between the start of two consecutive indexer executions. The smallest allowed interval is 5 minutes; the longest is one day. It must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an [ISO 8601 duration](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) value). The pattern for this is: `P(nD)(T(nH)(nM))`. Examples: `PT15M` for every 15 minutes, `PT2H` for every 2 hours.
 
@@ -168,7 +168,7 @@ Only one execution of a given indexer can run at a time. If an indexer is alread
 
 Let’s consider an example to make this more concrete. Suppose we the following hourly schedule configured: 
 
-	"schedule" : { "interval" : "PT1H", "startTime" : "2015-03-01T00:00:00Z" }
+    "schedule" : { "interval" : "PT1H", "startTime" : "2015-03-01T00:00:00Z" }
 
 Here’s what happens: 
 
@@ -199,15 +199,15 @@ This policy can only be used with tables; it cannot be used with views. You need
 
 To use this policy, create or update your data source like this:
  
-	{ 
-	    "name" : "myazuresqldatasource",
-	    "type" : "azuresql",
-	    "credentials" : { "connectionString" : "connection string" },
-	    "container" : { "name" : "table or view name" }, 
-	    "dataChangeDetectionPolicy" : {
-	       "@odata.type" : "#Microsoft.Azure.Search.SqlIntegratedChangeTrackingPolicy" 
-	  }
-	}
+    { 
+        "name" : "myazuresqldatasource",
+        "type" : "azuresql",
+        "credentials" : { "connectionString" : "connection string" },
+        "container" : { "name" : "table or view name" }, 
+        "dataChangeDetectionPolicy" : {
+           "@odata.type" : "#Microsoft.Azure.Search.SqlIntegratedChangeTrackingPolicy" 
+      }
+    }
 
 ### High Water Mark Change Detection Policy ###
 
@@ -221,16 +221,16 @@ While the SQL Integrated Change Tracking policy is recommended, you won’t be a
 For example, an indexed **rowversion** column is an ideal candidate for the high water mark column. 
 To use this policy, create or update your data source like this: 
 
-	{ 
-	    "name" : "myazuresqldatasource",
-	    "type" : "azuresql",
-	    "credentials" : { "connectionString" : "connection string" },
-	    "container" : { "name" : "table or view name" }, 
-	    "dataChangeDetectionPolicy" : {
-	       "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
-	       "highWaterMarkColumnName" : "[a row version or last_updated column name]" 
-	  }
-	}
+    { 
+        "name" : "myazuresqldatasource",
+        "type" : "azuresql",
+        "credentials" : { "connectionString" : "connection string" },
+        "container" : { "name" : "table or view name" }, 
+        "dataChangeDetectionPolicy" : {
+           "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
+           "highWaterMarkColumnName" : "[a row version or last_updated column name]" 
+      }
+    }
 
 ### Soft Delete Column Deletion Detection Policy ###
 
@@ -240,14 +240,14 @@ If the rows are physically removed from the table, you’re out of luck – ther
 
 When using the soft-delete technique, you can specify the soft delete policy as follows when creating or updating the data source: 
 
-	{ 
-	    …, 
-	    "dataDeletionDetectionPolicy" : { 
-	       "@odata.type" : "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy",
-	       "softDeleteColumnName" : "[a column name]", 
-	       "softDeleteMarkerValue" : "[the value that indicates that a row is deleted]" 
-	    }
-	}
+    { 
+        …, 
+        "dataDeletionDetectionPolicy" : { 
+           "@odata.type" : "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy",
+           "softDeleteColumnName" : "[a column name]", 
+           "softDeleteMarkerValue" : "[the value that indicates that a row is deleted]" 
+        }
+    }
 
 Note that the **softDeleteMarkerValue** must be a string – use the string representation of your actual value. For example, if you have an integer column where deleted rows are marked with the value 1, use `"1"`; if you have a BIT column where deleted rows are marked with the Boolean true value, use `"True"`. 
 
@@ -280,3 +280,4 @@ A: Yes. Indexer runs on one of the nodes in your search service, and that node�
 
 
  
+

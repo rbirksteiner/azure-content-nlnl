@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure PowerShell with Resource Manager | Microsoft Azure" 
-	description="Introduction to using Azure PowerShell to deploy multiple resources as a resource group to Azure." 
-	services="azure-resource-manager" 
-	documentationCenter="" 
-	authors="tfitzmac" 
-	manager="wpickett" 
-	editor=""/>
+    pageTitle="Azure PowerShell with Resource Manager | Microsoft Azure" 
+    description="Introduction to using Azure PowerShell to deploy multiple resources as a resource group to Azure." 
+    services="azure-resource-manager" 
+    documentationCenter="" 
+    authors="tfitzmac" 
+    manager="wpickett" 
+    editor=""/>
 
 <tags 
-	ms.service="azure-resource-manager" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="powershell" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/08/2015" 
-	ms.author="tomfitz"/>
+    ms.service="azure-resource-manager" 
+    ms.workload="multiple" 
+    ms.tgt_pltfrm="powershell" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/08/2015" 
+    ms.author="tomfitz"/>
 
 # Using Azure PowerShell with Azure Resource Manager
 
@@ -54,11 +54,11 @@ deploy are:
 
 To get detailed help for any cmdlet that you see in this tutorial, use the Get-Help cmdlet. 
 
-	Get-Help <cmdlet-name> -Detailed
+    Get-Help <cmdlet-name> -Detailed
 
 For example, to get help for the Get-AzureRmResource cmdlet, type:
 
-	Get-Help Get-AzureRmResource -Detailed
+    Get-Help Get-AzureRmResource -Detailed
 
 To get a list of cmdlets in the Resources module with a help synopsis, type: 
 
@@ -66,17 +66,17 @@ To get a list of cmdlets in the Resources module with a help synopsis, type:
 
 The output will look similar to the following excerpt:
 
-	Name                                   Synopsis
-	----                                   --------
-	Find-AzureRmResource                   Searches for resources using the specified parameters.
-	Find-AzureRmResourceGroup              Searches for resource group using the specified parameters.
-	Get-AzureRmADGroup                     Filters active directory groups.
-	Get-AzureRmADGroupMember               Get a group members.
-	...
+    Name                                   Synopsis
+    ----                                   --------
+    Find-AzureRmResource                   Searches for resources using the specified parameters.
+    Find-AzureRmResourceGroup              Searches for resource group using the specified parameters.
+    Get-AzureRmADGroup                     Filters active directory groups.
+    Get-AzureRmADGroupMember               Get a group members.
+    ...
 
 To get full help for a cmdlet, type a command with the format:
 
-	Get-Help <cmdlet-name> -Full
+    Get-Help <cmdlet-name> -Full
   
 ## Login to your Azure account
 
@@ -396,21 +396,21 @@ After creating a resource group, you can use the cmdlets in the Resource Manager
 
 - To get all of the resource groups in your subscription, use the **Get-AzureRmResourceGroup** cmdlet:
 
-		PS C:>Get-AzureRmResourceGroup
+        PS C:>Get-AzureRmResourceGroup
 
-		ResourceGroupName : TestRG
-		Location          : westus
-		ProvisioningState : Succeeded
-		Tags              :
-		ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG
-		
-		...
+        ResourceGroupName : TestRG
+        Location          : westus
+        ProvisioningState : Succeeded
+        Tags              :
+        ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG
+        
+        ...
 
 - To get the resources in the resource group, use the **Find-AzureRmResource** cmdlet and its **ResourceGroupNameContains** parameter. Without parameters, Find-AzureRmResource gets all resources in your Azure subscription.
 
-		PS C:\> Find-AzureRmResource -ResourceGroupNameContains TestRG1
-		
-		Name              : exampleserver
+        PS C:\> Find-AzureRmResource -ResourceGroupNameContains TestRG1
+        
+        Name              : exampleserver
                 ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1/providers/Microsoft.Sql/servers/tfserver10
                 ResourceName      : exampleserver
                 ResourceType      : Microsoft.Sql/servers
@@ -420,7 +420,7 @@ After creating a resource group, you can use the cmdlets in the Resource Manager
                 SubscriptionId    : {guid}
                 
                 ...
-	        
+            
 
 ## Add to a resource group
 
@@ -434,17 +434,17 @@ You can move existing resources to a new resource group. For examples, see [Move
 
 - To delete a resource from the resource group, use the **Remove-AzureRmResource** cmdlet. This cmdlet deletes the resource, but does not delete the resource group.
 
-	This command removes the TestSite website from the TestRG resource group.
+    This command removes the TestSite website from the TestRG resource group.
 
-		Remove-AzureRmResource -Name TestSite -ResourceGroupName TestRG1 -ResourceType "Microsoft.Web/sites" -ApiVersion 2015-08-01
+        Remove-AzureRmResource -Name TestSite -ResourceGroupName TestRG1 -ResourceType "Microsoft.Web/sites" -ApiVersion 2015-08-01
 
 - To delete a resource group, use the **Remove-AzureRmResourceGroup** cmdlet. This cmdlet deletes the resource group and its resources.
 
-		PS C:\> Remove-AzureRmResourceGroup -Name TestRG1
-		
-		Confirm
-		Are you sure you want to remove resource group 'TestRG1'
-		[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
+        PS C:\> Remove-AzureRmResourceGroup -Name TestRG1
+        
+        Confirm
+        Are you sure you want to remove resource group 'TestRG1'
+        [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
 
 
 
@@ -454,4 +454,5 @@ You can move existing resources to a new resource group. For examples, see [Move
 - To learn about deploying templates, see [Deploy an application with Azure Resource Manager Template](./resource-group-template-deploy.md).
 - For a detailed example of deploying a project, see [Deploy microservices predictably in Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - To learn about troubleshooting a deployment that failed, see [Troubleshooting resource group deployments in Azure](./virtual-machines/resource-group-deploy-debug.md).
+
 

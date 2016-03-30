@@ -34,3 +34,4 @@ You can now access applications running in real time on Azure RemoteApp.
 Your opinion matters. At the end of each session, you will see a dialog box for your feedback. If you have a minute, tell us your thoughts and let us know whether you would like Microsoft to contact you for additional information.
 
 >[AZURE.NOTE] Because this is a controlled environment for demo use, we have not enabled external internet access from the published demo applications. Because of this, services like OneDrive are not accessible. Also, clipboard sharing (Copy & Paste) and USB and printer redirection are disabled.  
+

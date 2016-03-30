@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Load balancing for infrastructure services | Microsoft Azure"
-	description="Describes the two different types of load balancing supported by Azure: Load balancer for cloud services and Azure Traffic Manager for client traffic."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="joaoma"
-	manager="adinah"
-	editor=""/>
+    pageTitle="Load balancing for infrastructure services | Microsoft Azure"
+    description="Describes the two different types of load balancing supported by Azure: Load balancer for cloud services and Azure Traffic Manager for client traffic."
+    services="virtual-machines"
+    documentationCenter=""
+    authors="joaoma"
+    manager="adinah"
+    editor=""/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-multiple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/21/2015"
-	ms.author="joaoma"/>
+    ms.service="virtual-machines"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-multiple"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/21/2015"
+    ms.author="joaoma"/>
 
 
 # Load balancing for Azure infrastructure services#
@@ -46,10 +46,10 @@ The following diagram shows an example of the Round Robin load balancing method 
 
 The basic process is the following:
 
-1.	An Internet client queries a domain name corresponding to a web service.
-2.	DNS forwards the name query request to Traffic Manager.
-3.	Traffic Manager chooses the next cloud service in the Round Robin list and sends back the DNS name. The Internet client's DNS server resolves the name to an IP address and sends it to the Internet client.
-4.	The Internet client connects with the cloud service chosen by Traffic Manager.
+1.  An Internet client queries a domain name corresponding to a web service.
+2.  DNS forwards the name query request to Traffic Manager.
+3.  Traffic Manager chooses the next cloud service in the Round Robin list and sends back the DNS name. The Internet client's DNS server resolves the name to an IP address and sends it to the Internet client.
+4.  The Internet client connects with the cloud service chosen by Traffic Manager.
 
 For more information, see [Traffic Manager](../traffic-manager/traffic-manager-overview.md).
 
@@ -84,3 +84,4 @@ For the steps to create a load-balanced set, see [Configure an internal load-bal
 For more information about load balancer, see [Internal load balancing](../load-balancer/load-balancer-internal-overview.md).
 
 <!-- LINKS -->
+

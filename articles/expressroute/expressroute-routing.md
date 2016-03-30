@@ -36,9 +36,9 @@ You can use either private IP addresses or public IP addresses to configure the 
  - The subnets used for routing can be either private IP addresses or public IP addresses.
  - The subnets must not conflict with the range reserved by the customer for use in the Microsoft cloud.
  - If a /29 subnet is used, it will be split into two /30 subnets. 
-	 - The first /30 subnet will be used for the primary link and the second /30 subnet will be used for the secondary link.
-	 - For each of the /30 subnets, you must the first IP address of the /30 subnet on your router. Microsoft will use the second IP address of the /30 subnet to setup a BGP session.
-	 - You must setup both BGP sessions for our [availability SLA](http://azure.microsoft.com/support/legal/sla/) to be valid.  
+     - The first /30 subnet will be used for the primary link and the second /30 subnet will be used for the secondary link.
+     - For each of the /30 subnets, you must the first IP address of the /30 subnet on your router. Microsoft will use the second IP address of the /30 subnet to setup a BGP session.
+     - You must setup both BGP sessions for our [availability SLA](http://azure.microsoft.com/support/legal/sla/) to be valid.  
 
 #### Example for private peering
 
@@ -57,9 +57,9 @@ You must use public IP addresses that you own for setting up the BGP sessions. M
 
 - You must use a unique /29 subnet or two /30 subnets to setup the BGP peering for each peering per ExpressRoute circuit (if you have more than one). 
 - If a /29 subnet is used, it will be split into two /30 subnets. 
-	- The first /30 subnet will be used for the primary link and the second /30 subnet will be used for the secondary link.
-	- For each of the /30 subnets, you must use the first IP address of the /30 subnet on your router. Microsoft will use the second IP address of the /30 subnet to setup a BGP session.
-	- You must setup both BGP sessions for our [availability SLA](http://azure.microsoft.com/support/legal/sla/) to be valid.
+    - The first /30 subnet will be used for the primary link and the second /30 subnet will be used for the secondary link.
+    - For each of the /30 subnets, you must use the first IP address of the /30 subnet on your router. Microsoft will use the second IP address of the /30 subnet to setup a BGP session.
+    - You must setup both BGP sessions for our [availability SLA](http://azure.microsoft.com/support/legal/sla/) to be valid.
 
 Make sure that your IP address and AS number are registered to you in one of the registries listed below.
 
@@ -152,7 +152,7 @@ All routes advertised from Microsoft will be tagged with the appropriate communi
 
 In addition to the above, Microsoft will also tag prefixes based on the service they belong to. This applies only to the Microsoft peering. The table below provides a mapping of service to BGP community value.
 
-| **Service** |	**BGP community value** |
+| **Service** | **BGP community value** |
 |---|---|
 | **Exchange** | 12076:5010 |
 | **SharePoint** | 12076:5020 |
@@ -169,8 +169,9 @@ Microsoft does not honor any BGP community values that you set. You are required
 
 - Configure your ExpressRoute connection.
 
-	- [Create an ExpressRoute circuit](expressroute-howto-circuit-classic.md)
-	- [Configure routing](expressroute-howto-routing-classic.md)
-	- [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-classic.md)
+    - [Create an ExpressRoute circuit](expressroute-howto-circuit-classic.md)
+    - [Configure routing](expressroute-howto-routing-classic.md)
+    - [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-classic.md)
+
 
 

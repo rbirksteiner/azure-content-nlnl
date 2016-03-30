@@ -1,21 +1,21 @@
 <properties
-	pageTitle="What's new in Hadoop cluster versions of HDInsight? | Microsoft Azure"
-	description="HDInsight supports multiple deployable Hadoop cluster versions. See the Hadoop and HortonWorks Data Platform (HDP) distribution versions supported."
-	services="hdinsight"
-	editor="cgronlun"
-	manager="paulettm"
-	authors="mumian"
-	tags="azure-portal"
-	documentationCenter=""/>
+    pageTitle="What's new in Hadoop cluster versions of HDInsight? | Microsoft Azure"
+    description="HDInsight supports multiple deployable Hadoop cluster versions. See the Hadoop and HortonWorks Data Platform (HDP) distribution versions supported."
+    services="hdinsight"
+    editor="cgronlun"
+    manager="paulettm"
+    authors="mumian"
+    tags="azure-portal"
+    documentationCenter=""/>
 
 <tags
-	ms.service="hdinsight"
-	ms.workload="big-data"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/03/2015"
-	ms.author="jgao"/>
+    ms.service="hdinsight"
+    ms.workload="big-data"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/03/2015"
+    ms.author="jgao"/>
 
 
 #What's new in the Hadoop cluster versions provided by HDInsight?
@@ -59,9 +59,9 @@ Some of the salient features of the HDInsight platform include:
 
 - **Spark** - Apache Spark is an open-source parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications. Spark's in-memory computation capabilities make it a good choice for iterative algorithms in machine learning and graph computations.
 
-	Spark can also be used to perform conventional disk-based data processing. Spark improves the traditional MapReduce framework by avoiding writes to disk in the intermediate stages. Also, Spark is compatible with the Hadoop Distributed File System (HDFS) and Azure Blob storage so the existing data can easily be processed via Spark.
+    Spark can also be used to perform conventional disk-based data processing. Spark improves the traditional MapReduce framework by avoiding writes to disk in the intermediate stages. Also, Spark is compatible with the Hadoop Distributed File System (HDFS) and Azure Blob storage so the existing data can easily be processed via Spark.
 
-	Spark can also be added using Script Action.  Script action adds either Spark 1.2.0 to HDInsight 3.2 cluster or Spark 1.0.2 to HDInsight 3.1 cluster. For more information, see [Install and use Spark on HDInsight Hadoop clusters](hdinsight-hadoop-spark-install.md).
+    Spark can also be added using Script Action.  Script action adds either Spark 1.2.0 to HDInsight 3.2 cluster or Spark 1.0.2 to HDInsight 3.1 cluster. For more information, see [Install and use Spark on HDInsight Hadoop clusters](hdinsight-hadoop-spark-install.md).
 
 
 - **Storm** - Storm on Azure HDInsight is now generally available, giving a fast and easy way to deploy real-time analytics in just a few clicks and within minutes. Apache Storm on Azure HDInsight is an open-source project in the Apache Hadoop ecosystem that provides access to an analytics platform capable of reliably processing millions of events. Now Hadoop users can gain insights as events happen, along with insights from past events. Microsoft is also providing built-in integration with Visual Studio, making developer interaction with Storm easy. You can now develop, deploy, and debug Storm topologies from within Visual Studio.
@@ -128,12 +128,12 @@ The **Deprecation Date** is the date after which the cluster version cannot be c
 ## Hortonworks release notes associated with HDInsight versions##
 
 * HDInsight cluster version 3.3 uses a Hadoop distribution that is based on [Hortonworks Data Platform 2.3](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.3.0/bk_HDP_RelNotes/content/ch_relnotes_v230.html).
-	* Apache Storm release notes is available [here](https://storm.apache.org/2015/11/05/storm0100-released.html).
-	* Apache Hive release notes is available [here](https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12332384&styleName=Text&projectId=12310843).
+    * Apache Storm release notes is available [here](https://storm.apache.org/2015/11/05/storm0100-released.html).
+    * Apache Hive release notes is available [here](https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12332384&styleName=Text&projectId=12310843).
 
 * HDInsight cluster version 3.2 uses a Hadoop distribution that is based on [Hortonworks Data Platform 2.2][hdp-2-2].  This is the **default** Hadoop cluster created when using the portal.
 
-	* Release notes for specific Apache components - [Hive 0.14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310843&version=12326450), [Pig 0.14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310730&version=12326954), [HBase 0.98.4](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310753&version=12326810), [Phoenix 4.2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12315120&version=12327581), [M/R 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310941&version=12327180), [HDFS 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310942&version=12327181), [YARN 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12313722&version=12327197), [Common](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310240&version=12327179), [Tez 0.5.2](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314426&version=12328742), [Ambari 2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12312020&version=12327486), [Storm 0.9.3](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314820&version=12327112), [Oozie 4.1.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12324960&projectId=12311620).
+    * Release notes for specific Apache components - [Hive 0.14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310843&version=12326450), [Pig 0.14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310730&version=12326954), [HBase 0.98.4](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310753&version=12326810), [Phoenix 4.2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12315120&version=12327581), [M/R 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310941&version=12327180), [HDFS 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310942&version=12327181), [YARN 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12313722&version=12327197), [Common](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310240&version=12327179), [Tez 0.5.2](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314426&version=12328742), [Ambari 2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12312020&version=12327486), [Storm 0.9.3](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314820&version=12327112), [Oozie 4.1.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12324960&projectId=12311620).
 
 
 * HDInsight cluster version 3.1 uses a Hadoop distribution that is based on [Hortonworks Data Platform 2.1.7][hdp-2-1-7].HDInsight 3.1 clusters created before 11/7/2014 were based on the [Hortonworks Data Platform 2.1.1][hdp-2-1-1].
@@ -166,3 +166,4 @@ The **Deprecation Date** is the date after which the cluster version cannot be c
 [ambari-docs]: https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md
 
 [zookeeper]: http://zookeeper.apache.org/
+

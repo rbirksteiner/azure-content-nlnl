@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Analytics platforms: Apache Storm comparison to Stream Analytics | Microsoft Azure"
-	description="Get guidance choosing a cloud analytics platform by using an Apache Storm comparison to Stream Analytics. Understand features and differences."
-	keywords="analytics platform, analytics platforms, cloud analytics platform, storm comparison"
-	services="stream-analytics"
-	documentationCenter=""
-	authors="jeffstokes72"
-	manager="paulettm"
-	editor="cgronlun"/>
+    pageTitle="Analytics platforms: Apache Storm comparison to Stream Analytics | Microsoft Azure"
+    description="Get guidance choosing a cloud analytics platform by using an Apache Storm comparison to Stream Analytics. Understand features and differences."
+    keywords="analytics platform, analytics platforms, cloud analytics platform, storm comparison"
+    services="stream-analytics"
+    documentationCenter=""
+    authors="jeffstokes72"
+    manager="paulettm"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="stream-analytics"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="11/06/2015"
-	ms.author="jeffstok"/>
+    ms.service="stream-analytics"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="big-data"
+    ms.date="11/06/2015"
+    ms.author="jeffstok"/>
 
 # Help choosing a streaming analytics platform: Apache Storm comparison to Azure Stream Analytics
 
@@ -280,10 +280,10 @@ Both analytics platforms provide benefits of a PaaS solution, there are a few ma
                 </p>
             </td>
         </tr>
-		<tr>
+        <tr>
             <td width="174" valign="top">
-				<p>
-				 <strong>Input Data Sources</strong>
+                <p>
+                 <strong>Input Data Sources</strong>
                 </p>
             </td>
             <td width="204" valign="top">
@@ -587,3 +587,4 @@ Both analytics platforms provide benefits of a PaaS solution, there are a few ma
         </tr>
     </tbody>
 </table>
+

@@ -1,20 +1,20 @@
     <properties 
-	pageTitle="Create custom artifacts for your DevTest Lab VM | Microsoft Azure"
-	description="Learn how to author your own artifacts for use with DevTest Labs"
-	services="devtest-lab,virtual-machines"
-	documentationCenter="na"
-	authors="tomarcher"
-	manager="douge"
-	editor=""/>
+    pageTitle="Create custom artifacts for your DevTest Lab VM | Microsoft Azure"
+    description="Learn how to author your own artifacts for use with DevTest Labs"
+    services="devtest-lab,virtual-machines"
+    documentationCenter="na"
+    authors="tomarcher"
+    manager="douge"
+    editor=""/>
 
 <tags
-	ms.service="devtest-lab"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/01/2015"
-	ms.author="tarcher"/>
+    ms.service="devtest-lab"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/01/2015"
+    ms.author="tarcher"/>
 
 #Create custom artifacts for your DevTest Lab VM
 
@@ -23,30 +23,30 @@
 ##Artifact definition file format
 The following example shows the sections that make up the basic structure of a definition file.
 
-	{
-	  "$schema": "https://raw.githubusercontent.com/Azure/azure-devtestlab/master/schemas/2015-01-01/dtlArtifacts.json",
-	  "title": "",
-	  "description": "",
-	  "iconUri": "",
-	  "targetOsType": "",
-	  "parameters": {
-	    "<parameterName>": {
-	      "type": "",
-	      "displayName": "",
-	      "description": ""
-	    }
-	  },
-	  "runCommand": {
-	    "commandToExecute": ""
-	  }
-	}
+    {
+      "$schema": "https://raw.githubusercontent.com/Azure/azure-devtestlab/master/schemas/2015-01-01/dtlArtifacts.json",
+      "title": "",
+      "description": "",
+      "iconUri": "",
+      "targetOsType": "",
+      "parameters": {
+        "<parameterName>": {
+          "type": "",
+          "displayName": "",
+          "description": ""
+        }
+      },
+      "runCommand": {
+        "commandToExecute": ""
+      }
+    }
 
 | Element name | Required? | Description
 | ------------ | --------- | -----------
 | $schema      | No        | Location of the JSON schema file that helps in testing the validity of the definition file.
 | title        | Yes       | Name of the artifact displayed in the lab.
-| description  | Yes 	   | Description of the artifact displayed in the lab.
-| iconUri	   | No	       | Uri of the icon displayed in the lab.
+| description  | Yes       | Description of the artifact displayed in the lab.
+| iconUri      | No        | Uri of the icon displayed in the lab.
 | targetOsType | Yes       | Operating system of the VM where artifact will be installed. Supported options are: Windows and Linux.
 | parameters   | No        | Values that are provided when artifact install command is run on a machine. This helps in customizing your artifact.
 | runCommand   | Yes       | Artifact install command that is executed on a VM.
@@ -57,19 +57,19 @@ In the parameters section of the definition file, you specify which values a use
 
 You define parameters will the following structure.
 
-	"parameters": {
-	    "<parameterName>": {
-	      "type": "<type-of-parameter-value>",
-	      "displayName": "<display-name-of-parameter>",
-	      "description": "<description-of-parameter>"
-	    }
-	  }
+    "parameters": {
+        "<parameterName>": {
+          "type": "<type-of-parameter-value>",
+          "displayName": "<display-name-of-parameter>",
+          "description": "<description-of-parameter>"
+        }
+      }
 
 | Element name | Required? | Description
 | ------------ | --------- | -----------
 | type         | Yes       | Type of parameter value. See the list below for the allowed types:
 | displayName    Yes       | Name of the parameter that is displayed to a user in the lab.
-| description  | Yes 	   | Description of the parameter that is displayed in the lab.
+| description  | Yes       | Description of the parameter that is displayed in the lab.
 
 The allowed types are:
 
@@ -87,16 +87,16 @@ Typically, you use expressions with functions to construct a value. Just like in
 The following list shows common functions.
 
 - parameters(parameterName) - Returns a parameter value that is provided when the artifact command is run.
-- concat(arg1,arg2,arg3, …..) - 	Combines multiple string values. This function can take any number of arguments.
+- concat(arg1,arg2,arg3, …..) -     Combines multiple string values. This function can take any number of arguments.
 
 The following example shows how to use expression and functions to construct a value.
 
-	runCommand": {
-	     "commandToExecute": "[concat('powershell.exe -File startChocolatey.ps1'
-	, ' -RawPackagesList ', parameters('packages')
-	, ' -Username ', parameters('installUsername')
-	, ' -Password ', parameters('installPassword'))]"
-	}
+    runCommand": {
+         "commandToExecute": "[concat('powershell.exe -File startChocolatey.ps1'
+    , ' -RawPackagesList ', parameters('packages')
+    , ' -Username ', parameters('installUsername')
+    , ' -Password ', parameters('installPassword'))]"
+    }
 
 ##Create a custom artifact
 
@@ -109,16 +109,17 @@ Create your custom artifact by following steps below:
 1. Make use of IntelliSense - Leverage IntelliSense to see valid elements that can be used to construct an artifact definition file. You can also see the different options for values of an element. For example, IntelliSense show you the two choices of Windows or Linux when editing the **targetOsType** element.
 
 1. Store the artifact in a git repository
-	1. Create a separate directory for each artifact where the directory name is the same as the artifact name.
-	1. Store the artifact definition file (artifactfile.json) in the directory you created.
-	1. Store the scripts that are referenced from the artifact install command.
+    1. Create a separate directory for each artifact where the directory name is the same as the artifact name.
+    1. Store the artifact definition file (artifactfile.json) in the directory you created.
+    1. Store the scripts that are referenced from the artifact install command.
 
-	Here is an example of how an artifact folder might look:
+    Here is an example of how an artifact folder might look:
 
-	![Artifact git repo example](./media/devtest-lab-artifact-author/git-repo.png)
+    ![Artifact git repo example](./media/devtest-lab-artifact-author/git-repo.png)
 
 1. Add the artifacts repository to the lab - Refer to the article, [Add a Git artifact repository to your DevTest Lab](devtest-lab-add-artifact-repo.md).
 
 ## Next steps
 
 Learn how to [add a Git artifact repository to your DevTest Lab](devtest-lab-add-artifact-repo.md).
+

@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Videos, samples, and tutorials in Azure Search | Microsoft Azure | Hosted cloud search service"
-	description="Central list of all videos, samples, demos and tutorials created for Azure Search, a hosted cloud service on MIcrosoft Azure."
-	services="search"
-	documentationCenter=""
-	authors="HeidiSteen"
-	manager="mblythe"
-	editor=""
+    pageTitle="Videos, samples, and tutorials in Azure Search | Microsoft Azure | Hosted cloud search service"
+    description="Central list of all videos, samples, demos and tutorials created for Azure Search, a hosted cloud service on MIcrosoft Azure."
+    services="search"
+    documentationCenter=""
+    authors="HeidiSteen"
+    manager="mblythe"
+    editor=""
     tags="azure-portal"/>
 
 <tags
-	ms.service="search"
-	ms.devlang="NA"
-	ms.workload="search"
-	ms.topic="article" 
-	ms.tgt_pltfrm="na"
-	ms.date="11/04/2015"
-	ms.author="heidist"/>
+    ms.service="search"
+    ms.devlang="NA"
+    ms.workload="search"
+    ms.topic="article" 
+    ms.tgt_pltfrm="na"
+    ms.date="11/04/2015"
+    ms.author="heidist"/>
 
 #Azure Search: tutorials, video demos, and samples
 
@@ -94,4 +94,5 @@ On CodePlex, you can find several samples published during the public preview th
 - [**GeoSearch sample**](https://azuresearchgeospatial.codeplex.com/) is an ASP.NET MVC 4  application.
 - [**SQL Server to Azure Search Sync Sample**](http://sqlserver2azuresearch.codeplex.com/) is a Windows console application that loads a SQL Server rowset from an embedded local database.
 - [**Scoring Profiles Demo**](https://azuresearchscoringprofiles.codeplex.com/) is a Windows console application that defines, executes, and updates a scoring profile for tuning search results.
+
 

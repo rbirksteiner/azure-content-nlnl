@@ -96,16 +96,16 @@ The second command displays the tags for the given variable.
 
         PS C:\> $tags
 
-        Name		Value
+        Name        Value
         ----                           -----
-        Value		MyDepartment
-        Name		Department
-        Value		MyApp1
-        Name		Application
-        Value		MyName
-        Name		Created By
-        Value		Production
-        Name		Environment
+        Value       MyDepartment
+        Name        Department
+        Value       MyApp1
+        Name        Application
+        Value       MyName
+        Name        Created By
+        Value       Production
+        Name        Environment
 
 The third command adds an additional tag to the *tags* variable. Note the use of the **+=** to append the new Key/Value pair to the *tags* list.
 
@@ -119,18 +119,18 @@ The fifth command displays all of the tags on the resource. As you can see, *Loc
 
         PS C:\> (Get-AzureResource -ResourceName "MyWindowsVM" -ResourceGroupName "MyResourceGroup" -ResourceType "Microsoft.Compute/VirtualMachines" -ApiVersion 2015-05-01-preview).Tags
 
-        Name		Value
+        Name        Value
         ----                           -----
-        Value		MyDepartment
-        Name		Department
-        Value		MyApp1
-        Name		Application
-        Value		MyName
-        Name		Created By
-        Value		Production
-        Name		Environment
-        Value		MyLocation
-        Name		Location
+        Value       MyDepartment
+        Name        Department
+        Value       MyApp1
+        Name        Application
+        Value       MyName
+        Name        Created By
+        Value       Production
+        Name        Environment
+        Value       MyLocation
+        Name        Location
 
 To learn more about tagging through PowerShell, check out the [Azure Resource Cmdlets][].
 
@@ -189,3 +189,4 @@ By analyzing these tags along with usage, organizations will be able to gain new
 [Using Tags to organize your Azure Resources]: ../resource-group-using-tags.md
 [Understanding your Azure Bill]: ../billing-understand-your-bill.md
 [Gain insights into your Microsoft Azure resource consumption]: ../billing-usage-rate-card-overview.md
+

@@ -109,3 +109,4 @@ The parameter that accepts the secret should be a **securestring**. The followin
 - For more information about deploying templates, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md).
 - For complete examples of referencing key secrets, see [Key Vault examples](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
 
+

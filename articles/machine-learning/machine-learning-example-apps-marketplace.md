@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Machine Learning example apps in the Azure Marketplace | Microsoft Azure" 
-	description="Azure Machine Learning Marketplace App examples show how you can publish your machine learning services to the Azure Marketplace for paying subscribers to use in their apps." 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="LuisCabrer" 
-	manager="paulettm" 
-	editor="cgronlun"/>
+    pageTitle="Machine Learning example apps in the Azure Marketplace | Microsoft Azure" 
+    description="Azure Machine Learning Marketplace App examples show how you can publish your machine learning services to the Azure Marketplace for paying subscribers to use in their apps." 
+    services="machine-learning" 
+    documentationCenter="" 
+    authors="LuisCabrer" 
+    manager="paulettm" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/08/2015" 
-	ms.author="luisca"/> 
+    ms.service="machine-learning" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/08/2015" 
+    ms.author="luisca"/> 
 
 # Machine Learning Apps in the Azure Marketplace
 
@@ -57,3 +57,4 @@ Customer Churn Prediction is a churn analytics service built with Azure Machine 
 [Data Market Link](https://datamarket.azure.com/dataset/amla/customer-churn-prediction)
 
 [Documentation](https://churn.cloudapp.net/documentation)
+

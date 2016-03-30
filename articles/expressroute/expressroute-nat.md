@@ -48,7 +48,7 @@ The Microsoft peering path lets you connect to Microsoft cloud services that are
 
 - IP addresses used for the Azure public peering setup and other ExpressRoute circuits must not be advertised to Microsoft through the BGP session. There is no restriction on the length of the NAT IP prefix advertised through this peering.
 
-	>[AZURE.IMPORTANT] The NAT IP pool advertised to Microsoft must not be advertised to the Internet. This will break connectivity to other Microsoft services.
+    >[AZURE.IMPORTANT] The NAT IP pool advertised to Microsoft must not be advertised to the Internet. This will break connectivity to other Microsoft services.
 
 #### Traffic originating from Microsoft destined to your network
 
@@ -62,7 +62,8 @@ The Microsoft peering path lets you connect to Microsoft cloud services that are
 - For workflow information, see [ExpressRoute circuit provisioning workflows and circuit states](expressroute-workflows.md).
 - Configure your ExpressRoute connection.
 
-	- [Create an ExpressRoute circuit](expressroute-howto-circuit-classic.md)
-	- [Configure routing](expressroute-howto-routing-classic.md)
-	- [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-classic.md)
+    - [Create an ExpressRoute circuit](expressroute-howto-circuit-classic.md)
+    - [Configure routing](expressroute-howto-routing-classic.md)
+    - [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-classic.md)
+
 

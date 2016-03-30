@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Release notes for Application Insights" 
-	description="The latest updates." 
-	services="application-insights" 
+    pageTitle="Release notes for Application Insights" 
+    description="The latest updates." 
+    services="application-insights" 
     documentationCenter=""
-	authors="alancameronwills" 
-	manager="douge"/>
+    authors="alancameronwills" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/23/2015" 
-	ms.author="awills"/>
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/23/2015" 
+    ms.author="awills"/>
  
 # SDK Release Notes - Application Insights
 
@@ -31,4 +31,5 @@ Here are detailed release notes and update instructions for our SDKs:
 * [Other platforms](https://github.com/Microsoft/ApplicationInsights-Home)
 
 Read also our [Service Updates](http://azure.microsoft.com/updates/?service=application-insights) which summarize major improvements in the Application Insights service as a whole.
+
 

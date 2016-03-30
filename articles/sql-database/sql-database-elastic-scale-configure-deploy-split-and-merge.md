@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Elastic database Split-Merge tool tutorial | Microsoft Azure"
-	description="Splitting and Merging with elastic database tools"
-	services="sql-database"  
-	documentationCenter=""
-	authors="sidneyh"
-	manager="jeffreyg"
-	editor=""/>
+    pageTitle="Elastic database Split-Merge tool tutorial | Microsoft Azure"
+    description="Splitting and Merging with elastic database tools"
+    services="sql-database"  
+    documentationCenter=""
+    authors="sidneyh"
+    manager="jeffreyg"
+    editor=""/>
 
 <tags
-	ms.service="sql-database"
-	ms.workload="sql-database"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/01/2015"
-	ms.author="sidneyh" />
+    ms.service="sql-database"
+    ms.workload="sql-database"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/01/2015"
+    ms.author="sidneyh" />
 
 # Elastic database Split-Merge tool tutorial
 
@@ -49,9 +49,9 @@ The steps above download the Split-Merge files to the current directory. The fil
 
 3. Either create a new database or choose an existing database to serve as the status database for Split/Merge operations and retrieve the connection string of that database. 
 
-	**Important** At this time, the status database must use the Latin  collation (SQL\_Latin1\_General\_CP1\_CI\_AS). For more information, see [Windows Collation Name (Transact-SQL)](https://msdn.microsoft.com/library/ms188046.aspx).
+    **Important** At this time, the status database must use the Latin  collation (SQL\_Latin1\_General\_CP1\_CI\_AS). For more information, see [Windows Collation Name (Transact-SQL)](https://msdn.microsoft.com/library/ms188046.aspx).
 
-	With Azure SQL DB, the connection string typically is of the form:
+    With Azure SQL DB, the connection string typically is of the form:
 
         "Server=myservername.database.windows.net; Database=mydatabasename;User ID=myuserID; Password=mypassword; Encrypt=True; Connection Timeout=30" .
 4.    Enter this connection string in the cscfg file in both the **SplitMergeWeb** and **SplitMergeWorker** role sections in the ElasticScaleMetadata setting.
@@ -335,3 +335,4 @@ In this case, check your configuration file, in particular the setting for **Wor
 [4]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/upload.png
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
  
+

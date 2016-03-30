@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Consume a Machine Learning web service | Microsoft Azure"
-	description="Once a machine learning service is deployed, the RESTFul web service that is made available can be consumed either as request-response service or as a batch execution service."
-	services="machine-learning"
-	documentationCenter=""
-	authors="bradsev"
-	manager="paulettm"
-	editor="cgronlun" />
+    pageTitle="Consume a Machine Learning web service | Microsoft Azure"
+    description="Once a machine learning service is deployed, the RESTFul web service that is made available can be consumed either as request-response service or as a batch execution service."
+    services="machine-learning"
+    documentationCenter=""
+    authors="bradsev"
+    manager="paulettm"
+    editor="cgronlun" />
 
 <tags
-	ms.service="machine-learning"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="tbd"
-	ms.date="10/19/2015"
-	ms.author="bradsev" />
+    ms.service="machine-learning"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="tbd"
+    ms.date="10/19/2015"
+    ms.author="bradsev" />
 
 
 # How to consume an Azure Machine Learning web service that has been deployed from a Machine Learning experiment
@@ -65,10 +65,10 @@ To show how both RRS and BES work, we use an example Azure Web Service. This ser
 
 There are four pieces of information that are needed to call either the RRS or BES service. This information is readily available from the service pages in [Azure Machine Learning service pages](https://studio.azureml.net) once the experiment has been deployed. Click on the WEB SERVICES link at the left of the screen and you will see the deployed services. To find information about a specific service, there are API help page links for both RRS and BES.
 
-1.	The **service API Key**, available on the services main page
-2.	The **service URI**, available on the API help page for the chosen service
-3.	The expected **API request body**, available on the API help page for the chosen service
-4.	The expected **API response body**, available on the API help page for the chosen service
+1.  The **service API Key**, available on the services main page
+2.  The **service URI**, available on the API help page for the chosen service
+3.  The expected **API request body**, available on the API help page for the chosen service
+4.  The expected **API response body**, available on the API help page for the chosen service
 
 In the two examples below, the C# language is used to illustrate the code needed and the targeted platform is a Windows 8 desktop.
 
@@ -77,127 +77,127 @@ On the API help page, aside from the URI, you will input and output definitions 
 
 **Sample Request**
 
-	{
-	  "Inputs": {
-	    "input1": {
-	      "ColumnNames": [
-	        "cog_speed"
-	      ],
-	      "Values": [
-	        [
-	          "0"
-	        ],
-	        [
-	          "1"
-	        ]
-	      ]
-	    }
-	  },
-	  "GlobalParameters": {}
-	}
+    {
+      "Inputs": {
+        "input1": {
+          "ColumnNames": [
+            "cog_speed"
+          ],
+          "Values": [
+            [
+              "0"
+            ],
+            [
+              "1"
+            ]
+          ]
+        }
+      },
+      "GlobalParameters": {}
+    }
 
 
 Similarly, the API response is also called out, again for this service specifically.
 
 **Sample Response**
 
-	{
-	  "Results": {
-	    "output1": {
-	      "type": "DataTable",
-	      "value": {
-	        "ColumnNames": [
-	          "cog_speed"
-	        ],
-	        "ColumnTypes": [
-	          "Numeric"
-	        ].
-	      "Values": [
-	        [
-	          "0"
-	        ],
-	        [
-	          "1"
-	        ]
-	      ]
-	    }
-	  },
-	  "GlobalParameters": {}
-	}
+    {
+      "Results": {
+        "output1": {
+          "type": "DataTable",
+          "value": {
+            "ColumnNames": [
+              "cog_speed"
+            ],
+            "ColumnTypes": [
+              "Numeric"
+            ].
+          "Values": [
+            [
+              "0"
+            ],
+            [
+              "1"
+            ]
+          ]
+        }
+      },
+      "GlobalParameters": {}
+    }
 
 Towards the bottom of the page you will find the code examples. Below is the code sample for the C# implementation
 
 **Sample Code**
 
-	using System;
-	using System.Collections.Generic;
-	using System.IO;
-	using System.Net.Http;
-	using System.Net.Http.Formatting;
-	using System.Net.Http.Headers;
-	using System.Text;
-	using System.Threading.Tasks;
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Net.Http;
+    using System.Net.Http.Formatting;
+    using System.Net.Http.Headers;
+    using System.Text;
+    using System.Threading.Tasks;
 
-	namespace CallRequestResponseService
-	{
-	    public class StringTable
-	    {
-	        public string[] ColumnNames { get; set; }
-	        public string[,] Values { get; set; }
-	    }
+    namespace CallRequestResponseService
+    {
+        public class StringTable
+        {
+            public string[] ColumnNames { get; set; }
+            public string[,] Values { get; set; }
+        }
 
-	    class Program
-	    {
-	        static void Main(string[] args)
-	        {
-	            InvokeRequestResponseService().Wait();
-	        }
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                InvokeRequestResponseService().Wait();
+            }
 
-	        static async Task InvokeRequestResponseService()
-	        {
-	            using (var client = new HttpClient())
-	            {
-	                var scoreRequest = new
-	                {
-	                    Inputs = new Dictionary<string, StringTable> () {
-	                        {
-	                            "input1",
-	                            new StringTable()
-	                            {
-	                                ColumnNames = new string[] {"cog_speed"},
-	                                Values = new string[,] {  { "0"},  { "1"}  }
-	                            }
-	                        },
-	                    GlobalParameters = new Dictionary<string, string>() { }
-	                };
+            static async Task InvokeRequestResponseService()
+            {
+                using (var client = new HttpClient())
+                {
+                    var scoreRequest = new
+                    {
+                        Inputs = new Dictionary<string, StringTable> () {
+                            {
+                                "input1",
+                                new StringTable()
+                                {
+                                    ColumnNames = new string[] {"cog_speed"},
+                                    Values = new string[,] {  { "0"},  { "1"}  }
+                                }
+                            },
+                        GlobalParameters = new Dictionary<string, string>() { }
+                    };
 
-	                const string apiKey = "abc123"; // Replace this with the API key for the web service
-	                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue( "Bearer", apiKey);
+                    const string apiKey = "abc123"; // Replace this with the API key for the web service
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue( "Bearer", apiKey);
 
-	                client.BaseAddress = new Uri("https://ussouthcentral.services.azureml.net/workspaces/<workspace id>/services/<service id>/execute?api-version=2.0&details=true");
+                    client.BaseAddress = new Uri("https://ussouthcentral.services.azureml.net/workspaces/<workspace id>/services/<service id>/execute?api-version=2.0&details=true");
 
-	                // WARNING: The 'await' statement below can result in a deadlock if you are calling this code from the UI thread of an ASP.Net application.
-	                // One way to address this would be to call ConfigureAwait(false) so that the execution does not attempt to resume on the original context.
-	                // For instance, replace code such as:
-	                //      result = await DoSomeTask()
-	                // with the following:
-	                //      result = await DoSomeTask().ConfigureAwait(false)
+                    // WARNING: The 'await' statement below can result in a deadlock if you are calling this code from the UI thread of an ASP.Net application.
+                    // One way to address this would be to call ConfigureAwait(false) so that the execution does not attempt to resume on the original context.
+                    // For instance, replace code such as:
+                    //      result = await DoSomeTask()
+                    // with the following:
+                    //      result = await DoSomeTask().ConfigureAwait(false)
 
-	                HttpResponseMessage response = await client.PostAsJsonAsync("", scoreRequest);
+                    HttpResponseMessage response = await client.PostAsJsonAsync("", scoreRequest);
 
-	                if (response.IsSuccessStatusCode)
-	                {
-	                    string result = await response.Content.ReadAsStringAsync();
-	                    Console.WriteLine("Result: {0}", result);
-	                }
-	                else
-	                {
-	                    Console.WriteLine("Failed with status code: {0}", response.StatusCode);
-	                }
-	            }
-	        }
-	    }
-	}
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string result = await response.Content.ReadAsStringAsync();
+                        Console.WriteLine("Result: {0}", result);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Failed with status code: {0}", response.StatusCode);
+                    }
+                }
+            }
+        }
+    }
 
 ### BES Example
 On the API help page, in addition to the URI, you will find information about several calls that are available. Unlike the RRS service, the BES service is asynchronous. This means that the BES API is simply queuing up a job to be executed, and the caller polls the job's status to see when it has completed. Here are the operations currently supported for batch jobs:
@@ -223,23 +223,23 @@ All these job creation parameters can be optional depending on the nature of you
 
 **Sample Request**
 
-	{
-	  "Input": {
-	    "ConnectionString":     
-	    "DefaultEndpointsProtocol=https;AccountName=mystorageacct;AccountKey=mystorageacctKey",
-	    "RelativeLocation": "/mycontainer/mydatablob.csv",
-	    "BaseLocation": null,
-	    "SasBlobToken": null
-	  },
-	  "Outputs": null,
-	  "GlobalParameters": null
-	}
+    {
+      "Input": {
+        "ConnectionString":     
+        "DefaultEndpointsProtocol=https;AccountName=mystorageacct;AccountKey=mystorageacctKey",
+        "RelativeLocation": "/mycontainer/mydatablob.csv",
+        "BaseLocation": null,
+        "SasBlobToken": null
+      },
+      "Outputs": null,
+      "GlobalParameters": null
+    }
 
 The response to the batch job creation API is the unique job id that was associated to your job. This id is very important because it provides the only means for you to reference this job in the system for other operations.  
 
 **Sample Response**
 
-	"539d0bc2fde945b6ac986b851d0000f0" // The JOB_ID
+    "539d0bc2fde945b6ac986b851d0000f0" // The JOB_ID
 
 **2. Start a Batch Execution Job**
 
@@ -251,11 +251,11 @@ You can poll the status of your asynchronous batch job at any time by passing th
 
 **Response Payload**
 
-	{
-	    "StatusCode": STATUS_CODE,
-	    "Results": RESULTS,
-	    "Details": DETAILS
-	}
+    {
+        "StatusCode": STATUS_CODE,
+        "Results": RESULTS,
+        "Details": DETAILS
+    }
 
 *StatusCode* can be one of the following:
 
@@ -269,27 +269,27 @@ The *Results* property is populated only if the job has completed successfully (
 
 **Sample Response**
 
-	{
-	    "Status Code": "Finished",
-	    "Results":
-	    {
-	        "dataOutput":
-	        {              
-	            "ConnectionString": null,
-	            "RelativeLocation": "outputs/dataOutput.csv",
-	            "BaseLocation": "https://mystorageaccount.blob.core.windows.net/",
-	            "SasBlobToken": "?sv=2013-08-15&sr=b&sig=ABCD&st=2015-04-04T05%3A39%3A55Z&se=2015-04-05T05%3A44%3A55Z&sp=r"              
-	        },
-	        "trainedModelOutput":
-	        {              
-	            "ConnectionString": null,
-	            "RelativeLocation": "models/trainedModel.ilearner",
-	            "BaseLocation": "https://mystorageaccount.blob.core.windows.net/",
-	            "SasBlobToken": "?sv=2013-08-15&sr=b&sig=EFGH%3D&st=2015-04-04T05%3A39%3A55Z&se=2015-04-05T05%3A44%3A55Z&sp=r"              
-	        },           
-	    },
-	    "Details": null
-	}
+    {
+        "Status Code": "Finished",
+        "Results":
+        {
+            "dataOutput":
+            {              
+                "ConnectionString": null,
+                "RelativeLocation": "outputs/dataOutput.csv",
+                "BaseLocation": "https://mystorageaccount.blob.core.windows.net/",
+                "SasBlobToken": "?sv=2013-08-15&sr=b&sig=ABCD&st=2015-04-04T05%3A39%3A55Z&se=2015-04-05T05%3A44%3A55Z&sp=r"              
+            },
+            "trainedModelOutput":
+            {              
+                "ConnectionString": null,
+                "RelativeLocation": "models/trainedModel.ilearner",
+                "BaseLocation": "https://mystorageaccount.blob.core.windows.net/",
+                "SasBlobToken": "?sv=2013-08-15&sr=b&sig=EFGH%3D&st=2015-04-04T05%3A39%3A55Z&se=2015-04-05T05%3A44%3A55Z&sp=r"              
+            },           
+        },
+        "Details": null
+    }
 
 **4. Cancel a Batch Execution Job**
 
@@ -307,53 +307,53 @@ The code sample below demonstrates how you can submit and monitor a batch job ag
 
 #### **Sample Code**
 
-	// This code requires the Nuget package Microsoft.Azure.MachineLearning to be installed.
-	// Instructions for doing this in Visual Studio:
-	// Tools -> Nuget Package Manager -> Package Manager Console
-	// Install-Package Microsoft.Azure.MachineLearning
+    // This code requires the Nuget package Microsoft.Azure.MachineLearning to be installed.
+    // Instructions for doing this in Visual Studio:
+    // Tools -> Nuget Package Manager -> Package Manager Console
+    // Install-Package Microsoft.Azure.MachineLearning
 
-	  using System;
-	  using System.Collections.Generic;
-	  using System.Threading.Tasks;
+      using System;
+      using System.Collections.Generic;
+      using System.Threading.Tasks;
 
-	  using Microsoft.Azure.MachineLearning;
-	  using Microsoft.Azure.MachineLearning.Contracts;
-	  using Microsoft.Azure.MachineLearning.Exceptions;
+      using Microsoft.Azure.MachineLearning;
+      using Microsoft.Azure.MachineLearning.Contracts;
+      using Microsoft.Azure.MachineLearning.Exceptions;
 
-	namespace CallBatchExecutionService
-	{
-	    class Program
-	    {
-	        static void Main(string[] args)
-	        {	            
-	            InvokeBatchExecutionService().Wait();
-	        }
+    namespace CallBatchExecutionService
+    {
+        class Program
+        {
+            static void Main(string[] args)
+            {               
+                InvokeBatchExecutionService().Wait();
+            }
 
-	        static async Task InvokeBatchExecutionService()
-	        {
-	            // First collect and fill in the URI and access key for your web service endpoint.
-	            // These are available on your service's API help page.
-	            var endpointUri = "https://ussouthcentral.services.azureml.net/workspaces/YOUR_WORKSPACE_ID/services/YOUR_SERVICE_ENDPOINT_ID/";
-	            string accessKey = "YOUR_SERVICE_ENDPOINT_ACCESS_KEY";
+            static async Task InvokeBatchExecutionService()
+            {
+                // First collect and fill in the URI and access key for your web service endpoint.
+                // These are available on your service's API help page.
+                var endpointUri = "https://ussouthcentral.services.azureml.net/workspaces/YOUR_WORKSPACE_ID/services/YOUR_SERVICE_ENDPOINT_ID/";
+                string accessKey = "YOUR_SERVICE_ENDPOINT_ACCESS_KEY";
 
-	            // Create an Azure Machine Learning runtime client for this endpoint
-	            var runtimeClient = new RuntimeClient(endpointUri, accessKey);
+                // Create an Azure Machine Learning runtime client for this endpoint
+                var runtimeClient = new RuntimeClient(endpointUri, accessKey);
 
-	            // Define the request information for your batch job. This information can contain:
-	            // -- A reference to the AzureBlob containing the input for your job run
-	            // -- A set of values for global parameters defined as part of your experiment and service
-	            // -- A set of output blob locations that allow you to redirect the job's results
+                // Define the request information for your batch job. This information can contain:
+                // -- A reference to the AzureBlob containing the input for your job run
+                // -- A set of values for global parameters defined as part of your experiment and service
+                // -- A set of output blob locations that allow you to redirect the job's results
 
-	            // NOTE: This sample is applicable, as is, for a service with explicit input port and
-	            // potential global parameters. Also, we choose to also demo how you could override the
-	            // location of one of the output blobs that could be generated by your service. You might
-	            // need to tweak these features to adjust the sample to your service.
-	            //
-	            // All of these properties of a BatchJobRequest shown below can be optional, depending on
-	            // your service, so it is not required to specify all with any request.  If you do not want to
-	            // use any of the parameters, a null value should be passed in its place.
+                // NOTE: This sample is applicable, as is, for a service with explicit input port and
+                // potential global parameters. Also, we choose to also demo how you could override the
+                // location of one of the output blobs that could be generated by your service. You might
+                // need to tweak these features to adjust the sample to your service.
+                //
+                // All of these properties of a BatchJobRequest shown below can be optional, depending on
+                // your service, so it is not required to specify all with any request.  If you do not want to
+                // use any of the parameters, a null value should be passed in its place.
 
-	            // Define the reference to the blob containing your input data. You can refer to this blob by its
+                // Define the reference to the blob containing your input data. You can refer to this blob by its
                     // connection string / container / blob name values; alternatively, we also support references
                     // based on a blob SAS URI
 
@@ -374,61 +374,62 @@ The code sample below demonstrates how you can submit and monitor a batch job ag
                            }
                         };
 
-	            // If applicable, you can also set the global parameters for your service
-	            var globalParameters = new Dictionary<string, string>
-	            {
-	                { "YOUR_GLOBAL_PARAMETER", "PARAMETER_VALUE" }
-	            };
+                // If applicable, you can also set the global parameters for your service
+                var globalParameters = new Dictionary<string, string>
+                {
+                    { "YOUR_GLOBAL_PARAMETER", "PARAMETER_VALUE" }
+                };
 
-	            var jobRequest = new BatchJobRequest
-	            {
-	                Input = inputBlob,
-	                GlobalParameters = globalParameters,
-	                Outputs = outputLocations
-	            };
+                var jobRequest = new BatchJobRequest
+                {
+                    Input = inputBlob,
+                    GlobalParameters = globalParameters,
+                    Outputs = outputLocations
+                };
 
-	            try
-	            {
-	                // Register the batch job with the system, which will grant you access to a job object
-	                BatchJob job = await runtimeClient.RegisterBatchJobAsync(jobRequest);
+                try
+                {
+                    // Register the batch job with the system, which will grant you access to a job object
+                    BatchJob job = await runtimeClient.RegisterBatchJobAsync(jobRequest);
 
-	                // Start the job to allow it to be scheduled in the running queue
-	                await job.StartAsync();
+                    // Start the job to allow it to be scheduled in the running queue
+                    await job.StartAsync();
 
-	                // Wait for the job's completion and handle the output
-	                BatchJobStatus jobStatus = await job.WaitForCompletionAsync();
-	                if (jobStatus.JobState == JobState.Finished)
-	                {
-	                    // Process job outputs
-	                    Console.WriteLine(@"Job {0} has completed successfully and returned {1} outputs", job.Id, jobStatus.Results.Count);
-	                    foreach (var output in jobStatus.Results)
-	                    {
-	                        Console.WriteLine(@"\t{0}: {1}", output.Key, output.Value.AbsoluteUri);
-	                    }
-	                }
-	                else if (jobStatus.JobState == JobState.Failed)
-	                {
-	                    // Handle job failure
-	                    Console.WriteLine(@"Job {0} has failed with this error: {1}", job.Id, jobStatus.Details);
-	                }
-	            }
-	            catch (ArgumentException aex)
-	            {
-	                Console.WriteLine("Argument {0} is invalid: {1}", aex.ParamName, aex.Message);
-	            }
-	            catch (RuntimeException runtimeError)
-	            {
-	                Console.WriteLine("Runtime error occurred: {0} - {1}", runtimeError.ErrorCode, runtimeError.Message);
-	                Console.WriteLine("Error details:");
-	                foreach (var errorDetails in runtimeError.Details)
-	                {
-	                    Console.WriteLine("\t{0} - {1}", errorDetails.Code, errorDetails.Message);
-	                }
-	            }
-	            catch (Exception ex)
-	            {
-	                Console.WriteLine("Unexpected error occurred: {0} - {1}", ex.GetType().Name, ex.Message);
-	            }
-	        }
-	    }
-	}
+                    // Wait for the job's completion and handle the output
+                    BatchJobStatus jobStatus = await job.WaitForCompletionAsync();
+                    if (jobStatus.JobState == JobState.Finished)
+                    {
+                        // Process job outputs
+                        Console.WriteLine(@"Job {0} has completed successfully and returned {1} outputs", job.Id, jobStatus.Results.Count);
+                        foreach (var output in jobStatus.Results)
+                        {
+                            Console.WriteLine(@"\t{0}: {1}", output.Key, output.Value.AbsoluteUri);
+                        }
+                    }
+                    else if (jobStatus.JobState == JobState.Failed)
+                    {
+                        // Handle job failure
+                        Console.WriteLine(@"Job {0} has failed with this error: {1}", job.Id, jobStatus.Details);
+                    }
+                }
+                catch (ArgumentException aex)
+                {
+                    Console.WriteLine("Argument {0} is invalid: {1}", aex.ParamName, aex.Message);
+                }
+                catch (RuntimeException runtimeError)
+                {
+                    Console.WriteLine("Runtime error occurred: {0} - {1}", runtimeError.ErrorCode, runtimeError.Message);
+                    Console.WriteLine("Error details:");
+                    foreach (var errorDetails in runtimeError.Details)
+                    {
+                        Console.WriteLine("\t{0} - {1}", errorDetails.Code, errorDetails.Message);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Unexpected error occurred: {0} - {1}", ex.GetType().Name, ex.Message);
+                }
+            }
+        }
+    }
+

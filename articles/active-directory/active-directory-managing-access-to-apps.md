@@ -70,3 +70,4 @@ Azure AD features that enable account sharing include:
 
 - [Protecting apps with conditional access](active-directory-conditional-access.md)
 - [Self-service group management/SSAA](active-directory-accessmanagement-self-service-group-management.md)
+

@@ -1,4 +1,4 @@
-﻿<properties
+<properties
  pageTitle="Get started using Azure Scheduler in the Azure portal | Microsoft Azure"
  description=""
  services="scheduler"
@@ -47,7 +47,7 @@ The first time you open the Azure classic portal, you are automatically placed a
 
     4.  **URI:** ` http://www.microsoft.com`  
 
-   	![][4]
+    ![][4]
 
 7.  After you create a job, define a schedule. The job could be defined as a one-time job, but let’s pick a recurrence schedule. Some screenshots in this tutorial show a recurrence of 1 minute for only illustrative purposes, but pick a recurrence of 12 hours.  
 
@@ -57,16 +57,16 @@ The first time you open the Azure classic portal, you are automatically placed a
 
     3.  **Ending On:** ` Select date 2 days after current day and any time`  
 
-   	![][5]
+    ![][5]
 
 8.  Click **OK**.  
     It can take a while to create the job and the job collection. To check the status, you can monitor the notifications at the bottom of the portal.
 
-   	![][6]
+    ![][6]
 
-   	After you create the job and job collection, a message tells you that the job or job collection was successfully created. The job is listed in the Jobs section of the Scheduler section and the job collection is listed in the Job Collections section. To configure additional advanced settings in the job, refer to the section “Configure a Job” below.
+    After you create the job and job collection, a message tells you that the job or job collection was successfully created. The job is listed in the Jobs section of the Scheduler section and the job collection is listed in the Job Collections section. To configure additional advanced settings in the job, refer to the section “Configure a Job” below.
 
-   	![][7]
+    ![][7]
 
 ## Manage and monitor job collections and jobs
 
@@ -257,3 +257,4 @@ Finally, for all action types, you may change the schedule itself and its recurr
 [13]: ./media/scheduler-get-started-portal/scheduler-get-started-portal013.png
 [14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
+

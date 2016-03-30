@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Deploy a line of business application | Microsoft Azure" 
-	description="Deploy a web-based, highly-available, line of business application with SQL Server AlwaysOn Availability Groups in Azure in five phases." 
-	documentationCenter=""
-	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
-	editor=""
-	tags="azure-resource-manager"/>
+    pageTitle="Deploy a line of business application | Microsoft Azure" 
+    description="Deploy a web-based, highly-available, line of business application with SQL Server AlwaysOn Availability Groups in Azure in five phases." 
+    documentationCenter=""
+    services="virtual-machines" 
+    authors="JoeDavies-MSFT" 
+    manager="timlt" 
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="Windows" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/09/2015" 
-	ms.author="josephd"/>
+    ms.service="virtual-machines" 
+    ms.workload="infrastructure-services" 
+    ms.tgt_pltfrm="Windows" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/09/2015" 
+    ms.author="josephd"/>
 
 # Deploy a high-availability line of business application in Azure
 
@@ -67,3 +67,4 @@ To start the configuration of this workload, go to [Phase 1: Configure Azure](vi
 [Azure infrastructure services implementation guidelines](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
 [Azure Infrastructure Services Workload: SharePoint Server 2013 farm](virtual-machines-workload-intranet-sharepoint-farm.md)
+

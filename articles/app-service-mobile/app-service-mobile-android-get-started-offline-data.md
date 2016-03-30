@@ -1,19 +1,19 @@
 <properties
-	pageTitle="Enable offline sync for your Azure Mobile App (Android)"
-	description="Learn how to use App Service Mobile Apps to cache and sync offline data in your Android application"
-	documentationCenter="android"
-	authors="lindydonna"
-	manager="dwrede"
-	services="app-service\mobile"/>
+    pageTitle="Enable offline sync for your Azure Mobile App (Android)"
+    description="Learn how to use App Service Mobile Apps to cache and sync offline data in your Android application"
+    documentationCenter="android"
+    authors="lindydonna"
+    manager="dwrede"
+    services="app-service\mobile"/>
 
 <tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-android"
-	ms.devlang="java"
-	ms.topic="article"
-	ms.date="12/01/2015"
-	ms.author="donnam"/>
+    ms.service="app-service-mobile"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-android"
+    ms.devlang="java"
+    ms.topic="article"
+    ms.date="12/01/2015"
+    ms.author="donnam"/>
 
 # Enable offline sync for your Android mobile app
 
@@ -37,7 +37,7 @@ To push and pull changes between the device and Azure Mobile Services, you use a
 
 1. In `TodoActivity.java`, comment out the existing definition of `mToDoTable` and uncomment the sync table version:
     
-	    private MobileServiceSyncTable<ToDoItem> mToDoTable;
+        private MobileServiceSyncTable<ToDoItem> mToDoTable;
 
 2. In the `onCreate` method, comment out the existing initialization of `mToDoTable` and uncomment this definition:
 
@@ -45,39 +45,39 @@ To push and pull changes between the device and Azure Mobile Services, you use a
 
 3. In `refreshItemsFromTable` comment out the definition of `results` and uncomment this definition:
 
-		// Offline Sync
-		final List<ToDoItem> results = refreshItemsFromMobileServiceTableSyncTable();
+        // Offline Sync
+        final List<ToDoItem> results = refreshItemsFromMobileServiceTableSyncTable();
 
 4. Comment out the definition of `refreshItemsFromMobileServiceTable`.
 
 5. Uncomment the definition of `refreshItemsFromMobileServiceTableSyncTable`:
 
-	    private List<ToDoItem> refreshItemsFromMobileServiceTableSyncTable() throws ExecutionException, InterruptedException {
-	        //sync the data
-	        sync().get();
-	        Query query = QueryOperations.field("complete").
-	                eq(val(false));
-	        return mToDoTable.read(query).get();
-	    }
+        private List<ToDoItem> refreshItemsFromMobileServiceTableSyncTable() throws ExecutionException, InterruptedException {
+            //sync the data
+            sync().get();
+            Query query = QueryOperations.field("complete").
+                    eq(val(false));
+            return mToDoTable.read(query).get();
+        }
 
 6. Uncomment the definition of `sync`:
 
-	    private AsyncTask<Void, Void, Void> sync() {
-	        AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>(){
-	            @Override
-	            protected Void doInBackground(Void... params) {
-	                try {
-	                    MobileServiceSyncContext syncContext = mClient.getSyncContext();
-	                    syncContext.push().get();
-	                    mToDoTable.pull(null).get();
-	                } catch (final Exception e) {
-	                    createAndShowDialogFromTask(e, "Error");
-	                }
-	                return null;
-	            }
-	        };
-	        return runAsyncTask(task);
-	    }
+        private AsyncTask<Void, Void, Void> sync() {
+            AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>(){
+                @Override
+                protected Void doInBackground(Void... params) {
+                    try {
+                        MobileServiceSyncContext syncContext = mClient.getSyncContext();
+                        syncContext.push().get();
+                        mToDoTable.pull(null).get();
+                    } catch (final Exception e) {
+                        createAndShowDialogFromTask(e, "Error");
+                    }
+                    return null;
+                }
+            };
+            return runAsyncTask(task);
+        }
 
 ## Test the app
 
@@ -95,8 +95,8 @@ When you press that button, a new background task starts, and first pushes all t
 
 3. View the contents of the Azure *TodoItem* table either with a SQL tool such as *SQL Server Management Studio*, or a REST client such as *Fiddler* or *Postman*. Verify that the new items have _not_ been synced to the server
 
-   	+ For a Node.js backend, go to the [Azure portal](https://portal.azure.com/), and in your Mobile App backend click **Easy Tables** > **TodoItem** to view the contents of the `TodoItem` table.
-   	+ For a .NET backend, view the table contents either with a SQL tool such as *SQL Server Management Studio*, or a REST client such as *Fiddler* or *Postman*.
+    + For a Node.js backend, go to the [Azure portal](https://portal.azure.com/), and in your Mobile App backend click **Easy Tables** > **TodoItem** to view the contents of the `TodoItem` table.
+    + For a .NET backend, view the table contents either with a SQL tool such as *SQL Server Management Studio*, or a REST client such as *Fiddler* or *Postman*.
 
 4. Turn on WiFi in the device or simulator. Next, press the **Refresh** button.
 
@@ -117,4 +117,5 @@ When you press that button, a new background task starts, and first pushes all t
 
 [Cloud Cover: Offline Sync in Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
+
 

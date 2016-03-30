@@ -1,21 +1,21 @@
 <properties
-	pageTitle="How to: Configure firewall settings | Microsoft Azure"
-	description="Learn how to configure the firewall for IP addresses that access Azure SQL databases."
-	services="sql-database"
-	documentationCenter=""
-	authors="BYHAM"
-	manager="jeffreyg"
-	editor=""/>
+    pageTitle="How to: Configure firewall settings | Microsoft Azure"
+    description="Learn how to configure the firewall for IP addresses that access Azure SQL databases."
+    services="sql-database"
+    documentationCenter=""
+    authors="BYHAM"
+    manager="jeffreyg"
+    editor=""/>
 
 
 <tags
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article" 
-	ms.date="11/13/2015"
-	ms.author="rickbyh"/>
+    ms.service="sql-database"
+    ms.workload="data-management"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="article" 
+    ms.date="11/13/2015"
+    ms.author="rickbyh"/>
 
 
 # How to: Configure firewall settings on SQL Database using the REST API
@@ -37,22 +37,22 @@ Microsoft Azure SQL Database uses firewall rules to allow connections to your se
 1. Managing firewall rules through REST API must be authenticated. For information, see Authenticating Service Management Requests.
 2. Server-level rules can be created, updated, or deleted using REST API
 
-	To create or update a server-level firewall rule, execute the POST method using the following:
+    To create or update a server-level firewall rule, execute the POST method using the following:
  
-		https://management.core.windows.net:8443/{subscriptionId}/services/sqlservers/servers/Contoso/firewallrules
-	
-	Request Body
+        https://management.core.windows.net:8443/{subscriptionId}/services/sqlservers/servers/Contoso/firewallrules
+    
+    Request Body
 
-		<ServiceResource xmlns="http://schemas.microsoft.com/windowsazure">
-		  <Name>ContosoFirewallRule</Name>
-		  <StartIPAddress>192.168.1.4</StartIPAddress>
-		  <EndIPAddress>192.168.1.10</EndIPAddress>
-		</ServiceResource>
+        <ServiceResource xmlns="http://schemas.microsoft.com/windowsazure">
+          <Name>ContosoFirewallRule</Name>
+          <StartIPAddress>192.168.1.4</StartIPAddress>
+          <EndIPAddress>192.168.1.10</EndIPAddress>
+        </ServiceResource>
  
 
-	To remove an existing server-level firewall rule, execute the DELETE method using the following:
-	 
-		https://management.core.windows.net:8443/{subscriptionId}/services/sqlservers/servers/Contoso/firewallrules/ContosoFirewallRule
+    To remove an existing server-level firewall rule, execute the DELETE method using the following:
+     
+        https://management.core.windows.net:8443/{subscriptionId}/services/sqlservers/servers/Contoso/firewallrules/ContosoFirewallRule
 
 
 ## Manage firewall rules using the Service Management REST API
@@ -74,3 +74,4 @@ To understand how to navigate to databases see [Managing Databases and Logins in
 <!--anchors-->
 
  
+

@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Sign ins from possibly infected devices"
-	description="A report that includes sign in attempts that have been executed from devices on which some malware (malicious software) may be running."
-	services="active-directory"
-	documentationCenter=""
-	authors="SSalahAhmed"
-	manager="gchander"
-	editor=""/>
+    pageTitle="Sign ins from possibly infected devices"
+    description="A report that includes sign in attempts that have been executed from devices on which some malware (malicious software) may be running."
+    services="active-directory"
+    documentationCenter=""
+    authors="SSalahAhmed"
+    manager="gchander"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/17/2015"
-	ms.author="saah;kenhoff"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/17/2015"
+    ms.author="saah;kenhoff"/>
 
 
 # Sign ins from possibly infected devices
@@ -25,3 +25,4 @@ Recommendation: This report flags IP addresses, not user devices. We recommend t
 For more information about how to address malware infections, see the [Malware Protection Center](http://go.microsoft.com/fwlink/?linkid=335773).
 
 ![Sign ins from possibly infected devices](./media/active-directory-reporting-sign-ins-from-possibly-infected-devices/signInsFromPossiblyInfectedDevices.PNG)
+

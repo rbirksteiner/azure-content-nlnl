@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Send Push Notifications to Authenticated Users (.NET Backend)"
-	description="Learn how to send push notifications to specific"
-	services="mobile-services,notification-hubs"
-	documentationCenter="ios"
-	authors="krisragh"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Send Push Notifications to Authenticated Users (.NET Backend)"
+    description="Learn how to send push notifications to specific"
+    services="mobile-services,notification-hubs"
+    documentationCenter="ios"
+    authors="krisragh"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-ios"
-	ms.devlang="objective-c"
-	ms.topic="article"
-	ms.date="10/01/2015"
-	ms.author="krisragh"/>
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-ios"
+    ms.devlang="objective-c"
+    ms.topic="article"
+    ms.date="10/01/2015"
+    ms.author="krisragh"/>
 
 # Send Push Notifications to Authenticated Users
 
@@ -52,3 +52,4 @@ In this tutorial, you require users to authenticate first, register with the not
 [Get started with authentication]: mobile-services-dotnet-backend-ios-get-started-users.md
 [Get started with push notifications]: mobile-services-dotnet-backend-ios-get-started-push.md
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
+

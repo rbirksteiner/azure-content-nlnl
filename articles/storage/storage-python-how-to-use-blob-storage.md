@@ -1,20 +1,20 @@
 <properties
-	pageTitle="How to use Azure Blob storage from Python | Microsoft Azure"
-	description="Learn how to use the Azure Blob storage from Python to upload, list, download, and delete blobs."
-	services="storage"
-	documentationCenter="python"
-	authors="emgerner-msft"
-	manager="wpickett"
-	editor=""/>
+    pageTitle="How to use Azure Blob storage from Python | Microsoft Azure"
+    description="Learn how to use the Azure Blob storage from Python to upload, list, download, and delete blobs."
+    services="storage"
+    documentationCenter="python"
+    authors="emgerner-msft"
+    manager="wpickett"
+    editor=""/>
 
 <tags
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="python"
-	ms.topic="article"
-	ms.date="12/11/2015"
-	ms.author="emgerner"/>
+    ms.service="storage"
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="python"
+    ms.topic="article"
+    ms.date="12/11/2015"
+    ms.author="emgerner"/>
 
 # How to use Azure Blob storage from Python
 
@@ -37,25 +37,25 @@ The **BlobService** object lets you work with containers and blobs. The
 following code creates a **BlobService** object. Add the following near
 the top of any Python file in which you wish to programmatically access Azure Storage.
 
-	from azure.storage.blob import BlobService
+    from azure.storage.blob import BlobService
 
 The following code creates a **BlobService** object using the storage account name and account key.  Replace 'myaccount' and 'mykey' with the real account and key.
 
-	blob_service = BlobService(account_name='myaccount', account_key='mykey')
+    blob_service = BlobService(account_name='myaccount', account_key='mykey')
 
 [AZURE.INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 
 In the following code example, you can use a **BlobService** object to create the container if it doesn't exist.
 
-	blob_service.create_container('mycontainer')
+    blob_service.create_container('mycontainer')
 
 By default, the new container is private, so you must specify your storage access key (as you did earlier) to download blobs from this container. If you want to make the files within the container available to everyone, you can create the container and pass the public access level using the following code.
 
-	blob_service.create_container('mycontainer', x_ms_blob_public_access='container')
+    blob_service.create_container('mycontainer', x_ms_blob_public_access='container')
 
 Alternatively, you can modify a container after you have created it using the following code.
 
-	blob_service.set_container_acl('mycontainer', x_ms_blob_public_access='container')
+    blob_service.set_container_acl('mycontainer', x_ms_blob_public_access='container')
 
 After this change, anyone on the Internet can see blobs in a public
 container, but only you can modify or delete them.
@@ -68,7 +68,7 @@ To upload data to a blob, use the **put\_block\_blob\_from\_path**, **put\_block
 
 The following example uploads the contents of the **sunset.png** file into the **myblob** blob.
 
-	blob_service.put_block_blob_from_path(
+    blob_service.put_block_blob_from_path(
         'mycontainer',
         'myblob',
         'sunset.png',
@@ -83,16 +83,16 @@ check the **next\_marker** of the results and call **list\_blobs** again as
 needed. The following code outputs the **name** of each blob in a container
 to the console.
 
-	blobs = []
-	marker = None
-	while True:
-		batch = blob_service.list_blobs('mycontainer', marker=marker)
-		blobs.extend(batch)
-		if not batch.next_marker:
-			break
-		marker = batch.next_marker
-	for blob in blobs:
-		print(blob.name)
+    blobs = []
+    marker = None
+    while True:
+        batch = blob_service.list_blobs('mycontainer', marker=marker)
+        blobs.extend(batch)
+        if not batch.next_marker:
+            break
+        marker = batch.next_marker
+    for blob in blobs:
+        print(blob.name)
 
 ## Download blobs
 
@@ -104,13 +104,13 @@ To download data from a blob, use **get\_blob\_to\_path**, **get\_blob\_to\_file
 
 The following example demonstrates using **get\_blob\_to\_path** to download the contents of the **myblob** blob and store it to the **out-sunset.png** file.
 
-	blob_service.get_blob_to_path('mycontainer', 'myblob', 'out-sunset.png')
+    blob_service.get_blob_to_path('mycontainer', 'myblob', 'out-sunset.png')
 
 ## Delete a blob
 
 Finally, to delete a blob, call **delete_blob**.
 
-	blob_service.delete_blob('mycontainer', 'myblob')
+    blob_service.delete_blob('mycontainer', 'myblob')
 
 ## Next steps
 
@@ -125,3 +125,4 @@ For more information, see also the [Python Developer Center](/develop/python/).
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
 [Python Azure package]: https://pypi.python.org/pypi/azure
 [Python Azure Storage package]: https://pypi.python.org/pypi/azure-storage  
+

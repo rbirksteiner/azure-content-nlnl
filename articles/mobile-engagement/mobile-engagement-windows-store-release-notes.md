@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Windows Universal Apps SDK Release Notes" 
-	description="Azure Mobile Engagement - Windows Universal Apps SDK Release Notes"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
-	editor="" />
+    pageTitle="Windows Universal Apps SDK Release Notes" 
+    description="Azure Mobile Engagement - Windows Universal Apps SDK Release Notes"
+    services="mobile-engagement" 
+    documentationCenter="mobile" 
+    authors="piyushjo" 
+    manager="dwrede" 
+    editor="" />
 
 <tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="08/10/2015" 
-	ms.author="piyushjo" />
+    ms.service="mobile-engagement" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="mobile-windows-store" 
+    ms.devlang="dotnet" 
+    ms.topic="article" 
+    ms.date="08/10/2015" 
+    ms.author="piyushjo" />
 
 #Windows Universal Apps SDK Release Notes
 

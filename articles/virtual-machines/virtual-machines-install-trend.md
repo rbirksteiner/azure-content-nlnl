@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Install Trend Micro Deep Security on a VM | Microsoft Azure"
-	description="This article describes how to install and configure Trend Micro security on a VM created with the classic deployment model in Azure."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="dsk-2015"
-	manager="timlt"
-	editor=""
-	tags="azure-service-management"/>
+    pageTitle="Install Trend Micro Deep Security on a VM | Microsoft Azure"
+    description="This article describes how to install and configure Trend Micro security on a VM created with the classic deployment model in Azure."
+    services="virtual-machines"
+    documentationCenter=""
+    authors="dsk-2015"
+    manager="timlt"
+    editor=""
+    tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-multiple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/14/2015"
-	ms.author="dkshir"/>
+    ms.service="virtual-machines"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-multiple"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/14/2015"
+    ms.author="dkshir"/>
 
 
 # How to install and configure Trend Micro Deep Security as a Service on a Windows VM
@@ -35,13 +35,13 @@ The [Azure classic portal](http://manage.windowsazure.com) lets you install the 
 
 This **From Gallery** option opens a wizard that helps you set up the virtual machine. You use the last page of the wizard to install the VM Agent and Trend Micro security extension. For general instructions, see [Create a virtual machine running Windows in the Azure classic portal](virtual-machines-windows-tutorial-classic-portal.md). When you get to the last page of the wizard, do the following:
 
-1.	Under **VM Agent**, check **Install VM Agent**.
+1.  Under **VM Agent**, check **Install VM Agent**.
 
-2.	Under **Security Extensions**, check **Trend Micro Deep Security Agent**.
+2.  Under **Security Extensions**, check **Trend Micro Deep Security Agent**.
 
-	![Install the VM Agent and the Deep Security Agent](./media/virtual-machines-install-trend/InstallVMAgentandTrend.png)
+    ![Install the VM Agent and the Deep Security Agent](./media/virtual-machines-install-trend/InstallVMAgentandTrend.png)
 
-3.	Click the check mark to create the virtual machine.
+3.  Click the check mark to create the virtual machine.
 
 ## Install the Deep Security Agent on an existing virtual machine
 
@@ -53,10 +53,10 @@ To do this, you'll need the following:
 
 First, verify that the VM Agent is already installed. Fill in the cloud service name and virtual machine name, and then run the following commands at an administrator-level Azure PowerShell command prompt. Replace everything within the quotes, including the < and > characters.
 
-	$CSName = "<cloud service name>"
-	$VMName = "<virtual machine name>"
-	$vm = Get-AzureVM -ServiceName $CSName -Name $VMName
-	write-host $vm.VM.ProvisionGuestAgent
+    $CSName = "<cloud service name>"
+    $VMName = "<virtual machine name>"
+    $vm = Get-AzureVM -ServiceName $CSName -Name $VMName
+    write-host $vm.VM.ProvisionGuestAgent
 
 If you don't know the cloud service and virtual machine name, run **Get-AzureVM** to display that information for all the virtual machines in your current subscription.
 
@@ -64,9 +64,9 @@ If the **write-host** command returns **True**, the VM Agent is installed. If it
 
 If the VM Agent is installed, run these commands.
 
-	$Agent = Get-AzureVMAvailableExtension TrendMicro.DeepSecurity -ExtensionName TrendMicroDSA
+    $Agent = Get-AzureVMAvailableExtension TrendMicro.DeepSecurity -ExtensionName TrendMicroDSA
 
-	Set-AzureVMExtension -Publisher TrendMicro.DeepSecurity –Version $Agent.Version -ExtensionName TrendMicroDSA -VM $vm | Update-AzureVM
+    Set-AzureVMExtension -Publisher TrendMicro.DeepSecurity –Version $Agent.Version -ExtensionName TrendMicroDSA -VM $vm | Update-AzureVM
 
 ## Next steps
 
@@ -86,3 +86,4 @@ It takes a few minutes for the agent to start running when it is installed. Afte
 <!--Link references-->
 [How to log on to a virtual machine running Windows Server]: virtual-machines-log-on-windows-server.md
 [Azure VM Extensions and features]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
+

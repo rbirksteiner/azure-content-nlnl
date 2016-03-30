@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Account management with Batch Management .NET | Microsoft Azure"
-	description="Create, delete, and modify Azure Batch accounts in your applications with the Batch Management .NET library."
-	services="batch"
-	documentationCenter=".net"
-	authors="mmacy"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    pageTitle="Account management with Batch Management .NET | Microsoft Azure"
+    description="Create, delete, and modify Azure Batch accounts in your applications with the Batch Management .NET library."
+    services="batch"
+    documentationCenter=".net"
+    authors="mmacy"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="batch"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-windows"
-	ms.workload="big-compute"
-	ms.date="11/10/2015"
-	ms.author="v-marsma"/>
+    ms.service="batch"
+    ms.devlang="multiple"
+    ms.topic="article"
+    ms.tgt_pltfrm="vm-windows"
+    ms.workload="big-compute"
+    ms.date="11/10/2015"
+    ms.author="v-marsma"/>
 
 # Manage Azure Batch accounts and quotas with Batch Management .NET
 
@@ -41,8 +41,8 @@ The following code snippet creates an account, obtains the newly created account
 ```
 // Create a new Batch account
 await batchManagementClient.Accounts.CreateAsync("MyResourceGroup",
-	"mynewaccount",
-	new BatchAccountCreateParameters() { Location = "West US" });
+    "mynewaccount",
+    new BatchAccountCreateParameters() { Location = "West US" });
 
 // Get the new account from the Batch service
 BatchAccountGetResponse getResponse = await batchManagementClient.Accounts.GetAsync("MyResourceGroup", "mynewaccount");
@@ -66,9 +66,9 @@ Console.WriteLine("Secondary key: {0}", accountKeys.SecondaryKey);
 
 // Regenerate the primary key
 BatchAccountRegenerateKeyResponse newKeys = await batchManagementClient.Accounts.RegenerateKeyAsync(
-	"MyResourceGroup",
-	"mybatchaccount",
-	new BatchAccountRegenerateKeyParameters() { KeyName = AccountKeyType.Primary });
+    "MyResourceGroup",
+    "mybatchaccount",
+    new BatchAccountRegenerateKeyParameters() { KeyName = AccountKeyType.Primary });
 ```
 
 > [AZURE.TIP] You can create a streamlined connection workflow for your management applications. First, obtain an account key for the Batch account you wish to manage with [ListKeysAsync][net_list_keys], then use this key when initializing the Batch .NET library's [BatchSharedKeyCredentials][net_sharedkeycred] used when initializing a [BatchClient][net_batch_client].
@@ -191,3 +191,4 @@ Before deleting the newly created Batch account and resource group, you can insp
 [resman_overview]: ../resource-group-overview.md
 
 [1]: ./media/batch-management-dotnet/portal-01.png
+

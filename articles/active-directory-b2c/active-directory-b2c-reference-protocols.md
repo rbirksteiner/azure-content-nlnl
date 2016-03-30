@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure AD B2C Preview | Microsoft Azure"
-	description="How to build apps directly using the protocols supported by the Azure AD B2C preview."
-	services="active-directory-b2c"
-	documentationCenter=""
-	authors="dstrockis"
-	manager="msmbaldwin"
-	editor=""/>
+    pageTitle="Azure AD B2C Preview | Microsoft Azure"
+    description="How to build apps directly using the protocols supported by the Azure AD B2C preview."
+    services="active-directory-b2c"
+    documentationCenter=""
+    authors="dstrockis"
+    manager="msmbaldwin"
+    editor=""/>
 
 <tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/22/2015"
-	ms.author="dastrock"/>
+    ms.service="active-directory-b2c"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/22/2015"
+    ms.author="dastrock"/>
 
 # Azure AD B2C Preview: Authentication Protocols
 
@@ -23,7 +23,7 @@ Azure AD B2C provides identity-as-a-service for your apps by supporting two indu
 <!-- TODO: Need link to libraries above -->
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
-	
+    
 ## The Basics
 Every app that uses Azure AD B2C will need to be registered your B2C directory in the [Azure Portal](https://portal.azure.com).  The app registration process will collect & assign a few values to your app:
 
@@ -72,3 +72,4 @@ check out [the types of apps you can build with Azure AD B2C](active-directory-b
 - Get tokens in a Web API with the OAuth 2.0 On Behalf Of Flow (coming soon)
 
 <!-- [Call the Azure AD Graph API using the OAuth 2.0 Client Credentials Flow](active-directory-reference-graph.md) -->
+

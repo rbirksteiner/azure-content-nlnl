@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Injecting Custom Data into Virtual Machines | Microsoft Azure"
-	description="This topic describes how to inject custom data into an Azure virtual machine when the instance is created and how to locate the custom data on either Windows or Linux."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="squillace"
-	manager="timlt"
-	editor="tysonn"
-	tags="azure-service-management" />
+    pageTitle="Injecting Custom Data into Virtual Machines | Microsoft Azure"
+    description="This topic describes how to inject custom data into an Azure virtual machine when the instance is created and how to locate the custom data on either Windows or Linux."
+    services="virtual-machines"
+    documentationCenter=""
+    authors="squillace"
+    manager="timlt"
+    editor="tysonn"
+    tags="azure-service-management" />
 
 <tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/08/2015"
-	ms.author="rasquill"/>
+    ms.service="virtual-machines"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-windows"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/08/2015"
+    ms.author="rasquill"/>
 
 
 #Injecting custom data into an Azure virtual machine
@@ -82,3 +82,4 @@ For further information, see the [cloud-init documentation for Ubuntu](https://h
 [Add Role Service Management REST API Reference](http://msdn.microsoft.com/library/azure/jj157186.aspx)
 
 [Azure Command-line Interface](https://github.com/Azure/azure-xplat-cli)
+

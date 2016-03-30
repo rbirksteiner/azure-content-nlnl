@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Creating datasets" 
-	description="Understand Azure Data Factory datasets and learn how to create them." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
-	editor="monicar"/>
+    pageTitle="Creating datasets" 
+    description="Understand Azure Data Factory datasets and learn how to create them." 
+    services="data-factory" 
+    documentationCenter="" 
+    authors="spelluru" 
+    manager="jhubbard" 
+    editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/12/2015" 
-	ms.author="spelluru"/>
+    ms.service="data-factory" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/12/2015" 
+    ms.author="spelluru"/>
 
 # Datasets
 
@@ -23,26 +23,26 @@ A Dataset is a logical description of the data. The data being described can var
 
 ## Syntax
 
-	{
-	    "name": "<name of dataset>",
-	    "properties":
-	    {
-	       "structure": [ ],
-	       "type": "<type of dataset>",
-			"external": <boolean flag to indicate external data>,
-	        "typeProperties":
-	        {
-	        },
-	        "availability":
-	        {
-	
-	        },
-	       "policy": 
-	        {      
-	
-	        }
-	    }
-	}
+    {
+        "name": "<name of dataset>",
+        "properties":
+        {
+           "structure": [ ],
+           "type": "<type of dataset>",
+            "external": <boolean flag to indicate external data>,
+            "typeProperties":
+            {
+            },
+            "availability":
+            {
+    
+            },
+           "policy": 
+            {      
+    
+            }
+        }
+    }
 
 **Syntax details**
 
@@ -60,22 +60,22 @@ A Dataset is a logical description of the data. The data being described can var
 
 Below is an example of a dataset representing a table named **MyTable** in **Azure SQL database**. The Azure SQL database connection strings are defined in the **AzureSqlLinkedService** referenced in this dataset. This dataset is sliced daily.  
 
-	{
-	    "name": "DatasetSample",
-	    "properties": {
-	        "type": "AzureSqlTable",
-	        "linkedServiceName": "AzureSqlLinkedService",
-	        "typeProperties": 
-	        {
-	            "tableName": "MyTable"
-	        },
-	        "availability": 
-	        {
-	            "frequency": "Day",
-	            "interval": 1
-	        }
-	    }
-	}
+    {
+        "name": "DatasetSample",
+        "properties": {
+            "type": "AzureSqlTable",
+            "linkedServiceName": "AzureSqlLinkedService",
+            "typeProperties": 
+            {
+                "tableName": "MyTable"
+            },
+            "availability": 
+            {
+                "frequency": "Day",
+                "interval": 1
+            }
+        }
+    }
 
 ## <a name="Structure"></a>Dataset Structure
 
@@ -90,12 +90,12 @@ type | Data type of the column | No | NA
 
 In the following example, the dataset has three columns slicetimestamp, projectname, and pageviews.
 
-	structure:  
-	[ 
-	    { "name": "slicetimestamp", "type": "String"},
-	    { "name": "projectname", "type": "String"},
-	    { "name": "pageviews", "type": "Decimal"}
-	]
+    structure:  
+    [ 
+        { "name": "slicetimestamp", "type": "String"},
+        { "name": "projectname", "type": "String"},
+        { "name": "pageviews", "type": "Decimal"}
+    ]
 
 ## <a name="Type"></a> Dataset Type
 
@@ -117,24 +117,24 @@ The Availability section in a dataset defines the processing window or the slici
 
 **Example:** 23 hours dataset slices that starts on 2007-04-19T08:00:00
 
-	"availability":	
-	{	
-		"frequency": "Hour",		
-		"interval": "23",	
-		"anchorDateTime":"2007-04-19T08:00:00"	
-	}
+    "availability": 
+    {   
+        "frequency": "Hour",        
+        "interval": "23",   
+        "anchorDateTime":"2007-04-19T08:00:00"  
+    }
 
 
 ### offset example
 
 Daily slices that starts at 6 AM instead of the default midnight. 
 
-	"availability":
-	{
-		"frequency": "Daily",
-		"interval": "1",
-		"offset": "06:00:00"
-	}
+    "availability":
+    {
+        "frequency": "Daily",
+        "interval": "1",
+        "offset": "06:00:00"
+    }
 
 In this case, SliceStart is shifted by 6 hours and will be 6 AM.
 
@@ -157,24 +157,24 @@ The Policy section in the dataset defines the criteria or the condition that the
 
 **minimumSizeMB:**
 
-	"policy":
-	
-	{
-	    "validation":
-	    {
-	        "minimumSizeMB": 10.0
-	    }
-	}
+    "policy":
+    
+    {
+        "validation":
+        {
+            "minimumSizeMB": 10.0
+        }
+    }
 
 **minimumRows**
 
-	"policy":
-	{
-		"validation":
-		{
-			"minimumRows": 100
-		}
-	}
+    "policy":
+    {
+        "validation":
+        {
+            "minimumRows": 100
+        }
+    }
 
 ### ExternalData policies
 
@@ -191,19 +191,20 @@ External datasets are ones that are not produced by a running pipeline in the da
 
 If you need to run a pipeline on monthly basis on specific date and time (suppose on 3rd of every month at 8:00 AM), you could use the **offset** tag to set the date and time it should run. 
 
-	{
-	  "name": "MyDataset",
-	  "properties": {
-	    "type": "AzureSqlTable",
-	    "linkedServiceName": "AzureSqlLinkedService",
-	    "typeProperties": {
-	      "tableName": "MyTable"
-	    },
-	    "availability": {
-	      "frequency": "Month",
-	      "interval": 1,
-	      "offset": "3.08:10:00",
-	      "style": "StartOfInterval"
-	    }
-	  }
-	}
+    {
+      "name": "MyDataset",
+      "properties": {
+        "type": "AzureSqlTable",
+        "linkedServiceName": "AzureSqlLinkedService",
+        "typeProperties": {
+          "tableName": "MyTable"
+        },
+        "availability": {
+          "frequency": "Month",
+          "interval": 1,
+          "offset": "3.08:10:00",
+          "style": "StartOfInterval"
+        }
+      }
+    }
+

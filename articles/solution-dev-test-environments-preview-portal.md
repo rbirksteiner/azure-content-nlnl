@@ -95,42 +95,42 @@ In Step 6, these parameter files will be used to create unique configurations fo
 
  **Step 4:** Edit the TestApp1-Parameters-Pre-Production.json parameter file you created in Step 2.  Replace the entire contents of the file with the what's below:
 
-	{
-	  "$schema" : "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-	  "contentVersion" : "1.0.0.0",
-	  "parameters" : {
-	    "administratorLogin" : {
-	      "value" : "testApp1Admin"
-	    },
-	    "administratorLoginPassword" : {
-	      "value" : "testApp1XP49"
-	    },
-	    "databaseName" : {
-	      "value" : "testapp1preprod"
-	    },
-	    "hostingPlanName" : {
-	      "value" : "TestApp1PlanPreProd"
-	    },
-	    "serverLocation" : {
-	      "value" : "Central US"
-	    },
-	    "serverName" : {
-	      "value" : "testapp1preprod"
-	    },
-	    "siteLocation" : {
-	      "value" : "Central US"
-	    },
-	    "siteName" : {
-	      "value" : "TestApp1PreProd"
-	    },
-	    "sku" : {
-	      "value" : "Standard"
-	    },
-		"requestedServiceObjectiveName" : {
-		  "value" : "S1"
-	    }
-	  }
-	}
+    {
+      "$schema" : "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+      "contentVersion" : "1.0.0.0",
+      "parameters" : {
+        "administratorLogin" : {
+          "value" : "testApp1Admin"
+        },
+        "administratorLoginPassword" : {
+          "value" : "testApp1XP49"
+        },
+        "databaseName" : {
+          "value" : "testapp1preprod"
+        },
+        "hostingPlanName" : {
+          "value" : "TestApp1PlanPreProd"
+        },
+        "serverLocation" : {
+          "value" : "Central US"
+        },
+        "serverName" : {
+          "value" : "testapp1preprod"
+        },
+        "siteLocation" : {
+          "value" : "Central US"
+        },
+        "siteName" : {
+          "value" : "TestApp1PreProd"
+        },
+        "sku" : {
+          "value" : "Standard"
+        },
+        "requestedServiceObjectiveName" : {
+          "value" : "S1"
+        }
+      }
+    }
 
 In the Pre-Production parameters file above, the **sku** and **requestedServiceObjectiveName** parameters were *added*, whereas they weren't added in the Development and Test parameters files. This is because there are default values specified for these parameters in the template, and in the Development and Test environments, the default values are used, but in the Pre-Production environment non-default values for these parameters are used.
 
@@ -152,59 +152,59 @@ All Azure resources must be created within an [Azure Resource Group](azure-porta
 
   Ensure that you have the CLI [installed](xplat-cli-install.md) on either a Windows, OS X, or Linux computer, and that you've [connected](xplat-cli-connect.md) your organizational ID to your Azure subscription. From the CLI command line, type the command below to create the resource group for the Development environment.
 
-	azure group create "TestApp1-Development" "Central US"
+    azure group create "TestApp1-Development" "Central US"
 
   The command will return the following if it succeeds:
 
-	info:    Executing command group create
-	+ Getting resource group TestApp1-Development
-	+ Creating resource group TestApp1-Development
-	info:    Created resource group TestApp1-Development
-	data:    Id:                  /subscriptions/uuuuuuuu-vvvv-wwww-xxxx-yyyy-zzzzzzzzzzzz/resourceGroups/TestApp1-Development
-	data:    Name:                TestApp1-Development
-	data:    Location:            centralus
-	data:    Provisioning State:  Succeeded
-	data:    Tags: null
-	data:
-	info:    group create command OK
+    info:    Executing command group create
+    + Getting resource group TestApp1-Development
+    + Creating resource group TestApp1-Development
+    info:    Created resource group TestApp1-Development
+    data:    Id:                  /subscriptions/uuuuuuuu-vvvv-wwww-xxxx-yyyy-zzzzzzzzzzzz/resourceGroups/TestApp1-Development
+    data:    Name:                TestApp1-Development
+    data:    Location:            centralus
+    data:    Provisioning State:  Succeeded
+    data:    Tags: null
+    data:
+    info:    group create command OK
 
   To create the resource group for the Test environment, type the command below:
 
-	azure group create "TestApp1-Test" "Central US"
+    azure group create "TestApp1-Test" "Central US"
 
   To create the resource group for the Pre-Production environment, type the command below:
 
-	azure group create "TestApp1-Pre-Production" "Central US"
+    azure group create "TestApp1-Pre-Production" "Central US"
 
   **Method 2:** PowerShell
 
   Ensure that you have PowerShell installed on a Windows computer and connected to your subscription as detailed in the [How to install and configure Azure PowerShell](powershell-install-configure.md) article. From a PowerShell command prompt, type the command below to create the resource group for the Development environment. If you are using Azure PowerShell 1.0 Preview, the command is **New-AzureRmResourceGroup** as shown below. If you are using a version of Azure PowerShell prior to 1.0 Preview, the command is **New-AzureResourceGroup**.
 
-	New-AzureRmResourceGroup -Name TestApp1-Development -Location "Central US"
+    New-AzureRmResourceGroup -Name TestApp1-Development -Location "Central US"
 
   The command will return the following if it succeeds:
 
-	WARNING: The output object of this cmdlet will be modified in a future release.
+    WARNING: The output object of this cmdlet will be modified in a future release.
 
 
-	ResourceGroupName : TestApp1-Development
-	Location          : centralus
-	ProvisioningState : Succeeded
-	Tags              : 
-	Permissions       : 
-	                    Actions  NotActions
-	                    =======  ==========
-	                    *                  
-	                    
-	ResourceId        : /subscriptions/uuuuuuuu-vvvv-wwww-xxxx-yyyy-zzzzzzzzzzzz/resourceGroups/TestApp1-Development
+    ResourceGroupName : TestApp1-Development
+    Location          : centralus
+    ProvisioningState : Succeeded
+    Tags              : 
+    Permissions       : 
+                        Actions  NotActions
+                        =======  ==========
+                        *                  
+                        
+    ResourceId        : /subscriptions/uuuuuuuu-vvvv-wwww-xxxx-yyyy-zzzzzzzzzzzz/resourceGroups/TestApp1-Development
 
   To create the resource group for the Test environment, type the command below:
 
-	New-AzureRmResourceGroup -Name TestApp1-Test -Location "Central US"
+    New-AzureRmResourceGroup -Name TestApp1-Test -Location "Central US"
 
   To create the resource group for the Pre-Production environment, type the command below:
 
-	New-AzureRmResourceGroup -Name TestApp1-Pre-Production -Location "Central US"
+    New-AzureRmResourceGroup -Name TestApp1-Pre-Production -Location "Central US"
 
  **Step 6:** Deploy Azure resources to the resource groups for each environment using the template file for the application and the parameter files for each environment using either of the methods below.  Both methods will achieve the exact same outcome.
 
@@ -212,91 +212,91 @@ All Azure resources must be created within an [Azure Resource Group](azure-porta
 
   From the CLI command line, type the command below to deploy resources to the resource group you created for the Development environment, replacing [path] with the path to the files you saved in previous steps.
 
-	azure group deployment create -g TestApp1-Development -n Deployment1 -f [path]TestApp1-Template.json -e [path]TestApp1-Parameters-Development.json 
+    azure group deployment create -g TestApp1-Development -n Deployment1 -f [path]TestApp1-Template.json -e [path]TestApp1-Parameters-Development.json 
 
   The command will return the following if it succeeds:
 
-	info:    Executing command group deployment create
-	+ Initializing template configurations and parameters
-	+ Creating a deployment
-	info:    Created template deployment "Deployment1"
-	+ Waiting for deployment to complete
-	data:    DeploymentName     : Deployment1
-	data:    ResourceGroupName  : TestApp1-Development
-	data:    ProvisioningState  : Succeeded
-	data:    Timestamp          : XXXX-XX-XXT20:20:23.5202316Z
-	data:    Mode               : Incremental
-	data:    Name                           Type          Value
-	data:    -----------------------------  ------------  ----------------------------
-	data:    siteName                       String        TestApp1Dev
-	data:    hostingPlanName                String        TestApp1PlanDev
-	data:    siteLocation                   String        Central US
-	data:    sku                            String        Free
-	data:    workerSize                     String        0
-	data:    serverName                     String        testapp1dev
-	data:    serverLocation                 String        Central US
-	data:    administratorLogin             String        testapp1Admin
-	data:    administratorLoginPassword     SecureString  undefined
-	data:    databaseName                   String        testapp1dev
-	data:    collation                      String        SQL_Latin1_General_CP1_CI_AS
-	data:    edition                        String        Standard
-	data:    maxSizeBytes                   String        1073741824
-	data:    requestedServiceObjectiveName  String        S0
-	info:    group deployment create command OKx
+    info:    Executing command group deployment create
+    + Initializing template configurations and parameters
+    + Creating a deployment
+    info:    Created template deployment "Deployment1"
+    + Waiting for deployment to complete
+    data:    DeploymentName     : Deployment1
+    data:    ResourceGroupName  : TestApp1-Development
+    data:    ProvisioningState  : Succeeded
+    data:    Timestamp          : XXXX-XX-XXT20:20:23.5202316Z
+    data:    Mode               : Incremental
+    data:    Name                           Type          Value
+    data:    -----------------------------  ------------  ----------------------------
+    data:    siteName                       String        TestApp1Dev
+    data:    hostingPlanName                String        TestApp1PlanDev
+    data:    siteLocation                   String        Central US
+    data:    sku                            String        Free
+    data:    workerSize                     String        0
+    data:    serverName                     String        testapp1dev
+    data:    serverLocation                 String        Central US
+    data:    administratorLogin             String        testapp1Admin
+    data:    administratorLoginPassword     SecureString  undefined
+    data:    databaseName                   String        testapp1dev
+    data:    collation                      String        SQL_Latin1_General_CP1_CI_AS
+    data:    edition                        String        Standard
+    data:    maxSizeBytes                   String        1073741824
+    data:    requestedServiceObjectiveName  String        S0
+    info:    group deployment create command OKx
 
   If the command does not succeed, resolve any error messages and try it again.  Common problems are using parameter values that do not adhere to Azure resource naming constraints. Other troubleshooting tips can be found in the [Troubleshooting resource group deployments in Azure](virtual-machines/resource-group-deploy-debug.md) article.
 
   From the CLI command line, type the command below to deploy resources to the resource group you created for the Test environment, replacing [path] with the path to the files you saved in previous steps.
 
-	azure group deployment create -g TestApp1-Test -n Deployment1 -f [path]TestApp1-Template.json -e [path]TestApp1-Parameters-Test.json
+    azure group deployment create -g TestApp1-Test -n Deployment1 -f [path]TestApp1-Template.json -e [path]TestApp1-Parameters-Test.json
 
   From the CLI command line, type the command below to deploy resources to the resource group you created for the Pre-Production environment, replacing [path] with the path to the files you saved in previous steps.
 
-	azure group deployment create -g TestApp1-Pre-Production -n Deployment1 -f [path]TestApp1-Template.json -e [path]TestApp1-Parameters-Pre-Production.json
+    azure group deployment create -g TestApp1-Pre-Production -n Deployment1 -f [path]TestApp1-Template.json -e [path]TestApp1-Parameters-Pre-Production.json
   
   **Method 2:** PowerShell
 
   From a PowerShell command prompt, type the command below to deploy resources to the resource group you created for the Development environment, replacing [path] with the path to the files you saved in previous steps. If you are using Azure PowerShell 1.0 Preview, the command is **New-AzureRmResourceGroupDeployment** as shown below. If you are using a version of Azure PowerShell prior to 1.0 Preview, the command is **New-AzureResourceGroupDeployment**.
 
-	New-AzureRmResourceGroupDeployment -ResourceGroupName TestApp1-Development -TemplateFile [path]TestApp1-Template.json -TemplateParameterFile [path]TestApp1-Parameters-Development.json -Name Deployment1 
+    New-AzureRmResourceGroupDeployment -ResourceGroupName TestApp1-Development -TemplateFile [path]TestApp1-Template.json -TemplateParameterFile [path]TestApp1-Parameters-Development.json -Name Deployment1 
 
   The command will return the following if it succeeds:
 
-	DeploymentName    : Deployment1
-	ResourceGroupName : TestApp1-Development
-	ProvisioningState : Succeeded
-	Timestamp         : XX/XX/XXXX 2:44:48 PM
-	Mode              : Incremental
-	TemplateLink      : 
-	Parameters        : 
-	                    Name             Type                       Value     
-	                    ===============  =========================  ==========
-	                    siteName         String                     TestApp1Dev
-	                    hostingPlanName  String                     TestApp1PlanDev
-	                    siteLocation     String                     Central US
-	                    sku              String                     Free      
-	                    workerSize       String                     0         
-	                    serverName       String                     testapp1dev
-	                    serverLocation   String                     Central US
-	                    administratorLogin  String                     testapp1Admin
-	                    administratorLoginPassword  SecureString                         
-	                    databaseName     String                     testapp1dev
-	                    collation        String                     SQL_Latin1_General_CP1_CI_AS
-	                    edition          String                     Standard  
-	                    maxSizeBytes     String                     1073741824
-	                    requestedServiceObjectiveName  String                     S0        
-	                    
-	Outputs           :
+    DeploymentName    : Deployment1
+    ResourceGroupName : TestApp1-Development
+    ProvisioningState : Succeeded
+    Timestamp         : XX/XX/XXXX 2:44:48 PM
+    Mode              : Incremental
+    TemplateLink      : 
+    Parameters        : 
+                        Name             Type                       Value     
+                        ===============  =========================  ==========
+                        siteName         String                     TestApp1Dev
+                        hostingPlanName  String                     TestApp1PlanDev
+                        siteLocation     String                     Central US
+                        sku              String                     Free      
+                        workerSize       String                     0         
+                        serverName       String                     testapp1dev
+                        serverLocation   String                     Central US
+                        administratorLogin  String                     testapp1Admin
+                        administratorLoginPassword  SecureString                         
+                        databaseName     String                     testapp1dev
+                        collation        String                     SQL_Latin1_General_CP1_CI_AS
+                        edition          String                     Standard  
+                        maxSizeBytes     String                     1073741824
+                        requestedServiceObjectiveName  String                     S0        
+                        
+    Outputs           :
 
   If the command does not succeed, resolve any error messages and try it again.  Common problems are using parameter values that do not adhere to Azure resource naming constraints. Other troubleshooting tips can be found in the [Troubleshooting resource group deployments in Azure](virtual-machines/resource-group-deploy-debug.md) article.
 
   From a PowerShell command prompt, type the command below to deploy resources to the resource group you created for the Test environment, replacing [path] with the path to the files you saved in previous steps.
 
-	New-AzureRmResourceGroupDeployment -ResourceGroupName TestApp1-Test -TemplateFile [path]TestApp1-Template.json -TemplateParameterFile [path]TestApp1-Parameters-Test.json -Name Deployment1
+    New-AzureRmResourceGroupDeployment -ResourceGroupName TestApp1-Test -TemplateFile [path]TestApp1-Template.json -TemplateParameterFile [path]TestApp1-Parameters-Test.json -Name Deployment1
 
   From a PowerShell command prompt, type the command below to deploy resources to the resource group you created for the Pre-Production environment, replacing [path] with the path to the files you saved in previous steps.
 
-	New-AzureRmResourceGroupDeployment -ResourceGroupName TestApp1-Pre-Production -TemplateFile [path]TestApp1-Template.json -TemplateParameterFile [path]TestApp1-Parameters-Pre-Production.json -Name Deployment1
+    New-AzureRmResourceGroupDeployment -ResourceGroupName TestApp1-Pre-Production -TemplateFile [path]TestApp1-Template.json -TemplateParameterFile [path]TestApp1-Parameters-Pre-Production.json -Name Deployment1
 
 The template and parameter files can be versioned and maintained with your application code in a source control system.  You could also save the commands above to script files and save them with your code as well.
 
@@ -330,36 +330,36 @@ Once you're finished with an environment, you'll want to delete it so you don't 
 
   From a CLI prompt, type the following:
 
-	azure group delete "TestApp1-Development"
+    azure group delete "TestApp1-Development"
 
   The command will return the following if you enter "y" when prompted:
 
-	info:    Executing command group delete
-	Delete resource group TestApp1-Development? [y/n] y
-	+ Deleting resource group TestApp1-Development
-	info:    group delete command OK
+    info:    Executing command group delete
+    Delete resource group TestApp1-Development? [y/n] y
+    + Deleting resource group TestApp1-Development
+    info:    group delete command OK
 
   From a CLI prompt, type the following to delete the remaining environments:
 
-	azure group delete "TestApp1-Test"
-	azure group delete "TestApp1-Pre-Production"
+    azure group delete "TestApp1-Test"
+    azure group delete "TestApp1-Pre-Production"
   
   **Method 2:** PowerShell
 
   If you are using Azure PowerShell 1.0 Preview, the command to delete the resource group is **Remove-AzureRmResourceGroup** as shown below. If you are using a version of Azure PowerShell prior to 1.0 Preview, the command is **Remove-AzureResourceGroup**. From a PowerShell prompt, type the following:    
 
-	Remove-AzureRmResourceGroup -Name TestApp1-Development
+    Remove-AzureRmResourceGroup -Name TestApp1-Development
 
   The command will return the following if you enter "y" when prompted:
 
-	Confirm
-	Are you sure you want to remove resource group 'TestApp1-Development'
-	[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
+    Confirm
+    Are you sure you want to remove resource group 'TestApp1-Development'
+    [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
 
   From a PowerShell prompt, type the following to delete the remaining environments:
 
-	Remove-AzureRmResourceGroup -Name TestApp1-Test
-	Remove-AzureRmResourceGroup -Name TestApp1-Pre-Production
+    Remove-AzureRmResourceGroup -Name TestApp1-Test
+    Remove-AzureRmResourceGroup -Name TestApp1-Pre-Production
 
 Regardless of the method you use, once the commands finish executing, the resource groups and all of the resources they contained will no longer exist, and you'll no longer incur billing expenses for the resources.  
 
@@ -383,3 +383,4 @@ Now that you've experienced how easy it is to create, maintain, and delete devel
 - [Deploy a Web App](app-service-web/web-sites-deploy.md) to the environments you created.
 - Use [Visual Studio Release Management](http://msdn.microsoft.com/Library/vs/alm/Release/overview) to create managed, continuous deployment pipelines to release quickly, easily, and often.
 - Request an invite for the preview of [Azure Dev/Test Lab](http://azure.microsoft.com/campaigns/devtest-lab/). It enables you to manage dev and test lab environments using templates, and configure quotas and policies for use within your organization.
+

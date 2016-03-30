@@ -82,3 +82,4 @@ Now that you can connect and query, try [connecting with PowerBI][].
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-get-started-connect/get-server-name.png
+

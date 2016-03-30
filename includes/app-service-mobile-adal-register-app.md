@@ -26,3 +26,4 @@ Your application is now configured in AAD so that users can log in using AAD sig
 
 [Azure classic portal]: https://manage.windowsazure.com/
 [How to configure your Mobile App with Azure Active Directory]: ../articles/app-service-how-to-configure-active-directory-authentication.md
+

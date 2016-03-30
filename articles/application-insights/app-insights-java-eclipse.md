@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Get started with Application Insights with Java in Eclipse" 
-	description="Use the Eclipse plug-in to add performance and usage monitoring to your Java website with Application Insights" 
-	services="application-insights" 
+    pageTitle="Get started with Application Insights with Java in Eclipse" 
+    description="Use the Eclipse plug-in to add performance and usage monitoring to your Java website with Application Insights" 
+    services="application-insights" 
     documentationCenter="java"
-	authors="alancameronwills" 
-	manager="douge"/>
+    authors="alancameronwills" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/25/2015" 
-	ms.author="awills"/>
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/25/2015" 
+    ms.author="awills"/>
  
 # Get started with Application Insights with Java in Eclipse
 
@@ -171,13 +171,13 @@ You can specify additional performance counters to be collected.
       </Jmx>
     </PerformanceCounters>
 
-*	`displayName` – The name displayed in the Application Insights portal.
-*	`objectName` – The JMX object name.
-*	`attribute` – The attribute of the JMX object name to fetch
-*	`type` (optional) - The type of JMX object’s attribute:
- *	Default: a simple type such as int or long.
- *	`composite`: the perf counter data is in the format of 'Attribute.Data'
- *	`tabular`: the perf counter data is in the format of a table row
+*   `displayName` – The name displayed in the Application Insights portal.
+*   `objectName` – The JMX object name.
+*   `attribute` – The attribute of the JMX object name to fetch
+*   `type` (optional) - The type of JMX object’s attribute:
+ *  Default: a simple type such as int or long.
+ *  `composite`: the perf counter data is in the format of 'Attribute.Data'
+ *  `tabular`: the perf counter data is in the format of a table row
 
 
 
@@ -192,10 +192,10 @@ Each [Windows performance counter](https://msdn.microsoft.com/library/windows/de
       </Windows>
     </PerformanceCounters>
 
-*	displayName – The name displayed in the Application Insights portal.
-*	categoryName – The performance counter category (performance object) with which this performance counter is associated.
-*	counterName – The name of the performance counter.
-*	instanceName – The name of the performance counter category instance, or an empty string (""), if the category contains a single instance. If the categoryName is Process, and the performance counter you'd like to collect is from the current JVM process on which your app is running, specify `"__SELF__"`.
+*   displayName – The name displayed in the Application Insights portal.
+*   categoryName – The performance counter category (performance object) with which this performance counter is associated.
+*   counterName – The name of the performance counter.
+*   instanceName – The name of the performance counter category instance, or an empty string (""), if the category contains a single instance. If the categoryName is Process, and the performance counter you'd like to collect is from the current JVM process on which your app is running, specify `"__SELF__"`.
 
 Your performance counters are visible as custom metrics in [Metrics Explorer][metrics].
 

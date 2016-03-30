@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure Active Directory Domain Services preview: Getting Started | Microsoft Azure"
-	description="Getting started with Azure Active Directory Domain Services"
-	services="active-directory-ds"
-	documentationCenter=""
-	authors="mahesh-unnikrishnan"
-	manager="udayh"
-	editor="inhenk"/>
+    pageTitle="Azure Active Directory Domain Services preview: Getting Started | Microsoft Azure"
+    description="Getting started with Azure Active Directory Domain Services"
+    services="active-directory-ds"
+    documentationCenter=""
+    authors="mahesh-unnikrishnan"
+    manager="udayh"
+    editor="inhenk"/>
 
 <tags
-	ms.service="active-directory-ds"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/12/2015"
-	ms.author="mahesh-unnikrishnan"/>
+    ms.service="active-directory-ds"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/12/2015"
+    ms.author="mahesh-unnikrishnan"/>
 
 # Azure AD Domain Services *(Preview)* - Getting started
 
@@ -45,3 +45,4 @@ Perform the following configuration steps in order to update the DNS server sett
 
 ---
 [**Next step - Enable password synchronization to Azure AD Domain Services.**](active-directory-ds-getting-started-password-sync.md)
+

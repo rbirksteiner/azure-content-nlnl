@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Tutorial: Azure Active Directory integration with OpsGenie | Microsoft Azure"
-	description="Learn how to configure single sign-on between Azure Active Directory and OpsGenie."
-	services="active-directory"
-	documentationCenter=""
-	authors="ashimaabrol"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Tutorial: Azure Active Directory integration with OpsGenie | Microsoft Azure"
+    description="Learn how to configure single sign-on between Azure Active Directory and OpsGenie."
+    services="active-directory"
+    documentationCenter=""
+    authors="ashimaabrol"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/17/2015"
-	ms.author="v-aabrol"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/17/2015"
+    ms.author="v-aabrol"/>
 
 
 # Tutorial: Azure Active Directory integration with OpsGenie
@@ -209,14 +209,14 @@ In the Users list, select **Britta Simon**.<br><br>![Create Azure AD User][20]<b
 
 The objective of this section is to create a user called Britta Simon in OpsGenie. 
 
-1.	In a web browser window, log into your OpsGenie tenant as an administrator.
+1.  In a web browser window, log into your OpsGenie tenant as an administrator.
 
-2.	Navigate to Users list by clicking **User** in left panel.
+2.  Navigate to Users list by clicking **User** in left panel.
     <br><br>![OpsGenie Settings](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_10.png) <br>
 
-3.	Click "**Add User**".
+3.  Click "**Add User**".
 
-3.	On the **Add User** dialog, perform the following steps:
+3.  On the **Add User** dialog, perform the following steps:
     <br><br>![OpsGenie Settings](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_11.png) <br>
 
     a. In the **Email** textbox, type Britta's email address in Azure Active Directory.
@@ -280,3 +280,4 @@ When you click the OpsGenie tile in the Access Panel, you should get automatical
 [203]: ./media/active-directory-saas-opsgenie-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-opsgenie-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-opsgenie-tutorial/tutorial_general_205.png
+

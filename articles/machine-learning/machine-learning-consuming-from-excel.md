@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Consume a Machine Learning Web Service from Excel | Microsoft Azure"
-	description="Consume an Azure Machine Learning Web Service from Excel"
-	services="machine-learning"
-	documentationCenter=""
-	authors="LuisCabrer"
-	manager="paulettm"
-	editor="cgronlun"/>
+    pageTitle="Consume a Machine Learning Web Service from Excel | Microsoft Azure"
+    description="Consume an Azure Machine Learning Web Service from Excel"
+    services="machine-learning"
+    documentationCenter=""
+    authors="LuisCabrer"
+    manager="paulettm"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/23/2015"
-	ms.author="tedway"/>
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/23/2015"
+    ms.author="tedway"/>
 
 
 # Consuming an Azure Machine Learning Web Service from Excel
@@ -33,21 +33,21 @@
 
 3. On the **DASHBOARD** tab for the web service is a row for the **REQUEST/RESPONSE** service. If this service had a single output, you should see the **Download Excel Workbook** link in that row.
 
-	![][1]
+    ![][1]
 
 4. Click on **Download Excel Workbook**, and open it in Excel.
 
 5. A Security Warning appears; click on the **Enable Editing** button.
 
-	![][2]
+    ![][2]
 
 6. A Security Warning appears. Click on the **Enable Content** button to run macros on your spreadsheet.
 
-	![][3]
+    ![][3]
 
 7. Once macros are enabled, a table is generated. Columns in blue are required as input into the RRS web service, or **PARAMETERS**. Note the output of the RRS service, **PREDICTED VALUES** in green. When all columns for a given row are filled, the workbook automatically calls the scoring API, and displays the scored results.
 
-	![][4]
+    ![][4]
 
 7. To score more than one row, fill the second row with data and the predicted values are produced. You can even paste several rows at once.
 
@@ -70,3 +70,4 @@ An RRS call is made in these two situations:
 [2]: ./media/machine-learning-consuming-from-excel/enableeditting.png
 [3]: ./media/machine-learning-consuming-from-excel/enablecontent.png
 [4]: ./media/machine-learning-consuming-from-excel/sampletable.png
+

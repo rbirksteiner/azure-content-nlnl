@@ -30,7 +30,7 @@
 
 
 
-## Get started creating a load balancer endpoint using Azure portal	
+## Get started creating a load balancer endpoint using Azure portal 
 
 To create an Internet facing load balancer (classic) deployment model from the Azure portal, follow the steps below.
 
@@ -65,3 +65,4 @@ To create an Internet facing load balancer (classic) deployment model from the A
 [Configure a load balancer distribution mode](load-balancer-distribution-mode.md)
 
 [Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
+

@@ -25,7 +25,7 @@ Microsoft Azure supports two types of queue mechanisms: **Azure Queues** and **S
 
 **Azure Queues**, which are part of the [Azure storage](http://azure.microsoft.com/services/storage/) infrastructure, feature a simple REST-based Get/Put/Peek interface, providing reliable, persistent messaging within and between services.
 
-**Service Bus queues** are part of a broader [Azure messaging](http://azure.microsoft.com/services/service-bus/) infrastructure that supports queuing as well as publish/subscribe, Web service remoting, and integration patterns. For more information about Service Bus queues, topics/subscriptions, and relays, see the [overview of Service Bus messaging](service-bus-messaging-overview.md).
+**Service Bus queues** are part of a broader [Azure messaging](http://azure.microsoft.com/services/service-bus/) infrastructure that supports queuing as well as publish/subscribe, Web service remoting, and integration patterns. For more information about Service Bus queues, topics/subscriptions, and relays, see the [overview of Service Bus messaging](service-bus-messaging-overview.md).
 
 While both queuing technologies exist concurrently, Azure Queues were introduced first, as a dedicated queue storage mechanism built on top of the Azure storage services. Service Bus queues are built on top of the broader "brokered messaging" infrastructure designed to integrate applications or application components that may span multiple communication protocols, data contracts, trust domains, and/or network environments.
 
@@ -51,7 +51,7 @@ As a solution architect/developer, **you should consider using Service Bus queue
 
 - Your solution requires the queue to provide a guaranteed first-in-first-out (FIFO) ordered delivery.
 
-- You want a symmetric experience in Azure and on Windows Server (private cloud). For more information, see [Service Bus for Windows Server](https://msdn.microsoft.com/library/dn282144.aspx).
+- You want a symmetric experience in Azure and on Windows Server (private cloud). For more information, see [Service Bus for Windows Server](https://msdn.microsoft.com/library/dn282144.aspx).
 
 - Your solution must be able to support automatic duplicate detection.
 
@@ -141,7 +141,7 @@ This section compares advanced capabilities provided by Azure Queues and Service
 |Poison message support|**Yes**|**Yes**|
 |In-place update|**Yes**|**Yes**|
 |Server-side transaction log|**Yes**|**No**|
-|Storage metrics|**Yes**<br/><br/>**Minute Metrics**: provides real-time metrics for availability, TPS, API call counts, error counts, and more, all in real time (aggregated per minute and reported within a few minutes from what just happened in production. For more information, see [About Storage Analytics Metrics](https://msdn.microsoft.com/library/azure/hh343258.aspx).|**Yes**<br/><br/>(bulk queries by calling [GetQueues](https://msdn.microsoft.com/library/azure/hh293128.aspx))|
+|Storage metrics|**Yes**<br/><br/>**Minute Metrics**: provides real-time metrics for availability, TPS, API call counts, error counts, and more, all in real time (aggregated per minute and reported within a few minutes from what just happened in production. For more information, see [About Storage Analytics Metrics](https://msdn.microsoft.com/library/azure/hh343258.aspx).|**Yes**<br/><br/>(bulk queries by calling [GetQueues](https://msdn.microsoft.com/library/azure/hh293128.aspx))|
 |State management|**No**|**Yes**<br/><br/>[Microsoft.ServiceBus.Messaging.EntityStatus.Active](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.entitystatus.aspx), [Microsoft.ServiceBus.Messaging.EntityStatus.Disabled](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.entitystatus.aspx), [Microsoft.ServiceBus.Messaging.EntityStatus.SendDisabled](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.entitystatus.aspx), [Microsoft.ServiceBus.Messaging.EntityStatus.ReceiveDisabled](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.entitystatus.aspx)|
 |Message auto-forwarding|**No**|**Yes**|
 |Purge queue function|**Yes**|**No**|
@@ -195,7 +195,7 @@ This section compares Azure Queues and Service Bus queues from the perspective o
 
 - When clients communicate with Service Bus queues over the TCP protocol, the maximum number of concurrent connections to a single Service Bus queue is limited to 100. This number is shared between senders and receivers. If this quota is reached, subsequent requests for additional connections will be rejected and an exception will be received by the calling code. This limit is not imposed on clients connecting to the queues using REST-based API.
 
-- If you require more than 10,000 queues in a single Service Bus namespace, you can contact the Azure support team and request an increase. To scale beyond 10,000 queues with Service Bus, you can also create additional namespaces using the [Azure classic portal][].
+- If you require more than 10,000 queues in a single Service Bus namespace, you can contact the Azure support team and request an increase. To scale beyond 10,000 queues with Service Bus, you can also create additional namespaces using the [Azure classic portal][].
 
 ## Management and operations
 
@@ -223,7 +223,7 @@ This section compares the management features provided by Azure Queues and Servi
 
 - The Service Bus .NET brokered messaging APIs leverage full-duplex TCP connections for improved performance when compared to REST over HTTP, and they support the AMQP 1.0 standard protocol.
 
-- Azure queue names can be 3-63 characters long, can contain lowercase letters, numbers, and hyphens. For more information, see [Naming Queues and Metadata](https://msdn.microsoft.com/library/azure/dd179349.aspx).
+- Azure queue names can be 3-63 characters long, can contain lowercase letters, numbers, and hyphens. For more information, see [Naming Queues and Metadata](https://msdn.microsoft.com/library/azure/dd179349.aspx).
 
 - Service Bus queue names can be up to 260 characters long and have less restrictive naming rules. Service Bus queue names can contain letters, numbers, periods (.), hyphens (-), and underscores (_).
 
@@ -265,7 +265,7 @@ This section discusses the authentication and authorization features supported b
 
 - Every request to either of the queuing technologies must be authenticated. Public queues with anonymous access are not supported. Using SAS, you can address this scenario by publishing a write-only SAS, read-only SAS, or even a full-access SAS.
 
-- The authentication scheme provided by Azure Queues involves the use of a symmetric key, which is a hash-based Message Authentication Code (HMAC), computed with the SHA-256 algorithm and encoded as a **Base64** string. For more information about the respective protocol, see [Authentication for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179428.aspx). Service Bus queues support a similar model using symmetric keys. For more information, see [Shared Access Signature Authentication with Service Bus](service-bus-shared-access-signature-authentication.md).
+- The authentication scheme provided by Azure Queues involves the use of a symmetric key, which is a hash-based Message Authentication Code (HMAC), computed with the SHA-256 algorithm and encoded as a **Base64** string. For more information about the respective protocol, see [Authentication for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179428.aspx). Service Bus queues support a similar model using symmetric keys. For more information, see [Shared Access Signature Authentication with Service Bus](service-bus-shared-access-signature-authentication.md).
 
 ## Cost
 
@@ -289,7 +289,7 @@ This section compares Azure Queues and Service Bus queues from a cost perspectiv
 
 - Given the support for long polling, using Service Bus queues can be cost effective in situations where low-latency delivery is required.
 
->[AZURE.NOTE] All costs are subject to change. This table reflects current pricing as of the writing of this article and does not include any promotional offers that may currently be available. For up-to-date information about Azure pricing, see the [Azure pricing](http://azure.microsoft.com/pricing/) page. For more information about Service Bus pricing, see [Service Bus pricing](http://azure.microsoft.com/pricing/details/service-bus/).
+>[AZURE.NOTE] All costs are subject to change. This table reflects current pricing as of the writing of this article and does not include any promotional offers that may currently be available. For up-to-date information about Azure pricing, see the [Azure pricing](http://azure.microsoft.com/pricing/) page. For more information about Service Bus pricing, see [Service Bus pricing](http://azure.microsoft.com/pricing/details/service-bus/).
 
 ## Conclusion
 

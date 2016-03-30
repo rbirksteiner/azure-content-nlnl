@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure Conditional Access Preview for SaaS Apps| Microsoft Azure"
-	description="Conditional access in Azure AD allows you to configure per-application multi-factor authentication access rules and the ability to block access for users not on a trusted network. "
-	services="active-directory"
-	documentationCenter=""
-	authors="femila"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Azure Conditional Access Preview for SaaS Apps| Microsoft Azure"
+    description="Conditional access in Azure AD allows you to configure per-application multi-factor authentication access rules and the ability to block access for users not on a trusted network. "
+    services="active-directory"
+    documentationCenter=""
+    authors="femila"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/30/2015"
-	ms.author="femila"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/30/2015"
+    ms.author="femila"/>
 
 # Azure Conditional Access Preview for SaaS Apps
 
@@ -88,4 +88,5 @@ The following example shows how to enable on-premises MFA by using the [Set-Msol
     Set-MsolDomainFederationSettings -DomainName contoso.com -SupportsMFA $true
 
 In addition to setting this flag, the federated tenant AD FS instance must be configured to perform multi-factor authentication. Follow the instructions for deploying Azure Multi-Factor Authentication on-premises.
+
 

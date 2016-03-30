@@ -7,14 +7,14 @@ The final stage of this tutorial is to build and run your new app.
 
 3. In the app, type meaningful text, such as *Complete the tutorial*, in **Insert a TodoItem**, and then click **Save**.
 
-   	This sends a POST request to the new mobile service hosted in Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the second column in the app.
+    This sends a POST request to the new mobile service hosted in Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the second column in the app.
 
 4. (Optional) In a universal Windows solution, change the default start up project to the other app and run the app again.
 
-	Notice that data saved from the previous step is loaded from the mobile service after the app starts.
+    Notice that data saved from the previous step is loaded from the mobile service after the app starts.
  
 4. Back in the [Azure classic portal](https://manage.windowsazure.com/), click the **Data** tab and then click the **TodoItems** table.
 
-   	This lets you browse the data inserted by the app into the table.
+    This lets you browse the data inserted by the app into the table.
 
-   	![](./media/mobile-services-javascript-backend-run-app/mobile-data-browse.png)
+    ![](./media/mobile-services-javascript-backend-run-app/mobile-data-browse.png)

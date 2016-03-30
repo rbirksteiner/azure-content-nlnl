@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Setting up Azure Active Directory for self service application access management| Microsoft Azure"
-	description="overview of Self-service group management that enables users to create and manage security groups in Azure Active Directory and offers users the possibility to request security group memberships"
-	services="active-directory"
-	documentationCenter=""
+    pageTitle="Setting up Azure Active Directory for self service application access management| Microsoft Azure"
+    description="overview of Self-service group management that enables users to create and manage security groups in Azure Active Directory and offers users the possibility to request security group memberships"
+    services="active-directory"
+    documentationCenter=""
   authors="curtand"
-	manager="stevenpo"
-	editor=""
-	/>
+    manager="stevenpo"
+    editor=""
+    />
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/17/2015"
-	ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/17/2015"
+    ms.author="curtand"/>
 
 # Setting up Azure Active Directory for self service application access management
 
@@ -48,3 +48,4 @@ These articles provide additional information on Azure Active Directory.
 * [What is Azure Active Directory?](active-directory-whatis.md)
 
 * [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
+

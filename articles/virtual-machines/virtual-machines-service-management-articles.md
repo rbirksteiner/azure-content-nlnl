@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Articles for Virtual Machines in Service Management | Microsoft Azure"
-	description="This article lists resources to help you create and manage virtual machines in Azure Service Management."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="dlepow"
-	manager="timlt"
-	editor=""
-	tags="azure-service-management"/>
+    pageTitle="Articles for Virtual Machines in Service Management | Microsoft Azure"
+    description="This article lists resources to help you create and manage virtual machines in Azure Service Management."
+    services="virtual-machines"
+    documentationCenter=""
+    authors="dlepow"
+    manager="timlt"
+    editor=""
+    tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="vm-multiple"
-	ms.workload="infrastructure-services"
-	ms.date="10/07/2015"
-	ms.author="danlep"/>
+    ms.service="virtual-machines"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="vm-multiple"
+    ms.workload="infrastructure-services"
+    ms.date="10/07/2015"
+    ms.author="danlep"/>
 
 # Articles for virtual machines in Service Management
 
@@ -151,3 +151,4 @@
 [Using the Azure CLI for Mac, Linux, and Windows with Azure Service Management](virtual-machines-command-line-tools.md)
 
 [Service Management REST API reference](https://msdn.microsoft.com/library/azure/ee460799.aspx)
+

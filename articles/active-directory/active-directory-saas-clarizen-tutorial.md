@@ -69,15 +69,15 @@ The objective of this section is to outline how to enable users to authenticate 
 
 ###To configure single sign-on, perform the following steps:
 
-1.  In the Azure AD portal, on the **Clarizen** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  In the Azure AD portal, on the **Clarizen** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
     ![Configure Single Sign-On](./media/active-directory-saas-clarizen-tutorial/IC784682.png "Configure Single Sign-On")
 
-2.  On the **How would you like users to sign on to Clarizen** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to Clarizen** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-clarizen-tutorial/IC784683.png "Configure Single Sign-On")
 
-3.  On the **Configure single sign-on at Clarizen** page, to download your certificate, click **Download certificate**, and then save the certificate file on your computer.
+3.  On the **Configure single sign-on at Clarizen** page, to download your certificate, click **Download certificate**, and then save the certificate file on your computer.
 
     ![Configure Single Sign-On](./media/active-directory-saas-clarizen-tutorial/IC784684.png "Configure Single Sign-On")
 
@@ -101,7 +101,7 @@ The objective of this section is to outline how to enable users to authenticate 
     4.  Select **Use POST**.
     5.  Click **Save**.
 
-8.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+8.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
     ![Configure Single Sign-On](./media/active-directory-saas-clarizen-tutorial/IC784688.png "Configure Single Sign-On")
 ##Configuring user provisioning
@@ -138,7 +138,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 1.  In the Azure AD portal, create a test account.
 
-2.  On the **Clarizen **application integration page, click **Assign users**.
+2.  On the **Clarizen **application integration page, click **Assign users**.
 
     ![Assign Users](./media/active-directory-saas-clarizen-tutorial/IC784692.png "Assign Users")
 
@@ -147,3 +147,4 @@ To test your configuration, you need to grant the Azure AD users you want to all
     ![Yes](./media/active-directory-saas-clarizen-tutorial/IC767830.png "Yes")
 
 If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+

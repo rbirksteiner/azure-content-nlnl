@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Set password expiration policies in Azure Active Directory | Microsoft Azure"
-	description="Learn how to check expiration policies and change user password expiration either singly or in bulk for Azure Active directory passwords"
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="msStevenPo"
-	editor=""/>
+    pageTitle="Set password expiration policies in Azure Active Directory | Microsoft Azure"
+    description="Learn how to check expiration policies and change user password expiration either singly or in bulk for Azure Active directory passwords"
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="msStevenPo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/16/2015"
-	ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/16/2015"
+    ms.author="curtand"/>
 
 
 # Set password expiration policies in Azure Active Directory
@@ -40,9 +40,9 @@ To use Windows PowerShell cmdlets, you first must install them.
 
 2.  Do one of the following:
 
-	- To see whether a single user’s password is set to never expire, run the following cmdlet by using the user principal name (UPN) (for example, aprilr@contoso.onmicrosoft.com) or the user ID of the user you want to check: `Get-MSOLUser -UserPrincipalName <user ID> | Select PasswordNeverExpires`
+    - To see whether a single user’s password is set to never expire, run the following cmdlet by using the user principal name (UPN) (for example, aprilr@contoso.onmicrosoft.com) or the user ID of the user you want to check: `Get-MSOLUser -UserPrincipalName <user ID> | Select PasswordNeverExpires`
 
-	- To see the "Password never expires" setting for all users, run the following cmdlet: `Get-MSOLUser | Select UserPrincipalName, PasswordNeverExpires`
+    - To see the "Password never expires" setting for all users, run the following cmdlet: `Get-MSOLUser | Select UserPrincipalName, PasswordNeverExpires`
 
 ## Set a password to expire
 
@@ -50,9 +50,9 @@ To use Windows PowerShell cmdlets, you first must install them.
 
 2.  Do one of the following:
 
-	- To set the password of one user so that the password will expire, run the following cmdlet by using the user principal name (UPN) or the user ID of the user: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires \$false`
+    - To set the password of one user so that the password will expire, run the following cmdlet by using the user principal name (UPN) or the user ID of the user: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires \$false`
 
-	- To set the passwords of all users in the organization so that they will expire, use the following cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires \$false`
+    - To set the passwords of all users in the organization so that they will expire, use the following cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires \$false`
 
 ## Set a password to never expire
 
@@ -60,6 +60,7 @@ To use Windows PowerShell cmdlets, you first must install them.
 
 2.  Do one of the following:
 
-	- To set the password of one user to never expire, run the following cmdlet by using the user principal name (UPN) or the user ID of the user: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires \$true`
+    - To set the password of one user to never expire, run the following cmdlet by using the user principal name (UPN) or the user ID of the user: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires \$true`
 
-	- To set the passwords of all the users in an organization to never expire, run the following cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires \$true`
+    - To set the passwords of all the users in an organization to never expire, run the following cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires \$true`
+

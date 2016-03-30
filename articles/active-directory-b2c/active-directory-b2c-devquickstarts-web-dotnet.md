@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure AD B2C Preview | Microsoft Azure"
-	description="How to build a web application with Sign-In, Sign-Up, and Profile Managment using Azure AD B2C."
-	services="active-directory-b2c"
-	documentationCenter=".net"
-	authors="dstrockis"
-	manager="msmbaldwin"
-	editor=""/>
+    pageTitle="Azure AD B2C Preview | Microsoft Azure"
+    description="How to build a web application with Sign-In, Sign-Up, and Profile Managment using Azure AD B2C."
+    services="active-directory-b2c"
+    documentationCenter=".net"
+    authors="dstrockis"
+    manager="msmbaldwin"
+    editor=""/>
 
 <tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="09/22/2015"
-	ms.author="dastrock"/>
+    ms.service="active-directory-b2c"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="09/22/2015"
+    ms.author="dastrock"/>
 
 # Azure AD B2C Preview: Build a .NET web app
 
@@ -316,8 +316,8 @@ Open the `Controllers\HomeController.cs` file.  You can access the user's claims
 [PolicyAuthorize(Policy = "b2c_1_sign_in")]
 public ActionResult Claims()
 {
-	Claim displayName = ClaimsPrincipal.Current.FindFirst(ClaimsPrincipal.Current.Identities.First().NameClaimType);
-	ViewBag.DisplayName = displayName != null ? displayName.Value : string.Empty;
+    Claim displayName = ClaimsPrincipal.Current.FindFirst(ClaimsPrincipal.Current.Identities.First().NameClaimType);
+    ViewBag.DisplayName = displayName != null ? displayName.Value : string.Empty;
     return View();
 }
 ```
@@ -367,3 +367,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 [Customizing the your B2C App's UX >>]()
 
 -->
+

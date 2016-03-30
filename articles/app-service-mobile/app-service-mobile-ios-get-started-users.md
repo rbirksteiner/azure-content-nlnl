@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Add Authentication on iOS with Azure Mobile Apps"
-	description="Learn how to use Azure Mobile Apps to authenticate users of your iOS app through a variety of identity providers, including AAD, Google, Facebook, Twitter, and Microsoft."
-	services="app-service\mobile"
-	documentationCenter="ios"
-	authors="krisragh" 
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Add Authentication on iOS with Azure Mobile Apps"
+    description="Learn how to use Azure Mobile Apps to authenticate users of your iOS app through a variety of identity providers, including AAD, Google, Facebook, Twitter, and Microsoft."
+    services="app-service\mobile"
+    documentationCenter="ios"
+    authors="krisragh" 
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-ios"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="11/30/2015"
-	ms.author="krisragh"/>
+    ms.service="app-service-mobile"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-ios"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="11/30/2015"
+    ms.author="krisragh"/>
 
 # Add authentication to your iOS app
 
@@ -45,3 +45,4 @@ In Xcode, press **Run** to  start the app. An exception will be raised because t
 
 [Azure portal]: https://portal.azure.com
  
+

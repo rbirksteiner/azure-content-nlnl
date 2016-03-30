@@ -1,20 +1,20 @@
 <properties
-	pageTitle="How does Azure Active Directory work? | Microsoft Azure"
-	description="Azure Active Directory creates an identity landscape that is yours in the cloud. It can be connected to your on-premises identity system or used independently."
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="How does Azure Active Directory work? | Microsoft Azure"
+    description="Azure Active Directory creates an identity landscape that is yours in the cloud. It can be connected to your on-premises identity system or used independently."
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/01/2015"
-	ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/01/2015"
+    ms.author="curtand"/>
 
 
 
@@ -51,3 +51,4 @@ Want to understand more about how to manage Azure AD? How to get a directory? Ho
 
 * [Sign up for Azure as an organization](sign-up-organization.md)
 * [Azure Identity](fundamentals-identity.md)
+

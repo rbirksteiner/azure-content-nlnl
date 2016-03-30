@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Publishing Apps with Azure AD Application Proxy | Microsoft Azure"
-	description="Covers how to publish on-premises applications using Azure AD Application Proxy."
-	services="active-directory"
-	documentationCenter=""
-	authors="kgremban"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Publishing Apps with Azure AD Application Proxy | Microsoft Azure"
+    description="Covers how to publish on-premises applications using Azure AD Application Proxy."
+    services="active-directory"
+    documentationCenter=""
+    authors="kgremban"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/02/2015"
-	ms.author="kgremban"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/02/2015"
+    ms.author="kgremban"/>
 
 
 # Publish applications using Azure AD Application Proxy
@@ -34,12 +34,12 @@ This article walks you through the steps to publish applications that are runnin
 2. In the left pane of the Azure classic portal, click the Active Directory tab.
 3. Click the directory in which you enabled Application Proxy and for which you want to publish an application (for example, Wingtip Toys).
 4. Click the **Applications** tab, and then click the **Add** button at the bottom of the screen
-	![Add application](./media/active-directory-application-proxy-publish/aad_appproxy_selectdirectory.png)
+    ![Add application](./media/active-directory-application-proxy-publish/aad_appproxy_selectdirectory.png)
 5. In the What do you want to do? dialog box, click **Publish an application that will be accessible outside your network**.
-	![New application that will be accessible from outside your network](./media/active-directory-application-proxy-publish/aad_appproxy_addapp.png)
+    ![New application that will be accessible from outside your network](./media/active-directory-application-proxy-publish/aad_appproxy_addapp.png)
 
 6. Follow the instructions on the screen to provide the following information about your application:
-	![Application properties](./media/active-directory-application-proxy-publish/aad_appproxy_appproperties.png)
+    ![Application properties](./media/active-directory-application-proxy-publish/aad_appproxy_appproperties.png)
 
 **Setting** | **Details**
 ---|---
@@ -55,7 +55,7 @@ To finish the wizard, click the check mark at the bottom of the screen. The appl
 
 1. For apps that are preauthenticated, you must assign users and groups that will have access to the app. <p>For apps that are passthrough, access is available for all users. However, in order for a user to see the app in their application list, you must assign the app to that user.
 2. After finishing the Add App wizard, the App Proxy Quick Start page is displayed. To assign users, click **Assign users**.
-	![Application Proxy quick start screen](./media/active-directory-application-proxy-publish/quickstart.png)
+    ![Application Proxy quick start screen](./media/active-directory-application-proxy-publish/quickstart.png)
 3. Select each user or group you want to assign to this app and click **Assign**.
 
 > [AZURE.NOTE] For Integrated Windows Authentication apps, you can assign only users and groups that are synced from your on-prem Active Directory. Users logging in using a Microsoft account and guests cannot be assigned for apps published with Azure Active Directory Application Proxy. Make sure the users you assign log in with their credentials that are part of the same domain as the app you are publishing.
@@ -64,7 +64,7 @@ To finish the wizard, click the check mark at the bottom of the screen. The appl
 ## Advanced configuration
 
 1. You can modify published apps or configure advanced options, such as SSO to on-prem applications, from the Configure page.
-	![Advanced configuration](./media/active-directory-application-proxy-publish/advancedconfig.png)
+    ![Advanced configuration](./media/active-directory-application-proxy-publish/advancedconfig.png)
 
 2. Select the app and click **Configure**. The following options are available:
 
@@ -105,3 +105,4 @@ There's a lot more you can do with Application Proxy:
 ## Additional resources
 
 * [About Kerberos constrained delegation](http://technet.microsoft.com/library/cc995228.aspx)
+

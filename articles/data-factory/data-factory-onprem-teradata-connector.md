@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Move data from Teradata | Azure Data Factory" 
-	description="Learn about Teradata Connector for the Data Factory service that lets you move data from Teradata Database" 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
-	editor="monicar"/>
+    pageTitle="Move data from Teradata | Azure Data Factory" 
+    description="Learn about Teradata Connector for the Data Factory service that lets you move data from Teradata Database" 
+    services="data-factory" 
+    documentationCenter="" 
+    authors="spelluru" 
+    manager="jhubbard" 
+    editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/12/2015" 
-	ms.author="spelluru"/>
+    ms.service="data-factory" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/12/2015" 
+    ms.author="spelluru"/>
 
 # Move data from Teradata using Azure Data Factory
 
@@ -34,11 +34,11 @@ For Data Management Gateway to connect to the Teradata Database, you need to ins
 
 The sample below shows:
 
-1.	A linked service of type [OnPremisesTeradata](data-factory-onprem-teradata-connector.md#teradata-linked-service-properties).
-2.	A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
-3.	An input [dataset](data-factory-create-datasets.md) of type [RelationalTable](data-factory-onprem-teradata-connector.md#teradata-dataset-type-properties).
-4.	An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties). 
-4.	The [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [RelationalSource](data-factory-onprem-teradata-connector.md#teradata-copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
+1.  A linked service of type [OnPremisesTeradata](data-factory-onprem-teradata-connector.md#teradata-linked-service-properties).
+2.  A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+3.  An input [dataset](data-factory-create-datasets.md) of type [RelationalTable](data-factory-onprem-teradata-connector.md#teradata-dataset-type-properties).
+4.  An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties). 
+4.  The [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [RelationalSource](data-factory-onprem-teradata-connector.md#teradata-copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
 The sample copies data from a query result in Teradata database to a blob every hour. The JSON properties used in these samples are described in sections following the samples. 
 
@@ -46,33 +46,33 @@ As a first step, setup the data management gateway as per the instructions in th
 
 **Teradata linked service:**
 
-	{
-	    "name": "OnPremTeradataLinkedService",
-	    "properties": {
-	        "type": "OnPremisesTeradata",
-	        "typeProperties": {
-	            "server": "<server>",
-	            "database": "<database>",
-	            "schema": "<schema>",
-	            "authenticationType": "<authentication type>",
-	            "username": "<username>",
-	            "password": "<password>",
-	            "gatewayName": "<gatewayName>"
-	        }
-	    }
-	}
+    {
+        "name": "OnPremTeradataLinkedService",
+        "properties": {
+            "type": "OnPremisesTeradata",
+            "typeProperties": {
+                "server": "<server>",
+                "database": "<database>",
+                "schema": "<schema>",
+                "authenticationType": "<authentication type>",
+                "username": "<username>",
+                "password": "<password>",
+                "gatewayName": "<gatewayName>"
+            }
+        }
+    }
 
 **Azure Blob storage linked service:**
 
-	{
-	    "name": "AzureStorageLinkedService",
-	    "properties": {
-	        "type": "AzureStorageLinkedService",
-			"typeProperties": {
-	        	"connectionString": "DefaultEndpointsProtocol=https;AccountName=<AccountName>;AccountKey=<AccountKey>"
-			}
-	    }
-	}
+    {
+        "name": "AzureStorageLinkedService",
+        "properties": {
+            "type": "AzureStorageLinkedService",
+            "typeProperties": {
+                "connectionString": "DefaultEndpointsProtocol=https;AccountName=<AccountName>;AccountKey=<AccountKey>"
+            }
+        }
+    }
 
 
 **Teradata input dataset:**
@@ -81,139 +81,139 @@ The sample assumes you have created a table “MyTable” in Teradata and it con
 
 Setting “external”: true and specifying externalData policy tells data factory that the table is external to the data factory and not produced by an activity in the data factory.
 
-	{
-	    "name": "TeradataDataSet",
-	    "properties": {
-	        "published": false,
-	        "type": "RelationalTable",
-	        "linkedServiceName": "OnPremTeradataLinkedService",
-	        "typeProperties": {
-	            "tableName": "MyTable"
-	        },
-	        "availability": {
-	            "frequency": "Hour",
-	            "interval": 1
-	        },
-			"external": true,
-	        "policy": {
-	            "externalData": {
-	                "retryInterval": "00:01:00",
-	                "retryTimeout": "00:10:00",
-	                "maximumRetry": 3
-	            }
-	        }
-	    }
-	}
+    {
+        "name": "TeradataDataSet",
+        "properties": {
+            "published": false,
+            "type": "RelationalTable",
+            "linkedServiceName": "OnPremTeradataLinkedService",
+            "typeProperties": {
+                "tableName": "MyTable"
+            },
+            "availability": {
+                "frequency": "Hour",
+                "interval": 1
+            },
+            "external": true,
+            "policy": {
+                "externalData": {
+                    "retryInterval": "00:01:00",
+                    "retryTimeout": "00:10:00",
+                    "maximumRetry": 3
+                }
+            }
+        }
+    }
 
 
 **Azure Blob output dataset:**
 
 Data is written to a new blob every hour (frequency: hour, interval: 1). The folder path for the blob is dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, day, and hours parts of the start time.
 
-	{
-	    "name": "AzureBlobTeradataDataSet",
-	    "properties": {
-	        "published": false,
-	        "location": {
-	            "type": "AzureBlobLocation",
-	            "folderPath": "mycontainer/teradata/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
-	            "format": {
-	                "type": "TextFormat",
-	                "rowDelimiter": "\n",
-	                "columnDelimiter": "\t"
-	            },
-	            "partitionedBy": [
-	                {
-	                    "name": "Year",
-	                    "value": {
-	                        "type": "DateTime",
-	                        "date": "SliceStart",
-	                        "format": "yyyy"
-	                    }
-	                },
-	                {
-	                    "name": "Month",
-	                    "value": {
-	                        "type": "DateTime",
-	                        "date": "SliceStart",
-	                        "format": "%M"
-	                    }
-	                },
-	                {
-	                    "name": "Day",
-	                    "value": {
-	                        "type": "DateTime",
-	                        "date": "SliceStart",
-	                        "format": "%d"
-	                    }
-	                },
-	                {
-	                    "name": "Hour",
-	                    "value": {
-	                        "type": "DateTime",
-	                        "date": "SliceStart",
-	                        "format": "%H"
-	                    }
-	                }
-	            ],
-	            "linkedServiceName": "AzureStorageLinkedService"
-	        },
-	        "availability": {
-	            "frequency": "Hour",
-	            "interval": 1
-	        }
-	    }
-	}
+    {
+        "name": "AzureBlobTeradataDataSet",
+        "properties": {
+            "published": false,
+            "location": {
+                "type": "AzureBlobLocation",
+                "folderPath": "mycontainer/teradata/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
+                "format": {
+                    "type": "TextFormat",
+                    "rowDelimiter": "\n",
+                    "columnDelimiter": "\t"
+                },
+                "partitionedBy": [
+                    {
+                        "name": "Year",
+                        "value": {
+                            "type": "DateTime",
+                            "date": "SliceStart",
+                            "format": "yyyy"
+                        }
+                    },
+                    {
+                        "name": "Month",
+                        "value": {
+                            "type": "DateTime",
+                            "date": "SliceStart",
+                            "format": "%M"
+                        }
+                    },
+                    {
+                        "name": "Day",
+                        "value": {
+                            "type": "DateTime",
+                            "date": "SliceStart",
+                            "format": "%d"
+                        }
+                    },
+                    {
+                        "name": "Hour",
+                        "value": {
+                            "type": "DateTime",
+                            "date": "SliceStart",
+                            "format": "%H"
+                        }
+                    }
+                ],
+                "linkedServiceName": "AzureStorageLinkedService"
+            },
+            "availability": {
+                "frequency": "Hour",
+                "interval": 1
+            }
+        }
+    }
 
 
 **Pipeline with Copy activity:**
 
 The pipeline contains a Copy Activity that is configured to use the above input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **RelationalSource** and **sink** type is set to **BlobSink**. The SQL query specified for the **query** property selects the data in the past hour to copy.
 
-	{
-	    "name": "CopyTeradataToBlob",
-	    "properties": {
-	        "description": "pipeline for copy activity",
-	        "activities": [
-	            {
-	                "type": "Copy",
-	                "typeProperties": {
-	                    "source": {
-	                        "type": "RelationalSource",
-	                        "query": "$$Text.Format('select * from MyTable where timestamp >= \\'{0:yyyy-MM-ddTHH:mm:ss}\\' AND timestamp < \\'{1:yyyy-MM-ddTHH:mm:ss}\\'', SliceStart, SliceEnd)"
-	                    },
-	                    "sink": {
-	                        "type": "BlobSink",
-	                        "writeBatchSize": 0,
-	                        "writeBatchTimeout": "00:00:00"
-	                    }
-	                },
-	                "inputs": [
-	                    {
-	                        "name": "TeradataDataSet"
-	                    }
-	                ],
-	                "outputs": [
-	                    {
-	                        "name": "AzureBlobTeradataDataSet"
-	                    }
-	                ],					
-	                "policy": {
-	                    "timeout": "01:00:00",
-	                    "concurrency": 1
-	                },
-	                "scheduler": {
-	                    "frequency": "Hour",
-	                    "interval": 1
-	                },
-	                "name": "TeradataToBlob"
-	            }
-	        ],
-	        "start": "2014-06-01T18:00:00Z",
-	        "end": "2014-06-01T19:00:00Z",
-	        "isPaused": false
-	    }
-	}
+    {
+        "name": "CopyTeradataToBlob",
+        "properties": {
+            "description": "pipeline for copy activity",
+            "activities": [
+                {
+                    "type": "Copy",
+                    "typeProperties": {
+                        "source": {
+                            "type": "RelationalSource",
+                            "query": "$$Text.Format('select * from MyTable where timestamp >= \\'{0:yyyy-MM-ddTHH:mm:ss}\\' AND timestamp < \\'{1:yyyy-MM-ddTHH:mm:ss}\\'', SliceStart, SliceEnd)"
+                        },
+                        "sink": {
+                            "type": "BlobSink",
+                            "writeBatchSize": 0,
+                            "writeBatchTimeout": "00:00:00"
+                        }
+                    },
+                    "inputs": [
+                        {
+                            "name": "TeradataDataSet"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "AzureBlobTeradataDataSet"
+                        }
+                    ],                  
+                    "policy": {
+                        "timeout": "01:00:00",
+                        "concurrency": 1
+                    },
+                    "scheduler": {
+                        "frequency": "Hour",
+                        "interval": 1
+                    },
+                    "name": "TeradataToBlob"
+                }
+            ],
+            "start": "2014-06-01T18:00:00Z",
+            "end": "2014-06-01T19:00:00Z",
+            "isPaused": false
+        }
+    }
 
 
 ## Teradata Linked Service properties

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Network Configuration Details for Working with Express Route" 
-	description="Network configuration details for running App Service Environments in a Virtual Networks connected to an ExpressRoute Circuit." 
-	services="app-service" 
-	documentationCenter="" 
-	authors="stefsch" 
-	manager="nirma" 
-	editor=""/>
+    pageTitle="Network Configuration Details for Working with Express Route" 
+    description="Network configuration details for running App Service Environments in a Virtual Networks connected to an ExpressRoute Circuit." 
+    services="app-service" 
+    documentationCenter="" 
+    authors="stefsch" 
+    manager="nirma" 
+    editor=""/>
 
 <tags 
-	ms.service="app-service" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/23/2015" 
-	ms.author="stefsch"/>	
+    ms.service="app-service" 
+    ms.workload="na" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/23/2015" 
+    ms.author="stefsch"/>   
 
 # Network Configuration Details for App Service Environments with ExpressRoute 
 
@@ -136,3 +136,4 @@ For more information about the Azure App Service platform, see [Azure App Servic
  
 
 <!-- IMAGES -->
+

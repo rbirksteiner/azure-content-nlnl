@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Having trouble with Azure Multi-Factor Authentication | Microsoft Azure" 
-	description="This document will provide users information on what to do if they run into an issue with Azure Multi-Factor Authentication." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
-	editor="curtland"/>
+    pageTitle="Having trouble with Azure Multi-Factor Authentication | Microsoft Azure" 
+    description="This document will provide users information on what to do if they run into an issue with Azure Multi-Factor Authentication." 
+    services="multi-factor-authentication" 
+    documentationCenter="" 
+    authors="billmath" 
+    manager="stevenpo" 
+    editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/10/2015" 
-	ms.author="billmath"/>
+    ms.service="multi-factor-authentication" 
+    ms.workload="identity" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/10/2015" 
+    ms.author="billmath"/>
 
 # Having trouble with Azure Multi-Factor Authentication
 >[AZURE.IMPORTANT]
@@ -105,7 +105,7 @@ If you are not sure how you use multi-factor authentication, then you can always
 
 #### To change your settings in the Myapps portal
 
-1. Sign-in to [https://myapps.microsoft.com](https://myapps.microsoft.com)	
+1. Sign-in to [https://myapps.microsoft.com](https://myapps.microsoft.com)  
 2. At the top, select profile.
 3. Select Additional Security Verification.
 ![Myapps](./media/multi-factor-authentication-end-user-manage/myapps1.png)

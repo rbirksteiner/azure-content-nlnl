@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How to use the SendGrid email service (PHP) | Microsoft Azure" 
-	description="Learn how send email with the SendGrid email service on Azure. Code samples written in PHP." 
-	documentationCenter="php" 
-	services="" 
-	manager="sendgrid" 
-	editor="mollybos" 
-	authors="thinkingserious"/>
+    pageTitle="How to use the SendGrid email service (PHP) | Microsoft Azure" 
+    description="Learn how send email with the SendGrid email service on Azure. Code samples written in PHP." 
+    documentationCenter="php" 
+    services="" 
+    manager="sendgrid" 
+    editor="mollybos" 
+    authors="thinkingserious"/>
 
 <tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="PHP" 
-	ms.topic="article" 
-	ms.date="10/30/2014" 
-	ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com"/>
+    ms.service="multiple" 
+    ms.workload="na" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="PHP" 
+    ms.topic="article" 
+    ms.date="10/30/2014" 
+    ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com"/>
 # How to Use the SendGrid Email Service from PHP
 
 This guide demonstrates how to perform common programming tasks with the SendGrid email service on Azure. The samples are written in PHP.
@@ -440,3 +440,4 @@ For more information, see also the [PHP Developer Center](/develop/php/).
   [transactional email delivery]: https://sendgrid.com/transactional-email
   [sendgrid-php library]: https://github.com/sendgrid/sendgrid-php/tree/v2.1.1
   [Composer]: https://getcomposer.org/download/
+

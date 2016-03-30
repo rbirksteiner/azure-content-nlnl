@@ -150,3 +150,4 @@ For more development tips, see [SQL Data Warehouse development overview][].
 
 [Azure Machine Learning documentation]: http://azure.microsoft.com/documentation/services/machine-learning/
 
+

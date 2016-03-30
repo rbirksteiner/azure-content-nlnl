@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Tutorial: Azure Active Directory integration with Small Improvements | Microsoft Azure"
-	description="Learn how to configure single sign-on between Azure Active Directory and Small Improvements."
-	services="active-directory"
-	documentationCenter=""
-	authors="jeevansd"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Tutorial: Azure Active Directory integration with Small Improvements | Microsoft Azure"
+    description="Learn how to configure single sign-on between Azure Active Directory and Small Improvements."
+    services="active-directory"
+    documentationCenter=""
+    authors="jeevansd"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/14/2015"
-	ms.author="jeedes"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/14/2015"
+    ms.author="jeedes"/>
 
 
 # Tutorial: Azure Active Directory integration with Small Improvements
@@ -138,9 +138,9 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
     c. If you wish to have SSO and Login form authentication option available for users then check the **Enable access via login/password too** option. 
   
-	d. Enter the appropriate value to Name the SSO Login button in the **SAML Prompt** textbox. 
+    d. Enter the appropriate value to Name the SSO Login button in the **SAML Prompt** textbox. 
 
-	e. Click **Save**.
+    e. Click **Save**.
 
 
 6. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
@@ -276,3 +276,4 @@ When you click the Small Improvements tile in the Access Panel, you should get a
 [203]: ./media/active-directory-saas-smallimprovements-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-smallimprovements-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-smallimprovements-tutorial/tutorial_general_205.png
+

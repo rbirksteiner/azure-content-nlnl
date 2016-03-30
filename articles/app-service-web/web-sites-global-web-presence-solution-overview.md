@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Create a global web presence on Azure App Service Web Apps" 
-	description="This guide provides a technical overview of how to host your organization's (.COM) site on Azure App Service Web Apps. This includes deployment, custom domains, SSL, and monitoring." 
-	editor="jimbe" 
-	manager="wpickett" 
-	authors="cephalin" 
-	services="app-service\web" 
-	documentationCenter=""/>
+    pageTitle="Create a global web presence on Azure App Service Web Apps" 
+    description="This guide provides a technical overview of how to host your organization's (.COM) site on Azure App Service Web Apps. This includes deployment, custom domains, SSL, and monitoring." 
+    editor="jimbe" 
+    manager="wpickett" 
+    authors="cephalin" 
+    services="app-service\web" 
+    documentationCenter=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/10/2015" 
-	ms.author="cephalin"/>
+    ms.service="app-service-web" 
+    ms.workload="web" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/10/2015" 
+    ms.author="cephalin"/>
 
 
 # Create a global web presence on Azure App Service Web Apps
@@ -137,3 +137,4 @@ Make your .COM site attractive with rich media, such as:
 [SendGrid service in Azure Marketplace]:sendgrid-dotnet-how-to-send-email.md
 
  
+

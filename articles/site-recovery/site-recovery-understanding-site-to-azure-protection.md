@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Understanding Hyper-V replication with Azure Site Recovery | Microsoft Azure" 
-	description="Use this article to understand the technical concepts which helps you successfully install, configure, and manage Azure Site Recovery." 
-	services="site-recovery" 
-	documentationCenter="" 
-	authors="anbacker" 
-	manager="mkjain" 
-	editor=""/>
+    pageTitle="Understanding Hyper-V replication with Azure Site Recovery | Microsoft Azure" 
+    description="Use this article to understand the technical concepts which helps you successfully install, configure, and manage Azure Site Recovery." 
+    services="site-recovery" 
+    documentationCenter="" 
+    authors="anbacker" 
+    manager="mkjain" 
+    editor=""/>
 
 <tags 
-	ms.service="site-recovery" 
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="storage-backup-recovery" 
-	ms.date="12/14/2015" 
-	ms.author="anbacker"/>
+    ms.service="site-recovery" 
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="storage-backup-recovery" 
+    ms.date="12/14/2015" 
+    ms.author="anbacker"/>
 
 
 # Understanding Hyper-V replication with Azure Site Recovery
@@ -65,10 +65,10 @@ Re-synchronization uses a fixed-block chunking algorithm where Source and Target
 ### Retry logic
 There is built-in retry logic when replication errors occur. This can be classified into two categories as below.
 
-| Category              	| Scenarios                                    |
+| Category                  | Scenarios                                    |
 |---------------------------|----------------------------------------------|
-| Non-Recoverable Error 	| No retry will be attempted. Virtual machine replication status will be shown as Critical and an administrator intervention is required. Examples would include <ul><li>A broken VHD chain</li><li>Replica virtual machine is in an invalid state</li><li>Network authentication error</li><li>Authorization Error</li><li>If a virtual machine isn't found in the case of a standalone Hyper-V server</li></ul>|
-| Recoverable Error     	| Retries occur every replication interval using exponentially backoff which increases the retry interval from the start of first attempt (1, 2, 4, 8, 10 minutes). If an error persists, retry every 30 minutes. Examples would include <ul><li>Network Error</li><li>Low disk space</li><li>Low memory condition</li></ul>|
+| Non-Recoverable Error     | No retry will be attempted. Virtual machine replication status will be shown as Critical and an administrator intervention is required. Examples would include <ul><li>A broken VHD chain</li><li>Replica virtual machine is in an invalid state</li><li>Network authentication error</li><li>Authorization Error</li><li>If a virtual machine isn't found in the case of a standalone Hyper-V server</li></ul>|
+| Recoverable Error         | Retries occur every replication interval using exponentially backoff which increases the retry interval from the start of first attempt (1, 2, 4, 8, 10 minutes). If an error persists, retry every 30 minutes. Examples would include <ul><li>Network Error</li><li>Low disk space</li><li>Low memory condition</li></ul>|
 
 ## Understanding Hyper-V virtual machine protection and recovery life cycle
 

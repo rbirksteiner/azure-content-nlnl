@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Media Services REST API overview | Microsoft Azure" 
-	description="Media Services REST API overview" 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="Media Services REST API overview | Microsoft Azure" 
+    description="Media Services REST API overview" 
+    services="media-services" 
+    documentationCenter="" 
+    authors="Juliako" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="12/05/2015"
-	ms.author="juliako"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="dotnet" 
+    ms.topic="article" 
+    ms.date="12/05/2015"
+    ms.author="juliako"/>
 
 
 # Media Services REST API overview 
@@ -104,3 +104,4 @@ You should append "?api-version=2.x" to the end of the URI if you want to view t
 
 
  
+

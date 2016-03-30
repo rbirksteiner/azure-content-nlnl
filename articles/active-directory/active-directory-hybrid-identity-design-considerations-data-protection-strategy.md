@@ -1,20 +1,20 @@
-﻿<properties
-	pageTitle="Azure Active Directory hybrid identity design considerations - define data protection strategy | Microsoft Azure"
-	description="You’ll define the data protection strategy for your hybrid identity solution to meet the business requirements that you defined."
-	documentationCenter=""
-	services="active-directory"
-	authors="yuridio"
-	manager="stevenpo"
-	editor=""/>
+<properties
+    pageTitle="Azure Active Directory hybrid identity design considerations - define data protection strategy | Microsoft Azure"
+    description="You’ll define the data protection strategy for your hybrid identity solution to meet the business requirements that you defined."
+    documentationCenter=""
+    services="active-directory"
+    authors="yuridio"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/11/2015"
-	ms.author="yuridio"/>
+    ms.date="11/11/2015"
+    ms.author="yuridio"/>
 
 
 # Define data protection strategy for your hybrid identity solution
@@ -158,4 +158,5 @@ Since the options for incident response use a multilayer approach, comparison be
 
 ## See Also
 [Design considerations overview](active-directory-hybrid-identity-design-considerations-overview.md)
+
 

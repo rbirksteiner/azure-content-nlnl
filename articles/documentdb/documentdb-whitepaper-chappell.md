@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Introducing DocumentDB - A NoSQL Database for Microsoft Azure | Microsoft Azure" 
-	description="Download a whitepaper by David Chappell about DocumentDB, a managed NoSQL database on Azure." 
-	services="documentdb" 
-	documentationCenter="" 
-	authors="mimig1" 
-	manager="jhubbard" 
-	editor=""/>
+    pageTitle="Introducing DocumentDB - A NoSQL Database for Microsoft Azure | Microsoft Azure" 
+    description="Download a whitepaper by David Chappell about DocumentDB, a managed NoSQL database on Azure." 
+    services="documentdb" 
+    documentationCenter="" 
+    authors="mimig1" 
+    manager="jhubbard" 
+    editor=""/>
 
 <tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/06/2015" 
-	ms.author="mimig"/>
+    ms.service="documentdb" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/06/2015" 
+    ms.author="mimig"/>
 
 # Introducing DocumentDB - A NoSQL Database for Microsoft Azure 
 
@@ -30,3 +30,4 @@ The whitepaper also walks you through the following:
 
 **PDF Download:** [Introducing DocumentDB - A NoSQL Database for Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=511318)
  
+

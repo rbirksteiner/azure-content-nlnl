@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Handle conflicts with offline data in universal Windows apps | Microsoft Azure"
-	description="Learn how to use Azure Mobile Services handle conflicts when syncing offline data in your universal Windows application"
-	documentationCenter="windows"
-	authors="wesmc7777"
-	manager="dwrede"
-	editor=""
-	services="mobile-services"/>
+    pageTitle="Handle conflicts with offline data in universal Windows apps | Microsoft Azure"
+    description="Learn how to use Azure Mobile Services handle conflicts when syncing offline data in your universal Windows application"
+    documentationCenter="windows"
+    authors="wesmc7777"
+    manager="dwrede"
+    editor=""
+    services="mobile-services"/>
 
 <tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-windows-store"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="11/12/2015"
-	ms.author="glenga"/>
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-windows-store"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="11/12/2015"
+    ms.author="glenga"/>
 
 
 # Handling conflicts with offline data sync in Mobile Services
@@ -167,4 +167,5 @@ When a push is canceled, `PushAsync` will throw a `MobileServicePushFailedExcept
 [Handling Database Conflicts]: mobile-services-windows-store-dotnet-handle-database-conflicts.md#test-app
 [Mobile Services Samples GitHub Repository]: http://go.microsoft.com/fwlink/?LinkId=512865
 [Todo Offline Mobile Services sample]: http://go.microsoft.com/fwlink/?LinkId=512866
+
 

@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure Active Directory hybrid identity design considerations- next steps| Microsoft Azure"
-	description="A synopsis and next steps after you have read the Hybrid Identity design considerations guide"
-	documentationCenter=""
-	services="active-directory"
-	authors="yurid"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Azure Active Directory hybrid identity design considerations- next steps| Microsoft Azure"
+    description="A synopsis and next steps after you have read the Hybrid Identity design considerations guide"
+    documentationCenter=""
+    services="active-directory"
+    authors="yurid"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/08/2015"
-	ms.author="yurid"/>
+    ms.date="11/08/2015"
+    ms.author="yurid"/>
 
 #Azure Active Directory hybrid identity design considerations- next steps
 Now that you’ve completed defining your requirements and examining all the options for your mobile device management solution, you’re ready to take the next steps for deploying the supporting infrastructure that’s right for you and your organization.
@@ -44,3 +44,4 @@ Monitoring the following resources often provides the latest news and updates on
 
 ## See also
 [Design considerations overview](active-directory-hybrid-identity-design-considerations-overview.md)
+

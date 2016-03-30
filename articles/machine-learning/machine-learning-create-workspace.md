@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Create a Machine Learning workspace | Microsoft Azure" 
-	description="How to create a workspace for Azure Machine Learning Studio" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="garyericson" 
-	manager="paulettm" 
-	editor="cgronlun"/>
+    pageTitle="Create a Machine Learning workspace | Microsoft Azure" 
+    description="How to create a workspace for Azure Machine Learning Studio" 
+    services="machine-learning" 
+    documentationCenter="" 
+    authors="garyericson" 
+    manager="paulettm" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/13/2015" 
-	ms.author="garye;bradsev"/>
+    ms.service="machine-learning" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/13/2015" 
+    ms.author="garye;bradsev"/>
 
 
 # Create an Azure Machine Learning workspace 
@@ -37,7 +37,7 @@ To use Azure Machine Learning Studio, you need to have a Machine Learning worksp
 3. Click **+NEW** at the bottom of the window.
 4. Click **DATA SERVICES**, then **MACHINE LEARNING**, then **QUICK CREATE**.
 
-	![Quick Create of new workspace][3]
+    ![Quick Create of new workspace][3]
 
 5. Enter a **WORKSPACE NAME** for your workspace and specify the **WORKSPACE OWNER**. The workspace owner must be a valid Microsoft account (e.g., name@outlook.com).
 
@@ -68,3 +68,4 @@ If you encounter a problem creating your workspace, see [Troubleshooting guide: 
 
 <!--Link references-->
  
+

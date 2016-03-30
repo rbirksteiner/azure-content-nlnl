@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="CDN - Real-Time-Stats" 
-	description="Real-time stats in Microsoft Azure CDN. Real-Time Statistics provides real-time data about the performance of our CDN when delivering content to your clients." 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="camsoper" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="CDN - Real-Time-Stats" 
+    description="Real-time stats in Microsoft Azure CDN. Real-Time Statistics provides real-time data about the performance of our CDN when delivering content to your clients." 
+    services="cdn" 
+    documentationCenter=".NET" 
+    authors="camsoper" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
-	ms.author="casoper"/>
+    ms.service="cdn" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/02/2015" 
+    ms.author="casoper"/>
 
 # Real-time stats in Microsoft Azure CDN
 
@@ -37,13 +37,13 @@ The following graphs are available when viewing real-time statistics for the HTT
 
 1. From the CDN profile blade, click the **Manage** button.
 
-	![CDN profile blade manage button](./media/cdn-real-time-stats/cdn-manage-btn.png)
-	
-	The CDN management portal opens.
-	
+    ![CDN profile blade manage button](./media/cdn-real-time-stats/cdn-manage-btn.png)
+    
+    The CDN management portal opens.
+    
 2. Hover over the **Analytics** tab, then hover over the **Real-Time Stats** flyout.  Click on **HTTP Large Platform**.
-	
-	Report options are displayed.
+    
+    Report options are displayed.
 
 ## Bandwidth
 

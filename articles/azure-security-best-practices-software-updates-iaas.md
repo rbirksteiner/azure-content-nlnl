@@ -118,3 +118,4 @@ In addition to general considerations that were explained in this article, you s
 ## Next steps
 
 Use the guidelines described in this article to assist you in determining the best options for software updates for virtual machines within Azure IaaS. There are many similarities between software update best practices in a traditional datacenter versus Azure IaaS, therefore it is recommended that you evaluate your current software update policies to include Azure VMs and include the relevant best practices from this article in your overall software update process.
+

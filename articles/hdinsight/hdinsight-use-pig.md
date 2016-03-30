@@ -6,7 +6,7 @@
    authors="Blackmist"
    manager="paulettm"
    editor="cgronlun"
-	tags="azure-portal"/>
+    tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -53,7 +53,7 @@ For an example of using UDFs with Pig, see the following documents:
 
 This example uses a *log4j* sample file, which is stored at **/example/data/sample.log** in your blob storage container. Each log inside the file consists of a line of fields that contains a `[LOG LEVEL]` field to show the type and the severity, for example:
 
-	2012-02-03 20:26:41 SampleClass3 [ERROR] verbose detail for id 1527353937
+    2012-02-03 20:26:41 SampleClass3 [ERROR] verbose detail for id 1527353937
 
 In the previous example, the log level is ERROR.
 
@@ -61,7 +61,7 @@ In the previous example, the log level is ERROR.
 
 The sample data is stored in Azure Blob storage, which HDInsight uses as the default file system for Hadoop clusters. HDInsight can access files stored in blobs by using the **wasb** prefix. For example, to access the sample.log file, you would use the following syntax:
 
-	wasb:///example/data/sample.log
+    wasb:///example/data/sample.log
 
 Because WASB is the default storage for HDInsight, you can also access the file by using **/example/data/sample.log** from Pig Latin.
 
@@ -72,13 +72,13 @@ Because WASB is the default storage for HDInsight, you can also access the file 
 
 The following Pig Latin job loads the **sample.log** file from the default storage for your HDInsight cluster. Then it performs a series of transformations that result in a count of how many times each log level occurred in the input data. The results are dumped into STDOUT.
 
-	LOGS = LOAD 'wasb:///example/data/sample.log';
-	LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
-	FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
-	GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
-	FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;
-	RESULT = order FREQUENCIES by COUNT desc;
-	DUMP RESULT;
+    LOGS = LOAD 'wasb:///example/data/sample.log';
+    LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
+    FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
+    GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
+    FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;
+    RESULT = order FREQUENCIES by COUNT desc;
+    DUMP RESULT;
 
 The following image shows a breakdown of what each transformation does to the data.
 
@@ -145,3 +145,4 @@ Now that you have learned how to use Pig with HDInsight, use the following links
 [image-hdi-pig-data-transformation]: ./media/hdinsight-use-pig/HDI.DataTransformation.gif
 [image-hdi-pig-powershell]: ./media/hdinsight-use-pig/hdi.pig.powershell.png
 [image-hdi-pig-architecture]: ./media/hdinsight-use-pig/HDI.Pig.Architecture.png
+

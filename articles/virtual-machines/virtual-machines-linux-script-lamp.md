@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Use the CustomScript Extension on a Linux VM | Microsoft Azure"
-	description="Learn how to use the CustomScript extension to deploy applications on Linux Virtual Machines in Azure created using the classic deployment model."
-	editor="tysonn"
-	manager="timlt"
-	documentationCenter=""
-	services="virtual-machines"
-	authors="gbowerman"
-	tags="azure-service-management"/>
+    pageTitle="Use the CustomScript Extension on a Linux VM | Microsoft Azure"
+    description="Learn how to use the CustomScript extension to deploy applications on Linux Virtual Machines in Azure created using the classic deployment model."
+    editor="tysonn"
+    manager="timlt"
+    documentationCenter=""
+    services="virtual-machines"
+    authors="gbowerman"
+    tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="02/23/2015"
-	ms.author="guybo"/>
+    ms.service="virtual-machines"
+    ms.workload="multiple"
+    ms.tgt_pltfrm="linux"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="02/23/2015"
+    ms.author="guybo"/>
 
 #Deploy a LAMP app using the Azure CustomScript Extension for Linux#
 
@@ -48,23 +48,23 @@ We'll use the CustomScript Extension to run a script on a remote VM to install t
 
 The script example installs a LAMP stack to Ubuntu (including setting up a silent install of MySQL), writes a simple PHP file, and starts Apache.
 
-	#!/bin/bash
-	# set up a silent install of MySQL
-	dbpass="mySQLPassw0rd"
+    #!/bin/bash
+    # set up a silent install of MySQL
+    dbpass="mySQLPassw0rd"
 
-	export DEBIAN_FRONTEND=noninteractive
-	echo mysql-server-5.6 mysql-server/root_password password $dbpass | debconf-set-selections
-	echo mysql-server-5.6 mysql-server/root_password_again password $dbpass | debconf-set-selections
+    export DEBIAN_FRONTEND=noninteractive
+    echo mysql-server-5.6 mysql-server/root_password password $dbpass | debconf-set-selections
+    echo mysql-server-5.6 mysql-server/root_password_again password $dbpass | debconf-set-selections
 
-	# install the LAMP stack
-	apt-get -y install apache2 mysql-server php5 php5-mysql  
+    # install the LAMP stack
+    apt-get -y install apache2 mysql-server php5 php5-mysql  
 
-	# write some PHP
-	echo \<center\>\<h1\>My Demo App\</h1\>\<br/\>\</center\> > /var/www/html/phpinfo.php
-	echo \<\?php phpinfo\(\)\; \?\> >> /var/www/html/phpinfo.php
+    # write some PHP
+    echo \<center\>\<h1\>My Demo App\</h1\>\<br/\>\</center\> > /var/www/html/phpinfo.php
+    echo \<\?php phpinfo\(\)\; \?\> >> /var/www/html/phpinfo.php
 
-	# restart Apache
-	apachectl restart
+    # restart Apache
+    apachectl restart
 
 ### Upload script
 
@@ -109,3 +109,4 @@ Additional resources for Azure CLI, Linux and the CustomScript Extension are lis
 [Azure Linux Extensions (GitHub)](https://github.com/Azure/azure-linux-extensions)
 
 [Linux and Open-Source Computing on Azure](virtual-machines-linux-opensource.md)
+

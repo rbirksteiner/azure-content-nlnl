@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure Mobile Engagement Android SDK Integration"
-	description="Latest updates and procedures for Android SDK for Azure Mobile Engagement"
-	services="mobile-engagement"
-	documentationCenter="mobile"
-	authors="piyushjo"
-	manager="dwrede"
-	editor="" />
+    pageTitle="Azure Mobile Engagement Android SDK Integration"
+    description="Latest updates and procedures for Android SDK for Azure Mobile Engagement"
+    services="mobile-engagement"
+    documentationCenter="mobile"
+    authors="piyushjo"
+    manager="dwrede"
+    editor="" />
 
 <tags
-	ms.service="mobile-engagement"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-android"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="08/10/2015"
-	ms.author="piyushjo" />
+    ms.service="mobile-engagement"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-android"
+    ms.devlang="Java"
+    ms.topic="article"
+    ms.date="08/10/2015"
+    ms.author="piyushjo" />
 
 #How to Integrate GCM with Mobile Engagement
 
@@ -56,33 +56,33 @@ If you don't already send the registration intent yourself, you can make Engagem
 
 To enable this, add the following to your `AndroidManifest.xml` file, inside the `<application/>` tag:
 
-			<!-- If only 1 sender, don't forget the \n, otherwise it will be parsed as a negative number... -->
-			<meta-data android:name="engagement:gcm:sender" android:value="<Your Google Project Number>\n" />
+            <!-- If only 1 sender, don't forget the \n, otherwise it will be parsed as a negative number... -->
+            <meta-data android:name="engagement:gcm:sender" android:value="<Your Google Project Number>\n" />
 
 ### Communicate registration id to the Engagement Push service and receive notifications
 
 In order to communicate the registration id of the device to the Engagement Push service and receive its notifications, add the following to your `AndroidManifest.xml` file, inside the `<application/>` tag (even if you manage device registrations yourself):
 
-			<receiver android:name="com.microsoft.azure.engagement.gcm.EngagementGCMEnabler"
-			  android:exported="false">
-			  <intent-filter>
-			    <action android:name="com.microsoft.azure.engagement.intent.action.APPID_GOT" />
-			  </intent-filter>
-			</receiver>
+            <receiver android:name="com.microsoft.azure.engagement.gcm.EngagementGCMEnabler"
+              android:exported="false">
+              <intent-filter>
+                <action android:name="com.microsoft.azure.engagement.intent.action.APPID_GOT" />
+              </intent-filter>
+            </receiver>
 
-			<receiver android:name="com.microsoft.azure.engagement.gcm.EngagementGCMReceiver" android:permission="com.google.android.c2dm.permission.SEND">
-			  <intent-filter>
-			    <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
-			    <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-			    <category android:name="<your_package_name>" />
-			  </intent-filter>
-			</receiver>
+            <receiver android:name="com.microsoft.azure.engagement.gcm.EngagementGCMReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+              <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <category android:name="<your_package_name>" />
+              </intent-filter>
+            </receiver>
 
 Ensure you have the following permissions in your `AndroidManifest.xml` (after the `</application>` tag).
 
-			<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-			<uses-permission android:name="<your_package_name>.permission.C2D_MESSAGE" />
-			<permission android:name="<your_package_name>.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+            <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+            <uses-permission android:name="<your_package_name>.permission.C2D_MESSAGE" />
+            <permission android:name="<your_package_name>.permission.C2D_MESSAGE" android:protectionLevel="signature" />
 
 ##Grant Engagement access to a Server API Key
 
@@ -114,3 +114,4 @@ Now please verify your integration by reading How to Test Engagement Integration
 [Google Developers Console]:https://cloud.google.com/console
 [GCM client library]:http://developer.android.com/guide/google/gcm/gs.html#libs
 [Google Developers Console]:https://cloud.google.com/console
+

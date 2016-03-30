@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Connect a web app in Azure App Service to Redis Cache via the Memcache protocol | Microsoft Azure"
-	description="Connect a web app in Azure App service to Redis Cache using the Memcache protocol"
-	services="app-service\web"
-	documentationCenter="php"
-	authors="SyntaxC4"
-	manager="wpickett"
-	editor="riande"/>
+    pageTitle="Connect a web app in Azure App Service to Redis Cache via the Memcache protocol | Microsoft Azure"
+    description="Connect a web app in Azure App service to Redis Cache using the Memcache protocol"
+    services="app-service\web"
+    documentationCenter="php"
+    authors="SyntaxC4"
+    manager="wpickett"
+    editor="riande"/>
 
 <tags
-	ms.service="app-service-web"
-	ms.devlang="php"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="windows"
-	ms.workload="na"
-	ms.date="09/16/2015"
-	ms.author="cfowler"/>
+    ms.service="app-service-web"
+    ms.devlang="php"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="windows"
+    ms.workload="na"
+    ms.date="09/16/2015"
+    ms.author="cfowler"/>
 
 # Connect a web app in Azure App Service to Redis Cache via the Memcache protocol
 
@@ -118,7 +118,7 @@ In the `wp-config.php` file, add the following code above the stop editing comme
 
 ```php
 $memcached_servers = array(
-	'default' => array('localhost:' . getenv("MEMCACHESHIM_PORT"))
+    'default' => array('localhost:' . getenv("MEMCACHESHIM_PORT"))
 );
 ```
 
@@ -196,3 +196,4 @@ Congratulations! The WordPress app now has a centralized in-memory cache to aid 
 [11]: http://stackoverflow.com/questions/tagged/azure-web-sites
 [12]: /services/cache/
 [13]: http://memcached.org
+

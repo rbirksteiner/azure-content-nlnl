@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Network infrastructure considerations for Site Recovery | Microsoft Azure" 
-	description="This article discusses practical network design considerations for failover with Site Recovery" 
-	services="site-recovery" 
-	documentationCenter="" 
-	authors="rayne-wiselman" 
-	manager="jwhit" 
-	editor=""/>
+    pageTitle="Network infrastructure considerations for Site Recovery | Microsoft Azure" 
+    description="This article discusses practical network design considerations for failover with Site Recovery" 
+    services="site-recovery" 
+    documentationCenter="" 
+    authors="rayne-wiselman" 
+    manager="jwhit" 
+    editor=""/>
 
 <tags 
-	ms.service="site-recovery" 
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="storage-backup-recovery" 
-	ms.date="12/14/2015" 
-	ms.author="raynew"/>
+    ms.service="site-recovery" 
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.workload="storage-backup-recovery" 
+    ms.date="12/14/2015" 
+    ms.author="raynew"/>
 
 #  Network infrastructure considerations for Site Recovery
 
@@ -103,9 +103,9 @@ Let’s take a look at how a fictional enterprise (Contoso) is able to replicate
 - The entire subnet will fail over, and all the virtual machines in the subnet will be failed over to the recovery site and retain their IP addresses
 - As shown in the diagram below the routes between primary site and recovery site, third site and primary site, and third site and recovery site will have to be appropriately modified to reflect the fact that all the virtual machines belonging to subnet 192.168.1.0/24 have been moved to the recovery site.
 - This diagram assumes that:
-	-  Each data center is serviced by its own instance of VMM. There will be no replication of the System Center VMM databases between datacenters.
-	-  Each data center uses static IP addresses for the virtual machines.
-	-  Connectivity between the data centers is via a dedicated circuit and not via VPN connectivity over the internet.
+    -  Each data center is serviced by its own instance of VMM. There will be no replication of the System Center VMM databases between datacenters.
+    -  Each data center uses static IP addresses for the virtual machines.
+    -  Connectivity between the data centers is via a dedicated circuit and not via VPN connectivity over the internet.
 
 **Before failover**
 
@@ -121,7 +121,7 @@ When enabling protection for a specific virtual machine, Site Recovery allocates
 1. Site Recovery allocates an IP address for each network interface on the virtual machine from the static IP address pool defined on the relevant network for each VMM instance.
 2. If the administrator defines the same IP address pool that's used on the primary site for the network on the recovery site Site Recovery will allocate the same IP address that's allocated to the primary virtual machine to the replica virtual machine  The IP address is reserved in VMM but isn't set as the failover IP address. The failover IP address is set just before the failover. This screenshot shows the failover TCP/IP settings for the replica virtual machine (on the Hyper-V console). These settings are replicated just between failover starts for the virtual machine.
 
-	![Set IP address](./media/site-recovery-network-design/ASR_NetworkDesign4.png)
+    ![Set IP address](./media/site-recovery-network-design/ASR_NetworkDesign4.png)
 
 3. If the same IP address isn't available Site Recovery will allocate a different address from the pool.
 4. After the virtual machine is enabled for protection you can use following sample script to verify the IP address that has been allocated to the virtual machine. The same IP address would be set as failover IP address and assigned to the VM at the time of failover.
@@ -143,9 +143,9 @@ If you're failing over to Azure there are a couple more constraints. Let's look 
 - Woodgrove has to deal with applications and configurations which depend on hard-coded IP addresses, so they need to retain IP addresses for their applications after failover to Azure.
 - Woodgrove’s on-premises infrastructure is managed by a VMM 2012 R2 server.
 - There's a VLAN-based logical network (Application Network) has been created on the VMM server. 
-	![Logical network](./media/site-recovery-network-design/ASR_NetworkDesign5.png)
+    ![Logical network](./media/site-recovery-network-design/ASR_NetworkDesign5.png)
 - A VM network (Application VM Network) was created using the logical network.
-	![VM network](./media/site-recovery-network-design/ASR_NetworkDesign6.png)
+    ![VM network](./media/site-recovery-network-design/ASR_NetworkDesign6.png)
 - All the virtual machines in the application use static IP addresses, so a static IP pool is also defined for the logical network. 
 - Woodgrove is assigning IP addresses from IP address range (172.16.1.0/24, 172.16.2.0/24) to its resources running in Azure.
 
@@ -156,14 +156,14 @@ For Woodgrove to deploy replication and maintain IP addresses the following is r
 - Note that when you set up your site-to-site connection in Azure, an Azure network allows you to route traffic to the on-premises location (Azure calls it local-network) only if the IP address range is different from the on-premises IP address range, because Azure doesn’t support stretching subnets. This means that if you have a subnet 192.168.1.0/24 on-premises, you can’t add a local-network 192.168.1.0/24 in the Azure network. This is expected because Azure doesn’t know that there are no active VMs in the subnet and that the subnet is being created only for DR purposes. To be able to correctly route network traffic out of an Azure network the subnets in the network and the local-network must not conflict. 
 - We'll need to created an additional network in Azure (Recovery Network) where the failed over VMs will be created.
 
-	![Azure networks](./media/site-recovery-network-design/ASR_NetworkDesign7.png)
+    ![Azure networks](./media/site-recovery-network-design/ASR_NetworkDesign7.png)
 
 - To ensure that the IP address for the VM is retained, in the VM properties in Site Recovery we'll specify that the same IP address should be used. Then nafter failover Site Recover will assign the specified IP address to the VM.
-	![Azure networks](./media/site-recovery-network-design/ASR_NetworkDesign8.png)
+    ![Azure networks](./media/site-recovery-network-design/ASR_NetworkDesign8.png)
 
 
 - When failover is triggered and the VMs are created in the Recovery Network with the required IP address, connectivity to the VM can be established using a. This action can be scripted. As we discussed in the previous section about subnet failover, also in the case of failover to Azure routes would have to be appropriately modified to reflect that 192.168.1.0/24 has now moved to Azure.
-	![Azure networks](./media/site-recovery-network-design/ASR_NetworkDesign9.png)
+    ![Azure networks](./media/site-recovery-network-design/ASR_NetworkDesign9.png)
 
 ### Option 2: Modified IP addresses
 
@@ -180,14 +180,14 @@ Let's look at this scenario with an example that has a third site from which the
 - After failing over one or more applications, they'll be restored in the recovery subnet. In this case we don't need to fail over the entire subnet at the same time and no changes are required to reconfigure VPN or network routes.
 - A failover and some DNS updates will keep the applications accessible. If the DNS server is configured to allow dynamic updates then the virtual machines would register themselves using the new IP address once they start after a failover.
 
-	![Azure networks](./media/site-recovery-network-design/ASR_NetworkDesign11.png)
+    ![Azure networks](./media/site-recovery-network-design/ASR_NetworkDesign11.png)
 
 - After failover the replica virtual machine might have an IP address that isn’t the same as the IP address of the primary virtual machine.
 - Virtual machines will update the DNS server that they are using after they start. DNS entries typically have to be changed or flushed throughout the network, and cached entries in network tables have to be updated or flushed, so it is not uncommon to be faced with downtime while these state changes take place. This can be mitigated by:
 
-	- Using low TTL values for intranet applications.
-	- Using [Azure Traffic Manger with Site Recovery](http://azure.microsoft.com/blog/2015/03/03/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/ for internet based applications).
-	- Using the following script within your recovery plan to update the DNS Server to ensure a timely update (The script is not required if the Dynamic DNS registration is configured)
+    - Using low TTL values for intranet applications.
+    - Using [Azure Traffic Manger with Site Recovery](http://azure.microsoft.com/blog/2015/03/03/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/ for internet based applications).
+    - Using the following script within your recovery plan to update the DNS Server to ensure a timely update (The script is not required if the Dynamic DNS registration is configured)
 
     [string]$Zone,
     [string]$name,
@@ -205,3 +205,4 @@ The Networking infrastructure setup for Azure as a Disaster Recovery Site [blog 
 ## Next Steps
 
 [Learn](site-recovery-network-mapping.md) how Site Recovery maps source and target networks.
+

@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure Mobile Engagement iOS SDK Upgrade Procedure"
-	description="Latest updates and procedures for iOS SDK for Azure Mobile Engagement"
-	services="mobile-engagement"
-	documentationCenter="mobile"
-	authors="MehrdadMzfr"
-	manager="dwrede"
-	editor="" />
+    pageTitle="Azure Mobile Engagement iOS SDK Upgrade Procedure"
+    description="Latest updates and procedures for iOS SDK for Azure Mobile Engagement"
+    services="mobile-engagement"
+    documentationCenter="mobile"
+    authors="MehrdadMzfr"
+    manager="dwrede"
+    editor="" />
 
 <tags
-	ms.service="mobile-engagement"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-ios"
-	ms.devlang="objective-c"
-	ms.topic="article"
-	ms.date="08/05/2015"
-	ms.author="MehrdadMzfr" />
+    ms.service="mobile-engagement"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-ios"
+    ms.devlang="objective-c"
+    ms.topic="article"
+    ms.date="08/05/2015"
+    ms.author="MehrdadMzfr" />
 
 #Upgrade procedures
 
@@ -31,9 +31,9 @@ The method `application:didReceiveRemoteNotification:` needs to be replaced by `
 
 "AEPushDelegate.h" is deprecated interface and you need to remove all references. This includes removing `[[EngagementAgent shared] setPushDelegate:self]` and the delegate methods from your application delegate:
 
-	-(void)willRetrieveLaunchMessage;
-	-(void)didFailToRetrieveLaunchMessage;
-	-(void)didReceiveLaunchMessage:(AEPushMessage*)launchMessage;
+    -(void)willRetrieveLaunchMessage;
+    -(void)didFailToRetrieveLaunchMessage;
+    -(void)didReceiveLaunchMessage:(AEPushMessage*)launchMessage;
 
 ##From 1.16.0 to 2.0.0
 The following describes how to migrate an SDK integration from the Capptain service offered by Capptain SAS into an app powered by Azure Mobile Engagement.
@@ -45,12 +45,12 @@ If you are migrating from an earlier version, please consult the Capptain web si
 
 The method `registerApp:` has been replaced by the new method `init:`. Your application delegate must be updated accordingly and use connection string:
 
-			- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-			{
-			  [...]
-			  [EngagementAgent init:@"YOUR_CONNECTION_STRING"];
-			  [...]
-			}
+            - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+            {
+              [...]
+              [EngagementAgent init:@"YOUR_CONNECTION_STRING"];
+              [...]
+            }
 
 SmartAd tracking has been removed from SDK you just have to remove all instances of `AETrackModule` class
 
@@ -72,3 +72,4 @@ Examples:
 -   The class `CapptainTableViewController` is renamed to `EngagementTableViewController`.
 -   The class `CapptainUtils` is renamed to `EngagementUtils`.
 -   The class `CapptainViewController` is renamed to `EngagementViewController`.
+

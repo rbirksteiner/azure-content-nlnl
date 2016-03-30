@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Different ways to create a Windows VM | Microsoft Azure"
-	description="Lists the different ways to create a Windows virtual machine with Resource Manager."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="cynthn"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    pageTitle="Different ways to create a Windows VM | Microsoft Azure"
+    description="Lists the different ways to create a Windows virtual machine with Resource Manager."
+    services="virtual-machines"
+    documentationCenter=""
+    authors="cynthn"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="index-page"
-	ms.tgt_pltfrm="vm-windows"
-	ms.workload="infrastructure-services"
-	ms.date="10/22/2015"
-	ms.author="cynthn"/>
+    ms.service="virtual-machines"
+    ms.devlang="na"
+    ms.topic="index-page"
+    ms.tgt_pltfrm="vm-windows"
+    ms.workload="infrastructure-services"
+    ms.date="10/22/2015"
+    ms.author="cynthn"/>
 
 # Different ways to create a Windows virtual machine with Resource Manager
 
@@ -78,3 +78,4 @@ Choose an image based on the operating system you want to run. Azure and its par
 [Base configuration test environment]: virtual-machines-base-configuration-test-environment.md
 
 [Azure hybrid cloud test environments]: virtual-machines-hybrid-cloud-test-environments.md
+

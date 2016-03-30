@@ -39,13 +39,13 @@ A connector can be created within a logic app or be created directly from the Az
 1. In the Azure startboard, select **Marketplace**.
 2. Search for “Chatter Connector”, select it, and select **Create**.
 3. Enter the Name, App Service Plan, and other properties:  
-	![][1]  
-	- **Location** - choose the geographic location where you would like the connector to be deployed
-	- **Subscription** - choose a subscription you want this connector to be created in
-	- **Resource group** - select or create a resource group where the connector should reside
-	- **Web hosting plan** - select or create a web hosting plan
-	- **Pricing tier** - choose a pricing tier for the connector
-	- **Name** - give a name for your Chatter Connector
+    ![][1]  
+    - **Location** - choose the geographic location where you would like the connector to be deployed
+    - **Subscription** - choose a subscription you want this connector to be created in
+    - **Resource group** - select or create a resource group where the connector should reside
+    - **Web hosting plan** - select or create a web hosting plan
+    - **Pricing tier** - choose a pricing tier for the connector
+    - **Name** - give a name for your Chatter Connector
 
 4. Select **Create**.
 
@@ -56,28 +56,28 @@ Once your API app is created, you can now use the Chatter connector as a trigger
 1. In your logic app, open **Triggers and Actions** to open the Logic Apps Designer and configure your flow.
 
 2. The Chatter connector is listed in the gallery:  
-	![][4]
+    ![][4]
 3. Select the Chatter connector to automatically add in the designer. Select **Authorize**, enter your credentials, and select **Allow**:  
-	![][5]
-	![][6]
-	![][7]
+    ![][5]
+    ![][6]
+    ![][7]
 
 You can now use Chatter connector in the flow. You can use the new message retrieved from the Chatter trigger ("New Message") in other actions in the flow. Configure the input properties for the Chatter trigger as follows:
 
 **Group ID** - Enter the ID of the group from which new message should be retrieved. If Group ID is not provided, then new message is retrieved from the User’s Feed:  
-	![][8]
-	![][9]
+    ![][8]
+    ![][9]
 
 
 In the similar way you can use the Chatter action in the flow to post a message by selecting "Post Message" action. Configure the input properties for "Post Message" action as follows:  
-	- **Message Text** - Text content of the message to be posted
-	- **Group ID** - Specify the ID of the group to which new message should be posted. If group ID is not provided, the message will be posted to user’s feed.
-	- 	**File Name** - Name of the file to be attached with this message
-	- 	**Content Data** - Content Data of the attachment
-	- 	**Content Type** - Content Type of the Attachment
-	- 	**Content Transfer Encoding** - Content Transfer Encoding of the attachment (“none”|”base64”)
-	- 	**Mentions** - Array of user names to be tagged in this message
-	- 	**Hashtags** - Array of hashtags to be posted along the message  
+    - **Message Text** - Text content of the message to be posted
+    - **Group ID** - Specify the ID of the group to which new message should be posted. If group ID is not provided, the message will be posted to user’s feed.
+    -   **File Name** - Name of the file to be attached with this message
+    -   **Content Data** - Content Data of the attachment
+    -   **Content Type** - Content Type of the Attachment
+    -   **Content Transfer Encoding** - Content Transfer Encoding of the attachment (“none”|”base64”)
+    -   **Mentions** - Array of user names to be tagged in this message
+    -   **Hashtags** - Array of hashtags to be posted along the message  
 
 ![][10]
 ![][11]
@@ -104,3 +104,4 @@ You can also review performance statistics and control security to the connector
 [9]: ./media/app-service-logic-connector-chatter/img9.PNG
 [10]: ./media/app-service-logic-connector-chatter/img10.PNG
 [11]: ./media/app-service-logic-connector-chatter/img11.PNG
+

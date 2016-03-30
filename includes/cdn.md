@@ -60,7 +60,7 @@ Azure Service Management API, see the [Create Storage Account](http://msdn.micro
     account URI and must be unique among all hosted services in 
     Azure.
 
-	This value is also used as the name of this storage account in the portal, or when accessing this account programmatically.
+    This value is also used as the name of this storage account in the portal, or when accessing this account programmatically.
 
 5.  From the **Region/Affinity Group** drop-down list, select a region or affinity group for the storage account. Select an affinity group instead of a region if you want your storage services to be in the same data center with other Windows Azure services that you are using. This can improve performance, and no charges are incurred for egress.  
 
@@ -91,7 +91,7 @@ when the cached content time-to-live period expires.
 
 5. Once the endpoint is created, it appears in a list of endpoints for the subscription. The list view shows the URL to use to access cached content, as well as the origin domain. 
 
-	The origin domain is the location from which the CDN caches
+    The origin domain is the location from which the CDN caches
     content. The origin domain can be either a storage account or a cloud service; a storage account is used for the purposes of this example. Storage content is cached to edge servers according either to a cache-control setting that you specify, or to the default heuristics of the caching network. 
 
 
@@ -149,3 +149,4 @@ The ability to immediately purge content is currently not supported on Azure Man
 
 [create-new-storage-account]: ./media/cdn/CDN_CreateNewStorageAcct.png
 [Previous Management Portal]: ../../Shared/Media/previous-portal.png
+

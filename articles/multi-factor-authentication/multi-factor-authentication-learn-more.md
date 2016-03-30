@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication - Learn More" 
-	description="This is the Azure Multi-factor authentication page that provides links to additional content for Azure Multi-Factor Authentication.  From here you can learn about additional topics on Multi-Factor Authentication." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
-	editor="curtland"/>
+    pageTitle="Azure Multi-Factor Authentication - Learn More" 
+    description="This is the Azure Multi-factor authentication page that provides links to additional content for Azure Multi-Factor Authentication.  From here you can learn about additional topics on Multi-Factor Authentication." 
+    services="multi-factor-authentication" 
+    documentationCenter="" 
+    authors="billmath" 
+    manager="stevenpo" 
+    editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/19/2015" 
-	ms.author="billmath"/>
+    ms.service="multi-factor-authentication" 
+    ms.workload="identity" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/19/2015" 
+    ms.author="billmath"/>
 
 # Learn more about Azure Multi-Factor Authentication
 

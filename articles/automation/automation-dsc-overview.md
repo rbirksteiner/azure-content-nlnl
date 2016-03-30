@@ -108,9 +108,9 @@ A compilation job in Azure Automation DSC is an instance of compilation of a con
 
 Azure Automation DSC currently provides the following cmdlets in the [Azure Resource Manager PowerShell module](https://msdn.microsoft.com/library/mt244122.aspx) for management of compilation jobs:
 
--	`Get-AzureRmAutomationDscCompilationJob`
--	`Get-AzureRmAutomationDscCompilationJobOutput`
--	`Start-AzureRmAutomationDscCompilationJob`
+-   `Get-AzureRmAutomationDscCompilationJob`
+-   `Get-AzureRmAutomationDscCompilationJobOutput`
+-   `Start-AzureRmAutomationDscCompilationJob`
 
 ##Azure Automation DSC LifeCycle##
 Going from an empty automation account to a managed set of correctly configured nodes involves a set of processes for defining configurations, turning those configurations into node configurations, and onboarding nodes to Azure Automation DSC and to those node configurations. The following diagram illustrates the Azure Automation DSC lifecycle:
@@ -145,3 +145,4 @@ Going from an empty automation account to a managed set of correctly configured 
 - [Azure Automation DSC cmdlets] (https://msdn.microsoft.com/library/mt244122.aspx)
 - [Azure Automation DSC pricing] (http://azure.microsoft.com/pricing/details/automation/)
 - [Continuous Deployment to IaaS VMs Using Azure Automation DSC and Chocolatey] (automation-dsc-cd-chocolatey.md)
+

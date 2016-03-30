@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads | Microsoft Azure"
-	description="Premium Storage offers high-performance, low-latency disk support for I/O-intensive workloads running on Azure Virtual Machines. Azure DS-series and GS-series VMs support Premium Storage."
-	services="storage"
-	documentationCenter=""
-	authors="ms-prkhad"
-	manager=""
-	editor="tysonn"/>
+    pageTitle="Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads | Microsoft Azure"
+    description="Premium Storage offers high-performance, low-latency disk support for I/O-intensive workloads running on Azure Virtual Machines. Azure DS-series and GS-series VMs support Premium Storage."
+    services="storage"
+    documentationCenter=""
+    authors="ms-prkhad"
+    manager=""
+    editor="tysonn"/>
 
 <tags
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/04/2015"
-	ms.author="robinsh;selcint"/>
+    ms.service="storage"
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/04/2015"
+    ms.author="robinsh;selcint"/>
 
 
 # Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads
@@ -69,9 +69,9 @@ To leverage the benefits of Premium Storage, create a Premium Storage account us
 - By default, disk caching policy is "Read-Only" for all the Premium data disks, and "Read-Write" for the Premium operating system disk attached to the VM. This configuration setting is recommended to achieve the optimal performance for your application’s I/Os. For write-heavy or write-only data disks (such as SQL Server log files), disable disk caching so that you can achieve better application performance.
 - Make sure that there is sufficient bandwidth available on your VM to drive the disk traffic. For example, a STANDARD_DS1 VM has 32 MB per second dedicated bandwidth available for Premium Storage disk traffic. That means, a P10 Premium Storage disk attached to this VM can only go up to 32 MB per second but not up to 100 MB per second that the P10 disk can provide. Similarly, a STANDARD_DS13 VM can go up to 256 MB per second across all disks. Currently, the largest VM on DS-series is STANDARD_DS14 and it can provide up to 512 MB per second across all disks. The largest VM on GS-series is STANDARD_GS5 and it can give up to 2000 MB per second across all disks.
 
-	Note that these limits are for disk traffic alone, not including cache-hits and network traffic. There is a separate bandwidth available for VM network traffic, which is different from the dedicated bandwidth for Premium Storage disks. 
-	
-	For the most up-to-date information on maximum IOPS and throughput (bandwidth) for DS-series and GS-series VMs, see [Virtual Machine and Cloud Service Sizes for Azure](../virtual-machines/virtual-machines-size-specs.md). To learn about the Premium storage disks and their IOPs and throughput limits, see the table in the [Scalability and Performance Targets when using Premium Storage](#scalability-and-performance-targets-when-using-premium-storage) section in this article.
+    Note that these limits are for disk traffic alone, not including cache-hits and network traffic. There is a separate bandwidth available for VM network traffic, which is different from the dedicated bandwidth for Premium Storage disks. 
+    
+    For the most up-to-date information on maximum IOPS and throughput (bandwidth) for DS-series and GS-series VMs, see [Virtual Machine and Cloud Service Sizes for Azure](../virtual-machines/virtual-machines-size-specs.md). To learn about the Premium storage disks and their IOPs and throughput limits, see the table in the [Scalability and Performance Targets when using Premium Storage](#scalability-and-performance-targets-when-using-premium-storage) section in this article.
 
 > [AZURE.NOTE] Cache-hits are not limited by the allocated IOPS/Throughput of the disk. That is, when you use a data disk with ReadOnly cache setting on a DS-series VM or GS-series VM, Reads that are served from the cache are not subject to Premium Storage disk limits. Hence you could get very high throughput from a disk if the workload is predominantly Reads. Note that, cache is subject to separate IOPS / Throughput limits at VM level based on the VM size. DS-series VMs have roughly 4000 IOPS and 33 MB/sec per core for cache and local SSD IOs.
 
@@ -81,11 +81,11 @@ To leverage the benefits of Premium Storage, create a Premium Storage account us
 - The DS-series of Azure virtual machines can be configured to use an operating system (OS) disk hosted either on a Standard Storage account or on a Premium Storage account. If you use the OS disk only for booting, you may consider using a Standard Storage based OS disk. This provides cost benefits and similar performance results similar to the Premium Storage after booting up. If you perform any additional tasks on the OS disk other than booting, use Premium Storage as it provides better performance results. For example, if your application reads/writes from/to the OS disk, using Premium Storage based OS disk provides better performance for your VM.
 - You can use [Azure Command-Line Interface (Azure CLI)](../xplat-cli-install.md) with Premium Storage. To change the cache policy on one of your disks using Azure CLI, run the following command:
 
-	`$ azure vm disk attach -h ReadOnly <VM-Name> <Disk-Name>`
+    `$ azure vm disk attach -h ReadOnly <VM-Name> <Disk-Name>`
 
-	Note that the caching policy options can be ReadOnly, None, or ReadWrite. For more options, see the help by running the following command:
+    Note that the caching policy options can be ReadOnly, None, or ReadWrite. For more options, see the help by running the following command:
 
-	`azure vm disk attach --help`
+    `azure vm disk attach --help`
 
 
 ## Scalability and Performance Targets when using Premium Storage
@@ -95,28 +95,28 @@ When you provision a disk against a Premium Storage account, how much input/outp
 <table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
 <tbody>
 <tr>
-	<td><strong>Premium Storage Disk Type</strong></td>
-	<td><strong>P10</strong></td>
-	<td><strong>P20</strong></td>
-	<td><strong>P30</strong></td>
+    <td><strong>Premium Storage Disk Type</strong></td>
+    <td><strong>P10</strong></td>
+    <td><strong>P20</strong></td>
+    <td><strong>P30</strong></td>
 </tr>
 <tr>
-	<td><strong>Disk size</strong></td>
-	<td>128 GiB</td>
-	<td>512 GiB</td>
-	<td>1024 GiB (1 TB)</td>
+    <td><strong>Disk size</strong></td>
+    <td>128 GiB</td>
+    <td>512 GiB</td>
+    <td>1024 GiB (1 TB)</td>
 </tr>
 <tr>
-	<td><strong>IOPS per disk</strong></td>
-	<td>500</td>
-	<td>2300</td>
-	<td>5000</td>
+    <td><strong>IOPS per disk</strong></td>
+    <td>500</td>
+    <td>2300</td>
+    <td>5000</td>
 </tr>
 <tr>
-	<td><strong>Throughput per disk</strong></td>
-	<td>100 MB per second *</td>
-	<td>150 MB per second *</td>
-	<td>200 MB per second *</td>
+    <td><strong>Throughput per disk</strong></td>
+    <td>100 MB per second *</td>
+    <td>150 MB per second *</td>
+    <td>200 MB per second *</td>
 </tr>
 </tbody>
 </table>
@@ -138,17 +138,17 @@ The following table describes the scalability targets for Premium storage accoun
 <table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
 <tbody>
 <tr>
-	<td><strong>Total Account Capacity</strong></td>
-	<td><strong>Total Bandwidth for a Locally Redundant Storage Account</strong></td>
+    <td><strong>Total Account Capacity</strong></td>
+    <td><strong>Total Bandwidth for a Locally Redundant Storage Account</strong></td>
 </tr>
 <tr>
-	<td>
-	<ul>
+    <td>
+    <ul>
        <li type=round>Disk capacity: 35 TB</li>
        <li type=round>Snapshot capacity: 10 TB</li>
     </ul>
-	</td>
-	<td>Up to 50 gigabits per second for Inbound + Outbound</td>
+    </td>
+    <td>Up to 50 gigabits per second for Inbound + Outbound</td>
 </tr>
 </tbody>
 </table>
@@ -196,9 +196,9 @@ If a disk is attached to a VM, certain API operations are not permitted on the p
 Please refer to important instructions below for configuring your Linux VMs on Premium Storage:
 
 - For all Premium Storage disks with cache setting as either “ReadOnly” or “None”, you must disable “barriers” while mounting the file system in order to achieve the scalability targets for Premium Storage. You do not need barriers for this scenario because the writes to Premium Storage backed disks are durable for these cache settings. When the write request successfully completes, data has been written to the persistent store. Please use the following methods for disabling “barriers” depending on your file system:
-	- If you use **reiserFS**, disable barriers using the mount option “barrier=none” (For enabling barriers, use “barrier=flush”)
-	- If you use **ext3/ext4**, disable barriers using the mount option “barrier=0” (For enabling barriers, use “barrier=1”)
-	- If you use **XFS**, disable barriers using the mount option “nobarrier” (For enabling barriers, use the option “barrier”)
+    - If you use **reiserFS**, disable barriers using the mount option “barrier=none” (For enabling barriers, use “barrier=flush”)
+    - If you use **ext3/ext4**, disable barriers using the mount option “barrier=0” (For enabling barriers, use “barrier=1”)
+    - If you use **XFS**, disable barriers using the mount option “nobarrier” (For enabling barriers, use the option “barrier”)
 
 - For Premium Storage disks with cache setting “ReadWrite”, barriers should be enabled for durability of writes.
 - For the volume labels to persist after VM reboot, you must update /etc/fstab with the UUID references to the disks. Also refer to [How to Attach a Data Disk to a Linux Virtual Machine](../virtual-machines/virtual-machines-linux-how-to-attach-disk)
@@ -207,72 +207,72 @@ Following are the Linux Distributions that we validated with Premium Storage. We
 <table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
 <tbody>
 <tr>
-	<td><strong>Distribution</strong></td>
-	<td><strong>Version</strong></td>
-	<td><strong>Supported Kernel</strong></td>
-	<td><strong>Supported Image</strong></td>
+    <td><strong>Distribution</strong></td>
+    <td><strong>Version</strong></td>
+    <td><strong>Supported Kernel</strong></td>
+    <td><strong>Supported Image</strong></td>
 </tr>
 <tr>
-	<td rowspan="4"><strong>Ubuntu</strong></td>
-	<td>12.04</td>
-	<td>3.2.0-75.110</td>
-	<td>Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB</td>
+    <td rowspan="4"><strong>Ubuntu</strong></td>
+    <td>12.04</td>
+    <td>3.2.0-75.110</td>
+    <td>Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB</td>
 </tr>
 <tr>
-	<td>14.04</td>
-	<td>3.13.0-44.73</td>
-	<td>Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB</td>
+    <td>14.04</td>
+    <td>3.13.0-44.73</td>
+    <td>Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB</td>
 </tr>
 <tr>
-	<td>14.10</td>
-	<td>3.16.0-29.39</td>
-	<td>Ubuntu-14_10-amd64-server-20150202-en-us-30GB</td>
+    <td>14.10</td>
+    <td>3.16.0-29.39</td>
+    <td>Ubuntu-14_10-amd64-server-20150202-en-us-30GB</td>
 </tr>
 <tr>
-	<td>15.04</td>
-	<td>3.19.0-15</td>
-	<td>Ubuntu-15_04-amd64-server-20150422-en-us-30GB</td>
+    <td>15.04</td>
+    <td>3.19.0-15</td>
+    <td>Ubuntu-15_04-amd64-server-20150422-en-us-30GB</td>
 </tr>
 <tr>
-	<td><strong>SUSE</strong></td>
-	<td>SLES 12</td>
-	<td>3.12.36-38.1</td>
-	<td>suse-sles-12-priority-v20150213<br>suse-sles-12-v20150213</td>
+    <td><strong>SUSE</strong></td>
+    <td>SLES 12</td>
+    <td>3.12.36-38.1</td>
+    <td>suse-sles-12-priority-v20150213<br>suse-sles-12-v20150213</td>
 </tr>
 <tr>
-	<td><strong>CoreOS</strong></td>
-	<td>584.0.0</td>
-	<td>3.18.4</td>
-	<td>CoreOS 584.0.0</td>
+    <td><strong>CoreOS</strong></td>
+    <td>584.0.0</td>
+    <td>3.18.4</td>
+    <td>CoreOS 584.0.0</td>
 </tr>
 <tr>
-	<td rowspan="2"><strong>CentOS</strong></td>
-	<td>6.5, 6.6, 6.7, 7.0</td>
-	<td></td>
-	<td>
-		<a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 Required </a> </br>
-		*See note below
-	</td>
+    <td rowspan="2"><strong>CentOS</strong></td>
+    <td>6.5, 6.6, 6.7, 7.0</td>
+    <td></td>
+    <td>
+        <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 Required </a> </br>
+        *See note below
+    </td>
 </tr>
 <tr>
-	<td>7.1</td>
-	<td>3.10.0-229.1.2.el7</td>
-	<td>
-		<a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 Recommended </a> <br/>
-		*See note below
-	</td>
+    <td>7.1</td>
+    <td>3.10.0-229.1.2.el7</td>
+    <td>
+        <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 Recommended </a> <br/>
+        *See note below
+    </td>
 </tr>
 
 <tr>
-	<td rowspan="2"><strong>Oracle</strong></td>
-	<td>6.4</td>
-	<td></td>
-	<td><a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 Required </a></td>
+    <td rowspan="2"><strong>Oracle</strong></td>
+    <td>6.4</td>
+    <td></td>
+    <td><a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 Required </a></td>
 </tr>
 <tr>
-	<td>7.0</td>
-	<td></td>
-	<td>Contact Support for details</td>
+    <td>7.0</td>
+    <td></td>
+    <td>Contact Support for details</td>
 </tr>
 </tbody>
 </table>
@@ -282,8 +282,8 @@ Following are the Linux Distributions that we validated with Premium Storage. We
 
 Customers running OpenLogic CentOS VMs should run the following command to install the latest drivers:
 
-	sudo rpm -e hypervkvpd  ## (may return error if not installed, that's OK)
-	sudo yum install microsoft-hyper-v
+    sudo rpm -e hypervkvpd  ## (may return error if not installed, that's OK)
+    sudo yum install microsoft-hyper-v
 
 A reboot will then be required to activate the new drivers.
 
@@ -309,18 +309,18 @@ This section demonstrates how to create a Premium Storage account using the Azur
 
 This section shows how to create a Premium Storage account using the Azure Preview Portal.
 
-1.	Sign in to the [Azure Portal](portal.azure.com). Check out the [Free Trial](http://azure.microsoft.com/pricing/free-trial/) offer if you do not have a subscription yet.
+1.  Sign in to the [Azure Portal](portal.azure.com). Check out the [Free Trial](http://azure.microsoft.com/pricing/free-trial/) offer if you do not have a subscription yet.
 
-2.	On the Hub menu, click **New**.
+2.  On the Hub menu, click **New**.
 
-3.	Under **New**, click **Everything**. Select **Storage, cache, +backup**. From there, click **Storage** and then click **Create**.
+3.  Under **New**, click **Everything**. Select **Storage, cache, +backup**. From there, click **Storage** and then click **Create**.
 
-4.	On the Storage Account blade, type a name for your storage account. Click **Pricing Tier**. On the **Recommended pricing tiers** blade, click **Browse All Pricing Tiers**. On the **Choose your pricing tier** blade, choose **Premium Locally Redundant**. Click **Select**. Note that the **Storage account** blade shows **Standard-GRS** as the **Pricing Tier** by default. After you click **Select**, the **Pricing Tier** is shown as **Premium-LRS**.
+4.  On the Storage Account blade, type a name for your storage account. Click **Pricing Tier**. On the **Recommended pricing tiers** blade, click **Browse All Pricing Tiers**. On the **Choose your pricing tier** blade, choose **Premium Locally Redundant**. Click **Select**. Note that the **Storage account** blade shows **Standard-GRS** as the **Pricing Tier** by default. After you click **Select**, the **Pricing Tier** is shown as **Premium-LRS**.
 
-	![Pricing Tier][Image1]
+    ![Pricing Tier][Image1]
 
 
-5.	On the **Storage Account** blade, keep the default values for **Resource Group**, **Subscription**, **Location**, and **Diagnostics**. Click **Create**.
+5.  On the **Storage Account** blade, keep the default values for **Resource Group**, **Subscription**, **Location**, and **Diagnostics**. Click **Create**.
 
 For a complete walk-through inside an Azure environment, see [Create a Virtual Machine Running Windows in the Azure Preview Portal](../virtual-machines-windows-tutorial-azure-preview.md).
 
@@ -330,31 +330,31 @@ This PowerShell example shows how to create a new Premium Storage account and at
 1. Setup your PowerShell environment by following the steps given at [How to install and configure Azure PowerShell](../install-configure-powershell.md).
 2. Start the PowerShell console, connect to your subscription, and run the following PowerShell cmdlet in the console window. As seen in this PowerShell statement, you need to specify the **Type** parameter as **Premium_LRS** when you create a premium storage account.
 
-		New-AzureStorageAccount -StorageAccountName "yourpremiumaccount" -Location "West US" -Type "Premium_LRS"
+        New-AzureStorageAccount -StorageAccountName "yourpremiumaccount" -Location "West US" -Type "Premium_LRS"
 
 3. Next, create a new DS-Series VM and specify that you want Premium Storage by running the following PowerShell cmdlets in the console window. You can create a GS-series VM using the same steps. Specify the appropriate VM size in the commands. For e.g. Standard_GS2:
 
-    	$storageAccount = "yourpremiumaccount"
-    	$adminName = "youradmin"
-    	$adminPassword = "yourpassword"
-    	$vmName ="yourVM"
-    	$location = "West US"
-    	$imageName = "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201409.01-en.us-127GB.vhd"
-    	$vmSize ="Standard_DS2"
-    	$OSDiskPath = "https://" + $storageAccount + ".blob.core.windows.net/vhds/" + $vmName + "_OS_PIO.vhd"
-    	$vm = New-AzureVMConfig -Name $vmName -ImageName $imageName -InstanceSize $vmSize -MediaLocation $OSDiskPath
-    	Add-AzureProvisioningConfig -Windows -VM $vm -AdminUsername $adminName -Password $adminPassword
-    	New-AzureVM -ServiceName $vmName -VMs $VM -Location $location
+        $storageAccount = "yourpremiumaccount"
+        $adminName = "youradmin"
+        $adminPassword = "yourpassword"
+        $vmName ="yourVM"
+        $location = "West US"
+        $imageName = "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201409.01-en.us-127GB.vhd"
+        $vmSize ="Standard_DS2"
+        $OSDiskPath = "https://" + $storageAccount + ".blob.core.windows.net/vhds/" + $vmName + "_OS_PIO.vhd"
+        $vm = New-AzureVMConfig -Name $vmName -ImageName $imageName -InstanceSize $vmSize -MediaLocation $OSDiskPath
+        Add-AzureProvisioningConfig -Windows -VM $vm -AdminUsername $adminName -Password $adminPassword
+        New-AzureVM -ServiceName $vmName -VMs $VM -Location $location
 
 4. If you want more disk space for your VM, attach a new data disk to an existing DS-series VM or GS-series VM after it is created by running the following PowerShell cmdlets in the console window:
 
-    	$storageAccount = "yourpremiumaccount"
-    	$vmName ="yourVM"
-    	$vm = Get-AzureVM -ServiceName $vmName -Name $vmName
-    	$LunNo = 1
-    	$path = "http://" + $storageAccount + ".blob.core.windows.net/vhds/" + "myDataDisk_" + $LunNo + "_PIO.vhd"
-    	$label = "Disk " + $LunNo
-    	Add-AzureDataDisk -CreateNew -MediaLocation $path -DiskSizeInGB 128 -DiskLabel $label -LUN $LunNo -HostCaching ReadOnly -VM $vm | Update-AzureVm
+        $storageAccount = "yourpremiumaccount"
+        $vmName ="yourVM"
+        $vm = Get-AzureVM -ServiceName $vmName -Name $vmName
+        $LunNo = 1
+        $path = "http://" + $storageAccount + ".blob.core.windows.net/vhds/" + "myDataDisk_" + $LunNo + "_PIO.vhd"
+        $label = "Disk " + $LunNo
+        Add-AzureDataDisk -CreateNew -MediaLocation $path -DiskSizeInGB 128 -DiskLabel $label -LUN $LunNo -HostCaching ReadOnly -VM $vm | Update-AzureVm
 
 ### Create an Azure virtual machine using Premium Storage via the Azure Command-Line Interface
 
@@ -368,20 +368,20 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 
 #### Create a DS-series virtual machine
 
-	azure vm create -z "Standard_DS2" -l "west us" -e 22 "premium-test-vm"
-		"b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-en-us-30GB" -u "myusername" -p "passwd@123"
+    azure vm create -z "Standard_DS2" -l "west us" -e 22 "premium-test-vm"
+        "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-en-us-30GB" -u "myusername" -p "passwd@123"
 
 #### Display information about the virtual machine
 
-	azure vm show premium-test-vm
+    azure vm show premium-test-vm
 
 #### Attach a new data disk
 
-	azure vm disk attach-new premium-test-vm 20 https://premiumstorageaccount.blob.core.windows.net/vhd-store/data1.vhd
+    azure vm disk attach-new premium-test-vm 20 https://premiumstorageaccount.blob.core.windows.net/vhd-store/data1.vhd
 
 #### Display information about the new data disk
 
-	azure vm disk show premium-test-vm-premium-test-vm-0-201502210429470316
+    azure vm disk show premium-test-vm-premium-test-vm-0-201502210429470316
 
 ## Next steps
 
@@ -393,3 +393,4 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
  
+

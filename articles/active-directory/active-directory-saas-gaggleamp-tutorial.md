@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Tutorial: Azure Active Directory integration with GaggleAMP | Microsoft Azure"
-	description="Learn how to configure single sign-on between Azure Active Directory and GaggleAMP."
-	services="active-directory"
-	documentationCenter=""
-	authors="ashimaabrol"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Tutorial: Azure Active Directory integration with GaggleAMP | Microsoft Azure"
+    description="Learn how to configure single sign-on between Azure Active Directory and GaggleAMP."
+    services="active-directory"
+    documentationCenter=""
+    authors="ashimaabrol"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/14/2015"
-	ms.author="v-aabrol"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/14/2015"
+    ms.author="v-aabrol"/>
 
 
 # Tutorial: Azure Active Directory integration with GaggleAMP
@@ -253,3 +253,4 @@ When you click the GaggleAMP tile in the Access Panel, you should get automatica
 [203]: ./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_205.png
+

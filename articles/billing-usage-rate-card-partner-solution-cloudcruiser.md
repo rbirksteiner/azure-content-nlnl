@@ -26,18 +26,18 @@ The RateCard API provides rate information from Azure. After authenticating with
 Below is a sample response from the API showing the prices for the A0 (Windows) instance:
 
     {
-		"MeterId": "0e59ad56-03e5-4c3d-90d4-6670874d7e29",
-		"MeterName": "Compute Hours",
-		"MeterCategory": "Virtual Machines",
-		"MeterSubCategory": "A0 VM (Windows)",
-		"Unit": "Hours",
-		"MeterRates":
-		{
-			"0": 0.029
-		},
-		"EffectiveDate": "2014-08-01T00:00:00Z",
-		"IncludedQuantity": 0.0
-	},
+        "MeterId": "0e59ad56-03e5-4c3d-90d4-6670874d7e29",
+        "MeterName": "Compute Hours",
+        "MeterCategory": "Virtual Machines",
+        "MeterSubCategory": "A0 VM (Windows)",
+        "Unit": "Hours",
+        "MeterRates":
+        {
+            "0": 0.029
+        },
+        "EffectiveDate": "2014-08-01T00:00:00Z",
+        "IncludedQuantity": 0.0
+    },
 
 ### Cloud Cruiser’s Interface to Azure RateCard API
 Cloud Cruiser can leverage the RateCard API information in different ways. For this article, we will show how it can be used to make IaaS workload cost simulation and analysis.
@@ -126,14 +126,14 @@ through this API.
 Cloud Cruiser can leverage the integration with the Usage API in several ways. The granularity
 (hourly usage information) and resource metadata information available through
 the API provides the necessary dataset to support flexible Showback or
-Chargeback models. 
+Chargeback models. 
 
 In this tutorial, we will
 present one example of how Cloud Cruiser can benefit from the Usage API
 information. More specifically, we will create a new Resource Group on Azure,
 associate tags for the account structure, and then describe the process of
 pulling and processing the tag information into Cloud Cruiser.
- 
+ 
 The final goal is to be able
 to create reports like the one below, and be able to analyze cost and
 consumption based on the account structure populated by the tags.
@@ -157,7 +157,7 @@ Cloud Cruiser automates the Showback/Chargeback process, and can leverage the
 tag information to tie the usage to the appropriate consumer (Department,
 Division, Project, etc.). This automation provides a huge improvement and can
 ensure a consistent and auditable charging process.
- 
+ 
 
 ### Creating a Resource Group with tags on Microsoft Azure
 The first step in this tutorial is to create a new Resource Group on the Azure Portal and then create new tags to associate to the resources. For this example, we will be creating
@@ -190,12 +190,12 @@ The next step is to pull the information from the Usage API into Cloud Cruiser. 
         "quantity": 8
 
       },
-	},
+    },
 
 
 ### Import data from the Usage API into Cloud Cruiser
 
-Cloud Cruiser workbooks provide an automated way to collect and process information from the Usage API. An ETL (extract-transform-load) workbook allows you to configure the
+Cloud Cruiser workbooks provide an automated way to collect and process information from the Usage API. An ETL (extract-transform-load) workbook allows you to configure the
 collection, transformation, and publishing of data into the Cloud Cruiser database.
 
 Each workbook can have one or multiple collections. This allows you to correlate information from different sources to complement or augment the usage data. For this example, we will create a new sheet in the Azure template workbook (_UsageAPI)_ and set a new _collection_ to import information from the Usage API.
@@ -246,7 +246,7 @@ insights from your cloud usage.
 + See the [Azure Resource Manager Overview](resource-group-overview.md) article to learn more about the Azure Resource Manager.
 
 <!--Image references-->
- 
+ 
 [1]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Create-New-Workbook-Collection.png "Figure 1 - Creating a new collection"
 [2]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Import-Data-From-RateCard.png "Figure 2 - Import data from the new collection"
 [3]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Transformation-Steps-Process-RateCard-Data.png "Figure 3 - Transformation steps to process collected data from RateCard API"
@@ -261,3 +261,4 @@ insights from your cloud usage.
 [12]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/3_ImportIntoUsageAPISheet.png "Figure 12 - Usage API data imported into the UsageAPI sheet"
 [13]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/4_NewTagField.png "Figure 13 - Create new fields for the tag information"
 [14]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/5_PopulateAccountStructure.png "Figure 14 - Populating the account structure with the information from the lookups"
+

@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Manage Role Based Access Control (RBAC) with Azure PowerShell | Microsoft Azure"
-	description="How to manage RBAC with Azure PowerShell including listing roles, assigning roles and deleting role assignments."
-	services="active-directory"
-	documentationCenter=""
-	authors="IHenkel"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Manage Role Based Access Control (RBAC) with Azure PowerShell | Microsoft Azure"
+    description="How to manage RBAC with Azure PowerShell including listing roles, assigning roles and deleting role assignments."
+    services="active-directory"
+    documentationCenter=""
+    authors="IHenkel"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="12/04/2015"
-	ms.author="inhenk"/>
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+    ms.date="12/04/2015"
+    ms.author="inhenk"/>
 
 # Manage Role Based Access Control (RBAC) with Azure PowerShell
 <!-- Azure Selector -->
@@ -26,7 +26,7 @@
 ### List all available roles
 To list RBAC roles available for assignment and to inspect the operations to which they grant access use:
 
-		Get-AzureRmRoleDefinition
+        Get-AzureRmRoleDefinition
 
 ![](./media/role-based-access-control-manage-access-powershell/1-get-azure-rm-role-definition1.png)
 
@@ -43,7 +43,7 @@ To list RBAC access assignments effective at the specified subscription, resourc
 
     Get-AzureRmRoleAssignment
 
-###	List role assignments effective on a resource group
+### List role assignments effective on a resource group
 To list the access assignments for a resource group use:
 
     Get-AzureRmRoleAssignment -ResourceGroupName <resource group name>
@@ -149,3 +149,4 @@ In the following example, the *Virtual Machine Operator* custom role isn’t ava
 
 ## RBAC topics
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
+

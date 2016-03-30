@@ -1,19 +1,19 @@
 <properties
-	pageTitle="Send cross-platform notifications to users with Notification Hubs (ASP.NET)" description="Learn how to use Notification Hubs templates to send, in a single request, a platform-agnostic notification that targets all platforms."
-	services="notification-hubs"
-	documentationCenter=""
-	authors="wesmc7777"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Send cross-platform notifications to users with Notification Hubs (ASP.NET)" description="Learn how to use Notification Hubs templates to send, in a single request, a platform-agnostic notification that targets all platforms."
+    services="notification-hubs"
+    documentationCenter=""
+    authors="wesmc7777"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="notification-hubs"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-windows"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="12/11/2015" 
-	ms.author="wesmc"/>
+    ms.service="notification-hubs"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-windows"
+    ms.devlang="multiple"
+    ms.topic="article"
+    ms.date="12/11/2015" 
+    ms.author="wesmc"/>
 
 # Send cross-platform notifications to users with Notification Hubs
 
@@ -28,7 +28,7 @@ Complete the following steps to send cross-platform notifications using template
 
 2. Locate the block of code in the **Post** method that creates a new registration replace the `switch` content with the following code:
 
-		switch (deviceUpdate.Platform)
+        switch (deviceUpdate.Platform)
         {
             case "mpns":
                 var toastTemplate = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
@@ -55,7 +55,7 @@ Complete the following steps to send cross-platform notifications using template
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
         }
 
-	This code calls the platform-specific method to create a template registration instead of a native registration. Existing registrations need not be modified because template registrations derive from native registrations.
+    This code calls the platform-specific method to create a template registration instead of a native registration. Existing registrations need not be modified because template registrations derive from native registrations.
 
 3. In the **Notifications** controller, replace the **sendNotification** method with the following code:
 
@@ -70,7 +70,7 @@ Complete the following steps to send cross-platform notifications using template
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 
-	This code sends a notification to all platforms at the same time and without having to specify a native payload. Notification Hubs builds and delivers the correct payload to every device with the provided _tag_ value, as specified in the registered templates.
+    This code sends a notification to all platforms at the same time and without having to specify a native payload. Notification Hubs builds and delivers the correct payload to every device with the provided _tag_ value, as specified in the registered templates.
 
 4. Re-publish your WebApi back-end project.
 
@@ -78,7 +78,7 @@ Complete the following steps to send cross-platform notifications using template
 
 6. (Optional) Deploy the client app to a second device, then run the app.
 
-	Note that a notification is displayed on each device.
+    Note that a notification is displayed on each device.
 
 ## Next Steps
 
@@ -106,3 +106,4 @@ Now that you have completed this tutorial, find out more about Notification Hubs
 [Notify users with Notification Hubs]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Templates]: http://go.microsoft.com/fwlink/p/?LinkId=317339
 [Notification Hub How to for Windows Store]: http://msdn.microsoft.com/library/windowsazure/jj927172.aspx
+

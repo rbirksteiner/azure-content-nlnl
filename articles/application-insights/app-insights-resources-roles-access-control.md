@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Resources, roles and access control in Application Insights" 
-	description="Owners, contributors and readers of your organization's insights." 
-	services="application-insights" 
+    pageTitle="Resources, roles and access control in Application Insights" 
+    description="Owners, contributors and readers of your organization's insights." 
+    services="application-insights" 
     documentationCenter=""
-	authors="alancameronwills" 
-	manager="douge"/>
+    authors="alancameronwills" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/01/2015" 
-	ms.author="awills"/>
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/01/2015" 
+    ms.author="awills"/>
  
 # Resources, roles, and access control in Application Insights
 

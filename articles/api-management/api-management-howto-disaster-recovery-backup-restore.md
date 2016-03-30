@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How to implement disaster recovery using service backup and restore in Azure API Management" 
-	description="Learn how to use backup and restore to perform disaster recovery in Azure API Management." 
-	services="api-management" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="How to implement disaster recovery using service backup and restore in Azure API Management" 
+    description="Learn how to use backup and restore to perform disaster recovery in Azure API Management." 
+    services="api-management" 
+    documentationCenter="" 
+    authors="steved0x" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="api-management" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/07/2015" 
-	ms.author="sdanie"/>
+    ms.service="api-management" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/07/2015" 
+    ms.author="sdanie"/>
 
 # How to implement disaster recovery using service backup and restore in Azure API Management
 
@@ -32,9 +32,9 @@ This guide shows how to authenticate Azure Resource Manager requests, and how to
 
 All of the tasks that you do on resources using the Azure Resource Manager must be authenticated with Azure Active Directory using the following steps.
 
--	Add an application to the Azure Active Directory tenant.
--	Set permissions for the application that you added.
--	Get the token for authenticating requests to Azure Resource Manager.
+-   Add an application to the Azure Active Directory tenant.
+-   Set permissions for the application that you added.
+-   Get the token for authenticating requests to Azure Resource Manager.
 
 The first step is to create an Azure Active Directory application. Log into the [Azure Classic Portal](http://manage.windowsazure.com/) using the subscription that contains your API Management service instance and navigate to the **Applications** tab for your default Azure Active Directory.
 
@@ -58,28 +58,28 @@ Click **Delegated Permissions** beside the newly added **Windows** **Azure Servi
 
 Prior to invoking the APIs that generate the backup and restore it, it is necessary to get a token. The following example uses the [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) nuget package to retrieve the token.
 
-	using Microsoft.IdentityModel.Clients.ActiveDirectory;
-	using System;
+    using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    using System;
 
-	namespace GetTokenResourceManagerRequests
-	{
+    namespace GetTokenResourceManagerRequests
+    {
         class Program
-	    {
-	        static void Main(string[] args)
-	        {
-	            var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenant id}");
-	            var result = authenticationContext.AcquireToken("https://management.azure.com/", {application id}, new Uri({redirect uri});
+        {
+            static void Main(string[] args)
+            {
+                var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenant id}");
+                var result = authenticationContext.AcquireToken("https://management.azure.com/", {application id}, new Uri({redirect uri});
 
-	            if (result == null) {
-	                throw new InvalidOperationException("Failed to obtain the JWT token");
-	            }
+                if (result == null) {
+                    throw new InvalidOperationException("Failed to obtain the JWT token");
+                }
 
-	            Console.WriteLine(result.AccessToken);
+                Console.WriteLine(result.AccessToken);
 
-	            Console.ReadLine();
-	        }
-    	}
-	}
+                Console.ReadLine();
+            }
+        }
+    }
 
 Replace `{tentand id}`, `{application id}`, and `{redirect uri}` using the following instructions.
 
@@ -99,7 +99,7 @@ Once the values are specified, the code example should return a token similar to
 
 Before calling the backup and restore operations described in the following sections, set the authorization request header for your REST call.
 
-	request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
+    request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
 
 ## <a name="step1"> </a>Backup an API Management service
 To backup an API Management service issue the following HTTP request:
@@ -115,12 +115,12 @@ where:
 
 In the body of the request, specify the target Azure storage account name, access key, blob container name, and backup name:
 
-	'{  
-	    storageAccount : {storage account name for the backup},  
-	    accessKey : {access key for the account},  
-	    containerName : {backup container name},  
-	    backupName : {backup blob name}  
-	}'
+    '{  
+        storageAccount : {storage account name for the backup},  
+        accessKey : {access key for the account},  
+        containerName : {backup container name},  
+        backupName : {backup blob name}  
+    }'
 
 Set the value of the `Content-Type` request header to `application/json`.
 
@@ -149,12 +149,12 @@ where:
 
 In the body of the request, specify the backup file location, i.e. Azure storage account name, access key, blob container name, and backup name:
 
-	'{  
-	    storageAccount : {storage account name for the backup},  
-	    accessKey : {access key for the account},  
-	    containerName : {backup container name},  
-	    backupName : {backup blob name}  
-	}'
+    '{  
+        storageAccount : {storage account name for the backup},  
+        accessKey : {access key for the account},  
+        containerName : {backup container name},  
+        backupName : {backup blob name}  
+    }'
 
 Set the value of the `Content-Type` request header to `application/json`.
 
@@ -167,10 +167,10 @@ Restore is a long running operation that may take up to 30 or more minutes to co
 ## Next steps
 Check out the following Microsoft blogs for two different walkthroughs of the backup/restore process.
 
--	[Replicate Azure API Management Accounts](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/) 
-	-	Thank you to Gisela for her contribution to this article.
--	[Azure API Management: Backing Up and Restoring Configuration](http://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
-	-	The approach detailed by Stuart does not match the official guidance but it is very interesting.
+-   [Replicate Azure API Management Accounts](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/) 
+    -   Thank you to Gisela for her contribution to this article.
+-   [Azure API Management: Backing Up and Restoring Configuration](http://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
+    -   The approach detailed by Stuart does not match the official guidance but it is very interesting.
 
 [Backup an API Management service]: #step1
 [Restore an API Management service]: #step2

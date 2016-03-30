@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Create an IoT Hub using a Resource Manager template | Microsoft Azure"
-	description="Follow this tutorial to get started using Resource Manager templates to create an IoT Hub."
-	services="iot-hub"
-	documentationCenter=".net"
-	authors="dominicbetts"
-	manager="timlt"
-	editor=""/>
+    pageTitle="Create an IoT Hub using a Resource Manager template | Microsoft Azure"
+    description="Follow this tutorial to get started using Resource Manager templates to create an IoT Hub."
+    services="iot-hub"
+    documentationCenter=".net"
+    authors="dominicbetts"
+    manager="timlt"
+    editor=""/>
 
 <tags
      ms.service="iot-hub"
@@ -188,3 +188,4 @@ You can now complete the application by calling the **CreateIoTHub** and **ShowI
 [lnk-powershell-install]: https://azure.microsoft.com/en-us/blog/azps-1-0-pre/
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
 [lnk-azure-rm-overview]: https://azure.microsoft.com/documentation/articles/resource-group-overview/
+

@@ -1,22 +1,22 @@
 <properties
-	pageTitle="Create a custom virtual machine running Windows | Microsoft Azure"
-	description="Learn to create a custom virtual machine running Windows in Azure."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="cynthn"
-	manager="timlt"
-	editor=""
-	tags="azure-service-management"/>
+    pageTitle="Create a custom virtual machine running Windows | Microsoft Azure"
+    description="Learn to create a custom virtual machine running Windows in Azure."
+    services="virtual-machines"
+    documentationCenter=""
+    authors="cynthn"
+    manager="timlt"
+    editor=""
+    tags="azure-service-management"/>
 
 
 <tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/11/2015"
-	ms.author="cynthn"/>
+    ms.service="virtual-machines"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-windows"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/11/2015"
+    ms.author="cynthn"/>
 
 #Create a custom virtual machine running Windows in Azure
 
@@ -36,3 +36,4 @@ A *custom* virtual machine simply means a virtual machine you create using the *
 ##To create the virtual machine
 
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
+

@@ -33,3 +33,4 @@ The IoT Hub service throttles requests when the following quotas are exceeded:
 | Device connections | 100/sec/unit |
 | Device-to-cloud sends | 2000/min/unit (for S2), 60/min/unit (for S1) <br/> Minimum of 100/sec |
 | Cloud-to-device operations <br/> (sends, receives, feedback) | 100/min/unit |
+

@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Azure App Service web app advanced config and extensions"
-	description="Use XML Document Transformation(XDT) declarations to transform the ApplicationHost.config file in your Azure App Service web app and to add private extensions to enable custom administration actions."
-	authors="cephalin"
-	writer="cephalin"
-	editor="mollybos"
-	manager="wpickett"
-	services="app-service"
-	documentationCenter=""/>
+    pageTitle="Azure App Service web app advanced config and extensions"
+    description="Use XML Document Transformation(XDT) declarations to transform the ApplicationHost.config file in your Azure App Service web app and to add private extensions to enable custom administration actions."
+    authors="cephalin"
+    writer="cephalin"
+    editor="mollybos"
+    manager="wpickett"
+    services="app-service"
+    documentationCenter=""/>
 
 <tags
-	ms.service="app-service"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/09/2015"
-	ms.author="cephalin"/>
+    ms.service="app-service"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/09/2015"
+    ms.author="cephalin"/>
 
 # Azure App Service web app advanced config and extensions
 
@@ -30,18 +30,18 @@ To leverage this transform functionality, you create an ApplicationHost.xdt file
 
 The following applicationHost.xdt sample shows how to add a new custom environment variable to a web app that uses PHP 5.4.
 
-	<?xml version="1.0"?>
-	<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
-  		<system.webServer>
-    			<fastCgi>
-      				<application>
-         				<environmentVariables>
-            					<environmentVariable name="CONFIGTEST" value="TEST" xdt:Transform="Insert" xdt:Locator="XPath(/configuration/system.webServer/fastCgi/application[contains(@fullPath,'5.4')]/environmentVariables)" />
-         				</environmentVariables>
-      				</application>
-    			</fastCgi>
-  		</system.webServer>
-	</configuration>
+    <?xml version="1.0"?>
+    <configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+        <system.webServer>
+                <fastCgi>
+                    <application>
+                        <environmentVariables>
+                                <environmentVariable name="CONFIGTEST" value="TEST" xdt:Transform="Insert" xdt:Locator="XPath(/configuration/system.webServer/fastCgi/application[contains(@fullPath,'5.4')]/environmentVariables)" />
+                        </environmentVariables>
+                    </application>
+                </fastCgi>
+        </system.webServer>
+    </configuration>
 
 
 A log file with transform status and details is available from the FTP root under LogFiles\Transform.
@@ -86,19 +86,19 @@ The PHP Manager extension was created using the Visual Studio ASP.NET MVC 4 Web 
 
 The only special logic needed for file I/O is to indicate where the wwwroot directory of the web app is located. As the following code example shows, the environment variable "HOME" indicates the web app's root path, and the wwwroot path can be constructed by appending "site\wwwroot":
 
-	/// <summary>
-	/// Gives the location of the .user.ini file, even if one doesn't exist yet
-	/// </summary>
-	private static string GetUserSettingsFilePath()
-	{
-    		var rootPath = Environment.GetEnvironmentVariable("HOME"); // For use on Azure Websites
-    		if (rootPath == null)
-    		{
-        		rootPath = System.IO.Path.GetTempPath(); // For testing purposes
-    		};
-    		var userSettingsFile = Path.Combine(rootPath, @"site\wwwroot\.user.ini");
-    		return userSettingsFile;
-	}
+    /// <summary>
+    /// Gives the location of the .user.ini file, even if one doesn't exist yet
+    /// </summary>
+    private static string GetUserSettingsFilePath()
+    {
+            var rootPath = Environment.GetEnvironmentVariable("HOME"); // For use on Azure Websites
+            if (rootPath == null)
+            {
+                rootPath = System.IO.Path.GetTempPath(); // For testing purposes
+            };
+            var userSettingsFile = Path.Combine(rootPath, @"site\wwwroot\.user.ini");
+            return userSettingsFile;
+    }
 
 
 After you have the directory path, you can use regular file I/O operations to read and write to files.
@@ -119,46 +119,46 @@ The code for your web app extension goes under %HOME%\SiteExtensions\[your-exten
 
 To register your web app extension with the applicationHost.config file, you need to place a file called ApplicationHost.xdt in the extension root. The content of the ApplicationHost.xdt file should be as follows:
 
-	<?xml version="1.0"?>
-	<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
-  		<system.applicationHost>
-    			<sites>
-      				<site name="%XDT_SCMSITENAME%" xdt:Locator="Match(name)">
-						<!-- NOTE: Add your extension name in the application paths below -->
-        				<application path="/[your-extension-name]" xdt:Locator="Match(path)" xdt:Transform="Remove" />
-        				<application path="/[your-extension-name]" applicationPool="%XDT_APPPOOLNAME%" xdt:Transform="Insert">
-          					<virtualDirectory path="/" physicalPath="%XDT_EXTENSIONPATH%" />
-        				</application>
-      				</site>
-    			</sites>
-  		</system.applicationHost>
-	</configuration>
+    <?xml version="1.0"?>
+    <configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+        <system.applicationHost>
+                <sites>
+                    <site name="%XDT_SCMSITENAME%" xdt:Locator="Match(name)">
+                        <!-- NOTE: Add your extension name in the application paths below -->
+                        <application path="/[your-extension-name]" xdt:Locator="Match(path)" xdt:Transform="Remove" />
+                        <application path="/[your-extension-name]" applicationPool="%XDT_APPPOOLNAME%" xdt:Transform="Insert">
+                            <virtualDirectory path="/" physicalPath="%XDT_EXTENSIONPATH%" />
+                        </application>
+                    </site>
+                </sites>
+        </system.applicationHost>
+    </configuration>
 
 The name you select as your extension name should have the same name as your extension root folder.
 
 This has the effect of adding a new application path to the `system.applicationHost` sites list under the SCM site. The SCM site is a site administration end point with specific access credentials. It has the URL `https://[your-site-name].scm.azurewebsites.net`.  
 
-	<system.applicationHost>
-  		...
-  		<site name="~1[your-website]" id="1716402716">
-      			<bindings>
-        			<binding protocol="http" bindingInformation="*:80: [your-website].scm.azurewebsites.net" />
-        			<binding protocol="https" bindingInformation="*:443: [your-website].scm.azurewebsites.net" />
-      			</bindings>
-      			<traceFailedRequestsLogging enabled="false" directory="C:\DWASFiles\Sites\[your-website]\VirtualDirectory0\LogFiles" />
-      			<detailedErrorLogging enabled="false" directory="C:\DWASFiles\Sites\[your-website]\VirtualDirectory0\LogFiles\DetailedErrors" />
-      			<logFile logSiteId="false" />
-      			<application path="/" applicationPool="[your-website]">
-        			<virtualDirectory path="/" physicalPath="D:\Program Files (x86)\SiteExtensions\Kudu\1.24.20926.5" />
-      			</application>
-				<!-- Note the custom changes that go here -->
-      			<application path="/[your-extension-name]" applicationPool="[your-website]">
-        			<virtualDirectory path="/" physicalPath="C:\DWASFiles\Sites\[your-website]\VirtualDirectory0\SiteExtensions\[your-extension-name]" />
-      			</application>
-    		</site>
-  	</sites>
-	  ...
-	</system.applicationHost>
+    <system.applicationHost>
+        ...
+        <site name="~1[your-website]" id="1716402716">
+                <bindings>
+                    <binding protocol="http" bindingInformation="*:80: [your-website].scm.azurewebsites.net" />
+                    <binding protocol="https" bindingInformation="*:443: [your-website].scm.azurewebsites.net" />
+                </bindings>
+                <traceFailedRequestsLogging enabled="false" directory="C:\DWASFiles\Sites\[your-website]\VirtualDirectory0\LogFiles" />
+                <detailedErrorLogging enabled="false" directory="C:\DWASFiles\Sites\[your-website]\VirtualDirectory0\LogFiles\DetailedErrors" />
+                <logFile logSiteId="false" />
+                <application path="/" applicationPool="[your-website]">
+                    <virtualDirectory path="/" physicalPath="D:\Program Files (x86)\SiteExtensions\Kudu\1.24.20926.5" />
+                </application>
+                <!-- Note the custom changes that go here -->
+                <application path="/[your-extension-name]" applicationPool="[your-website]">
+                    <virtualDirectory path="/" physicalPath="C:\DWASFiles\Sites\[your-website]\VirtualDirectory0\SiteExtensions\[your-extension-name]" />
+                </application>
+            </site>
+    </sites>
+      ...
+    </system.applicationHost>
 
 ###<a id="deploy"></a> Web app extension deployment
 
@@ -181,3 +181,4 @@ It is possible to disable all private (not pre-installed) extensions for your we
 [TransformSitePHPUI]: ./media/web-sites-transform-extend/TransformSitePHPUI.png
 [TransformSiteSolEx]: ./media/web-sites-transform-extend/TransformSiteSolEx.png
  
+

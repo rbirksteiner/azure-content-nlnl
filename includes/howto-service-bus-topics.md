@@ -29,11 +29,11 @@ To create a service namespace:
 
 5.  After making sure the namespace name is available, choose the country or region in which your namespace should be hosted (make sure you use the same country/region in which you are deploying your compute resources).
 
-	> [AZURE.IMPORTANT] Pick the **same region** that you intend to choose for deploying your application. This will give you the best performance.
+    > [AZURE.IMPORTANT] Pick the **same region** that you intend to choose for deploying your application. This will give you the best performance.
 
-6. 	Leave the other fields in the dialog with their default values (**Messaging** and **Standard Tier**), then click the check mark. The system now creates your service namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
+6.  Leave the other fields in the dialog with their default values (**Messaging** and **Standard Tier**), then click the check mark. The system now creates your service namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
 
-	![][6]
+    ![][6]
 
 ## Obtain the default management credentials for the namespace
 
@@ -60,4 +60,5 @@ In order to perform management operations, such as creating a topic or subscript
   [4]: ./media/howto-service-bus-topics/sb-queues-06.png
   
   [6]: ./media/howto-service-bus-topics/getting-started-multi-tier-27.png
+
 

@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure AD AngularJS Getting Started | Microsoft Azure"
-	description="How to build a Angular JS Single Page application that integrates with Azure AD for sign in and calls Azure AD protected APIs using OAuth."
-	services="active-directory"
-	documentationCenter=""
-	authors="dstrockis"
-	manager="mbaldwin"
-	editor=""/>
+    pageTitle="Azure AD AngularJS Getting Started | Microsoft Azure"
+    description="How to build a Angular JS Single Page application that integrates with Azure AD for sign in and calls Azure AD protected APIs using OAuth."
+    services="active-directory"
+    documentationCenter=""
+    authors="dstrockis"
+    manager="mbaldwin"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="javascript"
-	ms.topic="article"
-	ms.date="10/13/2015"
-	ms.author="dastrock"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="javascript"
+    ms.topic="article"
+    ms.date="10/13/2015"
+    ms.author="dastrock"/>
 
 
 # Securing AngularJS Single Page Apps with Azure AD
@@ -43,14 +43,14 @@ To get started, [download the app skeleton](https://github.com/AzureADQuickStart
 ## *1. Register the DirectorySearcher Application*
 To enable your app to authenticate users and get tokens, you'll first need to register it in your Azure AD tenant:
 
--	Sign into the [Azure Management Portal](https://manage.windowsazure.com)
--	In the left hand nav, click on **Active Directory**
--	Select a tenant in which to register the application.
--	Click the **Applications** tab, and click **Add** in the bottom drawer.
--	Follow the prompts and create a new **Web Application and/or WebAPI**.
-    -	The **Name** of the application will describe your application to end-users.
-    -	The **Redirect Uri** is location to which AAD will return tokens.  The default location for this sample is `https://localhost:44326/`
--	Once you've completed registration, AAD will assign your app a unique **Client ID**.  You'll need this value in the next sections, so copy it from the **Configure** tab.
+-   Sign into the [Azure Management Portal](https://manage.windowsazure.com)
+-   In the left hand nav, click on **Active Directory**
+-   Select a tenant in which to register the application.
+-   Click the **Applications** tab, and click **Add** in the bottom drawer.
+-   Follow the prompts and create a new **Web Application and/or WebAPI**.
+    -   The **Name** of the application will describe your application to end-users.
+    -   The **Redirect Uri** is location to which AAD will return tokens.  The default location for this sample is `https://localhost:44326/`
+-   Once you've completed registration, AAD will assign your app a unique **Client ID**.  You'll need this value in the next sections, so copy it from the **Configure** tab.
 - Adal.js uses the OAuth implicit flow to communicate with Azure AD.  You must enable the implicit flow for your application by:
     - Download the application manifest by clicking **Manage Manifest**.
     - Open the manifest and locate the `oauth2AllowImplicitFlow` property. Set its value to `true`.
@@ -59,7 +59,7 @@ To enable your app to authenticate users and get tokens, you'll first need to re
 ## *2. Install ADAL & Configure the SPA*
 Now that you have an application in Azure AD, you can install adal.js and write your identity-related code.
 
--	Begin by adding adal.js to the TodoSPA project using the Package Manager Console:
+-   Begin by adding adal.js to the TodoSPA project using the Package Manager Console:
   - Download [adal.js](https://raw.githubusercontent.com/AzureAD/azure-activedirectory-library-for-js/master/lib/adal.js) and add it to the `App/Scripts/` project directory.
   - Download [adal-angular.js](https://raw.githubusercontent.com/AzureAD/azure-activedirectory-library-for-js/master/lib/adal-angular.js) and add it to the `App/Scripts/` project directory.
   - Load each script before the end of the `</body>` in `index.html`:
@@ -71,11 +71,11 @@ Now that you have an application in Azure AD, you can install adal.js and write 
 ...
 ```
 
--	For the SPA's backend To Do List API to accept tokens from the browser, the backend needs configuration information about the app registration. In the TodoSPA project, open `web.config`.  Replace the values of the elements in the `<appSettings>` section to reflect the values you input into the Azure Portal.  Your code will reference these values whenever it uses ADAL.
-    -	The `ida:Tenant` is the domain of your Azure AD tenant, e.g. contoso.onmicrosoft.com
-    -	The `ida:Audience` must be the **Client ID** of your application you copied from the portal.
+-   For the SPA's backend To Do List API to accept tokens from the browser, the backend needs configuration information about the app registration. In the TodoSPA project, open `web.config`.  Replace the values of the elements in the `<appSettings>` section to reflect the values you input into the Azure Portal.  Your code will reference these values whenever it uses ADAL.
+    -   The `ida:Tenant` is the domain of your Azure AD tenant, e.g. contoso.onmicrosoft.com
+    -   The `ida:Audience` must be the **Client ID** of your application you copied from the portal.
 
-## *3.	Use ADAL to secure pages in the SPA*
+## *3.  Use ADAL to secure pages in the SPA*
 Adal.js has been built to integrate with AngularJS route and http providers, which enables you to secure individual views in your SPA.
 
 - In `App/Scripts/app.js`, bring in the adal.js module:
@@ -150,3 +150,4 @@ For reference, the completed sample (without your configuration values) is provi
 [Call a CORS Web API from a SPA >>](https://github.com/AzureAdSamples/SinglePageApp-WebAPI-AngularJS-DotNet)
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
+

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Use Stream Analytics to export to Power BI from Application Insights" 
-	description="Demonstrates how to use Stream Analytics to process exported data." 
-	services="application-insights" 
+    pageTitle="Use Stream Analytics to export to Power BI from Application Insights" 
+    description="Demonstrates how to use Stream Analytics to process exported data." 
+    services="application-insights" 
     documentationCenter=""
-	authors="noamben" 
-	manager="douge"/>
+    authors="noamben" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/25/2015" 
-	ms.author="awills"/>
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/25/2015" 
+    ms.author="awills"/>
  
 # Use Stream Analytics to feed Power BI from Application Insights
 
@@ -268,3 +268,4 @@ Noam Ben Zeev shows how to export to Power BI.
 * [Detailed data model reference for the property types and values.](app-insights-export-data-model.md)
 * [Application Insights](app-insights-overview.md)
 * [More samples and walkthroughs](app-insights-code-samples.md)
+

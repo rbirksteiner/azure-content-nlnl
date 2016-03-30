@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
    pageTitle="Azure Mobile Engagement Troubleshooting Guides" 
    description="Troubleshooting Guide for Azure Mobile Engagement" 
    services="mobile-engagement" 
@@ -77,28 +77,28 @@ More platform specific troubleshooting instructions below:
 
 1. **iOS** 
 
-	- Ensure that the certificates are valid and unexpired for iOS Push Notifications. 
-	- Ensure that you are correctly configuring a *Production* certificate in your Mobile Engagement app. 
-	- Ensure that you are testing on a *real, physical device.* The iOS simulator cannot process push messages.
-	- Ensure that the Bundle Identifier is correctly configured in the mobile app. See the instructions [here](https://developer.apple.com/library/prerelease/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6)
-	- When testing, use "Ad Hoc" distribution in your mobile provisioning profile. You will not be able to receive notification if your app is compiled using "Debug"
+    - Ensure that the certificates are valid and unexpired for iOS Push Notifications. 
+    - Ensure that you are correctly configuring a *Production* certificate in your Mobile Engagement app. 
+    - Ensure that you are testing on a *real, physical device.* The iOS simulator cannot process push messages.
+    - Ensure that the Bundle Identifier is correctly configured in the mobile app. See the instructions [here](https://developer.apple.com/library/prerelease/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6)
+    - When testing, use "Ad Hoc" distribution in your mobile provisioning profile. You will not be able to receive notification if your app is compiled using "Debug"
 
 2. **Android**
 
-	- Ensure that you have specified the correct Project number in your mobile app's AndroidManifest.xml file which is followed by \n character. 
-	
-	    	<meta-data android:name="engagement:gcm:sender" android:value="************\n" />
-	    
-	- Ensure that you are not missing or mis-configured any permissions in the Android Manifest file. 
-	- If you are receiving system notifications but not in-app then review the [Specify an icon for notifications section](mobile-engagement-android-get-started.md) as likely you are not specifying the correct icon in the Android Manifest file. 
-	- If you are sending a BigPicture notification, then ensure that if you have external image servers then they need to be able to support HTTP "GET" and "HEAD".
+    - Ensure that you have specified the correct Project number in your mobile app's AndroidManifest.xml file which is followed by \n character. 
+    
+            <meta-data android:name="engagement:gcm:sender" android:value="************\n" />
+        
+    - Ensure that you are not missing or mis-configured any permissions in the Android Manifest file. 
+    - If you are receiving system notifications but not in-app then review the [Specify an icon for notifications section](mobile-engagement-android-get-started.md) as likely you are not specifying the correct icon in the Android Manifest file. 
+    - If you are sending a BigPicture notification, then ensure that if you have external image servers then they need to be able to support HTTP "GET" and "HEAD".
 
 3. **Windows**
-	
-	- Ensure that you have associated the app with a valid Windows Store app. In Visual Studio - you will have to right click the project and select "Associate App with Store" option and select the app you created in the Windows Store. This Windows Store app should be the same one from where you got the native push credentials to configure in the Mobile Engagement portal.
-	- If you are receiving out-of-app push notifications but not in-app notifications with `EngagementOverlay` integration then ensure there is a root grid element in your page. EngagementOverlay uses the first “Grid” element it finds in your xaml file to add two web views on your page. If you want to locate where web views will be set, you can define a grid named “EngagementGrid” like this however you will have to ensure there is sufficient height and width for the two subsequent web views which will show the notification and the following announcement as in-app notification:
-		
-			<Grid x:Name="EngagementGrid"></Grid>
+    
+    - Ensure that you have associated the app with a valid Windows Store app. In Visual Studio - you will have to right click the project and select "Associate App with Store" option and select the app you created in the Windows Store. This Windows Store app should be the same one from where you got the native push credentials to configure in the Mobile Engagement portal.
+    - If you are receiving out-of-app push notifications but not in-app notifications with `EngagementOverlay` integration then ensure there is a root grid element in your page. EngagementOverlay uses the first “Grid” element it finds in your xaml file to add two web views on your page. If you want to locate where web views will be set, you can define a grid named “EngagementGrid” like this however you will have to ensure there is sufficient height and width for the two subsequent web views which will show the notification and the following announcement as in-app notification:
+        
+            <Grid x:Name="EngagementGrid"></Grid>
 
 ### I created a push notification/announcement/ campaign and even after it sent me the notification, it is showing as 'Active'. What does it mean? 
 The **campaign** that you created in Mobile Engagement is called so because it is a long running push notification meaning as new devices connect to your mobile engagement platform, they will be automatically sent the notification you configure here, as long as they satisfy the criterion you set in the campaign. This is not a one shot single notification setup. You will have to manually click on the **Finish** button to terminate the campaign so that it doesn't send further notifications. 
@@ -113,10 +113,11 @@ If you are unable to resolve the issue yourself then you can:
 1. Search for your issue in the existing threads on StackOverflow forum and [MSDN forum](https://social.msdn.microsoft.com/Forums/windows/en-US/home?forum=azuremobileengagement) and if not then ask a question there. 
 2. If you find a feature missing then add/vote for the request on our [UserVoice forum](http://feedback.azure.com/forums/285737-mobile-engagement)
 3. If you have Microsoft Support Open a support incident by providing the following details: 
-	- Azure Subscription ID
-	- Platform (e.g. iOS, Android etc)
-	- App ID
-	- Campaign ID (For push notification issues)
-	- Device ID
-	- Mobile Engagement SDK version (e.g. Android SDK v2.1.0)
-	- Error details with exact error message and scenario
+    - Azure Subscription ID
+    - Platform (e.g. iOS, Android etc)
+    - App ID
+    - Campaign ID (For push notification issues)
+    - Device ID
+    - Mobile Engagement SDK version (e.g. Android SDK v2.1.0)
+    - Error details with exact error message and scenario
+

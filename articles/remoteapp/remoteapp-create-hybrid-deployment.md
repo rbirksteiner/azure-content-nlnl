@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How to create a hybrid collection for Azure RemoteApp | Microsoft Azure" 
-	description="Learn how to create a deployment of RemoteApp that connects to your internal network." 
-	services="remoteapp" 
-	documentationCenter="" 
-	authors="lizap" 
-	manager="mbaldwin" 
-	editor=""/>
+    pageTitle="How to create a hybrid collection for Azure RemoteApp | Microsoft Azure" 
+    description="Learn how to create a deployment of RemoteApp that connects to your internal network." 
+    services="remoteapp" 
+    documentationCenter="" 
+    authors="lizap" 
+    manager="mbaldwin" 
+    editor=""/>
 
 <tags 
-	ms.service="remoteapp" 
-	ms.workload="compute" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/04/2015" 
-	ms.author="elizapo"/>
+    ms.service="remoteapp" 
+    ms.workload="compute" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/04/2015" 
+    ms.author="elizapo"/>
 
 # How to create a hybrid collection for Azure RemoteApp
 
@@ -27,14 +27,14 @@ Don't know which you need? Check out [Which kind of collection do you need for A
 
 This tutorial walks you through the process of creating a hybrid collection. There are eight steps: 
 
-1.	Decide what [image](remoteapp-imageoptions.md) to use for your collection. You can create a custom image or use one of the Microsoft images included with your subscription.
+1.  Decide what [image](remoteapp-imageoptions.md) to use for your collection. You can create a custom image or use one of the Microsoft images included with your subscription.
 2. Set up your virtual network. Check out the [VNET planning](remoteapp-planvpn.md) and [sizing](remoteapp-vnetsizing.md) information.
-2.	Create a collection.
-2.	Join your collection to your local domain.
-3.	Add a template image to your collection.
-4.	Configure directory synchronization. Azure RemoteApp requires that you integrate with Azure Active Directory by either 1) configuring Azure Active Directory Sync with the Password Sync option, or 2) configuring Azure Active Directory Sync without the Password Sync option but using a domain that is federated to AD FS. Check out the [configuration info for Active Directory with RemoteApp](remoteapp-ad.md).
-5.	Publish RemoteApp apps.
-6.	Configure user access.
+2.  Create a collection.
+2.  Join your collection to your local domain.
+3.  Add a template image to your collection.
+4.  Configure directory synchronization. Azure RemoteApp requires that you integrate with Azure Active Directory by either 1) configuring Azure Active Directory Sync with the Password Sync option, or 2) configuring Azure Active Directory Sync without the Password Sync option but using a domain that is federated to AD FS. Check out the [configuration info for Active Directory with RemoteApp](remoteapp-ad.md).
+5.  Publish RemoteApp apps.
+6.  Configure user access.
 
 **Before you begin**
 
@@ -95,7 +95,7 @@ Did something go wrong? Check out the [hybrid collection troubleshooting informa
 1. On the **Quick Start** page, click **join a local domain**.
 2. Add the Azure RemoteApp service account to your local Active Directory domain. You will need the domain name, organizational unit, service account user name and password. 
 
-	This is the information you gathered if you followed the steps in [Configure Active Directory for Azure RemoteApp](remoteapp-ad.md).
+    This is the information you gathered if you followed the steps in [Configure Active Directory for Azure RemoteApp](remoteapp-ad.md).
 
 
 ## Step 4: Link to an Azure RemoteApp image ##
@@ -128,17 +128,17 @@ You can publish multiple apps to your collection. From the publishing page, clic
 
 Now that you have created your collection, you need to add the users that you want to be able to use your remote resources. The users that you provide access to need to exist in the Active Directory tenant associated with the subscription you used to create this Azure RemoteApp collection.
 
-1.	From the Quick Start page, click **Configure user access**. 
-2.	Enter the work account (from Active Directory) or Microsoft account that you want to grant access for.
+1.  From the Quick Start page, click **Configure user access**. 
+2.  Enter the work account (from Active Directory) or Microsoft account that you want to grant access for.
 
-	**Notes:** 
+    **Notes:** 
 
-	Make sure that you use the “user@domain.com” format.
+    Make sure that you use the “user@domain.com” format.
 
-	If you are using Office 365 ProPlus in your collection, you must use the Active Directory identities for your users. This helps validate licensing. 
+    If you are using Office 365 ProPlus in your collection, you must use the Active Directory identities for your users. This helps validate licensing. 
 
 
-3.	Once the users are validated, click **Save**.
+3.  Once the users are validated, click **Save**.
 
 
 ## Next steps ##

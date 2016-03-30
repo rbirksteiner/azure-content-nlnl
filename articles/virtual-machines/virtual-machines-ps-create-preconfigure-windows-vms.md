@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Create a Windows VM with Powershell | Microsoft Azure"
-	description="Create Windows virtual machines using Azure PowerShell and the classic deploment model."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="cynthn"
-	manager="timlt"
-	editor=""
-	tags="azure-service-management"/>
+    pageTitle="Create a Windows VM with Powershell | Microsoft Azure"
+    description="Create Windows virtual machines using Azure PowerShell and the classic deploment model."
+    services="virtual-machines"
+    documentationCenter=""
+    authors="cynthn"
+    manager="timlt"
+    editor=""
+    tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/13/2015"
-	ms.author="cynthn"/>
+    ms.service="virtual-machines"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-windows"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/13/2015"
+    ms.author="cynthn"/>
 
 # Create Windows virtual machines with Powershell and the classic deployment model 
 
@@ -45,10 +45,10 @@ If you haven't done so already, use the instructions in [How to install and conf
 
 Set your Azure subscription and storage account by running these commands at the Azure PowerShell command prompt. Replace everything within the quotes, including the < and > characters, with the correct names.
 
-	$subscr="<subscription name>"
-	$staccount="<storage account name>"
-	Select-AzureSubscription -SubscriptionName $subscr –Current
-	Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
+    $subscr="<subscription name>"
+    $staccount="<storage account name>"
+    Select-AzureSubscription -SubscriptionName $subscr –Current
+    Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
 
 You can get the correct subscription name from the SubscriptionName property of the output of the **Get-AzureSubscription** command. You can get the correct storage account name from the Label property of the output of the **Get-AzureStorageAccount** command after you run the **Select-AzureSubscription** command.
 
@@ -56,7 +56,7 @@ You can get the correct subscription name from the SubscriptionName property of 
 
 Next, you need to determine the ImageFamily or Label value for the specific image corresponding to the Azure virtual machine you want to create. You can get the list of available ImageFamily values with this command.
 
-	Get-AzureVMImage | select ImageFamily -Unique
+    Get-AzureVMImage | select ImageFamily -Unique
 
 Here are some examples of ImageFamily values for Windows-based computers:
 
@@ -67,17 +67,17 @@ Here are some examples of ImageFamily values for Windows-based computers:
 
 If you find the image you are looking for, open a fresh instance of the text editor of your choice or the PowerShell Integrated Scripting Environment (ISE). Copy the following into the new text file or the PowerShell ISE, substituting the ImageFamily value.
 
-	$family="<ImageFamily value>"
-	$image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
+    $family="<ImageFamily value>"
+    $image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 
 In some cases, the image name is in the Label property instead of the ImageFamily value. If you didn't find the image that you are looking for using the ImageFamily property, list the images by their Label property with this command.
 
-	Get-AzureVMImage | select Label -Unique
+    Get-AzureVMImage | select Label -Unique
 
 If you find the right image with this command, open a fresh instance of the text editor of your choice or the PowerShell ISE. Copy the following into the new text file or the PowerShell ISE, substituting the Label value.
 
-	$label="<Label value>"
-	$image = Get-AzureVMImage | where { $_.Label -eq $label } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
+    $label="<Label value>"
+    $image = Get-AzureVMImage | where { $_.Label -eq $label } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 
 ## Step 4: Build your command set
 
@@ -87,83 +87,83 @@ Start your command set by choosing one of these two command blocks (required).
 
 Option 1: Specify a virtual machine name and a size.
 
-	$vmname="<machine name>"
-	$vmsize="<Specify one: Small, Medium, Large, ExtraLarge, A5, A6, A7, A8, A9>"
-	$vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image
+    $vmname="<machine name>"
+    $vmsize="<Specify one: Small, Medium, Large, ExtraLarge, A5, A6, A7, A8, A9>"
+    $vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image
 
 Option 2: Specify a name, size, and availability set name.
 
-	$vmname="<machine name>"
-	$vmsize="<Specify one: Small, Medium, Large, ExtraLarge, A5, A6, A7, A8, A9>"
-	$availset="<set name>"
-	$vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image -AvailabilitySetName $availset
+    $vmname="<machine name>"
+    $vmsize="<Specify one: Small, Medium, Large, ExtraLarge, A5, A6, A7, A8, A9>"
+    $availset="<set name>"
+    $vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image -AvailabilitySetName $availset
 
 For the InstanceSize values for D-, DS-, or G-series virtual machines, see [Virtual Machine and Cloud Service Sizes for Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
 
 Optionally, for a standalone Windows computer, specify the local administrator account and password.
 
-	$cred=Get-Credential -Message "Type the name and password of the local administrator account."
-	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
+    $cred=Get-Credential -Message "Type the name and password of the local administrator account."
+    $vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
 
  Choose a strong password. To check its strength, see [Password Checker: Using Strong Passwords](https://www.microsoft.com/security/pc-security/password-checker.aspx).
 
 Optionally, to add the Windows computer to an existing Active Directory domain, specify the local administrator account and password, the domain, and the name and password of a domain account.
 
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account."
-	$cred2=Get-Credential –Message "Now type the name (not including the domain) and password of an account that has permission to add the machine to the domain."
-	$domaindns="<FQDN of the domain that the machine is joining>"
-	$domacctdomain="<domain of the account that has permission to add the machine to the domain>"
-	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password -WindowsDomain -Domain $domacctdomain -DomainUserName $cred2.GetNetworkCredential().Username -DomainPassword $cred2.GetNetworkCredential().Password -JoinDomain $domaindns
+    $cred1=Get-Credential –Message "Type the name and password of the local administrator account."
+    $cred2=Get-Credential –Message "Now type the name (not including the domain) and password of an account that has permission to add the machine to the domain."
+    $domaindns="<FQDN of the domain that the machine is joining>"
+    $domacctdomain="<domain of the account that has permission to add the machine to the domain>"
+    $vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password -WindowsDomain -Domain $domacctdomain -DomainUserName $cred2.GetNetworkCredential().Username -DomainPassword $cred2.GetNetworkCredential().Password -JoinDomain $domaindns
 
 For additional pre-configuration options for Windows-based virtual machines, see the syntax for the **Windows** and **WindowsDomain** parameter sets in [Add-AzureProvisioningConfig](https://msdn.microsoft.com/library/azure/dn495299.aspx).
 
 Optionally, assign the virtual machine a specific IP address, known as a static DIP.
 
-	$vm1 | Set-AzureStaticVNetIP -IPAddress <IP address>
+    $vm1 | Set-AzureStaticVNetIP -IPAddress <IP address>
 
 You can verify that a specific IP address is available with:
 
-	Test-AzureStaticVNetIP –VNetName <VNet name> –IPAddress <IP address>
+    Test-AzureStaticVNetIP –VNetName <VNet name> –IPAddress <IP address>
 
 Optionally, assign the virtual machine to a specific subnet in an Azure virtual network.
 
-	$vm1 | Set-AzureSubnet -SubnetNames "<name of the subnet>"
+    $vm1 | Set-AzureSubnet -SubnetNames "<name of the subnet>"
 
 Optionally, add a single data disk to the virtual machine.
 
-	$disksize=<size of the disk in GB>
-	$disklabel="<the label on the disk>"
-	$lun=<Logical Unit Number (LUN) of the disk>
-	$hcaching="<Specify one: ReadOnly, ReadWrite, None>"
-	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB $disksize -DiskLabel $disklabel -LUN $lun -HostCaching $hcaching
+    $disksize=<size of the disk in GB>
+    $disklabel="<the label on the disk>"
+    $lun=<Logical Unit Number (LUN) of the disk>
+    $hcaching="<Specify one: ReadOnly, ReadWrite, None>"
+    $vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB $disksize -DiskLabel $disklabel -LUN $lun -HostCaching $hcaching
 
 For an Active Directory domain controller, set $hcaching to "None".
 
 Optionally, add the virtual machine to an existing load-balanced set for external traffic.
 
-	$port="<Specify one: tcp, udp>"
-	$localport=<port number of the internal port>
-	$pubport=<port number of the external port>
-	$endpointname="<name of the endpoint>"
-	$lbsetname="<name of the existing load-balanced set>"
-	$probeprotocol="<Specify one: tcp, http>"
-	$probeport=<TCP or HTTP port number of probe traffic>
-	$probepath="<URL path for probe traffic>"
-	$vm1 | Add-AzureEndpoint -Name $endpointname -Protocol $prot -LocalPort $localport -PublicPort $pubport -LBSetName $lbsetname -ProbeProtocol $probeprotocol -ProbePort $probeport -ProbePath $probepath
+    $port="<Specify one: tcp, udp>"
+    $localport=<port number of the internal port>
+    $pubport=<port number of the external port>
+    $endpointname="<name of the endpoint>"
+    $lbsetname="<name of the existing load-balanced set>"
+    $probeprotocol="<Specify one: tcp, http>"
+    $probeport=<TCP or HTTP port number of probe traffic>
+    $probepath="<URL path for probe traffic>"
+    $vm1 | Add-AzureEndpoint -Name $endpointname -Protocol $prot -LocalPort $localport -PublicPort $pubport -LBSetName $lbsetname -ProbeProtocol $probeprotocol -ProbePort $probeport -ProbePath $probepath
 
 Finally, choose one of these required command blocks for creating the virtual machine.
 
 Option 1: Create the virtual machine in an existing cloud service.
 
-	New-AzureVM –ServiceName "<short name of the cloud service>" -VMs $vm1
+    New-AzureVM –ServiceName "<short name of the cloud service>" -VMs $vm1
 
 The short name of the cloud service is the name that appears in the list of Cloud Services in the Azure classic portal or in the list of Resource Groups in the Azure portal.
 
 Option 2: Create the virtual machine in an existing cloud service and virtual network.
 
-	$svcname="<short name of the cloud service>"
-	$vnetname="<name of the virtual network>"
-	New-AzureVM –ServiceName $svcname -VMs $vm1 -VNetName $vnetname
+    $svcname="<short name of the cloud service>"
+    $vnetname="<name of the virtual network>"
+    New-AzureVM –ServiceName $svcname -VMs $vm1 -VNetName $vnetname
 
 ## Step 5: Run your command set
 
@@ -194,28 +194,28 @@ I need a PowerShell command set to create the initial virtual machine for an Act
 
 Here is the corresponding Azure PowerShell command set to create this virtual machine, with blank lines between each block for readability.
 
-	$family="Windows Server 2012 R2 Datacenter"
-	$image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
-	$vmname="AZDC1"
-	$vmsize="Medium"
-	$vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image
+    $family="Windows Server 2012 R2 Datacenter"
+    $image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
+    $vmname="AZDC1"
+    $vmsize="Medium"
+    $vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image
 
-	$cred=Get-Credential -Message "Type the name and password of the local administrator account."
-	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
+    $cred=Get-Credential -Message "Type the name and password of the local administrator account."
+    $vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
 
-	$vm1 | Set-AzureSubnet -SubnetNames "BackEnd"
+    $vm1 | Set-AzureSubnet -SubnetNames "BackEnd"
 
-	$vm1 | Set-AzureStaticVNetIP -IPAddress 192.168.244.4
+    $vm1 | Set-AzureStaticVNetIP -IPAddress 192.168.244.4
 
-	$disksize=20
-	$disklabel="DCData"
-	$lun=0
-	$hcaching="None"
-	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB $disksize -DiskLabel $disklabel -LUN $lun -HostCaching $hcaching
+    $disksize=20
+    $disklabel="DCData"
+    $lun=0
+    $hcaching="None"
+    $vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB $disksize -DiskLabel $disklabel -LUN $lun -HostCaching $hcaching
 
-	$svcname="Azure-TailspinToys"
-	$vnetname="AZDatacenter"
-	New-AzureVM –ServiceName $svcname -VMs $vm1 -VNetName $vnetname
+    $svcname="Azure-TailspinToys"
+    $vnetname="AZDatacenter"
+    New-AzureVM –ServiceName $svcname -VMs $vm1 -VNetName $vnetname
 
 ### Example 2
 
@@ -230,29 +230,29 @@ I need a PowerShell command set to create a virtual machine for a line-of-busine
 
 Here is the corresponding Azure PowerShell command set to create this virtual machine.
 
-	$family="Windows Server 2012 R2 Datacenter"
-	$image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
-	$vmname="LOB1"
-	$vmsize="Large"
-	$vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image
+    $family="Windows Server 2012 R2 Datacenter"
+    $image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
+    $vmname="LOB1"
+    $vmsize="Large"
+    $vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image
 
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account."
-	$cred2=Get-Credential –Message "Now type the name (not including the domain) and password of an account that has permission to add the machine to the domain."
-	$domaindns="corp.contoso.com"
-	$domacctdomain="CORP"
-	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password -WindowsDomain -Domain $domacctdomain -DomainUserName $cred2.GetNetworkCredential().Username -DomainPassword $cred2.GetNetworkCredential().Password -JoinDomain $domaindns
+    $cred1=Get-Credential –Message "Type the name and password of the local administrator account."
+    $cred2=Get-Credential –Message "Now type the name (not including the domain) and password of an account that has permission to add the machine to the domain."
+    $domaindns="corp.contoso.com"
+    $domacctdomain="CORP"
+    $vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password -WindowsDomain -Domain $domacctdomain -DomainUserName $cred2.GetNetworkCredential().Username -DomainPassword $cred2.GetNetworkCredential().Password -JoinDomain $domaindns
 
-	$vm1 | Set-AzureSubnet -SubnetNames "FrontEnd"
+    $vm1 | Set-AzureSubnet -SubnetNames "FrontEnd"
 
-	$disksize=200
-	$disklabel="LOBData"
-	$lun=0
-	$hcaching="ReadWrite"
-	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB $disksize -DiskLabel $disklabel -LUN $lun -HostCaching $hcaching
+    $disksize=200
+    $disklabel="LOBData"
+    $lun=0
+    $hcaching="ReadWrite"
+    $vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB $disksize -DiskLabel $disklabel -LUN $lun -HostCaching $hcaching
 
-	$svcname="Azure-TailspinToys"
-	$vnetname="AZDatacenter"
-	New-AzureVM –ServiceName $svcname -VMs $vm1 -VNetName $vnetname
+    $svcname="Azure-TailspinToys"
+    $vnetname="AZDatacenter"
+    New-AzureVM –ServiceName $svcname -VMs $vm1 -VNetName $vnetname
 
 
 ## Additional resources
@@ -264,6 +264,7 @@ Here is the corresponding Azure PowerShell command set to create this virtual ma
 [Overview of Azure Virtual Machines](http://msdn.microsoft.com/library/azure/jj156143.aspx)
 
 [How to install and configure Azure PowerShell](../install-configure-powershell.md)
+
 
 
 

@@ -22,82 +22,82 @@ In order to use [EventProcessorHost][], you must have an [Azure Storage account]
 
 5. In Solution Explorer, right-click the solution, and then click **Manage NuGet Packages**.
 
-	The **Manage NuGet Packages** dialog box appears.
+    The **Manage NuGet Packages** dialog box appears.
 
 6. Search for `Microsoft Azure Service Bus Event Hub - EventProcessorHost`, click **Install**, and accept the terms of use.
 
     ![][13]
 
-	This downloads, installs, and adds a reference to the [Azure Service Bus Event Hub - EventProcessorHost NuGet package](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost), with all its dependencies.
+    This downloads, installs, and adds a reference to the [Azure Service Bus Event Hub - EventProcessorHost NuGet package](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost), with all its dependencies.
 
 7. Right-click the **Receiver** project, click **Add**, and then click **Class**. Name the new class **SimpleEventProcessor**, and then click **OK** to create the class.
 
 8. Add the following statements at the top of the SimpleEventProcessor.cs file:
 
-	```
-	using Microsoft.ServiceBus.Messaging;
-	using System.Diagnostics;
-	using System.Threading.Tasks;
-	```
+    ```
+    using Microsoft.ServiceBus.Messaging;
+    using System.Diagnostics;
+    using System.Threading.Tasks;
+    ```
 
-	Then, substitute the following code for the body of the class:
+    Then, substitute the following code for the body of the class:
 
-	```
+    ```
     class SimpleEventProcessor : IEventProcessor
-	{
-	    Stopwatch checkpointStopWatch;
+    {
+        Stopwatch checkpointStopWatch;
 
-	    async Task IEventProcessor.CloseAsync(PartitionContext context, CloseReason reason)
-	    {
-	        Console.WriteLine("Processor Shutting Down. Partition '{0}', Reason: '{1}'.", context.Lease.PartitionId, reason);
-	        if (reason == CloseReason.Shutdown)
-	        {
-	            await context.CheckpointAsync();
-	        }
-	    }
+        async Task IEventProcessor.CloseAsync(PartitionContext context, CloseReason reason)
+        {
+            Console.WriteLine("Processor Shutting Down. Partition '{0}', Reason: '{1}'.", context.Lease.PartitionId, reason);
+            if (reason == CloseReason.Shutdown)
+            {
+                await context.CheckpointAsync();
+            }
+        }
 
-	    Task IEventProcessor.OpenAsync(PartitionContext context)
-	    {
-	        Console.WriteLine("SimpleEventProcessor initialized.  Partition: '{0}', Offset: '{1}'", context.Lease.PartitionId, context.Lease.Offset);
-	        this.checkpointStopWatch = new Stopwatch();
-	        this.checkpointStopWatch.Start();
-	        return Task.FromResult<object>(null);
-	    }
+        Task IEventProcessor.OpenAsync(PartitionContext context)
+        {
+            Console.WriteLine("SimpleEventProcessor initialized.  Partition: '{0}', Offset: '{1}'", context.Lease.PartitionId, context.Lease.Offset);
+            this.checkpointStopWatch = new Stopwatch();
+            this.checkpointStopWatch.Start();
+            return Task.FromResult<object>(null);
+        }
 
-	    async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
-	    {
-	        foreach (EventData eventData in messages)
-	        {
-	            string data = Encoding.UTF8.GetString(eventData.GetBytes());
+        async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
+        {
+            foreach (EventData eventData in messages)
+            {
+                string data = Encoding.UTF8.GetString(eventData.GetBytes());
 
-	            Console.WriteLine(string.Format("Message received.  Partition: '{0}', Data: '{1}'",
-	                context.Lease.PartitionId, data));
-	        }
+                Console.WriteLine(string.Format("Message received.  Partition: '{0}', Data: '{1}'",
+                    context.Lease.PartitionId, data));
+            }
 
-	        //Call checkpoint every 5 minutes, so that worker can resume processing from 5 minutes back if it restarts.
-	        if (this.checkpointStopWatch.Elapsed > TimeSpan.FromMinutes(5))
+            //Call checkpoint every 5 minutes, so that worker can resume processing from 5 minutes back if it restarts.
+            if (this.checkpointStopWatch.Elapsed > TimeSpan.FromMinutes(5))
             {
                 await context.CheckpointAsync();
                 this.checkpointStopWatch.Restart();
             }
-	    }
-	}
+        }
+    }
     ````
 
-	This class will be called by the **EventProcessorHost** to process events received from the Event Hub. Note that the `SimpleEventProcessor` class uses a stopwatch to periodically call the checkpoint method on the **EventProcessorHost** context. This ensures that, if the receiver is restarted, it will lose no more than five minutes of processing work.
+    This class will be called by the **EventProcessorHost** to process events received from the Event Hub. Note that the `SimpleEventProcessor` class uses a stopwatch to periodically call the checkpoint method on the **EventProcessorHost** context. This ensures that, if the receiver is restarted, it will lose no more than five minutes of processing work.
 
 9. In the **Program** class, add the following `using` statements at the top of the file:
 
-	```
-	using Microsoft.ServiceBus.Messaging;
-	using Microsoft.Threading;
-	using System.Threading.Tasks;
-	```
+    ```
+    using Microsoft.ServiceBus.Messaging;
+    using Microsoft.Threading;
+    using System.Threading.Tasks;
+    ```
 
-	Then, modify the `Main` method in the `Program` class as follows, substituting the Event Hub name and connection string, and the storage account and key that you copied in the previous sections:
+    Then, modify the `Main` method in the `Program` class as follows, substituting the Event Hub name and connection string, and the storage account and key that you copied in the previous sections:
 
     ```
-	static void Main(string[] args)
+    static void Main(string[] args)
     {
       string eventHubConnectionString = "{event hub connection string}";
       string eventHubName = "{event hub name}";
@@ -114,7 +114,7 @@ In order to use [EventProcessorHost][], you must have an [Azure Storage account]
       Console.ReadLine();
       eventProcessorHost.UnregisterEventProcessorAsync().Wait();
     }
-	````
+    ````
 
 > [AZURE.NOTE] This tutorial uses a single instance of [EventProcessorHost][]. To increase throughput, it is recommended that you run multiple instances of [EventProcessorHost][], as shown in the [Scaled out event processing][] sample. In those cases, the various instances automatically coordinate with each other in order to load balance the received events. If you want multiple receivers to each process *all* the events, you must use the **ConsumerGroup** concept. When receiving events from different machines, it might be useful to specify names for [EventProcessorHost][] instances based on the machines (or roles) in which they are deployed. For more information about these topics, see the [Event Hubs Overview][] and [Event Hubs Programming Guide][] topics.
 
@@ -132,4 +132,5 @@ In order to use [EventProcessorHost][], you must have an [Azure Storage account]
 [12]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp3.png
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
+
 

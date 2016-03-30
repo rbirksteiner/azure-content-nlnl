@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure AD Android Getting Started | Microsoft Azure"
-	description="How to build an Android application that integrates with Azure AD for sign in and calls Azure AD protected APIs using OAuth."
-	services="active-directory"
-	documentationCenter="android"
-	authors="brandwe"
-	manager="mbaldwin"
-	editor=""/>
+    pageTitle="Azure AD Android Getting Started | Microsoft Azure"
+    description="How to build an Android application that integrates with Azure AD for sign in and calls Azure AD protected APIs using OAuth."
+    services="active-directory"
+    documentationCenter="android"
+    authors="brandwe"
+    manager="mbaldwin"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="mobile-android"
-	ms.devlang="java"
-	ms.topic="article"
-	ms.date="10/13/2015"
-	ms.author="brandwe"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="mobile-android"
+    ms.devlang="java"
+    ms.topic="article"
+    ms.date="10/13/2015"
+    ms.author="brandwe"/>
 
 # Integrate Azure AD into an Android App
 
@@ -26,9 +26,9 @@ If you're developing a desktop application, Azure AD makes it simple and straigh
 
 For Android clients that need to access protected resources, Azure AD provides the Active Directory Authentication Library, or ADAL.  ADAL’s sole purpose in life is to make it easy for your app to get access tokens.  To demonstrate just how easy it is, here we’ll build an Android To-Do List application that:
 
--	Gets access tokens for calling a To-Do List API using the [OAuth 2.0 authentication protocol](https://msdn.microsoft.com/library/azure/dn645545.aspx).
--	Gets a user's To-Do List
--	Signs users out.
+-   Gets access tokens for calling a To-Do List API using the [OAuth 2.0 authentication protocol](https://msdn.microsoft.com/library/azure/dn645545.aspx).
+-   Gets a user's To-Do List
+-   Signs users out.
 
 To get started, you'll need an Azure AD tenant in which you can create users and register an application.  If you don't already have a tenant, [learn how to get one](active-directory-howto-tenant.md).
 

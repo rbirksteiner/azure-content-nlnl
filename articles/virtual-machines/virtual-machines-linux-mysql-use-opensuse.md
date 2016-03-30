@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Install MySQL on a OpenSUSE Linux VM in Microsoft Azure"
-	description="Learn to install MySQL on a virtual machine in Azure."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="cynthn"
-	manager="timlt"
-	editor=""
-	tags="azure-service-management"/>
+    pageTitle="Install MySQL on a OpenSUSE Linux VM in Microsoft Azure"
+    description="Learn to install MySQL on a virtual machine in Azure."
+    services="virtual-machines"
+    documentationCenter=""
+    authors="cynthn"
+    manager="timlt"
+    editor=""
+    tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/31/2015"
-	ms.author="cynthn"/>
+    ms.service="virtual-machines"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-linux"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/31/2015"
+    ms.author="cynthn"/>
 
 # Install MySQL on a virtual machine running OpenSUSE Linux in Azure
 
@@ -42,4 +42,5 @@ For details about MySQL, see the [MySQL Documentation][MySQLDocs].
 
 [MySQLDocs]: http://dev.mysql.com/doc/index-topic.html
 [MySQL]: http://www.mysql.com
+
 

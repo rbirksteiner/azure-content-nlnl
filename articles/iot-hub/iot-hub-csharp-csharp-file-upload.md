@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Upload files from devices using IoT Hub | Microsoft Azure"
-	description="Follow this tutorial to learn how to upload files from devices using Azure IoT Hub with C#."
-	services="iot-hub"
-	documentationCenter=".net"
-	authors="fsautomata"
-	manager="timlt"
-	editor=""/>
+    pageTitle="Upload files from devices using IoT Hub | Microsoft Azure"
+    description="Follow this tutorial to learn how to upload files from devices using Azure IoT Hub with C#."
+    services="iot-hub"
+    documentationCenter=".net"
+    authors="fsautomata"
+    manager="timlt"
+    editor=""/>
 
 <tags
      ms.service="iot-hub"
@@ -97,3 +97,4 @@ Additional information on IoT Hub:
 [Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
 [Azure IoT Developer Center]: http://www.azure.com/develop/iot
+

@@ -65,7 +65,7 @@ You should be able to open this file in a browser such as Chrome to now view mov
 - Create an HDInsight instance (enabling Remote Desktop) and connect to the machine through Remote Desktop (available from the Azure Classic Portal)
 - From the HDInsight machine, open the "Hadoop Command Line"
 - Change to the Mahout bin directory under c:\apps\dist. Mine looks like this, but you can get a more recent version of Mahout
-	C:\apps\dist\mahout-1.0.0.2.3.3.0-2992\bin
+    C:\apps\dist\mahout-1.0.0.2.3.3.0-2992\bin
 - Execute the following command line where you replace the [CONTAINER] & [STORAGEACT] with your Azure Storage details (where you placed the movie_usage.txt file):
 
     mahout itemsimilarity -s SIMILARITY_COSINE --input "wasb://[CONTAINER]@[STORAGEACT].blob.core.windows.net/movie_usage.txt" --output "wasb://[CONTAINER]@[STORAGEACT].blob.core.windows.net/output/" --tempDir "wasb://[CONTAINER]@[STORAGEACT].blob.core.windows.net/temp" -m 5
@@ -94,4 +94,5 @@ If you want to see how the recommendations were returned when you clicked on thi
 Data was provided by GroupLens (http://grouplens.org/datasets/hetrec-2011/)
 
 Please refer to this page for details on the licensing of this data: http://files.grouplens.org/datasets/hetrec2011/hetrec2011-movielens-readme.txt
+
 

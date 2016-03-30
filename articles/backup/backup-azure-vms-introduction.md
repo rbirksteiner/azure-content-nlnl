@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Planning your VM backup infrastructure in Azure | Microsoft Azure"
-	description="Important considerations for planning your VM backup infrastructure in Azure"
-	services="backup"
-	documentationCenter=""
-	authors="Jim-Parker"
-	manager="jwhit"
-	editor=""/>
+    pageTitle="Planning your VM backup infrastructure in Azure | Microsoft Azure"
+    description="Important considerations for planning your VM backup infrastructure in Azure"
+    services="backup"
+    documentationCenter=""
+    authors="Jim-Parker"
+    manager="jwhit"
+    editor=""/>
 
 <tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/29/2015"
-	ms.author="trinadhk; aashishr; jimpark; markgal"/>
+    ms.service="backup"
+    ms.workload="storage-backup-recovery"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/29/2015"
+    ms.author="trinadhk; aashishr; jimpark; markgal"/>
 
 # Plan your VM backup infrastructure in Azure
 This article covers the key considerations that you should keep in mind when planning your virtual machine (VM) backup infrastructure. If you've [prepared your environment](backup-azure-vms-prepare.md), this is the next step before you begin [backing up your VMs](backup-azure-vms.md). If you need more information about Azure virtual machines, see the [Virtual Machines documentation](https://azure.microsoft.com/documentation/services/virtual-machines/).
@@ -101,7 +101,7 @@ For example, take an A2 Standard-sized virtual machine that has two additional d
 |---------|--------|------|
 | Operating system disk | 1023 GB | 17 GB |
 | Local disk / Resource disk | 135 GB | 5 GB (not included for backup) |
-| Data disk 1 |	1023 GB | 30 GB |
+| Data disk 1 | 1023 GB | 30 GB |
 | Data disk 2 | 1023 GB | 0 GB |
 
 The *actual* size of the virtual machine in this case is 17 GB + 30 GB + 0 GB = 47 GB. This becomes the Protected Instance size that the monthly bill is based on. As the amount of data in the virtual machine grows, the Protected Instance size used for billing also will change accordingly.
@@ -119,3 +119,4 @@ If you have questions, or if there is any feature that you would like to see inc
 - [Manage virtual machine backup](backup-azure-manage-vms.md)
 - [Restore virtual machines](backup-azure-restore-vms.md)
 - [Troubleshoot VM backup issues](backup-azure-vms-troubleshoot.md)
+

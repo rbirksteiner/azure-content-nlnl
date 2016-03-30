@@ -6,7 +6,7 @@
  authors="Blackmist"
  manager="paulettm"
  editor="cgronlun"
-	tags="azure-portal"/>
+    tags="azure-portal"/>
 
 <tags
  ms.service="hdinsight"
@@ -71,3 +71,4 @@ Now that you have learned how to use JDBC to work with Hive, use the following l
 * [Use Hive with HDInsight](hdinsight-use-hive.md)
 * [Use Pig with HDInsight](hdinsight-use-pig.md)
 * [Use MapReduce jobs with HDInsight](hdinsight-use-mapreduce.md)
+

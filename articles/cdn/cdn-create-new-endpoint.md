@@ -1,19 +1,19 @@
 <properties 
-	 pageTitle="How to Enable the Content Delivery Network (CDN) for Azure" 
-	 description="This topic shows how to enable the Content Delivery Network (CDN) for Azure." 
-	 services="cdn" 
-	 documentationCenter="" 
-	 authors="camsoper" 
-	 manager="dwrede" 
-	 editor=""/>
+     pageTitle="How to Enable the Content Delivery Network (CDN) for Azure" 
+     description="This topic shows how to enable the Content Delivery Network (CDN) for Azure." 
+     services="cdn" 
+     documentationCenter="" 
+     authors="camsoper" 
+     manager="dwrede" 
+     editor=""/>
 <tags 
-	 ms.service="cdn" 
-	 ms.workload="media" 
-	 ms.tgt_pltfrm="na" 
-	 ms.devlang="na" 
-	 ms.topic="article" 
-	 ms.date="12/02/2015" 
-	 ms.author="casoper"/>
+     ms.service="cdn" 
+     ms.workload="media" 
+     ms.tgt_pltfrm="na" 
+     ms.devlang="na" 
+     ms.topic="article" 
+     ms.date="12/02/2015" 
+     ms.author="casoper"/>
 
 
 
@@ -71,8 +71,8 @@ A CDN profile is a collection of CDN endpoints.  Each profile contains one or mo
 3. Enter a **Name** for this CDN endpoint.  This name will be used to access your cached resources at the domain `<EndpointName>.azureedge.net`.
 
 4. In the **Origin type** dropdown, select your origin type.
-	
-	![CDN origin type](./media/cdn-create-new-endpoint/cdn-origin-type.png)
+    
+    ![CDN origin type](./media/cdn-create-new-endpoint/cdn-origin-type.png)
 
 5. In the **Origin hostname** dropdown, select or type your origin domain.  The dropdown will list all available origins of the type you specified in step 4.  If you selected *Custom origin* as your **Origin type**, you will type in the domain of your custom origin.
 

@@ -142,3 +142,4 @@ You can now use your new Azure Active Directory identity to use [Azure resource 
     data:    Tags:
     data:
     info:    group create command OK
+

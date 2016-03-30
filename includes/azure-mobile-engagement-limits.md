@@ -8,3 +8,4 @@ Segments|100 per app
 Criteria per segment|10
 Active Push Campaigns|50 per app
 Total Push Campaigns (includes Active & Completed)|1000 per app
+

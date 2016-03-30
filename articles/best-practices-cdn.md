@@ -237,3 +237,4 @@ By default, Azure CDN instances have the **Query String Status** setting disable
 + [Serve Content from Azure CDN in Your Web Application](cdn-serve-content-from-cdn-in-your-web-application.md)
 + [Integrate a cloud service with Azure CDN](cdn-cloud-service-with-cdn.md)
 + [Best Practices for the Azure Content Delivery Network](http://azure.microsoft.com/blog/2011/03/18/best-practices-for-the-windows-azure-content-delivery-network/)
+

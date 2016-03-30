@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Is Cloud Services on Azure the compute option I want?" 
-	description="Learn about Azure compute hosting options and how they work: App Service, Cloud Services, and Virtual Machines" 
-	services="cloud-services"
+    pageTitle="Is Cloud Services on Azure the compute option I want?" 
+    description="Learn about Azure compute hosting options and how they work: App Service, Cloud Services, and Virtual Machines" 
+    services="cloud-services"
     documentationCenter=""
-	authors="Thraka" 
-	manager="timlt"/>
+    authors="Thraka" 
+    manager="timlt"/>
 
 <tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/01/2015" 
-	ms.author="adegeo"/>
+    ms.service="multiple" 
+    ms.workload="multiple" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/01/2015" 
+    ms.author="adegeo"/>
 
 # Should I Choose Cloud Services?
 

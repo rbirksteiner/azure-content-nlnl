@@ -58,7 +58,7 @@ Use the following steps to create a non-readable secondary as a single database.
 
 1. Using version 13.0.600.65 or later of SQL Server Management Studio.
 
- 	 > [AZURE.IMPORTANT] Download the [latest](https://msdn.microsoft.com/library/mt238290.aspx) version of SQL Server Management Studio. It is recommended that you always use the latest version of Management Studio to remain in sync with updates to the Azure portal.
+     > [AZURE.IMPORTANT] Download the [latest](https://msdn.microsoft.com/library/mt238290.aspx) version of SQL Server Management Studio. It is recommended that you always use the latest version of Management Studio to remain in sync with updates to the Azure portal.
 
 
 2. Open the Databases folder, expand the **System Databases** folder, right-click on **master**, and then click **New Query**.
@@ -233,3 +233,4 @@ Use the following steps to monitor a geo-replication partnership.
 - [Designing cloud applications for business continuity using geo-replication](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Business Continuity Overview](sql-database-business-continuity.md)
 - [SQL Database documentation](https://azure.microsoft.com/documentation/services/sql-database/)
+

@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Deploy a SharePoint Server 2013 farm | Microsoft Azure"
-	description="Deploy a high-availability SharePoint Server 2013 farm using SQL Server AlwaysOn Availability Groups in Azure in five phases."
-	documentationCenter=""
-	services="virtual-machines"
-	authors="JoeDavies-MSFT"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    pageTitle="Deploy a SharePoint Server 2013 farm | Microsoft Azure"
+    description="Deploy a high-availability SharePoint Server 2013 farm using SQL Server AlwaysOn Availability Groups in Azure in five phases."
+    documentationCenter=""
+    services="virtual-machines"
+    authors="JoeDavies-MSFT"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="Windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/11/2015"
-	ms.author="josephd"/>
+    ms.service="virtual-machines"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="Windows"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/11/2015"
+    ms.author="josephd"/>
 
 # Deploying SharePoint with SQL Server AlwaysOn Availability Groups in Azure
 
@@ -62,4 +62,5 @@ For additional information about SharePoint with SQL Server AlwaysOn Availabilit
 ## Next step
 
 - Start the configuration of this workload with [Phase 1](virtual-machines-workload-intranet-sharepoint-phase1.md).
+
 

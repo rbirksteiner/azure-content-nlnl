@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Related and linked resources in the tile gallery" 
-	description="Learn about related and linked resources that are displayed in the tile gallery of the Azure preview portal." 
-	services="azure-portal" 
-	documentationCenter="" 
-	authors="adamabdelhamed" 
-	manager="wpickett" 
-	editor=""/>
+    pageTitle="Related and linked resources in the tile gallery" 
+    description="Learn about related and linked resources that are displayed in the tile gallery of the Azure preview portal." 
+    services="azure-portal" 
+    documentationCenter="" 
+    authors="adamabdelhamed" 
+    manager="wpickett" 
+    editor=""/>
 
 <tags 
-	ms.service="azure-portal" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/16/2015" 
-	ms.author="adamab"/>
+    ms.service="azure-portal" 
+    ms.workload="multiple" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="07/16/2015" 
+    ms.author="adamab"/>
 
 # Related and linked resources in the tile gallery
 
@@ -44,3 +44,4 @@ For a complete discussion of working with linked resources, see [Linking resourc
 - If you need an introduction to writing Azure Resource Manager templates, see [Authoring templates](../resource-group-authoring-templates.md).
 - To dive into greater detail about creating links between resources, see [Linking resources in Azure Resource Manager](../resource-group-link-resources.md).
 - To understand more about working with resource groups through the preview portal, see [Using the Azure Preview Portal to manage your Azure resources](resource-group-portal.md).
+

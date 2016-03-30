@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Monitor usage in Windows Store and Phone apps with Application Insights" 
-	description="Analyze usage of your Windows device app with Application Insights." 
-	services="application-insights" 
+    pageTitle="Monitor usage in Windows Store and Phone apps with Application Insights" 
+    description="Analyze usage of your Windows device app with Application Insights." 
+    services="application-insights" 
     documentationCenter="windows"
-	authors="alancameronwills" 
-	manager="douge"/>
+    authors="alancameronwills" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/25/2015" 
-	ms.author="awills"/>
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/25/2015" 
+    ms.author="awills"/>
 
 #  Monitor usage in Windows Store and Windows Phone apps with Application Insights
 

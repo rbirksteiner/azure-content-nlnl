@@ -53,7 +53,7 @@ The following considerations might help you decide on a size:
 
 *   The A8/A10 and A9/A11 virtual machine sizes have the same physical capabilities. The A8 and A9 virtual machine instances include an additional network adapter that is connected to a remote direct memory access (RDMA) network for fast communication between virtual machines. The A8 and A9 instances are designed for high-performance computing applications that require constant and low-latency communication between nodes during execution, for example, applications that use the Message Passing Interface (MPI). The A10 and A11 virtual machine instances do not include the additional network adapter. A10 and A11 instances are designed for high-performance computing applications that do not require constant and low-latency communication between nodes, also known as parametric or embarrassingly parallel applications.
 
-*	Dv2-series, D-series, G-series, and the DS/GS counterparts  are ideal for applications that demand faster CPUs, better local disk performance, or have higher memory demands.  They offer a powerful combination for many enterprise-grade applications.
+*   Dv2-series, D-series, G-series, and the DS/GS counterparts  are ideal for applications that demand faster CPUs, better local disk performance, or have higher memory demands.  They offer a powerful combination for many enterprise-grade applications.
 
 
 
@@ -162,5 +162,6 @@ In the classic deployment model, some VM sizes are slightly different in Powersh
 [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md)
 
 [About the A8, A9, A10, and A11 compute intensive instances](virtual-machines-a8-a9-a10-a11-specs.md)
+
 
 

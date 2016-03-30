@@ -30,16 +30,16 @@ Follow steps for [Creating a Logic App]. BizTalk JSON Encoder can be used as an 
 ### Action
 - Click on BizTalk JSON Encoder from the right pane
 
-	![Action settings][3]
+    ![Action settings][3]
 - Click on ->
 
-	![List of Actions][4]
+    ![List of Actions][4]
 - BizTalk JSON Encoder supports two actions. Select *Xml to JSON*
 
-	![Xml to JSON input][5]
+    ![Xml to JSON input][5]
 - Provide the inputs for the action and configure it
 
-	![Encode and send configured][6]
+    ![Encode and send configured][6]
 
 Parameter|Type|Description of the parameter
 ---|---|---
@@ -67,3 +67,4 @@ You can also review performance statistics and control security to the connector
 
 <!--Links -->
 [Creating a Logic App]: app-service-logic-create-a-logic-app.md
+

@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Tutorial: Azure Active Directory integration with 23 Video | Microsoft Azure"
-	description="Learn how to configure single sign-on between Azure Active Directory and 23 Video."
-	services="active-directory"
-	documentationCenter=""
-	authors="jeevansd"
-	manager="prasannas"
-	editor=""/>
+    pageTitle="Tutorial: Azure Active Directory integration with 23 Video | Microsoft Azure"
+    description="Learn how to configure single sign-on between Azure Active Directory and 23 Video."
+    services="active-directory"
+    documentationCenter=""
+    authors="jeevansd"
+    manager="prasannas"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/04/2015"
-	ms.author="jeedes"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/04/2015"
+    ms.author="jeedes"/>
 
 
 # Tutorial: Azure Active Directory integration with 23 Video
@@ -259,6 +259,7 @@ When you click the 23 Video tile in the Access Panel, you should get automatical
 [400]: ./media/active-directory-saas-23video-tutorial/tutorial_23video_10.png
 [401]: ./media/active-directory-saas-23video-tutorial/tutorial_23video_11.png
 [402]: ./media/active-directory-saas-23video-tutorial/tutorial_23video_12.png
+
 
 
 

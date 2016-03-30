@@ -90,8 +90,8 @@ By using Service Fabric, you can:
 ## Next steps
 
 * For more information: 
-	* [Why a microservices approach to building applications?](service-fabric-overview-microservices.md).
-	* [Technical Overview](service-fabric-technical-overview.md).
+    * [Why a microservices approach to building applications?](service-fabric-overview-microservices.md).
+    * [Technical Overview](service-fabric-technical-overview.md).
 * Setup your Service Fabric [development environment](service-fabric-get-started.md).  
 * Choosing a [programming model framework](service-fabric-choose-framework.md) for your service.
 
@@ -99,3 +99,4 @@ By using Service Fabric, you can:
 [Image1]: media/service-fabric-overview/Service-Fabric-Overview.png
 
  
+

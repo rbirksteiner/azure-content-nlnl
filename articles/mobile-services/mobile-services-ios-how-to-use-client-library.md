@@ -1,20 +1,20 @@
 <properties
-	pageTitle="How to Use iOS Client Library for Azure Mobile Services"
-	description="How to Use iOS Client Library for Mobile Services"
-	services="mobile-services"
-	documentationCenter="ios"
-	authors="krisragh"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="How to Use iOS Client Library for Azure Mobile Services"
+    description="How to Use iOS Client Library for Mobile Services"
+    services="mobile-services"
+    documentationCenter="ios"
+    authors="krisragh"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-ios"
-	ms.devlang="objective-c"
-	ms.topic="article"
-	ms.date="10/01/2015"
-	ms.author="krisragh"/>
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-ios"
+    ms.devlang="objective-c"
+    ms.topic="article"
+    ms.date="10/01/2015"
+    ms.author="krisragh"/>
 
 # How to Use iOS Client Library for Azure Mobile Services
 
@@ -48,7 +48,7 @@ MSClient *client = [MSClient clientWithApplicationURLString:@"AppUrl" applicatio
 To access or update data for your Azure mobile service, create a reference to the table. Replace `TodoItem` with the name of your table.
 
 ```
-	MSTable *table = [client tableWithName:@"TodoItem"];
+    MSTable *table = [client tableWithName:@"TodoItem"];
 ```
 
 ##<a name="querying"></a>How to: Query Data
@@ -57,13 +57,13 @@ To create a database query, query the `MSTable` object. The following query gets
 
 ```
 [table readWithCompletion:^(MSQueryResult *result, NSError *error) {
-		if(error) { // error is nil if no error occured
-				NSLog(@"ERROR %@", error);
-		} else {
-				for(NSDictionary *item in result.items) { // items is NSArray of records that match query
-						NSLog(@"Todo Item: %@", [item objectForKey:@"text"]);
-				}
-		}
+        if(error) { // error is nil if no error occured
+                NSLog(@"ERROR %@", error);
+        } else {
+                for(NSDictionary *item in result.items) { // items is NSArray of records that match query
+                        NSLog(@"Todo Item: %@", [item objectForKey:@"text"]);
+                }
+        }
 }];
 ```
 
@@ -78,13 +78,13 @@ To filter using a predicate, use an `NSPredicate` and `readWithPredicate`. The f
 NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 // Query the TodoItem table and update the items property with the results from the service
 [table readWithPredicate:predicate completion:^(MSQueryResult *result, NSError *error) {
-		if(error) {
-				NSLog(@"ERROR %@", error);
-		} else {
-				for(NSDictionary *item in result.items) {
-						NSLog(@"Todo Item: %@", [item objectForKey:@"text"]);
-				}
-		}
+        if(error) {
+                NSLog(@"ERROR %@", error);
+        } else {
+                for(NSDictionary *item in result.items) {
+                        NSLog(@"Todo Item: %@", [item objectForKey:@"text"]);
+                }
+        }
 }];
 ```
 
@@ -114,13 +114,13 @@ To sort results, let's look at an example. To first ascendingly by field `text` 
 [query orderByAscending:@"text"];
 [query orderByDescending:@"complete"];
 [query readWithCompletion:^(MSQueryResult *result, NSError *error) {
-		if(error) {
-				NSLog(@"ERROR %@", error);
-		} else {
-				for(NSDictionary *item in result.items) {
-						NSLog(@"Todo Item: %@", [item objectForKey:@"text"]);
-				}
-		}
+        if(error) {
+                NSLog(@"ERROR %@", error);
+        } else {
+                for(NSDictionary *item in result.items) {
+                        NSLog(@"Todo Item: %@", [item objectForKey:@"text"]);
+                }
+        }
 }];
 ```
 
@@ -129,9 +129,9 @@ To sort results, let's look at an example. To first ascendingly by field `text` 
 Mobile Services limits the amount of records that are returned in a single response. To control the number of records displayed to your users you must implement a paging system.  Paging is performed by using the following three properties of the **MSQuery** object:
 
 ```
-+	`BOOL includeTotalCount`
-+	`NSInteger fetchLimit`
-+	`NSInteger fetchOffset`
++   `BOOL includeTotalCount`
++   `NSInteger fetchLimit`
++   `NSInteger fetchOffset`
 ```
 
 In the following example, a simple function requests 5 records from the server and then appends them to the local collection of previously loaded records:
@@ -139,7 +139,7 @@ In the following example, a simple function requests 5 records from the server a
 ```
 // Create and initialize these properties
 @property (nonatomic, strong)   NSMutableArray *loadedItems; // Init via [[NSMutableArray alloc] init]
-@property (nonatomic)   				BOOL moreResults;
+@property (nonatomic)                   BOOL moreResults;
 ```
 
 ```
@@ -170,16 +170,16 @@ In the following example, a simple function requests 5 records from the server a
 To limit fields to be returned in a query, specify the names of the fields in the **selectFields** property. This returns only the text and completed fields:
 
 ```
-	query.selectFields = @[@"text", @"completed"];
+    query.selectFields = @[@"text", @"completed"];
 ```
 
 To include additional query string parameters in the server request (for example, because a custom server-side script uses them), populate `query.parameters` like so:
 
 ```
-	query.parameters = @{
-		@"myKey1" : @"value1",
-		@"myKey2" : @"value2",
-	};
+    query.parameters = @{
+        @"myKey1" : @"value1",
+        @"myKey2" : @"value2",
+    };
 ```
 
 ##<a name="inserting"></a>How to: Insert Data
@@ -189,17 +189,17 @@ To insert a new table row, create a new `NSDictionary` and invoke `table insert`
 If `id` is not provided, the backend automatically generates a new unique ID. Provide your own `id` to use email addresses, usernames, or your own custom values as ID. Providing your own ID may ease joins and business-oriented database logic.
 
 ```
-	NSDictionary *newItem = @{@"id": @"custom-id", @"text": @"my new item", @"complete" : @NO};
-	[self.table insert:newItem completion:^(NSDictionary *result, NSError *error) {
-		// The result contains the new item that was inserted,
-		// depending on your server scripts it may have additional or modified
-		// data compared to what was passed to the server.
-		if(error) {
-				NSLog(@"ERROR %@", error);
-		} else {
-						NSLog(@"Todo Item: %@", [result objectForKey:@"text"]);
-		}
-	}];
+    NSDictionary *newItem = @{@"id": @"custom-id", @"text": @"my new item", @"complete" : @NO};
+    [self.table insert:newItem completion:^(NSDictionary *result, NSError *error) {
+        // The result contains the new item that was inserted,
+        // depending on your server scripts it may have additional or modified
+        // data compared to what was passed to the server.
+        if(error) {
+                NSLog(@"ERROR %@", error);
+        } else {
+                        NSLog(@"Todo Item: %@", [result objectForKey:@"text"]);
+        }
+    }];
 ```
 
 ##<a name="modifying"></a>How to: Modify Data
@@ -207,19 +207,19 @@ If `id` is not provided, the backend automatically generates a new unique ID. Pr
 To update an existing row, modify an item and call `update`:
 
 ```
-	NSMutableDictionary *newItem = [oldItem mutableCopy]; // oldItem is NSDictionary
-	[newItem setValue:@"Updated text" forKey:@"text"];
-	[self.table update:newItem completion:^(NSDictionary *item, NSError *error) {
-		// Handle error or perform additional logic as needed
-	}];
+    NSMutableDictionary *newItem = [oldItem mutableCopy]; // oldItem is NSDictionary
+    [newItem setValue:@"Updated text" forKey:@"text"];
+    [self.table update:newItem completion:^(NSDictionary *item, NSError *error) {
+        // Handle error or perform additional logic as needed
+    }];
 ```
 
 Alternatively, supply the row ID and the updated field:
 
 ```
-	[self.table update:@{@"id":@"37BBF396-11F0-4B39-85C8-B319C729AF6D", @"Complete":@YES} completion:^(NSDictionary *item, NSError *error) {
-		// Handle error or perform additional logic as needed
-	}];
+    [self.table update:@{@"id":@"37BBF396-11F0-4B39-85C8-B319C729AF6D", @"Complete":@YES} completion:^(NSDictionary *item, NSError *error) {
+        // Handle error or perform additional logic as needed
+    }];
 ```
 
 At minimum, the `id` attribute must be set when making updates.
@@ -229,17 +229,17 @@ At minimum, the `id` attribute must be set when making updates.
 To delete an item, invoke `delete` with the item:
 
 ```
-	[self.table delete:item completion:^(id itemId, NSError *error) {
-		// Handle error or perform additional logic as needed
-	}];
+    [self.table delete:item completion:^(id itemId, NSError *error) {
+        // Handle error or perform additional logic as needed
+    }];
 ```
 
 Alternatively, delete by providing a row ID:
 
 ```
-	[self.table deleteWithId:@"37BBF396-11F0-4B39-85C8-B319C729AF6D" completion:^(id itemId, NSError *error) {
-		// Handle error or perform additional logic as needed
-	}];
+    [self.table deleteWithId:@"37BBF396-11F0-4B39-85C8-B319C729AF6D" completion:^(id itemId, NSError *error) {
+        // Handle error or perform additional logic as needed
+    }];
 ```
 
 At minimum, the `id` attribute must be set when making deletes.
@@ -276,11 +276,11 @@ You may do the login process outside the Mobile Services client, either to enabl
 The following example uses the [Live Connect SDK] to enable single sign-on for iOS apps. It assumes that you have a **LiveConnectClient** instance named `liveClient` in the controller and the user is logged in.
 
 ```
-	[client loginWithProvider:@"microsoftaccount"
-		token:@{@"authenticationToken" : self.liveClient.session.authenticationToken}
-		completion:^(MSUser *user, NSError *error) {
-				// Handle success and errors
-	}];
+    [client loginWithProvider:@"microsoftaccount"
+        token:@{@"authenticationToken" : self.liveClient.session.authenticationToken}
+        completion:^(MSUser *user, NSError *error) {
+                // Handle success and errors
+    }];
 ```
 
 ##<a name="caching-tokens"></a>How to: Cache Authentication Tokens
@@ -339,3 +339,4 @@ mobile-services-javascript-backend-service-side-authorization.md
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
+

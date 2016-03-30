@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Data transformation outputs: Options for storage, analysis | Microsoft Azure"
-	description="Learn about targeting Stream Analytics data transformation outputs to data storage options. Also, use Power BI for analysis results."
-	keywords="data transformation, analysis results, data storage options"
-	services="stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage"
-	documentationCenter=""
-	authors="jeffstokes72"
-	manager="paulettm"
-	editor="cgronlun"/>
+    pageTitle="Data transformation outputs: Options for storage, analysis | Microsoft Azure"
+    description="Learn about targeting Stream Analytics data transformation outputs to data storage options. Also, use Power BI for analysis results."
+    keywords="data transformation, analysis results, data storage options"
+    services="stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage"
+    documentationCenter=""
+    authors="jeffstokes72"
+    manager="paulettm"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="stream-analytics"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="data-services"
-	ms.date="12/01/2015"
-	ms.author="jeffstok"/>
+    ms.service="stream-analytics"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="data-services"
+    ms.date="12/01/2015"
+    ms.author="jeffstok"/>
 
 # Target Stream Analytics data transformation outputs to analysis tools and data storage options
 
@@ -122,15 +122,15 @@ There are a few parameters that are needed to configure Event Hub data streams a
 
 ### Authorize a Power BI account
 
-1.	When Power BI is selected as an output in the Azure Management portal, you will be prompted to authorize an existing Power BI User or to create a new Power BI account.  
+1.  When Power BI is selected as an output in the Azure Management portal, you will be prompted to authorize an existing Power BI User or to create a new Power BI account.  
 
     ![Authorize Power BI User](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)  
 
-2.	Create a new account if you don’t yet have one, then click Authorize Now.  A screen like the following is presented.  
+2.  Create a new account if you don’t yet have one, then click Authorize Now.  A screen like the following is presented.  
 
     ![Azure Account Power BI](./media/stream-analytics-define-outputs/02-stream-analytics-define-outputs.png)  
 
-3.	In this step, provide the work or school account for authorizing the Power BI output. If you are not already signed up for Power BI, choose Sign up now. The work or school account you use for Power BI could be different from the Azure subscription account which you are currently logged in with.
+3.  In this step, provide the work or school account for authorizing the Power BI output. If you are not already signed up for Power BI, choose Sign up now. The work or school account you use for Power BI could be different from the Azure subscription account which you are currently logged in with.
 
 ### Configure the Power BI output properties
 
@@ -266,3 +266,4 @@ You've been introduced to Stream Analytics, a managed service for streaming anal
 [stream.analytics.get.started]: stream-analytics-get-started.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
+

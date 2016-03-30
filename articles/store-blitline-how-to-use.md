@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How to use Blitline for image processing - Azure feature guide" 
-	description="Learn how to use the Blitline service to process images within an Azure application." 
-	services="" 
-	documentationCenter=".net" 
-	authors="blitline-dev" 
-	manager="jason@blitline.com" 
-	editor="jason@blitline.com"/>
+    pageTitle="How to use Blitline for image processing - Azure feature guide" 
+    description="Learn how to use the Blitline service to process images within an Azure application." 
+    services="" 
+    documentationCenter=".net" 
+    authors="blitline-dev" 
+    manager="jason@blitline.com" 
+    editor="jason@blitline.com"/>
 
 <tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/09/2014" 
-	ms.author="support@blitline.com"/>
+    ms.service="multiple" 
+    ms.workload="na" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/09/2014" 
+    ms.author="support@blitline.com"/>
 # How to use Blitline with Azure and Azure Storage
 
 This guide will explain how to access Blitline services and how to submit jobs to Blitline.
@@ -49,7 +49,7 @@ Blitline uses JSON to define the actions you want to take on an image. This JSON
 
 The simplest example is as follows:
 
-	    json : '{
+        json : '{
        "application_id": "MY_APP_ID",
        "src" : "http://cdn.blitline.com/filters/boys.jpeg",
        "functions" : [ {
@@ -132,3 +132,4 @@ Visit blitline.com to read about all our other features:
 * Blitline API Functions <http://www.blitline.com/docs/functions>
 * Blitline API Examples <http://www.blitline.com/docs/examples>
 * Third Part Nuget Library <http://nuget.org/packages/Blitline.Net>
+

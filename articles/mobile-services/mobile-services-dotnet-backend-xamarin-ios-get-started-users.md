@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Get Started with authentication in Mobile Services for Xamarin iOS apps | Microsoft Azure"
-	description="Learn how to use Mobile Services to authenticate users of your Xamarin iOS app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft."
-	services="mobile-services"
-	documentationCenter="xamarin"
-	authors="lindydonna"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Get Started with authentication in Mobile Services for Xamarin iOS apps | Microsoft Azure"
+    description="Learn how to use Mobile Services to authenticate users of your Xamarin iOS app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft."
+    services="mobile-services"
+    documentationCenter="xamarin"
+    authors="lindydonna"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-xamarin-ios"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="12/01/2015" 
-	ms.author="donnam"/>
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-xamarin-ios"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="12/01/2015" 
+    ms.author="donnam"/>
 
 # Add authentication to your Mobile Services app
 
@@ -48,7 +48,7 @@ This tutorial is based on the Mobile Services quickstart. You must also first co
 <ol start="6">
 <li><p>In Visual Studio or Xamarin Studio, run the client project on a device or simulator. Verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts.</p>
 
-   	<p>This happens because the app attempts to access Mobile Services as an unauthenticated user, but the <em>TodoItem</em> table now requires authentication.</p></li>
+    <p>This happens because the app attempts to access Mobile Services as an unauthenticated user, but the <em>TodoItem</em> table now requires authentication.</p></li>
 </ol>
 
 Next, you will update the app to authenticate users before requesting resources from the mobile service.
@@ -59,9 +59,9 @@ In this section, you will modify the app to display a login screen before displa
 
 1. In the client project, open the file **QSTodoService.cs** and add the following declarations to QSTodoService:
 
-		// Mobile Service logged in user
-		private MobileServiceUser user;
-		public MobileServiceUser User { get { return user; } }
+        // Mobile Service logged in user
+        private MobileServiceUser user;
+        public MobileServiceUser User { get { return user; } }
 
 2. Add a new method **Authenticate** to **QSTodoService** with the following definition:
 
@@ -81,41 +81,41 @@ In this section, you will modify the app to display a login screen before displa
 
 3. Open **QSTodoListViewController.cs**. Modify the method definition of **ViewDidLoad** to remove the call to **RefreshAsync()** near the end:
 
-		public override async void ViewDidLoad ()
-		{
-			base.ViewDidLoad ();
+        public override async void ViewDidLoad ()
+        {
+            base.ViewDidLoad ();
 
-			todoService = QSTodoService.DefaultService;
+            todoService = QSTodoService.DefaultService;
 
-			todoService.BusyUpdate += (bool busy) => {
-				if (busy)
-					activityIndicator.StartAnimating ();
-				else
-					activityIndicator.StopAnimating ();
-			};
+            todoService.BusyUpdate += (bool busy) => {
+                if (busy)
+                    activityIndicator.StartAnimating ();
+                else
+                    activityIndicator.StopAnimating ();
+            };
 
-			// Comment out the call to RefreshAsync
-			// await RefreshAsync ();
+            // Comment out the call to RefreshAsync
+            // await RefreshAsync ();
 
-			AddRefreshControl ();
-		}
+            AddRefreshControl ();
+        }
 
 
 4. Modify the method **RefreshAsync** to authenticate and display a login screen if the **User** property is null. At the following code at the top of the method definition:
 
-		// start of RefreshAsync method
-		if (todoService.User == null) {
-			await QSTodoService.DefaultService.Authenticate (this);
-			if (todoService.User == null) {
-				Console.WriteLine ("couldn't login!!");
-				return;
-			}
-		}
-		// rest of RefreshAsync method
+        // start of RefreshAsync method
+        if (todoService.User == null) {
+            await QSTodoService.DefaultService.Authenticate (this);
+            if (todoService.User == null) {
+                Console.WriteLine ("couldn't login!!");
+                return;
+            }
+        }
+        // rest of RefreshAsync method
 
 5. Press the **Run** button to build the project and start the app in the iPhone simulator. Verify that the app displays no data.
 
-	Perform the refresh gesture by pulling down the list of items, which will cause the login screen to appear. Once you have successfully entered valid credentials, the app will display the list of todo items and you can make updates to the data.
+    Perform the refresh gesture by pulling down the list of items, which will cause the login screen to appear. Once you have successfully entered valid credentials, the app will display the list of todo items and you can make updates to the data.
 
 <!-- ## <a name="next-steps"> </a>Next steps
 
@@ -138,3 +138,4 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 [Get started with push notifications]: mobile-services-dotnet-backend-xamarin-ios-get-started-push.md
 [Authorize users with scripts]: ../mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts.md
 [JavaScript and HTML]: ../mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
+

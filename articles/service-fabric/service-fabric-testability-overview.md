@@ -49,8 +49,8 @@ In order to test the robustness of a distributed system against failures, we nee
 
 1. From the client issue a shutdown node request.
 2. Send the request to the right node.
-	1. If the node is not found it should fail.
-	2. If the node is found it should return only if the node is shutdown.
+    1. If the node is not found it should fail.
+    2. If the node is found it should return only if the node is shutdown.
 
 From a test perspective, it needs to know that when this failure is induced the failure actually happens in order to verify the failure. The guarantee that windows fabric provides is that either the node will go down or is already down when the command reached the node. In either case the test should be able to correctly reason about the state and succeed or fail in its validation correctly. A system implemented outside of Service Fabric to do the same set of failures could hit a plethora of network, hardware and software issues, which would prevent it from providing the above stated guarantees. In the presence of the issues stated before, Service Fabric will reconfigure the cluster state to work around the issues and hence the Testability would still be able to give the right set of guarantees.
 
@@ -91,7 +91,8 @@ To create truly cloud scale services, the ability to ensure that services can wi
 - [Testability Actions](service-fabric-testability-actions.md)
 - [Testability Scenarios](service-fabric-testability-actions.md)
 - How to test your service
-	- [Simulate failures during service workloads](service-fabric-testability-workload-tests.md)
+    - [Simulate failures during service workloads](service-fabric-testability-workload-tests.md)
    - [Service to service communication failures](service-fabric-testability-scenarios-service-communication.md)
 
  
+

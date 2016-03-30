@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Application Architecture on Microsoft Azure" 
-	description="Architecture overview that covers common design patterns" 
-	services="" 
-	documentationCenter="" 
-	authors="Rboucher" 
-	manager="jwhit" 
-	editor="mattshel"/>
+    pageTitle="Application Architecture on Microsoft Azure" 
+    description="Architecture overview that covers common design patterns" 
+    services="" 
+    documentationCenter="" 
+    authors="Rboucher" 
+    manager="jwhit" 
+    editor="mattshel"/>
 
 <tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/16/2015" 
-	ms.author="robb"/>
+    ms.service="multiple" 
+    ms.workload="na" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/16/2015" 
+    ms.author="robb"/>
 
 #Application Architecture on Microsoft Azure
 Resources for building applications that use Microsoft Azure. This includes tools to help you draw diagrams to visually describe software systems. 
@@ -112,3 +112,4 @@ Additional symbols for Microsoft Office and related technologies are available i
 Microsoft publishes several architecture related posters/infographics. They include [Building Real-World Cloud Applications](http://azure.microsoft.com/documentation/infographics/building-real-world-cloud-apps/) and [Scaling with Cloud Services](http://azure.microsoft.com/documentation/infographics/cloud-services/) . 
 
 ![Azure Architecture Infographics](./media/architecture-overview/AzureArchInfographicThumb.jpg)
+

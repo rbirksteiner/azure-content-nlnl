@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Move data to and from SQL Server | Azure Data Factory" 
-	description="Learn about how to move data to/from SQL Server database that is on-premises or in an Azure VM using Azure Data Factory." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
-	editor="monicar"/>
+    pageTitle="Move data to and from SQL Server | Azure Data Factory" 
+    description="Learn about how to move data to/from SQL Server database that is on-premises or in an Azure VM using Azure Data Factory." 
+    services="data-factory" 
+    documentationCenter="" 
+    authors="spelluru" 
+    manager="jhubbard" 
+    editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/03/2015" 
-	ms.author="spelluru"/>
+    ms.service="data-factory" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/03/2015" 
+    ms.author="spelluru"/>
 
 # Move data to and from SQL Server on-premises or on IaaS (Azure VM) using Azure Data Factory
 
@@ -32,11 +32,11 @@ While you can install the gateway on the same on-premises machine or cloud VM in
 
 The sample below shows:
 
-1.	A linked service of type [OnPremisesSqlServer](data-factory-sqlserver-connector.md#sql-server-linked-service-properties).
-2.	A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
-3.	An input [dataset](data-factory-create-datasets.md) of type [SqlServerTable](data-factory-sqlserver-connector.md#sql-server-dataset-type-properties). 
-4.	An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-4.	The [pipeline](data-factory-create-pipelines.md) with Copy activity that uses [SqlSource](data-factory-sqlserver-connector.md#sql-server-copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
+1.  A linked service of type [OnPremisesSqlServer](data-factory-sqlserver-connector.md#sql-server-linked-service-properties).
+2.  A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+3.  An input [dataset](data-factory-create-datasets.md) of type [SqlServerTable](data-factory-sqlserver-connector.md#sql-server-dataset-type-properties). 
+4.  An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4.  The [pipeline](data-factory-create-pipelines.md) with Copy activity that uses [SqlSource](data-factory-sqlserver-connector.md#sql-server-copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
 The sample copies data belonging to a time series from a table in SQL Server database to a blob every hour. The JSON properties used in these samples are described in sections following the samples.
 
@@ -44,28 +44,28 @@ As a first step, please setup the data management gateway as per the instruction
 
 **SQL Server linked service**
 
-	{
-	  "Name": "SqlServerLinkedService",
-	  "properties": {
-	    "type": "OnPremisesSqlServer",
-	    "typeProperties": {
-	      "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;",
-	      "gatewayName": "<gatewayname>"
-	    }
-	  }
-	}
+    {
+      "Name": "SqlServerLinkedService",
+      "properties": {
+        "type": "OnPremisesSqlServer",
+        "typeProperties": {
+          "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;",
+          "gatewayName": "<gatewayname>"
+        }
+      }
+    }
 
 **Azure Blob storage linked service**
 
-	{
-	  "name": "StorageLinkedService",
-	  "properties": {
-	    "type": "AzureStorage",
-	    "typeProperties": {
-	      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-	    }
-	  }
-	}
+    {
+      "name": "StorageLinkedService",
+      "properties": {
+        "type": "AzureStorage",
+        "typeProperties": {
+          "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+        }
+      }
+    }
 
 **SQL Server input dataset**
 
@@ -73,136 +73,136 @@ The sample assumes you have created a table “MyTable” in SQL Server and it c
 
 Setting “external”: ”true” and specifying externalData policy information the Azure Data Factory service that this is a table that is external to the data factory and not produced by an activity in the data factory.
 
-	{
-	  "name": "SqlServerInput",
-	  "properties": {
-	    "type": "SqlServerTable",
-	    "linkedServiceName": "SqlServerLinkedService",
-	    "typeProperties": {
-	      "tableName": "MyTable"
-	    },
-	    "external": true,
-	    "availability": {
-	      "frequency": "Hour",
-	      "interval": 1
-	    },
-	    "policy": {
-	      "externalData": {
-	        "retryInterval": "00:01:00",
-	        "retryTimeout": "00:10:00",
-	        "maximumRetry": 3
-	      }
-	    }
-	  }
-	}
+    {
+      "name": "SqlServerInput",
+      "properties": {
+        "type": "SqlServerTable",
+        "linkedServiceName": "SqlServerLinkedService",
+        "typeProperties": {
+          "tableName": "MyTable"
+        },
+        "external": true,
+        "availability": {
+          "frequency": "Hour",
+          "interval": 1
+        },
+        "policy": {
+          "externalData": {
+            "retryInterval": "00:01:00",
+            "retryTimeout": "00:10:00",
+            "maximumRetry": 3
+          }
+        }
+      }
+    }
 
 **Azure Blob output dataset**
 
 Data is written to a new blob every hour (frequency: hour, interval: 1). The folder path for the blob is dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, day, and hours parts of the start time.
-	
-	{
-	  "name": "AzureBlobOutput",
-	  "properties": {
-	    "type": "AzureBlob",
-	    "linkedServiceName": "StorageLinkedService",
-	    "typeProperties": {
-	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
-	      "partitionedBy": [
-	        {
-	          "name": "Year",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "yyyy"
-	          }
-	        },
-	        {
-	          "name": "Month",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "%M"
-	          }
-	        },
-	        {
-	          "name": "Day",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "%d"
-	          }
-	        },
-	        {
-	          "name": "Hour",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "%H"
-	          }
-	        }
-	      ],
-	      "format": {
-	        "type": "TextFormat",
-	        "columnDelimiter": "\t",
-	        "rowDelimiter": "\n"
-	      }
-	    },
-	    "availability": {
-	      "frequency": "Hour",
-	      "interval": 1
-	    }
-	  }
-	}
+    
+    {
+      "name": "AzureBlobOutput",
+      "properties": {
+        "type": "AzureBlob",
+        "linkedServiceName": "StorageLinkedService",
+        "typeProperties": {
+          "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
+          "partitionedBy": [
+            {
+              "name": "Year",
+              "value": {
+                "type": "DateTime",
+                "date": "SliceStart",
+                "format": "yyyy"
+              }
+            },
+            {
+              "name": "Month",
+              "value": {
+                "type": "DateTime",
+                "date": "SliceStart",
+                "format": "%M"
+              }
+            },
+            {
+              "name": "Day",
+              "value": {
+                "type": "DateTime",
+                "date": "SliceStart",
+                "format": "%d"
+              }
+            },
+            {
+              "name": "Hour",
+              "value": {
+                "type": "DateTime",
+                "date": "SliceStart",
+                "format": "%H"
+              }
+            }
+          ],
+          "format": {
+            "type": "TextFormat",
+            "columnDelimiter": "\t",
+            "rowDelimiter": "\n"
+          }
+        },
+        "availability": {
+          "frequency": "Hour",
+          "interval": 1
+        }
+      }
+    }
 
 **Pipeline with Copy activity**
 
 The pipeline contains a Copy Activity that is configured to use the above input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **SqlSource** and **sink** type is set to **BlobSink**. The SQL query specified for the **SqlReaderQuery** property selects the data in the past hour to copy.
 
 
-	{  
-	    "name":"SamplePipeline",
-	    "properties":{  
-	    "start":"2014-06-01T18:00:00",
-	    "end":"2014-06-01T19:00:00",
-	    "description":"pipeline for copy activity",
-	    "activities":[  
-	      {
-	        "name": "SqlServertoBlob",
-	        "description": "copy activity",
-	        "type": "Copy",
-	        "inputs": [
-	          {
-	            "name": " SqlServerInput"
-	          }
-	        ],
-	        "outputs": [
-	          {
-	            "name": "AzureBlobOutput"
-	          }
-	        ],
-	        "typeProperties": {
-	          "source": {
-	            "type": "SqlSource",
-	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
-	          },
-	          "sink": {
-	            "type": "BlobSink"
-	          }
-	        },
-	       "scheduler": {
-	          "frequency": "Hour",
-	          "interval": 1
-	        },
-	        "policy": {
-	          "concurrency": 1,
-	          "executionPriorityOrder": "OldestFirst",
-	          "retry": 0,
-	          "timeout": "01:00:00"
-	        }
-	      }
-	     ]
-	   }
-	}
+    {  
+        "name":"SamplePipeline",
+        "properties":{  
+        "start":"2014-06-01T18:00:00",
+        "end":"2014-06-01T19:00:00",
+        "description":"pipeline for copy activity",
+        "activities":[  
+          {
+            "name": "SqlServertoBlob",
+            "description": "copy activity",
+            "type": "Copy",
+            "inputs": [
+              {
+                "name": " SqlServerInput"
+              }
+            ],
+            "outputs": [
+              {
+                "name": "AzureBlobOutput"
+              }
+            ],
+            "typeProperties": {
+              "source": {
+                "type": "SqlSource",
+                "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
+              },
+              "sink": {
+                "type": "BlobSink"
+              }
+            },
+           "scheduler": {
+              "frequency": "Hour",
+              "interval": 1
+            },
+            "policy": {
+              "concurrency": 1,
+              "executionPriorityOrder": "OldestFirst",
+              "retry": 0,
+              "timeout": "01:00:00"
+            }
+          }
+         ]
+       }
+    }
 
 > [AZURE.NOTE] In the above example, **sqlReaderQuery** is specified for the SqlSource. The Copy Activity runs this query against the SQL Server Database source to get the data.
 >  
@@ -217,173 +217,173 @@ See the [Sql Source](#sqlsource) section and [BlobSink](data-factory-azure-blob-
 
 The sample below shows:
 
-1.	The linked service of type [OnPremisesSqlServer](data-factory-sqlserver-connector.md#sql-server-linked-service-properties).
-2.	The linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
-3.	An input [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-4.	An output [dataset](data-factory-create-datasets.md) of type [SqlServerTable](data-factory-sqlserver-connector.md#sql-server-dataset-type-properties).
-4.	The [pipeline](data-factory-create-pipelines.md) with Copy activity that uses [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) and [SqlSink](data-factory-sqlserver-connector.md#sql-server-copy-activity-type-properties).
+1.  The linked service of type [OnPremisesSqlServer](data-factory-sqlserver-connector.md#sql-server-linked-service-properties).
+2.  The linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+3.  An input [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4.  An output [dataset](data-factory-create-datasets.md) of type [SqlServerTable](data-factory-sqlserver-connector.md#sql-server-dataset-type-properties).
+4.  The [pipeline](data-factory-create-pipelines.md) with Copy activity that uses [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) and [SqlSink](data-factory-sqlserver-connector.md#sql-server-copy-activity-type-properties).
 
 The sample copies data belonging to a time series from Azure blob to a table in SQL Server database every hour. The JSON properties used in these samples are described in sections following the samples.
 
 **SQL Server linked service**
-	
-	{
-	  "Name": "SqlServerLinkedService",
-	  "properties": {
-	    "type": "OnPremisesSqlServer",
-	    "typeProperties": {
-	      "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;",
-	      "gatewayName": "<gatewayname>"
-	    }
-	  }
-	}
+    
+    {
+      "Name": "SqlServerLinkedService",
+      "properties": {
+        "type": "OnPremisesSqlServer",
+        "typeProperties": {
+          "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;",
+          "gatewayName": "<gatewayname>"
+        }
+      }
+    }
 
 **Azure Blob storage linked service**
 
-	{
-	  "name": "StorageLinkedService",
-	  "properties": {
-	    "type": "AzureStorage",
-	    "typeProperties": {
-	      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-	    }
-	  }
-	}
+    {
+      "name": "StorageLinkedService",
+      "properties": {
+        "type": "AzureStorage",
+        "typeProperties": {
+          "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+        }
+      }
+    }
 
 **Azure Blob input dataset**
 
 Data is picked up from a new blob every hour (frequency: hour, interval: 1). The folder path and file name for the blob are dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, and day part of the start time and file name uses the hour part of the start time. “external”: “true” setting informs the Data Factory service that this table is external to the data factory and not produced by an activity in the data factory.
-	
-	{
-	  "name": "AzureBlobInput",
-	  "properties": {
-	    "type": "AzureBlob",
-	    "linkedServiceName": "StorageLinkedService",
-	    "typeProperties": {
-	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}",
-	      "fileName": "{Hour}.csv",
-	      "partitionedBy": [
-	        {
-	          "name": "Year",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "yyyy"
-	          }
-	        },
-	        {
-	          "name": "Month",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "%M"
-	          }
-	        },
-	        {
-	          "name": "Day",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "%d"
-	          }
-	        },
-	        {
-	          "name": "Hour",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "%H"
-	          }
-	        }
-	      ],
-	      "format": {
-	        "type": "TextFormat",
-	        "columnDelimiter": ",",
-	        "rowDelimiter": "\n"
-	      }
-	    },
-	    "external": true,
-	    "availability": {
-	      "frequency": "Hour",
-	      "interval": 1
-	    },
-	    "policy": {
-	      "externalData": {
-	        "retryInterval": "00:01:00",
-	        "retryTimeout": "00:10:00",
-	        "maximumRetry": 3
-	      }
-	    }
-	  }
-	}
-	
+    
+    {
+      "name": "AzureBlobInput",
+      "properties": {
+        "type": "AzureBlob",
+        "linkedServiceName": "StorageLinkedService",
+        "typeProperties": {
+          "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}",
+          "fileName": "{Hour}.csv",
+          "partitionedBy": [
+            {
+              "name": "Year",
+              "value": {
+                "type": "DateTime",
+                "date": "SliceStart",
+                "format": "yyyy"
+              }
+            },
+            {
+              "name": "Month",
+              "value": {
+                "type": "DateTime",
+                "date": "SliceStart",
+                "format": "%M"
+              }
+            },
+            {
+              "name": "Day",
+              "value": {
+                "type": "DateTime",
+                "date": "SliceStart",
+                "format": "%d"
+              }
+            },
+            {
+              "name": "Hour",
+              "value": {
+                "type": "DateTime",
+                "date": "SliceStart",
+                "format": "%H"
+              }
+            }
+          ],
+          "format": {
+            "type": "TextFormat",
+            "columnDelimiter": ",",
+            "rowDelimiter": "\n"
+          }
+        },
+        "external": true,
+        "availability": {
+          "frequency": "Hour",
+          "interval": 1
+        },
+        "policy": {
+          "externalData": {
+            "retryInterval": "00:01:00",
+            "retryTimeout": "00:10:00",
+            "maximumRetry": 3
+          }
+        }
+      }
+    }
+    
 **SQL Server output dataset**
 
 The sample copies data to a table named “MyTable” in SQL Server. You should create the table in SQL Server with the same number of columns as you expect the Blob CSV file to contain. New rows are added to the table every hour.
-	
-	{
-	  "name": "SqlServerOutput",
-	  "properties": {
-	    "type": "SqlServerTable",
-	    "linkedServiceName": "SqlServerLinkedService",
-	    "typeProperties": {
-	      "tableName": "MyOutputTable"
-	    },
-	    "availability": {
-	      "frequency": "Hour",
-	      "interval": 1
-	    }
-	  }
-	}
+    
+    {
+      "name": "SqlServerOutput",
+      "properties": {
+        "type": "SqlServerTable",
+        "linkedServiceName": "SqlServerLinkedService",
+        "typeProperties": {
+          "tableName": "MyOutputTable"
+        },
+        "availability": {
+          "frequency": "Hour",
+          "interval": 1
+        }
+      }
+    }
 
 **Pipeline with Copy activity**
 
 The pipeline contains a Copy Activity that is configured to use the above input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **BlobSource** and **sink** type is set to **SqlSink**.
 
-	{  
-	    "name":"SamplePipeline",
-	    "properties":{  
-	    "start":"2014-06-01T18:00:00",
-	    "end":"2014-06-01T19:00:00",
-	    "description":"pipeline with copy activity",
-	    "activities":[  
-	      {
-	        "name": "AzureBlobtoSQL",
-	        "description": "Copy Activity",
-	        "type": "Copy",
-	        "inputs": [
-	          {
-	            "name": "AzureBlobInput"
-	          }
-	        ],
-	        "outputs": [
-	          {
-	            "name": " SqlServerOutput "
-	          }
-	        ],
-	        "typeProperties": {
-	          "source": {
-	            "type": "BlobSource",
-	            "blobColumnSeparators": ","
-	          },
-	          "sink": {
-	            "type": "SqlSink"
-	          }
-	        },
-	       "scheduler": {
-	          "frequency": "Hour",
-	          "interval": 1
-	        },
-	        "policy": {
-	          "concurrency": 1,
-	          "executionPriorityOrder": "OldestFirst",
-	          "retry": 0,
-	          "timeout": "01:00:00"
-	        }
-	      }
-	      ]
-	   }
-	}
+    {  
+        "name":"SamplePipeline",
+        "properties":{  
+        "start":"2014-06-01T18:00:00",
+        "end":"2014-06-01T19:00:00",
+        "description":"pipeline with copy activity",
+        "activities":[  
+          {
+            "name": "AzureBlobtoSQL",
+            "description": "Copy Activity",
+            "type": "Copy",
+            "inputs": [
+              {
+                "name": "AzureBlobInput"
+              }
+            ],
+            "outputs": [
+              {
+                "name": " SqlServerOutput "
+              }
+            ],
+            "typeProperties": {
+              "source": {
+                "type": "BlobSource",
+                "blobColumnSeparators": ","
+              },
+              "sink": {
+                "type": "SqlSink"
+              }
+            },
+           "scheduler": {
+              "frequency": "Hour",
+              "interval": 1
+            },
+            "policy": {
+              "concurrency": 1,
+              "executionPriorityOrder": "OldestFirst",
+              "retry": 0,
+              "timeout": "01:00:00"
+            }
+          }
+          ]
+       }
+    }
 
 ## SQL Server Linked Service properties
 
@@ -399,37 +399,37 @@ The following table provides description for JSON elements specific to SQL Serve
 
 You can encrypt credentials using the **New-AzureRmDataFactoryEncryptValue** cmdlet and use them in the connection string as shown in the following example (**EncryptedCredential** property):  
 
-	"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
+    "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
 
 ### Samples
 
 **JSON for using SQL Authentication**
-	
-	{
-	    "name": "MyOnPremisesSQLDB",
-	    "properties":
-	    {
-	        "type": "OnPremisesSqlLinkedService",
-	        "connectionString": "Data Source=<servername>;Initial Catalog=MarketingCampaigns;Integrated Security=False;User ID=<username>;Password=<password>;",
-	        "gatewayName": "<gateway name>"
-	    }
-	}
+    
+    {
+        "name": "MyOnPremisesSQLDB",
+        "properties":
+        {
+            "type": "OnPremisesSqlLinkedService",
+            "connectionString": "Data Source=<servername>;Initial Catalog=MarketingCampaigns;Integrated Security=False;User ID=<username>;Password=<password>;",
+            "gatewayName": "<gateway name>"
+        }
+    }
 
 **JSON for using Windows Authentication**
 
 If username and password are specified, gateway will use them to impersonate the specified user account to connect to the on-premises SQL Server database. Otherwise, gateway will connect to the SQL Server directly with the security context of Gateway (its startup account).
 
-	{ 
-	     "Name": " MyOnPremisesSQLDB", 
-	     "Properties": 
-	     { 
-	         "type": "OnPremisesSqlLinkedService", 
-	         "ConnectionString": "Data Source=<servername>;Initial Catalog=MarketingCampaigns;Integrated Security=True;", 
-	         "username": "<username>", 
-	         "password": "<password>", 
-	         "gatewayName": "<gateway name>" 
-	     } 
-	}
+    { 
+         "Name": " MyOnPremisesSQLDB", 
+         "Properties": 
+         { 
+             "type": "OnPremisesSqlLinkedService", 
+             "ConnectionString": "Data Source=<servername>;Initial Catalog=MarketingCampaigns;Integrated Security=True;", 
+             "username": "<username>", 
+             "password": "<password>", 
+             "gatewayName": "<gateway name>" 
+         } 
+    }
 
 See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) for details about setting credentials for an SQL Server data source.
 

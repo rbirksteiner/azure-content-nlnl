@@ -18,3 +18,4 @@ Max throughput per disk | 100 MB per second | 150 MB per second | 200 MB per sec
 Max number of highly utilized disks | 62 | 41 | 31
 
 
+

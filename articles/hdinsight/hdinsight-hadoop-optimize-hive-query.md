@@ -34,7 +34,7 @@ Increasing the number of worker nodes in a cluster can leverage more mappers and
 
 - At the provision time, you can specify the number of worker nodes using the Azure Portal, Azure PowerShell or Cross-platform command line interface.  For more information, see [Provision HDInsight clusters](hdinsight-provision-clusters.md). The following screen show the worker node configuration on the Azure Portal:
 
-	![scaleout_1][image-hdi-optimize-hive-scaleout_1]
+    ![scaleout_1][image-hdi-optimize-hive-scaleout_1]
 
 - At the run time, you can also scale out a cluster without recreating one. This is shown below.
 ![scaleout_1][image-hdi-optimize-hive-scaleout_2]
@@ -60,32 +60,32 @@ For more details on these concepts, click [here](http://hortonworks.com/hadoop/t
 
 You can make any Hive query Tez enabled by prefixing the query with the setting below:
 
-	set hive.execution.engine=tez;
+    set hive.execution.engine=tez;
 
 For Windows-based HDInsight clusters, Tez must be enabled at the provision time. The following is a sample Azure PowerShell script for provisioning a Hadoop cluster with Tez enabled:
 
 
-	$clusterName = "[HDInsightClusterName]"
-	$location = "[AzureDataCenter]" #i.e. West US
-	$dataNodes = 32 # number of worker nodes in the cluster
+    $clusterName = "[HDInsightClusterName]"
+    $location = "[AzureDataCenter]" #i.e. West US
+    $dataNodes = 32 # number of worker nodes in the cluster
 
-	$defaultStorageAccountName = "[DefaultStorageAccountName]"
-	$defaultStorageContainerName = "[DefaultBlobContainerName]"
-	$defaultStorageAccountKey = $defaultStorageAccountKey = Get-AzureStorageKey $defaultStorageAccountName.ToLower() | %{ $_.Primary }
+    $defaultStorageAccountName = "[DefaultStorageAccountName]"
+    $defaultStorageContainerName = "[DefaultBlobContainerName]"
+    $defaultStorageAccountKey = $defaultStorageAccountKey = Get-AzureStorageKey $defaultStorageAccountName.ToLower() | %{ $_.Primary }
 
-	$hdiUserName = "[HTTPUserName]"
-	$hdiPassword = "[HTTPUserPassword]"
+    $hdiUserName = "[HTTPUserName]"
+    $hdiPassword = "[HTTPUserPassword]"
 
-	$hdiSecurePassword = ConvertTo-SecureString $hdiPassword -AsPlainText -Force
-	$hdiCredential = New-Object System.Management.Automation.PSCredential($hdiUserName, $hdiSecurePassword)
+    $hdiSecurePassword = ConvertTo-SecureString $hdiPassword -AsPlainText -Force
+    $hdiCredential = New-Object System.Management.Automation.PSCredential($hdiUserName, $hdiSecurePassword)
 
-	$hiveConfig = new-object 'Microsoft.WindowsAzure.Management.HDInsight.Cmdlet.DataObjects.AzureHDInsightHiveConfiguration'
-	$hiveConfig.Configuration = @{ "hive.execution.engine"="tez" }
+    $hiveConfig = new-object 'Microsoft.WindowsAzure.Management.HDInsight.Cmdlet.DataObjects.AzureHDInsightHiveConfiguration'
+    $hiveConfig.Configuration = @{ "hive.execution.engine"="tez" }
 
-	New-AzureHDInsightClusterConfig -ClusterSizeInNodes $dataNodes -HeadNodeVMSize Standard_D14 -DataNodeVMSize Standard_D14 |
-	Set-AzureHDInsightDefaultStorage -StorageAccountName "$defaultStorageAccountName.blob.core.windows.net" -StorageAccountKey $defaultStorageAccountKey -StorageContainerName $defaultStorageContainerName |
-	Add-AzureHDInsightConfigValues -Hive $hiveConfig |
-	New-AzureHDInsightCluster -Name $clusterName -Location $location -Credential $hdiCredential
+    New-AzureHDInsightClusterConfig -ClusterSizeInNodes $dataNodes -HeadNodeVMSize Standard_D14 -DataNodeVMSize Standard_D14 |
+    Set-AzureHDInsightDefaultStorage -StorageAccountName "$defaultStorageAccountName.blob.core.windows.net" -StorageAccountKey $defaultStorageAccountKey -StorageContainerName $defaultStorageContainerName |
+    Add-AzureHDInsightConfigValues -Hive $hiveConfig |
+    New-AzureHDInsightCluster -Name $clusterName -Location $location -Credential $hdiCredential
 
     
 > [AZURE.NOTE] Linux-based HDInsight clusters have Tez enabled by default.
@@ -110,11 +110,11 @@ Some partitioning considerations:
 To create a partition table, use the *Partitioned By* clause:
 
     CREATE TABLE lineitem_part
-    	(L_ORDERKEY INT, L_PARTKEY INT, L_SUPPKEY INT,L_LINENUMBER INT,
-    	 L_QUANTITY DOUBLE, L_EXTENDEDPRICE DOUBLE, L_DISCOUNT DOUBLE,
-    	 L_TAX DOUBLE, L_RETURNFLAG STRING, L_LINESTATUS STRING,
-    	 L_SHIPDATE_PS STRING, L_COMMITDATE STRING, L_RECEIPTDATE 	  	 STRING, L_SHIPINSTRUCT STRING, L_SHIPMODE STRING,
-    	 L_COMMENT STRING)
+        (L_ORDERKEY INT, L_PARTKEY INT, L_SUPPKEY INT,L_LINENUMBER INT,
+         L_QUANTITY DOUBLE, L_EXTENDEDPRICE DOUBLE, L_DISCOUNT DOUBLE,
+         L_TAX DOUBLE, L_RETURNFLAG STRING, L_LINESTATUS STRING,
+         L_SHIPDATE_PS STRING, L_COMMITDATE STRING, L_RECEIPTDATE        STRING, L_SHIPINSTRUCT STRING, L_SHIPMODE STRING,
+         L_COMMENT STRING)
     PARTITIONED BY(L_SHIPDATE STRING)
     ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
     STORED AS TEXTFILE;
@@ -123,24 +123,24 @@ Once the partitioned table is created, you can either create static partitioning
 
 - **Static partitioning** means that you have already sharded data in the appropriate directories and you can ask Hive partitions manually based on the directory location. This is shown in the code snippet below.
 
-	    INSERT OVERWRITE TABLE lineitem_part
-	    PARTITION (L_SHIPDATE = ‘5/23/1996 12:00:00 AM’)
-	    SELECT * FROM lineitem 
-	    WHERE lineitem.L_SHIPDATE = ‘5/23/1996 12:00:00 AM’
+        INSERT OVERWRITE TABLE lineitem_part
+        PARTITION (L_SHIPDATE = ‘5/23/1996 12:00:00 AM’)
+        SELECT * FROM lineitem 
+        WHERE lineitem.L_SHIPDATE = ‘5/23/1996 12:00:00 AM’
 
-	    ALTER TABLE lineitem_part ADD PARTITION (L_SHIPDATE = ‘5/23/1996 12:00:00 AM’))
-	    LOCATION ‘wasb://sampledata@ignitedemo.blob.core.windows.net/partitions/5_23_1996/'
+        ALTER TABLE lineitem_part ADD PARTITION (L_SHIPDATE = ‘5/23/1996 12:00:00 AM’))
+        LOCATION ‘wasb://sampledata@ignitedemo.blob.core.windows.net/partitions/5_23_1996/'
 
 - **Dynamic partitioning** means that you want Hive to create partitions automatically for you. Since we have already created the partitioning table from the staging table, all we need to do is insert data to the partitioned table as shown below:
 
-	    SET hive.exec.dynamic.partition = true;
-	    SET hive.exec.dynamic.partition.mode = nonstrict;
-	    INSERT INTO TABLE lineitem_part
-	    PARTITION (L_SHIPDATE)
-	    SELECT L_ORDERKEY as L_ORDERKEY, L_PARTKEY as L_PARTKEY , 
-	    	 L_SUPPKEY as L_SUPPKEY, L_LINENUMBER as L_LINENUMBER,
-	     	 L_QUANTITY as L_QUANTITY, L_EXTENDEDPRICE as L_EXTENDEDPRICE,
-	    	 L_DISCOUNT as L_DISCOUNT, L_TAX as L_TAX, L_RETURNFLAG as 	 	 L_RETURNFLAG, L_LINESTATUS as L_LINESTATUS, L_SHIPDATE as 	 	 L_SHIPDATE_PS, L_COMMITDATE as L_COMMITDATE, L_RECEIPTDATE as 	 L_RECEIPTDATE, L_SHIPINSTRUCT as L_SHIPINSTRUCT, L_SHIPMODE as 	 L_SHIPMODE, L_COMMENT as L_COMMENT, L_SHIPDATE as L_SHIPDATE FROM lineitem;
+        SET hive.exec.dynamic.partition = true;
+        SET hive.exec.dynamic.partition.mode = nonstrict;
+        INSERT INTO TABLE lineitem_part
+        PARTITION (L_SHIPDATE)
+        SELECT L_ORDERKEY as L_ORDERKEY, L_PARTKEY as L_PARTKEY , 
+             L_SUPPKEY as L_SUPPKEY, L_LINENUMBER as L_LINENUMBER,
+             L_QUANTITY as L_QUANTITY, L_EXTENDEDPRICE as L_EXTENDEDPRICE,
+             L_DISCOUNT as L_DISCOUNT, L_TAX as L_TAX, L_RETURNFLAG as       L_RETURNFLAG, L_LINESTATUS as L_LINESTATUS, L_SHIPDATE as       L_SHIPDATE_PS, L_COMMITDATE as L_COMMITDATE, L_RECEIPTDATE as   L_RECEIPTDATE, L_SHIPINSTRUCT as L_SHIPINSTRUCT, L_SHIPMODE as      L_SHIPMODE, L_COMMENT as L_COMMENT, L_SHIPDATE as L_SHIPDATE FROM lineitem;
 
 For more details, see [Partitioned Tables](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-PartitionedTables).
 
@@ -162,33 +162,33 @@ ORC (Optimized Row Columnar) format is a highly efficient way to store Hive data
 To enable ORC format, you first create a table with the clause *Stored as ORC*:
 
     CREATE TABLE lineitem_orc_part
-    	(L_ORDERKEY INT, L_PARTKEY INT,L_SUPPKEY INT, L_LINENUMBER INT,
-    	 L_QUANTITY DOUBLE, L_EXTENDEDPRICE DOUBLE, L_DISCOUNT DOUBLE,
-    	 L_TAX DOUBLE, L_RETURNFLAG STRING, L_LINESTATUS STRING,
-    	 L_SHIPDATE_PS STRING, L_COMMITDATE STRING, L_RECEIPTDATE STRING,
-		 L_SHIPINSTRUCT STRING, L_SHIPMODE STRING, L_COMMENT 	 STRING)
+        (L_ORDERKEY INT, L_PARTKEY INT,L_SUPPKEY INT, L_LINENUMBER INT,
+         L_QUANTITY DOUBLE, L_EXTENDEDPRICE DOUBLE, L_DISCOUNT DOUBLE,
+         L_TAX DOUBLE, L_RETURNFLAG STRING, L_LINESTATUS STRING,
+         L_SHIPDATE_PS STRING, L_COMMITDATE STRING, L_RECEIPTDATE STRING,
+         L_SHIPINSTRUCT STRING, L_SHIPMODE STRING, L_COMMENT     STRING)
     PARTITIONED BY(L_SHIPDATE STRING)
     STORED AS ORC;
 
 Next, you insert data to the ORC table from the staging table. For example:
 
     INSERT INTO TABLE lineitem_orc
-    SELECT L_ORDERKEY as L_ORDERKEY, 
-           L_PARTKEY as L_PARTKEY , 
-    	   L_SUPPKEY as L_SUPPKEY,
-		   L_LINENUMBER as L_LINENUMBER,
-     	   L_QUANTITY as L_QUANTITY, 
-		   L_EXTENDEDPRICE as L_EXTENDEDPRICE,
-    	   L_DISCOUNT as L_DISCOUNT,
-		   L_TAX as L_TAX,
+    SELECT L_ORDERKEY as L_ORDERKEY, 
+           L_PARTKEY as L_PARTKEY , 
+           L_SUPPKEY as L_SUPPKEY,
+           L_LINENUMBER as L_LINENUMBER,
+           L_QUANTITY as L_QUANTITY, 
+           L_EXTENDEDPRICE as L_EXTENDEDPRICE,
+           L_DISCOUNT as L_DISCOUNT,
+           L_TAX as L_TAX,
            L_RETURNFLAG as L_RETURNFLAG,
-		   L_LINESTATUS as L_LINESTATUS,
-		   L_SHIPDATE as L_SHIPDATE,
-		   L_COMMITDATE as L_COMMITDATE,
-		   L_RECEIPTDATE as L_RECEIPTDATE, 
-		   L_SHIPINSTRUCT as L_SHIPINSTRUCT,
-		   L_SHIPMODE as L_SHIPMODE,
-		   L_COMMENT as L_COMMENT
+           L_LINESTATUS as L_LINESTATUS,
+           L_SHIPDATE as L_SHIPDATE,
+           L_COMMITDATE as L_COMMITDATE,
+           L_RECEIPTDATE as L_RECEIPTDATE, 
+           L_SHIPINSTRUCT as L_SHIPINSTRUCT,
+           L_SHIPMODE as L_SHIPMODE,
+           L_COMMENT as L_COMMENT
     FROM lineitem;
 
 You can read more on the ORC format [here](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC).
@@ -226,3 +226,4 @@ In this article, you have learned several common Hive query optimization methods
 [image-hdi-optimize-hive-scaleout_2]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_2.png
 [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query/tez_1.png
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png
+

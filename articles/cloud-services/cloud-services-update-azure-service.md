@@ -181,3 +181,4 @@ The following diagram illustrates how a service than contains two roles are dist
 [How to Manage Cloud Services](cloud-services-how-to-manage.md)<br>
 [How to Monitor Cloud Services](cloud-services-how-to-monitor.md)<br>
 [How to Configure Cloud Services](cloud-services-how-to-cofigure.md)<br>
+

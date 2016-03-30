@@ -44,11 +44,11 @@ Forced tunneling in Azure is configured via virtual network User-Defined routes.
 
 -  Each virtual network subnet has a built-in, system routing table. The system routing table has the following 3 groups of routes:
 
-	- **Local VNet routes:** Directly to the destination VMs in the same virtual network
-	
-	- **On premises routes:** To the Azure VPN gateway
-	
-	- **Default route:** Directly to the Internet. Note that packets destined to the private IP addresses not covered by the previous two routes will be dropped.
+    - **Local VNet routes:** Directly to the destination VMs in the same virtual network
+    
+    - **On premises routes:** To the Azure VPN gateway
+    
+    - **Default route:** Directly to the Internet. Note that packets destined to the private IP addresses not covered by the previous two routes will be dropped.
 
 
 
@@ -64,7 +64,7 @@ The procedure below will help you specify forced tunneling for a virtual network
 
 In the example, the virtual network "MultiTier-VNet" has 3 subnets: *Frontend*, *Midtier*, and *Backend* subnets, with 4 cross premises connections: *DefaultSiteHQ*, and 3 *Branches*. The procedure steps will set the *DefaultSiteHQ* as the default site connection for forced tunneling, and configure the *Midtier* and *Backend* subnets to use forced tunneling.
 
-	<VirtualNetworkSite name="MultiTier-VNet" Location="North Europe">
+    <VirtualNetworkSite name="MultiTier-VNet" Location="North Europe">
      <AddressSpace>
       <AddressPrefix>10.1.0.0/16</AddressPrefix>
         </AddressSpace>
@@ -98,7 +98,7 @@ In the example, the virtual network "MultiTier-VNet" has 3 subnets: *Frontend*, 
             </LocalNetworkSiteRef>
         </Gateway>
       </VirtualNetworkSite>
-	</VirtualNetworkSite>
+    </VirtualNetworkSite>
 
 ### Prerequisites
 
@@ -114,28 +114,28 @@ Use the following procedure to configure forced tunneling.
 
 1. Create a routing table. Use the following cmdlet to create your route table.
 
-		New-AzureRouteTable –Name "MyRouteTable" –Label "Routing Table for Forced Tunneling" –Location "North Europe"
+        New-AzureRouteTable –Name "MyRouteTable" –Label "Routing Table for Forced Tunneling" –Location "North Europe"
 
 1. Add a default route to the routing table. 
 
-	The cmdlet example below adds a default route to the routing table created in Step 1. Note that the only route supported is the destination prefix of "0.0.0.0/0" to the "VPNGateway" nexthop.
+    The cmdlet example below adds a default route to the routing table created in Step 1. Note that the only route supported is the destination prefix of "0.0.0.0/0" to the "VPNGateway" nexthop.
  
-		Set-AzureRoute –RouteTableName "MyRouteTable" –RouteName "DefaultRoute" –AddressPrefix "0.0.0.0/0" –NextHopType VPNGateway
+        Set-AzureRoute –RouteTableName "MyRouteTable" –RouteName "DefaultRoute" –AddressPrefix "0.0.0.0/0" –NextHopType VPNGateway
 
 1. Associate the routing table to the subnets. 
 
-	After a routing table is created and a route added, use the cmdlet below to add or associate the route table to a VNet subnet. The samples below add the route table "MyRouteTable" to the Midtier and Backend subnets of VNet MultiTier-VNet.
+    After a routing table is created and a route added, use the cmdlet below to add or associate the route table to a VNet subnet. The samples below add the route table "MyRouteTable" to the Midtier and Backend subnets of VNet MultiTier-VNet.
 
-		Set-AzureSubnetRouteTable -VNetName "MultiTier-VNet" -SubnetName "Midtier" -RouteTableName "MyRouteTable"
+        Set-AzureSubnetRouteTable -VNetName "MultiTier-VNet" -SubnetName "Midtier" -RouteTableName "MyRouteTable"
 
-		Set-AzureSubnetRouteTable -VNetName "MultiTier-VNet" -SubnetName "Backend" -RouteTableName "MyRouteTable"
+        Set-AzureSubnetRouteTable -VNetName "MultiTier-VNet" -SubnetName "Backend" -RouteTableName "MyRouteTable"
 
 1. Assign a default site for forced tunneling. 
 
-	In the preceding step, the sample cmdlet scripts created the routing table and associated the route table to two of the VNet subnets. The remaining step is to select a local site among the multi-site connections of the virtual network as the default site or tunnel.
+    In the preceding step, the sample cmdlet scripts created the routing table and associated the route table to two of the VNet subnets. The remaining step is to select a local site among the multi-site connections of the virtual network as the default site or tunnel.
 
-		$DefaultSite = @("DefaultSiteHQ")
-		Set-AzureVNetGatewayDefaultSite –VNetName "MultiTier-VNet" –DefaultSite "DefaultSiteHQ"
+        $DefaultSite = @("DefaultSiteHQ")
+        Set-AzureVNetGatewayDefaultSite –VNetName "MultiTier-VNet" –DefaultSite "DefaultSiteHQ"
 
 ## Additional PowerShell cmdlets
 
@@ -143,27 +143,28 @@ Below are some additional PowerShell cmdlets that you may find helpful when work
 
 **To delete a route table:**
 
-	Remove-AzureRouteTable -RouteTableName <routeTableName>
+    Remove-AzureRouteTable -RouteTableName <routeTableName>
 
 **To list a route table:**
 
-	Get-AzureRouteTable [-Name <routeTableName> [-DetailLevel <detailLevel>]]
+    Get-AzureRouteTable [-Name <routeTableName> [-DetailLevel <detailLevel>]]
 
 **To delete a route from a route table:**
 
-	Remove-AzureRouteTable –Name <routeTableName>
+    Remove-AzureRouteTable –Name <routeTableName>
 
 **To remove a route from a subnet:**
 
-	Remove-AzureSubnetRouteTable –VNetName <virtualNetworkName> -SubnetName <subnetName>
+    Remove-AzureSubnetRouteTable –VNetName <virtualNetworkName> -SubnetName <subnetName>
 
 **To list the route table associated with a subnet:**
-	
-	Get-AzureSubnetRouteTable -VNetName <virtualNetworkName> -SubnetName <subnetName>
+    
+    Get-AzureSubnetRouteTable -VNetName <virtualNetworkName> -SubnetName <subnetName>
 
 **To remove a default site from a VNet VPN gateway:**
 
-	Remove-AzureVnetGatewayDefaultSites -VNetName <virtualNetworkName>
+    Remove-AzureVnetGatewayDefaultSites -VNetName <virtualNetworkName>
+
 
 
 

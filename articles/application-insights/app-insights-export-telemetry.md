@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Continous export of telemetry from Application Insights" 
-	description="Export diagnostic and usage data to storage in Microsoft Azure, and download it from there." 
-	services="application-insights" 
+    pageTitle="Continous export of telemetry from Application Insights" 
+    description="Export diagnostic and usage data to storage in Microsoft Azure, and download it from there." 
+    services="application-insights" 
     documentationCenter=""
-	authors="alancameronwills" 
-	manager="douge"/>
+    authors="alancameronwills" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/15/2015" 
-	ms.author="awills"/>
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/15/2015" 
+    ms.author="awills"/>
  
 # Export telemetry from Application Insights
 
@@ -99,9 +99,9 @@ The date and time are UTC and are when the telemetry was deposited in the store 
 
 Time durations are in ticks, where 10 000 ticks = 1ms. For example, these values show a time of 10ms to send a request from the browser, 30ms to receive it, and 1.8s to process the page in the browser:
 
-	"sendRequest": {"value": 10000.0},
-	"receiveRequest": {"value": 30000.0},
-	"clientProcess": {"value": 17970000.0}
+    "sendRequest": {"value": 10000.0},
+    "receiveRequest": {"value": 30000.0},
+    "clientProcess": {"value": 17970000.0}
 
 [Detailed data model reference for the property types and values.](app-insights-export-data-model.md)
 
@@ -209,3 +209,4 @@ On larger scales, consider [HDInsight](http://azure.microsoft.com/services/hdins
 [roles]: app-insights-resources-roles-access-control.md
 
  
+

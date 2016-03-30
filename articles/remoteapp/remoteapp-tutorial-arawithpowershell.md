@@ -99,3 +99,4 @@ Other RemoteApp cmdlets:
 - Get-AzureRemoteAppWorkspace
 - Set-AzureRemoteAppWorkspace
 - Get-AzureRemoteAppOperationResult
+

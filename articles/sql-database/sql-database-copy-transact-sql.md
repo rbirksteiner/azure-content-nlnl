@@ -1,20 +1,20 @@
 <properties 
     pageTitle="Create a copy of an Azure SQL database using Transact-SQL" 
     description="Create copy of an Azure SQL database using Transact-SQL" 
-	services="sql-database"
-	documentationCenter=""
-	authors="stevestein"
-	manager="jeffreyg"
-	editor=""/>
+    services="sql-database"
+    documentationCenter=""
+    authors="stevestein"
+    manager="jeffreyg"
+    editor=""/>
 
 <tags
-	ms.service="sql-database"
-	ms.devlang="NA"
-	ms.date="12/01/2015"
-	ms.author="sstein"
-	ms.workload="data-management"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"/>
+    ms.service="sql-database"
+    ms.devlang="NA"
+    ms.date="12/01/2015"
+    ms.author="sstein"
+    ms.workload="data-management"
+    ms.topic="article"
+    ms.tgt_pltfrm="NA"/>
 
 
 # Create a copy of an Azure SQL database using Transact-SQL
@@ -102,3 +102,4 @@ Monitor the copying process by querying the sys.databases and sys.dm_database_co
 - [Business Continuity Overview](sql-database-business-continuity.md)
 - [Disaster Recovery Drills](sql-database-disaster-recovery-drills.md)
 - [SQL Database documentation](https://azure.microsoft.com/documentation/services/sql-database/)
+

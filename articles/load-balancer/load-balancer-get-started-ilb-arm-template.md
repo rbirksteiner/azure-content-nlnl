@@ -38,11 +38,11 @@ To deploy the template you downloaded by using PowerShell, follow the steps belo
 1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](powershell-install-configure.md) and follow the instructions all the way to the end to sign into Azure and select your subscription.
 2. Run the **Switch-AzureMode** cmdlet to switch to Resource Manager mode, as shown below.
 
-		Switch-AzureMode AzureResourceManager
+        Switch-AzureMode AzureResourceManager
 
-	Here is the expected output for the command above:
+    Here is the expected output for the command above:
 
-		WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
+        WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
 
 >[AZURE.WARNING] The Switch-AzureMode cmdlet will be deprecated soon. When that happens, all Resource Manager cmdlets will be renamed.
 
@@ -51,12 +51,12 @@ To deploy the template you downloaded by using PowerShell, follow the steps belo
 5. Run the **New-AzureResourceGroup** cmdlet to create a resource group using the template. 
 
 
-		New-AzureResourceGroup -Name TestRG -Location westus `
-		    -TemplateFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.json' `
-		    -TemplateParameterFile 'C:\temp\azuredeploy.parameters.json'
-	
+        New-AzureResourceGroup -Name TestRG -Location westus `
+            -TemplateFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.json' `
+            -TemplateParameterFile 'C:\temp\azuredeploy.parameters.json'
+    
                 
-		
+        
 ## Deploy the template by using the Azure CLI
 
 To deploy the template by using the Azure CLI, follow the steps below.
@@ -64,17 +64,17 @@ To deploy the template by using the Azure CLI, follow the steps below.
 1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](xplat-cli.md) and follow the instructions up to the point where you select your Azure account and subscription.
 2. Run the **azure config mode** command to switch to Resource Manager mode, as shown below.
 
-		azure config mode arm
+        azure config mode arm
 
-	Here is the expected output for the command above:
+    Here is the expected output for the command above:
 
-		info:    New mode is arm
+        info:    New mode is arm
 
 3. Open the [parameter file](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.parameters.json), select its contents, and save it to a file in your computer. For this example, we saved the parameters file to *parameters.json*.
 
 4. Run the **azure group deployment create** cmdlet to deploy the new VNet by using the template and parameter files you downloaded and modified above. The list shown after the output explains the parameters used.
 
-		azure group create -n TestRG -l westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.json -e parameters.json
+        azure group create -n TestRG -l westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.json -e parameters.json
 
 
 
@@ -83,6 +83,7 @@ To deploy the template by using the Azure CLI, follow the steps below.
 [Configure a load balancer distribution mode using source IP affinity](load-balancer-distribution-mode.md)
 
 [Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
+
 
 
 

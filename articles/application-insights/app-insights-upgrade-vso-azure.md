@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Upgrade from the old Visual Studio Team Services version of Application Insights" 
-	description="Upgrade existing projects"
-	services="application-insights" 
+    pageTitle="Upgrade from the old Visual Studio Team Services version of Application Insights" 
+    description="Upgrade existing projects"
+    services="application-insights" 
     documentationCenter=""
-	authors="alancameronwills" 
-	manager="douge"/>
+    authors="alancameronwills" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/19/2015" 
-	ms.author="awills"/>
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="06/19/2015" 
+    ms.author="awills"/>
  
 # Upgrade from the old Visual Studio Team Services version of Application Insights
 

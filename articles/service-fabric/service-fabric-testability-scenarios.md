@@ -19,8 +19,8 @@
 # Testability Scenarios
 Large distributed systems like cloud infrastructures are inherently unreliable. Service Fabric provides developers the ability to write services to run on top of unreliable infrastructures. In order to write high quality services, developers need to be able to induce such unreliable infrastructure to test the stability of their services. Service Fabric gives developers the ability to induce fault actions to test services in presence of failures. However, targeted simulated faults will only get you so far. To take the testing further Service Fabric ships pre-canned test scenarios. The scenarios simulate continuous interleaved faults, both graceful and ungraceful, throughout the cluster over extended periods of time. Once configured with the rate and kind of faults, it runs as a client side tool, through either C# APIs or PowerShell to generate faults in the cluster and your service. As part of the testability feature we ship the following scenarios.
 
-1.	Chaos Test
-2.	Failover Test
+1.  Chaos Test
+2.  Failover Test
 
 ## Chaos Test
 The chaos scenario generates faults across the entire service fabric cluster. The scenario compresses faults generally seen in months or years to a few hours. The combination of interleaved faults with the high fault rate finds corner cases which are otherwise missed. This leads to a significant improvement in the code quality of the service.
@@ -250,3 +250,4 @@ Invoke-ServiceFabricFailoverTestScenario -TimeToRunMinute $timeToRun -MaxService
 ```
 
  
+

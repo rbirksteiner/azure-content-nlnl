@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How to page search results in Azure Search | Microsoft Azure | Hosted cloud search service" 
-	description="Pagination in Azure Search, a hosted cloud search service on Microsoft Azure." 
-	services="search" 
-	documentationCenter="" 
-	authors="HeidiSteen" 
-	manager="mblythe" 
-	editor=""/>
+    pageTitle="How to page search results in Azure Search | Microsoft Azure | Hosted cloud search service" 
+    description="Pagination in Azure Search, a hosted cloud search service on Microsoft Azure." 
+    services="search" 
+    documentationCenter="" 
+    authors="HeidiSteen" 
+    manager="mblythe" 
+    editor=""/>
 
 <tags 
-	ms.service="search" 
-	ms.devlang="rest-api" 
-	ms.workload="search" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.date="11/04/2015" 
-	ms.author="heidist"/>
+    ms.service="search" 
+    ms.devlang="rest-api" 
+    ms.workload="search" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.date="11/04/2015" 
+    ms.author="heidist"/>
 
 #How to page search results in Azure Search#
 
@@ -32,19 +32,19 @@ Showing the total number of results returned from a query, and then returning th
  
 In Azure Search, you use the `$count`, `$top`, and `$skip` parameters to return these values. The following example shows a sample request for total hits, returned as `@OData.count`:
 
-    	GET /indexes/onlineCatalog/docs?$count=true
+        GET /indexes/onlineCatalog/docs?$count=true
 
 Retrieve documents in groups of 15, and also show the total hits, starting at the first page:
 
-		GET /indexes/onlineCatalog/docs?search=*$top=15&$skip=0&$count=true
+        GET /indexes/onlineCatalog/docs?search=*$top=15&$skip=0&$count=true
 
 Paginating results requires both `$top` and `$skip`, where `$top` specifies how many items to return in a batch, and `$skip` specifies how many items to skip. In the following example, each page shows the next 15 items, indicated by the incremental jumps in the `$skip` parameter.
 
-    	GET /indexes/onlineCatalog/docs?search=*$top=15&$skip=0&$count=true
+        GET /indexes/onlineCatalog/docs?search=*$top=15&$skip=0&$count=true
 
-    	GET /indexes/onlineCatalog/docs?search=*$top=15&$skip=15&$count=true
+        GET /indexes/onlineCatalog/docs?search=*$top=15&$skip=15&$count=true
 
-    	GET /indexes/onlineCatalog/docs?search=*$top=15&$skip=30&$count=true
+        GET /indexes/onlineCatalog/docs?search=*$top=15&$skip=30&$count=true
 
 ## Layout  ##
 
@@ -56,13 +56,13 @@ In Azure Search, you would use `$select` and a lookup command to implement this 
 
 To return a subset of fields for a tiled layout:
 
-    	GET /indexes/ onlineCatalog/docs?search=*&$select=productName,imageFile,description,price,rating 
+        GET /indexes/ onlineCatalog/docs?search=*&$select=productName,imageFile,description,price,rating 
 
 Images and media files are not directly searchable and should be stored in another storage platform, such as Azure Blob storage, to reduce costs. In the index and documents, define a field that stores the URL address of the external content. You can then use the field as an image reference. The URL to the image should be in the document.
 
 To retrieve a product description page for an **onClick** event, use [Lookup Document](http://msdn.microsoft.com/library/azure/dn798929.aspx) to pass in the key of the document to retrieve. The data type of the key is `Edm.String`. In this example, it is *246810*. 
    
-    	GET /indexes/onlineCatalog/docs/246810
+        GET /indexes/onlineCatalog/docs/246810
 
 ## Sort by relevance, rating, or price ##
 
@@ -94,7 +94,7 @@ If your solution design included dedicated search pages for specific types of co
 
 You can send a filter with or without a search expression. For example, the following request will filter on brand name, returning only those documents that match it.
 
-    	GET /indexes/onlineCatalog/docs?$filter=brandname eq ‘Microsoft’ and category eq ‘Games’
+        GET /indexes/onlineCatalog/docs?$filter=brandname eq ‘Microsoft’ and category eq ‘Games’
 
 See [Search Documents (Azure Search API)](http://msdn.microsoft.com/library/azure/dn798927.aspx) for more information about `$filter` expressions.
 

@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure App Service deployment documentation"
-	description="Find documentation that explains how to deploy your app to Azure App Service."
-	services="app-service"
-	documentationCenter=""
-	authors="tdykstra"
-	manager="wpickett"
-	editor="mollybos"/>
+    pageTitle="Azure App Service deployment documentation"
+    description="Find documentation that explains how to deploy your app to Azure App Service."
+    services="app-service"
+    documentationCenter=""
+    authors="tdykstra"
+    manager="wpickett"
+    editor="mollybos"/>
 
 <tags
-	ms.service="app-service"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/06/2015"
-	ms.author="tdykstra"/>
+    ms.service="app-service"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/06/2015"
+    ms.author="tdykstra"/>
 
 # Azure App Service deployment documentation
 
@@ -203,3 +203,4 @@ For information about other deployment topics, see the Deploy section in [Web Ap
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
  
+

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Using Diagnostic Search" 
-	description="Search and filter individual events, requests, and log traces." 
-	services="application-insights" 
+    pageTitle="Using Diagnostic Search" 
+    description="Search and filter individual events, requests, and log traces." 
+    services="application-insights" 
     documentationCenter=""
-	authors="alancameronwills" 
-	manager="douge"/>
+    authors="alancameronwills" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/23/2015" 
-	ms.author="awills"/>
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/23/2015" 
+    ms.author="awills"/>
  
 # Using Diagnostic Search in Application Insights
 

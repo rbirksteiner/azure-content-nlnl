@@ -1,20 +1,20 @@
 <properties
-	pageTitle="How to create and deploy a cloud service | Microsoft Azure"
-	description="Learn how to create and deploy a cloud service using the Quick Create method in Azure."
-	services="cloud-services"
-	documentationCenter=""
-	authors="Thraka"
-	manager="timlt"
-	editor=""/>
+    pageTitle="How to create and deploy a cloud service | Microsoft Azure"
+    description="Learn how to create and deploy a cloud service using the Quick Create method in Azure."
+    services="cloud-services"
+    documentationCenter=""
+    authors="Thraka"
+    manager="timlt"
+    editor=""/>
 
 <tags
-	ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/07/2015"
-	ms.author="adegeo"/>
+    ms.service="cloud-services"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/07/2015"
+    ms.author="adegeo"/>
 
 
 
@@ -71,7 +71,7 @@ To create a cloud service with deployments of web roles or worker roles, you mus
 
 1. In the [Azure classic portal](http://manage.windowsazure.com/), click **New**>**Compute**>**Cloud Service**>**Quick Create**.
 
-	![CloudServices_QuickCreate](./media/cloud-services-how-to-create-deploy/CloudServices_QuickCreate.png)
+    ![CloudServices_QuickCreate](./media/cloud-services-how-to-create-deploy/CloudServices_QuickCreate.png)
 
 2. In **URL**, enter a subdomain name to use in the public URL for accessing your cloud service in production deployments. The URL format for production deployments is: http://*myURL*.cloudapp.net.
 
@@ -79,20 +79,20 @@ To create a cloud service with deployments of web roles or worker roles, you mus
 
 4. Click **Create Cloud Service**.
 
-	![CloudServices_Region](./media/cloud-services-how-to-create-deploy/CloudServices_Regionlist.png)
+    ![CloudServices_Region](./media/cloud-services-how-to-create-deploy/CloudServices_Regionlist.png)
 
-	You can monitor the status of the process in the message area at the bottom of the window.
+    You can monitor the status of the process in the message area at the bottom of the window.
 
-	The **Cloud Services** area opens, with the new cloud service displayed. When the status changes to Created, cloud service creation has completed successfully.
+    The **Cloud Services** area opens, with the new cloud service displayed. When the status changes to Created, cloud service creation has completed successfully.
 
-	![CloudServices_CloudServicesPage](./media/cloud-services-how-to-create-deploy/CloudServices_CloudServicesPage.png)
+    ![CloudServices_CloudServicesPage](./media/cloud-services-how-to-create-deploy/CloudServices_CloudServicesPage.png)
 
 
 ## How to: Upload a certificate for a cloud service
 
 1. In the [Azure classic portal](http://manage.windowsazure.com/), click **Cloud Services**, click the name of the cloud service, and then click **Certificates**.
 
-	![CloudServices_QuickCreate](./media/cloud-services-how-to-create-deploy/CloudServices_EmptyDashboard.png)
+    ![CloudServices_QuickCreate](./media/cloud-services-how-to-create-deploy/CloudServices_EmptyDashboard.png)
 
 
 2. Click either **Upload a certificate** or **Upload**.
@@ -103,11 +103,11 @@ To create a cloud service with deployments of web roles or worker roles, you mus
 
 5. Click **OK** (checkmark).
 
-	![CloudServices_AddaCertificate](./media/cloud-services-how-to-create-deploy/CloudServices_AddaCertificate.png)
+    ![CloudServices_AddaCertificate](./media/cloud-services-how-to-create-deploy/CloudServices_AddaCertificate.png)
 
-	You can watch the progress of the upload in the message area, shown below. When the upload completes, the certificate is added to the table. In the message area, click OK to close the message.
+    You can watch the progress of the upload in the message area, shown below. When the upload completes, the certificate is added to the table. In the message area, click OK to close the message.
 
-	![CloudServices_CertificateProgress](./media/cloud-services-how-to-create-deploy/CloudServices_CertificateProgress.png)
+    ![CloudServices_CertificateProgress](./media/cloud-services-how-to-create-deploy/CloudServices_CertificateProgress.png)
 
 ## How to: Deploy a cloud service
 
@@ -127,17 +127,17 @@ To create a cloud service with deployments of web roles or worker roles, you mus
 
 6. Click **OK** (checkmark) to begin the cloud service deployment.
 
-	![CloudServices_UploadaPackage](./media/cloud-services-how-to-create-deploy/CloudServices_UploadaPackage.png)
+    ![CloudServices_UploadaPackage](./media/cloud-services-how-to-create-deploy/CloudServices_UploadaPackage.png)
 
-	You can monitor the status of the deployment in the message area. Click OK to hide the message.
+    You can monitor the status of the deployment in the message area. Click OK to hide the message.
 
-	![CloudServices_UploadProgress](./media/cloud-services-how-to-create-deploy/CloudServices_UploadProgress.png)
+    ![CloudServices_UploadProgress](./media/cloud-services-how-to-create-deploy/CloudServices_UploadProgress.png)
 
 ## Verify your deployment completed successfully
 
 1. Click **Dashboard**.
 
-	The status should show that the service is **Running**.
+    The status should show that the service is **Running**.
 
 2. Under **quick glance**, click the site URL to open your cloud service in a web browser.
 

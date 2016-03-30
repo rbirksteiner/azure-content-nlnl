@@ -110,3 +110,4 @@ Consider the following points to make your Azure SQL Database applications less 
 [Managing databases and logins in Azure SQL Database](sql-database-manage-logins.md)
 
 [Security Center for SQL Server Database Engine and Azure SQL Database](https://msdn.microsoft.com/library/bb510589)
+

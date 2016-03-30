@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Create SharePoint server farms | Microsoft Azure"
-	description="Quickly create a new basic or highly-available SharePoint Server 2013 farm with the Azure portal marketplace."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="JoeDavies-MSFT"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    pageTitle="Create SharePoint server farms | Microsoft Azure"
+    description="Quickly create a new basic or highly-available SharePoint Server 2013 farm with the Azure portal marketplace."
+    services="virtual-machines"
+    documentationCenter=""
+    authors="JoeDavies-MSFT"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="Windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/29/2015"
-	ms.author="josephd"/>
+    ms.service="virtual-machines"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="Windows"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/29/2015"
+    ms.author="josephd"/>
 
 # Create SharePoint server farms
 
@@ -68,3 +68,4 @@ From the Central Administration SharePoint site, you can configure My sites, Sha
 [Set up a SharePoint intranet farm in a hybrid cloud for testing](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
 
 [Microsoft Azure Architectures for SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
+

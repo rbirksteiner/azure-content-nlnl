@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Configure PHP in Azure App Service Web Apps | Microsoft Azure"
-	description="Learn how to configure the default PHP installation or add a custom PHP installation for Web Apps in Azure App Service."
-	services="app-service"
-	documentationCenter="php"
-	authors="tfitzmac"
-	manager="wpickett"
-	editor=""/>
+    pageTitle="Configure PHP in Azure App Service Web Apps | Microsoft Azure"
+    description="Learn how to configure the default PHP installation or add a custom PHP installation for Web Apps in Azure App Service."
+    services="app-service"
+    documentationCenter="php"
+    authors="tfitzmac"
+    manager="wpickett"
+    editor=""/>
 
 <tags
-	ms.service="app-service"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="PHP"
-	ms.topic="article"
-	ms.date="12/16/2015"
-	ms.author="tomfitz"/>
+    ms.service="app-service"
+    ms.workload="web"
+    ms.tgt_pltfrm="na"
+    ms.devlang="PHP"
+    ms.topic="article"
+    ms.date="12/16/2015"
+    ms.author="tomfitz"/>
 
 #Configure PHP in Azure App Service Web Apps
 
@@ -33,7 +33,7 @@ PHP 5.5 and PHP 5.6 versions are also available, but not enabled by default. To 
 
 1. Browse to your web app in the [Azure Portal](https://portal.azure.com) and click on the **Settings** button.
 
-	![Web App Settings][settings-button]
+    ![Web App Settings][settings-button]
 
 2. From the **Settings** blade select **Application Settings** and choose the new PHP version.
 
@@ -41,7 +41,7 @@ PHP 5.5 and PHP 5.6 versions are also available, but not enabled by default. To 
 
 3. Click the **Save** button at the top of the **Web app settings** blade.
 
-	![Save configuration settings][save-button]
+    ![Save configuration settings][save-button]
 
 ### Azure PowerShell (Windows)
 
@@ -83,9 +83,9 @@ For any built-in PHP runtime, you can change any of the configuration options by
 1. Add a [.user.ini] file to your root directory.
 2. Add configuration settings to the `.user.ini` file using the same syntax you would use in a `php.ini` file. For example, if you wanted to turn the `display_errors` setting on and set `upload_max_filesize` setting to 10M, your `.user.ini` file would contain this text:
 
-		; Example Settings
-		display_errors=On
-		upload_max_filesize=10M
+        ; Example Settings
+        display_errors=On
+        upload_max_filesize=10M
 
 3. Deploy your web app.
 4. Restart the web app. (Restarting is necessary because the frequency with which PHP reads `.user.ini` files is governed by the `user_ini.cache_ttl` setting, which is a system level setting and is 300 seconds (5 minutes) by default. Restarting the web app forces PHP to read the new settings in the `.user.ini` file.)
@@ -98,9 +98,9 @@ As an alternative to using a `.user.ini` file, you can use the [ini_set()] funct
 2. Create an `settings.ini` file using Kudu Console (http://&lt;site-name&gt;.scm.azurewebsite.net) in the `d:\home\site\ini` directory.
 3. Add configuration settings to the `settings.ini` file using the same syntax you would use in a php.ini file. For example, if you wanted to point the `curl.cainfo` setting to a `*.crt` file and set 'wincache.maxfilesize' setting to 512K, your `settings.ini` file would contain this text:
 
-		; Example Settings
-		curl.cainfo="%ProgramFiles(x86)%\Git\bin\curl-ca-bundle.crt"
-		wincache.maxfilesize=512
+        ; Example Settings
+        curl.cainfo="%ProgramFiles(x86)%\Git\bin\curl-ca-bundle.crt"
+        wincache.maxfilesize=512
 4. Restart your Web App to load the changes.
 
 ## How to: Enable extensions in the default PHP runtime
@@ -114,9 +114,9 @@ As noted in the previous section, the best way to see the default PHP version, i
 4. Create an `ini` file in `d:\home\site\ini` called `extensions.ini`.
 5. Add configuration settings to the `extensions.ini` file using the same syntax you would use in a php.ini file. For example, if you wanted to enable the MongoDB and XDebug extensions, your `extensions.ini` file would contain this text:
 
-		; Enable Extensions
-		extension=d:\home\site\ext\php_mongo.dll
-		zend_extension=d:\home\site\ext\php_xdebug.dll
+        ; Enable Extensions
+        extension=d:\home\site\ext\php_mongo.dll
+        zend_extension=d:\home\site\ext\php_xdebug.dll
 6. Restart your Web App to load the changes.
 
 ### Configure via App Setting
@@ -126,16 +126,16 @@ As noted in the previous section, the best way to see the default PHP version, i
 3. Deploy your web app.
 4. Browse to your web app in the Azure Portal and click on the **Settings** button.
 
-	![Web App Settings][settings-button]
+    ![Web App Settings][settings-button]
 
 5. From the **Settings** blade select **Application Settings** and scroll to the **App settings** section.
 6. In the **App settings** section, create a **PHP_EXTENSIONS** key. The value for this key would be a path relative to website root: **bin\your-ext-file**.
 
-	![Enable extension in app settings][php-extensions]
+    ![Enable extension in app settings][php-extensions]
 
 7. Click the **Save** button at the top of the **Web app settings** blade.
 
-	![Save configuration settings][save-button]
+    ![Save configuration settings][save-button]
 
 Zend extensions are also supported by using a **PHP_ZENDEXTENSIONS** key. To enable multiple extensions, include a comma-separated list of `.dll` files for the app setting value.
 
@@ -150,15 +150,15 @@ Instead of the default PHP runtime, App Service Web Apps can use a PHP runtime t
 5. Deploy your web app.
 4. Browse to your web app in the Azure Portal and click on the **Settings** button.
 
-	![Web App Settings][settings-button]
+    ![Web App Settings][settings-button]
 
 7. From the **Settings** blade select **Application Settings** and scroll to the **Handler mappings** section. Add `*.php` to the Extension field and add the path to the `php-cgi.exe` executable. If you put your PHP runtime in the `bin` directory in the root of you application, the path will be `D:\home\site\wwwroot\bin\php\php-cgi.exe`.
 
-	![Specify handler in hander mappings][handler-mappings]
+    ![Specify handler in hander mappings][handler-mappings]
 
 8. Click the **Save** button at the top of the **Web app settings** blade.
 
-	![Save configuration settings][save-button]
+    ![Save configuration settings][save-button]
 
 ## Next steps
 
@@ -187,3 +187,4 @@ For more information, see the [PHP Developer Center](/develop/php/).
 [SETPHPVERPS]: ./media/web-sites-php-configure/ChangePHPVersion-PS.png
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
  
+

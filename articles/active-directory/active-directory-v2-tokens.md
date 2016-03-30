@@ -1,27 +1,27 @@
 <properties
-	pageTitle="App Model v2 Token reference | Microsoft Azure"
-	description="The types of tokens and claims emitted by the v2.0 Endpoint"
-	services="active-directory"
-	documentationCenter=""
-	authors="dstrockis"
-	manager="mbaldwin"
-	editor=""/>
+    pageTitle="App Model v2 Token reference | Microsoft Azure"
+    description="The types of tokens and claims emitted by the v2.0 Endpoint"
+    services="active-directory"
+    documentationCenter=""
+    authors="dstrockis"
+    manager="mbaldwin"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/09/2015"
-	ms.author="dastrock"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/09/2015"
+    ms.author="dastrock"/>
 
 # App model v2.0 preview: Token reference
 
 The v2.0 endpoint emits several types of security tokens in the processing of each [authentication flow](active-directory-v2-flows.md). This document describes the format, security characteristics, and contents of each type of token.
 
 > [AZURE.NOTE]
-	This information applies to the v2.0 app model public preview.  For instructions on how to integrate with the generally available Azure AD service, please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
+    This information applies to the v2.0 app model public preview.  For instructions on how to integrate with the generally available Azure AD service, please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
 
 ## Types of Tokens
 
@@ -116,9 +116,9 @@ Id_Tokens are signed using industry standard asymmetric encryption algorithms, s
 
 ```
 {
-		typ: "JWT",
-		alg: "RS256",
-		x5t: "GvnPApfWMdLRi8PDmisFn7bprKg"
+        typ: "JWT",
+        alg: "RS256",
+        x5t: "GvnPApfWMdLRi8PDmisFn7bprKg"
 }
 ```
 
@@ -163,3 +163,4 @@ The following token lifetimes are provided purely for your understanding, as the
 | Refresh Tokens (personal accounts) | Up to 1 year | A single refresh token is valid for a maximum of 1 year.  However, the refresh token may become invalid at any time for any number of reasons, so your app should continue to try and use a refresh token until it fails. |
 | Authorization Codes (work or school accounts) | 10 minutes | Authorization codes are purposefully short-lived, and should be immediately redeemed for access_tokens and refresh_tokens when they are received. |
 | Authorization Codes (personal accounts) | 5 minutes | Authorization codes are purposefully short-lived, and should be immediately redeemed for access_tokens and refresh_tokens when they are received.  Authorization codes issued on behalf of personal accounts are also one-time use. |
+

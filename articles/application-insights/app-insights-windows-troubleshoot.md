@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Troubleshoot Application Insights in Windows devices" 
-	description="Troubleshooting guide and question and answer for Application Insights in Windows devices." 
-	services="application-insights" 
+    pageTitle="Troubleshoot Application Insights in Windows devices" 
+    description="Troubleshooting guide and question and answer for Application Insights in Windows devices." 
+    services="application-insights" 
     documentationCenter="windows"
-	authors="alancameronwills" 
-	manager="douge"/>
+    authors="alancameronwills" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/24/2015" 
-	ms.author="awills"/>
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/24/2015" 
+    ms.author="awills"/>
  
 # Troubleshooting and Q&A for Application Insights for Windows devices
 

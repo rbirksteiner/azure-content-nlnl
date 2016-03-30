@@ -1,36 +1,36 @@
 
 <properties
-	pageTitle="Azure Active Directory hybrid identity design considerations - determine incident rResponse requirements |Microsoft Azure Requirements "
-	description="Determine monitoring and reporting capabilities for the hybrid identity solution that can be leveraged by IT to take actions to identify and mitigate a potential threats"
-	documentationCenter=""
-	services="active-directory"
-	authors="yuridio"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Azure Active Directory hybrid identity design considerations - determine incident rResponse requirements |Microsoft Azure Requirements "
+    description="Determine monitoring and reporting capabilities for the hybrid identity solution that can be leveraged by IT to take actions to identify and mitigate a potential threats"
+    documentationCenter=""
+    services="active-directory"
+    authors="yuridio"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/06/2015"
-	ms.author="yuridio"/>
+    ms.date="11/06/2015"
+    ms.author="yuridio"/>
 
 # Determine incident response requirements for your hybrid identity solution
 
 Large or medium organizations most likely will have a [security incident response](https://technet.microsoft.com/library/cc700825.aspx) in place to help IT take actions accordingly to the level of incident. The identity management system is an important component in the incident response process because it can be used to help identifying who performed a specific action against the target. The hybrid identity solution must be able to provide monitoring and reporting capabilities that can be leveraged by IT to take actions to identify and mitigate a potential threat. In a typical incident response plan you will have the following phases as part of the plan:
 
-1.	Initial assessment.
-2.	Incident communication.
-3.	Damage control and risk reduction.
-4.	Identification of what it was compromise and severity.
-5.	Evidence preservation.
-6.	Notification to appropriate parties.
-7.	System recovery.
-8.	Documentation.
-9.	Damage and cost assessment.
-10.	Process and plan revision.
+1.  Initial assessment.
+2.  Incident communication.
+3.  Damage control and risk reduction.
+4.  Identification of what it was compromise and severity.
+5.  Evidence preservation.
+6.  Notification to appropriate parties.
+7.  System recovery.
+8.  Documentation.
+9.  Damage and cost assessment.
+10. Process and plan revision.
 
 During the identification of what it was compromise and severity- phase, it will be necessary to identify the systems that have been compromised, files that have been accessed and determine the sensitivity of those files. Your hybrid identity system should be able to fulfill these requirements to assist you identifying the user that made those changes. 
 

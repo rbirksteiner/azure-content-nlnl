@@ -1,21 +1,21 @@
 <properties
-   	pageTitle="Linux tutorial: Get started with Hadoop and Hive | Microsoft Azure"
-   	description="Follow this Linux tutorial to get started using Hadoop in HDInsight. Learn how to provision Linux clusters, and query data with Hive."
-   	services="hdinsight"
-   	documentationCenter=""
-   	authors="nitinme"
-   	manager="paulettm"
-   	editor="cgronlun"
-	tags="azure-portal"/>
+    pageTitle="Linux tutorial: Get started with Hadoop and Hive | Microsoft Azure"
+    description="Follow this Linux tutorial to get started using Hadoop in HDInsight. Learn how to provision Linux clusters, and query data with Hive."
+    services="hdinsight"
+    documentationCenter=""
+    authors="nitinme"
+    manager="paulettm"
+    editor="cgronlun"
+    tags="azure-portal"/>
 
 <tags
-   	ms.service="hdinsight"
-   	ms.devlang="na"
-   	ms.topic="hero-article"
-   	ms.tgt_pltfrm="na"
-   	ms.workload="big-data"
-   	ms.date="12/03/2015"
-   	ms.author="nitinme"/>
+    ms.service="hdinsight"
+    ms.devlang="na"
+    ms.topic="hero-article"
+    ms.tgt_pltfrm="na"
+    ms.workload="big-data"
+    ms.date="12/03/2015"
+    ms.author="nitinme"/>
 
 # Hadoop tutorial: Get started using Hadoop with Hive in HDInsight on Linux
 
@@ -48,59 +48,59 @@ Use the following steps to create a new cluster:
 
 3. Enter a **Cluster Name**, select **Hadoop** for the **Cluster Type**, and from the **Cluster Operating System** drop-down, select **Ubuntu**. A green check will appear beside the cluster name if it is available.
 
-	![Enter cluster name and type](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.2.png "Enter cluster name and type")
+    ![Enter cluster name and type](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.2.png "Enter cluster name and type")
 
 4. If you have more than one subscription, click the **Subscription** entry to select the Azure subscription that will be used for the cluster.
 
 5. Click **Resource Group** to see a list of existing resource groups and then select the one to create the cluster in. Or, you can click **Create New** and then enter the name of the new resource group. A green check will appear to indicate if the new group name is available.
 
-	> [AZURE.NOTE] This entry will default to one of your existing resource groups, if any are available.
+    > [AZURE.NOTE] This entry will default to one of your existing resource groups, if any are available.
 
 6. Click **Credentials** and then enter a password for the admin user. You must also enter an **SSH Username**. For **SSH Authentication Type**, click **PASSWORD** and specify a password for the SSH user. Click **Select** at the bottom to save the credentials configuration.
 
-	![Provide cluster credentials](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.3.png "Provide cluster credentials")
+    ![Provide cluster credentials](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.3.png "Provide cluster credentials")
 
     > [AZURE.NOTE] SSH is used to remotely access the HDInsight cluster using a command-line. The user name and password you use here is used when connecting to the cluster through SSH.
 
-	For more information on using SSH with HDInsight, see one of the following documents:
+    For more information on using SSH with HDInsight, see one of the following documents:
 
-	* [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-	* [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    * [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 
 7. Click **Data Source** to choose an existing data source for the cluster, or create a new one. When you provision a Hadoop cluster in HDInsight, you specify an Azure Storage account. A specific Blob storage container from that account is designated as the default file system, like in the Hadoop distributed file system (HDFS). By default, the HDInsight cluster is provisioned in the same data center as the storage account you specify. For more information, see [Use Azure Blob storage with HDInsight](hdinsight-use-blob-storage.md)
 
-	![Data source blade](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.4.png "Provide data source configuration")
+    ![Data source blade](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.4.png "Provide data source configuration")
 
-	Currently you can select an Azure Storage Account as the data source for an HDInsight cluster. Use the following to understand the entries on the **Data Source** blade.
+    Currently you can select an Azure Storage Account as the data source for an HDInsight cluster. Use the following to understand the entries on the **Data Source** blade.
 
-	- **Selection Method**: Set this to **From all subscriptions** to enable browsing of storage accounts from all your subscriptions. Set this to **Access Key** if you want to enter the **Storage Name** and **Access Key** of an existing storage account.
+    - **Selection Method**: Set this to **From all subscriptions** to enable browsing of storage accounts from all your subscriptions. Set this to **Access Key** if you want to enter the **Storage Name** and **Access Key** of an existing storage account.
 
-	- **Select storage account / Create New**: Click **Select storage account** to browse and select an existing storage account you want to associate with the cluster. Or, click **Create New** to create a new storage account. Use the field that appears to enter the name of the storage account. A green check will appear if the name is available.
+    - **Select storage account / Create New**: Click **Select storage account** to browse and select an existing storage account you want to associate with the cluster. Or, click **Create New** to create a new storage account. Use the field that appears to enter the name of the storage account. A green check will appear if the name is available.
 
-	- **Choose Default Container**: Use this to enter the name of the default container to use for the cluster. While you can enter any name here, we recommend using the same name as the cluster so that you can easily recognize that the container is used for this specific cluster.
+    - **Choose Default Container**: Use this to enter the name of the default container to use for the cluster. While you can enter any name here, we recommend using the same name as the cluster so that you can easily recognize that the container is used for this specific cluster.
 
-	- **Location**: The geographic region that the storage account is in, or will be created in.
+    - **Location**: The geographic region that the storage account is in, or will be created in.
 
-		> [AZURE.IMPORTANT] Selecting the location for the default data source will also set the location of the HDInsight cluster. The cluster and default data source must be located in the same region.
+        > [AZURE.IMPORTANT] Selecting the location for the default data source will also set the location of the HDInsight cluster. The cluster and default data source must be located in the same region.
 
-	Click **Select** to save the data source configuration.
+    Click **Select** to save the data source configuration.
 
 8. Click **Node Pricing Tiers** to display information about the nodes that will be created for this cluster. Set the number of worker nodes that you need for the cluster. The estimated cost of the cluster will be shown within the blade.
 
-	![Node pricing tiers blade](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.5.png "Specify number of cluster nodes")
+    ![Node pricing tiers blade](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.5.png "Specify number of cluster nodes")
     
     > [AZURE.IMPORTANT] If you plan on more than 32 worker nodes, either at cluster creation or by scaling the cluster after creation, then you must select a head node size with at least 8 cores and 14GB ram.
     >
     > For more information on node sizes and associated costs, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-	Click **Select** to save the node pricing configuration.
+    Click **Select** to save the node pricing configuration.
 
 9. On the **New HDInsight Cluster** blade, ensure that **Pin to Startboard** is selected, and then click **Create**. This will create the cluster and add a tile for it to the Startboard of your Azure Portal. The icon will indicate that the cluster is provisioning, and will change to display the HDInsight icon once provisioning has completed.
 
 While provisioning|Provisioning complete
 ------------------|---------------------
-	![Provisioning indicator on startboard](./media/hdinsight-hadoop-linux-tutorial-get-started/provisioning.png)|![Provisioned cluster tile](./media/hdinsight-hadoop-linux-tutorial-get-started/provisioned.png)
+    ![Provisioning indicator on startboard](./media/hdinsight-hadoop-linux-tutorial-get-started/provisioning.png)|![Provisioned cluster tile](./media/hdinsight-hadoop-linux-tutorial-get-started/provisioned.png)
 
 > [AZURE.NOTE] It will take some time for the cluster to be created, usually around 15 minutes. Use the tile on the Startboard, or the **Notifications** entry on the left of the page to check on the provisioning process.
 
@@ -132,21 +132,21 @@ Use the following steps from the Hive view to run a Hive query against data incl
 
 1. In the __Query Editor__ section of the page, paste the following HiveQL statements into the worksheet:
 
-		DROP TABLE log4jLogs;
-		CREATE EXTERNAL TABLE log4jLogs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
-		ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
-		STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
-		SELECT t4 AS sev, COUNT(*) AS cnt FROM log4jLogs WHERE t4 = '[ERROR]' GROUP BY t4;
+        DROP TABLE log4jLogs;
+        CREATE EXTERNAL TABLE log4jLogs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
+        ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
+        STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
+        SELECT t4 AS sev, COUNT(*) AS cnt FROM log4jLogs WHERE t4 = '[ERROR]' GROUP BY t4;
 
-	These statements perform the following actions:
+    These statements perform the following actions:
 
-	- **DROP TABLE** - Deletes the table and the data file, in case the table already exists.
-	- **CREATE EXTERNAL TABLE** - Creates a new "external" table in Hive. External tables store only the table definition in Hive; the data is left in the original location.
-	- **ROW FORMAT** - Tells Hive how the data is formatted. In this case, the fields in each log are separated by a space.
-	- **STORED AS TEXTFILE LOCATION** - Tells Hive where the data is stored (the example/data directory), and that it is stored as text.
-	- **SELECT** - Selects a count of all rows where column t4 contains the value [ERROR].
+    - **DROP TABLE** - Deletes the table and the data file, in case the table already exists.
+    - **CREATE EXTERNAL TABLE** - Creates a new "external" table in Hive. External tables store only the table definition in Hive; the data is left in the original location.
+    - **ROW FORMAT** - Tells Hive how the data is formatted. In this case, the fields in each log are separated by a space.
+    - **STORED AS TEXTFILE LOCATION** - Tells Hive where the data is stored (the example/data directory), and that it is stored as text.
+    - **SELECT** - Selects a count of all rows where column t4 contains the value [ERROR].
 
-	>[AZURE.NOTE] External tables should be used when you expect the underlying data to be updated by an external source, such as an automated data upload process, or by another MapReduce operation, but you always want Hive queries to use the latest data. Dropping an external table does *not* delete the data, only the table definition.
+    >[AZURE.NOTE] External tables should be used when you expect the underlying data to be updated by an external source, such as an automated data upload process, or by another MapReduce operation, but you always want Hive queries to use the latest data. Dropping an external table does *not* delete the data, only the table definition.
 
 2. Use the __Execute__ button at the bottom of the Query Editor to start the query. It should turn orange and the text will change to __Stop execution__. A __Query Process Results__ section should appear beneath the Query Editor and display information about the job.
 
@@ -165,14 +165,14 @@ Use the following steps from the Hive view to run a Hive query against data incl
 
 3. Use the __New Worksheet__ button at the bottom of the __Query Editor__ to create a new worksheet. In the new worksheet, enter the following HiveQL statements:
 
-		CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
-		INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
+        CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
+        INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
 
-	These statements perform the following actions:
+    These statements perform the following actions:
 
-	- **CREATE TABLE IF NOT EXISTS** - Creates a table, if it does not already exist. Since the **EXTERNAL** keyword is not used, this is an internal table, which is stored in the Hive data warehouse and is managed completely by Hive. Unlike external tables, dropping an internal table will delete the underlying data as well.
-	- **STORED AS ORC** - Stores the data in Optimized Row Columnar (ORC) format. This is a highly optimized and efficient format for storing Hive data.
-	- **INSERT OVERWRITE ... SELECT** - Selects rows from the **log4jLogs** table that contain [ERROR], and then inserts the data into the **errorLogs** table.
+    - **CREATE TABLE IF NOT EXISTS** - Creates a table, if it does not already exist. Since the **EXTERNAL** keyword is not used, this is an internal table, which is stored in the Hive data warehouse and is managed completely by Hive. Unlike external tables, dropping an internal table will delete the underlying data as well.
+    - **STORED AS ORC** - Stores the data in Optimized Row Columnar (ORC) format. This is a highly optimized and efficient format for storing Hive data.
+    - **INSERT OVERWRITE ... SELECT** - Selects rows from the **log4jLogs** table that contain [ERROR], and then inserts the data into the **errorLogs** table.
     
     Use the __Execute__ button to run this query. The __Results__ tab will not contain any information as no rows are returned by this query, but the status should show as __SUCCEEDED__.
     
@@ -200,10 +200,10 @@ Use the following steps from the Hive view to run a Hive query against data incl
 
 4. Execute the __Errorlogs__ query. The results will be as follows:
 
-        errorlogs.t1 	errorlogs.t2 	errorlogs.t3 	errorlogs.t4 	errorlogs.t5 	errorlogs.t6 	errorlogs.t7
-        2012-02-03 	18:35:34 	SampleClass0 	[ERROR] 	incorrect 	id 	
-        2012-02-03 	18:55:54 	SampleClass1 	[ERROR] 	incorrect 	id 	
-        2012-02-03 	19:25:27 	SampleClass4 	[ERROR] 	incorrect 	id
+        errorlogs.t1    errorlogs.t2    errorlogs.t3    errorlogs.t4    errorlogs.t5    errorlogs.t6    errorlogs.t7
+        2012-02-03  18:35:34    SampleClass0    [ERROR]     incorrect   id  
+        2012-02-03  18:55:54    SampleClass1    [ERROR]     incorrect   id  
+        2012-02-03  19:25:27    SampleClass4    [ERROR]     incorrect   id
 
 ## <a name="nextsteps"></a>Next steps
 
@@ -233,9 +233,9 @@ If you'd like to learn more about creating or managing an HDInsight cluster, see
 
 - If you are familiar with Linux, and Hadoop, but want to know specifics about Hadoop on the HDInsight, see [Working with HDInsight on Linux](hdinsight-hadoop-linux-information.md). This provides information such as:
 
-	* URLs for services hosted on the cluster, such as Ambari and WebHCat
-	* The location of Hadoop files and examples on the local file system
-	* The use of Azure Storage (WASB) instead of HDFS as the default data store
+    * URLs for services hosted on the cluster, such as Ambari and WebHCat
+    * The location of Hadoop files and examples on the local file system
+    * The use of Azure Storage (WASB) instead of HDFS as the default data store
 
 
 [1]: ../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md
@@ -259,3 +259,4 @@ If you'd like to learn more about creating or managing an HDInsight cluster, see
 [image-hdi-clusterstatus]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.ClusterStatus.png
 [image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData.png
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
+

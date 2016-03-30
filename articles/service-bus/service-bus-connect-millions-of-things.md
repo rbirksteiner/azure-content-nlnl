@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Connect Millions of Things to the Cloud | Microsoft Azure" 
-	description="Learn how to connect millions of things to the cloud using Microsoft Azure." 
-	services="service-bus,event-hubs" 
-	documentationCenter=".net" 
-	authors="sethmanheim" 
-	manager="timlt" 
-	editor=""/>
+    pageTitle="Connect Millions of Things to the Cloud | Microsoft Azure" 
+    description="Learn how to connect millions of things to the cloud using Microsoft Azure." 
+    services="service-bus,event-hubs" 
+    documentationCenter=".net" 
+    authors="sethmanheim" 
+    manager="timlt" 
+    editor=""/>
 
 <tags 
-	ms.service="service-bus" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="10/06/2015" 
-	ms.author="sethm"/>
+    ms.service="service-bus" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="multiple" 
+    ms.topic="article" 
+    ms.date="10/06/2015" 
+    ms.author="sethm"/>
 
 # Connect millions of things to the cloud
  

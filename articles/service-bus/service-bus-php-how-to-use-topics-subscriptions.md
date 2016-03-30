@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How to use Service Bus topics with PHP | Microsoft Azure" 
-	description="Learn how to use Service Bus topics with PHP in Azure." 
-	services="service-bus" 
-	documentationCenter="php" 
-	authors="sethmanheim" 
-	manager="timlt" 
-	editor=""/>
+    pageTitle="How to use Service Bus topics with PHP | Microsoft Azure" 
+    description="Learn how to use Service Bus topics with PHP in Azure." 
+    services="service-bus" 
+    documentationCenter="php" 
+    authors="sethmanheim" 
+    manager="timlt" 
+    editor=""/>
 
 <tags 
-	ms.service="service-bus" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="PHP" 
-	ms.topic="article" 
-	ms.date="10/06/2015" 
-	ms.author="sethm"/>
+    ms.service="service-bus" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="PHP" 
+    ms.topic="article" 
+    ms.date="10/06/2015" 
+    ms.author="sethm"/>
 
 
 # How to use Service Bus topics and subscriptions
@@ -69,8 +69,8 @@ To create any Azure service client you must use the **ServicesBuilder** class. Y
 
 * Pass the connection string directly to it.
 * Use the **CloudConfigurationManager (CCM)** to check multiple external sources for the connection string:
-	* By default it comes with support for one external source - environmental variables.
-	* You can add new sources by extending the **ConnectionStringSource** class.
+    * By default it comes with support for one external source - environmental variables.
+    * You can add new sources by extending the **ConnectionStringSource** class.
 
 For the examples outlined here, the connection string is passed directly.
 
@@ -78,7 +78,7 @@ For the examples outlined here, the connection string is passed directly.
 require_once 'vendor\autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
-	
+    
 $connectionString = "Endpoint=[yourEndpoint];SharedSecretIssuer=[Default Issuer];SharedSecretValue=[Default Key]";
 
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
@@ -96,22 +96,22 @@ require_once 'vendor\autoload.php';
 use WindowsAzure\Common\ServicesBuilder;
 use WindowsAzure\Common\ServiceException;
 use WindowsAzure\ServiceBus\Models\TopicInfo;
-	
+    
 // Create Service Bus REST proxy.
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
-	
-try	{		
-	// Create topic.
-	$topicInfo = new TopicInfo("mytopic");
-	$serviceBusRestProxy->createTopic($topicInfo);
+    
+try {       
+    // Create topic.
+    $topicInfo = new TopicInfo("mytopic");
+    $serviceBusRestProxy->createTopic($topicInfo);
 }
 catch(ServiceException $e){
-	// Handle exception based on error codes and messages.
-	// Error codes and messages are here: 
-	// http://msdn.microsoft.com/library/windowsazure/dd179357
-	$code = $e->getCode();
-	$error_message = $e->getMessage();
-	echo $code.": ".$error_message."<br />";
+    // Handle exception based on error codes and messages.
+    // Error codes and messages are here: 
+    // http://msdn.microsoft.com/library/windowsazure/dd179357
+    $code = $e->getCode();
+    $error_message = $e->getMessage();
+    echo $code.": ".$error_message."<br />";
 }
 ```
 
@@ -134,19 +134,19 @@ use WindowsAzure\ServiceBus\Models\SubscriptionInfo;
 
 // Create Service Bus REST proxy.
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
-	
-try	{
-	// Create subscription.
-	$subscriptionInfo = new SubscriptionInfo("mysubscription");
-	$serviceBusRestProxy->createSubscription("mytopic", $subscriptionInfo);
+    
+try {
+    // Create subscription.
+    $subscriptionInfo = new SubscriptionInfo("mysubscription");
+    $serviceBusRestProxy->createSubscription("mytopic", $subscriptionInfo);
 }
 catch(ServiceException $e){
-	// Handle exception based on error codes and messages.
-	// Error codes and messages are here: 
-	// http://msdn.microsoft.com/library/windowsazure/dd179357
-	$code = $e->getCode();
-	$error_message = $e->getMessage();
-	echo $code.": ".$error_message."<br />";
+    // Handle exception based on error codes and messages.
+    // Error codes and messages are here: 
+    // http://msdn.microsoft.com/library/windowsazure/dd179357
+    $code = $e->getCode();
+    $error_message = $e->getMessage();
+    echo $code.": ".$error_message."<br />";
 }
 ```
 
@@ -200,22 +200,22 @@ use WindowsAzure\ServiceBus\Models\BrokeredMessage;
 
 // Create Service Bus REST proxy.
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
-		
-try	{
-	// Create message.
-	$message = new BrokeredMessage();
-	$message->setBody("my message");
-	
-	// Send message.
-	$serviceBusRestProxy->sendTopicMessage("mytopic", $message);
+        
+try {
+    // Create message.
+    $message = new BrokeredMessage();
+    $message->setBody("my message");
+    
+    // Send message.
+    $serviceBusRestProxy->sendTopicMessage("mytopic", $message);
 }
 catch(ServiceException $e){
-	// Handle exception based on error codes and messages.
-	// Error codes and messages are here: 
-	// http://msdn.microsoft.com/library/windowsazure/hh780775
-	$code = $e->getCode();
-	$error_message = $e->getMessage();
-	echo $code.": ".$error_message."<br />";
+    // Handle exception based on error codes and messages.
+    // Error codes and messages are here: 
+    // http://msdn.microsoft.com/library/windowsazure/hh780775
+    $code = $e->getCode();
+    $error_message = $e->getMessage();
+    echo $code.": ".$error_message."<br />";
 }
 ```
 
@@ -223,15 +223,15 @@ Messages sent to Service Bus topics are instances of the **BrokeredMessage** cla
 
 ```
 for($i = 0; $i < 5; $i++){
-	// Create message.
-	$message = new BrokeredMessage();
-	$message->setBody("my message ".$i);
-			
-	// Set custom property.
-	$message->setProperty("MessageNumber", $i);
-			
-	// Send message.
-	$serviceBusRestProxy->sendTopicMessage("mytopic", $message);
+    // Create message.
+    $message = new BrokeredMessage();
+    $message->setBody("my message ".$i);
+            
+    // Set custom property.
+    $message->setProperty("MessageNumber", $i);
+            
+    // Send message.
+    $serviceBusRestProxy->sendTopicMessage("mytopic", $message);
 }
 ```
 
@@ -257,33 +257,33 @@ use WindowsAzure\ServiceBus\Models\ReceiveMessageOptions;
 
 // Create Service Bus REST proxy.
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
-		
-try	{
-	// Set receive mode to PeekLock (default is ReceiveAndDelete)
-	$options = new ReceiveMessageOptions();
-	$options->setPeekLock();
-	
-	// Get message.
-	$message = $serviceBusRestProxy->receiveSubscriptionMessage("mytopic", "mysubscription", $options);
+        
+try {
+    // Set receive mode to PeekLock (default is ReceiveAndDelete)
+    $options = new ReceiveMessageOptions();
+    $options->setPeekLock();
+    
+    // Get message.
+    $message = $serviceBusRestProxy->receiveSubscriptionMessage("mytopic", "mysubscription", $options);
 
-	echo "Body: ".$message->getBody()."<br />";
-	echo "MessageID: ".$message->getMessageId()."<br />";
-		
-	/*---------------------------
-		Process message here.
-	----------------------------*/
-		
-	// Delete message. Not necessary if peek lock is not set.
-	echo "Deleting message...<br />";
-	$serviceBusRestProxy->deleteMessage($message);
+    echo "Body: ".$message->getBody()."<br />";
+    echo "MessageID: ".$message->getMessageId()."<br />";
+        
+    /*---------------------------
+        Process message here.
+    ----------------------------*/
+        
+    // Delete message. Not necessary if peek lock is not set.
+    echo "Deleting message...<br />";
+    $serviceBusRestProxy->deleteMessage($message);
 }
 catch(ServiceException $e){
-	// Handle exception based on error codes and messages.
-	// Error codes and messages are here:
-	// http://msdn.microsoft.com/library/windowsazure/hh780735
-	$code = $e->getCode();
-	$error_message = $e->getMessage();
-	echo $code.": ".$error_message."<br />";
+    // Handle exception based on error codes and messages.
+    // Error codes and messages are here:
+    // http://msdn.microsoft.com/library/windowsazure/hh780735
+    $code = $e->getCode();
+    $error_message = $e->getMessage();
+    echo $code.": ".$error_message."<br />";
 }
 ```
 
@@ -310,18 +310,18 @@ use WindowsAzure\Common\ServiceException;
 
 // Create Service Bus REST proxy.
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
-	
-try	{		
-	// Delete topic.
-	$serviceBusRestProxy->deleteTopic("mytopic");
+    
+try {       
+    // Delete topic.
+    $serviceBusRestProxy->deleteTopic("mytopic");
 }
 catch(ServiceException $e){
-	// Handle exception based on error codes and messages.
-	// Error codes and messages are here: 
-	// http://msdn.microsoft.com/library/windowsazure/dd179357
-	$code = $e->getCode();
-	$error_message = $e->getMessage();
-	echo $code.": ".$error_message."<br />";
+    // Handle exception based on error codes and messages.
+    // Error codes and messages are here: 
+    // http://msdn.microsoft.com/library/windowsazure/dd179357
+    $code = $e->getCode();
+    $error_message = $e->getMessage();
+    echo $code.": ".$error_message."<br />";
 }
 ```
 
@@ -339,3 +339,4 @@ Now that you've learned the basics of Service Bus queues, see [Queues, topics, a
 [sqlfilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
 [require-once]: http://php.net/require_once
 [Azure Queues and Service Bus queues]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
+

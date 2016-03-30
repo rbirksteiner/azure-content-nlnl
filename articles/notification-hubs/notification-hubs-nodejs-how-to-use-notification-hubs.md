@@ -1,20 +1,20 @@
 <properties
-	pageTitle="How to use Notification Hubs with Node.js"
-	description="Learn how to use Notification Hubs to send push notifications from a Node.js application."
-	services="notification-hubs"
-	documentationCenter="nodejs"
-	authors="wesmc7777"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="How to use Notification Hubs with Node.js"
+    description="Learn how to use Notification Hubs to send push notifications from a Node.js application."
+    services="notification-hubs"
+    documentationCenter="nodejs"
+    authors="wesmc7777"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="notification-hubs"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="javascript"
-	ms.topic="article"
-	ms.date="12/10/2015"
-	ms.author="wesmc"/>
+    ms.service="notification-hubs"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="na"
+    ms.devlang="javascript"
+    ms.topic="article"
+    ms.date="12/10/2015"
+    ms.author="wesmc"/>
 
 # How to use Notification Hubs from Node.js
 [AZURE.INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
@@ -46,16 +46,16 @@ communicate with the REST services.
     result in the following output:
 
         azure@0.7.0 node_modules\azure
-		|-- dateformat@1.0.2-1.2.3
-		|-- xmlbuilder@0.4.2
-		|-- node-uuid@1.2.0
-		|-- mime@1.2.9
-		|-- underscore@1.4.4
-		|-- validator@0.4.28
-		|-- tunnel@0.0.2
-		|-- wns@0.5.3
-		|-- xml2js@0.2.6 (sax@0.4.2)
-		|-- request@2.16.6 (forever-agent@0.2.0, aws-sign@0.2.0, tunnel-agent@0.2.0, oauth-sign@0.2.0, json-stringify-safe@3.0.0, cookie-jar@0.2.0, node-uuid@1.4.0, qs@0.5.5, hawk@0.10.2, form-data@0.0.7)
+        |-- dateformat@1.0.2-1.2.3
+        |-- xmlbuilder@0.4.2
+        |-- node-uuid@1.2.0
+        |-- mime@1.2.9
+        |-- underscore@1.4.4
+        |-- validator@0.4.28
+        |-- tunnel@0.0.2
+        |-- wns@0.5.3
+        |-- xml2js@0.2.6 (sax@0.4.2)
+        |-- request@2.16.6 (forever-agent@0.2.0, aws-sign@0.2.0, tunnel-agent@0.2.0, oauth-sign@0.2.0, json-stringify-safe@3.0.0, cookie-jar@0.2.0, node-uuid@1.4.0, qs@0.5.5, hawk@0.10.2, form-data@0.0.7)
 
 3.  You can manually run the **ls** or **dir** command to verify that a
     **node\_modules** folder was created. Inside that folder find the
@@ -111,16 +111,16 @@ For more information on the payload format, see the Payload section of [Implemen
 
 The following code uses the **GcmService** instance exposed by the **NotificationHubService** to send a message to all clients.
 
-	var payload = {
-	  data: {
-	    msg: 'Hello!'
-	  }
-	};
-	notificationHubService.gcm.send(null, payload, function(error){
-	  if(!error){
-	    //notification sent
-	  }
-	});
+    var payload = {
+      data: {
+        msg: 'Hello!'
+      }
+    };
+    notificationHubService.gcm.send(null, payload, function(error){
+      if(!error){
+        //notification sent
+      }
+    });
 
 ### How to send iOS application notifications
 
@@ -134,14 +134,14 @@ For more information the payload format, see The Notification Payload section of
 
 The following code uses the **ApnsService** instance exposed by the **NotificationHubService** to send an alert message to all clients:
 
-	var payload={
-	    alert: 'Hello!'
-	  };
-	notificationHubService.apns.send(null, payload, function(error){
-	  if(!error){
- 	    // notification sent
+    var payload={
+        alert: 'Hello!'
+      };
+    notificationHubService.apns.send(null, payload, function(error){
+      if(!error){
+        // notification sent
       }
-	});
+    });
 
 ### How to send Windows Phone notifications
 
@@ -158,12 +158,12 @@ For a list of valid TargetName, NotificationClass, and header options, see [Push
 
 The following code uses the **MpnsService** instance exposed by the **NotificationHubService** to send a toast alert:
 
-	var payload = '<?xml version="1.0" encoding="utf-8"?><wp:Notification xmlns:wp="WPNotification"><wp:Toast><wp:Text1>string</wp:Text1><wp:Text2>string</wp:Text2></wp:Toast></wp:Notification>';
-	notificationHubService.mpns.send(null, payload, 'toast', 22, function(error){
-	  if(!error){
-	    //notification sent
-	  }
-	});
+    var payload = '<?xml version="1.0" encoding="utf-8"?><wp:Notification xmlns:wp="WPNotification"><wp:Toast><wp:Text1>string</wp:Text1><wp:Text2>string</wp:Text2></wp:Toast></wp:Notification>';
+    notificationHubService.mpns.send(null, payload, 'toast', 22, function(error){
+      if(!error){
+        //notification sent
+      }
+    });
 
 ### How to send Windows Store application notifications
 
@@ -179,12 +179,12 @@ For a list of valid Types and request headers, see [Push notification service re
 
 The following code uses the **WnsService** instance exposed by the **NotificationHubService** to send a toast alert:
 
-	var payload = '<toast><visual><binding template="ToastText01"><text id="1">Hello!</text></binding></visual></toast>';
-	notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
-	  if(!error){
- 	    // notification sent
-	  }
-	});
+    var payload = '<toast><visual><binding template="ToastText01"><text id="1">Hello!</text></binding></visual></toast>';
+    notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
+      if(!error){
+        // notification sent
+      }
+    });
 
 ## Next Steps
 
@@ -224,3 +224,4 @@ links to learn more.
   [nodejswebsite]: /develop/nodejs/tutorials/create-a-website-(mac)/
   [Node.js Cloud Service with Storage]: /develop/nodejs/tutorials/web-app-with-storage/
   [Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/
+

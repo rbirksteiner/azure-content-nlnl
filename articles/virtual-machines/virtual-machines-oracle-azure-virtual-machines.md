@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Oracle on Azure VMs | Microsoft Azure"
-	description="Find the articles that describe how to set up Oracle software on Windows-based or Linux-based Azure virtual machines."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="JoeDavies-MSFT"
-	manager="timlt"
-	editor=""
-	tags="azure-service-management"/>
+    pageTitle="Oracle on Azure VMs | Microsoft Azure"
+    description="Find the articles that describe how to set up Oracle software on Windows-based or Linux-based Azure virtual machines."
+    services="virtual-machines"
+    documentationCenter=""
+    authors="JoeDavies-MSFT"
+    manager="timlt"
+    editor=""
+    tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="Windows"
-	ms.devlang="na"
-	ms.topic="index-page"
-	ms.date="10/05/2015"
-	ms.author="josephd"/>
+    ms.service="virtual-machines"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="Windows"
+    ms.devlang="na"
+    ms.topic="index-page"
+    ms.date="10/05/2015"
+    ms.author="josephd"/>
 
 # Oracle software hosted on Azure virtual machines
 
@@ -55,3 +55,4 @@ See [Miscellaneous considerations for Oracle virtual machine images](virtual-mac
 ## Oracle GoldenGate
 
 [Configuring Oracle GoldenGate for Azure](virtual-machines-configuring-oracle-goldengate.md) steps you through database and replication setup.
+

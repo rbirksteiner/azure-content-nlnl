@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Role based access control troubleshooting"
-	description="Working with different resource types for role based access control."
-	services="azure-portal"
-	documentationCenter="na"
-	authors="IHenkel"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Role based access control troubleshooting"
+    description="Working with different resource types for role based access control."
+    services="azure-portal"
+    documentationCenter="na"
+    authors="IHenkel"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/04/2015"
-	ms.author="inhenk"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/04/2015"
+    ms.author="inhenk"/>
 
 # Role based access control troubleshooting
 
@@ -88,3 +88,4 @@ Virtual machines have these related resources:
     * Alert rules
 
 If you can't access any of these tiles, you'll need to ask your administrator for Contributor access to the Resource group.
+

@@ -1,21 +1,21 @@
 <properties
-	pageTitle="My credit card doesn't go through when I try to sign up for Azure | Microsoft Azure"
-	description="Discusses common causes of Microsoft Azure sign-up issues using a credit or debit card"
-	services="billing"
-	documentationCenter=""
-	authors="jiangchen79"
-	manager="felixwu"
-	editor=""
-	tags="top-support-issue"/>
+    pageTitle="My credit card doesn't go through when I try to sign up for Azure | Microsoft Azure"
+    description="Discusses common causes of Microsoft Azure sign-up issues using a credit or debit card"
+    services="billing"
+    documentationCenter=""
+    authors="jiangchen79"
+    manager="felixwu"
+    editor=""
+    tags="top-support-issue"/>
 
 <tags
-	ms.service="billing"
-	ms.workload="na"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/25/2015"
-	ms.author="rgarodia"/>
+    ms.service="billing"
+    ms.workload="na"
+    ms.tgt_pltfrm="ibiza"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/25/2015"
+    ms.author="rgarodia"/>
 
 # My credit card doesn’t go through when I try to sign up for Azure
 This article discusses common causes of sign-up issues using a credit or debit card.
@@ -78,3 +78,4 @@ If a free trial activation fails because you already activated an Azure subscrip
 
 ## Contact Azure Support
 If you continue to have a sign-up issue after following these troubleshooting steps, please contact [Azure Support](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409).
+

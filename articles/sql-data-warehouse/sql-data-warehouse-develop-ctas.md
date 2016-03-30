@@ -28,29 +28,29 @@ Let's say you created this table using the default distribution type of ROUND_RO
 ```
 CREATE TABLE FactInternetSales
 (
-	ProductKey int NOT NULL,
-	OrderDateKey int NOT NULL,
-	DueDateKey int NOT NULL,
-	ShipDateKey int NOT NULL,
-	CustomerKey int NOT NULL,
-	PromotionKey int NOT NULL,
-	CurrencyKey int NOT NULL,
-	SalesTerritoryKey int NOT NULL,
-	SalesOrderNumber nvarchar(20) NOT NULL,
-	SalesOrderLineNumber tinyint NOT NULL,
-	RevisionNumber tinyint NOT NULL,
-	OrderQuantity smallint NOT NULL,
-	UnitPrice money NOT NULL,
-	ExtendedAmount money NOT NULL,
-	UnitPriceDiscountPct float NOT NULL,
-	DiscountAmount float NOT NULL,
-	ProductStandardCost money NOT NULL,
-	TotalProductCost money NOT NULL,
-	SalesAmount money NOT NULL,
-	TaxAmt money NOT NULL,
-	Freight money NOT NULL,
-	CarrierTrackingNumber nvarchar(25),
-	CustomerPONumber nvarchar(25)
+    ProductKey int NOT NULL,
+    OrderDateKey int NOT NULL,
+    DueDateKey int NOT NULL,
+    ShipDateKey int NOT NULL,
+    CustomerKey int NOT NULL,
+    PromotionKey int NOT NULL,
+    CurrencyKey int NOT NULL,
+    SalesTerritoryKey int NOT NULL,
+    SalesOrderNumber nvarchar(20) NOT NULL,
+    SalesOrderLineNumber tinyint NOT NULL,
+    RevisionNumber tinyint NOT NULL,
+    OrderQuantity smallint NOT NULL,
+    UnitPrice money NOT NULL,
+    ExtendedAmount money NOT NULL,
+    UnitPriceDiscountPct float NOT NULL,
+    DiscountAmount float NOT NULL,
+    ProductStandardCost money NOT NULL,
+    TotalProductCost money NOT NULL,
+    SalesAmount money NOT NULL,
+    TaxAmt money NOT NULL,
+    Freight money NOT NULL,
+    CarrierTrackingNumber nvarchar(25),
+    CustomerPONumber nvarchar(25)
 );
 ```
 
@@ -133,13 +133,13 @@ Imagine you had to update this table:
 
 ```
 CREATE TABLE [dbo].[AnnualCategorySales]
-(	[EnglishProductCategoryName]	NVARCHAR(50)	NOT NULL
-,	[CalendarYear]					SMALLINT		NOT NULL
-,	[TotalSalesAmount]				MONEY			NOT NULL
+(   [EnglishProductCategoryName]    NVARCHAR(50)    NOT NULL
+,   [CalendarYear]                  SMALLINT        NOT NULL
+,   [TotalSalesAmount]              MONEY           NOT NULL
 )
 WITH
 (
-	DISTRIBUTION = ROUND_ROBIN
+    DISTRIBUTION = ROUND_ROBIN
 )
 ;
 ```
@@ -147,25 +147,25 @@ WITH
 The original query might have looked something like this:
 
 ```
-UPDATE	acs
-SET		[TotalSalesAmount] = [fis].[TotalSalesAmount]
-FROM	[dbo].[AnnualCategorySales] 	AS acs
-JOIN	(
-		SELECT	[EnglishProductCategoryName]
-		,		[CalendarYear]
-		,		SUM([SalesAmount])				AS [TotalSalesAmount]
-		FROM	[dbo].[FactInternetSales]		AS s
-		JOIN	[dbo].[DimDate]					AS d	ON s.[OrderDateKey]				= d.[DateKey]
-		JOIN	[dbo].[DimProduct]				AS p	ON s.[ProductKey]				= p.[ProductKey]
-		JOIN	[dbo].[DimProductSubCategory]	AS u	ON p.[ProductSubcategoryKey]	= u.[ProductSubcategoryKey]
-		JOIN	[dbo].[DimProductCategory]		AS c	ON u.[ProductCategoryKey]		= c.[ProductCategoryKey]
-		WHERE 	[CalendarYear] = 2004
-		GROUP BY
-				[EnglishProductCategoryName]
-		,		[CalendarYear]
-		) AS fis
-ON	[acs].[EnglishProductCategoryName]	= [fis].[EnglishProductCategoryName]
-AND	[acs].[CalendarYear]				= [fis].[CalendarYear]
+UPDATE  acs
+SET     [TotalSalesAmount] = [fis].[TotalSalesAmount]
+FROM    [dbo].[AnnualCategorySales]     AS acs
+JOIN    (
+        SELECT  [EnglishProductCategoryName]
+        ,       [CalendarYear]
+        ,       SUM([SalesAmount])              AS [TotalSalesAmount]
+        FROM    [dbo].[FactInternetSales]       AS s
+        JOIN    [dbo].[DimDate]                 AS d    ON s.[OrderDateKey]             = d.[DateKey]
+        JOIN    [dbo].[DimProduct]              AS p    ON s.[ProductKey]               = p.[ProductKey]
+        JOIN    [dbo].[DimProductSubCategory]   AS u    ON p.[ProductSubcategoryKey]    = u.[ProductSubcategoryKey]
+        JOIN    [dbo].[DimProductCategory]      AS c    ON u.[ProductCategoryKey]       = c.[ProductCategoryKey]
+        WHERE   [CalendarYear] = 2004
+        GROUP BY
+                [EnglishProductCategoryName]
+        ,       [CalendarYear]
+        ) AS fis
+ON  [acs].[EnglishProductCategoryName]  = [fis].[EnglishProductCategoryName]
+AND [acs].[CalendarYear]                = [fis].[CalendarYear]
 ;
 ```
 
@@ -178,18 +178,18 @@ You can use a combination of a CTAS and an implicit join to replace this code:
 CREATE TABLE CTAS_acs
 WITH (DISTRIBUTION = ROUND_ROBIN)
 AS
-SELECT	ISNULL(CAST([EnglishProductCategoryName] AS NVARCHAR(50)),0)	AS [EnglishProductCategoryName]
-,		ISNULL(CAST([CalendarYear] AS SMALLINT),0) 						AS [CalendarYear]
-,		ISNULL(CAST(SUM([SalesAmount]) AS MONEY),0)						AS [TotalSalesAmount]
-FROM	[dbo].[FactInternetSales]		AS s
-JOIN	[dbo].[DimDate]					AS d	ON s.[OrderDateKey]				= d.[DateKey]
-JOIN	[dbo].[DimProduct]				AS p	ON s.[ProductKey]				= p.[ProductKey]
-JOIN	[dbo].[DimProductSubCategory]	AS u	ON p.[ProductSubcategoryKey]	= u.[ProductSubcategoryKey]
-JOIN	[dbo].[DimProductCategory]		AS c	ON u.[ProductCategoryKey]		= c.[ProductCategoryKey]
-WHERE 	[CalendarYear] = 2004
+SELECT  ISNULL(CAST([EnglishProductCategoryName] AS NVARCHAR(50)),0)    AS [EnglishProductCategoryName]
+,       ISNULL(CAST([CalendarYear] AS SMALLINT),0)                      AS [CalendarYear]
+,       ISNULL(CAST(SUM([SalesAmount]) AS MONEY),0)                     AS [TotalSalesAmount]
+FROM    [dbo].[FactInternetSales]       AS s
+JOIN    [dbo].[DimDate]                 AS d    ON s.[OrderDateKey]             = d.[DateKey]
+JOIN    [dbo].[DimProduct]              AS p    ON s.[ProductKey]               = p.[ProductKey]
+JOIN    [dbo].[DimProductSubCategory]   AS u    ON p.[ProductSubcategoryKey]    = u.[ProductSubcategoryKey]
+JOIN    [dbo].[DimProductCategory]      AS c    ON u.[ProductCategoryKey]       = c.[ProductCategoryKey]
+WHERE   [CalendarYear] = 2004
 GROUP BY
-		[EnglishProductCategoryName]
-,		[CalendarYear]
+        [EnglishProductCategoryName]
+,       [CalendarYear]
 ;
 
 -- Use an implicit join to perform the update 
@@ -432,3 +432,4 @@ For more development tips, see [development overview][].
 [CTAS]: https://msdn.microsoft.com/library/mt204041.aspx
 
 <!--Other Web references-->
+

@@ -1,22 +1,22 @@
 <properties
-	pageTitle="Connect to SQL database by using SSMS | Microsoft Azure"
-	description="Learn how to connect to an Azure SQL database by using SQL Server Management Studio (SSMS). Then, run a sample query using Transact-SQL (T-SQL)."
-	metaCanonical=""
-	keywords="connect to sql database,sql server management studio"
-	services="sql-database"
-	documentationCenter=""
-	authors="stevestein"
-	manager="jeffreyg"
-	editor="" />
+    pageTitle="Connect to SQL database by using SSMS | Microsoft Azure"
+    description="Learn how to connect to an Azure SQL database by using SQL Server Management Studio (SSMS). Then, run a sample query using Transact-SQL (T-SQL)."
+    metaCanonical=""
+    keywords="connect to sql database,sql server management studio"
+    services="sql-database"
+    documentationCenter=""
+    authors="stevestein"
+    manager="jeffreyg"
+    editor="" />
 
 <tags
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="10/09/2015"
-	ms.author="sstein" />
+    ms.service="sql-database"
+    ms.workload="data-management"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="10/09/2015"
+    ms.author="sstein" />
 
 # Connect to SQL Database with SQL Server Management Studio and perform a sample T-SQL query
 
@@ -40,7 +40,7 @@ When working with SQL Database, you should use the most recent version of SSMS. 
 3. Choose **SQL Server Authentication** from the **Authentication** list.
 4. Type the **Login** and **Password** you set up when you created the server, and then click **Connect** to connect to SQL Database.
 
-	![SQL Server Management Studio: Connect to a SQL Database server](./media/sql-database-connect-query-ssms/1-connect.png)
+    ![SQL Server Management Studio: Connect to a SQL Database server](./media/sql-database-connect-query-ssms/1-connect.png)
 
 ### If the connection to SQL Database fails
 
@@ -55,24 +55,25 @@ After you connect to SQL Database, you can run a sample query. If you didn't cre
 1. In **Object Explorer**, navigate to the **AdventureWorks** database.
 2. Right-click the database and then select **New Query**.
 
-	![New query](./media/sql-database-connect-query-ssms/4-run-query.png)
+    ![New query](./media/sql-database-connect-query-ssms/4-run-query.png)
 
 3. In the query window, copy and paste the following code.
 
-		SELECT
-		CustomerId
-		,Title
-		,FirstName
-		,LastName
-		,CompanyName
-		FROM SalesLT.Customer;
+        SELECT
+        CustomerId
+        ,Title
+        ,FirstName
+        ,LastName
+        ,CompanyName
+        FROM SalesLT.Customer;
 
 4. Click the **Execute** button.  The following screen shot shows a successful query.
 
-	![Sucess](./media/sql-database-connect-query-ssms/5-success.png)
+    ![Sucess](./media/sql-database-connect-query-ssms/5-success.png)
 
 ## Next steps
 
 You can use T-SQL statements to create and manage databases in Azure in much the same way you can with SQL Server. If you're familiar with using T-SQL with SQL Server, see [Azure SQL Database Transact-SQL information)](sql-database-transact-sql-information.md) for a summary of differences.
 
 If you're new to T-SQL, see [Tutorial: Writing Transact-SQL Statements](https://msdn.microsoft.com/library/ms365303.aspx) and the [Transact-SQL Reference (Database Engine)](https://msdn.microsoft.com/library/bb510741.aspx).
+

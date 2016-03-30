@@ -20,3 +20,4 @@
 >
 > - This command applies only to regular updates. You run this command on only one controller, but both controllers will be updated. 
 > - You may notice a controller failover during the update process; however, the failover will not affect system availability or operation.
+

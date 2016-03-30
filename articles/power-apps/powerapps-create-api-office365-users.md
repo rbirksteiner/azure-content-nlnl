@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Add the Office 365 Users API to PowerApps Enterprise | Microsoft Azure"
-	description="Create or configure a new Office 365 Users API in your organization's app service environment"
-	services=""
+    pageTitle="Add the Office 365 Users API to PowerApps Enterprise | Microsoft Azure"
+    description="Create or configure a new Office 365 Users API in your organization's app service environment"
+    services=""
     suite="powerapps"
-	documentationCenter="" 
-	authors="rajeshramabathiran"
-	manager="dwrede"
-	editor=""/>
+    documentationCenter="" 
+    authors="rajeshramabathiran"
+    manager="dwrede"
+    editor=""/>
 
 <tags
    ms.service="powerapps"
@@ -36,7 +36,7 @@
 ![Add API][2]
 
 6. Enter a descriptive **name** for your API.  
-	
+    
 7. In **Source**, select **Available APIs** to select the pre-built APIs, and select **Office 365 Users**:  
 ![select Office 365 Users api][3]
 
@@ -45,7 +45,7 @@
 
 9. Enter the *Client Id* and *Client Secret* of your Office 365 Azure Active Directory (AAD) application. If you don't have one, see the "Register an AAD app for use with PowerApps" section in this topic to create the ID and secret values you need.  
 
-	> [AZURE.IMPORTANT] Save the **redirect URL**. You may need this value later in this topic.  
+    > [AZURE.IMPORTANT] Save the **redirect URL**. You may need this value later in this topic.  
 
 10. Select **OK** to complete the steps.
 
@@ -59,7 +59,7 @@ If you don't have an existing AAD app with the key and secret values, then use t
 
 2. Select **Browse** and then select **Active Directory**:  
 
-	> [AZURE.NOTE] This opens Active Directory in the Azure classic portal.  
+    > [AZURE.NOTE] This opens Active Directory in the Azure classic portal.  
 
 3. Select your organization's tenant name:  
 ![Launch Azure Active Directory][6]
@@ -69,19 +69,19 @@ If you don't have an existing AAD app with the key and secret values, then use t
 
 5. In **Add application**:  
 
-	a) Enter a **Name** for your application.  
-	b) Leave the application type as **Web**.  
-	c) Select **Next**.  
+    a) Enter a **Name** for your application.  
+    b) Leave the application type as **Web**.  
+    c) Select **Next**.  
 
-	![Add AAD application - app info][8]
+    ![Add AAD application - app info][8]
 
 6. In **App Properties**:  
 
-	a) Enter the **SIGN-ON URL** of your application. Since you are going to authenticate with AAD for PowerApps, set the sign-on url to _https://login.windows.net_.  
-	b) Enter a valid **APP ID URI** for your app.  
-	c) Select **OK**.  
+    a) Enter the **SIGN-ON URL** of your application. Since you are going to authenticate with AAD for PowerApps, set the sign-on url to _https://login.windows.net_.  
+    b) Enter a valid **APP ID URI** for your app.  
+    c) Select **OK**.  
 
-	![Add AAD application - app properties][9]
+    ![Add AAD application - app properties][9]
 
 7. On successful completion, you are redirected to the new AAD app. Select **Configure**:  
 ![Contoso AAD app][10]

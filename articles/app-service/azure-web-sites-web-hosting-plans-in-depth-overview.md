@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Azure App Service plans in-depth overview" 
-	description="Learn how App Service plans for Azure App Service work, and how they benefit your management experience." 
-	keywords="app service, azure app service, scale, scalable, app service plan, app service cost"
-	services="app-service" 
-	documentationCenter="" 
-	authors="btardif" 
-	manager="wpickett" 
-	editor=""/>
+    pageTitle="Azure App Service plans in-depth overview" 
+    description="Learn how App Service plans for Azure App Service work, and how they benefit your management experience." 
+    keywords="app service, azure app service, scale, scalable, app service plan, app service cost"
+    services="app-service" 
+    documentationCenter="" 
+    authors="btardif" 
+    manager="wpickett" 
+    editor=""/>
 
 <tags 
-	ms.service="app-service" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/08/2015" 
-	ms.author="byvinyal"/>
+    ms.service="app-service" 
+    ms.workload="na" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/08/2015" 
+    ms.author="byvinyal"/>
 
 #Azure App Service plans in-depth overview#
 
@@ -100,3 +100,4 @@ App Service plans represent a set of features and capacity that you can share ac
 [change]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/change-appserviceplan.png
 [createASP]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-appserviceplan.png
 [createWebApp]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-web-app.png
+

@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Customizing preconfigured solutions | Microsoft Azure"
-	description="Provides guidance on how to customize the Azure IoT Suite preconfigured solutions."
-	services=""
-	documentationCenter=".net"
-	authors="stevehob"
-	manager="timlt"
-	editor=""/>
+    pageTitle="Customizing preconfigured solutions | Microsoft Azure"
+    description="Provides guidance on how to customize the Azure IoT Suite preconfigured solutions."
+    services=""
+    documentationCenter=".net"
+    authors="stevehob"
+    manager="timlt"
+    editor=""/>
 
 <tags
      ms.service="na"
@@ -68,3 +68,4 @@ The [Azure IoT SDKs](https://github.com/Azure/azure-iot-sdks) provide libraries 
 For more information about IoT devices, see the [Azure IoT Developer Site](http://azure.microsoft.com/develop/iot) to find links and documentation.
 
 [IoT Device SDK]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
+

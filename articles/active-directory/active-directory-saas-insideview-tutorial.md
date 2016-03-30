@@ -70,19 +70,19 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
 ###To configure single sign-on, perform the following steps:
 
-1.  In the Azure AD portal, on the **InsideView** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  In the Azure AD portal, on the **InsideView** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
     ![Configure Single SignOn](./media/active-directory-saas-insideview-tutorial/IC794131.png "Configure Single SignOn")
 
-2.  On the **How would you like users to sign on to InsideView** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to InsideView** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single SignOn](./media/active-directory-saas-insideview-tutorial/IC794132.png "Configure Single SignOn")
 
-3.  On the **Configure App URL** page, in the **InsideView Reply URL** textbox, type your InsideView SSO URL (e.g.: `https://my.insideview.com/iv/<STS Name>/login.iv`), and then click **Next**.
+3.  On the **Configure App URL** page, in the **InsideView Reply URL** textbox, type your InsideView SSO URL (e.g.: `https://my.insideview.com/iv/<STS Name>/login.iv`), and then click **Next**.
 
     ![Configure App URL](./media/active-directory-saas-insideview-tutorial/IC794133.png "Configure App URL")
 
-4.  On the **Configure single sign-on at InsideView** page, to download your certificate, click **Download certificate**, and then save the certificate file on your computer.
+4.  On the **Configure single sign-on at InsideView** page, to download your certificate, click **Download certificate**, and then save the certificate file on your computer.
 
     ![Configure Single SignOn](./media/active-directory-saas-insideview-tutorial/IC794134.png "Configure Single SignOn")
 
@@ -100,7 +100,7 @@ If you are not familiar with this procedure, see [How to convert a binary certif
     2.  In the Azure portal, on the **Configure single sign-on at InsideView** dialog page, copy the **Service Provider (SP) Initiated Endpoint** value, and then paste it into the **SamlP/WS-Fed Unsolicated EndPoint** textbox.
     3.  Create a **base-64 encoded** file from your downloaded certificate.
         
-		>[AZURE.TIP]For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
+        >[AZURE.TIP]For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
 
     4.  Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **STS Certificate** textbox
     5.  In the **Crm User Id Mapping** textbox, type **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
@@ -109,7 +109,7 @@ If you are not familiar with this procedure, see [How to convert a binary certif
     8.  In the **Crm lastName Mapping** textbox, type **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
     9.  Click **Save**.
 
-8.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+8.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
     ![Configure Single SignOn](./media/active-directory-saas-insideview-tutorial/IC794137.png "Configure Single SignOn")
 ##Configuring user provisioning
@@ -129,7 +129,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 1.  In the Azure AD portal, create a test account.
 
-2.  On the **InsideView **application integration page, click **Assign users**.
+2.  On the **InsideView **application integration page, click **Assign users**.
 
     ![Assign Users](./media/active-directory-saas-insideview-tutorial/IC794138.png "Assign Users")
 

@@ -140,11 +140,11 @@ Before changing your gateway type, be sure to verify that your VPN device will s
 
 1. **Delete the existing VPN gateway.**
 
-	On the **Dashboard** page for your virtual network, navigate to the bottom of the page and click **Delete Gateway**. Wait for the notification that the gateway has been deleted. When you receive notification on the screen that your gateway has been deleted, you can then create a new gateway.
+    On the **Dashboard** page for your virtual network, navigate to the bottom of the page and click **Delete Gateway**. Wait for the notification that the gateway has been deleted. When you receive notification on the screen that your gateway has been deleted, you can then create a new gateway.
 
 1. **Create a new VPN gateway.**
 
-	Use the procedure at the top of the page to create a new gateway: [Create a VPN gateway](#create-a-vpn-gateway).
+    Use the procedure at the top of the page to create a new gateway: [Create a VPN gateway](#create-a-vpn-gateway).
 
 
 ## Next steps
@@ -156,3 +156,4 @@ You can add virtual machines to your virtual network. See [How to create a custo
 If you want to configure a point-to-site VPN connection, see [Configure a point-to-site VPN connection](vpn-gateway-point-to-site-create.md).
 
  
+

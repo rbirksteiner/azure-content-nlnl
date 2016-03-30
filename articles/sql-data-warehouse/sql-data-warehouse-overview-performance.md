@@ -24,9 +24,9 @@ SQL Data Warehouse is a cloud based, distributed database platform that's design
 *The following information applies to the Azure SQL Data Warehouse as released at preview. This information will be continuously updated during the preview as the service is enhanced towards GA.*
 
 Our goals for SQL Data Warehouse are:
--	Predictable performance and linear scalability to petabytes of data
--	High reliability for all data warehouse operations backed by a Service Level Agreement (SLA)
--	Short time from data loading to data insights across relational and non-relational data
+-   Predictable performance and linear scalability to petabytes of data
+-   High reliability for all data warehouse operations backed by a Service Level Agreement (SLA)
+-   Short time from data loading to data insights across relational and non-relational data
 
 We will continuously work toward these goals during the preview to satisfy them before General Availability (GA).
 
@@ -81,3 +81,4 @@ Please refer to the [development overview][] article to get some guidance on bui
 <!--MSDN references-->
 
 <!--Other web references-->
+

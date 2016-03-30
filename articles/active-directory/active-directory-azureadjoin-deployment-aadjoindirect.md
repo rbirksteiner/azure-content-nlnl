@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Usage scenarios and deployment considerations for Azure AD Join| Microsoft Azure" 
-	description="Explains how administrators can set up Azure AD Join for their end users (employees, students, other users). It also discusses the different real-world scenarios for using Azure AD Join." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="femila" 
-	manager="stevenpo" 
-	editor=""
-	tags="azure-classic-portal"/>
+    pageTitle="Usage scenarios and deployment considerations for Azure AD Join| Microsoft Azure" 
+    description="Explains how administrators can set up Azure AD Join for their end users (employees, students, other users). It also discusses the different real-world scenarios for using Azure AD Join." 
+    services="active-directory" 
+    documentationCenter="" 
+    authors="femila" 
+    manager="stevenpo" 
+    editor=""
+    tags="azure-classic-portal"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/19/2015" 
-	ms.author="femila"/>
+    ms.service="active-directory" 
+    ms.workload="identity" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/19/2015" 
+    ms.author="femila"/>
 
 # Usage scenarios and deployment considerations for Azure AD Join 
 
@@ -47,11 +47,11 @@ Enterprises can provide cloud-only accounts to partner companies and organizatio
 ### Prerequisites
 **At the enterprise level (administrator)**
 
-*	Azure subscription with Azure Active Directory  
+*   Azure subscription with Azure Active Directory  
 
 **At the user level**
 
-*	Windows 10 (Professional and Enterprise SKUs)
+*   Windows 10 (Professional and Enterprise SKUs)
 
 ### Administrator Tasks
 * [Set up device registration](active-directory-azureadjoin-setup.md)
@@ -69,11 +69,11 @@ You can set up your users and employees to user their personal Windows devices t
 ### Prerequisites
 **At the enterprise level (administrator)**
 
-*	Azure AD subscription
+*   Azure AD subscription
 
 **At the user level**
 
-*	Windows 10 (Professional and Enterprise SKUs)
+*   Windows 10 (Professional and Enterprise SKUs)
 
 
 ### Administrator Tasks
@@ -91,3 +91,4 @@ You can set up your users and employees to user their personal Windows devices t
 * [Learn about usage scenarios for Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Connect domain-joined devices to Azure AD for Windows 10 experiences](active-directory-azureadjoin-devices-group-policy.md)
 * [Set up Azure AD Join](active-directory-azureadjoin-setup.md)
+

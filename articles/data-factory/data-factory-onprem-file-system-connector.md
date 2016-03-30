@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Move data to and from File System | Azure Data Factory" 
-	description="Learn how to move data to/from on-premises File System using Azure Data Factory." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
-	editor="monicar"/>
+    pageTitle="Move data to and from File System | Azure Data Factory" 
+    description="Learn how to move data to/from on-premises File System using Azure Data Factory." 
+    services="data-factory" 
+    documentationCenter="" 
+    authors="spelluru" 
+    manager="jhubbard" 
+    editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/09/2015" 
-	ms.author="spelluru"/>
+    ms.service="data-factory" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/09/2015" 
+    ms.author="spelluru"/>
 
 # Move data to and from On-premises File System using Azure Data Factory
 
@@ -35,11 +35,11 @@ Perform the following two steps to use a Linux file share with the File Server L
 
 The sample below shows:
 
-1.	A linked service of type [OnPremisesFileServer](data-factory-onprem-file-system-connector.md#onpremisesfileserver-linked-service-properties).
-2.	A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties)
-3.	An input [dataset](data-factory-create-datasets.md) of type [FileShare](data-factory-onprem-file-system-connector.md#on-premises-file-system-dataset-type-properties).
-4.	An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-4.	The [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [FileSystemSource](data-factory-onprem-file-system-connector.md#file-share-copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties). 
+1.  A linked service of type [OnPremisesFileServer](data-factory-onprem-file-system-connector.md#onpremisesfileserver-linked-service-properties).
+2.  A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties)
+3.  An input [dataset](data-factory-create-datasets.md) of type [FileShare](data-factory-onprem-file-system-connector.md#on-premises-file-system-dataset-type-properties).
+4.  An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4.  The [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [FileSystemSource](data-factory-onprem-file-system-connector.md#file-share-copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties). 
 
 The sample below copies data belonging to a time series from on-premises file system to Azure blob every hour. The JSON properties used in these samples are described in sections following the samples. 
 
@@ -47,32 +47,32 @@ As a first step, do setup the data management gateway as per the instructions in
 
 **On-premises File Server linked service:**
 
-	{
-	  "Name": "OnPremisesFileServerLinkedService",
-	  "properties": {
-	    "type": "OnPremisesFileServer",
-	    "typeProperties": {
-	      "host": "\\\\Contosogame-Asia.<region>.corp.<company>.com",
-	      "userid": "Admin",
-	      "password": "123456",
-	      "gatewayName": "mygateway"
-	    }
-	  }
-	}
+    {
+      "Name": "OnPremisesFileServerLinkedService",
+      "properties": {
+        "type": "OnPremisesFileServer",
+        "typeProperties": {
+          "host": "\\\\Contosogame-Asia.<region>.corp.<company>.com",
+          "userid": "Admin",
+          "password": "123456",
+          "gatewayName": "mygateway"
+        }
+      }
+    }
 
 For host, you can specify **Local** or **localhost** if the file share is on the gateway machine itself. And, we recommend using the **encryptedCredential** property instead of using the **userid** and **password** properties.  See [File System Linked Service](#onpremisesfileserver-linked-service-properties) for details about this linked service. 
 
 **Azure Blob storage linked service:**
 
-	{
-	  "name": "StorageLinkedService",
-	  "properties": {
-	    "type": "AzureStorage",
-	    "typeProperties": {
-	      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-	    }
-	  }
-	}
+    {
+      "name": "StorageLinkedService",
+      "properties": {
+        "type": "AzureStorage",
+        "typeProperties": {
+          "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+        }
+      }
+    }
 
 **On-premises File System input dataset:**
 
@@ -80,208 +80,208 @@ Data is picked up from a new file every hour with the path & filename reflecting
 
 Setting “external”: ”true” and specifying externalData policy informs the Azure Data Factory service that the table is external to the data factory and not produced by an activity in the data factory.
 
-	{
-	  "name": "OnpremisesFileSystemInput",
-	  "properties": {
-	    "type": " FileShare",
-	    "linkedServiceName": " OnPremisesFileServerLinkedService ",
-	    "typeProperties": {
-	      "folderPath": "mysharedfolder/yearno={Year}/monthno={Month}/dayno={Day}",
-	      "fileName": "{Hour}.csv",
-	      "partitionedBy": [
-	        {
-	          "name": "Year",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "yyyy"
-	          }
-	        },
-	        {
-	          "name": "Month",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "%M"
-	          }
-	        },
-	        {
-	          "name": "Day",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "%d"
-	          }
-	        },
-	        {
-	          "name": "Hour",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "%H"
-	          }
-	        }
-	      ]
-	    },
-	    "external": true,
-	    "availability": {
-	      "frequency": "Hour",
-	      "interval": 1
-	    },
-	    "policy": {
-	      "externalData": {
-	        "retryInterval": "00:01:00",
-	        "retryTimeout": "00:10:00",
-	        "maximumRetry": 3
-	      }
-	    }
-	  }
-	}
+    {
+      "name": "OnpremisesFileSystemInput",
+      "properties": {
+        "type": " FileShare",
+        "linkedServiceName": " OnPremisesFileServerLinkedService ",
+        "typeProperties": {
+          "folderPath": "mysharedfolder/yearno={Year}/monthno={Month}/dayno={Day}",
+          "fileName": "{Hour}.csv",
+          "partitionedBy": [
+            {
+              "name": "Year",
+              "value": {
+                "type": "DateTime",
+                "date": "SliceStart",
+                "format": "yyyy"
+              }
+            },
+            {
+              "name": "Month",
+              "value": {
+                "type": "DateTime",
+                "date": "SliceStart",
+                "format": "%M"
+              }
+            },
+            {
+              "name": "Day",
+              "value": {
+                "type": "DateTime",
+                "date": "SliceStart",
+                "format": "%d"
+              }
+            },
+            {
+              "name": "Hour",
+              "value": {
+                "type": "DateTime",
+                "date": "SliceStart",
+                "format": "%H"
+              }
+            }
+          ]
+        },
+        "external": true,
+        "availability": {
+          "frequency": "Hour",
+          "interval": 1
+        },
+        "policy": {
+          "externalData": {
+            "retryInterval": "00:01:00",
+            "retryTimeout": "00:10:00",
+            "maximumRetry": 3
+          }
+        }
+      }
+    }
 
 **Azure Blob output dataset:**
 
 Data is written to a new blob every hour (frequency: hour, interval: 1). The folder path for the blob is dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, day, and hours parts of the start time. 
 
-	{
-	  "name": "AzureBlobOutput",
-	  "properties": {
-	    "type": "AzureBlob",
-	    "linkedServiceName": "StorageLinkedService",
-	    "typeProperties": {
-	      "folderPath": "mycontainer/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
-	      "partitionedBy": [
-	        {
-	          "name": "Year",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "yyyy"
-	          }
-	        },
-	        {
-	          "name": "Month",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "%M"
-	          }
-	        },
-	        {
-	          "name": "Day",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "%d"
-	          }
-	        },
-	        {
-	          "name": "Hour",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "%HH"
-	          }
-	        }
-	      ],
-	      "format": {
-	        "type": "TextFormat",
-	        "columnDelimiter": "\t",
-	        "rowDelimiter": "\n"
-	      }
-	    },
-	    "availability": {
-	      "frequency": "Hour",
-	      "interval": 1
-	    }
-	  }
-	}
+    {
+      "name": "AzureBlobOutput",
+      "properties": {
+        "type": "AzureBlob",
+        "linkedServiceName": "StorageLinkedService",
+        "typeProperties": {
+          "folderPath": "mycontainer/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
+          "partitionedBy": [
+            {
+              "name": "Year",
+              "value": {
+                "type": "DateTime",
+                "date": "SliceStart",
+                "format": "yyyy"
+              }
+            },
+            {
+              "name": "Month",
+              "value": {
+                "type": "DateTime",
+                "date": "SliceStart",
+                "format": "%M"
+              }
+            },
+            {
+              "name": "Day",
+              "value": {
+                "type": "DateTime",
+                "date": "SliceStart",
+                "format": "%d"
+              }
+            },
+            {
+              "name": "Hour",
+              "value": {
+                "type": "DateTime",
+                "date": "SliceStart",
+                "format": "%HH"
+              }
+            }
+          ],
+          "format": {
+            "type": "TextFormat",
+            "columnDelimiter": "\t",
+            "rowDelimiter": "\n"
+          }
+        },
+        "availability": {
+          "frequency": "Hour",
+          "interval": 1
+        }
+      }
+    }
 
 **Copy activity:**
 
 The pipeline contains a Copy Activity that is configured to use the above input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **FileSystemSource** and **sink** type is set to **BlobSink**. 
-	
-	{  
-	    "name":"SamplePipeline",
-	    "properties":{  
-	    "start":"2015-06-01T18:00:00",
-	    "end":"2015-06-01T19:00:00",
-	    "description":"Pipeline for copy activity",
-	    "activities":[  
-	      {
-	        "name": "OnpremisesFileSystemtoBlob",
-	        "description": "copy activity",
-	        "type": "Copy",
-	        "inputs": [
-	          {
-	            "name": "OnpremisesFileSystemInput"
-	          }
-	        ],
-	        "outputs": [
-	          {
-	            "name": "AzureBlobOutput"
-	          }
-	        ],
-	        "typeProperties": {
-	          "source": {
-	            "type": "FileSystemSource"
-	          },
-	          "sink": {
-	            "type": "BlobSink"
-	          }
-	        },
-	       "scheduler": {
-	          "frequency": "Hour",
-	          "interval": 1
-	        },
-	        "policy": {
-	          "concurrency": 1,
-	          "executionPriorityOrder": "OldestFirst",
-	          "retry": 0,
-	          "timeout": "01:00:00"
-	        }
-	      }
-	     ]
-	   }
-	}
+    
+    {  
+        "name":"SamplePipeline",
+        "properties":{  
+        "start":"2015-06-01T18:00:00",
+        "end":"2015-06-01T19:00:00",
+        "description":"Pipeline for copy activity",
+        "activities":[  
+          {
+            "name": "OnpremisesFileSystemtoBlob",
+            "description": "copy activity",
+            "type": "Copy",
+            "inputs": [
+              {
+                "name": "OnpremisesFileSystemInput"
+              }
+            ],
+            "outputs": [
+              {
+                "name": "AzureBlobOutput"
+              }
+            ],
+            "typeProperties": {
+              "source": {
+                "type": "FileSystemSource"
+              },
+              "sink": {
+                "type": "BlobSink"
+              }
+            },
+           "scheduler": {
+              "frequency": "Hour",
+              "interval": 1
+            },
+            "policy": {
+              "concurrency": 1,
+              "executionPriorityOrder": "OldestFirst",
+              "retry": 0,
+              "timeout": "01:00:00"
+            }
+          }
+         ]
+       }
+    }
 
 ##Sample: Copy data from Azure SQL to On-premises File System 
 
 The sample below shows:
 
-1.	A linked service of type AzureSqlDatabase.
-2.	A linked service of type OnPremisesFileServer.
-3.	An input dataset of type AzureSqlTable. 
-3.	An output dataset of type FileShare.
-4.	A pipeline with Copy activity that uses SqlSource and FileSystemSink.
+1.  A linked service of type AzureSqlDatabase.
+2.  A linked service of type OnPremisesFileServer.
+3.  An input dataset of type AzureSqlTable. 
+3.  An output dataset of type FileShare.
+4.  A pipeline with Copy activity that uses SqlSource and FileSystemSink.
 
 The sample copies data belonging to a time series from a table in Azure SQL database to a On-premises File System every hour. The JSON properties used in these samples are described in sections following the samples. 
 
 **Azure SQL linked service:**
 
-	{
-	  "name": "AzureSqlLinkedService",
-	  "properties": {
-	    "type": "AzureSqlDatabase",
-	    "typeProperties": {
-	      "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
-	    }
-	  }
-	}
+    {
+      "name": "AzureSqlLinkedService",
+      "properties": {
+        "type": "AzureSqlDatabase",
+        "typeProperties": {
+          "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+        }
+      }
+    }
 
 **On-premises File Server linked service:**
 
-	{
-	  "Name": "OnPremisesFileServerLinkedService",
-	  "properties": {
-	    "type": "OnPremisesFileServer",
-	    "typeProperties": {
-	      "host": "\\\\Contosogame-Asia.<region>.corp.<company>.com",
-	      "userid": "Admin",
-	      "password": "123456",
-	      "gatewayName": "mygateway"
-	    }
-	  }
-	}
+    {
+      "Name": "OnPremisesFileServerLinkedService",
+      "properties": {
+        "type": "OnPremisesFileServer",
+        "typeProperties": {
+          "host": "\\\\Contosogame-Asia.<region>.corp.<company>.com",
+          "userid": "Admin",
+          "password": "123456",
+          "gatewayName": "mygateway"
+        }
+      }
+    }
 
 For host, you can specify **Local** or **localhost** if the file share is on the gateway machine itself. And, we recommend using the **encryptedCredential** property instead of using the **userid** and **password** properties.  See [File System Linked Service](#onpremisesfileserver-linked-service-properties) for details about this linked service. 
 
@@ -291,139 +291,139 @@ The sample assumes you have created a table “MyTable” in Azure SQL and it co
 
 Setting “external”: ”true” and specifying externalData policy informs the Data Factory service that  the table is external to the data factory and is not produced by an activity in the data factory.
 
-	{
-	  "name": "AzureSqlInput",
-	  "properties": {
-	    "type": "AzureSqlTable",
-	    "linkedServiceName": "AzureSqlLinkedService",
-	    "typeProperties": {
-	      "tableName": "MyTable"
-	    },
-	    "external": true,
-	    "availability": {
-	      "frequency": "Hour",
-	      "interval": 1
-	    },
-	    "policy": {
-	      "externalData": {
-	        "retryInterval": "00:01:00",
-	        "retryTimeout": "00:10:00",
-	        "maximumRetry": 3
-	      }
-	    }
-	  }
-	}
+    {
+      "name": "AzureSqlInput",
+      "properties": {
+        "type": "AzureSqlTable",
+        "linkedServiceName": "AzureSqlLinkedService",
+        "typeProperties": {
+          "tableName": "MyTable"
+        },
+        "external": true,
+        "availability": {
+          "frequency": "Hour",
+          "interval": 1
+        },
+        "policy": {
+          "externalData": {
+            "retryInterval": "00:01:00",
+            "retryTimeout": "00:10:00",
+            "maximumRetry": 3
+          }
+        }
+      }
+    }
 
 **On-premises File System output dataset:**
 
 Data is copied to a new file every hour with the path for the blob reflecting the specific datetime with hour granularity.
 
-	{
-	  "name": "OnpremisesFileSystemOutput",
-	  "properties": {
-	    "type": "FileShare",
-	    "linkedServiceName": " OnPremisesFileServerLinkedService ",
-	    "typeProperties": {
-	      "folderPath": "mysharedfolder/yearno={Year}/monthno={Month}/dayno={Day}",
-	      "fileName": "{Hour}.csv",
-	      "partitionedBy": [
-	        {
-	          "name": "Year",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "yyyy"
-	          }
-	        },
-	        {
-	          "name": "Month",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "%M"
-	          }
-	        },
-	        {
-	          "name": "Day",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "%d"
-	          }
-	        },
-	        {
-	          "name": "Hour",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "%HH"
-	          }
-	        }
-	      ]
-	    },
-	    "external": true,
-	    "availability": {
-	      "frequency": "Hour",
-	      "interval": 1
-	    },
-	    "policy": {
-	      "externalData": {
-	        "retryInterval": "00:01:00",
-	        "retryTimeout": "00:10:00",
-	        "maximumRetry": 3
-	      }
-	    }
-	  }
-	}
+    {
+      "name": "OnpremisesFileSystemOutput",
+      "properties": {
+        "type": "FileShare",
+        "linkedServiceName": " OnPremisesFileServerLinkedService ",
+        "typeProperties": {
+          "folderPath": "mysharedfolder/yearno={Year}/monthno={Month}/dayno={Day}",
+          "fileName": "{Hour}.csv",
+          "partitionedBy": [
+            {
+              "name": "Year",
+              "value": {
+                "type": "DateTime",
+                "date": "SliceStart",
+                "format": "yyyy"
+              }
+            },
+            {
+              "name": "Month",
+              "value": {
+                "type": "DateTime",
+                "date": "SliceStart",
+                "format": "%M"
+              }
+            },
+            {
+              "name": "Day",
+              "value": {
+                "type": "DateTime",
+                "date": "SliceStart",
+                "format": "%d"
+              }
+            },
+            {
+              "name": "Hour",
+              "value": {
+                "type": "DateTime",
+                "date": "SliceStart",
+                "format": "%HH"
+              }
+            }
+          ]
+        },
+        "external": true,
+        "availability": {
+          "frequency": "Hour",
+          "interval": 1
+        },
+        "policy": {
+          "externalData": {
+            "retryInterval": "00:01:00",
+            "retryTimeout": "00:10:00",
+            "maximumRetry": 3
+          }
+        }
+      }
+    }
 
 **Pipeline with a Copy activity:**
 The pipeline contains a Copy Activity that is configured to use the above input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **SqlSource** and **sink** type is set to **FileSystemSink**. The SQL query specified for the **SqlReaderQuery** property selects the data in the past hour to copy.
 
-	
-	{  
-	    "name":"SamplePipeline",
-	    "properties":{  
-	    "start":"2015-06-01T18:00:00",
-	    "end":"2015-06-01T20:00:00",
-	    "description":"pipeline for copy activity",
-	    "activities":[  
-	      {
-	        "name": "AzureSQLtoOnPremisesFile",
-	        "description": "copy activity",
-	        "type": "Copy",
-	        "inputs": [
-	          {
-	            "name": "AzureSQLInput"
-	          }
-	        ],
-	        "outputs": [
-	          {
-	            "name": "OnpremisesFileSystemOutput"
-	          }
-	        ],
-	        "typeProperties": {
-	          "source": {
-	            "type": "SqlSource",
-	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd}\\'', WindowStart, WindowEnd)"
-	          },
-	          "sink": {
-	            "type": "FileSystemSink"
-	          }
-	        },
-	       "scheduler": {
-	          "frequency": "Hour",
-	          "interval": 1
-	        },
-	        "policy": {
-	          "concurrency": 1,
-	          "executionPriorityOrder": "OldestFirst",
-	          "retry": 3,
-	          "timeout": "01:00:00"
-	        }
-	      }
-	     ]
-	   }
-	}
+    
+    {  
+        "name":"SamplePipeline",
+        "properties":{  
+        "start":"2015-06-01T18:00:00",
+        "end":"2015-06-01T20:00:00",
+        "description":"pipeline for copy activity",
+        "activities":[  
+          {
+            "name": "AzureSQLtoOnPremisesFile",
+            "description": "copy activity",
+            "type": "Copy",
+            "inputs": [
+              {
+                "name": "AzureSQLInput"
+              }
+            ],
+            "outputs": [
+              {
+                "name": "OnpremisesFileSystemOutput"
+              }
+            ],
+            "typeProperties": {
+              "source": {
+                "type": "SqlSource",
+                "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd}\\'', WindowStart, WindowEnd)"
+              },
+              "sink": {
+                "type": "FileSystemSink"
+              }
+            },
+           "scheduler": {
+              "frequency": "Hour",
+              "interval": 1
+            },
+            "policy": {
+              "concurrency": 1,
+              "executionPriorityOrder": "OldestFirst",
+              "retry": 3,
+              "timeout": "01:00:00"
+            }
+          }
+         ]
+       }
+    }
 
 ## OnPremisesFileServer Linked Service properties
 
@@ -441,33 +441,33 @@ gatewayName | Name of the gateway that the Data Factory service should use to co
 See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) for details about setting credentials for an on-premises File System data source.
 
 **Example: Using username and password in plain text**
-	
-	{
-	  "Name": "OnPremisesFileServerLinkedService",
-	  "properties": {
-	    "type": "OnPremisesFileServer",
-	    "typeProperties": {
-	      "host": "\\\\Contosogame-Asia",
-	      "userid": "Admin",
-	      "password": "123456",
-	      "gatewayName": "mygateway"
-	    }
-	  }
-	}
-	
+    
+    {
+      "Name": "OnPremisesFileServerLinkedService",
+      "properties": {
+        "type": "OnPremisesFileServer",
+        "typeProperties": {
+          "host": "\\\\Contosogame-Asia",
+          "userid": "Admin",
+          "password": "123456",
+          "gatewayName": "mygateway"
+        }
+      }
+    }
+    
 **Example: Using encryptedcredential**
 
-	{
-	  "Name": " OnPremisesFileServerLinkedService ",
-	  "properties": {
-	    "type": "OnPremisesFileServer",
-	    "typeProperties": {
-	      "host": "localhost",
-	      "encryptedCredential": "WFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdCBvbmx5IGJ5xxxxxxxxxxxxxxxxx",
-	      "gatewayName": "mygateway"
-	    }
-	  }
-	}
+    {
+      "Name": " OnPremisesFileServerLinkedService ",
+      "properties": {
+        "type": "OnPremisesFileServer",
+        "typeProperties": {
+          "host": "localhost",
+          "encryptedCredential": "WFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdCBvbmx5IGJ5xxxxxxxxxxxxxxxxx",
+          "gatewayName": "mygateway"
+        }
+      }
+    }
 
 ## On-premises File System Dataset type properties
 
@@ -494,25 +494,25 @@ See [Creating Datasets](data-factory-create-datasets.md), [Scheduling & Executio
 
 #### Sample 1:
 
-	"folderPath": "wikidatagateway/wikisampledataout/{Slice}",
-	"partitionedBy": 
-	[
-	    { "name": "Slice", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyyMMddHH" } },
-	],
+    "folderPath": "wikidatagateway/wikisampledataout/{Slice}",
+    "partitionedBy": 
+    [
+        { "name": "Slice", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyyMMddHH" } },
+    ],
 
 In the above example {Slice} is replaced with the value of Data Factory system variable SliceStart in the format (YYYYMMDDHH) specified. The SliceStart refers to start time of the slice. The folderPath is different for each slice. For example: wikidatagateway/wikisampledataout/2014100103 or wikidatagateway/wikisampledataout/2014100104.
 
 #### Sample 2:
 
-	"folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
-	"fileName": "{Hour}.csv",
-	"partitionedBy": 
-	 [
-	    { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
-	    { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
-	    { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
-	    { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
-	],
+    "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
+    "fileName": "{Hour}.csv",
+    "partitionedBy": 
+     [
+        { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
+        { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
+        { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
+        { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
+    ],
 
 In the above example, year, month, day, and time of SliceStart are extracted into separate variables that are used by folderPath and fileName properties.
 
@@ -533,34 +533,34 @@ encodingName | Specify the encoding name. For the list of valid encoding names, 
 
 The following sample shows some of the format properties for **TextFormat**.
 
-	"typeProperties":
-	{
-	    "folderPath": "MyFolder",
-	    "fileName": "MyFileName"
-	    "format":
-	    {
-	        "type": "TextFormat",
-	        "columnDelimiter": ",",
-	        "rowDelimiter": ";",
-	        "quoteChar": "\"",
-	        "NullValue": "NaN"
-	    }
-	},
+    "typeProperties":
+    {
+        "folderPath": "MyFolder",
+        "fileName": "MyFileName"
+        "format":
+        {
+            "type": "TextFormat",
+            "columnDelimiter": ",",
+            "rowDelimiter": ";",
+            "quoteChar": "\"",
+            "NullValue": "NaN"
+        }
+    },
 
 To use an escapeChar instead of quoteChar, replace the line with quoteChar with the following:
 
-	"escapeChar": "$",
+    "escapeChar": "$",
 
 ### Specifying AvroFormat
 
 If the format is set to **AvroFormat**, you do not need to specify any properties in the Format section within the typeProperties section. Example:
 
-	"format":
-	{
-	    "type": "AvroFormat",
-	}
-	
-To use Avro format in a subsequent Hive table, refer to [Apache Hive’s tutorial](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).		
+    "format":
+    {
+        "type": "AvroFormat",
+    }
+    
+To use Avro format in a subsequent Hive table, refer to [Apache Hive’s tutorial](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).       
 
 [AZURE.INCLUDE [data-factory-compression](../../includes/data-factory-compression.md)]
 
@@ -603,3 +603,4 @@ false | mergeFiles | <p>For a source folder Folder1 with the following structure
 
 
  
+

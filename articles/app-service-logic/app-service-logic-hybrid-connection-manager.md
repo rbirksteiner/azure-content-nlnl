@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Using the Hybrid Connection Manager | Microsoft Azure App Service" 
-	description="Install and configure the Hybrid Connection Manager and connect to on-premises connectors in Azure App Service" 
-	services="app-service\logic" 
-	documentationCenter=".net,nodejs,java"
-	authors="MandiOhlinger" 
-	manager="dwrede" 
-	editor="cgronlun"/>
+    pageTitle="Using the Hybrid Connection Manager | Microsoft Azure App Service" 
+    description="Install and configure the Hybrid Connection Manager and connect to on-premises connectors in Azure App Service" 
+    services="app-service\logic" 
+    documentationCenter=".net,nodejs,java"
+    authors="MandiOhlinger" 
+    manager="dwrede" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="app-service-logic" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/30/2015" 
-	ms.author="mandia"/>
+    ms.service="app-service-logic" 
+    ms.workload="integration" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/30/2015" 
+    ms.author="mandia"/>
 
 # Connect to on-premises connectors in Azure App Service using the Hybrid Connection Manager
 To use an on-premises system, Azure App Service uses the Hybrid Connection Manager. Some Connectors can connect to an on-premises system, like SQL Server, SAP, SharePoint, and so on. 
@@ -35,11 +35,11 @@ In the Azure portal, copy the Service Bus root SAS Connection String. This conne
 
 1. In the [Azure classic portal](http://go.microsoft.com/fwlink/p/?LinkID=213885), select your Service Bus namespace, and select **Connection Information**:
 
-	![][SB_ConnectInfo]
+    ![][SB_ConnectInfo]
 
 2. Copy the SAS Connection String:
 
-	![][SB_SAS]
+    ![][SB_SAS]
 
 ## Install the Hybrid Connection Manager
 
@@ -149,3 +149,4 @@ If your custom API uses a TCP or HTTP port, you can use [Hybrid Connections](../
 [4]: ./media/app-service-logic-hybrid-connection-manager/BrowseSetupComplete.jpg
 
  
+

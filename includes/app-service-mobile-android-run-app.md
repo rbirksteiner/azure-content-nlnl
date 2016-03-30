@@ -10,3 +10,4 @@
     ![](./media/mobile-services-android-get-started/mobile-quickstart-startup-android.png)
 
 [Azure Portal]: https://portal.azure.com/
+

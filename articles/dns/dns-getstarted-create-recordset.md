@@ -40,8 +40,8 @@ Azure DNS supports all common DNS record types: A, AAAA, CNAME, MX, NS, SOA, SRV
 
 Sometimes, you need to create more than one DNS record with a given name and type.  For example, suppose the www.contoso.com web site is hosted on two different IP addresses.  This requires two different A records, one for each IP address:
 
-	www.contoso.com.		3600	IN	A	134.170.185.46
-	www.contoso.com.		3600	IN	A	134.170.188.221
+    www.contoso.com.        3600    IN  A   134.170.185.46
+    www.contoso.com.        3600    IN  A   134.170.188.221
 
 This is an example of a record set.  A record set is the collection of DNS records in a zone with the same name and the same type.  Most record sets contain a single record, but examples like the one above in which a record set contains more than one record are not uncommon.  (Records sets of type SOA and CNAME are an exception, the DNS standards do not permit multiple records with the same name for these types.)
 
@@ -60,7 +60,7 @@ In the following example we will show how to create a record set and records.  W
 
 Create record set and assign to a variable $rs:
 
-	PS C:\>$rs = New-AzureRmDnsRecordSet -Name "www" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 60
+    PS C:\>$rs = New-AzureRmDnsRecordSet -Name "www" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 60
 
 The record set has relative name ‘www’ in the DNS Zone ‘contoso.com’, so the fully-qualified name of the records will be ‘www.contoso.com’.  The record type is ‘A’ and the TTL is 60 seconds.
 
@@ -72,8 +72,8 @@ The record set is empty and we have to add records to be able to use the newly c
 
 Add IPv4 A records to the "www" record set using the $rs variable assigned when created record set on step 1:
 
-	PS C:\> Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.185.46
-	PS C:\> Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.188.221
+    PS C:\> Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.185.46
+    PS C:\> Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.188.221
 
 Adding records to a record set using Add-AzureRmDnsRecordConfig is an off-line operation.  Only the local variable $rs is updated.
 
@@ -81,22 +81,22 @@ Adding records to a record set using Add-AzureRmDnsRecordConfig is an off-line o
 Commit the changes to the record set.  Use Set-AzureRmDnsRecordSet to upload the changes to the record set to Azure DNS:
 
 
-	Set-AzureRmDnsRecordSet -RecordSet $rs
+    Set-AzureRmDnsRecordSet -RecordSet $rs
 
 The changes are complete.  You can retrieve the record set from Azure DNS using Get-AzureRmDnsRecordSet:
 
 
-	PS C:\> Get-AzureRmDnsRecordSet –Name www –RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
+    PS C:\> Get-AzureRmDnsRecordSet –Name www –RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 
 
-	Name              : www
-	ZoneName          : contoso.com
-	ResourceGroupName : MyAzureResourceGroup
-	Ttl               : 3600
-	Etag              : 68e78da2-4d74-413e-8c3d-331ca48246d9
-	RecordType        : A
-	Records           : {134.170.185.46, 134.170.188.221}
-	Tags              : {}
+    Name              : www
+    ZoneName          : contoso.com
+    ResourceGroupName : MyAzureResourceGroup
+    Ttl               : 3600
+    Etag              : 68e78da2-4d74-413e-8c3d-331ca48246d9
+    RecordType        : A
+    Records           : {134.170.185.46, 134.170.188.221}
+    Tags              : {}
 
 
 
@@ -105,14 +105,14 @@ You can also use nslookup or other DNS tools to query the new record set.
 >[AZURE.NOTE] As when creating the zone, if you have not yet delegated the domain to the Azure DNS name servers you will need to specify the name server address for your zone explicitly.
 
 
-	C:\> nslookup www.contoso.com ns1-01.azure-dns.com
+    C:\> nslookup www.contoso.com ns1-01.azure-dns.com
 
-	Server: ns1-01.azure-dns.com
-	Address:  208.76.47.1
+    Server: ns1-01.azure-dns.com
+    Address:  208.76.47.1
 
-	Name:    www.contoso.com
-	Addresses:  134.170.185.46
-    	        134.170.188.221
+    Name:    www.contoso.com
+    Addresses:  134.170.185.46
+                134.170.188.221
 
 
 
@@ -124,3 +124,4 @@ You can also use nslookup or other DNS tools to query the new record set.
 
 [Automate Azure Operations with .NET SDK](dns-sdk.md)
  
+

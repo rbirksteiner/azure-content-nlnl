@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Add company branding to your Sign In and Access Panel pages"
-	description="A topic that explains how an organization can apply a consistent look and feel across all the websites and services they manage so that their end users won’t be confused whenever they need to use those sites."
-	services="active-directory"
-	documentationCenter=""
-	authors="markusvi"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Add company branding to your Sign In and Access Panel pages"
+    description="A topic that explains how an organization can apply a consistent look and feel across all the websites and services they manage so that their end users won’t be confused whenever they need to use those sites."
+    services="active-directory"
+    documentationCenter=""
+    authors="markusvi"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="10/30/2015" 
-	ms.author="MarkVi"/>
+    ms.service="active-directory"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="10/30/2015" 
+    ms.author="MarkVi"/>
 
 # Add company branding to your Sign In and Access Panel pages
 
@@ -75,7 +75,7 @@ You can customize the following elements on the Sign In page:
 ![][5]
 
  Page element  | Location on the page
-	------------- | -------------
+    ------------- | -------------
 Banner Logo | Shown at the top-right of the page. Replaces the logo that would normally be displayed by the destination site that your users are signing in to (For example. Office 365 or Azure).
 Large Illustration / Background Color | Shown at the left of the page. Replaces the image that would normally be displayed by the destination site that your users are signing in to. The Background Color may be shown in place of the Large Illustration on low bandwidth connections, or on very narrow screens.
 Sign In Page Text | Shown above the page footer when you need to convey helpful information to your users before they sign in with their work or school account. For example, you may want to include the phone number to your help desk, or a legal statement.
@@ -136,7 +136,7 @@ To remove company branding from your directory
 1. In the [Azure Management Portal](https://manage.windowsazure.com), under the **Configure** tab, select **Customize Branding**.
 2. On the Customize Branding page, select **Edit Existing Branding Settings** and then go to the next page.
 3. Depending on which elements you want to remove, do one or more of the following:
-	1. For Banner Logo, click on the check box to **Remove uploaded logo**.
+    1. For Banner Logo, click on the check box to **Remove uploaded logo**.
     2. For Tile Logo, click on the check box to **Remove uploaded logo**.
     3. For Sign In Page User Name Label, clear all text.
     4. For Sign In Page Text, clear all text.
@@ -162,7 +162,7 @@ To test the language-specific settings, you will need to modify the default lang
 Some customizable elements in Azure AD have multiple use cases. Company logos can be configured once per directory and is used on both the Sign In and Access Panel pages, where as some customizable elements are specific only to the Sign In page. The following table provides details for the different customizable elements.
 
 Name | Description | Constraints | Recommendations
-	------------- | ------------- | ------------- | -------------
+    ------------- | ------------- | ------------- | -------------
 Banner Logo | The Banner Logo is displayed on the Sign In page and the Access panel. | <p>JPG or PNG</p><p>60x280 pixels</p><p>10 KB</p> | <p>Use your organization’s full logo (including pictogram and logotype)</p><p>Keep it under 30 pixels high to avoid introducing scrollbars on mobile devices</p><p>Keep it under 4 KB</p><p>Use a transparent PNG (don’t assume that the Sign In page will always have a white background)</p>
 Tile Logo | (currently not used in the Sign In page) In the future, this text may be used to replace the generic “work or school account” pictogram in different places of the experience. | <p>JPG or PNG</p><p>120x120 pixels</p><p>10 KB</p> | <p>Keep it simple (no small text), as this image may be resized to 50%
 </p> |
@@ -186,3 +186,4 @@ Sign In Page Background Color | The Sign In page background color is used in the
 [6]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedleft.png
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
+

@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure Batch feature overview | Microsoft Azure"
-	description="Learn the features of the Batch service and its APIs from a development standpoint."
-	services="batch"
-	documentationCenter=".net"
-	authors="yidingzhou"
-	manager="timlt"
-	editor=""/>
+    pageTitle="Azure Batch feature overview | Microsoft Azure"
+    description="Learn the features of the Batch service and its APIs from a development standpoint."
+    services="batch"
+    documentationCenter=".net"
+    authors="yidingzhou"
+    manager="timlt"
+    editor=""/>
 
 <tags
-	ms.service="batch"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-compute"
-	ms.date="11/19/2015"
-	ms.author="yidingz;v-marsma"/>
+    ms.service="batch"
+    ms.devlang="multiple"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="big-compute"
+    ms.date="11/19/2015"
+    ms.author="yidingz;v-marsma"/>
 
 # Overview of Azure Batch features
 
@@ -56,11 +56,11 @@ When you use the Azure Batch service, you will take advantage of the following r
 
 - [Task](#task)
 
-	- [Start Task](#starttask)
+    - [Start Task](#starttask)
 
-	- [Job ManagerTask](#jobmanagertask)
+    - [Job ManagerTask](#jobmanagertask)
 
-	- [Job preparation and release tasks](#jobpreprelease)
+    - [Job preparation and release tasks](#jobpreprelease)
 
 - [JobSchedule](#jobschedule)
 
@@ -92,31 +92,31 @@ You can configure a pool to allow communication between the nodes within it. If 
 When you create a pool, you can specify the following attributes:
 
 - **Size of the nodes** in the pool
-	- An appropriate node size should be chosen, taking into account the characteristics and requirements of the application or applications that are going to be run on the nodes. The node size is typically selected assuming one task will run on the node at a time. Considering aspects such as whether the application is multi-threaded and how much memory it consumes will help determine the most suitable and cost-effective node size. It is possible to have multiple tasks assigned and multiple application instances run in parallel, in which case a larger node is typically chosen - see "Task scheduling policy" below for more information.
-	- All of the nodes in a pool must be the same size. If different applications are to be run with differing system requirements and/or load levels, separate pools should be created.
-	- All [cloud service node sizes][cloud_service_sizes] can be configured for a pool, except for A0.
+    - An appropriate node size should be chosen, taking into account the characteristics and requirements of the application or applications that are going to be run on the nodes. The node size is typically selected assuming one task will run on the node at a time. Considering aspects such as whether the application is multi-threaded and how much memory it consumes will help determine the most suitable and cost-effective node size. It is possible to have multiple tasks assigned and multiple application instances run in parallel, in which case a larger node is typically chosen - see "Task scheduling policy" below for more information.
+    - All of the nodes in a pool must be the same size. If different applications are to be run with differing system requirements and/or load levels, separate pools should be created.
+    - All [cloud service node sizes][cloud_service_sizes] can be configured for a pool, except for A0.
 
 - **Operating system family** and **version** that runs on the nodes
-	- As with worker roles within Cloud Services, the *OS Family* and *OS Version* can be specified (for more information on worker roles, see the [Tell me about cloud services][about_cloud_services] section in *Compute Hosting Options Provided by Azure*).
-	- The OS Family also determines which versions of .NET are installed with the OS.
-	- As with worker roles, it is recommended that `*` be specified for the OS Version so that the nodes are automatically upgraded, and there is no work required to cater to newly released versions. The primary use case for picking a specific OS version is to ensure that application compatibility is maintained, allowing backward compatibility testing to be performed before allowing the version to be updated. Once validated, the OS version for the pool can be updated and the new OS image installed–any running task will be interrupted and re-queued.
+    - As with worker roles within Cloud Services, the *OS Family* and *OS Version* can be specified (for more information on worker roles, see the [Tell me about cloud services][about_cloud_services] section in *Compute Hosting Options Provided by Azure*).
+    - The OS Family also determines which versions of .NET are installed with the OS.
+    - As with worker roles, it is recommended that `*` be specified for the OS Version so that the nodes are automatically upgraded, and there is no work required to cater to newly released versions. The primary use case for picking a specific OS version is to ensure that application compatibility is maintained, allowing backward compatibility testing to be performed before allowing the version to be updated. Once validated, the OS version for the pool can be updated and the new OS image installed–any running task will be interrupted and re-queued.
 
 - **Target number of nodes** that should be available for the pool
 
 - **Scaling policy** for the pool
-	- In addition to the number of nodes, you can also specify an [auto-scaling formula](batch-automatic-scaling.md) for a pool. The Batch service will execute the formula and adjust the number of nodes within the pool based on various pool, job, and task parameters that you can specify.
+    - In addition to the number of nodes, you can also specify an [auto-scaling formula](batch-automatic-scaling.md) for a pool. The Batch service will execute the formula and adjust the number of nodes within the pool based on various pool, job, and task parameters that you can specify.
 
 - **Task scheduling** policy
-	- The [max tasks per node](batch-parallel-node-tasks.md) configuration option determines the maximum number of tasks that can be run in parallel on each node within the pool.
-	- The default configuration is for one task to be run on a compute node at a time, but there are scenarios where it is beneficial to have more than one task executed on a node at the same time. One example is to increase node utilization if an application has to wait for I/O. Having more than one application executed concurrently will increase CPU utilization. Another example is to reduce the number of nodes in the pool. This could reduce the amount of data transfer required for large reference data sets - if an A1 node size is sufficient for an application, then the A4 node size could instead be chosen and the pool configured for 8 parallel tasks, each using a core.
-	- A "fill type" can also be specified which determines whether Batch spreads the tasks evenly across all nodes, or packs each node with the maximum number of tasks before assigning tasks to another node in the pool.
+    - The [max tasks per node](batch-parallel-node-tasks.md) configuration option determines the maximum number of tasks that can be run in parallel on each node within the pool.
+    - The default configuration is for one task to be run on a compute node at a time, but there are scenarios where it is beneficial to have more than one task executed on a node at the same time. One example is to increase node utilization if an application has to wait for I/O. Having more than one application executed concurrently will increase CPU utilization. Another example is to reduce the number of nodes in the pool. This could reduce the amount of data transfer required for large reference data sets - if an A1 node size is sufficient for an application, then the A4 node size could instead be chosen and the pool configured for 8 parallel tasks, each using a core.
+    - A "fill type" can also be specified which determines whether Batch spreads the tasks evenly across all nodes, or packs each node with the maximum number of tasks before assigning tasks to another node in the pool.
 
 - **Communication status** of the nodes in the pool
-	- A pool may be configured to allow communication between the nodes in the pool which determines its underlying network infrastructure. Note that this also impacts placement of the nodes within clusters.
-	- In most scenarios, tasks operate independently and do not need to communicate with one another, but there may be some applications in which tasks must communicate.
+    - A pool may be configured to allow communication between the nodes in the pool which determines its underlying network infrastructure. Note that this also impacts placement of the nodes within clusters.
+    - In most scenarios, tasks operate independently and do not need to communicate with one another, but there may be some applications in which tasks must communicate.
 
 - **Start task** for nodes in the pool
-	- A *start task* may be specified which is executed each time a compute node joins the pool, and when a node is restarted. This is often used to install an application to be used by the tasks running on the node.
+    - A *start task* may be specified which is executed each time a compute node joins the pool, and when a node is restarted. This is often used to install an application to be used by the tasks running on the node.
 
 ### <a name="job"></a>Job
 
@@ -125,8 +125,8 @@ A job is a collection of tasks, and specifies how computation is performed on co
 - The job specifies the **pool** in which the work will be run. The pool can be an existing pool, previously created for use by many jobs, or created on-demand for each job associated with a job schedule, or for all jobs associated with a job schedule.
 - An optional **job priority** can be specified. When a job is submitted with a higher priority than jobs currently in progress, the higher priority job's tasks are inserted into the queue ahead of the lower priority job tasks. Lower priority tasks that are already running will not be pre-empted.
 - Job **constraints** specify certain limits for your jobs.
-	- A **maximum wallclock time** can be set for jobs. If the jobs runs for longer than the maximum wallclock time specified, then the job and all associated tasks will be ended.
-	- Azure Batch can detect tasks that fail and retry the tasks. The **maximum number of task retries** can be specified as a constraint, including whether a task is always or never retried. Retrying a task means that the task is re-queued to be run again.
+    - A **maximum wallclock time** can be set for jobs. If the jobs runs for longer than the maximum wallclock time specified, then the job and all associated tasks will be ended.
+    - Azure Batch can detect tasks that fail and retry the tasks. The **maximum number of task retries** can be specified as a constraint, including whether a task is always or never retried. Retrying a task means that the task is re-queued to be run again.
 - Tasks can be added to the job by your client application, or a [Job Manager task](#jobmanagertask) may be specified. A job manager task uses the Batch API and contains the information necessary to create the required tasks for a job, with the task being run on one of the compute nodes within the pool. The job manager task is handled specifically by Batch–it is queued as soon as the job is created, and restarted if it fails. A Job Manager task is required for jobs created by a job schedule as it is the only way to define the tasks before the job is instantiated. More information on job manager tasks appears below.
 
 
@@ -292,14 +292,14 @@ You may find it necessary to handle both task and application failures within yo
 Task failures fall into these categories:
 
 - **Scheduling failures**
-	- If the transfer of files specified for a task fails for any reason, a "scheduling error" is set for the task.
-	- Causes of scheduling errors could be because the files have moved, the Storage account is no longer available, or another issue was encountered that prevented the successful copying of files to the node.
+    - If the transfer of files specified for a task fails for any reason, a "scheduling error" is set for the task.
+    - Causes of scheduling errors could be because the files have moved, the Storage account is no longer available, or another issue was encountered that prevented the successful copying of files to the node.
 - **Application failures**
-	- The process specified by the task's command line can also fail. The process is deemed to have failed when a non-zero exit code is returned by the process executed by the task.
-	- For application failures, it is possible to configure Batch to automatically retry the task up to a specified number of times.
+    - The process specified by the task's command line can also fail. The process is deemed to have failed when a non-zero exit code is returned by the process executed by the task.
+    - For application failures, it is possible to configure Batch to automatically retry the task up to a specified number of times.
 - **Constraint failures**
-	- A constraint can be set that specifies the maximum execution duration for a job or task, the *maxWallClockTime*. This can be useful for terminating "hung" tasks.
-	- When the maximum amount of time has been exceeded, the task is marked as *completed* but the exit code is set to `0xC000013A`, and the *schedulingError* field will be marked as `{ category:"ServerError", code="TaskEnded"}`.
+    - A constraint can be set that specifies the maximum execution duration for a job or task, the *maxWallClockTime*. This can be useful for terminating "hung" tasks.
+    - When the maximum amount of time has been exceeded, the task is marked as *completed* but the exit code is set to `0xC000013A`, and the *schedulingError* field will be marked as `{ category:"ServerError", code="TaskEnded"}`.
 
 ### Debugging application failures
 
@@ -354,3 +354,4 @@ Each node in a pool is given a unique ID, and the node on which a task runs is i
 [rest_get_task_info]: https://msdn.microsoft.com/library/azure/dn820133.aspx
 [rest_update_job]: https://msdn.microsoft.com/library/azure/dn820162.aspx
 [rest_rdp]: https://msdn.microsoft.com/library/azure/dn820120.aspx
+

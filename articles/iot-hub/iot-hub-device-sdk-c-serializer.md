@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Azure IoT device SDK for C - Serializer | Microsoft Azure"
-	description="Learn more about using the Serializer library in the Azure IoT device SDK for C"
-	services="iot-hub"
-	documentationCenter=""
-	authors="MichelBarnett"
-	manager="timlt"
-	editor=""/>
+    pageTitle="Azure IoT device SDK for C - Serializer | Microsoft Azure"
+    description="Learn more about using the Serializer library in the Azure IoT device SDK for C"
+    services="iot-hub"
+    documentationCenter=""
+    authors="MichelBarnett"
+    manager="timlt"
+    editor=""/>
 
 <tags
      ms.service="iot-hub"
@@ -138,27 +138,27 @@ Basically, we’re assigning a value to every member of the **Test** structure a
 ```
 void SendAsync(IOTHUB_CLIENT_LL_HANDLE iotHubClientHandle, const void *dataEvent)
 {
-	unsigned char* destination;
-	size_t destinationSize;
-	if (SERIALIZE(&destination, &destinationSize, *(const unsigned char*)dataEvent) ==
-	{
-		// null terminate the string
-		char* destinationAsString = (char*)malloc(destinationSize + 1);
-		if (destinationAsString != NULL)
-		{
-			memcpy(destinationAsString, destination, destinationSize);
-			destinationAsString[destinationSize] = '\0';
-			IOTHUB_MESSAGE_HANDLE messageHandle = IoTHubMessage_CreateFromString(destinationAsString);
-			if (messageHandle != NULL)
-			{
-				IoTHubClient_SendEventAsync(iotHubClientHandle, messageHandle, sendCallback, (void*)0);
+    unsigned char* destination;
+    size_t destinationSize;
+    if (SERIALIZE(&destination, &destinationSize, *(const unsigned char*)dataEvent) ==
+    {
+        // null terminate the string
+        char* destinationAsString = (char*)malloc(destinationSize + 1);
+        if (destinationAsString != NULL)
+        {
+            memcpy(destinationAsString, destination, destinationSize);
+            destinationAsString[destinationSize] = '\0';
+            IOTHUB_MESSAGE_HANDLE messageHandle = IoTHubMessage_CreateFromString(destinationAsString);
+            if (messageHandle != NULL)
+            {
+                IoTHubClient_SendEventAsync(iotHubClientHandle, messageHandle, sendCallback, (void*)0);
 
-				IoTHubMessage_Destroy(messageHandle);
-			}
-			free(destinationAsString);
-		}
-		free(destination);
-	}
+                IoTHubMessage_Destroy(messageHandle);
+            }
+            free(destinationAsString);
+        }
+        free(destination);
+    }
 }
 ```
 
@@ -169,16 +169,16 @@ One other helper function used in the previous code is **GetDateTimeOffset**. Th
 ```
 EDM_DATE_TIME_OFFSET GetDateTimeOffset(time_t time)
 {
-	struct tm newTime;
-	gmtime_s(&newTime, &time);
-	EDM_DATE_TIME_OFFSET dateTimeOffset;
-	dateTimeOffset.dateTime = newTime;
-	dateTimeOffset.fractionalSecond = 0;
-	dateTimeOffset.hasFractionalSecond = 0;
-	dateTimeOffset.hasTimeZone = 0;
-	dateTimeOffset.timeZoneHour = 0;
-	dateTimeOffset.timeZoneMinute = 0;
-	return dateTimeOffset;
+    struct tm newTime;
+    gmtime_s(&newTime, &time);
+    EDM_DATE_TIME_OFFSET dateTimeOffset;
+    dateTimeOffset.dateTime = newTime;
+    dateTimeOffset.fractionalSecond = 0;
+    dateTimeOffset.hasFractionalSecond = 0;
+    dateTimeOffset.hasTimeZone = 0;
+    dateTimeOffset.timeZoneHour = 0;
+    dateTimeOffset.timeZoneMinute = 0;
+    return dateTimeOffset;
 }
 ```
 
@@ -657,3 +657,4 @@ Otherwise, all of the other features listed above work the same in the **seriali
 This article describes in detail the unique aspects of the **serializer** library contained in the **Azure IoT device SDK for C**. With the information provided you should have a good understanding of how to use models to send events and receive messages from IoT Hub.
 
 This also concludes the three-part series on how to develop applications with the **Azure IoT device SDK for C**. This should be enough information to not only get you started but give you a thorough understanding of how the APIs work. For additional information, there are a few samples in the SDK not covered here. Otherwise, the [SDK documentation](https://github.com/Azure/azure-iot-sdks) is a good resource for additional information.
+

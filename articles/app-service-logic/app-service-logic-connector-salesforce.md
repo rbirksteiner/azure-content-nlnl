@@ -35,9 +35,9 @@ Logic apps can trigger based on a variety of data sources and offer connectors t
 
 
 ## Create a Salesforce Connector API App
-1.	Open the Azure Marketplace using the + NEW option at the bottom right of the Azure Portal.
-2.	Browse to “Web and Mobile > API apps” and search for “Salesforce”.
-3.	Configure the Salesforce Connector by providing the details for Hosting Plan, the resource group and selecting the name of the API App:  
+1.  Open the Azure Marketplace using the + NEW option at the bottom right of the Azure Portal.
+2.  Browse to “Web and Mobile > API apps” and search for “Salesforce”.
+3.  Configure the Salesforce Connector by providing the details for Hosting Plan, the resource group and selecting the name of the API App:  
 ![][15]
 4. Configure the Salesforce Entities you are interested in reading/writing in the 'Package Settings'.
 
@@ -47,46 +47,46 @@ With this, you can now create a Salesforce Conenctor API App.
 ## Create a Logic App
 Let us create a simple logic app that creates an account in Salesforce and updates billing address details of the same account.
 
-1.	Login to Azure Portal and click on ‘New -> Web + mobile -> Logic App’:  
+1.  Login to Azure Portal and click on ‘New -> Web + mobile -> Logic App’:  
 ![][1]
 
-2.	In the ‘Create logic app’ page, provide the required details such as name, app service plan and location:  
+2.  In the ‘Create logic app’ page, provide the required details such as name, app service plan and location:  
 ![][2]
 
-3.	Click on ‘Triggers and Actions’. The Logic App editor opens:  
+3.  Click on ‘Triggers and Actions’. The Logic App editor opens:  
 ![][3]
 
-4.	Select ‘Run this logic manually’ which means that this logic app can be invoked only manually:  
+4.  Select ‘Run this logic manually’ which means that this logic app can be invoked only manually:  
 ![][4]
 
-5.	Expand ‘API Apps in this resource group’ in Gallery to see all the available API Apps. Select ‘Salesforce’ from the gallery and the ‘Salesforce connector’ gets added to the flow:  
+5.  Expand ‘API Apps in this resource group’ in Gallery to see all the available API Apps. Select ‘Salesforce’ from the gallery and the ‘Salesforce connector’ gets added to the flow:  
 ![][5]
 
-8.	To authorize your Logic App to access your Salesforce account, click on ‘Authorize’ to provide Salesforce login credentials:  
+8.  To authorize your Logic App to access your Salesforce account, click on ‘Authorize’ to provide Salesforce login credentials:  
 ![][6]
 
-9.	You are redirected to Salesforce login page and you can authenticate with your Salesforce credentials:  
+9.  You are redirected to Salesforce login page and you can authenticate with your Salesforce credentials:  
 ![][7]  
 ![][8]
 
-10.	Once the authorization is complete, all the actions are displayed:  
+10. Once the authorization is complete, all the actions are displayed:  
 ![][9]
 
-11.	Select ‘Create Account’ action and the input parameters are displayed:  
+11. Select ‘Create Account’ action and the input parameters are displayed:  
 ![][10]
 
-12.	Provide ‘Account Name’ and click ✓:  
+12. Provide ‘Account Name’ and click ✓:  
 ![][11]
 
-13.	Select ‘Salesforce Connector’ from the ‘Recently Used’ section in the gallery and a new Salesforce action gets added.
+13. Select ‘Salesforce Connector’ from the ‘Recently Used’ section in the gallery and a new Salesforce action gets added.
 
-14.	Select ‘Update Account’ from the list of actions and the input parameters of ‘Update Account’ action are displayed:  
+14. Select ‘Update Account’ from the list of actions and the input parameters of ‘Update Account’ action are displayed:  
 ![][12]
 
-15.	Click on ‘+’ next to ‘Record Id’ to pick the id value from the output of ‘Create Account’ action:  
+15. Click on ‘+’ next to ‘Record Id’ to pick the id value from the output of ‘Create Account’ action:  
 ![][13]
 
-16.	Provide values for Billing Street, Billing City, Billing State and Billing Zip Code and click ✓:  
+16. Provide values for Billing Street, Billing City, Billing State and Billing Zip Code and click ✓:  
 ![][14]
 
 17. Click on OK on Logic app editor screen and then click 'Create'. It will take approximately 30 seconds for the creation to complete.
@@ -120,3 +120,4 @@ You can also review performance statistics and control security to the connector
 [13]: ./media/app-service-logic-connector-salesforce/13_Record_ID_from_Create.png
 [14]: ./media/app-service-logic-connector-salesforce/14_Update_Account_Address.png
 [15]: ./media/app-service-logic-connector-salesforce/15_Create_new_salesforce_connector.png
+

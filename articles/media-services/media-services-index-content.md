@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Indexing Media Files with Azure Media Indexer"
-	description="Azure Media Indexer enables you to make content of your media files searchable and to generate a full-text transcript for closed captioning and keywords. This topic shows how to use Media Indexer."
-	services="media-services"
-	documentationCenter=""
-	authors="Juliako,Asolanki,johndeu"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Indexing Media Files with Azure Media Indexer"
+    description="Azure Media Indexer enables you to make content of your media files searchable and to generate a full-text transcript for closed captioning and keywords. This topic shows how to use Media Indexer."
+    services="media-services"
+    documentationCenter=""
+    authors="Juliako,Asolanki,johndeu"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="10/15/2015"   
-	ms.author="juliako"/>
+    ms.service="media-services"
+    ms.workload="media"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="10/15/2015"   
+    ms.author="juliako"/>
 
 
 # Indexing Media Files with Azure Media Indexer
@@ -33,11 +33,11 @@ An indexing job can generate the following outputs:
 
 - Closed caption files in the following formats: **SAMI**, **TTML**, and **WebVTT**.
 
-	Closed caption files include a tag called Recognizability, which scores an indexing job based on how recognizable the speech in the source video is.  You can use the value of Recognizability to screen output files for usability. A low score would mean poor indexing results due to audio quality.
+    Closed caption files include a tag called Recognizability, which scores an indexing job based on how recognizable the speech in the source video is.  You can use the value of Recognizability to screen output files for usability. A low score would mean poor indexing results due to audio quality.
 - Keyword file (XML).
 - Audio indexing blob file (AIB) for use with SQL server.
 
-	For more information, see [Using AIB Files with Azure Media Indexer and SQL Server](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/).
+    For more information, see [Using AIB Files with Azure Media Indexer and SQL Server](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/).
 
 
 This topic shows how to create indexing jobs to **Index an asset** and **Index multiple files**.
@@ -58,92 +58,92 @@ The following method uploads a media file as an asset and creates a job to index
 
 Note that if no configuration file is specified, the media file will be indexed with all default settings.
 
-	static bool RunIndexingJob(string inputMediaFilePath, string outputFolder, string configurationFile = "")
-	{
-	    // Create an asset and upload the input media file to storage.
-	    IAsset asset = CreateAssetAndUploadSingleFile(inputMediaFilePath,
-	        "My Indexing Input Asset",
-	        AssetCreationOptions.None);
+    static bool RunIndexingJob(string inputMediaFilePath, string outputFolder, string configurationFile = "")
+    {
+        // Create an asset and upload the input media file to storage.
+        IAsset asset = CreateAssetAndUploadSingleFile(inputMediaFilePath,
+            "My Indexing Input Asset",
+            AssetCreationOptions.None);
 
-	    // Declare a new job.
-	    IJob job = _context.Jobs.Create("My Indexing Job");
+        // Declare a new job.
+        IJob job = _context.Jobs.Create("My Indexing Job");
 
-	    // Get a reference to the Azure Media Indexer.
-	    string MediaProcessorName = "Azure Media Indexer",
-	    IMediaProcessor processor = GetLatestMediaProcessorByName(MediaProcessorName);
+        // Get a reference to the Azure Media Indexer.
+        string MediaProcessorName = "Azure Media Indexer",
+        IMediaProcessor processor = GetLatestMediaProcessorByName(MediaProcessorName);
 
-	    // Read configuration from file if specified.
-	    string configuration = string.IsNullOrEmpty(configurationFile) ? "" : File.ReadAllText(configurationFile);
+        // Read configuration from file if specified.
+        string configuration = string.IsNullOrEmpty(configurationFile) ? "" : File.ReadAllText(configurationFile);
 
-	    // Create a task with the encoding details, using a string preset.
-	    ITask task = job.Tasks.AddNew("My Indexing Task",
-	        processor,
-	        configuration,
-	        TaskOptions.None);
+        // Create a task with the encoding details, using a string preset.
+        ITask task = job.Tasks.AddNew("My Indexing Task",
+            processor,
+            configuration,
+            TaskOptions.None);
 
-	    // Specify the input asset to be indexed.
-	    task.InputAssets.Add(asset);
+        // Specify the input asset to be indexed.
+        task.InputAssets.Add(asset);
 
-	    // Add an output asset to contain the results of the job.
-	    task.OutputAssets.AddNew("My Indexing Output Asset", AssetCreationOptions.None);
+        // Add an output asset to contain the results of the job.
+        task.OutputAssets.AddNew("My Indexing Output Asset", AssetCreationOptions.None);
 
-	    // Use the following event handler to check job progress.  
-	    job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);
+        // Use the following event handler to check job progress.  
+        job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);
 
-	    // Launch the job.
-	    job.Submit();
+        // Launch the job.
+        job.Submit();
 
-	    // Check job execution and wait for job to finish.
-	    Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
-	    progressJobTask.Wait();
+        // Check job execution and wait for job to finish.
+        Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
+        progressJobTask.Wait();
 
-	    // If job state is Error, the event handling
-	    // method for job progress should log errors.  Here we check
-	    // for error state and exit if needed.
-	    if (job.State == JobState.Error)
-	    {
-	        Console.WriteLine("Exiting method due to job error.");
-	        return false;
-	    }
+        // If job state is Error, the event handling
+        // method for job progress should log errors.  Here we check
+        // for error state and exit if needed.
+        if (job.State == JobState.Error)
+        {
+            Console.WriteLine("Exiting method due to job error.");
+            return false;
+        }
 
-	    // Download the job outputs.
-	    DownloadAsset(task.OutputAssets.First(), outputFolder);
+        // Download the job outputs.
+        DownloadAsset(task.OutputAssets.First(), outputFolder);
 
-	    return true;
-	}
+        return true;
+    }
 
-	static IAsset CreateAssetAndUploadSingleFile(string filePath, string assetName, AssetCreationOptions options)
-	{
-	    IAsset asset = _context.Assets.Create(assetName, options);
+    static IAsset CreateAssetAndUploadSingleFile(string filePath, string assetName, AssetCreationOptions options)
+    {
+        IAsset asset = _context.Assets.Create(assetName, options);
 
-	    var assetFile = asset.AssetFiles.Create(Path.GetFileName(filePath));
-	    assetFile.Upload(filePath);
+        var assetFile = asset.AssetFiles.Create(Path.GetFileName(filePath));
+        assetFile.Upload(filePath);
 
-	    return asset;
-	}
+        return asset;
+    }
 
-	static void DownloadAsset(IAsset asset, string outputDirectory)
-	{
-	    foreach (IAssetFile file in asset.AssetFiles)
-	    {
-	        file.Download(Path.Combine(outputDirectory, file.Name));
-	    }
-	}
+    static void DownloadAsset(IAsset asset, string outputDirectory)
+    {
+        foreach (IAssetFile file in asset.AssetFiles)
+        {
+            file.Download(Path.Combine(outputDirectory, file.Name));
+        }
+    }
 
-	static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
-	{
-	    var processor = _context.MediaProcessors
-	    .Where(p => p.Name == mediaProcessorName)
-	    .ToList()
-	    .OrderBy(p => new Version(p.Version))
-	    .LastOrDefault();
+    static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
+    {
+        var processor = _context.MediaProcessors
+        .Where(p => p.Name == mediaProcessorName)
+        .ToList()
+        .OrderBy(p => new Version(p.Version))
+        .LastOrDefault();
 
-	    if (processor == null)
-	        throw new ArgumentException(string.Format("Unknown media processor",
-	                                                   mediaProcessorName));
+        if (processor == null)
+            throw new ArgumentException(string.Format("Unknown media processor",
+                                                       mediaProcessorName));
 
-	    return processor;
-	}  
+        return processor;
+    }  
 <!-- __ -->
 ### <a id="output_files"></a>Output files
 
@@ -168,78 +168,78 @@ The following method uploads multiple media files as an asset, and creates a job
 
 A manifest file with the .lst extension is created and uploading into the asset. The manifest file contains the list of all the asset files. For more information, see [Task Preset for Azure Media Indexer](https://msdn.microsoft.com/library/azure/dn783454.aspx).
 
-	static bool RunBatchIndexingJob(string[] inputMediaFiles, string outputFolder)
-	{
-	    // Create an asset and upload to storage.
-	    IAsset asset = CreateAssetAndUploadMultipleFiles(inputMediaFiles,
-	        "My Indexing Input Asset - Batch Mode",
-	        AssetCreationOptions.None);
+    static bool RunBatchIndexingJob(string[] inputMediaFiles, string outputFolder)
+    {
+        // Create an asset and upload to storage.
+        IAsset asset = CreateAssetAndUploadMultipleFiles(inputMediaFiles,
+            "My Indexing Input Asset - Batch Mode",
+            AssetCreationOptions.None);
 
-	    // Create a manifest file that contains all the asset file names and upload to storage.
-	    string manifestFile = "input.lst";            
-	    File.WriteAllLines(manifestFile, asset.AssetFiles.Select(f => f.Name).ToArray());
-	    var assetFile = asset.AssetFiles.Create(Path.GetFileName(manifestFile));
-	    assetFile.Upload(manifestFile);
+        // Create a manifest file that contains all the asset file names and upload to storage.
+        string manifestFile = "input.lst";            
+        File.WriteAllLines(manifestFile, asset.AssetFiles.Select(f => f.Name).ToArray());
+        var assetFile = asset.AssetFiles.Create(Path.GetFileName(manifestFile));
+        assetFile.Upload(manifestFile);
 
-	    // Declare a new job.
-	    IJob job = _context.Jobs.Create("My Indexing Job - Batch Mode");
+        // Declare a new job.
+        IJob job = _context.Jobs.Create("My Indexing Job - Batch Mode");
 
-	    // Get a reference to the Azure Media Indexer.
-	    string MediaProcessorName = "Azure Media Indexer";
-	    IMediaProcessor processor = GetLatestMediaProcessorByName(MediaProcessorName);
+        // Get a reference to the Azure Media Indexer.
+        string MediaProcessorName = "Azure Media Indexer";
+        IMediaProcessor processor = GetLatestMediaProcessorByName(MediaProcessorName);
 
-	    // Read configuration.
-	    string configuration = File.ReadAllText("batch.config");
+        // Read configuration.
+        string configuration = File.ReadAllText("batch.config");
 
-	    // Create a task with the encoding details, using a string preset.
-	    ITask task = job.Tasks.AddNew("My Indexing Task - Batch Mode",
-	        processor,
-	        configuration,
-	        TaskOptions.None);
+        // Create a task with the encoding details, using a string preset.
+        ITask task = job.Tasks.AddNew("My Indexing Task - Batch Mode",
+            processor,
+            configuration,
+            TaskOptions.None);
 
-	    // Specify the input asset to be indexed.
-	    task.InputAssets.Add(asset);
+        // Specify the input asset to be indexed.
+        task.InputAssets.Add(asset);
 
-	    // Add an output asset to contain the results of the job.
-	    task.OutputAssets.AddNew("My Indexing Output Asset - Batch Mode", AssetCreationOptions.None);
+        // Add an output asset to contain the results of the job.
+        task.OutputAssets.AddNew("My Indexing Output Asset - Batch Mode", AssetCreationOptions.None);
 
-	    // Use the following event handler to check job progress.  
-	    job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);
+        // Use the following event handler to check job progress.  
+        job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);
 
-	    // Launch the job.
-	    job.Submit();
+        // Launch the job.
+        job.Submit();
 
-	    // Check job execution and wait for job to finish.
-	    Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
-	    progressJobTask.Wait();
+        // Check job execution and wait for job to finish.
+        Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
+        progressJobTask.Wait();
 
-	    // If job state is Error, the event handling
-	    // method for job progress should log errors.  Here we check
-	    // for error state and exit if needed.
-	    if (job.State == JobState.Error)
-	    {
-	        Console.WriteLine("Exiting method due to job error.");
-	        return false;
-	    }
+        // If job state is Error, the event handling
+        // method for job progress should log errors.  Here we check
+        // for error state and exit if needed.
+        if (job.State == JobState.Error)
+        {
+            Console.WriteLine("Exiting method due to job error.");
+            return false;
+        }
 
-	    // Download the job outputs.
-	    DownloadAsset(task.OutputAssets.First(), outputFolder);
+        // Download the job outputs.
+        DownloadAsset(task.OutputAssets.First(), outputFolder);
 
-	    return true;
-	}
+        return true;
+    }
 
-	private static IAsset CreateAssetAndUploadMultipleFiles(string[] filePaths, string assetName, AssetCreationOptions options)
-	{
-	    IAsset asset = _context.Assets.Create(assetName, options);
+    private static IAsset CreateAssetAndUploadMultipleFiles(string[] filePaths, string assetName, AssetCreationOptions options)
+    {
+        IAsset asset = _context.Assets.Create(assetName, options);
 
-	    foreach (string filePath in filePaths)
-	    {
-	        var assetFile = asset.AssetFiles.Create(Path.GetFileName(filePath));
-	        assetFile.Upload(filePath);
-	    }
+        foreach (string filePath in filePaths)
+        {
+            var assetFile = asset.AssetFiles.Create(Path.GetFileName(filePath));
+            assetFile.Upload(filePath);
+        }
 
-	    return asset;
-	}
+        return asset;
+    }
 
 ### Partially Succeeded Job
 
@@ -256,7 +256,7 @@ Name | Require | Description
 ----|----|---
 __input__ | false | Asset file(s) that you want to index.</p><p>Azure Media Indexer supports the following media file formats: MP4, WMV, MP3, M4A, WMA, AAC, WAV.</p><p>You can specify the file name (s) in the **name** or **list** attribute of the **input** element (as shown below).If you do not specify which asset file to index, the primary file is picked. If no primary asset file is set, the first file in the input asset is indexed.</p><p>To explicitly specify the asset file name, do:<br />`<input name="TestFile.wmv">`<br /><br />You can also index multiple asset files at once (up to 10 files). To do this:<br /><br /><ol class="ordered"><li><p>Create a text file (manifest file) and give it an .lst extension. </p></li><li><p>Add a list of all the asset file names in your input asset to this manifest file. </p></li><li><p>Add (upload) thanifest file to the asset.  </p></li><li><p>Specify the name of the manifest file in the input’s list attribute.<br />`<input list="input.lst">`</li></ol><br /><br />Note: If you add more than 10 files to the manifest file, the indexing job will fail with the 2006 error code.
 __metadata__ | false | Metadata for the specified asset file(s) used for Vocabulary Adaptation.  Useful to prepare Indexer to recognize non-standard vocabulary words such as proper nouns.<br />`<metadata key="..." value="..."/>` <br /><br />You can supply __values__ for predefined __keys__. Currently the following keys are supported:<br /><br />“title” and “description” - used for vocabulary adaptation to tweak the language model for your job and improve speech recognition accuracy.  The values seed Internet searches to find contextually relevant text documents, using the contents to augment the internal dictionary for the duration of your Indexing task.<br />`<metadata key="title" value="[Title of the media file]" />`<br />`<metadata key="description" value="[Description of the media file] />"`
-__features__ <br /><br /> Added in version 1.2. Currently, the only supported feature is speech recognition ("ASR").| false | The Speech Recognition feature has the following settings keys:<table><tr><th><p>Key</p></th>		<th><p>Description</p></th><th><p>Example value</p></th></tr><tr><td><p>Language</p></td><td><p>The natural language to be recognized in the multimedia file.</p></td><td><p>English, Spanish</p></td></tr><tr><td><p>CaptionFormats</p></td><td><p>a semicolon-separated list of the desired output caption formats (if any)</p></td><td><p>ttml;sami;webvtt</p></td></tr><tr><td><p>GenerateAIB</p></td><td><p>A boolean flag specifying whether or not an AIB file is required (for use with SQL Server and the customer Indexer IFilter).  For more information, see <a href="http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/">Using AIB Files with Azure Media Indexer and SQL Server</a>.</p></td><td><p>True; False</p></td></tr><tr><td><p>GenerateKeywords</p></td><td><p>A boolean flag specifying whether or not a keyword XML file is required.</p></td><td><p>True; False. </p></td></tr><tr><td><p>ForceFullCaption</p></td><td><p>A boolean flag specifying whether or not to force full captions (regardless of confidence level).  </p><p>Default is false, in which case words and phrases which have a less than 50% confidence level are omitted from the final caption outputs and replaced by ellipses ("...").  The ellipses are useful for caption quality control and auditing.</p></td><td><p>True; False. </p></td></tr></table>
+__features__ <br /><br /> Added in version 1.2. Currently, the only supported feature is speech recognition ("ASR").| false | The Speech Recognition feature has the following settings keys:<table><tr><th><p>Key</p></th>     <th><p>Description</p></th><th><p>Example value</p></th></tr><tr><td><p>Language</p></td><td><p>The natural language to be recognized in the multimedia file.</p></td><td><p>English, Spanish</p></td></tr><tr><td><p>CaptionFormats</p></td><td><p>a semicolon-separated list of the desired output caption formats (if any)</p></td><td><p>ttml;sami;webvtt</p></td></tr><tr><td><p>GenerateAIB</p></td><td><p>A boolean flag specifying whether or not an AIB file is required (for use with SQL Server and the customer Indexer IFilter).  For more information, see <a href="http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/">Using AIB Files with Azure Media Indexer and SQL Server</a>.</p></td><td><p>True; False</p></td></tr><tr><td><p>GenerateKeywords</p></td><td><p>A boolean flag specifying whether or not a keyword XML file is required.</p></td><td><p>True; False. </p></td></tr><tr><td><p>ForceFullCaption</p></td><td><p>A boolean flag specifying whether or not to force full captions (regardless of confidence level).  </p><p>Default is false, in which case words and phrases which have a less than 50% confidence level are omitted from the final caption outputs and replaced by ellipses ("...").  The ellipses are useful for caption quality control and auditing.</p></td><td><p>True; False. </p></td></tr></table>
 
 ### <a id="error_codes"></a>Error codes
 
@@ -300,3 +300,4 @@ Currently, the English and Spanish languages are supported. For more information
 <!-- Images. -->
 
 <!-- URLs. -->
+

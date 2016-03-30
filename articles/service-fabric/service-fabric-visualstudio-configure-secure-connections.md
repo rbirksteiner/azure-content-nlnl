@@ -38,13 +38,13 @@ The **Select Service Fabric Cluster** dialog box automatically validates the clu
 
 ### To connect to a secure cluster
 
-1.	Make sure you can access one of the client certificates trusted by the destination cluster. The certificate is usually shared as a Personal Information Exchange (.pfx) file. See [Setting up a Service Fabric Cluster from the Azure Portal](service-fabric-cluster-creation-via-portal.md) for how to configure the server for granting access to a client.
+1.  Make sure you can access one of the client certificates trusted by the destination cluster. The certificate is usually shared as a Personal Information Exchange (.pfx) file. See [Setting up a Service Fabric Cluster from the Azure Portal](service-fabric-cluster-creation-via-portal.md) for how to configure the server for granting access to a client.
 
-2.	Install the trusted certificate. To do this, double-click the .pfx file, or use the PowerShell script Import-PfxCertificate to import the certificates. Install the certificate to **Cert:\LocalMachine\My** location. It's OK to accept all default settings while importing the certificate.
+2.  Install the trusted certificate. To do this, double-click the .pfx file, or use the PowerShell script Import-PfxCertificate to import the certificates. Install the certificate to **Cert:\LocalMachine\My** location. It's OK to accept all default settings while importing the certificate.
 
-3.	Choose the **Publish...** command on the shortcut menu of the project to open the **Publish Azure Application** dialog box and then select the target cluster. The tool automatically resolves the connection and saves the secure connection parameters in the publish profile.
+3.  Choose the **Publish...** command on the shortcut menu of the project to open the **Publish Azure Application** dialog box and then select the target cluster. The tool automatically resolves the connection and saves the secure connection parameters in the publish profile.
 
-4.	[Optional]: You can edit the publish profile to specify a secure cluster connection.
+4.  [Optional]: You can edit the publish profile to specify a secure cluster connection.
 
     Since you're manually editing the Publish Profile XML file to specify the certificate information, be sure to note the certificate store name, store location, and certificate thumbprint. You'll need to provide these values for the certificate's store name and store location. See [How to: Retrieve the Thumbprint of a Certificate](https://msdn.microsoft.com/library/ms734695(v=vs.110).aspx) for more information.
 
@@ -67,7 +67,7 @@ The **Select Service Fabric Cluster** dialog box automatically validates the clu
     StoreName="My" />
     ```
 
-5.	Edit any other necessary settings, such as upgrade parameters and Application Parameter file location, and then publish your application from the **Publish Service Fabric Application** dialog in Visual Studio.
+5.  Edit any other necessary settings, such as upgrade parameters and Application Parameter file location, and then publish your application from the **Publish Service Fabric Application** dialog in Visual Studio.
 
 ## Next steps
 For more information about accessing Service Fabric clusters, see [Visualizing your cluster using Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).

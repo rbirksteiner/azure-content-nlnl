@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure Data Factory SDKs" 
-	description="Learn about different ways to create, monitor, and manage Azure data factories"
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
-	editor="monicar"/>
+    pageTitle="Azure Data Factory SDKs" 
+    description="Learn about different ways to create, monitor, and manage Azure data factories"
+    services="data-factory" 
+    documentationCenter="" 
+    authors="spelluru" 
+    manager="jhubbard" 
+    editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/20/2015" 
-	ms.author="spelluru"/>
+    ms.service="data-factory" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/20/2015" 
+    ms.author="spelluru"/>
 
 # Azure Data Factory SDKs
 
@@ -29,4 +29,5 @@ REST API | You can use the Data Factory REST API to create, monitor, and manage 
 
 
  
+
 

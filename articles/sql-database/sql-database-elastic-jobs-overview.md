@@ -1,19 +1,19 @@
 <properties
-	pageTitle="Elastic database jobs overview | Microsoft Azure" 
-	description="Illustrates the elastic database job service" 
-	metaKeywords="azure sql database elastic databases" 
-	services="sql-database" documentationCenter=""  
-	manager="jeffreyg" 
-	authors="ddove"/>
+    pageTitle="Elastic database jobs overview | Microsoft Azure" 
+    description="Illustrates the elastic database job service" 
+    metaKeywords="azure sql database elastic databases" 
+    services="sql-database" documentationCenter=""  
+    manager="jeffreyg" 
+    authors="ddove"/>
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="sql-database" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/04/2015" 
-	ms.author="ddove; sidneyh" />
+    ms.service="sql-database" 
+    ms.workload="sql-database" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/04/2015" 
+    ms.author="ddove; sidneyh" />
 
 # Elastic Database jobs overview
 
@@ -51,21 +51,21 @@ For instructions on installation, go to [Installing the Elastic Database job com
 * Execute longer running data processing queries across a large set of databases, for example the collection of customer telemetry. Results are collected into a single destination table for further analysis.
 
 ## Elastic Database jobs: end-to-end 
-1.	Install the **Elastic Database jobs** components. For more information, see [Installing Elastic Database jobs](sql-database-elastic-jobs-service-installation.md). If the installation fails, see [how to uninstall](sql-database-elastic-jobs-uninstall.md).
-2.	Use the PowerShell APIs to access more functionality, for example creating custom-defined database collections, adding schedules and/or gathering results sets. Use the portal for simple installation and creation/monitoring of jobs limited to execution against a **Elastic Database pool**. 
-3.	Create encrypted credentials for job execution and [add the user (or role) to each database in the group](sql-database-elastic-jobs-add-logins-to-dbs.md).
-4.	Create an idempotent T-SQL script that can be run against every database in the group. 
-5.	Follow these steps to create jobs using the Azure portal: [Creating and managing Elastic Database jobs](sql-database-elastic-jobs-create-and-manage.md). 
-6.	Or use PowerShell scripts: [Create and manage a SQL Database elastic database jobs using PowerShell (preview)](sql-database-elastic-jobs-powershell.md).
+1.  Install the **Elastic Database jobs** components. For more information, see [Installing Elastic Database jobs](sql-database-elastic-jobs-service-installation.md). If the installation fails, see [how to uninstall](sql-database-elastic-jobs-uninstall.md).
+2.  Use the PowerShell APIs to access more functionality, for example creating custom-defined database collections, adding schedules and/or gathering results sets. Use the portal for simple installation and creation/monitoring of jobs limited to execution against a **Elastic Database pool**. 
+3.  Create encrypted credentials for job execution and [add the user (or role) to each database in the group](sql-database-elastic-jobs-add-logins-to-dbs.md).
+4.  Create an idempotent T-SQL script that can be run against every database in the group. 
+5.  Follow these steps to create jobs using the Azure portal: [Creating and managing Elastic Database jobs](sql-database-elastic-jobs-create-and-manage.md). 
+6.  Or use PowerShell scripts: [Create and manage a SQL Database elastic database jobs using PowerShell (preview)](sql-database-elastic-jobs-powershell.md).
 
 ## The importance of idempotent scripts
 The scripts must be [idempotent](https://en.wikipedia.org/wiki/Idempotence). In simple terms, "idempotent" means that if the script succeeds, and it is run again, the same result occurs. A script may fail due to transient network issues. In that case, the job will automatically retry running the script a preset number of times before desisting. An idempotent script has the same result even if has been successfully run twice. 
 
 A simple tactic is to test for the existence of an object before creating it.  
 
-	IF NOT EXIST (some_object)
-	-- Create the object 
-	-- If it exists, drop the object before recreating it.
+    IF NOT EXIST (some_object)
+    -- Create the object 
+    -- If it exists, drop the object before recreating it.
 
 Similarly, a script must be able to execute successfully by logically testing for and countering any conditions it finds.
 
@@ -94,11 +94,11 @@ The following components work together to create an Azure Cloud service that ena
 * **Azure Storage**: An Azure Storage account is used to store diagnostic output logging in the event that an issue requires further debugging (a common practice for [Azure diagnostics](cloud-services-dotnet-diagnostics.md)). For pricing, see [Azure Storage Pricing](http://azure.microsoft.com/pricing/details/storage/).
 
 ## How Elastic Database jobs work
-1.	An Azure SQL Database is designated a control database which stores all meta-data and state data.
-2.	The control database is accessed by  **Elastic Database jobs** to both launch and track jobs to execute.
-3.	Two different roles communicate with the control database: 
-	* Controller: Determines which jobs require tasks to perform the requested job, and retries failed jobs by creating new job tasks.
-	* Job Task Execution: Carries out the job tasks.
+1.  An Azure SQL Database is designated a control database which stores all meta-data and state data.
+2.  The control database is accessed by  **Elastic Database jobs** to both launch and track jobs to execute.
+3.  Two different roles communicate with the control database: 
+    * Controller: Determines which jobs require tasks to perform the requested job, and retries failed jobs by creating new job tasks.
+    * Job Task Execution: Carries out the job tasks.
 
 ### Job task types
 There are multiple types of job tasks that carry out execution of jobs:
@@ -110,10 +110,10 @@ There are multiple types of job tasks that carry out execution of jobs:
 * Dacpac: Applies a DACPAC to a particular database using particular credentials
 
 ## End-to-End job execution work-flow
-1.	Using either the Portal or the PowerShell API, a job is inserted into the  **control database**. The job requests execution of a Transact-SQL script against a group of databases using specific credentials.
-2.	The controller identifies the new job. Job tasks are created and executed to split the script and to refresh the group’s databases. Lastly, a new job is created and executed to expand the job and create new child jobs where each child job is specified to execute the Transact-SQL script against an individual database in the group.
-3.	The controller identifies the created child jobs. For each job, the controller creates and triggers a job task to execute the script against a database. 
-4.	After all job tasks have completed, the controller updates the jobs to a completed state. 
+1.  Using either the Portal or the PowerShell API, a job is inserted into the  **control database**. The job requests execution of a Transact-SQL script against a group of databases using specific credentials.
+2.  The controller identifies the new job. Job tasks are created and executed to split the script and to refresh the group’s databases. Lastly, a new job is created and executed to expand the job and create new child jobs where each child job is specified to execute the Transact-SQL script against an individual database in the group.
+3.  The controller identifies the created child jobs. For each job, the controller creates and triggers a job task to execute the script against a database. 
+4.  After all job tasks have completed, the controller updates the jobs to a completed state. 
 At any point during job execution, the PowerShell API can be used to view the current state of job execution. All times returned by the PowerShell APIs are represented in UTC. If desired, a cancellation request can be initiated to stop a job. 
 
 ## Next steps
@@ -126,3 +126,4 @@ At any point during job execution, the PowerShell API can be used to view the cu
 <!--anchors-->
 
  
+

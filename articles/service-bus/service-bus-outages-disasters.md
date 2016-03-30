@@ -41,7 +41,7 @@ A non-partitioned queue or topic is assigned to one messaging store. If this mes
 
 ## Protecting against datacenter outages or disasters
 
-To allow for a failover between two datacenters, you can create a Service Bus service namespace in each datacenter. For example, the Service Bus service namespace **contosoPrimary.servicebus.windows.net** might be located in the United States (North/Central) region, and **contosoSecondary.servicebus.windows.net** might be located in the United States (South/Central) region. If a Service Bus messaging entity must remain accessible in the presence of a datacenter outage, you can create that entity in both namespaces.
+To allow for a failover between two datacenters, you can create a Service Bus service namespace in each datacenter. For example, the Service Bus service namespace **contosoPrimary.servicebus.windows.net** might be located in the United States (North/Central) region, and **contosoSecondary.servicebus.windows.net** might be located in the United States (South/Central) region. If a Service Bus messaging entity must remain accessible in the presence of a datacenter outage, you can create that entity in both namespaces.
 
 For more information, see the "Failure of Service Bus within an Azure datacenter" section in [Asynchronous Messaging Patterns and High Availability][].
 
@@ -108,3 +108,4 @@ To learn more about disaster recovery, see these articles:
   [Durable Message Sender]: http://code.msdn.microsoft.com/Service-Bus-Durable-Sender-0763230d
   [Azure SQL Database Business Continuity]: https://msdn.microsoft.com/library/azure/hh852669.aspx
   [Azure Business Continuity Technical Guidance]: https://msdn.microsoft.com/library/azure/hh873027.aspx
+

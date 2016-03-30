@@ -205,3 +205,4 @@ For more tips on managing your SQL Data Warehouse, see [manage overview][].
 <!--MSDN references-->
 
 
+

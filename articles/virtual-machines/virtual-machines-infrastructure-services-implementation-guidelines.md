@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Azure infrastructure services implementation guidelines"
-	description="Learn about the key design and implementation guidelines for deploying an IT workload in Azure infrastructure services."
-	documentationCenter=""
-	services="virtual-machines"
-	authors="squillace"
-	manager="timlt"
-	editor=""
-	tags="azure-service-management,azure-resource-manager"/>
+    pageTitle="Azure infrastructure services implementation guidelines"
+    description="Learn about the key design and implementation guidelines for deploying an IT workload in Azure infrastructure services."
+    documentationCenter=""
+    services="virtual-machines"
+    authors="squillace"
+    manager="timlt"
+    editor=""
+    tags="azure-service-management,azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/21/2015"
-	ms.author="rasquill"/>
+    ms.service="virtual-machines"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/21/2015"
+    ms.author="rasquill"/>
 
 # Azure infrastructure services implementation guidelines
 
@@ -269,7 +269,7 @@ For cross-premises virtual networks, you should design subnets with the same con
 Number of virtual machines needed | Number of host bits needed | Size of the subnet
 --- | --- | ---
 1–3 | 3 | /29
-4–11	 | 4 | /28
+4–11     | 4 | /28
 12–27 | 5 | /27
 28–59 | 6 | /26
 60–123 | 7 | /25
@@ -383,11 +383,11 @@ They created a cloud-only virtual network with the following settings using the 
 - Location: East US 2
 - Virtual network address space: 10.0.0.0/8
 - First subnet:
-	- Name: FrontEnd
-	- Address space: 10.0.1.0/24
+    - Name: FrontEnd
+    - Address space: 10.0.1.0/24
 - Second subnet:
-	- Name: BackEnd
-	- Address space: 10.0.2.0/24
+    - Name: BackEnd
+    - Address space: 10.0.2.0/24
 
 ### Availability sets
 
@@ -441,3 +441,4 @@ This configuration incorporates:
 [Datacenter extension reference architecture diagram](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84)
 
 [Azure compute, network, and storage providers under Azure Resource Manager](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
+

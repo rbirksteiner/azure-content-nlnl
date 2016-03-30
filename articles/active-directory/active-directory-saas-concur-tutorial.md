@@ -69,27 +69,27 @@ The objective of this section is to outline how to enable users to authenticate 
 
 ###To configure single sign-on, perform the following steps:
 
-1.  In the Azure AD portal, on the **Concur **application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  In the Azure AD portal, on the **Concur **application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
     ![Configure single sign-on](./media/active-directory-saas-concur-tutorial/IC769767.png "Configure single sign-on")
 
-2.  On the **How would you like users to sign on to Concur** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to Concur** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure single sign-on](./media/active-directory-saas-concur-tutorial/IC769768.png "Configure single sign-on")
 
-3.  On the **Configure App URL** page, in the **Concur Sign In URL** textbox, type your concur tenant sign-in URL, and then click **Next**: 
+3.  On the **Configure App URL** page, in the **Concur Sign In URL** textbox, type your concur tenant sign-in URL, and then click **Next**: 
 
     ![Configure sign in URL](./media/active-directory-saas-concur-tutorial/IC769769.png "Configure sign in URL")
 
-4.  On the **Configure single sign-on at Concur** page, perform the following steps.
+4.  On the **Configure single sign-on at Concur** page, perform the following steps.
 
     ![Configure sign in URL](./media/active-directory-saas-concur-tutorial/IC769770.png "Configure sign in URL")
 
     1.  Click Download the metadata, and then safe the data file to your computer.
     2.  Contact the Concur support team to configure SSO for your tenant.
-    3.  Select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.  
+    3.  Select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.  
 
-	>[AZURE.NOTE] The configuration of your Concur subscription for federated SSO via SAML is a separate task, which you must contact Concur to perform.
+    >[AZURE.NOTE] The configuration of your Concur subscription for federated SSO via SAML is a separate task, which you must contact Concur to perform.
 
 ##Configuring user provisioning
 
@@ -144,7 +144,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 1.  In the Azure AD portal, create a test account.
 
-2.  On the **Concur **application integration page, click **Assign users**.
+2.  On the **Concur **application integration page, click **Assign users**.
 
     ![Assign users](./media/active-directory-saas-concur-tutorial/IC769771.png "Assign users")
 
@@ -155,3 +155,4 @@ To test your configuration, you need to grant the Azure AD users you want to all
 You should now wait for 10 minutes and verify that the account has been synchronized to Concur.
 
 If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+

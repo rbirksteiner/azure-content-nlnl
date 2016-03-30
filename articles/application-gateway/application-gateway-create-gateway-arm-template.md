@@ -65,57 +65,57 @@ You can download the existing ARM template for creating a VNet and two subnets f
 4. If you are familiar with ARM templates, skip to step 7.
 5. Open the file you just saved and look at the contents under **parameters** in line 5. ARM template parameters provide a placeholder for values that can be filled out during deployment.
 
-	| Parameter | Description |
-	|---|---|
-	| **location** | Azure region where the Application Gateway will be created |
-	| **VirtualNetwork1** | Name for the new VNet |
-	| **addressPrefix** | Address space for the VNet, in CIDR format |
-	| **ApplicationGatewaysubnet** | Name for the Application Gateway subnet |
-	| **subnetPrefix** | CIDR block for the Application Gateway subnet |
-	| **skuname** | sku instance size |
-	| **capacity** | number of instances |
-	| **backendaddress1** | IP address of the first web server |
-	| **backendaddress2** | IP address of the second web server |
-	
+    | Parameter | Description |
+    |---|---|
+    | **location** | Azure region where the Application Gateway will be created |
+    | **VirtualNetwork1** | Name for the new VNet |
+    | **addressPrefix** | Address space for the VNet, in CIDR format |
+    | **ApplicationGatewaysubnet** | Name for the Application Gateway subnet |
+    | **subnetPrefix** | CIDR block for the Application Gateway subnet |
+    | **skuname** | sku instance size |
+    | **capacity** | number of instances |
+    | **backendaddress1** | IP address of the first web server |
+    | **backendaddress2** | IP address of the second web server |
+    
 
 >[AZURE.IMPORTANT] ARM templates maintained in github can change over time. Make sure you check the template before using it.
-	
+    
 6. Check the content under **resources** and notice the following:
 
-	- **type**. Type of resource being created by the template. In this case, **Microsoft.Network/applicationGateways**, which represent an Application Gateway.
-	- **name**. Name for the resource. Notice the use of **[parameters('applicationGatewayName')]**, which means the name will provided as input by the user or a parameter file during deployment.
-	- **properties**. List of properties for the resource. This template uses the virtual network and public IP address during Application Gateway creation.
+    - **type**. Type of resource being created by the template. In this case, **Microsoft.Network/applicationGateways**, which represent an Application Gateway.
+    - **name**. Name for the resource. Notice the use of **[parameters('applicationGatewayName')]**, which means the name will provided as input by the user or a parameter file during deployment.
+    - **properties**. List of properties for the resource. This template uses the virtual network and public IP address during Application Gateway creation.
 
 7. Navigate back to https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-create-application-gateway/azuredeploy.json.
 8. Click **azuredeploy-paremeters.json**, and then click **RAW**.
 9. Save the file to a a local folder on your computer.
 10. Open the file you just saved and edit the values for the parameters. Use the values below to deploy the Application Gateway described in our scenario.
 
-		{
-		  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-		{
-    	"location" : {
+        {
+          "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+        {
+        "location" : {
         "value" : "West US"
-    	},
-    	"addressPrefix": {
+        },
+        "addressPrefix": {
         "value": "10.0.0.0/16"
-    	},
-    	"subnetPrefix": {
+        },
+        "subnetPrefix": {
         "value": "10.0.0.0/24"
-    	},
-    	"skuName": {
+        },
+        "skuName": {
         "value": "Standard_Small"
-    	},
-    	"capacity": {
+        },
+        "capacity": {
         "value": 2
-    	},
-    	"backendIpAddress1": {
+        },
+        "backendIpAddress1": {
         "value": "10.0.1.10"
-    	},
-    	"backendIpAddress2": {
+        },
+        "backendIpAddress2": {
         "value": "10.0.1.11"
-    	}
-		}
+        }
+        }
 
 11. Save the file.You can test the Json template and parameter template using online json validation tools like [JSlint.com](http://www.jslint.com/)
  
@@ -124,45 +124,45 @@ You can download the existing ARM template for creating a VNet and two subnets f
 1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](powershell-install-configure.md) and follow the instructions all the way to the end to sign into Azure and select your subscription.
 2. From an Azure PowerShell prompt, run the  **Switch-AzureMode** cmdlet to switch to Resource Manager mode, as shown below.
 
-		Switch-AzureMode AzureResourceManager
-	
+        Switch-AzureMode AzureResourceManager
+    
 Expected output:
 
-		WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
+        WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
 
 >[AZURE.WARNING] The Switch-AzureMode cmdlet will be deprecated soon. When that happens, all Resource Manager cmdlets will be renamed.
-	
+    
 3. If needed, create a new resource group using `New-AzureResourceGroup` cmdlet.In the example below, you will create a new resource group called AppgatewayRG in East US location:
 
-		PS C:\> New-AzureResourceGroup -Name AppgatewayRG -Location "East US"
-		VERBOSE: 5:38:49 PM - Created resource group 'AppgatewayRG' in location 'eastus'
+        PS C:\> New-AzureResourceGroup -Name AppgatewayRG -Location "East US"
+        VERBOSE: 5:38:49 PM - Created resource group 'AppgatewayRG' in location 'eastus'
 
 
-		ResourceGroupName : AppgatewayRG
-		Location          : eastus
-		ProvisioningState : Succeeded
-		Tags              :
-		Permissions       :
-	                 Actions  NotActions
-	                 =======  ==========
-	                  *
+        ResourceGroupName : AppgatewayRG
+        Location          : eastus
+        ProvisioningState : Succeeded
+        Tags              :
+        Permissions       :
+                     Actions  NotActions
+                     =======  ==========
+                      *
 
-		ResourceId        : /subscriptions/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/resourceGroups/AppgatewayRG
+        ResourceId        : /subscriptions/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/resourceGroups/AppgatewayRG
 
 4. Run the New-AzureResourceGroupDeployment cmdlet to deploy the new VNet by using the template and parameter files you downloaded and modified above.
 
-		New-AzureResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
- 		   -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
+        New-AzureResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
+           -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
 
 The output generated by the command line will be the following:
 
-		DeploymentName    : testappgatewaydeployment
-		ResourceGroupName : appgatewayRG
-		ProvisioningState : Succeeded
-		Timestamp         : 9/19/2015 1:49:41 AM
-		Mode              : Incremental
-		TemplateLink      :
-		Parameters        :
+        DeploymentName    : testappgatewaydeployment
+        ResourceGroupName : appgatewayRG
+        ProvisioningState : Succeeded
+        Timestamp         : 9/19/2015 1:49:41 AM
+        Mode              : Incremental
+        TemplateLink      :
+        Parameters        :
                    Name             Type                       Value
                    ===============  =========================  ==========
                    location         String                     East US
@@ -172,8 +172,8 @@ The output generated by the command line will be the following:
                    capacity         Int                        2
                    backendIpAddress1  String                     10.0.1.10
                    backendIpAddress2  String                     10.0.1.11
-					
-		Outputs           :
+                    
+        Outputs           :
 
 
 ## Deploy the ARM template by using the Azure CLI
@@ -183,15 +183,15 @@ To deploy the ARM template you downloaded by using Azure CLI, follow the steps b
 1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](xplat-cli-install.md) and follow the instructions up to the point where you select your Azure account and subscription.
 2. Run the **azure config mode** command to switch to Resource Manager mode, as shown below.
 
-		azure config mode arm
+        azure config mode arm
 
 Here is the expected output for the command above:
 
-		info:	New mode is arm
+        info:   New mode is arm
 
 3. If necessary, run the **azure group create** to create a new resource group, as shown below. Notice the output of the command. The list shown after the output explains the parameters used. For more information about resource groups, visit [Azure Resource Manager Overview](resource-group-overview.md).
 
-		azure group create -n appgatewayRG -l eastus
+        azure group create -n appgatewayRG -l eastus
 
 **-n (or --name)**. Name for the new resource group. For our scenario, *appgatewayRG*.
 
@@ -199,31 +199,31 @@ Here is the expected output for the command above:
 
 4. Run the **azure group deployment create** cmdlet to deploy the new VNet by using the template and parameter files you downloaded and modified above. The list shown after the output explains the parameters used.
 
-		azure group deployment create -g appgatewayRG -n TestAppgatewayDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
+        azure group deployment create -g appgatewayRG -n TestAppgatewayDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
 
 Here is the expected output for the command above:
 
-		azure group deployment create -g appgatewayRG -n TestAppgatewayDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
-		info:    Executing command group deployment create
-		+ Initializing template configurations and parameters
-		+ Creating a deployment
-		info:    Created template deployment "TestAppgatewayDeployment"
-		+ Waiting for deployment to complete
-		data:    DeploymentName     : TestAppgatewayDeployment
-		data:    ResourceGroupName  : appgatewayRG
-		data:    ProvisioningState  : Succeeded
-		data:    Timestamp          : 2015-09-21T20:50:27.5129912Z
-		data:    Mode               : Incremental
-		data:    Name               Type    Value
-		data:    -----------------  ------  --------------
-		data:    location           String  East US
-		data:    addressPrefix      String  10.0.0.0/16
-		data:    subnetPrefix       String  10.0.0.0/24	
-		data:    skuName            String  Standard_Small
-		data:    capacity           Int     2
-		data:    backendIpAddress1  String  10.0.1.10
-		data:    backendIpAddress2  String  10.0.1.11
-		info:    group deployment create command OK
+        azure group deployment create -g appgatewayRG -n TestAppgatewayDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
+        info:    Executing command group deployment create
+        + Initializing template configurations and parameters
+        + Creating a deployment
+        info:    Created template deployment "TestAppgatewayDeployment"
+        + Waiting for deployment to complete
+        data:    DeploymentName     : TestAppgatewayDeployment
+        data:    ResourceGroupName  : appgatewayRG
+        data:    ProvisioningState  : Succeeded
+        data:    Timestamp          : 2015-09-21T20:50:27.5129912Z
+        data:    Mode               : Incremental
+        data:    Name               Type    Value
+        data:    -----------------  ------  --------------
+        data:    location           String  East US
+        data:    addressPrefix      String  10.0.0.0/16
+        data:    subnetPrefix       String  10.0.0.0/24 
+        data:    skuName            String  Standard_Small
+        data:    capacity           Int     2
+        data:    backendIpAddress1  String  10.0.1.10
+        data:    backendIpAddress2  String  10.0.1.11
+        info:    group deployment create command OK
 
 **-g (or --resource-group)**. Name of the resource group the new VNet will be created in.
 
@@ -272,3 +272,4 @@ If you want more information about load balancing options in general, see:
 
 - [Azure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
+

@@ -1,21 +1,21 @@
 <properties
-   	pageTitle="Create Hadoop, HBase, or Storm clusters on Linux in HDInsight | Microsoft Azure"
-   	description="Learn how to create Hadoop, HBase, or Storm clusters on Linux for HDInsight using a browser, the Azure CLI, Azure PowerShell, REST, or through an SDK."
-   	services="hdinsight"
-   	documentationCenter=""
-   	authors="nitinme"
-   	manager="paulettm"
-   	editor="cgronlun"
-	tags="azure-portal"/>
+    pageTitle="Create Hadoop, HBase, or Storm clusters on Linux in HDInsight | Microsoft Azure"
+    description="Learn how to create Hadoop, HBase, or Storm clusters on Linux for HDInsight using a browser, the Azure CLI, Azure PowerShell, REST, or through an SDK."
+    services="hdinsight"
+    documentationCenter=""
+    authors="nitinme"
+    manager="paulettm"
+    editor="cgronlun"
+    tags="azure-portal"/>
 
 <tags
-   	ms.service="hdinsight"
-   	ms.devlang="na"
-   	ms.topic="article"
-   	ms.tgt_pltfrm="na"
-   	ms.workload="big-data"
-   	ms.date="10/23/2015"
-   	ms.author="nitinme"/>
+    ms.service="hdinsight"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="big-data"
+    ms.date="10/23/2015"
+    ms.author="nitinme"/>
 
 
 #Create Linux-based clusters in HDInsight
@@ -185,7 +185,7 @@ An [Azure Virtual Network](http://azure.microsoft.com/documentation/services/vir
 
 * Connect cloud resources together in a private network (cloud-only).
 
-	![diagram of cloud-only configuration](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-vnet-cloud-only.png)
+    ![diagram of cloud-only configuration](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-vnet-cloud-only.png)
 
 * Connect your cloud resources to your local data-center network (site-to-site or point-to-site) by using a virtual private network (VPN).
 
@@ -290,3 +290,4 @@ In this article, you have learned basic information about creating a Linux-based
 [img-hdi-cluster]: ./media/hdinsight-hadoop-provision-linux-clusters/HDI.Cluster.png
 
 [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Use Sqoop with HDInsight"
+

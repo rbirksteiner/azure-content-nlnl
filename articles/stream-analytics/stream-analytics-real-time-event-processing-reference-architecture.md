@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Real-time event processing with Stream Analytics event processing | Microsoft Azure" 
-	description="Learn how a set of Azure services can interoperate for enabling real-time event processing and analytics." 
+    pageTitle="Real-time event processing with Stream Analytics event processing | Microsoft Azure" 
+    description="Learn how a set of Azure services can interoperate for enabling real-time event processing and analytics." 
     keywords="real-time processing, event processing, reference architecture"
-	services="stream-analytics,event-hubs,storage,sql-database" 
-	documentationCenter="" 
-	authors="jeffstokes72" 
-	manager="paulettm" 
-	editor=""/>
+    services="stream-analytics,event-hubs,storage,sql-database" 
+    documentationCenter="" 
+    authors="jeffstokes72" 
+    manager="paulettm" 
+    editor=""/>
 
 <tags 
-	ms.service="stream-analytics" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/04/2015" 
-	ms.author="jeffstok"/>
+    ms.service="stream-analytics" 
+    ms.workload="big-data" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/04/2015" 
+    ms.author="jeffstok"/>
 
 # Reference Architecture: Real-time event processing with Microsoft Azure Stream Analytics
 
@@ -34,11 +34,11 @@ Microsoft Azure provides an extensive catalog of analytics technologies that are
 - Value Proposition of Real-Time Data in Azure
 - Common Scenarios for Real-Time Analytics
 - Architecture and Components
-	- Data Sources
-	- Data-Integration Layer
-	- Real-time Analytics Layer
-	- Data Storage Layer
-	- Presentation / Consumption Layer
+    - Data Sources
+    - Data-Integration Layer
+    - Real-time Analytics Layer
+    - Data Storage Layer
+    - Presentation / Consumption Layer
 - Conclusion
 
 **Author:** Charles Feddersen, Solution Architect, Data Insights Center of Excellence, Microsoft Corporation

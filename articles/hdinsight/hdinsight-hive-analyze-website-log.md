@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Use Hive with Hadoop for website log analysis| Microsoft Azure" 
-	description="Learn how to use Hive with HDInsight to analyze website logs. You'll use a log file as input into an HDInsight table, and use HiveQL to query the data." 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="nitinme" 
-	manager="paulettm" 
-	editor="cgronlun"
-	tags="azure-portal"/>
+    pageTitle="Use Hive with Hadoop for website log analysis| Microsoft Azure" 
+    description="Learn how to use Hive with HDInsight to analyze website logs. You'll use a log file as input into an HDInsight table, and use HiveQL to query the data." 
+    services="hdinsight" 
+    documentationCenter="" 
+    authors="nitinme" 
+    manager="paulettm" 
+    editor="cgronlun"
+    tags="azure-portal"/>
 
 <tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/29/2015" 
-	ms.author="nitinme"/>
+    ms.service="hdinsight" 
+    ms.workload="big-data" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/29/2015" 
+    ms.author="nitinme"/>
 
 # Use Hive with HDInsight to analyze logs from websites
 
@@ -43,9 +43,9 @@ In this sample, you will use an HDInsight cluster to analyze website log files t
 
 2. From the cluster blade, under **Quick Links**, click **Cluster Dashboard**, and then from the **Cluster Dashboard** blade, click **HDInsight Cluster Dashboard**. Alternatively, you can directly open the dashboard by using the following URL:
 
-	 	https://<clustername>.azurehdinsight.net
-	
-	When prompted, authenticate by using the administrator user name and password you used when provisioning the cluster.
+        https://<clustername>.azurehdinsight.net
+    
+    When prompted, authenticate by using the administrator user name and password you used when provisioning the cluster.
   
 2. From the web page that opens, click the **Getting Started Gallery** tab, and then under the **Samples** category, click the **Website Log Analysis** sample.
 

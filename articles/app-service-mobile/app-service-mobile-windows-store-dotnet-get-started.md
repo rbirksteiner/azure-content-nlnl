@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Create a Windows Runtime 8.1 universal app on Azure App Service Mobile Apps | Microsoft Azure"
-	description="Follow this tutorial to get started with using Azure mobile app backends for Windows Store development in C#, Visual Basic, or JavaScript."
-	services="app-service\mobile"
-	documentationCenter="windows"
-	authors="ggailey777"
-	manager="dwrede"
-	editor=""/> 
+    pageTitle="Create a Windows Runtime 8.1 universal app on Azure App Service Mobile Apps | Microsoft Azure"
+    description="Follow this tutorial to get started with using Azure mobile app backends for Windows Store development in C#, Visual Basic, or JavaScript."
+    services="app-service\mobile"
+    documentationCenter="windows"
+    authors="ggailey777"
+    manager="dwrede"
+    editor=""/> 
 
 <tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-windows"
-	ms.devlang="dotnet"
-	ms.topic="hero-article"
-	ms.date="11/16/2015"
-	ms.author="glenga"/>
+    ms.service="app-service-mobile"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-windows"
+    ms.devlang="dotnet"
+    ms.topic="hero-article"
+    ms.date="11/16/2015"
+    ms.author="glenga"/>
 
 #Create a Windows app
 
@@ -62,15 +62,15 @@ Once you have configured your Mobile App backend, you can either create a new cl
 
 5. In the app, type meaningful text, such as *Complete the tutorial*, in the **Insert a TodoItem** text box, and then click **Save**.
 
-	![](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-startup.png)
+    ![](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-startup.png)
 
-	This sends a POST request to the new mobile app backend that's hosted in Azure.
+    This sends a POST request to the new mobile app backend that's hosted in Azure.
 
 6. Stop debugging, right-click the `<your app name>.WindowsPhone` project, click **Set as StartUp Project**, and then press F5 again.
 
-	![](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-completed-wp8.png)
+    ![](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-completed-wp8.png)
 
-	Notice that data saved from the previous step is loaded from the mobile app after the Windows app starts.
+    Notice that data saved from the previous step is loaded from the mobile app after the Windows app starts.
 
 ##Next steps
 
@@ -86,3 +86,4 @@ Once you have configured your Mobile App backend, you can either create a new cl
 [Mobile App SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
+

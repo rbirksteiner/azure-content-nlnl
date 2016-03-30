@@ -37,11 +37,11 @@ The network configuration file may contain the following elements. The title of 
 
 [Virtual Network Sites Element](http://go.microsoft.com/fwlink/?LinkId=248093)
 
-	<DnsServersRef>
-	  <DnsServerRef name="ID1" />
-	  <DnsServerRef name="ID2" />
-	  <DnsServerRef name="ID3" />
-	</DnsServersRef>
+    <DnsServersRef>
+      <DnsServerRef name="ID1" />
+      <DnsServerRef name="ID2" />
+      <DnsServerRef name="ID3" />
+    </DnsServersRef>
 
 >[AZURE.NOTE] In order to specify this setting for the Virtual Network Sites element, it must be previously defined in the DNS element. The DnsServerRef *name* in the Virtual Network Sites element must refer to a name value specified in the DNS element for DnsServer *name*.
 
@@ -52,3 +52,4 @@ The network configuration file may contain the following elements. The title of 
 [Azure Virtual Network Configuration Schema](http://go.microsoft.com/fwlink/?LinkId=248093)
 
 [Azure Service Configuration Schema](https://msdn.microsoft.com/library/windowsazure/ee758710)
+

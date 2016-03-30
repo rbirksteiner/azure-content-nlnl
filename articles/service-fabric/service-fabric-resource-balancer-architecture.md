@@ -37,3 +37,4 @@ Resource Balancing Features:
 
 [Image1]: media/service-fabric-resource-balancer-architecture/Service-Fabric-Resource-Balancer-Architecture.png
  
+

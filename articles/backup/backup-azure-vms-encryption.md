@@ -61,3 +61,4 @@ When you need to roll-over or change keys for VMs that have existing backups, yo
 
 - [Deployment guide - PDF](http://www.cloudlinktech.com/Azure/CL_SecureVM_4_0_DG_EMC_Azure_R2.pdf)
 - [Deploying and using SecureVM - video](https://www.youtube.com/watch?v=8AIRe92UDNg)
+

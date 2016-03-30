@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Tutorial: Azure Active Directory integration with Facebook at Work | Microsoft Azure"
-	description="Learn how to configure single sign-on between Azure Active Directory and Facebook at Work."
-	services="active-directory"
-	documentationCenter=""
-	authors="asmalser-msft"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Tutorial: Azure Active Directory integration with Facebook at Work | Microsoft Azure"
+    description="Learn how to configure single sign-on between Azure Active Directory and Facebook at Work."
+    services="active-directory"
+    documentationCenter=""
+    authors="asmalser-msft"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/04/2015"
-	ms.author="asmalser"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/04/2015"
+    ms.author="asmalser"/>
 
 
 # Tutorial: Azure Active Directory integration with Facebook at Work
@@ -72,16 +72,16 @@ This section outlines how to enable users to authenticate to Facebook at Work wi
 
 **To configure Azure AD single sign-on with Facebook at Work, perform the following steps:**
 
-1.	After adding Facebook at Work in the Azure management portal, click **Configure Single Sign-On**.
+1.  After adding Facebook at Work in the Azure management portal, click **Configure Single Sign-On**.
 
-2.	In the **Configure App URL** screen, enter the URL where users will sign into your Facebook at Work application. This is your Facebook at Work tenant URL 
+2.  In the **Configure App URL** screen, enter the URL where users will sign into your Facebook at Work application. This is your Facebook at Work tenant URL 
 (Example: https://example.facebook.com/). Once finished, click **Next**.
 
-3.	In a different web browser window, log into your Facebook at Work company site as an administrator.
+3.  In a different web browser window, log into your Facebook at Work company site as an administrator.
 
 4. Follow the instructions at the following URL to configure Facebook at Work to use Azure AD as an identity provider: [https://developers.facebook.com/docs/facebook-at-work/authentication/cloud-providers](https://developers.facebook.com/docs/facebook-at-work/authentication/cloud-providers)
 
-5.	Once completed, return to the browser windows showing the Azure management portal, click the checkbox to confirm you have completed the procedure, then click **Next** and **Complete**.
+5.  Once completed, return to the browser windows showing the Azure management portal, click the checkbox to confirm you have completed the procedure, then click **Next** and **Complete**.
 
 
 ## Automatically provisioning users to Facebook at Work
@@ -99,13 +99,13 @@ For provisioned AAD users to be able to see Facebook at Work on their Access Pan
 
 **To assign users to Facebook at Work:**
 
-1.	On the start page for Facebook at Work in the Azure management portal, click **Assign accounts**.
+1.  On the start page for Facebook at Work in the Azure management portal, click **Assign accounts**.
 
-2.	In the **Show** menu, select whether you want to assign a user or a group to Facebook at Work and click the Checkmark button.
+2.  In the **Show** menu, select whether you want to assign a user or a group to Facebook at Work and click the Checkmark button.
 
-3.	In the resulting list, select the users or group to whom you want to assign Facebook at Work.
+3.  In the resulting list, select the users or group to whom you want to assign Facebook at Work.
 
-4.	In the page footer, click the **Assign** button.
+4.  In the page footer, click the **Assign** button.
 
 
 ## Additional Resources
@@ -118,6 +118,7 @@ For provisioned AAD users to be able to see Facebook at Work on their Access Pan
 [2]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_general_02.png
 [3]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_general_04.png
+
 
 
 

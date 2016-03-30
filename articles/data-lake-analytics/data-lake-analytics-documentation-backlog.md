@@ -24,10 +24,10 @@ We will continue adding new documentation to support Azure Data Lake Analytics a
 
 Area   |Topic | Priority | Status | Assigned To | Requested By 
 ------------- | ------------- | -------------- | -------------- | --------------- | --------------
-U-SQL   | Distributed Query		 | 1 | On hold |  [@edmacauley](https://github.com/edmacauley) |
-U-SQL  | Moving data between WASB and ADLS		| 1 |  Pending | tbd | Ye Xing (ml)
+U-SQL   | Distributed Query      | 1 | On hold |  [@edmacauley](https://github.com/edmacauley) |
+U-SQL  | Moving data between WASB and ADLS      | 1 |  Pending | tbd | Ye Xing (ml)
 U-SQL | Unit testing guidance for UDO model | 1 | Pending | tbd | [@ddobric](https://github.com/ddobric) 
-U-SQL  | Processing JSON 		| 2 |  Pending | [@mumian](https://github.com/mumian) | [@mwinkle](https://github.com/mwinkle)
+U-SQL  | Processing JSON        | 2 |  Pending | [@mumian](https://github.com/mumian) | [@mwinkle](https://github.com/mwinkle)
 Service | Interacting with Curl | 3 |Pending |[@mumian](https://github.com/mumian)
 U-SQL | Partitioned Tables |1 | In process | [@edmacauley](https://github.com/edmacauley) | 
 U-SQL | Performance Tuning | 2 | Pending | [@MikeRys](https://github.com/mikerys) | 
@@ -55,3 +55,4 @@ There are a few options to give feedback on the backlog:
 * Add a comment below
 * Submit a pull request on this document in the [Azure Content Repo](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md)
 * Send an email to [adlafeedback at microsoft.com](mailto:adlafeedback@microsoft.com?subject=DocBacklog)
+

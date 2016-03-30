@@ -55,13 +55,13 @@ For more details, see [Service Level Agreements](https://azure.microsoft.com/sup
 
 Your organization can use Azure AD to improve employee productivity, streamline IT processes, improve security and cut costs in many ways:
 
--	Quickly adopt cloud services, providing employees and partners with an easy single-sign on experience powered by Azure AD’s fully automated SaaS app access management and provisioning services capabilities.
--	Empower employees with access to world class cloud apps and service and self-services capabilities from wherever they need to work on the devices they love to use.
--	Easily and securely manage employee and vendor access to your corporate social media accounts.
--	Improve application security with Azure AD multifactor authentication and conditional access.
--	Implement consistent, self-service application access management, empowering business owners to move quickly while cutting IT costs and overhead.
--	Monitor application usage and protect your business from advanced threats with security reporting and monitoring.
--	Secure mobile (remote) access to on-premises applications.
+-   Quickly adopt cloud services, providing employees and partners with an easy single-sign on experience powered by Azure AD’s fully automated SaaS app access management and provisioning services capabilities.
+-   Empower employees with access to world class cloud apps and service and self-services capabilities from wherever they need to work on the devices they love to use.
+-   Easily and securely manage employee and vendor access to your corporate social media accounts.
+-   Improve application security with Azure AD multifactor authentication and conditional access.
+-   Implement consistent, self-service application access management, empowering business owners to move quickly while cutting IT costs and overhead.
+-   Monitor application usage and protect your business from advanced threats with security reporting and monitoring.
+-   Secure mobile (remote) access to on-premises applications.
 
 
 
@@ -69,10 +69,10 @@ Your organization can use Azure AD to improve employee productivity, streamline 
 
 
 ## How can I get started?
--	If you are an IT admin:
+-   If you are an IT admin:
  - [Try it out!](https://azure.microsoft.com/trial/get-started-active-directory/) - you can sign up for a free 30 trial today and deploy your first cloud solution in under 5 minutes using this link
  - Read our “Getting started with Azure AD” for tips and tricks on getting an Azure AD tenant up and running fast
--	If you are a developer:
+-   If you are a developer:
  - Check out our [Developers Guide](active-directory-developers-guide.md) to Azure Active Directory 
  - [Start a trial](https://azure.microsoft.com/trial/get-started-active-directory/) – sign up for a free 30 day trial today and get started integrating your app with Azure AD
 
@@ -104,3 +104,4 @@ We have a ton of great resources online to help you learn all about Azure AD. He
 - [What is Microsoft Azure Active Directory licensing?](active-directory-licensing-what-is.md)
 
 - [How can I discover unsanctioned cloud apps that are used within my organization](active-directory-cloudappdiscovery-whatis.md)
+

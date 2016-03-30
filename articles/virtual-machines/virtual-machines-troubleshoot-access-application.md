@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Troubleshoot application access on a VM | Microsoft Azure"
-	description="If you can't access an application running on an Azure virtual machine, use these steps to isolate the source of the problem."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="dsk-2015"
-	manager="timlt"
-	editor=""
-	tags="top-support-issue,azure-service-management,azure-resource-manager"/>
+    pageTitle="Troubleshoot application access on a VM | Microsoft Azure"
+    description="If you can't access an application running on an Azure virtual machine, use these steps to isolate the source of the problem."
+    services="virtual-machines"
+    documentationCenter=""
+    authors="dsk-2015"
+    manager="timlt"
+    editor=""
+    tags="top-support-issue,azure-service-management,azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/17/2015"
-	ms.author="dkshir"/>
+    ms.service="virtual-machines"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/17/2015"
+    ms.author="dkshir"/>
 
 # Troubleshoot Access to an Application Running on an Azure Virtual Machine
 
@@ -30,10 +30,10 @@ There are four main areas to troubleshoot the access of an application that is r
 
 ![](./media/virtual-machines-troubleshoot-access-application/tshoot_app_access1.png)
 
-1.	The application running on the Azure virtual machine.
-2.	The Azure virtual machine.
-3.	Azure endpoints for the cloud service that contains the virtual machine (for virtual machines created using the Service Management API), inbound NAT rules (for virtual machines created in Resource Manager), and Network Security Groups.
-4.	Your Internet edge device.
+1.  The application running on the Azure virtual machine.
+2.  The Azure virtual machine.
+3.  Azure endpoints for the cloud service that contains the virtual machine (for virtual machines created using the Service Management API), inbound NAT rules (for virtual machines created in Resource Manager), and Network Security Groups.
+4.  Your Internet edge device.
 
 For client computers that are accessing the application over a site-to-site VPN or ExpressRoute connection, the main areas that can cause problems are the application and the Azure virtual machine.
 To determine the source of the problem and its correction, follow these steps.
@@ -93,8 +93,8 @@ If the virtual machine or endpoint is a member of a load-balanced set:
 
 - Verify that the probe protocol (TCP or UDP) and port number are correct.
 - If the probe protocol and port is different than the load-balanced set protocol and port:
-	- Verify that the application is listening on the probe protocol (TCP or UDP) and port number (use **netstat –a** on the target virtual machine).
-	- The host firewall on the target virtual machine is allowing the inbound probe request and outbound probe response traffic.
+    - Verify that the application is listening on the probe protocol (TCP or UDP) and port number (use **netstat –a** on the target virtual machine).
+    - The host firewall on the target virtual machine is allowing the inbound probe request and outbound probe response traffic.
 
 If you can access the application, ensure that your Internet edge device is allowing:
 
@@ -125,3 +125,4 @@ If you have run the above steps in this article and need additional help to corr
 [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](virtual-machines-troubleshoot-remote-desktop-connections.md)
 
 [Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine](virtual-machines-troubleshoot-ssh-connections.md)
+

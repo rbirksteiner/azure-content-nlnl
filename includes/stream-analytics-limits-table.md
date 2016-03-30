@@ -21,3 +21,4 @@
 | Maximum throughput of a Streaming Unit | 1MB/s* | Maximum throughput per SU depends on the scenario. Actual throughput may be lower and depends upon query complexity and partitioning. Further details can be found in the [Scale Azure Stream Analytics jobs to increase throughput](../articles/stream-analytics/stream-analytics-scale-jobs.md) article. |
 | SELECT statement query limitation | 5 outputs per query | This limit may be increased in the future. |
 
+

@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Detach a disk from a Windows VM | Microsoft Azure"
-	description="Learn to detach a disk from a virtual machine in Azure using the classic deployment model."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="cynthn"
-	manager="timlt"
-	editor=""
-	tags="azure-service-management"/>
+    pageTitle="Detach a disk from a Windows VM | Microsoft Azure"
+    description="Learn to detach a disk from a virtual machine in Azure using the classic deployment model."
+    services="virtual-machines"
+    documentationCenter=""
+    authors="cynthn"
+    manager="timlt"
+    editor=""
+    tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/23/2015"
-	ms.author="cynthn"/>
+    ms.service="virtual-machines"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-windows"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/23/2015"
+    ms.author="cynthn"/>
 
 
 
@@ -31,3 +31,4 @@
 [About disks and VHDs for virtual machines](virtual-machines-disks-vhds.md)
 
 [How to attach a data disk to a Windows virtual machine](storage-windows-attach-disk.md)
+

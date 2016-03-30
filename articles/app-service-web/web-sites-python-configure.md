@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Configuring Python with Azure App Service Web Apps" 
-	description="This tutorial describes options for authoring and configuring a basic Web server Gateway Interface (WSGI) compliant Python application on Azure App Service Web Apps." 
-	services="app-service" 
-	documentationCenter="python" 
-	tags="python"
-	authors="huguesv" 
-	manager="wpickett" 
-	editor=""/>
+    pageTitle="Configuring Python with Azure App Service Web Apps" 
+    description="This tutorial describes options for authoring and configuring a basic Web server Gateway Interface (WSGI) compliant Python application on Azure App Service Web Apps." 
+    services="app-service" 
+    documentationCenter="python" 
+    tags="python"
+    authors="huguesv" 
+    manager="wpickett" 
+    editor=""/>
 
 <tags 
-	ms.service="app-service" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="09/29/2015" 
-	ms.author="huguesv"/>
+    ms.service="app-service" 
+    ms.workload="na" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="python" 
+    ms.topic="article" 
+    ms.date="09/29/2015" 
+    ms.author="huguesv"/>
 
 
 
@@ -384,3 +384,4 @@ For more information, see the [Python Developer Center](/develop/python/).
 
 
  
+

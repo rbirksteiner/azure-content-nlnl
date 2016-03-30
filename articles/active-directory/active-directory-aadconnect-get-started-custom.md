@@ -1,20 +1,20 @@
-﻿<properties
-	pageTitle="Azure AD Connect: Custom installation | Microsoft Azure"
-	description="This document details the custom installation options for Azure AD Connect."
-	services="active-directory"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
-	editor="curtand"/>
+<properties
+    pageTitle="Azure AD Connect: Custom installation | Microsoft Azure"
+    description="This document details the custom installation options for Azure AD Connect."
+    services="active-directory"
+    documentationCenter=""
+    authors="billmath"
+    manager="stevenpo"
+    editor="curtand"/>
 
 <tags
-	ms.service="active-directory"  
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/16/2015"
-	ms.author="billmath;andkjell"/>
+    ms.service="active-directory"  
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/16/2015"
+    ms.author="billmath;andkjell"/>
 
 # Custom installation of Azure AD Connect
 
@@ -217,7 +217,7 @@ The following additional tasks will need to be completed to finish the federatio
 ### Optional configuration on your AD FS service
 You can customize the illustration and logo image for your AD FS login pages by logging into the AD FS and using PSH to make this configuration.
 
-	Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.png"} –Illustration @{path=”c:\Contoso\illustration.png”}
+    Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.png"} –Illustration @{path=”c:\Contoso\illustration.png”}
 
 ## Configure and verify pages
 On this page the configuration will actually happen.
@@ -252,3 +252,4 @@ After the installation has completed, sign out and sign in again to Windows befo
 Now that you have Azure AD Connect installed you can [verify the installation and assign licenses](active-directory-aadconnect-whats-next.md).
 
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
+

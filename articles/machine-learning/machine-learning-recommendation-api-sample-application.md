@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Common operations in the Machine Learning Recommendations API | Microsoft Azure" 
-	description="Azure ML Recommendation Sample Application" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="luisca" 
-	manager="paulettm" 
-	editor="cgronlun"/>
+    pageTitle="Common operations in the Machine Learning Recommendations API | Microsoft Azure" 
+    description="Azure ML Recommendation Sample Application" 
+    services="machine-learning" 
+    documentationCenter="" 
+    authors="luisca" 
+    manager="paulettm" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/07/2015" 
-	ms.author="luisca"/> 
+    ms.service="machine-learning" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/07/2015" 
+    ms.author="luisca"/> 
 
 
 # Common operations in the Machine Learning Recommendations API
@@ -89,3 +89,4 @@ For a complete description of the APIs, please see the Microsoft Azure Marketpla
 ## Disclaimer
 The sample app is not intended to be run in a production environment. The data provided in the catalog is very small, and it will not provide a meaningful recommendation model. The data is provided as a demonstration. 
  
+

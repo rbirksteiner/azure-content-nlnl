@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Manage Azure RemoteApp using Azure Automation | Microsoft Azure"
-	description="Learn about how the Azure Automation service can be used to manage Azure RemoteApp."
-	services="remoteapp, automation"
-	documentationCenter=""
-	authors="csand-msft"
-	manager="eamono"
-	editor=""/>
+    pageTitle="Manage Azure RemoteApp using Azure Automation | Microsoft Azure"
+    description="Learn about how the Azure Automation service can be used to manage Azure RemoteApp."
+    services="remoteapp, automation"
+    documentationCenter=""
+    authors="csand-msft"
+    manager="eamono"
+    editor=""/>
 
 <tags
-	ms.service="remoteapp"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/23/2015"
-	ms.author="csand"/>
+    ms.service="remoteapp"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/23/2015"
+    ms.author="csand"/>
 
 
 
@@ -41,3 +41,4 @@ RemoteApp can be managed in Azure Automation by using the PowerShell cmdlets tha
 Now that you've learned the basics of Azure Automation and how it can be used to manage Azure RemoteApp, follow these links to learn more about Azure Automation.
 
 * See the Azure Automation [Getting Started Tutorial](../automation-create-runbook-from-samples.md)
+

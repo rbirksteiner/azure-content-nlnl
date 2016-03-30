@@ -1,20 +1,20 @@
 <properties
-	pageTitle="How to monitor a storage account | Microsoft Azure"
-	description="Learn how to monitor a storage account in Azure by using the Azure Portal."
-	services="storage"
-	documentationCenter=""
-	authors="tamram"
-	manager="adinah"
-	editor="cgronlun"/>
+    pageTitle="How to monitor a storage account | Microsoft Azure"
+    description="Learn how to monitor a storage account in Azure by using the Azure Portal."
+    services="storage"
+    documentationCenter=""
+    authors="tamram"
+    manager="adinah"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/01/2015"
-	ms.author="tamram"/>
+    ms.service="storage"
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/01/2015"
+    ms.author="tamram"/>
 
 # Monitor a storage account in the Azure Portal
 
@@ -35,11 +35,11 @@ You can monitor your storage account from the [Azure Portal](portal.azure.com). 
 
 2. Click **Configure**, and scroll down to the **monitoring** settings for the blob, table, and queue services.
 
-	![MonitoringOptions](./media/storage-monitor-storage-account/Storage_MonitoringOptions.png)
+    ![MonitoringOptions](./media/storage-monitor-storage-account/Storage_MonitoringOptions.png)
 
 3. In **monitoring**, set the level of monitoring and the data retention policy for each service:
 
-	-  To set the monitoring level, select one of the following:
+    -  To set the monitoring level, select one of the following:
 
       **Minimal** - Collects metrics such as ingress/egress, availability, latency, and success percentages, which are aggregated for the blob, table, and queue services.
 
@@ -68,11 +68,11 @@ On the dashboard, you can choose up to six metrics to plot on the metrics chart 
 
 2. To change the metrics that are plotted on the chart, take one of the following actions:
 
-	- To add a new metric to the chart, click the colored check box next to the metric header in the table below the chart.
+    - To add a new metric to the chart, click the colored check box next to the metric header in the table below the chart.
 
-	- To hide a metric that is plotted on the chart, clear the colored check box next to the metric header.
+    - To hide a metric that is plotted on the chart, clear the colored check box next to the metric header.
 
-		![Monitoring_nmore](./media/storage-monitor-storage-account/storage_Monitoring_nmore.png)
+        ![Monitoring_nmore](./media/storage-monitor-storage-account/storage_Monitoring_nmore.png)
 
 3. By default, the chart shows trends, displaying only the current value of each metric (the **Relative** option at the top of the chart). To display a Y axis so you can see absolute values, select **Absolute**.
 
@@ -96,35 +96,35 @@ Use the following procedures to choose which storage metrics to view in the metr
 
 2. Click **Monitor**.
 
-	The **Monitor** page opens. By default, the metrics table displays a subset of the metrics that are available for monitoring. The illustration shows the default Monitor display for a storage account with verbose monitoring configured for all three services. Use **Add Metrics** to select the metrics you want to monitor from all available metrics.
+    The **Monitor** page opens. By default, the metrics table displays a subset of the metrics that are available for monitoring. The illustration shows the default Monitor display for a storage account with verbose monitoring configured for all three services. Use **Add Metrics** to select the metrics you want to monitor from all available metrics.
 
-	![Monitoring_VerboseDisplay](./media/storage-monitor-storage-account/Storage_Monitoring_VerboseDisplay.png)
+    ![Monitoring_VerboseDisplay](./media/storage-monitor-storage-account/Storage_Monitoring_VerboseDisplay.png)
 
-	> [AZURE.NOTE] Consider costs when you select the metrics. There are transaction and egress costs associated with refreshing monitoring displays. For more information, see [Storage Analytics and Billing](http://msdn.microsoft.com/library/azure/hh360997.aspx).
+    > [AZURE.NOTE] Consider costs when you select the metrics. There are transaction and egress costs associated with refreshing monitoring displays. For more information, see [Storage Analytics and Billing](http://msdn.microsoft.com/library/azure/hh360997.aspx).
 
 3. Click **Add Metrics**.
 
-	The aggregate metrics that are available in minimal monitoring are at the top of the list. If the check box is selected, the metric is displayed in the metrics list.
+    The aggregate metrics that are available in minimal monitoring are at the top of the list. If the check box is selected, the metric is displayed in the metrics list.
 
-	![AddMetricsInitialDisplay](./media/storage-monitor-storage-account/Storage_AddMetrics_InitialDisplay.png)
+    ![AddMetricsInitialDisplay](./media/storage-monitor-storage-account/Storage_AddMetrics_InitialDisplay.png)
 
 4. Hover over the right side of the dialog box to display a scrollbar that you can drag to scroll additional metrics into view.
 
-	![AddMetricsScrollbar](./media/storage-monitor-storage-account/Storage_AddMetrics_Scrollbar.png)
+    ![AddMetricsScrollbar](./media/storage-monitor-storage-account/Storage_AddMetrics_Scrollbar.png)
 
 
 5. Click the down arrow by a metric to expand a list of operations the metric is scoped to include. Select each operation that you want to view in the metrics table in the [Azure Portal](portal.azure.com).
 
-	In the following illustration, the AUTHORIZATION ERROR PERCENTAGE metric has been expanded.
+    In the following illustration, the AUTHORIZATION ERROR PERCENTAGE metric has been expanded.
 
-	![ExpandCollapse](./media/storage-monitor-storage-account/Storage_AddMetrics_ExpandCollapse.png)
+    ![ExpandCollapse](./media/storage-monitor-storage-account/Storage_AddMetrics_ExpandCollapse.png)
 
 
 6. After you select metrics for all services, click OK (checkmark) to update the monitoring configuration. The selected metrics are added to the metrics table.
 
 7. To delete a metric from the table, click the metric to select it, and then click **Delete Metric**.
 
-	![DeleteMetric](./media/storage-monitor-storage-account/Storage_DeleteMetric.png)
+    ![DeleteMetric](./media/storage-monitor-storage-account/Storage_DeleteMetric.png)
 
 ## How to: Customize the metrics chart on the Monitor page
 
@@ -132,7 +132,7 @@ Use the following procedures to choose which storage metrics to view in the metr
 
 2. To switch the chart between relative values (final value only displayed) and absolute values (Y axis displayed), select **Relative** or **Absolute** at the top of the chart.
 
-3.	To change the time range the metrics chart displays, select **6 hours**, **24 hours**, or **7 days** at the top of the chart.
+3.  To change the time range the metrics chart displays, select **6 hours**, **24 hours**, or **7 days** at the top of the chart.
 
 
 
@@ -144,15 +144,16 @@ For each of the storage services available with your storage account (blob, tabl
 
 2. Click **Configure**, and use the Down arrow on the keyboard to scroll down to **logging**.
 
-	![Storagelogging](./media/storage-monitor-storage-account/Storage_LoggingOptions.png)
+    ![Storagelogging](./media/storage-monitor-storage-account/Storage_LoggingOptions.png)
 
 
 3. For each service (blob, table, and queue), configure the following:
 
-	- The types of request to log: Read Requests, Write Requests, and Delete Requests.
+    - The types of request to log: Read Requests, Write Requests, and Delete Requests.
 
-	- The number of days to retain the logged data. Enter zero is if you do not want to set a retention policy. If you do not set a retention policy, it is up to you to delete the logs.
+    - The number of days to retain the logged data. Enter zero is if you do not want to set a retention policy. If you do not set a retention policy, it is up to you to delete the logs.
 
 4. Click **Save**.
 
 The diagnostics logs are saved in a blob container named $logs in your storage account. For information about accessing the $logs container, see [About Storage Analytics Logging](http://msdn.microsoft.com/library/azure/hh343262.aspx).
+

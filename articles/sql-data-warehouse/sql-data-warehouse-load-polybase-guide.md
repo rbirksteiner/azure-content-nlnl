@@ -72,7 +72,7 @@ CREATE TABLE [dbo].[Customer_Speed]
 WITH 
 (   
     CLUSTERED COLUMNSTORE INDEX
-,	DISTRIBUTION = HASH([CarSensor_Data].[CustomerKey])
+,   DISTRIBUTION = HASH([CarSensor_Data].[CustomerKey])
 )
 AS 
 SELECT * 
@@ -209,5 +209,6 @@ To learn more about moving data to SQL Data Warehouse, see the [data migration o
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189522.aspx
 [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/mt270260.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
+
 
 

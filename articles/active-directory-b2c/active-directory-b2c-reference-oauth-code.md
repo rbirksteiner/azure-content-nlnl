@@ -1,27 +1,27 @@
 <properties
-	pageTitle="Azure AD B2C Preview | Microsoft Azure"
-	description="Building web applications using Azure AD's implementation of the OpenID Connect authentication protocol."
-	services="active-directory-b2c"
-	documentationCenter=""
-	authors="dstrockis"
-	manager="msmbaldwin"
-	editor=""/>
+    pageTitle="Azure AD B2C Preview | Microsoft Azure"
+    description="Building web applications using Azure AD's implementation of the OpenID Connect authentication protocol."
+    services="active-directory-b2c"
+    documentationCenter=""
+    authors="dstrockis"
+    manager="msmbaldwin"
+    editor=""/>
 
 <tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/22/2015"
-	ms.author="dastrock"/>
+    ms.service="active-directory-b2c"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/22/2015"
+    ms.author="dastrock"/>
 
 # Azure AD B2C Preview: OAuth 2.0 Authorization Code Flow
 
 The OAuth 2.0 authorization code grant can be used in apps that are installed on a device to gain access to protected resources, such as web APIs.  Using Azure AD B2C's implementation of OAuth 2.0, you can add sign-up, sign-in,
 and other identity management tasks to your mobile and desktop apps.  This guide is language-independent, and describes how to send and receive HTTP messages without using any of our open-source libraries.
 
-<!-- TODO: Need link to libraries -->	
+<!-- TODO: Need link to libraries -->   
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
@@ -133,11 +133,11 @@ Host: https://login.microsoftonline.com
 Content-Type: application/json
 
 {
-	"grant_type": "authorization_code",
-	"client_id": "90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6",
-	"scope": "openid offline_access",
-	"code": "AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...",
-	"redirect_uri": "urn:ietf:wg:oauth:2.0:oob"
+    "grant_type": "authorization_code",
+    "client_id": "90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6",
+    "scope": "openid offline_access",
+    "code": "AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...",
+    "redirect_uri": "urn:ietf:wg:oauth:2.0:oob"
 }
 ```
 
@@ -154,14 +154,14 @@ A successful token response will look like:
 
 ```
 {
-	"not_before": "1442340812",
-	"token_type": "Bearer",
-	"id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...",
-	"scope": "openid offline_access",
-	"id_token_expires_in": "3600",
-	"profile_info": "eyJ2ZXIiOiIxLjAiLCJ0aWQiOiI3NzU1MjdmZi05YTM3LTQzMDctOGIzZC1jY...",
-	"refresh_token": "AAQfQmvuDy8WtUv-sd0TBwWVQs1rC-Lfxa_NDkLqpg50Cxp5Dxj0VPF1mx2Z...",
-	"refresh_token_expires_in": "1209600"
+    "not_before": "1442340812",
+    "token_type": "Bearer",
+    "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...",
+    "scope": "openid offline_access",
+    "id_token_expires_in": "3600",
+    "profile_info": "eyJ2ZXIiOiIxLjAiLCJ0aWQiOiI3NzU1MjdmZi05YTM3LTQzMDctOGIzZC1jY...",
+    "refresh_token": "AAQfQmvuDy8WtUv-sd0TBwWVQs1rC-Lfxa_NDkLqpg50Cxp5Dxj0VPF1mx2Z...",
+    "refresh_token_expires_in": "1209600"
 }
 ```
 | Parameter | Description |
@@ -176,14 +176,14 @@ A successful token response will look like:
 | refresh_token_expires_in | The maximum time a refresh token may be valid for (in seconds).  The refresh token may however become invalid at any point in time. |
 
 > [AZURE.NOTE]
-	If at this point you're thinking: "Where's the access_token?", consider the following.  When you request the `openid` scope, Azure AD will issue a JWT `id_token` in the response.  While this `id_token` is not technically an OAuth 2.0 access_token, it can be used as such when communcating with your app's own backend service, represented by the same client_id as the client.  The `id_token` is still a signed JWT Bearer token that can be sent to a resource in an HTTP authorization header and used to authenticate requests.  The difference is that an `id_token` does not have a mechanism for scoping down the access that a particular client application may have.  However, when your client application is the only client that is able to communicate with your backend service (as is the case with the current Azure AD B2C preview), there is no need for such a scoping mechanism.  When the Azure AD B2C preview adds the capability for clients to communicate with additional 1st and 3rd party resources, access_tokens will be introduced.  However, even at that time, using `id_tokens` to communicate with your app's own backend service will still be the reccomended pattern.  For more info on the types of applications you can build with the Azure AD B2C preview, see [this article](active-directory-b2c-apps.md).
+    If at this point you're thinking: "Where's the access_token?", consider the following.  When you request the `openid` scope, Azure AD will issue a JWT `id_token` in the response.  While this `id_token` is not technically an OAuth 2.0 access_token, it can be used as such when communcating with your app's own backend service, represented by the same client_id as the client.  The `id_token` is still a signed JWT Bearer token that can be sent to a resource in an HTTP authorization header and used to authenticate requests.  The difference is that an `id_token` does not have a mechanism for scoping down the access that a particular client application may have.  However, when your client application is the only client that is able to communicate with your backend service (as is the case with the current Azure AD B2C preview), there is no need for such a scoping mechanism.  When the Azure AD B2C preview adds the capability for clients to communicate with additional 1st and 3rd party resources, access_tokens will be introduced.  However, even at that time, using `id_tokens` to communicate with your app's own backend service will still be the reccomended pattern.  For more info on the types of applications you can build with the Azure AD B2C preview, see [this article](active-directory-b2c-apps.md).
 
 Error responses will look like:
 
 ```
 {
-	"error": "access_denied",
-	"error_description": "The user revoked access to the app.",
+    "error": "access_denied",
+    "error_description": "The user revoked access to the app.",
 }
 ```
 
@@ -210,11 +210,11 @@ Host: https://login.microsoftonline.com
 Content-Type: application/json
 
 {
-	"grant_type": "refresh_token",
-	"client_id": "90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6",
-	"scope": "openid offline_access",
-	"refresh_token": "AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...",
-	"redirect_uri": "urn:ietf:wg:oauth:2.0:oob"
+    "grant_type": "refresh_token",
+    "client_id": "90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6",
+    "scope": "openid offline_access",
+    "refresh_token": "AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...",
+    "redirect_uri": "urn:ietf:wg:oauth:2.0:oob"
 }
 ```
 
@@ -231,14 +231,14 @@ A successful token response will look like:
 
 ```
 {
-	"not_before": "1442340812",
-	"token_type": "Bearer",
-	"id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...",
-	"scope": "openid offline_access",
-	"id_token_expires_in": "3600",
-	"profile_info": "eyJ2ZXIiOiIxLjAiLCJ0aWQiOiI3NzU1MjdmZi05YTM3LTQzMDctOGIzZC1jY...",
-	"refresh_token": "AAQfQmvuDy8WtUv-sd0TBwWVQs1rC-Lfxa_NDkLqpg50Cxp5Dxj0VPF1mx2Z...",
-	"refresh_token_expires_in": "1209600"
+    "not_before": "1442340812",
+    "token_type": "Bearer",
+    "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...",
+    "scope": "openid offline_access",
+    "id_token_expires_in": "3600",
+    "profile_info": "eyJ2ZXIiOiIxLjAiLCJ0aWQiOiI3NzU1MjdmZi05YTM3LTQzMDctOGIzZC1jY...",
+    "refresh_token": "AAQfQmvuDy8WtUv-sd0TBwWVQs1rC-Lfxa_NDkLqpg50Cxp5Dxj0VPF1mx2Z...",
+    "refresh_token_expires_in": "1209600"
 }
 ```
 | Parameter | Description |
@@ -256,8 +256,8 @@ Error responses will look like:
 
 ```
 {
-	"error": "access_denied",
-	"error_description": "The user revoked access to the app.",
+    "error": "access_denied",
+    "error_description": "The user revoked access to the app.",
 }
 ```
 

@@ -6,7 +6,7 @@
    authors="Blackmist"
    manager="paulettm"
    editor="cgronlun"
-	tags="azure-portal"/>
+    tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -33,15 +33,15 @@ The Storm Dashboard and the Storm features in the HDInsight Tools rely on the St
 
 * For **Visual Studio** - Azure SDK 2.5.1 or newer and the HDInsight Tools for Visual Studio. See <a href="../hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">Get started using HDInsight Tools for Visual Studio</a> to install and configure the HDInsight tools for Visual Studio.
 
-	One of the following versions of Visual Studio:
+    One of the following versions of Visual Studio:
 
-	* Visual Studio 2012 with <a href="http://www.microsoft.com/download/details.aspx?id=39305" target="_blank">Update 4</a>
+    * Visual Studio 2012 with <a href="http://www.microsoft.com/download/details.aspx?id=39305" target="_blank">Update 4</a>
 
-	* Visual Studio 2013 with <a href="http://www.microsoft.com/download/details.aspx?id=44921" target="_blank">Update 4</a> or <a href="http://go.microsoft.com/fwlink/?LinkId=517284" target="_blank">Visual Studio 2013 Community</a>
+    * Visual Studio 2013 with <a href="http://www.microsoft.com/download/details.aspx?id=44921" target="_blank">Update 4</a> or <a href="http://go.microsoft.com/fwlink/?LinkId=517284" target="_blank">Visual Studio 2013 Community</a>
 
-	* <a href="http://visualstudio.com/downloads/visual-studio-2015-ctp-vs" target="_blank">Visual Studio 2015 CTP6</a>
+    * <a href="http://visualstudio.com/downloads/visual-studio-2015-ctp-vs" target="_blank">Visual Studio 2015 CTP6</a>
 
-	> [AZURE.NOTE] Currently the HDInsight Tools for Visual Studio only support Storm on HDInsight cluster version 3.2.
+    > [AZURE.NOTE] Currently the HDInsight Tools for Visual Studio only support Storm on HDInsight cluster version 3.2.
 
 ##Storm Dashboard
 
@@ -79,15 +79,15 @@ Selecting a link from the **Topology summary** section displays the following in
 
 * **Topology actions**: Management actions that you can perform for the topology.
 
-	* **Activate**: Resumes processing of a deactivated topology.
+    * **Activate**: Resumes processing of a deactivated topology.
 
-	* **Deactivate**: Pauses a running topology.
+    * **Deactivate**: Pauses a running topology.
 
-	* **Rebalance**: Adjusts the parallelism of the topology. You should rebalance running topologies after you have changed the number of nodes in the cluster. This allows the topology to adjust parallelism to compensate for the increased or decreased number of nodes in the cluster.
+    * **Rebalance**: Adjusts the parallelism of the topology. You should rebalance running topologies after you have changed the number of nodes in the cluster. This allows the topology to adjust parallelism to compensate for the increased or decreased number of nodes in the cluster.
 
-		For more information, see <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Understanding the parallelism of a Storm topology</a>.
+        For more information, see <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Understanding the parallelism of a Storm topology</a>.
 
-	* **Kill**: Terminates a Storm topology after the specified timeout.
+    * **Kill**: Terminates a Storm topology after the specified timeout.
 
 * **Topology stats**: Statistics about the topology. Use the links in the **Window** column to set the timeframe for the remaining entries on the page.
 
@@ -125,25 +125,25 @@ Use the following steps to deploy a sample to your Storm on HDInsight cluster, t
 
 3. In the **New Project** dialog box, expand **Installed** > **Templates**, and then select **HDInsight**. From the list of templates, select **Storm Sample**. At the bottom of the dialog box, type a name for the application.
 
-	![image](./media/hdinsight-storm-deploy-monitor-topology/sample.png)
+    ![image](./media/hdinsight-storm-deploy-monitor-topology/sample.png)
 
 1. In **Solution Explorer**, right-click the project, and select **Submit to Storm on HDInsight**.
 
-	> [AZURE.NOTE] If prompted, enter the login credentials for your Azure subscription. If you have more than one subscription, log in to the one that contains your Storm on HDInsight cluster.
+    > [AZURE.NOTE] If prompted, enter the login credentials for your Azure subscription. If you have more than one subscription, log in to the one that contains your Storm on HDInsight cluster.
 
 2. Select your Storm on HDInsight cluster from the **Storm Cluster** drop-down list, and then select **Submit**. You can monitor whether the submission is successful by using the **Output** window.
 
 3. When the topology has been successfully submitted, the **Storm Topologies** for the cluster should appear. Select the topology from the list to view information about the running topology.
 
-	![visual studio monitor](./media/hdinsight-storm-deploy-monitor-topology/vsmonitor.png)
+    ![visual studio monitor](./media/hdinsight-storm-deploy-monitor-topology/vsmonitor.png)
 
-	> [AZURE.NOTE] You can also view **Storm Topologies** from **Server Explorer** by expanding **Azure** > **HDInsight**, and then right-clicking a Storm on HDInsight cluster, and selecting **View Storm Topologies**.
+    > [AZURE.NOTE] You can also view **Storm Topologies** from **Server Explorer** by expanding **Azure** > **HDInsight**, and then right-clicking a Storm on HDInsight cluster, and selecting **View Storm Topologies**.
 
-	Use the links for the spouts or bolts to view information about these components. A new window will open for each item selected.
+    Use the links for the spouts or bolts to view information about these components. A new window will open for each item selected.
 
 4. From the **Topology Summary** view, select **Kill** to stop the topology.
 
-	> [AZURE.NOTE] Storm topologies continue running until they are stopped or the cluster is deleted.
+    > [AZURE.NOTE] Storm topologies continue running until they are stopped or the cluster is deleted.
 
 ##REST API
 
@@ -178,3 +178,4 @@ For a list of more example topologies, see [Example topologies for Storm on HDIn
 [hdinsight-dashboard]: ./media/hdinsight-storm-deploy-monitor-topology/dashboard-link.png
 [storm-dashboard-submit]: ./media/hdinsight-storm-deploy-monitor-topology/submit.png
 [storm-dashboard-ui]: ./media/hdinsight-storm-deploy-monitor-topology/storm-ui-summary.png
+

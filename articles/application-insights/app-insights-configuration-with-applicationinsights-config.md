@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Configuring Application Insights SDK with ApplicationInsights.config or .xml" 
-	description="Enable or disable data collection modules, and add performance counters and other parameters" 
-	services="application-insights"
+    pageTitle="Configuring Application Insights SDK with ApplicationInsights.config or .xml" 
+    description="Enable or disable data collection modules, and add performance counters and other parameters" 
+    services="application-insights"
     documentationCenter="" 
-	authors="OlegAnaniev-MSFT"
+    authors="OlegAnaniev-MSFT"
     editor="alancameronwills" 
-	manager="douge"/>
+    manager="douge"/>
  
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/05/2015" 
-	ms.author="awills"/>
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/05/2015" 
+    ms.author="awills"/>
 
 # Configuring the Application Insights SDK with ApplicationInsights.config or .xml
 
@@ -195,9 +195,9 @@ These parameters affect how the Java SDK should store and flush the telemetry da
 
 The number of telemetry items that can be stored in the SDK's in-memory storage. When this number is reached, the telemetry buffer is flushed - that is, the telemetry items are sent to the Application Insights server.
 
--	Min: 1
--	Max: 1000
--	Default: 500
+-   Min: 1
+-   Max: 1000
+-   Default: 500
 
 ```
 
@@ -214,9 +214,9 @@ The number of telemetry items that can be stored in the SDK's in-memory storage.
 
 Determines how often the data that is stored in the in-memory storage should be flushed (sent to Application Insights).
 
--	Min: 1
--	Max: 300
--	Default: 5
+-   Min: 1
+-   Max: 300
+-   Default: 5
 
 ```
 
@@ -233,9 +233,9 @@ Determines how often the data that is stored in the in-memory storage should be 
 
 Determines the maximum size in MB that is allotted to the persistent storage on the local disk. This storage is used for persisting telemetry items that failed to be transmitted to the Application Insights endpoint. When the storage size has been met, new telemetry items will be discarded.
 
--	Min: 1
--	Max: 100
--	Default: 10
+-   Min: 1
+-   Max: 100
+-   Default: 10
 
 ```
 
@@ -295,4 +295,5 @@ To get a new key, [create a new resource in the Application Insights portal][new
 [new]: app-insights-create-new-resource.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
+
 

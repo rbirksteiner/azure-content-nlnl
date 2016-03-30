@@ -59,55 +59,55 @@ Internally, a scheduled job also contains system-provided data such as the next 
 
 The following code provides a comprehensive example of a scheduled job. Details are provided in subsequent sections.
 
-	{
-		"startTime": "2012-08-04T00:00Z",               // optional
-		"action":
-		{
-			"type": "http",
-			"retryPolicy": { "retryType":"none" },
-			"request":
-			{
-				"uri": "http://contoso.com/foo",        // required
-				"method": "PUT",                        // required
-				"body": "Posting from a timer",         // optional
-				"headers":                              // optional
+    {
+        "startTime": "2012-08-04T00:00Z",               // optional
+        "action":
+        {
+            "type": "http",
+            "retryPolicy": { "retryType":"none" },
+            "request":
+            {
+                "uri": "http://contoso.com/foo",        // required
+                "method": "PUT",                        // required
+                "body": "Posting from a timer",         // optional
+                "headers":                              // optional
 
-				{
-					"Content-Type": "application/json"
-				},
-			},
-		   "errorAction":
-		   {
-			   "type": "http",
-			   "request":
-			   {
-				   "uri": "http://contoso.com/notifyError",
-				   "method": "POST",
-			   },
-		   },
-		},
-		"recurrence":                                   // optional
-		{
-			"frequency": "week",                        // can be "year" "month" "day" "week" "minute"
-			"interval": 1,                              // optional, how often to fire (default to 1)
-			"schedule":                                 // optional (advanced scheduling specifics)
-			{
-				"weekDays": ["monday", "wednesday", "friday"],
-				"hours": [10, 22]
-			},
-			"count": 10,                                 // optional (default to recur infinitely)
-			"endTime": "2012-11-04",                     // optional (default to recur infinitely)
-		},
-		"state": "disabled",                           // enabled or disabled
-		"status":                                       // controlled by Scheduler service
-		{
-			"lastExecutionTime": "2007-03-01T13:00:00Z",
-			"nextExecutionTime": "2007-03-01T14:00:00Z ",
-			"executionCount": 3,
-											    "failureCount": 0,
-												"faultedCount": 0
-		},
-	}
+                {
+                    "Content-Type": "application/json"
+                },
+            },
+           "errorAction":
+           {
+               "type": "http",
+               "request":
+               {
+                   "uri": "http://contoso.com/notifyError",
+                   "method": "POST",
+               },
+           },
+        },
+        "recurrence":                                   // optional
+        {
+            "frequency": "week",                        // can be "year" "month" "day" "week" "minute"
+            "interval": 1,                              // optional, how often to fire (default to 1)
+            "schedule":                                 // optional (advanced scheduling specifics)
+            {
+                "weekDays": ["monday", "wednesday", "friday"],
+                "hours": [10, 22]
+            },
+            "count": 10,                                 // optional (default to recur infinitely)
+            "endTime": "2012-11-04",                     // optional (default to recur infinitely)
+        },
+        "state": "disabled",                           // enabled or disabled
+        "status":                                       // controlled by Scheduler service
+        {
+            "lastExecutionTime": "2007-03-01T13:00:00Z",
+            "nextExecutionTime": "2007-03-01T14:00:00Z ",
+            "executionCount": 3,
+                                                "failureCount": 0,
+                                                "faultedCount": 0
+        },
+    }
 
 As seen in the sample scheduled job above, a job definition has several parts:
 
@@ -135,17 +135,17 @@ The “action” is the action invoked on each occurrence and describes a type o
 
 The action in the example above is an HTTP action. Below is an example of a storage queue action:
 
-	{
-			"type": "storageQueue",
-			"queueMessage":
-			{
-				"storageAccount": "myStorageAccount",  // required
-				"queueName": "myqueue",                // required
-				"sasToken": "TOKEN",                   // required
-				"message":                             // required
-					"My message body",
-			},
-	}
+    {
+            "type": "storageQueue",
+            "queueMessage":
+            {
+                "storageAccount": "myStorageAccount",  // required
+                "queueName": "myqueue",                // required
+                "sasToken": "TOKEN",                   // required
+                "message":                             // required
+                    "My message body",
+            },
+    }
 
 The “errorAction” is the error handler, the action invoked when the primary action fails. You can use this variable to call an error-handling endpoint or send a user notification. This can be used for reaching a secondary endpoint in the case that the primary is not available (e.g., in the case of a disaster at the endpoint’s site) or can be used for notifying an error handling endpoint. Just like the primary action, the error action can be simple or composite logic based on other actions. To learn how to create a SAS token, refer to [Create and Use a Shared Access Signature](https://msdn.microsoft.com/library/azure/jj721951.aspx).
 
@@ -170,7 +170,7 @@ A job is recurring if it has a recurring object specified in its JSON definition
 The state of the job is one of four values: enabled, disabled, completed, or faulted. You can PUT or PATCH jobs so as to update them to the enabled or disabled state. If a job has been completed or faulted, that is a final state that cannot be updated (though the job can still be DELETED). An example of the state property is as follows:
 
 
-    	"state": "disabled", // enabled, disabled, completed, or faulted
+        "state": "disabled", // enabled, disabled, completed, or faulted
 Completed and faulted jobs are deleted after 60 days.
 
 ## status
@@ -206,3 +206,4 @@ The retry interval, specified with the **retryInterval** object, is the interval
  [Azure Scheduler limits, defaults, and error codes](scheduler-limits-defaults-errors.md)
 
  [Azure Scheduler outbound authentication](scheduler-outbound-authentication.md)
+

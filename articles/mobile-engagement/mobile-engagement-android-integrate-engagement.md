@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure Mobile Engagement Android SDK Integration"
-	description="Latest updates and procedures for Android SDK for Azure Mobile Engagement"
-	services="mobile-engagement"
-	documentationCenter="mobile"
-	authors="piyushjo"
-	manager="dwrede"
-	editor="" />
+    pageTitle="Azure Mobile Engagement Android SDK Integration"
+    description="Latest updates and procedures for Android SDK for Azure Mobile Engagement"
+    services="mobile-engagement"
+    documentationCenter="mobile"
+    authors="piyushjo"
+    manager="dwrede"
+    editor="" />
 
 <tags
-	ms.service="mobile-engagement"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-android"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="08/10/2015"
-	ms.author="piyushjo" />
+    ms.service="mobile-engagement"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-android"
+    ms.devlang="Java"
+    ms.topic="article"
+    ms.date="08/10/2015"
+    ms.author="piyushjo" />
 
 #How to Integrate Engagement on Android
 
@@ -39,31 +39,31 @@ Get `mobile-engagement-VERSION.jar` and put them into the `libs` folder of your 
 > If you build your application package with ProGuard, you need to keep some classes. You can use the following configuration snippet:
 >
 >
-			-keep public class * extends android.os.IInterface
-			-keep class com.microsoft.azure.engagement.reach.activity.EngagementWebAnnouncementActivity$EngagementReachContentJS {
-			<methods>;
-		 	}
+            -keep public class * extends android.os.IInterface
+            -keep class com.microsoft.azure.engagement.reach.activity.EngagementWebAnnouncementActivity$EngagementReachContentJS {
+            <methods>;
+            }
 
 Specify your Engagement connection string by calling the following method in the launcher activity:
 
-			EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
-			engagementConfiguration.setConnectionString("Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}");
-			EngagementAgent.getInstance(this).init(engagementConfiguration);
+            EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
+            engagementConfiguration.setConnectionString("Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}");
+            EngagementAgent.getInstance(this).init(engagementConfiguration);
 
 The connection string for your application is displayed on Azure Portal.
 
 -   If missing, add the following Android permissions (before the `<application>` tag):
 
-			<uses-permission android:name="android.permission.INTERNET"/>
-			<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+            <uses-permission android:name="android.permission.INTERNET"/>
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
 -   Add the following section (between the `<application>` and `</application>` tags):
 
-			<service
-			  android:name="com.microsoft.azure.engagement.service.EngagementService"
-			  android:exported="false"
-			  android:label="<Your application name>Service"
-			  android:process=":Engagement"/>
+            <service
+              android:name="com.microsoft.azure.engagement.service.EngagementService"
+              android:exported="false"
+              android:label="<Your application name>Service"
+              android:process=":Engagement"/>
 
 -   Change `<Your application name>` by the name of your application.
 
@@ -75,13 +75,13 @@ Specifying the `android:process` attribute ensures that the Engagement service w
 
 If you override `Application.onCreate()`, it's recommended to add the following code snippet at the beginning of your `Application.onCreate()` function:
 
-			 public void onCreate()
-			 {
-			   if (EngagementAgentUtils.isInDedicatedEngagementProcess(this))
-			     return;
+             public void onCreate()
+             {
+               if (EngagementAgentUtils.isInDedicatedEngagementProcess(this))
+                 return;
 
-			   ... Your code...
-			 }
+               ... Your code...
+             }
 
 You can do the same thing for `Application.onTerminate()`, `Application.onLowMemory()` and `Application.onConfigurationChanged(...)`.
 
@@ -95,37 +95,37 @@ In order to activate the report of all the logs required by Engagement to comput
 
 **Without Engagement :**
 
-			package com.company.myapp;
+            package com.company.myapp;
 
-			import android.app.Activity;
-			import android.os.Bundle;
+            import android.app.Activity;
+            import android.os.Bundle;
 
-			public class MyApp extends Activity
-			{
-			  @Override
-			  public void onCreate(Bundle savedInstanceState)
-			  {
-			    super.onCreate(savedInstanceState);
-			    setContentView(R.layout.main);
-			  }
-			}
+            public class MyApp extends Activity
+            {
+              @Override
+              public void onCreate(Bundle savedInstanceState)
+              {
+                super.onCreate(savedInstanceState);
+                setContentView(R.layout.main);
+              }
+            }
 
 **With Engagement :**
 
-			package com.company.myapp;
+            package com.company.myapp;
 
-			import com.microsoft.azure.engagement.activity.EngagementActivity;
-			import android.os.Bundle;
+            import com.microsoft.azure.engagement.activity.EngagementActivity;
+            import android.os.Bundle;
 
-			public class MyApp extends EngagementActivity
-			{
-			  @Override
-			  public void onCreate(Bundle savedInstanceState)
-			  {
-			    super.onCreate(savedInstanceState);
-			    setContentView(R.layout.main);
-			  }
-			}
+            public class MyApp extends EngagementActivity
+            {
+              @Override
+              public void onCreate(Bundle savedInstanceState)
+              {
+                super.onCreate(savedInstanceState);
+                setContentView(R.layout.main);
+              }
+            }
 
 > [AZURE.IMPORTANT] When using `EngagementListActivity` or `EngagementExpandableListActivity`, make sure any call to `requestWindowFeature(...);` is made before the call to `super.onCreate(...);`, otherwise a crash will occur.
 
@@ -141,23 +141,23 @@ If you cannot or do not want to overload your `Activity` classes, you can instea
 
 Here is an example:
 
-			public class MyActivity extends Some3rdPartyActivity
-			{
-			  @Override
-			  protected void onResume()
-			  {
-			    super.onResume();
-			    String activityNameOnEngagement = EngagementAgentUtils.buildEngagementActivityName(getClass()); // Uses short class name and removes "Activity" at the end.
-			    EngagementAgent.getInstance(this).startActivity(this, activityNameOnEngagement, null);
-			  }
+            public class MyActivity extends Some3rdPartyActivity
+            {
+              @Override
+              protected void onResume()
+              {
+                super.onResume();
+                String activityNameOnEngagement = EngagementAgentUtils.buildEngagementActivityName(getClass()); // Uses short class name and removes "Activity" at the end.
+                EngagementAgent.getInstance(this).startActivity(this, activityNameOnEngagement, null);
+              }
 
-			  @Override
-			  protected void onPause()
-			  {
-			    super.onPause();
-			    EngagementAgent.getInstance(this).endActivity();
-			  }
-			}
+              @Override
+              protected void onPause()
+              {
+                super.onPause();
+                EngagementAgent.getInstance(this).endActivity();
+              }
+            }
 
 This example very similiar to the `EngagementActivity` class and its variants, whose source code is provided in the `src` folder.
 
@@ -186,7 +186,7 @@ To enable lazy area location reporting, you can do it by using the configuration
 
 You also need to add the following permission if missing:
 
-			<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+            <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
 Or you can keep using ``ACCESS_FINE_LOCATION`` if you already use it in your application.
 
@@ -206,7 +206,7 @@ To enable real time location reporting, you can do it by using the configuration
 
 You also need to add the following permission if missing:
 
-			<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+            <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
 Or you can keep using ``ACCESS_FINE_LOCATION`` if you already use it in your application.
 
@@ -222,7 +222,7 @@ By default, real time location reporting only uses network based locations. To e
 
 You also need to add the following permission if missing:
 
-			<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+            <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
 #### Background reporting
 
@@ -238,16 +238,16 @@ By default, real time location reporting is only active when the application run
 
 The background location report will be stopped if the user reboots its device, you can add this to make it automatically restart at boot time:
 
-			<receiver android:name="com.microsoft.azure.engagement.EngagementLocationBootReceiver"
-			   android:exported="false">
-			   <intent-filter>
-			      <action android:name="android.intent.action.BOOT_COMPLETED" />
-			   </intent-filter>
-			</receiver>
+            <receiver android:name="com.microsoft.azure.engagement.EngagementLocationBootReceiver"
+               android:exported="false">
+               <intent-filter>
+                  <action android:name="android.intent.action.BOOT_COMPLETED" />
+               </intent-filter>
+            </receiver>
 
 You also need to add the following permission if missing:
 
-			<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+            <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
 ### Android M permissions
 
@@ -317,25 +317,25 @@ Engagement API on Android (as well as in the technical documentation of the `Eng
 
 If you want to be sure that statistics are sent in real time when using Wifi or when the screen is off, add the following optional permission:
 
-			<uses-permission android:name="android.permission.WAKE_LOCK"/>
+            <uses-permission android:name="android.permission.WAKE_LOCK"/>
 
 If you want to disable crash reports, add this (between the `<application>` and `</application>` tags):
 
-			<meta-data android:name="engagement:reportCrash" android:value="false"/>
+            <meta-data android:name="engagement:reportCrash" android:value="false"/>
 
 By default, the Engagement service reports logs in real time. If your application reports logs very frequently, it is better to buffer the logs and to report them all at once on a regular time base (this is called the "burst mode"). To do so, add this (between the `<application>` and `</application>` tags):
 
-			<meta-data android:name="engagement:burstThreshold" android:value="<interval between too bursts (in milliseconds)>"/>
+            <meta-data android:name="engagement:burstThreshold" android:value="<interval between too bursts (in milliseconds)>"/>
 
 The burst mode slightly increase the battery life but has an impact on the Engagement Monitor: all sessions and jobs duration will be rounded to the burst threshold (thus, sessions and jobs shorter than the burst threshold may not be visible). It is recommended to use a burst threshold no longer than 30000 (30s).
 
 By default, the Engagement service establishes the connection with our servers as soon as the network is available. If you want to postpone the connection, add this (between the `<application>` and `</application>` tags):
 
-			<meta-data android:name="engagement:connection:delay" android:value="<delay (in milliseconds)>"/>
+            <meta-data android:name="engagement:connection:delay" android:value="<delay (in milliseconds)>"/>
 
 By default, a session is ended 10s after the end of its last activity (which usually occurs by pressing the Home or Back key, by setting the phone idle or by jumping into another application). This is to avoid a session split each time the user exit and return to the application very quickly (which can happen when he pick up a image, check a notification, etc.). You may want to modify this parameter. To do so, add this (between the `<application>` and `</application>` tags):
 
-			<meta-data android:name="engagement:sessionTimeout" android:value="<session timeout (in milliseconds)>"/>
+            <meta-data android:name="engagement:sessionTimeout" android:value="<session timeout (in milliseconds)>"/>
 
 ##Disable log reporting
 
@@ -343,7 +343,7 @@ By default, a session is ended 10s after the end of its last activity (which usu
 
 If you want Engagement to stop sending logs, you can call:
 
-			EngagementAgent.getInstance(context).setEnabled(false);
+            EngagementAgent.getInstance(context).setEnabled(false);
 
 This call is persistent: it uses a shared preferences file.
 
@@ -364,23 +364,24 @@ Engagement always use the `engagement:key` boolean key within the preferences fi
 
 The following example of `AndroidManifest.xml` shows the default values:
 
-			<application>
-			    [...]
-			    <meta-data
-			      android:name="engagement:agent:settings:name"
-			      android:value="engagement.agent" />
-			    <meta-data
-			      android:name="engagement:agent:settings:mode"
-			      android:value="0" />
+            <application>
+                [...]
+                <meta-data
+                  android:name="engagement:agent:settings:name"
+                  android:value="engagement.agent" />
+                <meta-data
+                  android:name="engagement:agent:settings:mode"
+                  android:value="0" />
 
 Then you can add a `CheckBoxPreference` in your preference layout like the following one:
 
-			<CheckBoxPreference
-			  android:key="engagement:enabled"
-			  android:defaultValue="true"
-			  android:title="Use Engagement"
-			  android:summaryOn="Engagement is enabled."
-			  android:summaryOff="Engagement is disabled." />
+            <CheckBoxPreference
+              android:key="engagement:enabled"
+              android:defaultValue="true"
+              android:title="Use Engagement"
+              android:summaryOn="Engagement is enabled."
+              android:summaryOff="Engagement is disabled." />
 
 <!-- URLs. -->
 [Device API]: http://go.microsoft.com/?linkid=9876094
+

@@ -1,24 +1,24 @@
 <properties 
-	pageTitle="Add authentication to your universal Windows 8.1 app | Azure Mobile Services"
-	description="Learn how to use Mobile Services to authenticate users of your Windows Store app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." 
-	services="mobile-services" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="Add authentication to your universal Windows 8.1 app | Azure Mobile Services"
+    description="Learn how to use Mobile Services to authenticate users of your Windows Store app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." 
+    services="mobile-services" 
+    documentationCenter="windows" 
+    authors="ggailey777" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="11/22/2015" 
-	ms.author="glenga"/>
+    ms.service="mobile-services" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="mobile-windows-store" 
+    ms.devlang="dotnet" 
+    ms.topic="article" 
+    ms.date="11/22/2015" 
+    ms.author="glenga"/>
 
 # Add authentication to your universal Windows 8.1 app
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]		
+[AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]      
 
 This topic shows you how to authenticate users in Azure Mobile Services from your universal Windows 8.1 app. In this tutorial, you add authentication to the quickstart project using an identity provider that is supported by Mobile Services. After being successfully authenticated and authorized by Mobile Services, the user ID value is displayed.
 

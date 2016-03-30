@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Create a simple experiment in Machine Learning Studio | Microsoft Azure"
-	description="A first machine learning tutorial for creating a simple experiment to train and test a linear regression model in Azure Machine Learning Studio."
-	keywords="experiment,linear regression,machine learning algorithms,machine learning tutorial,predictive modeling techniques"
-	services="machine-learning"
-	documentationCenter=""
-	authors="garyericson"
-	manager="paulettm"
-	editor="cgronlun"/>
+    pageTitle="Create a simple experiment in Machine Learning Studio | Microsoft Azure"
+    description="A first machine learning tutorial for creating a simple experiment to train and test a linear regression model in Azure Machine Learning Studio."
+    keywords="experiment,linear regression,machine learning algorithms,machine learning tutorial,predictive modeling techniques"
+    services="machine-learning"
+    documentationCenter=""
+    authors="garyericson"
+    manager="paulettm"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="11/03/2015"
-	ms.author="garye"/>
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="hero-article"
+    ms.date="11/03/2015"
+    ms.author="garye"/>
 
 # Machine learning tutorial: Create your first experiment in Azure Machine Learning Studio
 
@@ -37,13 +37,13 @@ For more general information about Machine Learning Studio, see [What is Machine
 In this machine learning tutorial, you'll follow five basic steps to build an experiment in Machine Learning Studio in order to create, train, and score your model:
 
 - Create a model
-	- [Step 1: Get data]
-	- [Step 2: Preprocess data]
-	- [Step 3: Define features]
+    - [Step 1: Get data]
+    - [Step 2: Preprocess data]
+    - [Step 3: Define features]
 - Train the model
-	- [Step 4: Choose and apply a learning algorithm]
+    - [Step 4: Choose and apply a learning algorithm]
 - Score and test the model
-	- [Step 5: Predict new automobile prices]
+    - [Step 5: Predict new automobile prices]
 
 [Step 1: Get data]: #step-1-get-data
 [Step 2: Preprocess data]: #step-2-preprocess-data
@@ -61,11 +61,11 @@ This dataset includes entries for a number of individual automobiles, including 
 
 2. To the left of the experiment canvas is a palette of datasets and modules. Type **automobile** in the Search box at the top of this palette to find the dataset labeled **Automobile price data (Raw)**.
 
-	![Palette search][screen1a]
+    ![Palette search][screen1a]
 
 3. Drag the dataset to the experiment canvas.
 
-	![Dataset][screen1]
+    ![Dataset][screen1]
 
 To see what this data looks like, click the output port at the bottom of the automobile dataset, and then select **Visualize**. The variables in the dataset appear as columns, and each instance of an automobile appears as a row. The far-right column (column 26 and titled "price") is the target variable we're going to try to predict.
 
@@ -85,13 +85,13 @@ First we'll remove the **normalized-losses** column, and then we'll remove any r
 
 2. Select the [Project Columns][project-columns] module and click **Launch column selector** in the **Properties** pane.
 
-	- Make sure **All columns** is selected in the filter drop-down list, **Begin With**. This directs [Project Columns][project-columns] to pass through all the columns (except those we're about to exclude).
-	- In the next row, select **Exclude** and **column names**, and then click inside the text box. A list of columns is displayed. Select **normalized-losses**, and it will be added to the text box.
-	- Click the check mark (OK) button to close the column selector.
+    - Make sure **All columns** is selected in the filter drop-down list, **Begin With**. This directs [Project Columns][project-columns] to pass through all the columns (except those we're about to exclude).
+    - In the next row, select **Exclude** and **column names**, and then click inside the text box. A list of columns is displayed. Select **normalized-losses**, and it will be added to the text box.
+    - Click the check mark (OK) button to close the column selector.
 
     ![Select columns][screen3]
 
-	The properties pane for **Project Columns** indicates that it will pass through all columns from the dataset except **normalized-losses**.
+    The properties pane for **Project Columns** indicates that it will pass through all columns from the dataset except **normalized-losses**.
 
     ![Project Columns properties][screen4]
 
@@ -99,7 +99,7 @@ First we'll remove the **normalized-losses** column, and then we'll remove any r
 
 3. Drag the [Clean Missing Data][clean-missing-data] module to the experiment canvas and connect it to the [Project Columns][project-columns] module. In the **Properties** pane, select **Remove entire row** under **Cleaning mode** to clean the data by removing rows that have missing values. Double-click the module and type the comment "Remove missing value rows."
 
-	![Clean Missing Data properties][screen4a]
+    ![Clean Missing Data properties][screen4a]
 
 4. Run the experiment by clicking **RUN** under the experiment canvas.
 
@@ -117,7 +117,7 @@ In machine learning, *features* are individual measurable properties of somethin
 
 Let's build a model that uses a subset of the features in our dataset. You can come back and select different features, run the experiment again, and see if you get better results. As a first guess, we'll select the following features (columns) with the [Project Columns][project-columns] module. Note that for training the model, we need to include the *price* value that we're going to predict.
 
-	make, body-style, wheel-base, engine-size, horsepower, peak-rpm, highway-mpg, price
+    make, body-style, wheel-base, engine-size, horsepower, peak-rpm, highway-mpg, price
 
 1. Drag another [Project Columns][project-columns] module to the experiment canvas and connect it to the left output port of the [Clean Missing Data][clean-missing-data] module. Double-click the module and type "Select features for prediction."
 
@@ -125,7 +125,7 @@ Let's build a model that uses a subset of the features in our dataset. You can c
 
 3. In the column selector, select **No columns** for **Begin With**, and then select **Include** and **column names** in the filter row. Enter our list of column names. This directs the module to pass through only columns that we specify.
 
-	> [AZURE.TIP] Because we've run the experiment, the column definitions for our data have passed from the original dataset through the [Clean Missing Data][clean-missing-data] module. When you connect [Project Columns][project-columns] to [Clean Missing Data][clean-missing-data], the [Project Columns][project-columns] module becomes aware of the column definitions in our data. When you click the **column names** box, a list of columns is displayed, and you can select the columns that you want to add to the list.
+    > [AZURE.TIP] Because we've run the experiment, the column definitions for our data have passed from the original dataset through the [Clean Missing Data][clean-missing-data] module. When you connect [Project Columns][project-columns] to [Clean Missing Data][clean-missing-data], the [Project Columns][project-columns] module becomes aware of the column definitions in our data. When you click the **column names** box, a list of columns is displayed, and you can select the columns that you want to add to the list.
 
 4. Click the check mark (OK) button.
 
@@ -143,19 +143,19 @@ We want to predict the price of an automobile, which can be any value, so we'll 
 
 1. We can use our data for both training and testing by splitting it into separate training and testing sets. Select and drag the [Split Data][split] module to the experiment canvas and connect it to the output of the last [Project Columns][project-columns] module. Set **Fraction of rows in the first output dataset** to 0.75. This way, we'll use 75 percent of the data to train the model, and hold back 25 percent for testing.
 
-	> [AZURE.TIP] By changing the **Random seed** parameter, you can produce different random samples for training and testing. This parameter controls the seeding of the pseudo-random number generator.
+    > [AZURE.TIP] By changing the **Random seed** parameter, you can produce different random samples for training and testing. This parameter controls the seeding of the pseudo-random number generator.
 
 2. Run the experiment. This allows the [Project Columns][project-columns] and [Split Data][split] modules to pass column definitions to the modules we'll be adding next.  
 
 3. To select the learning algorithm, expand the **Machine Learning** category in the module palette to the left of the canvas, and then expand **Initialize Model**. This displays several categories of modules that can be used to initialize machine learning algorithms.
 
-	For this experiment, select the [Linear Regression][linear-regression] module under the **Regression** category (you can also find the module by typing "linear regression" in the palette Search box), and drag it to the experiment canvas.
+    For this experiment, select the [Linear Regression][linear-regression] module under the **Regression** category (you can also find the module by typing "linear regression" in the palette Search box), and drag it to the experiment canvas.
 
 4. Find and drag the [Train Model][train-model] module to the experiment canvas. Connect the left input port to the output of the [Linear Regression][linear-regression] module. Connect the right input port to the training data output (left port) of the [Split Data][split] module.
 
 5. Select the [Train Model][train-model] module, click **Launch column selector** in the **Properties** pane, and then select the **price** column. This is the value that our model is going to predict.
 
-	![Select "price" column][screen7]
+    ![Select "price" column][screen7]
 
 6. Run the experiment.
 
@@ -169,7 +169,7 @@ Now that we've trained the model using 75 percent of our data, we can use it to 
 
 1. Find and drag the [Score Model][score-model] module to the experiment canvas and connect the left input port to the output of the [Train Model][train-model] module. Connect the right input port to the test data output (right port) of the [Split Data][split] module.  
 
-	![Score Model module][screen8a]
+    ![Score Model module][screen8a]
 
 2. To run the experiment and view the output from the [Score Model][score-model] module, click the output port, and then select **Visualize**. The output shows the predicted values for price and the known values from the test data.  
 
@@ -234,3 +234,4 @@ For a more extensive and detailed walkthrough of predictive modeling techniques 
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
+

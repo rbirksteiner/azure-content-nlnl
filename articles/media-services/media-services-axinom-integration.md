@@ -1,20 +1,20 @@
-﻿<properties 
-	pageTitle="Using Axinom to deliver Widevine licenses to Azure Media Services" 
-	description="This article describes how you can use Azure Media Services (AMS) to deliver a stream that is dynamically encrypted by AMS with both PlayReady and Widevine DRMs. The PlayReady license comes from Media Services PlayReady license server and Widevine license is delivered by Axinom license server." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="willzhan,Mingfeiy,rajputam,Juliako" 
-	manager="dwrede" 
-	editor=""/>
+<properties 
+    pageTitle="Using Axinom to deliver Widevine licenses to Azure Media Services" 
+    description="This article describes how you can use Azure Media Services (AMS) to deliver a stream that is dynamically encrypted by AMS with both PlayReady and Widevine DRMs. The PlayReady license comes from Media Services PlayReady license server and Widevine license is delivered by Axinom license server." 
+    services="media-services" 
+    documentationCenter="" 
+    authors="willzhan,Mingfeiy,rajputam,Juliako" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/15/2015"  
-	ms.author="juliako"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/15/2015"  
+    ms.author="juliako"/>
 
 #Using Axinom to deliver Widevine licenses to Azure Media Services  
 
@@ -60,7 +60,7 @@ AMP v1.4.0 supports playback of AMS content that is dynamically packaged with bo
 If Widevine license server does not require token authentication, there is nothing additional you need to do to test a DASH content protected by Widevine. For an example, the AMP team provides a simple [sample](http://amp.azure.net/libs/amp/latest/samples/dynamic_multiDRM_PlayReadyWidevine_notoken.html), where you can see it working in Edge and IE11 with PlayReady and Chrome with Widevine.
 The Widevine license server provided by Axinom requires JWT token authentication. The JWT token needs to be submitted with license request through an HTTP header “X-AxDRM-Message”. For this purpose, you need to add the following javascript in the web page hosting AMP before setting the source:
 
-	<script>AzureHtml5JS.KeySystem.WidevineCustomAuthorizationHeader = "X-AxDRM-Message"</script>
+    <script>AzureHtml5JS.KeySystem.WidevineCustomAuthorizationHeader = "X-AxDRM-Message"</script>
 
 The rest of AMP code is standard AMP API as in AMP document [here](http://amp.azure.net/libs/amp/latest/docs/).
 
@@ -77,69 +77,69 @@ John Sheehan’s [JWT Nuget package](https://www.nuget.org/packages/JWT) meets t
 
 Below is the code for generating JWT token with the needed claims as required by Axinom Widevine license server for testing:
 
-	
-	using System;
-	using System.Collections.Generic;
-	using System.Linq;
-	using System.Web;
-	using System.IdentityModel.Tokens;
-	using System.IdentityModel.Protocols.WSTrust;
-	using System.Security.Claims;
-	
-	namespace OpenIdConnectWeb.Utils
-	{
-	    public class JwtUtils
-	    {
-	        //using John Sheehan's NuGet JWT library: https://www.nuget.org/packages/JWT/
-	        public static string CreateJwtSheehan(string symmetricKeyHex, string key_id)
-	        {
-	            byte[] symmetricKey = ConvertHexStringToByteArray(symmetricKeyHex);  //hex string to byte[] Note: Note that the key is a hex string, however it must be treated as a series of bytes not a string when encoding.
-	
-	            var payload = new Dictionary<string, object>()
-	                         {
-	                             { "version", 1 },
-	                             { "com_key_id", System.Configuration.ConfigurationManager.AppSettings["ax:com_key_id"] },
-	                             { "message", new { type = "entitlement_message", key_ids = new string[] { key_id } }  }
-	                         };
-	
-	            string token = JWT.JsonWebToken.Encode(payload, symmetricKey, JWT.JwtHashAlgorithm.HS256);
-	
-	            return token;
-	        }
-	
-	        //convert hex string to byte[]
-	        public static byte[] ConvertHexStringToByteArray(string hexString)
-	        {
-	            if (hexString.Length % 2 != 0)
-	            {
-	                throw new ArgumentException(String.Format(System.Globalization.CultureInfo.InvariantCulture, "The binary key cannot have an odd number of digits: {0}", hexString));
-	            }
-	
-	            byte[] HexAsBytes = new byte[hexString.Length / 2];
-	            for (int index = 0; index < HexAsBytes.Length; index++)
-	            {
-	                string byteValue = hexString.Substring(index * 2, 2);
-	                HexAsBytes[index] = byte.Parse(byteValue, System.Globalization.NumberStyles.HexNumber, System.Globalization.CultureInfo.InvariantCulture);
-	            }
-	
-	            return HexAsBytes;
-	        }
-	
-	    }  
-	
-	}  
+    
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Web;
+    using System.IdentityModel.Tokens;
+    using System.IdentityModel.Protocols.WSTrust;
+    using System.Security.Claims;
+    
+    namespace OpenIdConnectWeb.Utils
+    {
+        public class JwtUtils
+        {
+            //using John Sheehan's NuGet JWT library: https://www.nuget.org/packages/JWT/
+            public static string CreateJwtSheehan(string symmetricKeyHex, string key_id)
+            {
+                byte[] symmetricKey = ConvertHexStringToByteArray(symmetricKeyHex);  //hex string to byte[] Note: Note that the key is a hex string, however it must be treated as a series of bytes not a string when encoding.
+    
+                var payload = new Dictionary<string, object>()
+                             {
+                                 { "version", 1 },
+                                 { "com_key_id", System.Configuration.ConfigurationManager.AppSettings["ax:com_key_id"] },
+                                 { "message", new { type = "entitlement_message", key_ids = new string[] { key_id } }  }
+                             };
+    
+                string token = JWT.JsonWebToken.Encode(payload, symmetricKey, JWT.JwtHashAlgorithm.HS256);
+    
+                return token;
+            }
+    
+            //convert hex string to byte[]
+            public static byte[] ConvertHexStringToByteArray(string hexString)
+            {
+                if (hexString.Length % 2 != 0)
+                {
+                    throw new ArgumentException(String.Format(System.Globalization.CultureInfo.InvariantCulture, "The binary key cannot have an odd number of digits: {0}", hexString));
+                }
+    
+                byte[] HexAsBytes = new byte[hexString.Length / 2];
+                for (int index = 0; index < HexAsBytes.Length; index++)
+                {
+                    string byteValue = hexString.Substring(index * 2, 2);
+                    HexAsBytes[index] = byte.Parse(byteValue, System.Globalization.NumberStyles.HexNumber, System.Globalization.CultureInfo.InvariantCulture);
+                }
+    
+                return HexAsBytes;
+            }
+    
+        }  
+    
+    }  
 
 Axinom Widevine license server
 
-	<add key="ax:laurl" value="http://drm-widevine-licensing.axtest.net/AcquireLicense" />
-	<add key="ax:com_key_id" value="69e54088-e9e0-4530-8c1a-1eb6dcd0d14e" />
-	<add key="ax:com_key" value="4861292d027e269791093327e62ceefdbea489a4c7e5a4974cc904b840fd7c0f" />
-	<add key="ax:keyseed" value="8888000000000000000000000000000000000000" />
+    <add key="ax:laurl" value="http://drm-widevine-licensing.axtest.net/AcquireLicense" />
+    <add key="ax:com_key_id" value="69e54088-e9e0-4530-8c1a-1eb6dcd0d14e" />
+    <add key="ax:com_key" value="4861292d027e269791093327e62ceefdbea489a4c7e5a4974cc904b840fd7c0f" />
+    <add key="ax:keyseed" value="8888000000000000000000000000000000000000" />
 
 ###Considerations
 
-1.	Even though AMS PlayReady license delivery service requires “Bearer=” preceding an authentication token, Axinom Widevine license server does not use it.
-2.	The Axinom communication key is used as signing key. Note that the key is a hex string, however it must be treated as a series of bytes not a string when encoding. This is achieved by the method ConvertHexStringToByteArray.
+1.  Even though AMS PlayReady license delivery service requires “Bearer=” preceding an authentication token, Axinom Widevine license server does not use it.
+2.  The Axinom communication key is used as signing key. Note that the key is a hex string, however it must be treated as a series of bytes not a string when encoding. This is achieved by the method ConvertHexStringToByteArray.
 
 ##Retrieving Key ID
 
@@ -147,36 +147,36 @@ You may have noticed that in the code for generating a JWT token, key ID is requ
 
 Of course there are multiple ways to get hold of key ID. For example, one may store key ID together with content metadata in a database. Or you can retrieve key ID from DASH MPD (Media Presentation Description) file. The code below is for the latter.
 
-	//get key_id from DASH MPD
-	public static string GetKeyID(string dashUrl)
-	{
-	    if (!dashUrl.EndsWith("(format=mpd-time-csf)"))
-	    {
-	        dashUrl += "(format=mpd-time-csf)";
-	    }
-	
-	    XPathDocument objXPathDocument = new XPathDocument(dashUrl);
-	    XPathNavigator objXPathNavigator = objXPathDocument.CreateNavigator();
-	    XmlNamespaceManager objXmlNamespaceManager = new XmlNamespaceManager(objXPathNavigator.NameTable);
-	    objXmlNamespaceManager.AddNamespace("",     "urn:mpeg:dash:schema:mpd:2011");
-	    objXmlNamespaceManager.AddNamespace("ns1",  "urn:mpeg:dash:schema:mpd:2011");
-	    objXmlNamespaceManager.AddNamespace("cenc", "urn:mpeg:cenc:2013");
-	    objXmlNamespaceManager.AddNamespace("ms",   "urn:microsoft");
-	    objXmlNamespaceManager.AddNamespace("mspr", "urn:microsoft:playready");
-	    objXmlNamespaceManager.AddNamespace("xsi",  "http://www.w3.org/2001/XMLSchema-instance");
-	    objXmlNamespaceManager.PushScope();
-	
-	    XPathNodeIterator objXPathNodeIterator;
-	    objXPathNodeIterator = objXPathNavigator.Select("//ns1:MPD/ns1:Period/ns1:AdaptationSet/ns1:ContentProtection[@value='cenc']", objXmlNamespaceManager);
-	
-	    string key_id = string.Empty;
-	    if (objXPathNodeIterator.MoveNext())
-	    {
-	        key_id = objXPathNodeIterator.Current.GetAttribute("default_KID", "urn:mpeg:cenc:2013");
-	    }
-	
-	    return key_id;
-	}
+    //get key_id from DASH MPD
+    public static string GetKeyID(string dashUrl)
+    {
+        if (!dashUrl.EndsWith("(format=mpd-time-csf)"))
+        {
+            dashUrl += "(format=mpd-time-csf)";
+        }
+    
+        XPathDocument objXPathDocument = new XPathDocument(dashUrl);
+        XPathNavigator objXPathNavigator = objXPathDocument.CreateNavigator();
+        XmlNamespaceManager objXmlNamespaceManager = new XmlNamespaceManager(objXPathNavigator.NameTable);
+        objXmlNamespaceManager.AddNamespace("",     "urn:mpeg:dash:schema:mpd:2011");
+        objXmlNamespaceManager.AddNamespace("ns1",  "urn:mpeg:dash:schema:mpd:2011");
+        objXmlNamespaceManager.AddNamespace("cenc", "urn:mpeg:cenc:2013");
+        objXmlNamespaceManager.AddNamespace("ms",   "urn:microsoft");
+        objXmlNamespaceManager.AddNamespace("mspr", "urn:microsoft:playready");
+        objXmlNamespaceManager.AddNamespace("xsi",  "http://www.w3.org/2001/XMLSchema-instance");
+        objXmlNamespaceManager.PushScope();
+    
+        XPathNodeIterator objXPathNodeIterator;
+        objXPathNodeIterator = objXPathNavigator.Select("//ns1:MPD/ns1:Period/ns1:AdaptationSet/ns1:ContentProtection[@value='cenc']", objXmlNamespaceManager);
+    
+        string key_id = string.Empty;
+        if (objXPathNodeIterator.MoveNext())
+        {
+            key_id = objXPathNodeIterator.Current.GetAttribute("default_KID", "urn:mpeg:cenc:2013");
+        }
+    
+        return key_id;
+    }
 
 ##Summary
 
@@ -210,3 +210,4 @@ Content Key ID|Must be included as part of the value of Entitlement Message clai
 ###Acknowledgments 
 
 We would like to acknowledge the following people who contributed towards creating this document: Kristjan Jõgi of Axinom, Mingfei Yan, and Amit Rajput.
+

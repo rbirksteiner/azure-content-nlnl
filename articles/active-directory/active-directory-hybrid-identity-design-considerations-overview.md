@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure Active Directory hybrid identity design considerations - overview | Microsoft Azure"
-	description="Overview and content map of Hybrid Identity design considerations guide"
-	documentationCenter=""
-	services="active-directory"
-	authors="yuridio"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Azure Active Directory hybrid identity design considerations - overview | Microsoft Azure"
+    description="Overview and content map of Hybrid Identity design considerations guide"
+    documentationCenter=""
+    services="active-directory"
+    authors="yuridio"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="12/07/2015"
-	ms.author="yuridio"/>
+    ms.date="12/07/2015"
+    ms.author="yuridio"/>
 
 # Azure Active Directory Hybrid Identity Design Considerations
 

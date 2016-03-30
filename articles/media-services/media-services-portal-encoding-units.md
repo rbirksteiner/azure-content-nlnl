@@ -1,20 +1,20 @@
 <properties
-	pageTitle="How to Scale Media Processing using the Azure Classic Portal"
-	description="Learn how to scale Media Services by specifying the number of On-Demand Streaming Reserved Units and Encoding Reserved Units that you would like your account to be provisioned with."
-	services="media-services"
-	documentationCenter=""
-	authors="juliako,milangada"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="How to Scale Media Processing using the Azure Classic Portal"
+    description="Learn how to scale Media Services by specifying the number of On-Demand Streaming Reserved Units and Encoding Reserved Units that you would like your account to be provisioned with."
+    services="media-services"
+    documentationCenter=""
+    authors="juliako,milangada"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/15/2015"
-	ms.author="juliako"/>
+    ms.service="media-services"
+    ms.workload="media"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/15/2015"
+    ms.author="juliako"/>
 
 
 # How to Scale Media Processing using the Azure Classic Portal
@@ -40,21 +40,21 @@ To change the reserved unit type and the number of encoding reserved units, do t
 
 2. Select the **ENCODING** page.
 
-	To change the **RESERVED UNIT TYPE**, press BASIC, STANDARD, or PREMIUM.
+    To change the **RESERVED UNIT TYPE**, press BASIC, STANDARD, or PREMIUM.
 
-	To change the number of reserved units for the selected reserved unit type, use the **ENCODING** slider.
-
-
-	![Processors page](./media/media-services-portal-encoding-units/media-services-encoding-scale.png)
+    To change the number of reserved units for the selected reserved unit type, use the **ENCODING** slider.
 
 
-	>[AZURE.NOTE] The following data centers do not offer the Premium reserved unit type: Singapore, Hong Kong, Osaka, Beijing, Shanghai.
+    ![Processors page](./media/media-services-portal-encoding-units/media-services-encoding-scale.png)
+
+
+    >[AZURE.NOTE] The following data centers do not offer the Premium reserved unit type: Singapore, Hong Kong, Osaka, Beijing, Shanghai.
 
 3. Press the SAVE button to save your changes.
 
-	The new encoding reserved units are allocated as soon as you press SAVE.
+    The new encoding reserved units are allocated as soon as you press SAVE.
 
-	>[AZURE.NOTE] The highest number of units specified for the 24-hour period is used in calculating the cost.
+    >[AZURE.NOTE] The highest number of units specified for the 24-hour period is used in calculating the cost.
 
 ##Quotas and limitations
 
@@ -69,3 +69,4 @@ For information about quotas and limitations and how to open a support ticket, s
 ##Provide feedback
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Move data from Oracle | Azure Data Factory" 
-	description="Learn how to move data to/from Oracle database that is on-premises using Azure Data Factory." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
-	editor="monicar"/>
+    pageTitle="Move data from Oracle | Azure Data Factory" 
+    description="Learn how to move data to/from Oracle database that is on-premises using Azure Data Factory." 
+    services="data-factory" 
+    documentationCenter="" 
+    authors="spelluru" 
+    manager="jhubbard" 
+    editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/12/2015" 
-	ms.author="spelluru"/>
+    ms.service="data-factory" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/12/2015" 
+    ms.author="spelluru"/>
 
 # Move data from on-premises Oracle using Azure Data Factory 
 
@@ -31,38 +31,38 @@ For the Azure Data Factory service to be able to connect to your on-premises Ora
 
 The sample below shows:
 
-1.	A linked service of type [OnPremisesOracle](data-factory-onprem-oracle-connector.md#oracle-linked-service-properties).
-2.	A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
-3.	An input [dataset](data-factory-create-datasets.md) of type [OracleTable](data-factory-onprem-oracle-connector.md#oracle-dataset-type-properties). 
-4.	An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-5.	A [pipeline](data-factory-create-pipelines.md) with Copy activity that uses [OracleSource](data-factory-onprem-oracle-connector.md#oracle-copy-activity-type-properties) as source and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) as sink.
+1.  A linked service of type [OnPremisesOracle](data-factory-onprem-oracle-connector.md#oracle-linked-service-properties).
+2.  A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+3.  An input [dataset](data-factory-create-datasets.md) of type [OracleTable](data-factory-onprem-oracle-connector.md#oracle-dataset-type-properties). 
+4.  An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+5.  A [pipeline](data-factory-create-pipelines.md) with Copy activity that uses [OracleSource](data-factory-onprem-oracle-connector.md#oracle-copy-activity-type-properties) as source and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) as sink.
 
 The sample copies data from a table in an on-premises Oracle database to a blob every hour. For more information on various properties used in the sample below please refer to documentation on different properties in the sections following the samples.
 
 **Oracle linked service:**
 
-	{
-	  "name": "OnPremisesOracleLinkedService",
-	  "properties": {
-	    "type": "OnPremisesOracle",
-	    "typeProperties": {
-	      "ConnectionString": "data source=<data source>;User Id=<User Id>;Password=<Password>;",
-	      "gatewayName": "<gateway name>"
-	    }
-	  }
-	}
+    {
+      "name": "OnPremisesOracleLinkedService",
+      "properties": {
+        "type": "OnPremisesOracle",
+        "typeProperties": {
+          "ConnectionString": "data source=<data source>;User Id=<User Id>;Password=<Password>;",
+          "gatewayName": "<gateway name>"
+        }
+      }
+    }
 
 **Azure Blob storage linked service:**
 
-	{
-	  "name": "StorageLinkedService",
-	  "properties": {
-	    "type": "AzureStorage",
-	    "typeProperties": {
-	      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<Account key>"
-	    }
-	  }
-	}
+    {
+      "name": "StorageLinkedService",
+      "properties": {
+        "type": "AzureStorage",
+        "typeProperties": {
+          "connectionString": "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<Account key>"
+        }
+      }
+    }
 
 **Oracle input dataset:**
 
@@ -70,140 +70,140 @@ The sample assumes you have created a table “MyTable” in Oracle and it conta
 
 Setting “external”: ”true” and specifying externalData policy tells data factory that this is a table that is external to the data factory and not produced by an activity in the data factory.
 
-	{
-	    "name": "OracleInput",
-	    "properties": {
-	        "type": "OracleTable",
-	        "linkedServiceName": "OnPremisesOracleLinkedService",
-	        "typeProperties": {
-	            "tableName": "MyTable"
-	        },
-	           "external": true,
-	        "availability": {
-	            "offset": "01:00:00",
-	            "interval": "1",
-	            "anchorDateTime": "2014-02-27T12:00:00",
-	            "frequency": "Hour"
-	        },
-	      "policy": {     
-	           "externalData": {        
-	                "retryInterval": "00:01:00",    
-	                "retryTimeout": "00:10:00",       
-	                "maximumRetry": 3       
-	            }     
-	          }
-	    }
-	}
+    {
+        "name": "OracleInput",
+        "properties": {
+            "type": "OracleTable",
+            "linkedServiceName": "OnPremisesOracleLinkedService",
+            "typeProperties": {
+                "tableName": "MyTable"
+            },
+               "external": true,
+            "availability": {
+                "offset": "01:00:00",
+                "interval": "1",
+                "anchorDateTime": "2014-02-27T12:00:00",
+                "frequency": "Hour"
+            },
+          "policy": {     
+               "externalData": {        
+                    "retryInterval": "00:01:00",    
+                    "retryTimeout": "00:10:00",       
+                    "maximumRetry": 3       
+                }     
+              }
+        }
+    }
 
 
 **Azure Blob output dataset:**
 
 Data is written to a new blob every hour (frequency: hour, interval: 1). The folder path and file name for the blob are dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, day, and hours parts of the start time.
-	
-	{
-	  "name": "AzureBlobOutput",
-	  "properties": {
-	    "type": "AzureBlob",
-	    "linkedServiceName": "StorageLinkedService",
-	    "typeProperties": {
-	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
-	      "partitionedBy": [
-	        {
-	          "name": "Year",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "yyyy"
-	          }
-	        },
-	        {
-	          "name": "Month",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "%M"
-	          }
-	        },
-	        {
-	          "name": "Day",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "%d"
-	          }
-	        },
-	        {
-	          "name": "Hour",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "%H"
-	          }
-	        }
-	      ],
-	      "format": {
-	        "type": "TextFormat",
-	        "columnDelimiter": "\t",
-	        "rowDelimiter": "\n"
-	      }
-	    },
-	    "availability": {
-	      "frequency": "Hour",
-	      "interval": 1
-	    }
-	  }
-	}
+    
+    {
+      "name": "AzureBlobOutput",
+      "properties": {
+        "type": "AzureBlob",
+        "linkedServiceName": "StorageLinkedService",
+        "typeProperties": {
+          "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
+          "partitionedBy": [
+            {
+              "name": "Year",
+              "value": {
+                "type": "DateTime",
+                "date": "SliceStart",
+                "format": "yyyy"
+              }
+            },
+            {
+              "name": "Month",
+              "value": {
+                "type": "DateTime",
+                "date": "SliceStart",
+                "format": "%M"
+              }
+            },
+            {
+              "name": "Day",
+              "value": {
+                "type": "DateTime",
+                "date": "SliceStart",
+                "format": "%d"
+              }
+            },
+            {
+              "name": "Hour",
+              "value": {
+                "type": "DateTime",
+                "date": "SliceStart",
+                "format": "%H"
+              }
+            }
+          ],
+          "format": {
+            "type": "TextFormat",
+            "columnDelimiter": "\t",
+            "rowDelimiter": "\n"
+          }
+        },
+        "availability": {
+          "frequency": "Hour",
+          "interval": 1
+        }
+      }
+    }
 
 
 **Pipeline with Copy activity:**
 
 The pipeline contains a Copy Activity that is configured to use the above input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **RelationalSource** and **sink** type is set to **BlobSink**.  The SQL query specified with **oracleReaderQuery** property selects the data in the past hour to copy.
 
-	
-	{  
-	    "name":"SamplePipeline",
-	    "properties":{  
-	    "start":"2014-06-01T18:00:00",
-	    "end":"2014-06-01T19:00:00",
-	    "description":"pipeline for copy activity",
-	    "activities":[  
-	      {
-	        "name": "AzureSQLtoBlob",
-	        "description": "copy activity",
-	        "type": "Copy",
-	        "inputs": [
-	          {
-	            "name": " OracleInput"
-	          }
-	        ],
-	        "outputs": [
-	          {
-	            "name": "AzureBlobOutput"
-	          }
-	        ],
-	        "typeProperties": {
-	          "source": {
-	            "type": "OracleSource",
-	            "oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
-	          },
-	          "sink": {
-	            "type": "BlobSink"
-	          }
-	        },
-	       "scheduler": {
-	          "frequency": "Hour",
-	          "interval": 1
-	        },
-	        "policy": {
-	          "concurrency": 1,
-	          "executionPriorityOrder": "OldestFirst",
-	          "retry": 0,
-	          "timeout": "01:00:00"
-	        }
-	      }
-	     ]
-	   }
-	}
+    
+    {  
+        "name":"SamplePipeline",
+        "properties":{  
+        "start":"2014-06-01T18:00:00",
+        "end":"2014-06-01T19:00:00",
+        "description":"pipeline for copy activity",
+        "activities":[  
+          {
+            "name": "AzureSQLtoBlob",
+            "description": "copy activity",
+            "type": "Copy",
+            "inputs": [
+              {
+                "name": " OracleInput"
+              }
+            ],
+            "outputs": [
+              {
+                "name": "AzureBlobOutput"
+              }
+            ],
+            "typeProperties": {
+              "source": {
+                "type": "OracleSource",
+                "oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
+              },
+              "sink": {
+                "type": "BlobSink"
+              }
+            },
+           "scheduler": {
+              "frequency": "Hour",
+              "interval": 1
+            },
+            "policy": {
+              "concurrency": 1,
+              "executionPriorityOrder": "OldestFirst",
+              "retry": 0,
+              "timeout": "01:00:00"
+            }
+          }
+         ]
+       }
+    }
 
 ## Oracle Linked Service properties
 
@@ -292,15 +292,16 @@ You see the following **error message**: Copy activity met invalid parameters: '
 
 1. If you haven't installed the .NET Provider for Oracle, please [install it](http://www.oracle.com/technetwork/topics/dotnet/utilsoft-086879.html) and retry the scenario. 
 2. If you get the error message even after installing the provider, do the following: 
-	1. Open machine config of .NET 2.0 from the folder: <system disk>:\Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config.
-	2. Search for **Oracle Data Provider for .NET**, and you should be able to find an entry like below under **system.data** -> **DbProviderFactories**:
-			“<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />”
-2.	Copy this entry to the machine.config file in the following v4.0 folder: <system disk>:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config, and change the version to 4.xxx.x.x.
-3.	Install “<ODP.NET Installed Path>\11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll” into the global assembly cache (GAC) by running “gacutil /i [provider path]”.
+    1. Open machine config of .NET 2.0 from the folder: <system disk>:\Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config.
+    2. Search for **Oracle Data Provider for .NET**, and you should be able to find an entry like below under **system.data** -> **DbProviderFactories**:
+            “, Culture=neutral, PublicKeyT for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />”
+2.  Copy this entry to the machine.config file in the following v4.0 folder: <system disk>:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config, and change the version to 4.xxx.x.x.
+3.  Install “<ODP.NET Installed Path>\11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll” into the global assembly cache (GAC) by running “gacutil /i [provider path]”.
 
 
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
+
 
 
 

@@ -26,15 +26,15 @@ Service Fabric provides security for the following scenarios:
 
 1. **Node-to-Node Security**  or  Securing a cluster for node to node communication.Secures the communication between the VMs/computers in the cluster. This ensures only computers that are authorized to join the cluster can participate in hosting application and services in the cluster
 
-	![Node-to-Node][Node-to-Node]
+    ![Node-to-Node][Node-to-Node]
 
 2. **Client-to-Node Security** or Security a fabric client communicating with a particular node in the cluster. Authenticates and secures client communications, which ensures that only authorized users are able to access the cluster and applications deployed on Windows Fabric cluster. Clients are uniquely identified through either their Windows Security credentials or their certificate security credentials.
 
-	![Client-to-Node][Client-to-Node]
+    ![Client-to-Node][Client-to-Node]
 
-	For either type of communication scenarios (Node to Node or Client to Node), Service Fabric provides support for using either [Certificate Security](https://msdn.microsoft.com/library/ff649801.aspx) or [Windows Security](https://msdn.microsoft.com/library/ff649396.aspx). The choices for node-to-node or client-to-node security are independent, from each other, and could be the same or different for each.
+    For either type of communication scenarios (Node to Node or Client to Node), Service Fabric provides support for using either [Certificate Security](https://msdn.microsoft.com/library/ff649801.aspx) or [Windows Security](https://msdn.microsoft.com/library/ff649396.aspx). The choices for node-to-node or client-to-node security are independent, from each other, and could be the same or different for each.
 
-	In Azure Service Fabric uses X509 Server certificates that you specify as a part of the Node Type configurations when you create a cluster. For a quick overview what these certificates are and how you can acquire/create them, please scroll down to the bottom of this page.
+    In Azure Service Fabric uses X509 Server certificates that you specify as a part of the Node Type configurations when you create a cluster. For a quick overview what these certificates are and how you can acquire/create them, please scroll down to the bottom of this page.
 
 3. **Role Based Access Control (RBAC)** : Ability to restrict the admin operations from the read only operations on the cluster to a set of certificates. 
 
@@ -251,3 +251,4 @@ All management operations on Service Fabric cluster require Server certificates.
 [SecurityConfigurations_02]: ./media/service-fabric-cluster-security/SecurityConfigurations_02.png
 [Node-to-Node]: ./media/service-fabric-cluster-security/node-to-node.png
 [Client-to-Node]: ./media/service-fabric-cluster-security/client-to-node.png
+

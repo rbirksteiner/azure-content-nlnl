@@ -1,22 +1,22 @@
 <properties 
-	pageTitle="How to add data inputs to your Stream Analytics jobs | Microsoft Azure" 
-	description="Adding Inputs to Stream Analytics jobs | learning path segment."
-	keywords="data input, streaming data"
-	documentationCenter=""
-	services="stream-analytics"
-	authors="jeffstokes72" 
-	manager="paulettm" 
-	editor="cgronlun"
+    pageTitle="How to add data inputs to your Stream Analytics jobs | Microsoft Azure" 
+    description="Adding Inputs to Stream Analytics jobs | learning path segment."
+    keywords="data input, streaming data"
+    documentationCenter=""
+    services="stream-analytics"
+    authors="jeffstokes72" 
+    manager="paulettm" 
+    editor="cgronlun"
 />
 
 <tags 
-	ms.service="stream-analytics" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="data-services" 
-	ms.date="12/04/2015" 
-	ms.author="jeffstok"
+    ms.service="stream-analytics" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="data-services" 
+    ms.date="12/04/2015" 
+    ms.author="jeffstok"
 />
 
 
@@ -58,8 +58,8 @@ To add an input to your Stream Analytics job:
     ![Add event hub data input](./media/stream-analytics-add-inputs/4-stream-analytics-add-inputs.png)  
 
 5. Specify the serialization settings for the input data:
-	- To make sure your queries work the way you expect, specify the **Event Serialization Format** of incoming data.  Supported serialization formats are JSON, CSV, and Avro.
-	- Verify the **Encoding** for the data.  UTF-8 is the only supported encoding format at this time.
+    - To make sure your queries work the way you expect, specify the **Event Serialization Format** of incoming data.  Supported serialization formats are JSON, CSV, and Avro.
+    - Verify the **Encoding** for the data.  UTF-8 is the only supported encoding format at this time.
 
     ![Data serialization settings for the data input](./media/stream-analytics-add-inputs/5-stream-analytics-add-inputs.png)  
 

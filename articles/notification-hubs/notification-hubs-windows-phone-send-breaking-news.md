@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Use Notification Hubs to send breaking news (Windows Phone)"
-	description="Use  Azure Notification Hubs to use tag in registrations to send breaking news to a Windows Phone app."
-	services="notification-hubs"
-	documentationCenter="windows"
-	authors="wesmc7777"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Use Notification Hubs to send breaking news (Windows Phone)"
+    description="Use  Azure Notification Hubs to use tag in registrations to send breaking news to a Windows Phone app."
+    services="notification-hubs"
+    documentationCenter="windows"
+    authors="wesmc7777"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="notification-hubs"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-windows-phone"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="12/15/2015" 
-	ms.author="wesmc"/>
+    ms.service="notification-hubs"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-windows-phone"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="12/15/2015" 
+    ms.author="wesmc"/>
 
 # Use Notification Hubs to send breaking news
 
@@ -64,10 +64,10 @@ The first step is to add the UI elements to your existing main page that enable 
 
 2. In the project, create a new class named **Notifications**, add the **public** modifier to the class definition, then add the following **using** statements to the new code file:
 
-		using Microsoft.Phone.Notification;
-		using Microsoft.WindowsAzure.Messaging;
-		using System.IO.IsolatedStorage;
-		using System.Windows;
+        using Microsoft.Phone.Notification;
+        using Microsoft.WindowsAzure.Messaging;
+        using System.IO.IsolatedStorage;
+        using System.Windows;
 
 3. Copy the following code into the new **Notifications** class:
 
@@ -117,12 +117,12 @@ The first step is to add the UI elements to your existing main page that enable 
                 channel.BindToShellToast();
                 channel.ChannelUriUpdated += channel_ChannelUriUpdated;
 
-				// This is optional, used to receive notifications while the app is running.
+                // This is optional, used to receive notifications while the app is running.
                 channel.ShellToastNotificationReceived += channel_ShellToastNotificationReceived;
             }
 
             // If channel.ChannelUri is not null, we will complete the registrationTask here.  
-			// If it is null, the registrationTask will be completed in the ChannelUriUpdated event handler.
+            // If it is null, the registrationTask will be completed in the ChannelUriUpdated event handler.
             if (channel.ChannelUri != null)
             {
                 await RegisterTemplate(channel.ChannelUri);
@@ -148,15 +148,15 @@ The first step is to add the UI elements to your existing main page that enable 
                                                 "</wp:Toast>" +
                                             "</wp:Notification>";
 
-			// The stored categories tags are passed with the template registration.
+            // The stored categories tags are passed with the template registration.
 
             registrationTask.SetResult(await hub.RegisterTemplateAsync(channelUri.ToString(), 
-				templateBodyMPNS, "simpleMPNSTemplateExample", this.RetrieveCategories()));
+                templateBodyMPNS, "simpleMPNSTemplateExample", this.RetrieveCategories()));
 
             return await registrationTask.Task;
         }
 
-		// This is optional. It is used to receive notifications while the app is running.
+        // This is optional. It is used to receive notifications while the app is running.
         void channel_ShellToastNotificationReceived(object sender, NotificationEventArgs e)
         {
             StringBuilder message = new StringBuilder();
@@ -192,33 +192,33 @@ The first step is to add the UI elements to your existing main page that enable 
 
 4. In the App.xaml.cs project file, add the following property to the **App** class. Replace the `<hub name>` and `<connection string with listen access>` placeholders with your notification hub name and the connection string for *DefaultListenSharedAccessSignature* that you obtained earlier.
 
-		public Notifications notifications = new Notifications("<hub name>", "<connection string with listen access>");
+        public Notifications notifications = new Notifications("<hub name>", "<connection string with listen access>");
 
-	> [AZURE.NOTE] Because credentials that are distributed with a client app are not generally secure, you should only distribute the key for listen access with your client app. Listen access enables your app to register for notifications, but existing registrations cannot be modified and notifications cannot be sent. The full access key is used in a secured backend service for sending notifications and changing existing registrations.
+    > [AZURE.NOTE] Because credentials that are distributed with a client app are not generally secure, you should only distribute the key for listen access with your client app. Listen access enables your app to register for notifications, but existing registrations cannot be modified and notifications cannot be sent. The full access key is used in a secured backend service for sending notifications and changing existing registrations.
 
 5. In your MainPage.xaml.cs, add the following line:
 
-		using Windows.UI.Popups;
+        using Windows.UI.Popups;
 
 6. In the MainPage.xaml.cs project file, add the following method:
 
-		private async void SubscribeButton_Click(object sender, RoutedEventArgs e)
-		{
-		  var categories = new HashSet<string>();
-		  if (WorldCheckBox.IsChecked == true) categories.Add("World");
-		  if (PoliticsCheckBox.IsChecked == true) categories.Add("Politics");
-		  if (BusinessCheckBox.IsChecked == true) categories.Add("Business");
-		  if (TechnologyCheckBox.IsChecked == true) categories.Add("Technology");
-		  if (ScienceCheckBox.IsChecked == true) categories.Add("Science");
-		  if (SportsCheckBox.IsChecked == true) categories.Add("Sports");
-	
-		  var result = await ((App)Application.Current).notifications.StoreCategoriesAndSubscribe(categories);
-	
-		  MessageBox.Show("Subscribed to: " + string.Join(",", categories) + " on registration id : " +
-			 result.RegistrationId);
-		}
+        private async void SubscribeButton_Click(object sender, RoutedEventArgs e)
+        {
+          var categories = new HashSet<string>();
+          if (WorldCheckBox.IsChecked == true) categories.Add("World");
+          if (PoliticsCheckBox.IsChecked == true) categories.Add("Politics");
+          if (BusinessCheckBox.IsChecked == true) categories.Add("Business");
+          if (TechnologyCheckBox.IsChecked == true) categories.Add("Technology");
+          if (ScienceCheckBox.IsChecked == true) categories.Add("Science");
+          if (SportsCheckBox.IsChecked == true) categories.Add("Sports");
+    
+          var result = await ((App)Application.Current).notifications.StoreCategoriesAndSubscribe(categories);
+    
+          MessageBox.Show("Subscribed to: " + string.Join(",", categories) + " on registration id : " +
+             result.RegistrationId);
+        }
 
-	This method creates a list of categories and uses the **Notifications** class to store the list in the local storage and register the corresponding tags with your notification hub. When categories are changed, the registration is recreated with the new categories.
+    This method creates a list of categories and uses the **Notifications** class to store the list in the local storage and register the corresponding tags with your notification hub. When categories are changed, the registration is recreated with the new categories.
 
 Your app is now able to store a set of categories in local storage on the device and register with the notification hub whenever the user changes the selection of categories.
 
@@ -242,23 +242,23 @@ These steps register with the notification hub on startup using the categories t
                 });
         }
 
-	This makes sure that every time the app starts it retrieves the categories from local storage and requests a registration for these categories.
+    This makes sure that every time the app starts it retrieves the categories from local storage and requests a registration for these categories.
 
 2. In the MainPage.xaml.cs project file, add the following code that implements the **OnNavigatedTo** method:
 
-		protected override void OnNavigatedTo(NavigationEventArgs e)
-		{
-		    var categories = ((App)Application.Current).notifications.RetrieveCategories();
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            var categories = ((App)Application.Current).notifications.RetrieveCategories();
 
-		    if (categories.Contains("World")) WorldCheckBox.IsChecked = true;
-		    if (categories.Contains("Politics")) PoliticsCheckBox.IsChecked = true;
-		    if (categories.Contains("Business")) BusinessCheckBox.IsChecked = true;
-		    if (categories.Contains("Technology")) TechnologyCheckBox.IsChecked = true;
-		    if (categories.Contains("Science")) ScienceCheckBox.IsChecked = true;
-		    if (categories.Contains("Sports")) SportsCheckBox.IsChecked = true;
-		}
+            if (categories.Contains("World")) WorldCheckBox.IsChecked = true;
+            if (categories.Contains("Politics")) PoliticsCheckBox.IsChecked = true;
+            if (categories.Contains("Business")) BusinessCheckBox.IsChecked = true;
+            if (categories.Contains("Technology")) TechnologyCheckBox.IsChecked = true;
+            if (categories.Contains("Science")) ScienceCheckBox.IsChecked = true;
+            if (categories.Contains("Sports")) SportsCheckBox.IsChecked = true;
+        }
 
-	This updates the main page based on the status of previously saved categories.
+    This updates the main page based on the status of previously saved categories.
 
 The app is now complete and can store a set of categories in the device local storage used to register with the notification hub whenever the user changes the selection of categories. Next, we will define a backend that can send category notifications to this app.
 
@@ -270,19 +270,19 @@ The app is now complete and can store a set of categories in the device local st
 
 1. In Visual Studio, press F5 to compile and start the app.
 
-	![][1]
+    ![][1]
 
-	Note that the app UI provides a set of toggles that lets you choose the categories to subscribe to.
+    Note that the app UI provides a set of toggles that lets you choose the categories to subscribe to.
 
 2. Enable one or more categories toggles, then click **Subscribe**.
 
-	The app converts the selected categories into tags and requests a new device registration for the selected tags from the notification hub. The registered categories are returned and displayed in a dialog.
+    The app converts the selected categories into tags and requests a new device registration for the selected tags from the notification hub. The registered categories are returned and displayed in a dialog.
 
-	![][2]
+    ![][2]
 
 3. After receiving a confirmation that your categories were subscription completed, run the console app to send notifications for each categories. Verify you only receive a notification for the categories you have subscribed to.
 
-	![][3]
+    ![][3]
 
 You have completed this topic.
 
@@ -292,11 +292,11 @@ In this tutorial we learned how to broadcast breaking news by category. Consider
 
 + [Use Notification Hubs to broadcast localized breaking news]
 
-	Learn how to expand the breaking news app to enable sending localized notifications.
+    Learn how to expand the breaking news app to enable sending localized notifications.
 
 + [Notify users with Notification Hubs]
 
-	Learn how to push notifications to specific authenticated users. This is a good solution for sending notifications only to specific users.
+    Learn how to push notifications to specific authenticated users. This is a good solution for sending notifications only to specific users.
 -->
 
 <!-- Anchors. -->
@@ -320,4 +320,5 @@ In this tutorial we learned how to broadcast breaking news by category. Consider
 [Mobile Service]: /develop/mobile/tutorials/get-started
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for Windows Phone]: ??
+
 

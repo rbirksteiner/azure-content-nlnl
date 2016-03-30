@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Deploy a web app that is linked to a GitHub repository" 
-	description="Use an Azure Resource Manager template to deploy a web app that contains a project from a GitHub repository." 
-	services="app-service" 
-	documentationCenter="" 
-	authors="tfitzmac" 
-	manager="wpickett" 
-	editor="jimbe"/>
+    pageTitle="Deploy a web app that is linked to a GitHub repository" 
+    description="Use an Azure Resource Manager template to deploy a web app that contains a project from a GitHub repository." 
+    services="app-service" 
+    documentationCenter="" 
+    authors="tfitzmac" 
+    manager="wpickett" 
+    editor="jimbe"/>
 
 <tags 
-	ms.service="app-service" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/16/2015" 
-	ms.author="tomfitz"/>
+    ms.service="app-service" 
+    ms.workload="na" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/16/2015" 
+    ms.author="tomfitz"/>
 
 # Deploy a web app linked to a GitHub repository
 
@@ -116,3 +116,4 @@ Instead of hard-coding the repository URL, you can add a parameter for the repos
 
 
  
+

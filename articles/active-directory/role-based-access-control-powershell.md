@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Managing Role-Based Access Control with Windows PowerShell"
-	description="Managing role-based access control with Windows PowerShell"
-	services="active-directory"
-	documentationCenter="na"
-	authors="IHenkel"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Managing Role-Based Access Control with Windows PowerShell"
+    description="Managing role-based access control with Windows PowerShell"
+    services="active-directory"
+    documentationCenter="na"
+    authors="IHenkel"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="powershell"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/06/2015"
-	ms.author="inhenk"/>
+    ms.service="active-directory"
+    ms.workload="multiple"
+    ms.tgt_pltfrm="powershell"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/06/2015"
+    ms.author="inhenk"/>
 
 # Managing Role-Based Access Control with Windows PowerShell #
 
@@ -41,11 +41,11 @@ This tutorial is designed for Windows PowerShell beginners, but it assumes that 
 
 To get detailed help for any cmdlet that you see in this tutorial, use the Get-Help cmdlet.
 
-	Get-Help <cmdlet-name> -Detailed
+    Get-Help <cmdlet-name> -Detailed
 
 For example, to get help for the Add-AzureAccount cmdlet, type:
 
-	Get-Help Add-AzureAccount -Detailed
+    Get-Help Add-AzureAccount -Detailed
 
 Please also read the following tutorials to get familiar with set up and using Azure Resource Manager in Windows PowerShell:
 
@@ -105,9 +105,9 @@ To create a role assignment, you need to think about:
 Who you want to assign the role to: you can use the following Azure active directory cmdlets to see what users, groups and service principals you have in your AD tenant.
 
     PS C:\> Get-AzureADUser
-	PS C:\> Get-AzureADGroup
-	PS C:\> Get-AzureADGroupMember
-	PS C:\> Get-AzureADServicePrincipal
+    PS C:\> Get-AzureADGroup
+    PS C:\> Get-AzureADGroupMember
+    PS C:\> Get-AzureADServicePrincipal
 
 What role you want to assign: you can use the following cmdlet to see the supported role definitions.
 
@@ -124,19 +124,19 @@ Then use `New-AzureRoleAssignment` to create a role assignment. For example:
 
 This will create a role assignment at the current subscription level for a user as a reader.
 
-	 PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Reader
+     PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Reader
 
 This will create a role assignment at a resource group level.
 
-	PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Contributor -ResourceGroupName group1
+    PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Contributor -ResourceGroupName group1
 
 This will create a role assignment for a group at a resource group level.
 
-	PS C:\> New-AzureRoleAssignment -ObjectID <group object ID> -RoleDefinitionName Reader -ResourceGroupName group1
+    PS C:\> New-AzureRoleAssignment -ObjectID <group object ID> -RoleDefinitionName Reader -ResourceGroupName group1
 
 This will create a role assignment at a resource level.
 
-	PS C:\> $resources = Get-AzureResource
+    PS C:\> $resources = Get-AzureResource
     PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Owner -Scope $resources[0].ResourceId
 
 
@@ -163,3 +163,4 @@ To learn more about managing role-based access control with Windows PowerShell, 
 - ["Hey, Scripting Guy!" Blog](http://blogs.technet.com/b/heyscriptingguy/): Get real-world tips and tricks from the Windows PowerShell community.
 - [Configure role based access control using Azure CLI](role-based-access-control-xplat-cli-install.md)
 - [Troubleshooting role based access control](role-based-access-control-troubleshooting.md)
+

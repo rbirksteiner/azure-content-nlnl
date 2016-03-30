@@ -255,7 +255,7 @@ After you’ve collected the diagnostics data for a cloud service or a virtual m
 
     In **Cloud Explorer** or **Server Explorer**, open the storage account that's associated with the deployment.
 
-1. Open the diagnostics tables in the table viewer, and then review the data that you collected. For IIS logs and custom logs, you can open a blob container. By reviewing the following table, you can find the table or blob container that contains the data that interests you. In addition to the data for that log file, the table entries contain EventTickCount, DeploymentId, Role, and RoleInstance to help you identify what virtual machine and role generated the data and when. 
+1. Open the diagnostics tables in the table viewer, and then review the data that you collected. For IIS logs and custom logs, you can open a blob container. By reviewing the following table, you can find the table or blob container that contains the data that interests you. In addition to the data for that log file, the table entries contain EventTickCount, DeploymentId, Role, and RoleInstance to help you identify what virtual machine and role generated the data and when. 
 
     |Diagnostic data|Description|Location|
     |---|---|---|
@@ -356,3 +356,4 @@ Now, in the **Properties** window, set the **Copy to Output Directory** property
 ## Next steps
 
 To learn more about diagnostics logging in Azure, see [Enabling Diagnostics in Azure Cloud Services and Virtual Machines](cloud-services-dotnet-diagnostics.md) and [Enable diagnostics logging for web apps in Azure App Service](web-sites-enable-diagnostic-log.md).
+

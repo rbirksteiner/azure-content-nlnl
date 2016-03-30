@@ -51,3 +51,4 @@ RMS device usage                                        | 2 hours  | 4 hours    
 RMS enabled application usage                           | 2 hours  | 4 hours    | 8 hours
 **Private Preview Reports**                             |          |            |
 All User Sign In Activity                               | 2 hours  | 4 hours    | 8 hours
+

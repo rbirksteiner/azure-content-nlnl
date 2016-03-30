@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Working with Azure Media Services Jobs" 
-	description="This topics gives an overview of how to manage Managing Azure Media Services Jobs." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="juliako" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="Working with Azure Media Services Jobs" 
+    description="This topics gives an overview of how to manage Managing Azure Media Services Jobs." 
+    services="media-services" 
+    documentationCenter="" 
+    authors="juliako" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/05/2015" 
-	ms.author="juliako"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/05/2015" 
+    ms.author="juliako"/>
 
 #Working with Azure Media Services Jobs
 
@@ -79,3 +79,4 @@ Monitor job progress using **Azure Classic Portal**, **.NET** or **REST API**.
 ##Provide feedback
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Geo Distributed Scale with App Service Environments" 
-	description="Learn how to horizontally scale apps using geo-distribution with Traffic Manager and App Service Environments." 
-	services="app-service" 
-	documentationCenter="" 
-	authors="stefsch" 
-	manager="wpickett" 
-	editor=""/>
+    pageTitle="Geo Distributed Scale with App Service Environments" 
+    description="Learn how to horizontally scale apps using geo-distribution with Traffic Manager and App Service Environments." 
+    services="app-service" 
+    documentationCenter="" 
+    authors="stefsch" 
+    manager="wpickett" 
+    editor=""/>
 
 <tags 
-	ms.service="app-service" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/08/2015" 
-	ms.author="stefsch"/>	
+    ms.service="app-service" 
+    ms.workload="na" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/08/2015" 
+    ms.author="stefsch"/>   
 
 # Geo Distributed Scale with App Service Environments
 
@@ -124,3 +124,4 @@ Documentation on the preview Powershell [Azure Resource Manager (ARM) Traffic Ma
 [CNAMEforCustomDomain]:  ./media/app-service-app-service-environment-geo-distributed-scale/CNAMECustomDomain-1.png
 [DNSLookup]:  ./media/app-service-app-service-environment-geo-distributed-scale/DNSLookup-1.png
 [CustomDomain]:  ./media/app-service-app-service-environment-geo-distributed-scale/CustomDomain-1.png 
+

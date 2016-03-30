@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure AD terminology | Microsoft Azure"
-	description="Terms and definitions related to Azure Active Directory."
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Azure AD terminology | Microsoft Azure"
+    description="Terms and definitions related to Azure Active Directory."
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/01/2015"
-	ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/01/2015"
+    ms.author="curtand"/>
 
 # Azure AD terminology
 
@@ -42,3 +42,4 @@ Work or school account | A user account assigned by an organization (work, schoo
 - [Sign up for Azure as an organization](sign-up-organization.md)
 - [How Azure subscriptions are associated with Azure AD](active-directory-how-subscriptions-associated-directory.md)
 - [Azure AD service limits and restrictions](active-directory-service-limits-restrictions.md)
+

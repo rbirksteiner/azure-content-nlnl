@@ -1,20 +1,20 @@
-﻿<properties
-	pageTitle="Azure Active Directory hybrid identity design considerations - define a hybrid identity adoption strategy | Microsoft Azure"
-	description="With Conditional access control, Azure Active Directory checks the specific conditions you pick when authenticating the user and before allowing access to the application. Once those conditions are met, the user is authenticated and allowed access to the application."
-	documentationCenter=""
-	services="active-directory"
-	authors="billmath"
-	manager="stevenpo"
-	editor=""/>
+<properties
+    pageTitle="Azure Active Directory hybrid identity design considerations - define a hybrid identity adoption strategy | Microsoft Azure"
+    description="With Conditional access control, Azure Active Directory checks the specific conditions you pick when authenticating the user and before allowing access to the application. Once those conditions are met, the user is authenticated and allowed access to the application."
+    documentationCenter=""
+    services="active-directory"
+    authors="billmath"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/11/2015"
-	ms.author="billmath"/>
+    ms.date="11/11/2015"
+    ms.author="billmath"/>
 
 
 # Define a hybrid identity adoption strategy
@@ -202,3 +202,4 @@ You should also ensure that the multi-factor authentication design option that y
 
 ## See also
 [Design considerations overview](active-directory-hybrid-identity-design-considerations-overview.md)
+

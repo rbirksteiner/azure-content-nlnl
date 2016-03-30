@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Create a Web App in Azure App Service using the Azure SDK for Java" 
-	description="Learn how to create a Web App on Azure App Service programmatically using the Azure SDK for Java." 
-	tags="azure-classic-portal"
-	services="app-service\web" 
-	documentationCenter="Java" 
-	authors="donntrenton" 
-	manager="wpickett" 
-	editor="jimbe"/>
+    pageTitle="Create a Web App in Azure App Service using the Azure SDK for Java" 
+    description="Learn how to create a Web App on Azure App Service programmatically using the Azure SDK for Java." 
+    tags="azure-classic-portal"
+    services="app-service\web" 
+    documentationCenter="Java" 
+    authors="donntrenton" 
+    manager="wpickett" 
+    editor="jimbe"/>
 
 <tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="10/12/2015" 
-	ms.author="v-donntr"/>
+    ms.service="multiple" 
+    ms.workload="na" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="Java" 
+    ms.topic="article" 
+    ms.date="10/12/2015" 
+    ms.author="v-donntr"/>
 
 
 # Create a Web App in Azure App Service using the Azure SDK for Java
@@ -615,3 +615,4 @@ This procedure creates an App Service web app. You will be billed for the resour
 [WebSiteManagementClient]: http://dl.windowsazure.com/javadoc/com/microsoft/windowsazure/management/websites/WebSiteManagementClient.html
 [WebSpaceNames]: http://dl.windowsazure.com/javadoc/com/microsoft/windowsazure/management/websites/models/WebSpaceNames.html
 [Azure Portal]: https://portal.azure.com
+

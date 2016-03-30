@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure Active Directory Report Retention Policies | Microsoft Azure"
-	description="Retention policies on report data in your Azure Active Directory"
-	services="active-directory"
-	documentationCenter=""
-	authors="kenhoff"
-	manager="mbaldwin"
-	editor=""/>
+    pageTitle="Azure Active Directory Report Retention Policies | Microsoft Azure"
+    description="Retention policies on report data in your Azure Active Directory"
+    services="active-directory"
+    documentationCenter=""
+    authors="kenhoff"
+    manager="mbaldwin"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="12/07/2015"
-	ms.author="kenhoff"/>
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+    ms.date="12/07/2015"
+    ms.author="kenhoff"/>
 
 # Azure Active Directory Report Retention Policies
 
@@ -47,3 +47,4 @@ RMS usage                                               | 30 days
 Most active RMS users                                   | 30 days
 RMS device usage                                        | 30 days
 RMS enabled application usage                           | 30 days
+

@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Get started with authentication (Android) | Microsoft Azure"
-	description="Learn how to use Mobile Services to authenticate users of your Windows Store app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft."
-	services="mobile-services"
-	documentationCenter="android"
-	authors="RickSaling"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Get started with authentication (Android) | Microsoft Azure"
+    description="Learn how to use Mobile Services to authenticate users of your Windows Store app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft."
+    services="mobile-services"
+    documentationCenter="android"
+    authors="RickSaling"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-android"
-	ms.devlang="java"
-	ms.topic="article"
-	ms.date="10/05/2015"
-	ms.author="ricksal"/>
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-android"
+    ms.devlang="java"
+    ms.topic="article"
+    ms.date="10/05/2015"
+    ms.author="ricksal"/>
 
 # Add authentication to your Mobile Services Android app
 
@@ -50,7 +50,7 @@ This tutorial walks you through the basic steps to enable authentication in your
 
 4. From the **Run** menu, then click **Run app** to start the app; verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts.
 
-	 This happens because the app attempts to access Mobile Services as an unauthenticated user, but the _TodoItem_ table now requires authentication.
+     This happens because the app attempts to access Mobile Services as an unauthenticated user, but the _TodoItem_ table now requires authentication.
 
 Next, you will update the app to authenticate users before requesting resources from the mobile service.
 
@@ -87,3 +87,4 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
+

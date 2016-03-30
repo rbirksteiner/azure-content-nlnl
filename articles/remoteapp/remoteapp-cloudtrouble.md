@@ -27,8 +27,8 @@ If you see a message like, "GoldImageInvalid" when you are waiting for Azure to 
 
 ## Common errors seen in the Azure Management portal
 
-	DNS server could not be reached
-	ProvisioningTimeout
+    DNS server could not be reached
+    ProvisioningTimeout
 
 Cloud collections often fail during creation because of you are using custom images.  If you see one of the above errors and you are using a custom image to create the collection, please check the following things:
 
@@ -38,6 +38,7 @@ Cloud collections often fail during creation because of you are using custom ima
 
 If you are using one of the Microsoft images included with your subscription, try to create the collection again. If the issue persists then please contact Microsoft support.
 
-	PlatformImageTrialModeOnly
+    PlatformImageTrialModeOnly
 
 If you see this error this usually means that you been upgraded to a paid account but you are trying to use a Microsoft provided image that is valid only during the trial mode of the service. In this case, try to create your cloud collection again, but be sure to specify the correct image.
+

@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure AD NodeJS Getting Started | Microsoft Azure"
-	description="How to build a Node.js Web API that integrates with Azure AD for authentication."
-	services="active-directory"
-	documentationCenter="nodejs"
-	authors="brandwe"
-	manager="mbaldwin"
-	editor=""/>
+    pageTitle="Azure AD NodeJS Getting Started | Microsoft Azure"
+    description="How to build a Node.js Web API that integrates with Azure AD for authentication."
+    services="active-directory"
+    documentationCenter="nodejs"
+    authors="brandwe"
+    manager="mbaldwin"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="javascript"
-	ms.topic="article"
-	ms.date="10/13/2015"
-	ms.author="brandwe"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="javascript"
+    ms.topic="article"
+    ms.date="10/13/2015"
+    ms.author="brandwe"/>
 
 # Getting Started With WEB-API for Node
 
@@ -53,7 +53,7 @@ To enable your app to authenticate users, you'll first need to register a new ap
 - Click the **Applications** tab, and click add in the bottom drawer.
 - Follow the prompts and create a new **Web Application and/or WebAPI**.
     - The **name** of the application will describe your application to end-users
-    -	The **Sign-On URL** is the base URL of your app.  The skeleton’s default is `https://localhost:8888`.
+    -   The **Sign-On URL** is the base URL of your app.  The skeleton’s default is `https://localhost:8888`.
     - The **App ID URI** is a unique identifier for your application.  The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`
 - Once you’ve completed registration, AAD will assign your app a unique client identifier.  You’ll need this value in the next sections, so copy it from the Configure tab.
 
@@ -119,26 +119,26 @@ Restify provides a powerful mechanism to trace REST calls using DTrace. However,
 The output of this command should appear similar to the following:
 
 
-	restify@2.6.1 node_modules/restify
-	├── assert-plus@0.1.4
-	├── once@1.3.0
-	├── deep-equal@0.0.0
-	├── escape-regexp-component@1.0.2
-	├── qs@0.6.5
-	├── tunnel-agent@0.3.0
-	├── keep-alive-agent@0.0.1
-	├── lru-cache@2.3.1
-	├── node-uuid@1.4.0
-	├── negotiator@0.3.0
-	├── mime@1.2.11
-	├── semver@2.2.1
-	├── spdy@1.14.12
-	├── backoff@2.3.0
-	├── formidable@1.0.14
-	├── verror@1.3.6 (extsprintf@1.0.2)
-	├── csv@0.3.6
-	├── http-signature@0.10.0 (assert-plus@0.1.2, asn1@0.1.11, ctype@0.5.2)
-	└── bunyan@0.22.0 (mv@0.0.5)
+    restify@2.6.1 node_modules/restify
+    ├── assert-plus@0.1.4
+    ├── once@1.3.0
+    ├── deep-equal@0.0.0
+    ├── escape-regexp-component@1.0.2
+    ├── qs@0.6.5
+    ├── tunnel-agent@0.3.0
+    ├── keep-alive-agent@0.0.1
+    ├── lru-cache@2.3.1
+    ├── node-uuid@1.4.0
+    ├── negotiator@0.3.0
+    ├── mime@1.2.11
+    ├── semver@2.2.1
+    ├── spdy@1.14.12
+    ├── backoff@2.3.0
+    ├── formidable@1.0.14
+    ├── verror@1.3.6 (extsprintf@1.0.2)
+    ├── csv@0.3.6
+    ├── http-signature@0.10.0 (assert-plus@0.1.2, asn1@0.1.11, ctype@0.5.2)
+    └── bunyan@0.22.0 (mv@0.0.5)
 
 
 ## Step 6: Install Passport.js in to your Web API
@@ -153,9 +153,9 @@ Enter the following command to install passport.js
 
 The output of the commadn should appear similar to the following:
 
-	passport@0.1.17 node_modules\passport
-	├── pause@0.0.1
-	└── pkginfo@0.2.3
+    passport@0.1.17 node_modules\passport
+    ├── pause@0.0.1
+    └── pkginfo@0.2.3
 
 ## Step 7: Add Passport.js Bearer Token Support to your Web API
 
@@ -173,11 +173,11 @@ Type the following command to install Passport.js modules:
 
 The output of the commamd should appear similar to the following:
 
-	ms-passport-wsfed-saml2@0.3.8 node_modules\passport-oauth  
-	├── xtend@2.0.3
-	├── xml-crypto@0.0.9
-	├── xmldom@0.1.13
-	└── xml2js@0.1.14 (sax@0.5.2)
+    ms-passport-wsfed-saml2@0.3.8 node_modules\passport-oauth  
+    ├── xtend@2.0.3
+    ├── xml-crypto@0.0.9
+    ├── xmldom@0.1.13
+    └── xml2js@0.1.14 (sax@0.5.2)
 
 
 ## Step 8: Add MongoDB modules to your Web API
@@ -232,20 +232,20 @@ From the command-line, change directories to the **azuread** folder if not alrea
 Create a `server.js` file in our favorite editor and add the following information:
 
 ```Javascript
-	'use strict';
+    'use strict';
 
-	/**
- 	* Module dependencies.
- 	*/
+    /**
+    * Module dependencies.
+    */
 
-	var fs = require('fs');
-	var path = require('path');
-	var util = require('util');
-	var assert = require('assert-plus');
-	var bunyan = require('bunyan');
-	var getopt = require('posix-getopt');
-	var mongoose = require('mongoose/');
-	var restify = require('restify');
+    var fs = require('fs');
+    var path = require('path');
+    var util = require('util');
+    var assert = require('assert-plus');
+    var bunyan = require('bunyan');
+    var getopt = require('posix-getopt');
+    var mongoose = require('mongoose/');
+    var restify = require('restify');
 ```
 
 Save the file. We will return to it shortly.
@@ -650,8 +650,8 @@ Open your `server.js` file in our favorite editor and add the following informat
 
 function createTask(req, res, next) {
 
-	// Resitify currently has a bug which doesn't allow you to set default headers
-  	// This headers comply with CORS and allow us to mongodbServer our response to any origin
+    // Resitify currently has a bug which doesn't allow you to set default headers
+    // This headers comply with CORS and allow us to mongodbServer our response to any origin
 
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "X-Requested-With");
@@ -671,13 +671,13 @@ function createTask(req, res, next) {
    _task.date = new Date();
 
   _task.save(function (err) {
-  	if (err) {
+    if (err) {
         req.log.warn(err, 'createTask: unable to save');
         next(err);
     } else {
     res.send(201, _task);
 
-			}
+            }
   });
 
   return next();
@@ -956,55 +956,55 @@ It's a good idea to make sure we have no mistakes before we continue on to the O
 
 The easiest way to do this is by using `curl` in a command line. Before we do that, we need a simple utility that allows us to parse output as JSON. To do that, install the [json](https://github.com/trentm/json) tool as all the examples below use that.
 
-	$npm install -g jsontool
+    $npm install -g jsontool
 
 This installs the JSON tool globally. Now that we've accomplished that - let's play with the server:
 
 First, make sure that your monogoDB isntance is running..
 
-	$sudo mongod
+    $sudo mongod
 
 Then, change to the directory and start curling..
 
-	$ cd azuread
-	$ node server.js
+    $ cd azuread
+    $ node server.js
 
-	$ curl -isS http://127.0.0.1:8888 | json
-	HTTP/1.1 200 OK
-	Connection: close
-	Content-Type: application/x-www-form-urlencoded
-	Content-Length: 145
-	Date: Wed, 29 Jan 2014 03:41:24 GMT
+    $ curl -isS http://127.0.0.1:8888 | json
+    HTTP/1.1 200 OK
+    Connection: close
+    Content-Type: application/x-www-form-urlencoded
+    Content-Length: 145
+    Date: Wed, 29 Jan 2014 03:41:24 GMT
 
-	[
-  	"GET     /",
-  	"POST    /tasks/:owner/:task",
-  	"GET     /tasks",
-  	"DELETE  /tasks",
-  	"PUT     /tasks/:owner",
-  	"GET     /tasks/:owner",
-  	"DELETE  /tasks/:task"
-	]
+    [
+    "GET     /",
+    "POST    /tasks/:owner/:task",
+    "GET     /tasks",
+    "DELETE  /tasks",
+    "PUT     /tasks/:owner",
+    "GET     /tasks/:owner",
+    "DELETE  /tasks/:task"
+    ]
 
 Then, we can add a task this way:
 
-	$ curl -isS -X POST http://127.0.0.1:8888/tasks/brandon/Hello
+    $ curl -isS -X POST http://127.0.0.1:8888/tasks/brandon/Hello
 
 The response should be:
 
-	HTTP/1.1 201 Created
-	Connection: close
-	Access-Control-Allow-Origin: *
-	Access-Control-Allow-Headers: X-Requested-With
-	Content-Type: application/x-www-form-urlencoded
-	Content-Length: 5
-	Date: Tue, 04 Feb 2014 01:02:26 GMT
+    HTTP/1.1 201 Created
+    Connection: close
+    Access-Control-Allow-Origin: *
+    Access-Control-Allow-Headers: X-Requested-With
+    Content-Type: application/x-www-form-urlencoded
+    Content-Length: 5
+    Date: Tue, 04 Feb 2014 01:02:26 GMT
 
-	Hello
+    Hello
 
 And we can list tasks for Brandon this way:
 
-	$ curl -isS http://127.0.0.1:8888/tasks/brandon/
+    $ curl -isS http://127.0.0.1:8888/tasks/brandon/
 
 If all this works out, we are ready to add OAuth to the REST API server.
 
@@ -1143,21 +1143,21 @@ Let's use `curl` again to see if we now have OAuth2 protection against our endpo
 
 First, make sure that your monogoDB isntance is running..
 
-	$sudo mongod
+    $sudo mongod
 
 Then, change to the directory and start curling..
 
-	$ cd azuread
-	$ node server.js
+    $ cd azuread
+    $ node server.js
 
 Try a basic GET:
 
-	$ curl -isS http://127.0.0.1:8888/tasks/
-	HTTP/1.1 302 Moved Temporarily
-	Connection: close
-	Location: https://login.windows.net/468a75f4-f9a7-4dc4-a527-4f4522734790/oauth2/authorize?response_type=code&redirect_uri=&client_id=123
-	Content-Length: 0
-	Date: Tue, 04 Feb 2014 02:15:14 GMT
+    $ curl -isS http://127.0.0.1:8888/tasks/
+    HTTP/1.1 302 Moved Temporarily
+    Connection: close
+    Location: https://login.windows.net/468a75f4-f9a7-4dc4-a527-4f4522734790/oauth2/authorize?response_type=code&redirect_uri=&client_id=123
+    Content-Length: 0
+    Date: Tue, 04 Feb 2014 02:15:14 GMT
 
 
 A 302 is the response you are looking for here, as that indicates that the Passport layer is trying to redirect to the authorize endpoint, which is exactly what you want.

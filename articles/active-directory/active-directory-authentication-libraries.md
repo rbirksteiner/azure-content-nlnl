@@ -62,3 +62,4 @@ In this scenario, a developer has an application running on a server that needs 
 [Authentication scenarios for Azure Active directory](active-directory-authentication-scenarios.md)
 
 [Azure Active Directory code samples](active-directory-code-samples.md)
+

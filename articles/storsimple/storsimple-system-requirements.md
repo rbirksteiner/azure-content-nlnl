@@ -101,49 +101,49 @@ This includes software versions such as 1, 1.1, or 1.2. The order based on routi
 
 Update 2 has several networking-related improvements and the routing metrics has changed. The behavior can be explained as follows.
 
-- A set of predetermined values have been assigned to network interfaces. 	
-		
+- A set of predetermined values have been assigned to network interfaces.   
+        
 - Consider an example table shown below with values (example) assigned to the various network interfaces when they are cloud-enabled or cloud-disabled but with a configured gateway.
 
-		
-	| Network interface | Cloud-enabled | Cloud-disabled with gateway |
-	|-----|---------------|---------------------------|
-	| Data 0  | 1            | -                        |
-	| Data 1  | 2            | 20                       |
-	| Data 2  | 3            | 30                       |
-	| Data 3  | 4            | 40                       |
-	| Data 4  | 5            | 50                       |
-	| Data 5  | 6            | 60                       |
+        
+    | Network interface | Cloud-enabled | Cloud-disabled with gateway |
+    |-----|---------------|---------------------------|
+    | Data 0  | 1            | -                        |
+    | Data 1  | 2            | 20                       |
+    | Data 2  | 3            | 30                       |
+    | Data 3  | 4            | 40                       |
+    | Data 4  | 5            | 50                       |
+    | Data 5  | 6            | 60                       |
 
 
 - The order in which the cloud traffic will be routed through the network interfaces is:
-	 
-	*Data 0 > Data 1 > Date 2 > Data 4 > Data 5*
+     
+    *Data 0 > Data 1 > Date 2 > Data 4 > Data 5*
 
-	This can be explained by the following example.
+    This can be explained by the following example.
 
-	Consider a StorSimple device with two cloud-enabled network interfaces, Data 0 and Data 5. Data 1 through Data 4 are cloud-disabled but have a configured gateway. The order in which traffic will be routed for this device will be:
+    Consider a StorSimple device with two cloud-enabled network interfaces, Data 0 and Data 5. Data 1 through Data 4 are cloud-disabled but have a configured gateway. The order in which traffic will be routed for this device will be:
 
-	*Data 0 (1) > Data 5 (6) > Data 1 (20) > Data 2 (30) > Data 3 (40) > Data 4 (50)*
-	
-	*where the numbers in parentheses indicate the respective routing metrics.*
-	
-	If Data 0 fails, the cloud traffic will get routed through Data 5. Given that a gateway is configured on all other network, if both Data 0 and Data 5 were to fail, the cloud traffic will go through Data 1. 
+    *Data 0 (1) > Data 5 (6) > Data 1 (20) > Data 2 (30) > Data 3 (40) > Data 4 (50)*
+    
+    *where the numbers in parentheses indicate the respective routing metrics.*
+    
+    If Data 0 fails, the cloud traffic will get routed through Data 5. Given that a gateway is configured on all other network, if both Data 0 and Data 5 were to fail, the cloud traffic will go through Data 1. 
  
 
 - If a cloud-enabled network interface fails, then are 3 retries with a 30 second delay to connect to the interface. If all the retries fail, the traffic is routed to the next available cloud-enabled interface as determined by the routing table. If all the cloud-enabled network interfaces fail, then the device will fail over to the other controller (no reboot in this case). 
-	
+    
 - If there is a VIP failure for an iSCSI-enabled network interface, there will be 3 retries with a 2 seconds delay. This behavior has stayed the same from the previous releases. If all the iSCSI network interfaces fail, then a controller failover will occur (accompanied by a reboot).
 
 
 - An alert is also raised on your StorSimple device when there is a VIP failure. For more information, go to [alert for VIP failure](storsimple-manage-alerts.md).
-	
+    
 - In terms of retries, iSCSI will take precedence over cloud.
 
-	Consider the following example:
-	A StorSimple device has two network interfaces enabled, Data 0 and Data 1. Data 0 is cloud-enabled whereas Data 1 is both cloud and iSCSI-enabled. No other network interfaces on this device are enabled for cloud or iSCSI. 
-		
-	If Data 1 fails, given it is the last iSCSI network interface, this will result in a controller failover to Data 1 on the other controller.
+    Consider the following example:
+    A StorSimple device has two network interfaces enabled, Data 0 and Data 1. Data 0 is cloud-enabled whereas Data 1 is both cloud and iSCSI-enabled. No other network interfaces on this device are enabled for cloud or iSCSI. 
+        
+    If Data 1 fails, given it is the last iSCSI network interface, this will result in a controller failover to Data 1 on the other controller.
 
 
 ### Networking best practices
@@ -262,3 +262,4 @@ Carefully review these best practices to ensure the high availability of hosts c
  
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
+

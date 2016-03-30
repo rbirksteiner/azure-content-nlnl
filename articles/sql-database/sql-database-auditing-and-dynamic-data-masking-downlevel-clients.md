@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="SQL Database downlevel clients support for Auditing| Microsoft Azure" 
-	description="Learn about SQL Database downlevel clients support for Auditing." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="nadavhelfman" 
-	manager="jeffreyg" 
-	editor=""/>
+    pageTitle="SQL Database downlevel clients support for Auditing| Microsoft Azure" 
+    description="Learn about SQL Database downlevel clients support for Auditing." 
+    services="sql-database" 
+    documentationCenter="" 
+    authors="nadavhelfman" 
+    manager="jeffreyg" 
+    editor=""/>
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/12/2015" 
-	ms.author="nadavhelfman; ronitr"/>
+    ms.service="sql-database" 
+    ms.workload="data-management" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/12/2015" 
+    ms.author="nadavhelfman; ronitr"/>
  
 # SQL Database -  Downlevel clients support for Auditing
 
@@ -37,4 +37,5 @@ A partial list of "Downlevel clients" includes:
 - Tedious (for Node.JS)
 
 **Remark:** The above server FDQN modification may be useful also for applying a SQL Server Level Auditing policy without a need for a configuration step in each database (Temporary mitigation).
+
 

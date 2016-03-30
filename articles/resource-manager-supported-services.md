@@ -247,3 +247,4 @@ You can open the file and find the **apiVersions** element
 
 - To learn about creating Resource Manager templates, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
 - To learn about deploying resources, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md).
+

@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Get started with Azure Mobile Engagement for Windows Universal Apps"
-	description="Learn how to use Azure Mobile Engagement with analytics and push notifications for Windows Universal Apps."
-	services="mobile-engagement"
-	documentationCenter="mobile"
-	authors="piyushjo"
-	manager="dwrede"
-	editor="" />
+    pageTitle="Get started with Azure Mobile Engagement for Windows Universal Apps"
+    description="Learn how to use Azure Mobile Engagement with analytics and push notifications for Windows Universal Apps."
+    services="mobile-engagement"
+    documentationCenter="mobile"
+    authors="piyushjo"
+    manager="dwrede"
+    editor="" />
 
 <tags
-	ms.service="mobile-engagement"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-windows-store"
-	ms.devlang="dotnet"
-	ms.topic="hero-article"
-	ms.date="09/22/2015"
-	ms.author="piyushjo" />
+    ms.service="mobile-engagement"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-windows-store"
+    ms.devlang="dotnet"
+    ms.topic="hero-article"
+    ms.date="09/22/2015"
+    ms.author="piyushjo" />
 
 # Get started with Azure Mobile Engagement for Windows Universal Apps
 
@@ -64,69 +64,69 @@ You have now created a new Windows Universal App project into which we will inte
 
 2. Open **Package.appxmanifest** and make sure that the following capability is added there:
 
-		Internet (Client)
+        Internet (Client)
 
-	![][2]
+    ![][2]
 
 3. Now copy the connection string that you copied earlier for your Mobile Engagement App and paste it in the `Resources\EngagementConfiguration.xml` file, between the `<connectionString>` and `</connectionString>` tags:
 
-	![][3]
+    ![][3]
 
-	>[AZURE.TIP] If your App is going to target both Windows and Windows Phone platforms, you should still create two Mobile Engagement Applications - one for each supported platforms. This is to ensure that you are able to create correct segmentation of the audience and are able to send appropriately targeted notifications for each platform.
+    >[AZURE.TIP] If your App is going to target both Windows and Windows Phone platforms, you should still create two Mobile Engagement Applications - one for each supported platforms. This is to ensure that you are able to create correct segmentation of the audience and are able to send appropriately targeted notifications for each platform.
 
 4. In the `App.xaml.cs` file:
 
-	a. Add the `using` statement:
+    a. Add the `using` statement:
 
-			using Microsoft.Azure.Engagement;
+            using Microsoft.Azure.Engagement;
 
-	b. Add a method dedicated to the Engagement initialization and setting:
+    b. Add a method dedicated to the Engagement initialization and setting:
 
            private void InitEngagement(IActivatedEventArgs e)
            {
              EngagementAgent.Instance.Init(e);
 
-			 //... rest of the code
+             //... rest of the code
            }
 
     c. Initialize the SDK in the **OnLaunched** method:
 
-			protected override void OnLaunched(LaunchActivatedEventArgs e)
-			{
-			  InitEngagement(e);
+            protected override void OnLaunched(LaunchActivatedEventArgs e)
+            {
+              InitEngagement(e);
 
-			  //... rest of the code
-			}
+              //... rest of the code
+            }
 
-	c. Insert the following in the **OnActivated** method and add the method if it is not already present:
+    c. Insert the following in the **OnActivated** method and add the method if it is not already present:
 
-			protected override void OnActivated(IActivatedEventArgs e)
-			{
-			  InitEngagement(e);
+            protected override void OnActivated(IActivatedEventArgs e)
+            {
+              InitEngagement(e);
 
-			  //... rest of the code
-			}
+              //... rest of the code
+            }
 
 ##<a id="monitor"></a>Enable real-time monitoring
 
 In order to start sending data and ensuring that the users are active, you must send at least one screen (Activity) to the Mobile Engagement backend.
 
-1. 	In the **MainPage.xaml.cs**, add the following `using` statement:
+1.  In the **MainPage.xaml.cs**, add the following `using` statement:
 
-		using Microsoft.Azure.Engagement.Overlay;
+        using Microsoft.Azure.Engagement.Overlay;
 
 2. Replace the base class of **MainPage** from **Page** to **EngagementPageOverlay**:
 
-		class MainPage : EngagementPageOverlay
+        class MainPage : EngagementPageOverlay
 
 3. In the `MainPage.xaml` file:
 
-	a. Add to your namespaces declarations:
+    a. Add to your namespaces declarations:
 
-		xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay"
+        xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay"
 
-	b. Replace the **Page** in the XML tag name with **engagement:EngagementPageOverlay**
-	
+    b. Replace the **Page** in the XML tag name with **engagement:EngagementPageOverlay**
+    
 > [AZURE.IMPORTANT] If your page overrides the `OnNavigatedTo` method, make sure to call `base.OnNavigatedTo(e)`. Otherwise,  the activity will not be reported (the `EngagementPage` calls `StartActivity` inside its `OnNavigatedTo` method). This is especially important in a Windows Phone project where the default template has an `OnNavigatedTo` method. 
 
 ##<a id="monitor"></a>Connect app with real-time monitoring
@@ -142,17 +142,17 @@ The following sections set up your app to receive them.
 
 1. In the `Package.appxmanifest` file, in the **Application** tab, under **Notifications**, set **Toast capable:** to **Yes**
 
-	![][5]
+    ![][5]
 
 ###Initialize the REACH SDK
 
 In `App.xaml.cs`, call **EngagementReach.Instance.Init(e);** in the **InitEngagement** function right after the agent initialization:
 
         private void InitEngagement(IActivatedEventArgs e)
-		{
-		   EngagementAgent.Instance.Init(e);
-		   EngagementReach.Instance.Init(e);
-		}
+        {
+           EngagementAgent.Instance.Init(e);
+           EngagementReach.Instance.Init(e);
+        }
 
 You're all set for sending a toast. Now we will verify that you have correctly carried out this basic integration.
 
@@ -161,31 +161,31 @@ You're all set for sending a toast. Now we will verify that you have correctly c
 1. Open [Windows Store Dev Center] in your web browser, login and create an account if necessary.
 2. Click **Dashboard** at the top right corner and then click **Create a new app** from the left panel menu. 
 
-	![][9]
+    ![][9]
 
 2. Create your app by reserving its name. 
 
-	![][10]
+    ![][10]
 
 3. Once the app has been created, navigate to **Services -> Push notifications** from the left menu.
 
-	![][11]
+    ![][11]
 
 4. In the Push notifications section, click on **Live Services site** link. 
 
-	![][12]
+    ![][12]
 
 5. You will be navigated to the Push credentials section. Make sure you are in the **App Settings** section and then copy your **Package SID** and **Client secret**
 
-	![][13]
+    ![][13]
 
 6. Navigate to the **Settings** of your Mobile Engagement portal, and click the **Native Push** section on the left. Then, click the **Edit** button to enter your **Package security identifier (SID)** and your **Secret Key** as shown below:
 
-	![][6]
+    ![][6]
 
 8. Finally make sure that you have associated your Visual Studio app with this created app in the App store. You need to click on **Associate App with Store** from Visual Studio to do this.
 
-	![][7]
+    ![][7]
 
 ##<a id="send"></a>Send a notification to your app
 
@@ -215,5 +215,6 @@ If you are seeing an in-app notification but not a toast notification and you ar
 [11]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push.png
 [12]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_1.png
 [13]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_creds.png
+
 
 

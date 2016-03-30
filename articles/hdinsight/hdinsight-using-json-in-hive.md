@@ -21,40 +21,40 @@
 
 Learn how to process and analyze JSON files using Hive in HDInsight. The following JSON document will be used in the tutorial
 
-	{
-	    "StudentId": "trgfg-5454-fdfdg-4346",
-	    "Grade": 7,
-	    "StudentDetails": [
-	        {
-	            "FirstName": "Peggy",
-	            "LastName": "Williams",
-	            "YearJoined": 2012
-	        }
-	    ],
-	    "StudentClassCollection": [
-	        {
-	            "ClassId": "89084343",
-	            "ClassParticipation": "Satisfied",
-	            "ClassParticipationRank": "High",
-	            "Score": 93,
-	            "PerformedActivity": false
-	        },
-	        {
-	            "ClassId": "78547522",
-	            "ClassParticipation": "NotSatisfied",
-	            "ClassParticipationRank": "None",
-	            "Score": 74,
-	            "PerformedActivity": false
-	        },
-	        {
-	            "ClassId": "78675563",
-	            "ClassParticipation": "Satisfied",
-	            "ClassParticipationRank": "Low",
-	            "Score": 83,
-	            "PerformedActivity": true
-	        }
-	    ]
-	}
+    {
+        "StudentId": "trgfg-5454-fdfdg-4346",
+        "Grade": 7,
+        "StudentDetails": [
+            {
+                "FirstName": "Peggy",
+                "LastName": "Williams",
+                "YearJoined": 2012
+            }
+        ],
+        "StudentClassCollection": [
+            {
+                "ClassId": "89084343",
+                "ClassParticipation": "Satisfied",
+                "ClassParticipationRank": "High",
+                "Score": 93,
+                "PerformedActivity": false
+            },
+            {
+                "ClassId": "78547522",
+                "ClassParticipation": "NotSatisfied",
+                "ClassParticipationRank": "None",
+                "Score": 74,
+                "PerformedActivity": false
+            },
+            {
+                "ClassId": "78675563",
+                "ClassParticipation": "Satisfied",
+                "ClassParticipationRank": "Low",
+                "Score": 83,
+                "PerformedActivity": true
+            }
+        ]
+    }
 
 The file can be found at wasb://processjson@hditutorialdata.blob.core.windows.net/. For more information on using Azure Blob storage with HDInsight, see [Use HDFS-compatible Azure Blob storage with Hadoop in HDInsight](hdinsight-hadoop-use-blob-storage.md). You can copy the file to the default container of your cluster if you want.
 
@@ -64,22 +64,22 @@ In this tutorial, you will use the Hive console.  For instructions of opening th
 
 The methods listed in the next section require the JSON document in a single row. So you must flatten the JSON document to a string. If your JSON document is already flattened, you can skip this step and go straight to the next section on Analyzing JSON data.
 
-	DROP TABLE IF EXISTS StudentsRaw;
-	CREATE EXTERNAL TABLE StudentsRaw (textcol string) STORED AS TEXTFILE LOCATION "wasb://processjson@hditutorialdata.blob.core.windows.net/";
-	
-	DROP TABLE IF EXISTS StudentsOneLine;
-	CREATE EXTERNAL TABLE StudentsOneLine
-	(
-	  json_body string
-	)
-	STORED AS TEXTFILE LOCATION '/json/students';
-	
-	INSERT OVERWRITE TABLE StudentsOneLine
-	SELECT CONCAT_WS(' ',COLLECT_LIST(textcol)) AS singlelineJSON 
-	      FROM (SELECT INPUT__FILE__NAME,BLOCK__OFFSET__INSIDE__FILE, textcol FROM StudentsRaw DISTRIBUTE BY INPUT__FILE__NAME SORT BY BLOCK__OFFSET__INSIDE__FILE) x
-	      GROUP BY INPUT__FILE__NAME;
-	
-	SELECT * FROM StudentsOneLine
+    DROP TABLE IF EXISTS StudentsRaw;
+    CREATE EXTERNAL TABLE StudentsRaw (textcol string) STORED AS TEXTFILE LOCATION "wasb://processjson@hditutorialdata.blob.core.windows.net/";
+    
+    DROP TABLE IF EXISTS StudentsOneLine;
+    CREATE EXTERNAL TABLE StudentsOneLine
+    (
+      json_body string
+    )
+    STORED AS TEXTFILE LOCATION '/json/students';
+    
+    INSERT OVERWRITE TABLE StudentsOneLine
+    SELECT CONCAT_WS(' ',COLLECT_LIST(textcol)) AS singlelineJSON 
+          FROM (SELECT INPUT__FILE__NAME,BLOCK__OFFSET__INSIDE__FILE, textcol FROM StudentsRaw DISTRIBUTE BY INPUT__FILE__NAME SORT BY BLOCK__OFFSET__INSIDE__FILE) x
+          GROUP BY INPUT__FILE__NAME;
+    
+    SELECT * FROM StudentsOneLine
 
 The raw JSON file is located at **wasb://processjson@hditutorialdata.blob.core.windows.net/**. The *StudentsRaw* Hive table points to the raw un-flattened JSON document.
 
@@ -107,10 +107,10 @@ Hive provides a built-in UDF called [get json object](https://cwiki.apache.org/c
 
 Get the first name and last name for each student
 
-	SELECT 
-	  GET_JSON_OBJECT(StudentsOneLine.json_body,'$.StudentDetails.FirstName'), 
-	  GET_JSON_OBJECT(StudentsOneLine.json_body,'$.StudentDetails.LastName') 
-	FROM StudentsOneLine;
+    SELECT 
+      GET_JSON_OBJECT(StudentsOneLine.json_body,'$.StudentDetails.FirstName'), 
+      GET_JSON_OBJECT(StudentsOneLine.json_body,'$.StudentDetails.LastName') 
+    FROM StudentsOneLine;
 
 Here is the output when running this query in console window.
 
@@ -148,25 +148,25 @@ SerDe is the best choice for parsing nested JSON documents, it allows you to def
 
 1. Install [Java SE Development Kit 7u55 JDK 1.7.0_55](http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase7-521261.html#jdk-7u55-oth-JPR). Choose the Windows X64 version of the JDK if you are going to be using the Windows deployment of HDInsight
 
-	>[AZURE.WARNING] JDK 1.8 doesn't work with this SerDe. 
+    >[AZURE.WARNING] JDK 1.8 doesn't work with this SerDe. 
 
-	After the installation is completed, add a new user environment variable:
+    After the installation is completed, add a new user environment variable:
 
-	1. Open **View advanced system settings** from the Windows screen.
-	2. Click **Environment Variables**.  
-	3. Add a new **JAVA_HOME** environment variable is pointing to **C:\Program Files\Java\jdk1.7.0_55** or wherever your JDK is installed.
+    1. Open **View advanced system settings** from the Windows screen.
+    2. Click **Environment Variables**.  
+    3. Add a new **JAVA_HOME** environment variable is pointing to **C:\Program Files\Java\jdk1.7.0_55** or wherever your JDK is installed.
 
-	![Setting up correct config values for JDK][image-hdi-hivejson-jdk]
+    ![Setting up correct config values for JDK][image-hdi-hivejson-jdk]
 
 2. Install [Maven 3.3.1](http://mirror.olnevhost.net/pub/apache/maven/maven-3/3.3.1/binaries/apache-maven-3.3.1-bin.zip) 
 
-	Add the bin folder to your path by going to Control Panel-->Edit the System Variables for your account Environment variables. The screenshot below shows you how to do this. 
+    Add the bin folder to your path by going to Control Panel-->Edit the System Variables for your account Environment variables. The screenshot below shows you how to do this. 
 
-	![Setting up Maven][image-hdi-hivejson-maven]
+    ![Setting up Maven][image-hdi-hivejson-maven]
 
 3. Clone the project from [Hive-JSON-SerDe](https://github.com/sheetaldolas/Hive-JSON-Serde/tree/master) github site. You can do this by clicking on the “Download Zip” button as shown in the screenshot below.
 
-	![Cloning the project][image-hdi-hivejson-serde]
+    ![Cloning the project][image-hdi-hivejson-serde]
 
 4: Go to the folder where you have downloaded this package and  type “mvn package”. This should create the necessary jar files that you can then copy over to the cluster. 
 
@@ -176,7 +176,7 @@ SerDe is the best choice for parsing nested JSON documents, it allows you to def
 
     add jar json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar;
 
-	![Adding JAR to your project][image-hdi-hivejson-addjar]
+    ![Adding JAR to your project][image-hdi-hivejson-addjar]
 
 Now, you are ready to use the SerDe to run queries against the JSON document.
 

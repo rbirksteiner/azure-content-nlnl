@@ -85,3 +85,4 @@ Property | Description
 | Redirect URI | The URI to which Azure AD will redirect the user-agent in response to an OAuth 2.0 authorization request. The value does not need to be a physical endpoint, but must be a valid URI.
 
 ##
+

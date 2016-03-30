@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Use mobile app as your contact method with Azure MFA" 
-	description="This page will show users how to use the mobile app as the primary contact method for Azure MFA." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenp" 
-	editor="curtland"/>
+    pageTitle="Use mobile app as your contact method with Azure MFA" 
+    description="This page will show users how to use the mobile app as the primary contact method for Azure MFA." 
+    services="multi-factor-authentication" 
+    documentationCenter="" 
+    authors="billmath" 
+    manager="stevenp" 
+    editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/19/2015" 
-	ms.author="billmath"/>
+    ms.service="multi-factor-authentication" 
+    ms.workload="identity" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/19/2015" 
+    ms.author="billmath"/>
 
 # Use mobile app as your contact method with Azure Multi-Factor Authentication
 
@@ -72,3 +72,4 @@ If you are using a 3rd party account with the mobile app, enter the account name
 
 >[AZURE.NOTE]If you see "Add work account", this is for Workplace Join and not for multi-factor authentication.  You can disregard this.
  
+

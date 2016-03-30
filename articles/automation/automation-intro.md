@@ -1,20 +1,20 @@
-﻿<properties
-	pageTitle="What is Azure Automation | Microsoft Azure"
-	description="Learn what value Azure Automation provides and get answers to common questions so that you can get started in creating, using runbooks and Azure Automation DSC."
-	services="automation"
-	documentationCenter=""
-	authors="SnehaGunda"
-	manager="stevenka"
-	editor=""/>
+<properties
+    pageTitle="What is Azure Automation | Microsoft Azure"
+    description="Learn what value Azure Automation provides and get answers to common questions so that you can get started in creating, using runbooks and Azure Automation DSC."
+    services="automation"
+    documentationCenter=""
+    authors="SnehaGunda"
+    manager="stevenka"
+    editor=""/>
 
 <tags
-	ms.service="automation"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article" 
-	ms.date="11/05/2015"
-	ms.author="bwren;sngun"/>
+    ms.service="automation"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article" 
+    ms.date="11/05/2015"
+    ms.author="bwren;sngun"/>
 
 # Azure Automation overview
 
@@ -100,5 +100,6 @@ A variety of resources are available for you to learn more about Azure Automatio
 ## Can I provide feedback? 
 
 **Please give us feedback!** If you are looking for an Azure Automation runbook solution or an integration module, post a Script Request on Script Center. If you have feedback or feature requests for Azure Automation, post them on [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback). Thanks! 
+
 
 

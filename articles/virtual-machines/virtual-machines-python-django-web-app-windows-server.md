@@ -1,22 +1,22 @@
 <properties
-	pageTitle="Python web app with Django | Microsoft Azure"
-	description="This tutorial teaches you how to host a Django-based website on Azure using a Windows Server 2012 R2 Datacenter virtual machine using the classic deployment model."
-	services="virtual-machines"
-	documentationCenter="python"
-	authors="huguesv"
-	manager="wpickett"
-	editor=""
-	tags="azure-service-management"/>
+    pageTitle="Python web app with Django | Microsoft Azure"
+    description="This tutorial teaches you how to host a Django-based website on Azure using a Windows Server 2012 R2 Datacenter virtual machine using the classic deployment model."
+    services="virtual-machines"
+    documentationCenter="python"
+    authors="huguesv"
+    manager="wpickett"
+    editor=""
+    tags="azure-service-management"/>
 
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="vm-windows" 
-	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="08/04/2015" 
-	ms.author="huvalo"/>
+    ms.service="virtual-machines" 
+    ms.workload="web" 
+    ms.tgt_pltfrm="vm-windows" 
+    ms.devlang="python" 
+    ms.topic="article" 
+    ms.date="08/04/2015" 
+    ms.author="huvalo"/>
 
 
 # Django Hello World web application on a Windows Server VM
@@ -54,7 +54,7 @@ A screenshot of the completed application appears next.
 1. Instruct Azure to direct port 80 traffic from the web to port 80 on the virtual machine:
  - Navigate to your newly created virtual machine in the Azure classic portal and click the **ENDPOINTS** tab.
  - Click the **ADD** button at the bottom of the screen.
-	![add endpoint](./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-addendpoint.png)
+    ![add endpoint](./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-addendpoint.png)
 
  - Open up the **TCP** protocol's **PUBLIC PORT 80** as **PRIVATE PORT 80**.
 ![][port80]
@@ -83,7 +83,7 @@ A screenshot of the completed application appears next.
 
 1. Install IIS with FastCGI support.  This may take several minutes to execute.
 
-		start /wait %windir%\System32\PkgMgr.exe /iu:IIS-WebServerRole;IIS-WebServer;IIS-CommonHttpFeatures;IIS-StaticContent;IIS-DefaultDocument;IIS-DirectoryBrowsing;IIS-HttpErrors;IIS-HealthAndDiagnostics;IIS-HttpLogging;IIS-LoggingLibraries;IIS-RequestMonitor;IIS-Security;IIS-RequestFiltering;IIS-HttpCompressionStatic;IIS-WebServerManagementTools;IIS-ManagementConsole;WAS-WindowsActivationService;WAS-ProcessModel;WAS-NetFxEnvironment;WAS-ConfigurationAPI;IIS-CGI
+        start /wait %windir%\System32\PkgMgr.exe /iu:IIS-WebServerRole;IIS-WebServer;IIS-CommonHttpFeatures;IIS-StaticContent;IIS-DefaultDocument;IIS-DirectoryBrowsing;IIS-HttpErrors;IIS-HealthAndDiagnostics;IIS-HttpLogging;IIS-LoggingLibraries;IIS-RequestMonitor;IIS-Security;IIS-RequestFiltering;IIS-HttpCompressionStatic;IIS-WebServerManagementTools;IIS-ManagementConsole;WAS-WindowsActivationService;WAS-ProcessModel;WAS-NetFxEnvironment;WAS-ConfigurationAPI;IIS-CGI
 
 ## Creating a new Django application
 
@@ -91,13 +91,13 @@ A screenshot of the completed application appears next.
 
     For Python 2.7, use the following command.
 
-		C:\Python27\Scripts\django-admin.exe startproject helloworld
+        C:\Python27\Scripts\django-admin.exe startproject helloworld
 
     For Python 3.4, use the following command.
 
-		C:\Python34\Scripts\django-admin.exe startproject helloworld
+        C:\Python34\Scripts\django-admin.exe startproject helloworld
 
-	![The result of the New-AzureService command](./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-cmd-new-azure-service.png)
+    ![The result of the New-AzureService command](./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-cmd-new-azure-service.png)
 
 1.  The **django-admin** command generates a basic structure for Django-based websites:
 
@@ -107,17 +107,17 @@ A screenshot of the completed application appears next.
 
 1.  Create a new file named **views.py** in the *C:\inetpub\wwwroot\helloworld\helloworld* directory. This will contain the view that renders the "hello world" page. Start your editor and enter the following:
 
-		from django.http import HttpResponse
-		def home(request):
-    		html = "<html><body>Hello World!</body></html>"
-    		return HttpResponse(html)
+        from django.http import HttpResponse
+        def home(request):
+            html = "<html><body>Hello World!</body></html>"
+            return HttpResponse(html)
 
 1.  Replace the contents of the urls.py file with the following.
 
-		from django.conf.urls import patterns, url
-		urlpatterns = patterns('',
-			url(r'^$', 'helloworld.views.home', name='home'),
-		)
+        from django.conf.urls import patterns, url
+        urlpatterns = patterns('',
+            url(r'^$', 'helloworld.views.home', name='home'),
+        )
 
 ## Configuring IIS
 
@@ -187,3 +187,4 @@ When you're done with this tutorial, shut down and/or remove your newly created 
 [Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
 [python.org]: https://www.python.org/downloads/
 [wfastcgi]: https://pypi.python.org/pypi/wfastcgi
+

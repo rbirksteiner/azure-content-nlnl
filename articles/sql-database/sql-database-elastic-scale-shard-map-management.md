@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Shard map management | Microsoft Azure" 
-	description="How to use the ShardMapManager, elastic database client library" 
-	services="sql-database" 
-	documentationCenter="" 
-	manager="jeffreyg" 
-	authors="ddove" 
-	editor=""/>
+    pageTitle="Shard map management | Microsoft Azure" 
+    description="How to use the ShardMapManager, elastic database client library" 
+    services="sql-database" 
+    documentationCenter="" 
+    manager="jeffreyg" 
+    authors="ddove" 
+    editor=""/>
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="sql-database" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/04/2015" 
-	ms.author="ddove;sidneyh"/>
+    ms.service="sql-database" 
+    ms.workload="sql-database" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/04/2015" 
+    ms.author="ddove;sidneyh"/>
 
 # Shard map management
 
@@ -45,7 +45,7 @@ Shard maps can be constructed using **lists of individual sharding key values**,
 | 1   | Database_A     |
 | 3   | Database_B     |
 | 4   | Database_C     |
-| 6	  | Database_B     |
+| 6   | Database_B     |
 | ... | ...            |
  
 
@@ -253,3 +253,4 @@ For scenarios that require data movement, however, the split-merge tool is neede
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
+

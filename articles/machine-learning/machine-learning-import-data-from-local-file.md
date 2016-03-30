@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Import data into Machine Learning Studio from a local file | Microsoft Azure"
-	description="How to import your training data Azure Machine Learning Studio from a local file."
-	keywords="import data,data format,data types,data sources,training data"
-	services="machine-learning"
-	documentationCenter=""
-	authors="garyericson"
-	manager="paulettm"
-	editor="cgronlun"/>
+    pageTitle="Import data into Machine Learning Studio from a local file | Microsoft Azure"
+    description="How to import your training data Azure Machine Learning Studio from a local file."
+    keywords="import data,data format,data types,data sources,training data"
+    services="machine-learning"
+    documentationCenter=""
+    authors="garyericson"
+    manager="paulettm"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/07/2015"
-	ms.author="garye;bradsev" />
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/07/2015"
+    ms.author="garye;bradsev" />
 
 
 # Import your training data into Azure Machine Learning Studio from various data sources
@@ -41,5 +41,6 @@ If you know the file will take a long time, you can do other things inside Machi
 
 Once your data is uploaded, it's stored in a dataset module and is available to any experiment in your workspace.
 You can find the dataset, along with all the pre-loaded sample datasets, in the **Saved Datasets** list in the module palette when you're editing an experiment. You can drag and drop the dataset in the experiment canvas when you want to use the data set for the further analytics and machine learning.
+
 
 

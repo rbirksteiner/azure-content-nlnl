@@ -93,3 +93,4 @@ To learn how to resolve specific support issues, see [Troubleshooting common iss
 [4]: ./media/marketplace-publishing-get-publisher-support/step4.png
 [5]: ./media/marketplace-publishing-get-publisher-support/step5.png
 [6]: ./media/marketplace-publishing-get-publisher-support/step6.png
+

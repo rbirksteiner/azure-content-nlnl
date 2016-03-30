@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
    pageTitle="Overview of Azure Data Lake Store | Azure" 
    description="Understand what is Azure Data Lake Store and the value it provides over other data stores" 
    services="data-lake-store" 
@@ -60,7 +60,7 @@ Azure Data Lake Store can store any data in their native format, as is, without 
 
 Azure Data Lake Store uses Azure Active Directory for authentication and access control lists (ACLs) to manage access to your data.
 
-| Feature                                 | Description 							 |
+| Feature                                 | Description                              |
 |-----------------------------------------|------------------------------------------|
 | Authentication | Azure Data Lake Store integrates with Azure Active Directory (AAD) for identity and access management for all the data stored in Azure Data Lake Store. As a result of the integration, Azure Data Lake benefits from all AAD features including multi-factor authentication, conditional access, role-based access control, application usage monitoring, security monitoring and alerting, etc. Azure Data Lake Store supports the OAuth 2.0 protocol for authentication with in the REST interface. |
 | Access control                          | Azure Data Lake Store provides access control by supporting POSIX-style permissions exposed by the WebHDFS protocol. In the current release, permissions can be specified at the data lake level and will apply to all the files and folders in the data lake. Future updates we will enable fine-grained access control by allowing permissions to be specified on individual files and folders.|
@@ -85,3 +85,4 @@ See [Get Started with Data Lake Store using the Azure Portal](data-lake-store-ge
 - [Use Azure HDInsight with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Get started with Azure Data Lake Store using .NET SDK](data-lake-store-get-started-net-sdk.md)
   
+

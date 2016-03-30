@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Send push notifications to authenticated universal Windows app users." 
-	description="Learn how to send push notifications from Azure Mobile Services to specific users of your universal Windows C# app." 
-	services="mobile-services,notification-hubs" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="Send push notifications to authenticated universal Windows app users." 
+    description="Learn how to send push notifications from Azure Mobile Services to specific users of your universal Windows C# app." 
+    services="mobile-services,notification-hubs" 
+    documentationCenter="windows" 
+    authors="ggailey777" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="11/11/2015" 
-	ms.author="glenga"/>
+    ms.service="mobile-services" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="mobile-windows-phone" 
+    ms.devlang="dotnet" 
+    ms.topic="article" 
+    ms.date="11/11/2015" 
+    ms.author="glenga"/>
 
 # Send push notifications to authenticated users
 
@@ -47,32 +47,32 @@ After you have completed both tutorials, you can prevent unauthenticated users f
 
 &nbsp;&nbsp;5. Replace the insert function with the following code, then click **Save**:
 
-	function insert(item, user, request) {
+    function insert(item, user, request) {
     // Define a payload for the Windows Store toast notification.
     var payload = '<?xml version="1.0" encoding="utf-8"?><toast><visual>' +    
     '<binding template="ToastText01"><text id="1">' +
     item.text + '</text></binding></visual></toast>';
 
     // Get the ID of the logged-in user.
-    var userId = user.userId;		
+    var userId = user.userId;       
 
     request.execute({
         success: function() {
             // If the insert succeeds, send a notification to all devices 
-	    	// registered to the logged-in user as a tag.
-            	push.wns.send(userId, payload, 'wns/toast', {
+            // registered to the logged-in user as a tag.
+                push.wns.send(userId, payload, 'wns/toast', {
                 success: function(pushResponse) {
                     console.log("Sent push:", pushResponse);
-	    			request.respond();
+                    request.respond();
                     },              
                     error: function (pushResponse) {
                             console.log("Error Sending push:", pushResponse);
-	    				request.respond(500, { error: pushResponse });
+                        request.respond(500, { error: pushResponse });
                         }
                     });
                 }
             });
-	}
+    }
 
 &nbsp;&nbsp;This insert script uses the user ID tag to send a push notification (with the text of the inserted item) to all Windows Store app registrations created by the logged-in user.
 

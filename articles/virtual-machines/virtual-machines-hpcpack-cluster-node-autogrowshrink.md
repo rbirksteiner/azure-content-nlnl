@@ -30,7 +30,7 @@ To do this, use the
 **AzureAutoGrowShrink.ps1** HPC PowerShell script that is installed with
 HPC Pack.
 
->[AZURE.TIP] Starting in HPC Pack 2012 R2 Update 2, HPC Pack includes a built-in
+>[AZURE.TIP] Starting in HPC Pack 2012 R2 Update 2, HPC Pack includes a built-in
 service to automatically grow and shrink Azure burst nodes or
 Azure VM compute nodes. Configure the service with a setting in the [HPC
 Pack IaaS deployment script](virtual-machines-hpcpack-cluster-powershell-script.md) or manually set the **AutoGrowShrink** cluster
@@ -126,3 +126,4 @@ node is found to be idle in 10 consecutive idle times, it is stopped.
 ```
 .\AzureAutoGrowShrink.ps1 -NodeTemplates 'Default ComputeNode Template' -JobTemplates 'Default' -NodeType ComputeNodes -NumOfActiveQueuedTasksPerNodeToGrow 10 -NumOfActiveQueuedTasksToGrowThreshold 15 -NumOfInitialNodesToGrow 5 -GrowCheckIntervalMins 1 -ShrinkCheckIntervalMins 1 -ShrinkCheckIdleTimes 10 -ArgFile 'IaaSVMComputeNodes_Arg.xml' -LogFilePrefix 'IaaSVMComputeNodes_log'
 ```
+

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How it works: Azure AD Password Management | Microsoft Azure" 
-	description="Learn about the different components of Azure AD Password Management, including where users register, reset, and change their passwords, and where admins configure, report on, and enable management of on-premises Active Directory passwords." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
-	editor="billmath"/>
+    pageTitle="How it works: Azure AD Password Management | Microsoft Azure" 
+    description="Learn about the different components of Azure AD Password Management, including where users register, reset, and change their passwords, and where admins configure, report on, and enable management of on-premises Active Directory passwords." 
+    services="active-directory" 
+    documentationCenter="" 
+    authors="asteen" 
+    manager="kbrint" 
+    editor="billmath"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/16/2015" 
-	ms.author="asteen"/>
+    ms.service="active-directory" 
+    ms.workload="identity" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/16/2015" 
+    ms.author="asteen"/>
 
 # How Password Management works
 Password Management in Azure Active Directory is comprised of several logical components that are described below.  Click on each link to learn more about that component.
@@ -122,3 +122,4 @@ Below are links to all of the Azure AD Password Reset documentation pages:
 [005]: ./media/active-directory-passwords-how-it-works/005.jpg "Image_005.jpg"
 [006]: ./media/active-directory-passwords-how-it-works/006.jpg "Image_006.jpg"
 [007]: ./media/active-directory-passwords-how-it-works/007.jpg "Image_007.jpg"
+

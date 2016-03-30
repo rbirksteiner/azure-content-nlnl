@@ -39,20 +39,20 @@ The Reporting API uses [OAuth](https://msdn.microsoft.com/library/azure/dn645545
 - Navigate into your directory.
 - Navigate into applications.
 - On the bottom bar, click "Add".
-	- Click "Add an application my organization is developing".
-	- **Name**: Any name is fine. Something like "Reporting API Application" is recommended.
-	- **Type**: Select "Web application and/or Web API".
-	- Click the arrow to move to the next page.
-	- **Sign-on URL**: ```http://localhost```.
-	- **App ID URI**: ```http://localhost```.
-	- Click the checkmark to finish adding the application.
+    - Click "Add an application my organization is developing".
+    - **Name**: Any name is fine. Something like "Reporting API Application" is recommended.
+    - **Type**: Select "Web application and/or Web API".
+    - Click the arrow to move to the next page.
+    - **Sign-on URL**: ```http://localhost```.
+    - **App ID URI**: ```http://localhost```.
+    - Click the checkmark to finish adding the application.
 
 ### Grant your application permission to use the API
 - Navigate to the Applications tab.
 - Navigate to your newly created application.
 - Click the **Configure** tab.
 - In the "Permissions to Other Applications" section:
-	- In the microsoft Azure Active Directory > Application Permissions, select **Read directory data**.
+    - In the microsoft Azure Active Directory > Application Permissions, select **Read directory data**.
 - Click **Save** on the bottom bar.
 
 
@@ -80,14 +80,14 @@ Edit one of the scripts below to work with your directory by replacing $ClientID
 ### PowerShell Script
 
     # This script will require the Web Application and permissions setup in Azure Active Directory
-    $ClientID	  	= "your-application-client-id-here"				# Should be a ~35 character string insert your info here
-    $ClientSecret  	= "your-application-client-secret-here"			# Should be a ~44 character string insert your info here
-    $loginURL		= "https://login.windows.net"
-    $tenantdomain	= "your-directory-name-here.onmicrosoft.com"			# For example, contoso.onmicrosoft.com
+    $ClientID       = "your-application-client-id-here"             # Should be a ~35 character string insert your info here
+    $ClientSecret   = "your-application-client-secret-here"         # Should be a ~44 character string insert your info here
+    $loginURL       = "https://login.windows.net"
+    $tenantdomain   = "your-directory-name-here.onmicrosoft.com"            # For example, contoso.onmicrosoft.com
 
     # Get an Oauth 2 access token based on client id, secret and tenant domain
-    $body		= @{grant_type="client_credentials";resource=$resource;client_id=$ClientID;client_secret=$ClientSecret}
-    $oauth		= Invoke-RestMethod -Method Post -Uri $loginURL/$tenantdomain/oauth2/token?api-version=1.0 -Body $body
+    $body       = @{grant_type="client_credentials";resource=$resource;client_id=$ClientID;client_secret=$ClientSecret}
+    $oauth      = Invoke-RestMethod -Method Post -Uri $loginURL/$tenantdomain/oauth2/token?api-version=1.0 -Body $body
 
     $7daysago = "{0:s}" -f (get-date).AddDays(-7) + "Z"
     # or, AddMinutes(-5)
@@ -95,17 +95,17 @@ Edit one of the scripts below to work with your directory by replacing $ClientID
     Write-Output $7daysago
 
     if ($oauth.access_token -ne $null) {
-    	$headerParams = @{'Authorization'="$($oauth.token_type) $($oauth.access_token)"}
+        $headerParams = @{'Authorization'="$($oauth.token_type) $($oauth.access_token)"}
 
         $url = "https://graph.windows.net/$tenantdomain/reports/auditEvents?api-version=beta&`$filter=eventTime gt $7daysago"
 
-    	$myReport = (Invoke-WebRequest -UseBasicParsing -Headers $headerParams -Uri $url)
-    	foreach ($event in ($myReport.Content | ConvertFrom-Json).value) {
-    		Write-Output ($event | ConvertTo-Json)
-    	}
+        $myReport = (Invoke-WebRequest -UseBasicParsing -Headers $headerParams -Uri $url)
+        foreach ($event in ($myReport.Content | ConvertFrom-Json).value) {
+            Write-Output ($event | ConvertTo-Json)
+        }
         $myReport.Content | Out-File -FilePath auditEvents.json -Force
     } else {
-    	Write-Host "ERROR: No Access Token"
+        Write-Host "ERROR: No Access Token"
     }
 
 ### Bash Script
@@ -149,10 +149,11 @@ The script returns lists all the available reports, and returns output from the 
 ## Notes
 
 - There is no limit on the number of events returned by the Azure AD Reporting API (using OData pagination).
-	- For retention limits on reporting data, check out [Reporting Retention Policies](active-directory-reporting-retention.md).
+    - For retention limits on reporting data, check out [Reporting Retention Policies](active-directory-reporting-retention.md).
 
 
 ## Next Steps
 - Curious about what security, audit, and activity reports are available? Check out [Azure AD Security, Audit, and Activity Reports](active-directory-view-access-usage-reports.md)
 - See [Azure AD Audit Report Events](active-directory-reporting-audit-events.md) for more details on the Audit Report
 - See [Azure AD Reports and Events (Preview)](https://msdn.microsoft.com/library/azure/mt126081.aspx) for more details on the Graph API REST service
+

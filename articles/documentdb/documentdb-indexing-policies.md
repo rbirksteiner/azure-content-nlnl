@@ -1,7 +1,7 @@
 <properties 
     pageTitle="DocumentDB Indexing Policies | Microsoft Azure" 
     description="Understand how indexing works in DocumentDB learn how to configure and change the indexing policy. Configure the indexing policy withing DocumentDB for automatic indexing and greater performance." 
-	keywords="how indexing works, automatic indexing, indexing database, documentdb, azure, Microsoft azure"
+    keywords="how indexing works, automatic indexing, indexing database, documentdb, azure, Microsoft azure"
     services="documentdb" 
     documentationCenter="" 
     authors="arramac" 
@@ -773,9 +773,10 @@ For a practical comparison, here is one example custom indexing policy written u
 
 Follow the links below for index policy management samples and to learn more about DocumentDB's query language.
 
-1.	[DocumentDB .NET Index Management code samples](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/IndexManagement/Program.cs)
-2.	[DocumentDB REST API Collection Operations](https://msdn.microsoft.com/library/azure/dn782195.aspx)
-3.	[Query with DocumentDB SQL](documentdb-sql-query.md)
+1.  [DocumentDB .NET Index Management code samples](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/IndexManagement/Program.cs)
+2.  [DocumentDB REST API Collection Operations](https://msdn.microsoft.com/library/azure/dn782195.aspx)
+3.  [Query with DocumentDB SQL](documentdb-sql-query.md)
 
  
+
 

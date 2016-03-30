@@ -47,9 +47,9 @@ One potential problem with the **package.json** file is that it only specifies t
 > [AZURE.NOTE]
 > When deploying to an Azure Webite, if your <b>package.json</b> file references a native module you will see an error similar to the following when publishing the application using Git:
 
->		npm ERR! module-name@0.6.0 install: 'node-gyp configure build'
+>       npm ERR! module-name@0.6.0 install: 'node-gyp configure build'
 
->		npm ERR! 'cmd "/c" "node-gyp configure build"' failed with 1
+>       npm ERR! 'cmd "/c" "node-gyp configure build"' failed with 1
 
 
 ###Using a npm-shrinkwrap.json file
@@ -61,9 +61,9 @@ When your application is ready for production, you can lock-down version require
 > [AZURE.NOTE]
 >When deploying to an Azure Webite, if your <b>npm-shrinkwrap.json</b> file references a native module you will see an error similar to the following when publishing the application using Git:
 
->		npm ERR! module-name@0.6.0 install: 'node-gyp configure build'
+>       npm ERR! module-name@0.6.0 install: 'node-gyp configure build'
 
->		npm ERR! 'cmd "/c" "node-gyp configure build"' failed with 1
+>       npm ERR! 'cmd "/c" "node-gyp configure build"' failed with 1
 
 
 ##Next Steps
@@ -79,3 +79,4 @@ For more information, see the [Node.js Developer Center](/develop/nodejs/).
 [Publishing with Git]: web-sites-publish-source-control.md
 [Build and deploy a Node.js application to an Azure Cloud Service]: cloud-services-nodejs-develop-deploy-app.md
 [Custom Website Deployment Scripts with Kudu]: /documentation/videos/custom-web-site-deployment-scripts-with-kudu/
+

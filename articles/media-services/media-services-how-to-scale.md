@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How to Scale a media service" 
-	description="Learn how to scale Media Services by specifying the number of On-Demand Streaming Reserved Units and Encoding Reserved Units that you would like your account to be provisioned with." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="juliako" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="How to Scale a media service" 
+    description="Learn how to scale Media Services by specifying the number of On-Demand Streaming Reserved Units and Encoding Reserved Units that you would like your account to be provisioned with." 
+    services="media-services" 
+    documentationCenter="" 
+    authors="juliako" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/05/2015"   
-	ms.author="juliako"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/05/2015"   
+    ms.author="juliako"/>
 
 
 #How to Scale a Media Service  
@@ -52,3 +52,4 @@ For more information, see [Managing Media Services Assets across Multiple Storag
 ##Provide feedback
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+

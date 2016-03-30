@@ -107,39 +107,39 @@ ACS supports multiple ways to create service identities, relying parties, and ru
 
 1. Create a service identity for an **EventHubSender**. This returns the name of the service identity that was created and its key:
 
-	```
-	sbaztool.exe exe -n <namespace> -k <key>  makeid eventhubsender
-	```
+    ```
+    sbaztool.exe exe -n <namespace> -k <key>  makeid eventhubsender
+    ```
 
 2. Grant **EventHubSender** "Send Claims" to the Event Hub:
 
-	```
-	sbaztool.exe -n <namespace> -k <key> grant Send /AuthTestEventHub eventhubsender
-	```
+    ```
+    sbaztool.exe -n <namespace> -k <key> grant Send /AuthTestEventHub eventhubsender
+    ```
 
 3. Create a service identity for a receiver to Consumer Group 1:
 
-	```
-	sbaztool.exe exe -n <namespace> -k <key> makeid consumergroup1receiver
-	```
+    ```
+    sbaztool.exe exe -n <namespace> -k <key> makeid consumergroup1receiver
+    ```
 
 4. Grant `consumergroup1receiver` "Listen Claims" to **ConsumerGroup1**:
 
-	```
-	sbaztool.exe -n <namespace> -k <key> grant Listen /AuthTestEventHub/ConsumerGroup1 consumergroup1receiver
-	```
+    ```
+    sbaztool.exe -n <namespace> -k <key> grant Listen /AuthTestEventHub/ConsumerGroup1 consumergroup1receiver
+    ```
 
 5. Create a service identity for a receiver to **Consumer Group 2**:
 
-	```
-	sbaztool.exe exe -n <namespace> -k <key>  makeid consumergroup2receiver
-	```
+    ```
+    sbaztool.exe exe -n <namespace> -k <key>  makeid consumergroup2receiver
+    ```
 
 6. Grant `consumergroup2receiver` "Listen Claims" to **ConsumerGroup2**:
 
-	```
-	sbaztool.exe -n <namespace> -k <key> grant Listen /AuthTestEventHub/ConsumerGroup2 consumergroup2receiver
-	```
+    ```
+    sbaztool.exe -n <namespace> -k <key> grant Listen /AuthTestEventHub/ConsumerGroup2 consumergroup2receiver
+    ```
 
 ## Next steps
 
@@ -153,3 +153,4 @@ To learn more about Event Hubs, visit the following topics:
 [sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [queued messaging solution]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
+

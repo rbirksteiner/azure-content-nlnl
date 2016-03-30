@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="C# retry logic to connect to SQL Database | Microsoft Azure" 
-	description="C# sample includes retry logic for reliably interacting with Azure SQL Database." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="MightyPen" 
-	manager="jeffreyg" 
-	editor=""/>
+    pageTitle="C# retry logic to connect to SQL Database | Microsoft Azure" 
+    description="C# sample includes retry logic for reliably interacting with Azure SQL Database." 
+    services="sql-database" 
+    documentationCenter="" 
+    authors="MightyPen" 
+    manager="jeffreyg" 
+    editor=""/>
 
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/30/2015" 
-	ms.author="genemi"/>
+    ms.service="sql-database" 
+    ms.workload="data-management" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/30/2015" 
+    ms.author="genemi"/>
 
 
 # Code sample: Retry logic in C# for connecting to SQL Database
@@ -106,46 +106,46 @@ using H = System.Threading;
 
 namespace RetryAdo2
 {
-	class Program
-	{
-		static void Main(string[] args)
-		{
-			Program program = new Program();
-			bool returnBool;
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Program program = new Program();
+            bool returnBool;
 
-			returnBool = program.Run(args);
-			if (returnBool == false)
-			{
-				Console.WriteLine("Something failed.  :-( ");
-			}
-			return;
-		}
+            returnBool = program.Run(args);
+            if (returnBool == false)
+            {
+                Console.WriteLine("Something failed.  :-( ");
+            }
+            return;
+        }
 
-		bool Run(string[] _args)
-		{
-			C.SqlConnectionStringBuilder sqlConnectionSB;
-			C.SqlConnection sqlConnection;
-			D.IDbCommand dbCommand;
-			D.IDataReader dataReader;
-			X.StringBuilder sBuilder = new X.StringBuilder(256);
-			int retryIntervalSeconds = 10;
-			bool returnBool = false;
+        bool Run(string[] _args)
+        {
+            C.SqlConnectionStringBuilder sqlConnectionSB;
+            C.SqlConnection sqlConnection;
+            D.IDbCommand dbCommand;
+            D.IDataReader dataReader;
+            X.StringBuilder sBuilder = new X.StringBuilder(256);
+            int retryIntervalSeconds = 10;
+            bool returnBool = false;
 
-			for (int tries = 1; tries <= 5; tries++)
-			{
-				try
-				{
-					if (tries > 1)
-					{
-						H.Thread.Sleep(1000 * retryIntervalSeconds);
-						retryIntervalSeconds = Convert.ToInt32(retryIntervalSeconds * 1.5);
-					}
-					this.GetSqlConnectionStringBuilder(out sqlConnectionSB);
+            for (int tries = 1; tries <= 5; tries++)
+            {
+                try
+                {
+                    if (tries > 1)
+                    {
+                        H.Thread.Sleep(1000 * retryIntervalSeconds);
+                        retryIntervalSeconds = Convert.ToInt32(retryIntervalSeconds * 1.5);
+                    }
+                    this.GetSqlConnectionStringBuilder(out sqlConnectionSB);
 
-					sqlConnection = new C.SqlConnection(sqlConnectionSB.ToString());
+                    sqlConnection = new C.SqlConnection(sqlConnectionSB.ToString());
 
-					dbCommand = sqlConnection.CreateCommand();
-					dbCommand.CommandText = @"
+                    dbCommand = sqlConnection.CreateCommand();
+                    dbCommand.CommandText = @"
 SELECT TOP 3
       ob.name,
       CAST(ob.object_id as nvarchar(32)) as [object_id]
@@ -153,66 +153,66 @@ SELECT TOP 3
    WHERE ob.type='IT'
    ORDER BY ob.name;";
 
-					sqlConnection.Open();
-					dataReader = dbCommand.ExecuteReader();
+                    sqlConnection.Open();
+                    dataReader = dbCommand.ExecuteReader();
 
-					while (dataReader.Read())
-					{
-						sBuilder.Length = 0;
-						sBuilder.Append(dataReader.GetString(0));
-						sBuilder.Append("\t");
-						sBuilder.Append(dataReader.GetString(1));
+                    while (dataReader.Read())
+                    {
+                        sBuilder.Length = 0;
+                        sBuilder.Append(dataReader.GetString(0));
+                        sBuilder.Append("\t");
+                        sBuilder.Append(dataReader.GetString(1));
 
-						Console.WriteLine(sBuilder.ToString());
-					}
-					returnBool = true;
-					break;
-				}
+                        Console.WriteLine(sBuilder.ToString());
+                    }
+                    returnBool = true;
+                    break;
+                }
 
-				catch (C.SqlException sqlExc)
-				{
-					if (this.m_listTransientErrorNumbers.Contains(sqlExc.Number) == true)
-					{ continue; }
-					else
-					{ throw sqlExc; }
-				}
-			}
-			return returnBool;
-		}
+                catch (C.SqlException sqlExc)
+                {
+                    if (this.m_listTransientErrorNumbers.Contains(sqlExc.Number) == true)
+                    { continue; }
+                    else
+                    { throw sqlExc; }
+                }
+            }
+            return returnBool;
+        }
 
-		void GetSqlConnectionStringBuilder(out C.SqlConnectionStringBuilder _sqlConnectionSB)
-		{
-			// Prepare the connection string to Azure SQL Database.
-			_sqlConnectionSB = new C.SqlConnectionStringBuilder();
+        void GetSqlConnectionStringBuilder(out C.SqlConnectionStringBuilder _sqlConnectionSB)
+        {
+            // Prepare the connection string to Azure SQL Database.
+            _sqlConnectionSB = new C.SqlConnectionStringBuilder();
 
-			// Change these values to your values.
-			_sqlConnectionSB["Server"] = "tcp:myazuresqldbserver.database.windows.net,1433";
-			_sqlConnectionSB["User ID"] = "MyLogin";  // "@yourservername"  as suffix sometimes.
-			_sqlConnectionSB["Password"] = "MyPassword";
-			_sqlConnectionSB["Database"] = "MyDatabase";
+            // Change these values to your values.
+            _sqlConnectionSB["Server"] = "tcp:myazuresqldbserver.database.windows.net,1433";
+            _sqlConnectionSB["User ID"] = "MyLogin";  // "@yourservername"  as suffix sometimes.
+            _sqlConnectionSB["Password"] = "MyPassword";
+            _sqlConnectionSB["Database"] = "MyDatabase";
 
-			// Adjust these values if you like. (.NET 4.5.1 or later.)
-			_sqlConnectionSB["ConnectRetryCount"] = 3;
-			_sqlConnectionSB["ConnectRetryInterval"] = 10;  // Seconds.
+            // Adjust these values if you like. (.NET 4.5.1 or later.)
+            _sqlConnectionSB["ConnectRetryCount"] = 3;
+            _sqlConnectionSB["ConnectRetryInterval"] = 10;  // Seconds.
 
-			// Leave these values as they are.
-			_sqlConnectionSB["Trusted_Connection"] = false;
-			_sqlConnectionSB["Integrated Security"] = false;
-			_sqlConnectionSB["Encrypt"] = true;
-			_sqlConnectionSB["Connection Timeout"] = 30;
-		}
+            // Leave these values as they are.
+            _sqlConnectionSB["Trusted_Connection"] = false;
+            _sqlConnectionSB["Integrated Security"] = false;
+            _sqlConnectionSB["Encrypt"] = true;
+            _sqlConnectionSB["Connection Timeout"] = 30;
+        }
 
-		Program()   // Constructor.
-		{
-			int[] arrayOfTransientErrorNumbers =
-				{ 4060, 40197, 40501, 40613, 49918, 49919, 49920
-					//,11001   // 11001 for testing, pretend network error is transient.
-				};
-			m_listTransientErrorNumbers = new G.List<int>(arrayOfTransientErrorNumbers);
-		}
+        Program()   // Constructor.
+        {
+            int[] arrayOfTransientErrorNumbers =
+                { 4060, 40197, 40501, 40613, 49918, 49919, 49920
+                    //,11001   // 11001 for testing, pretend network error is transient.
+                };
+            m_listTransientErrorNumbers = new G.List<int>(arrayOfTransientErrorNumbers);
+        }
 
-		private G.List<int> m_listTransientErrorNumbers;
-	}
+        private G.List<int> m_listTransientErrorNumbers;
+    }
 }
 ```
 
@@ -281,4 +281,5 @@ Run the program with the "test" parameter, and verify it first fails but then su
 
 
 - [Client quick-start code samples to SQL Database](sql-database-develop-quick-start-client-code-samples.md)
+
 

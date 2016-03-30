@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Cortana Analytics Gallery | Microsoft Azure"
-	description="Share and discover analytics solutions and more in the Cortana Analytics Gallery. Learn from others and make your own contributions to the community."
-	services="machine-learning"
-	documentationCenter=""
-	authors="garyericson"
-	manager="paulettm"
-	editor="cgronlun"/>
+    pageTitle="Cortana Analytics Gallery | Microsoft Azure"
+    description="Share and discover analytics solutions and more in the Cortana Analytics Gallery. Learn from others and make your own contributions to the community."
+    services="machine-learning"
+    documentationCenter=""
+    authors="garyericson"
+    manager="paulettm"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/01/2015"
-	ms.author="chhavib;cgronlun;garye"/>
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/01/2015"
+    ms.author="chhavib;cgronlun;garye"/>
 
 
 # Share and discover solutions in the Cortana Analytics Gallery
@@ -142,3 +142,4 @@ You can use tab to de-limit tags.
 Rich description rendering is not available to all Gallery users widely. We're actively working on making this capability available by supporting markdown rendering.
 
 **[TAKE ME TO THE GALLERY >>](http://gallery.cortanaanalytics.com)**
+

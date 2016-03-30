@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Windows Universal Apps Reach SDK Integration" 
-	description="How to Integrate Azure Mobile Engagement Reach with Windows Universal Apps"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
-	editor="" />
+    pageTitle="Windows Universal Apps Reach SDK Integration" 
+    description="How to Integrate Azure Mobile Engagement Reach with Windows Universal Apps"
+    services="mobile-engagement" 
+    documentationCenter="mobile" 
+    authors="piyushjo" 
+    manager="dwrede" 
+    editor="" />
 
 <tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="07/07/2015" 
-	ms.author="piyushjo" />
+    ms.service="mobile-engagement" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="mobile-windows-store" 
+    ms.devlang="dotnet" 
+    ms.topic="article" 
+    ms.date="07/07/2015" 
+    ms.author="piyushjo" />
 
 # Windows Universal Apps Reach SDK Integration
 
@@ -42,13 +42,13 @@ Modify the `App.xaml.cs`:
 
 -   Insert `EngagementReach.Instance.Init` just after `EngagementAgent.Instance.Init` in your `InitEngagement` method:
 
-		private void InitEngagement(IActivatedEventArgs e)
-		{
-		  EngagementAgent.Instance.Init(e);
-		  EngagementReach.Instance.Init(e);
-		}
+        private void InitEngagement(IActivatedEventArgs e)
+        {
+          EngagementAgent.Instance.Init(e);
+          EngagementReach.Instance.Init(e);
+        }
 
-	The `EngagementReach.Instance.Init` runs in a dedicated thread. You do not have to do it yourself.
+    The `EngagementReach.Instance.Init` runs in a dedicated thread. You do not have to do it yourself.
 
 > [AZURE.NOTE] If you are using push notifications elsewhere in your application then you have to [share your push channel](#push-channel-sharing) with Engagement Reach.
 
@@ -72,70 +72,70 @@ In your .xaml file change EngagementPage reference to EngagementPageOverlay
 
 -   Add to your namespaces declarations:
 
-		xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay"
+        xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay"
 
 -   Replace `engagement:EngagementPage` with `engagement:EngagementPageOverlay`:
 
 **With EngagementPage:**
 
-		<engagement:EngagementPage 
-		    xmlns:engagement="using:Microsoft.Azure.Engagement">
-		
-		    <!-- layout -->
-		</engagement:EngagementPage>
+        <engagement:EngagementPage 
+            xmlns:engagement="using:Microsoft.Azure.Engagement">
+        
+            <!-- layout -->
+        </engagement:EngagementPage>
 
 **With EngagementPageOverlay:**
 
-		<engagement:EngagementPageOverlay 
-		    xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay">
-		
-		    <!-- layout -->
-		</engagement:EngagementPageOverlay>
+        <engagement:EngagementPageOverlay 
+            xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay">
+        
+            <!-- layout -->
+        </engagement:EngagementPageOverlay>
 
 > **With EngagementPageOverlay for 8.1+:**
 
-		<engagement:EngagementPageOverlay 
-		    xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay">
-		    <Grid>
-		      <!-- layout -->
-		    </Grid>
-		</engagement:EngagementPageOverlay>
+        <engagement:EngagementPageOverlay 
+            xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay">
+            <Grid>
+              <!-- layout -->
+            </Grid>
+        </engagement:EngagementPageOverlay>
 
 Then in your .cs file tag your page in "EngagementPageOverlay" instead of "EngagementPage" and import "Microsoft.Azure.Engagement.Overlay".
 
-			using Microsoft.Azure.Engagement.Overlay;
+            using Microsoft.Azure.Engagement.Overlay;
 
 -   Replace `EngagementPage` with `EngagementPageOverlay`:
 
 **With EngagementPage:**
 
-			using Microsoft.Azure.Engagement;
-			
-			namespace Example
-			{
-			  public sealed partial class ExamplePage : EngagementPage
-			  {
-			    [...]
-			  }
-			}
+            using Microsoft.Azure.Engagement;
+            
+            namespace Example
+            {
+              public sealed partial class ExamplePage : EngagementPage
+              {
+                [...]
+              }
+            }
 
 **With EngagementPageOverlay:**
 
-			using Microsoft.Azure.Engagement.Overlay;
-			
-			namespace Example
-			{
-			  public sealed partial class ExamplePage : EngagementPageOverlay 
-			  {
-			    [...]
-			  }
-			}
+            using Microsoft.Azure.Engagement.Overlay;
+            
+            namespace Example
+            {
+              public sealed partial class ExamplePage : EngagementPageOverlay 
+              {
+                [...]
+              }
+            }
 
 Now this page uses the engagement overlay mechanism, you don't have to insert a web view.
 
 The Engagement overlay uses the first “Grid” element it finds in your xaml file to add two web views on your page. If you want to locate where web views will be set, you can define a grid named “EngagementGrid” like this:
 
-			<Grid x:Name="EngagementGrid"></Grid>
+            <Grid x:Name="EngagementGrid"></Grid>
 
 You can customize the overlay notification and announcement directly on their xaml and cs files:
 
@@ -153,19 +153,19 @@ If you want to use it, do not use Overlay integration.
 
 To display engagement content, you need to integrate the two xaml WebView in each page and you need to display notification and announcement. So add this code in your xaml file:
 
-			<WebView x:Name="engagement_notification_content" Visibility="Collapsed" Height="80" HorizontalAlignment="Right" VerticalAlignment="Top"/>
-			<WebView x:Name="engagement_announcement_content" Visibility="Collapsed" HorizontalAlignment="Right" VerticalAlignment="Top"/> 
+            <WebView x:Name="engagement_notification_content" Visibility="Collapsed" Height="80" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+            <WebView x:Name="engagement_announcement_content" Visibility="Collapsed" HorizontalAlignment="Right" VerticalAlignment="Top"/> 
 
 > **For 8.1+ integration:**
 
-			<engagement:EngagementPage
-			    xmlns:engagement="using:Microsoft.Azure.Engagement">
-			    <Grid>
-			      <!-- Your layout -->
-			      <WebView x:Name="engagement_notification_content" Visibility="Collapsed" Height="80" HorizontalAlignment="Right" VerticalAlignment="Top"/>
-			      <WebView x:Name="engagement_announcement_content" Visibility="Collapsed"  HorizontalAlignment="Right" VerticalAlignment="Top"/> 
-			    </Grid>
-			</engagement:EngagementPage>
+            <engagement:EngagementPage
+                xmlns:engagement="using:Microsoft.Azure.Engagement">
+                <Grid>
+                  <!-- Your layout -->
+                  <WebView x:Name="engagement_notification_content" Visibility="Collapsed" Height="80" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+                  <WebView x:Name="engagement_announcement_content" Visibility="Collapsed"  HorizontalAlignment="Right" VerticalAlignment="Top"/> 
+                </Grid>
+            </engagement:EngagementPage>
 
 And your associated .cs file have to look like:
 
@@ -178,20 +178,20 @@ And your associated .cs file have to look like:
 
     namespace My.Namespace.Example
     {
-			/// <summary>
-			/// An empty page that can be used on its own or navigated to within a Frame.
-			/// </summary>
-			public sealed partial class ExampleEngagementReachPage : EngagementPage
-			{
-			  public ExampleEngagementReachPage()
-			  {
-			    this.InitializeComponent();
-			
-			    /* Set your webview elements to the correct size. */
-			    SetWebView(width, height);
-			  }
-			
-			  #region to implement
+            /// <summary>
+            /// An empty page that can be used on its own or navigated to within a Frame.
+            /// </summary>
+            public sealed partial class ExampleEngagementReachPage : EngagementPage
+            {
+              public ExampleEngagementReachPage()
+              {
+                this.InitializeComponent();
+            
+                /* Set your webview elements to the correct size. */
+                SetWebView(width, height);
+              }
+            
+              #region to implement
               /* Attach events when page is navigated. */
               protected override void OnNavigatedTo(NavigationEventArgs e)
               {
@@ -205,73 +205,73 @@ And your associated .cs file have to look like:
                 base.OnNavigatedTo(e);
               }
 
-			  /* When page is left ensure to detach SizeChanged handler. */
-			  protected override void OnNavigatedFrom(NavigationEventArgs e)
-			  {
-			    Window.Current.SizeChanged -= DisplayProperties_OrientationChanged;
+              /* When page is left ensure to detach SizeChanged handler. */
+              protected override void OnNavigatedFrom(NavigationEventArgs e)
+              {
+                Window.Current.SizeChanged -= DisplayProperties_OrientationChanged;
     #if WINDOWS_PHONE_APP || WINDOWS_UWP
                 ApplicationView.GetForCurrentView().VisibleBoundsChanged -= DisplayProperties_VisibleBoundsChanged;
     #endif
-			    base.OnNavigatedFrom(e);
-			  }
-			  
-			  /* "width" and "height" are the current size of your application display. */
+                base.OnNavigatedFrom(e);
+              }
+              
+              /* "width" and "height" are the current size of your application display. */
     #if WINDOWS_PHONE_APP || WINDOWS_UWP
-			  double width = ApplicationView.GetForCurrentView().VisibleBounds.Width;
-			  double height = ApplicationView.GetForCurrentView().VisibleBounds.Height;
+              double width = ApplicationView.GetForCurrentView().VisibleBounds.Width;
+              double height = ApplicationView.GetForCurrentView().VisibleBounds.Height;
     #else
-			  double width =  Window.Current.Bounds.Width;
-			  double height =  Window.Current.Bounds.Height;
+              double width =  Window.Current.Bounds.Width;
+              double height =  Window.Current.Bounds.Height;
     #endif
-			
-			  /// <summary>
-			  /// Set your webview elements to the correct size.
-			  /// </summary>
-			  /// <param name="width">The width of your current display.</param>
-			  /// <param name="height">The height of your current display.</param>
-			  private void SetWebView(double width, double height)
-			  {
-			    #pragma warning disable 4014
-			    CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal,
-			            () =>
-			            {
-			              this.engagement_notification_content.Width = width;
-			              this.engagement_announcement_content.Width = width;
-			              this.engagement_announcement_content.Height = height;
-			            });
-			  }
-			
-			  /// <summary>
-			  /// Handler that takes the Windows.Current.SizeChanged and indicates that webviews have to be resized.
-			  /// </summary>
-			  /// <param name="sender">Original event trigger.</param>
-			  /// <param name="e">Window Size Changed Event arguments.</param>
-			  private void DisplayProperties_OrientationChanged(object sender, Windows.UI.Core.WindowSizeChangedEventArgs e)
-			  {
-			    double width = e.Size.Width;
-			    double height = e.Size.Height;
-			
-			    /* Set your webview elements to the correct size. */
-			    SetWebView(width, height);
-			  }
+            
+              /// <summary>
+              /// Set your webview elements to the correct size.
+              /// </summary>
+              /// <param name="width">The width of your current display.</param>
+              /// <param name="height">The height of your current display.</param>
+              private void SetWebView(double width, double height)
+              {
+                #pragma warning disable 4014
+                CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal,
+                        () =>
+                        {
+                          this.engagement_notification_content.Width = width;
+                          this.engagement_announcement_content.Width = width;
+                          this.engagement_announcement_content.Height = height;
+                        });
+              }
+            
+              /// <summary>
+              /// Handler that takes the Windows.Current.SizeChanged and indicates that webviews have to be resized.
+              /// </summary>
+              /// <param name="sender">Original event trigger.</param>
+              /// <param name="e">Window Size Changed Event arguments.</param>
+              private void DisplayProperties_OrientationChanged(object sender, Windows.UI.Core.WindowSizeChangedEventArgs e)
+              {
+                double width = e.Size.Width;
+                double height = e.Size.Height;
+            
+                /* Set your webview elements to the correct size. */
+                SetWebView(width, height);
+              }
 
-    #if WINDOWS_PHONE_APP || WINDOWS_UWP			  
-			  /// <summary>
-			  /// Handler that takes the ApplicationView.VisibleBoundsChanged and indicates that webviews have to be resized
-			  /// </summary>
-			  /// <param name="sender">The related application view.</param>
-			  /// <param name="e">Related event arguments.</param>
-			  private void DisplayProperties_VisibleBoundsChanged(ApplicationView sender, Object e)
-			  {
-			    double width = sender.VisibleBounds.Width;
-			    double height = sender.VisibleBounds.Height;
-			
-			    /* Set your webview elements to the correct size. */
-			    SetWebView(width, height);
-			  }
+    #if WINDOWS_PHONE_APP || WINDOWS_UWP              
+              /// <summary>
+              /// Handler that takes the ApplicationView.VisibleBoundsChanged and indicates that webviews have to be resized
+              /// </summary>
+              /// <param name="sender">The related application view.</param>
+              /// <param name="e">Related event arguments.</param>
+              private void DisplayProperties_VisibleBoundsChanged(ApplicationView sender, Object e)
+              {
+                double width = sender.VisibleBounds.Width;
+                double height = sender.VisibleBounds.Height;
+            
+                /* Set your webview elements to the correct size. */
+                SetWebView(width, height);
+              }
     #endif
-			  #endregion
-			}
+              #endregion
+            }
     }
 
 > This implementation embedded WebView resizing when the device screen is turned.
@@ -282,18 +282,18 @@ If you want your application to be able to receive Reach data pushes, you have t
 
 In App.xaml.cs in "Public App(){}" add:
 
-			EngagementReach.Instance.DataPushStringReceived += (body) =>
-			{
-			  Debug.WriteLine("String data push message received: " + body);
-			  return true;
-			};
-			
-			EngagementReach.Instance.DataPushBase64Received += (decodedBody, encodedBody) =>
-			{
-			  Debug.WriteLine("Base64 data push message received: " + encodedBody);
-			  // Do something useful with decodedBody like updating an image view
-			  return true;
-			};
+            EngagementReach.Instance.DataPushStringReceived += (body) =>
+            {
+              Debug.WriteLine("String data push message received: " + body);
+              return true;
+            };
+            
+            EngagementReach.Instance.DataPushBase64Received += (decodedBody, encodedBody) =>
+            {
+              Debug.WriteLine("Base64 data push message received: " + encodedBody);
+              // Do something useful with decodedBody like updating an image view
+              return true;
+            };
 
 You can see that the callback of each method returns a boolean. Engagement sends a feedback to its back-end after dispatching the data push. If the callback returns false, the `exit` feedback will be send. Otherwise, it will be `action`. If no callback is set for the events, the `drop` feedback will be returned to Engagement.
 
@@ -309,26 +309,26 @@ To do so, you have to create a subclass of the `EngagementReachHandler` class.
 
 **Sample Code :**
 
-			using Microsoft.Azure.Engagement;
-			
-			namespace Example
-			{
-			  internal class ExampleReachHandler : EngagementReachHandler
-			  {
-			   // Override EngagementReachHandler methods depending on your needs
-			  }
-			}
+            using Microsoft.Azure.Engagement;
+            
+            namespace Example
+            {
+              internal class ExampleReachHandler : EngagementReachHandler
+              {
+               // Override EngagementReachHandler methods depending on your needs
+              }
+            }
 
 Then, set the content of the `EngagementReach.Instance.Handler` field with your custom object in your `App.xaml.cs` class within the `App()` method.
 
 **Sample Code :**
 
-			protected override void OnLaunched(LaunchActivatedEventArgs args)
-			{
-			  // your app initialization 
-			  EngagementReach.Instance.Handler = new ExampleReachHandler();
-			  // Engagement Agent and Reach initialization
-			}
+            protected override void OnLaunched(LaunchActivatedEventArgs args)
+            {
+              // your app initialization 
+              EngagementReach.Instance.Handler = new ExampleReachHandler();
+              // Engagement Agent and Reach initialization
+            }
 
 > [AZURE.NOTE] By default, Engagement uses its own implementation of `EngagementReachHandler`.
 > You don't have to create your own, and if you do so, you don't have to override every method. The default behavior is to select the Engagement base object.
@@ -344,25 +344,25 @@ However, you can decide to use your own resources.
 You can override `EngagementReachHandler` methods in your subclass to tell Engagement to use your layouts, but take care to embedded the engagement mechanism:
 
 **Sample Code :**
-			
-			// In your subclass of EngagementReachHandler
-			
-			public override string GetAnnouncementHTML()
-			{
-			  return base.GetAnnouncementHTML();
-			}
-			public override string GetAnnouncementName()
-			{
-			  return base.GetAnnouncementName();
-			}
-			public override string GetNotfificationHTML()
-			{
-			  return base.GetNotfificationHTML();
-			}
-			public override string GetNotfificationName()
-			{
-			  return base.GetNotfificationName();
-			}
+            
+            // In your subclass of EngagementReachHandler
+            
+            public override string GetAnnouncementHTML()
+            {
+              return base.GetAnnouncementHTML();
+            }
+            public override string GetAnnouncementName()
+            {
+              return base.GetAnnouncementName();
+            }
+            public override string GetNotfificationHTML()
+            {
+              return base.GetNotfificationHTML();
+            }
+            public override string GetNotfificationName()
+            {
+              return base.GetNotfificationName();
+            }
 
 
 By default, AnnouncementHTML is `ms-appx-web:///Resources/EngagementAnnouncement.html`. It represents the html file that design the content of a push message (Text announcement, Web anoucement and Poll announcement). AnnouncementName is `engagement_announcement_content`. It is the name of the webview design in your xaml page.
@@ -387,22 +387,22 @@ To indicate to the user that something is loading, you should provide a visual i
 
 To implement the callback, in App.xaml.cs in "Public App(){}" add:
 
-			/* The application has launched and the content is loading.
-			 * You should display an indicator here.
-			 */
-			EngagementReach.Instance.RetrieveLaunchMessageStarted += () => { [...] };
-			
-			/* The application has finished loading the content and the page
-			 * is about to be displayed.
-			 * You should hide the indicator here.
-			 */
-			EngagementReach.Instance.RetrieveLaunchMessageCompleted += () => { [...] };
-			
-			/* The content has been loaded, but an error has occurred.
-			 * You can provide an information to the user.
-			 * You should hide the indicator here.
-			 */
-			EngagementReach.Instance.RetrieveLaunchMessageFailed += () => { [...] };
+            /* The application has launched and the content is loading.
+             * You should display an indicator here.
+             */
+            EngagementReach.Instance.RetrieveLaunchMessageStarted += () => { [...] };
+            
+            /* The application has finished loading the content and the page
+             * is about to be displayed.
+             * You should hide the indicator here.
+             */
+            EngagementReach.Instance.RetrieveLaunchMessageCompleted += () => { [...] };
+            
+            /* The content has been loaded, but an error has occurred.
+             * You can provide an information to the user.
+             * You should hide the indicator here.
+             */
+            EngagementReach.Instance.RetrieveLaunchMessageFailed += () => { [...] };
 
 You can set the callback in your "Public App(){}" method of your `App.xaml.cs` file, preferably before the `EngagementReach.Instance.Init()` call.
 
@@ -421,7 +421,7 @@ Update the Engagement Reach initialization with your push channel in the `InitEn
     
     /*...Engagement initialization */
     EngagementAgent.Instance.Init(e);
-	EngagementReach.Instance.Init(e,pushChannel);
+    EngagementReach.Instance.Init(e,pushChannel);
 
 - Alternatively, if you just want to consume the push channel after the Reach initialization then you can set a callback on Engagement Reach to get the push channel once it is created by the SDK.
 
@@ -433,9 +433,9 @@ Set your callback at any place **after** the Reach initialization :
       /* The forwarded channel can be null if its creation fails for any reason. */
       if (channel != null)
       {
-		/* Your own push channel logic... */
+        /* Your own push channel logic... */
       });
-	}
+    }
 
 ## Custom scheme tip
 
@@ -445,27 +445,27 @@ The simple way to set a custom scheme in your application is to open your `Packa
 
 Now to use this protocol, edit your `App.xaml.cs` with the `OnActivated` method, and don't forget to initialize engagement here also:
 
-			/// <summary>
-			/// Enter point when app his called by another way than user click
-			/// </summary>
-			/// <param name="args">Activation args</param>
-			protected override void OnActivated(IActivatedEventArgs args)
-			{
-			  /* Init engagement like it was launch by a custom uri scheme */
-			  EngagementAgent.Instance.Init(args);
-			  EngagementReach.Instance.Init(args);
-			
-			  //TODO design action to do when app is launch
-			
-			  #region Custom scheme use
-			  if (args.Kind == ActivationKind.Protocol)
-			  {
-			    ProtocolActivatedEventArgs myProtocol = (ProtocolActivatedEventArgs)args;
-			
-			    if (myProtocol.Uri.Scheme.Equals("protocolName"))
-			    {
-			      string path = myProtocol.Uri.AbsolutePath;
-			    }
-			  }
-			  #endregion
+            /// <summary>
+            /// Enter point when app his called by another way than user click
+            /// </summary>
+            /// <param name="args">Activation args</param>
+            protected override void OnActivated(IActivatedEventArgs args)
+            {
+              /* Init engagement like it was launch by a custom uri scheme */
+              EngagementAgent.Instance.Init(args);
+              EngagementReach.Instance.Init(args);
+            
+              //TODO design action to do when app is launch
+            
+              #region Custom scheme use
+              if (args.Kind == ActivationKind.Protocol)
+              {
+                ProtocolActivatedEventArgs myProtocol = (ProtocolActivatedEventArgs)args;
+            
+                if (myProtocol.Uri.Scheme.Equals("protocolName"))
+                {
+                  string path = myProtocol.Uri.AbsolutePath;
+                }
+              }
+              #endregion
  

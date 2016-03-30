@@ -37,3 +37,4 @@ Locally Redundant Storage (LRS) maintains three copies of your data. LRS is repl
 If you are using Azure as a tertiary backup storage endpoint (e.g. you are using SCDPM to have a local backup copy on-premises & using Azure for your long term retention needs), you should consider choosing Locally Redundant Storage from the **Configure** option of your Backup vault. This brings down the cost of storing data in Azure, while providing a lower level of durability for your data that might be acceptable for tertiary copies.
 
 ![LRS](./media/backup-create-vault/lrs.png)
+

@@ -136,15 +136,15 @@ public static String getHMAC256(String key, String input) {
 function generateSasToken($uri, $sasKeyName, $sasKeyValue) 
 { 
 $targetUri = strtolower(rawurlencode(strtolower($uri))); 
-$expires = time(); 	
+$expires = time();  
 $expiresInMins = 60; 
 $week = 60*60*24*7;
 $expires = $expires + $week; 
 $toSign = $targetUri . "\n" . $expires; 
-$signature = rawurlencode(base64_encode(hash_hmac('sha256', 			
+$signature = rawurlencode(base64_encode(hash_hmac('sha256',             
  $toSign, $sasKeyValue, TRUE))); 
 
-$token = "SharedAccessSignature sr=" . $targetUri . "&sig=" . $signature . "&se=" . $expires . 		"&skn=" . $sasKeyName; 
+$token = "SharedAccessSignature sr=" . $targetUri . "&sig=" . $signature . "&se=" . $expires .      "&skn=" . $sasKeyName; 
 return $token; 
 }
 ```
@@ -175,7 +175,7 @@ Content-Type: application/json
 Authorization: SharedAccessSignature sr=https%3A%2F%2F<yournamespace>.servicebus.windows.net%2F<yourentity>&sig=<yoursignature from code above>&se=1438205742&skn=KeyName
 ContentType: application/atom+xml;type=entry;charset=utf-8
 ``` 
-	
+    
 Remember, this works for everything. You can create SAS for a queue, topic, subscription, Event Hub, or relay. If you use per-publisher identity for Event Hubs, you simply append `/publishers/< publisherid>`.
 
 If you give a sender or client a SAS token, they don't have the key directly, and they cannot reverse the hash to obtain it. As such, you have control over what they can access, and for how long. An important thing to remember is that if you change the primary key in the policy, any Shared Access Signatures created from it will be invalidated.

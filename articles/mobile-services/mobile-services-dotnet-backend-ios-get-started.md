@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Get Started with Azure Mobile Services for iOS apps"
-	description="Follow this tutorial to get started using Azure Mobile Services for iOS development."
-	services="mobile-services"
-	documentationCenter="ios"
-	authors="krisragh"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Get Started with Azure Mobile Services for iOS apps"
+    description="Follow this tutorial to get started using Azure Mobile Services for iOS development."
+    services="mobile-services"
+    documentationCenter="ios"
+    authors="krisragh"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-ios"
-	ms.devlang="objective-c"
-	ms.topic="article"
-	ms.date="11/04/2015"
-	ms.author="krisragh"/>
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-ios"
+    ms.devlang="objective-c"
+    ms.topic="article"
+    ms.date="11/04/2015"
+    ms.author="krisragh"/>
 
 # <a name="getting-started"> </a>Get started with Mobile Services
 
@@ -107,3 +107,4 @@ Learn how to perform additional important tasks in Mobile Services:
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [JavaScript backend version]: mobile-services-ios-get-started.md
+

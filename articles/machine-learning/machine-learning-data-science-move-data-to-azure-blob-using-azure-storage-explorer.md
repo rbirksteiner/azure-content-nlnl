@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Move Data to and from Azure Blob Storage using Azure Storage Explorer | Microsoft Azure" 
-	description="Move Data to and from Azure Blob Storage using Azure Storage Explorer" 
-	services="machine-learning,storage" 
-	documentationCenter="" 
-	authors="bradsev" 
-	manager="paulettm" 
-	editor="cgronlun" />
+    pageTitle="Move Data to and from Azure Blob Storage using Azure Storage Explorer | Microsoft Azure" 
+    description="Move Data to and from Azure Blob Storage using Azure Storage Explorer" 
+    services="machine-learning,storage" 
+    documentationCenter="" 
+    authors="bradsev" 
+    manager="paulettm" 
+    editor="cgronlun" />
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/23/2015" 
-	ms.author="bradsev" />
+    ms.service="machine-learning" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/23/2015" 
+    ms.author="bradsev" />
 
 # Move Data to and from Azure Blob Storage using Azure Storage Explorer
 
@@ -60,3 +60,4 @@ The following steps document how to upload/download data using Azure Storage Exp
 [1]: ./media/machine-learning-data-science-move-azure-blob/data-science-process-uploading-data-to-blob-storage-img1.png
 [2]: ./media/machine-learning-data-science-move-azure-blob/data-science-process-uploading-data-to-blob-storage-img2.png
 [3]: ./media/machine-learning-data-science-move-azure-blob/data-science-process-uploading-data-to-blob-storage-img3.png
+

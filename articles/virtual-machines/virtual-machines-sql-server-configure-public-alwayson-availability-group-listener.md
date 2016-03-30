@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Configure an external Listener for AlwaysOn Availability Groups | Microsoft Azure"
-	description="This tutorial walks you through steps of creating an AlwaysOn Availability Group Listener in Azure that is externally accessible by using the public Virtual IP address of the associated cloud service."
-	services="virtual-machines"
-	documentationCenter="na"
-	authors="rothja"
-	manager="jeffreyg"
-	editor="monicar"
-	tags="azure-service-management" />
+    pageTitle="Configure an external Listener for AlwaysOn Availability Groups | Microsoft Azure"
+    description="This tutorial walks you through steps of creating an AlwaysOn Availability Group Listener in Azure that is externally accessible by using the public Virtual IP address of the associated cloud service."
+    services="virtual-machines"
+    documentationCenter="na"
+    authors="rothja"
+    manager="jeffreyg"
+    editor="monicar"
+    tags="azure-service-management" />
 <tags 
-	ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services"
-	ms.date="11/13/2015"
-	ms.author="jroth" />
+    ms.service="virtual-machines"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="vm-windows-sql-server"
+    ms.workload="infrastructure-services"
+    ms.date="11/13/2015"
+    ms.author="jroth" />
 
 # Configure an external listener for AlwaysOn Availability Groups in Azure
 
@@ -57,15 +57,15 @@ External load balancing uses the virtual the public Virtual IP address of the cl
 
 1. Copy the PowerShell script below into a text editor and set the variable values to suit your environment (defaults have been provided for some parameters). Note that if your availability group spans Azure regions, you must run the script once in each datacenter for the cloud service and nodes that reside in that datacenter.
 
-		# Define variables
-		$ServiceName = "<MyCloudService>" # the name of the cloud service that contains the availability group nodes
-		$AGNodes = "<VM1>","<VM2>","<VM3>" # all availability group nodes containing replicas in the same cloud service, separated by commas
-		
-		# Configure a load balanced endpoint for each node in $AGNodes, with direct server return enabled
-		ForEach ($node in $AGNodes)
-		{
-		    Get-AzureVM -ServiceName $ServiceName -Name $node | Add-AzureEndpoint -Name "ListenerEndpoint" -Protocol "TCP" -PublicPort 1433 -LocalPort 1433 -LBSetName "ListenerEndpointLB" -ProbePort 59999 -ProbeProtocol "TCP" -DirectServerReturn $true | Update-AzureVM
-		}
+        # Define variables
+        $ServiceName = "<MyCloudService>" # the name of the cloud service that contains the availability group nodes
+        $AGNodes = "<VM1>","<VM2>","<VM3>" # all availability group nodes containing replicas in the same cloud service, separated by commas
+        
+        # Configure a load balanced endpoint for each node in $AGNodes, with direct server return enabled
+        ForEach ($node in $AGNodes)
+        {
+            Get-AzureVM -ServiceName $ServiceName -Name $node | Add-AzureEndpoint -Name "ListenerEndpoint" -Protocol "TCP" -PublicPort 1433 -LocalPort 1433 -LBSetName "ListenerEndpointLB" -ProbePort 59999 -ProbeProtocol "TCP" -DirectServerReturn $true | Update-AzureVM
+        }
 
 1. Once you have set the variables, copy the script from the text editor into your Azure PowerShell session to run it. If the prompt still shows >>, type ENTER again to make sure the script starts running.
 
@@ -87,17 +87,17 @@ External load balancing uses the virtual the public Virtual IP address of the cl
 
 4. On one of the VMs, copy the PowerShell script below into a text editor and set the variables to the values you noted earlier.
 
-		# Define variables
-		$ClusterNetworkName = "<ClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
-		$IPResourceName = "<IPResourceName>" # the IP Address resource name 
-		$CloudServiceIP = "<X.X.X.X>" # Public Virtual IP (VIP) address of your cloud service
-		
-		Import-Module FailoverClusters
-		
-		# If you are using Windows Server 2012 or higher, use the Get-Cluster Resource command. If you are using Windows Server 2008 R2, use the cluster res command. Both commands are commented out. Choose the one applicable to your environment and remove the # at the beginning of the line to convert the comment to an executable line of code. 
-		
-		# Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$CloudServiceIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"OverrideAddressMatch"=1;"EnableDhcp"=0}
-		# cluster res $IPResourceName /priv enabledhcp=0 overrideaddressmatch=1 address=$CloudServiceIP probeport=59999  subnetmask=255.255.255.255
+        # Define variables
+        $ClusterNetworkName = "<ClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
+        $IPResourceName = "<IPResourceName>" # the IP Address resource name 
+        $CloudServiceIP = "<X.X.X.X>" # Public Virtual IP (VIP) address of your cloud service
+        
+        Import-Module FailoverClusters
+        
+        # If you are using Windows Server 2012 or higher, use the Get-Cluster Resource command. If you are using Windows Server 2008 R2, use the cluster res command. Both commands are commented out. Choose the one applicable to your environment and remove the # at the beginning of the line to convert the comment to an executable line of code. 
+        
+        # Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$CloudServiceIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"OverrideAddressMatch"=1;"EnableDhcp"=0}
+        # cluster res $IPResourceName /priv enabledhcp=0 overrideaddressmatch=1 address=$CloudServiceIP probeport=59999  subnetmask=255.255.255.255
 
 
 1. Once you have set the variables, open an elevated Windows PowerShell window, then copy the script from the text editor and paste into your Azure PowerShell session to run it. If the prompt still shows >>, type ENTER again to make sure the script starts running. 
@@ -120,7 +120,7 @@ External load balancing uses the virtual the public Virtual IP address of the cl
 
 In order to access the listener from outside the virtual network, you must be using external/public load balancing (described in this topic) rather than ILB, which is only accesible within the same VNet. In the connection string, you specify the cloud service name. For example, if you had a cloud service with the name *mycloudservice*, the sqlcmd statement would be as follows:
 
-	sqlcmd -S "mycloudservice.cloudapp.net,<EndpointPort>" -d "<DatabaseName>" -U "<LoginId>" -P "<Password>"  -Q "select @@servername, db_name()" -l 15
+    sqlcmd -S "mycloudservice.cloudapp.net,<EndpointPort>" -d "<DatabaseName>" -U "<LoginId>" -P "<Password>"  -Q "select @@servername, db_name()" -l 15
 
 Unlike the previous example, SQL authentication must be used, because the caller cannot use windows authentication over the internet. For more information, see [AlwaysOn Availability Group in Azure VM: Client Connectivity Scenarios](http://blogs.msdn.com/b/sqlcat/archive/2014/02/03/alwayson-availability-group-in-windows-azure-vm-client-connectivity-scenarios.aspx). When using SQL authentication, make sure that you create the same login on both replicas. For more information about troubleshooting logins with Availability Groups, see [How to map logins or use contained SQL database user to connect to other replicas and map to availability databases](http://blogs.msdn.com/b/alwaysonpro/archive/2014/02/19/how-to-map-logins-or-use-contained-sql-database-user-to-connect-to-other-replicas-and-map-to-availability-databases.aspx).
 
@@ -129,4 +129,5 @@ If the AlwaysOn replicas are in different subnets, clients must specify **Multis
 ## Next Steps
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
+
 

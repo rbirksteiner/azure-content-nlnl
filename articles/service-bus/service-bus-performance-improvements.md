@@ -39,39 +39,39 @@ Performing an operation (send, receive, delete, etc.) takes some time. This time
 
 -   **Asynchronous operations**: the client schedules operations by performing asynchronous operations. The next request is started before the previous request is completed. The following is an example of an asynchronous send operation:
 
-	```
-	BrokeredMessage m1 = new BrokeredMessage(body);
-	BrokeredMessage m2 = new BrokeredMessage(body);
-	
-	Task send1 = queueClient.SendAsync(m1).ContinueWith((t) => 
-	  {
-	    Console.WriteLine("Sent message #1");
-	  });
-	Task send2 = queueClient.SendAsync(m2).ContinueWith((t) => 
-	  {
-	    Console.WriteLine("Sent message #2");
-	  });
-	Task.WaitAll(send1, send2);
-	Console.WriteLine("All messages sent");
-	```
+    ```
+    BrokeredMessage m1 = new BrokeredMessage(body);
+    BrokeredMessage m2 = new BrokeredMessage(body);
+    
+    Task send1 = queueClient.SendAsync(m1).ContinueWith((t) => 
+      {
+        Console.WriteLine("Sent message #1");
+      });
+    Task send2 = queueClient.SendAsync(m2).ContinueWith((t) => 
+      {
+        Console.WriteLine("Sent message #2");
+      });
+    Task.WaitAll(send1, send2);
+    Console.WriteLine("All messages sent");
+    ```
 
-	This is an example of an asynchronous receive operation:
-	
-	```
-	Task receive1 = queueClient.ReceiveAsync().ContinueWith(ProcessReceivedMessage);
-	Task receive2 = queueClient.ReceiveAsync().ContinueWith(ProcessReceivedMessage);
-	
-	Task.WaitAll(receive1, receive2);
-	Console.WriteLine("All messages received");
-	
-	async void ProcessReceivedMessage(Task<BrokeredMessage> t)
-	{
-	  BrokeredMessage m = t.Result;
-	  Console.WriteLine("{0} received", m.Label);
-	  await m.CompleteAsync();
-	  Console.WriteLine("{0} complete", m.Label);
-	}
-	```
+    This is an example of an asynchronous receive operation:
+    
+    ```
+    Task receive1 = queueClient.ReceiveAsync().ContinueWith(ProcessReceivedMessage);
+    Task receive2 = queueClient.ReceiveAsync().ContinueWith(ProcessReceivedMessage);
+    
+    Task.WaitAll(receive1, receive2);
+    Console.WriteLine("All messages received");
+    
+    async void ProcessReceivedMessage(Task<BrokeredMessage> t)
+    {
+      BrokeredMessage m = t.Result;
+      Console.WriteLine("{0} received", m.Label);
+      await m.CompleteAsync();
+      Console.WriteLine("{0} complete", m.Label);
+    }
+    ```
 
 -   **Multiple factories**: all clients (senders in addition to receivers) that are created by the same factory share one TCP connection. The maximum message throughput is limited by the number of operations that can go through this TCP connection. The throughput that can be obtained with a single factory varies greatly with TCP round-trip times and message size. To obtain higher throughput rates, you should use multiple messaging factories.
 

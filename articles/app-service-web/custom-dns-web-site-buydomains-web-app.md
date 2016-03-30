@@ -1,21 +1,21 @@
 
 <properties
-	pageTitle="How to buy a custom domain name in Azure App Service Web Apps"
-	description="Learn how to buy a custom domain name with a web app in Azure App Service."
-	services="app-service\web"
-	documentationCenter=""
-	authors="rmcmurray"
-	manager="wpickett"
-	editor=""/>
+    pageTitle="How to buy a custom domain name in Azure App Service Web Apps"
+    description="Learn how to buy a custom domain name with a web app in Azure App Service."
+    services="app-service\web"
+    documentationCenter=""
+    authors="rmcmurray"
+    manager="wpickett"
+    editor=""/>
 
 <tags
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/20/2015"
-	ms.author="robmcm"/>
+    ms.service="app-service-web"
+    ms.workload="web"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/20/2015"
+    ms.author="robmcm"/>
 
 # Buy and Configure a custom domain name in Azure App Service
 
@@ -50,11 +50,11 @@ Use the following steps to buy domain names and assign to your web app.
 
 2. In the **Web Apps** tab, click the name of your web app, select **Settings**, and then select **Custom domains and SSL**
 
-	![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
+    ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
 
 3. In the **Custom domains and SSL** blade, click **Buy domains**.
 
-	![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-1.png)
+    ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-1.png)
 
 4. In the **Buy Domains** blade, use the text box to type the domain name you want to buy and hit Enter. The suggested available domains will be shown just below the text box. Select what domain you want to buy. You can choose to purchase multiple domains at once. 
 
@@ -68,11 +68,11 @@ Use the following steps to buy domain names and assign to your web app.
 
 6. Now you can choose to,
 
-	a) "Auto renew" your domain every year
-	
-	b) Opt-in for "Privacy protection" which is included in the purchase price for FREE
-	
-	c) "Assign default hostnames" for WWW and root domain to the current Web App. 
+    a) "Auto renew" your domain every year
+    
+    b) Opt-in for "Privacy protection" which is included in the purchase price for FREE
+    
+    c) "Assign default hostnames" for WWW and root domain to the current Web App. 
 
   ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.5.png)
   
@@ -80,7 +80,7 @@ Use the following steps to buy domain names and assign to your web app.
 >
 >You can always assign the domains/sub-domains purchased through one Web App to another Web App and vice-versa. See step 8 for more details. 
 
-	
+    
 7. Click the **Select** on **Buy Domains** blade, then you will see the purchase information on **Purchase confirmation** blade. If you accept the legal terms and click **Buy**, your order will be submitted and you can monitor the purchasing process on **Notification**. Domain purchase can take few minutes to complete. 
 
   ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-4.png)
@@ -89,7 +89,7 @@ Use the following steps to buy domain names and assign to your web app.
 
 8. If you successfully ordered a domain, you can manage the domain and assign to your web app. Click the **"..."** at the right side of your domain. Then you can **Cancel purchase** or **Manage domain**. Click **Manage domain**, then we can bind **subdomain** to our web app on **Manage domain** blade. If you want to bind a  **subdomain** to a different Web App then perform this step from within the context of the respective Web App. Over here you an choose to assign the domain to Traffic manager endpoint (if Web App is behind TM) by simply selecting Traffic manager name from the Drop down menu. By doing this, domain/subdomain will be automatically assigned to all the Web Apps behind that Traffic Manager endpoint. 
 
-	![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-6.png)
+    ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-6.png)
 
 > [AZURE.NOTE] You can "Cancel purchase" within 5 days for full refund. After 5 days you will not be able to "Cancel purchase", instead you will see an option to "Delete" the domain. Deleting the domain will result in releasing it from your subscription without refund and will become available domain. 
 
@@ -97,3 +97,4 @@ Once configuration has completed, the custom domain name will be listed in the *
 
 At this point, you should be able to enter the custom domain name in your browser and see that it successfully takes you to your web app.
  
+

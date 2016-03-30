@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="EntLib retry to connect to SQL Database | Microsoft Azure"
-	description="Enterprise Library is designed to ease several tasks for client programs of cloud services, including the integration of retry logic for transient faults."
-	services="sql-database"
-	documentationCenter=""
-	authors="MightyPen"
-	manager="jeffreyg"
-	editor="" />
+    pageTitle="EntLib retry to connect to SQL Database | Microsoft Azure"
+    description="Enterprise Library is designed to ease several tasks for client programs of cloud services, including the integration of retry logic for transient faults."
+    services="sql-database"
+    documentationCenter=""
+    authors="MightyPen"
+    manager="jeffreyg"
+    editor="" />
 
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="10/16/2015" 
-	ms.author="genemi"/>
+    ms.service="sql-database" 
+    ms.workload="data-management" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="dotnet" 
+    ms.topic="article" 
+    ms.date="10/16/2015" 
+    ms.author="genemi"/>
 
 
 # Code sample: Retry logic from Enterprise Library 6, in C&#x23; for connecting to SQL Database
@@ -321,4 +321,5 @@ SELECT TOP 3
 
 
 - [Client quick-start code samples to SQL Database](sql-database-develop-quick-start-client-code-samples.md)
+
 

@@ -73,19 +73,19 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
 ###To configure single sign-on, perform the following steps:
 
-1.  In the Azure AD portal, on the **Jitbit Helpdesk** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  In the Azure AD portal, on the **Jitbit Helpdesk** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
     ![Configure single sign-on](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC777678.png "Configure single sign-on")
 
-2.  On the **How would you like users to sign on to Jitbit Helpdesk** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to Jitbit Helpdesk** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure single sign-on](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC777679.png "Configure single sign-on")
 
-3.  On the **Configure App URL** page, in the **Jitbit Helpdesk Sign In URL** textbox, type your URL using the following pattern "*https://\<tenant-name\>.Jitbit.com*", and then click **Next**.
+3.  On the **Configure App URL** page, in the **Jitbit Helpdesk Sign In URL** textbox, type your URL using the following pattern "*https://\<tenant-name\>.Jitbit.com*", and then click **Next**.
 
     ![Configure app URL](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC777528.png "Configure app URL")
 
-4.  On the **Configure single sign-on at Jitbit Helpdesk** page, to download your certificate, click **Download certificate**, and then save the certificate file locally as **c:\\Jitbit Helpdesk.cer**.
+4.  On the **Configure single sign-on at Jitbit Helpdesk** page, to download your certificate, click **Download certificate**, and then save the certificate file locally as **c:\\Jitbit Helpdesk.cer**.
 
     ![Configure single sign-on](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC777680.png "Configure single sign-on")
 
@@ -107,12 +107,12 @@ If you are not familiar with this procedure, see [How to convert a binary certif
     2.  In the Azure portal, on the **Configure single sign-on at Jitbit Helpdesk** dialogue page, copy the **Service Provider (SP) initiated endpoint** value, and then paste it into the **EndPoint URL** textbox.
     3.  Create a **base-64 encoded** file from your downloaded certificate.
         
-		>[AZURE.TIP]For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
+        >[AZURE.TIP]For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
 
     4.  Open your base-64 encoded certificate, copy the content of it into your clipboard, and then paste it to the **X.509 Certificate** textbox
     5.  Click **Save changes**.
 
-9.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+9.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
     ![Configure single sign-on](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC777684.png "Configure single sign-on")
 ##Configuring user provisioning
@@ -152,7 +152,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 1.  In the Azure AD portal, create a test account.
 
-2.  On the **Jitbit Helpdesk **application integration page, click **Assign users**.
+2.  On the **Jitbit Helpdesk **application integration page, click **Assign users**.
 
     ![Assign users](./media/active-directory-saas-jitbit-helpdesk-tutorial/IC777687.png "Assign users")
 

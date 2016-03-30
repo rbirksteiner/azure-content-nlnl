@@ -40,7 +40,7 @@ In this tutorial, you will learn how to use the Event Hubs spout and bolt to rea
 
 * A text editor or Java integrated development environment (IDE)
 
-	> [AZURE.NOTE] Your editor or IDE may have specific functionality for working with Maven that is not addressed in this document. For information about the capabilities of your editing environment, see the documentation for the product you are using.
+    > [AZURE.NOTE] Your editor or IDE may have specific functionality for working with Maven that is not addressed in this document. For information about the capabilities of your editing environment, see the documentation for the product you are using.
 
  * An SSH client. See one of the following articles for more information on using SSH with HDInsight:
 
@@ -253,11 +253,11 @@ The following environment variables may be set when you install Java and the JDK
 
 * **PATH** - should contain the following paths:
 
-	* **JAVA_HOME** (or the equivalent path)
+    * **JAVA_HOME** (or the equivalent path)
 
-	* **JAVA_HOME\bin** (or the equivalent path)
+    * **JAVA_HOME\bin** (or the equivalent path)
 
-	* The directory where Maven is installed
+    * The directory where Maven is installed
 
 ## Configure Event Hub
 
@@ -267,27 +267,27 @@ Event Hubs is the data source for this example. Use the following steps to creat
 
 2. On the **Add a new Event Hub** screen, enter an **Event Hub Name**, select the **Region** to create the hub in, and create a new namespace or select an existing one. Click the **Arrow** to continue.
 
-	![wizard page 1](./media/hdinsight-storm-develop-csharp-event-hub-topology/wiz1.png)
+    ![wizard page 1](./media/hdinsight-storm-develop-csharp-event-hub-topology/wiz1.png)
 
-	> [AZURE.NOTE] You should select the same **Location** as your Storm on HDInsight server to reduce latency and costs.
+    > [AZURE.NOTE] You should select the same **Location** as your Storm on HDInsight server to reduce latency and costs.
 
 2. On the **Configure Event Hub** screen, enter the **Partition count** and **Message Retention** values. For this example, use a partition count of 10 and a message retention of 1. Note the partition count because you will need this value later.
 
-	![wizard page 2](./media/hdinsight-storm-develop-csharp-event-hub-topology/wiz2.png)
+    ![wizard page 2](./media/hdinsight-storm-develop-csharp-event-hub-topology/wiz2.png)
 
 3. After the event hub has been created, select the namespace, select **Event Hubs**, and then select the event hub that you created earlier.
 
 4. Select **Configure**, then create two new access policies by using the following information.
 
-	<table>
-	<tr><th>Name</th><th>Permissions</th></tr>
-	<tr><td>Writer</td><td>Send</td></tr>
-	<tr><td>Reader</td><td>Listen</td></tr>
-	</table>
+    <table>
+    <tr><th>Name</th><th>Permissions</th></tr>
+    <tr><td>Writer</td><td>Send</td></tr>
+    <tr><td>Reader</td><td>Listen</td></tr>
+    </table>
 
-	After You create the permissions, select the **Save** icon at the bottom of the page. This creates the shared access policies that will be used to send (writer) and listen (reader) to this Event Hub.
+    After You create the permissions, select the **Save** icon at the bottom of the page. This creates the shared access policies that will be used to send (writer) and listen (reader) to this Event Hub.
 
-	![policies](./media/hdinsight-storm-develop-csharp-event-hub-topology/policy.png)
+    ![policies](./media/hdinsight-storm-develop-csharp-event-hub-topology/policy.png)
 
 5. After you save the policies, use the **Shared access key generator** at the bottom of the page to retrieve the key for the **writer** and **reader** policies. Save these because they will be used later.
 
@@ -297,25 +297,25 @@ Event Hubs is the data source for this example. Use the following steps to creat
 
 2. Use the following commands to install packages included in the project into your local Maven repository. These enable the Event Hub spout and bolt, as well as the ability to use the HdfsBolt to write to Azure Storage (WASB).
 
-		mvn -q install:install-file -Dfile=lib/eventhubs/eventhubs-storm-spout-0.9.3-jar-with-dependencies.jar -DgroupId=com.microsoft.eventhubs -DartifactId=eventhubs-storm-spout -Dversion=0.9.3 -Dpackaging=jar
+        mvn -q install:install-file -Dfile=lib/eventhubs/eventhubs-storm-spout-0.9.3-jar-with-dependencies.jar -DgroupId=com.microsoft.eventhubs -DartifactId=eventhubs-storm-spout -Dversion=0.9.3 -Dpackaging=jar
 
-		mvn -q org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile=lib/hadoop/hadoop-azure-3.0.0-SNAPSHOT.jar
+        mvn -q org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile=lib/hadoop/hadoop-azure-3.0.0-SNAPSHOT.jar
 
-		mvn -q org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile=lib/hadoop/hadoop-client-3.0.0-SNAPSHOT.jar
+        mvn -q org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile=lib/hadoop/hadoop-client-3.0.0-SNAPSHOT.jar
 
-		mvn -q org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile=lib/hadoop/hadoop-hdfs-3.0.0-SNAPSHOT.jar
+        mvn -q org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile=lib/hadoop/hadoop-hdfs-3.0.0-SNAPSHOT.jar
 
-		mvn -q org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile=lib/hadoop/hadoop-common-3.0.0-SNAPSHOT.jar -DpomFile=lib/hadoop/hadoop-common-3.0.0-SNAPSHOT.pom
+        mvn -q org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile=lib/hadoop/hadoop-common-3.0.0-SNAPSHOT.jar -DpomFile=lib/hadoop/hadoop-common-3.0.0-SNAPSHOT.pom
 
-		mvn -q org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile=lib/hadoop/hadoop-project-dist-3.0.0-SNAPSHOT.pom -DpomFile=lib/hadoop/hadoop-project-dist-3.0.0-SNAPSHOT.pom
+        mvn -q org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile=lib/hadoop/hadoop-project-dist-3.0.0-SNAPSHOT.pom -DpomFile=lib/hadoop/hadoop-project-dist-3.0.0-SNAPSHOT.pom
 
-		mvn -q org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile=lib/hadoop/hadoop-project-3.0.0-SNAPSHOT.pom -DpomFile=lib/hadoop/hadoop-project-3.0.0-SNAPSHOT.pom
+        mvn -q org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile=lib/hadoop/hadoop-project-3.0.0-SNAPSHOT.pom -DpomFile=lib/hadoop/hadoop-project-3.0.0-SNAPSHOT.pom
 
-		mvn -q org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile=lib/hadoop/hadoop-main-3.0.0-SNAPSHOT.pom -DpomFile=lib/hadoop/hadoop-main-3.0.0-SNAPSHOT.pom
+        mvn -q org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile=lib/hadoop/hadoop-main-3.0.0-SNAPSHOT.pom -DpomFile=lib/hadoop/hadoop-main-3.0.0-SNAPSHOT.pom
 
-	> [AZURE.NOTE] If you're using Powershell, you mau have to put the `-D` parameters in quotes. For example, `"-Dfile=lib/hadoop/hadoop-main-3.0.0-SNAPSHOT.pom"`.
+    > [AZURE.NOTE] If you're using Powershell, you mau have to put the `-D` parameters in quotes. For example, `"-Dfile=lib/hadoop/hadoop-main-3.0.0-SNAPSHOT.pom"`.
 
-	Also these files are originally from https://github.com/hdinsight/hdinsight-storm-examples, so can find the latest versions there.
+    Also these files are originally from https://github.com/hdinsight/hdinsight-storm-examples, so can find the latest versions there.
 
 3. Use the following to build and package the project:
 
@@ -477,3 +477,4 @@ For more information on using the Storm UI, see the following topics:
 ##Next steps
 
 * [Example topologies for Storm on HDInsight](hdinsight-storm-example-topology.md)
+

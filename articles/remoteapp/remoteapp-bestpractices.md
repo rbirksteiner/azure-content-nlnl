@@ -38,7 +38,8 @@ The following information can help you configure and use Azure RemoteApp product
 - Keep your template images up to date, installing software updates and other critical fixes as needed. This ensures that as Azure RemoteApp auto-scales to meet your capacity, each instance is patched.  
 - Make sure your Active Directory Federation Services (AD FS) deployment is secure and reliable. Otherwise client authentications might fail, preventing users from accessing Azure RemoteApp.
 - Configure template images with installed applications, roles, or features such that they are stateless. They should not rely on any instances of the virtual machines in a RemoteApp service being in a persistent state.
-	- Store all user data in user profiles or other storage locations external to the service, such as on-premises file shares or OneDrive.
-	- Store shared data in storage locations external to the service, such as on-premises file shares or OneDrive.
-	- Configure any system-wide settings in the template image rather than on individual virtual machines in a service.
-	- Disable automatic software updates for published applications - instead apply them manually to the template image and test them before you deploy  from the template.
+    - Store all user data in user profiles or other storage locations external to the service, such as on-premises file shares or OneDrive.
+    - Store shared data in storage locations external to the service, such as on-premises file shares or OneDrive.
+    - Configure any system-wide settings in the template image rather than on individual virtual machines in a service.
+    - Disable automatic software updates for published applications - instead apply them manually to the template image and test them before you deploy  from the template.
+

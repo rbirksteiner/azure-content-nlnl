@@ -1,20 +1,20 @@
 <properties
-	pageTitle="How to use Queue storage from .NET | Microsoft Azure"
-	description="Learn how to use Microsoft Azure Queue storage to create and delete queues and insert, peek, get, and delete queue messages."
-	services="storage"
-	documentationCenter=".net"
-	authors="robinsh"
-	manager="carmonm"
-	editor=""/>
+    pageTitle="How to use Queue storage from .NET | Microsoft Azure"
+    description="Learn how to use Microsoft Azure Queue storage to create and delete queues and insert, peek, get, and delete queue messages."
+    services="storage"
+    documentationCenter=".net"
+    authors="robinsh"
+    manager="carmonm"
+    editor=""/>
 
 <tags
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="hero-article" 
-	ms.date="12/04/2015"
-	ms.author="robinsh"/>
+    ms.service="storage"
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="hero-article" 
+    ms.date="12/04/2015"
+    ms.author="robinsh"/>
 
 # How to use Queue storage from .NET
 
@@ -120,8 +120,8 @@ from the queue by calling the **PeekMessage** method.
     // Peek at the next message
     CloudQueueMessage peekedMessage = queue.PeekMessage();
 
-	// Display message.
-	Console.WriteLine(peekedMessage.AsString);
+    // Display message.
+    Console.WriteLine(peekedMessage.AsString);
 
 ## Change the contents of a queued message
 
@@ -148,7 +148,7 @@ that triggers an application error each time it is processed.
     // Retrieve a reference to a queue.
     CloudQueue queue = queueClient.GetQueueReference("myqueue");
 
-	// Get the message from the queue and update the message contents.
+    // Get the message from the queue and update the message contents.
     CloudQueueMessage message = queue.GetMessage();
     message.SetMessageContent("Updated contents.");
     queue.UpdateMessage(message,
@@ -260,14 +260,14 @@ property returns the last value retrieved by the
     // Retrieve a reference to a queue.
     CloudQueue queue = queueClient.GetQueueReference("myqueue");
 
-	// Fetch the queue attributes.
-	queue.FetchAttributes();
+    // Fetch the queue attributes.
+    queue.FetchAttributes();
 
     // Retrieve the cached approximate message count.
     int? cachedMessageCount = queue.ApproximateMessageCount;
 
-	// Display number of messages.
-	Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
+    // Display number of messages.
+    Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
 
 ## Delete a queue
 
@@ -311,3 +311,4 @@ to learn about more complex storage tasks.
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
  
+

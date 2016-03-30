@@ -1,12 +1,12 @@
 <properties
-	pageTitle="What is Hadoop in the cloud? Introduction to HDInsight | Microsoft Azure"
-	description="What is Hadoop in the cloud and how is it managed in HDInsight? An introduction to Hadoop components and big data analysis."
-	keywords="big data analysis,introduction to hadoop,what is hadoop,hadoop in the cloud"
-	services="hdinsight"
-	documentationCenter=""
-	authors="cjgronlund"
-	manager="paulettm"
-	editor="cgronlun"/>
+    pageTitle="What is Hadoop in the cloud? Introduction to HDInsight | Microsoft Azure"
+    description="What is Hadoop in the cloud and how is it managed in HDInsight? An introduction to Hadoop components and big data analysis."
+    keywords="big data analysis,introduction to hadoop,what is hadoop,hadoop in the cloud"
+    services="hdinsight"
+    documentationCenter=""
+    authors="cjgronlund"
+    manager="paulettm"
+    editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
@@ -250,3 +250,4 @@ Use big data analysis on your organization's data to gain insights into your bus
 [marketing-page]: ../services/hdinsight/
 [component-versioning]: hdinsight-component-versioning.md
 [zookeeper]: http://zookeeper.apache.org/
+

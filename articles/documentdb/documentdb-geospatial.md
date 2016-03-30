@@ -188,8 +188,8 @@ Polygon arguments in ST_WITHIN can contain only a single ring, i.e. the polygons
     SELECT * 
     FROM Families f 
     WHERE ST_WITHIN(f.location, {
-    	'type':'Polygon', 
-    	'coordinates': [[[31.8, -5], [32, -5], [32, -4.7], [31.8, -4.7], [31.8, -5]]]
+        'type':'Polygon', 
+        'coordinates': [[[31.8, -5], [32, -5], [32, -4.7], [31.8, -4.7], [31.8, -5]]]
     })
 
 **Results**
@@ -217,16 +217,16 @@ These functions can also be used to validate polygons. For example, here we use 
 **Query**
 
     SELECT ST_ISVALIDDETAILED({ "type": "Polygon", "coordinates": [[ 
-    	[ 31.8, -5 ], [ 31.8, -4.7 ], [ 32, -4.7 ], [ 32, -5 ] 
-    	]]})
+        [ 31.8, -5 ], [ 31.8, -4.7 ], [ 32, -4.7 ], [ 32, -5 ] 
+        ]]})
 
 **Results**
 
     [{
        "$1": { 
-      	  "valid": false, 
-      	  "reason": "The Polygon input is not valid because the start and end points of the ring number 1 are not the same. Each ring of a polygon must have the same start and end points." 
-      	}
+          "valid": false, 
+          "reason": "The Polygon input is not valid because the start and end points of the ring number 1 are not the same. Each ring of a polygon must have the same start and end points." 
+        }
     }]
     
 ### LINQ Querying in the .NET SDK
@@ -354,3 +354,4 @@ Now that you've learnt about how to get started with geospatial support in Docum
 - Get hands on with geospatial querying at the [DocumentDB Query Playground](http://www.documentdb.com/sql/demo#geospatial)
 - Learn more about [DocumentDB Query](documentdb-sql-query.md)
 - Learn more about [DocumentDB Indexing Policies](documentdb-indexing-policies.md)
+

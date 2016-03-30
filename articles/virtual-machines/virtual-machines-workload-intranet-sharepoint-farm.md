@@ -1,21 +1,21 @@
 <properties
-	pageTitle="SharePoint Server 2013 farm in Azure | Microsoft Azure"
-	description="Learn the value of a SharePoint Server 2013 farm in Azure, set up a test environment, and deploy a high-availability configuration."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="JoeDavies-MSFT"
-	manager="timlt"
-	editor=""
-	tags="azure-service-management"/>
+    pageTitle="SharePoint Server 2013 farm in Azure | Microsoft Azure"
+    description="Learn the value of a SharePoint Server 2013 farm in Azure, set up a test environment, and deploy a high-availability configuration."
+    services="virtual-machines"
+    documentationCenter=""
+    authors="JoeDavies-MSFT"
+    manager="timlt"
+    editor=""
+    tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="Windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/29/2015"
-	ms.author="josephd"/>
+    ms.service="virtual-machines"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="Windows"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/29/2015"
+    ms.author="josephd"/>
 
 # Azure Infrastructure Services Workload: Intranet SharePoint farm
 
@@ -104,10 +104,10 @@ To compute the estimated costs for this configuration, see the [Azure pricing ca
 
 1. In **Modules**, click **Compute**, and then click **Virtual Machines** enough times to create a list of nine virtual machines.
 2. For each virtual machine, select:
-	- Your intended region
-	- **Windows** for the type
-	- **Standard** for the pricing tier
-	- The default size in the previous table or your intended size for the **Instance size**
+    - Your intended region
+    - **Windows** for the type
+    - **Standard** for the pricing tier
+    - The default size in the previous table or your intended size for the **Instance size**
 
 > [AZURE.NOTE] The Azure Pricing Calculator does not include the additional costs for the SQL Server license for the two virtual machines running SQL Server 2014 Enterprise. See [Virtual Machines Pricing-SQL](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql) for more information.
 
@@ -117,23 +117,23 @@ To deploy this configuration, use the following process:
 
 - Phase 1: Configure Azure.
 
-	Use the Azure classic portal and Azure PowerShell to create a storage account, cloud services, and a cross-premises virtual network. For the detailed configuration steps, see [Phase 1](virtual-machines-workload-intranet-sharepoint-phase1.md).
+    Use the Azure classic portal and Azure PowerShell to create a storage account, cloud services, and a cross-premises virtual network. For the detailed configuration steps, see [Phase 1](virtual-machines-workload-intranet-sharepoint-phase1.md).
 
 - Phase 2: Configure the domain controllers.
 
-	Configure two Azure Active Directory replica domain controllers and DNS settings for the virtual network. For the detailed configuration steps, see [Phase 2](virtual-machines-workload-intranet-sharepoint-phase2.md).
+    Configure two Azure Active Directory replica domain controllers and DNS settings for the virtual network. For the detailed configuration steps, see [Phase 2](virtual-machines-workload-intranet-sharepoint-phase2.md).
 
 - Phase 3: Configure the SQL Server infrastructure.  
 
-	Prepare the SQL Server virtual machines for use with SharePoint and create the SQL Server cluster. For the detailed configuration steps, see [Phase 3](virtual-machines-workload-intranet-sharepoint-phase3.md).
+    Prepare the SQL Server virtual machines for use with SharePoint and create the SQL Server cluster. For the detailed configuration steps, see [Phase 3](virtual-machines-workload-intranet-sharepoint-phase3.md).
 
 - Phase 4: Configure the SharePoint servers.
 
-	Configure the four SharePoint virtual machines for a new SharePoint farm. For the detailed configuration, see [Phase 4](virtual-machines-workload-intranet-sharepoint-phase4.md).
+    Configure the four SharePoint virtual machines for a new SharePoint farm. For the detailed configuration, see [Phase 4](virtual-machines-workload-intranet-sharepoint-phase4.md).
 
 - Phase 5: Create an AlwaysOn Availability Group.
 
-	Prepare the SharePoint databases, create an AlwaysOn Availability Group, and then add the SharePoint databases to it. For the detailed configuration steps, see [Phase 5](virtual-machines-workload-intranet-sharepoint-phase5.md).
+    Prepare the SharePoint databases, create an AlwaysOn Availability Group, and then add the SharePoint databases to it. For the detailed configuration steps, see [Phase 5](virtual-machines-workload-intranet-sharepoint-phase5.md).
 
 Once configured, you can expand this SharePoint farm with guidance from [Microsoft Azure architectures for SharePoint 2013](http://technet.microsoft.com/library/dn635309.aspx).
 
@@ -152,3 +152,4 @@ Once configured, you can expand this SharePoint farm with guidance from [Microso
 [Azure infrastructure services implementation Guidelines](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
 [Azure Infrastructure Services Workload: High-availability line of business application](virtual-machines-workload-high-availability-lob-application.md)
+

@@ -1,11 +1,11 @@
 
 <properties 
     pageTitle="How to use Azure RemoteApp with Office 365 user accounts | Microsoft Azure"
-	description="Learn how to use Azure RemoteApp with my Office 365 user accounts"
-	services="remoteapp"
-	documentationCenter="" 
-	authors="lizap" 
-	manager="mbaldwin" />
+    description="Learn how to use Azure RemoteApp with my Office 365 user accounts"
+    services="remoteapp"
+    documentationCenter="" 
+    authors="lizap" 
+    manager="mbaldwin" />
 
 <tags 
     ms.service="remoteapp" 
@@ -96,8 +96,8 @@ Yes, but you'll need to set that up in the template image before you create the 
 1. Run **gpedit.msc** on the template image.
 2. Navigate to **User Configuration > Administrative Templates > Windows Components > Explorer**.
 3. Select the following options:
-	- **Hide these specified drives in My Computer**
-	- **Prevent access to drives from My Computer**
+    - **Hide these specified drives in My Computer**
+    - **Prevent access to drives from My Computer**
 
 ## Can I seed UPDs? I want to put some data in the UPD that's available the first time the user signs in.
 
@@ -137,3 +137,4 @@ No, that's not supported with Azure RemoteApp, which uses RDSH, which also does 
 ## Can I use mstsc.exe (the Remote Desktop program) to configure logon scripts?
 
 Nope, not supported by Azure RemoteApp.
+

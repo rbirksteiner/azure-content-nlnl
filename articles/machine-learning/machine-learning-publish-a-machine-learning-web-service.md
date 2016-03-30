@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Deploy a Machine Learning web service | Microsoft Azure"
-	description="How to convert a training experiment to a predictive experiment, prepare it for deployment, then deploy it as an Azure Machine Learning web service."
-	services="machine-learning"
-	documentationCenter=""
-	authors="garyericson"
-	manager="paulettm"
-	editor="cgronlun"/>
+    pageTitle="Deploy a Machine Learning web service | Microsoft Azure"
+    description="How to convert a training experiment to a predictive experiment, prepare it for deployment, then deploy it as an Azure Machine Learning web service."
+    services="machine-learning"
+    documentationCenter=""
+    authors="garyericson"
+    manager="paulettm"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/03/2015"
-	ms.author="garye"/>
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/03/2015"
+    ms.author="garye"/>
 
 # Deploy an Azure Machine Learning web service
 
@@ -114,3 +114,4 @@ To update the web service, open the original predictive experiment you used to d
 > [AZURE.NOTE] If you made configuration changes in the original web service, for example, entering a new display name or description, you will need to enter those values again.
 
 One option for updating your web service is to retrain the model programmatically. For more information, see [Retrain Machine Learning models programmatically](machine-learning-retrain-models-programmatically.md).
+

@@ -375,3 +375,4 @@ Any management certificates that you associate with your service configurations 
 
 ## Next steps
 Learn more about Azure projects in Visual Studio by reading [Configuring an Azure Project](vs-azure-tools-configuring-an-azure-project.md). Learn more about the cloud service schema by reading [Schema Reference](https://msdn.microsoft.com/library/azure/dd179398).
+

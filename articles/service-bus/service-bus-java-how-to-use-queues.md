@@ -1,20 +1,20 @@
 <properties
-	pageTitle="How to use Service Bus queues with Java | Microsoft Azure"
-	description="Learn how to use Service Bus queues in Azure. Code samples written in Java."
-	services="service-bus"
-	documentationCenter="java"
-	authors="sethmanheim"
-	manager="timlt"
-	/>
+    pageTitle="How to use Service Bus queues with Java | Microsoft Azure"
+    description="Learn how to use Service Bus queues in Azure. Code samples written in Java."
+    services="service-bus"
+    documentationCenter="java"
+    authors="sethmanheim"
+    manager="timlt"
+    />
 
 <tags
-	ms.service="service-bus"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="10/07/2015"
-	ms.author="sethm"/>
+    ms.service="service-bus"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="Java"
+    ms.topic="article"
+    ms.date="10/07/2015"
+    ms.author="sethm"/>
 
 # How to use Service Bus queues
 
@@ -55,23 +55,23 @@ The **ServiceBusService** class provides methods to create, enumerate,
 and delete queues. The example below shows how a **ServiceBusService** object
 can be used to create a queue named "TestQueue", with a namespace named "HowToSample":
 
-		Configuration config =
-			ServiceBusConfiguration.configureWithSASAuthentication(
-					"HowToSample",
-					"RootManageSharedAccessKey",
-					"SAS_key_value",
-					".servicebus.windows.net"
-					);
+        Configuration config =
+            ServiceBusConfiguration.configureWithSASAuthentication(
+                    "HowToSample",
+                    "RootManageSharedAccessKey",
+                    "SAS_key_value",
+                    ".servicebus.windows.net"
+                    );
 
     ServiceBusContract service = ServiceBusService.create(config);
     QueueInfo queueInfo = new QueueInfo("TestQueue");
     try
     {
-		CreateQueueResult result = service.createQueue(queueInfo);
+        CreateQueueResult result = service.createQueue(queueInfo);
     }
-	catch (ServiceException e)
-	{
-	    System.out.print("ServiceException encountered: ");
+    catch (ServiceException e)
+    {
+        System.out.print("ServiceException encountered: ");
         System.out.println(e.getMessage());
         System.exit(-1);
     }
@@ -164,56 +164,56 @@ processed using **PeekLock** mode (not the default mode). The example
 below does an infinite loop and processes messages as they arrive into
 our "TestQueue":
 
-    	try
-	{
-		ReceiveMessageOptions opts = ReceiveMessageOptions.DEFAULT;
-		opts.setReceiveMode(ReceiveMode.PEEK_LOCK);
+        try
+    {
+        ReceiveMessageOptions opts = ReceiveMessageOptions.DEFAULT;
+        opts.setReceiveMode(ReceiveMode.PEEK_LOCK);
 
-		while(true)  {
-	         ReceiveQueueMessageResult resultQM =
-	     			service.receiveQueueMessage("TestQueue", opts);
-		    BrokeredMessage message = resultQM.getValue();
-		    if (message != null && message.getMessageId() != null)
-		    {
-			    System.out.println("MessageID: " + message.getMessageId());
-			    // Display the queue message.
-			    System.out.print("From queue: ");
-			    byte[] b = new byte[200];
-			    String s = null;
-			    int numRead = message.getBody().read(b);
-			    while (-1 != numRead)
-	            {
-	                s = new String(b);
-	                s = s.trim();
-	                System.out.print(s);
-	                numRead = message.getBody().read(b);
-			    }
-	            System.out.println();
-			    System.out.println("Custom Property: " +
-			        message.getProperty("MyProperty"));
-			    // Remove message from queue.
-			    System.out.println("Deleting this message.");
-			    //service.deleteMessage(message);
-		    }  
-		    else  
-		    {
-		        System.out.println("Finishing up - no more messages.");
-		        break;
-		        // Added to handle no more messages.
-		        // Could instead wait for more messages to be added.
-		    }
-	    }
-	}
-	catch (ServiceException e) {
-	    System.out.print("ServiceException encountered: ");
-	    System.out.println(e.getMessage());
-	    System.exit(-1);
-	}
-	catch (Exception e) {
-	    System.out.print("Generic exception encountered: ");
-	    System.out.println(e.getMessage());
-	    System.exit(-1);
-	}
+        while(true)  {
+             ReceiveQueueMessageResult resultQM =
+                    service.receiveQueueMessage("TestQueue", opts);
+            BrokeredMessage message = resultQM.getValue();
+            if (message != null && message.getMessageId() != null)
+            {
+                System.out.println("MessageID: " + message.getMessageId());
+                // Display the queue message.
+                System.out.print("From queue: ");
+                byte[] b = new byte[200];
+                String s = null;
+                int numRead = message.getBody().read(b);
+                while (-1 != numRead)
+                {
+                    s = new String(b);
+                    s = s.trim();
+                    System.out.print(s);
+                    numRead = message.getBody().read(b);
+                }
+                System.out.println();
+                System.out.println("Custom Property: " +
+                    message.getProperty("MyProperty"));
+                // Remove message from queue.
+                System.out.println("Deleting this message.");
+                //service.deleteMessage(message);
+            }  
+            else  
+            {
+                System.out.println("Finishing up - no more messages.");
+                break;
+                // Added to handle no more messages.
+                // Could instead wait for more messages to be added.
+            }
+        }
+    }
+    catch (ServiceException e) {
+        System.out.print("ServiceException encountered: ");
+        System.out.println(e.getMessage());
+        System.exit(-1);
+    }
+    catch (Exception e) {
+        System.out.print("Generic exception encountered: ");
+        System.out.println(e.getMessage());
+        System.exit(-1);
+    }
 
 ## How to handle application crashes and unreadable messages
 
@@ -254,3 +254,4 @@ For more information, see the [Java Developer Center](/develop/java/).
   [Azure Toolkit for Eclipse]: https://msdn.microsoft.com/library/azure/hh694271.aspx
   [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
   [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
+

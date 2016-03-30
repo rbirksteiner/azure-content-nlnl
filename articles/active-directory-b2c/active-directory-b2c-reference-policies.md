@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure Active Directory B2C preview: Extensible policy framework | Microsoft Azure"
-	description="A topic on the extensible policy framework of Azure Active Directory B2C and on how to create various policy types"
-	services="active-directory-b2c"
-	documentationCenter=""
-	authors="swkrish"
-	manager="msmbaldwin"
-	editor="curtand"/>
+    pageTitle="Azure Active Directory B2C preview: Extensible policy framework | Microsoft Azure"
+    description="A topic on the extensible policy framework of Azure Active Directory B2C and on how to create various policy types"
+    services="active-directory-b2c"
+    documentationCenter=""
+    authors="swkrish"
+    manager="msmbaldwin"
+    editor="curtand"/>
 
 <tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/28/2015"
-	ms.author="swkrish"/>
+    ms.service="active-directory-b2c"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/28/2015"
+    ms.author="swkrish"/>
 
 # Azure Active Directory B2C preview: Extensible Policy Framework
 
@@ -118,3 +118,4 @@ To enable profile editing on your application, you will need to create a Profile
 
     > [AZURE.NOTE]
     It takes up to a minute for policy creation & updates to take effect.
+

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="View events and audit logs" 
-	description="Learn how to see all of the events that happen in your Azure subscription." 
-	authors="HaniKN-MSFT" 
-	manager="kamrani" 
-	editor="" 
-	services="azure-portal" 
-	documentationCenter="na"/>
+    pageTitle="View events and audit logs" 
+    description="Learn how to see all of the events that happen in your Azure subscription." 
+    authors="HaniKN-MSFT" 
+    manager="kamrani" 
+    editor="" 
+    services="azure-portal" 
+    documentationCenter="na"/>
 
 <tags 
-	ms.service="azure-portal" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/28/2015" 
-	ms.author="hanikn"/>
+    ms.service="azure-portal" 
+    ms.workload="na" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="04/28/2015" 
+    ms.author="hanikn"/>
 
 # View events and audit logs
 

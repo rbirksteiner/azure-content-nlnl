@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Configure Asset Delivery Policies with .NET SDK" 
-	description="This topic shows how to configure different asset delivery policies with Azure Media Services .NET SDK." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="juliako,Mingfeiy" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="Configure Asset Delivery Policies with .NET SDK" 
+    description="This topic shows how to configure different asset delivery policies with Azure Media Services .NET SDK." 
+    services="media-services" 
+    documentationCenter="" 
+    authors="juliako,Mingfeiy" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="11/12/2015"  
-	ms.author="juliako"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="dotnet" 
+    ms.topic="article" 
+    ms.date="11/12/2015"  
+    ms.author="juliako"/>
 
 #Configure Asset Delivery Policies with .NET SDK
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
@@ -37,19 +37,19 @@ The following list shows the formats that you use to stream Smooth, HLS, DASH an
 
 Smooth Streaming:
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
+    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
 
 HLS:
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
+    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
 
 MPEG DASH
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf) 
+    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf) 
 
 HDS
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=f4m-f4f)
+    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=f4m-f4f)
 
 For instructions on how to publish an asset and build a streaming URL, see [Build a streaming URL](media-services-deliver-streaming-content.md).
 
@@ -337,5 +337,6 @@ For information on what values you can specify when creating an AssetDeliveryPol
 ##Provide feedback
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 
 

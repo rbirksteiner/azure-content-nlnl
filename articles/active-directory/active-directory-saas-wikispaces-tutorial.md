@@ -71,19 +71,19 @@ The objective of this section is to outline how to enable users to authenticate 
 
 ###To configure single sign-on, perform the following steps:
 
-1.  In the Azure AD portal, on the **Wikispaces** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  In the Azure AD portal, on the **Wikispaces** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
     ![Configure Single Sign-On](./media/active-directory-saas-wikispaces-tutorial/IC787188.png "Configure Single Sign-On")
 
-2.  On the **How would you like users to sign on to Wikispaces** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to Wikispaces** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-wikispaces-tutorial/IC787189.png "Configure Single Sign-On")
 
-3.  On the **Configure App URL** page, in the **Wikispaces Sign On URL** textbox, type your URL using the following pattern "*http://company.wikispaces.net*", and then click **Next**.
+3.  On the **Configure App URL** page, in the **Wikispaces Sign On URL** textbox, type your URL using the following pattern "*http://company.wikispaces.net*", and then click **Next**.
 
     ![Configure App URL](./media/active-directory-saas-wikispaces-tutorial/IC787190.png "Configure App URL")
 
-4.  On the **Configure single sign-on at Wikispaces** page, click **Download metadata**, and then save the metadata file on your computer.
+4.  On the **Configure single sign-on at Wikispaces** page, click **Download metadata**, and then save the metadata file on your computer.
 
     ![Configure Single Sign-On](./media/active-directory-saas-wikispaces-tutorial/IC787191.png "Configure Single Sign-On")
 
@@ -91,7 +91,7 @@ The objective of this section is to outline how to enable users to authenticate 
 
     >[AZURE.NOTE] The single sign-on configuration has to be performed by the Wikispaces support team. You will get a notification as soon as the configuration has been completed.
 
-6.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+6.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
     ![Configure Single Sign-On](./media/active-directory-saas-wikispaces-tutorial/IC787192.png "Configure Single Sign-On")
 
@@ -131,7 +131,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 1.  In the Azure AD portal, create a test account.
 
-2.  On the **Wikispaces **application integration page, click **Assign users**.
+2.  On the **Wikispaces **application integration page, click **Assign users**.
 
     ![Assign Users](./media/active-directory-saas-wikispaces-tutorial/IC787195.png "Assign Users")
 

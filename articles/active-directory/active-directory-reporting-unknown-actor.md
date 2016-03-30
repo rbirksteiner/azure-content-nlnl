@@ -39,3 +39,4 @@ In this case, a user was deleted from the directory before we processed the even
 This is a known bug, and we are working diligently to resolve it.
 
 <!-- ![](./media/active-directory-reporting-unknown-actor/uid-actor.png) -->
+

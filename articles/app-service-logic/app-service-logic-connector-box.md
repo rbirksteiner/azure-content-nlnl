@@ -67,7 +67,7 @@ A connector can be created within a logic app or be created directly from the Az
 1. In the Azure startboard, select **Marketplace**.
 2. Search for “Box Connector”, select it, and select **Create**.
 3. Enter the Name, App Service Plan, and other properties:  
-	![][1]
+    ![][1]
 4. Select **Create**.
 
 
@@ -77,19 +77,19 @@ Once your API app is created, you can now use the Box Connector as an action in 
 
 1. In your logic app, open **Triggers and Actions** to open the Logic Apps Designer and configure your flow. The Box Connector is listed in the gallery. Select it to automatically add it to your the logic apps designer.
 
-	> [AZURE.NOTE] If the Box connector is selected at the start of the logic app, it acts like trigger. Otherwise, actions can be taken on Box account using the connector. The Box Connector doesn't have any triggers as of this writing.
+    > [AZURE.NOTE] If the Box connector is selected at the start of the logic app, it acts like trigger. Otherwise, actions can be taken on Box account using the connector. The Box Connector doesn't have any triggers as of this writing.
 
 2. Authenticate and authorize logic apps to perform operations on your behalf. Select **Authorize** on Box Connector:  
-	![][2]
+    ![][2]
 
 3. Enter the sign in details of the Box account on which you want to perform the operations:  
-	![][3]
+    ![][3]
 
 4. Grant logic apps access to your account to perform operation on your behalf:  
-	![][4]
+    ![][4]
 
 5. List of actions is displayed and you can choose appropriate operation that you want to perform:  
-	![][5]
+    ![][5]
 
 ## Do more with your Connector
 Now that the connector is created, you can add it to a business workflow using a Logic App. See [What are Logic Apps?](app-service-logic-what-are-logic-apps.md).
@@ -106,3 +106,4 @@ You can also review performance statistics and control security to the connector
 [3]: ./media/app-service-logic-connector-box/image_2.jpg
 [4]: ./media/app-service-logic-connector-box/image_3.jpg
 [5]: ./media/app-service-logic-connector-box/image_4.jpg
+

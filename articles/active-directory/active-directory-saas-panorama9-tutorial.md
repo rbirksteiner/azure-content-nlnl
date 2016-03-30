@@ -71,19 +71,19 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
 
 ###To configure single sign-on, perform the following steps:
 
-1.  In the Azure AD portal, on the **Panorama9** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  In the Azure AD portal, on the **Panorama9** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
     ![Configure Single Sign-On](./media/active-directory-saas-panorama9-tutorial/IC790019.png "Configure Single Sign-On")
 
-2.  On the **How would you like users to sign on to Panorama9** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to Panorama9** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-panorama9-tutorial/IC790020.png "Configure Single Sign-On")
 
-3.  On the **Configure App URL** page, in the **Panorama9 Sign On URL** textbox, type your URL used by your users to sign in to Panorama9 (e.g.: “*https://dashboard.panorama9.com/saml/access/3262*"), and then click **Next**.
+3.  On the **Configure App URL** page, in the **Panorama9 Sign On URL** textbox, type your URL used by your users to sign in to Panorama9 (e.g.: “*https://dashboard.panorama9.com/saml/access/3262*"), and then click **Next**.
 
     ![Configure App URL](./media/active-directory-saas-panorama9-tutorial/IC790021.png "Configure App URL")
 
-4.  On the **Configure single sign-on at Panorama9** page, to download your certificate, click **Download certificate**, and then save it locally on your computer.
+4.  On the **Configure single sign-on at Panorama9** page, to download your certificate, click **Download certificate**, and then save it locally on your computer.
 
     ![Configure Single Sign-On](./media/active-directory-saas-panorama9-tutorial/IC790022.png "Configure Single Sign-On")
 
@@ -108,7 +108,7 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
 
     3.  Click **Save**.
 
-9.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+9.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
     ![Configure Single Sign-On](./media/active-directory-saas-panorama9-tutorial/IC790026.png "Configure Single Sign-On")
 ##Configuring user provisioning
@@ -143,7 +143,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 1.  In the Azure AD portal, create a test account.
 
-2.  On the **Panorama9** application integration page, click **Assign users**.
+2.  On the **Panorama9** application integration page, click **Assign users**.
 
     ![Assign Users](./media/active-directory-saas-panorama9-tutorial/IC790029.png "Assign Users")
 

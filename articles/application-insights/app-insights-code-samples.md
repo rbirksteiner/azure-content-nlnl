@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Application Insights: Code samples and walkthroughs" 
-	description="Samples you can adapt for your own apps." 
-	services="application-insights" 
+    pageTitle="Application Insights: Code samples and walkthroughs" 
+    description="Samples you can adapt for your own apps." 
+    services="application-insights" 
     documentationCenter="windows"
-	authors="alancameronwills" 
-	manager="douge"/>
+    authors="alancameronwills" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/05/2015" 
-	ms.author="awills"/>
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/05/2015" 
+    ms.author="awills"/>
 
 #  Application Insights: Code Samples and Walkthroughs
 
@@ -52,3 +52,4 @@ To analyze telemetry data with your own tools, [export it](app-insights-export-t
 
 
  
+

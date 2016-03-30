@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Upload data for Hadoop jobs in HDInsight | Microsoft Azure"
-	description="Learn how to upload and access data for Hadoop jobs in HDInsight using the Azure CLI, Azure Storage Explorer, Azure PowerShell, the Hadoop command line, or Sqoop."
-	services="hdinsight,storage"
-	documentationCenter=""
-	tags="azure-portal"
-	authors="mumian"
-	manager="paulettm"
-	editor="cgronlun"/>
+    pageTitle="Upload data for Hadoop jobs in HDInsight | Microsoft Azure"
+    description="Learn how to upload and access data for Hadoop jobs in HDInsight using the Azure CLI, Azure Storage Explorer, Azure PowerShell, the Hadoop command line, or Sqoop."
+    services="hdinsight,storage"
+    documentationCenter=""
+    tags="azure-portal"
+    authors="mumian"
+    manager="paulettm"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="hdinsight"
-	ms.workload="big-data"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/28/2015"
-	ms.author="jgao"/>
+    ms.service="hdinsight"
+    ms.workload="big-data"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/28/2015"
+    ms.author="jgao"/>
 
 
 
@@ -66,33 +66,33 @@ The Azure CLI is a cross-platform tool that allows you to manage Azure services.
 
 2. Open a command prompt, bash, or other shell, and use the following to authenticate to your Azure subscription.
 
-		azure login
+        azure login
 
-	When prompted, enter the user name and password for your subscription.
+    When prompted, enter the user name and password for your subscription.
 
 3. Enter the following command to list the storage accounts for your subscription:
 
-		azure storage account list
+        azure storage account list
 
 4. Select the storage account that contains the blob you want to work with, then use the following command to retrieve the key for this account:
 
-		azure storage account keys list <storage-account-name>
+        azure storage account keys list <storage-account-name>
 
-	This should return **Primary** and **Secondary** keys. Copy the **Primary** key value because it will be used in the next steps.
+    This should return **Primary** and **Secondary** keys. Copy the **Primary** key value because it will be used in the next steps.
 
 5. Use the following command to retrieve a list of blob containers within the storage account:
 
-		azure storage container list -a <storage-account-name> -k <primary-key>
+        azure storage container list -a <storage-account-name> -k <primary-key>
 
 6. Use the following commands to upload and download files to the blob:
 
-	* To upload a file:
+    * To upload a file:
 
-			azure storage blob upload -a <storage-account-name> -k <primary-key> <source-file> <container-name> <blob-name>
+            azure storage blob upload -a <storage-account-name> -k <primary-key> <source-file> <container-name> <blob-name>
 
-	* To download a file:
+    * To download a file:
 
-			azure storage blob download -a <storage-account-name> -k <primary-key> <container-name> <blob-name> <destination-file>
+            azure storage blob download -a <storage-account-name> -k <primary-key> <container-name> <blob-name> <destination-file>
 
 > [AZURE.NOTE] If you will always be working with the same storage account, you can set the following environment variables instead of specifying the account and key for every command:
 >
@@ -109,27 +109,27 @@ Azure PowerShell is a scripting environment that you can use to control and auto
 1. Open the Azure PowerShell console as instructed in [Install and configure Azure PowerShell](../powershell-install-configure.md).
 2. Set the values of the first five variables in the following script:
 
-		$subscriptionName = "<AzureSubscriptionName>"
-		$resourceGroupName = "<AzureResourceGroupName>"
-		$storageAccountName = "<StorageAccountName>"
-		$containerName = "<ContainerName>"
+        $subscriptionName = "<AzureSubscriptionName>"
+        $resourceGroupName = "<AzureResourceGroupName>"
+        $storageAccountName = "<StorageAccountName>"
+        $containerName = "<ContainerName>"
 
-		$fileName ="<LocalFileName>"
-		$blobName = "<BlobName>"
+        $fileName ="<LocalFileName>"
+        $blobName = "<BlobName>"
 
-		Switch-AzureMode -Name AzureResourceManager
+        Switch-AzureMode -Name AzureResourceManager
 
-		Add-AzureAccount
-		Select-AzureSubscription $subscriptionName
+        Add-AzureAccount
+        Select-AzureSubscription $subscriptionName
 
-		# Get the storage account key
-		$storageaccountkey = get-azurestoragekey -ResourceGroupName $resourceGroupName -Name $storageAccountName | %{$_.Primary}
+        # Get the storage account key
+        $storageaccountkey = get-azurestoragekey -ResourceGroupName $resourceGroupName -Name $storageAccountName | %{$_.Primary}
 
-		# Create the storage context object
-		$destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageaccountkey
+        # Create the storage context object
+        $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageaccountkey
 
-		# Copy the file from local workstation to the Blob container
-		Set-AzureStorageBlobContent -File $fileName -Container $containerName -Blob $blobName -context $destContext
+        # Copy the file from local workstation to the Blob container
+        Set-AzureStorageBlobContent -File $fileName -Container $containerName -Blob $blobName -context $destContext
 
 3. Paste the script into the Azure PowerShell console to run it to copy the file.
 
@@ -141,7 +141,7 @@ AzCopy is a command-line tool that is designed to simplify the task of transferr
 
 The AzCopy syntax is:
 
-	AzCopy <Source> <Destination> [filePattern [filePattern...]] [Options]
+    AzCopy <Source> <Destination> [filePattern [filePattern...]] [Options]
 
 For more information, see [AzCopy - Uploading/Downloading files for Azure Blobs][azure-azcopy].
 
@@ -158,17 +158,17 @@ In order to use the Hadoop command, you must first connect to the headnode using
 
 Once connected, you can use the following syntax to upload a file to storage.
 
-	hadoop -copyFromLocal <localFilePath> <storageFilePath>
+    hadoop -copyFromLocal <localFilePath> <storageFilePath>
 
 For example, `hadoop fs -copyFromLocal data.txt /example/data/data.txt`
 
 Because the default file system for HDInsight is in Azure Blob storage, /example/data.txt is actually in Azure Blob storage. You can also refer to the file as:
 
-	wasb:///example/data/data.txt
+    wasb:///example/data/data.txt
 
 or
 
-	wasbs://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt
+    wasbs://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt
 
 For a list of other Hadoop commands that work with files, see [http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html](http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 
@@ -195,7 +195,7 @@ Before using the tool, you must know your Azure storage account name and account
 
     Enter the name and key for the storage account used by your HDinsight cluster and then select __SAVE & OPEN__.
 
-	![HDI.AzureStorageExplorer][image-azure-storage-explorer]
+    ![HDI.AzureStorageExplorer][image-azure-storage-explorer]
 
 5. In the list of containers to the left of the interface, click the name of the container that is associated with your HDInsight cluster. By default, this is the name of the HDInsight cluster, but may be different if you entered a specific name when creating the cluster.
 
@@ -284,3 +284,4 @@ Now that you understand how to get data into HDInsight, read the following artic
 [image-azure-storage-explorer]: ./media/hdinsight-upload-data/HDI.AzureStorageExplorer.png
 [image-ase-addaccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
+

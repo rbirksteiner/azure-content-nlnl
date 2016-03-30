@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Monitor Web Apps in Azure App Service"
-	description="Learn how to monitor Web Apps in Azure App Service by using the Management Portal."
-	services="app-service"
-	documentationCenter=""
-	authors="cephalin"
-	manager="wpickett"
-	editor="mollybos"/>
+    pageTitle="Monitor Web Apps in Azure App Service"
+    description="Learn how to monitor Web Apps in Azure App Service by using the Management Portal."
+    services="app-service"
+    documentationCenter=""
+    authors="cephalin"
+    manager="wpickett"
+    editor="mollybos"/>
 
 <tags
-	ms.service="app-service"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/14/2015"
-	ms.author="byvinyal"/>
+    ms.service="app-service"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/14/2015"
+    ms.author="byvinyal"/>
 
 #<a name="howtomonitor"></a>Monitor Web Apps in Azure App Service
 
@@ -61,11 +61,11 @@ To determine the extent that a web app is impacting resource usage quotas, follo
 
 1. Open the web app's **Dashboard** management page in the [classic portal](https://manage.windowsazure.com).
 2. Under the **usage overview** section the usage quotas for your respective [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) plan are displayed, which is a subset of the following:
-	-	**Data Out**, **CPU Time**, and **Memory** - when the quota is exceeded, Azure stops the web app for the remainder of the current quota interval. Azure will start the web app at the beginning of the next quota interval.
-	-	**File System Storage** - when this quota is reached, file system storage remains accessible for read operations, but all write operations, including those required for normal web app activity, are blocked. Write operations will resume when you reduce file usage or move the web app to an App Service plan with a higher quota.
-	-	**Linked Resources** - quotas for any linked resources of the web app, such as database or storage, are displayed here as well.
+    -   **Data Out**, **CPU Time**, and **Memory** - when the quota is exceeded, Azure stops the web app for the remainder of the current quota interval. Azure will start the web app at the beginning of the next quota interval.
+    -   **File System Storage** - when this quota is reached, file system storage remains accessible for read operations, but all write operations, including those required for normal web app activity, are blocked. Write operations will resume when you reduce file usage or move the web app to an App Service plan with a higher quota.
+    -   **Linked Resources** - quotas for any linked resources of the web app, such as database or storage, are displayed here as well.
 
-	Some quotas can be applied per web hosting plan, while others can be applied per site. For detailed information on usage quotas for each Web hosting plan, see [Websites Limits](azure-subscription-service-limits.md#websiteslimits).
+    Some quotas can be applied per web hosting plan, while others can be applied per site. For detailed information on usage quotas for each Web hosting plan, see [Websites Limits](azure-subscription-service-limits.md#websiteslimits).
 
 ##<a name="resourceusage"></a> How to: Avoid exceeding your quotas
 
@@ -86,17 +86,17 @@ You can enable or disable the following application diagnostics:
 
 - **Application Logging (File System)** - Turns on logging of information produced by the application. The **Logging Level** field determines whether Error, Warning, or Information level information is logged. You may also select Verbose, which will log all information produced by the application.
 
-	Logs produced by this setting are stored on the file system of your web app, and can be downloaded using the steps in the **Downloading log files for a web app** section below.
+    Logs produced by this setting are stored on the file system of your web app, and can be downloaded using the steps in the **Downloading log files for a web app** section below.
 
 - **Application Logging (Table Storage)** - Turns on the logging of information produced by the application, similar to the Application Logging (File System) option. However, the log information is stored in an Azure Storage Account in a table.
 
-	To specify the Azure Storage Account and table, choose **On**, select the **Logging Level**, and then choose **Manage Table Storage**. Specify the storage account and table to use, or create a new table.
+    To specify the Azure Storage Account and table, choose **On**, select the **Logging Level**, and then choose **Manage Table Storage**. Specify the storage account and table to use, or create a new table.
 
-	The log information stored in the table can be accessed using an Azure Storage client.
+    The log information stored in the table can be accessed using an Azure Storage client.
 
 - **Application Logging (Blob storage)** - Turns on the logging of information produced by the application, similar to the Application Logging (Table Storage) option. However, the log information is stored in a blob in an Azure Storage Account.
 
-	To specify the Azure Storage Account and blob, choose **On**, select the **Logging Level**, and then choose **Manage Blob Storage**. Specify the storage account, blob container, and blob name to use, or create a new container and blob.
+    To specify the Azure Storage Account and blob, choose **On**, select the **Logging Level**, and then choose **Manage Blob Storage**. Specify the storage account, blob container, and blob name to use, or create a new container and blob.
 
 For more information about Azure Storage Accounts, see [How to Manage Storage Accounts](/manage/services/storage/how-to-manage-a-storage-account/).
 
@@ -173,31 +173,31 @@ Log files can be downloaded using either FTP, Azure PowerShell, or the Azure CLI
 
 1. From the **Start Screen** or the **Start Menu**, search for **Azure PowerShell**. Right-click the **Azure PowerShell** entry and select **Run as Administrator**.
 
-	> [AZURE.NOTE] If **Azure PowerShell** is not installed, see [Getting Started with Azure PowerShell Cmdlets](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx) for installation and configuration information.
+    > [AZURE.NOTE] If **Azure PowerShell** is not installed, see [Getting Started with Azure PowerShell Cmdlets](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx) for installation and configuration information.
 
 2. From the Azure PowerShell prompt, use the following command to download the log files:
 
-		Save-AzureWebSiteLog -Name webappname
+        Save-AzureWebSiteLog -Name webappname
 
-	This will download the log files for the web app specified by **webappname** and save them to a **log.zip** file in the current directory.
+    This will download the log files for the web app specified by **webappname** and save them to a **log.zip** file in the current directory.
 
-	You may also view a live stream of log events by using the following command:
+    You may also view a live stream of log events by using the following command:
 
-		Get-AzureWebSiteLog -Name webappname -Tail
+        Get-AzureWebSiteLog -Name webappname -Tail
 
-	This will display log information to the Azure PowerShell prompt as they occur.
+    This will display log information to the Azure PowerShell prompt as they occur.
 
 **Azure CLI**
 
 Open a new command prompt, PowerShell, bash, or terminal session, and use the following command to download the log files:
 
-	azure site log download webappname
+    azure site log download webappname
 
 This will download the log files for the web app specified by **webappname** and save them to a **log.zip** file in the current directory.
 
 You may also view a lie stream of log events by using the following command:
 
-	azure site log tail webappname
+    azure site log tail webappname
 
 This will display log information to the command prompt, PowerShell, bash or terminal session that the command is ran from.
 
@@ -254,24 +254,24 @@ After you configure endpoint monitoring, you can drill down into the individual 
 
 **To configure endpoint monitoring:**
 
-1.	Open **Web Apps**. Click the name of the web app you want to configure.
-2.	Click the **Configure** tab.
+1.  Open **Web Apps**. Click the name of the web app you want to configure.
+2.  Click the **Configure** tab.
 3.     Go to the **Monitoring** section to enter your endpoint settings.
-4.	Enter a name for the endpoint.
-5.	Enter the URL for a part of your web app that you want to monitor. For example, [http://contoso.azurewebsites.net/archive](http://contoso.azurewebsites.net/archive).
-6.	Select one or more geographic locations from the list.
-7.	Optionally, repeat the previous steps to create a second endpoint.
-8.	Click **Save**. It may take some time for the web endpoint monitoring data to be available on the **Dashboard** and **Monitor** tabs.
+4.  Enter a name for the endpoint.
+5.  Enter the URL for a part of your web app that you want to monitor. For example, [http://contoso.azurewebsites.net/archive](http://contoso.azurewebsites.net/archive).
+6.  Select one or more geographic locations from the list.
+7.  Optionally, repeat the previous steps to create a second endpoint.
+8.  Click **Save**. It may take some time for the web endpoint monitoring data to be available on the **Dashboard** and **Monitor** tabs.
 
-	To create an email rule, do the following:
+    To create an email rule, do the following:
 
-9.	In the service bar at the far left, click **Management Services**.
-10.	Click **Add Rule** at the bottom.
-11.	In **Service Type**, select **Web App**, then select the web app for which you configured endpoint monitoring earlier. Click **Next**.
-12.	In **Metric**, you can now select additional metrics for the endpoint you configured. For example: **Response Time (homepage/US: IL-Chicago)**. Select the Response Time metric and type 3 in **Threshold Value** to specify a 3-second threshold.
-13.	Select **Send an email to the service administrator and co-administrators**. Click **Complete**.
+9.  In the service bar at the far left, click **Management Services**.
+10. Click **Add Rule** at the bottom.
+11. In **Service Type**, select **Web App**, then select the web app for which you configured endpoint monitoring earlier. Click **Next**.
+12. In **Metric**, you can now select additional metrics for the endpoint you configured. For example: **Response Time (homepage/US: IL-Chicago)**. Select the Response Time metric and type 3 in **Threshold Value** to specify a 3-second threshold.
+13. Select **Send an email to the service administrator and co-administrators**. Click **Complete**.
 
-	Azure will now actively monitor the endpoint and send an email alert when it takes more than 3 seconds to reply.
+    Azure will now actively monitor the endpoint and send an email alert when it takes more than 3 seconds to reply.
 
 For more on web app endpoint monitoring, see the following videos:
 
@@ -288,3 +288,4 @@ For more on web app endpoint monitoring, see the following videos:
 [fzilla]:http://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]:http://go.microsoft.com/fwlink/?LinkID=309169
  
+

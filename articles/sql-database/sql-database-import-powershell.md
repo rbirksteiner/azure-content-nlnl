@@ -48,7 +48,7 @@ To import a SQL database you need the following:
 
 First you must establish access to your Azure account so start PowerShell and then run the following cmdlet. In the login screen enter the same email and password that you use to sign in to the Azure portal.
 
-	Add-AzureAccount
+    Add-AzureAccount
 
 After successfully signing in you will see some information on screen that includes the Id you signed in with and the Azure subscriptions you have access to.
 
@@ -57,7 +57,7 @@ After successfully signing in you will see some information on screen that inclu
 
 To select the subscription you need your subscription Id. You can copy the subscription Id from the information displayed from the previous step, or if you have multiple subscriptions and need more details you can run the **Get-AzureSubscription** cmdlet and copy the desired subscription information from the resultset. Once you have your subscription Id run the following cmdlet:
 
-	Select-AzureSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
+    Select-AzureSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
 After successfully running **Select-AzureSubscription** you are returned to the PowerShell prompt. If you have more than one subscription you can run **Get-AzureSubscription** and verify the subscription you selected shows **IsCurrent : True**.
 
@@ -151,3 +151,4 @@ Running this command will prompt you for a password. Enter the admin login and p
 - [Business Continuity Overview](sql-database-business-continuity.md)
 - [Disaster Recovery Drills](sql-database-disaster-recovery-drills.md)
 - [SQL Database documentation](https://azure.microsoft.com/documentation/services/sql-database/)
+

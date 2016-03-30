@@ -48,29 +48,29 @@ You may follow this tutorial using the videos below.
 
 1. In the [Azure Management Portal](https://manage.windowsazure.com), on the left navigation pane, click **Active Directory**.
 
-	![Select Active Directory from the left navigation pane.][0]
+    ![Select Active Directory from the left navigation pane.][0]
 
 2. From the **Directory** list, select the directory that you would like to add Salesforce to.
 
 3. Click on **Applications** in the top menu.
 
-	![Click on Applications.][1]
+    ![Click on Applications.][1]
 
 4. Click **Add** at the bottom of the page.
 
-	![Click Add to add a new application.][2]
+    ![Click Add to add a new application.][2]
 
 5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-	![Click Add an application from the gallery.][3]
+    ![Click Add an application from the gallery.][3]
 
 6. In the **search box**, type **Salesforce**. Then select **Salesforce** from the results, and click **Complete** to add the application.
 
-	![Add Salesforce.][4]
+    ![Add Salesforce.][4]
 
 7. You should now see the Quick Start page for Salesforce:
 
-	![Salesforce's Quick Start page in Azure AD][5]
+    ![Salesforce's Quick Start page in Azure AD][5]
 
 ##Step 2: Enable single sign-on
 
@@ -78,47 +78,47 @@ You may follow this tutorial using the videos below.
 
 2. On Salesforce's Quick Start page in Azure AD, click the **Configure single sign-on** button.
 
-	![The configure single sign-on button][6]
+    ![The configure single sign-on button][6]
 
 3. A dialog will open and you'll see a screen that asks "How would you like users to sign on to Salesforce?" Select **Azure AD Single Sign-On**, and then click **Next**.
 
-	![Select Azure AD Single Sign-On][7]
+    ![Select Azure AD Single Sign-On][7]
 
-	> [AZURE.NOTE] To learn more about about the different single sign-on options, [click here](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work)
+    > [AZURE.NOTE] To learn more about about the different single sign-on options, [click here](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work)
 
 4. On the **Configure App Settings** page, fill out the **Sign On URL** by typing in your Salesforce domain URL using the following format:
  - Enterprise account: `https://<domain>.my.salesforce.com`
  - Developer account: `https://<domain>-dev-ed.my.salesforce.com` 
 
-	![Type in your Sign On URL][8]
+    ![Type in your Sign On URL][8]
 
 5. On the **Configure single sign-on at Salesforce** page, click on **Download certificate**, and then save the certificate file locally on your computer.
 
-	![Download certificate][9]
+    ![Download certificate][9]
 
 6. Open a new tab in your browser and log in to your Salesforce administrator account.
 
 7. Under the **Administrator** navigation pane, click **Security Controls** to expand the related section. Then click on **Single Sign-On Settings**.
 
-	![Click on Single Sign-On Settings under Security Controls][10]
+    ![Click on Single Sign-On Settings under Security Controls][10]
 
 8. On the **Single Sign-On Settings** page, click the **Edit** button.
 
-	![Click the Edit button][11]
+    ![Click the Edit button][11]
 
-	> [AZURE.NOTE] If you are unable to enable Single Sign-On settings for your Salesforce account, you may need to contact Salesforce's support in order to have the feature enabled for you.
+    > [AZURE.NOTE] If you are unable to enable Single Sign-On settings for your Salesforce account, you may need to contact Salesforce's support in order to have the feature enabled for you.
 
 9. Select **SAML Enabled**, and then click **Save**.
 
-	![Select SAML Enabled][12]
+    ![Select SAML Enabled][12]
 
 10. To configure your SAML single sign-on settings, click **New**.
 
-	![Select SAML Enabled][13]
+    ![Select SAML Enabled][13]
 
 11. On the **SAML Single Sign-On Setting Edit** page, make the following configurations:
 
-	![Screenshot of the configurations that you should make][14]
+    ![Screenshot of the configurations that you should make][14]
 
  - For the **Name** field, type in a friendly name for this configuration. Providing a value for **Name** automatically populate the **API Name** textbox.
 
@@ -142,25 +142,25 @@ You may follow this tutorial using the videos below.
 
 12. On the left navigation pane in Salesforce, click **Domain Management** to expand the related section, and then click **My Domain**.
 
-	![Click on My Domain][15]
+    ![Click on My Domain][15]
 
 13. Scroll down to the **Authentication Configuration** section, and click the **Edit** button.
 
-	![Click the Edit button][16]
+    ![Click the Edit button][16]
 
 14. In the **Authentication Service** section, select the friendly name of your SAML SSO configuration, and then click **Save**.
 
-	![Select your SSO configuration][17]
+    ![Select your SSO configuration][17]
 
-	> [AZURE.NOTE] If more than one authentication service is selected, then when users attempt to initiate single sign-on to your Salesforce environment, they will be prompted to select which authentication service they would like to sign in with. If you don’t want this to happen, then you should **leave all other authentication services unchecked**.
+    > [AZURE.NOTE] If more than one authentication service is selected, then when users attempt to initiate single sign-on to your Salesforce environment, they will be prompted to select which authentication service they would like to sign in with. If you don’t want this to happen, then you should **leave all other authentication services unchecked**.
 
 15. In Azure AD, select the single sign-on configuration confirmation checkbox to enable the certificate that you uploaded to Salesforce. Then click **Next**.
 
-	![Check the confirmation checkbox][18]
+    ![Check the confirmation checkbox][18]
 
 16. On the final page of the dialog, type in an email address if you would like to receive email notifications for errors and warnings related to the maintenance of this single sign-on configuration. 
 
-	![Type in your email address.][19]
+    ![Type in your email address.][19]
 
 17. Click **Complete** to close the dialog. To test your configuration, see the section below titled [Assign Users to Salesforce](#step-4-assign-users-to-salesforce).
 
@@ -168,35 +168,35 @@ You may follow this tutorial using the videos below.
 
 1. In the Azure AD Quick Start page for Salesforce, click on the **Configure user provisioning** button.
 
-	![Click the Configure User Provisioning button][20]
+    ![Click the Configure User Provisioning button][20]
 
 2. In the **Configure user provisioning** dialog, type in your Salesforce admin username and password.
 
-	![Type in your admin username or password][21]
+    ![Type in your admin username or password][21]
 
-	> [AZURE.NOTE] If you are configuring a production environment, the best practice is to create a new admin account in Salesforce specifically for this step. This account must have the **System Administrator** profile assigned to it in Salesforce.
+    > [AZURE.NOTE] If you are configuring a production environment, the best practice is to create a new admin account in Salesforce specifically for this step. This account must have the **System Administrator** profile assigned to it in Salesforce.
 
 3. To get your Salesforce security token, open a new tab and sign into the same Salesforce admin account. On the top right corner of the page, click on your name, and then click on **My Settings**.
 
-	![Click on your name, then click on My Settings][22]
+    ![Click on your name, then click on My Settings][22]
 
 4. On the left navigation pane, click on **Personal** to expand the related section, and then click on **Reset My Security Token**.
 
-	![Click on your name, then click on My Settings][23]
+    ![Click on your name, then click on My Settings][23]
 
 5. On the **Reset My Security Token** page, click on the **Reset Security Token** button.
 
-	![Read the warnings.][24]
+    ![Read the warnings.][24]
 
 6. Check the email inbox associated with this admin account. Look for an email from Salesforce.com that contains the new security token.
 
 7. Copy the token, go to your Azure AD window, and paste it into the **User Security Token** field. Then click **Next**.
 
-	![Paste in the security token][25]
+    ![Paste in the security token][25]
 
 8. On the confirmation page, you can choose to receive email notifications for when provisioning failures occur. Click **Complete** to close the dialog.
 
-	![Type in your email address to receive notifications][26]
+    ![Type in your email address to receive notifications][26]
 
 ##Step 4: Assign users to Salesforce
 
@@ -204,19 +204,19 @@ You may follow this tutorial using the videos below.
 
 2. On the Salesforce Quick Start page, click on the **Assign Users** button.
 
-	![Click on Assign Users][27]
+    ![Click on Assign Users][27]
 
 3. Select your test user, and click the **Assign** button at the bottom of the screen:
 
  - If you haven't enable automated user provisioning, then you'll see the following prompt to confirm:
 
-		![Confirm the assignment.][28]
+        ![Confirm the assignment.][28]
 
  - If you have enabled automated user provisioning, then you'll see a prompt to define what type of Salesforce profile the user should have. Newly provisioned users should appear in your Salesforce environment after a few minutes.
 
-		![Confirm the assignment.][29]
+        ![Confirm the assignment.][29]
 
-		> [AZURE.IMPORTANT] If you are provisioning to a Salesforce **developer** environment, you will have a very limited number of licenses available for each profile. Therefore, it's best to provision users to the **Chatter Free User** profile, which has 4,999 licenses available.
+        > [AZURE.IMPORTANT] If you are provisioning to a Salesforce **developer** environment, you will have a very limited number of licenses available for each profile. Therefore, it's best to provision users to the **Chatter Free User** profile, which has 4,999 licenses available.
 
 4. To test your single sign-on settings, open the Access Panel at [https://myapps.microsoft.com](https://myapps.microsoft.com/), then sign into the test account, and click on **Salesforce**.
 

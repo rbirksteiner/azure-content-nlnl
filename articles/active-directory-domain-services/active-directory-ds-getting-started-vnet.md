@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure Active Directory Domain Services preview: Getting Started | Microsoft Azure"
-	description="Getting started with Azure Active Directory Domain Services"
-	services="active-directory-ds"
-	documentationCenter=""
-	authors="mahesh-unnikrishnan"
-	manager="udayh"
-	editor="curtand"/>
+    pageTitle="Azure Active Directory Domain Services preview: Getting Started | Microsoft Azure"
+    description="Getting started with Azure Active Directory Domain Services"
+    services="active-directory-ds"
+    documentationCenter=""
+    authors="mahesh-unnikrishnan"
+    manager="udayh"
+    editor="curtand"/>
 
 <tags
-	ms.service="active-directory-ds"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/09/2015"
-	ms.author="maheshu"/>
+    ms.service="active-directory-ds"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/09/2015"
+    ms.author="maheshu"/>
 
 # Azure AD Domain Services *(Preview)* - Getting started
 
@@ -55,3 +55,4 @@ Perform the following configuration steps in order to create an Azure virtual ne
 
 ---
 [**Next step - Enable Azure AD Domain Services.**](active-directory-ds-getting-started-enableaadds.md)
+

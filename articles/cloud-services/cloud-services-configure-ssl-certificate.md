@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Configure SSL for a cloud service | Microsoft Azure" 
-	description="Learn how to specify an HTTPS endpoint for a web role and how to upload an SSL certificate to secure your application." 
-	services="cloud-services" 
-	documentationCenter=".net" 
-	authors="Thraka" 
-	manager="timlt" 
-	editor=""/>
+    pageTitle="Configure SSL for a cloud service | Microsoft Azure" 
+    description="Learn how to specify an HTTPS endpoint for a web role and how to upload an SSL certificate to secure your application." 
+    services="cloud-services" 
+    documentationCenter=".net" 
+    authors="Thraka" 
+    manager="timlt" 
+    editor=""/>
 
 <tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/22/2015"
-	ms.author="adegeo"/>
+    ms.service="cloud-services" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/22/2015"
+    ms.author="adegeo"/>
 
 
 
@@ -64,8 +64,8 @@ Your application must be configured to use the certificate, and an HTTPS endpoin
         ...
             <Certificates>
                 <Certificate name="SampleCertificate" 
-							 storeLocation="LocalMachine" 
-                    		 storeName="CA" />
+                             storeLocation="LocalMachine" 
+                             storeName="CA" />
             </Certificates>
         ...
         </WebRole>
@@ -179,3 +179,4 @@ If you want to use SSL for a staging deployment instead of a production deployme
   [2]: ./media/cloud-services-configure-ssl-certificate/CopyURL.png
   [3]: ./media/cloud-services-configure-ssl-certificate/SSLCloudService.png
   [4]: ./media/cloud-services-configure-ssl-certificate/AddCertificateComplete.png  
+

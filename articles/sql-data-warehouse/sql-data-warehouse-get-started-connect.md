@@ -78,9 +78,9 @@ Now that we have connected to the server, let's go ahead and write a query.
 
 3. Copy this TSQL query into the query window:
 
-	```
-	SELECT COUNT(*) FROM dbo.FactInternetSales;
-	```
+    ```
+    SELECT COUNT(*) FROM dbo.FactInternetSales;
+    ```
 
 4. Run the query. To do this, click the green arrow or use the following shortcut: `CTRL`+`SHIFT`+`E`.
 

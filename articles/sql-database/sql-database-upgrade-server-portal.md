@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Upgrade to Azure SQL Database V12 using the Azure portal | Microsoft Azure" 
-	description="Explains how to upgrade to Azure SQL Database V12 including how to upgrade Web and Business databases, and how to upgrade a V11 server migrating its databases directly into an elastic database pool using the Azure portal." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="stevestein" 
-	manager="jeffreyg"
-	editor=""/>
+    pageTitle="Upgrade to Azure SQL Database V12 using the Azure portal | Microsoft Azure" 
+    description="Explains how to upgrade to Azure SQL Database V12 including how to upgrade Web and Business databases, and how to upgrade a V11 server migrating its databases directly into an elastic database pool using the Azure portal." 
+    services="sql-database" 
+    documentationCenter="" 
+    authors="stevestein" 
+    manager="jeffreyg"
+    editor=""/>
 
 <tags 
-	ms.service="sql-database" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="data-management" 
-	ms.date="12/01/2015" 
-	ms.author="sstein"/>
+    ms.service="sql-database" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="data-management" 
+    ms.date="12/01/2015" 
+    ms.author="sstein"/>
 
 
 # Upgrade to Azure SQL Database V12 using the Azure portal
@@ -121,11 +121,11 @@ In addition to monitoring individual databases you can monitor elastic database 
 **Resource consumption data:** For Basic, Standard, and Premium databases resource consumption data is available through the [sys.dm_ db_ resource_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) DMV in the user database. This DMV provides near real time resource consumption information at 15 second granularity for the previous hour of operation. The DTU percentage consumption for an interval is computed as the maximum percentage consumption of the CPU, IO and log dimensions. Here is a query to compute the average DTU percentage consumption over the last hour:
 
     SELECT end_time
-    	 , (SELECT Max(v)
+         , (SELECT Max(v)
              FROM (VALUES (avg_cpu_percent)
                          , (avg_data_io_percent)
                          , (avg_log_write_percent)
-    	   ) AS value(v)) AS [avg_DTU_percent]
+           ) AS value(v)) AS [avg_DTU_percent]
     FROM sys.dm_db_resource_stats
     ORDER BY end_time DESC;
 
@@ -168,6 +168,7 @@ For example, you can set up an email alert on “DTU Percentage” if the averag
 [5]: ./media/sql-database-upgrade-server-portal/enabled.png
 [6]: ./media/sql-database-upgrade-server-portal/recommendations.png
 [7]: ./media/sql-database-upgrade-server-portal/new-elastic-pool.png
+
 
 
 

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Manage a SQL Database with SSMS | Microsoft Azure" 
-	description="Learn how to use SQL Server Management Studio to manage SQL Database servers and databases." 
-	services="sql-database" 
-	documentationCenter=".net" 
-	authors="jeffgoll" 
-	manager="jeffreyg" 
-	editor="tysonn"/>
+    pageTitle="Manage a SQL Database with SSMS | Microsoft Azure" 
+    description="Learn how to use SQL Server Management Studio to manage SQL Database servers and databases." 
+    services="sql-database" 
+    documentationCenter=".net" 
+    authors="jeffgoll" 
+    manager="jeffreyg" 
+    editor="tysonn"/>
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/11/2015" 
-	ms.author="jeffreyg"/>
+    ms.service="sql-database" 
+    ms.workload="data-management" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/11/2015" 
+    ms.author="jeffreyg"/>
 
 
 # Managing Azure SQL Database using SQL Server Management Studio 
@@ -40,7 +40,7 @@ Connecting to SQL Database requires that you know the server name on Azure. You 
 
 3.  On the SQL Databases home page, click **SERVERS** at the top of the page to list all of the servers associated with your subscription. Find the name of the server to which you want to connect and copy it to the clipboard.
 
-	Next, configure your SQL Database firewall to
+    Next, configure your SQL Database firewall to
 allow connections from your local machine. You do this by adding your local machines IP address to the firewall exception list.
 
 1.  On SQL Databases home page, click **SERVERS** and then click the server to which you want to connect.
@@ -51,14 +51,14 @@ allow connections from your local machine. You do this by adding your local mach
 
 4.  In the Configure page, **Allowed IP Addresses** includes three boxes where you can specify a rule name and a range of IP addresses as starting and ending values. For a rule name, you might enter the name of your computer. For the start and end range, paste in the IP address of your computer into both boxes, and then click the checkbox that appears.
 
-	The rule name must be unique. If this is your development computer, you can enter the IP address in both the IP range start box and the IP range end box. Otherwise, you might need to enter a broader range of IP addresses to accommodate connections from additional computers in your organization.
+    The rule name must be unique. If this is your development computer, you can enter the IP address in both the IP range start box and the IP range end box. Otherwise, you might need to enter a broader range of IP addresses to accommodate connections from additional computers in your organization.
  
 5. Click **SAVE** at the bottom of the page.
 
     **Note:** There can be up as much as a five-minute delay for changes
     to the firewall settings to take effect.
 
-	You are now ready to connect to SQL Database using Management Studio.
+    You are now ready to connect to SQL Database using Management Studio.
 
 1.  On the taskbar, click **Start**, point to **All Programs**, point to
     **Microsoft SQL Server 2014**, and then click **SQL Server
@@ -267,3 +267,4 @@ complete details and more usage examples, see [Monitoring SQL Database using Dyn
         ORDER BY 2 DESC;
  
  
+

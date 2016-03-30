@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Walkthrough: export telemetry to SQL Database from Application Insights" 
-	description="Continuously export Application Insights data to SQL using Stream Analytics." 
-	services="application-insights" 
+    pageTitle="Walkthrough: export telemetry to SQL Database from Application Insights" 
+    description="Continuously export Application Insights data to SQL using Stream Analytics." 
+    services="application-insights" 
     documentationCenter=""
-	authors="noamben" 
-	manager="douge"/>
+    authors="noamben" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/07/2015" 
-	ms.author="awills"/>
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/07/2015" 
+    ms.author="awills"/>
  
 # Walkthrough: Export to SQL from Application Insights using Stream Analytics
 
@@ -128,37 +128,37 @@ Create a new query, and execute the following T-SQL:
 ```SQL
 
 CREATE TABLE [dbo].[PageViewsTable](
-	[pageName] [nvarchar](max) NOT NULL,
-	[viewCount] [int] NOT NULL,
-	[url] [nvarchar](max) NULL,
-	[urlDataPort] [int] NULL,
-	[urlDataprotocol] [nvarchar](50) NULL,
-	[urlDataHost] [nvarchar](50) NULL,
-	[urlDataBase] [nvarchar](50) NULL,
-	[urlDataHashTag] [nvarchar](max) NULL,
-	[eventTime] [datetime] NOT NULL,
-	[isSynthetic] [nvarchar](50) NULL,
-	[deviceId] [nvarchar](50) NULL,
-	[deviceType] [nvarchar](50) NULL,
-	[os] [nvarchar](50) NULL,
-	[osVersion] [nvarchar](50) NULL,
-	[locale] [nvarchar](50) NULL,
-	[userAgent] [nvarchar](max) NULL,
-	[browser] [nvarchar](50) NULL,
-	[browserVersion] [nvarchar](50) NULL,
-	[screenResolution] [nvarchar](50) NULL,
-	[sessionId] [nvarchar](max) NULL,
-	[sessionIsFirst] [nvarchar](50) NULL,
-	[clientIp] [nvarchar](50) NULL,
-	[continent] [nvarchar](50) NULL,
-	[country] [nvarchar](50) NULL,
-	[province] [nvarchar](50) NULL,
-	[city] [nvarchar](50) NULL
+    [pageName] [nvarchar](max) NOT NULL,
+    [viewCount] [int] NOT NULL,
+    [url] [nvarchar](max) NULL,
+    [urlDataPort] [int] NULL,
+    [urlDataprotocol] [nvarchar](50) NULL,
+    [urlDataHost] [nvarchar](50) NULL,
+    [urlDataBase] [nvarchar](50) NULL,
+    [urlDataHashTag] [nvarchar](max) NULL,
+    [eventTime] [datetime] NOT NULL,
+    [isSynthetic] [nvarchar](50) NULL,
+    [deviceId] [nvarchar](50) NULL,
+    [deviceType] [nvarchar](50) NULL,
+    [os] [nvarchar](50) NULL,
+    [osVersion] [nvarchar](50) NULL,
+    [locale] [nvarchar](50) NULL,
+    [userAgent] [nvarchar](max) NULL,
+    [browser] [nvarchar](50) NULL,
+    [browserVersion] [nvarchar](50) NULL,
+    [screenResolution] [nvarchar](50) NULL,
+    [sessionId] [nvarchar](max) NULL,
+    [sessionIsFirst] [nvarchar](50) NULL,
+    [clientIp] [nvarchar](50) NULL,
+    [continent] [nvarchar](50) NULL,
+    [country] [nvarchar](50) NULL,
+    [province] [nvarchar](50) NULL,
+    [city] [nvarchar](50) NULL
 )
 
 CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 (
-	[eventTime] ASC
+    [eventTime] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
 
 ```
@@ -232,13 +232,13 @@ Replace the default query with:
 ```SQL
 
     SELECT flat.ArrayValue.name as pageName
-	, flat.ArrayValue.count as viewCount
-	, flat.ArrayValue.url as url
-	, flat.ArrayValue.urlData.port as urlDataPort
-	, flat.ArrayValue.urlData.protocol as urlDataprotocol
-	, flat.ArrayValue.urlData.host as urlDataHost
-	, flat.ArrayValue.urlData.base as urlDataBase
-	, flat.ArrayValue.urlData.hashTag as urlDataHashTag
+    , flat.ArrayValue.count as viewCount
+    , flat.ArrayValue.url as url
+    , flat.ArrayValue.urlData.port as urlDataPort
+    , flat.ArrayValue.urlData.protocol as urlDataprotocol
+    , flat.ArrayValue.urlData.host as urlDataHost
+    , flat.ArrayValue.urlData.base as urlDataBase
+    , flat.ArrayValue.urlData.hashTag as urlDataHashTag
       ,A.context.data.eventTime as eventTime
       ,A.context.data.isSynthetic as isSynthetic
       ,A.context.device.id as deviceId

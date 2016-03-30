@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure Mobile Engagement Android SDK Integration"
-	description="Latest updates and procedures for Android SDK for Azure Mobile Engagement"
-	services="mobile-engagement"
-	documentationCenter="mobile"
-	authors="piyushjo"
-	manager="dwrede"
-	editor="" />
+    pageTitle="Azure Mobile Engagement Android SDK Integration"
+    description="Latest updates and procedures for Android SDK for Azure Mobile Engagement"
+    services="mobile-engagement"
+    documentationCenter="mobile"
+    authors="piyushjo"
+    manager="dwrede"
+    editor="" />
 
 <tags
-	ms.service="mobile-engagement"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-android"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="08/10/2015"
-	ms.author="piyushjo" />
+    ms.service="mobile-engagement"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-android"
+    ms.devlang="Java"
+    ms.topic="article"
+    ms.date="08/10/2015"
+    ms.author="piyushjo" />
 
 
 #How to Integrate ADM with Engagement
@@ -56,17 +56,17 @@ Edit your `AndroidManifest.xml` file:
 
 -   Add the Amazon namespace, the file should begin like this:
 
-		<?xml version="1.0" encoding="utf-8"?>
-		<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-		          xmlns:amazon="http://schemas.amazon.com/apk/res/android"
+        <?xml version="1.0" encoding="utf-8"?>
+        <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+                  xmlns:amazon="http://schemas.amazon.com/apk/res/android"
 
 -   Inside the `<application/>` tag, add this section:
 
-		<amazon:enable-feature
-		   android:name="com.amazon.device.messaging"
-		   android:required="false"/>
+        <amazon:enable-feature
+           android:name="com.amazon.device.messaging"
+           android:required="false"/>
 
-		<meta-data android:name="engagement:adm:register" android:value="true" />
+        <meta-data android:name="engagement:adm:register" android:value="true" />
 
 -   After adding the amazon tag, you may have a build error if your Project Build Target is below Android 2.1. You have to use an **Android 2.1+** build target (don't worry, you can still have a `minSdkVersion` set to 4).
 -   Integrate the ADM API Key as an asset by following [this procedure].
@@ -77,28 +77,28 @@ Then follow the instructions of the next sections.
 
 In order to communicate the registration id of the device to the Engagement Push service and receive its notifications, add the following to your `AndroidManifest.xml` file, inside the `<application/>` tag (even if you use ADM without Engagement):
 
-		<receiver android:name="com.microsoft.azure.engagement.adm.EngagementADMEnabler"
-		  android:exported="false">
-		  <intent-filter>
-		    <action android:name="com.microsoft.azure.engagement.intent.action.APPID_GOT"/>
-		  </intent-filter>
-		</receiver>
+        <receiver android:name="com.microsoft.azure.engagement.adm.EngagementADMEnabler"
+          android:exported="false">
+          <intent-filter>
+            <action android:name="com.microsoft.azure.engagement.intent.action.APPID_GOT"/>
+          </intent-filter>
+        </receiver>
 
-		 <receiver android:name="com.microsoft.azure.engagement.adm.EngagementADMReceiver"
-		   android:permission="com.amazon.device.messaging.permission.SEND">
-		  <intent-filter>
-		    <action android:name="com.amazon.device.messaging.intent.REGISTRATION"/>
-		    <action android:name="com.amazon.device.messaging.intent.RECEIVE"/>
-		    <category android:name="<your_package_name>"/>
-		  </intent-filter>
-		</receiver>   
+         <receiver android:name="com.microsoft.azure.engagement.adm.EngagementADMReceiver"
+           android:permission="com.amazon.device.messaging.permission.SEND">
+          <intent-filter>
+            <action android:name="com.amazon.device.messaging.intent.REGISTRATION"/>
+            <action android:name="com.amazon.device.messaging.intent.RECEIVE"/>
+            <category android:name="<your_package_name>"/>
+          </intent-filter>
+        </receiver>   
 
 Ensure you have the following permissions in your `AndroidManifest.xml` (before the `</application>` tag).
 
-		<uses-permission android:name="android.permission.WAKE_LOCK"/>
-		<uses-permission android:name="com.amazon.device.messaging.permission.RECEIVE"/>
-		<uses-permission android:name="<your_package_name>.permission.RECEIVE_ADM_MESSAGE"/>
-		<permission android:name="<your_package_name>.permission.RECEIVE_ADM_MESSAGE" android:protectionLevel="signature"/>
+        <uses-permission android:name="android.permission.WAKE_LOCK"/>
+        <uses-permission android:name="com.amazon.device.messaging.permission.RECEIVE"/>
+        <uses-permission android:name="<your_package_name>.permission.RECEIVE_ADM_MESSAGE"/>
+        <permission android:name="<your_package_name>.permission.RECEIVE_ADM_MESSAGE" android:protectionLevel="signature"/>
 
 ##Grant Engagement OAuth credentials
 
@@ -111,3 +111,4 @@ You can now select "Any Time" when creating Reach announcements and polls.
 [ADM client library]:https://developer.amazon.com/sdk/adm/setup.html
 [integrated ADM]:https://developer.amazon.com/sdk/adm/integrating-app.html
 [this procedure]:https://developer.amazon.com/sdk/adm/integrating-app.html#Asset
+

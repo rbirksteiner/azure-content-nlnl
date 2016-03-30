@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Send cross-platform notifications to a specific user in iOS" 
-	description="Learn how to send push notifications to all devices of a specific user."
-	services="app-service\mobile,notification-hubs" 
-	documentationCenter="ios" 
-	authors="ysxu" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="Send cross-platform notifications to a specific user in iOS" 
+    description="Learn how to send push notifications to all devices of a specific user."
+    services="app-service\mobile,notification-hubs" 
+    documentationCenter="ios" 
+    authors="ysxu" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="app-service-mobile" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-dotnet" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="11/17/2015"
-	ms.author="yuaxu"/>
+    ms.service="app-service-mobile" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="mobile-dotnet" 
+    ms.devlang="objective-c" 
+    ms.topic="article" 
+    ms.date="11/17/2015"
+    ms.author="yuaxu"/>
 
 # Send cross-platform notifications to a specific user
 
@@ -65,7 +65,7 @@ Before you start this tutorial, you must have already completed these App Servic
             }
         }];
 
-	It is important that you authenticate the user before registering for push notifications. When an authenticated user registers for push notifications, a tag with the user ID is automatically added.
+    It is important that you authenticate the user before registering for push notifications. When an authenticated user registers for push notifications, a tag with the user ID is automatically added.
 
 ##<a name="backend"></a>Update your service backend to send notifications to a specific user
 

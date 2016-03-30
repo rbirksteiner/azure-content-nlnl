@@ -106,3 +106,4 @@ Check out the [Index Advisor](sql-database-index-advisor.md) for additional reco
 
 
 
+

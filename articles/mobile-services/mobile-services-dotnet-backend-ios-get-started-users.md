@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Add Authentication to Existing Azure Mobile Services App (iOS) | .NET Backend | Microsoft Azure"
-	description="Learn how to use Mobile Services to authenticate users of your iOS app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft."
-	services="mobile-services"
-	documentationCenter="ios"
-	authors="krisragh"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Add Authentication to Existing Azure Mobile Services App (iOS) | .NET Backend | Microsoft Azure"
+    description="Learn how to use Mobile Services to authenticate users of your iOS app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft."
+    services="mobile-services"
+    documentationCenter="ios"
+    authors="krisragh"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-ios"
-	ms.devlang="objective-c"
-	ms.topic="article"
-	ms.date="10/01/2015"
-	ms.author="krisragh"/>
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-ios"
+    ms.devlang="objective-c"
+    ms.topic="article"
+    ms.date="10/01/2015"
+    ms.author="krisragh"/>
 
 # Add Authentication to Existing Azure Mobile Services app
 
@@ -66,3 +66,4 @@ In the next tutorial, [Service-side authorization of Mobile Services users], you
 [Authorize users with scripts]: mobile-services-dotnet-backend-service-side-authorization.md
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
+

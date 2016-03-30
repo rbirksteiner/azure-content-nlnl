@@ -3,48 +3,48 @@
 1. In Visual Studio, open the **AppBackend** project that you created in the **Notify Users** tutorial.
 2. In Notifications.cs, replace the whole **Notifications** class with the following code. Be sure to replace the placeholders with your connection string (with full access) for your notification hub, and the hub name. You can obtain these values from the [Azure Classic Portal](http://manage.windowsazure.com). This module now represents the different secure notifications that will be sent. In a complete implementation, the notifications will be stored in a database; for simplicity, in this case we store them in memory.
 
-		public class Notification
-	    {
-	        public int Id { get; set; }
-	        public string Payload { get; set; }
-	        public bool Read { get; set; }
-	    }
+        public class Notification
+        {
+            public int Id { get; set; }
+            public string Payload { get; set; }
+            public bool Read { get; set; }
+        }
     
     
-	    public class Notifications
-	    {
-	        public static Notifications Instance = new Notifications();
-	        
-	        private List<Notification> notifications = new List<Notification>();
-	
-	        public NotificationHubClient Hub { get; set; }
-	
-	        private Notifications() {
-	            Hub = NotificationHubClient.CreateClientFromConnectionString("{conn string with full access}", 	"{hub name}");
-	        }
+        public class Notifications
+        {
+            public static Notifications Instance = new Notifications();
+            
+            private List<Notification> notifications = new List<Notification>();
+    
+            public NotificationHubClient Hub { get; set; }
+    
+            private Notifications() {
+                Hub = NotificationHubClient.CreateClientFromConnectionString("{conn string with full access}",  "{hub name}");
+            }
 
-	        public Notification CreateNotification(string payload)
-	        {
-	            var notification = new Notification() {
+            public Notification CreateNotification(string payload)
+            {
+                var notification = new Notification() {
                 Id = notifications.Count,
                 Payload = payload,
                 Read = false
-            	};
+                };
 
-            	notifications.Add(notification);
+                notifications.Add(notification);
 
-            	return notification;
-	        }
+                return notification;
+            }
 
-	        public Notification ReadNotification(int id)
-	        {
-	            return notifications.ElementAt(id);
-	        }
-	    }
+            public Notification ReadNotification(int id)
+            {
+                return notifications.ElementAt(id);
+            }
+        }
 
 20. In NotificationsController.cs, replace the code inside the **NotificationsController** class definition with the following code. This component implements a way for the device to retrieve the notification securely, and also provides a way (for the purposes of this tutorial) to trigger a secure push to your devices. Note that when sending the notification to the notification hub, we only send a raw notification with the ID of the notification (and no actual message):
 
-		public NotificationsController()
+        public NotificationsController()
         {
             Notifications.Instance.CreateNotification("This is a secure notification!");
         }

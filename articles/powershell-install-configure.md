@@ -1,20 +1,20 @@
 <properties
-	pageTitle="How to install and configure Azure PowerShell"
-	description="Learn how to install and configure Azure PowerShell."
-	editor="tysonn"
-	manager="stevenka"
-	documentationCenter=""
-	services=""
-	authors="coreyp-at-msft"/>
+    pageTitle="How to install and configure Azure PowerShell"
+    description="Learn how to install and configure Azure PowerShell."
+    editor="tysonn"
+    manager="stevenka"
+    documentationCenter=""
+    services=""
+    authors="coreyp-at-msft"/>
 
 <tags
-	ms.service="multiple"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="powershell"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/02/2015"
-	ms.author="coreyp"/>
+    ms.service="multiple"
+    ms.workload="multiple"
+    ms.tgt_pltfrm="powershell"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/02/2015"
+    ms.author="coreyp"/>
 
 # How to install and configure Azure PowerShell#
 
@@ -81,37 +81,37 @@ After you've installed the module and configured your computer to connect to you
 
 2. Choose a name for your web app. Pick a name that conforms to DNS naming conventions. Valid names can contain only letters 'a' through 'z', numbers '0' through '9', and a hyphen ('-').
 
-	The web app name must be unique in Azure. We'll use "mySite" in this example, but be sure to choose a different name, such as your account name followed by a number.  
+    The web app name must be unique in Azure. We'll use "mySite" in this example, but be sure to choose a different name, such as your account name followed by a number.  
 
-	After you pick a name, type a command similar to the following. Substitute your web app name for "mySite".
+    After you pick a name, type a command similar to the following. Substitute your web app name for "mySite".
 
-		New-AzureWebsite mySite
+        New-AzureWebsite mySite
 
-	The cmdlet creates the web app and returns an object that represents the new web app. The object properties include useful information about the web app.
+    The cmdlet creates the web app and returns an object that represents the new web app. The object properties include useful information about the web app.
 
 3. To get information about the web app, type this command. It returns a bit of information about all web apps in the subscription, including the one that you just created.
 
-		Get-AzureWebsite
+        Get-AzureWebsite
 
 4. To get more information about your web app, include the web app name in the command. Be sure to substitute the name of your web app for "mySite".
 
-		Get-AzureWebsite -Name mySite
+        Get-AzureWebsite -Name mySite
 
 5. Web apps are started after they are created. To stop the web app, type this command, including the name of your web app.
 
-		Stop-AzureWebsite -Name mySite
+        Stop-AzureWebsite -Name mySite
 
 6. To verify that the site's state is 'stopped', run the Get-AzureWebsite command again.
 
-		Get-AzureWebsite
+        Get-AzureWebsite
 
 7. To complete this test, delete the web app. Type:  
 
-		Remove-AzureWebsite -Name mySite
+        Remove-AzureWebsite -Name mySite
 
 7. To complete the task, confirm that the web app is deleted.
 
-		Get-AzureWebsite -Name mySite
+        Get-AzureWebsite -Name mySite
 
 ##<a id="Help"></a>Getting help##
 
@@ -128,3 +128,4 @@ For help from the community, try these popular forums:
 
 - [Azure forum on MSDN]( http://go.microsoft.com/fwlink/p/?LinkId=320212)
 - [Stackoverflow](http://go.microsoft.com/fwlink/?LinkId=320213)
+

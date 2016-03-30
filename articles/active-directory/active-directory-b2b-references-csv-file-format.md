@@ -25,13 +25,13 @@ The preview version of Azure AD B2B collaboration requires a CSV file specifying
 ## Required fields: <br/>
 **Email:** Email address of invited user. <br/>
 **DisplayName:** Display name for invited user (typically, first and last name).<br/>
-**InviteContactUsUrl:** URL to include in email invitations in case the invited user wants to contact your organization.<br/>
+**InviteContactUsUrl:** URL to include in email invitations in case the invited user wants to contact your organization.<br/>
 
 ## Optional fields: <br/>
-**InviteAppID:**  The ID for the application to use for branding the email invite and acceptance pages.<br/>
-**InviteAppResources:** AppIDs to corporate applications to assign users. AppIDs are retrievable in PowerShell by calling `Get-MsolServicePrincipal | fl DisplayName, AppPrincipalId`<br/>
-**InviteGroupResources:** ObjectIDs for groups to add user to. ObjectIDs are retrievable in PowerShell by calling `Get-MsolGroup | fl DisplayName, ObjectId`<br/>
-**InviteReplyURL:** URL to direct an invited user after invite acceptance. This should be a company-specific URL (such as [*contoso.my.salesforce.com*](http://contoso.my.salesforce.com/)). If this optional field is not specified, the invited user is directed to the App Access Panel where they can navigate to your chosen corporate apps. The App Access Panel URL is of the form  `https://account.activedirectory.windowsazure.com/applications/default.aspx?tenantId=<TenantID>`.<br/>
+**InviteAppID:**  The ID for the application to use for branding the email invite and acceptance pages.<br/>
+**InviteAppResources:** AppIDs to corporate applications to assign users. AppIDs are retrievable in PowerShell by calling `Get-MsolServicePrincipal | fl DisplayName, AppPrincipalId`<br/>
+**InviteGroupResources:** ObjectIDs for groups to add user to. ObjectIDs are retrievable in PowerShell by calling `Get-MsolGroup | fl DisplayName, ObjectId`<br/>
+**InviteReplyURL:** URL to direct an invited user after invite acceptance. This should be a company-specific URL (such as [*contoso.my.salesforce.com*](http://contoso.my.salesforce.com/)). If this optional field is not specified, the invited user is directed to the App Access Panel where they can navigate to your chosen corporate apps. The App Access Panel URL is of the form  `https://account.activedirectory.windowsazure.com/applications/default.aspx?tenantId=<TenantID>`.<br/>
 **Language:** Language for invitation email and redemption experience, with English as the default when unspecified. The other 10 supported language codes are:<br/>
 1. de: German<br/>
 2. es: Spanish<br/>
@@ -45,7 +45,7 @@ The preview version of Azure AD B2B collaboration requires a CSV file specifying
 10. zh-HANT: Traditional Chinese<br/>
 
 ## Sample CSV file
-Here is a sample CSV you can modify.
+Here is a sample CSV you can modify.
 
 >[AZURE.NOTE] Copy and paste this into Notepad, and save it with a '.csv' file extension. Then edit this in Excel. It will be structured into a table with labels in the first row.
 
@@ -67,3 +67,4 @@ Browse our other articles on Azure B2B collaboration
 - [External user token format](active-directory-b2b-references-external-user-token-format.md)
 - [External user object attribute changes](active-directory-b2b-references-external-user-object-attribute-changes.md)
 - [Current preview limitations](active-directory-b2b-current-preview-limitations.md)
+

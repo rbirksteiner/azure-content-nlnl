@@ -429,3 +429,4 @@ This pattern is very common in scenarios where developers either have constraine
 [1]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch1.png
 [2]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch2.png
 [3]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch3.png
+

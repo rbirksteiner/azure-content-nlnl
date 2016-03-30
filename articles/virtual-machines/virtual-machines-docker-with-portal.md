@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Using Docker VM Extension for Linux | Microsoft Azure"
-	description="Describes Docker and the Azure Virtual Machines extensions, and how to create Azure Virtual Machines that are docker hosts using the Azure CLI in classic deployment model."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="squillace"
-	manager="timlt"
-	editor="tysonn"
-	tags="azure-service-management"/>
+    pageTitle="Using Docker VM Extension for Linux | Microsoft Azure"
+    description="Describes Docker and the Azure Virtual Machines extensions, and how to create Azure Virtual Machines that are docker hosts using the Azure CLI in classic deployment model."
+    services="virtual-machines"
+    documentationCenter=""
+    authors="squillace"
+    manager="timlt"
+    editor="tysonn"
+    tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-linux"
-	ms.workload="infrastructure-services"
-	ms.date="09/22/2015"
-	ms.author="rasquill"/>
+    ms.service="virtual-machines"
+    ms.devlang="multiple"
+    ms.topic="article"
+    ms.tgt_pltfrm="vm-linux"
+    ms.workload="infrastructure-services"
+    ms.date="09/22/2015"
+    ms.author="rasquill"/>
 
 
 # Using the Docker VM Extension with the Azure classic portal
@@ -146,3 +146,4 @@ You are ready to go to the [Docker User Guide] and use your Docker VM. If you wa
 
 [Running Docker with https]: http://docs.docker.com/articles/https/
 [Docker User Guide]: https://docs.docker.com/userguide/
+

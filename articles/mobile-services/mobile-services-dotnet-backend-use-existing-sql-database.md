@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Build a service using an existing SQL database with the Mobile Services .NET backend | Microsoft Azure"
-	description="Learn how to use an existing cloud or on-premises SQL database with your .NET based mobile service"
-	services="mobile-services"
-	documentationCenter=""
-	authors="ggailey777"
-	manager="dwrede"
-	editor="mollybos"/>
+    pageTitle="Build a service using an existing SQL database with the Mobile Services .NET backend | Microsoft Azure"
+    description="Learn how to use an existing cloud or on-premises SQL database with your .NET based mobile service"
+    services="mobile-services"
+    documentationCenter=""
+    authors="ggailey777"
+    manager="dwrede"
+    editor="mollybos"/>
 
 <tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="11/09/2015"
-	ms.author="glenga"/>
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="na"
+    ms.devlang="multiple"
+    ms.topic="article"
+    ms.date="11/09/2015"
+    ms.author="glenga"/>
 
 
 # Build a service using an existing SQL database with the Mobile Services .NET backend
@@ -618,3 +618,4 @@ Please note that both controller implementations make exclusive use of the DTOs 
     }
 
 As a next step, you can now build out the client app to access the service.
+

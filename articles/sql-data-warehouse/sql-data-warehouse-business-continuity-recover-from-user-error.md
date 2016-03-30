@@ -109,10 +109,10 @@ Note that if your server is foo.database.windows.net, use "foo" as the -ServerNa
 ### REST API
 Use REST to programmatically perform database restore.
 
-1.	List all of your restorable deleted databases by using the [List restorable dropped databases][] operation.
-2.	Get the details for the deleted database you want to restore by using the [Get restorable dropped database][] operation.
-3.	Begin your restore by using the [Create database restore request][] operation.
-4.	Track the status of your restore by using the [Database operation status][] operation.
+1.  List all of your restorable deleted databases by using the [List restorable dropped databases][] operation.
+2.  Get the details for the deleted database you want to restore by using the [Get restorable dropped database][] operation.
+3.  Begin your restore by using the [Create database restore request][] operation.
+4.  Track the status of your restore by using the [Database operation status][] operation.
 
 After the restore has completed, you can configure your recovered database to be used by following the [Finalize a recovered database][] guide.
 
@@ -135,3 +135,4 @@ To learn about the business continuity features of other Azure SQL Database edit
 [Start-AzureSqlDatabaseRestore]: https://msdn.microsoft.com/library/dn720218.aspx
 
 <!--Other Web references-->
+

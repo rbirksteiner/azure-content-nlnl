@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Multi-shard querying | Microsoft Azure" 
-	description="Run queries across shards using the elastic database client library." 
-	services="sql-database" 
-	documentationCenter="" 
-	manager="jeffreyg" 
-	authors="torsteng" 
-	editor=""/>
+    pageTitle="Multi-shard querying | Microsoft Azure" 
+    description="Run queries across shards using the elastic database client library." 
+    services="sql-database" 
+    documentationCenter="" 
+    manager="jeffreyg" 
+    authors="torsteng" 
+    editor=""/>
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="sql-database" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/04/2015" 
-	ms.author="torsteng;sidneyh"/>
+    ms.service="sql-database" 
+    ms.workload="sql-database" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/04/2015" 
+    ms.author="torsteng;sidneyh"/>
 
 # Multi-shard querying
 
@@ -52,14 +52,14 @@ The following code illustrates the usage of multi-shard querying using a given *
             cmd.ExecutionPolicy = MultiShardExecutionPolicy.PartialResults; 
 
             using (MultiShardDataReader sdr = cmd.ExecuteReader()) 
-            	{ 
-                	while (sdr.Read())
-                    	{ 
-                        	var c1Field = sdr.GetString(0); 
-                        	var c2Field = sdr.GetFieldValue<int>(1); 
-                        	var c3Field = sdr.GetFieldValue<Int64>(2);
-                    	} 
-             	} 
+                { 
+                    while (sdr.Read())
+                        { 
+                            var c1Field = sdr.GetString(0); 
+                            var c2Field = sdr.GetFieldValue<int>(1); 
+                            var c3Field = sdr.GetFieldValue<Int64>(2);
+                        } 
+                } 
            } 
     } 
  

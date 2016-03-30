@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Monitor a Media Services Account" 
-	description="Describes how to configure monitoring for your Media Services account in Azure." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="juliako" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="Monitor a Media Services Account" 
+    description="Describes how to configure monitoring for your Media Services account in Azure." 
+    services="media-services" 
+    documentationCenter="" 
+    authors="juliako" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/05/2015"
-	ms.author="juliako"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/05/2015"
+    ms.author="juliako"/>
 
 
 
@@ -30,7 +30,7 @@ You can monitor the number of queued encoding jobs, failed encoding tasks, activ
 
 1. In the [Azure Classic Portal](http://go.microsoft.com/fwlink/?LinkID=256666), click **Media Services**, and then click the Media Services account name to open the dashboard. 
 
-	![MediaServices_Dashboard][dashboard]
+    ![MediaServices_Dashboard][dashboard]
 
 2. To monitor your encoding jobs or data, simply begin submitting encoding jobs to Media Services, or start streaming content to customers through the use of Azure Media On-Demand Streaming. You should start seeing monitoring data on the dashboard after about an hour.
 
@@ -38,9 +38,9 @@ You can monitor the number of queued encoding jobs, failed encoding tasks, activ
 1. Click the **STORAGE ACCOUNT** name under the **quick glance** section.
 2. On the storage account page, click the **configure page** link, and scroll down to the **monitoring** settings for the Blob, Table, and Queue services, shown below.
 
-	>[AZURE.NOTE] Blobs are the only supported storage type in Media Services.
+    >[AZURE.NOTE] Blobs are the only supported storage type in Media Services.
 
-	![StorageOptions][storage_options_scoped]
+    ![StorageOptions][storage_options_scoped]
 
 3. In **monitoring**, set the level of monitoring and the data retention policy for Blobs:
 

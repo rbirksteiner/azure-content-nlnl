@@ -92,3 +92,4 @@ Browse our other articles on Azure AD B2B collaboration:
 - [External user token format](active-directory-b2b-references-external-user-token-format.md)
 - [External user object attribute changes](active-directory-b2b-references-external-user-object-attribute-changes.md)
 - [Current preview limitations](active-directory-b2b-current-preview-limitations.md)
+

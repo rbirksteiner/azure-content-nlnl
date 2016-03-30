@@ -14,81 +14,81 @@ Follow these steps to install and run MongoDB on a virtual machine running Windo
 
 6. Create MongoDB data and log directories in the data disk (drive **F:**, for example) you created in the steps above. From **Start**, select **Command Prompt** to open a command prompt window.  Type:
 
-		C:\> F:
-		F:\> mkdir \MongoData
-		F:\> mkdir \MongoLogs
+        C:\> F:
+        F:\> mkdir \MongoData
+        F:\> mkdir \MongoLogs
 
 7. To run the database, run:
 
-		F:\> C:
-		C:\> mongod --dbpath F:\MongoData\ --logpath F:\MongoLogs\mongolog.log
+        F:\> C:
+        C:\> mongod --dbpath F:\MongoData\ --logpath F:\MongoLogs\mongolog.log
 
-	All log messages will be directed to the *F:\MongoLogs\mongolog.log* file as mongod.exe server starts and preallocates journal files. It may take several minutes for MongoDB to preallocate the journal files and start listening for connections.
+    All log messages will be directed to the *F:\MongoLogs\mongolog.log* file as mongod.exe server starts and preallocates journal files. It may take several minutes for MongoDB to preallocate the journal files and start listening for connections.
 
 8. To start the MongoDB administrative shell, open another command window from **Start** and type the following:
 
-		C:\> cd \my_mongo_dir\bin  
-		C:\my_mongo_dir\bin> mongo  
-		>db  
-		test
-		> db.foo.insert( { a : 1 } )  
-		> db.foo.find()  
-		{ _id : ..., a : 1 }  
-		> show dbs  
-		...  
-		> show collections  
-		...  
-		> help  
+        C:\> cd \my_mongo_dir\bin  
+        C:\my_mongo_dir\bin> mongo  
+        >db  
+        test
+        > db.foo.insert( { a : 1 } )  
+        > db.foo.find()  
+        { _id : ..., a : 1 }  
+        > show dbs  
+        ...  
+        > show collections  
+        ...  
+        > help  
 
-	The database is created by the insert.
+    The database is created by the insert.
 
 9. Alternatively, you can install mongod.exe as a service:
 
-		C:\mongodb\bin>mongod --logpath F:\MongoLogs\mongolog.log --logappend --dbpath F:\MongoData\ --install
+        C:\mongodb\bin>mongod --logpath F:\MongoLogs\mongolog.log --logappend --dbpath F:\MongoData\ --install
 
-	This creates a service named MongoDB with a description of "Mongo DB". The **--logpath** option must be used to specify a log file, since the running service will not have a command window to display output.  The **--logappend** option specifies that a restart of the service will cause output to append to the existing log file.  The **--dbpath** option specifies the location of the data directory. For more service-related command line options, see [Service-related command line options] [MongoWindowsSvcOptions].
+    This creates a service named MongoDB with a description of "Mongo DB". The **--logpath** option must be used to specify a log file, since the running service will not have a command window to display output.  The **--logappend** option specifies that a restart of the service will cause output to append to the existing log file.  The **--dbpath** option specifies the location of the data directory. For more service-related command line options, see [Service-related command line options] [MongoWindowsSvcOptions].
 
-	To start the service, run this command:
+    To start the service, run this command:
 
-		C:\mongodb\bin>net start MongoDB
+        C:\mongodb\bin>net start MongoDB
 
 10. Now that MongoDB is installed and running, you'll need to open a port in Windows Firewall so you can remotely connect to MongoDB.  From the **Start** menu, select **Administrator Tools** and then **Windows Firewall with Advanced Security**.
 
 11. In the left pane, select **Inbound Rules**.  In the **Actions** pane on the right, select **New Rule...**.
 
-	![Windows Firewall][Image1]
+    ![Windows Firewall][Image1]
 
-	In the **New Inbound Rule Wizard**, select **Port** and then click **Next**.
+    In the **New Inbound Rule Wizard**, select **Port** and then click **Next**.
 
-	![Windows Firewall][Image2]
+    ![Windows Firewall][Image2]
 
-	Select **TCP** and then **Specific local ports**.  Specify a port of "27017" (the default port MongoDB listens on) and click **Next**.
+    Select **TCP** and then **Specific local ports**.  Specify a port of "27017" (the default port MongoDB listens on) and click **Next**.
 
-	![Windows Firewall][Image3]
+    ![Windows Firewall][Image3]
 
-	Select **Allow the connection** and click **Next**.
+    Select **Allow the connection** and click **Next**.
 
-	![Windows Firewall][Image4]
+    ![Windows Firewall][Image4]
 
-	Click **Next** again.
+    Click **Next** again.
 
-	![Windows Firewall][Image5]
+    ![Windows Firewall][Image5]
 
-	Specify a name for the rule, such as "MongoPort", and click **Finish**.
+    Specify a name for the rule, such as "MongoPort", and click **Finish**.
 
-	![Windows Firewall][Image6]
+    ![Windows Firewall][Image6]
 
 12. If you didn't configure an endpoint for MongoDB when you created the virtual machine, you can do it now. You need both the firewall rule and the endpoint to be able to connect to MongoDB remotely. In the Management Portal, click **Virtual Machines**, click the name of your new virtual machine, and then click **Endpoints**.
 
-	![Endpoints][Image7]
+    ![Endpoints][Image7]
 
 13. Click **Add** at the bottom of the page. Select **Add a Stand-Alone Endpoint** and click **Next**.
 
-	![Endpoints][Image8]
+    ![Endpoints][Image8]
 
 14. Add an endpoint with name "Mongo", protocol **TCP**, and both **Public** and **Private** ports set to "27017". This will allow MongoDB to be accessed remotely.
 
-	![Endpoints][Image9]
+    ![Endpoints][Image9]
 
 > [AZURE.NOTE] The port 27017 is the default port used by MongoDB. You can change this by the _--port_ subcommand when starting the mongod.exe server. Make sure to give the same port number in the firewall as well as the "Mongo" endpoint in the above instructions.
 
@@ -107,3 +107,4 @@ Follow these steps to install and run MongoDB on a virtual machine running Windo
 [Image7]: ./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint.png
 [Image8]: ./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint2.png
 [Image9]: ./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint3.png
+

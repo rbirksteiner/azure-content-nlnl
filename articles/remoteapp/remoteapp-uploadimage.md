@@ -39,7 +39,7 @@ Now that you have created your custom template image or have updated it with cha
 8.      From the elevated Windows PowerShell window, navigate to the same directory where you downloaded the script.
 9.      Paste the copied command and press **Enter**.
 
-	The upload process will begin and duration may depend on many factors including your network speed and size of the image
+    The upload process will begin and duration may depend on many factors including your network speed and size of the image
 
 11.    If your upload does not succeed because of network interruption or things like that, you can always resume the upload process you began. To resume an upload, run the script again using the same command line.
 
@@ -50,3 +50,4 @@ Now that you have created your custom template image or have updated it with cha
 - Make sure you use Windows PowerShell, not Azure PowerShell. You need to install the Azure PowerShell module because certain modules are needed during the upload process.
 - Never alter the script, validations are there for your convenience.
 - If the vhd file gets locked out during upload, copy the file or move it to a new location and attempt upload again. There might be some Windows process that is preventing upload.  
+

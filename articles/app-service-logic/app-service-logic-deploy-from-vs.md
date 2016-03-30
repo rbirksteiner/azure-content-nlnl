@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Deploy from Visual Studio" 
-	description="Create a project in Visual Studio to manage your Logic app." 
-	authors="stepsic-microsoft-com" 
-	manager="dwrede" 
-	editor="" 
-	services="app-service\logic" 
-	documentationCenter=""/>
+    pageTitle="Deploy from Visual Studio" 
+    description="Create a project in Visual Studio to manage your Logic app." 
+    authors="stepsic-microsoft-com" 
+    manager="dwrede" 
+    editor="" 
+    services="app-service\logic" 
+    documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/29/2015"
-	ms.author="stepsic"/> 
-	
+    ms.service="app-service-logic"
+    ms.workload="integration"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/29/2015"
+    ms.author="stepsic"/> 
+    
 # Deploy from Visual Studio
 
 Although the [Azure Portal](https://portal.azure.com) gives you a great way to design and manage your Logic apps, you may also want to deploy your Logic app from Visual Studio instead. There are a couple key capabilities this enables:

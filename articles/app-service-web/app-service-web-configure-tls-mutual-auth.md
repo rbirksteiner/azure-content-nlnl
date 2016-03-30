@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How To Configure TLS Mutual Authentication for Web App" 
-	description="Learn how to configure your web app to use client certificate authentication on TLS." 
-	services="app-service" 
-	documentationCenter="" 
-	authors="naziml" 
-	manager="wpickett" 
-	editor="jimbe"/>
+    pageTitle="How To Configure TLS Mutual Authentication for Web App" 
+    description="Learn how to configure your web app to use client certificate authentication on TLS." 
+    services="app-service" 
+    documentationCenter="" 
+    authors="naziml" 
+    manager="wpickett" 
+    editor="jimbe"/>
 
 <tags 
-	ms.service="app-service" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/15/2015" 
-	ms.author="naziml"/>	
+    ms.service="app-service" 
+    ms.workload="na" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/15/2015" 
+    ms.author="naziml"/>    
 
 # How To Configure TLS Mutual Authentication for Web App
 

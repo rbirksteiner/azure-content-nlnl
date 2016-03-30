@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Microsoft Azure Subscription and Service Limits, Quotas, and Constraints"
-	description="Provides a list of common Azure subscription and service limits, quotas, and constraints. This includes information on how to increase limits along with maximum values."
-	services=""
-	documentationCenter=""
-	authors="rothja"
-	manager="jeffreyg"
-	editor="monicar"/>
+    pageTitle="Microsoft Azure Subscription and Service Limits, Quotas, and Constraints"
+    description="Provides a list of common Azure subscription and service limits, quotas, and constraints. This includes information on how to increase limits along with maximum values."
+    services=""
+    documentationCenter=""
+    authors="rothja"
+    manager="jeffreyg"
+    editor="monicar"/>
 
 <tags
-	ms.service="multiple"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/03/2015"
-	ms.author="jroth"/>
+    ms.service="multiple"
+    ms.workload="multiple"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/03/2015"
+    ms.author="jroth"/>
 
 # Azure Subscription and Service Limits, Quotas, and Constraints
 
@@ -280,3 +280,4 @@ For SQL Database limits, see [SQL Database Resource Limits](sql-database/sql-dat
 [Understanding Azure Limits and Increases](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 
 [Virtual Machine and Cloud Service Sizes for Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)
+

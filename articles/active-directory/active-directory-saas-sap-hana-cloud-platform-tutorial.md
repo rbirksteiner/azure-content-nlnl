@@ -73,15 +73,15 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
 ###To configure single sign-on, perform the following steps:
 
-1.  In the Azure AD portal, on the **SAP HANA Cloud Platform** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  In the Azure AD portal, on the **SAP HANA Cloud Platform** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
     ![Configure single sign-on](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC778552.png "Configure single sign-on")
 
-2.  On the **How would you like users to sign on to SAP HANA Cloud Platform** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to SAP HANA Cloud Platform** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790797.png "Configure Single Sign-On")
 
-3.  In a different web browser window, sign on to the SAP HANA Cloud Platform Cockpit at https://account.\<landscape host\>.ondemand.com/cockpit (e.g.: *https://account.hanatrial.ondemand.com/cockpit*).
+3.  In a different web browser window, sign on to the SAP HANA Cloud Platform Cockpit at https://account.\<landscape host\>.ondemand.com/cockpit (e.g.: *https://account.hanatrial.ondemand.com/cockpit*).
 
 4.  Click the **Trust** tab.
 
@@ -94,22 +94,22 @@ If you are not familiar with this procedure, see [How to convert a binary certif
     1.  Click the **Local Service Provider** tab.
     2.  To download the SAP HANA Cloud Platform metadata file, click **Get Metadata**.
 
-6.  In the Azure Active Directory portal, on the **Configure App URL** page, perform the following steps, and then click **Next**.
+6.  In the Azure Active Directory portal, on the **Configure App URL** page, perform the following steps, and then click **Next**.
 
     ![Configure App URL](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790798.png "Configure App URL")
 
-    1.  In the **Sign On URL** textbox, type the URL used by your users to sign into your **SAP HANA Cloud Platform** application. This is the account-specific URL of a protected resource in your SAP HANA Cloud Platform application. The URL is based on the following pattern: *https://\<applicationName\>\<accountName\>.\<landscape host\>.ondemand.com/\<path\_to\_protected\_resource\>* (e.g.: *https://xleavep1941203872trial.hanatrial.ondemand.com/xleave*)
+    1.  In the **Sign On URL** textbox, type the URL used by your users to sign into your **SAP HANA Cloud Platform** application. This is the account-specific URL of a protected resource in your SAP HANA Cloud Platform application. The URL is based on the following pattern: *https://\<applicationName\>\<accountName\>.\<landscape host\>.ondemand.com/\<path\_to\_protected\_resource\>* (e.g.: *https://xleavep1941203872trial.hanatrial.ondemand.com/xleave*)
 
-		>[AZURE.NOTE]This is the URL in your SAP HANA Cloud Platform application that requires the user to authenticate.
+        >[AZURE.NOTE]This is the URL in your SAP HANA Cloud Platform application that requires the user to authenticate.
 
     2.  Open the downloaded SAP HANA Cloud Platform metadata file, and then locate the **ns3:AssertionConsumerService** tag.
     3.  Copy the value of the **Location** attribute, and then paste it into the **SAP HANA Cloud Platform Reply URL** textbox.
 
-7.  On the **Configure single sign-on at SAP HANA Cloud Platform** page, to download your metadata, click **Download metadata**, and then save the file on your computer.
+7.  On the **Configure single sign-on at SAP HANA Cloud Platform** page, to download your metadata, click **Download metadata**, and then save the file on your computer.
 
     ![Configure Single Sign-On](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790799.png "Configure Single Sign-On")
 
-8.  On the SAP HANA Cloud Platform Cockpit, in the **Local Service Provider** section, perform the following steps:
+8.  On the SAP HANA Cloud Platform Cockpit, in the **Local Service Provider** section, perform the following steps:
 
     ![Trust Management](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC793931.png "Trust Management")
 
@@ -125,7 +125,7 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
     ![Trust Management](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790802.png "Trust Management")
 
-    >[AZURE.NOTE]To manage the list of trusted identity providers, you need to have chosen the Custom configuration type in the Local Service Provider section. For Default configuration type, you have a non-editable and implicit trust to the SAP ID Service. For None, you don't have any trust settings.
+    >[AZURE.NOTE]To manage the list of trusted identity providers, you need to have chosen the Custom configuration type in the Local Service Provider section. For Default configuration type, you have a non-editable and implicit trust to the SAP ID Service. For None, you don't have any trust settings.
 
 10. Click the **General** tab, and then click **Browse** to upload the downloaded metadata file.
 
@@ -142,10 +142,10 @@ If you are not familiar with this procedure, see [How to convert a binary certif
     1.  By clicking **Add Assertion-Based Attribute**, add the following assertion-based attributes:
 
         |Assertion Attribute| Principal Attribute|
-		|-------------------|--------------------|
+        |-------------------|--------------------|
         |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname|   firstname|--------------------|--------------------|
         |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname|        lastname|-----------|
-		|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress|email|
+        |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress|email|
 
     >[AZURE.NOTE]The configuration of the Attributes depends on how the application(s) on HCP are developed, i.e. which attribute(s) they expect in the SAML response and under which name (Principal Attribute) they access this attribute in the code.
     >  
@@ -153,7 +153,7 @@ If you are not familiar with this procedure, see [How to convert a binary certif
     >
     >b.  The names and values for **Principal Attribute** shown in the screenshot depend on how the application is developed. It is possible that your application requires different mappings.
 
-13. In the Azure portal, on the **Configure single sign-on at SAP HANA Cloud Platform** dialogue page, select the single sign-on configuration confirmation, and then click **Complete**.
+13. In the Azure portal, on the **Configure single sign-on at SAP HANA Cloud Platform** dialogue page, select the single sign-on configuration confirmation, and then click **Complete**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC796933.png "Configure Single Sign-On")
   
@@ -189,7 +189,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 1.  In the Azure AD portal, create a test account.
 
-2.  On the **SAP HANA Cloud Platform** application integration page, click **Assign users**.
+2.  On the **SAP HANA Cloud Platform** application integration page, click **Assign users**.
 
     ![Assign Users](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790806.png "Assign Users")
 

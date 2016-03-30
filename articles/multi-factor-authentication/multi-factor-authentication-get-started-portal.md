@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Deploying the user portal for the Azure Multi-Factor Authentication Server" 
-	description="This is the Azure Multi-factor authentication page that describes how to get started with Azure MFA and the user portal." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
-	editor="curtand"/>
+    pageTitle="Deploying the user portal for the Azure Multi-Factor Authentication Server" 
+    description="This is the Azure Multi-factor authentication page that describes how to get started with Azure MFA and the user portal." 
+    services="multi-factor-authentication" 
+    documentationCenter="" 
+    authors="billmath" 
+    manager="stevenpo" 
+    editor="curtand"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/19/2015" 
-	ms.author="billmath"/>
+    ms.service="multi-factor-authentication" 
+    ms.workload="identity" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/19/2015" 
+    ms.author="billmath"/>
 
 # Deploying the user portal for the Azure Multi-Factor Authentication Server
 

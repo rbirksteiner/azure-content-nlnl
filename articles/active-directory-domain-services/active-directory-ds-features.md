@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure Active Directory Domain Services preview: Features | Microsoft Azure"
-	description="Features of Azure Active Directory Domain Services"
-	services="active-directory-ds"
-	documentationCenter=""
-	authors="mahesh-unnikrishnan"
-	manager="udayh"
-	editor="inhenk"/>
+    pageTitle="Azure Active Directory Domain Services preview: Features | Microsoft Azure"
+    description="Features of Azure Active Directory Domain Services"
+    services="active-directory-ds"
+    documentationCenter=""
+    authors="mahesh-unnikrishnan"
+    manager="udayh"
+    editor="inhenk"/>
 
 <tags
-	ms.service="active-directory-ds"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/12/2015"
-	ms.author="maheshu"/>
+    ms.service="active-directory-ds"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/12/2015"
+    ms.author="maheshu"/>
 
 # Azure AD Domain Services *(Preview)*
 
@@ -44,3 +44,4 @@ The following features are available in the Azure AD Domain Services preview rel
 - **High availability:** Azure AD Domain Services offer high availability for your domain. This offers the guarantee of higher service uptime and resilience to failures. Built-in health monitoring offers automated remediation from failures by spinning up new instances to replace failed instances and to provide continued service for your domain.
 
 - **Use familiar management tools:** You can use familiar Windows Server Active Directory management tools such as the Active Directory Administrative Center or Active Directory PowerShell in order to administer domains provided by Azure AD Domain Services.
+

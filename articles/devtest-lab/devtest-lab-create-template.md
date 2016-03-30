@@ -1,20 +1,20 @@
     <properties
-	pageTitle="Create VM templates | Microsoft Azure"
-	description="Learn how to create VM templates from VHD images"
-	services="devtest-lab,virtual-machines"
-	documentationCenter="na"
-	authors="tomarcher"
-	manager="douge"
-	editor=""/>
+    pageTitle="Create VM templates | Microsoft Azure"
+    description="Learn how to create VM templates from VHD images"
+    services="devtest-lab,virtual-machines"
+    documentationCenter="na"
+    authors="tomarcher"
+    manager="douge"
+    editor=""/>
 
 <tags
-	ms.service="devtest-lab"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/01/2015"
-	ms.author="tarcher"/>
+    ms.service="devtest-lab"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/01/2015"
+    ms.author="tarcher"/>
 
 # Create VM templates
 
@@ -44,17 +44,17 @@ Once you have [created a lab](devtest-lab-create-lab.md), you can [add VMs to th
 
 1. On the **Add Template** blade:
 
-	1. Enter the name of the template. This name is displayed in the list of templates when creating a new VM.
+    1. Enter the name of the template. This name is displayed in the list of templates when creating a new VM.
 
-	1. Enter the description of the template. This description is displayed in the list of templates when creating a new VM.
+    1. Enter the description of the template. This description is displayed in the list of templates when creating a new VM.
 
-	1. Tap **Image**.
+    1. Tap **Image**.
 
-	1. If the image you want is not listed and you want to add it, skip to the [Add a new template image](#add-a-new-template-image) section, and return here when finished.
+    1. If the image you want is not listed and you want to add it, skip to the [Add a new template image](#add-a-new-template-image) section, and return here when finished.
 
-	1. Select the desired image.
+    1. Select the desired image.
 
-	1. Tap **OK** to close the **Add Template** blade.
+    1. Tap **OK** to close the **Add Template** blade.
 
 1. Tap **OS Configuration**.
 
@@ -85,3 +85,4 @@ In order to add a new template image, you'll need to have access to a VHD image 
 ##Next steps
 
 Once you have added a VM template for use when creating a VM, the next step is to [add a VM to your DevTest Lab](devtest-lab-add-vm-with-artifacts).
+

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
    pageTitle="Azure Government Image Gallery" 
    description="This article provides an overview of the Azure Government Image Gallery and the images included" 
    services="Azure-Government" 
@@ -117,3 +117,4 @@ The below resources should provide more information on deploying from the image 
 [Link 1 to another azure.microsoft.com documentation topic]: virtual-machines/virtual-machines-windows-tutorial.md
 [Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
+

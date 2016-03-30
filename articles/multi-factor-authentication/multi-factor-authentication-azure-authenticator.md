@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure Authenticator app for mobile phones" 
-	description="Learn how to upgrade to the latest version of Azure Authenticatior." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
-	editor="curtland"/>
+    pageTitle="Azure Authenticator app for mobile phones" 
+    description="Learn how to upgrade to the latest version of Azure Authenticatior." 
+    services="multi-factor-authentication" 
+    documentationCenter="" 
+    authors="billmath" 
+    manager="stevenpo" 
+    editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/19/2015" 
-	ms.author="billmath"/>
+    ms.service="multi-factor-authentication" 
+    ms.workload="identity" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/19/2015" 
+    ms.author="billmath"/>
 
 
 
@@ -164,4 +164,5 @@ Setting up Touch ID with Azure Authenticator is really simple. You just complete
 From that point forward, when you are required to verify your sign-in, you tap on the push notification received and scan your fingerprint instead of entering your PIN.
 
 ![Touch ID](./media/multi-factor-authentication-azure-authenticator/touchid2.png)
+
 

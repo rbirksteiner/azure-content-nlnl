@@ -24,5 +24,6 @@ Next, you need to change when you register for notifications to make sure that t
             
             // Load the items from the Mobile Service
             refreshItemsFromTable();
-        }	
+        }   
+
 

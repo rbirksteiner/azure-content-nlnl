@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Configure the Telestream Wirecast encoder to send a single bitrate live stream " 
-	description="This topic shows how to configure the Wirecast live encoder to send a single bitrate stream to AMS channels that are enabled for live encoding. " 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako,cenkdin,anilmur" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="Configure the Telestream Wirecast encoder to send a single bitrate live stream " 
+    description="This topic shows how to configure the Wirecast live encoder to send a single bitrate stream to AMS channels that are enabled for live encoding. " 
+    services="media-services" 
+    documentationCenter="" 
+    authors="Juliako,cenkdin,anilmur" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="ne" 
-	ms.topic="article" 
-	ms.date="10/15/2015"  
-	ms.author="juliako"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="ne" 
+    ms.topic="article" 
+    ms.date="10/15/2015"  
+    ms.author="juliako"/>
 
 #Use the Wirecast encoder to send a single bitrate live stream
 
@@ -86,59 +86,59 @@ In this tutorial the following output settings are used. The rest of this sectio
 
 1. Open the Telestream Wirecast application on the machine being used, and set up for RTMP streaming.
 2. Configure the output by navigating to the **Output** tab and selecting **Output Settings…**.
-	
-	Make sure the **Output Destination** is set to **RTMP Server**.
+    
+    Make sure the **Output Destination** is set to **RTMP Server**.
 3. Click **OK**.
 4. On the settings page, set the **Destination** field to be **Azure Media Services**.
  
-	The Encoding profile is pre-selected to **Azure H.264 720p 16:9 (1280x720)**. To customize these settings, select the gear icon to the right of the drop down, and then choose **New Preset**.
+    The Encoding profile is pre-selected to **Azure H.264 720p 16:9 (1280x720)**. To customize these settings, select the gear icon to the right of the drop down, and then choose **New Preset**.
 
-	![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast3.png)
+    ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast3.png)
 
 5. Configure encoder presets.
 
-	Name the preset, and check for the following recommended settings:
+    Name the preset, and check for the following recommended settings:
 
-	**Video**
-	
-	- Encoder: MainConcept H.264
-	- Frames per Second: 30
-	- Average bit rate: 5000 kbits/sec (Can be adjusted based on network limitations)
-	- Profile: Main
-	- Key frame every: 60 frames
+    **Video**
+    
+    - Encoder: MainConcept H.264
+    - Frames per Second: 30
+    - Average bit rate: 5000 kbits/sec (Can be adjusted based on network limitations)
+    - Profile: Main
+    - Key frame every: 60 frames
 
-	**Audio**
+    **Audio**
 
-	- Target bit rate: 192 kbits/sec
-	- Sample Rate: 44.100 kHz
-	 
-	![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast4.png)
+    - Target bit rate: 192 kbits/sec
+    - Sample Rate: 44.100 kHz
+     
+    ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast4.png)
 
 6. Press **Save**.
 
-	The Encoding field now has the newly created profile available for selection. 
+    The Encoding field now has the newly created profile available for selection. 
 
-	Make sure the new profile is selected.
+    Make sure the new profile is selected.
 
 7. Get the channel's input URL in order to assign it to the Wirecast **RTMP Endpoint**.
-	
-	Navigate back to the AMSE tool, and check on the channel completion status. Once the State has changed from **Starting** to **Running**, you can get the input URL.
-	  
-	When the channel is running, right click the channel name, navigate down to hover over **Copy Input URL to clipboard** and then select **Primary Input 
-	URL**.  
-	
-	![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast6.png)
+    
+    Navigate back to the AMSE tool, and check on the channel completion status. Once the State has changed from **Starting** to **Running**, you can get the input URL.
+      
+    When the channel is running, right click the channel name, navigate down to hover over **Copy Input URL to clipboard** and then select **Primary Input 
+    URL**.  
+    
+    ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast6.png)
 
 8. In the Wirecast **Output Settings** window, paste this information in the **Address** field of the output section, and assign a stream name. 
 
 
-	![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast5.png)
+    ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast5.png)
 
 9. Select **OK**.
 
 10. On the main **Wirecast** screen, confirm input sources for video and audio are ready and then hit **Stream** in the top left hand corner.
 
-	![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast7.png)
+    ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast7.png)
 
 >[AZURE.IMPORTANT] Before you click **Stream**, you **must** ensure that the Channel is ready. 
 >Also, make sure not to leave the Channel in a ready state without an input contribution feed for longer than > 15 minutes.
@@ -147,7 +147,7 @@ In this tutorial the following output settings are used. The rest of this sectio
   
 1. Navigate to the AMSE tool, and right click the channel to be tested. From the menu, hover over **Playback the Preview** and select **with Azure Media Player**.  
 
-	![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast8.png)
+    ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast8.png)
 
 If the stream appears in the player, then the encoder has been properly configured to connect to AMS. 
 
@@ -157,13 +157,13 @@ If an error is received, the channel will need to be reset and encoder settings 
 
 1. Once channel playback is confirmed, create a program. Under the **Live** tab in the AMSE tool, right click within the program area and select **Create New Program**.  
 
-	![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast9.png)
+    ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast9.png)
 
 2. Name the program and, if needed, adjust the **Archive Window Length** (which defaults to 4 hours). You can also specify a storage location or leave as the default.  
 3. Check the **Start the Program now** box.
 4. Click **Create Program**.  
   
-	Note: Program creation takes less time than channel creation.    
+    Note: Program creation takes less time than channel creation.    
  
 5. Once the program is running, confirm playback by right clicking the program and navigating to **Playback the program(s)** and then selecting **with Azure Media Player**.  
 6. Once confirmed, right click the program again and select **Copy the Output URL to Clipboard** (or retrieve this information from the **Program information and settings** option from the menu). 
@@ -182,3 +182,4 @@ Please see the [troubleshooting](media-services-troubleshooting-live-streaming.m
 ##Provide feedback
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+

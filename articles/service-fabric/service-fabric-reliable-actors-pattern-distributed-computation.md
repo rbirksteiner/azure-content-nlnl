@@ -206,3 +206,4 @@ We are by no means asserting that Azure Service Fabric is a drop-in replacement 
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-distributed-computation/distributed-computation-1.png
+

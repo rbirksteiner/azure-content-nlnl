@@ -38,10 +38,10 @@ U-SQL is a hyper-scalable, highly extensible language for preparing, transformin
 
 - **Go through the following two sections in [Get Started with Azure Data Lake Analytics using Azure Portal](data-lake-analytics-get-started-portal.md)**.
 
-	- [Create an Azure Data Lake Analytics account](data-lake-analytics-get-started-portal.md#create_adl_analytics_account).
-	- [Upload SearchLog.tsv to the default Data Lake Storage account](data-lake-analytics-get-started-portal.md#update-data-to-the-default-adl-storage-account).
+    - [Create an Azure Data Lake Analytics account](data-lake-analytics-get-started-portal.md#create_adl_analytics_account).
+    - [Upload SearchLog.tsv to the default Data Lake Storage account](data-lake-analytics-get-started-portal.md#update-data-to-the-default-adl-storage-account).
 
-	The Data Lake Tools doesn't support creating Data Lake Analytics accounts.  So you have to create it using the Azure Portal, Azure PowerShell, .NET SDK or Azure CLI. To run a Data Lake Analytics job, you will need some data. Even though the Data Lake Tools supports uploading data, you will use the portal to upload the sample data to make this tutorial easier to follow. 
+    The Data Lake Tools doesn't support creating Data Lake Analytics accounts.  So you have to create it using the Azure Portal, Azure PowerShell, .NET SDK or Azure CLI. To run a Data Lake Analytics job, you will need some data. Even though the Data Lake Tools supports uploading data, you will use the portal to upload the sample data to make this tutorial easier to follow. 
 
 ## Connect to Azure
 
@@ -70,7 +70,7 @@ In case you want to use your own data, here are the procedures for uploading dat
 3. Browse to the folder where you want to upload files, 
 4. Right-click any blank space, and then click **Upload**. 
 
-	![U-SQL Visual Studio project U-SQL](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-upload-files.png)
+    ![U-SQL Visual Studio project U-SQL](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-upload-files.png)
 
 **To upload the file to a Azure Blob storage account**
 
@@ -89,7 +89,7 @@ The Data Lake Analtyics jobs are written in the U-SQL language. To learn more ab
 1. From the **File** menu, click **New**, and then click **Project**.
 2. Select the **U-SQL Project** type.
 
-	![new U-SQL Visual Studio project](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
+    ![new U-SQL Visual Studio project](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
 
 3. Click **OK**. Visual studio creates a solution with a **Script.usql** file.
 4. Enter the following script into **Script.usql**:
@@ -109,11 +109,11 @@ The Data Lake Analtyics jobs are written in the U-SQL language. To learn more ab
             TO "/Output/SearchLog-from-Data-Lake.csv"
         USING Outputters.Csv();
 
-	This U-SQL script reads the source data file using **Extractors.Tsv()**, and then creates a csv file using **Outputters.Csv()**. 
+    This U-SQL script reads the source data file using **Extractors.Tsv()**, and then creates a csv file using **Outputters.Csv()**. 
     
     Don't modify the two paths unless you copied the source file into a different location.  Data Lake Analytics will create the output folder if it doesn't exist.
-	
-	It is simpler to use relative paths for files stored in default data Lake accounts. You can also use absolute paths.  For example 
+    
+    It is simpler to use relative paths for files stored in default data Lake accounts. You can also use absolute paths.  For example 
     
         adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
         
@@ -123,37 +123,37 @@ The Data Lake Analtyics jobs are written in the U-SQL language. To learn more ab
 
     >[AZURE.NOTE] Azure Blob container with public blobs or public containers access permissions are not currently supported.  
 
-	Notice the following features:
+    Notice the following features:
 
-	- **IntelliSense**
-	 
-		Name auto completed and the members will be shown for Rowset, Classes, Databases, Schemas and User Defined Objects (UDOs). 
-		 
-		IntelliSense for catalog entities (Databases, Schemas, Tables, UDOs etc.) is related to your compute account. You can check the current active compute account, database and schema in the top toolbar, and switch them through the dropdown lists. 
+    - **IntelliSense**
+     
+        Name auto completed and the members will be shown for Rowset, Classes, Databases, Schemas and User Defined Objects (UDOs). 
+         
+        IntelliSense for catalog entities (Databases, Schemas, Tables, UDOs etc.) is related to your compute account. You can check the current active compute account, database and schema in the top toolbar, and switch them through the dropdown lists. 
  
-	- **Auto Format** 
-	
-		Users can change the indentation of the Scope script based on the code structure under Edit->Advanced:
+    - **Auto Format** 
+    
+        Users can change the indentation of the Scope script based on the code structure under Edit->Advanced:
   
-		- Format Document (Ctrl+E, D) : Formats the whole document   
-		- Format Selection (Ctrl+K, Ctrl+F): Formats the selection. If no selection has been made, this shortcut formats the line the cursor is in.  
-		
-		All the formatting rules are configurable under Tools->Options->Text Editor->SIP->Formatting.  
-	- **Smart Indent**
-	 
-		Data Lake Tools for Visual Studio is able to indent expressions automatically while you are writing scripts. This feature is disabled by default, users need to enable it through checking U-SQL->Options and Settings ->Switches->Enable Smart Indent.
+        - Format Document (Ctrl+E, D) : Formats the whole document   
+        - Format Selection (Ctrl+K, Ctrl+F): Formats the selection. If no selection has been made, this shortcut formats the line the cursor is in.  
+        
+        All the formatting rules are configurable under Tools->Options->Text Editor->SIP->Formatting.  
+    - **Smart Indent**
+     
+        Data Lake Tools for Visual Studio is able to indent expressions automatically while you are writing scripts. This feature is disabled by default, users need to enable it through checking U-SQL->Options and Settings ->Switches->Enable Smart Indent.
 
-	- **Go To Definition and Find All References**
-	
-		Right-clicking the name of a RowSet/parameter/column/UDO etc. and clicking Go To Definition (F12) allows you to navigate to its definition. By clicking Find All References (Shift+F12), will show all the references. 
+    - **Go To Definition and Find All References**
+    
+        Right-clicking the name of a RowSet/parameter/column/UDO etc. and clicking Go To Definition (F12) allows you to navigate to its definition. By clicking Find All References (Shift+F12), will show all the references. 
 
-	- **Insert Azure Path**
-		
-		Rather than remembering Azure file path and type it manually when writing script, Data Lake Tools for Visual Studio provides an easy way: right click in the editor, click Insert Azure Path. Navigate to the file in the Azure Blob Browser dialog. Click **OK**. the file path will be inserted to your code. 
+    - **Insert Azure Path**
+        
+        Rather than remembering Azure file path and type it manually when writing script, Data Lake Tools for Visual Studio provides an easy way: right click in the editor, click Insert Azure Path. Navigate to the file in the Azure Blob Browser dialog. Click **OK**. the file path will be inserted to your code. 
 
 5. Specify the Data Lake Analytics account, Database, and Schema. You can select **(local)** to run the script locally for the testing purpose. For more information, see [Run U-SQL locally](#run-u-sql-locally).
 
-	![Submit U-SQL Visual Studio project](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job.png)
+    ![Submit U-SQL Visual Studio project](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job.png)
 
     For more information, see [Use U-SQL catalog](data-lake-analytics-use-u-sql-catalog.md).
 
@@ -161,19 +161,19 @@ The Data Lake Analtyics jobs are written in the U-SQL language. To learn more ab
 6. From **Solution Explorer**, right click **Script.usql**, and then click **Submit Script**. Optionally, you can also click **Submit** from Script.usql pane.  See the previous screenshot.  Click the down arrow next to the Submit button to submit using the advance options:
 7. Specify **Job Name**, verify the **Analytics Account**, and then click **Submit**. Submission results and job link are available in the Data Lake Tools for Visual Studio Results window when the submission is completed.
 
-	![Submit U-SQL Visual Studio project](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job-advanced.png)
+    ![Submit U-SQL Visual Studio project](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job-advanced.png)
 
 8. You must click the Refresh button to see the latest job status and refresh the screen. When the job successes, it will show you the **Job Graph**, **Meta Data Operations**, **State History**, **Diagnostics**:
 
-	![U-SQL Visual Studio Data Lake Analytics job performance graph](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-performance-graph.png)
+    ![U-SQL Visual Studio Data Lake Analytics job performance graph](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-performance-graph.png)
 
-	* Job Summary. Show the summary information of current job, e.g.: State, Progress, Execution Time, Runtime Name, Submitter etc.   
-	* Job Details. Detailed information on this job is provided, including script, resource, Vertex Execution View.
-	* Job Graph. Four graphs are provided to visualize the job’s information: Progress, Data Read, Data Written, Excution Time, Average Execution Time Per Node, Input Throughput, Output Throughput.
-	* MetaData Operations. It shows all the metadata operations.
-	* State History. 
-	* Diagnostics. Data Lake Tools for Visual Studio will diagnose job execution automatically. You will receive alerts when there are some errors or performance issues in their jobs. See Job Diagnostics (link TBD) part for more information. 
-	
+    * Job Summary. Show the summary information of current job, e.g.: State, Progress, Execution Time, Runtime Name, Submitter etc.   
+    * Job Details. Detailed information on this job is provided, including script, resource, Vertex Execution View.
+    * Job Graph. Four graphs are provided to visualize the job’s information: Progress, Data Read, Data Written, Excution Time, Average Execution Time Per Node, Input Throughput, Output Throughput.
+    * MetaData Operations. It shows all the metadata operations.
+    * State History. 
+    * Diagnostics. Data Lake Tools for Visual Studio will diagnose job execution automatically. You will receive alerts when there are some errors or performance issues in their jobs. See Job Diagnostics (link TBD) part for more information. 
+    
 **To check job state**
 
 1. From Server Explorer, expand **Azure**, expand **Data Lake Analytics**, expand the Data Lake Analytics account name
@@ -252,18 +252,18 @@ There are two ways to run the customized C# files:
 You can debug C# assemblies without submitting and registering it to the Azure Data Lake Analytics Service. You can set breakpoints in both the code behind file and in a referenced C# project.
 
 **To debug local code in code behind file**
-1.	Set breakpoints in the code behind file. 
-2.	Press **F5** to debug the script locally.
+1.  Set breakpoints in the code behind file. 
+2.  Press **F5** to debug the script locally.
 
 The following procedure only works in Visual Studio 2015. In older Visual Studio you may need to manually add the pdb files. 
 
 **To debug local code in a referenced C# project**
-1.	Create a C# Assembly project, and build it to generate the output dll.
-2.	Register the dll using a U-SQL statement:
+1.  Create a C# Assembly project, and build it to generate the output dll.
+2.  Register the dll using a U-SQL statement:
 
         CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
-3.	Set breakpoints in the C# code.
-4.	Press **F5** to debug the script with referencing the C# dll locally.  
+3.  Set breakpoints in the C# code.
+4.  Press **F5** to debug the script with referencing the C# dll locally.  
  
 
 
@@ -287,4 +287,5 @@ To see more development topics:
 - [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 - [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md)
 - [Develop U-SQL user defined operators for Data Lake Analytics jobs](data-lake-analytics-u-sql-user-defined-operators.md)
+
 

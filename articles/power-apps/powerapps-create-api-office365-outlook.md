@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Add the Office 365 Outlook API to PowerApps Enterprise | Microsoft Azure"
-	description="Create or configure a new Office 365 Outlook API in your organization's app service environment"
-	services=""
+    pageTitle="Add the Office 365 Outlook API to PowerApps Enterprise | Microsoft Azure"
+    description="Create or configure a new Office 365 Outlook API in your organization's app service environment"
+    services=""
     suite="powerapps"
-	documentationCenter="" 
-	authors="rajeshramabathiran"
-	manager="dwrede"
-	editor=""/>
+    documentationCenter="" 
+    authors="rajeshramabathiran"
+    manager="dwrede"
+    editor=""/>
 
 <tags
    ms.service="powerapps"
@@ -36,7 +36,7 @@
 ![Add API][2]
 
 6. Enter a descriptive **name** for your API.  
-	
+    
 7. In **Source**, select **Available APIs** to select the pre-built APIs, and select **Office 365 Outlook**:  
 ![select Office 365 Outlook api][3]
 
@@ -45,7 +45,7 @@
 
 9. Enter the *App Key* and *App Secret* value of your Office 365 Azure Active Directory (AAD) application. If you don't have one, see the "Register an AAD app for use with PowerApps" section in this topic to create the key and secret values you need. 
  
-	> [AZURE.IMPORTANT] Save the **redirect URL**. You may need this value later in this topic.
+    > [AZURE.IMPORTANT] Save the **redirect URL**. You may need this value later in this topic.
 
 10. Select **OK** to complete the steps.
 
@@ -60,7 +60,7 @@ If you don't have an existing AAD app with the key and secret values, then use t
 
 2. Select **Browse** and then select **Active Directory**.  
 
-	>[AZURE.NOTE] This opens Active Directory in the Azure classic portal.  
+    >[AZURE.NOTE] This opens Active Directory in the Azure classic portal.  
 
 3. Select your organization's tenant name:  
 ![Launch Azure Active Directory][6]
@@ -70,19 +70,19 @@ If you don't have an existing AAD app with the key and secret values, then use t
 
 5. In **Add application**:  
 
-	a) Enter a **Name** for your application.  
-	b) Leave the application type as **Web**.  
-	c) Select **Next**.  
+    a) Enter a **Name** for your application.  
+    b) Leave the application type as **Web**.  
+    c) Select **Next**.  
 
-	![Add AAD application - app info][8]
+    ![Add AAD application - app info][8]
 
 6. In **App Properties**:  
 
-	a) Enter the **SIGN-ON URL** of your application. Since you are going to authenticate with AAD for PowerApps, set the sign-on url to _https://login.windows.net_.  
-	b) Enter a valid **APP ID URI** for your app.  
-	c) Select **OK**.  
+    a) Enter the **SIGN-ON URL** of your application. Since you are going to authenticate with AAD for PowerApps, set the sign-on url to _https://login.windows.net_.  
+    b) Enter a valid **APP ID URI** for your app.  
+    c) Select **OK**.  
 
-	![Add AAD application - app properties][9]
+    ![Add AAD application - app properties][9]
 
 7. On successful completion, you are redirected to the new AAD app. Select **Configure**:  
 ![Contoso AAD app][10]
@@ -97,15 +97,15 @@ If you don't have an existing AAD app with the key and secret values, then use t
 
 11. Select **Delegated Permissions** for _Office 365 Exchange Online_, and select the following permissions:  
 
-	- Read and write user contacts
-	- Read user contacts
-	- Read and write user calendars
-	- Read user calendars
-	- Send mail as a user
-	- Read and write user mail
-	- Read user mail
+    - Read and write user contacts
+    - Read user contacts
+    - Read and write user calendars
+    - Read user calendars
+    - Send mail as a user
+    - Read and write user mail
+    - Read user mail
 
-	![Contoso app delegate permissions][13]
+    ![Contoso app delegate permissions][13]
 
 A new Azure Active Directory app is created. You can use this app in your Office 365 Outlook API configuration in the Azure portal. 
 
@@ -130,3 +130,4 @@ In this topic, you added the Office 365 Outlook API to your PowersApps Enterpris
 [13]: ./media/powerapps-create-api-office365-outlook/contoso-aad-app-delegate-office365-outlook-permissions.PNG
 [14]: ./media/powerapps-create-api-office365-outlook/browseall.png
 [15]: ./media/powerapps-create-api-office365-outlook/allresources.png
+

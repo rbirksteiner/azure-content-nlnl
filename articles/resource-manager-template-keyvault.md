@@ -104,7 +104,7 @@ The following tables describe the values you need to set in the schema.
 | name | enum | Yes | **standard**<br />**premium** | The service tier of KeyVault to use.  Standard supports secrets and software-protected keys.  Premium adds support for HSM-protected keys. |
 | family | enum | Yes | **A** | The sku family to use. 
  
-	
+    
 ## Examples
 
 The following example deploys a key vault and secret.
@@ -239,4 +239,5 @@ The following example deploys a key vault and secret.
 
 - For general information about key vaults, see [Get started with Azure Key Vault](./key-vault/key-vault-get-started.md).
 - For an example of referencing a key vault secret when deploying templates, see [Pass secure values during deployment](resource-manager-keyvault-parameter.md).
+
 

@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Get Started with Fleet on CoreOS | Microsoft Azure"
-	description="Provides basic examples of using Fleet and Docker on a CoreOS Linux VM cluster created with the classic deployment model on Azure."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="dlepow"
-	manager="timlt"
-	editor=""
-	tags="azure-service-management"/>
+    pageTitle="Get Started with Fleet on CoreOS | Microsoft Azure"
+    description="Provides basic examples of using Fleet and Docker on a CoreOS Linux VM cluster created with the classic deployment model on Azure."
+    services="virtual-machines"
+    documentationCenter=""
+    authors="dlepow"
+    manager="timlt"
+    editor=""
+    tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-linux"
-	ms.workload="infrastructure-services"
-	ms.date="11/16/2015"
-	ms.author="danlep"/>
+    ms.service="virtual-machines"
+    ms.devlang="multiple"
+    ms.topic="article"
+    ms.tgt_pltfrm="vm-linux"
+    ms.workload="infrastructure-services"
+    ms.date="11/16/2015"
+    ms.author="danlep"/>
 
 # Get started with fleet on a CoreOS VM cluster on Azure
 
@@ -191,3 +191,4 @@ fleetctl --tunnel coreos-cluster.cloudapp.net:22 unload nginx@{1,2,3}.service
 [busybox Docker Hub image]: https://registry.hub.docker.com/_/busybox/
 [nginx Docker Hub image]: https://hub.docker.com/_/nginx/
 [Linux and Open-Source Computing on Azure]: virtual-machines-linux-opensource.md
+

@@ -69,25 +69,25 @@ The objective of this section is to outline how to enable users to authenticate 
 
 ###To configure single sign-on, perform the following steps:
 
-1.  In the Azure AD portal, on the **FM:Systems** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  In the Azure AD portal, on the **FM:Systems** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
     ![Configure Single Sign-On](./media/active-directory-saas-fm-systems-tutorial/IC790810.png "Configure Single Sign-On")
 
-2.  On the **How would you like users to sign on to FM:Systems** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to FM:Systems** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-fm-systems-tutorial/IC795901.png "Configure Single Sign-On")
 
-3.  On the **Configure App URL** page, perform the following steps:
+3.  On the **Configure App URL** page, perform the following steps:
 
     ![Configure App URL](./media/active-directory-saas-fm-systems-tutorial/IC795902.png "Configure App URL")
 
-    1.  In the **FM:Systems Sign On URL** textbox, type your FM:Systems **Reply URL** (e.g.: *https://dpr.fmshosted.com/fminteract/ConsumerService2.aspx*).  
+    1.  In the **FM:Systems Sign On URL** textbox, type your FM:Systems **Reply URL** (e.g.: *https://dpr.fmshosted.com/fminteract/ConsumerService2.aspx*).  
 
         >[AZURE.WARNING] You can get this value from your FM: Systems support team.
 
     2.  Click **Next**
 
-4.  On the **Configure single sign-on at FM:Systems** page, to download your metadata, click **Download metadata**, and then save the metadata on your computer.
+4.  On the **Configure single sign-on at FM:Systems** page, to download your metadata, click **Download metadata**, and then save the metadata on your computer.
 
     ![Configure Single Sign-On](./media/active-directory-saas-fm-systems-tutorial/IC795903.png "Configure Single Sign-On")
 
@@ -96,7 +96,7 @@ The objective of this section is to outline how to enable users to authenticate 
     >[AZURE.NOTE] Your FM: Systems support team has to do the actual SSO configuration.
     You will get a notification when SSO has been enabled for your subscription.
 
-6.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+6.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
     ![Configure Single Sign-On](./media/active-directory-saas-fm-systems-tutorial/IC795904.png "Configure Single Sign-On")
 ##Configuring user provisioning
@@ -133,7 +133,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 1.  In the Azure AD portal, create a test account.
 
-2.  On the **FM:Systems **application integration page, click **Assign users**.
+2.  On the **FM:Systems **application integration page, click **Assign users**.
 
     ![Assign Users](./media/active-directory-saas-fm-systems-tutorial/IC795908.png "Assign Users")
 

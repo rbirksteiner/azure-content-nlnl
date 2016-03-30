@@ -29,9 +29,9 @@ Wait Connector can be used as an action. It does not have any triggers.
 - Click on Wait Connector from the right pane:  
 ![List of Actions][1]
 - Wait Connector supports two actions: 
-	- Delay
-	- Delay Until
-	 
+    - Delay
+    - Delay Until
+     
 - Select *Delay*:  
 ![Delay input][2]
 - Provide the inputs for the action and configure it:  
@@ -55,3 +55,4 @@ You can also review performance statistics and control security to the connector
 [1]: ./media/app-service-logic-wait/ListOfActions.PNG
 [2]: ./media/app-service-logic-wait/DelayInput.PNG
 [3]: ./media/app-service-logic-wait/ActionConfigured.PNG
+

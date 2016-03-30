@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Enable monitoring and diagnostics" 
-	description="Learn how to set up diagnostics for your resources in Azure." 
-	authors="stepsic-microsoft-com" 
-	manager="ronmart" 
-	editor="" 
-	services="azure-portal" 
-	documentationCenter="na"/>
+    pageTitle="Enable monitoring and diagnostics" 
+    description="Learn how to set up diagnostics for your resources in Azure." 
+    authors="stepsic-microsoft-com" 
+    manager="ronmart" 
+    editor="" 
+    services="azure-portal" 
+    documentationCenter="na"/>
 
 <tags 
-	ms.service="azure-portal" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/08/2015" 
-	ms.author="stepsic"/>
+    ms.service="azure-portal" 
+    ms.workload="na" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/08/2015" 
+    ms.author="stepsic"/>
 
 # Enable monitoring and diagnostics
 

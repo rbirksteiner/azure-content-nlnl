@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Get started with push (Android) | Microsoft Azure"
-	description="Learn how to use Azure Mobile Services to send push notifications to your Android .Net app."
-	services="mobile-services, notification-hubs"
-	documentationCenter="android"
-	authors="RickSaling"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Get started with push (Android) | Microsoft Azure"
+    description="Learn how to use Azure Mobile Services to send push notifications to your Android .Net app."
+    services="mobile-services, notification-hubs"
+    documentationCenter="android"
+    authors="RickSaling"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-android"
-	ms.devlang="java"
-	ms.topic="article"
-	ms.date="12/06/2015"
-	ms.author="ricksal"/>
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-android"
+    ms.devlang="java"
+    ms.topic="article"
+    ms.date="12/06/2015"
+    ms.author="ricksal"/>
 
 # Add push notifications to your Mobile Services app
 
@@ -80,10 +80,10 @@ You have successfully completed this tutorial.
 This tutorial demonstrated the basics of enabling an Android app to use Mobile Services and Notification Hubs to send push notifications. Next, consider completing the next tutorial, [Send push notifications to authenticated users], which shows how to use tags to send push notifications from your mobile service to only an authenticated user.
 
 + [Send broadcast notifications to subscribers]
-	<br/>Learn how users can register and receive push notifications for categories they're interested in.
+    <br/>Learn how users can register and receive push notifications for categories they're interested in.
 
 + [Send template-based notifications to subscribers]
-	<br/>Learn how to use templates to send push notifications from a Mobile Service, without having to craft platform-specific payloads in your back-end.
+    <br/>Learn how to use templates to send push notifications from a Mobile Service, without having to craft platform-specific payloads in your back-end.
 
 Learn more about Mobile Services and Notification Hubs in the following topics:
 
@@ -121,3 +121,4 @@ Learn more about Mobile Services and Notification Hubs in the following topics:
 [What are Notification Hubs?]: ../notification-hubs-overview.md
 [Send broadcast notifications to subscribers]: ../notification-hubs-windows-store-dotnet-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
+

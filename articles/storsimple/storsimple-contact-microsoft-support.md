@@ -32,17 +32,17 @@ Perform the following steps to create a support request:
 
 1. A support request can be created through the [Azure classic portal](http://manage.windowsazure.com/). In the [portal](http://manage.windowsazure.com/), click your **Account Name** and then click **Contact Microsoft Support**.
 
-	![Contact MS Support via ManagementPortal](./media/storsimple-contact-microsoft-support/IC777286.png)
+    ![Contact MS Support via ManagementPortal](./media/storsimple-contact-microsoft-support/IC777286.png)
 
-2. In the **Contact Microsoft Support** dialog:								
+2. In the **Contact Microsoft Support** dialog:                             
 
-	1. From the dropdown list, select the target **Subscription** associated with your StorSimple Manager service. Specify **Support Type** as **Technical**. You need a paid support plan to enable Technical Support.
+    1. From the dropdown list, select the target **Subscription** associated with your StorSimple Manager service. Specify **Support Type** as **Technical**. You need a paid support plan to enable Technical Support.
 
-	2. Click the check icon ![Check icon](./media/storsimple-contact-microsoft-support/IC740895.png) to **Create Ticket**.
+    2. Click the check icon ![Check icon](./media/storsimple-contact-microsoft-support/IC740895.png) to **Create Ticket**.
 
 3. In the **Microsoft Support** window, from the **Product** drop-down list, choose **StorSimple**.
 
-	![Contact Microsoft Support - Product](./media/storsimple-contact-microsoft-support/IC777288.png)
+    ![Contact Microsoft Support - Product](./media/storsimple-contact-microsoft-support/IC777288.png)
 
 4. Follow the on-screen instructions to properly classify your request and provide a clear and specific description of your problem.
 
@@ -64,11 +64,11 @@ Perform the following steps to start a support session:
 
 4. At the prompt, type the following password: 
 
-	`Password1`
+    `Password1`
 
 5. At the prompt, type the following command:
 
-	`Enable-HcsSupportAccess`
+    `Enable-HcsSupportAccess`
 
 6. An encrypted string will be presented to you. Copy this string into a text editor such as Notepad.
 

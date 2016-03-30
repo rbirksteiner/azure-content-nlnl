@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Customize Hadoop clusters for the Cortana Analytics Process | Microsoft Azure" 
-	description="Popular Python modules made available in custom Azure HDInsight Hadoop clusters."
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="hangzh-msft" 
-	manager="paulettm" 
-	editor="cgronlun"  />
+    pageTitle="Customize Hadoop clusters for the Cortana Analytics Process | Microsoft Azure" 
+    description="Popular Python modules made available in custom Azure HDInsight Hadoop clusters."
+    services="machine-learning" 
+    documentationCenter="" 
+    authors="hangzh-msft" 
+    manager="paulettm" 
+    editor="cgronlun"  />
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/13/2015" 
-	ms.author="hangzh;bradsev" />
+    ms.service="machine-learning" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/13/2015" 
+    ms.author="hangzh;bradsev" />
 
 # Customize Azure HDInsight Hadoop clusters for the Cortana Analytics Process 
 
@@ -56,8 +56,8 @@ On the final **Script Actions** configuration page, click **add script action** 
 * **NAME** - any string as the name of this script action. 
 * **NODE TYPE** - select **All nodes**. 
 * **SCRIPT URI** - *http://getgoing.blob.core.windows.net/publicscripts/Azure_HDI_Setup_Windows.ps1* 
-	* *publicscripts* is a public container in storage account 
-	* *getgoing* we use to share PowerShell script files to facilitate users work in Azure. 
+    * *publicscripts* is a public container in storage account 
+    * *getgoing* we use to share PowerShell script files to facilitate users work in Azure. 
 * **PARAMETERS** - (leave blank)
 
 Finally, click on the check mark to start the creation of the customized HDInsight Hadoop cluster. 
@@ -69,22 +69,22 @@ Finally, click on the check mark to start the creation of the customized HDInsig
 Users must enable remote access to the Hadoop cluster in Azure before they can access the head node of the Hadoop cluster through RDP. 
 
 1. Log in to the [**Classic Portal of Azure**](https://manage.windowsazure.com/), select **HDInsight** on the left, select your Hadoop cluster from the list of clusters, click the **CONFIGURATION** tab, and then click the **ENABLE REMOTE** icon at the bottom of the page.
-	
-	![Create workspace][7]
+    
+    ![Create workspace][7]
 
 2. In the **Configure Remote Desktop** window, enter the USER NAME and PASSWORD fields, and select the expiration date for remote access. Then click the check mark to enable the remote access to the head node of the Hadoop cluster.
-	
-	>[AZURE.NOTE] 
-	>
-	>1. The user name and password for the remote access are not the user name and password that you use when you created the Hadoop cluster. These are a separate set of credentials
-	>
-	>2. The expiration date of the remote access has to be within 7 days from the current date.
+    
+    >[AZURE.NOTE] 
+    >
+    >1. The user name and password for the remote access are not the user name and password that you use when you created the Hadoop cluster. These are a separate set of credentials
+    >
+    >2. The expiration date of the remote access has to be within 7 days from the current date.
 
-	![Create workspace][8]
+    ![Create workspace][8]
 
 3. After remote access is enabled, click **CONNECT** at the bottom of the page to remote into the head node. You log on to the head node of the Hadoop cluster by entering the credentials for the remote access user that you specified earlier.
 
-	 ![Create workspace][9]
+     ![Create workspace][9]
 
 The next steps in the advanced analytics process are mapped in the [Learning Guide: Advanced data processing in Azure](machine-learning-data-science-advanced-data-processing.md) and may include steps that move data into HDInsight, process and sample it there in preparation for learning from the data with Azure Machine Learning.
 

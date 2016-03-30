@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Learn about Throttling in BizTalk Services | Microsoft Azure" 
-	description="Learn about throttling thresholds and resulting runtime behaviors for BizTalk Services. Throttling is based on memory usage and number of messages. MABS, WABS" 
-	services="biztalk-services" 
-	documentationCenter="" 
-	authors="MandiOhlinger" 
-	manager="dwrede" 
-	editor="cgronlun"/>
+    pageTitle="Learn about Throttling in BizTalk Services | Microsoft Azure" 
+    description="Learn about throttling thresholds and resulting runtime behaviors for BizTalk Services. Throttling is based on memory usage and number of messages. MABS, WABS" 
+    services="biztalk-services" 
+    documentationCenter="" 
+    authors="MandiOhlinger" 
+    manager="dwrede" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="biztalk-services" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
-	ms.author="mandia"/>
+    ms.service="biztalk-services" 
+    ms.workload="integration" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/02/2015" 
+    ms.author="mandia"/>
 
 
 
@@ -71,3 +71,4 @@ A pipeline pulls messages from an external FTP source. The role instance doing t
 - [BizTalk Services: Backup and Restore](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
 - [BizTalk Services: Issuer Name and Issuer Key](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
  
+

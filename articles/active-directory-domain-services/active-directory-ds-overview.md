@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure Active Directory Domain Services preview: Overview | Microsoft Azure"
-	description="Overview of Azure AD Domain Services"
-	services="active-directory-ds"
-	documentationCenter=""
-	authors="mahesh-unnikrishnan"
-	manager="stevenpo"
-	editor="curtand"/>
+    pageTitle="Azure Active Directory Domain Services preview: Overview | Microsoft Azure"
+    description="Overview of Azure AD Domain Services"
+    services="active-directory-ds"
+    documentationCenter=""
+    authors="mahesh-unnikrishnan"
+    manager="stevenpo"
+    editor="curtand"/>
 
 <tags
-	ms.service="active-directory-ds"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/16/2015"
-	ms.author="maheshu"/>
+    ms.service="active-directory-ds"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/16/2015"
+    ms.author="maheshu"/>
 
 # Azure AD Domain Services *(Preview)*
 
@@ -73,10 +73,11 @@ A few salient aspects of the managed domain that is provisioned by Azure AD Doma
 ## Benefits
 With Azure AD Domain Services, you can enjoy the following benefits:
 
--	**Simple** – You can satisfy the identity needs of virtual machines deployed to Azure Infrastructure services with a few simple clicks, without the need to deploy and manage identity infrastructure in Azure or setup connectivity back to your on-premises identity infrastructure.
+-   **Simple** – You can satisfy the identity needs of virtual machines deployed to Azure Infrastructure services with a few simple clicks, without the need to deploy and manage identity infrastructure in Azure or setup connectivity back to your on-premises identity infrastructure.
 
--	**Integrated** – Azure AD Domain Services is deeply integrated with your Azure AD tenant. You can now rely on Azure AD to be an integrated cloud-based enterprise directory that caters to the needs of both your modern applications as well as traditional directory-aware applications.
+-   **Integrated** – Azure AD Domain Services is deeply integrated with your Azure AD tenant. You can now rely on Azure AD to be an integrated cloud-based enterprise directory that caters to the needs of both your modern applications as well as traditional directory-aware applications.
 
--	**Compatible** – Since Azure AD Domain Services is built on the proven enterprise grade infrastructure of Windows Server Active Directory, your applications can rely on a greater degree of compatibility with Windows Server Active Directory features. Note that not all features available in Windows Server AD are currently available in Azure AD Domain Services. However, available features are compatible with the corresponding Windows Server AD features you rely on in your on-premises infrastructure. The LDAP, Kerberos, NTLM, Group Policy and domain join capabilities provided by Azure AD Domain Services constitute a mature offering that has been tested and refined over various Windows Server releases.
+-   **Compatible** – Since Azure AD Domain Services is built on the proven enterprise grade infrastructure of Windows Server Active Directory, your applications can rely on a greater degree of compatibility with Windows Server Active Directory features. Note that not all features available in Windows Server AD are currently available in Azure AD Domain Services. However, available features are compatible with the corresponding Windows Server AD features you rely on in your on-premises infrastructure. The LDAP, Kerberos, NTLM, Group Policy and domain join capabilities provided by Azure AD Domain Services constitute a mature offering that has been tested and refined over various Windows Server releases.
 
--	**Cost-effective** – With Azure AD Domain Services, you can avoid the infrastructure and management burden that is associated with managing identity infrastructure to support traditional directory-aware applications. You can move these applications to Azure Infrastructure Services and benefit from greater savings on operational expenses.
+-   **Cost-effective** – With Azure AD Domain Services, you can avoid the infrastructure and management burden that is associated with managing identity infrastructure to support traditional directory-aware applications. You can move these applications to Azure Infrastructure Services and benefit from greater savings on operational expenses.
+

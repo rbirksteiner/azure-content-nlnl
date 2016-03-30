@@ -50,8 +50,8 @@ Enter the following values on the next page:
 
 - *Output Alias*: Enter a friendly name for this job output.
 - *Subscription*:
-	- If your SQL Data Warehouse database is in the same subscription as the Stream Analytics job, select Use SQL Database from Current Subscription.
-	- If your database is in a different subscription, select Use SQL Database from Another Subscription.
+    - If your SQL Data Warehouse database is in the same subscription as the Stream Analytics job, select Use SQL Database from Current Subscription.
+    - If your database is in a different subscription, select Use SQL Database from Another Subscription.
 - *Database*: Specify the name of a destination database.
 - *Server Name*: Specify the server name for the database you just specified. You can use the Azure Classic Portal to find this.
 
@@ -95,4 +95,5 @@ For more development tips, see [SQL Data Warehouse development overview][].
 
 <!--Other Web references-->
 [Azure Stream Analytics documentation]: http://azure.microsoft.com/documentation/services/stream-analytics/
+
 

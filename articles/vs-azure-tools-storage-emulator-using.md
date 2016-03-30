@@ -42,3 +42,4 @@ The storage emulator provides a user interface to view the status of the local s
 ## Viewing storage emulator data in Server Explorer
 
 The Azure Storage node in Server Explorer enables you to view data and change settings for blob and table data in your storage accounts, including the storage emulator. See [Browsing and Managing Storage Resources with Server Explorer](https://msdn.microsoft.com/library/azure/ff683677.aspx) for more information.
+

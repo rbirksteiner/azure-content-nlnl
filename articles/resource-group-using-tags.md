@@ -1,20 +1,20 @@
-﻿<properties
-	pageTitle="Using tags to organize your Azure resources | Microsoft Azure"
-	description="Shows how to apply tags to organize resources for billing and managing."
-	services="azure-resource-manager"
-	documentationCenter=""
-	authors="tfitzmac"
-	manager="wpickett"
-	editor=""/>
+<properties
+    pageTitle="Using tags to organize your Azure resources | Microsoft Azure"
+    description="Shows how to apply tags to organize resources for billing and managing."
+    services="azure-resource-manager"
+    documentationCenter=""
+    authors="tfitzmac"
+    manager="wpickett"
+    editor=""/>
 
 <tags
-	ms.service="azure-resource-manager"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="AzurePortal"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/02/2015"
-	ms.author="tomfitz"/>
+    ms.service="azure-resource-manager"
+    ms.workload="multiple"
+    ms.tgt_pltfrm="AzurePortal"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/02/2015"
+    ms.author="tomfitz"/>
 
 
 # Using tags to organize your Azure resources
@@ -185,3 +185,4 @@ When you download the usage CSV for services that support tags with billing, the
 - For an introduction to using Azure PowerShell when deploying resources, see [Using Azure PowerShell with Azure Resource Manager](./powershell-azure-resource-manager.md).
 - For an introduction to using Azure CLI when deploying resources, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](./xplat-cli-azure-resource-manager.md).
 - For an introduction to using the portal, see [Using the Azure portal to manage your Azure resources](./resource-group-portal.md)  
+

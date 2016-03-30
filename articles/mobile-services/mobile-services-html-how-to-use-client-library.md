@@ -1,20 +1,20 @@
 <properties
-	pageTitle="How to use an HTML client with Azure Mobile Services | Microsoft Azure"
-	description="Learn how to use an HTML client for Azure Mobile Services."
-	services="mobile-services"
-	documentationCenter=""
-	authors="ggailey777"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="How to use an HTML client with Azure Mobile Services | Microsoft Azure"
+    description="Learn how to use an HTML client for Azure Mobile Services."
+    services="mobile-services"
+    documentationCenter=""
+    authors="ggailey777"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-html"
-	ms.devlang="javascript"
-	ms.topic="article"
-	ms.date="10/23/2015"
-	ms.author="glenga"/>
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-html"
+    ms.devlang="javascript"
+    ms.topic="article"
+    ms.date="10/23/2015"
+    ms.author="glenga"/>
 
 # How to use an HTML/JavaScript client for Azure Mobile Services
 
@@ -40,7 +40,7 @@ The way that you add a reference to the Mobile Services client depends on your a
 
 In the editor, open or create a JavaScript file, and add the following code that defines the `MobileServiceClient` variable, and supply the application URL and application key from the mobile service in the `MobileServiceClient` constructor, in that order.
 
-	var MobileServiceClient = WindowsAzure.MobileServiceClient;
+    var MobileServiceClient = WindowsAzure.MobileServiceClient;
     var client = new MobileServiceClient('AppUrl', 'AppKey');
 
 You must replace the placeholder `AppUrl` with the application URL of your mobile service and `AppKey` with the application key, which you obtain from the [Azure classic portal](http://manage.windowsazure.com/).
@@ -58,71 +58,71 @@ All of the code that accesses or modifies data in the SQL Database table calls f
 
 The following code illustrates how to filter data by including a `where` clause in a query. It returns all items from `todoItemTable` whose complete field is equal to `false`. `todoItemTable` is the reference to the mobile service table that we created previously. The where function applies a row filtering predicate to the query against the table. It accepts as its argument a JSON object or function that defines the row filter, and returns a query that can be further composed.
 
-	var query = todoItemTable.where({
-	    complete: false
-	}).read().done(function (results) {
-	    alert(JSON.stringify(results));
-	}, function (err) {
-	    alert("Error: " + err);
-	});
+    var query = todoItemTable.where({
+        complete: false
+    }).read().done(function (results) {
+        alert(JSON.stringify(results));
+    }, function (err) {
+        alert("Error: " + err);
+    });
 
 By calling `where` on the Query object and passing an object as a parameter, we are  instructing Mobile Services to return only the rows whose `complete` column contains the `false` value. Also, look at the request URI below, and notice that we are modifying the query string  itself:
 
-	GET /tables/todoitem?$filter=(complete+eq+false) HTTP/1.1
+    GET /tables/todoitem?$filter=(complete+eq+false) HTTP/1.1
 
 You can view the URI of the request sent to the mobile service by using message inspection software, such as browser developer tools or Fiddler.
 
 This request would normally be translated roughly into the following SQL query on the server side:
 
-	SELECT *
-	FROM TodoItem
-	WHERE ISNULL(complete, 0) = 0
+    SELECT *
+    FROM TodoItem
+    WHERE ISNULL(complete, 0) = 0
 
 The object which is passed to the `where` method can have an arbitrary number of parameters, and they'll all be interpreted as AND clauses to the query. For example, the line below:
 
-	query.where({
-	   complete: false,
-	   assignee: "david",
-	   difficulty: "medium"
-	}).read().done(function (results) {
-	   alert(JSON.stringify(results));
-	}, function (err) {
-	   alert("Error: " + err);
-	});
+    query.where({
+       complete: false,
+       assignee: "david",
+       difficulty: "medium"
+    }).read().done(function (results) {
+       alert(JSON.stringify(results));
+    }, function (err) {
+       alert("Error: " + err);
+    });
 
 Would be roughly translated (for the same request shown before) as
 
-	SELECT *
-	FROM TodoItem
-	WHERE ISNULL(complete, 0) = 0
-	      AND assignee = 'david'
-	      AND difficulty = 'medium'
+    SELECT *
+    FROM TodoItem
+    WHERE ISNULL(complete, 0) = 0
+          AND assignee = 'david'
+          AND difficulty = 'medium'
 
 The `where` statement above and the SQL query above find incomplete items assigned to "david" of "medium" difficulty.
 
 There is, however, another way to write the same query. A `.where` call on the Query object will add an `AND` expression to the `WHERE` clause, so we could have written that in three lines instead:
 
-	query.where({
-	   complete: false
-	});
-	query.where({
-	   assignee: "david"
-	});
-	query.where({
-	   difficulty: "medium"
-	});
+    query.where({
+       complete: false
+    });
+    query.where({
+       assignee: "david"
+    });
+    query.where({
+       difficulty: "medium"
+    });
 
 Or using the fluent API:
 
-	query.where({
-	   complete: false
-	})
-	   .where({
-	   assignee: "david"
-	})
-	   .where({
-	   difficulty: "medium"
-	});
+    query.where({
+       complete: false
+    })
+       .where({
+       assignee: "david"
+    })
+       .where({
+       difficulty: "medium"
+    });
 
 The two methods are equivalent and may be used interchangeably. All the `where` calls so far take an object with some parameters, and are compared for equality against the data from the database. There is, however, another overload for the query method, which takes a function instead of the object. In this function we can then write more complex expressions, using operators such as inequality and other relational operations. In these functions, the keyword `this` binds to the server object.
 
@@ -139,13 +139,13 @@ The body of the function is translated into an Open Data Protocol (OData) boolea
 
 If passing in a function with parameters, any arguments after the `where` clause are bound to the function parameters in order. Any objects which come from the outside of the function scope MUST be passed as parameters - the function cannot capture any external variables. In the next two examples, the argument "david" is bound to the parameter `name` and in the first example, the argument "medium" is also bound to the parameter `level`. Also, the function must consist of a single `return` statement with a supported expression, like so:
 
-	 query.where(function (name, level) {
-	    return this.assignee == name && this.difficulty == level;
-	 }, "david", "medium").read().done(function (results) {
-	    alert(JSON.stringify(results));
-	 }, function (err) {
-	    alert("Error: " + err);
-	 });
+     query.where(function (name, level) {
+        return this.assignee == name && this.difficulty == level;
+     }, "david", "medium").read().done(function (results) {
+        alert(JSON.stringify(results));
+     }, function (err) {
+        alert("Error: " + err);
+     });
 
 So, as long as we follow the rules, we can add more complex filters to our database queries, like so:
 
@@ -167,43 +167,43 @@ The following code illustrates how to sort data by including an `orderBy` or `or
 > [AZURE.NOTE] A server-driven page size us used by default to prevent all elements from being returned. This keeps default requests for large data sets from negatively impacting the service.
 You may increase the number of items to be returned by calling `take` as described in the next section. `todoItemTable` is the reference to the mobile service table that we created previously.
 
-	var ascendingSortedTable = todoItemTable.orderBy("text").read().done(function (results) {
-	   alert(JSON.stringify(results));
-	}, function (err) {
-	   alert("Error: " + err);
-	});
+    var ascendingSortedTable = todoItemTable.orderBy("text").read().done(function (results) {
+       alert(JSON.stringify(results));
+    }, function (err) {
+       alert("Error: " + err);
+    });
 
-	var descendingSortedTable = todoItemTable.orderByDescending("text").read().done(function (results) {
-	   alert(JSON.stringify(results));
-	}, function (err) {
-	   alert("Error: " + err);
-	});
+    var descendingSortedTable = todoItemTable.orderByDescending("text").read().done(function (results) {
+       alert(JSON.stringify(results));
+    }, function (err) {
+       alert("Error: " + err);
+    });
 
-	var descendingSortedTable = todoItemTable.orderBy("text").orderByDescending("text").read().done(function (results) {
-	   alert(JSON.stringify(results));
-	}, function (err) {
-	   alert("Error: " + err);
-	});
+    var descendingSortedTable = todoItemTable.orderBy("text").orderByDescending("text").read().done(function (results) {
+       alert(JSON.stringify(results));
+    }, function (err) {
+       alert("Error: " + err);
+    });
 
 ### <a name="paging"></a>How to: Return data in pages
 
 By default, Mobile Services only returns 50 rows in a given request, unless the client explicitly asks for more data in the response. The following code shows how to implement paging in returned data by using the `take` and `skip` clauses in the query.  The following query, when executed, returns the top three items in the table.
 
-	var query = todoItemTable.take(3).read().done(function (results) {
-	   alert(JSON.stringify(results));
-	}, function (err) {
-	   alert("Error: " + err);
-	});
+    var query = todoItemTable.take(3).read().done(function (results) {
+       alert(JSON.stringify(results));
+    }, function (err) {
+       alert("Error: " + err);
+    });
 
 Notice that the `take(3)` method was translated into the query option `$top=3` in the query URI.
 
 The following revised query skips the first three results and returns the next three after that. This is effectively the second "page" of data, where the page size is three items.
 
-	var query = todoItemTable.skip(3).take(3).read().done(function (results) {
-	   alert(JSON.stringify(results));
-	}, function (err) {
-	   alert("Error: " + err);
-	});
+    var query = todoItemTable.skip(3).take(3).read().done(function (results) {
+       alert(JSON.stringify(results));
+    }, function (err) {
+       alert("Error: " + err);
+    });
 
 Again, you can view the URI of the request sent to the mobile service. Notice that the `skip(3)` method was translated into the query option `$skip=3` in the query URI.
 
@@ -213,11 +213,11 @@ This is a simplified scenario of passing hard-coded paging values to the `take` 
 
 You can specify which set of properties to include in the results by adding a `select` clause to your query. For example, the following code returns the `id`, `complete`, and `text` properties from each row in the `todoItemTable`:
 
-	var query = todoItemTable.select("id", "complete", "text").read().done(function (results) {
-	   alert(JSON.stringify(results));
-	}, function (err) {
-	   alert("Error: " + err);
-	})
+    var query = todoItemTable.select("id", "complete", "text").read().done(function (results) {
+       alert(JSON.stringify(results));
+    }, function (err) {
+       alert("Error: " + err);
+    })
 
 Here the parameters to the select function are the names of the table's columns that you want to return.
 
@@ -239,23 +239,23 @@ All the functions described so far are additive, so we can just keep calling the
 
 The `lookup` function takes only the `id` value, and returns the object from the database with that ID. Database tables are created with either an integer or string `id` column. A string `id` column is the default.
 
-	todoItemTable.lookup("37BBF396-11F0-4B39-85C8-B319C729AF6D").done(function (result) {
-	   alert(JSON.stringify(result));
-	}, function (err) {
-	   alert("Error: " + err);
-	})
+    todoItemTable.lookup("37BBF396-11F0-4B39-85C8-B319C729AF6D").done(function (result) {
+       alert(JSON.stringify(result));
+    }, function (err) {
+       alert("Error: " + err);
+    })
 
 ##<a name="odata-query"></a>Execute an OData query operation
 
 Mobile Services uses the OData query URI conventions for composing and executing REST queries.  Not all OData queries can be composed by using the built-in query functions, especially complex filter operations like searching for a substring in a property. For these kinds of complex queries, you can pass any valid OData query option string to the `read` function, as follows:
 
-	function refreshTodoItems() {
-	    todoItemTable.read("$filter=substringof('search_text',text)").then(function(items) {
-	        var itemElements = $.map(items, createUiForTodoItem);
-	        $("#todo-items").empty().append(itemElements);
-	        $("#no-items").toggle(items.length === 0);
-	    }, handleError);
-	}
+    function refreshTodoItems() {
+        todoItemTable.read("$filter=substringof('search_text',text)").then(function(items) {
+            var itemElements = $.map(items, createUiForTodoItem);
+            $("#todo-items").empty().append(itemElements);
+            $("#no-items").toggle(items.length === 0);
+        }, handleError);
+    }
 
 >[AZURE.NOTE]When you provide a raw OData query option string into the `read` function, you cannot also use the query builder methods in the same query. In this case, you must compose your whole query as an OData query string. For more information on OData system query options, see the [OData system query options reference].
 
@@ -263,31 +263,31 @@ Mobile Services uses the OData query URI conventions for composing and executing
 
 The following code illustrates how to insert new rows into a table. The client requests that a row of data be inserted by sending a POST request to the mobile service. The request body contains the data to be inserted, as a JSON object.
 
-	todoItemTable.insert({
-	   text: "New Item",
-	   complete: false
-	})
+    todoItemTable.insert({
+       text: "New Item",
+       complete: false
+    })
 
 This inserts data from the supplied JSON object into the table. You can also specify a callback function to be invoked when the insertion is complete:
 
-	todoItemTable.insert({
-	   text: "New Item",
-	   complete: false
-	}).done(function (result) {
-	   alert(JSON.stringify(result));
-	}, function (err) {
-	   alert("Error: " + err);
-	});
+    todoItemTable.insert({
+       text: "New Item",
+       complete: false
+    }).done(function (result) {
+       alert(JSON.stringify(result));
+    }, function (err) {
+       alert("Error: " + err);
+    });
 
 ###Working with ID values
 
 Mobile Services supports unique custom string values for the table's **id** column. This allows applications to use custom values such as email addresses or user names for the ID. For example, the following code inserts a new item as a JSON object, where the unique ID is an email address:
 
-	todoItemTable.insert({
-	   id: "myemail@domain.com",
-	   text: "New Item",
-	   complete: false
-	});
+    todoItemTable.insert({
+       id: "myemail@domain.com",
+       text: "New Item",
+       complete: false
+    });
 
 String IDs provide you with the following benefits:
 
@@ -303,65 +303,65 @@ You can also use integer IDs for your tables. To use an integer ID, you must cre
 
 The following code illustrates how to update data in a table. The client requests that a row of data be updated by sending a PATCH request to the mobile service. The request body contains the specific fields to be updated, as a JSON object. It updates an existing item in the table `todoItemTable`.
 
-	todoItemTable.update({
-	   id: idToUpdate,
-	   text: newText
-	})
+    todoItemTable.update({
+       id: idToUpdate,
+       text: newText
+    })
 
 The first parameter specifies the instance to update in the table, as specified by its ID.
 
 You can also specify a callback function to be invoked when the update is complete:
 
-	todoItemTable.update({
-	   id: idToUpdate,
-	   text: newText
-	}).done(function (result) {
-	   alert(JSON.stringify(result));
-	}, function (err) {
-	   alert("Error: " + err);
-	});
+    todoItemTable.update({
+       id: idToUpdate,
+       text: newText
+    }).done(function (result) {
+       alert(JSON.stringify(result));
+    }, function (err) {
+       alert("Error: " + err);
+    });
 
 ##<a name="deleting"></a>How to: Delete data in a mobile service
 
 The following code illustrates how to delete data from a table. The client requests that a row of data be deleted by sending a DELETE request to the mobile service. It deletes an existing item in the table todoItemTable.
 
-	todoItemTable.del({
-	   id: idToDelete
-	})
+    todoItemTable.del({
+       id: idToDelete
+    })
 
 The first parameter specifies the instance to delete in the table, as specified by its ID.
 
 You can also specify a callback function to be invoked when the delete is complete:
 
-	todoItemTable.del({
-	   id: idToDelete
-	}).done(function () {
-	   /* Do something */
-	}, function (err) {
-	   alert("Error: " + err);
-	});
+    todoItemTable.del({
+       id: idToDelete
+    }).done(function () {
+       /* Do something */
+    }, function (err) {
+       alert("Error: " + err);
+    });
 
 ##<a name="binding"></a>How to: Display data in the user interface
 
 This section shows how to display returned data objects using UI elements. To query items in `todoItemTable` and display it in a very simple list, you can run the following example code. No selection, filtering or sorting of any kind is done.
 
-	var query = todoItemTable;
+    var query = todoItemTable;
 
-	query.read().then(function (todoItems) {
-	   // The space specified by 'placeToInsert' is an unordered list element <ul> ... </ul>
-	   var listOfItems = document.getElementById('placeToInsert');
-	   for (var i = 0; i < todoItems.length; i++) {
-	      var li = document.createElement('li');
-	      var div = document.createElement('div');
-	      div.innerText = todoItems[i].text;
-	      li.appendChild(div);
-	      listOfItems.appendChild(li);
-	   }
-	}).read().done(function (results) {
-	   alert(JSON.stringify(results));
-	}, function (err) {
-	   alert("Error: " + err);
-	});
+    query.read().then(function (todoItems) {
+       // The space specified by 'placeToInsert' is an unordered list element <ul> ... </ul>
+       var listOfItems = document.getElementById('placeToInsert');
+       for (var i = 0; i < todoItems.length; i++) {
+          var li = document.createElement('li');
+          var div = document.createElement('div');
+          div.innerText = todoItems[i].text;
+          li.appendChild(div);
+          listOfItems.appendChild(li);
+       }
+    }).read().done(function (results) {
+       alert(JSON.stringify(results));
+    }, function (err) {
+       alert("Error: " + err);
+    });
 
 In a Windows Store app, the results of a query can be used to create a [WinJS.Binding.List] object, which can be bound as the data source for a [ListView] object. For more information, see [Data binding (Windows Store apps using JavaScript and HTML)].
 
@@ -403,11 +403,11 @@ you must register your app with your identity provider. Then in your mobile serv
 
 Once you have registered your identity provider, simply call the [LoginAsync method] with the [MobileServiceAuthenticationProvider] value of your provider. For example, to login with Facebook use the following code.
 
-	client.login("facebook").done(function (results) {
-	     alert("You are now logged in as: " + results.userId);
-	}, function (err) {
-	     alert("Error: " + err);
-	});
+    client.login("facebook").done(function (results) {
+         alert("You are now logged in as: " + results.userId);
+    }, function (err) {
+         alert("Error: " + err);
+    });
 
 If you are using an identity provider other than Facebook, change the value passed to the `login` method above to one of the following: `microsoftaccount`, `facebook`, `twitter`, `google`, or `windowsazureactivedirectory`.
 
@@ -420,14 +420,14 @@ Your app can also independently contact the identity provider and then provide t
 
 This example uses Facebook client SDK for authentication:
 
-	client.login(
-	     "facebook",
-	     {"access_token": token})
-	.done(function (results) {
-	     alert("You are now logged in as: " + results.userId);
-	}, function (err) {
-	     alert("Error: " + err);
-	});
+    client.login(
+         "facebook",
+         {"access_token": token})
+    .done(function (results) {
+         alert("You are now logged in as: " + results.userId);
+    }, function (err) {
+         alert("Error: " + err);
+    });
 
 This example assumes that the token provided by the respective provider SDK is stored in the `token` variable.
 Twitter cannot be used for client authentication at this time.
@@ -435,17 +435,17 @@ Twitter cannot be used for client authentication at this time.
 ####Microsoft Account basic example
 The following example uses the Live SDK, which supports single-sign-on for Windows Store apps by using Microsoft Account:
 
-	WL.login({ scope: "wl.basic"}).then(function (result) {
-	      client.login(
-	            "microsoftaccount",
-	            {"authenticationToken": result.session.authentication_token})
-	      .done(function(results){
-	            alert("You are now logged in as: " + results.userId);
-	      },
-	      function(error){
-	            alert("Error: " + err);
-	      });
-	});
+    WL.login({ scope: "wl.basic"}).then(function (result) {
+          client.login(
+                "microsoftaccount",
+                {"authenticationToken": result.session.authentication_token})
+          .done(function(results){
+                alert("You are now logged in as: " + results.userId);
+          },
+          function(error){
+                alert("Error: " + err);
+          });
+    });
 
 This simplified example gets a token from Live Connect, which is supplied to Mobile Services by calling the [login] function.
 
@@ -454,58 +454,58 @@ This simplified example gets a token from Live Connect, which is supplied to Mob
 
 The following example shows how to use the Live SDK with WinJS APIs to provide an enhanced single-sign-on experience:
 
-	// Set the mobileClient variable to client variable generated by the tooling.
-	var mobileClient = <yourClient>;
+    // Set the mobileClient variable to client variable generated by the tooling.
+    var mobileClient = <yourClient>;
 
-	var session = null;
-	var login = function () {
-		return new WinJS.Promise(function (complete) {
-			WL.login({ scope: "wl.basic" }).then(function (result) {
-				session = result.session;
+    var session = null;
+    var login = function () {
+        return new WinJS.Promise(function (complete) {
+            WL.login({ scope: "wl.basic" }).then(function (result) {
+                session = result.session;
 
-				WinJS.Promise.join([
-					WL.api({ path: "me", method: "GET" }),
-					mobileClient.login(result.session.authentication_token)
-				]).done(function (results) {
-					// Build the welcome message from the Microsoft account info.
-					var profile = results[0];
-					var title = "Welcome " + profile.first_name + "!";
-					var message = "You are now logged in as: "
-						+ mobileClient.currentUser.userId;
-					var dialog = new Windows.UI.Popups.MessageDialog(message, title);
-					dialog.showAsync().then(function () {
-						// Reload items from the mobile service.
-						refreshTodoItems();
-					}).done(complete);
+                WinJS.Promise.join([
+                    WL.api({ path: "me", method: "GET" }),
+                    mobileClient.login(result.session.authentication_token)
+                ]).done(function (results) {
+                    // Build the welcome message from the Microsoft account info.
+                    var profile = results[0];
+                    var title = "Welcome " + profile.first_name + "!";
+                    var message = "You are now logged in as: "
+                        + mobileClient.currentUser.userId;
+                    var dialog = new Windows.UI.Popups.MessageDialog(message, title);
+                    dialog.showAsync().then(function () {
+                        // Reload items from the mobile service.
+                        refreshTodoItems();
+                    }).done(complete);
 
-				}, function (error) {
+                }, function (error) {
 
-				});
-			}, function (error) {
-				session = null;
-				var dialog = new Windows.UI.Popups.MessageDialog("You must log in.", "Login Required");
-				dialog.showAsync().done(complete);
-			});
-		});
-	}
+                });
+            }, function (error) {
+                session = null;
+                var dialog = new Windows.UI.Popups.MessageDialog("You must log in.", "Login Required");
+                dialog.showAsync().done(complete);
+            });
+        });
+    }
 
-	var authenticate = function () {
-		// Block until sign-in is successful.
-		login().then(function () {
-			if (session === null) {
-				// Authentication failed, try again.
-				authenticate();
-			}
-		});
-	}
+    var authenticate = function () {
+        // Block until sign-in is successful.
+        login().then(function () {
+            if (session === null) {
+                // Authentication failed, try again.
+                authenticate();
+            }
+        });
+    }
 
-	// Initialize the Live client.
-	WL.init({
-		redirect_uri: mobileClient.applicationUrl
-	});
+    // Initialize the Live client.
+    WL.init({
+        redirect_uri: mobileClient.applicationUrl
+    });
 
-	// Start the sign-in process.
-	authenticate();
+    // Start the sign-in process.
+    authenticate();
 
 This initializes the Live Connect client, sends a new login request to Microsoft account, sends the returned authentication token to Mobile Services, and then displays information about the signed-in user. The app does not start until authentication succeeds.
 <!--- //this guidance may be bad from an XSS vulnerability standpoint. We need to find better guidance for this
@@ -539,39 +539,39 @@ There are several ways to encounter, validate, and work around errors in Mobile 
 
 As an example, server scripts are registered in a mobile service and can be used to perform a wide range of operations on data being inserted and updated, including validation and data modification. Imagine defining and registering a server script that validate and modify data, like so:
 
-	function insert(item, user, request) {
-	   if (item.text.length > 10) {
-		  request.respond(statusCodes.BAD_REQUEST, { error: "Text cannot exceed 10 characters" });
-	   } else {
-	      request.execute();
-	   }
-	}
+    function insert(item, user, request) {
+       if (item.text.length > 10) {
+          request.respond(statusCodes.BAD_REQUEST, { error: "Text cannot exceed 10 characters" });
+       } else {
+          request.execute();
+       }
+    }
 
 This server-side script validates the length of string data sent to the mobile service and rejects strings that are too long, in this case longer than 10 characters.
 
 Now that the mobile service is validating data and sending error responses on the server-side, you can update your HTML app to be able to handle error responses from validation.
 
-	todoItemTable.insert({
-	   text: itemText,
-	   complete: false
-	})
-	   .then(function (results) {
-	   alert(JSON.stringify(results));
-	}, function (error) {
-	   alert(JSON.parse(error.request.responseText).error);
-	});
+    todoItemTable.insert({
+       text: itemText,
+       complete: false
+    })
+       .then(function (results) {
+       alert(JSON.stringify(results));
+    }, function (error) {
+       alert(JSON.parse(error.request.responseText).error);
+    });
 
 
 To tease this out even further, you pass in the error handler as the second argument each time you perform data access:
 
-	function handleError(message) {
-	   if (window.console && window.console.error) {
-	      window.console.error(message);
-	   }
-	}
+    function handleError(message) {
+       if (window.console && window.console.error) {
+          window.console.error(message);
+       }
+    }
 
-	client.getTable("tablename").read()
-		.then(function (data) { /* do something */ }, handleError);
+    client.getTable("tablename").read()
+        .then(function (data) { /* do something */ }, handleError);
 
 ##<a name="promises"></a>How to: Use promises
 
@@ -579,50 +579,50 @@ Promises provide a mechanism to schedule work to be done on a value that has not
 
 The `done` promise is executed as soon as the function provided to it has either successfully completed or has gotten an error. Unlike the `then` promise, it is guaranteed to throw any error that is not handled inside the function, and after the handlers have finished executing, this function throws any error that would have been returned from then as a promise in the error state. For more information, see [done].
 
-	promise.done(onComplete, onError);
+    promise.done(onComplete, onError);
 
 Like so:
 
-	var query = todoItemTable;
-	query.read().done(function (results) {
-	   alert(JSON.stringify(results));
-	}, function (err) {
-	   alert("Error: " + err);
-	});
+    var query = todoItemTable;
+    query.read().done(function (results) {
+       alert(JSON.stringify(results));
+    }, function (err) {
+       alert("Error: " + err);
+    });
 
 The `then` promise is the same as the as the `done` promise, but unlike the `then` promise, `done` is guaranteed to throw any error that is not handled inside the function. If you do not provide an error handler to `then` and the operation has an error, it does not throw an exception but rather returns a promise in the error state. For more information, see [then].
 
-	promise.then(onComplete, onError).done( /* Your success and error handlers */ );
+    promise.then(onComplete, onError).done( /* Your success and error handlers */ );
 
 Like so:
 
-	var query = todoItemTable;
-	query.read().done(function (results) {
-	   alert(JSON.stringify(results));
-	}, function (err) {
-	   alert("Error: " + err);
-	});
+    var query = todoItemTable;
+    query.read().done(function (results) {
+       alert(JSON.stringify(results));
+    }, function (err) {
+       alert("Error: " + err);
+    });
 
 You can use promises in a number of different ways. You can chain promise operations by calling `then` or `done` on the promise that is returned by the previous `then` function. Use `then` for an intermediate stage of the operation (for example `.then().then()`), and `done` for the final stage of the operation (for example `.then().then().done()`).  You can chain multiple `then` functions, because `then` returns a promise. You cannot chain more than one `done` method, because it returns undefined. [Learn more about the  differences between then and done].
 
-	todoItemTable.insert({
-	   text: "foo"
-	}).then(function (inserted) {
-	   inserted.newField = 123;
-	   return todoItemTable.update(inserted);
-	}).done(function (insertedAndUpdated) {
-	   alert(JSON.stringify(insertedAndUpdated));
-	})
+    todoItemTable.insert({
+       text: "foo"
+    }).then(function (inserted) {
+       inserted.newField = 123;
+       return todoItemTable.update(inserted);
+    }).done(function (insertedAndUpdated) {
+       alert(JSON.stringify(insertedAndUpdated));
+    })
 
 ##<a name="customizing"></a>How to: Customize client request headers
 
 You can send custom request headers using the `withFilter` function, reading and writing arbitrary properties of the request about to be sent within the filter. You may want to add such a custom HTTP header if a server-side script needs it or may be enhanced by it.
 
-	var client = new WindowsAzure.MobileServiceClient('https://your-app-url', 'your-key')
-	   .withFilter(function (request, next, callback) {
-	   request.headers.MyCustomHttpHeader = "Some value";
-	   next(request, callback);
-	});
+    var client = new WindowsAzure.MobileServiceClient('https://your-app-url', 'your-key')
+       .withFilter(function (request, next, callback) {
+       request.headers.MyCustomHttpHeader = "Some value";
+       next(request, callback);
+    });
 
 Filters are used for a lot more than customizing request headers. They can be used to examine or change requests, examine or change  responses, bypass networking calls, send multiple calls, etc.
 
@@ -668,3 +668,4 @@ To control which websites are allowed to interact with and send requests to your
 [login]: https://github.com/Azure/azure-mobile-services/blob/master/sdk/Javascript/src/MobileServiceClient.js#L301
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [OData system query options reference]: http://go.microsoft.com/fwlink/p/?LinkId=444502
+

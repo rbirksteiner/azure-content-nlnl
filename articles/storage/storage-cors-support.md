@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Cross-Origin Resource Sharing (CORS) Support | Microsoft Azure" 
-	description="Learn how to enable CORS Support for the Microsoft Azure Storage Services." 
-	services="storage" 
-	documentationCenter=".net" 
-	authors="tamram" 
-	manager="carolz" 
-	editor=""/>
+    pageTitle="Cross-Origin Resource Sharing (CORS) Support | Microsoft Azure" 
+    description="Learn how to enable CORS Support for the Microsoft Azure Storage Services." 
+    services="storage" 
+    documentationCenter=".net" 
+    authors="tamram" 
+    manager="carolz" 
+    editor=""/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="09/03/2015" 
-	ms.author="tamram;andtyler"/>
+    ms.service="storage" 
+    ms.workload="storage" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="dotnet" 
+    ms.topic="article" 
+    ms.date="09/03/2015" 
+    ms.author="tamram;andtyler"/>
 
 # Cross-Origin Resource Sharing (CORS) Support for the Azure Storage Services
 
@@ -195,3 +195,4 @@ Unsuccessful preflight requests will not be billed.
 
 [W3C Cross-Origin Resource Sharing Specification](http://www.w3.org/TR/cors/)
  
+

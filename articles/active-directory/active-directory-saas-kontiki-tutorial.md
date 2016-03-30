@@ -69,19 +69,19 @@ The objective of this section is to outline how to enable users to authenticate 
 
 ###To configure single sign-on, perform the following steps:
 
-1.  In the Azure AD portal, on the **Kontiki** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  In the Azure AD portal, on the **Kontiki** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
     ![Configure Single SignOn](./media/active-directory-saas-kontiki-tutorial/IC790238.png "Configure Single SignOn")
 
-2.  On the **How would you like users to sign on to Kontiki** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to Kontiki** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single SignOn](./media/active-directory-saas-kontiki-tutorial/IC790239.png "Configure Single SignOn")
 
-3.  On the **Configure App URL** page, in the **Kontiki Sign On URL** textbox, type the URL used by your users to sign on to Kontiki (e.g.: “*https://company.mc.eval.kontiki.com/*"), and then click **Next**.
+3.  On the **Configure App URL** page, in the **Kontiki Sign On URL** textbox, type the URL used by your users to sign on to Kontiki (e.g.: “*https://company.mc.eval.kontiki.com/*"), and then click **Next**.
 
     ![Configure App URL](./media/active-directory-saas-kontiki-tutorial/IC790240.png "Configure App URL")
 
-4.  On the **Configure single sign-on at Kontiki** page, click **Download metadata**, and then save the metadata file on your computer.
+4.  On the **Configure single sign-on at Kontiki** page, click **Download metadata**, and then save the metadata file on your computer.
 
     ![Configure Single SignOn](./media/active-directory-saas-kontiki-tutorial/IC790241.png "Configure Single SignOn")
 
@@ -89,7 +89,7 @@ The objective of this section is to outline how to enable users to authenticate 
 
     >[AZURE.NOTE] The single sign-on configuration has to be performed by the Kontiki support team. You will get a notification as soon as the configuration has been completed.
 
-6.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+6.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
     ![Configure Single SignOn](./media/active-directory-saas-kontiki-tutorial/IC790242.png "Configure Single SignOn")
 ##Configuring user provisioning
@@ -105,7 +105,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 1.  In the Azure AD portal, create a test account.
 
-2.  On the **Kontiki **application integration page, click **Assign users**.
+2.  On the **Kontiki **application integration page, click **Assign users**.
 
     ![Assign Users](./media/active-directory-saas-kontiki-tutorial/IC790243.png "Assign Users")
 

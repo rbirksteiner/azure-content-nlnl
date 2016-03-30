@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Set up and use the Machine Learning Recommendations API | Microsoft Azure" 
-	description="Microsoft RECOMMENDATIONS API built with Azure Machine Learning FAQ" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="jaymathe" 
-	manager="paulettm" 
-	editor="cgronlun"/>
+    pageTitle="Set up and use the Machine Learning Recommendations API | Microsoft Azure" 
+    description="Microsoft RECOMMENDATIONS API built with Azure Machine Learning FAQ" 
+    services="machine-learning" 
+    documentationCenter="" 
+    authors="jaymathe" 
+    manager="paulettm" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/08/2015" 
-	ms.author="luisca"/> 
+    ms.service="machine-learning" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/08/2015" 
+    ms.author="luisca"/> 
 
 #Setting up and using Machine Learning Recommendations API FAQ
 
@@ -135,3 +135,4 @@ Technical support is available on the [Microsoft Azure Support](https://social.m
 
 
  
+

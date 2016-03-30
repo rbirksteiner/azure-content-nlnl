@@ -1,20 +1,20 @@
-﻿<properties 
-	pageTitle="Lock Resources with Resource Manager | Microsoft Azure" 
-	description="Prevent users from updating or deleting certain resources by applying a restriction to all users and roles." 
-	services="azure-resource-manager" 
-	documentationCenter="" 
-	authors="tfitzmac" 
-	manager="wpickett" 
-	editor=""/>
+<properties 
+    pageTitle="Lock Resources with Resource Manager | Microsoft Azure" 
+    description="Prevent users from updating or deleting certain resources by applying a restriction to all users and roles." 
+    services="azure-resource-manager" 
+    documentationCenter="" 
+    authors="tfitzmac" 
+    manager="wpickett" 
+    editor=""/>
 
 <tags 
-	ms.service="azure-resource-manager" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
-	ms.author="tomfitz"/>
+    ms.service="azure-resource-manager" 
+    ms.workload="multiple" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/02/2015" 
+    ms.author="tomfitz"/>
 
 # Lock resources with Azure Resource Manager
 
@@ -67,7 +67,7 @@ The scope level is set using the **level** property of the resource. As the exam
                 "type": "Microsoft.Storage/storageAccounts/providers/locks",
                 "apiVersion": "2015-01-01",
                 "properties": {
-	                "level": "CannotDelete"
+                    "level": "CannotDelete"
                 }
             }
         ]
@@ -113,3 +113,4 @@ Azure PowerShell provides other commands for working locks, such as **Set-AzureR
 - To learn about logically organizing your resources, see [Using tags to organize your resources](resource-group-using-tags.md)
 - To change which resource group a resource resides in, see [Move resources to new resource group](resource-group-move-resources.md)
 - You can apply restrictions and conventions across your subscription with customized policies. For more information, see [Use Policy to manage resources and control access](resource-manager-policy.md).
+

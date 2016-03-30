@@ -1,27 +1,27 @@
 <properties
-	pageTitle="App Model v2.0 Limitations & restrictions | Microsoft Azure"
-	description="A list of limitations & restrictions with the Azure AD v2.0 app model."
-	services="active-directory"
-	documentationCenter=""
-	authors="dstrockis"
-	manager="mbaldwin"
-	editor=""/>
+    pageTitle="App Model v2.0 Limitations & restrictions | Microsoft Azure"
+    description="A list of limitations & restrictions with the Azure AD v2.0 app model."
+    services="active-directory"
+    documentationCenter=""
+    authors="dstrockis"
+    manager="mbaldwin"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/09/2015"
-	ms.author="dastrock"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/09/2015"
+    ms.author="dastrock"/>
 
 # App model v2.0 preview: Limitations & restrictions
 
 There are several features & functionalities of the v2.0 app model that are not yet supported in the public preview period.  Each of these limitations will be removed before the v2.0 app model reaches general availability, but you should be aware of them if you are building apps during the public preview.
 
 > [AZURE.NOTE]
-	This information applies to the v2.0 app model public preview.  For instructions on how to integrate with the generally available Azure AD service, please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
+    This information applies to the v2.0 app model public preview.  For instructions on how to integrate with the generally available Azure AD service, please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
 
 ## Support for Production Apps
 Apps that integrate with the v2.0 app model should not be released to the public as production level apps.  The v2.0 app model is in public preview at this time - breaking changes may be introduced at any point in time, and there is no SLA guaranteed by the service.  Support will not be provided for any incidents that may occur.  If you are willing to accept the risks of taking a dependency on a service that is still in development, you must contact us @AzureAD to discuss the scope of your app or service.
@@ -85,3 +85,4 @@ The v2.0 app model supports Open ID Connect & OAuth 2.0.  However, not all featu
 - The OpenID Connect `end_sesssion_endpoint`
 
 To better understand the scope of protocol functionality supported in the v2.0 app model, read through our [OpenID Connect & OAuth 2.0 Protocol Reference](active-directory-v2-protocols.md).
+

@@ -27,3 +27,4 @@ The following limits apply to Azure Site Recovery:
 |Number of recovery plans per Azure vault|No limit|
 |Number of servers per protection group|No limit|
 |Number of servers per recovery plan|50|
+

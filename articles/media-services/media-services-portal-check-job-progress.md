@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How to Check Job Progress using the Azure Classic Portal" 
-	description="Learn how to track job progress using the Azure Classic Portal." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="juliako" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="How to Check Job Progress using the Azure Classic Portal" 
+    description="Learn how to track job progress using the Azure Classic Portal." 
+    services="media-services" 
+    documentationCenter="" 
+    authors="juliako" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/04/2015" 
-	ms.author="juliako"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/04/2015" 
+    ms.author="juliako"/>
 
 #How to: Check Job Progress
 
@@ -28,9 +28,9 @@
 1. In the [Azure Classic Portal](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409), click **Media Services** and then click on the Media Services account name.
 2. Select the **JOBS** page. 
 
-	On the page you can see the status of  all your jobs. You can aslo filter by status, time, or job id.
+    On the page you can see the status of  all your jobs. You can aslo filter by status, time, or job id.
 
-	![CheckStatus][checkstatus]
+    ![CheckStatus][checkstatus]
 
 
 ##Media Services learning paths

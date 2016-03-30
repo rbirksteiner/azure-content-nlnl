@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Django and SQL Database on Azure with Python Tools 2.2 for Visual Studio" 
-	description="Learn how to use the Python Tools for Visual Studio to create a Django web app that stores data in a SQL database instance and deploy it to Azure App Service Web Apps." 
-	services="app-service\web" 
-	tags="python"
-	documentationCenter="python" 
-	authors="huguesv" 
-	manager="wpickett" 
-	editor=""/>
+    pageTitle="Django and SQL Database on Azure with Python Tools 2.2 for Visual Studio" 
+    description="Learn how to use the Python Tools for Visual Studio to create a Django web app that stores data in a SQL database instance and deploy it to Azure App Service Web Apps." 
+    services="app-service\web" 
+    tags="python"
+    documentationCenter="python" 
+    authors="huguesv" 
+    manager="wpickett" 
+    editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="11/13/2015"
-	ms.author="huguesv"/>
+    ms.service="app-service-web" 
+    ms.workload="web" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="python" 
+    ms.topic="article" 
+    ms.date="11/13/2015"
+    ms.author="huguesv"/>
 
 
 
@@ -48,43 +48,43 @@ In this section, we'll create a Visual Studio project using a sample template. W
 
 1.  The project templates from the PTVS Samples VSIX are available under **Python**, **Samples**. Select **Polls Django Web Project** and click OK to create the project.
 
-  	![New Project Dialog](./media/web-sites-python-ptvs-django-sql/PollsDjangoNewProject.png)
+    ![New Project Dialog](./media/web-sites-python-ptvs-django-sql/PollsDjangoNewProject.png)
 
 1.  You will be prompted to install external packages. Select **Install into a virtual environment**.
 
-  	![External Packages Dialog](./media/web-sites-python-ptvs-django-sql/PollsDjangoExternalPackages.png)
+    ![External Packages Dialog](./media/web-sites-python-ptvs-django-sql/PollsDjangoExternalPackages.png)
 
 1.  Select **Python 2.7** as the base interpreter.
 
-  	![Add Virtual Environment Dialog](./media/web-sites-python-ptvs-django-sql/PollsCommonAddVirtualEnv.png)
+    ![Add Virtual Environment Dialog](./media/web-sites-python-ptvs-django-sql/PollsCommonAddVirtualEnv.png)
 
 1.  Right-click the project node and select **Python**, **Django Sync DB**.
 
-  	![Django Sync DB Command](./media/web-sites-python-ptvs-django-sql/PollsDjangoSyncDB.png)
+    ![Django Sync DB Command](./media/web-sites-python-ptvs-django-sql/PollsDjangoSyncDB.png)
 
 1.  This will open a Django Management Console. Follow the prompts to create a user.
 
     This will create a sqlite database in the project folder.
 
-  	![Django Management Console Window](./media/web-sites-python-ptvs-django-sql/PollsDjangoConsole.png)
+    ![Django Management Console Window](./media/web-sites-python-ptvs-django-sql/PollsDjangoConsole.png)
 
 1.  Confirm that the application works by pressing <kbd>F5</kbd>.
 
 1.  Click **Log in** from the navigation bar at the top.
 
-  	![Web Browser](./media/web-sites-python-ptvs-django-sql/PollsDjangoCommonBrowserLocalMenu.png)
+    ![Web Browser](./media/web-sites-python-ptvs-django-sql/PollsDjangoCommonBrowserLocalMenu.png)
 
 1.  Enter the credentials for the user you created when you synchronized the database.
 
-  	![Web Browser](./media/web-sites-python-ptvs-django-sql/PollsDjangoCommonBrowserLocalLogin.png)
+    ![Web Browser](./media/web-sites-python-ptvs-django-sql/PollsDjangoCommonBrowserLocalLogin.png)
 
 1.  Click **Create Sample Polls**.
 
-  	![Web Browser](./media/web-sites-python-ptvs-django-sql/PollsDjangoCommonBrowserNoPolls.png)
+    ![Web Browser](./media/web-sites-python-ptvs-django-sql/PollsDjangoCommonBrowserNoPolls.png)
 
 1.  Click on a poll and vote.
 
-  	![Web Browser](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqliteBrowser.png)
+    ![Web Browser](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqliteBrowser.png)
 
 ## Create a SQL Database
 
@@ -96,17 +96,17 @@ You can create a database by following these steps.
 
 1.  At the bottom of the navigation pane, click **NEW**. , click **Data + Storage** > **SQL Database**.
 
-  	<!-- ![New Button](./media/web-sites-python-ptvs-django-sql/PollsCommonAzurePlusNew.png) -->
+    <!-- ![New Button](./media/web-sites-python-ptvs-django-sql/PollsCommonAzurePlusNew.png) -->
 
 1.  Configure the new SQL Database by creating a new resource group and select the appropriate location for it.
 
-  	<!-- ![Quick Create SQL Database](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlCreate.png) -->
+    <!-- ![Quick Create SQL Database](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlCreate.png) -->
 
 1.  Once the SQL Database is created, click **Open in Visual Studio** in the database blade.
 2.  Click **Configure your firewall**.
 3.  In the **Firewall Settings** blade, add a firewall rule with **START IP** and **END IP** set to the public IP address of your development machine. Click **Save**.
 
-	This will allow connections to the database server from your development machine.
+    This will allow connections to the database server from your development machine.
 
 4.  Back in the database blade, click **Properties**, then click **Show database connection strings**. 
 
@@ -143,17 +143,17 @@ Edit the definition of `DATABASES` to use the values above.
 
 1.  Install the package `pyodbc` using **pip**.
 
-  	![Install Python Package Dialog](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlInstallPackagePyodbc.png)
+    ![Install Python Package Dialog](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlInstallPackagePyodbc.png)
 
 1.  Install the package `django-pyodbc-azure` using **pip**.
 
-  	![Install Python Package Dialog](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlInstallPackageDjangoPyodbcAzure.png)
+    ![Install Python Package Dialog](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlInstallPackageDjangoPyodbcAzure.png)
 
 1.  Right-click the project node and select **Python**, **Django Sync DB**. 
 
     This will create the tables for the SQL database we created in the previous section. Follow the prompts to create a user, which doesn't have to match the user in the sqlite database created in the first section.
 
-  	![Django Management Console Window](./media/web-sites-python-ptvs-django-sql/PollsDjangoConsole.png)
+    ![Django Management Console Window](./media/web-sites-python-ptvs-django-sql/PollsDjangoConsole.png)
 
 1.  Run the application with `F5`. Polls that are created with **Create Sample Polls** and the data submitted by voting will be serialized in the SQL database.
 
@@ -164,20 +164,20 @@ The Azure .NET SDK provides an easy way to deploy your web web app to Azure App 
 
 1.  In **Solution Explorer**, right-click on the project node and select **Publish**.
 
-  	<!-- ![Publish Web Dialog](./media/web-sites-python-ptvs-django-sql/PollsCommonPublishWebSiteDialog.png) -->
+    <!-- ![Publish Web Dialog](./media/web-sites-python-ptvs-django-sql/PollsCommonPublishWebSiteDialog.png) -->
 
 1.  Click on **Microsoft Azure Web Apps**.
 
 1.  Click on **New** to create a new web app.
 
 1.  Fill in the following fields and click **Create**.
-	-	**Web App name**
-	-	**App Service plan**
-	-	**Resource group**
-	-	**Region**
-	-	Leave **Database server** set to **No database**
+    -   **Web App name**
+    -   **App Service plan**
+    -   **Resource group**
+    -   **Region**
+    -   Leave **Database server** set to **No database**
 
-  	<!-- ![Create Site on Microsoft Azure Dialog](./media/web-sites-python-ptvs-django-sql/PollsCommonCreateWebSite.png) -->
+    <!-- ![Create Site on Microsoft Azure Dialog](./media/web-sites-python-ptvs-django-sql/PollsCommonCreateWebSite.png) -->
 
 1.  Accept all other defaults and click **Publish**.
 
@@ -185,7 +185,7 @@ The Azure .NET SDK provides an easy way to deploy your web web app to Azure App 
 
     Congratulations!
 
-  	![Web Browser](./media/web-sites-python-ptvs-django-sql/PollsDjangoAzureBrowser.png)
+    ![Web Browser](./media/web-sites-python-ptvs-django-sql/PollsDjangoAzureBrowser.png)
 
 ## Next steps
 
@@ -220,3 +220,4 @@ Follow these links to learn more about Python Tools for Visual Studio, Django an
 [Cloud Service Projects]: http://go.microsoft.com/fwlink/?LinkId=624028
 [Django Documentation]: https://www.djangoproject.com/
 [SQL Database]: /documentation/services/sql-database/
+

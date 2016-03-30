@@ -1,20 +1,20 @@
 <properties
-	pageTitle="The Azure CLI for Mac, Linux, and Windows"
-	description="Install and configure the Azure CLI for Mac, Linux, and Windows to manage Azure Services"
-	editor="tysonn"
-	manager="timlt"
-	documentationCenter=""
-	authors="squillace"
-	services=""/>
+    pageTitle="The Azure CLI for Mac, Linux, and Windows"
+    description="Install and configure the Azure CLI for Mac, Linux, and Windows to manage Azure Services"
+    editor="tysonn"
+    manager="timlt"
+    documentationCenter=""
+    authors="squillace"
+    services=""/>
 
 <tags
-	ms.service="multiple"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="command-line-interface"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="03/10/2015"
-	ms.author="rasquill"/>
+    ms.service="multiple"
+    ms.workload="multiple"
+    ms.tgt_pltfrm="command-line-interface"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="03/10/2015"
+    ms.author="rasquill"/>
 
 # Install and Configure the Azure CLI
 
@@ -45,39 +45,39 @@ While some commands provided by the Azure CLI will work without an Azure subscri
 
 The Azure CLI is accessed using the `azure` command. To see a list of commands available, use the `azure` command with no parameters. You should see help information similar to the following:
 
-	info:             _    _____   _ ___ ___
-	info:            /_\  |_  / | | | _ \ __|
-	info:      _ ___/ _ \__/ /| |_| |   / _|___ _ _
-	info:    (___  /_/ \_\/___|\___/|_|_\___| _____)
-	info:       (_______ _ _)         _ ______ _)_ _
-	info:              (______________ _ )   (___ _ _)
-	info:
-	info:    Microsoft Azure: Microsoft's Cloud Platform
-	info:
-	info:    Tool version 0.8.10
-	help:
-	help:    Display help for a given command
-	help:      help [options] [command]
-	help:
-	help:    Opens the portal in a browser
-	help:      portal [options]
-	help:
-	help:    Commands:
-	help:      account        Commands to manage your account information and publish settings
-	help:      config         Commands to manage your local settings
-	help:      hdinsight      Commands to manage your HDInsight accounts
-	help:      mobile         Commands to manage your Mobile Services
-	help:      network        Commands to manage your Networks
-	help:      sb             Commands to manage your Service Bus configuration
-	help:      service        Commands to manage your Cloud Services
-	help:      site           Commands to manage your Web Sites
-	help:      sql            Commands to manage your SQL Server accounts
-	help:      storage        Commands to manage your Storage objects
-	help:      vm             Commands to manage your Virtual Machines
-	help:
-	help:    Options:
-	help:      -h, --help     output usage information
-	help:      -v, --version  output the application version
+    info:             _    _____   _ ___ ___
+    info:            /_\  |_  / | | | _ \ __|
+    info:      _ ___/ _ \__/ /| |_| |   / _|___ _ _
+    info:    (___  /_/ \_\/___|\___/|_|_\___| _____)
+    info:       (_______ _ _)         _ ______ _)_ _
+    info:              (______________ _ )   (___ _ _)
+    info:
+    info:    Microsoft Azure: Microsoft's Cloud Platform
+    info:
+    info:    Tool version 0.8.10
+    help:
+    help:    Display help for a given command
+    help:      help [options] [command]
+    help:
+    help:    Opens the portal in a browser
+    help:      portal [options]
+    help:
+    help:    Commands:
+    help:      account        Commands to manage your account information and publish settings
+    help:      config         Commands to manage your local settings
+    help:      hdinsight      Commands to manage your HDInsight accounts
+    help:      mobile         Commands to manage your Mobile Services
+    help:      network        Commands to manage your Networks
+    help:      sb             Commands to manage your Service Bus configuration
+    help:      service        Commands to manage your Cloud Services
+    help:      site           Commands to manage your Web Sites
+    help:      sql            Commands to manage your SQL Server accounts
+    help:      storage        Commands to manage your Storage objects
+    help:      vm             Commands to manage your Virtual Machines
+    help:
+    help:    Options:
+    help:      -h, --help     output usage information
+    help:      -v, --version  output the application version
 
 The top level commands listed above contain commands for working with a specific area of Azure. For example, the `azure account` command contains commands that relate to your Azure subscription, such as the `download` and `import` settings used previously. See [Using the Azure CLI for Mac, Linux, and Windows] for details on the available commands and options.
 
@@ -85,19 +85,19 @@ Most commands are formatted as `azure <command> <operation> [parameters]` and pe
 
 * To view subscriptions that you have imported, use:
 
-		azure account list
+        azure account list
 
 * If you have imported subscriptions, use the following to set one as default:
 
-		azure account set <subscription>
+        azure account set <subscription>
 
 The `--help` or `-h` parameter can be used to view help for specific commands. Alternately, the `azure help [command] [options]` format can also be used to return the same information. For example, the following commands all return the same information:
 
-	azure account set --help
+    azure account set --help
 
-	azure account set -h
+    azure account set -h
 
-	azure help account set
+    azure help account set
 
 When in doubt about the parameters needed by a command, refer to help using `--help`, `-h` or `azure help [command]`.
 
@@ -113,11 +113,11 @@ To support the new Resource Manager, the Azure CLI allows you to switch between 
 
 The Azure CLI defaults to Azure Service Management mode. To switch to Resource Manager mode, use the following to enable command:
 
-	azure config mode arm
+    azure config mode arm
 
 To change back to Azure service management mode, use the following command:
 
-	azure config mode asm
+    azure config mode asm
 
 >[AZURE.NOTE] The Resource Manager mode and Azure Service Management mode are mutually exclusive. That is, resources created in one mode cannot be managed from the other mode.
 
@@ -129,44 +129,44 @@ The Azure CLI allows you to easily manage Azure services. In this example, you w
 
 1. Use the following command to create a new Azure Website. Replace **mywebsite** with a unique name.
 
-		azure site create mywebsite
+        azure site create mywebsite
 
-	You will be prompted to specify the region that the website will be created in. Select a region that is geographically near you. After this command completes, the website will be available at http://mywebsite.azurewebsites.net (replace **mywebsite** with the name you specified.)
+    You will be prompted to specify the region that the website will be created in. Select a region that is geographically near you. After this command completes, the website will be available at http://mywebsite.azurewebsites.net (replace **mywebsite** with the name you specified.)
 
-	> [AZURE.NOTE] If you use Git for project source control, you can specify the `--git` parameter to create a Git repository on Azure for this website. This will also initialize a Git repository in the directory from which the command was ran if one does not already exist. It will also create a Git remote named __azure__, which can be used to push deployments to the Azure Website using the `git push azure master` command.
+    > [AZURE.NOTE] If you use Git for project source control, you can specify the `--git` parameter to create a Git repository on Azure for this website. This will also initialize a Git repository in the directory from which the command was ran if one does not already exist. It will also create a Git remote named __azure__, which can be used to push deployments to the Azure Website using the `git push azure master` command.
 
-	> [AZURE.NOTE] If you receive an error that 'site' is not an azure command, the Azure CLI is most likely in resource group mode. To change back to resource mode, use the `azure config mode asm` command.
+    > [AZURE.NOTE] If you receive an error that 'site' is not an azure command, the Azure CLI is most likely in resource group mode. To change back to resource mode, use the `azure config mode asm` command.
 
 2. Use the following command to list websites for your subscription:
 
-		azure site list
+        azure site list
 
-	The list should contain the site created in the previous step.
+    The list should contain the site created in the previous step.
 
 2. Use the following command to stop the website. Replace **mywebsite** with the site name.
 
-		azure site stop mywebsite
+        azure site stop mywebsite
 
-	After the command completes, you can refresh the browser to verify that the site has been stopped.
+    After the command completes, you can refresh the browser to verify that the site has been stopped.
 
 3. Use the following command to start the website. Replace **mywebsite** with the site name.
 
-		azure site start mywebsite
+        azure site start mywebsite
 
-	After the command completes, you can refresh the browser to verify that the site has been started.
+    After the command completes, you can refresh the browser to verify that the site has been started.
 
 4. Use the following command to delete the website. Replace **mywebsite** with the site name.
 
-		azure site delete mywebsite
+        azure site delete mywebsite
 
-	After the command completes, use the `azure site list` command to verify that the website no longer exists.
+    After the command completes, use the `azure site list` command to verify that the website no longer exists.
 
 <a id="script"></a>
 ## How to script the Azure CLI for Mac, Linux, and Windows
 
 While you can use the Azure CLI to manually issue commands, you can also create complex automation workflows by leveraging the capabilities of your command-line interpreter and other command-line utilities available on your system. For example, the following command will stop all running Azure Websites:
 
-	azure site list | grep 'Running' | awk '{system("azure site stop "$2)}'
+    azure site list | grep 'Running' | awk '{system("azure site stop "$2)}'
 
 This example pipes a list of websites to the `grep` command, which inspects each line for the string 'Running'. Any lines that match are then piped to the `awk` command, which calls `azure site stop` and uses the second column passed to it (the running site name) as the site name to stop.
 
@@ -184,53 +184,53 @@ When creating scripts, you often need to capture the output of a command and eit
 
 For example, the following output is returned from the `azure site list` command:
 
-	info:    Executing command site list
-	+ Enumerating sites
-	data:    Name           Status   Mode  Host names
-	data:    -------------  -------  ----  -------------------------------
-	data:    myawesomesite  Running  Free  myawesomesite.azurewebsites.net
-	info:    site list command OK
+    info:    Executing command site list
+    + Enumerating sites
+    data:    Name           Status   Mode  Host names
+    data:    -------------  -------  ----  -------------------------------
+    data:    myawesomesite  Running  Free  myawesomesite.azurewebsites.net
+    info:    site list command OK
 
 If the `--verbose` or `-v` parameter is specified, information similar to the following is returned:
 
-	info:    Executing command site list
-	verbose: Subscription ####################################
-	verbose: Enumerating sites
-	verbose: [
-	verbose:     {
-	verbose:         ComputeMode: 'Shared',
-	verbose:         HostNameSslStates: {
-	verbose:             HostNameSslState: [
-	verbose:                 {
-	verbose:                     IpBasedSslResult: {
-	verbose:                         $: { i:nil: 'true' }
-	verbose:                     },
-	verbose:                     SslState: 'Disabled',
-	verbose:                     ToUpdateIpBasedSsl: {
-	verbose:                         $: { i:nil: 'true' }
-	verbose:                     },
-	verbose:                     VirtualIP: {
-	verbose:                         $: { i:nil: 'true' }
-	verbose:                     },
-	verbose:                     Thumbprint: {
-	verbose:                         $: { i:nil: 'true' }
-	verbose:                     },
-	verbose:                     ToUpdate: {
-	verbose:                         $: { i:nil: 'true' }
-	verbose:                     },
-	verbose:                     Name: 'myawesomesite.azurewebsites.net'
-	verbose:                 },
-	...
-	verbose:     }
-	verbose: ]
-	data:    Name           Status   Mode  Host names
-	data:    -------------  -------  ----  -------------------------------
-	data:    myawesomesite  Running  Free  myawesomesite.azurewebsites.net
-	info:    site list command OK
+    info:    Executing command site list
+    verbose: Subscription ####################################
+    verbose: Enumerating sites
+    verbose: [
+    verbose:     {
+    verbose:         ComputeMode: 'Shared',
+    verbose:         HostNameSslStates: {
+    verbose:             HostNameSslState: [
+    verbose:                 {
+    verbose:                     IpBasedSslResult: {
+    verbose:                         $: { i:nil: 'true' }
+    verbose:                     },
+    verbose:                     SslState: 'Disabled',
+    verbose:                     ToUpdateIpBasedSsl: {
+    verbose:                         $: { i:nil: 'true' }
+    verbose:                     },
+    verbose:                     VirtualIP: {
+    verbose:                         $: { i:nil: 'true' }
+    verbose:                     },
+    verbose:                     Thumbprint: {
+    verbose:                         $: { i:nil: 'true' }
+    verbose:                     },
+    verbose:                     ToUpdate: {
+    verbose:                         $: { i:nil: 'true' }
+    verbose:                     },
+    verbose:                     Name: 'myawesomesite.azurewebsites.net'
+    verbose:                 },
+    ...
+    verbose:     }
+    verbose: ]
+    data:    Name           Status   Mode  Host names
+    data:    -------------  -------  ----  -------------------------------
+    data:    myawesomesite  Running  Free  myawesomesite.azurewebsites.net
+    info:    site list command OK
 
 Note that the `verbose:` information appears to be JSON formatted data. You can use the `--json` parameter to return the information in JSON format if you are working with utilities that natively understand JSON, such as [jsawk](https://github.com/micha/jsawk) or [jq](http://stedolan.github.io/jq/). For example:
 
-	azure site list --json | jsawk -n 'out(this.Name)' | xargs -L 1 azure site delete -q
+    azure site list --json | jsawk -n 'out(this.Name)' | xargs -L 1 azure site delete -q
 
 The command above retrieves a list of websites as JSON, then uses jsawk to retrieve the site names, and finally uses xargs to run a site delete command for each site, passing the site name as a parameter.
 
@@ -240,7 +240,7 @@ The command above retrieves a list of websites as JSON, then uses jsawk to retri
 
 While the Azure CLI does log error information to STDERR, additional information on errors may also be logged to an **azure.err** file in the directory that the script was ran from. If information is logged to this file, the following will be written to STDOUT:
 
-	info:    Error information has been recorded to azure.err
+    info:    Error information has been recorded to azure.err
 
 ### Exit status
 
@@ -280,3 +280,4 @@ If you are writing a script that relies on the exit status, please verify that t
 [portal]: https://manage.windowsazure.com
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
 [Using the Azure CLI]: virtual-machines-command-line-tools.md
+

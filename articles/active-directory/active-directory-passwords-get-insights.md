@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Get Insights: Azure AD Password Management Reports | Microsoft Azure" 
-	description="This article describes how to use reports to get insight into Password Management operations in your organization." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
-	editor="billmath"/>
+    pageTitle="Get Insights: Azure AD Password Management Reports | Microsoft Azure" 
+    description="This article describes how to use reports to get insight into Password Management operations in your organization." 
+    services="active-directory" 
+    documentationCenter="" 
+    authors="asteen" 
+    manager="kbrint" 
+    editor="billmath"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/16/2015" 
-	ms.author="asteen"/>
+    ms.service="active-directory" 
+    ms.workload="identity" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/16/2015" 
+    ms.author="asteen"/>
 
 # How to get operational insights with Password Management reports
 This section describes how you can use Azure Active Directory’s Password Management reports to view how users are using password reset and change in your organization.
@@ -40,11 +40,11 @@ Once you deploy password reset, one of the most common next steps is to see how 
 ## How to view Password Management reports
 To find the Password Management reports, follow the steps below:
 
-1.	Click on the **Active Directory** extension in the [Azure Management Portal](https://manage.windowsazure.com).
-2.	Select your directory from the list that appears in the portal.
-3.	Click on the **Reports** tab.
-4.	Look under the **Activity Logs** section.
-5.	Select either the **Password reset activity** report or the **Password reset registration activity** report.
+1.  Click on the **Active Directory** extension in the [Azure Management Portal](https://manage.windowsazure.com).
+2.  Select your directory from the list that appears in the portal.
+3.  Click on the **Reports** tab.
+4.  Look under the **Activity Logs** section.
+5.  Select either the **Password reset activity** report or the **Password reset registration activity** report.
 
     ![][001]
 
@@ -170,3 +170,4 @@ Below are links to all of the Azure AD Password Reset documentation pages:
 [001]: ./media/active-directory-passwords-get-insights/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-get-insights/002.jpg "Image_002.jpg"
 [003]: ./media/active-directory-passwords-get-insights/003.jpg "Image_003.jpg"
+

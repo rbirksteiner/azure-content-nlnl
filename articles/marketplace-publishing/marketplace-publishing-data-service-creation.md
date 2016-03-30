@@ -19,7 +19,7 @@
 # Data Service Publishing Guide for the Azure Marketplace
 After completing the step 1, [Account Creation and Registration][link-acct-creation], we guided you through the [General Non-Technical](marketplace-publishing-prerequisites.md) and [Technical Requirements](marketplace-publishing-data-service-creation-prerequisites.md) of a Data Service offer on Azure Marketplace. Now we will walk you through the steps for creating a Data Service offer on the [Publishing Portal][link-pubportal] for the Azure Marketplace.
 
-## 1.	Login to the Publishing Portal.
+## 1.   Login to the Publishing Portal.
 
 Go to [https://publish.windowsazure.com](https://publish.windowsazure.com. )
 
@@ -27,23 +27,23 @@ Go to [https://publish.windowsazure.com](https://publish.windowsazure.com. )
 
 Click on the **Publish a Data Services** tile if this is the first login into the publishing portal.
 
-## 2.	Choose **Data Services** in the navigation menu on the left side.
+## 2.   Choose **Data Services** in the navigation menu on the left side.
 
   ![drawing](media/marketplace-publishing-data-service-creation/pubportal-main-nav.png)
 
-## 3.	Create a New Data Service
+## 3.   Create a New Data Service
 
 Fill in the title for your new Data Service Offer and click on “+” on the right.
 
   ![drawing](media/marketplace-publishing-data-service-creation/step-3.png)
 
-## 4.	Review the sub-menu under the newly created Data Service in the navigation menu.
+## 4.   Review the sub-menu under the newly created Data Service in the navigation menu.
 
 Click on the **Walkthrough** tab and review all necessary steps needed to publish properly the Data Service on the Azure Marketplace.
 
 > [AZURE.TIP] You always can click on the links in the “Walkthrough” page or use tabs on the Data Service offer’s sub-menu on the left side.
 
-## 5.	Create a new Plan.
+## 5.   Create a new Plan.
 
 ### Offers, Plans, transactions.
 
@@ -97,10 +97,10 @@ It’s Azure Marketplace Service layer responsibility to monitor (meter) number 
 |**This plan requires a promotion code to purchase?**| Publishers have an option to limit access to their Service Plans by providing a special code, called “A Promocode” to specific customers. Only end-users which will have this Promocode will be able to subscribe to the Plan. If you choose “No”, then you agree that everyone from the region where the offer is available (See [Marketplace Marketing Content Guide](marketplace-publishing-push-to-staging.md) for more details) will be able to subscribe to this plan. No further questions will be asked.|
 |**Also hide this plan from anyone who doesn’t have a valid promotion code?**|If the answer to the previous question is “Yes” the Publisher has an option to completely remove this plan from appearing in the UI of the Marketplace. It means, customers will not see this plan in the Offer’s details page. End-users which will receive a promocode to purchase it, will be able to subscribe to it using this promocode.|
 
-## 6.	Create your Marketplace marketing content
+## 6.   Create your Marketplace marketing content
 For How to provide information required in **Marketing, Pricing, Support and Categories** tabs please visit [Marketplace Marketing Content Guide](marketplace-publishing-push-to-staging.md) which is common to all artifacts published in the Azure Marketplace.  
 
-## 7.	Connect your offer to your Service (SQL Azure based or Web Service based).
+## 7.   Connect your offer to your Service (SQL Azure based or Web Service based).
 
 Click on the **Data Services** sub-menu.
 
@@ -146,3 +146,4 @@ Now that you've created your Data Service offer, please ensure that you complete
 
 [link-acct-creation]:marketplace-publishing-microsoft-accounts-creation-registration.md
 [link-pubportal]:https://publish.windowsazure.com
+

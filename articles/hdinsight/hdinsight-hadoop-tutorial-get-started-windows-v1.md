@@ -74,7 +74,7 @@ This tutorial uses only the default blob and the default storage account.
 1. Sign in to the [Azure Classic Portal][azure-management-portal].
 2. Click **NEW** in the lower-left corner and then enter the values as shown in the image.
 
-	![Azure Classic Portal where you can use Quick Create to set up a new storage account.][image-hdi-storageaccount-quickcreate]
+    ![Azure Classic Portal where you can use Quick Create to set up a new storage account.][image-hdi-storageaccount-quickcreate]
 
 >[AZURE.NOTE]  Make sure you create the storage account in a location that is supported for the cluster. These are:  **East Asia**, **Southeast Asia**, **North Europe**, **West Europe**, **East US**, **West US**, **North Central US**, **South Central US**.
 
@@ -93,27 +93,27 @@ When you provision a cluster, you provision Azure compute resources that contain
 
 2. Click **NEW** in the lower-left corner and then enter the values as shown in the image.
 
-	![Creation of a Hadoop cluster in HDInsight.][image-hdi-quickcreatecluster]
+    ![Creation of a Hadoop cluster in HDInsight.][image-hdi-quickcreatecluster]
 
 <!-- COMMENTED OUT TEXT BEGINS --
 
 4. Enter or select the following values:
 
 
-	<table border="1">
-	<tr><th>Name</th><th>Value</th></tr>
-	<tr><td>Cluster Name</td><td>Name of the cluster.</td></tr>
-	<tr><td>Cluster Size</td><td>Number of data nodes you want to deploy. The default value is 4. But the option to use 1 or 2 data nodes is also available from the drop-down list. Any number of cluster nodes can be specified by using the <strong>Custom Create</strong> option. Pricing details about the billing rates for various cluster sizes are available. Click the <strong>?</strong> symbol above the drop-down list and follow the link that appears.</td></tr>
-	<tr><td>Password</td><td>The password for the <i>admin</i> account. The cluster user name "admin" is specified when you are not using the <strong>Custom Create</strong> option. Note that this is NOT the Windows Administrator account for the VMs on which the clusters are provisioned. The account name can be changed by using the <strong>Custom Create</strong> wizard.</td></tr>
-	<tr><td>Storage Account</td><td>Click the drop-down list, and select the storage account that you created. <br/>
+    <table border="1">
+    <tr><th>Name</th><th>Value</th></tr>
+    <tr><td>Cluster Name</td><td>Name of the cluster.</td></tr>
+    <tr><td>Cluster Size</td><td>Number of data nodes you want to deploy. The default value is 4. But the option to use 1 or 2 data nodes is also available from the drop-down list. Any number of cluster nodes can be specified by using the <strong>Custom Create</strong> option. Pricing details about the billing rates for various cluster sizes are available. Click the <strong>?</strong> symbol above the drop-down list and follow the link that appears.</td></tr>
+    <tr><td>Password</td><td>The password for the <i>admin</i> account. The cluster user name "admin" is specified when you are not using the <strong>Custom Create</strong> option. Note that this is NOT the Windows Administrator account for the VMs on which the clusters are provisioned. The account name can be changed by using the <strong>Custom Create</strong> wizard.</td></tr>
+    <tr><td>Storage Account</td><td>Click the drop-down list, and select the storage account that you created. <br/>
 
-	When a storage account is chosen, it cannot be changed. If the storage account is removed, the cluster will no longer be available for use.
+    When a storage account is chosen, it cannot be changed. If the storage account is removed, the cluster will no longer be available for use.
 
-	The HDInsight cluster is located in the same datacenter as the storage account.
-	</td></tr>
-	</table>
+    The HDInsight cluster is located in the same datacenter as the storage account.
+    </td></tr>
+    </table>
 
-	Keep a copy of the cluster name. You will need it later in the tutorial.
+    Keep a copy of the cluster name. You will need it later in the tutorial.
 
 
 5. Click **Create HDInsight Cluster**. When the provisioning completes, the  status column shows **Running**.
@@ -149,15 +149,15 @@ Now that you have provisioned an HDInsight cluster, the next step is to run a Hi
 3. Click the name of the cluster that you want to use to run the Hive job, and then click **QUERY CONSOLE** at the bottom of the page.
 4. A webpage opens in a different browser tab. Enter the Hadoop user account and password. The default user name is **admin**; the password is what you entered while provisioning the cluster. The dashboard looks like this:
 
-	![Hive Editor tab in the HDInsight cluster dashboard.][img-hdi-dashboard]
+    ![Hive Editor tab in the HDInsight cluster dashboard.][img-hdi-dashboard]
 
-	There are several tabs at the top of the page. The default tab is **Hive Editor**, and the other tabs are **Job History** and **File Browser**. By using the dashboard, you can submit Hive queries, check Hadoop job logs, and browse files in storage.
+    There are several tabs at the top of the page. The default tab is **Hive Editor**, and the other tabs are **Job History** and **File Browser**. By using the dashboard, you can submit Hive queries, check Hadoop job logs, and browse files in storage.
 
-	> [AZURE.NOTE] Note that the URL of the webpage is *&lt;ClusterName&gt;.azurehdinsight.net*. So instead of opening the dashboard from the portal, you can open the dashboard from a web browser by using the URL.
+    > [AZURE.NOTE] Note that the URL of the webpage is *&lt;ClusterName&gt;.azurehdinsight.net*. So instead of opening the dashboard from the portal, you can open the dashboard from a web browser by using the URL.
 
 6. On the **Hive Editor** tab, for **Query Name**, enter **HTC20**.  The query name is the job title. In the query pane, enter the Hive query as shown in the image:
 
-	![Hive query entered in the query pane of the Hive Editor.][img-hdi-dashboard-query-select]
+    ![Hive query entered in the query pane of the Hive Editor.][img-hdi-dashboard-query-select]
 
 4. Click **Submit**. It takes a few moments to get the results back. The screen refreshes every 30 seconds. You can also click **Refresh** to refresh the screen.
 
@@ -177,7 +177,7 @@ Now that you have provisioned an HDInsight cluster, the next step is to run a Hi
 3. Click **admin** and then click the GUID that has the last modified time (a little after the job start time you noted earlier). Copy this GUID. You will need it in the next section.
 
 
-   	![The Hive query output file GUID listed in the File Browser tab.][img-hdi-dashboard-query-browse-output]
+    ![The Hive query output file GUID listed in the File Browser tab.][img-hdi-dashboard-query-browse-output]
 
 
 ##<a name="powerquery"></a>Connect to Microsoft business intelligence tools for Excel
@@ -195,7 +195,7 @@ You must have Excel 2013 or 2010 installed to complete this part of the tutorial
 1. Open Excel, and create a new workbook.
 3. Click the **Power Query** menu, click **From Other Sources**, and then click **From Azure HDInsight**.
 
-	![Excel PowerQuery Import menu open for Azure HDInsight.][image-hdi-gettingstarted-powerquery-importdata]
+    ![Excel PowerQuery Import menu open for Azure HDInsight.][image-hdi-gettingstarted-powerquery-importdata]
 
 3. Enter the **Account Name** of the Azure Blob Storage account that is associated with your cluster, and then click **OK**. (This is the storage account you created earlier in the tutorial.)
 4. Enter the **Account Key** for the Azure Blob Storage account, and then click **Save**.
@@ -203,7 +203,7 @@ You must have Excel 2013 or 2010 installed to complete this part of the tutorial
 
 6. Locate **stdout** in the **Name** column. Verify that the GUID in the corresponding **Folder Path** column matches the GUID you copied earlier. A match suggests that the output data corresponds to the job you submitted. Click **Binary** in the column left of **stdout**.
 
-	![Finding the data output by GUID in the list of content.][image-hdi-gettingstarted-powerquery-importdata2]
+    ![Finding the data output by GUID in the list of content.][image-hdi-gettingstarted-powerquery-importdata2]
 
 9. Click **Close & Load** in the upper-left corner to import the Hive job output into Excel.
 

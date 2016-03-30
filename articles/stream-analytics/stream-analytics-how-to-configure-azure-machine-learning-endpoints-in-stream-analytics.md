@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="How to configure Azure Machine Learning endpoints in Stream Analytics | Microsoft Azure" 
-	description="Machine Language User defined functions in Stream Analytics"
-	keywords=""
-	documentationCenter=""
-	services="stream-analytics"
-	authors="jeffstokes72" 
-	manager="paulettm" 
-	editor="cgronlun"/>
+    pageTitle="How to configure Azure Machine Learning endpoints in Stream Analytics | Microsoft Azure" 
+    description="Machine Language User defined functions in Stream Analytics"
+    keywords=""
+    documentationCenter=""
+    services="stream-analytics"
+    authors="jeffstokes72" 
+    manager="paulettm" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="stream-analytics" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="data-services" 
-	ms.date="12/10/2015" 
-	ms.author="jeffstok"
+    ms.service="stream-analytics" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="data-services" 
+    ms.date="12/10/2015" 
+    ms.author="jeffstok"
 />
 
 # Machine Learning integration in Stream Analytics
@@ -56,21 +56,21 @@ PUT : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/M
 
 Example request body:  
 
-	{
-		"name": "newudf",
-		"properties": {
-			"type": "Scalar",
-			"properties": {
-				"binding": {
-					"type": "Microsoft.MachineLearning/WebService",
-					"properties": {
-						"endpoint": "https://ussouthcentral.services.azureml.net/workspaces/f80d5d7a77fb4b46bf2a30c63c078dca/services/b7be5e40fd194258796fb402c1958eaf/execute ",
-						"apiKey": "replacekeyhere"
-					}
-				}
-			}
-		}
-	}
+    {
+        "name": "newudf",
+        "properties": {
+            "type": "Scalar",
+            "properties": {
+                "binding": {
+                    "type": "Microsoft.MachineLearning/WebService",
+                    "properties": {
+                        "endpoint": "https://ussouthcentral.services.azureml.net/workspaces/f80d5d7a77fb4b46bf2a30c63c078dca/services/b7be5e40fd194258796fb402c1958eaf/execute ",
+                        "apiKey": "replacekeyhere"
+                    }
+                }
+            }
+        }
+    }
 
 ## Call RetrieveDefaultDefinition endpoint for default UDF
 
@@ -80,52 +80,52 @@ POST : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/
 
 Example request body:  
 
-	{
-		"bindingType": "Microsoft.MachineLearning/WebService",
-		"bindingRetrievalProperties": {
-			"executeEndpoint": null,
-			"udfType": "Scalar"
-		}
-	}
+    {
+        "bindingType": "Microsoft.MachineLearning/WebService",
+        "bindingRetrievalProperties": {
+            "executeEndpoint": null,
+            "udfType": "Scalar"
+        }
+    }
 
 A sample output of this would look something like below.  
 
 
-	{
-		"name": "newudf",
-		"properties": {
-			"type": "Scalar",
-			"properties": {
-				"inputs": [{
-					"dataType": "nvarchar(max)",
-					"isConfigurationParameter": null
-				}],
-				"output": {
-					"dataType": "nvarchar(max)"
-				},
-				"binding": {
-					"type": "Microsoft.MachineLearning/WebService",
-					"properties": {
-						"endpoint": "https://ussouthcentral.services.azureml.net/workspaces/f80d5d7a77ga4a4bbf2a30c63c078dca/services/b7be5e40fd194258896fb602c1858eaf/execute",
-						"apiKey": null,
-						"inputs": {
-							"name": "input1",
-							"columnNames": [{
-								"name": "tweet",
-								"dataType": "string",
-								"mapTo": 0
-							}]
-						},
-						"outputs": [{
-							"name": "Sentiment",
-							"dataType": "string"
-						}],
-						"batchSize": 10
-					}
-				}
-			}
-		}
-	}
+    {
+        "name": "newudf",
+        "properties": {
+            "type": "Scalar",
+            "properties": {
+                "inputs": [{
+                    "dataType": "nvarchar(max)",
+                    "isConfigurationParameter": null
+                }],
+                "output": {
+                    "dataType": "nvarchar(max)"
+                },
+                "binding": {
+                    "type": "Microsoft.MachineLearning/WebService",
+                    "properties": {
+                        "endpoint": "https://ussouthcentral.services.azureml.net/workspaces/f80d5d7a77ga4a4bbf2a30c63c078dca/services/b7be5e40fd194258896fb602c1858eaf/execute",
+                        "apiKey": null,
+                        "inputs": {
+                            "name": "input1",
+                            "columnNames": [{
+                                "name": "tweet",
+                                "dataType": "string",
+                                "mapTo": 0
+                            }]
+                        },
+                        "outputs": [{
+                            "name": "Sentiment",
+                            "dataType": "string"
+                        }],
+                        "batchSize": 10
+                    }
+                }
+            }
+        }
+    }
 
 ## Patch UDF with the response 
 
@@ -139,13 +139,13 @@ Request Body: Output from  RetrieveDefaultDefinition
 
 Now query the UDF (here named scoreTweet) for every input event and write a response for that event to an output.  
 
-	{
-		"name": "transformation",
-		"properties": {
-			"streamingUnits": null,
-			"query": "select *,scoreTweet(Tweet) TweetSentiment into blobOutput from blobInput"
-		}
-	}
+    {
+        "name": "transformation",
+        "properties": {
+            "streamingUnits": null,
+            "query": "select *,scoreTweet(Tweet) TweetSentiment into blobOutput from blobInput"
+        }
+    }
 
 For further information see:
 

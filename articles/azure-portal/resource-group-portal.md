@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Use Azure portal to manage Azure resources | Microsoft Azure" 
-	description="Group multiple resources as a logical group that becomes the lifecycle boundary for resources contained within it." 
-	services="azure-resource-manager,azure-portal" 
-	documentationCenter="" 
-	authors="tfitzmac" 
-	manager="wpickett" 
-	editor=""/>
+    pageTitle="Use Azure portal to manage Azure resources | Microsoft Azure" 
+    description="Group multiple resources as a logical group that becomes the lifecycle boundary for resources contained within it." 
+    services="azure-resource-manager,azure-portal" 
+    documentationCenter="" 
+    authors="tfitzmac" 
+    manager="wpickett" 
+    editor=""/>
 
 <tags 
-	ms.service="azure-resource-manager" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
-	ms.author="tomfitz"/>
+    ms.service="azure-resource-manager" 
+    ms.workload="multiple" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/02/2015" 
+    ms.author="tomfitz"/>
 
 
 # Using the Azure Portal to manage your Azure resources
@@ -153,3 +153,4 @@ Getting Started
 
 
  
+

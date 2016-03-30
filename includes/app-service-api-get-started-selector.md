@@ -10,3 +10,4 @@
 - [(Java | 1. Create and deploy)](app-service-api-java-api-app.md#java)
 - [(Java | 2. Consume from JavaScript, use CORS)](app-service-api-cors-consume-javascript.md#java)
 - [(Java | 3. Authentication overview)](app-service-api-authentication.md#java)
+

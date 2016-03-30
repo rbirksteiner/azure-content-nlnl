@@ -56,11 +56,11 @@ Most Azure services are supported over ExpressRoute.
 - Office 365 is supported over the Microsoft peering path.
 - All other services are accessible over the public peering path. The exceptions are as follows.
 
-	**The following services are not supported:**
+    **The following services are not supported:**
 
-	- CDN
-	- Visual Studio Team Services Load Testing
-	- Multi-factor Authentication
+    - CDN
+    - Visual Studio Team Services Load Testing
+    - Multi-factor Authentication
 
 ## Data and connections
 
@@ -162,8 +162,8 @@ The following steps will help Azure recognize the activation request:
 1. Establish the public peering for your ExpressRoute circuit.
 2. Perform a DNS lookup and find the IP address of **kms.core.windows.net**
 3. Then do one of the following two items so that the Key Management Service will recognize that the activation request comes from Azure and will honor the request.
-	- On your on-premises network, route the traffic destined for the IP address (obtained in step 2) back to Azure via the public peering.
-	- Have your NSP provider hair-pin the traffic back to Azure via the public peering.
+    - On your on-premises network, route the traffic destined for the IP address (obtained in step 2) back to Azure via the public peering.
+    - Have your NSP provider hair-pin the traffic back to Azure via the public peering.
 
 ### Can I change the bandwidth of an ExpressRoute circuit?
 Yes. You can increase the bandwidth of an ExpressRoute circuit without having to tear it down. You will have to follow up with your connectivity provider to ensure that they update the throttles within their networks to support the bandwidth increase. You will however not be able to reduce the bandwidth of an ExpressRoute circuit. Having to lower the bandwidth will mean a tear down and recreation of an ExpressRoute circuit.
@@ -191,10 +191,10 @@ The table below provides the increased limits for the number of VNets you can li
 | 100 Mbps     | 10                                     | 20                                            |
 | 200 Mbps     | 10                                     | 25                                            |
 | 500 Mbps     | 10                                     | 40                                            |
-| 1 Gbps       | 10                                     | 50											|
-| 2 Gbps	   | 10										| 60											|
-| 5 Gbps       | 10                                		| 75											|
-| 10 Gbps      | 10                                		|  100                                          |
+| 1 Gbps       | 10                                     | 50                                            |
+| 2 Gbps       | 10                                     | 60                                            |
+| 5 Gbps       | 10                                     | 75                                            |
+| 10 Gbps      | 10                                     |  100                                          |
 
 
 
@@ -221,7 +221,7 @@ Yes. ExpressRoute premium charges apply on top of ExpressRoute circuit charges a
 2. Review the list of service providers and locations at [ExpressRoute partners and locations](expressroute-locations.md) to ensure that your connectivity needs are met.
 3. Plan your capacity requirements by reviewing [Network planning and performance tuning for Office 365](http://aka.ms/tune/).
 4. Follow the steps listed in the workflows below to setup connectivity.
-	[ExpressRoute workflows for circuit provisioning and circuit states](expressroute-workflows.md).
+    [ExpressRoute workflows for circuit provisioning and circuit states](expressroute-workflows.md).
 
 ### Can my existing ExpressRoute circuits support connectivity to Office 365 services?
 Yes. Your existing ExpressRoute circuit can be configured to support connectivity to Office 365 services. Ensure that you have sufficient capacity to connect to Office 365 services. [Network planning and performance tuning for Office 365](http://aka.ms/tune/) will help you plan your connectivity needs. Also, see [Create and modify an ExpressRoute circuit](expressroute-howto-circuit-classic.md).
@@ -258,3 +258,4 @@ Refer to [ExpressRoute partners and locations](expressroute-locations.md) for mo
 ### Can I access Office 365 over the internet even if ExpressRoute was configured for my organization?
 Yes. Office 365 service endpoints are reachable through the internet even though ExpressRoute has been configured for your network. If you are in a location that is configured to connect to Office 365 services through ExpressRoute, you will connect through ExpressRoute.
  
+

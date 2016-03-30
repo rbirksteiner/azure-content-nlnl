@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Using Windows 10 devices in your workplace | Microsoft Azure" 
-	description="Provides a snapshot of capabilities users and IT get, contrasting the different ways a device can be provisioned and used in an enterprise with Windows 10." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="femila" 
-	manager="stevenpo" 
-	editor=""
-	tags="azure-classic-portal"/>
+    pageTitle="Using Windows 10 devices in your workplace | Microsoft Azure" 
+    description="Provides a snapshot of capabilities users and IT get, contrasting the different ways a device can be provisioned and used in an enterprise with Windows 10." 
+    services="active-directory" 
+    documentationCenter="" 
+    authors="femila" 
+    manager="stevenpo" 
+    editor=""
+    tags="azure-classic-portal"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/19/2015" 
-	ms.author="femila"/>
+    ms.service="active-directory" 
+    ms.workload="identity" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/19/2015" 
+    ms.author="femila"/>
 
 # Using Windows 10 devices in your workplace
 
@@ -54,11 +54,11 @@ Azure AD Join is a new self-service work provisioning experience in Windows 10. 
 
 **Use Azure AD Join for any of these reasons**:
 
-1.	You want to enable self-service provisioning of devices for workers on-the-go.
-2.	You provide users with work-owned mobile devices like tablets and phones.
-3.	You want to manage a set of users in Azure AD instead of AD, such as seasonal workers, contractors, or students.
-4.	You want to provide joining capabilities to workers in remote branch offices with limited on-premises infrastructure.
-5.	You do not have on-premises AD.
+1.  You want to enable self-service provisioning of devices for workers on-the-go.
+2.  You provide users with work-owned mobile devices like tablets and phones.
+3.  You want to manage a set of users in Azure AD instead of AD, such as seasonal workers, contractors, or students.
+4.  You want to provide joining capabilities to workers in remote branch offices with limited on-premises infrastructure.
+5.  You do not have on-premises AD.
 
 Some organizations will use Azure AD Join as the primary way to deploy work-owned devices, especially as they migrate most or all of their resources to the cloud. Hybrid organizations with both AD and Azure AD can also choose to deploy one method or another depending on the user or department. School districts and universities may manage staff in AD and manage students in Azure AD, or some companies might want remote offices or the sales department on Azure AD. Both Azure AD Join and Domain Join methods can be used within a hybrid organization. Azure AD Join can be a great complement for deploying devices in a work environment. 
 

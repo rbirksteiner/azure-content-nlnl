@@ -256,7 +256,7 @@ When cabling the device, the minimum configuration requires:
 - At least two network interfaces connected on each controller with one for cloud access and one for iSCSI. The DATA 0 port is automatically enabled and configured via the serial console of the device. Apart from DATA 0, another data port also needs to be configured through the Azure classic portal. In this case, connect DATA 0 port to the primary LAN (network with Internet access). The other data ports can be connected to SAN/iSCSI LAN (VLAN) segment of the network, depending on the intended role.
 
 - Identical interfaces on each controller connected to the same network to ensure availability if a controller failover occurs. For instance, if you choose to connect DATA 0 and DATA 3 for one of the controllers, you need to connect the corresponding DATA 0 and DATA 3 on the other controller.
-	
+    
 Keep in mind for high availability and performance:
 
 
@@ -297,3 +297,4 @@ You have completed cabling your device for power, network access, and serial con
 
 You are now ready to [deploy and configure your on-premises StorSimple device](storsimple-deployment-walkthrough.md) 
  
+

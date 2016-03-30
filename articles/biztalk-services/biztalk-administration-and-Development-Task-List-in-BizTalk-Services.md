@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Administration and Development Task List in BizTalk Services | Microsoft Azure BizTalk Services" 
-	description="" 
-	services="biztalk-services" 
-	documentationCenter="" 
-	authors="msftman" 
-	manager="dwrede" 
-	editor="cgronlun"/>
+    pageTitle="Administration and Development Task List in BizTalk Services | Microsoft Azure BizTalk Services" 
+    description="" 
+    services="biztalk-services" 
+    documentationCenter="" 
+    authors="msftman" 
+    manager="dwrede" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="biztalk-services" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
-	ms.author="deonhe"/>
+    ms.service="biztalk-services" 
+    ms.workload="integration" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/02/2015" 
+    ms.author="deonhe"/>
 
 # Administration and Development Task List in BizTalk Services  
 
@@ -48,3 +48,4 @@ When working with Microsoft Azure BizTalk Services, there are several on-premise
 [Learn and create Message Maps and Transforms](https://msdn.microsoft.com/library/azure/hh689905.aspx)
 [Using the BizTalk Adapter Service (BAS)](https://msdn.microsoft.com/library/azure/hh689889.aspx)
 [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=303664)
+

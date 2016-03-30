@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="CDN - Country codes" 
-	description="The Country Filtering feature uses country codes to define the countries from which a request will be allowed or blocked for a secured directory." 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="camsoper" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="CDN - Country codes" 
+    description="The Country Filtering feature uses country codes to define the countries from which a request will be allowed or blocked for a secured directory." 
+    services="cdn" 
+    documentationCenter=".NET" 
+    authors="camsoper" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
-	ms.author="casoper"/>
+    ms.service="cdn" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/02/2015" 
+    ms.author="casoper"/>
 
 #Country codes
 
@@ -259,7 +259,7 @@ The **Country Filtering** feature uses country codes to define the countries fro
 | UZ           | Uzbekistan                                   |     |
 | VU           | Vanuatu                                      |     |
 | VE           | Venezuela                                    |     |
-| VN           | Vietnam				                      |     |
+| VN           | Vietnam                                      |     |
 | VG           | Virgin Islands, British                      |     |
 | VI           | Virgin Islands, U.S.                         |     |
 | WF           | Wallis and Futuna                            |     |

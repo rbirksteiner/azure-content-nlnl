@@ -102,3 +102,4 @@ Access Control List recommendations currently apply to Classic virtual machines.
 
 ### Are Linux virtual machines supported?
 Azure Security Center offers baseline monitoring for Linux virtual machines (Ubuntu versions 12.04, 14.04, 14.10, and 15.04 only). In the future, additional security health monitoring and data collection/analysis will be available, as well as support for additional Linux distros.
+

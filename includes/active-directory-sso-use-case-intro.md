@@ -20,3 +20,4 @@ Azure AD allows you to integrate your apps and provisioned accounts. This can be
 In the case where users have created their own accounts for SaaS apps that aren't managed by IT, the [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md) tool provides a solution. This tool monitors the web traffic to identify which apps are being used throughout the organization, and the number of people using each of them. IT can use this information to learn what apps the users prefer and decide which to integrate into Azure AD for SSO.  
 
 When you integrate an app into Azure AD, you can map the users' established application identities to their respective Azure AD identities.  
+

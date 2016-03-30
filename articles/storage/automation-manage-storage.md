@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Manage Azure Storage using Azure Automation"
-	description="Learn about how the Azure Automation service can be used to manage Azure Storage at scale."
-	services="storage, automation"
-	documentationCenter=""
-	authors="jodoglevy"
-	manager="eamono"
-	editor=""/>
+    pageTitle="Manage Azure Storage using Azure Automation"
+    description="Learn about how the Azure Automation service can be used to manage Azure Storage at scale."
+    services="storage, automation"
+    documentationCenter=""
+    authors="jodoglevy"
+    manager="eamono"
+    editor=""/>
 
 <tags
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/03/2015"
-	ms.author="jolevy"/>
+    ms.service="storage"
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/03/2015"
+    ms.author="jolevy"/>
 
 
 
@@ -49,3 +49,4 @@ Now that you've learned the basics of Azure Automation and how it can be used to
 
 See the Azure Automation [Getting Started Tutorial](../automation-create-runbook-from-samples.md)
  
+

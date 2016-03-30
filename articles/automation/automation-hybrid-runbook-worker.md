@@ -79,13 +79,13 @@ When you add an agent to Operations Management Suite, the Automation solution pu
 
 Open a PowerShell session in Administrator mode and run the following commands to import the module.
 
-	cd "C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\<version>\HybridRegistration"
-	Import-Module HybridRegistration.psd1
+    cd "C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\<version>\HybridRegistration"
+    Import-Module HybridRegistration.psd1
 
 
 Then run the **Add-HybridRunbookWorker** cmdlet using the following syntax:
 
-	Add-HybridRunbookWorker –Name <String> -EndPoint <Url> -Token <String>
+    Add-HybridRunbookWorker –Name <String> -EndPoint <Url> -Token <String>
 
 You can get the information required for this cmdlet from the  **Manage Keys** blade in the Azure preview portal.  Open this blade by clicking the key icon on the Elements panel for the automation account.
 
@@ -114,7 +114,7 @@ When you start a runbook in the Azure preview portal, you will be presented with
 
 Use the **RunOn** parameter  You could use the following command to start a runbook named Test-Runbook on a Hybrid Runbook Worker Group named MyHybridGroup using Windows PowerShell.
 
-	Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" -RunOn "MyHybridGroup"
+    Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" -RunOn "MyHybridGroup"
 
 >[AZURE.NOTE] The **RunOn** parameter was added to the **Start-AzureAutomationRunbook** cmdlet in version 0.9.1 of Microsoft Azure PowerShell.  You should [download the latest version](http://azure.microsoft.com/downloads) if you have an earlier one installed.  You only need to install this version on a workstation where you will be starting the runbook from Windows PowerShell.  You do not need to install it on the worker computer unless you intend to start runbooks from that computer.  You cannot currently start a runbook on a Hybrid Runbook Worker from another runbook since this would require the latest version of Azure Powershell to be installed in your Automation account.  The latest version will be automatically updated in Azure Automation and automatically pushed down to the workers soon.
 
@@ -135,10 +135,10 @@ Runbooks will run in the context of the local System account on the Hybrid Runbo
 
 You can use use [Credential](http://msdn.microsoft.com/library/dn940015.aspx) and [Certificate](http://msdn.microsoft.com/library/dn940013.aspx) assets in your runbook with cmdlets that allow you to specify credentials so you can authenticate to different resources.  The following example shows a portion of a runbook that restarts a computer.  It retrieves credentials from a credential asset and the name of the computer from a variable asset and then uses these values with the Restart-Computer cmdlet.
 
-	$Cred = Get-AutomationCredential "MyCredential"
-	$Computer = Get-AutomationVariable "ComputerName"
+    $Cred = Get-AutomationCredential "MyCredential"
+    $Computer = Get-AutomationVariable "ComputerName"
 
-	Restart-Computer -ComputerName $Computer  -Credential $Cred
+    Restart-Computer -ComputerName $Computer  -Credential $Cred
 
 You can also leverage [InlineScript](automation-powershell-workflow.md#inline-script) which will allow you to run blocks of code on another computer with credentials specified by the [PSCredential common parameter](http://technet.microsoft.com/library/jj129719.aspx).
 
@@ -167,3 +167,4 @@ You can use the following criteria to determine whether Azure Automation with Hy
 - [Starting a Runbook in Azure Automation](automation-starting-a-runbook.md)
 - [Editing a Runbook in Azure Automation](https://msdn.microsoft.com/library/dn879137.aspx)
  
+

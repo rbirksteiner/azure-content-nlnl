@@ -29,7 +29,7 @@ to create the head node of a Windows HPC cluster in Azure in the classic (Servic
 
 >[AZURE.NOTE] Currently the HPC Pack
 VM image is based on Windows Server 2012 R2 Datacenter with HPC
-Pack 2012 R2 Update 2 pre-installed. Microsoft SQL Server 2014 Express
+Pack 2012 R2 Update 2 pre-installed. Microsoft SQL Server 2014 Express
 is also pre-installed.
 
 
@@ -109,3 +109,4 @@ HPC PowerShell cmdlets.
 
 <!--Image references-->
 [headnode]: ./media/virtual-machines-hpcpack-cluster-headnode/headnode.png
+

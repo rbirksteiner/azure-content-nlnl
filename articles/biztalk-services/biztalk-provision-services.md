@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Create Azure BizTalk Services in the Azure portal | Microsoft Azure"
-	description="Learn how to provision or create Azure BizTalk Services in the Azure portal; MABS, WABS"
-	services="biztalk-services"
-	documentationCenter=""
-	authors="MandiOhlinger"
-	manager="dwrede"
-	editor="cgronlun"/>
+    pageTitle="Create Azure BizTalk Services in the Azure portal | Microsoft Azure"
+    description="Learn how to provision or create Azure BizTalk Services in the Azure portal; MABS, WABS"
+    services="biztalk-services"
+    documentationCenter=""
+    authors="MandiOhlinger"
+    manager="dwrede"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="biztalk-services"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="12/01/2015"
-	ms.author="mandia"/>
+    ms.service="biztalk-services"
+    ms.workload="integration"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="hero-article"
+    ms.date="12/01/2015"
+    ms.author="mandia"/>
 
 
 
@@ -36,78 +36,78 @@ Depending on the Edition you choose, not all BizTalk Service settings may be ava
 
 4. Enter the BizTalk Service settings:
 
-	<table border="1">
-	<tr>
-	<td><strong>BizTalk service name</strong></td>
-	<td>You can enter any name but be specific. Some examples include:<br/><br/>
-	<em>mycompany</em>.biztalk.windows.net<br/>
-	<em>mycompanymyapplication</em>.biztalk.windows.net<br/>
-	<em>myapplication</em>.biztalk.windows.net<br/><br/>".biztalk.windows.net" is automatically added to the name you enter. This creates a URL that is used to access your BizTalk Service, like <strong>https://<em>myapplication</em>.biztalk.windows.net</strong>.
-	</td>
-	</tr>
-	<tr>
-	<td><strong>Edition</strong></td>
-	<td>If you are in the testing/development phase, choose <strong>Developer</strong>. If you are in the production phase, use the <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302279">BizTalk Services: Editions Chart</a> to determine if <strong>Premium</strong>, <strong>Standard</strong>, or <strong>Basic</strong> is the correct choice for your business scenario.
-	</td>
-	</tr>
-	<tr>
-	<td><strong>Region</strong></td>
-	<td>Select the geographic region to host your BizTalk Service.</td>
-	</tr>
-	<tr>
-	<td><strong>Domain URL</strong></td>
-	<td><strong>Optional</strong>. By default, the domain URL is <em>YourBizTalkServiceName</em>.biztalk.windows.net. A custom domain can also be entered. For example, if your domain is <em>contoso</em>, you can enter: <br/><br/>
-	<em>MyCompany</em>.contoso.com<br/>
-	<em>MyCompanyMyApplication</em>.contoso.com<br/>
-	<em>MyApplication</em>.contoso.com<br/>
-	<em>YourBizTalkServiceName</em>.contoso.com<br/>
-	</td>
-	</tr>
-	</table>
+    <table border="1">
+    <tr>
+    <td><strong>BizTalk service name</strong></td>
+    <td>You can enter any name but be specific. Some examples include:<br/><br/>
+    <em>mycompany</em>.biztalk.windows.net<br/>
+    <em>mycompanymyapplication</em>.biztalk.windows.net<br/>
+    <em>myapplication</em>.biztalk.windows.net<br/><br/>".biztalk.windows.net" is automatically added to the name you enter. This creates a URL that is used to access your BizTalk Service, like <strong>https://<em>myapplication</em>.biztalk.windows.net</strong>.
+    </td>
+    </tr>
+    <tr>
+    <td><strong>Edition</strong></td>
+    <td>If you are in the testing/development phase, choose <strong>Developer</strong>. If you are in the production phase, use the <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302279">BizTalk Services: Editions Chart</a> to determine if <strong>Premium</strong>, <strong>Standard</strong>, or <strong>Basic</strong> is the correct choice for your business scenario.
+    </td>
+    </tr>
+    <tr>
+    <td><strong>Region</strong></td>
+    <td>Select the geographic region to host your BizTalk Service.</td>
+    </tr>
+    <tr>
+    <td><strong>Domain URL</strong></td>
+    <td><strong>Optional</strong>. By default, the domain URL is <em>YourBizTalkServiceName</em>.biztalk.windows.net. A custom domain can also be entered. For example, if your domain is <em>contoso</em>, you can enter: <br/><br/>
+    <em>MyCompany</em>.contoso.com<br/>
+    <em>MyCompanyMyApplication</em>.contoso.com<br/>
+    <em>MyApplication</em>.contoso.com<br/>
+    <em>YourBizTalkServiceName</em>.contoso.com<br/>
+    </td>
+    </tr>
+    </table>
 Select the NEXT arrow.
 
 5. Enter the Storage and Database Settings:
 
-	<table border="1">
-	<tr>
-	<td><strong>Monitoring/Archiving storage account</strong></td>
-	<td>Select an existing storage account or create a new storage account. <br/><br/>If you create a new Storage account, enter the <strong>Storage Account Name</strong>.</td>
-	</tr>
-	<tr>
-	<td><strong>Tracking database</strong></td>
-	<td>If you use an existing Azure SQL Database, it cannot be used by another BizTalk Service. You need the login name and password entered when that Azure SQL Database Server was created.<br/><br/><strong>TIP</strong> Create the Tracking database and Monitoring/Archiving storage account in the same region as the BizTalk Service.</td>
-	</tr>
-	</table>
+    <table border="1">
+    <tr>
+    <td><strong>Monitoring/Archiving storage account</strong></td>
+    <td>Select an existing storage account or create a new storage account. <br/><br/>If you create a new Storage account, enter the <strong>Storage Account Name</strong>.</td>
+    </tr>
+    <tr>
+    <td><strong>Tracking database</strong></td>
+    <td>If you use an existing Azure SQL Database, it cannot be used by another BizTalk Service. You need the login name and password entered when that Azure SQL Database Server was created.<br/><br/><strong>TIP</strong> Create the Tracking database and Monitoring/Archiving storage account in the same region as the BizTalk Service.</td>
+    </tr>
+    </table>
 Select the NEXT arrow.
 
 6. Enter the Database settings:
 
-	<table border="1">
-	<tr>
-	<td><strong>Name</strong></td>
-	<td>Available when <strong>Create a new SQL Database instance</strong> is selected in the previous screen.
-	<br/><br/>
-	Enter a SQL Database name to be used by your BizTalk Service.</td>
-	</tr>
-	<tr>
-	<td><strong>Server</strong></td>
-	<td>Available when <strong>Create a new SQL Database instance</strong> is selected in the previous screen.
-	<br/><br/>
-	Select an existing SQL Database Server or create a new SQL Database server.</td>
-	</tr>
-	<tr>
-	<td><strong>Server login name</strong></td>
-	<td>Enter the login user name.</td>
-	</tr>
-	<tr>
-	<td><strong>Server login password</strong></td>
-	<td>Enter the login password.</td>
-	</tr>
-	<tr>
-	<td><strong>Region</strong></td>
-	<td>Available when <strong>Create a new SQL Database instance</strong> is selected. Select the geographic region to host your SQL Database.</td>
-	</tr>
-	</table>
+    <table border="1">
+    <tr>
+    <td><strong>Name</strong></td>
+    <td>Available when <strong>Create a new SQL Database instance</strong> is selected in the previous screen.
+    <br/><br/>
+    Enter a SQL Database name to be used by your BizTalk Service.</td>
+    </tr>
+    <tr>
+    <td><strong>Server</strong></td>
+    <td>Available when <strong>Create a new SQL Database instance</strong> is selected in the previous screen.
+    <br/><br/>
+    Select an existing SQL Database Server or create a new SQL Database server.</td>
+    </tr>
+    <tr>
+    <td><strong>Server login name</strong></td>
+    <td>Enter the login user name.</td>
+    </tr>
+    <tr>
+    <td><strong>Server login password</strong></td>
+    <td>Enter the login password.</td>
+    </tr>
+    <tr>
+    <td><strong>Region</strong></td>
+    <td>Available when <strong>Create a new SQL Database instance</strong> is selected. Select the geographic region to host your SQL Database.</td>
+    </tr>
+    </table>
 
 Select the check mark to complete the wizard. The progress icon appears:  
 ![Progress icon displays when complete][ProgressComplete]
@@ -276,3 +276,4 @@ Now that a BizTalk Service is created, familiarize yourself with the different [
 [QuickGlance]: ./media/biztalk-provision-services/WABS_QuickGlance.png
 [ACSServiceIdentities]: ./media/biztalk-provision-services/WABS_ACSServiceIdentities.png
 [HybridConnectionTab]: ./media/biztalk-provision-services/WABS_HybridConnectionTab.png
+

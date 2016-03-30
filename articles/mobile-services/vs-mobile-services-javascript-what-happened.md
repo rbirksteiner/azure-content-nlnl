@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="What happens when you add Mobile Services to a Javascript app by using Visual Studio Connected Services" 
-	description="Describes what happened to your Azure Mobile Services project in Visual Studio" 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="TomArcher" 
-	manager="douge" 
-	editor=""/>
+    pageTitle="What happens when you add Mobile Services to a Javascript app by using Visual Studio Connected Services" 
+    description="Describes what happened to your Azure Mobile Services project in Visual Studio" 
+    services="mobile-services" 
+    documentationCenter="" 
+    authors="TomArcher" 
+    manager="douge" 
+    editor=""/>
 
 <tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="NA" 
-	ms.devlang="JavaScript" 
-	ms.topic="article" 
-	ms.date="09/23/2015" 
-	ms.author="tarcher"/>
+    ms.service="mobile-services" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="NA" 
+    ms.devlang="JavaScript" 
+    ms.topic="article" 
+    ms.date="09/23/2015" 
+    ms.author="tarcher"/>
 
 # What happens to my Javascript project when I add Azure Mobile Services using Connected Visual Studio Services?
 
@@ -45,3 +45,4 @@ In the services folder, Connected Services configuration files were added.
 
 
  
+

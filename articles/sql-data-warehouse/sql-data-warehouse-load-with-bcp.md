@@ -196,3 +196,4 @@ For more development tips, see [SQL Data Warehouse development overview][].
 
 <!--Other Web references-->
 [Microsoft Download Center]: http://www.microsoft.com/download/details.aspx?id=36433
+

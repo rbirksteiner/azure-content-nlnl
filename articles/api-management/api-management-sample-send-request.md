@@ -130,17 +130,17 @@ Putting all the pieces together, we get the following policy:
       </send-request>
 
       <choose>
-  			<!-- Check active property in response -->
-  			<when condition="@((bool)((IResponse)context.Variables["tokenstate"]).Body.As<JObject>()["active"] == false)">
-  				<!-- Return 401 Unauthorized with http-problem payload -->
-  				<return-response response-variable-name="existing response variable">
-  					<set-status code="401" reason="Unauthorized" />
-  					<set-header name="WWW-Authenticate" exists-action="override">
-  						<value>Bearer error="invalid_token"</value>
-  					</set-header>
-  				</return-response>
-  			</when>
-  		</choose>
+            <!-- Check active property in response -->
+            <when condition="@((bool)((IResponse)context.Variables["tokenstate"]).Body.As<JObject>()["active"] == false)">
+                <!-- Return 401 Unauthorized with http-problem payload -->
+                <return-response response-variable-name="existing response variable">
+                    <set-status code="401" reason="Unauthorized" />
+                    <set-header name="WWW-Authenticate" exists-action="override">
+                        <value>Bearer error="invalid_token"</value>
+                    </set-header>
+                </return-response>
+            </when>
+        </choose>
       <base />
     </inbound>
 
@@ -212,7 +212,7 @@ To construct the composite response we can use the [return-response](https://msd
 The complete policy looks as follows:
 
     <policies>
-    	<inbound>
+        <inbound>
 
       <set-variable name="fromDate" value="@(context.Request.Url.Query["fromDate"].Last())">
       <set-variable name="toDate" value="@(context.Request.Url.Query["toDate"].Last())">
@@ -250,16 +250,17 @@ The complete policy looks as follows:
                           ).ToString())
           </set-body>
         </return-response>
-    	</inbound>
-    	<backend>
-    		<base />
-    	</backend>
-    	<outbound>
-    		<base />
-    	</outbound>
+        </inbound>
+        <backend>
+            <base />
+        </backend>
+        <outbound>
+            <base />
+        </outbound>
     </policies>
 
 In the configuration of the placeholder operation we can configure the dashboard resource to be cached for at least an hour because we understand the nature of the data means that even if it is an hour out of date, it will still be sufficiently effective to convey valuable information to the users.
 
 ## Summary
 Azure API Management service provides flexible policies that can be selectively applied to HTTP traffic and enables composition of backend services. Whether you want to enhance your API gateway with alerting functions, verification, validation capabilities or create new composite resources based on multiple backend services, the `send-request` and related policies open a world of possibilities.    
+

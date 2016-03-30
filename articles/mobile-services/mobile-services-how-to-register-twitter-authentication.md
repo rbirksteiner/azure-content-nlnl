@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Register for Twitter authentication | Microsoft Azure"
-	description="Learn how to use Twitter authentication with your Azure Mobile Services application."
-	services="mobile-services"
-	documentationCenter=""
-	authors="ggailey777"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Register for Twitter authentication | Microsoft Azure"
+    description="Learn how to use Twitter authentication with your Azure Mobile Services application."
+    services="mobile-services"
+    documentationCenter=""
+    authors="ggailey777"
+    manager="dwrede"
+    editor=""/>
 
 
 <tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="11/30/2015" 
-	ms.author="glenga"/>
+    ms.service="mobile-services" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="multiple" 
+    ms.topic="article" 
+    ms.date="11/30/2015" 
+    ms.author="glenga"/>
 
 #Register your apps for Twitter login with Mobile Services
 
@@ -36,17 +36,17 @@ To complete the procedure in this topic, you must have a Twitter account that ha
 
 2. Type the **Name**, **Description**, and **Website** values for your app, then type one of the following URL formats in **Callback URL**.
 
-	+ **.NET backend**: `https://<mobile_service>.azure-mobile.net/signin-twitter`
-	+ **JavaScript backend**: `https://<mobile_service>.azure-mobile.net/login/twitter`
+    + **.NET backend**: `https://<mobile_service>.azure-mobile.net/signin-twitter`
+    + **JavaScript backend**: `https://<mobile_service>.azure-mobile.net/login/twitter`
 
-	 >[AZURE.NOTE]Make sure that you use the correct redirect URL path format for your type of Mobile Services backend. When this is incorrect, authentication will not succeed.
-	&nbsp;
+     >[AZURE.NOTE]Make sure that you use the correct redirect URL path format for your type of Mobile Services backend. When this is incorrect, authentication will not succeed.
+    &nbsp;
 
-   	![][2]
+    ![][2]
 
 3.  At the bottom the page, read and accept the terms, and then click **Create your Twitter application**.
 
-   	This registers the app displays the application details.
+    This registers the app displays the application details.
 
 6. Click the **Keys and Access Tokens** tab in your app dashboard and make a note of the values of **Consumer key** and **Consumer secret**.
 
@@ -66,3 +66,4 @@ You are now ready to use a Twitter login for authentication in your app by provi
 
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-dotnet/
+

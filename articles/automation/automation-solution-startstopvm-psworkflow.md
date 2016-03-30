@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Starting and stopping virtual machines with Azure Automation - PowerShell Workflow | Microsoft Azure"
-	description="Graphical version of Azure Automation solution including runbooks to start and stop classic virtual machines."
-	services="automation"
-	documentationCenter=""
-	authors="bwren"
-	manager="stevenka"
-	editor="tysonn" />
+    pageTitle="Starting and stopping virtual machines with Azure Automation - PowerShell Workflow | Microsoft Azure"
+    description="Graphical version of Azure Automation solution including runbooks to start and stop classic virtual machines."
+    services="automation"
+    documentationCenter=""
+    authors="bwren"
+    manager="stevenka"
+    editor="tysonn" />
 <tags 
-	ms.service="automation"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="09/25/2015"
-	ms.author="bwren" />
+    ms.service="automation"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="infrastructure-services"
+    ms.date="09/25/2015"
+    ms.author="bwren" />
 
 # Azure Automation solution - starting and stopping virtual machines
 
@@ -75,8 +75,8 @@ You can use any of the methods in [Starting a runbook in Azure Automation](autom
 
 The following sample commands uses Windows PowerShell to run **StartAzureVMs** to start all virtual machines with the service name *MyVMService*.
 
-	$params = @{"ServiceName"="MyVMService"}
-	Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Start-AzureVMs" –Parameters $params
+    $params = @{"ServiceName"="MyVMService"}
+    Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Start-AzureVMs" –Parameters $params
 
 ### Output
 
@@ -93,15 +93,15 @@ The runbooks will [output a message](automation-runbook-output-and-messages.md) 
 
 For example, the following code snippet from a runbook attempts to start all virtual machines with the service name *MyServiceName*.  If any of the start requests fail, then error actions can be taken. 
 
-	$results = Start-AzureVMs -ServiceName "MyServiceName"
-	foreach ($result in $results) {
-		if ($result -like "* has been started" ) {
-			# Action to take in case of success.
-		}
-		else {
-			# Action to take in case of error.
-		}
-	}
+    $results = Start-AzureVMs -ServiceName "MyServiceName"
+    foreach ($result in $results) {
+        if ($result -like "* has been started" ) {
+            # Action to take in case of success.
+        }
+        else {
+            # Action to take in case of error.
+        }
+    }
 
 
 ## Detailed breakdown
@@ -132,10 +132,10 @@ This line declares that the output of the runbook will be a string.  This is not
 
 ### Authentication
 
-	# Connect to Azure and select the subscription to work against
-	$Cred = Get-AutomationPSCredential -Name $AzureCredentialAssetName
-	$null = Add-AzureAccount -Credential $Cred -ErrorAction Stop
-	$SubId = Get-AutomationVariable -Name $AzureSubscriptionIdAssetName
+    # Connect to Azure and select the subscription to work against
+    $Cred = Get-AutomationPSCredential -Name $AzureCredentialAssetName
+    $null = Add-AzureAccount -Credential $Cred -ErrorAction Stop
+    $SubId = Get-AutomationVariable -Name $AzureSubscriptionIdAssetName
     $null = Select-AzureSubscription -SubscriptionId $SubId -ErrorAction Stop
 
 The next lines set the [credentials](automation-configuring.md#configuring-authentication-to-azure-resources) and Azure subscription that will be used for the rest of the runbook.
@@ -145,16 +145,16 @@ The variable asset with the subscription ID is then retrieved with **Get-Automat
 
 ### Get VMs
 
-	# If there is a specific cloud service, then get all VMs in the service,
+    # If there is a specific cloud service, then get all VMs in the service,
     # otherwise get all VMs in the subscription.
     if ($ServiceName) 
-	{ 
-		$VMs = Get-AzureVM -ServiceName $ServiceName
-	}
+    { 
+        $VMs = Get-AzureVM -ServiceName $ServiceName
+    }
     else 
-	{ 
-		$VMs = Get-AzureVM
-	}
+    { 
+        $VMs = Get-AzureVM
+    }
 
 **Get-AzureVM** is used to retrieve the virtual machines the runbook will work with.  If a value is provided in the **ServiceName** input variable, then only the virtual machines with that service name are retrieved.  If **ServiceName** is empty, then all virtual machines are retrieved.
 
@@ -163,27 +163,27 @@ The variable asset with the subscription ID is then retrieved with **Get-Automat
     # Start each of the stopped VMs
     foreach ($VM in $VMs)
     {
-		if ($VM.PowerState -eq "Started")
-		{
-			# The VM is already started, so send notice
-			Write-Output ($VM.InstanceName + " is already running")
-		}
-		else
-		{
-			# The VM needs to be started
-        	$StartRtn = Start-AzureVM -Name $VM.Name -ServiceName $VM.ServiceName -ErrorAction Continue
+        if ($VM.PowerState -eq "Started")
+        {
+            # The VM is already started, so send notice
+            Write-Output ($VM.InstanceName + " is already running")
+        }
+        else
+        {
+            # The VM needs to be started
+            $StartRtn = Start-AzureVM -Name $VM.Name -ServiceName $VM.ServiceName -ErrorAction Continue
 
-	        if ($StartRtn.OperationStatus -ne 'Succeeded')
-	        {
-				# The VM failed to start, so send notice
+            if ($StartRtn.OperationStatus -ne 'Succeeded')
+            {
+                # The VM failed to start, so send notice
                 Write-Output ($VM.InstanceName + " failed to start")
-	        }
-			else
-			{
-				# The VM started, so send notice
-				Write-Output ($VM.InstanceName + " has been started")
-			}
-		}
+            }
+            else
+            {
+                # The VM started, so send notice
+                Write-Output ($VM.InstanceName + " has been started")
+            }
+        }
     }
 
 The next lines step through each virtual machine.  First the **PowerState** of the virtual machine is checked to see if it is already running or stopped, depending on the runbook.  If it is already in the target state, then a message is sent to output, and the runbook ends.  If not, then **Start-AzureVM** or **Stop-AzureVM** is used to attempt to start or stop the virtual machine with the result of the request stored to a variable.  A message is then sent to output specifying whether the request to start or stop was submitted successfully.

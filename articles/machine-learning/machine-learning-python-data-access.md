@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Access datasets with Machine Learning Python client library | Microsoft Azure" 
-	description="Install and use the Python client library to access and manage Azure Machine Learning data securely from a local Python environment." 
-	services="machine-learning" 
-	documentationCenter="python" 
-	authors="bradsev" 
-	manager="paulettm" 
-	editor="cgronlun"/>
+    pageTitle="Access datasets with Machine Learning Python client library | Microsoft Azure" 
+    description="Install and use the Python client library to access and manage Azure Machine Learning data securely from a local Python environment." 
+    services="machine-learning" 
+    documentationCenter="python" 
+    authors="bradsev" 
+    manager="paulettm" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/04/2015" 
-	ms.author="huvalo;bradsev" />
+    ms.service="machine-learning" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/04/2015" 
+    ms.author="huvalo;bradsev" />
 
 
 #Access datasets with Python using the Azure Machine Learning Python client library 
@@ -59,7 +59,7 @@ Alternatively, you can download and install from the sources on [github](https:/
 
 If you have git installed on your machine, you can use pip to install directly from the git repository:
 
-	pip install git+https://github.com/Azure/Azure-MachineLearning-ClientLibrary-Python.git
+    pip install git+https://github.com/Azure/Azure-MachineLearning-ClientLibrary-Python.git
 
 
 ##<a name="datasetAccess"></a>Use Studio Code snippets to access datasets
@@ -98,15 +98,15 @@ Authorization tokens are managed on the **AUTHORIZATION TOKENS** page under **SE
 
 3. From the bottom toolbar, click on **Generate Data Access Code**. Note that this button will be disabled if the data is in a format incompatible with the Python client library.
 
-	![Datasets][datasets]
+    ![Datasets][datasets]
 
 4. Select the code snippet from the window that appears and copy it to your clipboard.
 
-	![Access Code][dataset-access-code]
+    ![Access Code][dataset-access-code]
 
 5. Paste the code into the notebook of you local Python application.
 
-	![Notebook][ipython-dataset]
+    ![Notebook][ipython-dataset]
 
 ### <a name="accessingIntermediateDatasets"></a>Access intermediate datasets from Machine Learning experiments
 
@@ -148,19 +148,19 @@ The following steps show an example that creates an experiment, runs it and acce
 
 7. A context menu will appear, select **Generate Data Access Code**.
 
-	![Context Menu][experiment]
+    ![Context Menu][experiment]
 
 8. A window will appear. Select the code snippet and copy it to your clipboard.
 
-	![Access Code][intermediate-dataset-access-code]
+    ![Access Code][intermediate-dataset-access-code]
 
 9. Paste the code in your notebook.
 
-	![Notebook][ipython-intermediate-dataset]
+    ![Notebook][ipython-intermediate-dataset]
 
 10. You can visualize the data using matplotlib. This displays in a histogram for the age column:
 
-	![Histogram][ipython-histogram]
+    ![Histogram][ipython-histogram]
 
 
 ##<a name="clientApis"></a>Use the Machine Learning Python client library to access, read, create, and manage datasets

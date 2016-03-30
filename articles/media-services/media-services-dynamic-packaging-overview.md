@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Dynamic Packaging Overview"
-	description="The topic gives and overview of dynamic packaging."
-	authors="Juliako"
-	manager="dwrede"
-	editor=""
-	services="media-services"
-	documentationCenter=""/>
+    pageTitle="Dynamic Packaging Overview"
+    description="The topic gives and overview of dynamic packaging."
+    authors="Juliako"
+    manager="dwrede"
+    editor=""
+    services="media-services"
+    documentationCenter=""/>
 
 <tags
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/05/2015"
-	ms.author="juliako"/>
+    ms.service="media-services"
+    ms.workload="media"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/05/2015"
+    ms.author="juliako"/>
 
 
 #Dynamic Packaging
@@ -104,3 +104,4 @@ The following source file formats are not supported by dynamic packaging.
 ##Provide feedback
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+

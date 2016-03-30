@@ -123,3 +123,4 @@ If you have a question relating to reports and insights, please contact our supp
 [8]: ./media/marketplace-publishing-report-seller-insights/selectpublisherstab.png
 [9]: ./media/marketplace-publishing-report-seller-insights/publisherid.png
 [10]: ./media/marketplace-publishing-report-seller-insights/sellerinsightsquestions.png
+

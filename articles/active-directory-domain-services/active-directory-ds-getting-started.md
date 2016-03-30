@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure Active Directory Domain Services preview: Getting Started | Microsoft Azure"
-	description="Getting started with Azure Active Directory Domain Services"
-	services="active-directory-ds"
-	documentationCenter=""
-	authors="mahesh-unnikrishnan"
-	manager="udayh"
-	editor="inhenk"/>
+    pageTitle="Azure Active Directory Domain Services preview: Getting Started | Microsoft Azure"
+    description="Getting started with Azure Active Directory Domain Services"
+    services="active-directory-ds"
+    documentationCenter=""
+    authors="mahesh-unnikrishnan"
+    manager="udayh"
+    editor="inhenk"/>
 
 <tags
-	ms.service="active-directory-ds"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/12/2015"
-	ms.author="maheshu"/>
+    ms.service="active-directory-ds"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/12/2015"
+    ms.author="maheshu"/>
 
 # Azure AD Domain Services *(Preview)* - Getting started
 
@@ -39,7 +39,7 @@ In this configuration step you will create the group and add one or more users i
 
     > [AZURE.WARNING] You must create a group with this exact name in order to enable access within Azure AD Domain Services.
 
-	![Create administrator group](./media/active-directory-domain-services-getting-started/create-admin-group.png)
+    ![Create administrator group](./media/active-directory-domain-services-getting-started/create-admin-group.png)
 
 7. You can add a description for this group that enables other users within your Azure AD tenant to understand that this group will be used to grant administrative privileges within Azure AD Domain Services.
 8. After the group has been created, click on the name of the group to see the properties of this group. Click on the **Add members** button on the bottom panel, in order to add users as members of this group.
@@ -49,3 +49,4 @@ In this configuration step you will create the group and add one or more users i
 
 ---
 [**Next step - Create or select an Azure virtual network.**](active-directory-ds-getting-started-vnet.md)
+

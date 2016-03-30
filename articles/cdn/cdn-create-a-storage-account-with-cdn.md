@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How to use CDN | Microsoft Azure" 
-	description="Learn how to use the Azure Content Delivery Network (CDN) to deliver high-bandwidth content by caching blobs and static content." 
-	services="cdn" 
-	documentationCenter=".net" 
-	authors="camsoper" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="How to use CDN | Microsoft Azure" 
+    description="Learn how to use the Azure Content Delivery Network (CDN) to deliver high-bandwidth content by caching blobs and static content." 
+    services="cdn" 
+    documentationCenter=".net" 
+    authors="camsoper" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
-	ms.author="casoper"/>
+    ms.service="cdn" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/02/2015" 
+    ms.author="casoper"/>
 
 
 # Integrate a Storage Account with CDN
@@ -58,7 +58,7 @@ administrator or a co-administrator for the associated subscription.
     account URI and must be unique among all hosted services in 
     Azure.
 
-	This value is also used as the name of this storage account in the portal, or when accessing this account programmatically.
+    This value is also used as the name of this storage account in the portal, or when accessing this account programmatically.
 
 5.  Select a **Pricing tier** or use the default.  For more information on pricing tiers, see [Azure Storage Pricing](../../pricing/details/storage).
 
@@ -165,4 +165,5 @@ An object already cached in the CDN will remain cached until the time-to-live pe
 [cdn-new-endpoint-button]: ./media/cdn-create-a-storage-account-with-cdn/cdn-new-endpoint-button.png
 [cdn-add-endpoint]: ./media/cdn-create-a-storage-account-with-cdn/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-a-storage-account-with-cdn/cdn-endpoint-success.png
+
 

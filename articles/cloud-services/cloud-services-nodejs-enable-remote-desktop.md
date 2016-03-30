@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Enable remote desktop for cloud services (Node.js)" 
-	description="Learn how to enable remote-desktop access for the virtual machines hosting your Azure Node.js application." 
-	services="cloud-services" 
-	documentationCenter="nodejs" 
-	authors="rmcmurray" 
-	manager="wpickett" 
-	editor=""/>
+    pageTitle="Enable remote desktop for cloud services (Node.js)" 
+    description="Learn how to enable remote-desktop access for the virtual machines hosting your Azure Node.js application." 
+    services="cloud-services" 
+    documentationCenter="nodejs" 
+    authors="rmcmurray" 
+    manager="wpickett" 
+    editor=""/>
 
 <tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="11/20/2015" 
-	ms.author="robmcm"/>
+    ms.service="cloud-services" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="nodejs" 
+    ms.topic="article" 
+    ms.date="11/20/2015" 
+    ms.author="robmcm"/>
 
 
 # Enabling Remote Desktop in Azure
@@ -47,17 +47,17 @@ service configuration (.cscfg) files.
 
 3. Enter the following PowerShell cmdlet:
 
-		Enable-AzureServiceProjectRemoteDesktop
+        Enable-AzureServiceProjectRemoteDesktop
 
 4. At the prompt, enter a user name and password.
 
-	![enable-azureserviceprojectremotedesktop][enable-rdp]
+    ![enable-azureserviceprojectremotedesktop][enable-rdp]
 
 3.  Enter the following PowerShell cmdlet to publish the changes:
 
-    	Publish-AzureServiceProject
+        Publish-AzureServiceProject
 
-	![publish-azureserviceproject][publish-project]
+    ![publish-azureserviceproject][publish-project]
 
 ## Step 2: Connect to the role instance
 
@@ -66,7 +66,7 @@ the role instance.
 
 1.  In the [Azure classic portal], select **Cloud Services** and then select your service.
 
-	![Azure classic portal][cloud-services]
+    ![Azure classic portal][cloud-services]
 
 2.  Click **Instances**, and then click **Production** or **Staging** to see the instances for your service. Select an instance and then click **Connect** at the bottom of the page.
 
@@ -99,11 +99,11 @@ instances in the cloud, disable remote desktop access using [Azure PowerShell].
 
 1.  Enter the following PowerShell cmdlet:
 
-    	Disable-AzureServiceProjectRemoteDesktop
+        Disable-AzureServiceProjectRemoteDesktop
 
 2.  Enter the following PowerShell cmdlet to publish the changes:
 
-    	Publish-AzureServiceProject
+        Publish-AzureServiceProject
 
 ## Additional Resources
 

@@ -1,22 +1,22 @@
 <properties
-	pageTitle="I received an email that my services might be interrupted | Microsoft Azure"
-	description="Describes how to resolve the issue where your credit card cannot be charged for your subscription"
-	services="billing"
-	documentationCenter=""
-	authors="genlin"
-	manager="jarrettr"
-	editor="na"
-	tags="billing"
-	/>
+    pageTitle="I received an email that my services might be interrupted | Microsoft Azure"
+    description="Describes how to resolve the issue where your credit card cannot be charged for your subscription"
+    services="billing"
+    documentationCenter=""
+    authors="genlin"
+    manager="jarrettr"
+    editor="na"
+    tags="billing"
+    />
 
 <tags
-	ms.service="billing"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/26/2015"
-	ms.author="genli"/>
+    ms.service="billing"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/26/2015"
+    ms.author="genli"/>
 
 # I received an email that my services might be interrupted
 
@@ -28,3 +28,4 @@ This can occur if your account is past due. If so, see this article for instruct
 [Why have you received a notification that your Azure subscription has a past due balance](../billing-azure-subscription-past-due-balance.md).
 
 If you need help or have questions, you can always contact [Azure Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade). If you need help opening a ticket see [How to create a support ticket for Azure billing and subscription issues](../billing-how-to-create-billing-support-ticket.md).
+

@@ -39,3 +39,4 @@ Max egress<sup>2</sup> per storage account (European and Asian Regions)|10 Gbps 
 - **ZRS**: Zone-redundant storage. Available only for block blobs. 
 - **LRS**: Locally redundant storage. 
 
+

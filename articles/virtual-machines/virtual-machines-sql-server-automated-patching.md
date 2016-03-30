@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Automated SQL Server Patching in VMs | Microsoft Azure"
-	description="Explains the Automated Patching feature for SQL Server Virtual Machines running in Azure."
-	services="virtual-machines"
-	documentationCenter="na"
-	authors="rothja"
-	manager="jeffreyg"
-	editor="monicar"
-	tags="azure-resource-manager" />
+    pageTitle="Automated SQL Server Patching in VMs | Microsoft Azure"
+    description="Explains the Automated Patching feature for SQL Server Virtual Machines running in Azure."
+    services="virtual-machines"
+    documentationCenter="na"
+    authors="rothja"
+    manager="jeffreyg"
+    editor="monicar"
+    tags="azure-resource-manager" />
 <tags
-	ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services"
-	ms.date="11/12/2015"
-	ms.author="jroth" />
+    ms.service="virtual-machines"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="vm-windows-sql-server"
+    ms.workload="infrastructure-services"
+    ms.date="11/12/2015"
+    ms.author="jroth" />
 
 # Automated Patching for SQL Server in Azure Virtual Machines
 
@@ -77,7 +77,7 @@ You can also uninstall the extension using the **Remove-AzureVMSqlServerExtensio
 
 ## Compatibility
 
-The following products are compatible with the SQL Server IaaS Agent features for Automated Patching:
+The following products are compatible with the SQL Server IaaS Agent features for Automated Patching:
 
 - Windows Server 2012
 
@@ -92,3 +92,4 @@ The following products are compatible with the SQL Server IaaS Agent features 
 A related feature for SQL Server VMs in Azure is [Automated Backup for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-automated-backup.md).
 
 Review other [resources for running SQL Server in Azure Virtual Machines](virtual-machines-sql-server-infrastructure-services.md).
+

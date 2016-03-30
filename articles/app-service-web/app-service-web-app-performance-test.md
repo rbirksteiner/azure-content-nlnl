@@ -30,77 +30,77 @@ of users. They also show how many requests failed, which might indicate problems
 
 ## Before you start
 
-*	You'll need an [Azure subscription][AzureSubscription], 
+*   You'll need an [Azure subscription][AzureSubscription], 
 if you don't have one already. Learn how you can 
 [open an Azure account for free][AzureFreeTrial].
 
-*	You'll need a [Visual Studio Team Services (VSTS)][WhatIsVSTS] 
+*   You'll need a [Visual Studio Team Services (VSTS)][WhatIsVSTS] 
 account to keep your performance test history. 
 Create your new account when you set up your performance test, 
 or use an existing account if you're the account owner. 
 [What else can I do with a Visual Studio Team Services account?](#VSTSAccount)
 
-*	Deploy your app for testing in a non-production environment. 
+*   Deploy your app for testing in a non-production environment. 
 Have your app use an App Service plan other than the plan used in production. 
 That way, you don't affect any existing customers or slow down your app in production. 
 
 ## Set up and run your performance test
 
-0.	Sign in to the [Azure Portal][AzurePortal]. 
+0.  Sign in to the [Azure Portal][AzurePortal]. 
 To use a Visual Studio Team Services account that you own, 
 sign in as the account owner.
 
-0.	Go to your web app.
+0.  Go to your web app.
 
-	![Go to Browse All, Web Apps, your web app][WebApp]
+    ![Go to Browse All, Web Apps, your web app][WebApp]
 
-0.	Go to **Performance Test**.
+0.  Go to **Performance Test**.
 
-	![Go to Tools, Performance Test][ExpandedTools]
+    ![Go to Tools, Performance Test][ExpandedTools]
  
-0.	Now you'll link a [Visual Studio Team Services (VSTS)][WhatIsVSTS] 
+0.  Now you'll link a [Visual Studio Team Services (VSTS)][WhatIsVSTS] 
 account to keep your performance test history.
 
-	If you have a VSTS account to use, select that account. If you don't, create a new account.
+    If you have a VSTS account to use, select that account. If you don't, create a new account.
 
-	![Select existing VSTS account, or create a new account][ExistingNewVSTSAccount]
+    ![Select existing VSTS account, or create a new account][ExistingNewVSTSAccount]
 
-0.	Create your performance test. Set the details and run the test. 
+0.  Create your performance test. Set the details and run the test. 
 You can watch the results in real time while the test runs.
 
-	For example, suppose we have an app that gave out coupons at last year's holiday sale. 
-	This event lasted 15 minutes with a peak load of 100 concurrent customers. 
-	We want to double the number of customers this year. We also want to improve 
-	customer satisfaction by reducing the page load time from 5 seconds to 2 seconds. 
-	So, we'll test our updated app's performance with 250 users for 15 minutes.
+    For example, suppose we have an app that gave out coupons at last year's holiday sale. 
+    This event lasted 15 minutes with a peak load of 100 concurrent customers. 
+    We want to double the number of customers this year. We also want to improve 
+    customer satisfaction by reducing the page load time from 5 seconds to 2 seconds. 
+    So, we'll test our updated app's performance with 250 users for 15 minutes.
 
-	We'll simulate load on our app by generating virtual users (customers) 
-	who visit our web site at the same time. This will show us how many 
-	requests are failing or responding slowly.
+    We'll simulate load on our app by generating virtual users (customers) 
+    who visit our web site at the same time. This will show us how many 
+    requests are failing or responding slowly.
 
-	![Create, set up, and run your performance test][NewTest]
+    ![Create, set up, and run your performance test][NewTest]
 
-	 *	Your web app's default URL is added automatically. 
-	 You can change the URL to test other pages (HTTP GET requests only).
+     *  Your web app's default URL is added automatically. 
+     You can change the URL to test other pages (HTTP GET requests only).
 
-	 *	To simulate local conditions and reduce latency, 
-	 select a location closest to your users for generating load.
+     *  To simulate local conditions and reduce latency, 
+     select a location closest to your users for generating load.
 
-	Here's the test in progress. During the first minute, 
-	our page loads slower than we want.
+    Here's the test in progress. During the first minute, 
+    our page loads slower than we want.
 
-	![Performance test in progress with real-time data][TestRunning]
+    ![Performance test in progress with real-time data][TestRunning]
 
-	After the test is done, we learn that the page loads much faster 
-	after the first minute. This helps identify where we might want to 
-	start troubleshooting the problem.
+    After the test is done, we learn that the page loads much faster 
+    after the first minute. This helps identify where we might want to 
+    start troubleshooting the problem.
 
-	![Completed performance test shows results, including failed requests][TestDone]
-	
+    ![Completed performance test shows results, including failed requests][TestDone]
+    
 We'd love your feedback. For questions or problems, 
 please contact us at <vsoloadtest@microsoft.com>
 
-##	Q & A
+##  Q & A
 
 #### Q: Is there a limit on how long I can run a test? 
 
@@ -146,3 +146,4 @@ features and services help your team collaborate more easily and deploy continuo
 [AzureSubscription]: https://account.windowsazure.com/subscriptions
 [AzureFreeTrial]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [WhatIsVSTS]: https://www.visualstudio.com/products/what-is-visual-studio-online-vs
+

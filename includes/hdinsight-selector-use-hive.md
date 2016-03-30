@@ -8,3 +8,4 @@
 - [SSH](../articles/hdinsight/hdinsight-hadoop-use-hive-ssh.md)
 - [Remote Desktop](../articles/hdinsight/hdinsight-hadoop-use-hive-remote-desktop.md)
 - [Curl](../articles/hdinsight/hdinsight-hadoop-use-hive-curl.md)
+

@@ -141,11 +141,11 @@ The Azure publishing portal is used to publish and manage your offer(s). You wil
 
 > [AZURE.WARNING] The same company Microsoft account that was used in the Microsoft Developer Center registration must be used here. Additional users can be added to assist once the master publisher account has been created.
 
-1.	Open a new Chrome Incognito or Internet Explorer InPrivate browsing session to ensure that you’re not signed in to a personal account.
+1.  Open a new Chrome Incognito or Internet Explorer InPrivate browsing session to ensure that you’re not signed in to a personal account.
 
-2.	Go to [http://publish.windowsazure.com](http://publish.windowsazure.com).
+2.  Go to [http://publish.windowsazure.com](http://publish.windowsazure.com).
 
-3.	Sign in with your company registration Microsoft account (i.e., marketplace@example.com), and you can add co-admins as necessary.
+3.  Sign in with your company registration Microsoft account (i.e., marketplace@example.com), and you can add co-admins as necessary.
 
   > [AZURE.TIP] The participation policies are described on the [Azure website](http://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 
@@ -199,3 +199,4 @@ Now that your account is created and registered, click the type of artifact (vir
 [link-devsvc]:marketplace-publishing-dev-service-creation.md
 [link-devsvc-prereq]:marketplace-publishing-dev-service-creation-prerequisites.md
 [link-pushstaging]:marketplace-publishing-push-to-staging.md
+

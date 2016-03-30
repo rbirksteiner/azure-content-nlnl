@@ -1,21 +1,21 @@
 <properties
-	pageTitle="SQL Database performance & options: Service tiers | Microsoft Azure"
-	description="Compare SQL Database performance and business continuity features of the service tiers to balance cost and capability as you scale."
-	keywords="database options,database performance,eDTU"
-	services="sql-database"
-	documentationCenter=""
-	authors="rothja"
-	manager="jeffreyg"
-	editor="monicar"/>
+    pageTitle="SQL Database performance & options: Service tiers | Microsoft Azure"
+    description="Compare SQL Database performance and business continuity features of the service tiers to balance cost and capability as you scale."
+    keywords="database options,database performance,eDTU"
+    services="sql-database"
+    documentationCenter=""
+    authors="rothja"
+    manager="jeffreyg"
+    editor="monicar"/>
 
 <tags
-	ms.service="sql-database"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="data-management"
-	ms.date="11/10/2015"
-	ms.author="jroth"/>
+    ms.service="sql-database"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.workload="data-management"
+    ms.date="11/10/2015"
+    ms.author="jroth"/>
 
 # SQL Database options and performance: Understand what's available in each service tier
  
@@ -63,9 +63,9 @@ Each database within a pool also adheres to the single-database characteristics 
 ## Monitoring database performance
 Monitoring the performance of a SQL database starts with monitoring the resource utilization relative to level of database performance you choose. This relevant data is exposed in the following ways:
 
-1.	The Microsoft Azure Classic Portal.
+1.  The Microsoft Azure Classic Portal.
 
-2.	Dynamic Management Views in the user database, and in the master database of the server that contains the user database.
+2.  Dynamic Management Views in the user database, and in the master database of the server that contains the user database.
 
 In the [Azure Portal](https://portal.azure.com/), you can monitor a single database’s utilization by selecting your database and clicking the **Monitoring** chart. This brings up a **Metric** window that you can change by clicking the **Edit chart** button. Add the following metrics:
 
@@ -95,3 +95,4 @@ If you are interested in managing multiple databases as a group, consider [elast
 
 Now that you know about the SQL Database tiers, try them out with a [free trial](http://azure.microsoft.com/pricing/free-trial/) and learn [how to create your first SQL database](sql-database-get-started.md)!
  
+

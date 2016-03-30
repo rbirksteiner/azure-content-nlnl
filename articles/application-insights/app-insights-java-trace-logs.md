@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Explore Java trace logs in Application Insights" 
-	description="Search Log4J or Logback traces in Application Insights" 
-	services="application-insights" 
+    pageTitle="Explore Java trace logs in Application Insights" 
+    description="Search Log4J or Logback traces in Application Insights" 
+    services="application-insights" 
     documentationCenter="java"
-	authors="alancameronwills" 
-	manager="douge"/>
+    authors="alancameronwills" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/21/2015" 
-	ms.author="awills"/>
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/21/2015" 
+    ms.author="awills"/>
 
 # Explore Java trace logs in Application Insights
 

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="CDN - Advanced HTTP Reports" 
-	description="Advanced HTTP reports in Microsoft Azure CDN. These reports provide detailed information on CDN activity." 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="camsoper" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="CDN - Advanced HTTP Reports" 
+    description="Advanced HTTP reports in Microsoft Azure CDN. These reports provide detailed information on CDN activity." 
+    services="cdn" 
+    documentationCenter=".NET" 
+    authors="camsoper" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
-	ms.author="casoper"/>
+    ms.service="cdn" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/02/2015" 
+    ms.author="casoper"/>
 
 # Advanced HTTP reports in Microsoft Azure CDN
 
@@ -28,13 +28,13 @@ This document explains advanced HTTP reporting in Microsoft Azure CDN. These rep
 
 1. From the CDN profile blade, click the **Manage** button.
 
-	![CDN profile blade manage button](./media/cdn-advanced-http-reports/cdn-manage-btn.png)
-	
-	The CDN management portal opens.
-	
+    ![CDN profile blade manage button](./media/cdn-advanced-http-reports/cdn-manage-btn.png)
+    
+    The CDN management portal opens.
+    
 2. Hover over the **Analytics** tab, then hover over the **Advanced HTTP Reports** flyout.  Click on **HTTP Large Platform**.
-	
-	Report options are displayed.
+    
+    Report options are displayed.
 
 ## Geography Reports (Map-Based)
 

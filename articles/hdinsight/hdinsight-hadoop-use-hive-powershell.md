@@ -6,7 +6,7 @@
    authors="Blackmist"
    manager="paulettm"
    editor="cgronlun"
-	tags="azure-portal"/>
+    tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -57,35 +57,35 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
 
 1. Using an editor, save the following code as **hivejob.ps1**. You must replace **CLUSTERNAME** with the name of your HDInsight cluster.
 
-		#Specify the values
-		$clusterName = "CLUSTERNAME"
-		$creds=Get-Credential
-        		
-		# Login to your Azure subscription
-		# Is there an active Azure subscription?
-		$sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
-		if(-not($sub))
-		{
-		    Add-AzureRmAccount
-		}
+        #Specify the values
+        $clusterName = "CLUSTERNAME"
+        $creds=Get-Credential
+                
+        # Login to your Azure subscription
+        # Is there an active Azure subscription?
+        $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
+        if(-not($sub))
+        {
+            Add-AzureRmAccount
+        }
 
-		#HiveQL
-		$queryString = "DROP TABLE log4jLogs;" +
-				       "CREATE EXTERNAL TABLE log4jLogs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) ROW FORMAT DELIMITED FIELDS TERMINATED BY ' ' STORED AS TEXTFILE LOCATION 'wasb:///example/data/';" +
-				       "SELECT * FROM log4jLogs WHERE t4 = '[ERROR]';"
+        #HiveQL
+        $queryString = "DROP TABLE log4jLogs;" +
+                       "CREATE EXTERNAL TABLE log4jLogs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) ROW FORMAT DELIMITED FIELDS TERMINATED BY ' ' STORED AS TEXTFILE LOCATION 'wasb:///example/data/';" +
+                       "SELECT * FROM log4jLogs WHERE t4 = '[ERROR]';"
 
-		#Create an HDInsight Hive job definition
-		$hiveJobDefinition = New-AzureRmHDInsightHiveJobDefinition -Query $queryString 
+        #Create an HDInsight Hive job definition
+        $hiveJobDefinition = New-AzureRmHDInsightHiveJobDefinition -Query $queryString 
 
-		#Submit the job to the cluster
-		Write-Host "Start the Hive job..." -ForegroundColor Green
+        #Submit the job to the cluster
+        Write-Host "Start the Hive job..." -ForegroundColor Green
 
-		$hiveJob = Start-AzureRmHDInsightJob -ClusterName $clusterName -JobDefinition $hiveJobDefinition -ClusterCredential $creds
+        $hiveJob = Start-AzureRmHDInsightJob -ClusterName $clusterName -JobDefinition $hiveJobDefinition -ClusterCredential $creds
 
 
-		#Wait for the Hive job to complete
-		Write-Host "Wait for the job to complete..." -ForegroundColor Green
-		Wait-AzureRmHDInsightJob -ClusterName $clusterName -JobId $hiveJob.JobId -ClusterCredential $creds
+        #Wait for the Hive job to complete
+        Write-Host "Wait for the job to complete..." -ForegroundColor Green
+        Wait-AzureRmHDInsightJob -ClusterName $clusterName -JobId $hiveJob.JobId -ClusterCredential $creds
 
         #Get the cluster info so we can get the resource group, storage, etc.
         $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
@@ -96,9 +96,9 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
             -Name $storageAccountName `
             -ResourceGroupName $resourceGroup `
             | %{ $_.Key1 }
-		# Print the output
-		Write-Host "Display the standard output..." -ForegroundColor Green
-		Get-AzureRmHDInsightJobOutput `
+        # Print the output
+        Write-Host "Display the standard output..." -ForegroundColor Green
+        Get-AzureRmHDInsightJobOutput `
             -Clustername $clusterName `
             -JobId $hiveJob.JobId `
             -DefaultContainer $container `
@@ -108,14 +108,14 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
             
 2. Open a new **Azure PowerShell** command prompt. Change directories to the location of the **hivejob.ps1** file, then use the following command to run the script:
 
-		.\hivejob.ps1
+        .\hivejob.ps1
 
     When the script runs, you will be prompted to enter the HTTPS/Admin account credentials for your cluster. You may also be prompted to login to your Azure subscription.
     
 7. When the job completes, it should return information similar to the following:
 
-		Display the standard output...
-		[ERROR]	3
+        Display the standard output...
+        [ERROR] 3
 
 4. As mentioned earlier, **Invoke-Hive** can be used to run a query and wait for the response. Use the following commands, and replace **CLUSTERNAME** with the name of your cluster:
 
@@ -140,24 +140,24 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
         SELECT * FROM errorLogs;
         "@
 
-	The output will look like the following:
+    The output will look like the following:
 
-		2012-02-03	18:35:34	SampleClass0	[ERROR]	incorrect	id
-		2012-02-03	18:55:54	SampleClass1	[ERROR]	incorrect	id
-		2012-02-03	19:25:27	SampleClass4	[ERROR]	incorrect	id
+        2012-02-03  18:35:34    SampleClass0    [ERROR] incorrect   id
+        2012-02-03  18:55:54    SampleClass1    [ERROR] incorrect   id
+        2012-02-03  19:25:27    SampleClass4    [ERROR] incorrect   id
 
-	> [AZURE.NOTE] For longer HiveQL queries, you can use the Azure PowerShell **Here-Strings** cmdlet or HiveQL script files. The following snippet shows how to use the **Invoke-Hive** cmdlet to run a HiveQL script file. The HiveQL script file must be uploaded to wasb://.
-	>
-	> `Invoke-AzureRmHDInsightHiveJob -File "wasb://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
-	>
-	> For more information about **Here-Strings**, see <a href="http://technet.microsoft.com/library/ee692792.aspx" target="_blank">Using Windows PowerShell Here-Strings</a>.
+    > [AZURE.NOTE] For longer HiveQL queries, you can use the Azure PowerShell **Here-Strings** cmdlet or HiveQL script files. The following snippet shows how to use the **Invoke-Hive** cmdlet to run a HiveQL script file. The HiveQL script file must be uploaded to wasb://.
+    >
+    > `Invoke-AzureRmHDInsightHiveJob -File "wasb://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
+    >
+    > For more information about **Here-Strings**, see <a href="http://technet.microsoft.com/library/ee692792.aspx" target="_blank">Using Windows PowerShell Here-Strings</a>.
 
 ##Troubleshooting
 
 If no information is returned when the job completes, an error may have occurred during processing. To view error information for this job, add the following to the end of the **hivejob.ps1** file, save it, and then run it again.
 
-	# Print the output of the Hive job.
-	Get-AzureRmHDInsightJobOutput `
+    # Print the output of the Hive job.
+    Get-AzureRmHDInsightJobOutput `
             -Clustername $clusterName `
             -JobId $job.JobId `
             -DefaultContainer $container `
@@ -183,3 +183,4 @@ For information about other ways you can work with Hadoop on HDInsight:
 * [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
 
 * [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)
+

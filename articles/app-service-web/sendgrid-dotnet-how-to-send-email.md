@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How to use the SendGrid email service (.NET) | Microsoft Azure" 
-	description="Learn how send email with the SendGrid email service on Azure. Code samples written in C# and use the .NET API." 
-	services="app-service\web" 
-	documentationCenter=".net" 
-	authors="thinkingserious" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="How to use the SendGrid email service (.NET) | Microsoft Azure" 
+    description="Learn how send email with the SendGrid email service on Azure. Code samples written in C# and use the .NET API." 
+    services="app-service\web" 
+    documentationCenter=".net" 
+    authors="thinkingserious" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="10/12/2015" 
-	ms.author="team-pi@sendgrid.com"/>
+    ms.service="app-service-web" 
+    ms.workload="na" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="dotnet" 
+    ms.topic="article" 
+    ms.date="10/12/2015" 
+    ms.author="team-pi@sendgrid.com"/>
 
 
 
@@ -304,3 +304,4 @@ these links to learn more.
   [cloud-based email service]: https://sendgrid.com/email-solutions
   [transactional email delivery]: https://sendgrid.com/transactional-email
  
+

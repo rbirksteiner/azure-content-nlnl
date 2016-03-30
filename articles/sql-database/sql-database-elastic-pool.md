@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Elastic database pool for SQL databases | Microsoft Azure"
-	description="Find out how you can tame explosive growth in SQL databases with elastic database pools, a way of sharing available resources across many databases."
-	keywords="elastic database,sql databases"	
-	services="sql-database"
-	documentationCenter=""
-	authors="stevestein"
-	manager="jeffreyg"
-	editor="cgronlun"/>
+    pageTitle="Elastic database pool for SQL databases | Microsoft Azure"
+    description="Find out how you can tame explosive growth in SQL databases with elastic database pools, a way of sharing available resources across many databases."
+    keywords="elastic database,sql databases"   
+    services="sql-database"
+    documentationCenter=""
+    authors="stevestein"
+    manager="jeffreyg"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="sql-database"
-	ms.devlang="NA"
-	ms.date="12/01/2015"
-	ms.author="sstein"
-	ms.workload="data-management"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"/>
+    ms.service="sql-database"
+    ms.devlang="NA"
+    ms.date="12/01/2015"
+    ms.author="sstein"
+    ms.workload="data-management"
+    ms.topic="article"
+    ms.tgt_pltfrm="NA"/>
 
 
 # Tame explosive growth in SQL databases by using elastic database pools to share resources
@@ -72,3 +72,4 @@ Export of a database from within a pool is supported. Currently, import of a dat
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-pool/databases.png
+

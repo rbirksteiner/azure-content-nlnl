@@ -53,3 +53,4 @@ When you click **+New** > **App Services**, an **Active Directory** item appears
 However, while the page is loading, the item is dimmed and is marked **Not Available**. This is a temporary state. If you wait a few seconds, the item becomes available. If the delay is prolonged, refreshing the web page often resolves the problem.
 
 ![Screen shot: Active Directory is not available](./media/active-directory-troubleshooting/not-available.png)
+

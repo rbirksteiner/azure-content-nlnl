@@ -99,3 +99,4 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 
 [ic719496]: ./media/azure-toolkit-for-eclipse-azure-storage-account-list/ic719496.png
 [ic719497]: ./media/azure-toolkit-for-eclipse-azure-storage-account-list/ic719497.png
+

@@ -26,7 +26,7 @@ This article describes how to create the public configuration for the Azure Diag
 The Azure diagnostics extension 1.5 introduces the **<SinksConfig>** element in the public configuration. This defines the additional *sink* where the Azure diagnostics data can be sent. You can specify the details of the Application Insights resource where you want to send the Azure diagnostics data as part of this **<SinksConfig>**.
 An example **SinksConfig** looks like this -  
 
-	<SinksConfig>
+    <SinksConfig>
         <Sink name="ApplicationInsights">
           <ApplicationInsights>{Insert InstrumentationKey}</ApplicationInsights>
           <Channels>
@@ -55,15 +55,15 @@ Once the Application Insights sink has been defined you can send data to that si
 
 For example, if you want to send all the data that is being collected by Azure diagnostics then you can add the *sink* attribute directly to the **DiagnosticMonitorConfiguration** node. Set the value of the *sinks* to the Sink name that was specified in the **SinkConfig**.
 
-	<DiagnosticMonitorConfiguration overallQuotaInMB="4096" sinks="ApplicationInsights">
+    <DiagnosticMonitorConfiguration overallQuotaInMB="4096" sinks="ApplicationInsights">
 
 If you wanted to send only error logs to the Application Insights sink then you can set the *sinks* value to be the Sink name followed by the channel name separated by a period ("."). For example to send only error logs to the Application Insights sink use the MyTopDiagdata channel which was defined in the SinksConfig above.  
  
-	<DiagnosticMonitorConfiguration overallQuotaInMB="4096" sinks="ApplicationInsights.MyTopDiagdata">
+    <DiagnosticMonitorConfiguration overallQuotaInMB="4096" sinks="ApplicationInsights.MyTopDiagdata">
 
 If you only wanted to send Verbose application logs to Application Insights then you would add the *sinks* attribute to the **Logs** node. 
-	
-	<Logs scheduledTransferPeriod="PT1M" scheduledTransferLogLevelFilter="Verbose" sinks="ApplicationInsights.MyLogData"/>
+    
+    <Logs scheduledTransferPeriod="PT1M" scheduledTransferLogLevelFilter="Verbose" sinks="ApplicationInsights.MyLogData"/>
 
 You can also include multiple sinks in the configuration at different levels in the hierarchy. In that case the sink specified at the top level of the hierarchy acts as a global setting and the one specified at the individual element element acts like an override to that global setting.    
 

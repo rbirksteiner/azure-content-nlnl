@@ -6,11 +6,11 @@ Azure customers can unlock 25,000 free emails each month. These 25,000 free mont
 
 2. In the lower pane of the management portal, click **New**.
 
-	![command-bar-new][command-bar-new]
+    ![command-bar-new][command-bar-new]
 
 3. Click **Marketplace**.
 
-	![sendgrid-store][sendgrid-store]
+    ![sendgrid-store][sendgrid-store]
 
 4. In the **Choose an Application and Service** dialog, select **SendGrid** and click the right arrow.
 
@@ -18,7 +18,7 @@ Azure customers can unlock 25,000 free emails each month. These 25,000 free mont
 
 6. Enter a name to identify your **SendGrid** service in your Azure settings, or use the default value of **SendGridEmailDelivery.Simplified.SMTPWebAPI**. Names must be between 1 and 100 characters in length and contain only alphanumeric characters, dashes, dots, and underscores. The name must be unique in your list of subscribed Azure Store Items.
 
-	![store-screen-2][store-screen-2]
+    ![store-screen-2][store-screen-2]
 
 7. Choose a value for the region; for example, West US.
 
@@ -26,35 +26,35 @@ Azure customers can unlock 25,000 free emails each month. These 25,000 free mont
 
 9. On the **Review Purchase** tab, review the plan and pricing information, and review the legal terms. If you agree to the terms, click the check mark. After you click the check mark, your SendGrid account will begin the [SendGrid provisioning process].
 
-	![store-screen-3][store-screen-3]
+    ![store-screen-3][store-screen-3]
 
 10. After confirming your purchase you are redirected to the add-ons dashboard and you will see the message **Purchasing SendGrid**.
 
-	![sendgrid-purchasing-message][sendgrid-purchasing-message]
+    ![sendgrid-purchasing-message][sendgrid-purchasing-message]
 
-	Your SendGrid account is provisioned immediately and you will see the message **Successfully purchased Add-On SendGrid**. Your account and credentials are now created. You are ready to send emails at this point. 
+    Your SendGrid account is provisioned immediately and you will see the message **Successfully purchased Add-On SendGrid**. Your account and credentials are now created. You are ready to send emails at this point. 
 
-	To modify your subscription plan or see the SendGrid contact settings, click the name of your SendGrid service to open the SendGrid Marketplace dashboard. 
+    To modify your subscription plan or see the SendGrid contact settings, click the name of your SendGrid service to open the SendGrid Marketplace dashboard. 
 
-	![sendgrid-add-on-dashboard][sendgrid-add-on-dashboard]
+    ![sendgrid-add-on-dashboard][sendgrid-add-on-dashboard]
 
-	To send an email using SendGrid, you must supply your  account credentials (username and password).
+    To send an email using SendGrid, you must supply your  account credentials (username and password).
 
 ### To find your SendGrid credentials ###
 
 1. Click **Connection Info**.
 
-	![sendgrid-connection-info-button][sendgrid-connection-info-button]
+    ![sendgrid-connection-info-button][sendgrid-connection-info-button]
 
 2. In the *Connection info* dialog, copy the **Password** and Username to use later in this tutorial.
 
-	![sendgrid-connection-info][sendgrid-connection-info]
+    ![sendgrid-connection-info][sendgrid-connection-info]
 
-	To set your email deliverability settings, click the **Manage** button. This will redirect to your SendGrid Control Panel. 
+    To set your email deliverability settings, click the **Manage** button. This will redirect to your SendGrid Control Panel. 
 
-	![sendgrid-control-panel][sendgrid-control-panel]
+    ![sendgrid-control-panel][sendgrid-control-panel]
 
-	For more information on getting started with SendGrid, see [SendGrid Getting Started][].
+    For more information on getting started with SendGrid, see [SendGrid Getting Started][].
 
 <!--images-->
 
@@ -75,4 +75,5 @@ Azure customers can unlock 25,000 free emails each month. These 25,000 free mont
 [SendGrid Getting Started]: http://sendgrid.com/docs
 [SendGrid Provisioning Process]: https://support.sendgrid.com/hc/articles/200181628-Why-is-my-account-being-provisioned-
 [all APIs]: https://sendgrid.com/docs/API_Reference/index.html
+
 

@@ -45,7 +45,7 @@ Often, you test services locally by adding test data input, modifying a few code
 1. On the application project's shortcut menu, choose **Properties** (or choose the **F4** key).
 1. In the **Properties** window, set the **Preserve Data on Start** property to **Yes**.
 
-	![Set the Preserve Data on Start property][preservedata]
+    ![Set the Preserve Data on Start property][preservedata]
 
 When you run your application again, the deployment script now treats the deployment as an upgrade using unmonitored auto mode to quickly upgrade the application to a newer version with a date string appended. The upgrade process preserves any data you entered in a previous debug session.
 
@@ -96,3 +96,4 @@ You can unprovision an application type from your local cluster using Service Fa
 [newserviceapplicationmanifest]:./media/service-fabric-manage-application-in-visual-studio/newserviceapplicationmanifest.png
 [preservedata]:./media/service-fabric-manage-application-in-visual-studio/preservedata.png
 [preservedate]:./media/service-fabric-manage-application-in-visual-studio/preservedate.png
+

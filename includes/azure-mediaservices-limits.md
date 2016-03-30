@@ -24,3 +24,4 @@ Storage accounts | |1,000<sup>5</sup>
 <sup>4</sup> Locators are not designed for managing per-user access control. To give different access rights to individual users, use Digital Rights Management (DRM) solutions.
 
 <sup>5</sup> The storage accounts must be from the same Azure subscription.
+

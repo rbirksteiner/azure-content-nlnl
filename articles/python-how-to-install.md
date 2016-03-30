@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Install Python and the SDK - Azure"
-	description="Learn how to install Python and the SDK to use with Azure."
-	services=""
-	documentationCenter="python"
-	authors="huguesv"
-	manager="wpickett"
-	editor=""/>
+    pageTitle="Install Python and the SDK - Azure"
+    description="Learn how to install Python and the SDK to use with Azure."
+    services=""
+    documentationCenter="python"
+    authors="huguesv"
+    manager="wpickett"
+    editor=""/>
 
 <tags
-	ms.service="multiple"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="python"
-	ms.topic="article"
-	ms.date="08/31/2015"
-	ms.author="huvalo"/>
+    ms.service="multiple"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="python"
+    ms.topic="article"
+    ms.date="08/31/2015"
+    ms.author="huvalo"/>
 
 # Installing Python and the SDK
 
@@ -53,25 +53,25 @@ If you already have Python installed, you can use pip to install a bundle of all
 
 Note that you may need to use the `sudo` command on Linux and MacOS ie. `sudo pip install azure`.
 
-	pip install azure
+    pip install azure
 
 Starting with version 1.0.0, the libraries have been separated into multiple packages. You can now install only the packages that you need, or the bundle.
 
 To install Azure Storage Runtime client libraries:
 
-	pip install azure-storage
+    pip install azure-storage
 
 To install Azure Service Bus Runtime client libraries:
 
-	pip install azure-servicebus
+    pip install azure-servicebus
 
 To install Azure Resource Manager (ARM) client libraries:
 
-	pip install azure-mgmt
+    pip install azure-mgmt
 
 To install Azure Service Management (ASM) client libraries:
 
-	pip install azure-servicemanagement-legacy
+    pip install azure-servicemanagement-legacy
 
 
 ## Installation on Windows (Python, Azure Emulators and client libraries)
@@ -95,7 +95,7 @@ After installation is complete, type `python` at the prompt to make sure things 
 
 After the installation you should have Python and the Client Libraries available at the default location:
 
-		C:\Python27\Lib\site-packages\azure
+        C:\Python27\Lib\site-packages\azure
 
 
 ### Python 3.4
@@ -110,7 +110,7 @@ After installation is complete, type python at the prompt to make sure things we
 
 After the installation you should have Python and the Client Libraries available at the default location:
 
-		C:\Python34\Lib\site-packages\azure
+        C:\Python34\Lib\site-packages\azure
 
 ### Windows Uninstall
 
@@ -118,7 +118,7 @@ The **Azure SDK for Python** WebPI products are not applications in the typical 
 
 If you ever wish to reinstall **Azure SDK for Python**, simply open a PowerShell command prompt as an administrator and run the following command:
 
-	rm -force "HKLM:\SOFTWARE\Microsoft\Python Tools for Azure"
+    rm -force "HKLM:\SOFTWARE\Microsoft\Python Tools for Azure"
 
 and then rerun WebPI.
 
@@ -203,3 +203,4 @@ For more information on developing and publishing Azure Websites, see the tutori
 [table storage]: storage-python-how-to-use-table-storage.md
 [queue storage]: storage-python-how-to-use-queue-storage.md
 [blob storage]: storage-python-how-to-use-blob-storage.md
+

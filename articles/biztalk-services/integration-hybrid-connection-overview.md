@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Hybrid Connections overview | Microsoft Azure"
-	description="Learn about Hybrid Connections, including security, TCP ports, and supported configurations. MABS, WABS."
-	services="biztalk-services"
-	documentationCenter=""
-	authors="MandiOhlinger"
-	manager="dwrede"
-	editor="cgronlun"/>
+    pageTitle="Hybrid Connections overview | Microsoft Azure"
+    description="Learn about Hybrid Connections, including security, TCP ports, and supported configurations. MABS, WABS."
+    services="biztalk-services"
+    documentationCenter=""
+    authors="MandiOhlinger"
+    manager="dwrede"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="biztalk-services"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="12/01/2015"
-	ms.author="mandia"/>
+    ms.service="biztalk-services"
+    ms.workload="integration"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="12/01/2015"
+    ms.author="mandia"/>
 
 
 # Hybrid Connections overview
@@ -35,7 +35,7 @@ Hybrid Connections benefits include:
 - Applications using Hybrid Connections access only the specific on-premises resource that is published through the Hybrid Connection.
 - Can connect to any on-premises resource that uses a static TCP port, such as SQL Server, MySQL, HTTP Web APIs, and most custom Web Services.
 
-	> [AZURE.NOTE] TCP-based services that use dynamic ports (such as FTP Passive Mode or Extended Passive Mode) are currently not supported.
+    > [AZURE.NOTE] TCP-based services that use dynamic ports (such as FTP Passive Mode or Extended Passive Mode) are currently not supported.
 
 - Can be used with all frameworks supported by Web Apps (.NET, PHP, Java, Python, Node.js) and Mobile Apps (Node.js, .NET).
 - Web Apps and Mobile Apps can access on-premises resources in exactly the same way as if the Web or Mobile App is located on your local network. For example, the same connection string used on-premises can also be used on Azure.
@@ -108,3 +108,4 @@ Port | Why you need it
 [HybridConnectionTab]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionTab.png
 [HCOnPremSetup]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionManageConn.png
+

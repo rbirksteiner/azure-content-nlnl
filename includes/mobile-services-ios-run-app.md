@@ -9,8 +9,9 @@ The final stage of this tutorial is to build and run your new app.
 
 3. In the app, type meaningful text, such as _Complete the tutorial_ and then click the plus (**+**) icon.
 
-   	![](./media/mobile-services-ios-run-app/mobile-quickstart-startup-ios.png)
+    ![](./media/mobile-services-ios-run-app/mobile-quickstart-startup-ios.png)
 
-   	This sends a POST request to the new mobile service hosted in Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the list.
+    This sends a POST request to the new mobile service hosted in Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the list.
 
- 	</div>
+    </div>
+

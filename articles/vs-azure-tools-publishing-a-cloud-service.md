@@ -172,3 +172,4 @@ You might need to include specific files in your service package so that they ar
 ## Next steps
 
 To learn more about publishing to Azure from Visual Studio, see [Publish Azure Application Wizard](vs-azure-tools-publish-azure-application-wizard.md).
+

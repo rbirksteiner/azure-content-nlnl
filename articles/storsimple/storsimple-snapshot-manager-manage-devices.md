@@ -263,3 +263,4 @@ If a StorSimple device fails and is replaced by a standby (failover) device, use
 - Learn how to [use StorSimple Snapshot Manager to administer your StorSimple solution](storsimple-snapshot-manager-admin.md).
 - Learn how to [use StorSimple Snapshot Manager to view and manage volumes](storsimple-snapshot-manager-manage-volumes.md).
 
+

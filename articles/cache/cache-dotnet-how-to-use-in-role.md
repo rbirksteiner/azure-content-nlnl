@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How to use In-Role Cache (.NET) | Microsoft Azure" 
-	description="Learn how to use Azure In-Role Cache. The samples are written in C# code and use the .NET API." 
-	services="cache" 
-	documentationCenter=".net" 
-	authors="steved0x" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="How to use In-Role Cache (.NET) | Microsoft Azure" 
+    description="Learn how to use Azure In-Role Cache. The samples are written in C# code and use the .NET API." 
+    services="cache" 
+    documentationCenter=".net" 
+    authors="steved0x" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="cache" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="12/03/2015" 
-	ms.author="sdanie"/>
+    ms.service="cache" 
+    ms.workload="web" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="dotnet" 
+    ms.topic="article" 
+    ms.date="12/03/2015" 
+    ms.author="sdanie"/>
 
 
 
@@ -54,21 +54,21 @@ In-Role Cache provides a way to perform caching by using a portion of the memory
 
 Caching on role instances has the following advantages:
 
--	Pay no premium for caching. You pay only for the compute resources that host the cache.
--	Eliminates cache quotas and throttling.
--	Offers greater control and isolation. 
--	Improved performance.
--	Automatically sizes caches when roles are scaled in or out. Effectively scales the memory that is available for caching up or down when role instances are added or removed.
--	Provides full-fidelity development time debugging. 
--	Supports the memcache protocol.
+-   Pay no premium for caching. You pay only for the compute resources that host the cache.
+-   Eliminates cache quotas and throttling.
+-   Offers greater control and isolation. 
+-   Improved performance.
+-   Automatically sizes caches when roles are scaled in or out. Effectively scales the memory that is available for caching up or down when role instances are added or removed.
+-   Provides full-fidelity development time debugging. 
+-   Supports the memcache protocol.
 
 In addition, caching on role instances offers these configurable options:
 
--	Configure a dedicated role for caching, or co-locate caching on existing roles. 
--	Make your cache available to multiple clients in the same cloud service deployment.
--	Create multiple named caches with different properties.
--	Optionally configure high availability on individual caches.
--	Use expanded caching capabilities such as regions, tagging, and notifications.
+-   Configure a dedicated role for caching, or co-locate caching on existing roles. 
+-   Make your cache available to multiple clients in the same cloud service deployment.
+-   Create multiple named caches with different properties.
+-   Optionally configure high availability on individual caches.
+-   Use expanded caching capabilities such as regions, tagging, and notifications.
 
 This guide provides an overview of getting started with In-Role Cache. For more detailed information on these features that are beyond the scope of this getting started guide, see [Overview of In-Role Cache][].
 
@@ -77,13 +77,13 @@ This guide provides an overview of getting started with In-Role Cache. For more 
 
 In-Role Cache provides a way to enable caching using the memory that is on the virtual machines that host your role instances. The role instances that host your caches are known as a **cache cluster**. There are two deployment topologies for caching on role instances:
 
--	**Dedicated Role** caching - The role instances are used exclusively for caching.
--	**Co-located Role** caching - The cache shares the VM resources (bandwidth, CPU, and memory) with the application.
+-   **Dedicated Role** caching - The role instances are used exclusively for caching.
+-   **Co-located Role** caching - The cache shares the VM resources (bandwidth, CPU, and memory) with the application.
 
 To use caching on role instances, you need to configure a cache cluster, and then configure the cache clients so they can access the cache cluster.
 
--	[Configure the cache cluster][]
--	[Configure the cache clients][]
+-   [Configure the cache cluster][]
+-   [Configure the cache clients][]
 
 <a name="enable-caching"></a>
 ## Configure the cache cluster
@@ -124,10 +124,10 @@ Switch to the **Configuration** tab. The default **Instance count** is 1, and th
 
 The total memory for the VM sizes is as follows: 
 
--	**Small**: 1.75 GB
--	**Medium**: 3.5 GB
--	**Large**: 7 GB
--	**ExtraLarge**: 14 GB
+-   **Small**: 1.75 GB
+-   **Medium**: 3.5 GB
+-   **Large**: 7 GB
+-   **ExtraLarge**: 14 GB
 
 
 > These memory sizes represent the total amount of memory available to the VM which is shared across the OS, cache process, cache data, and application. For more information on configuring Virtual Machine Sizes, see [How to Configure Virtual Machine Sizes][]. Note that cache is unsupported on **ExtraSmall** VM sizes.
@@ -209,7 +209,7 @@ The NuGet package also adds references to the following assemblies:
 
 If your role is an ASP.NET Web Role, the following assembly reference is also added:
 
--	Microsoft.Web.DistributedCache.dll.
+-   Microsoft.Web.DistributedCache.dll.
 
 Once your client project is configured for caching, you can use the techniques described in the following sections for working with your cache.
 
@@ -218,7 +218,7 @@ Once your client project is configured for caching, you can use the techniques d
 
 The steps in this section describe how to perform common tasks with caching.
 
--	[How To: Create a DataCache Object][]
+-   [How To: Create a DataCache Object][]
 -   [How To: Add and Retrieve an Object from the Cache][]
 -   [How To: Specify the Expiration of an Object in the Cache][]
 -   [How To: Store ASP.NET Session State in the Cache][]
@@ -248,7 +248,7 @@ To use the second way, create a new **DataCacheFactory** object in your applicat
     DataCacheFactory cacheFactory = new DataCacheFactory();
     DataCache cache = cacheFactory.GetDefaultCache();
     // Or DataCache cache = cacheFactory.GetCache("MyCache");
-    // cache can now be used to add and retrieve items.	
+    // cache can now be used to add and retrieve items. 
 
 <a name="add-object"></a>
 ## How To: Add and Retrieve an Object from the Cache
@@ -390,7 +390,7 @@ follow these links to learn how to do more complex caching tasks.
 -   See the MSDN Reference: [In-Role Cache][]
 -   Learn how to migrate to In-Role Cache: [Migrate to In-Role Cache][]
 -   Check out the samples: [In-Role Cache Samples][]
--	Watch the [Maximum Performance: Accelerate Your Cloud Services Applications with Azure Caching][] session from TechEd 2013 on In-Role Cache
+-   Watch the [Maximum Performance: Accelerate Your Cloud Services Applications with Azure Caching][] session from TechEd 2013 on In-Role Cache
 
 <!-- INTRA-TOPIC LINKS -->
 [Next Steps]: #next-steps
@@ -446,3 +446,4 @@ follow these links to learn how to do more complex caching tasks.
 
 [Which Azure Cache offering is right for me?]: cache-faq.md#which-azure-cache-offering-is-right-for-me
  
+

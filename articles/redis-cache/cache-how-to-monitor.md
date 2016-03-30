@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How to monitor Azure Redis Cache" 
-	description="Learn how to monitor the health and performance your Azure Redis Cache instances" 
-	services="redis-cache" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="How to monitor Azure Redis Cache" 
+    description="Learn how to monitor the health and performance your Azure Redis Cache instances" 
+    services="redis-cache" 
+    documentationCenter="" 
+    authors="steved0x" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="cache" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="cache-redis" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/03/2015" 
-	ms.author="sdanie"/>
+    ms.service="cache" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="cache-redis" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/03/2015" 
+    ms.author="sdanie"/>
 
 # How to monitor Azure Redis Cache
 
@@ -258,6 +258,7 @@ For more information about alerts in Azure, see [Receive alert notifications](..
 [redis-cache-premium-point-summary]: ./media/cache-how-to-monitor/redis-cache-premium-point-summary.png
 
 [redis-cache-premium-point-shard]: ./media/cache-how-to-monitor/redis-cache-premium-point-shard.png
+
 
 
 

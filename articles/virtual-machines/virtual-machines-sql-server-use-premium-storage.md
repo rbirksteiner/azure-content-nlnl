@@ -1,21 +1,21 @@
-﻿<properties 
-	pageTitle="Use Azure Premium Storage with SQL Server | Microsoft Azure"
-	description="This article uses resources created with the classic deployment model, and gives guidance on using Azure Premium Storage with SQL Server running on Azure Virtual Machines."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="danielsollondon"
-	manager="jeffreyg"
+<properties 
+    pageTitle="Use Azure Premium Storage with SQL Server | Microsoft Azure"
+    description="This article uses resources created with the classic deployment model, and gives guidance on using Azure Premium Storage with SQL Server running on Azure Virtual Machines."
+    services="virtual-machines"
+    documentationCenter=""
+    authors="danielsollondon"
+    manager="jeffreyg"
    editor="monicar"    
    tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services"
-	ms.date="10/02/2015"
-	ms.author="jroth"/>
+    ms.service="virtual-machines"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="vm-windows-sql-server"
+    ms.workload="infrastructure-services"
+    ms.date="10/02/2015"
+    ms.author="jroth"/>
 
 # Use Azure Premium Storage with SQL Server on Virtual Machines
 
@@ -125,22 +125,22 @@ For each disk, use the following steps:
 
 1. Note the Diskname and LUN.
 
-	![DisknameAndLUN][2]
+    ![DisknameAndLUN][2]
 
 1. Remote desktop into the VM. Then go to **Computer Management** | **Device Manager** | **Disk Drives**. Look at the  properties of each of the ‘Microsoft Virtual Disks’
 
-	![VirtualDiskProperties][3]
+    ![VirtualDiskProperties][3]
 
 1. The LUN number here is a reference to the LUN number you specify when attaching the VHD to the VM.
 1. For the ‘Microsoft Virtual Disk’ go to the **Details** tab, then in the **Property** list, go to **Driver Key**. In the **Value**, note the **Offset**, which is 0002 in the following screenshot. The 0002 denotes the PhysicalDisk2 that the storage pool references.
 
-	![VirtualDiskPropertyDetails][4]
+    ![VirtualDiskPropertyDetails][4]
 
 2. For each storage pool dump out the associated disks:
 
     Get-StoragePool -FriendlyName AMS1pooldata | Get-PhysicalDisk
 
-	![GetStoragePool][5]
+    ![GetStoragePool][5]
  
 Now you can use this information to associate attached VHDs to Physical Disks in Storage Pools.
 
@@ -483,9 +483,9 @@ One strategy for minimal downtime is to take an existing cloud secondary and rem
 - There is a temporary loss of HA and DR during migration.
 - As this is a 1:1 migration, you will have to use a minimum VM size that will support your number of VHDs, so you might not be able to downsize your VMs.
 - This scenario would use the Azure **Start-AzureStorageBlobCopy** commandlet, which is asynchronous. There is no SLA on copy completion. The time of the copies varies, while this depends on wait in queue it will also depend on the amount of data to transfer. The copy time increases if the transfer is going to another Azure data center that supports Premium Storage in another region. If you just have 2 nodes, consider a possible mitigation in case the copy takes longer than in testing. This could include the following ideas.
-	- Add a temporary 3rd SQL Server node for HA before the migration with agreed downtime.
-	- Run the migration outside of Azure scheduled maintenance.
-	- Ensure you have configured your cluster quorum correctly.  
+    - Add a temporary 3rd SQL Server node for HA before the migration with agreed downtime.
+    - Run the migration outside of Azure scheduled maintenance.
+    - Ensure you have configured your cluster quorum correctly.  
 
 ##### High Level Steps
 
@@ -498,8 +498,8 @@ This document does not demonstrate a complete end to end example, however the [A
 - Create new cloud service and redeploy the SQL2 VM in that cloud service. Create the VM using the copied original OS VHD and attaching the copied VHDs.
 - Configure ILB / ELB and add Endpoints.
 - Update Listener by either:
-	- Taking the AlwaysOn Group offline and updating the AlwaysOn Listener with new ILB / ELB IP address. 
-	- Or adding the IP addess resource of new Cloud Service ILB/ELB through PowerShell into Windows clustering. Then set the Possible owners of the IP Address resource to the migrated node, SQL2, and set this as OR dependency in the Network Name. See the ‘Adding IP Address Resource on Same Subnet’ section of the [Appendix](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage).
+    - Taking the AlwaysOn Group offline and updating the AlwaysOn Listener with new ILB / ELB IP address. 
+    - Or adding the IP addess resource of new Cloud Service ILB/ELB through PowerShell into Windows clustering. Then set the Possible owners of the IP Address resource to the migrated node, SQL2, and set this as OR dependency in the Network Name. See the ‘Adding IP Address Resource on Same Subnet’ section of the [Appendix](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage).
 - Check DNS configuration/propogation to the clients.
 - Migrate SQL1 VM, and go through steps 2 – 4.
 - If using steps 5ii, then add SQL1 as a Possible Owner for the added IP Address Resource
@@ -531,9 +531,9 @@ Consider the following example of a hybrid AlwaysOn configuration:
 - Depending on client access to SQL Server, there might be increased latency when SQL Server is running in an alternative DC to the application.
 - The copy time of VHDs to Premium storage could be long. This might affect your decision on whether to keep the node in the Availability Group. Consider this for when log intensive work loads are running during the migrationis required, since the Primary node will have to keep the unreplicated transactions in its transaction log. Therefore this could grow significantly.
 - This scenario would use the Azure **Start-AzureStorageBlobCopy** commandlet, which is asynchronous. There is no SLA on completion. The time of the copies varies, while this depends on wait in queue, it will also depend on the amount of data to transfer. Therefore you just have one node in your 2nd data center, you should take mitigation steps in case the copy takes longer than in testing. This could include the following ideas.
-	- Add a temporary 2nd SQL node for HA before the migration with agreed downtime.
-	- Run the migration outside of Azure scheduled maintenance. 
-	- Ensure you have configured your cluster quorum correctly. 
+    - Add a temporary 2nd SQL node for HA before the migration with agreed downtime.
+    - Run the migration outside of Azure scheduled maintenance. 
+    - Ensure you have configured your cluster quorum correctly. 
 
 This scenario assumes that you have documented your install and know how the storage is mapped in order to make changes for optimal disk cache settings.
 
@@ -1009,10 +1009,10 @@ For TLOG volumes these should be set to NONE.
       
        #Start async copy
        Start-AzureStorageBlobCopy -srcUri "https://$origstorageaccountname2nd.blob.core.windows.net/vhds/$vhdname" `
-	    -SrcContext $origContext `
-	    -DestContainer $containerName `
-	    -DestBlob $vhdname `
-	    -DestContext $xioContextnode2
+        -SrcContext $origContext `
+        -DestContainer $containerName `
+        -DestBlob $vhdname `
+        -DestContext $xioContextnode2
        }
     
     #Check for copy progress
@@ -1118,15 +1118,15 @@ To add in IP Address, see the [Appendix](#appendix-migrating-a-multisite-alwayso
 
 1. For the current IP Address resource change the possible owner to ‘Existing Primary SQL Server’, in the example below, ‘dansqlams4’:
 
-	![Appendix13][23]
+    ![Appendix13][23]
 
 1. For the new IP Address resource  change the possible owner to ‘Migrated secondary SQL Server’, in the example below, ‘dansqlams5’:
 
-	![Appendix14][24]
+    ![Appendix14][24]
 
 1. Once this is set you can failover, and when the last node is migrated the Possible Owners should be edited so that node is added as a Possible Owner:
 
-	![Appendix15][25]
+    ![Appendix15][25]
 
 ## Additional Resources
 - [Azure Premium Storage](../storage-premium-storage-preview-portal.md)

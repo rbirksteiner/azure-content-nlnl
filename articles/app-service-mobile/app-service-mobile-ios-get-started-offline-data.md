@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Enable offline sync for your Azure Mobile App (iOS)"
-	description="Learn how to use App Service Mobile Apps to cache and sync offline data in your iOS application"
-	documentationCenter="ios"
-	authors="krisragh"
-	manager="dwrede"
-	editor=""
-	services="app-service\mobile"/>
+    pageTitle="Enable offline sync for your Azure Mobile App (iOS)"
+    description="Learn how to use App Service Mobile Apps to cache and sync offline data in your iOS application"
+    documentationCenter="ios"
+    authors="krisragh"
+    manager="dwrede"
+    editor=""
+    services="app-service\mobile"/>
 
 <tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-ios"
-	ms.devlang="objective-c"
-	ms.topic="article"
-	ms.date="12/01/2015"
-	ms.author="krisragh"/>
+    ms.service="app-service-mobile"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-ios"
+    ms.devlang="objective-c"
+    ms.topic="article"
+    ms.date="12/01/2015"
+    ms.author="krisragh"/>
 
 # Enable offline sync for your iOS mobile app
 
@@ -50,7 +50,7 @@ The offline data sync sync feature of Azure Mobile Apps allows end users to inte
 
     The first parameter of `initWithDelegate` is used to specify a conflict handler. Since we have passed `nil`, we will get the default conflict handler, which fails on any conflict.
 
-	<!-- For details on how to implement a custom conflict handler, see the tutorial [Handling conflicts with offline support for Mobile Services]. -->
+    <!-- For details on how to implement a custom conflict handler, see the tutorial [Handling conflicts with offline support for Mobile Services]. -->
 
 3. The methods `pullData` and `syncData` performs the actual sync operation: `syncData` first pushes new changes, then calls `pullData` to get data from the remote backend.
 
@@ -90,7 +90,7 @@ The offline data sync sync feature of Azure Mobile Apps allows end users to inte
 
     The second parameter to `pullWithQuery` is a query ID that is used for *incremental sync*. Incremental sync retrieves only those records modified since the last sync, using the record's `UpdatedAt` timestamp (called `updatedAt` in the local store). The query ID should be a descriptive string that is unique for each logical query in your app. To opt-out of incremental sync, pass `nil` as the query ID. Note that this can be potentially inefficient, since it will retrieve all records on each pull operation.
 
-	<!--     >[AZURE.NOTE] To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to purge the local store.
+    <!--     >[AZURE.NOTE] To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to purge the local store.
  -->
 
 5. In the class `QSTodoService`, the method `syncData` is called after the operations that modify data, `addItem` and `completeItem`. It is also called from `QSTodoListViewController.refresh`, so that the user gets the latest data whenever they perform the refresh gesture. The app also performs a sync on launch, since `QSTodoListViewController.init` calls `refresh`.
@@ -193,7 +193,7 @@ In this section, you will connect to an invalid URL to simulate an offline scena
 3. View the contents of the remote TodoItem table:
 
     + For a Node.js backend, go to the [Azure portal](https://portal.azure.com/), and in your Mobile App backend click **Easy Tables** > **TodoItem** to view the contents of the `TodoItem` table.
-   	+ For a .NET backend, view the table contents either with a SQL tool such as SQL Server Management Studio, or a REST client such as Fiddler or Postman.
+    + For a .NET backend, view the table contents either with a SQL tool such as SQL Server Management Studio, or a REST client such as Fiddler or Postman.
 
     Verify that the new items have *not* been synced to the server:
 
@@ -248,3 +248,4 @@ When we wanted to synchronize the local store with the server, we used the `MSSy
 [Cloud Cover: Offline Sync in Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/en-us/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
  
+

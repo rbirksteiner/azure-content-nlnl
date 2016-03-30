@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Manage your first API in Azure API Management | Microsoft Azure"
-	description="Learn how to create APIs, add operations, and get started with API Management."
-	services="api-management"
-	documentationCenter=""
-	authors="steved0x"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Manage your first API in Azure API Management | Microsoft Azure"
+    description="Learn how to create APIs, add operations, and get started with API Management."
+    services="api-management"
+    documentationCenter=""
+    authors="steved0x"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="api-management"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="12/07/2015"
-	ms.author="sdanie"/>
+    ms.service="api-management"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="hero-article"
+    ms.date="12/07/2015"
+    ms.author="sdanie"/>
 
 # Manage your first API in Azure API Management
 
@@ -44,17 +44,17 @@ The system is made up of the following components:
   * Logs call metadata for analytics purposes.
 
 * The **publisher portal** is the administrative interface where you set up your API program. Use it to:
-	* Define or import API schema.
-	* Package APIs into products.
-	* Set up policies like quotas or transformations on the APIs.
-	* Get insights from analytics.
-	* Manage users.
+    * Define or import API schema.
+    * Package APIs into products.
+    * Set up policies like quotas or transformations on the APIs.
+    * Get insights from analytics.
+    * Manage users.
 
 * The **developer portal** serves as the main web presence for developers, where they can:
-	* Read API documentation.
-	* Try out an API via the interactive console.
-	* Create an account and subscribe to get API keys.
-	* Access analytics on their own usage.
+    * Read API documentation.
+    * Try out an API via the interactive console.
+    * Create an account and subscribe to get API keys.
+    * Access analytics on their own usage.
 
 
 ## <a name="create-service-instance"> </a>Create an API Management instance
@@ -120,8 +120,8 @@ The API section has several tabs. The **Summary** tab displays basic metrics and
 
 By default, each API Management instance comes with two sample products:
 
--	**Starter**
--	**Unlimited**
+-   **Starter**
+-   **Unlimited**
 
 In this tutorial, the Basic Calculator API was added to the Starter product when the API was imported.
 
@@ -177,14 +177,14 @@ For detailed metrics and reports, click **Analytics** from the **API Management*
 
 The **Analytics** section has the following four tabs:
 
--	**At a glance** provides overall usage and health metrics, as well as the top developers, top products, top APIs, and top operations.
--	**Usage** provides an in-depth look at API calls and bandwidth, including a geographical representation.
--	**Health** focuses on status codes, cache success rates, response times, and API and service response times.
--	**Activity** provides reports that drill down on the specific activity by developer, product, API, and operation.
+-   **At a glance** provides overall usage and health metrics, as well as the top developers, top products, top APIs, and top operations.
+-   **Usage** provides an in-depth look at API calls and bandwidth, including a geographical representation.
+-   **Health** focuses on status codes, cache success rates, response times, and API and service response times.
+-   **Activity** provides reports that drill down on the specific activity by developer, product, API, and operation.
 
 ## <a name="next-steps"> </a>Next steps
 
--	Check out the other topics in the [Get started with advanced API configuration][] tutorial.
+-   Check out the other topics in the [Get started with advanced API configuration][] tutorial.
 
 [Azure Free Trial]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=api_management_hero_a
 
@@ -242,3 +242,4 @@ The **Analytics** section has the following four tabs:
 [api-management-analytics-usage]: ./media/api-management-get-started/api-management-analytics-usage.png
 [api-management-]: ./media/api-management-get-started/api-management-.png
 [api-management-]: ./media/api-management-get-started/api-management-.png
+

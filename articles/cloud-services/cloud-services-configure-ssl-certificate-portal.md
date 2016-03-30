@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Configure SSL for a cloud service  | Microsoft Azure" 
-	description="Learn how to specify an HTTPS endpoint for a web role and how to upload an SSL certificate to secure your application. These examples use the Azure portal." 
-	services="cloud-services" 
-	documentationCenter=".net" 
-	authors="Thraka" 
-	manager="timlt" 
-	editor=""/>
+    pageTitle="Configure SSL for a cloud service  | Microsoft Azure" 
+    description="Learn how to specify an HTTPS endpoint for a web role and how to upload an SSL certificate to secure your application. These examples use the Azure portal." 
+    services="cloud-services" 
+    documentationCenter=".net" 
+    authors="Thraka" 
+    manager="timlt" 
+    editor=""/>
 
 <tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/22/2015"
-	ms.author="adegeo"/>
+    ms.service="cloud-services" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/22/2015"
+    ms.author="adegeo"/>
 
 
 
@@ -64,8 +64,8 @@ Your application must be configured to use the certificate, and an HTTPS endpoin
         ...
             <Certificates>
                 <Certificate name="SampleCertificate" 
-							 storeLocation="LocalMachine" 
-                    		 storeName="CA" />
+                             storeLocation="LocalMachine" 
+                             storeName="CA" />
             </Certificates>
         ...
         </WebRole>
@@ -174,3 +174,4 @@ connect to it using HTTPS.
 * Learn how to [deploy a cloud service](cloud-services-how-to-create-deploy-portal.md).
 * Configure a [custom domain name](cloud-services-custom-domain-name-portal.md).
 * [Manage your cloud service](cloud-services-how-to-manage-portal.md).
+

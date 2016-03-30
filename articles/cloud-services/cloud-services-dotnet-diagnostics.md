@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How to use diagnostics (.NET) | Microsoft Azure" 
-	description="Learn how to use diagnostic data in Azure for debugging, measuring performance, monitoring, traffic analysis, and more." 
-	services="cloud-services" 
-	documentationCenter=".net" 
-	authors="rboucher" 
-	manager="jwhit" 
-	editor=""/>
+    pageTitle="How to use diagnostics (.NET) | Microsoft Azure" 
+    description="Learn how to use diagnostic data in Azure for debugging, measuring performance, monitoring, traffic analysis, and more." 
+    services="cloud-services" 
+    documentationCenter=".net" 
+    authors="rboucher" 
+    manager="jwhit" 
+    editor=""/>
 
 <tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="08/25/2015" 
-	ms.author="robb"/>
+    ms.service="cloud-services" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="dotnet" 
+    ms.topic="article" 
+    ms.date="08/25/2015" 
+    ms.author="robb"/>
 
 
 
@@ -30,9 +30,9 @@ Azure Diagnostics 1.2 are for use with Azure SDKs for .NET 2.4 and before. Azure
 
 If you have used Diagnostics version 1.0 in the past, there are three notable differences compared to Diagnostics 1.2 and 1.3:
 
-1.	Diagnostics 1.2 and 1.3 can be deployed on virtual machines, in addition to cloud services.
-2.	Diagnostics 1.0 is part of the Azure SDK and is deployed when you deploy your cloud service. Diagnostics 1.2 and 1.3 are an extension and are deployed separately from your cloud service deployment.
-3.	Diagnostics 1.2 and 1.3 enable the collection of ETW and .NET EventSource events.
+1.  Diagnostics 1.2 and 1.3 can be deployed on virtual machines, in addition to cloud services.
+2.  Diagnostics 1.0 is part of the Azure SDK and is deployed when you deploy your cloud service. Diagnostics 1.2 and 1.3 are an extension and are deployed separately from your cloud service deployment.
+3.  Diagnostics 1.2 and 1.3 enable the collection of ETW and .NET EventSource events.
 
 For a more detailed comparison, see [Comparing Azure Diagnostics Versions][] at the end of this article.
 
@@ -58,25 +58,25 @@ This walk through describes how to implement an Azure worker role that emits tel
 This article assumes you have an Azure subscription and are using Visual Studio 2013 with the Azure SDK. If you do not have an Azure subscription, you can sign up for the [Free Trial][]. Make sure to [Install and configure Azure PowerShell version 0.8.7 or later][].
 
 ### Step 1: Create a Worker Role
-1.	Launch **Visual Studio 2013**.
-2.	Create a new **Azure Cloud Service** project from the **Cloud** template that targets .NET Framework 4.5.  Name the project "WadExample" and click Ok.
-3.	Select **Worker Role** and click Ok. The project will be created. 
-4.	In **Solution Explorer**, double-click on the **WorkerRole1** properties file.
-5.	In the **Configuration** tab un-check **Enable Diagnostics** to disable Diagnostics 1.0 (Azure SDK 2.4 and eariler).
-6.	Build your solution to verify that you have no errors.
+1.  Launch **Visual Studio 2013**.
+2.  Create a new **Azure Cloud Service** project from the **Cloud** template that targets .NET Framework 4.5.  Name the project "WadExample" and click Ok.
+3.  Select **Worker Role** and click Ok. The project will be created. 
+4.  In **Solution Explorer**, double-click on the **WorkerRole1** properties file.
+5.  In the **Configuration** tab un-check **Enable Diagnostics** to disable Diagnostics 1.0 (Azure SDK 2.4 and eariler).
+6.  Build your solution to verify that you have no errors.
 
 ### Step 2: Instrument your code
 Replace the contents of WorkerRole.cs with the following code. The class SampleEventSourceWriter, inherited from the [EventSource Class][], implements four logging methods: **SendEnums**, **MessageMethod**, **SetOther** and **HighFreq**. The first parameter to the **WriteEvent** method defines the ID for the respective event. The Run method implements an infinite loop that calls each of the logging methods implemented in the **SampleEventSourceWriter** class every 10 seconds.
 
-	using Microsoft.WindowsAzure.ServiceRuntime;
-	using System;
-	using System.Diagnostics;
-	using System.Diagnostics.Tracing;
-	using System.Net;
-	using System.Threading;
+    using Microsoft.WindowsAzure.ServiceRuntime;
+    using System;
+    using System.Diagnostics;
+    using System.Diagnostics.Tracing;
+    using System.Net;
+    using System.Threading;
 
-	namespace WorkerRole1
-	{
+    namespace WorkerRole1
+    {
     sealed class SampleEventSourceWriter : EventSource
     {
         public static SampleEventSourceWriter Log = new SampleEventSourceWriter();
@@ -144,70 +144,70 @@ Replace the contents of WorkerRole.cs with the following code. The class SampleE
             return base.OnStart();
         }
     }
-	}
+    }
 
 
 ### Step 3: Deploy your Worker Role
-1.	Deploy your worker role to Azure from within Visual Studio by selecting the **WadExample** project in the Solution Explorer then **Publish** from the **Build** menu.
-2.	Choose your subscription.
-3.	In the **Microsoft Azure Publish Settings** dialog select **Create New…**.
-4.	In the **Create Cloud Service and Storage Account** dialog enter a **Name** (for example, "WadExample") and select a region or affinity group.
-5.	Set the **Environment** to **Staging**.
-6.	Modify any other **Settings** as appropriate and click **Publish**.
-7.	After deployment has completed verify in the Azure classic portal that your cloud service is in a **Running** state.
+1.  Deploy your worker role to Azure from within Visual Studio by selecting the **WadExample** project in the Solution Explorer then **Publish** from the **Build** menu.
+2.  Choose your subscription.
+3.  In the **Microsoft Azure Publish Settings** dialog select **Create New…**.
+4.  In the **Create Cloud Service and Storage Account** dialog enter a **Name** (for example, "WadExample") and select a region or affinity group.
+5.  Set the **Environment** to **Staging**.
+6.  Modify any other **Settings** as appropriate and click **Publish**.
+7.  After deployment has completed verify in the Azure classic portal that your cloud service is in a **Running** state.
 
 ### Step 4: Create your Diagnostics configuration file and install the extension
-1.	Download the public configuration file schema definition by executing the following PowerShell command:
-2.	
-		(Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd' 
+1.  Download the public configuration file schema definition by executing the following PowerShell command:
+2.  
+        (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd' 
 
-2.	Add an XML file to your **WorkerRole1** project by right-clicking on the **WorkerRole1** project and select **Add** -> **New Item…** -> **Visual C# items** -> **Data** -> **XML File**. Name the file "WadExample.xml".
+2.  Add an XML file to your **WorkerRole1** project by right-clicking on the **WorkerRole1** project and select **Add** -> **New Item…** -> **Visual C# items** -> **Data** -> **XML File**. Name the file "WadExample.xml".
 
-	![CloudServices_diag_add_xml](./media/cloud-services-dotnet-diagnostics/AddXmlFile.png)
+    ![CloudServices_diag_add_xml](./media/cloud-services-dotnet-diagnostics/AddXmlFile.png)
 
-3.	Associate the WadConfig.xsd with the configuration file. Make sure the WadExample.xml editor window is the active window. Press **F4** to open the **Properties** window. Click on the **Schemas** property in the **Properties** window. Click the **…** in the **Schemas** property. Click the **Add…** button and navigate to the location where you saved the XSD file and select the file WadConfig.xsd. Click **OK**.
-4.	Replace the contents of the WadExample.xml configuration file with the following XML and save the file. This configuration file defines a couple performance counters to collect: one for CPU utilization and one for memory utilization. Then the configuration defines the four events corresponding to the methods in the SampleEventSourceWriter class.
+3.  Associate the WadConfig.xsd with the configuration file. Make sure the WadExample.xml editor window is the active window. Press **F4** to open the **Properties** window. Click on the **Schemas** property in the **Properties** window. Click the **…** in the **Schemas** property. Click the **Add…** button and navigate to the location where you saved the XSD file and select the file WadConfig.xsd. Click **OK**.
+4.  Replace the contents of the WadExample.xml configuration file with the following XML and save the file. This configuration file defines a couple performance counters to collect: one for CPU utilization and one for memory utilization. Then the configuration defines the four events corresponding to the methods in the SampleEventSourceWriter class.
 
 ```
-		<?xml version="1.0" encoding="utf-8"?>
-		<PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
-  			<WadCfg>
-    			<DiagnosticMonitorConfiguration overallQuotaInMB="25000">
-      			<PerformanceCounters scheduledTransferPeriod="PT1M">
-        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT1M" unit="percent" />
-        			<PerformanceCounterConfiguration counterSpecifier="\Memory\Committed Bytes" sampleRate="PT1M" unit="bytes"/>
-      				</PerformanceCounters>
-      				<EtwProviders>
-        				<EtwEventSourceProviderConfiguration provider="SampleEventSourceWriter" scheduledTransferPeriod="PT5M">
-          					<Event id="1" eventDestination="EnumsTable"/>
-          					<Event id="2" eventDestination="MessageTable"/>
-          					<Event id="3" eventDestination="SetOtherTable"/>
-          					<Event id="4" eventDestination="HighFreqTable"/>
-          					<DefaultEvents eventDestination="DefaultTable" />
-        				</EtwEventSourceProviderConfiguration>
-      				</EtwProviders>
-    			</DiagnosticMonitorConfiguration>
-  			</WadCfg>
-		</PublicConfig>
+        <?xml version="1.0" encoding="utf-8"?>
+        <PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
+            <WadCfg>
+                <DiagnosticMonitorConfiguration overallQuotaInMB="25000">
+                <PerformanceCounters scheduledTransferPeriod="PT1M">
+                    <PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT1M" unit="percent" />
+                    <PerformanceCounterConfiguration counterSpecifier="\Memory\Committed Bytes" sampleRate="PT1M" unit="bytes"/>
+                    </PerformanceCounters>
+                    <EtwProviders>
+                        <EtwEventSourceProviderConfiguration provider="SampleEventSourceWriter" scheduledTransferPeriod="PT5M">
+                            <Event id="1" eventDestination="EnumsTable"/>
+                            <Event id="2" eventDestination="MessageTable"/>
+                            <Event id="3" eventDestination="SetOtherTable"/>
+                            <Event id="4" eventDestination="HighFreqTable"/>
+                            <DefaultEvents eventDestination="DefaultTable" />
+                        </EtwEventSourceProviderConfiguration>
+                    </EtwProviders>
+                </DiagnosticMonitorConfiguration>
+            </WadCfg>
+        </PublicConfig>
 ```
 
 ### Step 5: Install Diagnostics on your Worker Role
 The PowerShell cmdlets for managing Diagnostics on a web or worker role are: Set-AzureServiceDiagnosticsExtension, Get-AzureServiceDiagnosticsExtension, and Remove-AzureServiceDiagnosticsExtension.
 
-1.	Open Azure PowerShell.
-2.	Execute the script to install Diagnostics on your worker role (replace *StorageAccountKey* with the storage account key for your wadexample storage account):
+1.  Open Azure PowerShell.
+2.  Execute the script to install Diagnostics on your worker role (replace *StorageAccountKey* with the storage account key for your wadexample storage account):
 
-		$storage_name = "wadexample"
-		$key = "<StorageAccountKey>"
-		$config_path="c:\users\<user>\documents\visual studio 2013\Projects\WadExample\WorkerRole1\WadExample.xml"
-		$service_name="wadexample"
-		$storageContext = New-AzureStorageContext -StorageAccountName $storage_name -StorageAccountKey $key 
-		Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Staging -Role WorkerRole1
+        $storage_name = "wadexample"
+        $key = "<StorageAccountKey>"
+        $config_path="c:\users\<user>\documents\visual studio 2013\Projects\WadExample\WorkerRole1\WadExample.xml"
+        $service_name="wadexample"
+        $storageContext = New-AzureStorageContext -StorageAccountName $storage_name -StorageAccountKey $key 
+        Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Staging -Role WorkerRole1
 
 
 ### Step 6: Look at your telemetry data
 In the Visual Studio **Server Explorer** navigate to the wadexample storage account. After the cloud service has been running about 5 minutes you should see the tables **WADEnumsTable**, **WADHighFreqTable**, **WADMessageTable**, **WADPerformanceCountersTable** and **WADSetOtherTable**. Double-click on one of the tables to view the telemetry that has been collected.
-	![CloudServices_diag_tables](./media/cloud-services-dotnet-diagnostics/WadExampleTables.png)
+    ![CloudServices_diag_tables](./media/cloud-services-dotnet-diagnostics/WadExampleTables.png)
 
 ## How to Enable Diagnostics in a Virtual Machine
 
@@ -217,54 +217,54 @@ This walk through describes how to remotely install Diagnostics to an Azure virt
 This walk through assumes you have an Azure subscription and are using Visual Studio 2013 with the Azure SDK. If you do not have an Azure subscription, you can sign up for the [Free Trial][]. Make sure to [Install and configure Azure PowerShell version 0.8.7 or later][].
 
 ### Step 1: Create a Virtual Machine
-1.	On your development computer, launch Visual Studio 2013.
-2.	In the Visual Studio **Server Explorer** expand **Azure**, right-click **Virtual Machines** then select **Create Virtual Machine**.
-3.	Select your Azure subscription in the **Choose a Subscription** dialog and click **Next**.
-4.	Select **Windows Server 2012 R2 Datacenter, November 2014** in the **Select a Virtual Machine Image** dialog and click **Next**.
-5.	In the **Virtual Machine Basic Settings**, set the virtual machine name to "wadexample". Set your Administrator user name and password and click **Next**.
-6.	In the **Cloud Service Settings** dialog create a new cloud service named "wadexampleVM". Create a new Storage account named "wadexample" and click **Next**.
-7.	Click **Create**.
+1.  On your development computer, launch Visual Studio 2013.
+2.  In the Visual Studio **Server Explorer** expand **Azure**, right-click **Virtual Machines** then select **Create Virtual Machine**.
+3.  Select your Azure subscription in the **Choose a Subscription** dialog and click **Next**.
+4.  Select **Windows Server 2012 R2 Datacenter, November 2014** in the **Select a Virtual Machine Image** dialog and click **Next**.
+5.  In the **Virtual Machine Basic Settings**, set the virtual machine name to "wadexample". Set your Administrator user name and password and click **Next**.
+6.  In the **Cloud Service Settings** dialog create a new cloud service named "wadexampleVM". Create a new Storage account named "wadexample" and click **Next**.
+7.  Click **Create**.
 
 ### Step 2: Create your Application
-1.	On your development computer, launch Visual Studio 2013.
-2.	Create a new Visual C# Console Application that targets .NET Framework 4.5. Name the project "WadExampleVM".
-	![CloudServices_diag_new_project](./media/cloud-services-dotnet-diagnostics/NewProject.png)
-3.	Replace the contents of Program.cs with the following code. The class **SampleEventSourceWriter** implements four logging methods: **SendEnums**, **MessageMethod**, **SetOther** and **HighFreq**. The first parameter to the WriteEvent method defines the ID for the respective event. The Run method implements an infinite loop that calls each of the logging methods implemented in the **SampleEventSourceWriter** class every 10 seconds.
+1.  On your development computer, launch Visual Studio 2013.
+2.  Create a new Visual C# Console Application that targets .NET Framework 4.5. Name the project "WadExampleVM".
+    ![CloudServices_diag_new_project](./media/cloud-services-dotnet-diagnostics/NewProject.png)
+3.  Replace the contents of Program.cs with the following code. The class **SampleEventSourceWriter** implements four logging methods: **SendEnums**, **MessageMethod**, **SetOther** and **HighFreq**. The first parameter to the WriteEvent method defines the ID for the respective event. The Run method implements an infinite loop that calls each of the logging methods implemented in the **SampleEventSourceWriter** class every 10 seconds.
 
-		using System;
-		using System.Diagnostics;
-		using System.Diagnostics.Tracing;
-		using System.Threading;
+        using System;
+        using System.Diagnostics;
+        using System.Diagnostics.Tracing;
+        using System.Threading;
 
-		namespace WadExampleVM
-		{
-    	sealed class SampleEventSourceWriter : EventSource
-    	{
-        	public static SampleEventSourceWriter Log = new SampleEventSourceWriter();
-        	public void SendEnums(MyColor color, MyFlags flags) { if (IsEnabled())  WriteEvent(1, (int)color, (int)flags); }// Cast enums to int for efficient logging.
-        	public void MessageMethod(string Message) { if (IsEnabled())  WriteEvent(2, Message); }
-        	public void SetOther(bool flag, int myInt) { if (IsEnabled())  WriteEvent(3, flag, myInt); }
-        	public void HighFreq(int value) { if (IsEnabled()) WriteEvent(4, value); }
+        namespace WadExampleVM
+        {
+        sealed class SampleEventSourceWriter : EventSource
+        {
+            public static SampleEventSourceWriter Log = new SampleEventSourceWriter();
+            public void SendEnums(MyColor color, MyFlags flags) { if (IsEnabled())  WriteEvent(1, (int)color, (int)flags); }// Cast enums to int for efficient logging.
+            public void MessageMethod(string Message) { if (IsEnabled())  WriteEvent(2, Message); }
+            public void SetOther(bool flag, int myInt) { if (IsEnabled())  WriteEvent(3, flag, myInt); }
+            public void HighFreq(int value) { if (IsEnabled()) WriteEvent(4, value); }
 
-    	}
+        }
 
-    	enum MyColor
-    	{
-        	Red,
-        	Blue,
-        	Green
-    	}
+        enum MyColor
+        {
+            Red,
+            Blue,
+            Green
+        }
 
-    	[Flags]
-    	enum MyFlags
-    	{
-        	Flag1 = 1,
-        	Flag2 = 2,
-        	Flag3 = 4
-    	}
+        [Flags]
+        enum MyFlags
+        {
+            Flag1 = 1,
+            Flag2 = 2,
+            Flag3 = 4
+        }
 
-    	class Program
-    	{
+        class Program
+        {
         static void Main(string[] args)
         {
             Trace.TraceInformation("My application entry point called");
@@ -293,72 +293,72 @@ This walk through assumes you have an Azure subscription and are using Visual St
             }
 
         }
-    	}
-		}
+        }
+        }
 
 
-4.	Save the file and select **Build Solution** from the **Build** menu to build your code.
+4.  Save the file and select **Build Solution** from the **Build** menu to build your code.
 
 
 ### Step 3: Deploy your Application
-1.	Right-click on the **WadExampleVM** project in **Solution Explorer** and choose **Open Folder in File Explorer**.
-2.	Navigate to the *bin\Debug* folder and copy all the files (WadExampleVM.*)
-3.	In **Server Explorer** right-click on the virtual machine and choose **Connect using Remote Desktop**.
-4.	Once connected to the VM create a folder named WadExampleVM and paste your application files into the folder.
-5.	Launch the application WadExampleVM.exe. You should see a blank console window.
+1.  Right-click on the **WadExampleVM** project in **Solution Explorer** and choose **Open Folder in File Explorer**.
+2.  Navigate to the *bin\Debug* folder and copy all the files (WadExampleVM.*)
+3.  In **Server Explorer** right-click on the virtual machine and choose **Connect using Remote Desktop**.
+4.  Once connected to the VM create a folder named WadExampleVM and paste your application files into the folder.
+5.  Launch the application WadExampleVM.exe. You should see a blank console window.
 
 ### Step 4: Create your Diagnostics configuration and install the Extension
-1.	Download the public configuration file schema definition to your development computer by executing the following PowerShell command:
+1.  Download the public configuration file schema definition to your development computer by executing the following PowerShell command:
 
-		(Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd' 
+        (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd' 
 
-2.	Open a new XML file in Visual Studio, either in a project you already have open or in a Visual Studio instance with no open projects. In Visual Studio, select **Add** -> **New Item…** -> **Visual C# items** -> **Data** -> **XML File**. Name the file "WadExample.xml"
-3.	Associate the WadConfig.xsd with the configuration file. Make sure the WadExample.xml editor window is the active window. Press **F4** to open the **Properties** window. Click on the **Schemas** property in the **Properties** window. Click the **…** in the **Schemas** property. Click the **Add…** button and navigate to the location where you saved the XSD file and select the file WadConfig.xsd. Click **OK**.
-4.	Replace the contents of the WadExample.xml configuration file with the following XML and save the file. This configuration file defines a couple performance counters to collect: one for CPU utilization and one for memory utilization. Then the configuration defines the four events corresponding to the methods in the SampleEventSourceWriter class.
+2.  Open a new XML file in Visual Studio, either in a project you already have open or in a Visual Studio instance with no open projects. In Visual Studio, select **Add** -> **New Item…** -> **Visual C# items** -> **Data** -> **XML File**. Name the file "WadExample.xml"
+3.  Associate the WadConfig.xsd with the configuration file. Make sure the WadExample.xml editor window is the active window. Press **F4** to open the **Properties** window. Click on the **Schemas** property in the **Properties** window. Click the **…** in the **Schemas** property. Click the **Add…** button and navigate to the location where you saved the XSD file and select the file WadConfig.xsd. Click **OK**.
+4.  Replace the contents of the WadExample.xml configuration file with the following XML and save the file. This configuration file defines a couple performance counters to collect: one for CPU utilization and one for memory utilization. Then the configuration defines the four events corresponding to the methods in the SampleEventSourceWriter class.
 
 ```
-		<?xml version="1.0" encoding="utf-8"?>
-		<PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
-  			<WadCfg>
-    			<DiagnosticMonitorConfiguration overallQuotaInMB="25000">
-      			<PerformanceCounters scheduledTransferPeriod="PT1M">
-        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT1M" unit="percent" />
-        			<PerformanceCounterConfiguration counterSpecifier="\Memory\Committed Bytes" sampleRate="PT1M" unit="bytes"/>
-      				</PerformanceCounters>
-      				<EtwProviders>
-        				<EtwEventSourceProviderConfiguration provider="SampleEventSourceWriter" scheduledTransferPeriod="PT5M">
-          					<Event id="1" eventDestination="EnumsTable"/>
-          					<Event id="2" eventDestination="MessageTable"/>
-          					<Event id="3" eventDestination="SetOtherTable"/>
-          					<Event id="4" eventDestination="HighFreqTable"/>
-          					<DefaultEvents eventDestination="DefaultTable" />
-        				</EtwEventSourceProviderConfiguration>
-      				</EtwProviders>
-    			</DiagnosticMonitorConfiguration>
-  			</WadCfg>
-		</PublicConfig>
+        <?xml version="1.0" encoding="utf-8"?>
+        <PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
+            <WadCfg>
+                <DiagnosticMonitorConfiguration overallQuotaInMB="25000">
+                <PerformanceCounters scheduledTransferPeriod="PT1M">
+                    <PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT1M" unit="percent" />
+                    <PerformanceCounterConfiguration counterSpecifier="\Memory\Committed Bytes" sampleRate="PT1M" unit="bytes"/>
+                    </PerformanceCounters>
+                    <EtwProviders>
+                        <EtwEventSourceProviderConfiguration provider="SampleEventSourceWriter" scheduledTransferPeriod="PT5M">
+                            <Event id="1" eventDestination="EnumsTable"/>
+                            <Event id="2" eventDestination="MessageTable"/>
+                            <Event id="3" eventDestination="SetOtherTable"/>
+                            <Event id="4" eventDestination="HighFreqTable"/>
+                            <DefaultEvents eventDestination="DefaultTable" />
+                        </EtwEventSourceProviderConfiguration>
+                    </EtwProviders>
+                </DiagnosticMonitorConfiguration>
+            </WadCfg>
+        </PublicConfig>
 ```
 
 ### Step 5: Remotely install Diagnostics on your Azure Virtual Machine
 The PowerShell cmdlets for managing Diagnostics on a VM are: Set-AzureVMDiagnosticsExtension, Get-AzureVMDiagnosticsExtension, and Remove-AzureVMDiagnosticsExtension.
 
-1.	On your developer computer, open Azure PowerShell.
-2.	Execute the script to remotely install Diagnostics on your VM (Replace *StorageAccountKey* with the storage account key for your wadexamplevm storage account):
+1.  On your developer computer, open Azure PowerShell.
+2.  Execute the script to remotely install Diagnostics on your VM (Replace *StorageAccountKey* with the storage account key for your wadexamplevm storage account):
 
-		$storage_name = "wadexamplevm"
-		$key = "<StorageAccountKey>"
-		$config_path="c:\users\<user>\documents\visual studio 2013\Projects\WadExampleVM\WadExampleVM\WadExample.xml"
-		$service_name="wadexamplevm"
-		$vm_name="WadExample"
-		$storageContext = New-AzureStorageContext -StorageAccountName $storage_name -StorageAccountKey $key 
-		$VM1 = Get-AzureVM -ServiceName $service_name -Name $vm_name
-		$VM2 = Set-AzureVMDiagnosticsExtension -DiagnosticsConfigurationPath $config_path -Version "1.*" -VM $VM1 -StorageContext $storageContext
-		$VM3 = Update-AzureVM -ServiceName $service_name -Name $vm_name -VM $VM2.VM
+        $storage_name = "wadexamplevm"
+        $key = "<StorageAccountKey>"
+        $config_path="c:\users\<user>\documents\visual studio 2013\Projects\WadExampleVM\WadExampleVM\WadExample.xml"
+        $service_name="wadexamplevm"
+        $vm_name="WadExample"
+        $storageContext = New-AzureStorageContext -StorageAccountName $storage_name -StorageAccountKey $key 
+        $VM1 = Get-AzureVM -ServiceName $service_name -Name $vm_name
+        $VM2 = Set-AzureVMDiagnosticsExtension -DiagnosticsConfigurationPath $config_path -Version "1.*" -VM $VM1 -StorageContext $storageContext
+        $VM3 = Update-AzureVM -ServiceName $service_name -Name $vm_name -VM $VM2.VM
 
 
 ### Step 6: Look at your telemetry data
 In the Visual Studio **Server Explorer** navigate to the wadexample storage account. After the VM has been running about 5 minutes you should see the tables **WADEnumsTable**, **WADHighFreqTable**, **WADMessageTable**, **WADPerformanceCountersTable** and **WADSetOtherTable**. Double-click on one of the tables to view the telemetry that has been collected.
-	![CloudServices_diag_wadexamplevm_tables](./media/cloud-services-dotnet-diagnostics/WadExampleVMTables.png)
+    ![CloudServices_diag_wadexamplevm_tables](./media/cloud-services-dotnet-diagnostics/WadExampleVMTables.png)
 
 ## Configuration File Schema
 
@@ -390,7 +390,7 @@ Exit Code|Description
 -105|The Diagnostics plugin cannot open the Diagnostics configuration file.<p><p>This is an internal error that should only happen if the Diagnostics plugin is manually invoked, incorrectly, on the VM.
 -106|Cannot read the Diagnostics configuration file.<p><p>Solution: This is the result of a configuration file not passing schema validation. So the solution is to provide a configuration file that complies with the schema. You can find the XML that is delivered to the Diagnostics extension in the folder *%SystemDrive%\WindowsAzure\Config* on the VM. Open the appropriate XML file and search for **Microsoft.Azure.Diagnostics**, then for the **xmlCfg** field. The data is base64 encoded so you’ll need to [decode it](http://www.bing.com/search?q=base64+decoder) to see the XML that was loaded by Diagnostics.<p>
 -107|The resource directory pass to the monitoring agent is invalid.<p><p>This is an internal error that should only happen if the monitoring agent is manually invoked, incorrectly, on the VM.</p>
--108	|Unable to convert the Diagnostics configuration file into the monitoring agent configuration file.<p><p>This is an internal error that should only happen if the Diagnostics plugin is manually invoked with an invalid configuration file.
+-108    |Unable to convert the Diagnostics configuration file into the monitoring agent configuration file.<p><p>This is an internal error that should only happen if the Diagnostics plugin is manually invoked with an invalid configuration file.
 -110|General Diagnostics configuration error.<p><p>This is an internal error that should only happen if the Diagnostics plugin is manually invoked with an invalid configuration file.
 -111|Unable to start the monitoring agent.<p><p>Solution: Verify that sufficient system resources are available.
 -112|General error
@@ -406,7 +406,7 @@ If there are no files in this folder the monitoring agent is unable to launch. T
 
 The Monitoring Agent logs any errors it experiences in the file MaEventTable.tsf. To inspect the contents of this file run the following command:
 
-		%SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.[IaaS | PaaS]Diagnostics\1.3.0.0\Monitor\x64\table2csv maeventtable.tsf
+        %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.[IaaS | PaaS]Diagnostics\1.3.0.0\Monitor\x64\table2csv maeventtable.tsf
 
 The tool generates a file named maeventtable.csv that you may open and inspect the logs for failures.
 
@@ -429,25 +429,25 @@ The following are some frequently asked questions and their answers:
 
 **A.** Tables are named according to the following:
 
-		if (String.IsNullOrEmpty(eventDestination)) {
-		    if (e == "DefaultEvents")
-		        tableName = "WADDefault" + MD5(provider);
-		    else
-		        tableName = "WADEvent" + MD5(provider) + eventId;
-		}
-		else
-		    tableName = "WAD" + eventDestination;
+        if (String.IsNullOrEmpty(eventDestination)) {
+            if (e == "DefaultEvents")
+                tableName = "WADDefault" + MD5(provider);
+            else
+                tableName = "WADEvent" + MD5(provider) + eventId;
+        }
+        else
+            tableName = "WAD" + eventDestination;
 
 Here is an example:
 
-		<EtwEventSourceProviderConfiguration provider=”prov1”>
-		  <Event id=”1” />
-		  <Event id=”2” eventDestination=”dest1” />
-		  <DefaultEvents />
-		</EtwEventSourceProviderConfiguration>
-		<EtwEventSourceProviderConfiguration provider=”prov2”>
-		  <DefaultEvents eventDestination=”dest2” />
-		</EtwEventSourceProviderConfiguration>
+        <EtwEventSourceProviderConfiguration provider=”prov1”>
+          <Event id=”1” />
+          <Event id=”2” eventDestination=”dest1” />
+          <DefaultEvents />
+        </EtwEventSourceProviderConfiguration>
+        <EtwEventSourceProviderConfiguration provider=”prov2”>
+          <DefaultEvents eventDestination=”dest2” />
+        </EtwEventSourceProviderConfiguration>
 
 That will generate 4 tables:
 
@@ -517,3 +517,4 @@ Manifest based ETW|No|Table|ETW events generated by any process.|No|Yes|Yes
 [Get-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495145.aspx
 [Remove-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495168.aspx
  
+

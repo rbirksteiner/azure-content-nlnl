@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Creating web apps with Django in Azure"
-	description="A tutorial that introduces you to running a Python web app in Azure App Service Web Apps."
-	services="app-service\web"
-	documentationCenter="python"
-	tags="python"
-	authors="huguesv" 
-	manager="wpickett" 
-	editor=""/>
+    pageTitle="Creating web apps with Django in Azure"
+    description="A tutorial that introduces you to running a Python web app in Azure App Service Web Apps."
+    services="app-service\web"
+    documentationCenter="python"
+    tags="python"
+    authors="huguesv" 
+    manager="wpickett" 
+    editor=""/>
 
 <tags
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="python"
-	ms.topic="hero-article" 
-	ms.date="11/16/2015"
-	ms.author="huvalo"/>
+    ms.service="app-service-web"
+    ms.workload="web"
+    ms.tgt_pltfrm="na"
+    ms.devlang="python"
+    ms.topic="hero-article" 
+    ms.date="11/16/2015"
+    ms.author="huvalo"/>
 
 
 # Creating web apps with Django in Azure
@@ -335,7 +335,7 @@ For Python 3.4:
 
 or
 
-	pyvenv env
+    pyvenv env
 
 Install any external packages required by your application. You can use the requirements.txt file at the root of the repository to install the packages in your virtual environment:
 
@@ -516,3 +516,4 @@ For more information, see the [Python Developer Center](/develop/python/).
 [Visual Studio]: http://www.visualstudio.com/
 [Python Tools for Visual Studio Documentation]: http://aka.ms/ptvsdocs
 [Django Documentation]: https://www.djangoproject.com/
+

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Survival Analysis with Azure Machine Learning | Microsoft Azure" 
-	description="Survival Analysis event occurrence probability" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="zhangya" 
-	manager="paulettm" 
-	editor="cgronlun"/>
+    pageTitle="Survival Analysis with Azure Machine Learning | Microsoft Azure" 
+    description="Survival Analysis event occurrence probability" 
+    services="machine-learning" 
+    documentationCenter="" 
+    authors="zhangya" 
+    manager="paulettm" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/01/2015" 
-	ms.author="zhangya"/> 
+    ms.service="machine-learning" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/01/2015" 
+    ms.author="zhangya"/> 
 
 
 #Survival Analysis 
@@ -47,36 +47,36 @@ The output is the probability of an event occurring by a specific time.
 There are multiple ways of consuming the service in an automated fashion (an example app is [here](http://microsoftazuremachinelearning.azurewebsites.net/SurvivalAnalysis.aspx)). 
 
 ###Starting C# code for web service consumption:
-	public class Input
-	{
-	        public string trainingdata;
-	        public string testingdata;
-	        public string timeofinterest;
-	        public string indextime;
-	        public string indexevent;
-	        public string variabletypes;
-	}
+    public class Input
+    {
+            public string trainingdata;
+            public string testingdata;
+            public string timeofinterest;
+            public string indextime;
+            public string indexevent;
+            public string variabletypes;
+    }
 
     public AuthenticationHeaderValue CreateBasicHeader(string username, string password)
     {
-	        byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
-	        return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
-	}
-	
-	void Main()
-	{
-	        var input = new Input() { trainingdata = TextBox1.Text, testingdata = TextBox2.Text, timeofinterest = TextBox3.Text, indextime = TextBox4.Text, indexevent = TextBox5.Text, variabletypes = TextBox6.Text };
-	        var json = JsonConvert.SerializeObject(input);
-	        var acitionUri = "PutAPIURLHere,e.g.https://api.datamarket.azure.com/..../v1/Score";
-	        var httpClient = new HttpClient();
-	
-	        httpClient.DefaultRequestHeaders.Authorization = CreateBasicHeader("PutEmailAddressHere", "ChangeToAPIKey");
-	        httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-	
-	        var response = httpClient.PostAsync(acitionUri, new StringContent(json));
-	        var result = response.Result.Content;
-		    var scoreResult = result.ReadAsStringAsync().Result;
-	}
+            byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(username + ":" + password);
+            return new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
+    }
+    
+    void Main()
+    {
+            var input = new Input() { trainingdata = TextBox1.Text, testingdata = TextBox2.Text, timeofinterest = TextBox3.Text, indextime = TextBox4.Text, indexevent = TextBox5.Text, variabletypes = TextBox6.Text };
+            var json = JsonConvert.SerializeObject(input);
+            var acitionUri = "PutAPIURLHere,e.g.https://api.datamarket.azure.com/..../v1/Score";
+            var httpClient = new HttpClient();
+    
+            httpClient.DefaultRequestHeaders.Authorization = CreateBasicHeader("PutEmailAddressHere", "ChangeToAPIKey");
+            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+    
+            var response = httpClient.PostAsync(acitionUri, new StringContent(json));
+            var result = response.Result.Content;
+            var scoreResult = result.ReadAsStringAsync().Result;
+    }
 
 
 
@@ -108,7 +108,7 @@ From within Azure Machine Learning, a new blank experiment was created and two [
     sampleInput=data.frame(trainingdata,testingdata,time_of_interest,index_time,index_event,variable_types)
 
     maml.mapOutputPort("sampleInput"); #send data to output port
-	
+    
 ####Module 2:
 
     #Read data from input port
@@ -206,3 +206,4 @@ For frequently asked questions on consumption of the web service or publishing t
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
  
+

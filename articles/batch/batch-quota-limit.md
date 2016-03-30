@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Batch service quotas and limits | Microsoft Azure"
-	description="Learn about quotas, limits, and constraints for using the Azure Batch service"
-	services="batch"
-	documentationCenter=""
-	authors="dlepow"
-	manager="timlt"
-	editor=""/>
+    pageTitle="Batch service quotas and limits | Microsoft Azure"
+    description="Learn about quotas, limits, and constraints for using the Azure Batch service"
+    services="batch"
+    documentationCenter=""
+    authors="dlepow"
+    manager="timlt"
+    editor=""/>
 
 <tags
-	ms.service="batch"
-	ms.workload="big-compute"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/26/2015"
-	ms.author="danlep"/>
+    ms.service="batch"
+    ms.workload="big-compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/26/2015"
+    ms.author="danlep"/>
 
 
 
@@ -47,7 +47,7 @@ View your Batch account quotas in the [Azure portal](https://portal.azure.com).
 
 2. On the account blade, click **Settings** > **Properties**.
 
-	![Batch account quotas][account_quotas]
+    ![Batch account quotas][account_quotas]
 
 3. On the **Properties** blade, review quotas that currently apply to the Batch account.
 
@@ -61,23 +61,23 @@ Use the following steps to request a quota increase in the Azure portal (you can
 
 3. On the **Basics** blade, do the following:
 
-	a. In **Issue Type**, select **Quota**.
+    a. In **Issue Type**, select **Quota**.
 
-	b. Select your subscription.
+    b. Select your subscription.
 
-	c. In **Service**, select **Batch Service**.
+    c. In **Service**, select **Batch Service**.
 
-	d. In **Support plan**, select **Azure Support Plan - Developer**.
+    d. In **Support plan**, select **Azure Support Plan - Developer**.
 
-	Click **Next**.
+    Click **Next**.
 
 4. On the **Problem** blade, do the following:
 
-	a. In **Problem type**, select **Batch**.
+    a. In **Problem type**, select **Batch**.
 
-	b. In **Details**, list the quota or quotas you want to change in a particular account and the new limits you want.
+    b. In **Details**, list the quota or quotas you want to change in a particular account and the new limits you want.
 
-	Click **Next**.
+    Click **Next**.
 
 5. On the **Contact information** blade, enter your contact details and click **Next**.
 
@@ -94,3 +94,4 @@ Azure support will contact you. Completing the request can take up to 2 business
 * [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md)
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
+

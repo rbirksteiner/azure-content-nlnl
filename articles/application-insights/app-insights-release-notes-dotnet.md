@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Release notes for Application Insights for .NET" 
-	description="The latest updates for .NET SDK." 
-	services="application-insights" 
+    pageTitle="Release notes for Application Insights for .NET" 
+    description="The latest updates for .NET SDK." 
+    services="application-insights" 
     documentationCenter=""
-	authors="alancameronwills" 
-	manager="douge"/>
+    authors="alancameronwills" 
+    manager="douge"/>
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/11/2015" 
-	ms.author="sergkanz"/>
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/11/2015" 
+    ms.author="sergkanz"/>
  
 # Release Notes for Application Insights SDK for .NET
 
@@ -113,3 +113,4 @@ See [Get started with Application Insights for .NET](app-insights-asp-net.md).
 No release notes for older versions available.
 
  
+

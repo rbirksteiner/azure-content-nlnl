@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Troubleshoot Azure Data Factory issues" 
-	description="Learn how to troubleshoot issues with using Azure Data Factory." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
-	editor="monicar"/>
+    pageTitle="Troubleshoot Azure Data Factory issues" 
+    description="Learn how to troubleshoot issues with using Azure Data Factory." 
+    services="data-factory" 
+    documentationCenter="" 
+    authors="spelluru" 
+    manager="jhubbard" 
+    editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/12/2015" 
-	ms.author="spelluru"/>
+    ms.service="data-factory" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/12/2015" 
+    ms.author="spelluru"/>
 
 # Troubleshoot Data Factory issues
 You can troubleshoot Azure Data Factory issues using Azure Classic Portal (or) Azure PowerShell cmdlets. This topic has walkthroughs that show you how to use the Azure Classic Portal to quickly troubleshoot errors that you encounter with Data Factory. 
@@ -59,35 +59,35 @@ The slices could be in **PendingExecution** or **PendingValidation** state due t
 See the following example for the usage of the **external** property. You can optionally specify **externalData*** when you set external to true.. 
 
 See Tables topic in [JSON Scripting Reference][json-scripting-reference] for more details about this property.
-	
-	{
-	  "name": "CustomerTable",
-	  "properties": {
-	    "type": "AzureBlob",
-	    "linkedServiceName": "MyLinkedService",
-	    "typeProperties": {
-	      "folderPath": "MyContainer/MySubFolder/",
-	      "format": {
-	        "type": "TextFormat",
-	        "columnDelimiter": ",",
-	        "rowDelimiter": ";"
-	      }
-	    },
-	    "external": true,
-	    "availability": {
-	      "frequency": "Hour",
-	      "interval": 1
-	    },
-	    "policy": {
-	      "externalData": {
-	        "dataDelay": "00:10:00",
-	        "retryInterval": "00:01:00",
-	        "retryTimeout": "00:10:00",
-	        "maximumRetry": 3
-	      }
-	    }
-	  }
-	}
+    
+    {
+      "name": "CustomerTable",
+      "properties": {
+        "type": "AzureBlob",
+        "linkedServiceName": "MyLinkedService",
+        "typeProperties": {
+          "folderPath": "MyContainer/MySubFolder/",
+          "format": {
+            "type": "TextFormat",
+            "columnDelimiter": ",",
+            "rowDelimiter": ";"
+          }
+        },
+        "external": true,
+        "availability": {
+          "frequency": "Hour",
+          "interval": 1
+        },
+        "policy": {
+          "externalData": {
+            "dataDelay": "00:10:00",
+            "retryInterval": "00:01:00",
+            "retryTimeout": "00:10:00",
+            "maximumRetry": 3
+          }
+        }
+      }
+    }
 
  To resolve the error, add the **external** property and the optional **externalData** section to the JSON definition of the input table and recreate the table. 
 
@@ -101,7 +101,7 @@ To learn more details:
 
 When using a linked service of type HDInsightOnDemandLinkedService, you should specify a linkedServiceName that points to  Azure Blob Storage. This storage account will be used to copy all the logs and supporting files for your on-demand HDInsight cluster.  Sometimes the activity that does the on-demand provisioning on HDInsight may fail with the following error:
 
-		Failed to create cluster. Exception: Unable to complete the cluster create operation. Operation failed with code '400'. Cluster left behind state: 'Error'. Message: 'StorageAccountNotColocated'.
+        Failed to create cluster. Exception: Unable to complete the cluster create operation. Operation failed with code '400'. Cluster left behind state: 'Error'. Message: 'StorageAccountNotColocated'.
 
 This error usually indicates that the Location of the storage account specified in the linkedServiceName is not in the same data center location as where the HDInsight provisioning is happening. For example, if your Azure Data Factory location is West US, and the on-demand HDInsight provisioning happens in West US, but the Azure blob storage account location  is set to East US, the on-demand provisioning will fail.
 
@@ -121,20 +121,20 @@ To enumerate and read the logs for a particular Custom Activity, you may follow 
 3.  In the **Table** blade, Click on the slice of interest in the **Problem slices** for the time frame to be investigated.
 4.  The detailed **Data Slice** blade will appear and it can list multiple **Activity runs** for the slice. Click on an **Activity** from the list. 
 5.  The **Activity Run Details** blade will appear. It will list the **Error Message** in the middle of the blade, and several **Log files** listed at the bottom of the blade affiliated with that activity run.
-	- Logs/system-0.log
-	- Status
-	- Status/exit
-	- Status/stderr
-	- Status/stdout
+    - Logs/system-0.log
+    - Status
+    - Status/exit
+    - Status/stderr
+    - Status/stdout
 
 6. Click on the first **Log file** item in the list, and the log will open in a new blade with the full text displayed for you to read. Review the text of each log by clicking on each one. The text viewer blade will open. You can click the **Download** button to download the text file for optional offline viewing.  
 
 One **common error** from a custom activity is 
-		Package execution failed with exit code '1'. See 'wasb://adfjobs@storageaccount.blob.core.windows.net/PackageJobs/<guid>/<jobid>/Status/stderr' for more details.
+        Package execution failed with exit code '1'. See 'wasb://adfjobs@storageaccount.blob.core.windows.net/PackageJobs/<guid>/<jobid>/Status/stderr' for more details.
 
 To see more details for this kind of error, open the **stderr** file. One common error seen there is a timeout condition such as this:
-		INFO mapreduce.Job: Task Id : attempt_1424212573646_0168_m_000000_0, Status : FAILED 
-		AttemptID:attempt_1424212573646_0168_m_000000_0 Timed out after 600 secs
+        INFO mapreduce.Job: Task Id : attempt_1424212573646_0168_m_000000_0, Status : FAILED 
+        AttemptID:attempt_1424212573646_0168_m_000000_0 Timed out after 600 secs
 
 This same error may appear multiple times, if the job has retried 3 times for example, over the span of 30 or more minutes. 
 
@@ -143,12 +143,12 @@ This time out error indicates a 600 second (10 minute) timeout has happened. Typ
 This time out originates in the configuration of HDInsight cluster that is linked in the custom activity. The setting is **mapred.task.timeout**, which defaults to 600000 milliseconds, as documented in the Apache default settings here: http://hadoop.apache.org/docs/r2.4.0/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml
 
 You can overide this default by changing the defaults at the time of provisioning your HDInsight provisioning cluster. When using Azure Data Factory and **HDInsight On-demand** linked service, the JSON property can be added near your HDInsightOnDemandLinkedService JSON properties. For example, you can increase the value to 20 minutes using this JSON property.
-		
-		"mapReduceConfiguration" :
-		{
-			"mapreduce.task.timeout":"1200000"
-		}
-		
+        
+        "mapReduceConfiguration" :
+        {
+            "mapreduce.task.timeout":"1200000"
+        }
+        
 
 For more context and a full example of the JSON to edit these map reduce Configuration properties see Example #3 in the MSDN documentation here https://msdn.microsoft.com/library/azure/dn893526.aspx
 
@@ -158,18 +158,18 @@ As of March 10, 2015, the Azure Data Factory PowerShell early private preview ve
 
 If you use the discontinued versions of the Azure PowerShell SDK you may receive the following errors:
 
-		HTTP/1.1 400 Bad Request
-		Cache-Control: no-cache
-		Pragma: no-cache
-		Content-Type: application/json; charset=utf-8
-		Expires: -1
-		x-ms-request-id: e07181e4-e421-46be-8a08-1f71d5e90494
-		x-ms-correlation-request-id: e07181e4-e421-46be-8a08-1f71d5e90494
-		x-ms-routing-request-id: WESTUS:20150306T234829Z:e07181e4-e421-46be-8a08-1f71d5e90494
-		Strict-Transport-Security: max-age=31536000; includeSubDomains
-		Date: Fri, 06 Mar 2015 23:48:29 GMT
-		Content-Length: 157
-		{"error":{"code":"NoRegisteredProviderFound","message":"No registered resource provider found for location 'west US' and API version '2014-05-01-preview'."}}
+        HTTP/1.1 400 Bad Request
+        Cache-Control: no-cache
+        Pragma: no-cache
+        Content-Type: application/json; charset=utf-8
+        Expires: -1
+        x-ms-request-id: e07181e4-e421-46be-8a08-1f71d5e90494
+        x-ms-correlation-request-id: e07181e4-e421-46be-8a08-1f71d5e90494
+        x-ms-routing-request-id: WESTUS:20150306T234829Z:e07181e4-e421-46be-8a08-1f71d5e90494
+        Strict-Transport-Security: max-age=31536000; includeSubDomains
+        Date: Fri, 06 Mar 2015 23:48:29 GMT
+        Content-Length: 157
+        {"error":{"code":"NoRegisteredProviderFound","message":"No registered resource provider found for location 'west US' and API version '2014-05-01-preview'."}}
 
 
 ## <a name="copywalkthrough"></a> Walkthrough: Troubleshooting an error with copying data
@@ -182,84 +182,84 @@ In this walkthrough, you will introduce an error in the tutorial from Get starte
 4. Run the following command in the **Azure PowerShell** to update the active period for the pipeline so that it tries to write data to the **emp** table, which doesn’t exist anymore.
 
          
-		Set-AzureRmDataFactoryPipelineActivePeriod -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -StartDateTime 2014-09-29 –EndDateTime 2014-09-30 –Name ADFTutorialPipeline
-	
-	Replace **StartDateTime** value with the current day and **EndDateTime** value with the next day. 
+        Set-AzureRmDataFactoryPipelineActivePeriod -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -StartDateTime 2014-09-29 –EndDateTime 2014-09-30 –Name ADFTutorialPipeline
+    
+    Replace **StartDateTime** value with the current day and **EndDateTime** value with the next day. 
 
 
 ### Use Azure Portal to troubleshoot the error
 
-1.	Login to [Azure Portal][azure-portal]. 
-2.	Click **ADFTutorialDataFactory** from the **Startboard**. If you don’t see the data factory link on the **Startboard**, click **BROWSE** hub and click **Everything**. Click **Data factories…** in the **Browse** blade, and click **ADFTutorialDataFactory**.
-3.	Notice that you see **With errors** on the **Datasets** tile. Click **With errors**. You should see **Datasets with errors** blade.
+1.  Login to [Azure Portal][azure-portal]. 
+2.  Click **ADFTutorialDataFactory** from the **Startboard**. If you don’t see the data factory link on the **Startboard**, click **BROWSE** hub and click **Everything**. Click **Data factories…** in the **Browse** blade, and click **ADFTutorialDataFactory**.
+3.  Notice that you see **With errors** on the **Datasets** tile. Click **With errors**. You should see **Datasets with errors** blade.
 
-	![Data Factory with Errors link][image-data-factory-troubleshoot-with-error-link]
+    ![Data Factory with Errors link][image-data-factory-troubleshoot-with-error-link]
 
-4. In the **Datasets** with errors blade, click **EmpSQLTable** to see the **TABLE** blade.	
+4. In the **Datasets** with errors blade, click **EmpSQLTable** to see the **TABLE** blade. 
 
-	![Datasets with errors blade][image-data-factory-troubleshoot-datasets-with-errors-blade]
+    ![Datasets with errors blade][image-data-factory-troubleshoot-datasets-with-errors-blade]
 
 5. In the **TABLE** blade, you should see the problem slices, i.e., slices with an error in the **Problem slices** list at the bottom. You can also see any recent slices with errors in the **Recent slices** list. Click on a slice in the **Problem slices** list. 
 
-	![Table blade with problem slices][image-data-factory-troubleshoot-table-blade-with-problem-slices]
+    ![Table blade with problem slices][image-data-factory-troubleshoot-table-blade-with-problem-slices]
 
-	If you click **Problem slices** (not on a specific problem), you will see the **DATA SLICES** blade and then click a **specific problem slice** to see the **DATA SLICE** slide for the selected data slice.
+    If you click **Problem slices** (not on a specific problem), you will see the **DATA SLICES** blade and then click a **specific problem slice** to see the **DATA SLICE** slide for the selected data slice.
 
 6. In the **DATA SLICE** blade for **EmpSQLTable**, you see all **activity runs** for the slice in the list at the bottom. Click on an **activity run** from the list that failed.
 
-	![Data Slice blade with active runs][image-data-factory-troubleshoot-dataslice-blade-with-active-runs]
+    ![Data Slice blade with active runs][image-data-factory-troubleshoot-dataslice-blade-with-active-runs]
 
 
 7. In the **Activity Run Details** blade for the activity run you selected, you should see details about the error. In this scenario, you see: **Invalid object name ‘emp’**.
 
-	![Activity run details with an error][image-data-factory-troubleshoot-activity-run-with-error]
+    ![Activity run details with an error][image-data-factory-troubleshoot-activity-run-with-error]
 
 To resolve this issue, create the **emp** table using the SQL script from [Get started with Data Factory][adfgetstarted] article.
 
 
 ### Use Azure PowerShell cmdlets to troubleshoot the error
-1.	Launch **Azure PowerShell**. 
-3. Run Get-AzureRmDataFactorySlice command to see the slices and their statuses. You should see a slice with the status: Failed.	
+1.  Launch **Azure PowerShell**. 
+3. Run Get-AzureRmDataFactorySlice command to see the slices and their statuses. You should see a slice with the status: Failed.    
 
          
-		Get-AzureRmDataFactorySlice -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -TableName EmpSQLTable -StartDateTime 2014-10-15
+        Get-AzureRmDataFactorySlice -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -TableName EmpSQLTable -StartDateTime 2014-10-15
 
-	Replace **StartDateTime** with the StartDateTime value you specified for the **Set-AzureRmDataFactoryPipelineActivePeriod**. 
+    Replace **StartDateTime** with the StartDateTime value you specified for the **Set-AzureRmDataFactoryPipelineActivePeriod**. 
 
-		ResourceGroupName 		: ADFTutorialResourceGroup
-		DataFactoryName   		: ADFTutorialDataFactory
-		TableName         		: EmpSQLTable
-		Start             		: 10/15/2014 4:00:00 PM
-		End               		: 10/15/2014 5:00:00 PM
-		RetryCount        		: 0
-		Status            		: Failed
-		LatencyStatus     		:
-		LongRetryCount    		: 0
+        ResourceGroupName       : ADFTutorialResourceGroup
+        DataFactoryName         : ADFTutorialDataFactory
+        TableName               : EmpSQLTable
+        Start                   : 10/15/2014 4:00:00 PM
+        End                     : 10/15/2014 5:00:00 PM
+        RetryCount              : 0
+        Status                  : Failed
+        LatencyStatus           :
+        LongRetryCount          : 0
 
-	Note the **Start** time for the problem slice (the slice with **Status** set to **Failed**) in the output. 
+    Note the **Start** time for the problem slice (the slice with **Status** set to **Failed**) in the output. 
 4. Now, run the **Get-AzureRmDataFactoryRun** cmdlet to get details about activity run for the slice.
          
-		Get-AzureRmDataFactoryRun -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -TableName EmpSQLTable -StartDateTime "10/15/2014 4:00:00 PM"
+        Get-AzureRmDataFactoryRun -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -TableName EmpSQLTable -StartDateTime "10/15/2014 4:00:00 PM"
 
-	The value of **StartDateTime** is the Start time for the error/problem slice you noted from the previous step. The date-time should be enclosed in double quotes.
+    The value of **StartDateTime** is the Start time for the error/problem slice you noted from the previous step. The date-time should be enclosed in double quotes.
 5. You should see the output with details about the error (similar to the following):
 
-		Id                  	: 2b19475a-c546-473f-8da1-95a9df2357bc
-		ResourceGroupName   	: ADFTutorialResourceGroup
-		DataFactoryName     	: ADFTutorialDataFactory
-		TableName           	: EmpSQLTable
-		ResumptionToken    		:
-		ContinuationToken   	:
-		ProcessingStartTime 	: 10/15/2014 11:13:39 PM
-		ProcessingEndTime  	 	: 10/15/2014 11:16:59 PM
-		PercentComplete     	: 0
-		DataSliceStart     		: 10/15/2014 4:00:00 PM
-		DataSliceEnd       		: 10/15/2014 5:00:00 PM
-		Status              	: FailedExecution
-		Timestamp           	: 10/15/2014 11:13:39 PM
-		RetryAttempt       		: 0
-		Properties          	: {}
-		ErrorMessage        	: Unknown error in CopyActivity: System.Data.SqlClient.SqlException (0x80131904): **Invalid object name 'emp'.**
+        Id                      : 2b19475a-c546-473f-8da1-95a9df2357bc
+        ResourceGroupName       : ADFTutorialResourceGroup
+        DataFactoryName         : ADFTutorialDataFactory
+        TableName               : EmpSQLTable
+        ResumptionToken         :
+        ContinuationToken       :
+        ProcessingStartTime     : 10/15/2014 11:13:39 PM
+        ProcessingEndTime       : 10/15/2014 11:16:59 PM
+        PercentComplete         : 0
+        DataSliceStart          : 10/15/2014 4:00:00 PM
+        DataSliceEnd            : 10/15/2014 5:00:00 PM
+        Status                  : FailedExecution
+        Timestamp               : 10/15/2014 11:13:39 PM
+        RetryAttempt            : 0
+        Properties              : {}
+        ErrorMessage            : Unknown error in CopyActivity: System.Data.SqlClient.SqlException (0x80131904): **Invalid object name 'emp'.**
                          at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean
                       breakConnection, Action`1 wrapCloseInAction)
                          at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj,
@@ -275,71 +275,71 @@ In this scenario, data set is in an error state due to a failure in Hive process
 
 1. Click **With errors** on **Datasets** tile on the **DATA FACTORY** home page.
 
-	![With errors link on Datasets tile][image-data-factory-troubleshoot-walkthrough2-with-errors-link]
+    ![With errors link on Datasets tile][image-data-factory-troubleshoot-walkthrough2-with-errors-link]
 
 2. In the **Datasets with errors** blade, click the **table** that you are interested in.
 
-	![Datasets with errors blade][image-data-factory-troubleshoot-walkthrough2-datasets-with-errors]
+    ![Datasets with errors blade][image-data-factory-troubleshoot-walkthrough2-datasets-with-errors]
 
 3. In the **TABLE** blade, Click on the **problem slice** with **STATUS** set to **Failed**.
 
-	![Table with problem slices][image-data-factory-troubleshoot-walkthrough2-table-with-problem-slices]
+    ![Table with problem slices][image-data-factory-troubleshoot-walkthrough2-table-with-problem-slices]
 
 4. In the **DATA SLICE** blade, click the **Activity Run** that failed.
 
-	![Data slice with failed runs][image-data-factory-troubleshoot-walkthrough2-slice-activity-runs]
+    ![Data slice with failed runs][image-data-factory-troubleshoot-walkthrough2-slice-activity-runs]
 
 5. In the **ACTIVITY RUN DETAILS** blade, you can download the files associated with the HDInsight processing. Click **Download** for **Status/stderr** to download the error log file that contains details about the error.
 
-	![Activity run details with download link][image-data-factory-troubleshoot-activity-run-details]
+    ![Activity run details with download link][image-data-factory-troubleshoot-activity-run-details]
 
     
 ### Walkthrough: Use Azure PowerShell to troubleshoot an error with Pig/Hive processing
-1.	Launch **Azure PowerShell**. 
-3. Run Get-AzureRmDataFactorySlice command to see the slices and their statuses. You should see a slice with the status: Failed.	
+1.  Launch **Azure PowerShell**. 
+3. Run Get-AzureRmDataFactorySlice command to see the slices and their statuses. You should see a slice with the status: Failed.    
 
          
-		Get-AzureRmDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
+        Get-AzureRmDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
 
-	Replace **StartDateTime** with the StartDateTime value you specified for the **Set-AzureRmDataFactoryPipelineActivePeriod**. 
+    Replace **StartDateTime** with the StartDateTime value you specified for the **Set-AzureRmDataFactoryPipelineActivePeriod**. 
 
-		ResourceGroupName : ADF
-		DataFactoryName   : LogProcessingFactory
-		TableName         : EnrichedGameEventsTable
-		Start             : 5/5/2014 12:00:00 AM
-		End               : 5/6/2014 12:00:00 AM
-		RetryCount        : 0
-		Status            : Failed
-		LatencyStatus     :
-		LongRetryCount    : 0
+        ResourceGroupName : ADF
+        DataFactoryName   : LogProcessingFactory
+        TableName         : EnrichedGameEventsTable
+        Start             : 5/5/2014 12:00:00 AM
+        End               : 5/6/2014 12:00:00 AM
+        RetryCount        : 0
+        Status            : Failed
+        LatencyStatus     :
+        LongRetryCount    : 0
 
 
-	Note the **Start** time for the problem slice (the slice with **Status** set to **Failed**) in the output. 
+    Note the **Start** time for the problem slice (the slice with **Status** set to **Failed**) in the output. 
 4. Now, run the **Get-AzureRmDataFactoryRun** cmdlet to get details about activity run for the slice.
          
-		Get-AzureRmDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
+        Get-AzureRmDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
 
-	The value of **StartDateTime** is the Start time for the error/problem slice you noted from the previous step. The date-time should be enclosed in double quotes.
+    The value of **StartDateTime** is the Start time for the error/problem slice you noted from the previous step. The date-time should be enclosed in double quotes.
 5. You should see the output with details about the error (similar to the following):
 
-		Id                  : 841b77c9-d56c-48d1-99a3-8c16c3e77d39
-		ResourceGroupName   : ADF
-		DataFactoryName     : LogProcessingFactory3
-		TableName           : EnrichedGameEventsTable
-		ProcessingStartTime : 10/10/2014 3:04:52 AM
-		ProcessingEndTime   : 10/10/2014 3:06:49 AM
-		PercentComplete     : 0
-		DataSliceStart      : 5/5/2014 12:00:00 AM
-		DataSliceEnd        : 5/6/2014 12:00:00 AM
-		Status              : FailedExecution
-		Timestamp           : 10/10/2014 3:04:52 AM
-		RetryAttempt        : 0
-		Properties          : {}
-		ErrorMessage        : Pig script failed with exit code '5'. See 'wasb://adfjobs@spestore.blob.core.windows.net/PigQuery
-								Jobs/841b77c9-d56c-48d1-99a3-8c16c3e77d39/10_10_2014_03_04_53_277/Status/stderr' for more details.
-		ActivityName        : PigEnrichLogs
-		PipelineName        : EnrichGameLogsPipeline
-		Type                :
+        Id                  : 841b77c9-d56c-48d1-99a3-8c16c3e77d39
+        ResourceGroupName   : ADF
+        DataFactoryName     : LogProcessingFactory3
+        TableName           : EnrichedGameEventsTable
+        ProcessingStartTime : 10/10/2014 3:04:52 AM
+        ProcessingEndTime   : 10/10/2014 3:06:49 AM
+        PercentComplete     : 0
+        DataSliceStart      : 5/5/2014 12:00:00 AM
+        DataSliceEnd        : 5/6/2014 12:00:00 AM
+        Status              : FailedExecution
+        Timestamp           : 10/10/2014 3:04:52 AM
+        RetryAttempt        : 0
+        Properties          : {}
+        ErrorMessage        : Pig script failed with exit code '5'. See 'wasb://adfjobs@spestore.blob.core.windows.net/PigQuery
+                                Jobs/841b77c9-d56c-48d1-99a3-8c16c3e77d39/10_10_2014_03_04_53_277/Status/stderr' for more details.
+        ActivityName        : PigEnrichLogs
+        PipelineName        : EnrichGameLogsPipeline
+        Type                :
 
 6. You can run **Save-AzureRmDataFactoryLog** cmdlet with Id value you see from the above output and download the log files using the **-DownloadLogs** option for the cmdlet.
 

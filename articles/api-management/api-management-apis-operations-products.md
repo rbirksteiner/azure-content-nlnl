@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How to create APIs, operations, and products in Azure API Management" 
-	description="Learn how to create APIs, operations, and products in API Management." 
-	services="api-management" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="How to create APIs, operations, and products in Azure API Management" 
+    description="Learn how to create APIs, operations, and products in API Management." 
+    services="api-management" 
+    documentationCenter="" 
+    authors="steved0x" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="api-management" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/03/2015" 
-	ms.author="sdanie"/>
+    ms.service="api-management" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/03/2015" 
+    ms.author="sdanie"/>
 
 # How to create APIs, operations, and products in Azure API Management
 
@@ -36,14 +36,14 @@ Before an API in API Management can be used, operations must be added. This guid
 
 An API and its operations can also be imported in one steps, in either WADL or Swagger format.
 
--	[How to import the definition of an API with operations][]
+-   [How to import the definition of an API with operations][]
 
 ## <a name="add-product"> </a>How create and publish a product
 
 In API Management, a product contains one or more APIs as well as a usage quota and the terms of use. Once a product is published, developers can subscribe to the product and begin to use the product's APIs. these topics provide a guide to creating a product, adding an API, and publishing it for developers.
 
 -   [How to add and publish a product][]
--	[How create and configure advanced product settings][]
+-   [How create and configure advanced product settings][]
 
 [Create a product]: #create-product
 [Add APIs to a product]: #add-apis

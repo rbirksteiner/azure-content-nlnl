@@ -41,30 +41,30 @@ A connector can be created within a logic app or be created directly from the Az
 1. In the Azure startboard, select **Marketplace**.
 2. Search for “Facebook Connector”, select it, and select **Create**.
 3. Enter the Name, App Service Plan, and other properties:  
-	![][1]
-4.	Select **Create**.
+    ![][1]
+4.  Select **Create**.
 
 
 ## Using the Facebook Connector in your Logic App
 Once your API app is created, you can now use the Facebook connector as a trigger/action for your Logic App. To do this, you need to:
 
-1.	In your logic app, open **Triggers and Actions** to open the Logic Apps Designer and configure your flow:  
-	![][3]
-2.	The Facebook connector is listed in the gallery:  
-	![][4]
+1.  In your logic app, open **Triggers and Actions** to open the Logic Apps Designer and configure your flow:  
+    ![][3]
+2.  The Facebook connector is listed in the gallery:  
+    ![][4]
 3. Select the Facebook connector to automatically add in the designer. Select **Authorize**, enter your credentials, and select **Allow**:  
-	![][5]
-	![][6]
-	![][7]
-	![][8]
-4.	Select a trigger:  
-	![][9]
+    ![][5]
+    ![][6]
+    ![][7]
+    ![][8]
+4.  Select a trigger:  
+    ![][9]
 
 You can now use the Posts retrieved from the Facebook trigger in other actions. In the below flow, whenever a new post has been posted on User’s Facebook timeline, the same post will be Tweeted in User’s Twitter Timeline:  
-	![][10]
+    ![][10]
 
 In the similar way you can create flows by using Facebook connector actions. The below flow will retrieve new message posted on Yammer group and publish the same post on Facebook page managed by User:  
-	![][11]
+    ![][11]
 
 > [AZURE.TIP] To get Facebook Page ID or Yammer Group ID, look for the numeric code in the URL.
 
@@ -89,3 +89,4 @@ You can also review performance statistics and control security to the connector
 [9]: ./media/app-service-logic-connector-facebook/img9.png
 [10]: ./media/app-service-logic-connector-facebook/img10.png
 [11]: ./media/app-service-logic-connector-facebook/img11.png
+

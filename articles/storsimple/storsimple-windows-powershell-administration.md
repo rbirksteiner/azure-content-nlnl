@@ -31,7 +31,7 @@ After reading this article, you will be able to:
 
 - Get help in Windows PowerShell for StorSimple.
 
->[AZURE.NOTE] 	
+>[AZURE.NOTE]   
 
 >- Windows PowerShell for StorSimple cmdlets allow you to manage your StorSimple device from a serial console or remotely via Windows PowerShell remoting. For more information about each of the individual cmdlets that can be used in this interface, go to [cmdlet reference for Windows PowerShell for StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
 
@@ -41,7 +41,7 @@ You can access the Windows PowerShell for StorSimple using one of the following 
 
 - [Connect to StorSimple device serial console](#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console)
 - [Connect remotely to StorSimple using Windows PowerShell](#connect-remotely-to-storsimple-using-windows-powershell-for-storsimple)
-	
+    
 
 ## Connect to Windows PowerShell for StorSimple via the device serial console
 
@@ -77,14 +77,14 @@ Similar to option 1, this option can also be used to allow Microsoft Support to 
 1. **Connect with limited access**
 This option is used to access Windows PowerShell interface in limited mode. You are not prompted for access credentials. This option connects to a more restricted runspace compared to options 1 and 2.  Some of the tasks that are available through option 1 that cannot be performed in this runspace are:
 
-	- Reset to the factory settings
-	- Change the password
-	- Enable or disable support access
-	- Apply updates
-	- Install hotfixes 
-												
+    - Reset to the factory settings
+    - Change the password
+    - Enable or disable support access
+    - Apply updates
+    - Install hotfixes 
+                                                
 
-	>[AZURE.NOTE] **This is the preferred option if you have forgotten the device administrator password and cannot connect through option 1 or 2.**
+    >[AZURE.NOTE] **This is the preferred option if you have forgotten the device administrator password and cannot connect through option 1 or 2.**
 
 1. **Change language**
 This option allows you to change the display language on the Windows PowerShell interface. The languages supported are English, Japanese, Russian, French, South Korean, Spanish, Italian, German, Chinese, and Brazilian Portuguese.
@@ -95,18 +95,18 @@ Make sure that you use the following PuTTY settings to connect to the Windows Po
 
 1. In the PuTTY Reconfiguration dialog box, in the **Category** pane, select **Keyboard**.
 
-1. Make sure that the following options are selected (these are the default settings when you start a new session). 
+1. Make sure that the following options are selected (these are the default settings when you start a new session). 
 
- 	|Keyboard item|Select|
- 	|---|---|
- 	|Backspace key|Control-? (127)|
-	|Home and End keys|Standard|
-	|Function keys and keypad|ESC[n~|
-	|Initial state of cursor keys|Normal|
-	|Initial state of numeric keypad|Normal|
-	|Enable extra keyboard features|Control-Alt is different from AltGr|
+    |Keyboard item|Select|
+    |---|---|
+    |Backspace key|Control-? (127)|
+    |Home and End keys|Standard|
+    |Function keys and keypad|ESC[n~|
+    |Initial state of cursor keys|Normal|
+    |Initial state of numeric keypad|Normal|
+    |Enable extra keyboard features|Control-Alt is different from AltGr|
 
-	![Supported Putty Settings](./media/storsimple-windows-powershell-administration/IC740877.png)
+    ![Supported Putty Settings](./media/storsimple-windows-powershell-administration/IC740877.png)
 
 1. Click **Apply**.
 
@@ -116,7 +116,7 @@ Make sure that you use the following PuTTY settings to connect to the Windows Po
 
 1. Under **Handling of line drawing characters**, select **Use Unicode line drawing code points**. The following illustration shows the correct PuTTY selections.
 
-	![UTF Putty Settings](./media/storsimple-windows-powershell-administration/IC740878.png)
+    ![UTF Putty Settings](./media/storsimple-windows-powershell-administration/IC740878.png)
 
 1. Click **Apply**.
 
@@ -192,7 +192,7 @@ You can easily update the Help in the Windows PowerShell interface. Perform the 
 1. Start Windows PowerShell with the **Run as administrator** option.
 
 1. At the command prompt, type:
-	`Update-Help`
+    `Update-Help`
 
 1. The updated Help files will be installed.
 
@@ -203,4 +203,5 @@ You can easily update the Help in the Windows PowerShell interface. Perform the 
 
 ## Next steps
 If you experience any issues with your StorSimple device when performing one of the above workflows, refer to [Tools for troubleshooting StorSimple deployments](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
+
 

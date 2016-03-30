@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Stream Analytics Release Notes | Microsoft Azure" 
-	description="Stream Analytics GA Release Notes" 
-	services="stream-analytics" 
-	documentationCenter="" 
-	authors="jeffstokes72" 
-	manager="paulettm" 
-	editor="cgronlun"/>
+    pageTitle="Stream Analytics Release Notes | Microsoft Azure" 
+    description="Stream Analytics GA Release Notes" 
+    services="stream-analytics" 
+    documentationCenter="" 
+    authors="jeffstokes72" 
+    manager="paulettm" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="stream-analytics" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="data-services" 
-	ms.date="12/10/2015" 
-	ms.author="jeffstok"/>
+    ms.service="stream-analytics" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="data-services" 
+    ms.date="12/10/2015" 
+    ms.author="jeffstok"/>
 
 #Microsoft Stream Analytic release notes
 
@@ -132,3 +132,4 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 - [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
+

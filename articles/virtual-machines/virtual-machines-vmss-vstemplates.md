@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Deploying Virtual Machine Scale Set Templates in Visual Studio | Microsoft Azure"
-	description="How to deploy Virtual Machine Scale Set using a Visual Studio Resource Group Deployment"
-	services="virtual-machines"
-	documentationCenter=""
-	authors="gbowerman"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    pageTitle="Deploying Virtual Machine Scale Set Templates in Visual Studio | Microsoft Azure"
+    description="How to deploy Virtual Machine Scale Set using a Visual Studio Resource Group Deployment"
+    services="virtual-machines"
+    documentationCenter=""
+    authors="gbowerman"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/11/2015"
-	ms.author="guybo"/>
+    ms.service="virtual-machines"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/11/2015"
+    ms.author="guybo"/>
 
 # Deploying Virtual Machine Scale Set Templates in Visual Studio
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-create-windows-powershell-service-manager.md).
@@ -40,19 +40,19 @@ Note: These instructions assume you are using Visual Studio 2015 with [Azure SDK
 
 1. Create a new project in Visual Studio 2015 by choosing **File | New | Project**.
 
-	![File New][file_new]
+    ![File New][file_new]
 
 2. Under **Visual C# | Cloud**, choose **Azure Resource Manager** to create a project for deploying an ARM Template.
 
-	![Create Project][create_project]
+    ![Create Project][create_project]
 
 3.  From the list of Templates, select either the Linux or Windows Virtual Machine Scale Set Template.
 
-	![Select Template][select_Template]
+    ![Select Template][select_Template]
 
 4. Once your project is created you’ll see PowerShell deployment scripts, an Azure Resource Manager Template, and a parameter file for the Virtual Machine Scale Set.
 
-	![Solution Explorer][solution_explorer]
+    ![Solution Explorer][solution_explorer]
 
 ## Customize your project
 
@@ -66,23 +66,23 @@ Now you can edit the Template to customize it for your application's needs, such
 
 6. Deploy the ARM Template to Azure to create the VM Scale Set resource. Right click on the project node, choose **Deploy | New Deployment**.
 
-	![Deploy Template][5deploy_Template]
+    ![Deploy Template][5deploy_Template]
 
 7. Select your subscription in the “Deploy to Resource Group” dialog.
 
-	![Deploy Template][6deploy_Template]
+    ![Deploy Template][6deploy_Template]
 
 8. From here you can also create a new Azure Resource Group to deploy your Template to.
 
-	![New Resource Group][new_resource]
+    ![New Resource Group][new_resource]
 
 9. Next select the **Edit Parameters** button to enter parameters which will be passed to your Template, Certain values such as the username and password for the OS are required to create the deployment.
 
-	![Edit Parameters][edit_parameters]
+    ![Edit Parameters][edit_parameters]
 
 10. Now click **Deploy**. The **Output** window will show the deployment progress. Note that the the action is executing the **Deploy-AzureResourceGroup.ps1** script.
 
-	![Output Window][output_window]
+    ![Output Window][output_window]
 
 ## Exploring your VM Scale Set
 
@@ -107,3 +107,4 @@ Once you’ve successfully deployed VM Scale Sets through Visual Studio you can 
 [edit_parameters]: ./media/virtual-machines-vmss-vstemplates/8-EditParameter.png
 [output_window]: ./media/virtual-machines-vmss-vstemplates/9-Output.png
 [cloud_explorer]: ./media/virtual-machines-vmss-vstemplates/12-CloudExplorer.png
+

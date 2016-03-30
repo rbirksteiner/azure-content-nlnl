@@ -1,20 +1,20 @@
 <properties
-	pageTitle="How to use Service Bus queues with Ruby | Microsoft Azure"
-	description="Learn how to use Service Bus queues in Azure. Code samples written in Ruby."
-	services="service-bus"
-	documentationCenter="ruby"
-	authors="sethmanheim"
-	manager="timlt"
-	editor=""/>
+    pageTitle="How to use Service Bus queues with Ruby | Microsoft Azure"
+    description="Learn how to use Service Bus queues in Azure. Code samples written in Ruby."
+    services="service-bus"
+    documentationCenter="ruby"
+    authors="sethmanheim"
+    manager="timlt"
+    editor=""/>
 
 <tags
-	ms.service="service-bus"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="ruby"
-	ms.topic="article"
-	ms.date="12/09/2015"
-	ms.author="sethm"/>
+    ms.service="service-bus"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="ruby"
+    ms.topic="article"
+    ms.date="12/09/2015"
+    ms.author="sethm"/>
 
 # How to use Service Bus queues
 
@@ -69,10 +69,10 @@ To create a service namespace:
 2. Type the following command to create a Service Bus namespace. Provide your own namespace value and specify the same region as your application.
 
     ```
-	New-AzureSBNamespace -Name 'yourexamplenamespace' -Location 'West US' -NamespaceType 'Messaging' -CreateACSNamespace $true
+    New-AzureSBNamespace -Name 'yourexamplenamespace' -Location 'West US' -NamespaceType 'Messaging' -CreateACSNamespace $true
 
     ![Create Namespace](./media/service-bus-ruby-how-to-use-queues/showcmdcreate.png)
-	```
+    ```
 
 ## Obtain management credentials for the namespace
 
@@ -192,3 +192,4 @@ Now that you've learned the basics of Service Bus queues, follow these links to 
 
 For a comparision between the Azure Service Bus queues discussed in this article and Azure Queues discussed in the [How to use the Azure Queue Service](/develop/ruby/how-to-guides/queue-service/) article, see [Azure Queues and Azure Service Bus Queues - Compared and Contrasted](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
  
+

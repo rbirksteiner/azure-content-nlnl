@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Create a Linux VM | Microsoft Azure"
-	description="Learn how to create a custom virtual machine with the classic deployment model running the Linux operating system."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="dsk-2015"
-	manager="timlt"
-	editor="tysonn"
-	tags="azure-service-management"/>
+    pageTitle="Create a Linux VM | Microsoft Azure"
+    description="Learn how to create a custom virtual machine with the classic deployment model running the Linux operating system."
+    services="virtual-machines"
+    documentationCenter=""
+    authors="dsk-2015"
+    manager="timlt"
+    editor="tysonn"
+    tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/14/2015"
-	ms.author="dkshir"/>
+    ms.service="virtual-machines"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-linux"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/14/2015"
+    ms.author="dkshir"/>
 
 # How to Create a Custom Linux VM
 
@@ -34,3 +34,4 @@ This topic describes how to create a *custom* virtual machine with the Azure CLI
 ## How to create a Linux virtual machine using the classic deployment model
 
 [AZURE.INCLUDE [virtual-machines-create-LinuxVM](../../includes/virtual-machines-create-linuxvm.md)]
+

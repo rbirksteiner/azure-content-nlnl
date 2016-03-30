@@ -115,3 +115,4 @@ If you experience any issues with the day-to-day operation of your StorSimple de
 If you cannot resolve the issues and you need to create a service request, refer to:
 
 -  [Contact Microsoft Support](storsimple-contact-microsoft-support.md)
+

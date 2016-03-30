@@ -51,46 +51,46 @@ This sample provides the sub-interface definition for a sub-interface with a two
 
 You must setup a BGP session with Microsoft for every peering. The sample below enables you to setup a BGP session with Microsoft. If the IPv4 address you used for your sub interface was a.b.c.d, the IP address of the BGP neighbor (Microsoft) will be a.b.c.d+1. The last octet of the BGP neighbor's IPv4 address will always be an even number.
 
-	router bgp <Customer_ASN>
-	 bgp log-neighbor-changes
-	 neighbor <IP#2_used_by_Azure> remote-as 12076
-	 !        
-	 address-family ipv4
-	 neighbor <IP#2_used_by_Azure> activate
-	 exit-address-family
-	!
+    router bgp <Customer_ASN>
+     bgp log-neighbor-changes
+     neighbor <IP#2_used_by_Azure> remote-as 12076
+     !        
+     address-family ipv4
+     neighbor <IP#2_used_by_Azure> activate
+     exit-address-family
+    !
 
 ### 3. Setting up prefixes to be advertised over the BGP session
 
 You can configure your router to advertise select prefixes to Microsoft. You can do so using the sample below.
 
-	router bgp <Customer_ASN>
-	 bgp log-neighbor-changes
-	 neighbor <IP#2_used_by_Azure> remote-as 12076
-	 !        
-	 address-family ipv4
-	  network <Prefix_to_be_advertised> mask <Subnet_mask>
-	  neighbor <IP#2_used_by_Azure> activate
-	 exit-address-family
-	!
+    router bgp <Customer_ASN>
+     bgp log-neighbor-changes
+     neighbor <IP#2_used_by_Azure> remote-as 12076
+     !        
+     address-family ipv4
+      network <Prefix_to_be_advertised> mask <Subnet_mask>
+      neighbor <IP#2_used_by_Azure> activate
+     exit-address-family
+    !
 
 ### 4. Route maps
 
 You can use route-maps and prefix lists to filter prefixes propagated into your network. You can use the sample below to accomplish the task. Ensure that you have appropriate prefix lists setup.
 
-	router bgp <Customer_ASN>
-	 bgp log-neighbor-changes
-	 neighbor <IP#2_used_by_Azure> remote-as 12076
-	 !        
-	 address-family ipv4
-	  network <Prefix_to_be_advertised> mask <Subnet_mask>
-	  neighbor <IP#2_used_by_Azure> activate
-	  neighbor <IP#2_used_by_Azure> route-map <MS_Prefixes_Inbound> in
-	 exit-address-family
-	!
-	route-map <MS_Prefixes_Inbound> permit 10
-	 match ip address prefix-list <MS_Prefixes>
-	!
+    router bgp <Customer_ASN>
+     bgp log-neighbor-changes
+     neighbor <IP#2_used_by_Azure> remote-as 12076
+     !        
+     address-family ipv4
+      network <Prefix_to_be_advertised> mask <Subnet_mask>
+      neighbor <IP#2_used_by_Azure> activate
+      neighbor <IP#2_used_by_Azure> route-map <MS_Prefixes_Inbound> in
+     exit-address-family
+    !
+    route-map <MS_Prefixes_Inbound> permit 10
+     match ip address prefix-list <MS_Prefixes>
+    !
 
 
 ## Juniper MX series routers 
@@ -104,15 +104,15 @@ The samples in this section apply for any Juniper MX series routers.
 This sample provides the sub-interface definition for a sub-interface with a single VLAN ID. The VLAN ID is unique per peering. The last octet of your IPv4 address will always be an odd number.
 
     interfaces {
-    	vlan-tagging;
-    	<Interface_Number> {
-    		unit <Number> {
-    			vlan-id <VLAN_ID>;
-    			family inet {
-    				address <IPv4_Address/Subnet_Mask>;
-    			}
-    		}
-    	}
+        vlan-tagging;
+        <Interface_Number> {
+            unit <Number> {
+                vlan-id <VLAN_ID>;
+                family inet {
+                    address <IPv4_Address/Subnet_Mask>;
+                }
+            }
+        }
     }
 
 
@@ -120,91 +120,91 @@ This sample provides the sub-interface definition for a sub-interface with a sin
 
 This sample provides the sub-interface definition for a sub-interface with a two VLAN IDs. The outer VLAN ID (s-tag), if used remains the same across all the peerings. The inner VLAN ID (c-tag) is unique per peering. The last octet of your IPv4 address will always be an odd number.
 
-	interfaces {
-	    <Interface_Number> {
-	        flexible-vlan-tagging;
-	        unit <Number> {
-	            vlan-tags outer <S-tag> inner <C-tag>;
-	            family inet {
-	                address <IPv4_Address/Subnet_Mask>;
-	            }                           
-	        }                               
-	    }                                   
-	}                           
+    interfaces {
+        <Interface_Number> {
+            flexible-vlan-tagging;
+            unit <Number> {
+                vlan-tags outer <S-tag> inner <C-tag>;
+                family inet {
+                    address <IPv4_Address/Subnet_Mask>;
+                }                           
+            }                               
+        }                                   
+    }                           
 
 ### 2. Setting up eBGP sessions
 
 You must setup a BGP session with Microsoft for every peering. The sample below enables you to setup a BGP session with Microsoft. If the IPv4 address you used for your sub interface was a.b.c.d, the IP address of the BGP neighbor (Microsoft) will be a.b.c.d+1. The last octet of the BGP neighbor's IPv4 address will always be an even number.
 
-	routing-options {
-	    autonomous-system <Customer_ASN>;
-	}
-	}
-	protocols {
-	    bgp { 
-	        group <Group_Name> { 
-	            peer-as 12076;              
-	            neighbor <IP#2_used_by_Azure>;
-	        }                               
-	    }                                   
-	}
+    routing-options {
+        autonomous-system <Customer_ASN>;
+    }
+    }
+    protocols {
+        bgp { 
+            group <Group_Name> { 
+                peer-as 12076;              
+                neighbor <IP#2_used_by_Azure>;
+            }                               
+        }                                   
+    }
 
 ### 3. Setting up prefixes to be advertised over the BGP session
 
 You can configure your router to advertise select prefixes to Microsoft. You can do so using the sample below.
 
-	policy-options {
-	    policy-statement <Policy_Name> {
-	        term 1 {
-	            from protocol OSPF;
-		route-filter <Prefix_to_be_advertised/Subnet_Mask> exact;
-	            then {
-	                accept;
-	            }
-	        }
-	    }
-	}
-	protocols {
-	    bgp { 
-	        group <Group_Name> { 
-	            export <Policy_Name>
-	            peer-as 12076;              
-	            neighbor <IP#2_used_by_Azure>;
-	        }                               
-	    }                                   
-	}
+    policy-options {
+        policy-statement <Policy_Name> {
+            term 1 {
+                from protocol OSPF;
+        route-filter <Prefix_to_be_advertised/Subnet_Mask> exact;
+                then {
+                    accept;
+                }
+            }
+        }
+    }
+    protocols {
+        bgp { 
+            group <Group_Name> { 
+                export <Policy_Name>
+                peer-as 12076;              
+                neighbor <IP#2_used_by_Azure>;
+            }                               
+        }                                   
+    }
 
 
 ### 4. Route maps
 
 You can use route-maps and prefix lists to filter prefixes propagated into your network. You can use the sample below to accomplish the task. Ensure that you have appropriate prefix lists setup.
 
-	policy-options {
-	    prefix-list MS_Prefixes {
-	        <IP_Prefix_1/Subnet_Mask>;
-	        <IP_Prefix_2/Subnet_Mask>;
-	    }
-	    policy-statement <MS_Prefixes_Inbound> {
-	        term 1 {
-	            from {
-		prefix-list MS_Prefixes;
-	            }
-	            then {
-	                accept;
-	            }
-	        }
-	    }
-	}
-	protocols {
-	    bgp { 
-	        group <Group_Name> { 
-	            export <Policy_Name>
-	            import <MS_Prefixes_Inbound>
-	            peer-as 12076;              
-	            neighbor <IP#2_used_by_Azure>;
-	        }                               
-	    }                                   
-	}
+    policy-options {
+        prefix-list MS_Prefixes {
+            <IP_Prefix_1/Subnet_Mask>;
+            <IP_Prefix_2/Subnet_Mask>;
+        }
+        policy-statement <MS_Prefixes_Inbound> {
+            term 1 {
+                from {
+        prefix-list MS_Prefixes;
+                }
+                then {
+                    accept;
+                }
+            }
+        }
+    }
+    protocols {
+        bgp { 
+            group <Group_Name> { 
+                export <Policy_Name>
+                import <MS_Prefixes_Inbound>
+                peer-as 12076;              
+                neighbor <IP#2_used_by_Azure>;
+            }                               
+        }                                   
+    }
 
 ## Next Steps
 

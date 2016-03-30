@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Scale pricing tier in Azure App Service" 
-	description="Learn how to scale Web, Mobile, API and Logic apps in Azure App Service, including autoscaling." 
-	services="app-service" 
-	documentationCenter="" 
-	authors="stepsic-microsoft-com" 
-	manager="wpickett" 
-	editor="mollybos"/>
+    pageTitle="Scale pricing tier in Azure App Service" 
+    description="Learn how to scale Web, Mobile, API and Logic apps in Azure App Service, including autoscaling." 
+    services="app-service" 
+    documentationCenter="" 
+    authors="stepsic-microsoft-com" 
+    manager="wpickett" 
+    editor="mollybos"/>
 
 <tags 
-	ms.service="app-service" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/29/2015" 
-	ms.author="stepsic"/>
+    ms.service="app-service" 
+    ms.workload="web" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/29/2015" 
+    ms.author="stepsic"/>
 
 # Scale pricing tier in Azure App Service
 
@@ -36,19 +36,19 @@ Finally, scaling works differently if you want to use a dedicated [App Service E
 ## Scaling your pricing tier
 
 1. In your browser, open the [Azure Portal][portal] and browse to the app you want to scale.
-	
+    
 2. In the **Essentials** for your app, click the **App Service plan/pricing tier** link.
 
 3. Click **Pricing tier**, then you will see the list of possible service levels for your plan. Each tier is accompanied by an estimated price, to give you a sense of the average cost for that tier. 
-	
-	![Choose Plan](./media/app-service-scale/ChoosePricingTier.png)
-	
+    
+    ![Choose Plan](./media/app-service-scale/ChoosePricingTier.png)
+    
 4. Once you choose your tier, click **Select**.
-	
-	The **Notifications** tab will flash a green **SUCCESS** once the operation is complete.
+    
+    The **Notifications** tab will flash a green **SUCCESS** once the operation is complete.
  
 You can also learn about the different tiers of compute in Azure [here](http://go.microsoft.com/fwlink/?LinkId=309169).
-	
+    
 <a name="ScalingSQLServer"></a>
 ##Scaling related resources
 If your app depends on other services, such as SQL or Storage, you can also scale those based on your needs.
@@ -57,16 +57,16 @@ If your app depends on other services, such as SQL or Storage, you can also scal
 
 2. Then, in the **Summary** part of the resource group blade, clicked one of the databases (or any other resource you want to scale).
 
-	![Linked database](./media/app-service-scale/ResourceGroup.png)
-	
+    ![Linked database](./media/app-service-scale/ResourceGroup.png)
+    
 3. On that linked resource blade, click the **Pricing tier** part, select one of the tiers based on your performance requirements, and click **Select**. 
-	
-	![Scale your SQL Database](./media/app-service-scale/ScaleDatabase.png)
-	
+    
+    ![Scale your SQL Database](./media/app-service-scale/ScaleDatabase.png)
+    
 4. If your app uses Storage, geo replication is automatically set up when you choose a pricing tier that supports it. For SQL, on the other hand, you need to manually configure geo-replication to increase the high availability and disaster recovery capabilities of your SQL Database. To do this, click the **Geo Replication** part.
-	
-	![Set up geo-replication for SQL Database](./media/app-service-scale/GeoReplication.png)
-	
+    
+    ![Set up geo-replication for SQL Database](./media/app-service-scale/GeoReplication.png)
+    
 <a name="devfeatures"></a>
 ## Developer Features
 Depending on the pricing tier, the following developer-oriented features are available:
@@ -88,33 +88,33 @@ Depending on the pricing tier, the following developer-oriented features are ava
 
 >[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
-<a name="Next Steps"></a>	
+<a name="Next Steps"></a>   
 ## Next Steps
 
 - To get started with Azure, see [Microsoft Azure Free Trial](/pricing/free-trial/).
 - For information on pricing, support, and SLA, visit the following links.
-	
-	[Data Transfers Pricing Details](/pricing/details/data-transfers/)
-	
-	[Microsoft Azure Support Plans](/support/plans/)
-	
-	[Service Level Agreements](/support/legal/sla/)
-	
-	[SQL Database Pricing Details](/pricing/details/sql-database/)
-	
-	[Virtual Machine and Cloud Service Sizes for Microsoft Azure][vmsizes]
-	
-	[App Service Pricing Details](/pricing/details/app-service/)
-	
-	[App Service Pricing Details - SSL Connections](/pricing/details/web-sites/#ssl-connections)
+    
+    [Data Transfers Pricing Details](/pricing/details/data-transfers/)
+    
+    [Microsoft Azure Support Plans](/support/plans/)
+    
+    [Service Level Agreements](/support/legal/sla/)
+    
+    [SQL Database Pricing Details](/pricing/details/sql-database/)
+    
+    [Virtual Machine and Cloud Service Sizes for Microsoft Azure][vmsizes]
+    
+    [App Service Pricing Details](/pricing/details/app-service/)
+    
+    [App Service Pricing Details - SSL Connections](/pricing/details/web-sites/#ssl-connections)
 
 - For information on Azure App Service best practices, including building a scalable and resilient architecture, see [Best Practices: Azure App Service Web Apps](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx).
 
 - Videos on scaling Web Apps:
-	
-	- [When to Scale Azure Websites - with Stefan Schackow](/documentation/videos/azure-web-sites-free-vs-standard-scaling/)
-	- [Auto Scaling Azure Websites, CPU or Scheduled - with Stefan Schackow](/documentation/videos/auto-scaling-azure-web-sites/)
-	- [How Azure Websites Scale - with Stefan Schackow](/documentation/videos/how-azure-web-sites-scale/)
+    
+    - [When to Scale Azure Websites - with Stefan Schackow](/documentation/videos/azure-web-sites-free-vs-standard-scaling/)
+    - [Auto Scaling Azure Websites, CPU or Scheduled - with Stefan Schackow](/documentation/videos/auto-scaling-azure-web-sites/)
+    - [How Azure Websites Scale - with Stefan Schackow](/documentation/videos/how-azure-web-sites-scale/)
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)

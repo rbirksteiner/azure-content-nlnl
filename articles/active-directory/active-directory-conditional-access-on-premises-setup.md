@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Setting up on-premises conditional access using Azure Active Directory Device Registration | Microsoft Azure"
-	description="A step-by-step guide to enable conditional access to on-premises applications using Active Directory Federation Service (AD FS) in Windows Server 2012 R2."
-	services="active-directory"
-	documentationCenter=""
-	authors="femila"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Setting up on-premises conditional access using Azure Active Directory Device Registration | Microsoft Azure"
+    description="A step-by-step guide to enable conditional access to on-premises applications using Active Directory Federation Service (AD FS) in Windows Server 2012 R2."
+    services="active-directory"
+    documentationCenter=""
+    authors="femila"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/24/2015"
-	ms.author="femila"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/24/2015"
+    ms.author="femila"/>
 
 
 # Setting up on-premises conditional access using Azure Active Directory Device Registration
@@ -89,7 +89,7 @@ Follow the checklist below to enable and configure the Azure Active Directory De
 | Task                                                                                                                                                                                                                                                                                                                                                                                             | Reference                                                       |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
 | Complete part 2 of Enabling device writeback in Azure AD Connect. Upon completion, return this this guide. | [Enabling device writeback in Azure AD Connect](#Upgrade your Active Directory Domain Services Schema)               |
-	 
+     
 
 ##[Optional] Part 4: Enable multi-factor authentication
 
@@ -112,13 +112,13 @@ The deployment is now complete. You can now try out some scenarios. Follow the l
 ## Integrate Azure Active Directory with local Active Directory
 This will help you integrate your Azure AD tenant with your local active directory, using Azure AD Connect. Although the steps are available in the Azure Portal, make note of any special instructions listed in this section. 
 
-1.	Log on to the Azure Portal as Administrator.
-2.	On the left pane, select **Active Directory**.
-3.	On the **Directory** tab, select your directory.
-4.	Select the **Directory Integration** tab.
-5.	Under **deploy and manage** section, follow the steps 1 through 3 to integrate Azure Active Directory with your local directory.
-  1.	Add domains.
-  2.	Install and run Azure AD Connect: Install Azure AD Connect using the following instructions, [Custom installation of Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
+1.  Log on to the Azure Portal as Administrator.
+2.  On the left pane, select **Active Directory**.
+3.  On the **Directory** tab, select your directory.
+4.  Select the **Directory Integration** tab.
+5.  Under **deploy and manage** section, follow the steps 1 through 3 to integrate Azure Active Directory with your local directory.
+  1.    Add domains.
+  2.    Install and run Azure AD Connect: Install Azure AD Connect using the following instructions, [Custom installation of Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
   3. Verify and manage directory sync. Single sign-on instructions are available within this step.
   >[AZURE.NOTE] Configure Federation with AD FS as outlined in the document linked above. 
   >[AZURE.NOTE] You do not need to configure any of the preview features.
@@ -146,9 +146,9 @@ This will help you integrate your Azure AD tenant with your local active directo
 
 ### Prepare your Active Directory forest
 
-1.	On your federation server, open a Windows PowerShell command window and type:
+1.  On your federation server, open a Windows PowerShell command window and type:
      Initialize-ADDeviceRegistration
-2.	When prompted for **ServiceAccountName**, enter the name of the service account you selected as the service account for AD FS. If it is a gMSA account, enter the account in the **domain\accountname$** format. For a domain account, use the format **domain\accountname**.
+2.  When prompted for **ServiceAccountName**, enter the name of the service account you selected as the service account for AD FS. If it is a gMSA account, enter the account in the **domain\accountname$** format. For a domain account, use the format **domain\accountname**.
 
 
 
@@ -166,7 +166,7 @@ This will help you integrate your Azure AD tenant with your local active directo
 
 ### Prepare Azure AD Connect for device writeback
 
-1.	Complete Part 1: Prepare AAD Connect. 
+1.  Complete Part 1: Prepare AAD Connect. 
 
 
 ## Join devices to your workplace using Azure Active Directory Device Registration

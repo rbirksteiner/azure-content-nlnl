@@ -101,7 +101,7 @@ Use the following procedure to create a new webhook linked to a runbook in the A
 
 To use a webhook after it has been created, your client application must issue an HTTP POST with the URL for the webhook.  The syntax of the webhook will be in the following format.
 
-	http://<Webhook Server>/token?=<Token Value>
+    http://<Webhook Server>/token?=<Token Value>
 
 The client will receive one of the following return codes from the POST request.  
 
@@ -114,7 +114,7 @@ The client will receive one of the following return codes from the POST request.
 
 Assuming the request is successful, the webhook response contains the job id in JSON format as follows. It will contain a single job id, but the JSON format allows for potential future enhancements.
 
-	{"JobIds":["<JobId>"]}  
+    {"JobIds":["<JobId>"]}  
 
 The client cannot determine when the runbook job completes or its completion status from the webhook.  It can determine this information using the job id with another method such as [Windows PowerShell](http://msdn.microsoft.com/library/azure/dn690263.aspx) or the [Azure Automation API](https://msdn.microsoft.com/library/azure/mt163826.aspx).
 
@@ -124,15 +124,15 @@ The following example uses Windows PowerShell to start a runbook with a webhook.
 
 The runbook is expecting a list of virtual machines formatted in JSON in the body of the request. We also are including information about who is starting the runbook and the date and time it is being started in the header of the request.      
 
-	$uri = "https://s1events.azure-automation.net/webhooks?token=8ud0dSrSo%2fvHWpYbklW%3c8s0GrOKJZ9Nr7zqcS%2bIQr4c%3d"
-	$headers = @{"From"="user@contoso.com";"Date"="05/28/2015 15:47:00"}
+    $uri = "https://s1events.azure-automation.net/webhooks?token=8ud0dSrSo%2fvHWpYbklW%3c8s0GrOKJZ9Nr7zqcS%2bIQr4c%3d"
+    $headers = @{"From"="user@contoso.com";"Date"="05/28/2015 15:47:00"}
     
     $vms  = @([pscustomobject]@{Name="vm01";ServiceName="vm01"})
     $vms += @([pscustomobject]@{Name="vm02";ServiceName="vm02"})
-	$body = ConvertTo-Json -InputObject $vms 
+    $body = ConvertTo-Json -InputObject $vms 
 
-	$response = Invoke-RestMethod -Method Post -Uri $uri -Headers $headers -Body $body
-	$jobid = ConvertFrom-Json $response 
+    $response = Invoke-RestMethod -Method Post -Uri $uri -Headers $headers -Body $body
+    $jobid = ConvertFrom-Json $response 
 
 
 The following image shows the header information (using a [Fiddler](http://www.telerik.com/fiddler) trace) from this request. This includes standard headers of an HTTP request in addition to the custom Date and From headers that we added.  Each of these values is available to the runbook in the **RequestHeaders** property of **WebhookData**. 
@@ -149,41 +149,41 @@ The following image shows the request being sent from Windows PowerShell and the
 
 The following sample runbook accepts the previous example request and starts the virtual machines specified in the request body.
 
-	workflow Test-StartVirtualMachinesFromWebhook
-	{
-		param (	
-			[object]$WebhookData
-		)
+    workflow Test-StartVirtualMachinesFromWebhook
+    {
+        param ( 
+            [object]$WebhookData
+        )
 
-		# If runbook was called from Webhook, WebhookData will not be null.
-		if ($WebhookData -ne $null) {	
-			
-			# Collect properties of WebhookData
-			$WebhookName 	= 	$WebhookData.WebhookName
-			$WebhookHeaders = 	$WebhookData.RequestHeader
-			$WebhookBody 	= 	$WebhookData.RequestBody
-			
-			# Collect individual headers. VMList converted from JSON.
-			$From = $WebhookHeaders.From
-			$VMList = ConvertFrom-Json -InputObject $WebhookBody
-			Write-Output "Runbook started from webhook $WebhookName by $From."
-			
-			# Authenticate to Azure resources
-			$Cred = Get-AutomationPSCredential -Name 'MyAzureCredential'
-			Add-AzureAccount -Credential $Cred
-			
+        # If runbook was called from Webhook, WebhookData will not be null.
+        if ($WebhookData -ne $null) {   
+            
+            # Collect properties of WebhookData
+            $WebhookName    =   $WebhookData.WebhookName
+            $WebhookHeaders =   $WebhookData.RequestHeader
+            $WebhookBody    =   $WebhookData.RequestBody
+            
+            # Collect individual headers. VMList converted from JSON.
+            $From = $WebhookHeaders.From
+            $VMList = ConvertFrom-Json -InputObject $WebhookBody
+            Write-Output "Runbook started from webhook $WebhookName by $From."
+            
+            # Authenticate to Azure resources
+            $Cred = Get-AutomationPSCredential -Name 'MyAzureCredential'
+            Add-AzureAccount -Credential $Cred
+            
             # Start each virtual machine
-			foreach ($VM in $VMList)
-			{
-				$VMName = $VM.Name
-				Write-Output "Starting $VMName"
-				Start-AzureVM -Name $VM.Name -ServiceName $VM.ServiceName
-			}
-		}
-		else {
-			Write-Error "Runbook mean to be started only from webhook." 
-		} 
-	}
+            foreach ($VM in $VMList)
+            {
+                $VMName = $VM.Name
+                Write-Output "Starting $VMName"
+                Start-AzureVM -Name $VM.Name -ServiceName $VM.ServiceName
+            }
+        }
+        else {
+            Write-Error "Runbook mean to be started only from webhook." 
+        } 
+    }
 
 
 ## Starting runbooks in response to Azure alerts
@@ -207,64 +207,64 @@ Create an Azure virtual machine in your subscription and associate an [alert to 
 
 The following sample runbook is triggered when the alert rule becomes active and it collects the Alert context parameters which are required for the runbook to identify the resource on which it will be taking action.
 
-	workflow Invoke-RunbookUsingAlerts
-	{
-	    param (  	
-	        [object]$WebhookData 
-	    ) 
+    workflow Invoke-RunbookUsingAlerts
+    {
+        param (     
+            [object]$WebhookData 
+        ) 
 
-	    # If runbook was called from Webhook, WebhookData will not be null.
-	    if ($WebhookData -ne $null) {   
-	        # Collect properties of WebhookData. 
-	        $WebhookName    =   $WebhookData.WebhookName 
-	        $WebhookBody    =   $WebhookData.RequestBody 
-	        $WebhookHeaders =   $WebhookData.RequestHeader 
+        # If runbook was called from Webhook, WebhookData will not be null.
+        if ($WebhookData -ne $null) {   
+            # Collect properties of WebhookData. 
+            $WebhookName    =   $WebhookData.WebhookName 
+            $WebhookBody    =   $WebhookData.RequestBody 
+            $WebhookHeaders =   $WebhookData.RequestHeader 
 
-	        # Outputs information on the webhook name that called This 
-	        Write-Output "This runbook was started from webhook $WebhookName." 
+            # Outputs information on the webhook name that called This 
+            Write-Output "This runbook was started from webhook $WebhookName." 
 
-	        
-			# Obtain the WebhookBody containing the AlertContext 
-			$WebhookBody = (ConvertFrom-Json -InputObject $WebhookBody) 
-	        Write-Output "`nWEBHOOK BODY" 
-	        Write-Output "=============" 
-	        Write-Output $WebhookBody 
+            
+            # Obtain the WebhookBody containing the AlertContext 
+            $WebhookBody = (ConvertFrom-Json -InputObject $WebhookBody) 
+            Write-Output "`nWEBHOOK BODY" 
+            Write-Output "=============" 
+            Write-Output $WebhookBody 
 
-	        # Obtain the AlertContext     
-	        $AlertContext = [object]$WebhookBody.context
+            # Obtain the AlertContext     
+            $AlertContext = [object]$WebhookBody.context
 
-	        # Some selected AlertContext information 
-	        Write-Output "`nALERT CONTEXT DATA" 
-	        Write-Output "===================" 
-	        Write-Output $AlertContext.name 
-	        Write-Output $AlertContext.subscriptionId 
-	        Write-Output $AlertContext.resourceGroupName 
-	        Write-Output $AlertContext.resourceName 
-	        Write-Output $AlertContext.resourceType 
-	        Write-Output $AlertContext.resourceId 
-	        Write-Output $AlertContext.timestamp 
+            # Some selected AlertContext information 
+            Write-Output "`nALERT CONTEXT DATA" 
+            Write-Output "===================" 
+            Write-Output $AlertContext.name 
+            Write-Output $AlertContext.subscriptionId 
+            Write-Output $AlertContext.resourceGroupName 
+            Write-Output $AlertContext.resourceName 
+            Write-Output $AlertContext.resourceType 
+            Write-Output $AlertContext.resourceId 
+            Write-Output $AlertContext.timestamp 
 
-	    	# Act on the AlertContext data, in our case restarting the VM. 
-	    	# Authenticate to your Azure subscription using Organization ID to be able to restart that Virtual Machine. 
-	        $cred = Get-AutomationPSCredential -Name "MyAzureCredential" 
-	        Add-AzureAccount -Credential $cred 
-	        Select-AzureSubscription -subscriptionName "Visual Studio Ultimate with MSDN" 
-	      
-	        #Check the status property of the VM
-	        Write-Output "Status of VM before taking action"
-	        Get-AzureVM -Name $AlertContext.resourceName -ServiceName $AlertContext.resourceName
-	        Write-Output "Restarting VM"
+            # Act on the AlertContext data, in our case restarting the VM. 
+            # Authenticate to your Azure subscription using Organization ID to be able to restart that Virtual Machine. 
+            $cred = Get-AutomationPSCredential -Name "MyAzureCredential" 
+            Add-AzureAccount -Credential $cred 
+            Select-AzureSubscription -subscriptionName "Visual Studio Ultimate with MSDN" 
+          
+            #Check the status property of the VM
+            Write-Output "Status of VM before taking action"
+            Get-AzureVM -Name $AlertContext.resourceName -ServiceName $AlertContext.resourceName
+            Write-Output "Restarting VM"
 
-	        # Restart the VM by passing VM name and Service name which are same in this case
-	        Restart-AzureVM -ServiceName $AlertContext.resourceName -Name $AlertContext.resourceName 
-	        Write-Output "Status of VM after alert is active and takes action"
-	        Get-AzureVM -Name $AlertContext.resourceName -ServiceName $AlertContext.resourceName
-	    } 
-	    else  
-	    { 
-	        Write-Error "This runbook is meant to only be started from a webhook."  
-	    }  
-	}
+            # Restart the VM by passing VM name and Service name which are same in this case
+            Restart-AzureVM -ServiceName $AlertContext.resourceName -Name $AlertContext.resourceName 
+            Write-Output "Status of VM after alert is active and takes action"
+            Get-AzureVM -Name $AlertContext.resourceName -ServiceName $AlertContext.resourceName
+        } 
+        else  
+        { 
+            Write-Error "This runbook is meant to only be started from a webhook."  
+        }  
+    }
 
  
 
@@ -273,3 +273,4 @@ The following sample runbook is triggered when the alert rule becomes active and
 - [Starting a Runbook](automation-starting-a-runbook.md)
 - [Viewing the Status of a Runbook Job](automation-viewing-the-status-of-a-runbook-job.md)
 - [Using Azure Automation to take actions on Azure Alerts](https://azure.microsoft.com/blog/using-azure-automation-to-take-actions-on-azure-alerts/)
+

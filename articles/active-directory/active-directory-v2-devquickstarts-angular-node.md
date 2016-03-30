@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure AD AngularJS Getting Started | Microsoft Azure"
-	description="How to build an Angular JS Single Page app that signs in users with both personal Microsoft accounts and work or school accounts."
-	services="active-directory"
-	documentationCenter=""
-	authors="dstrockis"
-	manager="mbaldwin"
-	editor=""/>
+    pageTitle="Azure AD AngularJS Getting Started | Microsoft Azure"
+    description="How to build an Angular JS Single Page app that signs in users with both personal Microsoft accounts and work or school accounts."
+    services="active-directory"
+    documentationCenter=""
+    authors="dstrockis"
+    manager="mbaldwin"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="javascript"
-	ms.topic="article"
-	ms.date="12/09/2015"
-	ms.author="dastrock"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="javascript"
+    ms.topic="article"
+    ms.date="12/09/2015"
+    ms.author="dastrock"/>
 
 
 # App model v2.0 preview: Add sign-in to an AngularJS single page app - NodeJS
@@ -83,8 +83,8 @@ exports.creds = {
      
      // TODO: Replace this value with the Application ID from the registration portal
      audience: '<Your-application-id>',
-	 
-	 ...
+     
+     ...
 }
 ```
 

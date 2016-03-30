@@ -71,3 +71,4 @@
 7. To get detailed information about deployment failures.
 
          azure group log show -l -v ExampleResourceGroup
+

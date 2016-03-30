@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="CDN - Improve performance by compressing files" 
-	description="You can improve file transfer speed and increases page load performance by compressing your files." 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="camsoper" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="CDN - Improve performance by compressing files" 
+    description="You can improve file transfer speed and increases page load performance by compressing your files." 
+    services="cdn" 
+    documentationCenter=".NET" 
+    authors="camsoper" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
-	ms.author="casoper"/>
+    ms.service="cdn" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/02/2015" 
+    ms.author="casoper"/>
 
 # Improve performance by compressing files
 
@@ -32,21 +32,21 @@ There are two ways CDN can support compression:
 ### Standard tier
 
 1. From the CDN profile blade, click the CDN endpoint you wish to manage.
-	
-	![CDN profile blade endpoints](./media/cdn-file-compression/cdn-endpoints.png)
+    
+    ![CDN profile blade endpoints](./media/cdn-file-compression/cdn-endpoints.png)
 
-	The CDN endpoint blade opens.
+    The CDN endpoint blade opens.
 
 2. Click the **Configure** button.
 
-	![CDN profile blade manage button](./media/cdn-file-compression/cdn-config-btn.png)
-	
-	The CDN Configuration blade opens.
-	
+    ![CDN profile blade manage button](./media/cdn-file-compression/cdn-config-btn.png)
+    
+    The CDN Configuration blade opens.
+    
 3. Turn on **Compression**.
-	
-	![CDN compression options](./media/cdn-file-compression/cdn-compress-standard.png)
-	
+    
+    ![CDN compression options](./media/cdn-file-compression/cdn-compress-standard.png)
+    
 4. Use the default types, or modify the list by removing or adding file types.
 
 5. After making your changes, click the **Save** button.
@@ -55,16 +55,16 @@ There are two ways CDN can support compression:
 
 1. From the CDN profile blade, click the **Manage** button.
 
-	![CDN profile blade manage button](./media/cdn-file-compression/cdn-manage-btn.png)
-	
-	The CDN management portal opens.
-	
+    ![CDN profile blade manage button](./media/cdn-file-compression/cdn-manage-btn.png)
+    
+    The CDN management portal opens.
+    
 2. Hover over the **HTTP Large** tab, then hover over the **Cache Settings** flyout.  Click on **Compression**.
-	
-	Compression options are displayed.
-	
-	![File compression](./media/cdn-file-compression/cdn-compress-files.png)
-	
+    
+    Compression options are displayed.
+    
+    ![File compression](./media/cdn-file-compression/cdn-compress-files.png)
+    
 3. After modifying the list of file types, click the **Update** button.
 
 
@@ -72,15 +72,15 @@ There are two ways CDN can support compression:
 
 1. Requester sends a request for content.
 2. An edge server checks whether there is **Accept-Encoding** header.
-	1. If included, this header identifies the requested compression method.
-	1. If missing, this type of request will be served in an uncompressed format.
-3.	The closest edge POP checks the cache status, compression method and if it still has a valid time-to-live.
-	1.	Cache Miss:  if the requested version is not cached, the request is forwarded to the origin.
-	2.	Cache HIT with same compression method: The edge server will immediately deliver the compressed content to the client.
-	3.	Cache HIT with different compression method: The edge server will transcode the asset to the requested compression method. 
-	4.	Cache HIT and uncompressed : if the initial request caused the asset to be cached in an uncompressed format, then a check will be performed to see whether the request is eligible for edge server compression (based on the criteria in the definition/requirement section above.)
-		1.	If eligible, the edge server will compress the file and serve it to the client.
-		2.	If not eligible: the edge server will immediately deliver the uncompressed content to the client. 
+    1. If included, this header identifies the requested compression method.
+    1. If missing, this type of request will be served in an uncompressed format.
+3.  The closest edge POP checks the cache status, compression method and if it still has a valid time-to-live.
+    1.  Cache Miss:  if the requested version is not cached, the request is forwarded to the origin.
+    2.  Cache HIT with same compression method: The edge server will immediately deliver the compressed content to the client.
+    3.  Cache HIT with different compression method: The edge server will transcode the asset to the requested compression method. 
+    4.  Cache HIT and uncompressed : if the initial request caused the asset to be cached in an uncompressed format, then a check will be performed to see whether the request is eligible for edge server compression (based on the criteria in the definition/requirement section above.)
+        1.  If eligible, the edge server will compress the file and serve it to the client.
+        2.  If not eligible: the edge server will immediately deliver the uncompressed content to the client. 
 
 
 

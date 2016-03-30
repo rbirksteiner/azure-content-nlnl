@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Machine learning algorithm cheat sheet | Microsoft Azure"
-	description="A printable machine learning algorithm cheat sheet helps you choose the right algorithm for your predictive model in Azure Machine Learning Studio."
-	keywords="algorithm cheat sheet,cheat sheet,machine learning algorithm"
-	services="machine-learning"
-	documentationCenter=""
-	authors="brohrer"
-	manager="paulettm"
-	editor="cgronlun"/>
+    pageTitle="Machine learning algorithm cheat sheet | Microsoft Azure"
+    description="A printable machine learning algorithm cheat sheet helps you choose the right algorithm for your predictive model in Azure Machine Learning Studio."
+    keywords="algorithm cheat sheet,cheat sheet,machine learning algorithm"
+    services="machine-learning"
+    documentationCenter=""
+    authors="brohrer"
+    manager="paulettm"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/13/2015"
-	ms.author="brohrer;garye" />
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/13/2015"
+    ms.author="brohrer;garye" />
 
 
 # Machine learning algorithm cheat sheet for Microsoft Azure Machine Learning Studio
@@ -86,3 +86,4 @@ Download the Machine Learning Algorithm Cheat Sheet and get help figuring out ho
 [initialize-model]: https://msdn.microsoft.com/library/azure/0c67013c-bfbc-428b-87f3-f552d8dd41f6/
 [k-means-clustering]: https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/
 [one-vs-all-multiclass]: https://msdn.microsoft.com/library/azure/7191efae-b4b1-4d03-a6f8-7205f87be664/
+

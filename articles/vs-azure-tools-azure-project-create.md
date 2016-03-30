@@ -63,3 +63,4 @@ An Azure cloud service solution contains the following types of projects:
 1. To rename a role that you've added to your project, hover on the role in the **New Azure Project** dialog box, and choose the **Rename** icon to the right of the role. You can also rename a role within your solution after it has been added.
 
 
+

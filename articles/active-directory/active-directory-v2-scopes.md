@@ -1,27 +1,27 @@
 <properties
-	pageTitle="App Model v2.0 Scopes, permissions, & consent | Microsoft Azure"
-	description="A description of authorization in the Azure AD v2.0 app model, including scopes, permissions, and consent."
-	services="active-directory"
-	documentationCenter=""
-	authors="dstrockis"
-	manager="mbaldwin"
-	editor=""/>
+    pageTitle="App Model v2.0 Scopes, permissions, & consent | Microsoft Azure"
+    description="A description of authorization in the Azure AD v2.0 app model, including scopes, permissions, and consent."
+    services="active-directory"
+    documentationCenter=""
+    authors="dstrockis"
+    manager="mbaldwin"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/09/2015"
-	ms.author="dastrock"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/09/2015"
+    ms.author="dastrock"/>
 
 # App model v2.0 preview: Scopes, permissions, & consent
 
 Apps that integrate with Azure AD follow a particular authorization model that allows users to control how an app can access their data.  In app model v2.0, the implementation of this authorization model has been updated, changing how an app must interact with Azure AD.  This topic covers the basic concepts of this authorization model, including scopes, permissions, and consent.
 
 > [AZURE.NOTE]
-	This information applies to the v2.0 app model public preview.  For instructions on how to integrate with the generally available Azure AD service, please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
+    This information applies to the v2.0 app model public preview.  For instructions on how to integrate with the generally available Azure AD service, please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
 
 ## Scopes & Permissions
 
@@ -89,11 +89,11 @@ Host: https://login.microsoftonline.com
 Content-Type: application/json
 
 {
-	"grant_type": "authorization_code",
-	"client_id": "2d4d11a2-f814-46a7-890a-274a72a7309e",
-	"scope": "https://outlook.office.com/mail.read https://outlook.office.com/mail.send",
-	"code": "AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq..."
-	"client_secret": "zc53fwe80980293klaj9823"  // NOTE: Only required for web apps
+    "grant_type": "authorization_code",
+    "client_id": "2d4d11a2-f814-46a7-890a-274a72a7309e",
+    "scope": "https://outlook.office.com/mail.read https://outlook.office.com/mail.send",
+    "code": "AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq..."
+    "client_secret": "zc53fwe80980293klaj9823"  // NOTE: Only required for web apps
 }
 ```
 
@@ -116,3 +116,4 @@ The `offline_access` scope allows your app to access resources on behalf of the 
 If your app does not request the `offline_access` scope, it will not receive refresh_tokens.  This means that when you redeem an authorization_code in the [OAuth 2.0 authorization code flow](active-directory-v2-protocols.md#oauth2-authorization-code-flow), you will only receive back an access_token from the `/token` endpoint.  That access_token will remain valid for a short period of time (typically one hour), but will eventually expire.  At that point in time, your app will need to redirect the user back to the `/authorize` endpoint to retrieve a new authorization_code.  During this redirect, the user may or may not need to enter their credentials again or re-consent to permissions, depending on the the type of app.
 
 For more information on how to get and use refresh tokens, refer to the [app model v2.0 protocol reference](active-directory-v2-protocols.md).
+

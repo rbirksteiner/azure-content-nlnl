@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Securely Connecting to BackEnd Resources from an App Service Environment" 
-	description="Learn about how to securely connect to backend resources from an App Service Environment." 
-	services="app-service" 
-	documentationCenter="" 
-	authors="ccompy" 
-	manager="wpickett" 
-	editor=""/>
+    pageTitle="Securely Connecting to BackEnd Resources from an App Service Environment" 
+    description="Learn about how to securely connect to backend resources from an App Service Environment." 
+    services="app-service" 
+    documentationCenter="" 
+    authors="ccompy" 
+    manager="wpickett" 
+    editor=""/>
 
 <tags 
-	ms.service="app-service" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/08/2015" 
-	ms.author="stefsch"/>	
+    ms.service="app-service" 
+    ms.workload="na" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/08/2015" 
+    ms.author="stefsch"/>   
 
 # Securely Connecting to Backend Resources from an App Service Environment #
 
@@ -113,3 +113,4 @@ For more information about the Azure App Service platform, see [Azure App Servic
 [SqlServerEndpoint]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/SqlServerEndpoint01.png
 [NetworkAccessControlListExample]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/NetworkAcl01.png
 [DefaultNetworkSecurityRules]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/DefaultNetworkSecurityRules01.png 
+

@@ -64,3 +64,4 @@ You can save time and money by deploying and debugging your Service Fabric appli
 [viewdiagnosticevents]: ./media/service-fabric-debugging-your-application/viewdiagnosticevents.png
 [diagnosticeventsactions]: ./media/service-fabric-debugging-your-application/diagnosticeventsactions.png
 [breakpoint]: ./media/service-fabric-debugging-your-application/breakpoint.png
+

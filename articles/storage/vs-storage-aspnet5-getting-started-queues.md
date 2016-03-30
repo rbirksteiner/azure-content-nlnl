@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Get started with queue storage and Visual Studio connected services (ASP.NET 5) | Microsoft Azure"
-	description="How to get started using Azure queue storage in an ASP.NET 5 project in Visual Studio"
-	services="storage"
-	documentationCenter=""
-	authors="TomArcher"
-	manager="douge"
-	editor=""/>
+    pageTitle="Get started with queue storage and Visual Studio connected services (ASP.NET 5) | Microsoft Azure"
+    description="How to get started using Azure queue storage in an ASP.NET 5 project in Visual Studio"
+    services="storage"
+    documentationCenter=""
+    authors="TomArcher"
+    manager="douge"
+    editor=""/>
 
 <tags
-	ms.service="storage"
-	ms.workload="web"
-	ms.tgt_pltfrm="vs-getting-started"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/16/2015"
-	ms.author="tarcher"/>
+    ms.service="storage"
+    ms.workload="web"
+    ms.tgt_pltfrm="vs-getting-started"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/16/2015"
+    ms.author="tarcher"/>
 
 # Get started with queue storage and Visual Studio connected services (ASP.NET 5)
 
@@ -43,26 +43,26 @@ To access queues in ASP.NET 5 projects, you need to include the following items 
 
 1. Make sure the namespace declarations at the top of the C# file include these **using** statements.
 
-		using Microsoft.Framework.Configuration;
-		using Microsoft.WindowsAzure.Storage;
-		using Microsoft.WindowsAzure.Storage.Queue;
-		using System.Threading.Tasks;
-		using LogLevel = Microsoft.Framework.Logging.LogLevel;
+        using Microsoft.Framework.Configuration;
+        using Microsoft.WindowsAzure.Storage;
+        using Microsoft.WindowsAzure.Storage.Queue;
+        using System.Threading.Tasks;
+        using LogLevel = Microsoft.Framework.Logging.LogLevel;
 
 2. Get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the your storage connection string and storage account information from the Azure service configuration.
 
-		 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-		   CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
+         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+           CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
 
 3. Get a **CloudQueueClient** object to reference the queue objects in your storage account.  
 
-	    // Create the table client.
-    	CloudQuecClient queueClient = storageAccount.CreateCloudTableClient();
+        // Create the table client.
+        CloudQuecClient queueClient = storageAccount.CreateCloudTableClient();
 
 4. Get a **CloudQueue** object to reference a specific queue.
 
-    	// Get a reference to a table named "messageQueue"
-	    CloudTable messageQueue = queueClient.GetQueueReference("messageQueue");
+        // Get a reference to a table named "messageQueue"
+        CloudTable messageQueue = queueClient.GetQueueReference("messageQueue");
 
 
 **NOTE:** Use all of the above code in front of the code in the following samples.
@@ -71,8 +71,8 @@ To access queues in ASP.NET 5 projects, you need to include the following items 
 
 To create the Azure queue in code, just add a call to **CreateIfNotExistsAsync**.
 
-	// Create the CloudTable if it does not exist.
-	await messageQueue.CreateIfNotExistsAsync();
+    // Create the CloudTable if it does not exist.
+    await messageQueue.CreateIfNotExistsAsync();
 
 ##Add a message to a queue
 
@@ -82,39 +82,39 @@ A **CloudQueueMessage** object can be created from either a string (in UTF-8 for
 
 Here is an example which inserts the message 'Hello, World'.
 
-	// Get a reference to the CloudQueue object named 'messageQueue' as described in "Access a queue in code"
+    // Get a reference to the CloudQueue object named 'messageQueue' as described in "Access a queue in code"
 
-	// Create a message and add it to the queue.
-	CloudQueueMessage message = new CloudQueueMessage("Hello, World");
-	await messageQueue.AddMessageAsync(message);
+    // Create a message and add it to the queue.
+    CloudQueueMessage message = new CloudQueueMessage("Hello, World");
+    await messageQueue.AddMessageAsync(message);
 
 ##Read a message in a queue
 
 You can peek at the message in the front of a queue without removing it from the queue by calling the **PeekMessageAsync** method.
 
-	// Get a reference to the CloudQueue object named 'messageQueue' as described in "Access a queue in code".
+    // Get a reference to the CloudQueue object named 'messageQueue' as described in "Access a queue in code".
 
-	// Display the message.
-	CloudQueueMessage peekedMessage = await messageQueue.PeekMessageAsync();
+    // Display the message.
+    CloudQueueMessage peekedMessage = await messageQueue.PeekMessageAsync();
 
 
 ##Read and remove a message in a queue
 
 Your code can remove (dequeue) a message from a queue in two steps.
 1. Call **GetMessageAsync** to get the next message in a queue. A message returned from **GetMessageAsync** becomes invisible to any other code reading messages from this queue. By default, this message stays invisible for 30 seconds.
-2.	To finish removing the message from the queue, call **DeleteMessageAsync**.
+2.  To finish removing the message from the queue, call **DeleteMessageAsync**.
 
 This two-step process of removing a message assures that if your code fails to process a message due to hardware or software failure, another instance of your code can get the same message and try again. The following code calls **DeleteMessageAsync** right after the message has been processed.
 
-	// Get a reference to the CloudQueue object named 'messageQueue' as described in "Access a queue in code".
+    // Get a reference to the CloudQueue object named 'messageQueue' as described in "Access a queue in code".
 
-	// Get the next message in the queue.
-	CloudQueueMessage retrievedMessage = await messageQueue.GetMessageAsync();
+    // Get the next message in the queue.
+    CloudQueueMessage retrievedMessage = await messageQueue.GetMessageAsync();
 
-	// Process the message in less than 30 seconds.
+    // Process the message in less than 30 seconds.
 
     // Then delete the message.
-	await messageQueue.DeleteMessageAsync(retrievedMessage);
+    await messageQueue.DeleteMessageAsync(retrievedMessage);
 
 ## Leverage additional options for dequeuing messages
 
@@ -147,14 +147,14 @@ property returns the last value retrieved by the
 
     // Get a reference to the CloudQueue object named 'messageQueue' as described in "Access a queue in code"
 
-	// Fetch the queue attributes.
-	messageQueue.FetchAttributes();
+    // Fetch the queue attributes.
+    messageQueue.FetchAttributes();
 
     // Retrieve the cached approximate message count.
     int? cachedMessageCount = messageQueue.ApproximateMessageCount;
 
-	// Display number of messages.
-	Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
+    // Display number of messages.
+    Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
 
 ## Use the Async-Await pattern with common queue APIs
 
@@ -191,3 +191,4 @@ To delete a queue and all the messages contained in it, call the
 ##Next steps
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
+

@@ -4,3 +4,4 @@ This document will walk through a deployment that uses multiple NICs in VMs in a
 
 ![MultiNIC scenario](./media/virtual-network-deploy-multinic-scenario-include/Figure1.png)
 
+

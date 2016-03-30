@@ -29,3 +29,4 @@ Maximum number of collection creates per minute* |5
 Maximum number of scale operations per minute* |5
 
 Quotas listed with an asterisk (*) [can be adjusted by contacting Azure support](../articles/documentdb/documentdb-increase-limits.md).
+

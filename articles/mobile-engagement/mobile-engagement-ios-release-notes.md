@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure Mobile Engagement iOS SDK Release Notes"
-	description="Latest updates and procedures for iOS SDK for Azure Mobile Engagement"
-	services="mobile-engagement"
-	documentationCenter="mobile"
-	authors="MehrdadMzfr"
-	manager="dwrede"
-	editor="" />
+    pageTitle="Azure Mobile Engagement iOS SDK Release Notes"
+    description="Latest updates and procedures for iOS SDK for Azure Mobile Engagement"
+    services="mobile-engagement"
+    documentationCenter="mobile"
+    authors="MehrdadMzfr"
+    manager="dwrede"
+    editor="" />
 
 <tags
-	ms.service="mobile-engagement"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-ios"
-	ms.devlang="objective-c"
-	ms.topic="article"
-	ms.date="08/05/2015"
-	ms.author="MehrdadMzfr" />
+    ms.service="mobile-engagement"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-ios"
+    ms.devlang="objective-c"
+    ms.topic="article"
+    ms.date="08/05/2015"
+    ms.author="MehrdadMzfr" />
 
 #Release notes
 
@@ -57,3 +57,4 @@
 -   Removed API to send and receive messages between devices.
 -   Security improvements.
 -   SmartAd tracking removed.
+

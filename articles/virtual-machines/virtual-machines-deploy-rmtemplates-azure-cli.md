@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Deploy and manage VM with templates | Microsoft Azure"
-	description="Deploy and manage the most common configurations for Azure virtual machines using Resource Manager templates and Azure CLI."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="squillace"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    pageTitle="Deploy and manage VM with templates | Microsoft Azure"
+    description="Deploy and manage the most common configurations for Azure virtual machines using Resource Manager templates and Azure CLI."
+    services="virtual-machines"
+    documentationCenter=""
+    authors="squillace"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/01/2015"
-	ms.author="rasquill"/>
+    ms.service="virtual-machines"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/01/2015"
+    ms.author="rasquill"/>
 
 # Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI
 
@@ -51,14 +51,14 @@ Before you can use the Azure CLI with Azure resource groups, you need to have th
 
 Type `azure --version` to see whether you have already installed version 0.9.0 or later. 
 
-	azure --version
+    azure --version
     0.9.0 (node: 0.10.25)
 
 If your version is not 0.9.0 or later, you need to update it by using one of the native installers or through **npm** by typing `npm update -g azure-cli`.
 
 You can also run Azure CLI as a Docker container by using the following [Docker image](https://registry.hub.docker.com/u/microsoft/azure-cli/). From a Docker host, run the following command:
 
-	docker run -it microsoft/azure-cli
+    docker run -it microsoft/azure-cli
 
 ### Set your Azure account and subscription
 
@@ -81,7 +81,7 @@ Your account may have more than one subscription. You can list your subscription
 
 You can set the current Azure subscription by typing the following. Use the subscription name or the ID that has the resources you want to manage.
 
-	azure account set <subscription name or ID> true
+    azure account set <subscription name or ID> true
 
 
 
@@ -89,7 +89,7 @@ You can set the current Azure subscription by typing the following. Use the subs
 
 By default, the Azure CLI starts in the service management mode (**asm** mode). Type the following to switch to resource group mode.
 
-	azure config mode arm
+    azure config mode arm
 
 ## Understanding Azure resource templates and resource groups
 
@@ -1308,3 +1308,4 @@ Then you'll need to mount the disk, as you normally would in Linux (or in Window
 For far more examples of Azure CLI usage with the **arm** mode, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](xplat-cli-azure-resource-manager.md). To learn more about Azure resources and their concepts, see [Azure Resource Manager overview](../resource-group-overview.md).
 
 For more templates you can use, see [Azure Quickstart templates](http://azure.microsoft.com/documentation/templates/) and [Application frameworks using templates](virtual-machines-app-frameworks.md).
+

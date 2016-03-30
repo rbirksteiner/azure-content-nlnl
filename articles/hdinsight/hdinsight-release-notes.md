@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Release notes for Hadoop components on Azure HDInsight | Microsoft Azure"
-	description="Latest release notes and versions of Hadoop components for Azure HDInsight. Get development tips and details for Hadoop, Apache Storm, and HBase."
-	services="hdinsight"
-	documentationCenter=""
-	editor="cgronlun"
-	manager="paulettm"
-	authors="nitinme"
-	tags="azure-portal"/>
+    pageTitle="Release notes for Hadoop components on Azure HDInsight | Microsoft Azure"
+    description="Latest release notes and versions of Hadoop components for Azure HDInsight. Get development tips and details for Hadoop, Apache Storm, and HBase."
+    services="hdinsight"
+    documentationCenter=""
+    editor="cgronlun"
+    manager="paulettm"
+    authors="nitinme"
+    tags="azure-portal"/>
 
 <tags
-	ms.service="hdinsight"
-	ms.workload="big-data"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/01/2015"
-	ms.author="nitinme"/>
+    ms.service="hdinsight"
+    ms.workload="big-data"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/01/2015"
+    ms.author="nitinme"/>
 
 
 # Release notes for Hadoop components on Azure HDInsight
@@ -24,14 +24,14 @@
 
 The full version numbers for HDInsight clusters deployed with this release:
 
-* HDInsight	(Windows)	 	2.1.10.763.1931434 (HDP 1.3.12.0-01795 - unchanged)
-* HDInsight	(Windows)	 	3.0.6.763.1931434 (HDP 2.0.13.0-2117 - unchanged)
-* HDInsight	(Windows)	 	3.1.4.763.1931434  (HDP 2.1.15.0-2374 - unchanged)
-* HDInsight	(Windows)		3.2.7.763.1931434  (HDP 2.2.7.1-34 - unchanged)
-* HDInsight (Windows)		3.3.1000.0		   (HDP 2.3.3.1-5)
-* HDInsight	(Linux)			3.2.1000.0.6392801 (HDP	2.2.7.1-34 - unchanged)
-* HDInsight (Linux)			3.3.1000.0		   (HDP 2.3.3.0-3039)
-* SDK			1.5.8
+* HDInsight (Windows)       2.1.10.763.1931434 (HDP 1.3.12.0-01795 - unchanged)
+* HDInsight (Windows)       3.0.6.763.1931434 (HDP 2.0.13.0-2117 - unchanged)
+* HDInsight (Windows)       3.1.4.763.1931434  (HDP 2.1.15.0-2374 - unchanged)
+* HDInsight (Windows)       3.2.7.763.1931434  (HDP 2.2.7.1-34 - unchanged)
+* HDInsight (Windows)       3.3.1000.0         (HDP 2.3.3.1-5)
+* HDInsight (Linux)         3.2.1000.0.6392801 (HDP 2.2.7.1-34 - unchanged)
+* HDInsight (Linux)         3.3.1000.0         (HDP 2.3.3.0-3039)
+* SDK           1.5.8
 
 This release contains the following updates.
 
@@ -43,12 +43,12 @@ This release contains the following updates.
 
 The full version numbers for HDInsight clusters deployed with this release:
 
-* HDInsight	(Windows)	 	2.1.10.757.1923908 (HDP 1.3.12.0-01795 - unchanged)
-* HDInsight	(Windows)	 	3.0.6.757.1923908  (HDP 2.0.13.0-2117 - unchanged)
-* HDInsight	(Windows)	 	3.1.4.757.1923908  (HDP 2.1.15.0-2374 - unchanged)
-* HDInsight	(Windows)		3.2.7.757.1923908  (HDP 2.2.7.1-34)
-* HDInsight	(Linux)			3.2.1000.0.6392801 (HDP	2.2.7.1-34)
-* SDK			1.5.8
+* HDInsight (Windows)       2.1.10.757.1923908 (HDP 1.3.12.0-01795 - unchanged)
+* HDInsight (Windows)       3.0.6.757.1923908  (HDP 2.0.13.0-2117 - unchanged)
+* HDInsight (Windows)       3.1.4.757.1923908  (HDP 2.1.15.0-2374 - unchanged)
+* HDInsight (Windows)       3.2.7.757.1923908  (HDP 2.2.7.1-34)
+* HDInsight (Linux)         3.2.1000.0.6392801 (HDP 2.2.7.1-34)
+* SDK           1.5.8
 
 This release contains the following updates.
 
@@ -61,12 +61,12 @@ This release contains the following updates.
 
 The full version numbers for HDInsight clusters deployed with this release:
 
-* HDInsight	(Windows)	 	2.1.10.726.1866228 (HDP 1.3.12.0-01795 - unchanged)
-* HDInsight	(Windows)	 	3.0.6.726.1866228  (HDP 2.0.13.0-2117 - unchanged)
-* HDInsight	(Windows)	 	3.1.4.726.1866228  (HDP 2.1.15.0-2374 - unchanged)
-* HDInsight	(Windows)		3.2.7.726.1866228  (HDP 2.2.7.1-33)
-* HDInsight	(Linux)			3.2.1000.0.6035701 (HDP	2.2.7.1-33)
-* SDK			1.5.8
+* HDInsight (Windows)       2.1.10.726.1866228 (HDP 1.3.12.0-01795 - unchanged)
+* HDInsight (Windows)       3.0.6.726.1866228  (HDP 2.0.13.0-2117 - unchanged)
+* HDInsight (Windows)       3.1.4.726.1866228  (HDP 2.1.15.0-2374 - unchanged)
+* HDInsight (Windows)       3.2.7.726.1866228  (HDP 2.2.7.1-33)
+* HDInsight (Linux)         3.2.1000.0.6035701 (HDP 2.2.7.1-33)
+* SDK           1.5.8
 
 This release contains the following updates.
 
@@ -80,12 +80,12 @@ This release contains the following updates.
 
 The full version numbers for HDInsight clusters deployed with this release:
 
-* HDInsight 	2.1.10.716.1846990 (Windows)	(HDP 1.3.12.0-01795 - unchanged)
-* HDInsight 	3.0.6.716.1846990 (Windows)  	(HDP 2.0.13.0-2117 - unchanged)
-* HDInsight 	3.1.4.716.1846990 (Windows)  	(HDP 2.1.16.0-2374)
-* HDInsight		3.2.7.716.1846990 (Windows)  	(HDP 2.2.7.1-0004)
-* HDInsight		3.2.1000.0.5930166 (Linux)		(HDP 2.2.7.1-0004)
-* SDK			1.5.8
+* HDInsight     2.1.10.716.1846990 (Windows)    (HDP 1.3.12.0-01795 - unchanged)
+* HDInsight     3.0.6.716.1846990 (Windows)     (HDP 2.0.13.0-2117 - unchanged)
+* HDInsight     3.1.4.716.1846990 (Windows)     (HDP 2.1.16.0-2374)
+* HDInsight     3.2.7.716.1846990 (Windows)     (HDP 2.2.7.1-0004)
+* HDInsight     3.2.1000.0.5930166 (Linux)      (HDP 2.2.7.1-0004)
+* SDK           1.5.8
 
 This release contains the following updates.
 
@@ -100,11 +100,11 @@ This release contains the following updates.
 
 The full version numbers for HDInsight clusters deployed with this release:
 
-* HDInsight 	2.1.10.675.1768697 (HDP 1.3.12.0-01795 - unchanged)
-* HDInsight 	3.0.6.675.1768697  (HDP 2.0.13.0-2117 - unchanged)
-* HDInsight 	3.1.4.675.1768697  (HDP 2.1.15.0-2334 - unchanged)
-* HDInsight		3.2.6.675.1768697  (HDP 2.2.6.1-0012 - unchanged)
-* SDK			1.5.8
+* HDInsight     2.1.10.675.1768697 (HDP 1.3.12.0-01795 - unchanged)
+* HDInsight     3.0.6.675.1768697  (HDP 2.0.13.0-2117 - unchanged)
+* HDInsight     3.1.4.675.1768697  (HDP 2.1.15.0-2334 - unchanged)
+* HDInsight     3.2.6.675.1768697  (HDP 2.2.6.1-0012 - unchanged)
+* SDK           1.5.8
 
 This release contains the following updates.
 
@@ -116,11 +116,11 @@ This release contains the following updates.
 
 The full version numbers for HDInsight clusters deployed with this release:
 
-* HDInsight 	2.1.10.640.1695824 (HDP 1.3.12.0-01795 - unchanged)
-* HDInsight 	3.0.6.640.1695824  (HDP 2.0.13.0-2117 - unchanged)
-* HDInsight 	3.1.4.640.1695824  (HDP 2.1.15.0-2334 - unchanged)
-* HDInsight		3.2.6.640.1695824  (HDP 2.2.6.1-0012 - unchanged)
-* SDK			1.5.8
+* HDInsight     2.1.10.640.1695824 (HDP 1.3.12.0-01795 - unchanged)
+* HDInsight     3.0.6.640.1695824  (HDP 2.0.13.0-2117 - unchanged)
+* HDInsight     3.1.4.640.1695824  (HDP 2.1.15.0-2334 - unchanged)
+* HDInsight     3.2.6.640.1695824  (HDP 2.2.6.1-0012 - unchanged)
+* SDK           1.5.8
 
 This release contains the following updates.
 
@@ -133,11 +133,11 @@ This release contains the following updates.
 
 The full version numbers for HDInsight clusters deployed with this release:
 
-* HDInsight 	2.1.10.635.1684502 (HDP 1.3.12.0-01795 - unchanged)
-* HDInsight 	3.0.6.635.1684502  (HDP 2.0.13.0-2117 - unchanged)
-* HDInsight 	3.1.4.635.1684502  (HDP 2.1.15.0-2334 - unchanged)
-* HDInsight		3.2.6.635.1684502  (HDP 2.2.6.1-0012 - unchanged)
-* SDK			1.5.8
+* HDInsight     2.1.10.635.1684502 (HDP 1.3.12.0-01795 - unchanged)
+* HDInsight     3.0.6.635.1684502  (HDP 2.0.13.0-2117 - unchanged)
+* HDInsight     3.1.4.635.1684502  (HDP 2.1.15.0-2334 - unchanged)
+* HDInsight     3.2.6.635.1684502  (HDP 2.2.6.1-0012 - unchanged)
+* SDK           1.5.8
 
 This release contains the following updates.
 
@@ -150,11 +150,11 @@ This release contains the following updates.
 
 The full version numbers for HDInsight clusters deployed with this release:
 
-* HDInsight 	2.1.10.610.1630216	(HDP 1.3.12.0-01795 - unchanged)
-* HDInsight 	3.0.6.610.1630216	(HDP 2.0.13.0-2117 - unchanged)
-* HDInsight 	3.1.4.610.1630216	(HDP 2.1.15.0-2334 - unchanged)
-* HDInsight		3.2.4.610.1630216	(HDP 2.2.6.1-0012)
-* SDK			1.5.8
+* HDInsight     2.1.10.610.1630216  (HDP 1.3.12.0-01795 - unchanged)
+* HDInsight     3.0.6.610.1630216   (HDP 2.0.13.0-2117 - unchanged)
+* HDInsight     3.1.4.610.1630216   (HDP 2.1.15.0-2334 - unchanged)
+* HDInsight     3.2.4.610.1630216   (HDP 2.2.6.1-0012)
+* SDK           1.5.8
 
 
 This release contains the following updates.
@@ -168,11 +168,11 @@ This release contains the following updates.
 
 The full version numbers for HDInsight clusters deployed with this release:
 
-* HDInsight 	2.1.10.601.1610731	(HDP 1.3.12.0-01795 - unchanged)
-* HDInsight 	3.0.6.601.1610731	(HDP 2.0.13.0-2117 - unchanged)
-* HDInsight 	3.1.4.601.1610731	(HDP 2.1.15.0-2334 - unchanged)
-* HDInsight		3.2.4.601.1610731	(HDP 2.2.6.1-0011)
-* SDK			1.5.8
+* HDInsight     2.1.10.601.1610731  (HDP 1.3.12.0-01795 - unchanged)
+* HDInsight     3.0.6.601.1610731   (HDP 2.0.13.0-2117 - unchanged)
+* HDInsight     3.1.4.601.1610731   (HDP 2.1.15.0-2334 - unchanged)
+* HDInsight     3.2.4.601.1610731   (HDP 2.2.6.1-0011)
+* SDK           1.5.8
 
 
 This release contains the following updates.
@@ -202,11 +202,11 @@ This release contains the following updates.
 
 The full version numbers for HDInsight clusters deployed with this release:
 
-* HDInsight 	2.1.10.596.1601657	(HDP 1.3.12.0-01795 - unchanged)
-* HDInsight 	3.0.6.596.1601657	(HDP 2.0.13.0-2117 - unchanged)
-* HDInsight 	3.1.4.596.1601657	(HDP 2.1.15.0-2334)
-* HDInsight		3.2.4.596.1601657	(HDP 2.2.6.1-0002)
-* SDK			1.5.8
+* HDInsight     2.1.10.596.1601657  (HDP 1.3.12.0-01795 - unchanged)
+* HDInsight     3.0.6.596.1601657   (HDP 2.0.13.0-2117 - unchanged)
+* HDInsight     3.1.4.596.1601657   (HDP 2.1.15.0-2334)
+* HDInsight     3.2.4.596.1601657   (HDP 2.2.6.1-0002)
+* SDK           1.5.8
 
 
 This release contains the following updates.
@@ -260,11 +260,11 @@ This release contains the following updates.
 
 The full version numbers for HDInsight clusters deployed with this release:
 
-* HDInsight 	2.1.10.583.1575584	(HDP 1.3.12.0-01795 - unchanged)
-* HDInsight 	3.0.6.583.1575584	(HDP 2.0.13.0-2117 - unchanged)
-* HDInsight 	3.1.3.583.1575584	(HDP 2.1.12.1-0003 - unchanged)
-* HDInsight		3.2.4.583.1575584	(HDP 2.2.6.1-1)
-* SDK			1.5.8
+* HDInsight     2.1.10.583.1575584  (HDP 1.3.12.0-01795 - unchanged)
+* HDInsight     3.0.6.583.1575584   (HDP 2.0.13.0-2117 - unchanged)
+* HDInsight     3.1.3.583.1575584   (HDP 2.1.12.1-0003 - unchanged)
+* HDInsight     3.2.4.583.1575584   (HDP 2.2.6.1-1)
+* SDK           1.5.8
 
 
 This release contains the following updates.
@@ -294,11 +294,11 @@ This release contains the following updates.
 
 The full version numbers for HDInsight clusters deployed with this release:
 
-* HDInsight 	2.1.10.577.1563827	(HDP 1.3.12.0-01795 - unchanged)
-* HDInsight 	3.0.6.577.1563827	(HDP 2.0.13.0-2117 - unchanged)
-* HDInsight 	3.1.3.577.1563827	(HDP 2.1.12.1-0003 - unchanged))
-* HDInsight		3.2.4.577.1563827	(HDP 2.2.6.0-2800 - unchanged)
-* SDK			1.5.8
+* HDInsight     2.1.10.577.1563827  (HDP 1.3.12.0-01795 - unchanged)
+* HDInsight     3.0.6.577.1563827   (HDP 2.0.13.0-2117 - unchanged)
+* HDInsight     3.1.3.577.1563827   (HDP 2.1.12.1-0003 - unchanged))
+* HDInsight     3.2.4.577.1563827   (HDP 2.2.6.0-2800 - unchanged)
+* SDK           1.5.8
 
 
 This release contains the following updates.
@@ -328,7 +328,7 @@ This release contains the following updates.
 
 The full version numbers for HDInsight clusters deployed with this release:
 
-* HDInsight		3.2.4.570.1554102	(HDP 2.2.6.0-2800)
+* HDInsight     3.2.4.570.1554102   (HDP 2.2.6.0-2800)
 * Other cluster versions and SDK are not deployed as part of this release.
 
 
@@ -375,11 +375,11 @@ This release contains the following updates.
 
 The full version numbers for HDInsight clusters deployed with this release:
 
-* HDInsight 	2.1.10.564.1542093	(HDP 1.3.12.0-01795 - unchanged)
-* HDInsight 	3.0.6.564.1542093	(HDP 2.0.13.0-2117 - unchanged)
-* HDInsight 	3.1.3.564.1542093	(HDP 2.1.12.1-0003)
-* HDInsight		3.2.4.564.1542093	(HDP 2.2.4.6-2)
-* SDK			1.5.8
+* HDInsight     2.1.10.564.1542093  (HDP 1.3.12.0-01795 - unchanged)
+* HDInsight     3.0.6.564.1542093   (HDP 2.0.13.0-2117 - unchanged)
+* HDInsight     3.1.3.564.1542093   (HDP 2.1.12.1-0003)
+* HDInsight     3.2.4.564.1542093   (HDP 2.2.4.6-2)
+* SDK           1.5.8
 
 This release contains the following updates.
 
@@ -415,11 +415,11 @@ This release contains the following updates.
 
 The full version numbers for HDInsight clusters deployed with this release:
 
-* HDInsight 	2.1.10.537.1486660	(HDP 1.3.12.0-01795 - unchanged)
-* HDInsight 	3.0.6.537.1486660	(HDP 2.0.13.0-2117 - unchanged)
-* HDInsight 	3.1.3.537.1486660	(HDP 2.1.12.0-2329 - unchanged)
-* HDInsight		3.2.3.537.1486660	(HDP 2.2.2.2-4)
-* SDK			1.5.8
+* HDInsight     2.1.10.537.1486660  (HDP 1.3.12.0-01795 - unchanged)
+* HDInsight     3.0.6.537.1486660   (HDP 2.0.13.0-2117 - unchanged)
+* HDInsight     3.1.3.537.1486660   (HDP 2.1.12.0-2329 - unchanged)
+* HDInsight     3.2.3.537.1486660   (HDP 2.2.2.2-4)
+* SDK           1.5.8
 
 This release contains the following updates.
 
@@ -455,11 +455,11 @@ This release contains the following updates.
 
 The full version numbers for HDInsight clusters deployed with this release:
 
-* HDInsight 	2.1.10.521.1453250	(HDP 1.3.12.0-01795 - unchanged)
-* HDInsight 	3.0.6.521.1453250	(HDP 2.0.13.0-2117 - unchanged)
-* HDInsight 	3.1.3.521.1453250	(HDP 2.1.12.0-2329 - unchanged)
-* HDInsight		3.2.3.525.1459730	(HDP 2.2.2.2-2)
-* SDK			1.5.6
+* HDInsight     2.1.10.521.1453250  (HDP 1.3.12.0-01795 - unchanged)
+* HDInsight     3.0.6.521.1453250   (HDP 2.0.13.0-2117 - unchanged)
+* HDInsight     3.1.3.521.1453250   (HDP 2.1.12.0-2329 - unchanged)
+* HDInsight     3.2.3.525.1459730   (HDP 2.2.2.2-2)
+* SDK           1.5.6
 
 This release contains the following updates.
 
@@ -488,11 +488,11 @@ This release contains the following updates.
 
 The full version numbers for HDInsight clusters deployed with this release:
 
-* HDInsight 	2.1.10.521.1453250	(HDP 1.3.12.0-01795 - unchanged)
-* HDInsight 	3.0.6.521.1453250	(HDP 2.0.13.0-2117 - unchanged)
-* HDInsight 	3.1.3.521.1453250	(HDP 2.1.12.0-2329 - unchanged)
-* HDInsight		3.2.3.521.1453250	(HDP 2.2.2.2-1)
-* SDK			1.5.6
+* HDInsight     2.1.10.521.1453250  (HDP 1.3.12.0-01795 - unchanged)
+* HDInsight     3.0.6.521.1453250   (HDP 2.0.13.0-2117 - unchanged)
+* HDInsight     3.1.3.521.1453250   (HDP 2.1.12.0-2329 - unchanged)
+* HDInsight     3.2.3.521.1453250   (HDP 2.2.2.2-1)
+* SDK           1.5.6
 
 This release contains the following updates.
 
@@ -538,11 +538,11 @@ This release contains the following updates.
 
 The full version numbers for HDInsight clusters deployed with this release:
 
-* HDInsight 	2.1.10.513.1431705	(HDP 1.3.12.0-01795)
-* HDInsight 	3.0.6.513.1431705	(HDP 2.0.13.0-2117)
-* HDInsight 	3.1.3.513.1431705	(HDP 2.1.12.0-2329)
-* HDInsight		3.2.3.513.1431705	(HDP 2.2.2.1-2600)
-* SDK			1.5.5
+* HDInsight     2.1.10.513.1431705  (HDP 1.3.12.0-01795)
+* HDInsight     3.0.6.513.1431705   (HDP 2.0.13.0-2117)
+* HDInsight     3.1.3.513.1431705   (HDP 2.1.12.0-2329)
+* HDInsight     3.2.3.513.1431705   (HDP 2.2.2.1-2600)
+* SDK           1.5.5
 
 This release contains the following updates.
 
@@ -646,11 +646,11 @@ are internal to the HDP package and not for direct use by customer applications.
 
 The full version numbers for HDInsight clusters deployed with this release:
 
-* HDInsight 	2.1.10.488.1375841	(HDP 1.3.9.0-01351 - unchanged)
-* HDInsight 	3.0.6.488.1375841	(HDP 2.0.9.0-2097 -  unchanged)
-* HDInsight 	3.1.3.488.1375841	(HDP 2.1.10.0-2290 - unchanged)
-* HDInsight		3.2.3.488.1375841	(HDP-2.2.10.0-2340 - unchanged)
-* SDK			1.5.0				(unchanged)
+* HDInsight     2.1.10.488.1375841  (HDP 1.3.9.0-01351 - unchanged)
+* HDInsight     3.0.6.488.1375841   (HDP 2.0.9.0-2097 -  unchanged)
+* HDInsight     3.1.3.488.1375841   (HDP 2.1.10.0-2290 - unchanged)
+* HDInsight     3.2.3.488.1375841   (HDP-2.2.10.0-2340 - unchanged)
+* SDK           1.5.0               (unchanged)
 
 This release contains the following update.
 
@@ -682,11 +682,11 @@ This release contains the following update.
 
 The full version numbers for HDInsight clusters deployed with this release:
 
-* HDInsight 	2.1.10.471.1342507	(HDP 1.3.9.0-01351 - unchanged)
-* HDInsight 	3.0.6.471.1342507	(HDP 2.0.9.0-2097 -  unchanged)
-* HDInsight 	3.1.3.471.1342507	(HDP 2.1.10.0-2290 - unchanged)
-* HDInsight		3.2.3.471.1342507	(HDP-2.2.10.0-2340)
-* SDK			1.5.0
+* HDInsight     2.1.10.471.1342507  (HDP 1.3.9.0-01351 - unchanged)
+* HDInsight     3.0.6.471.1342507   (HDP 2.0.9.0-2097 -  unchanged)
+* HDInsight     3.1.3.471.1342507   (HDP 2.1.10.0-2290 - unchanged)
+* HDInsight     3.2.3.471.1342507   (HDP-2.2.10.0-2340)
+* SDK           1.5.0
 
 This release contains the following updates.
 
@@ -772,10 +772,10 @@ This release contains the following updates.
 
 The full version numbers for HDInsight clusters deployed with this release:
 
-* HDInsight 	2.1.10.463.1325367	(HDP 1.3.9.0-01351 - unchanged)
-* HDInsight 	3.0.6.463.1325367	(HDP 2.0.9.0-2097 -  unchanged)
-* HDInsight 	3.1.2.463.1325367	(HDP 2.1.10.0-2290)
-* SDK			N/A
+* HDInsight     2.1.10.463.1325367  (HDP 1.3.9.0-01351 - unchanged)
+* HDInsight     3.0.6.463.1325367   (HDP 2.0.9.0-2097 -  unchanged)
+* HDInsight     3.1.2.463.1325367   (HDP 2.1.10.0-2290)
+* SDK           N/A
 
 This release contains the following updates.
 
@@ -827,10 +827,10 @@ This release contains the following updates.
 
 The full version numbers for HDInsight clusters deployed with this release:
 
-* HDInsight 	2.1.10.455.1309616	(HDP 1.3.9.0-01351 - unchanged)
-* HDInsight 	3.0.6.455.1309616	(HDP 2.0.9.0-2097 -  unchanged)
-* HDInsight 	3.1.2.455.1309616	(HDP 2.1.9.0-2196 -  unchanged)
-* SDK			N/A
+* HDInsight     2.1.10.455.1309616  (HDP 1.3.9.0-01351 - unchanged)
+* HDInsight     3.0.6.455.1309616   (HDP 2.0.9.0-2097 -  unchanged)
+* HDInsight     3.1.2.455.1309616   (HDP 2.1.9.0-2196 -  unchanged)
+* SDK           N/A
 
 This release contains the following update.
 
@@ -863,9 +863,9 @@ This release contains the following update.
 
 The full version numbers for HDInsight clusters deployed with this release:
 
-* HDInsight 	2.1.10.420.1246118	(HDP 1.3.9.0-01351 - unchanged)
-* HDInsight 	3.0.6.420.1246118	(HDP 2.0.9.0-2097 - unchanged)
-* HDInsight 	3.1.2.420.1246118	(HDP 2.1.9.0-2196 - unchanged)
+* HDInsight     2.1.10.420.1246118  (HDP 1.3.9.0-01351 - unchanged)
+* HDInsight     3.0.6.420.1246118   (HDP 2.0.9.0-2097 - unchanged)
+* HDInsight     3.1.2.420.1246118   (HDP 2.1.9.0-2196 - unchanged)
 
 
 This release contains the following updates.
@@ -909,9 +909,9 @@ Apache Mahout is an Apache Hadoop machine learning library. Mahout contains algo
 
 The full version numbers for HDInsight clusters deployed with this release are:
 
-* HDInsight 	2.1.10.420.1246783	(HDP version unchanged)
-* HDInsight 	3.0.6.420.1246783	(HDP version unchanged)
-* HDInsight 	3.1.1.420.1246783	(HDP version unchanged)
+* HDInsight     2.1.10.420.1246783  (HDP version unchanged)
+* HDInsight     3.0.6.420.1246783   (HDP version unchanged)
+* HDInsight     3.1.1.420.1246783   (HDP version unchanged)
 
 This release contains the following update.
 
@@ -967,9 +967,9 @@ This release contains the following component update.
 
 The full version numbers for HDInsight clusters deployed with this release are:
 
-* HDInsight 	2.1.9.406.1221105	(HDP 1.3.9.0-01351)
-* HDInsight 	3.0.5.406.1221105	(HDP 2.0.9.0-2097)
-* HDInsight 	3.1.1.406.1221105	(HDP 2.1.9.0-2196)
+* HDInsight     2.1.9.406.1221105   (HDP 1.3.9.0-01351)
+* HDInsight     3.0.5.406.1221105   (HDP 2.0.9.0-2097)
+* HDInsight     3.1.1.406.1221105   (HDP 2.1.9.0-2196)
 * HDInsight SDK N/A
 
 This release contains the following component updates.
@@ -1127,9 +1127,9 @@ Learn how to work with HDInsight by walking through some basic scenarios (such a
 
 The full version numbers for HDInsight clusters that deployed with this release are:
 
-* HDInsight 2.1	2.1.9.374.1153876
-* HDInsight 3.0	3.0.5.374.1153876
-* HDInsight 3.1	3.1.1.374.1153876
+* HDInsight 2.1 2.1.9.374.1153876
+* HDInsight 3.0 3.0.5.374.1153876
+* HDInsight 3.1 3.1.1.374.1153876
 
 This release contains the following component updates.
 
@@ -1223,18 +1223,18 @@ Regarding the Azure PowerShell and the HDInsight SDK error message: "*Cluster is
 
 * We are adding the following WebHCat configuration (HIVE-7155), which sets the default memory limit for a Templeton controller job to 1 GB. (The previous default value was 512 MB.)
 
-	 templeton.mapper.memory.mb (=1024)
+     templeton.mapper.memory.mb (=1024)
 
-	* This change addresses the following error which certain Hive queries had run in to due to lower memory limits: “Container is running beyond physical memory limits.”
-	* To revert to the old defaults, you can set this configuration value to 512 through Azure PowerShell at cluster creation time by using the following command:
+    * This change addresses the following error which certain Hive queries had run in to due to lower memory limits: “Container is running beyond physical memory limits.”
+    * To revert to the old defaults, you can set this configuration value to 512 through Azure PowerShell at cluster creation time by using the following command:
 
-		Add-AzureRmHDInsightConfigValues -Core @{"templeton.mapper.memory.mb"="512";}
+        Add-AzureRmHDInsightConfigValues -Core @{"templeton.mapper.memory.mb"="512";}
 
 
 * The host name of the zookeeper role was changed to *zookeeper*. This affects name resolution within the cluster, but it doesn't affect external REST APIs. If you have components that use the *zookeepernode* host name, you need to update them to use new name. The new names for the three zookeeper nodes are:
-	* zookeeper0
-	* zookeeper1
-	* zookeeper2
+    * zookeeper0
+    * zookeeper1
+    * zookeeper2
 * HBase version support matrix is updated. Only HDInsight version 3.1 (HBase version 0.98) is supported for production for HBase workloads. Version 3.0 (which was available for preview) is not supported moving forward.
 
 ## Notes about clusters created prior to 8/15/2014
@@ -1247,9 +1247,9 @@ These compatibility issues are resolved in the latest versions of the HDInsight 
 ## Notes for 7/28/2014 release
 
 * **HDInsight available in new regions**:  We expanded HDInsight geographical presence to three regions. HDInsight customers can create clusters in these regions:
-	* East Asia
-	* North Central US
-	* South Central US
+    * East Asia
+    * North Central US
+    * South Central US
 * HDInsight version 1.6 (HDP 1.1 and Hadoop 1.0.3) and HDInsight version 2.1 (HDP1.3 and Hadoop 1.2) are being removed from the Azure portal. You can continue to create Hadoop clusters for these versions by using the Azure PowerShell cmdlet, [New-AzureRmHDInsightCluster](http://msdn.microsoft.com/library/dn593744.aspx) or by using the [HDInsight SDK](http://msdn.microsoft.com/library/azure/dn469975.aspx). Please refer to the [HDInsight component versioning](../hdinsight-component-versioning/) page for more information.
 * Hortonworks Data Platform (HDP) changes in this release:
 
@@ -1275,9 +1275,9 @@ With HBase, you can build a variety of real-time workloads on HDInsight, from in
 
  [Mahout](http://hortonworks.com/hadoop/mahout/) is pre-installed on HDInsight 3.1 Hadoop clusters, so you can run Mahout jobs without the need for additional cluster configuration. For example, you can remote into an Hadoop cluster by using Remote Desktop Protocol (RDP), and without additional steps, you can run the following Hello World Mahout command:
 
-		mahout org.apache.mahout.classifier.df.tools.Describe -p /user/hdp/glass.data -f /user/hdp/glass.info -d I 9 N L  
+        mahout org.apache.mahout.classifier.df.tools.Describe -p /user/hdp/glass.data -f /user/hdp/glass.info -d I 9 N L  
 
-		mahout org.apache.mahout.classifier.df.BreimanExample -d /user/hdp/glass.data -ds /user/hdp/glass.info -i 10 -t 100
+        mahout org.apache.mahout.classifier.df.BreimanExample -d /user/hdp/glass.data -ds /user/hdp/glass.info -i 10 -t 100
 
 For a more complete explanation of this procedure, see the documentation for the [Breiman Example](https://mahout.apache.org/users/classification/breiman-example.html) on the Apache Mahout website.
 
@@ -1287,8 +1287,8 @@ For a more complete explanation of this procedure, see the documentation for the
 Hive 0.13 is available in HDInsight 3.1, and it is capable of running queries using Tez, which can be leveraged for substantial performance improvements.
 Tez is not enable by default for Hive queries. To use it, you must opt in. You can enable Tez by running the following code snippet:
 
-		set hive.execution.engine=tez;
-		select sc_status, count(*), histogram_numeric(sc_bytes,5) from website_logs_orc_local group by sc_status;
+        set hive.execution.engine=tez;
+        select sc_status, count(*), histogram_numeric(sc_bytes,5) from website_logs_orc_local group by sc_status;
 
 Hortonworks has published a detailed breakdown of Hive query performance enhancements with Tez as delivered in standard benchmarks. For details, see [Benchmarking Apache Hive 13 for Enterprise Hadoop](http://hortonworks.com/blog/benchmarking-apache-hive-13-enterprise-hadoop/).
 
@@ -1484,3 +1484,4 @@ Release notes for the Hortonworks Data Platforms (HDPs) that are used by HDInsig
 [hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
+

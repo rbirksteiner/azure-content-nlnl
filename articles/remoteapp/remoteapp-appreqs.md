@@ -26,18 +26,18 @@ Tip: We're working on creating some working examples of apps for you. You'll see
 ## Requirements
 These three requirements, if followed, help your application run well in RemoteApp:
 
-1.	Applications that meet all [Certification requirements for Windows desktop apps](https://msdn.microsoft.com/library/windows/desktop/hh749939.aspx) and adhere to [Remote Desktop Services programming guidelines](https://msdn.microsoft.com/library/aa383490.aspx) will have complete compatibility with RemoteApp.
-2.	Applications should never store data locally on the image or RemoteApp instances that can be lost.  After you create a RemoteApp collection, the instances are cloned and are stateless and should only contain applications. Store data in an external source or within the user's profile.
-3.	Custom images should never contain data that can be lost.  
+1.  Applications that meet all [Certification requirements for Windows desktop apps](https://msdn.microsoft.com/library/windows/desktop/hh749939.aspx) and adhere to [Remote Desktop Services programming guidelines](https://msdn.microsoft.com/library/aa383490.aspx) will have complete compatibility with RemoteApp.
+2.  Applications should never store data locally on the image or RemoteApp instances that can be lost.  After you create a RemoteApp collection, the instances are cloned and are stateless and should only contain applications. Store data in an external source or within the user's profile.
+3.  Custom images should never contain data that can be lost.  
 
 ## Testing your apps
 Use these steps to testing applications:
 
-1.	Install Windows Server 2012 R2 and your application
-2.	Enable Remote Desktop
-3.	Create two user accounts, UserA and UserB, adding both user accounts to the Remote Desktop security group.
-4.	Check multi-session compatibility by establishing two simultaneous RDS sessions to the PC while launching the application.
-5.	Validate app behavior
+1.  Install Windows Server 2012 R2 and your application
+2.  Enable Remote Desktop
+3.  Create two user accounts, UserA and UserB, adding both user accounts to the Remote Desktop security group.
+4.  Check multi-session compatibility by establishing two simultaneous RDS sessions to the PC while launching the application.
+5.  Validate app behavior
 
 ## Application development guidelines
 Use the following guidelines for developing applications for RemoteApp.
@@ -54,3 +54,4 @@ Use the following guidelines for developing applications for RemoteApp.
 - To maximize CPU availability for all users, either disable [background tasks ](https://msdn.microsoft.com/library/aa380665.aspx) or create efficient background tasks that are not resource-intensive.
 - You should tune and balance application [thread usage](https://msdn.microsoft.com/library/aa383520.aspx) for a multiuser, multiprocessor environment.
 - To optimize performance, it is good practice for applications to [detect](https://msdn.microsoft.com/library/aa380798.aspx) whether they are running in a client session.
+

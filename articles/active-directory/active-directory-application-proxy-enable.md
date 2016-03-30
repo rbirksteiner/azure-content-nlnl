@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Enabling Azure AD Application Proxy | Microsoft Azure"
-	description="Covers how to get up and running with Azure AD Application Proxy."
-	services="active-directory"
-	documentationCenter=""
-	authors="kgremban"
-	manager="StevenPo"
-	editor=""/>
+    pageTitle="Enabling Azure AD Application Proxy | Microsoft Azure"
+    description="Covers how to get up and running with Azure AD Application Proxy."
+    services="active-directory"
+    documentationCenter=""
+    authors="kgremban"
+    manager="StevenPo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/02/2015"
-	ms.author="kgremban"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/02/2015"
+    ms.author="kgremban"/>
 
 # Enabling Azure AD Application Proxy
 > [AZURE.NOTE] Application Proxy is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory. For more information, see [Azure Active Directory editions](active-directory-editions.md).
@@ -51,7 +51,7 @@ If your firewall enforces traffic according to originating users, open these por
 2. Go to Active Directory and select the directory in which you want to enable Application Proxy.
 3. Click **Configure**, scroll down to Application Proxy and toggle Enable Application Proxy Services for this Directory to **Enabled**.
 
-	![Enable Application Proxy](./media/active-directory-application-proxy-enable/app_proxy_enable.png) <p>
+    ![Enable Application Proxy](./media/active-directory-application-proxy-enable/app_proxy_enable.png) <p>
 4. Click **Download now** at the bottom of the screen. This will take you to the download page. Read and accept the license terms and click **Download** to save the Windows Installer file (.exe) for the Application Proxy Connector.
 
 ##Step 2: Install and register the Connector
@@ -64,7 +64,7 @@ If your firewall enforces traffic according to originating users, open these por
 <p>- If Connector registration does not succeed, see [Troubleshoot Application Proxy](active-directory-application-proxy-troubleshoot.md).
 
 4. When the installation completes, two new services are added to your server, as shown below. These are the Connector service, which enables connectivity, and an automated update service, which periodically checks for new versions of the Connector and updates the Connector as needed. Click Finish in the installation window to complete installation
-	![Application Proxy Connector Service!](./media/active-directory-application-proxy-enable/app_proxy_services.png) <p>
+    ![Application Proxy Connector Service!](./media/active-directory-application-proxy-enable/app_proxy_services.png) <p>
 5. You are now ready to Publish applications with Application Proxy.
 
 For high availability purposes, you must deploy at least one additional Connector. To deploy an additional Connector, repeat steps 2 and 3, above. Each Connector must be registered separately.
@@ -91,3 +91,4 @@ There's a lot more you can do with Application Proxy:
 * [Sign up for Azure as an organization](sign-up-organization.md)
 * [Azure Identity](fundamentals-identity.md)
 * [Publish Applications with Application Proxy](active-directory-application-proxy-publish.md)
+

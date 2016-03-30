@@ -72,11 +72,11 @@ Create a new connection with Windows PowerShell using the [New-AzureAutomationCo
 
 The following sample commands create a new connection for [Twilio](http://www.twilio.com) which is a telephony service that allows you to send and receive text messages.  A sample integration module that includes a Twilio connection type is available in [Script Center](http://gallery.technet.microsoft.com/scriptcenter/Twilio-PowerShell-Module-8a8bfef8).  This connection type defines properties for Account SID and Authorization Token, which are required to validate your account when connecting to Twilio.  You must [download this module](http://gallery.technet.microsoft.com/scriptcenter/Twilio-PowerShell-Module-8a8bfef8) and install it in your automation account for this sample code to work.
 
-	$AccountSid = "DAf5fed830c6f8fac3235c5b9d58ed7ac5"
-	$AuthToken  = "17d4dadfce74153d5853725143c52fd1"
-	$FieldValues = @{"AccountSid" = $AccountSid;"AuthToken"=$AuthToken}
+    $AccountSid = "DAf5fed830c6f8fac3235c5b9d58ed7ac5"
+    $AuthToken  = "17d4dadfce74153d5853725143c52fd1"
+    $FieldValues = @{"AccountSid" = $AccountSid;"AuthToken"=$AuthToken}
 
-	New-AzureAutomationConnection -AutomationAccountName "MyAutomationAccount" -Name "TwilioConnection" -ConnectionTypeName "Twilio" -ConnectionFieldValues $FieldValues
+    New-AzureAutomationConnection -AutomationAccountName "MyAutomationAccount" -Name "TwilioConnection" -ConnectionTypeName "Twilio" -ConnectionFieldValues $FieldValues
 
 
 ## Using a connection in a runbook or DSC configuration
@@ -86,16 +86,16 @@ You retrieve a connection in a runbook or DSC configuration with the **Get-Autom
 ### Textual runbook sample
 The following sample commands show how to use the Twilio connection in the previous example to send a text message from a runbook.  The Send-TwilioSMS activity used here has two parameter sets that each use a different method for authenticating to the Twilio service.  One uses a connection object and another uses individual parameters for the Account SID and Authorization Token.  Both methods are shown in this sample.
 
-	$Con = Get-AutomationConnection -Name "TwilioConnection"
-	$NumTo = "14255551212"
-	$NumFrom = "15625551212"
-	$Body = "Text from Azure Automation."
+    $Con = Get-AutomationConnection -Name "TwilioConnection"
+    $NumTo = "14255551212"
+    $NumFrom = "15625551212"
+    $Body = "Text from Azure Automation."
 
-	#Send text with connection object.
-	Send-TwilioSMS -Connection $Con -From $NumFrom -To $NumTo -Body $Body
+    #Send text with connection object.
+    Send-TwilioSMS -Connection $Con -From $NumFrom -To $NumTo -Body $Body
 
-	#Send text with connection properties.
-	Send-TwilioSMS -AccountSid $Con.AccountSid -AuthToken $Con.AuthToken $Con -From $NumFrom -To $NumTo -Body $Body
+    #Send text with connection properties.
+    Send-TwilioSMS -AccountSid $Con.AccountSid -AuthToken $Con.AuthToken $Con -From $NumFrom -To $NumTo -Body $Body
 
 ### Graphical runbook samples
 
@@ -119,3 +119,4 @@ The image below shows the same example as above but uses the **SpecifyConnection
 
 - [Links in graphical authoring](automation-graphical-authoring-intro.md#links-and-workflow)
  
+

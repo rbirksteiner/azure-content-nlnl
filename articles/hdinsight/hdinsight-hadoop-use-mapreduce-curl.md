@@ -6,7 +6,7 @@
    authors="Blackmist"
    manager="paulettm"
    editor="cgronlun"
-	tags="azure-portal"/>
+    tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -62,11 +62,11 @@ To complete the steps in this article, you will need the following:
 
 2. To submit a MapReduce job, use the following command:
 
-		curl -u USERNAME:PASSWORD -d user.name=USERNAME -d jar=wasb:///example/jars/hadoop-mapreduce-examples.jar -d class=wordcount -d arg=wasb:///example/data/gutenberg/davinci.txt -d arg=wasb:///example/data/CurlOut https://CLUSTERNAME.azurehdinsight.net/templeton/v1/mapreduce/jar
+        curl -u USERNAME:PASSWORD -d user.name=USERNAME -d jar=wasb:///example/jars/hadoop-mapreduce-examples.jar -d class=wordcount -d arg=wasb:///example/data/gutenberg/davinci.txt -d arg=wasb:///example/data/CurlOut https://CLUSTERNAME.azurehdinsight.net/templeton/v1/mapreduce/jar
 
     The end of the URI (/mapreduce/jar) tells WebHCat that this request will start a MapReduce job from a class in a jar file. The parameters used in this command are as follows:
 
-	* **-d**: `-G` is not used, so the request defaults to the POST method. `-d` specifies the data values that are sent with the request.
+    * **-d**: `-G` is not used, so the request defaults to the POST method. `-d` specifies the data values that are sent with the request.
 
         * **user.name**: The user who is running the command
         * **jar**: The location of the jar file that contains class to be ran
@@ -81,7 +81,7 @@ To complete the steps in this article, you will need the following:
 
         curl -G -u USERNAME:PASSWORD -d user.name=USERNAME https://CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/JOBID | jq .status.state
 
-	If the job is complete, the state will be "SUCCEEDED".
+    If the job is complete, the state will be "SUCCEEDED".
 
     > [AZURE.NOTE] This Curl request returns a JSON document with information about the job; jq is used to retrieve only the state value.
 
@@ -89,11 +89,11 @@ To complete the steps in this article, you will need the following:
 
 You can list and download these files by using the [Azure CLI for Mac, Linux and Windows](../xplat-cli-install.md). For example, to list files in the **example/curl**, use the following command:
 
-	azure storage blob list <container-name> example/curl
+    azure storage blob list <container-name> example/curl
 
 To download a file, use the following:
 
-	azure storage blob download <container-name> <blob-name> <destination-file>
+    azure storage blob download <container-name> <blob-name> <destination-file>
 
 > [AZURE.NOTE] You must specify the storage account name that contains the blob by using the `-a` and `-k` parameters, or set the **AZURE\_STORAGE\_ACCOUNT** and **AZURE\_STORAGE\_ACCESS\_KEY** environment variables. See [how to upload data to HDInsight](hdinsight-upload-data.md) for more information.
 
@@ -114,3 +114,4 @@ For information about other ways you can work with Hadoop on HDInsight:
 * [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
 
 * [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
+

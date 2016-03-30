@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Recovering data from another DPM server in the backup vault | Microsoft Azure"
-	description="Recover the data you've protected to an Azure Backup vault from any DPM server registered to that vault."
-	services="backup"
-	documentationCenter=""
-	authors="giridharreddy"
-	manager="shreeshd"
-	editor=""/>
+    pageTitle="Recovering data from another DPM server in the backup vault | Microsoft Azure"
+    description="Recover the data you've protected to an Azure Backup vault from any DPM server registered to that vault."
+    services="backup"
+    documentationCenter=""
+    authors="giridharreddy"
+    manager="shreeshd"
+    editor=""/>
 
 <tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/10/2015"
-	ms.author="giridham;jimpark"/>
+    ms.service="backup"
+    ms.workload="storage-backup-recovery"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/10/2015"
+    ms.author="giridham;jimpark"/>
 
 # Recovering data from another DPM server in the backup vault
 You can now recover the data you've protected to an Azure Backup vault from any DPM server registered to that vault. The process for doing so is completely integrated into the DPM management console and is similar to the other recovery workflows.
@@ -82,12 +82,12 @@ To recover data from another DPM server:
     ![Clear External DPM](./media/backup-azure-alternate-dpm-server/clear-external-dpm.png)
 
 ## Troubleshooting Error Messages
-|No. |	Error Message |	Troubleshooting steps |
+|No. |  Error Message | Troubleshooting steps |
 | :-------------: |:-------------| :-----|
-|1.|		This server is not registered to the vault specified by the vault credential.|	**Cause:** This error appears when the vault credential file selected does not belong to the backup vault associated with DPM server on which the recovery is attempted. <br> **Resolution:** Download the vault credential file from the backup vault to which the DPM server is registered.|
-|2.|		Either the recoverable data is not available or the selected server is not a DPM server.|	**Cause:** There are no other DPM servers with DPM 2012 R2 UR7 registered to the backup vault, or the DPM servers with DPM 2012 R2 UR7 have not yet uploaded the metadata, or the selected server is not DPM server (aka Windows Server or Windows Client). <br> **Resolution:** If there are other DPM servers registered to the backup vault, ensure SCDPM 2012 R2 UR7 and latest Azure Backup agent are installed. <br>If there are other DPM servers registered to the backup vault with DPM 2012 R2 UR7, wait for a day after installation of UR7 to start the recovery process. The nightly job will upload the metadata for all the previously protected backups to cloud. The data will be available for recovery.|
-|3.|		No other DPM server is registered to this vault.|	**Cause:** There are no other DPM servers with DPM 2012 R2 UR7 or above that are registered to the vault from which the recovery is being attempted.<br>**Resolution:** If there are other DPM servers registered to the backup vault, ensure SCDPM 2012 R2 UR7 and latest Azure Backup agent are installed.<br>If there are other DPM servers registered to the backup vault with DPM 2012 R2 UR7, wait for a day after installation of UR7 to start the recovery process. The nightly job will upload the metadata for all the previously protected backups to cloud. The data will be available for recovery.|
-|4.|		The encryption passphrase provided does not match with passphrase associated with the following server: **<server name>**|	**Cause:** The encryption passphrase used in the process of encrypting the data from the DPM server’s data that is being recovered does not match the encryption passphrase provided. The agent is unable to decrypt the data. Hence the recovery fails.<br>**Resolution:** Please provide the exact same encryption passphrase associated with the DPM server whose data is being recovered.|
+|1.|        This server is not registered to the vault specified by the vault credential.|  **Cause:** This error appears when the vault credential file selected does not belong to the backup vault associated with DPM server on which the recovery is attempted. <br> **Resolution:** Download the vault credential file from the backup vault to which the DPM server is registered.|
+|2.|        Either the recoverable data is not available or the selected server is not a DPM server.|   **Cause:** There are no other DPM servers with DPM 2012 R2 UR7 registered to the backup vault, or the DPM servers with DPM 2012 R2 UR7 have not yet uploaded the metadata, or the selected server is not DPM server (aka Windows Server or Windows Client). <br> **Resolution:** If there are other DPM servers registered to the backup vault, ensure SCDPM 2012 R2 UR7 and latest Azure Backup agent are installed. <br>If there are other DPM servers registered to the backup vault with DPM 2012 R2 UR7, wait for a day after installation of UR7 to start the recovery process. The nightly job will upload the metadata for all the previously protected backups to cloud. The data will be available for recovery.|
+|3.|        No other DPM server is registered to this vault.|   **Cause:** There are no other DPM servers with DPM 2012 R2 UR7 or above that are registered to the vault from which the recovery is being attempted.<br>**Resolution:** If there are other DPM servers registered to the backup vault, ensure SCDPM 2012 R2 UR7 and latest Azure Backup agent are installed.<br>If there are other DPM servers registered to the backup vault with DPM 2012 R2 UR7, wait for a day after installation of UR7 to start the recovery process. The nightly job will upload the metadata for all the previously protected backups to cloud. The data will be available for recovery.|
+|4.|        The encryption passphrase provided does not match with passphrase associated with the following server: **<server name>**|  **Cause:** The encryption passphrase used in the process of encrypting the data from the DPM server’s data that is being recovered does not match the encryption passphrase provided. The agent is unable to decrypt the data. Hence the recovery fails.<br>**Resolution:** Please provide the exact same encryption passphrase associated with the DPM server whose data is being recovered.|
 
 ## Frequently asked questions:
 1. **Why can’t I add an external DPM server from another DPM server after installing the UR7 and latest Azure Backup agent?**
@@ -101,4 +101,5 @@ To recover data from another DPM server:
     ![Clear External DPM](./media/backup-azure-alternate-dpm-server/external-dpm-azurebackupagentversion.png)
 
 ## Next Steps:
-•	[Azure Backup FAQ](backup-azure-backup-faq.md)
+•   [Azure Backup FAQ](backup-azure-backup-faq.md)
+

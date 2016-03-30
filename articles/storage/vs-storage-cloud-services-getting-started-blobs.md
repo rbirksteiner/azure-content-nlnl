@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Get started with blob storage and Visual Studio connected services (cloud services) | Microsoft Azure"
-	description="How to get started using Azure Blob storage in a cloud service project in Visual Studio after connecting to a storage account using Visual Studio connected services"
-	services="storage"
-	documentationCenter=""
-	authors="TomArcher"
-	manager="douge"
-	editor=""/>
+    pageTitle="Get started with blob storage and Visual Studio connected services (cloud services) | Microsoft Azure"
+    description="How to get started using Azure Blob storage in a cloud service project in Visual Studio after connecting to a storage account using Visual Studio connected services"
+    services="storage"
+    documentationCenter=""
+    authors="TomArcher"
+    manager="douge"
+    editor=""/>
 
 <tags
-	ms.service="storage"
-	ms.workload="web"
-	ms.tgt_pltfrm="vs-getting-started"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/16/2015"
-	ms.author="tarcher"/>
+    ms.service="storage"
+    ms.workload="web"
+    ms.tgt_pltfrm="vs-getting-started"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/16/2015"
+    ms.author="tarcher"/>
 
 # Get started with Azure Blob Storage and Visual Studio connected services (cloud services projects)
 
@@ -50,8 +50,8 @@ To programmatically access blobs in cloud service projects, you need to add the 
 
 3. Get a **CloudBlobClient** object to reference an existing container in your storage account.
 
-		// Create a blob client.
-		CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+        // Create a blob client.
+        CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
 4. Get a **CloudBlobContainer** object to reference a specific blob container.
 
@@ -66,7 +66,7 @@ To programmatically access blobs in cloud service projects, you need to add the 
 
 To create a container in your storage account, all you need to do is add a call to **CreateIfNotExistsAsync** as in the following code:
 
-	// Get a reference to a CloudBlobContainer with the variable name 'container'
+    // Get a reference to a CloudBlobContainer with the variable name 'container'
     // as described in the "Access blob containers in code" section.
 
     // If “mycontainer” doesn’t exist, create it.
@@ -75,7 +75,7 @@ To create a container in your storage account, all you need to do is add a call 
 
 To make the files within the container available to everyone, you can set the container to be public by using the following code.
 
-	await container.SetPermissionsAsync(new BlobContainerPermissions
+    await container.SetPermissionsAsync(new BlobContainerPermissions
     {
         PublicAccess = BlobContainerPublicAccessType.Blob
     });
@@ -90,7 +90,7 @@ Azure Storage supports block blobs and page blobs. In the majority of cases, blo
 
 To upload a file to a block blob, get a container reference and use it to get a block blob reference. Once you have a blob reference, you can upload any stream of data to it by calling the **UploadFromStream** method. This operation creates the blob if it didn't previously exist, or overwrites it if it does exist. The following example shows how to upload a blob into a container and assumes that the container was already created.
 
-	// Get a reference to a CloudBlobContainer with the variable name 'container' as described in
+    // Get a reference to a CloudBlobContainer with the variable name 'container' as described in
     // the "Access blob containers in code" section.
 
     // Retrieve a reference to a blob named "myblob".
@@ -106,71 +106,71 @@ To upload a file to a block blob, get a container reference and use it to get a 
 
 To list the blobs in a container, first get a container reference. You can then use the container's **ListBlobs** method to retrieve the blobs and/or directories within it. To access the rich set of properties and methods for a  returned **IListBlobItem**, you must cast it to a **CloudBlockBlob**, **CloudPageBlob**, or **CloudBlobDirectory** object. If the type is unknown, you can use a type check to determine which to cast it to. The following code demonstrates how to retrieve and output the URI of each item in the **photos** container:
 
-	// Get a reference to a CloudBlobContainer with the variable name 'container' as described in
+    // Get a reference to a CloudBlobContainer with the variable name 'container' as described in
     // the "Access blob containers in code" section.
-	// Loop over items within the container and output the length and URI.
-	foreach (IListBlobItem item in container.ListBlobs(null, false))
-	{
-		if (item.GetType() == typeof(CloudBlockBlob))
-		{
-			CloudBlockBlob blob = (CloudBlockBlob)item;
+    // Loop over items within the container and output the length and URI.
+    foreach (IListBlobItem item in container.ListBlobs(null, false))
+    {
+        if (item.GetType() == typeof(CloudBlockBlob))
+        {
+            CloudBlockBlob blob = (CloudBlockBlob)item;
 
-			Console.WriteLine("Block blob of length {0}: {1}", blob.Properties.Length, blob.Uri);
+            Console.WriteLine("Block blob of length {0}: {1}", blob.Properties.Length, blob.Uri);
 
-		}
-		else if (item.GetType() == typeof(CloudPageBlob))
-		{
-			CloudPageBlob pageBlob = (CloudPageBlob)item;
+        }
+        else if (item.GetType() == typeof(CloudPageBlob))
+        {
+            CloudPageBlob pageBlob = (CloudPageBlob)item;
 
-			Console.WriteLine("Page blob of length {0}: {1}", pageBlob.Properties.Length, pageBlob.Uri);
+            Console.WriteLine("Page blob of length {0}: {1}", pageBlob.Properties.Length, pageBlob.Uri);
 
-		}
-		else if (item.GetType() == typeof(CloudBlobDirectory))
-		{
-			CloudBlobDirectory directory = (CloudBlobDirectory)item;
+        }
+        else if (item.GetType() == typeof(CloudBlobDirectory))
+        {
+            CloudBlobDirectory directory = (CloudBlobDirectory)item;
 
-			Console.WriteLine("Directory: {0}", directory.Uri);
-		}
-	}
+            Console.WriteLine("Directory: {0}", directory.Uri);
+        }
+    }
 
 As shown in the previous code sample, the blob service has the concept of directories within containers, as well. This is so that you can organize your blobs in a more folder-like structure. For example, consider the following set of block blobs in a container named **photos**:
 
-	photo1.jpg
-	2010/architecture/description.txt
-	2010/architecture/photo3.jpg
-	2010/architecture/photo4.jpg
-	2011/architecture/photo5.jpg
-	2011/architecture/photo6.jpg
-	2011/architecture/description.txt
-	2011/photo7.jpg
+    photo1.jpg
+    2010/architecture/description.txt
+    2010/architecture/photo3.jpg
+    2010/architecture/photo4.jpg
+    2011/architecture/photo5.jpg
+    2011/architecture/photo6.jpg
+    2011/architecture/description.txt
+    2011/photo7.jpg
 
 When you call **ListBlobs** on the container (as in the previous sample), the collection returned
 contains **CloudBlobDirectory** and **CloudBlockBlob** objects representing the directories and blobs contained at the top level. Here is the resulting output:
 
-	Directory: https://<accountname>.blob.core.windows.net/photos/2010/
-	Directory: https://<accountname>.blob.core.windows.net/photos/2011/
-	Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
+    Directory: https://<accountname>.blob.core.windows.net/photos/2010/
+    Directory: https://<accountname>.blob.core.windows.net/photos/2011/
+    Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
 
 
 Optionally, you can set the **UseFlatBlobListing** parameter of of the **ListBlobs** method to
 **true**. This results in every blob being returned as a **CloudBlockBlob**, regardless of directory. Here is the call to **ListBlobs**:
 
     // Loop over items within the container and output the length and URI.
-	foreach (IListBlobItem item in container.ListBlobs(null, true))
-	{
-	   ...
-	}
+    foreach (IListBlobItem item in container.ListBlobs(null, true))
+    {
+       ...
+    }
 
 and here are the results:
 
-	Block blob of length 4: https://<accountname>.blob.core.windows.net/photos/2010/architecture/description.txt
-	Block blob of length 314618: https://<accountname>.blob.core.windows.net/photos/2010/architecture/photo3.jpg
-	Block blob of length 522713: https://<accountname>.blob.core.windows.net/photos/2010/architecture/photo4.jpg
-	Block blob of length 4: https://<accountname>.blob.core.windows.net/photos/2011/architecture/description.txt
-	Block blob of length 419048: https://<accountname>.blob.core.windows.net/photos/2011/architecture/photo5.jpg
-	Block blob of length 506388: https://<accountname>.blob.core.windows.net/photos/2011/architecture/photo6.jpg
-	Block blob of length 399751: https://<accountname>.blob.core.windows.net/photos/2011/photo7.jpg
-	Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
+    Block blob of length 4: https://<accountname>.blob.core.windows.net/photos/2010/architecture/description.txt
+    Block blob of length 314618: https://<accountname>.blob.core.windows.net/photos/2010/architecture/photo3.jpg
+    Block blob of length 522713: https://<accountname>.blob.core.windows.net/photos/2010/architecture/photo4.jpg
+    Block blob of length 4: https://<accountname>.blob.core.windows.net/photos/2011/architecture/description.txt
+    Block blob of length 419048: https://<accountname>.blob.core.windows.net/photos/2011/architecture/photo5.jpg
+    Block blob of length 506388: https://<accountname>.blob.core.windows.net/photos/2011/architecture/photo6.jpg
+    Block blob of length 399751: https://<accountname>.blob.core.windows.net/photos/2011/photo7.jpg
+    Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
 
 For more information, see [CloudBlobContainer.ListBlobs][].
 
@@ -180,7 +180,7 @@ To download blobs, first retrieve a blob reference and then call the **DownloadT
 example uses the **DownloadToStream** method to transfer the blob
 contents to a stream object that you can then persist to a local file.
 
-	// Get a reference to a CloudBlobContainer with the variable name 'container' as described in
+    // Get a reference to a CloudBlobContainer with the variable name 'container' as described in
     // the "Access blob containers in code" section.
 
     // Get a reference to a blob named "photo1.jpg".
@@ -194,25 +194,25 @@ contents to a stream object that you can then persist to a local file.
 
 You can also use the **DownloadToStream** method to download the contents of a blob as a text string.
 
-	// Get a reference to a CloudBlobContainer with the variable name 'container' as described in
+    // Get a reference to a CloudBlobContainer with the variable name 'container' as described in
     // the "Access blob containers in code" section.
 
-	// Get a reference to a blob named "myblob.txt"
-	CloudBlockBlob blockBlob2 = container.GetBlockBlobReference("myblob.txt");
+    // Get a reference to a blob named "myblob.txt"
+    CloudBlockBlob blockBlob2 = container.GetBlockBlobReference("myblob.txt");
 
-	string text;
-	using (var memoryStream = new MemoryStream())
-	{
-		blockBlob2.DownloadToStream(memoryStream);
-		text = System.Text.Encoding.UTF8.GetString(memoryStream.ToArray());
-	}
+    string text;
+    using (var memoryStream = new MemoryStream())
+    {
+        blockBlob2.DownloadToStream(memoryStream);
+        text = System.Text.Encoding.UTF8.GetString(memoryStream.ToArray());
+    }
 
 ## Delete blobs
 
 To delete a blob, first get a blob reference and then call the
 **Delete** method.
 
-	// Get a reference to a CloudBlobContainer with the variable name 'container' as described in
+    // Get a reference to a CloudBlobContainer with the variable name 'container' as described in
     // the "Access blob containers in code" section.
 
     // Get a reference to a blob named "myblob.txt".
@@ -262,3 +262,4 @@ Because the sample method calls an asynchronous method, it must be prefaced with
 ## Next steps
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
+

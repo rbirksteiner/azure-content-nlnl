@@ -1,20 +1,20 @@
 <properties
-	pageTitle="How to create, manage, or delete a storage account | Microsoft Azure"
-	description="Learn how to create, manage, or delete a storage account in the Azure Classic Portal."
-	services="storage"
-	documentationCenter=""
-	authors="robinsh"
-	manager="carmonm"
-	editor=""/>
+    pageTitle="How to create, manage, or delete a storage account | Microsoft Azure"
+    description="Learn how to create, manage, or delete a storage account in the Azure Classic Portal."
+    services="storage"
+    documentationCenter=""
+    authors="robinsh"
+    manager="carmonm"
+    editor=""/>
 
 <tags
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="12/04/2015" 
-	ms.author="robinsh"/>
+    ms.service="storage"
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="12/04/2015" 
+    ms.author="robinsh"/>
 
 
 # About Azure storage accounts
@@ -51,23 +51,23 @@ For details about storage account capacity and performance targets, see [Azure S
 
 2. Click **New** in the taskbar at the bottom of the page. Choose **Data Services** | **Storage**, and then click **Quick Create**.
 
-	![NewStorageAccount](./media/storage-create-storage-account-classic-portal/storage_NewStorageAccount.png)
+    ![NewStorageAccount](./media/storage-create-storage-account-classic-portal/storage_NewStorageAccount.png)
 
 3. In **URL**, enter a name for your storage account.
 
-	> [AZURE.NOTE] Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
-	>  
-	> Your storage account name must be unique within Azure. The Azure Classic Portal will indicate if the storage account name you select is already taken.
+    > [AZURE.NOTE] Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
+    >  
+    > Your storage account name must be unique within Azure. The Azure Classic Portal will indicate if the storage account name you select is already taken.
 
-	See [Storage account endpoints](#storage-account-endpoints) below for details about how the storage account name will be used to address your objects in Azure Storage.
+    See [Storage account endpoints](#storage-account-endpoints) below for details about how the storage account name will be used to address your objects in Azure Storage.
 
 4. In **Location/Affinity Group**, select a location for your storage account that is close to you or to your customers. If data in your storage account will be accessed from another Azure service, such as an Azure virtual machine or cloud service, you may want to select an affinity group from the list to group your storage account in the same data center with other Azure services that you are using to improve performance and lower costs.
 
-	Note that you must select an affinity group when your storage account is created. You cannot move an existing account to an affinity group. For more information on affinity groups, see [Service colocation with an affinity group](#service-co-location-with-an-affinity-group) below.
+    Note that you must select an affinity group when your storage account is created. You cannot move an existing account to an affinity group. For more information on affinity groups, see [Service colocation with an affinity group](#service-co-location-with-an-affinity-group) below.
 
-	>[AZURE.IMPORTANT] To determine which locations are available for your subscription, you can call the [List Providers](https://msdn.microsoft.com/library/azure/dn790524.aspx) operation. To list providers from PowerShell, call [Get-AzureLocation](https://msdn.microsoft.com/library/azure/dn757693.aspx). From .NET, use the [List](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.provideroperationsextensions.list.aspx) method of the ProviderOperationsExtensions class.
-	>
-	>Additionally, see [Azure Regions](https://azure.microsoft.com/regions/#services) for more information about what services are available in which region.
+    >[AZURE.IMPORTANT] To determine which locations are available for your subscription, you can call the [List Providers](https://msdn.microsoft.com/library/azure/dn790524.aspx) operation. To list providers from PowerShell, call [Get-AzureLocation](https://msdn.microsoft.com/library/azure/dn757693.aspx). From .NET, use the [List](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.provideroperationsextensions.list.aspx) method of the ProviderOperationsExtensions class.
+    >
+    >Additionally, see [Azure Regions](https://azure.microsoft.com/regions/#services) for more information about what services are available in which region.
 
 
 5. If you have more than one Azure subscription, then the **Subscription** field is displayed. In **Subscription**, enter the Azure subscription that you want to use the storage account with.
@@ -76,7 +76,7 @@ For details about storage account capacity and performance targets, see [Azure S
 
 6. Click **Create Storage Account**.
 
-	It may take a few minutes to create your storage account. To check the status, you can monitor the notifications at the bottom of the Azure Classic Portal. After the storage account has been created, your new storage account has **Online** status and is ready for use.
+    It may take a few minutes to create your storage account. To check the status, you can monitor the notifications at the bottom of the Azure Classic Portal. After the storage account has been created, your new storage account has **Online** status and is ready for use.
 
 ![StoragePage](./media/storage-create-storage-account-classic-portal/Storage_StoragePage.png)
 
@@ -123,9 +123,9 @@ You can use **Manage Keys** to copy a storage access key to use in a connection 
 
 2. Click **Manage Keys**.
 
- 	**Manage Access Keys** opens.
+    **Manage Access Keys** opens.
 
-	![Managekeys](./media/storage-create-storage-account-classic-portal/Storage_ManageKeys.png)
+    ![Managekeys](./media/storage-create-storage-account-classic-portal/Storage_ManageKeys.png)
 
 
 3. To copy a storage access key, select the key text. Then right-click, and click **Copy**.
@@ -161,9 +161,9 @@ To remove a storage account that you are no longer using, use **Delete** on the 
 
 2. Click anywhere in the storage account entry except the name, and then click **Delete**.
 
-	 -Or-
+     -Or-
 
-	Click the name of the storage account to open the dashboard, and then click **Delete**.
+    Click the name of the storage account to open the dashboard, and then click **Delete**.
 
 3. Click **Yes** to confirm that you want to delete the storage account.
 

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Creating pipelines" 
-	description="Understand Azure Data Factory pipelines and learn how to create them to move and transform data to produce information that can be used to gain insights" 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
-	editor="monicar"/>
+    pageTitle="Creating pipelines" 
+    description="Understand Azure Data Factory pipelines and learn how to create them to move and transform data to produce information that can be used to gain insights" 
+    services="data-factory" 
+    documentationCenter="" 
+    authors="spelluru" 
+    manager="jhubbard" 
+    editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" y
-	ms.date="12/08/2015" 
-	ms.author="spelluru"/>
+    ms.service="data-factory" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" y
+    ms.date="12/08/2015" 
+    ms.author="spelluru"/>
 
 # Understanding Pipelines & Activities
 This article will help you understand pipelines and activities in Azure Data Factory and how to leverage them to construct end-to-end data-driven workflows for your scenario or business. This article assumes you have gone through the [Overview](data-factory-introduction.md) and [Creating Datasets](data-factory-create-datasets.md) articles prior to this.
@@ -33,136 +33,136 @@ Consider the following 2 datasets:
 
 Table ‘MyTable’ contains a column ‘timestampcolumn’ which helps in specifying the datetime of when the data was inserted into the database. 
 
-	{
-	  "name": "AzureSqlInput",
-	  "properties": {
-	    "type": "AzureSqlTable",
-	    "linkedServiceName": "AzureSqlLinkedService",
-	    "typeProperties": {
-	      "tableName": "MyTable"
-	    },
-	    "external": true,
-	    "availability": {
-	      "frequency": "Hour",
-	      "interval": 1
-	    },
-	    "policy": {
-	      "externalData": {
-	        "retryInterval": "00:01:00",
-	        "retryTimeout": "00:10:00",
-	        "maximumRetry": 3
-	      }
-	    }
-	  }
-	}
+    {
+      "name": "AzureSqlInput",
+      "properties": {
+        "type": "AzureSqlTable",
+        "linkedServiceName": "AzureSqlLinkedService",
+        "typeProperties": {
+          "tableName": "MyTable"
+        },
+        "external": true,
+        "availability": {
+          "frequency": "Hour",
+          "interval": 1
+        },
+        "policy": {
+          "externalData": {
+            "retryInterval": "00:01:00",
+            "retryTimeout": "00:10:00",
+            "maximumRetry": 3
+          }
+        }
+      }
+    }
 
 **Azure Blob Dataset** 
 
 Data is copied to a new blob every hour with the path for the blob reflecting the specific date-time with hour granularity.
 
-	{
-	  "name": "AzureBlobOutput",
-	  "properties": {
-	    "type": "AzureBlob",
-	    "linkedServiceName": "StorageLinkedService",
-	    "typeProperties": {
-	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
-	      "partitionedBy": [
-	        {
-	          "name": "Year",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "yyyy"
-	          }
-	        },
-	        {
-	          "name": "Month",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "%M"
-	          }
-	        },
-	        {
-	          "name": "Day",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "%d"
-	          }
-	        },
-	        {
-	          "name": "Hour",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "%H"
-	          }
-	        }
-	      ],
-	      "format": {
-	        "type": "TextFormat",
-	        "columnDelimiter": "\t",
-	        "rowDelimiter": "\n"
-	      }
-	    },
-	    "availability": {
-	      "frequency": "Hour",
-	      "interval": 1
-	    }
-	  }
-	}
+    {
+      "name": "AzureBlobOutput",
+      "properties": {
+        "type": "AzureBlob",
+        "linkedServiceName": "StorageLinkedService",
+        "typeProperties": {
+          "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
+          "partitionedBy": [
+            {
+              "name": "Year",
+              "value": {
+                "type": "DateTime",
+                "date": "SliceStart",
+                "format": "yyyy"
+              }
+            },
+            {
+              "name": "Month",
+              "value": {
+                "type": "DateTime",
+                "date": "SliceStart",
+                "format": "%M"
+              }
+            },
+            {
+              "name": "Day",
+              "value": {
+                "type": "DateTime",
+                "date": "SliceStart",
+                "format": "%d"
+              }
+            },
+            {
+              "name": "Hour",
+              "value": {
+                "type": "DateTime",
+                "date": "SliceStart",
+                "format": "%H"
+              }
+            }
+          ],
+          "format": {
+            "type": "TextFormat",
+            "columnDelimiter": "\t",
+            "rowDelimiter": "\n"
+          }
+        },
+        "availability": {
+          "frequency": "Hour",
+          "interval": 1
+        }
+      }
+    }
 
 
 The Copy activity in the pipeline below copies data from Azure SQL to Azure Blob Storage. It takes Azure SQL table as the input dataset with hourly frequency and writes the data to Azure Blob storage represented by the ‘AzureBlobOutput’ dataset. The output dataset also has an hourly frequency. Refer to the Scheduling and Execution section to understand how the data is copied over the unit of time. This pipeline have an active period of 3 hours from “2015-01-01T08:00:00” to “2015-01-01T11:00:00”. 
 
 **Pipeline:**
-	
-	{  
-	    "name":"SamplePipeline",
-	    "properties":{  
-	    "start":"2015-01-01T08:00:00",
-	    "end":"2015-01-01T11:00:00",
-	    "description":"pipeline for copy activity",
-	    "activities":[  
-	      {
-	        "name": "AzureSQLtoBlob",
-	        "description": "copy activity",
-	        "type": "Copy",
-	        "inputs": [
-	          {
-	            "name": "AzureSQLInput"
-	          }
-	        ],
-	        "outputs": [
-	          {
-	            "name": "AzureBlobOutput"
-	          }
-	        ],
-	        "typeProperties": {
-	          "source": {
-	            "type": "SqlSource",
-	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
-	          },
-	          "sink": {
-	            "type": "BlobSink"
-	          }
-	        },
-	       "scheduler": {
-	          "frequency": "Hour",
-	          "interval": 1
-	        },
-	        "policy": {
-	          "concurrency": 1,
-	          "executionPriorityOrder": "OldestFirst",
-	          "retry": 0,
-	          "timeout": "01:00:00"
-	        }
-	      }
-	     ]
-	   }
-	}
+    
+    {  
+        "name":"SamplePipeline",
+        "properties":{  
+        "start":"2015-01-01T08:00:00",
+        "end":"2015-01-01T11:00:00",
+        "description":"pipeline for copy activity",
+        "activities":[  
+          {
+            "name": "AzureSQLtoBlob",
+            "description": "copy activity",
+            "type": "Copy",
+            "inputs": [
+              {
+                "name": "AzureSQLInput"
+              }
+            ],
+            "outputs": [
+              {
+                "name": "AzureBlobOutput"
+              }
+            ],
+            "typeProperties": {
+              "source": {
+                "type": "SqlSource",
+                "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
+              },
+              "sink": {
+                "type": "BlobSink"
+              }
+            },
+           "scheduler": {
+              "frequency": "Hour",
+              "interval": 1
+            },
+            "policy": {
+              "concurrency": 1,
+              "executionPriorityOrder": "OldestFirst",
+              "retry": 0,
+              "timeout": "01:00:00"
+            }
+          }
+         ]
+       }
+    }
 
 Now that we have a brief understanding on what an activity is, let’s re-visit the pipeline.
  
@@ -172,10 +172,10 @@ An output dataset from an activity in a pipeline can be the input dataset to ano
 
 Typical steps when creating a pipeline in Azure Data Factory are:
 
-1.	Create a data factory (if not created).
-2.	Create a linked service for each data store or compute.
-3.	Create input and output dataset(s).
-4.	Create a pipeline with activities which operate on the datasets defined above.
+1.  Create a data factory (if not created).
+2.  Create a linked service for each data store or compute.
+3.  Create input and output dataset(s).
+4.  Create a pipeline with activities which operate on the datasets defined above.
 
 ![Data Factory entities](./media/data-factory-create-pipelines/entities.png)
 
@@ -185,40 +185,40 @@ Let us take a closer look on how a pipeline is defined.
 
 The generic structure for a pipeline looks as follows:
 
-	{
-	    "name": "PipelineName",
-	    "properties": 
-	    {
-	        "description" : "pipeline description",
-	        "activities":
-	        [
-	
-	        ],
-			"start": "<start date-time>",
-			"end": "<end date-time>"
-	    }
-	}
+    {
+        "name": "PipelineName",
+        "properties": 
+        {
+            "description" : "pipeline description",
+            "activities":
+            [
+    
+            ],
+            "start": "<start date-time>",
+            "end": "<end date-time>"
+        }
+    }
 
 The **activities** section can have one or more activities defined within it. Each activity has the following top level structure:
 
-	{
-	    "name": "ActivityName",
-	    "description": "description", 
-	    "type": "<ActivityType>",
-	    "inputs":  "[]",
-	    "outputs":  "[]",
-	    "linkedServiceName": "MyLinkedService",
-	    "typeProperties":
-	    {
-	
-	    },
-	    "policy":
-	    {
-	    }
-	    "scheduler":
-	    {
-	    }
-	}
+    {
+        "name": "ActivityName",
+        "description": "description", 
+        "type": "<ActivityType>",
+        "inputs":  "[]",
+        "outputs":  "[]",
+        "linkedServiceName": "MyLinkedService",
+        "typeProperties":
+        {
+    
+        },
+        "policy":
+        {
+        }
+        "scheduler":
+        {
+        }
+    }
 
 Following table describe the properties within the activity and pipeline JSON definitions:
 
@@ -262,19 +262,19 @@ Azure Data Factory provides various mechanisms to author and deploy pipelines (w
 2. Navigate to your Azure Data Factory instance in which you wish to create a pipeline
 3. Click  **Author and Deploy** tile in the **Summary** lens. 
  
-	![Author and deploy tile](./media/data-factory-create-pipelines/author-deploy-tile.png)
+    ![Author and deploy tile](./media/data-factory-create-pipelines/author-deploy-tile.png)
 
 4. Click **New pipeline** on the command bar. 
 
-	![New pipeline button](./media/data-factory-create-pipelines/new-pipeline-button.png)
+    ![New pipeline button](./media/data-factory-create-pipelines/new-pipeline-button.png)
 
 5. You should see the editor window with pipeline JSON template.
 
-	![Pipeline editor](./media/data-factory-create-pipelines/pipeline-in-editor.png)
+    ![Pipeline editor](./media/data-factory-create-pipelines/pipeline-in-editor.png)
 
 6. After you have finished authoring the pipeline, then click on **Deploy** on the command bar to deploy the pipeline. 
 
-	**Note:** during deployment, the Azure Data Factory service performs a few validation checks to help rectify a few common issues. In case there is an error, the corresponding information will show up. Take corrective actions and then re-deploy the authored pipeline. You can use the editor to update and delete a pipeline.
+    **Note:** during deployment, the Azure Data Factory service performs a few validation checks to help rectify a few common issues. In case there is an error, the corresponding information will show up. Take corrective actions and then re-deploy the authored pipeline. You can use the editor to update and delete a pipeline.
 
 ### Using Visual Studio plugin
 You can use Visual Studio to author and deploy pipelines to Azure Data Factory. To learn more, refer to [Tutorial: Copy data from Azure Storage to Azure SQL (Visual Studio)](data-factory-get-started-using-vs.md).
@@ -282,7 +282,7 @@ You can use Visual Studio to author and deploy pipelines to Azure Data Factory. 
 ### Using Azure PowerShell
 You can use the Azure PowerShell to create pipelines in Azure Data Factory. Say, you have defined the pipeline JSON in a file at c:\DPWikisample.json. You can upload it to your Azure Data Factory instance as shown in the following example.
 
-	New-AzureRmDataFactoryPipeline -ResourceGroupName ADF -Name DPWikisample -DataFactoryName wikiADF -File c:\DPWikisample.json
+    New-AzureRmDataFactoryPipeline -ResourceGroupName ADF -Name DPWikisample -DataFactoryName wikiADF -File c:\DPWikisample.json
 
 To learn more about this cmdlet, see [New-AzureRmDataFactoryPipeline cmdlet](https://msdn.microsoft.com/library/mt619358.aspx).
 
@@ -334,6 +334,7 @@ Once a pipeline is deployed, you can manage and monitor your pipelines, slices a
  
 
  
+
 
 
 

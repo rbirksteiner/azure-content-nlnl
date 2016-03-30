@@ -119,3 +119,4 @@ Note: You can upload a tile logo for the application using the **Upload Logo** b
 [5]: ./media/active-directory-saas-custom-apps/customapp5.png
 [6]: ./media/active-directory-saas-custom-apps/customapp6.png
 [7]: ./media/active-directory-saas-custom-apps/customapp7.png
+

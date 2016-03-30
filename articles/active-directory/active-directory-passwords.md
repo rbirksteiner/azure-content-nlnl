@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Azure AD Password Reset | Microsoft Azure"
-	description="Description of password management capabilities in Azure AD, including password reset, change, password management reporting, and writeback to your local on-premises Active Directory." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
-	editor="billmath"/>
+    pageTitle="Azure AD Password Reset | Microsoft Azure"
+    description="Description of password management capabilities in Azure AD, including password reset, change, password management reporting, and writeback to your local on-premises Active Directory." 
+    services="active-directory" 
+    documentationCenter="" 
+    authors="asteen" 
+    manager="kbrint" 
+    editor="billmath"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/16/2015" 
-	ms.author="asteen"/>
-	
+    ms.service="active-directory" 
+    ms.workload="identity" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/16/2015" 
+    ms.author="asteen"/>
+    
 
 # Azure AD Password Reset for Users and Admins
 

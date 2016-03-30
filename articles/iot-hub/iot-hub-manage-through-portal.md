@@ -1,20 +1,20 @@
 <properties
-	 pageTitle="Use the Azure portal to manage IoT Hub | Microsoft Azure"
-	 description="An overview of how to create and manage Azure IoT hubs through the Azure portal"
-	 services="iot-hub"
-	 documentationCenter=""
-	 authors="nasing"
-	 manager="timlt"
-	 editor=""/>
+     pageTitle="Use the Azure portal to manage IoT Hub | Microsoft Azure"
+     description="An overview of how to create and manage Azure IoT hubs through the Azure portal"
+     services="iot-hub"
+     documentationCenter=""
+     authors="nasing"
+     manager="timlt"
+     editor=""/>
 
 <tags
-	 ms.service="iot-hub"
-	 ms.devlang="na"
-	 ms.topic="article"
-	 ms.tgt_pltfrm="na"
-	 ms.workload="na"
-	 ms.date="10/19/2015"
-	 ms.author="nasing"/>
+     ms.service="iot-hub"
+     ms.devlang="na"
+     ms.topic="article"
+     ms.tgt_pltfrm="na"
+     ms.workload="na"
+     ms.date="10/19/2015"
+     ms.author="nasing"/>
 
 # Manage IoT hubs through the Azure portal
 
@@ -92,9 +92,9 @@ You can change the settings of an existing IoT hub after it is created. Click th
 
 - Click **Add** to open a blade in which you can enter the new policy name and the permissions that you want to associate with this policy, as shown in the following figure.
 
-	There are several permissions that can be associated with these shared policies. The first two policies, **Registry Read** and **Registry Write**, grant read and write access rights to the device identity store or the identity registry. Please note that choosing the write option automatically chooses the read option as well.
+    There are several permissions that can be associated with these shared policies. The first two policies, **Registry Read** and **Registry Write**, grant read and write access rights to the device identity store or the identity registry. Please note that choosing the write option automatically chooses the read option as well.
 
- 	The service connect policy grants permission to the consumer group for services connecting to the IoT hub, while the device connect grants permissions for device side of the IoT hub.
+    The service connect policy grants permission to the consumer group for services connecting to the IoT hub, while the device connect grants permissions for device side of the IoT hub.
 
 - Click **Create** to add this newly created policy to the existing list.
 
@@ -152,3 +152,4 @@ Follow these links to learn more about Azure IoT Hub:
 
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [What is Azure IoT Hub?]: iot-hub-what-is-iot-hub.md
+

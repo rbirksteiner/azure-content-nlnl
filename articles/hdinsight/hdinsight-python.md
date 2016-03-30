@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Use Python with Hive and Pig in HDInsight | Microsoft Azure"
-	description="Learn how to use Python User Defined Functions (UDF) from Hive and Pig in HDInsight, the Hadoop technology stack on Azure."
-	services="hdinsight"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="paulettm"
-	editor="cgronlun"
-	tags="azure-portal"/>
+    pageTitle="Use Python with Hive and Pig in HDInsight | Microsoft Azure"
+    description="Learn how to use Python User Defined Functions (UDF) from Hive and Pig in HDInsight, the Hadoop technology stack on Azure."
+    services="hdinsight"
+    documentationCenter=""
+    authors="Blackmist"
+    manager="paulettm"
+    editor="cgronlun"
+    tags="azure-portal"/>
 
 <tags
-	ms.service="hdinsight"
-	ms.workload="big-data"
-	ms.tgt_pltfrm="na"
-	ms.devlang="python"
-	ms.topic="article"
-	ms.date="12/04/2015" 
-	ms.author="larryfr"/>
+    ms.service="hdinsight"
+    ms.workload="big-data"
+    ms.tgt_pltfrm="na"
+    ms.devlang="python"
+    ms.topic="article"
+    ms.date="12/04/2015" 
+    ms.author="larryfr"/>
 
 #Use Python with Hive and Pig in HDInsight
 
@@ -36,23 +36,23 @@ Python can be used as a UDF from Hive through the HiveQL **TRANSFORM** statement
 
 **Linux-based HDInsight**
 
-	add file wasb:///streaming.py;
+    add file wasb:///streaming.py;
 
-	SELECT TRANSFORM (clientid, devicemake, devicemodel)
-	  USING 'streaming.py' AS
-	  (clientid string, phoneLable string, phoneHash string)
-	FROM hivesampletable
-	ORDER BY clientid LIMIT 50;
+    SELECT TRANSFORM (clientid, devicemake, devicemodel)
+      USING 'streaming.py' AS
+      (clientid string, phoneLable string, phoneHash string)
+    FROM hivesampletable
+    ORDER BY clientid LIMIT 50;
 
 **Windows-based HDInsight**
 
-	add file wasb:///streaming.py;
+    add file wasb:///streaming.py;
 
-	SELECT TRANSFORM (clientid, devicemake, devicemodel)
-	  USING 'D:\Python27\python.exe streaming.py' AS
-	  (clientid string, phoneLable string, phoneHash string)
-	FROM hivesampletable
-	ORDER BY clientid LIMIT 50;
+    SELECT TRANSFORM (clientid, devicemake, devicemodel)
+      USING 'D:\Python27\python.exe streaming.py' AS
+      (clientid string, phoneLable string, phoneHash string)
+    FROM hivesampletable
+    ORDER BY clientid LIMIT 50;
 
 > [AZURE.NOTE] On Windows-based HDInsight clusters, the **USING** clause must specify the full path to python.exe. This is always `D:\Python27\python.exe`.
 
@@ -67,21 +67,21 @@ Here's what this example does:
 <a name="streamingpy"></a>
 Here's the **streaming.py** file used by the HiveQL example.
 
-	#!/usr/bin/env python
+    #!/usr/bin/env python
 
-	import sys
-	import string
-	import hashlib
+    import sys
+    import string
+    import hashlib
 
-	while True:
-	  line = sys.stdin.readline()
-	  if not line:
-	    break
+    while True:
+      line = sys.stdin.readline()
+      if not line:
+        break
 
-	  line = string.strip(line, "\n ")
-	  clientid, devicemake, devicemodel = string.split(line, "\t")
-	  phone_label = devicemake + ' ' + devicemodel
-	  print "\t".join([clientid, phone_label, hashlib.md5(phone_label).hexdigest()])
+      line = string.strip(line, "\n ")
+      clientid, devicemake, devicemodel = string.split(line, "\t")
+      phone_label = devicemake + ' ' + devicemodel
+      print "\t".join([clientid, phone_label, hashlib.md5(phone_label).hexdigest()])
 
 Since we are using streaming, this script has to do the following:
 
@@ -103,7 +103,7 @@ See [Running the examples](#running) for how to run this example on your HDInsig
 
 A Python script can be used as a UDF from Pig through the **GENERATE** statement. For example, the following example uses a Python script stored in the **jython.py** file.
 
-	Register 'wasb:///jython.py' using jython as myfuncs;
+    Register 'wasb:///jython.py' using jython as myfuncs;
     LOGS = LOAD 'wasb:///example/data/sample.log' as (LINE:chararray);
     LOG = FILTER LOGS by LINE is not null;
     DETAILS = FOREACH LOG GENERATE myfuncs.create_structure(LINE);
@@ -124,22 +124,22 @@ Here's how this example works:
 <a name="jythonpy"></a>
 Here's the **jython.py** file used by the Pig example:
 
-	@outputSchema("log: {(date:chararray, time:chararray, classname:chararray, level:chararray, detail:chararray)}")
-	def create_structure(input):
-	  if (input.startswith('java.lang.Exception')):
-	    input = input[21:len(input)] + ' - java.lang.Exception'
-	  date, time, classname, level, detail = input.split(' ', 4)
-	  return date, time, classname, level, detail
+    @outputSchema("log: {(date:chararray, time:chararray, classname:chararray, level:chararray, detail:chararray)}")
+    def create_structure(input):
+      if (input.startswith('java.lang.Exception')):
+        input = input[21:len(input)] + ' - java.lang.Exception'
+      date, time, classname, level, detail = input.split(' ', 4)
+      return date, time, classname, level, detail
 
 Remember that we previously just defined the **LINE** input as a chararray because there was no consistent schema for the input? What the **jython.py** does is to transform the data into a consistent schema for output. It works like this:
 
 1. The **@outputSchema** statement defines the format of the data that will be returned to Pig. In this case, it's a **data bag**, which is a Pig data type. The bag contains the following fields, all of which are chararray (strings):
 
-	* date - the date the log entry was created
-	* time - the time the log entry was created
-	* classname - the class name the entry was created for
-	* level - the log level
-	* detail - verbose details for the log entry
+    * date - the date the log entry was created
+    * time - the time the log entry was created
+    * classname - the class name the entry was created for
+    * level - the log level
+    * detail - verbose details for the log entry
 
 2. Next, the **def create_structure(input)** defines the function that Pig will pass line items to.
 
@@ -163,16 +163,16 @@ For more information on using SSH, see <a href="../hdinsight-hadoop-linux-use-ss
 
 2. Use `scp` to copy the files to your HDInsight cluster. For example, the following would copy the files to a cluster named **mycluster**.
 
-		scp streaming.py jython.py myuser@mycluster-ssh.azurehdinsight.net:
+        scp streaming.py jython.py myuser@mycluster-ssh.azurehdinsight.net:
 
 3. Use SSH to connect to the cluster. For example, the following would connect to a cluster named **mycluster** as user **myuser**.
 
-		ssh myuser@mycluster-ssh.azurehdinsight.net
+        ssh myuser@mycluster-ssh.azurehdinsight.net
 
 4. From the SSH session, add the python files uploaded previously to the WASB storage for the cluster.
 
-		hadoop fs -copyFromLocal streaming.py /streaming.py
-		hadoop fs -copyFromLocal jython.py /jython.py
+        hadoop fs -copyFromLocal streaming.py /streaming.py
+        hadoop fs -copyFromLocal jython.py /jython.py
 
 After uploading the files, use the following steps to run the Hive and Pig jobs.
 
@@ -182,20 +182,20 @@ After uploading the files, use the following steps to run the Hive and Pig jobs.
 
 2. Enter the following at the `hive>` prompt.
 
-		add file wasb:///streaming.py;
-		SELECT TRANSFORM (clientid, devicemake, devicemodel)
-		  USING 'streaming.py' AS
-		  (clientid string, phoneLabel string, phoneHash string)
-		FROM hivesampletable
-		ORDER BY clientid LIMIT 50;
+        add file wasb:///streaming.py;
+        SELECT TRANSFORM (clientid, devicemake, devicemodel)
+          USING 'streaming.py' AS
+          (clientid string, phoneLabel string, phoneHash string)
+        FROM hivesampletable
+        ORDER BY clientid LIMIT 50;
 
 3. After entering the last line, the job should start. Eventually it will return output similar to the following.
 
-		100041	RIM 9650	d476f3687700442549a83fac4560c51c
-		100041	RIM 9650	d476f3687700442549a83fac4560c51c
-		100042	Apple iPhone 4.2.x	375ad9a0ddc4351536804f1d5d0ea9b9
-		100042	Apple iPhone 4.2.x	375ad9a0ddc4351536804f1d5d0ea9b9
-		100042	Apple iPhone 4.2.x	375ad9a0ddc4351536804f1d5d0ea9b9
+        100041  RIM 9650    d476f3687700442549a83fac4560c51c
+        100041  RIM 9650    d476f3687700442549a83fac4560c51c
+        100042  Apple iPhone 4.2.x  375ad9a0ddc4351536804f1d5d0ea9b9
+        100042  Apple iPhone 4.2.x  375ad9a0ddc4351536804f1d5d0ea9b9
+        100042  Apple iPhone 4.2.x  375ad9a0ddc4351536804f1d5d0ea9b9
 
 ####Pig
 
@@ -203,19 +203,19 @@ After uploading the files, use the following steps to run the Hive and Pig jobs.
 
 2. Enter the following statements at the `grunt>` prompt.
 
-		Register wasb:///jython.py using jython as myfuncs;
-	    LOGS = LOAD 'wasb:///example/data/sample.log' as (LINE:chararray);
-	    LOG = FILTER LOGS by LINE is not null;
-	    DETAILS = foreach LOG generate myfuncs.create_structure(LINE);
-	    DUMP DETAILS;
+        Register wasb:///jython.py using jython as myfuncs;
+        LOGS = LOAD 'wasb:///example/data/sample.log' as (LINE:chararray);
+        LOG = FILTER LOGS by LINE is not null;
+        DETAILS = foreach LOG generate myfuncs.create_structure(LINE);
+        DUMP DETAILS;
 
 3. After entering the following line,the job should start. Eventually it will return output similar to the following.
 
-		((2012-02-03,20:11:56,SampleClass5,[TRACE],verbose detail for id 990982084))
-		((2012-02-03,20:11:56,SampleClass7,[TRACE],verbose detail for id 1560323914))
-		((2012-02-03,20:11:56,SampleClass8,[DEBUG],detail for id 2083681507))
-		((2012-02-03,20:11:56,SampleClass3,[TRACE],verbose detail for id 1718828806))
-		((2012-02-03,20:11:56,SampleClass3,[INFO],everything normal for id 530537821))
+        ((2012-02-03,20:11:56,SampleClass5,[TRACE],verbose detail for id 990982084))
+        ((2012-02-03,20:11:56,SampleClass7,[TRACE],verbose detail for id 1560323914))
+        ((2012-02-03,20:11:56,SampleClass8,[DEBUG],detail for id 2083681507))
+        ((2012-02-03,20:11:56,SampleClass3,[TRACE],verbose detail for id 1718828806))
+        ((2012-02-03,20:11:56,SampleClass3,[INFO],everything normal for id 530537821))
 
 ###PowerShell
 
@@ -225,11 +225,11 @@ These steps use Azure PowerShell. If this is not already installed and configure
 
 2. Use  the following PowerShell script to upload the **streaming.py** and **jython.py** files to the server. Substitute the name of your Azure HDInsight cluster, and the path to the **streaming.py** and **jython.py** files on the first three lines of the script.
 
-		$clusterName = YourHDIClusterName
-		$pathToStreamingFile = "C:\path\to\streaming.py"
-		$pathToJythonFile = "C:\path\to\jython.py"
+        $clusterName = YourHDIClusterName
+        $pathToStreamingFile = "C:\path\to\streaming.py"
+        $pathToJythonFile = "C:\path\to\jython.py"
 
-		$clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+        $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
         $resourceGroup = $clusterInfo.ResourceGroup
         $storageAccountName=$clusterInfo.DefaultStorageAccount.split('.')[0]
         $container=$clusterInfo.DefaultStorageContainer
@@ -238,7 +238,7 @@ These steps use Azure PowerShell. If this is not already installed and configure
             -ResourceGroupName $resourceGroup `
             | %{ $_.Key1 }
 
-		#Create a storage content and upload the file
+        #Create a storage content and upload the file
         $context = New-AzureStorageContext `
             -StorageAccountName $storageAccountName `
             -StorageAccountKey $storageAccountKey
@@ -248,16 +248,16 @@ These steps use Azure PowerShell. If this is not already installed and configure
             -Blob "streaming.py" `
             -Container $container `
             -Context $context
-		
+        
         Set-AzureStorageBlobContent `
             -File $pathToJythonFile `
             -Blob "jython.py" `
             -Container $container `
             -Context $context
 
-	This script retrieves information for your HDInsight cluster, then extracts the account and key for the default storage account, and uploads the files to the root of the container.
+    This script retrieves information for your HDInsight cluster, then extracts the account and key for the default storage account, and uploads the files to the root of the container.
 
-	> [AZURE.NOTE] Other methods of uploading the scripts can be found in the [Upload data for Hadoop jobs in HDInsight](hdinsight-upload-data.md) document.
+    > [AZURE.NOTE] Other methods of uploading the scripts can be found in the [Upload data for Hadoop jobs in HDInsight](hdinsight-upload-data.md) document.
 
 After uploading the files, use the following PowerShell scripts to start the jobs. When the job completes, the output should be written to the PowerShell console.
 
@@ -266,7 +266,7 @@ After uploading the files, use the following PowerShell scripts to start the job
 The following script will run the __streaming.py__ script. Before running, it will prompt you for the HTTPs/Admin account information for your HDInsight cluster.
 
     # Replace 'YourHDIClusterName' with the name of your cluster
-	$clusterName = YourHDIClusterName
+    $clusterName = YourHDIClusterName
     $creds=Get-Credential
     #Get the cluster info so we can get the resource group, storage, etc.
     $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
@@ -282,22 +282,22 @@ The following script will run the __streaming.py__ script. Before running, it wi
         -StorageAccountName $storageAccountName `
         -StorageAccountKey $storageAccountKey
             
-	$HiveQuery = "add file wasb:///streaming.py;" +
-	             "SELECT TRANSFORM (clientid, devicemake, devicemodel) " +
-	               "USING 'D:\Python27\python.exe streaming.py' AS " +
-	               "(clientid string, phoneLabel string, phoneHash string) " +
-	             "FROM hivesampletable " +
-	             "ORDER BY clientid LIMIT 50;"
+    $HiveQuery = "add file wasb:///streaming.py;" +
+                 "SELECT TRANSFORM (clientid, devicemake, devicemodel) " +
+                   "USING 'D:\Python27\python.exe streaming.py' AS " +
+                   "(clientid string, phoneLabel string, phoneHash string) " +
+                 "FROM hivesampletable " +
+                 "ORDER BY clientid LIMIT 50;"
 
-	$jobDefinition = New-AzureRmHDInsightHiveJobDefinition `
+    $jobDefinition = New-AzureRmHDInsightHiveJobDefinition `
         -Query $HiveQuery
 
-	$job = Start-AzureRmHDInsightJob `
+    $job = Start-AzureRmHDInsightJob `
         -ClusterName $clusterName `
         -JobDefinition $jobDefinition `
         -HttpCredential $creds
-	Write-Host "Wait for the Hive job to complete ..." -ForegroundColor Green
-	Wait-AzureRmHDInsightJob `
+    Write-Host "Wait for the Hive job to complete ..." -ForegroundColor Green
+    Wait-AzureRmHDInsightJob `
         -JobId $job.JobId `
         -ClusterName $clusterName `
         -HttpCredential $creds
@@ -310,8 +310,8 @@ The following script will run the __streaming.py__ script. Before running, it wi
         -DefaultStorageAccountKey $storageAccountKey `
         -HttpCredential $creds `
         -DisplayOutputType StandardError
-	Write-Host "Display the standard output ..." -ForegroundColor Green
-	Get-AzureRmHDInsightJobOutput `
+    Write-Host "Display the standard output ..." -ForegroundColor Green
+    Get-AzureRmHDInsightJobOutput `
         -Clustername $clusterName `
         -JobId $job.JobId `
         -DefaultContainer $container `
@@ -321,18 +321,18 @@ The following script will run the __streaming.py__ script. Before running, it wi
 
 The output for the **Hive** job should appear similar to the following:
 
-	100041	RIM 9650	d476f3687700442549a83fac4560c51c
-	100041	RIM 9650	d476f3687700442549a83fac4560c51c
-	100042	Apple iPhone 4.2.x	375ad9a0ddc4351536804f1d5d0ea9b9
-	100042	Apple iPhone 4.2.x	375ad9a0ddc4351536804f1d5d0ea9b9
-	100042	Apple iPhone 4.2.x	375ad9a0ddc4351536804f1d5d0ea9b9
+    100041  RIM 9650    d476f3687700442549a83fac4560c51c
+    100041  RIM 9650    d476f3687700442549a83fac4560c51c
+    100042  Apple iPhone 4.2.x  375ad9a0ddc4351536804f1d5d0ea9b9
+    100042  Apple iPhone 4.2.x  375ad9a0ddc4351536804f1d5d0ea9b9
+    100042  Apple iPhone 4.2.x  375ad9a0ddc4351536804f1d5d0ea9b9
 
 ####Pig
 
 The following will use the __jython.py__ script. Before running, it will prompt you for the HTTPs/Admin information for the HDInsight cluster.
 
-	# Replace 'YourHDIClusterName' with the name of your cluster
-	$clusterName = YourHDIClusterName
+    # Replace 'YourHDIClusterName' with the name of your cluster
+    $clusterName = YourHDIClusterName
 
     $creds = Get-Credential
     #Get the cluster info so we can get the resource group, storage, etc.
@@ -350,21 +350,21 @@ The following will use the __jython.py__ script. Before running, it will prompt 
         -StorageAccountName $storageAccountName `
         -StorageAccountKey $storageAccountKey
             
-	$PigQuery = "Register wasb:///jython.py using jython as myfuncs;" +
-	            "LOGS = LOAD 'wasb:///example/data/sample.log' as (LINE:chararray);" +
-	            "LOG = FILTER LOGS by LINE is not null;" +
-	            "DETAILS = foreach LOG generate myfuncs.create_structure(LINE);" +
-	            "DUMP DETAILS;"
+    $PigQuery = "Register wasb:///jython.py using jython as myfuncs;" +
+                "LOGS = LOAD 'wasb:///example/data/sample.log' as (LINE:chararray);" +
+                "LOG = FILTER LOGS by LINE is not null;" +
+                "DETAILS = foreach LOG generate myfuncs.create_structure(LINE);" +
+                "DUMP DETAILS;"
 
-	$jobDefinition = New-AzureRmHDInsightPigJobDefinition -Query $PigQuery
+    $jobDefinition = New-AzureRmHDInsightPigJobDefinition -Query $PigQuery
 
-	$job = Start-AzureRmHDInsightJob `
+    $job = Start-AzureRmHDInsightJob `
         -ClusterName $clusterName `
         -JobDefinition $jobDefinition `
         -HttpCredential $creds
         
-	Write-Host "Wait for the Pig job to complete ..." -ForegroundColor Green
-	Wait-AzureRmHDInsightJob `
+    Write-Host "Wait for the Pig job to complete ..." -ForegroundColor Green
+    Wait-AzureRmHDInsightJob `
         -Job $job.JobId `
         -ClusterName $clusterName `
         -HttpCredential $creds
@@ -377,8 +377,8 @@ The following will use the __jython.py__ script. Before running, it will prompt 
         -DefaultStorageAccountKey $storageAccountKey `
         -HttpCredential $creds `
         -DisplayOutputType StandardError
-	Write-Host "Display the standard output ..." -ForegroundColor Green
-	Get-AzureRmHDInsightJobOutput `
+    Write-Host "Display the standard output ..." -ForegroundColor Green
+    Get-AzureRmHDInsightJobOutput `
         -Clustername $clusterName `
         -JobId $job.JobId `
         -DefaultContainer $container `
@@ -388,17 +388,17 @@ The following will use the __jython.py__ script. Before running, it will prompt 
 
 The output for the **Pig** job should appear similar to the following:
 
-	((2012-02-03,20:11:56,SampleClass5,[TRACE],verbose detail for id 990982084))
-	((2012-02-03,20:11:56,SampleClass7,[TRACE],verbose detail for id 1560323914))
-	((2012-02-03,20:11:56,SampleClass8,[DEBUG],detail for id 2083681507))
-	((2012-02-03,20:11:56,SampleClass3,[TRACE],verbose detail for id 1718828806))
-	((2012-02-03,20:11:56,SampleClass3,[INFO],everything normal for id 530537821))
+    ((2012-02-03,20:11:56,SampleClass5,[TRACE],verbose detail for id 990982084))
+    ((2012-02-03,20:11:56,SampleClass7,[TRACE],verbose detail for id 1560323914))
+    ((2012-02-03,20:11:56,SampleClass8,[DEBUG],detail for id 2083681507))
+    ((2012-02-03,20:11:56,SampleClass3,[TRACE],verbose detail for id 1718828806))
+    ((2012-02-03,20:11:56,SampleClass3,[INFO],everything normal for id 530537821))
 
 ##<a name="troubleshooting"></a>Troubleshooting
 
 Both of the example PowerShell scripts used to run the examples contain a commented line that will display error output for the job. If you are not seeing the expected output for the job, uncomment the following line and see if the error information indicates a problem.
 
-	# Get-AzureRmHDInsightJobOutput `
+    # Get-AzureRmHDInsightJobOutput `
             -Clustername $clusterName `
             -JobId $job.JobId `
             -DefaultContainer $container `
@@ -425,3 +425,4 @@ For other ways to use Pig, Hive, and to learn about using MapReduce, see the fol
 * [Use Pig with HDInsight](hdinsight-use-pig.md)
 
 * [Use MapReduce with HDInsight](hdinsight-use-mapreduce.md)
+

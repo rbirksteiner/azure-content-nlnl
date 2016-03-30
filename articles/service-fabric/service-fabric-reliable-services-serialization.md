@@ -149,3 +149,4 @@ If a breaking change is required, state needs to be moved from a service instanc
 
 ## Next steps
  * [Advanced usage of the Reliable Services programming model](service-fabric-reliable-services-advanced-usage.md)
+

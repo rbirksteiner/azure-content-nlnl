@@ -1,20 +1,20 @@
 <properties
-	pageTitle="How to use Azure Redis Cache with Python | Microsoft Azure"
-	description="Get started with Azure Redis Cache using Python"
-	services="redis-cache"
-	documentationCenter=""
-	authors="steved0x"
-	manager="dwrede"
-	editor="v-lincan"/>
+    pageTitle="How to use Azure Redis Cache with Python | Microsoft Azure"
+    description="Get started with Azure Redis Cache using Python"
+    services="redis-cache"
+    documentationCenter=""
+    authors="steved0x"
+    manager="dwrede"
+    editor="v-lincan"/>
 
 <tags
-	ms.service="cache"
-	ms.devlang="python"
-	ms.topic="hero-article"
-	ms.tgt_pltfrm="cache-redis"
-	ms.workload="tbd"
-	ms.date="12/03/2015"
-	ms.author="sdanie"/>
+    ms.service="cache"
+    ms.devlang="python"
+    ms.topic="hero-article"
+    ms.tgt_pltfrm="cache-redis"
+    ms.workload="tbd"
+    ms.date="12/03/2015"
+    ms.author="sdanie"/>
 
 # How to use Azure Redis Cache with Python
 
@@ -65,3 +65,4 @@ Replace *&lt;name&gt;* with your cache name and *&lt;key&gt;* with your access k
 <!--Image references-->
 [1]: ./media/cache-python-get-started/cache01.png
 [2]: ./media/cache-python-get-started/cache02.png
+

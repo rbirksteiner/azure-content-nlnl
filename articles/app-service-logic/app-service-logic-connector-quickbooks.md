@@ -27,7 +27,7 @@ CreditMemo|The CreditMemo is a financial transaction representing a refund or cr
 Customer|A customer is a consumer of the service or product that your business offers.
 Estimate|The Estimate represents a proposal for a financial transaction from a business to a customer for goods or services proposed to be sold, including proposed pricing.
 Invoice|An Invoice represents a sales form where the customer pays for a product or service later. Additional information about using the Invoice data model can be found here.
-Item|An item is a thing that your company buys, sells, or re-sells, such as products, shipping and handling charges, discounts, and sales tax (if applicable).  An item is shown as a line on an invoice or other sales form.
+Item|An item is a thing that your company buys, sells, or re-sells, such as products, shipping and handling charges, discounts, and sales tax (if applicable).  An item is shown as a line on an invoice or other sales form.
 SalesReceipt|This entity represents the sales receipt that is given to a customer.
 
 Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow. You can add the QuickBooks Connector to your business workflow and process data as part of this workflow within a Logic App. 
@@ -43,11 +43,11 @@ Delete|This action deletes specified object from selected entity
 Query|The query operation is the method for creating a guided query against an entity.
 
 ##Create a QuickBooks Connector API App##
-1.	Open the Azure Marketplace using the + NEW option at the bottom right of the Azure Portal.
-2.	Browse to “Web and Mobile > API apps” and search for “QuickBooks”.
-3.	Configure the QuickBooks Connector by providing the details for Hosting Plan, the resource group and selecting the name of the API App.
+1.  Open the Azure Marketplace using the + NEW option at the bottom right of the Azure Portal.
+2.  Browse to “Web and Mobile > API apps” and search for “QuickBooks”.
+3.  Configure the QuickBooks Connector by providing the details for Hosting Plan, the resource group and selecting the name of the API App.
 
-	![][13]
+    ![][13]
 4. Configure the QuickBooks Entities you are interested in reading/writing in the 'Package Settings'.
 
 With this, you can now create a QuickBooks Conenctor API App.
@@ -56,61 +56,61 @@ With this, you can now create a QuickBooks Conenctor API App.
 ##Create a Logic App##
 Let us create a simple logic app that creates an account in QuickBooks and update 'Category Type' of the same account.
 
-1.	Login to Azure Portal and click on ‘New -> Web + mobile -> Logic App’
+1.  Login to Azure Portal and click on ‘New -> Web + mobile -> Logic App’
 
-	![][1]
+    ![][1]
 
-2.	In the ‘Create logic app’ page, provide the required details such as name, app service plan and location.
+2.  In the ‘Create logic app’ page, provide the required details such as name, app service plan and location.
 
-	![][2]
+    ![][2]
 
-3.	Click on ‘Triggers and Actions’ and the Logic App editor screen comes up.
+3.  Click on ‘Triggers and Actions’ and the Logic App editor screen comes up.
 
-	![][3]
+    ![][3]
 
-4.	Select ‘Run this logic manually’ which means that this logic app can be invoked only manually.
-
-
-5.	Expand ‘API Apps in this resource group’ in Gallery to see all the available API Apps. Select ‘QuickBooks Connector’ from the gallery and the ‘QuickBooks Connector’ gets added to the flow.
+4.  Select ‘Run this logic manually’ which means that this logic app can be invoked only manually.
 
 
-6.	You would have to authenticate and authorize logic apps to perform operations on your behalf if QuickBooks online. To start the authorization click Authorize on QuickBooks Connector.
+5.  Expand ‘API Apps in this resource group’ in Gallery to see all the available API Apps. Select ‘QuickBooks Connector’ from the gallery and the ‘QuickBooks Connector’ gets added to the flow.
 
-	![][4]
 
-7.	Clicking Authorize would open QuickBook’s authentication dialog. Provide the login details of the QuickBooks account on which you want to perform the operations.
+6.  You would have to authenticate and authorize logic apps to perform operations on your behalf if QuickBooks online. To start the authorization click Authorize on QuickBooks Connector.
 
-	![][5]
+    ![][4]
+
+7.  Clicking Authorize would open QuickBook’s authentication dialog. Provide the login details of the QuickBooks account on which you want to perform the operations.
+
+    ![][5]
 
 8. Grant logic apps access to your account to perform operation on your behalf by clicking Authorize on the consent dialog.
 
-	![][6]
+    ![][6]
 
-9.	Once the authorization is complete, all the actions are displayed.
+9.  Once the authorization is complete, all the actions are displayed.
 
-	![][7]
+    ![][7]
 
-10.	Select ‘Create Or Update Account’ action and the input parameters are displayed.
+10. Select ‘Create Or Update Account’ action and the input parameters are displayed.
 
-	![][8]
+    ![][8]
 
-11.	Provide ‘Name’ and 'Account Type' and click ✓.
+11. Provide ‘Name’ and 'Account Type' and click ✓.
 
-	![][9]
+    ![][9]
 
-12.	Select ‘QuickBooks Connector’ from the ‘Recently Used’ section in the gallery and a new QuickBooks action gets added.
+12. Select ‘QuickBooks Connector’ from the ‘Recently Used’ section in the gallery and a new QuickBooks action gets added.
 
-13.	Select ‘Create or Update Account’ from the list of actions and the input parameters of the action are displayed.
+13. Select ‘Create or Update Account’ from the list of actions and the input parameters of the action are displayed.
 
-	![][10]
+    ![][10]
 
-14.	Click on ‘+’ next to ‘Id’ to pick the id value from the output of Create Account action.
+14. Click on ‘+’ next to ‘Id’ to pick the id value from the output of Create Account action.
 
-	![][11]
+    ![][11]
 
-15.	Provide new values for Account Type and click ✓.
+15. Provide new values for Account Type and click ✓.
 
-	![][12]
+    ![][12]
 
 16. Click on OK on Logic app editor screen and then click 'Create'. It will take approximately 30 seconds for the creation to complete.
 
@@ -141,3 +141,4 @@ You can also review performance statistics and control security to the connector
 [11]: ./media/app-service-logic-connector-quickbooks/11_Record_ID_from_Create.png
 [12]: ./media/app-service-logic-connector-quickbooks/12_Update_Account_Address.png
 [13]: ./media/app-service-logic-connector-quickbooks/13_Create_new_quickbooks_connector.png
+

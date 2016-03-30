@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure Backup - Deploy and manage back up for DPM using PowerShell | Microsoft Azure"
-	description="Learn how to deploy and manage Azure Backup for Data Protection Manager (DPM) using PowerShell"
-	services="backup"
-	documentationCenter=""
-	authors="AnuragMehrotra"
-	manager="jwhit"
-	editor=""/>
+    pageTitle="Azure Backup - Deploy and manage back up for DPM using PowerShell | Microsoft Azure"
+    description="Learn how to deploy and manage Azure Backup for Data Protection Manager (DPM) using PowerShell"
+    services="backup"
+    documentationCenter=""
+    authors="AnuragMehrotra"
+    manager="jwhit"
+    editor=""/>
 
 <tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/26/2015"
-	ms.author="jimpark"; "aashishr"; "sammehta"; "anuragm"/>
+    ms.service="backup"
+    ms.workload="storage-backup-recovery"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/26/2015"
+    ms.author="jimpark"; "aashishr"; "sammehta"; "anuragm"/>
 
 
 # Deploy and manage backup to Azure for Data Protection Manager (DPM) servers using PowerShell
@@ -333,3 +333,4 @@ The commands can easily be extended for any datasource type.
 ## Next steps
 
 - For more information about Azure Backup for DPM see [Introduction to DPM Backup](backup-azure-dpm-introduction.md)
+

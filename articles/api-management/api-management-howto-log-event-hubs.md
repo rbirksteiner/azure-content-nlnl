@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How to log events to Azure Event Hubs in Azure API Management" 
-	description="Learn how to log events to Azure Event Hubs in Azure API Management." 
-	services="api-management" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="How to log events to Azure Event Hubs in Azure API Management" 
+    description="Learn how to log events to Azure Event Hubs in Azure API Management." 
+    services="api-management" 
+    documentationCenter="" 
+    authors="steved0x" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="api-management" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/07/2015" 
-	ms.author="sdanie"/>
+    ms.service="api-management" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/07/2015" 
+    ms.author="sdanie"/>
 
 # How to log events to Azure Event Hubs in Azure API Management
 
@@ -54,14 +54,14 @@ To create a logger, make an HTTP PUT request using the following URL template.
 
     https://{your service}.management.azure-api.net/loggers/{new logger name}?api-version=2014-02-14-preview
 
--	Replace `{your service}` with the name of your API Management service instance.
--	Replace `{new logger name}` with the desired name for your new logger. You will reference this name when you configure the [log-to-eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub) policy
+-   Replace `{your service}` with the name of your API Management service instance.
+-   Replace `{new logger name}` with the desired name for your new logger. You will reference this name when you configure the [log-to-eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub) policy
 
 Add the following headers to the request.
 
--	Content-Type : application/json
--	Authorization : SharedAccessSignature uid=...
-	-	For instructions on generating the `SharedAccessSignature` see [Azure API Management REST API Authentication](https://msdn.microsoft.com/library/azure/dn798668.aspx).
+-   Content-Type : application/json
+-   Authorization : SharedAccessSignature uid=...
+    -   For instructions on generating the `SharedAccessSignature` see [Azure API Management REST API Authentication](https://msdn.microsoft.com/library/azure/dn798668.aspx).
 
 Specify the request body using the following template.
 
@@ -74,9 +74,9 @@ Specify the request body using the following template.
         }
     }
 
--	`type` must be set to `AzureEventHub`.
--	`description` provides an optional description of the logger and can be a zero length string if desired.
--	`credentials` contains the `name` and `connectionString` of your Azure Event Hub.
+-   `type` must be set to `AzureEventHub`.
+-   `description` provides an optional description of the logger and can be a zero length string if desired.
+-   `credentials` contains the `name` and `connectionString` of your Azure Event Hub.
 
 When you make the request, if the logger is created a status code of `201 Created` is returned. 
 
@@ -110,14 +110,14 @@ Click **Save** to save the updated policy configuration. As soon as it is saved 
 
 ## Next steps
 
--	Learn more about Azure Event Hubs
-	-	[Get started with Azure Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-	-	[Receive messages with EventProcessorHost](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost)
-	-	[Event Hubs programming guide](../event-hubs/event-hubs-programming-guide.md)
--	Learn more about API Management and Event Hubs integration
-	-	[Logger entity reference](https://msdn.microsoft.com/library/azure/mt592020.aspx)
-	-	[log-to-eventhub policy reference](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
-	-	[Monitor your APIs with Azure API Management, Event Hubs and Runscope](api-management-log-to-eventhub-sample.md)	
+-   Learn more about Azure Event Hubs
+    -   [Get started with Azure Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+    -   [Receive messages with EventProcessorHost](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost)
+    -   [Event Hubs programming guide](../event-hubs/event-hubs-programming-guide.md)
+-   Learn more about API Management and Event Hubs integration
+    -   [Logger entity reference](https://msdn.microsoft.com/library/azure/mt592020.aspx)
+    -   [log-to-eventhub policy reference](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
+    -   [Monitor your APIs with Azure API Management, Event Hubs and Runscope](api-management-log-to-eventhub-sample.md)    
 
 ## Watch a video walkthrough
 
@@ -132,6 +132,7 @@ Click **Save** to save the updated policy configuration. As soon as it is saved 
 [sending-policy]: ./media/api-management-howto-log-event-hubs/sending-policy.png
 [event-hub-policy]: ./media/api-management-howto-log-event-hubs/event-hub-policy.png
 [add-policy]: ./media/api-management-howto-log-event-hubs/add-policy.png
+
 
 
 

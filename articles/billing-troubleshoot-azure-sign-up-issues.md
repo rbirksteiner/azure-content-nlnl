@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Troubleshoot Azure Sign-up Issues | Microsoft Azure"
-	description="Troubleshoot common causes of issues that can occur when you sign up for Azure."
-	services="billing"
-	documentationCenter=""
-	authors="jiangchen79"
-	manager="felixwu"
-	editor=""
-	tags="top-support-issue"/>
+    pageTitle="Troubleshoot Azure Sign-up Issues | Microsoft Azure"
+    description="Troubleshoot common causes of issues that can occur when you sign up for Azure."
+    services="billing"
+    documentationCenter=""
+    authors="jiangchen79"
+    manager="felixwu"
+    editor=""
+    tags="top-support-issue"/>
 
 <tags
-	ms.service="billing"
-	ms.workload="na"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/25/2015"
-	ms.author="rgarodia"/>
+    ms.service="billing"
+    ms.workload="na"
+    ms.tgt_pltfrm="ibiza"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/25/2015"
+    ms.author="rgarodia"/>
 
 # Troubleshoot Azure Sign-up Issues
 This article will help you troubleshoot common causes of issues that can occur when you sign up for Azure.
@@ -82,3 +82,4 @@ Suggestions:
 
 ## Still unable to sign up?
 Please [contact Azure Support](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) for support if you still experience sign-up issues or if your issue is not covered in this article.
+

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure Media Encoder formats and codecs" 
-	description="This topic gives an overview of Azure Media Encoder formats and codecs." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="juliako,anilmur" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="Azure Media Encoder formats and codecs" 
+    description="This topic gives an overview of Azure Media Encoder formats and codecs." 
+    services="media-services" 
+    documentationCenter="" 
+    authors="juliako,anilmur" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/15/2015"  
-	ms.author="juliako"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/15/2015"  
+    ms.author="juliako"/>
 
 #Azure Media Encoder formats and codecs
 
@@ -25,18 +25,18 @@ This document contains a list of the most common input and output file formats a
  
 File format (file extensions)|Supported
 ---|---
-3GPP, 3GPP2 (.3gp, .3g2, .3gp2)	|Yes
-Advanced Systems Format (ASF) (.asf)	|Yes
-Advanced Video Coding High Definition (AVCHD) [ MPEG-2 Transport Stream ] (.mts, .m2ts)	|Yes
-Audio-Video Interleaved (AVI) (.avi)	|Yes
-Digital camcorder MPEG-2 (MOD) (.mod)	|Yes
-DVD transport stream (TS) file (.ts)	|Yes
-DVD video object (VOB) file (.vob)	|Yes
-Expression Encoder Screen Capture Codec file (.xesc)	|Yes
-MP4 (.mp4, .m4a, .m4v)/ISMV (.isma, .ismv)	|Yes
-MPEG-1 System Stream (.mpeg, .mpg)	|Yes
-MPEG-2 video file (.m2v)	|Yes
-Windows Media Video (WMV) (.wmv)	|Yes
+3GPP, 3GPP2 (.3gp, .3g2, .3gp2) |Yes
+Advanced Systems Format (ASF) (.asf)    |Yes
+Advanced Video Coding High Definition (AVCHD) [ MPEG-2 Transport Stream ] (.mts, .m2ts) |Yes
+Audio-Video Interleaved (AVI) (.avi)    |Yes
+Digital camcorder MPEG-2 (MOD) (.mod)   |Yes
+DVD transport stream (TS) file (.ts)    |Yes
+DVD video object (VOB) file (.vob)  |Yes
+Expression Encoder Screen Capture Codec file (.xesc)    |Yes
+MP4 (.mp4, .m4a, .m4v)/ISMV (.isma, .ismv)  |Yes
+MPEG-1 System Stream (.mpeg, .mpg)  |Yes
+MPEG-2 video file (.m2v)    |Yes
+Windows Media Video (WMV) (.wmv)    |Yes
 AC-3 (Dolby Digital) audio(.ac3)|Yes
 Audio Interchange File Format (AIFF)(.aiff)|Yes
 Broadcast Wave Format(.bwf)|Yes
@@ -44,11 +44,11 @@ MP3 (MPEG-1 Audio Layer 3)(.mp3)|Yes
 MPEG-4 audio book(.m4b)|Yes
 WAVE file(.wav)|Yes
 Windows Media Audio(.wma)|Yes
-Adobe® Flash® F4V			|No		
-MXF/SMPTE 377M				|Limited 
-GXF							|No		 
+Adobe® Flash® F4V           |No     
+MXF/SMPTE 377M              |Limited 
+GXF                         |No      
 [Microsoft Digital Video Recording(DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984)|No
-Matroska/WebM				|No
+Matroska/WebM               |No
 
 
 Some uncompressed formats are supported. For more information, see [Supported Uncompressed Video Formats](#uncompressed)
@@ -57,35 +57,35 @@ Some uncompressed formats are supported. For more information, see [Supported Un
 
 Input Video Codecs|Supported
 ---|--- 
-H.264 (Baseline, Main, and High Profiles)			|Yes
-AVC 8-bit/10-bit, up to 4:2:2, including AVCIntra	|Only 8bit 4:2:0
-Avid DNxHD (in MXF)									|No
-DVCPro/DVCProHD (in MXF)							|No
-JPEG2000											|No
-MPEG-2 (Simple and Main Profile and 4:2:2 Profile)	|Up to 4:2:2 Profile
-MPEG-1 (Including MPEG-PS)							|Yes
-Windows Media Video/VC-1							|Yes
-Canopus HQ/HQX										|Yes
-MPEG-4 v2 (Simple Visual Profile and Advanced Simple Profile)	|Yes
-[Theora](https://en.wikipedia.org/wiki/Theora)		|No
-VC-1 (Simple, Main, and Advanced Profiles)			|Yes
-Windows Media Video (Simple, Main, and Advanced Profiles)	|Yes
-DV (DVC, DVHD, DVSD, DVSL)							|Yes
-Grass Valley HQ/HQX									|Yes
+H.264 (Baseline, Main, and High Profiles)           |Yes
+AVC 8-bit/10-bit, up to 4:2:2, including AVCIntra   |Only 8bit 4:2:0
+Avid DNxHD (in MXF)                                 |No
+DVCPro/DVCProHD (in MXF)                            |No
+JPEG2000                                            |No
+MPEG-2 (Simple and Main Profile and 4:2:2 Profile)  |Up to 4:2:2 Profile
+MPEG-1 (Including MPEG-PS)                          |Yes
+Windows Media Video/VC-1                            |Yes
+Canopus HQ/HQX                                      |Yes
+MPEG-4 v2 (Simple Visual Profile and Advanced Simple Profile)   |Yes
+[Theora](https://en.wikipedia.org/wiki/Theora)      |No
+VC-1 (Simple, Main, and Advanced Profiles)          |Yes
+Windows Media Video (Simple, Main, and Advanced Profiles)   |Yes
+DV (DVC, DVHD, DVSD, DVSL)                          |Yes
+Grass Valley HQ/HQX                                 |Yes
  
 
 ##Input audio Codecs
 
 Input Audio Codecs|Supported
 ---|---
-AES (SMPTE 331M and 302M, AES3-2003)		|No
-Dolby® E									|No
-Dolby® Digital (AC3)						|Yes
-Dolby® Digital Plus (E-AC3)					|No
+AES (SMPTE 331M and 302M, AES3-2003)        |No
+Dolby® E                                    |No
+Dolby® Digital (AC3)                        |Yes
+Dolby® Digital Plus (E-AC3)                 |No
 AAC (AAC-LC, HE-AAC v1 with AAC-LC core, and HE-AAC v2 with AAC-LC core; up to 5.1)|Yes
 MPEG Layer 2|Yes|Yes|Yes
 MP3 (MPEG-1 Audio Layer 3)|Yes
-Windows Media Audio 9 (Windows Media Audio Standard, Windows Media Audio Professional, and Windows Media Audio Lossless)	|Yes
+Windows Media Audio 9 (Windows Media Audio Standard, Windows Media Audio Professional, and Windows Media Audio Lossless)    |Yes
 WAV/PCM|Yes
 [FLAC](https://en.wikipedia.org/wiki/FLAC)|No
 [Opus](https://en.wikipedia.org/wiki/Opus_(audio_format) |No
@@ -142,3 +142,4 @@ Indeo-produced YVU9 format|Indeo-produced YVU9 format with additional informatio
 ##Provide feedback
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+

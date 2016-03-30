@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Get started with preconfigured solutions | Microsoft Azure"
-	description="Follow this tutorial to learn how to deploy an Azure IoT Suite preconfigured solution."
-	services=""
-	documentationCenter=""
-	authors="dominicbetts"
-	manager="timlt"
-	editor=""/>
+    pageTitle="Get started with preconfigured solutions | Microsoft Azure"
+    description="Follow this tutorial to learn how to deploy an Azure IoT Suite preconfigured solution."
+    services=""
+    documentationCenter=""
+    authors="dominicbetts"
+    manager="timlt"
+    editor=""/>
 
 <tags
      ms.service="na"
@@ -158,3 +158,4 @@ Now that you’ve built a working preconfigured solution, you can move on to the
 [lnk-azureiotsuite]: https://www.azureiotsuite.com
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 [lnk-predictive]: iot-suite-predictive-overview.md
+

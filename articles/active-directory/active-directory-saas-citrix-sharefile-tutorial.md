@@ -69,19 +69,19 @@ The objective of this section is to outline how to enable users to authenticate 
 
 ###To configure single sign-on, perform the following steps:
 
-1.  In the Azure AD portal, on the **Citrix ShareFile** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  In the Azure AD portal, on the **Citrix ShareFile** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
     ![Enable single sign-on](./media/active-directory-saas-citrix-sharefile-tutorial/IC773623.png "Enable single sign-on")
 
-2.  On the **How would you like users to sign on to Citrix ShareFile** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to Citrix ShareFile** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-citrix-sharefile-tutorial/IC773624.png "Configure Single Sign-On")
 
-3.  On the **Configure App URL** page, in the **Citrix ShareFile Sign On URL** textbox, type your URL using the following pattern `https://<tenant-name>.shareFile.com`, and then click **Next**.
+3.  On the **Configure App URL** page, in the **Citrix ShareFile Sign On URL** textbox, type your URL using the following pattern `https://<tenant-name>.shareFile.com`, and then click **Next**.
 
     ![Configure App URL](./media/active-directory-saas-citrix-sharefile-tutorial/IC773625.png "Configure App URL")
 
-4.  On the **Configure single sign-on at Citrix ShareFile** page, to download your certificate, click **Download certificate**, and then save the certificate file on your computer.
+4.  On the **Configure single sign-on at Citrix ShareFile** page, to download your certificate, click **Download certificate**, and then save the certificate file on your computer.
 
     ![ConfigureSingle Sign-On](./media/active-directory-saas-citrix-sharefile-tutorial/IC773626.png "ConfigureSingle Sign-On")
 
@@ -106,7 +106,7 @@ The objective of this section is to outline how to enable users to authenticate 
 
 9.  Click **Save** on the Citrix ShareFile management portal.
 
-10. On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+10. On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
     ![Configure single sign-on](./media/active-directory-saas-citrix-sharefile-tutorial/IC773630.png "Configure single sign-on")
 ##Configuring user provisioning
@@ -140,7 +140,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 1.  In the Azure AD portal, create a test account.
 
-2.  On the **Citrix ShareFile **application integration page, click **Assign users**.
+2.  On the **Citrix ShareFile **application integration page, click **Assign users**.
 
     ![Assign users](./media/active-directory-saas-citrix-sharefile-tutorial/IC773631.png "Assign users")
 
@@ -149,3 +149,4 @@ To test your configuration, you need to grant the Azure AD users you want to all
     ![Yes](./media/active-directory-saas-citrix-sharefile-tutorial/IC767830.png "Yes")
 
 If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+

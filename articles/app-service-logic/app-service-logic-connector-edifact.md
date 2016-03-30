@@ -59,7 +59,7 @@ Edifact Connector can be used either as a trigger or as an action.
 - Provide the inputs for the action and configure it:  
 ![Encode configured][10]
 
-	Parameter|Type|Description of the parameter
+    Parameter|Type|Description of the parameter
 ---|---|---
 Content|string|XML Message
 Agreement ID|integer|Agreement ID
@@ -96,3 +96,4 @@ You can also review performance statistics and control security to the connector
 [8]: ./media/app-service-logic-connector-edifact/ListOfActions.PNG
 [9]: ./media/app-service-logic-connector-edifact/EncodeInput.PNG
 [10]: ./media/app-service-logic-connector-edifact/EncodeConfigured.PNG
+

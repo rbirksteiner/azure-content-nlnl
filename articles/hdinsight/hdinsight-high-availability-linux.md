@@ -1,21 +1,21 @@
 <properties
-	pageTitle="High availability features of Linux-based HDInsight (Hadoop) | Microsoft Azure"
-	description="Learn how Linux-based HDInsight clusters improve reliability and availability by using an additional head node. You will learn how this impacts Hadoop services such as Ambari and Hive, as well as how to individually connect to each head node using SSH."
-	services="hdinsight"
-	editor="cgronlun"
-	manager="paulettm"
-	authors="Blackmist"
-	documentationCenter=""
-	tags="azure-portal"/>
+    pageTitle="High availability features of Linux-based HDInsight (Hadoop) | Microsoft Azure"
+    description="Learn how Linux-based HDInsight clusters improve reliability and availability by using an additional head node. You will learn how this impacts Hadoop services such as Ambari and Hive, as well as how to individually connect to each head node using SSH."
+    services="hdinsight"
+    editor="cgronlun"
+    manager="paulettm"
+    authors="Blackmist"
+    documentationCenter=""
+    tags="azure-portal"/>
 
 <tags
-	ms.service="hdinsight"
-	ms.workload="big-data"
-	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="11/03/2015"
-	ms.author="larryfr"/>
+    ms.service="hdinsight"
+    ms.workload="big-data"
+    ms.tgt_pltfrm="na"
+    ms.devlang="multiple"
+    ms.topic="article"
+    ms.date="11/03/2015"
+    ms.author="larryfr"/>
 
 #Availability and reliability of Hadoop clusters in HDInsight
 
@@ -45,11 +45,11 @@ Nodes in an HDInsight cluster have an internal IP address and FQDN that can only
 
 For example, the Oozie service can only run on one head node, and using the `oozie` command from an SSH session requires the URL to the service. This can be retrieved from Ambari by using the following command:
 
-	curl -u admin:PASSWORD "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations?type=oozie-site&tag=TOPOLOGY_RESOLVED" | grep oozie.base.url
+    curl -u admin:PASSWORD "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations?type=oozie-site&tag=TOPOLOGY_RESOLVED" | grep oozie.base.url
 
 This will return a value similar to the following, which contains the internal URL to use with the `oozie` command:
 
-	"oozie.base.url": "http://hn0-CLUSTERNAME-randomcharacters.cx.internal.cloudapp.net:11000/oozie"
+    "oozie.base.url": "http://hn0-CLUSTERNAME-randomcharacters.cx.internal.cloudapp.net:11000/oozie"
 
 ## How to check on a service status
 
@@ -59,7 +59,7 @@ Either the Ambari Web UI or the Ambari REST API can be used to check the status 
 
 You can use the following command to check the state of a service through the Ambari REST API:
 
-	curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SERVICENAME?fields=ServiceInfo/state
+    curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SERVICENAME?fields=ServiceInfo/state
 
 * Replace **PASSWORD** with the HTTP user (admin,) account password
 
@@ -69,18 +69,18 @@ You can use the following command to check the state of a service through the Am
 
 For example, to check the status of the **HDFS** service on a cluster named **mycluster**, with a password of **password**, you would use the following:
 
-	curl -u admin:password https://mycluster.azurehdinsight.net/api/v1/clusters/mycluster/services/HDFS?fields=ServiceInfo/state
+    curl -u admin:password https://mycluster.azurehdinsight.net/api/v1/clusters/mycluster/services/HDFS?fields=ServiceInfo/state
 
 The response will be similar to the following:
 
-	{
-	  "href" : "http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8080/api/v1/clusters/mycluster/services/HDFS?fields=ServiceInfo/state",
-	  "ServiceInfo" : {
-	    "cluster_name" : "mycluster",
-	    "service_name" : "HDFS",
-	    "state" : "STARTED"
-	  }
-	}
+    {
+      "href" : "http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8080/api/v1/clusters/mycluster/services/HDFS?fields=ServiceInfo/state",
+      "ServiceInfo" : {
+        "cluster_name" : "mycluster",
+        "service_name" : "HDFS",
+        "state" : "STARTED"
+      }
+    }
 
 The URL tells us that the service is currently running on **head node 0**.
 
@@ -88,17 +88,17 @@ The state tells us that the service is currently running, or **STARTED**.
 
 If you do not know what services are installed on the cluster, you can use the following to retrieve a list:
 
-	curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services
+    curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services
 
 ####Service components
 
 Services may contain components that you wish to check the status of individually. For example, HDFS contains the NameNode component. To view information on a component, the command would be:
 
-	curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SERVICE/components/component
+    curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SERVICE/components/component
 
 If you do not know what components are provided by a service, you can use the following to retrieve a list:
 
-	curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SERVICE/components/component
+    curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SERVICE/components/component
 
 ###Ambari Web UI
 
@@ -142,7 +142,7 @@ When creating a new cluster, you can specify the size of the nodes. The followin
 
 * **Azure Portal**: When creating a new cluster, you are given the option of setting the size (pricing tier,) of both the head and data (worker) nodes for the cluster:
 
-	![Image of cluster creation wizard with node size selection](./media/hdinsight-high-availability-linux/headnodesize.png)
+    ![Image of cluster creation wizard with node size selection](./media/hdinsight-high-availability-linux/headnodesize.png)
 
 * **Azure CLI**: When using the `azure hdinsight cluster create` command, you can set the size of the head node using the `--headNodeSize` parameter.
 
@@ -165,3 +165,4 @@ In this document you have learned how Azure HDInsight provides high availability
 [preview-portal]: https://portal.azure.com/
 [azure-powershell]: ../powershell-install-configure.md
 [azure-cli]: ../xplat-cli-install.md
+

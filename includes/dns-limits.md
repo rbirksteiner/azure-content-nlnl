@@ -1,5 +1,5 @@
 
-| Resource	| Default limit 
+| Resource  | Default limit 
 --- | ---
 | Zones per subscription | 50 <sup>1</sup>
 | Record sets per zone| 1000 <sup>1</sup>

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="DocumentDB Node.js SDK | Microsoft Azure" 
-	description="Learn all about the Node.js SDK including release dates, retirement dates, and changes made between each version of the DocumentDB Node.js SDK." 
-	services="documentdb" 
-	documentationCenter="nodejs" 
-	authors="ryancrawcour" 
-	manager="jhubbard" 
-	editor="cgronlun"/>
+    pageTitle="DocumentDB Node.js SDK | Microsoft Azure" 
+    description="Learn all about the Node.js SDK including release dates, retirement dates, and changes made between each version of the DocumentDB Node.js SDK." 
+    services="documentdb" 
+    documentationCenter="nodejs" 
+    authors="ryancrawcour" 
+    manager="jhubbard" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="11/16/2015" 
-	ms.author="ryancraw"/>
+    ms.service="documentdb" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="nodejs" 
+    ms.topic="article" 
+    ms.date="11/16/2015" 
+    ms.author="ryancraw"/>
 
 # DocumentDB SDK
 
@@ -96,7 +96,7 @@ All versions of the Azure DocumentDB SDK for Node.js prior to version **1.0.0** 
 <br/>
 
 | Version | Release Date | Retirement Date 
-| ---	  | ---	         | ---
+| ---     | ---          | ---
 | [1.4.0](#1.4.0) | October 06, 2015 |---
 | [1.3.0](#1.3.0) | October 06, 2015 |---
 | [1.2.2](#1.2.2) | September 10, 2015 |---
@@ -120,3 +120,4 @@ All versions of the Azure DocumentDB SDK for Node.js prior to version **1.0.0** 
 ## See Also
 
 To learn more about DocumentDB, see [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) service page. 
+

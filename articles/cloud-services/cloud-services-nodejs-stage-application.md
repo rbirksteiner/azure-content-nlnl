@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Stage a cloud service deployment (Node.js) | Microsoft Azure" 
-	description="Learn how to deploy your Azure application to a staging environment, then deploy to a production environment using Virtual IP (VIP) swap." 
-	services="cloud-services" 
-	documentationCenter="nodejs" 
-	authors="rmcmurray" 
-	manager="wpickett" 
-	editor=""/>
+    pageTitle="Stage a cloud service deployment (Node.js) | Microsoft Azure" 
+    description="Learn how to deploy your Azure application to a staging environment, then deploy to a production environment using Virtual IP (VIP) swap." 
+    services="cloud-services" 
+    documentationCenter="nodejs" 
+    authors="rmcmurray" 
+    manager="wpickett" 
+    editor=""/>
 
 <tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="11/20/2015" 
-	ms.author="robmcm"/>
+    ms.service="cloud-services" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="nodejs" 
+    ms.topic="article" 
+    ms.date="11/20/2015" 
+    ms.author="robmcm"/>
 
 
 
@@ -45,11 +45,11 @@ Azure PowerShell**.
 
 2.  Log on to the [Azure classic portal] and select **Cloud Services**. After the cloud service is created and the **Staging** column status has been updated to **Running**, click on the service name.
 
-	![portal displaying a running service][cloud-service]
+    ![portal displaying a running service][cloud-service]
 
 3.  Select the **Dashboard**, and then select **Staging**.
 
-	![cloud service dashboard][cloud-service-dashboard]
+    ![cloud service dashboard][cloud-service-dashboard]
 
 4. Note the value in the **Site URL** entry to the right. The DNS name is an obfuscated internal ID that Azure generated.
 
@@ -89,3 +89,4 @@ deployment by swapping VIPs with the deployment in staging.
 [cloud-service-staging-url]: ./media/cloud-services-nodejs-stage-application/cloud-service-staging-url.png
 [vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
 [How to Deploy a Service Upgrade to Production by Swapping VIPs in Azure]: cloud-services-how-to-manage.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
+

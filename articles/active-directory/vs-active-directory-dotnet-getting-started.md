@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Get Started with Azure Active Directory and Visual Studio connected services (MVC projects)" 
-	description="How to get started using Azure Active Directory in MVC projects after connecting to or creating an Azure AD using Visual Studio connected services" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="TomArcher" 
-	manager="douge" 
-	editor="tglee"/>
+    pageTitle="Get Started with Azure Active Directory and Visual Studio connected services (MVC projects)" 
+    description="How to get started using Azure Active Directory in MVC projects after connecting to or creating an Azure AD using Visual Studio connected services" 
+    services="active-directory" 
+    documentationCenter="" 
+    authors="TomArcher" 
+    manager="douge" 
+    editor="tglee"/>
   
 <tags 
-	ms.service="active-directory" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="vs-getting-started" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/03/2015" 
-	ms.author="tarcher"/>
+    ms.service="active-directory" 
+    ms.workload="web" 
+    ms.tgt_pltfrm="vs-getting-started" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/03/2015" 
+    ms.author="tarcher"/>
 
 # Getting Started with Azure Active Directory and Visual Studio connected services (MVC Projects)
 
@@ -76,3 +76,4 @@ To add a the SignIn/SignOut controls to your view, you can use the **_LoginParti
 </pre>
 
 [Learn more about Azure Active Directory](http://azure.microsoft.com/services/active-directory/) 
+

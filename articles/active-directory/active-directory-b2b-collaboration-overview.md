@@ -18,7 +18,7 @@
 
 # Azure Active Directory  (Azure AD) B2B collaboration
 
-Azure AD B2B collaboration lets you enable access to your corporate applications from partner-managed identities. You can create cross-company relationships by inviting and authorizing users from partner companies to access your resources. Complexity is reduced because each company federates once with Azure Active Directory and each user is represented by a single Azure AD account. Security is increased because access is revoked when partner users are terminated from their organizations, and unintended access via membership in internal directories is prevented. For business partners who don't already have Azure AD, B2B collaboration has a streamlined sign-up experience to provide Azure AD accounts to your business partners.
+Azure AD B2B collaboration lets you enable access to your corporate applications from partner-managed identities. You can create cross-company relationships by inviting and authorizing users from partner companies to access your resources. Complexity is reduced because each company federates once with Azure Active Directory and each user is represented by a single Azure AD account. Security is increased because access is revoked when partner users are terminated from their organizations, and unintended access via membership in internal directories is prevented. For business partners who don't already have Azure AD, B2B collaboration has a streamlined sign-up experience to provide Azure AD accounts to your business partners.
 
 -   Your business partners use their own sign-in credentials, which frees you from managing an external partner directory, and from the need to remove access when users leave the partner organization.
 
@@ -42,7 +42,7 @@ The process:
 
 4. Once signed in, the user will be redirected to the app that was shared with them.
 
-Invitations to consumer email addresses (for example, Gmail or [*comcast.net*](http://comcast.net/)) are not currently supported.
+Invitations to consumer email addresses (for example, Gmail or [*comcast.net*](http://comcast.net/)) are not currently supported.
 
 For more on how B2B collaboration works, check out [this video](http://aka.ms/aadshowb2b).
 
@@ -52,14 +52,14 @@ The CSV file follows the format below. Add all required commas even if you don't
 
 **Email:** Email address for invited user.<br/>
 **DisplayName:** Display name for invited user (typically, first and last name).<br/>
-**InviteAppID:**  The ID for the application to use for branding the email invite and acceptance pages.<br/>
-**InviteReplyURL:** URL to which to direct an invited user after invite acceptance. This should be a company-specific URL (such as [*contoso.my.salesforce.com*](http://contoso.my.salesforce.com/)). If this optional field is not specified, the inviting company's Access Panel URL is generated (this URL is of the form  `https://account.activedirectory.windowsazure.com/applications/default.aspx?tenantId=<TenantID>`).<br/>
-**InviteAppResources:** AppIDs to which applications can assign users. AppIDs are retrievable by calling `Get-MsolServicePrincipal | fl DisplayName, AppPrincipalId`<br/>
-**InviteGroupResources:** ObjectIDs for groups to add user to. ObjectIDs are retrievable by calling `Get-MsolGroup | fl DisplayName, ObjectId`<br/>
-**InviteContactUsUrl:** "Contact Us" URL to include in email invitations in case the invited user wants to contact your organization.<br/>
+**InviteAppID:**  The ID for the application to use for branding the email invite and acceptance pages.<br/>
+**InviteReplyURL:** URL to which to direct an invited user after invite acceptance. This should be a company-specific URL (such as [*contoso.my.salesforce.com*](http://contoso.my.salesforce.com/)). If this optional field is not specified, the inviting company's Access Panel URL is generated (this URL is of the form  `https://account.activedirectory.windowsazure.com/applications/default.aspx?tenantId=<TenantID>`).<br/>
+**InviteAppResources:** AppIDs to which applications can assign users. AppIDs are retrievable by calling `Get-MsolServicePrincipal | fl DisplayName, AppPrincipalId`<br/>
+**InviteGroupResources:** ObjectIDs for groups to add user to. ObjectIDs are retrievable by calling `Get-MsolGroup | fl DisplayName, ObjectId`<br/>
+**InviteContactUsUrl:** "Contact Us" URL to include in email invitations in case the invited user wants to contact your organization.<br/>
 
 ## Sample CSV file
-Here is a sample CSV you can modify for your purposes. Save it to any file name you prefer, but ensure that it has a '.csv' file extension.
+Here is a sample CSV you can modify for your purposes. Save it to any file name you prefer, but ensure that it has a '.csv' file extension.
 
 ```
 Email,DisplayName,InviteAppID,InviteReplyUrl,InviteAppResources,InviteGroupResources,InviteContactUsUrl
@@ -77,3 +77,4 @@ Browse our other articles on Azure B2B collaboration
 - [External user token format](active-directory-b2b-references-external-user-token-format.md)
 - [External user object attribute changes](active-directory-b2b-references-external-user-object-attribute-changes.md)
 - [Current preview limitations](active-directory-b2b-current-preview-limitations.md)
+

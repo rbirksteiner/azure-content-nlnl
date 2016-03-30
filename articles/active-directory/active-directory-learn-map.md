@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Learn more about Azure AD"
-	description="A learning map for the Azure AD content set."
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Learn more about Azure AD"
+    description="A learning map for the Azure AD content set."
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/21/2015"
-	ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/21/2015"
+    ms.author="curtand"/>
 
 # Learn more about Azure AD
 
@@ -40,3 +40,4 @@ To understand usage constraints and other service limits for the Azure Active Di
 
 * [Sign up for Azure as an organization](sign-up-organization.md)
 * [Azure Identity](fundamentals-identity.md)
+

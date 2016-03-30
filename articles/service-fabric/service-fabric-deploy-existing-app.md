@@ -52,10 +52,10 @@ In order to deploy an application to Service Fabric, the application needs to fo
 
 ```
 |-- AppplicationPackage
-	|-- code
-		|-- existingapp.exe
-	|-- config
-		|--Settings.xml
+    |-- code
+        |-- existingapp.exe
+    |-- config
+        |--Settings.xml
     |--data    
     |-- ServiceManifest.xml
 |-- ApplicationManifest.xml
@@ -174,8 +174,8 @@ The `Entrypoint` element in the service manifest file is used to specify how to 
 - `Program`:specifies the name of the executable that should be executed in order to start the service.
 - `Arguments`: it specifies the arguments that should be passed to the executable. it can be a list of parameters with arguments.
 - `WorkingFolder`: it specifies the working directory for the process that is going to be started. You can specify two values:
-	- `CodeBase`: the working directory is going to be set to the Code directory in the application package (`Code` directory in the structure shown below)
-	- `CodePackage`: the working directory will be set to the root of the application package	(`MyServicePkg`)
+    - `CodeBase`: the working directory is going to be set to the Code directory in the application package (`Code` directory in the structure shown below)
+    - `CodePackage`: the working directory will be set to the root of the application package   (`MyServicePkg`)
 - `WorkingDirectory` element is useful to set the correct working directory so relative paths can be used by either the application or initialization scripts.
 
 ### Endpoints
@@ -228,8 +228,8 @@ Console redirection can be configured in the `ServiceManifest.xml` file using th
 
 * `ConsoleRedirection` can be used to redirect console output (both stdout and stderr) to a working directory so they can be used to verify that there are no errors during the setup or execution of the application in the Service Fabric cluster.
 
-	* `FileRetentionCount` determines how many files are saved in the working directory. A value of, for instance, 5 means that the log files for the previous 5 executions are stored in the working directory.
-	* `FileMaxSizeInKb` specifies the max size of the log files.
+    * `FileRetentionCount` determines how many files are saved in the working directory. A value of, for instance, 5 means that the log files for the previous 5 executions are stored in the working directory.
+    * `FileMaxSizeInKb` specifies the max size of the log files.
 
 Log files are saved on one of the service's working directories, in order to determine where the files are located, you need to use the Service Fabric Explorer to determine in which node the service is running and which is the working directory that is currently used. How to do this is covered later in this article.
 
@@ -279,3 +279,4 @@ In this article you have learned how to package an existing application and depl
 - Sample for packaging and deploying a custom application on [Github](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Custom/SimpleApplication), including a link to the pre-release of the packaging tool.
 - Learn how to [deploy multiple custom applications](service-fabric-deploy-multiple-apps.md).
 - How to get started with [creating your first Service Fabric application using Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).
+

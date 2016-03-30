@@ -147,7 +147,7 @@ The procedure below is for communicating with a Docker host that's been deployed
 
     Invoking these commands prevents you from having to add `–H (Host) tcp://<NameofAzureVM>.cloudapp.net:2376` and `--TLSVERIFY` to every command you issue.
 
-1. Now you can issue commands like these to test whether the Docker host is present and functioning. 
+1. Now you can issue commands like these to test whether the Docker host is present and functioning. 
 
     |Command line|Description|
     |---|---|
@@ -176,3 +176,4 @@ For issues with using Docker in Visual Studio, see [Troubleshooting Docker Clien
 [6]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796684.png
 [7]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796685.png
 [8]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796686.png
+

@@ -60,3 +60,4 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 <!-- IMG List -->
 
 [ic719480]: ./media/azure-toolkit-for-eclipse-azure-project-properties/ic719480.png
+

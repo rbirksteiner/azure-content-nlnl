@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Import data to DocumentDB | Microsoft Azure" 
-	description="Learn how to use the open source DocumentDB data migration tool to import data to DocumentDB from various sources, including JSON files, CSV files, SQL, MongoDB, Azure Table storage, Amazon DynamoDB, and DocumentDB collections." 
-	services="documentdb" 
-	authors="andrewhoh" 
-	manager="jhubbard" 
-	editor="monicar" 
-	documentationCenter=""/>
+    pageTitle="Import data to DocumentDB | Microsoft Azure" 
+    description="Learn how to use the open source DocumentDB data migration tool to import data to DocumentDB from various sources, including JSON files, CSV files, SQL, MongoDB, Azure Table storage, Amazon DynamoDB, and DocumentDB collections." 
+    services="documentdb" 
+    authors="andrewhoh" 
+    manager="jhubbard" 
+    editor="monicar" 
+    documentationCenter=""/>
 
 <tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/16/2015" 
-	ms.author="anhoh"/>
+    ms.service="documentdb" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/16/2015" 
+    ms.author="anhoh"/>
 
 # Import data to DocumentDB #
 
@@ -22,14 +22,14 @@ This article shows you how to use the open source DocumentDB data migration tool
 
 After reading this article, you'll be able to answer the following questions:  
 
--	How can I import JSON file data to DocumentDB?
--	How can I import CSV file data to DocumentDB?
--	How can I import SQL Server data to DocumentDB?
--	How can I import MongoDB data to DocumentDB?
--	How can I import data from Azure Table storage to DocumentDB?
--	How can I import data from Amazon DynamoDB to DocumentDB?
--	How can I import data from HBase to DocumentDB
--	How can I migrate data between DocumentDB collections?
+-   How can I import JSON file data to DocumentDB?
+-   How can I import CSV file data to DocumentDB?
+-   How can I import SQL Server data to DocumentDB?
+-   How can I import MongoDB data to DocumentDB?
+-   How can I import data from Azure Table storage to DocumentDB?
+-   How can I import data from Amazon DynamoDB to DocumentDB?
+-   How can I import data from HBase to DocumentDB
+-   How can I migrate data between DocumentDB collections?
 
 ##<a id="Prerequisites"></a>Prerequisites ##
 
@@ -68,20 +68,20 @@ The JSON file source importer option allows you to import one or more single doc
 
 Here are some command line samples to import JSON files:
 
-	#Import a single JSON file	
-	dt.exe /s:JsonFile /s.Files:.\Sessions.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:Sessions /t.CollectionTier:S3
+    #Import a single JSON file  
+    dt.exe /s:JsonFile /s.Files:.\Sessions.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:Sessions /t.CollectionTier:S3
 
-	#Import a directory of JSON files
-	dt.exe /s:JsonFile /s.Files:C:\TESessions\*.json /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:Sessions /t.CollectionTier:S3
+    #Import a directory of JSON files
+    dt.exe /s:JsonFile /s.Files:C:\TESessions\*.json /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:Sessions /t.CollectionTier:S3
 
-	#Import a directory (including sub-directories) of JSON files
-	dt.exe /s:JsonFile /s.Files:C:\LastFMMusic\**\*.json /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:Music /t.CollectionTier:S3
+    #Import a directory (including sub-directories) of JSON files
+    dt.exe /s:JsonFile /s.Files:C:\LastFMMusic\**\*.json /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:Music /t.CollectionTier:S3
 
-	#Import a directory (single), directory (recursive), and individual JSON files
-	dt.exe /s:JsonFile /s.Files:C:\Tweets\*.*;C:\LargeDocs\**\*.*;C:\TESessions\Session48172.json;C:\TESessions\Session48173.json;C:\TESessions\Session48174.json;C:\TESessions\Session48175.json;C:\TESessions\Session48177.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:subs /t.CollectionTier:S3
+    #Import a directory (single), directory (recursive), and individual JSON files
+    dt.exe /s:JsonFile /s.Files:C:\Tweets\*.*;C:\LargeDocs\**\*.*;C:\TESessions\Session48172.json;C:\TESessions\Session48173.json;C:\TESessions\Session48174.json;C:\TESessions\Session48175.json;C:\TESessions\Session48177.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:subs /t.CollectionTier:S3
 
-	#Import a single JSON file and partition the data across 4 collections
-	dt.exe /s:JsonFile /s.Files:D:\\CompanyData\\Companies.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:comp[1-4] /t.PartitionKey:name /t.CollectionTier:S3
+    #Import a single JSON file and partition the data across 4 collections
+    dt.exe /s:JsonFile /s.Files:D:\\CompanyData\\Companies.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:comp[1-4] /t.PartitionKey:name /t.CollectionTier:S3
 
 ##<a id="MongoDB"></a>Import from MongoDB ##
 
@@ -91,7 +91,7 @@ The MongoDB source importer option allows you to import from an individual Mongo
 
 The connection string is in the standard MongoDB format:
 
-	mongodb://<dbuser>:<dbpassword>@<host>:<port>/<database>
+    mongodb://<dbuser>:<dbpassword>@<host>:<port>/<database>
 
 > [AZURE.NOTE] Use the Verify command to ensure that the MongoDB instance specified in the connection string field can be accessed. 
 
@@ -99,11 +99,11 @@ Enter the name of the collection from which data will be imported.  You may opti
 
 Here are some command line samples to import from MongoDB:
 
-	#Import all documents from a MongoDB collection
-	dt.exe /s:MongoDB /s.ConnectionString:mongodb://<dbuser>:<dbpassword>@<host>:<port>/<database> /s.Collection:zips /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:BulkZips /t.IdField:_id /t.CollectionTier:S3
+    #Import all documents from a MongoDB collection
+    dt.exe /s:MongoDB /s.ConnectionString:mongodb://<dbuser>:<dbpassword>@<host>:<port>/<database> /s.Collection:zips /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:BulkZips /t.IdField:_id /t.CollectionTier:S3
 
-	#Import documents from a MongoDB collection which match the query and exclude the loc field
-	dt.exe /s:MongoDB /s.ConnectionString:mongodb://<dbuser>:<dbpassword>@<host>:<port>/<database> /s.Collection:zips /s.Query:{pop:{$gt:50000}} /s.Projection:{loc:0} /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:BulkZipsTransform /t.IdField:_id/t.CollectionTier:S3
+    #Import documents from a MongoDB collection which match the query and exclude the loc field
+    dt.exe /s:MongoDB /s.ConnectionString:mongodb://<dbuser>:<dbpassword>@<host>:<port>/<database> /s.Collection:zips /s.Query:{pop:{$gt:50000}} /s.Projection:{loc:0} /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:BulkZipsTransform /t.IdField:_id/t.CollectionTier:S3
 
 ##<a id="MongoDBExport"></a>Import MongoDB export files ##
 
@@ -115,7 +115,7 @@ When adding folders that contain MongoDB export JSON files for import, you have 
 
 Here is a command line sample to import from MongoDB export JSON files:
 
-	dt.exe /s:MongoDBExport /s.Files:D:\mongoemployees.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:employees /t.IdField:_id /t.Dates:Epoch /t.CollectionTier:S3
+    dt.exe /s:MongoDBExport /s.Files:D:\mongoemployees.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:employees /t.IdField:_id /t.Dates:Epoch /t.CollectionTier:S3
 
 ##<a id="SQL"></a>Import from SQL Server ##
 
@@ -154,11 +154,11 @@ Note the aliases such as Address.AddressType and Address.Location.StateProvinceN
  
 Here are some command line samples to import from SQL Server:
 
-	#Import records from SQL which match a query	
-	dt.exe /s:SQL /s.ConnectionString:"Data Source=<server>;Initial Catalog=AdventureWorks;User Id=advworks;Password=<password>;" /s.Query:"select CAST(BusinessEntityID AS varchar) as Id, * from Sales.vStoreWithAddresses WHERE AddressType='Main Office'" /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:Stores /t.IdField:Id /t.CollectionTier:S3
+    #Import records from SQL which match a query    
+    dt.exe /s:SQL /s.ConnectionString:"Data Source=<server>;Initial Catalog=AdventureWorks;User Id=advworks;Password=<password>;" /s.Query:"select CAST(BusinessEntityID AS varchar) as Id, * from Sales.vStoreWithAddresses WHERE AddressType='Main Office'" /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:Stores /t.IdField:Id /t.CollectionTier:S3
 
-	#Import records from sql which match a query and create hierarchical relationships
-	dt.exe /s:SQL /s.ConnectionString:"Data Source=<server>;Initial Catalog=AdventureWorks;User Id=advworks;Password=<password>;" /s.Query:"select CAST(BusinessEntityID AS varchar) as Id, Name, AddressType as [Address.AddressType], AddressLine1 as [Address.AddressLine1], City as [Address.Location.City], StateProvinceName as [Address.Location.StateProvinceName], PostalCode as [Address.PostalCode], CountryRegionName as [Address.CountryRegionName] from Sales.vStoreWithAddresses WHERE AddressType='Main Office'" /s.NestingSeparator:. /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:StoresSub /t.IdField:Id /t.CollectionTier:S3
+    #Import records from sql which match a query and create hierarchical relationships
+    dt.exe /s:SQL /s.ConnectionString:"Data Source=<server>;Initial Catalog=AdventureWorks;User Id=advworks;Password=<password>;" /s.Query:"select CAST(BusinessEntityID AS varchar) as Id, Name, AddressType as [Address.AddressType], AddressLine1 as [Address.AddressLine1], City as [Address.Location.City], StateProvinceName as [Address.Location.StateProvinceName], PostalCode as [Address.PostalCode], CountryRegionName as [Address.CountryRegionName] from Sales.vStoreWithAddresses WHERE AddressType='Main Office'" /s.NestingSeparator:. /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:StoresSub /t.IdField:Id /t.CollectionTier:S3
 
 ##<a id="CSV"></a>Import CSV files ##
 
@@ -189,14 +189,14 @@ The import tool will attempt to infer type information for unquoted values in CS
 
 There are two other things to note about CSV import: 
 
-1.	By default, unquoted values are always trimmed for tabs and spaces, while quoted values are preserved as-is.  This behavior can be overridden with the Trim quoted values checkbox or the /s.TrimQuoted command line option.
+1.  By default, unquoted values are always trimmed for tabs and spaces, while quoted values are preserved as-is.  This behavior can be overridden with the Trim quoted values checkbox or the /s.TrimQuoted command line option.
 
-2.	By default, an unquoted null is treated as a null value.  This behavior can be overridden (i.e. treat an unquoted null as a “null” string) with the Treat unquoted NULL as string checkbox or the /s.NoUnquotedNulls command line option.
+2.  By default, an unquoted null is treated as a null value.  This behavior can be overridden (i.e. treat an unquoted null as a “null” string) with the Treat unquoted NULL as string checkbox or the /s.NoUnquotedNulls command line option.
 
 
 Here is a command line sample for CSV import:
 
-	dt.exe /s:CsvFile /s.Files:.\Employees.csv /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:Employees /t.IdField:EntityID /t.CollectionTier:S3
+    dt.exe /s:CsvFile /s.Files:.\Employees.csv /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:Employees /t.IdField:EntityID /t.CollectionTier:S3
 
 ##<a id="AzureTableSource"></a>Import from Azure Table storage ##
 
@@ -206,7 +206,7 @@ The Azure Table storage source importer option allows you to import from an indi
 
 The format of the Azure Table storage connection string is:
 
-	DefaultEndpointsProtocol=<protocol>;AccountName=<Account Name>;AccountKey=<Account Key>;
+    DefaultEndpointsProtocol=<protocol>;AccountName=<Account Name>;AccountKey=<Account Key>;
 
 > [AZURE.NOTE] Use the Verify command to ensure that the Azure Table storage instance specified in the connection string field can be accessed. 
 
@@ -215,15 +215,15 @@ Enter the name of the Azure table from which data will be imported.  You may opt
 The Azure Table storage source importer option has the following additional options:
 
 1. Include Internal Fields 
-	2. All - Include all internal fields (PartitionKey, RowKey, and Timestamp)
-	3. None - Exclude all internal fields
-	4. RowKey - Only include the RowKey field
+    2. All - Include all internal fields (PartitionKey, RowKey, and Timestamp)
+    3. None - Exclude all internal fields
+    4. RowKey - Only include the RowKey field
 3. Select Columns
-	1. Azure Table storage filters do not support projections.  If you want to only import specific Azure Table entity properties, add them to the Select Columns list.  All other entity properties will be ignored.
+    1. Azure Table storage filters do not support projections.  If you want to only import specific Azure Table entity properties, add them to the Select Columns list.  All other entity properties will be ignored.
 
 Here is a command line sample to import from Azure Table storage:
 
-	dt.exe /s:AzureTable /s.ConnectionString:"DefaultEndpointsProtocol=https;AccountName=<Account Name>;AccountKey=<Account Key>" /s.Table:metrics /s.InternalFields:All /s.Filter:"PartitionKey eq 'Partition1' and RowKey gt '00001'" /s.Projection:ObjectCount;ObjectSize  /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:metrics /t.CollectionTier:S3
+    dt.exe /s:AzureTable /s.ConnectionString:"DefaultEndpointsProtocol=https;AccountName=<Account Name>;AccountKey=<Account Key>" /s.Table:metrics /s.InternalFields:All /s.Filter:"PartitionKey eq 'Partition1' and RowKey gt '00001'" /s.Projection:ObjectCount;ObjectSize  /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:metrics /t.CollectionTier:S3
 
 ##<a id="DynamoDBSource"></a>Import from Amazon DynamoDB ##
 
@@ -235,13 +235,13 @@ The Amazon DynamoDB source importer option allows you to import from an individu
 
 The format of the Amazon DynamoDB connection string is:
 
-	ServiceURL=<Service Address>;AccessKey=<Access Key>;SecretKey=<Secret Key>;
+    ServiceURL=<Service Address>;AccessKey=<Access Key>;SecretKey=<Secret Key>;
 
 > [AZURE.NOTE] Use the Verify command to ensure that the Amazon DynamoDB instance specified in the connection string field can be accessed. 
 
 Here is a command line sample to import from Amazon DynamoDB:
 
-	dt.exe /s:DynamoDB /s.ConnectionString:ServiceURL=https://dynamodb.us-east-1.amazonaws.com;AccessKey=<accessKey>;SecretKey=<secretKey> /s.Request:"{   """TableName""": """ProductCatalog""" }" /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:catalogCollection /t.CollectionTier:S3
+    dt.exe /s:DynamoDB /s.ConnectionString:ServiceURL=https://dynamodb.us-east-1.amazonaws.com;AccessKey=<accessKey>;SecretKey=<secretKey> /s.Request:"{   """TableName""": """ProductCatalog""" }" /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:catalogCollection /t.CollectionTier:S3
 
 ##<a id="BlobImport"></a>Import files from Azure Blob storage##
 
@@ -251,7 +251,7 @@ The JSON file, MongoDB export file, and CSV file source importer options allow y
 
 Here is command line sample to import JSON files from Azure Blob storage:
 
-	dt.exe /s:JsonFile /s.Files:"blobs://<account key>@account.blob.core.windows.net:443/importcontainer/.*" /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:doctest
+    dt.exe /s:JsonFile /s.Files:"blobs://<account key>@account.blob.core.windows.net:443/importcontainer/.*" /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:doctest
 
 ##<a id="DocumentDBSource"></a>Import from DocumentDB ##
 
@@ -261,7 +261,7 @@ The DocumentDB source importer option allows you to import data from one or more
 
 The format of the DocumentDB connection string is:
 
-	AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;
+    AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;
 
 > [AZURE.NOTE] Use the Verify command to ensure that the DocumentDB instance specified in the connection string field can be accessed. 
 
@@ -283,14 +283,14 @@ The DocumentDB source importer option has the following advanced options:
 
 Here are some command line samples to import from DocumentDB:
 
-	#Migrate data from one DocumentDB collection to another DocumentDB collections
-	dt.exe /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /s.Collection:TEColl /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:TESessions /t.CollectionTier:S3
+    #Migrate data from one DocumentDB collection to another DocumentDB collections
+    dt.exe /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /s.Collection:TEColl /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:TESessions /t.CollectionTier:S3
 
-	#Migrate data from multiple DocumentDB collections to a single DocumentDB collection
-	dt.exe /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /s.Collection:comp1|comp2|comp3|comp4 /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:singleCollection /t.CollectionTier:S3
+    #Migrate data from multiple DocumentDB collections to a single DocumentDB collection
+    dt.exe /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /s.Collection:comp1|comp2|comp3|comp4 /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:singleCollection /t.CollectionTier:S3
 
-	#Export a DocumentDB collection to a JSON file
-	dt.exe /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /s.Collection:StoresSub /t:JsonFile /t.File:StoresExport.json /t.Overwrite /t.CollectionTier:S3
+    #Export a DocumentDB collection to a JSON file
+    dt.exe /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /s.Collection:StoresSub /t:JsonFile /t.File:StoresExport.json /t.Overwrite /t.CollectionTier:S3
 
 ##<a id="HBaseSource"></a>Import from HBase ##
 
@@ -302,13 +302,13 @@ The HBase source importer option allows you to import data from an HBase table a
 
 The format of the HBase Stargate connection string is:
 
-	ServiceURL=<server-address>;Username=<username>;Password=<password>
+    ServiceURL=<server-address>;Username=<username>;Password=<password>
 
 > [AZURE.NOTE] Use the Verify command to ensure that the HBase instance specified in the connection string field can be accessed. 
 
 Here is a command line sample to import from HBase:
 
-	dt.exe /s:HBase /s.ConnectionString:ServiceURL=<server-address>;Username=<username>;Password=<password> /s.Table:Contacts /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:hbaseimport
+    dt.exe /s:HBase /s.ConnectionString:ServiceURL=<server-address>;Username=<username>;Password=<password> /s.Table:Contacts /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:hbaseimport
 
 ##<a id="DocumentDBBulkTarget"></a>Import to DocumentDB (Bulk Import) ##
 
@@ -318,7 +318,7 @@ The DocumentDB Bulk importer allows you to import from any of the available sour
 
 The format of the DocumentDB connection string is:
 
-	AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;
+    AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;
 
 > [AZURE.NOTE] Use the Verify command to ensure that the DocumentDB instance specified in the connection string field can be accessed. 
 
@@ -344,9 +344,9 @@ Additionally, when importing date types (e.g. from SQL Server or MongoDB), you c
 
  ![Screenshot of DocumentDB date time import options](./media/documentdb-import-data/datetimeoptions.png)
 
--	String: Persist as a string value
--	Epoch: Persist as an Epoch number value
--	Both: Persist both string and Epoch number values.  This option will create a subdocument, for example:
+-   String: Persist as a string value
+-   Epoch: Persist as an Epoch number value
+-   Both: Persist both string and Epoch number values.  This option will create a subdocument, for example:
 "date_joined": {
     "Value": "2013-10-21T21:17:25.2410000Z",
     "Epoch": 1382390245
@@ -374,7 +374,7 @@ The DocumentDB sequential record importer allows you to import from any of the a
 
 The format of the DocumentDB connection string is:
 
-	AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;
+    AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;
 
 > [AZURE.NOTE] Use the Verify command to ensure that the DocumentDB instance specified in the connection string field can be accessed. 
 
@@ -396,9 +396,9 @@ There are a number of advanced options available during import.  First, when imp
 
  ![Screenshot of DocumentDB date time import options](./media/documentdb-import-data/datetimeoptions.png)
 
--	String: Persist as a string value
--	Epoch: Persist as an Epoch number value
--	Both: Persist both string and Epoch number values.  This option will create a subdocument, for example:
+-   String: Persist as a string value
+-   Epoch: Persist as an Epoch number value
+-   Both: Persist both string and Epoch number values.  This option will create a subdocument, for example:
 "date_joined": {
     "Value": "2013-10-21T21:17:25.2410000Z",
     "Epoch": 1382390245
@@ -446,12 +446,12 @@ The DocumentDB JSON exporter allows you to export any of the available source op
 
 You may optionally choose to prettify the resulting JSON, which will increase the size of the resulting document while making the contents more human readable.
 
-	Standard JSON export
-	[{"id":"Sample","Title":"About Paris","Language":{"Name":"English"},"Author":{"Name":"Don","Location":{"City":"Paris","Country":"France"}},"Content":"Don's document in DocumentDB is a valid JSON document as defined by the JSON spec.","PageViews":10000,"Topics":[{"Title":"History of Paris"},{"Title":"Places to see in Paris"}]}]
-	
-	Prettified JSON export
-	[
- 	{
+    Standard JSON export
+    [{"id":"Sample","Title":"About Paris","Language":{"Name":"English"},"Author":{"Name":"Don","Location":{"City":"Paris","Country":"France"}},"Content":"Don's document in DocumentDB is a valid JSON document as defined by the JSON spec.","PageViews":10000,"Topics":[{"Title":"History of Paris"},{"Title":"Places to see in Paris"}]}]
+    
+    Prettified JSON export
+    [
+    {
     "id": "Sample",
     "Title": "About Paris",
     "Language": {
@@ -474,33 +474,33 @@ You may optionally choose to prettify the resulting JSON, which will increase th
         "Title": "Places to see in Paris"
       }
     ]
-	}]
-	
+    }]
+    
 ## Advanced Configuration
 
 In the Advanced configuration screen, specify the location of the log file to which you would like any errors written. The following rules apply to this page:
 
-1.	If a file name is not provided, then all errors will be returned on the Results page.
-2.	If a file name is provided without a directory, then the file will be created (or overwritten) in the current environment directory.
-3.	If you select an existing file, then the file will be overwritten, there is no append option.
+1.  If a file name is not provided, then all errors will be returned on the Results page.
+2.  If a file name is provided without a directory, then the file will be created (or overwritten) in the current environment directory.
+3.  If you select an existing file, then the file will be overwritten, there is no append option.
 
-	![Screenshot of Advanced configuration screen](./media/documentdb-import-data/AdvancedConfiguration.png)
+    ![Screenshot of Advanced configuration screen](./media/documentdb-import-data/AdvancedConfiguration.png)
 
 ## Confirm Import Settings and View Command Line
 
 1. After specifying source information, target information, and advanced configuration, review the migration summary and, optionally, view/copy the resulting migration command (copying the command is useful to automate import operations):
 
-	![Screenshot of summary screen](./media/documentdb-import-data/summary.png)
+    ![Screenshot of summary screen](./media/documentdb-import-data/summary.png)
 
-	![Screenshot of summary screen](./media/documentdb-import-data/summarycommand.png)
+    ![Screenshot of summary screen](./media/documentdb-import-data/summarycommand.png)
 
 2. Once you’re satisfied with your source and target options, click **Import**.  The elapsed time, transferred count, and failure information (if you didn't provide a file name in the Advanced configuration) will update as the import is in process.  Once complete, you can export the results (e.g. to deal with any import failures). 
 
-	![Screenshot of DocumentDB JSON export option](./media/documentdb-import-data/viewresults.png)
+    ![Screenshot of DocumentDB JSON export option](./media/documentdb-import-data/viewresults.png)
 
 3. You may also start a new import, either keeping the existing settings (e.g. connection string information, source and target choice, etc.) or resetting all values. 
 
-	![Screenshot of DocumentDB JSON export option](./media/documentdb-import-data/newimport.png)
+    ![Screenshot of DocumentDB JSON export option](./media/documentdb-import-data/newimport.png)
 
 ## Next steps
 
@@ -508,3 +508,4 @@ In the Advanced configuration screen, specify the location of the log file to wh
 
 
  
+

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Configure a Web API project as an API app" 
-	description="Learn how to configure a Web API project as an API app, using Visual Studio 2013 " 
-	services="app-service\api" 
-	documentationCenter=".net" 
-	authors="bradygaster" 
-	manager="wpickett" 
-	editor="jimbe"/>
+    pageTitle="Configure a Web API project as an API app" 
+    description="Learn how to configure a Web API project as an API app, using Visual Studio 2013 " 
+    services="app-service\api" 
+    documentationCenter=".net" 
+    authors="bradygaster" 
+    manager="wpickett" 
+    editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-api" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="dotnet" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/10/2015" 
-	ms.author="tdykstra"/>
+    ms.service="app-service-api" 
+    ms.workload="web" 
+    ms.tgt_pltfrm="dotnet" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/10/2015" 
+    ms.author="tdykstra"/>
 
 # Configure a Web API project as an API app
 
@@ -44,7 +44,7 @@ This section shows how to configure an existing Web API project as an API app. Y
 
 4. Name the project *ContactsList*
 
-	![](./media/app-service-dotnet-create-api-app-visual-studio/01-filenew-v3.png)
+    ![](./media/app-service-dotnet-create-api-app-visual-studio/01-filenew-v3.png)
 
 5. Click **OK**.
 
@@ -54,25 +54,25 @@ This section shows how to configure an existing Web API project as an API app. Y
 
 8. Clear the **Host in the cloud** option.
 
-	![](./media/app-service-dotnet-create-api-app-visual-studio/webapinewproj.png)
+    ![](./media/app-service-dotnet-create-api-app-visual-studio/webapinewproj.png)
 
 9. Click **OK** to generate the project.
 
-	![](./media/app-service-dotnet-create-api-app-visual-studio/sewebapi.png)
+    ![](./media/app-service-dotnet-create-api-app-visual-studio/sewebapi.png)
 
 10. In **Solution Explorer**, right-click the project (not the solution), and then select **Add > Azure API App SDK**.
 
-	![](./media/app-service-dotnet-create-api-app-visual-studio/addapiappsdk.png)
+    ![](./media/app-service-dotnet-create-api-app-visual-studio/addapiappsdk.png)
 
 11. In the **Choose API App Metadata source** dialog, click **Automatic Metadata Generation**. 
 
-	![](./media/app-service-dotnet-create-api-app-visual-studio/chooseswagger.png)
+    ![](./media/app-service-dotnet-create-api-app-visual-studio/chooseswagger.png)
 
-	This choice enables the dynamic Swagger UI, which you'll see later in the tutorial. If you choose to upload a Swagger metadata file, it is saved with the file name *apiDefinition.swagger.json*, as explained in the following section. 
+    This choice enables the dynamic Swagger UI, which you'll see later in the tutorial. If you choose to upload a Swagger metadata file, it is saved with the file name *apiDefinition.swagger.json*, as explained in the following section. 
 
 12. Click **OK**. 
  
-	At this point, Visual Studio installs API app NuGet packages and adds API app metadata to the Web API project.  
+    At this point, Visual Studio installs API app NuGet packages and adds API app metadata to the Web API project.  
 
 [AZURE.INCLUDE [app-service-api-review-metadata](../../includes/app-service-api-review-metadata.md)]
 
@@ -84,3 +84,4 @@ This section shows how to configure an existing Web API project as an API app. Y
 
 Your API app is now ready to be deployed, and you can follow the [Deploy an API app](app-service-dotnet-deploy-api-app.md) tutorial to do that.
  
+

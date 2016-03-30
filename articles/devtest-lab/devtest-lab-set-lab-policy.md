@@ -34,21 +34,21 @@ In order to view (and change) the policies for a lab, follow these steps:
 
 1. Tap **Settings**.
 
-	![Settings](./media/devtest-lab-set-lab-policy/lab-blade-settings.png)
+    ![Settings](./media/devtest-lab-set-lab-policy/lab-blade-settings.png)
 
 1. On the **Settings** blade, there is a grouping of settings called **Policies**. 
 
-	![Settings](./media/devtest-lab-set-lab-policy/policies.png)
+    ![Settings](./media/devtest-lab-set-lab-policy/policies.png)
 
-	Tap the desired policy from the list below to learn more about setting it:
+    Tap the desired policy from the list below to learn more about setting it:
 
-	- Cost Thresholds - This policy is not currently supported.
+    - Cost Thresholds - This policy is not currently supported.
 
-	- [Allowed VM Sizes](#set-allowed-vm-sizes) - Select the list of VM sizes allowed in the lab. A user can create VMs only from this list.
+    - [Allowed VM Sizes](#set-allowed-vm-sizes) - Select the list of VM sizes allowed in the lab. A user can create VMs only from this list.
 
-	- [Maximum VMs](#set-maximum-vms) - Specify the maximum number of VMs that can be created for a lab, as well as the maximum number of VMs that can be created by a user. 
+    - [Maximum VMs](#set-maximum-vms) - Specify the maximum number of VMs that can be created for a lab, as well as the maximum number of VMs that can be created by a user. 
 
-	- [Auto shutdown](#set-auto-shutdown) - Specify the time that the current lab's VMs must shut down.
+    - [Auto shutdown](#set-auto-shutdown) - Specify the time that the current lab's VMs must shut down.
 
 ## Set allowed VM sizes
 
@@ -56,7 +56,7 @@ The policy for setting the allowed VM sizes helps to minimize lab waste by enabl
 
 1. On the lab's **Settings** blade, under **Policies**, tap **Allowed VM Sizes**.
 
-	![Settings](./media/devtest-lab-set-lab-policy/allowed-vm-sizes-policy.png)
+    ![Settings](./media/devtest-lab-set-lab-policy/allowed-vm-sizes-policy.png)
  
 1. Tap **On** to enable this policy, and **Off** to disable it.
 
@@ -70,19 +70,19 @@ The policy for maximum VMs allows you to specify the maximum number of VMs that 
 
 1. On the lab's **Settings** blade, under **Policies**, tap **Maximum VMs**.
 
-	![Settings](./media/devtest-lab-set-lab-policy/max-vms-policies.png)
+    ![Settings](./media/devtest-lab-set-lab-policy/max-vms-policies.png)
 
 1. In the **Policy per User** section:
  
-	1. Tap **On** to enable this policy, and **Off** to disable it.
-	
-	1. If you enabled this policy, in the **Maximum VMs allowed per User** text box, enter a numeric value indicating the maximum number of VMs that can be created by a user. If you enter a number that is not valid, the UI will display the maximum number allowed for this field.
+    1. Tap **On** to enable this policy, and **Off** to disable it.
+    
+    1. If you enabled this policy, in the **Maximum VMs allowed per User** text box, enter a numeric value indicating the maximum number of VMs that can be created by a user. If you enter a number that is not valid, the UI will display the maximum number allowed for this field.
 
 1. In the **Policy per Lab** section:
  
-	1. Tap **On** to enable this policy, and **Off** to disable it.
-	
-	1. If you enabled this policy, in the **Maximum VMs allowed in this lab** text box, enter a numeric value indicating the maximum number of VMs that can be created for the current lab. If you enter a number that is not valid, the UI will display the maximum number allowed for this field.
+    1. Tap **On** to enable this policy, and **Off** to disable it.
+    
+    1. If you enabled this policy, in the **Maximum VMs allowed in this lab** text box, enter a numeric value indicating the maximum number of VMs that can be created for the current lab. If you enter a number that is not valid, the UI will display the maximum number allowed for this field.
 
 1. Tap **Save**.
 
@@ -92,11 +92,12 @@ The auto-shutdown policy helps to minimize lab waste by allowing you to specify 
 
 1. On the lab's **Settings** blade, under **Policies**, tap **Auto Shutdown**.
 
-	![Settings](./media/devtest-lab-set-lab-policy/auto-shutdown-policy.png)
+    ![Settings](./media/devtest-lab-set-lab-policy/auto-shutdown-policy.png)
 
 1. Tap **On** to enable this policy, and **Off** to disable it.
 
 1. If you enabled this policy, specify a time to shut down all VMs in the current lab.
 
 1. Tap **Save**.
+
 

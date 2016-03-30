@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Customize the developer portal in Azure API Management | Microsoft Azure"
-	description="Learn how to customize the developer portal in Azure API Management."
-	services="api-management"
-	documentationCenter=""
-	authors="steved0x"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Customize the developer portal in Azure API Management | Microsoft Azure"
+    description="Learn how to customize the developer portal in Azure API Management."
+    services="api-management"
+    documentationCenter=""
+    authors="steved0x"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="api-management"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="12/07/2015"
-	ms.author="sdanie"/>
+    ms.service="api-management"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="12/07/2015"
+    ms.author="sdanie"/>
 
 # Customize the developer portal in Azure API Management
 
@@ -78,7 +78,7 @@ Click the **Welcome** page to edit what is displayed on the home page of the dev
 
 ## <a name="next-steps"> </a>Next steps
 
--	Check out the other topics in the [Get started with advanced API configuration][] tutorial.
+-   Check out the other topics in the [Get started with advanced API configuration][] tutorial.
 
 [Change the text/logo in the page headers]: #change-page-headers
 [Change the styling of the headers]: #change-headers-styling
@@ -98,3 +98,4 @@ Click the **Welcome** page to edit what is displayed on the home page of the dev
 [Get started with advanced API configuration]: api-management-get-started-advanced.md
 [bootstrap]: http://getbootstrap.com/
 [LESS variables]: http://getbootstrap.com/css/
+

@@ -1,22 +1,22 @@
 <properties
-	pageTitle="How to add or change Azure Co-Administrator, Service Administrator and Account Administrator | Microsoft Azure"
-	description="Describes how to add or change Azure Co-Administrator, Service Administrator and Account Administrator"
-	services="billing"
-	documentationCenter=""
-	authors="genlin"
-	manager="jarrettr"
-	editor="meerak"
-	tags="billing"
-	/>
+    pageTitle="How to add or change Azure Co-Administrator, Service Administrator and Account Administrator | Microsoft Azure"
+    description="Describes how to add or change Azure Co-Administrator, Service Administrator and Account Administrator"
+    services="billing"
+    documentationCenter=""
+    authors="genlin"
+    manager="jarrettr"
+    editor="meerak"
+    tags="billing"
+    />
 
 <tags
-	ms.service="billing"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/11/2015"
-	ms.author="genli"/>
+    ms.service="billing"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/11/2015"
+    ms.author="genli"/>
 
 # How to add or change Azure Co-Administrator, Service Administrator and Account Administrator
 ## Administrator roles
@@ -40,7 +40,7 @@ The following email address can be added as a Co-Administrator:
  You can use a Microsoft Account to sign in to all consumer-oriented Microsoft products and cloud services, such as Outlook (Hotmail), Skype (MSN), OneDrive, Windows Phone, and Xbox LIVE.
 * **Organizational account**</br>
  An organizational account is an account that is created under Azure Active Directory. The organizational account address resembles the following:
-	user@<your domain>.onmicrosoft.com
+    user@<your domain>.onmicrosoft.com
 
 **Note**
 
@@ -66,3 +66,4 @@ Only the Account Administrator can change the Service Administrator for a subscr
 ## Change the Account Administrator
 
 To transfer ownership of the Azure account to another account, see [Transferring an Azure subscription](../billing-subscription-transfer.md).
+

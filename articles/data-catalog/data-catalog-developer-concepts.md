@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="Azure Data Catalog developer concepts"
    description="Introduction to the key concepts in Azure Data Catalog conceptual model, as exposed through the Catalog REST API."
    services="data-catalog"
@@ -66,9 +66,9 @@ A key aspect of Azure Data Catalog is how it supports the crowdsourcing of metad
 
 This approach reflects the real world of enterprise data where different users can have different perspectives on a given asset:
 
--	A database administrator may provide information about service level agreements, or the available processing window for bulk ETL operations
--	A data steward may provide information about the business processes to which the asset applies, or the classifications that the business has applied to it
--	A finance analyst may provide information about how the data is used during end-of-period reporting tasks
+-   A database administrator may provide information about service level agreements, or the available processing window for bulk ETL operations
+-   A data steward may provide information about the business processes to which the asset applies, or the classifications that the business has applied to it
+-   A finance analyst may provide information about how the data is used during end-of-period reporting tasks
 
 To support this example, each user – the DBA, the data steward, and the analyst – can add a description to a single table that has been registered in the Catalog. All descriptions are maintained in the system, and in the Azure Data Catalog portal all descriptions are displayed.
 
@@ -78,9 +78,9 @@ For example, under the asset root is an array of description objects. The array 
 
 The UX can then choose how to display the combination. There are three different patterns for display.
 
--	The simplest pattern is “Show All”. In this pattern all the objects are shown in some sort of list view. This is what the Azure Data Catalog portal UX does for description.
--	Another pattern is “Merge”. In this pattern all the values from the different users are merged together, with duplicate removed. Examples of this pattern in the Azure Data Catalog portal UX are the tags and experts properties.
--	A third pattern is “last writer wins”. In this pattern only the most recent value typed in is shown. friendlyName is an example of this pattern.
+-   The simplest pattern is “Show All”. In this pattern all the objects are shown in some sort of list view. This is what the Azure Data Catalog portal UX does for description.
+-   Another pattern is “Merge”. In this pattern all the values from the different users are merged together, with duplicate removed. Examples of this pattern in the Azure Data Catalog portal UX are the tags and experts properties.
+-   A third pattern is “last writer wins”. In this pattern only the most recent value typed in is shown. friendlyName is an example of this pattern.
 
 ## Asset object model
 
@@ -218,66 +218,67 @@ Special security principal <Everyone> has objectId "00000000-0000-0000-0000-0000
 **POST** https://123154bb...6aad6370ee14.datacatalog.azure.com/default/views/tables/?api-version=2015-07.1.0-Preview
 **Body**
 
-	{
-	    "__roles": [
-	        {
-	            "role": "Contributor",
-	            "members": [
-	                {
-	                    "objectId": "00000000-0000-0000-0000-000000000201"
-	                }
-	            ]
-	        }
-	    ],
-	    … other table properties
-	}
+    {
+        "__roles": [
+            {
+                "role": "Contributor",
+                "members": [
+                    {
+                        "objectId": "00000000-0000-0000-0000-000000000201"
+                    }
+                ]
+            }
+        ],
+        … other table properties
+    }
 
 **Assign owners and restrict visibility for an existing root item**
 **PUT** https://123154bb...6aad6370ee14.datacatalog.azure.com/default/views/tables/042297b0...1be45ecd462a?api-version=2015-07.1.0-Preview
 
-	{
-	    "__roles": [
-	        {
-	            "role": "Owner",
-	            "members": [
-	                {
-	                    "objectId": "c4159539-846a-45af-bdfb-58efd3772b43",
-	                    "upn": "user1@contoso.com"
-	                },
-	                {
-	                    "objectId": "fdabd95b-7c56-47d6-a6ba-a7c5f264533f",
-	                    "upn": "user2@contoso.com"
-	                }
-	            ]
-	        }
-	    ],
-	    "__permissions": [
-	        {
-	            "principal": {
-	                "objectId": "27b9a0eb-bb71-4297-9f1f-c462dab7192a",
-	                "upn": "user3@contoso.com"
-	            },
-	            "rights": [
-	                {
-	                    "right": "Read"
-	                }
-	            ]
-	        },
-	        {
-	            "principal": {
-	                "objectId": "4c8bc8ce-225c-4fcf-b09a-047030baab31",
-	                "upn": "user4@contoso.com"
-	            },
-	            "rights": [
-	                {
-	                    "right": "Read"
-	                }
-	            ]
-	        }
-	    ]
-	}
+    {
+        "__roles": [
+            {
+                "role": "Owner",
+                "members": [
+                    {
+                        "objectId": "c4159539-846a-45af-bdfb-58efd3772b43",
+                        "upn": "user1@contoso.com"
+                    },
+                    {
+                        "objectId": "fdabd95b-7c56-47d6-a6ba-a7c5f264533f",
+                        "upn": "user2@contoso.com"
+                    }
+                ]
+            }
+        ],
+        "__permissions": [
+            {
+                "principal": {
+                    "objectId": "27b9a0eb-bb71-4297-9f1f-c462dab7192a",
+                    "upn": "user3@contoso.com"
+                },
+                "rights": [
+                    {
+                        "right": "Read"
+                    }
+                ]
+            },
+            {
+                "principal": {
+                    "objectId": "4c8bc8ce-225c-4fcf-b09a-047030baab31",
+                    "upn": "user4@contoso.com"
+                },
+                "rights": [
+                    {
+                        "right": "Read"
+                    }
+                ]
+            }
+        ]
+    }
 
 > [AZURE.NOTE] In PUT it’s not required to specify an item payload in the body: PUT can be used to update just roles and/or permissions.
 
 <!--Image references-->
 [1]: ./media/data-catalog-developer-concepts/concept2.png
+

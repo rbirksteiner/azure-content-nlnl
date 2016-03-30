@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Set up your environment | Microsoft Azure"
-	description="Set up your environment for developing with Azure Media Services."
-	services="media-services"
-	documentationCenter=""
-	authors="Juliako"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Set up your environment | Microsoft Azure"
+    description="Set up your environment for developing with Azure Media Services."
+    services="media-services"
+    documentationCenter=""
+    authors="Juliako"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="12/05/2015"  
-	ms.author="juliako"/>
+    ms.service="media-services"
+    ms.workload="media"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="12/05/2015"  
+    ms.author="juliako"/>
 
 # Set up your environment
 
@@ -52,4 +52,5 @@ Choose .NET or the REST API to programmatically connect to Azure Media Services.
 ##Provide feedback
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 

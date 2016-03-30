@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How to create APIs in Azure API Management" 
-	description="Learn how to create and configure APIs in Azure API Management." 
-	services="api-management" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="How to create APIs in Azure API Management" 
+    description="Learn how to create and configure APIs in Azure API Management." 
+    services="api-management" 
+    documentationCenter="" 
+    authors="steved0x" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="api-management" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/07/2015" 
-	ms.author="sdanie"/>
+    ms.service="api-management" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/07/2015" 
+    ms.author="sdanie"/>
 
 # How to create APIs in Azure API Management
 
@@ -40,11 +40,11 @@ Use the **Add new API** window to configure the new API.
 
 The following fields are used to configure the new API.
 
--	**Web API name** provides a unique and descriptive name for the API. It is displayed in the developer and publisher portals.
--	**Web service URL** references the HTTP service implementing the API. API management forwards requests to this address.
--	**Web API URL suffix** is appended to the base URL for the API management service. The base URL is common for all APIs hosted by an API Management service instance. API Management distinguishes APIs by their suffix and therefore the suffix must be unique for every API for a given publisher.
--	**Web API URL scheme** determines which protocols can be used to access the API. HTTPs is specified by default.
--	To optionally add this new API to a product, click the **Products (optional)** drop-down and choose a product. This step can be repeated multiple times to add the API to multiple products.
+-   **Web API name** provides a unique and descriptive name for the API. It is displayed in the developer and publisher portals.
+-   **Web service URL** references the HTTP service implementing the API. API management forwards requests to this address.
+-   **Web API URL suffix** is appended to the base URL for the API management service. The base URL is common for all APIs hosted by an API Management service instance. API Management distinguishes APIs by their suffix and therefore the suffix must be unique for every API for a given publisher.
+-   **Web API URL scheme** determines which protocols can be used to access the API. HTTPs is specified by default.
+-   To optionally add this new API to a product, click the **Products (optional)** drop-down and choose a product. This step can be repeated multiple times to add the API to multiple products.
 
 Once the desired values are configured, click **Save**. Once the new API is created, the summary page for the API is displayed in the publisher portal.
 
@@ -68,8 +68,8 @@ Click **Save** to save any changes you make to the API settings.
 
 Once an API is created and the settings configured, the next steps are to add the operations to the API, add the API to a product, and publish it so that it is available for developers. For more information, see the following articles.
 
--	[How to add operations to an API][]
--	[How to create and publish a product][]
+-   [How to add operations to an API][]
+-   [How to create and publish a product][]
 
 
 

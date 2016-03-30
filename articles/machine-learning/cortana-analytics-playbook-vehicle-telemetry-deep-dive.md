@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Vehicle telemetry analytics solution playbook: deep dive into the solution | Microsoft Azure" 
-	description="Use the capabilities of Cortana Analytics to gain real-time and predictive insights on vehicle health and driving habits." 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="bradsev" 
-	manager="paulettm" 
-	editor="cgronlun" />
+    pageTitle="Vehicle telemetry analytics solution playbook: deep dive into the solution | Microsoft Azure" 
+    description="Use the capabilities of Cortana Analytics to gain real-time and predictive insights on vehicle health and driving habits." 
+    services="machine-learning" 
+    documentationCenter="" 
+    authors="bradsev" 
+    manager="paulettm" 
+    editor="cgronlun" />
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
-	ms.author="bradsev" />
+    ms.service="machine-learning" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/02/2015" 
+    ms.author="bradsev" />
 
 
 # Vehicle telemetry analytics solution playbook: deep dive into the solution
@@ -64,7 +64,7 @@ City | The location of the vehicle | 4 cities in this solution : Bellevue, Redmo
 
 The vehicle model reference dataset contains VIN to the model mapping. 
 
-VIN	| Model |
+VIN | Model |
 --------------|------------------
 FHL3O1SA4IEHB4WU1 | Sedan |
 8J0U8XCPRGW4Z3NQE | Hybrid |
@@ -95,15 +95,15 @@ T8DNDN5UDCWL7M72H | Family Saloon |
 D1ZVY26UV2BFGHZNO | Hybrid |
 XUF99EW9OIQOMV7Q7 | Family Saloon
 8OMCL3LGI7XNCC21U | Convertible |
-…….	 |   |
+…….  |   |
 
 
 ### To generate simulated data
-1.	Click on the arrow on the upper right on the Vehicle Telematics Simulator node in to download the data simulator package. Save and extract the files locally on your machine. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig3-vehicle-telemetry-blueprint.png) *Figure 3 – Vehicle Telemetry Analytics Solution Blueprint*
+1.  Click on the arrow on the upper right on the Vehicle Telematics Simulator node in to download the data simulator package. Save and extract the files locally on your machine. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig3-vehicle-telemetry-blueprint.png) *Figure 3 – Vehicle Telemetry Analytics Solution Blueprint*
 
-2.	On your local machine, go to the folder where you extracted the Vehicle Telematics Simulator package. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig4-vehicle-telematics-simulator-folder.png) *Figure 4 – Vehicle Telematics Simulator folder*
+2.  On your local machine, go to the folder where you extracted the Vehicle Telematics Simulator package. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig4-vehicle-telematics-simulator-folder.png) *Figure 4 – Vehicle Telematics Simulator folder*
 
-3.	Execute the application **CarEventGenerator.exe**.
+3.  Execute the application **CarEventGenerator.exe**.
 
 ### References
 [Vehicle Telematics Simulator Visual Studio Solution](http://go.microsoft.com/fwlink/?LinkId=717075) 
@@ -174,140 +174,140 @@ The raw data is partitioned using a Hive HDInsight activity in ‘PartitionCarEv
 
 The Hive script shown below, named ‘partitioncarevents.hql’, is used for partitioning and is located at ‘\demo\src\connectedcar\scripts’ folder of the downloaded zip. 
 
-	SET hive.exec.dynamic.partition=true;
-	SET hive.exec.dynamic.partition.mode = nonstrict;
-	set hive.cli.print.header=true;
+    SET hive.exec.dynamic.partition=true;
+    SET hive.exec.dynamic.partition.mode = nonstrict;
+    set hive.cli.print.header=true;
 
-	DROP TABLE IF EXISTS RawCarEvents; 
-	CREATE EXTERNAL TABLE RawCarEvents 
-	(
-            	vin								string,
-				model							string,
-				timestamp						string,
-				outsidetemperature				string,
-				enginetemperature				string,
-				speed							string,
-				fuel							string,
-				engineoil						string,
-				tirepressure					string,
-				odometer						string,
-				city							string,
-				accelerator_pedal_position		string,
-				parking_brake_status			string,
-				headlamp_status					string,
-				brake_pedal_status				string,
-				transmission_gear_position		string,
-				ignition_status					string,
-				windshield_wiper_status			string,
-				abs  							string,
-				gendate							string
+    DROP TABLE IF EXISTS RawCarEvents; 
+    CREATE EXTERNAL TABLE RawCarEvents 
+    (
+                vin                             string,
+                model                           string,
+                timestamp                       string,
+                outsidetemperature              string,
+                enginetemperature               string,
+                speed                           string,
+                fuel                            string,
+                engineoil                       string,
+                tirepressure                    string,
+                odometer                        string,
+                city                            string,
+                accelerator_pedal_position      string,
+                parking_brake_status            string,
+                headlamp_status                 string,
+                brake_pedal_status              string,
+                transmission_gear_position      string,
+                ignition_status                 string,
+                windshield_wiper_status         string,
+                abs                             string,
+                gendate                         string
                 
-	) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' LINES TERMINATED BY '10' STORED AS TEXTFILE LOCATION '${hiveconf:RAWINPUT}'; 
+    ) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' LINES TERMINATED BY '10' STORED AS TEXTFILE LOCATION '${hiveconf:RAWINPUT}'; 
 
-	DROP TABLE IF EXISTS PartitionedCarEvents; 
-	CREATE EXTERNAL TABLE PartitionedCarEvents 
-	(
-            	vin								string,
-				model							string,
-				timestamp						string,
-				outsidetemperature				string,
-				enginetemperature				string,
-				speed							string,
-				fuel							string,
-				engineoil						string,
-				tirepressure					string,
-				odometer						string,
-				city							string,
-				accelerator_pedal_position		string,
-				parking_brake_status			string,
-				headlamp_status					string,
-				brake_pedal_status				string,
-				transmission_gear_position		string,
-				ignition_status					string,
-				windshield_wiper_status			string,
-				abs  							string,
-				gendate							string
-	) partitioned by (YearNo int, MonthNo int) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' LINES TERMINATED BY '10' STORED AS TEXTFILE LOCATION '${hiveconf:PARTITIONEDOUTPUT}';
+    DROP TABLE IF EXISTS PartitionedCarEvents; 
+    CREATE EXTERNAL TABLE PartitionedCarEvents 
+    (
+                vin                             string,
+                model                           string,
+                timestamp                       string,
+                outsidetemperature              string,
+                enginetemperature               string,
+                speed                           string,
+                fuel                            string,
+                engineoil                       string,
+                tirepressure                    string,
+                odometer                        string,
+                city                            string,
+                accelerator_pedal_position      string,
+                parking_brake_status            string,
+                headlamp_status                 string,
+                brake_pedal_status              string,
+                transmission_gear_position      string,
+                ignition_status                 string,
+                windshield_wiper_status         string,
+                abs                             string,
+                gendate                         string
+    ) partitioned by (YearNo int, MonthNo int) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' LINES TERMINATED BY '10' STORED AS TEXTFILE LOCATION '${hiveconf:PARTITIONEDOUTPUT}';
 
-	DROP TABLE IF EXISTS Stage_RawCarEvents; 
-	CREATE TABLE IF NOT EXISTS Stage_RawCarEvents 
-	(
-            	vin								string,
-				model							string,
-				timestamp						string,
-				outsidetemperature				string,
-				enginetemperature				string,
-				speed							string,
-				fuel							string,
-				engineoil						string,
-				tirepressure					string,
-				odometer						string,
-				city							string,
-				accelerator_pedal_position		string,
-				parking_brake_status			string,
-				headlamp_status					string,
-				brake_pedal_status				string,
-				transmission_gear_position		string,
-				ignition_status					string,
-				windshield_wiper_status			string,
-				abs  							string,
-				gendate							string,
-				YearNo 							int,
-				MonthNo 						int) 
-	ROW FORMAT delimited fields terminated by ',' LINES TERMINATED BY '10';
+    DROP TABLE IF EXISTS Stage_RawCarEvents; 
+    CREATE TABLE IF NOT EXISTS Stage_RawCarEvents 
+    (
+                vin                             string,
+                model                           string,
+                timestamp                       string,
+                outsidetemperature              string,
+                enginetemperature               string,
+                speed                           string,
+                fuel                            string,
+                engineoil                       string,
+                tirepressure                    string,
+                odometer                        string,
+                city                            string,
+                accelerator_pedal_position      string,
+                parking_brake_status            string,
+                headlamp_status                 string,
+                brake_pedal_status              string,
+                transmission_gear_position      string,
+                ignition_status                 string,
+                windshield_wiper_status         string,
+                abs                             string,
+                gendate                         string,
+                YearNo                          int,
+                MonthNo                         int) 
+    ROW FORMAT delimited fields terminated by ',' LINES TERMINATED BY '10';
 
-	INSERT OVERWRITE TABLE Stage_RawCarEvents
-	SELECT
-		vin,			
-		model,
-		timestamp,
-		outsidetemperature,
-		enginetemperature,
-		speed,
-		fuel,
-		engineoil,
-		tirepressure,
-		odometer,
-		city,
-		accelerator_pedal_position,
-		parking_brake_status,
-		headlamp_status,
-		brake_pedal_status,
-		transmission_gear_position,
-		ignition_status,
-		windshield_wiper_status,
-		abs,
-		gendate,
-		Year(gendate),
-		Month(gendate)
+    INSERT OVERWRITE TABLE Stage_RawCarEvents
+    SELECT
+        vin,            
+        model,
+        timestamp,
+        outsidetemperature,
+        enginetemperature,
+        speed,
+        fuel,
+        engineoil,
+        tirepressure,
+        odometer,
+        city,
+        accelerator_pedal_position,
+        parking_brake_status,
+        headlamp_status,
+        brake_pedal_status,
+        transmission_gear_position,
+        ignition_status,
+        windshield_wiper_status,
+        abs,
+        gendate,
+        Year(gendate),
+        Month(gendate)
 
-	FROM RawCarEvents WHERE Year(gendate) = ${hiveconf:Year} AND Month(gendate) = ${hiveconf:Month}; 
+    FROM RawCarEvents WHERE Year(gendate) = ${hiveconf:Year} AND Month(gendate) = ${hiveconf:Month}; 
 
-	INSERT OVERWRITE TABLE PartitionedCarEvents PARTITION(YearNo, MonthNo) 
-	SELECT
-		vin,			
-		model,
-		timestamp,
-		outsidetemperature,
-		enginetemperature,
-		speed,
-		fuel,
-		engineoil,
-		tirepressure,
-		odometer,
-		city,
-		accelerator_pedal_position,
-		parking_brake_status,
-		headlamp_status,
-		brake_pedal_status,
-		transmission_gear_position,
-		ignition_status,
-		windshield_wiper_status,
-		abs,
-		gendate,
-		YearNo,
-		MonthNo
-	FROM Stage_RawCarEvents WHERE YearNo = ${hiveconf:Year} AND MonthNo = ${hiveconf:Month};
+    INSERT OVERWRITE TABLE PartitionedCarEvents PARTITION(YearNo, MonthNo) 
+    SELECT
+        vin,            
+        model,
+        timestamp,
+        outsidetemperature,
+        enginetemperature,
+        speed,
+        fuel,
+        engineoil,
+        tirepressure,
+        odometer,
+        city,
+        accelerator_pedal_position,
+        parking_brake_status,
+        headlamp_status,
+        brake_pedal_status,
+        transmission_gear_position,
+        ignition_status,
+        windshield_wiper_status,
+        abs,
+        gendate,
+        YearNo,
+        MonthNo
+    FROM Stage_RawCarEvents WHERE YearNo = ${hiveconf:Year} AND MonthNo = ${hiveconf:Month};
 
 *Figure 13 - PartitionConnectedCarEvents Hive Script*
 
@@ -323,22 +323,22 @@ The data is now optimized, is more manageable and ready for further processing t
 
 In this section, you will see how we have used the combination of Azure Stream Analytics, Azure Machine Learning, Azure Data Factory and Azure HDInsight for rich advanced analytics on vehicle health and driving habits.  There are 3 sub-sections here:
 
-1.	**Machine Learning**: This sub-section contains information on the anomaly detection experiment that we have used in this solution to predict vehicles requiring servicing maintenance and vehicles requiring recalls due to safety issues
-2.	**Real-time analysis**: This sub-section contains information regarding the real-time analytics using the Stream Analytics Query Language and operationalizing the machine learning experiment in real-time using a custom application
-3.	**Batch analysis**: This sub-section contains information regarding the transforming and processing of the batch data using Azure HDInsight and Azure Machine Learning operationalized by Azure Data Factory
+1.  **Machine Learning**: This sub-section contains information on the anomaly detection experiment that we have used in this solution to predict vehicles requiring servicing maintenance and vehicles requiring recalls due to safety issues
+2.  **Real-time analysis**: This sub-section contains information regarding the real-time analytics using the Stream Analytics Query Language and operationalizing the machine learning experiment in real-time using a custom application
+3.  **Batch analysis**: This sub-section contains information regarding the transforming and processing of the batch data using Azure HDInsight and Azure Machine Learning operationalized by Azure Data Factory
 
 ### Machine Learning
 
 Our goal here is to predict the vehicles that require maintenance or recall based on certain heath statistics.  We make the following assumptions
 
 - Vehicles require **servicing maintenance** if one of the following three conditions are true:
-	- Tire pressure is low
-	- Engine oil level is low
-	- Engine temperature is high
+    - Tire pressure is low
+    - Engine oil level is low
+    - Engine temperature is high
 
 - Vehicles may have a **safety issue** and require **recall** if one of the following conditions are true:
-	- Engine temperature is high but outside temperature is low
-	- Engine temperature is low but outside temperature is high
+    - Engine temperature is high but outside temperature is low
+    - Engine temperature is low but outside temperature is high
 
 Based on the above requirements, we have created two separate models to detect anomalies, one for vehicle maintenance detection, and one for vehicle recall detection. In both these models, the built-in Principal Component Analysis (PCA) algorithm is used for anomaly detection . 
 
@@ -373,12 +373,12 @@ To learn more about all the ‘Windowing’ capabilities in Azure Stream Analyti
 
 An application is included as part of the solution to operationalize the machine learning model in real-time. This application called “RealTimeDashboardApp” is created and configured as part of the solution deployment. The application performs the following:
 
-1.	Listens to an Event Hub instance where Stream Analytics is publishing the events in a continuously pattern. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig16-vehicle-telematics-stream-analytics-query-for-publishing.png)*Figure 16 – Stream analytics query for publishing the data to an output Event Hub instance* 
+1.  Listens to an Event Hub instance where Stream Analytics is publishing the events in a continuously pattern. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig16-vehicle-telematics-stream-analytics-query-for-publishing.png)*Figure 16 – Stream analytics query for publishing the data to an output Event Hub instance* 
 
-2.	For every event that this application receives: 
+2.  For every event that this application receives: 
 
-	- Processes the data using Machine Learning Request-Response Scoring (RRS) endpoint. The RRS endpoint is automatically published as part of the deployment.
-	- The RRS output is published to a PowerBI dataset using the push APIs.
+    - Processes the data using Machine Learning Request-Response Scoring (RRS) endpoint. The RRS endpoint is automatically published as part of the deployment.
+    - The RRS output is published to a PowerBI dataset using the push APIs.
 
 This pattern is also applicable in scenarios where you want to integrate a Line of Business application with the real-time analytics flow for scenarios such as alerts, notifications, messagings, etc. 
 
@@ -386,16 +386,16 @@ Click [RealtimeDashboardApp download](http://go.microsoft.com/fwlink/?LinkId=717
 
 **To execute the Real-time Dashboard Application **
 
-1.	Click on the PowerBI node on the diagram view and click the Download Real-time Dashboard Application’ link on the properties pane. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17-vehicle-telematics-powerbi-dashboard-setup.png)  *Figure 17 – PowerBI dashboard setup instructions*
-2.	Extract and save locally ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig18-vehicle-telematics-realtimedashboardapp-folder.png)  *Figure 18 – RealtimeDashboardApp folder*
-3.	Execute the application RealtimeDashboardApp.exe
-4.	Provide valid Power BI credentials, sign in and click Accept ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig19a-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig19b-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) 
+1.  Click on the PowerBI node on the diagram view and click the Download Real-time Dashboard Application’ link on the properties pane. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17-vehicle-telematics-powerbi-dashboard-setup.png)  *Figure 17 – PowerBI dashboard setup instructions*
+2.  Extract and save locally ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig18-vehicle-telematics-realtimedashboardapp-folder.png)  *Figure 18 – RealtimeDashboardApp folder*
+3.  Execute the application RealtimeDashboardApp.exe
+4.  Provide valid Power BI credentials, sign in and click Accept ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig19a-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig19b-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) 
 
 *Figure 19 – RealtimeDashboardApp: Sign-in to PowerBI*
 
 >[AZURE.NOTE] Note: If you want to flush the PowerBI dataset, execute the RealtimeDashboardApp with ‘flushdata’ parameter: 
 
-	RealtimeDashboardApp.exe -flushdata
+    RealtimeDashboardApp.exe -flushdata
 
 ### Batch analysis
 
@@ -406,9 +406,9 @@ The goal here is to showcase how Contoso Motors is utilizing the Azure compute c
 
 In this solution, we are targeting the following metrics:
 
-1.	**Aggressive driving behavior** Identifies the trend of the models, locations, driving conditions, and time of the year to gain insights on aggressive driving pattern allowing Contoso Motors to use it for marketing campaigns, driving new personalized features and usage based insurance.
-2.	**Fuel efficient driving behavior** Identifies the trend of the models, locations, driving conditions, and time of the year to gain insights on fuel efficient driving pattern allowing Contoso Motors to use it for marketing campaigns, driving new features and proactive reporting to the drivers for cost effective and environment friendly driving habits. 
-3.	**Recall models** Identifies models requiring recalls by operationalizing the anomaly detection machine learning experiment
+1.  **Aggressive driving behavior** Identifies the trend of the models, locations, driving conditions, and time of the year to gain insights on aggressive driving pattern allowing Contoso Motors to use it for marketing campaigns, driving new personalized features and usage based insurance.
+2.  **Fuel efficient driving behavior** Identifies the trend of the models, locations, driving conditions, and time of the year to gain insights on fuel efficient driving pattern allowing Contoso Motors to use it for marketing campaigns, driving new features and proactive reporting to the drivers for cost effective and environment friendly driving habits. 
+3.  **Recall models** Identifies models requiring recalls by operationalizing the anomaly detection machine learning experiment
 
 Let’s look into the details of each of these metrics,
 
@@ -422,62 +422,62 @@ The partitioned vehicle signals and diagnostic data are processed in the pipelin
 
 The Hive script named ‘aggresivedriving.hql’ used for analyzing aggressive driving condition pattern is located at ‘\demo\src\connectedcar\scripts’ folder of the downloaded zip. 
 
-	DROP TABLE IF EXISTS PartitionedCarEvents; 
-	CREATE EXTERNAL TABLE PartitionedCarEvents
-	(
-            	vin								string,
-				model							string,
-				timestamp						string,
-				outsidetemperature				string,
-				enginetemperature				string,
-				speed							string,
-				fuel							string,
-				engineoil						string,
-				tirepressure					string,
-				odometer						string,
-				city							string,
-				accelerator_pedal_position		string,
-				parking_brake_status			string,
-				headlamp_status					string,
-				brake_pedal_status				string,
-				transmission_gear_position		string,
-				ignition_status					string,
-				windshield_wiper_status			string,
-				abs  							string,
-				gendate							string
+    DROP TABLE IF EXISTS PartitionedCarEvents; 
+    CREATE EXTERNAL TABLE PartitionedCarEvents
+    (
+                vin                             string,
+                model                           string,
+                timestamp                       string,
+                outsidetemperature              string,
+                enginetemperature               string,
+                speed                           string,
+                fuel                            string,
+                engineoil                       string,
+                tirepressure                    string,
+                odometer                        string,
+                city                            string,
+                accelerator_pedal_position      string,
+                parking_brake_status            string,
+                headlamp_status                 string,
+                brake_pedal_status              string,
+                transmission_gear_position      string,
+                ignition_status                 string,
+                windshield_wiper_status         string,
+                abs                             string,
+                gendate                         string
                                 
-	) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' LINES TERMINATED BY '10' STORED AS TEXTFILE LOCATION '${hiveconf:PARTITIONEDINPUT}';
+    ) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' LINES TERMINATED BY '10' STORED AS TEXTFILE LOCATION '${hiveconf:PARTITIONEDINPUT}';
 
-	DROP TABLE IF EXISTS CarEventsAggresive; 
-	CREATE EXTERNAL TABLE CarEventsAggresive
-	(
-               	vin 						string, 
-				model						string,
-                timestamp					string,
-				city						string,
-				speed 			 			string,
-				transmission_gear_position	string,
-				brake_pedal_status			string,
-				Year						string,
-				Month						string
+    DROP TABLE IF EXISTS CarEventsAggresive; 
+    CREATE EXTERNAL TABLE CarEventsAggresive
+    (
+                vin                         string, 
+                model                       string,
+                timestamp                   string,
+                city                        string,
+                speed                       string,
+                transmission_gear_position  string,
+                brake_pedal_status          string,
+                Year                        string,
+                Month                       string
                                 
-	) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' LINES TERMINATED BY '10' STORED AS TEXTFILE LOCATION '${hiveconf:AGGRESIVEOUTPUT}';
+    ) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' LINES TERMINATED BY '10' STORED AS TEXTFILE LOCATION '${hiveconf:AGGRESIVEOUTPUT}';
 
 
 
-	INSERT OVERWRITE TABLE CarEventsAggresive
-	select
-	vin,
-	model,
-	timestamp,
-	city,
-	speed,
-	transmission_gear_position,
-	brake_pedal_status,
-	"${hiveconf:Year}" as Year,
-	"${hiveconf:Month}" as Month
-	from PartitionedCarEvents
-	where transmission_gear_position IN ('fourth', 'fifth', 'sixth', 'seventh', 'eight') AND brake_pedal_status = '1' AND speed >= '50'
+    INSERT OVERWRITE TABLE CarEventsAggresive
+    select
+    vin,
+    model,
+    timestamp,
+    city,
+    speed,
+    transmission_gear_position,
+    brake_pedal_status,
+    "${hiveconf:Year}" as Year,
+    "${hiveconf:Month}" as Month
+    from PartitionedCarEvents
+    where transmission_gear_position IN ('fourth', 'fifth', 'sixth', 'seventh', 'eight') AND brake_pedal_status = '1' AND speed >= '50'
 
 *Figure 21 – Aggressive driving pattern Hive query*
 
@@ -500,62 +500,62 @@ The partitioned vehicle signals and diagnostic data are processed in the pipelin
 
 The Hive script named ‘fuelefficientdriving.hql’ used for analyzing aggressive driving condition pattern is located at ‘\demo\src\connectedcar\scripts’ folder of the downloaded zip. 
 
-	DROP TABLE IF EXISTS PartitionedCarEvents; 
-	CREATE EXTERNAL TABLE PartitionedCarEvents
-	(
-            	vin								string,
-				model							string,
-				timestamp						string,
-				outsidetemperature				string,
-				enginetemperature				string,
-				speed							string,
-				fuel							string,
-				engineoil						string,
-				tirepressure					string,
-				odometer						string,
-				city							string,
-				accelerator_pedal_position		string,
-				parking_brake_status			string,
-				headlamp_status					string,
-				brake_pedal_status				string,
-				transmission_gear_position		string,
-				ignition_status					string,
-				windshield_wiper_status			string,
-				abs  							string,
-				gendate							string
+    DROP TABLE IF EXISTS PartitionedCarEvents; 
+    CREATE EXTERNAL TABLE PartitionedCarEvents
+    (
+                vin                             string,
+                model                           string,
+                timestamp                       string,
+                outsidetemperature              string,
+                enginetemperature               string,
+                speed                           string,
+                fuel                            string,
+                engineoil                       string,
+                tirepressure                    string,
+                odometer                        string,
+                city                            string,
+                accelerator_pedal_position      string,
+                parking_brake_status            string,
+                headlamp_status                 string,
+                brake_pedal_status              string,
+                transmission_gear_position      string,
+                ignition_status                 string,
+                windshield_wiper_status         string,
+                abs                             string,
+                gendate                         string
                                 
-	) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' LINES TERMINATED BY '10' STORED AS TEXTFILE LOCATION '${hiveconf:PARTITIONEDINPUT}';
+    ) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' LINES TERMINATED BY '10' STORED AS TEXTFILE LOCATION '${hiveconf:PARTITIONEDINPUT}';
 
-	DROP TABLE IF EXISTS FuelEfficientDriving; 
-	CREATE EXTERNAL TABLE FuelEfficientDriving
-	(
-               	vin 						string, 
-				model						string,
-               	city						string,
-				speed 			 			string,
-				transmission_gear_position	string,                
-				brake_pedal_status			string,            
-				accelerator_pedal_position	string,                             
-				Year						string,
-				Month						string
+    DROP TABLE IF EXISTS FuelEfficientDriving; 
+    CREATE EXTERNAL TABLE FuelEfficientDriving
+    (
+                vin                         string, 
+                model                       string,
+                city                        string,
+                speed                       string,
+                transmission_gear_position  string,                
+                brake_pedal_status          string,            
+                accelerator_pedal_position  string,                             
+                Year                        string,
+                Month                       string
                                 
-	) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' LINES TERMINATED BY '10' STORED AS TEXTFILE LOCATION '${hiveconf:FUELEFFICIENTOUTPUT}';
+    ) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' LINES TERMINATED BY '10' STORED AS TEXTFILE LOCATION '${hiveconf:FUELEFFICIENTOUTPUT}';
 
 
 
-	INSERT OVERWRITE TABLE FuelEfficientDriving
-	select
-	vin,
-	model,
-	city,
-	speed,
-	transmission_gear_position,
-	brake_pedal_status,
-	accelerator_pedal_position,
-	"${hiveconf:Year}" as Year,
-	"${hiveconf:Month}" as Month
-	from PartitionedCarEvents
-	where transmission_gear_position IN ('fourth', 'fifth', 'sixth', 'seventh', 'eight') AND parking_brake_status = '0' AND brake_pedal_status = '0' AND speed <= '60' AND accelerator_pedal_position >= '50'
+    INSERT OVERWRITE TABLE FuelEfficientDriving
+    select
+    vin,
+    model,
+    city,
+    speed,
+    transmission_gear_position,
+    brake_pedal_status,
+    accelerator_pedal_position,
+    "${hiveconf:Year}" as Year,
+    "${hiveconf:Month}" as Month
+    from PartitionedCarEvents
+    where transmission_gear_position IN ('fourth', 'fifth', 'sixth', 'seventh', 'eight') AND parking_brake_status = '0' AND brake_pedal_status = '0' AND speed <= '60' AND accelerator_pedal_position >= '50'
 
 
 *Figure 24 – Fuel efficient driving pattern Hive query*
@@ -591,62 +591,62 @@ There are few steps performed in this pipeline for data preparation so that it c
 
 Once the scoring is completed, an HDInsight activity is used to process and aggregate the data that are categorized as anomalies by the model with a probability score of 0.60 or higher.  
 
-	DROP TABLE IF EXISTS CarEventsAnomaly; 
-	CREATE EXTERNAL TABLE CarEventsAnomaly 
-	(
-            	vin							string,
-				model						string,
-				gendate						string,
-				outsidetemperature			string,
-				enginetemperature			string,
-				speed						string,
-				fuel						string,
-				engineoil					string,
-				tirepressure				string,
-				odometer					string,
-				city						string,
-				accelerator_pedal_position	string,
-				parking_brake_status		string,
-				headlamp_status				string,
-				brake_pedal_status			string,
-				transmission_gear_position	string,
-				ignition_status				string,
-				windshield_wiper_status		string,
-				abs  						string,
-				maintenanceLabel			string,
-				maintenanceProbability		string,
-				RecallLabel					string,
-				RecallProbability			string
+    DROP TABLE IF EXISTS CarEventsAnomaly; 
+    CREATE EXTERNAL TABLE CarEventsAnomaly 
+    (
+                vin                         string,
+                model                       string,
+                gendate                     string,
+                outsidetemperature          string,
+                enginetemperature           string,
+                speed                       string,
+                fuel                        string,
+                engineoil                   string,
+                tirepressure                string,
+                odometer                    string,
+                city                        string,
+                accelerator_pedal_position  string,
+                parking_brake_status        string,
+                headlamp_status             string,
+                brake_pedal_status          string,
+                transmission_gear_position  string,
+                ignition_status             string,
+                windshield_wiper_status     string,
+                abs                         string,
+                maintenanceLabel            string,
+                maintenanceProbability      string,
+                RecallLabel                 string,
+                RecallProbability           string
                                 
-	) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' LINES TERMINATED BY '10' STORED AS TEXTFILE LOCATION '${hiveconf:ANOMALYOUTPUT}';
+    ) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' LINES TERMINATED BY '10' STORED AS TEXTFILE LOCATION '${hiveconf:ANOMALYOUTPUT}';
 
-	DROP TABLE IF EXISTS RecallModel; 
-	CREATE EXTERNAL TABLE RecallModel 
-	(
+    DROP TABLE IF EXISTS RecallModel; 
+    CREATE EXTERNAL TABLE RecallModel 
+    (
 
-				vin							string,
-				model						string,
-				city						string,
-				outsidetemperature			string,
-				enginetemperature			string,
-				speed						string,
-            	Year						string,
-				Month						string				
+                vin                         string,
+                model                       string,
+                city                        string,
+                outsidetemperature          string,
+                enginetemperature           string,
+                speed                       string,
+                Year                        string,
+                Month                       string              
                                 
-	) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' LINES TERMINATED BY '10' STORED AS TEXTFILE LOCATION '${hiveconf:RECALLMODELOUTPUT}';
+    ) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' LINES TERMINATED BY '10' STORED AS TEXTFILE LOCATION '${hiveconf:RECALLMODELOUTPUT}';
 
-	INSERT OVERWRITE TABLE RecallModel
-	select
-	vin,
-	model,
-	city,
-	outsidetemperature,
-	enginetemperature,
-	speed,
-	"${hiveconf:Year}" as Year,
-	"${hiveconf:Month}" as Month
-	from CarEventsAnomaly
-	where RecallLabel = '1' AND RecallProbability >= '0.60'
+    INSERT OVERWRITE TABLE RecallModel
+    select
+    vin,
+    model,
+    city,
+    outsidetemperature,
+    enginetemperature,
+    speed,
+    "${hiveconf:Year}" as Year,
+    "${hiveconf:Month}" as Month
+    from CarEventsAnomaly
+    where RecallLabel = '1' AND RecallProbability >= '0.60'
 
 *Figure 29  – Recall aggregation hive query*
 
@@ -703,3 +703,4 @@ Click here for detailed instructions on setting up the PowerBI reports and the d
 ## Summary
 
 This document contains a detailed drill-down of the Vehicle Telemetry Analytics Solution. This showcases a lambda architecture pattern for real-time and batch analytics with predictions and actions. This pattern applies to a wide range of use cases that require hot path (real-time) and cold path (batch) analytics. 
+

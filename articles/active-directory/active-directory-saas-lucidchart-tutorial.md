@@ -68,19 +68,19 @@ The objective of this section is to outline how to enable users to authenticate 
 
 ###To configure single sign-on, perform the following steps:
 
-1.  In the Azure AD portal, on the **Lucidchart** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  In the Azure AD portal, on the **Lucidchart** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
     ![Configure Single Sign-On](./media/active-directory-saas-lucidchart-tutorial/IC791186.png "Configure Single Sign-On")
 
-2.  On the **How would you like users to sign on to Lucidchart** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to Lucidchart** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-lucidchart-tutorial/IC791187.png "Configure Single Sign-On")
 
-3.  On the **Configure App URL** page, in the **Lucidchart Sign On URL** textbox, type the URL used by your users to sign on to your Lucidchart application (e.g.: "*https://chart2.office.lucidchart.com/saml/sso/azure*"), and then click **Next**.
+3.  On the **Configure App URL** page, in the **Lucidchart Sign On URL** textbox, type the URL used by your users to sign on to your Lucidchart application (e.g.: "*https://chart2.office.lucidchart.com/saml/sso/azure*"), and then click **Next**.
 
     ![Configure App URL](./media/active-directory-saas-lucidchart-tutorial/IC791188.png "Configure App URL")
 
-4.  On the **Configure single sign-on at Lucidchart** page, to download your metadata, click **Download metadata**, and then save the data file locally on your computer.
+4.  On the **Configure single sign-on at Lucidchart** page, to download your metadata, click **Download metadata**, and then save the data file locally on your computer.
 
     ![Configure Single Sign-On](./media/active-directory-saas-lucidchart-tutorial/IC791189.png "Configure Single Sign-On")
 
@@ -105,7 +105,7 @@ The objective of this section is to outline how to enable users to authenticate 
     4.  Select **Automatically Add new user to the team**, and then click **Save changes**.
         ![Save Changes](./media/active-directory-saas-lucidchart-tutorial/IC791195.png "Save Changes")
 
-9.  Select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+9.  Select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
     ![Configure Single Sign-On](./media/active-directory-saas-lucidchart-tutorial/IC791196.png "Configure Single Sign-On")
 ##Configuring user provisioning
@@ -121,7 +121,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 1.  In the Azure AD portal, create a test account.
 
-2.  On the **Lucidchart **application integration page, click **Assign users**.
+2.  On the **Lucidchart **application integration page, click **Assign users**.
 
     ![Assign Users](./media/active-directory-saas-lucidchart-tutorial/IC791197.png "Assign Users")
 

@@ -153,3 +153,4 @@ More information on horizontal partitioning and sharding scenarios is available 
 [5]: ./media/sql-database-elastic-query-overview/horizontalpartitioning.png
 
 <!--anchors-->
+

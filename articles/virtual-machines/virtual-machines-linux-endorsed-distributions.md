@@ -1,22 +1,22 @@
 <properties
-	pageTitle="Endorsed distributions of Linux | Microsoft Azure"
-	description="Learn about Linux on Azure-endorsed distributions, including guidelines for Ubuntu, OpenLogic, Oracle, and SUSE."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="szarkos"
-	manager="timlt"
-	editor="tysonn"
-	tags="azure-service-management,azure-resource-manager"
-	/>
+    pageTitle="Endorsed distributions of Linux | Microsoft Azure"
+    description="Learn about Linux on Azure-endorsed distributions, including guidelines for Ubuntu, OpenLogic, Oracle, and SUSE."
+    services="virtual-machines"
+    documentationCenter=""
+    authors="szarkos"
+    manager="timlt"
+    editor="tysonn"
+    tags="azure-service-management,azure-resource-manager"
+    />
 
 <tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/08/2015"
-	ms.author="szark"/>
+    ms.service="virtual-machines"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-linux"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/08/2015"
+    ms.author="szark"/>
 
 
 
@@ -86,4 +86,5 @@ SUSE Linux Enterprise Server on Azure is a proven platform that provides superio
 Canonical engineering and open community governance drive Ubuntu's success in client, server and cloud computing,  including personal cloud services for consumers. Canonical's vision of a unified free platform in Ubuntu, from phone to cloud, with a family of coherent interfaces for the phone, tablet, TV and desktop, makes Ubuntu the first choice for diverse institutions from public cloud providers to the makers of consumer electronics, and a favorite among individual technologists.
 
 With developers and engineering centers around the world, Canonical is uniquely positioned to partner with hardware makers, content providers and software developers to bring Ubuntu solutions to market, from PCs to servers and handheld devices.
+
 

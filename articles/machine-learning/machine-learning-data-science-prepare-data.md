@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Tasks to prepare data for enhanced machine learning | Microsoft Azure"
-	description="Pre-process and clean data to prepare it for machine learning."
-	services="machine-learning"
-	documentationCenter=""
-	authors="bradsev"
-	manager="paulettm"
-	editor="cgronlun" />
+    pageTitle="Tasks to prepare data for enhanced machine learning | Microsoft Azure"
+    description="Pre-process and clean data to prepare it for machine learning."
+    services="machine-learning"
+    documentationCenter=""
+    authors="bradsev"
+    manager="paulettm"
+    editor="cgronlun" />
 
 <tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/20/2015"
-	ms.author="bradsev" />
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/20/2015"
+    ms.author="bradsev" />
 
 
 # Tasks to prepare data for enhanced machine learning
@@ -48,9 +48,9 @@ We can check the general quality of data by checking:
 * The attribute **data types** (nominal, ordinal, or continuous).
 * The number of **missing values**.
 * **Well-formedness** of the data. 
-	* If the data is in TSV or CSV, check that the column separators and line separators always correctly separate columns and lines. 
-	* If the data is in HTML or XML format, check whether the data is well formed based on their respective standards. 
-	* Parsing may also be necessary in order to extract structured information from semi-structured or unstructured data.
+    * If the data is in TSV or CSV, check that the column separators and line separators always correctly separate columns and lines. 
+    * If the data is in HTML or XML format, check whether the data is well formed based on their respective standards. 
+    * Parsing may also be necessary in order to extract structured information from semi-structured or unstructured data.
 * **Inconsistent data records**. Check the range of values are allowed. e.g. If the data contains student GPA, check if the GPA is in the designated range, say 0~4.
 
 When you find issues with data, **processing steps** are necessary which often involves cleaning missing values, data normalization, discretization, text processing to remove and/or replace embedded characters which may affect data alignment, mixed data types in common fields, and others.

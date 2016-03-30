@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure AD B2C Preview: Calling a Web API from an iOS application | Microsoft Azure"
-	description="This article will show you how to create a iOS "To-Do List" app that calls a node.js web API using OAuth 2.0 bearer tokens. Both the iOS app and web api use Azure AD B2C to manage user identities and authenticate users."
-	services="active-directory-b2c"
-	documentationCenter="ios"
-	authors="brandwe"
-	manager="mbaldwin"
-	editor=""/>
+    pageTitle="Azure AD B2C Preview: Calling a Web API from an iOS application | Microsoft Azure"
+    description="This article will show you how to create a iOS "To-Do List" app that calls a node.js web API using OAuth 2.0 bearer tokens. Both the iOS app and web api use Azure AD B2C to manage user identities and authenticate users."
+    services="active-directory-b2c"
+    documentationCenter="ios"
+    authors="brandwe"
+    manager="mbaldwin"
+    editor=""/>
 
 <tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="objectivec"
-	ms.topic="article"
-	ms.date="09/22/2015"
-	ms.author="brandwe"/>
+    ms.service="active-directory-b2c"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="objectivec"
+    ms.topic="article"
+    ms.date="09/22/2015"
+    ms.author="brandwe"/>
 
 # Azure AD B2C Preview: Calling a Web API from an iOS application
 
@@ -24,14 +24,14 @@ With Azure AD B2C, you can add powerful self-service identity managment features
 and authenticate users.
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
-	
+    
 > [AZURE.NOTE]
-	This quickstart has a pre-requisite that you have a Web API protected by Azure AD with B2C in order to work fully. We have built one for both .Net and node.js for you to use. This walk-through assumes the node.js Web-API sample is configured. 
-	please refer to the [Azure Active Directory Web-API for Node.js sample](active-directory-b2c-devquickstarts-api-node.md`
+    This quickstart has a pre-requisite that you have a Web API protected by Azure AD with B2C in order to work fully. We have built one for both .Net and node.js for you to use. This walk-through assumes the node.js Web-API sample is configured. 
+    please refer to the [Azure Active Directory Web-API for Node.js sample](active-directory-b2c-devquickstarts-api-node.md`
 ).
 
 > [AZURE.NOTE]
-	This article does not cover how to implement sign-in, sign-up and profile management with Azure AD B2C.  It focuses on calling web APIs after the user is already authenticated.
+    This article does not cover how to implement sign-in, sign-up and profile management with Azure AD B2C.  It focuses on calling web APIs after the user is already authenticated.
 If you haven't already, you should start with the [.NET Web App getting started tutorial](active-directory-b2c-devquickstarts-web-dotnet.md) to learn about the basics of Azure AD B2C.
 
 ## 1. Get an Azure AD B2C directory
@@ -97,31 +97,31 @@ In order for the iOS Task app to communicate with Azure AD B2C, there are a few 
 
 ```
 <dict>
-	<key>authority</key>
-	<string>https://login.microsoftonline.com/<your tenant name>.onmicrosoft.com/</string>
-	<key>clientId</key>
-	<string><Enter the Application Id assigned to your app by the Azure portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609></string>
-	<key>scopes</key>
-	<array>
-		<string><Enter the Application Id assigned to your app by the Azure portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609></string>
-	</array>
-	<key>additionalScopes</key>
-	<array>
-	</array>
-	<key>redirectUri</key>
-	<string>urn:ietf:wg:oauth:2.0:oob</string>
-	<key>taskWebAPI</key>
-	<string>http://localhost/tasks:3000</string>
-	<key>emailSignUpPolicyId</key>
-	<string><Enter your sign up policy name, e.g.g b2c_1_sign_up></string>
-	<key>faceBookSignInPolicyId</key>
-	<string><your sign in policy for FB></string>
-	<key>emailSignInPolicyId</key>
-	<string><Enter your sign in policy name, e.g. b2c_1_sign_in></string>
-	<key>fullScreen</key>
-	<false/>
-	<key>showClaims</key>
-	<true/>
+    <key>authority</key>
+    <string>https://login.microsoftonline.com/<your tenant name>.onmicrosoft.com/</string>
+    <key>clientId</key>
+    <string><Enter the Application Id assigned to your app by the Azure portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609></string>
+    <key>scopes</key>
+    <array>
+        <string><Enter the Application Id assigned to your app by the Azure portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609></string>
+    </array>
+    <key>additionalScopes</key>
+    <array>
+    </array>
+    <key>redirectUri</key>
+    <string>urn:ietf:wg:oauth:2.0:oob</string>
+    <key>taskWebAPI</key>
+    <string>http://localhost/tasks:3000</string>
+    <key>emailSignUpPolicyId</key>
+    <string><Enter your sign up policy name, e.g.g b2c_1_sign_up></string>
+    <key>faceBookSignInPolicyId</key>
+    <string><your sign in policy for FB></string>
+    <key>emailSignInPolicyId</key>
+    <string><Enter your sign in policy name, e.g. b2c_1_sign_in></string>
+    <key>fullScreen</key>
+    <false/>
+    <key>showClaims</key>
+    <true/>
 </dict>
 </plist>
 ```
@@ -644,3 +644,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 [Calling a node.js Web API from a node.js Web App >>]()
 
 [Customizing the your B2C App's UX >>]()
+

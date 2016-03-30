@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Access an Azure API App using HTML and JavaScript" 
-	description="Learn how to access your API App back-end using HTML and JavaScript." 
-	services="app-service\api" 
-	documentationCenter=".net"
-	authors="bradygaster"
-	manager="mohisri" 
-	editor="tdykstra"/>
+    pageTitle="Access an Azure API App using HTML and JavaScript" 
+    description="Learn how to access your API App back-end using HTML and JavaScript." 
+    services="app-service\api" 
+    documentationCenter=".net"
+    authors="bradygaster"
+    manager="mohisri" 
+    editor="tdykstra"/>
 
 <tags 
-	ms.service="app-service-api" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="JavaScript" 
-	ms.topic="article" 
-	ms.date="10/30/2015" 
-	ms.author="bradygaster"/>
+    ms.service="app-service-api" 
+    ms.workload="web" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="JavaScript" 
+    ms.topic="article" 
+    ms.date="10/30/2015" 
+    ms.author="bradygaster"/>
 
 # Consume an Azure API App using HTML and JavaScript
 
@@ -42,31 +42,31 @@ API App Gateways can be configured to enable CORS using the Azure preview portal
 
 1. Navigate to the Azure preview portal blade for the API App you want to CORS-enable. Once there, click the *Gateway* icon for your API App. 
 
-	![Clicking the API App Gateway button](./media/app-service-api-javascript-client/19-api-app-blade.png)
+    ![Clicking the API App Gateway button](./media/app-service-api-javascript-client/19-api-app-blade.png)
 
 1. Click the **Gateway Host** link in the portal blade. 
 
-	![Clicking the API App Gateway host link](./media/app-service-api-javascript-client/20-gateway-host-blade.png)
+    ![Clicking the API App Gateway host link](./media/app-service-api-javascript-client/20-gateway-host-blade.png)
 
 1. Click the **All Settings** link in the portal blade. 
 
-	![Gateway All Settings link](./media/app-service-api-javascript-client/21-gateway-blade-all-settings.png)
+    ![Gateway All Settings link](./media/app-service-api-javascript-client/21-gateway-blade-all-settings.png)
 
 1. Click the **Application Settings** button in the portal blade.
 
-	![Gateway application settings](./media/app-service-api-javascript-client/22-gateway-app-settings-blade.png)
+    ![Gateway application settings](./media/app-service-api-javascript-client/22-gateway-app-settings-blade.png)
 
 1. Add the **MS_CrossDomainOrigins** application setting. Make the value of the setting the comma-separated list of HTTP hosts you want to provide access to your API App. If you want to provide access to multiple hosts, the value of the *appSetting* can be set to something like the code below. 
 
-		http://foo.azurewebsites.net, https://foo.azurewebsites.net, http://contactlistwebapp.azurewebsites.net
+        http://foo.azurewebsites.net, https://foo.azurewebsites.net, http://contactlistwebapp.azurewebsites.net
 
-	The section below will walk through the process of creating a separate web application containing a simple HTML page that calls the API App from a Web App running in the same Azure Resource Group as the API App. Since this is the only host that will be allowed access to the API App, the setting will be set to contain one host. 
+    The section below will walk through the process of creating a separate web application containing a simple HTML page that calls the API App from a Web App running in the same Azure Resource Group as the API App. Since this is the only host that will be allowed access to the API App, the setting will be set to contain one host. 
 
-		http://contactlistwebapp.azurewebsites.net
+        http://contactlistwebapp.azurewebsites.net
 
-	The screen shot below demonstrates how this setting should look once you've saved it in the Azure preview portal. 
+    The screen shot below demonstrates how this setting should look once you've saved it in the Azure preview portal. 
 
-	![](./media/app-service-api-javascript-client/23-app-settings-set.png)
+    ![](./media/app-service-api-javascript-client/23-app-settings-set.png)
 
 The **MS_CrossDomainOrigins** application setting is discussed in detail in the blog post [Azure Mobile Service .NET Updates](http://azure.microsoft.com/blog/2014/07/28/azure-mobile-services-net-updates/), so check this post for more details on the details of the setting.
 
@@ -76,69 +76,69 @@ The process of enabling CORS in Web API is documented in the ASP.NET article [En
 
 1. CORS functionality is provided by the [Microsoft.AspNet.WebApi.Cors](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Cors/) NuGet package. Install it by opening the **Package Manager Console**, and execute the following PowerShell script. 
 
-		Install-Package Microsoft.AspNet.WebApi.Cors
+        Install-Package Microsoft.AspNet.WebApi.Cors
 
 1. Once the command executes, the Package Manager Console and **packages.config** will reflect the addition of the new NuGet package. 
 
-	![apiapp.json and Metadata in Solution Explorer](./media/app-service-api-javascript-client/01-cors-installed.png)
+    ![apiapp.json and Metadata in Solution Explorer](./media/app-service-api-javascript-client/01-cors-installed.png)
 
 1. Open up the *App_Start/WebApiConfig.cs* file. Add the line of code below to the **Register** method of the **WebApiConfig** class in the file. 
 
-		config.EnableCors();
+        config.EnableCors();
 
-	Once the file is updated the code should look like the following:
+    Once the file is updated the code should look like the following:
 
-		public static class WebApiConfig
-	    {
-	        public static void Register(HttpConfiguration config)
-	        {
-	            // Web API configuration and services
-	            
-				config.EnableCors(); /* -- NEW CODE -- */
-	
-	            // Web API routes
-	            config.MapHttpAttributeRoutes();
-	
-	            config.Routes.MapHttpRoute(
-	                name: "DefaultApi",
-	                routeTemplate: "api/{controller}/{id}",
-	                defaults: new { id = RouteParameter.Optional }
-	            );
-	        }
-	    }
+        public static class WebApiConfig
+        {
+            public static void Register(HttpConfiguration config)
+            {
+                // Web API configuration and services
+                
+                config.EnableCors(); /* -- NEW CODE -- */
+    
+                // Web API routes
+                config.MapHttpAttributeRoutes();
+    
+                config.Routes.MapHttpRoute(
+                    name: "DefaultApi",
+                    routeTemplate: "api/{controller}/{id}",
+                    defaults: new { id = RouteParameter.Optional }
+                );
+            }
+        }
 
 1. The final step to enable CORS is to demarcate the individual action methods you want to enable. Add the **EnableCors** attribute over each of the methods or on the entire controller, as demonstrated in the code below. 
 
-	> **Note**: Use of wildcards for all of the parameters with the EnableCors attribute is intended only for demonstration purposes, and will open your API up to all origins and all HTTP requests. Please use this attribute with caution and understand the implications.
+    > **Note**: Use of wildcards for all of the parameters with the EnableCors attribute is intended only for demonstration purposes, and will open your API up to all origins and all HTTP requests. Please use this attribute with caution and understand the implications.
 
-		using ContactList.Models;
-		using System.Collections.Generic;
-		using System.Web.Http;
-		using System.Web.Http.Cors;
-	
-		namespace ContactList.Controllers
-		{
-		    [EnableCors(origins:"*", headers:"*", methods: "*")] /* -- NEW CODE -- */
-		    public class ContactsController : ApiController
-		    {
-		        [HttpGet]
-		        public IEnumerable<Contact> Get()
-		        {
-		            return new Contact[]
-		            {
-		                new Contact { Id = 1, EmailAddress = "barney@contoso.com", Name = "Barney Poland"},
-		                new Contact { Id = 2, EmailAddress = "lacy@contoso.com", Name = "Lacy Barrera"},
-		                new Contact { Id = 3, EmailAddress = "lora@microsoft.com", Name = "Lora Riggs"}
-		            };
-		        }
-		
-		        [HttpPost]
-		        public Contact Post([FromBody] Contact contact)
-		        {
-		            return contact;
-		        }
-		    }
-		}
+        using ContactList.Models;
+        using System.Collections.Generic;
+        using System.Web.Http;
+        using System.Web.Http.Cors;
+    
+        namespace ContactList.Controllers
+        {
+            [EnableCors(origins:"*", headers:"*", methods: "*")] /* -- NEW CODE -- */
+            public class ContactsController : ApiController
+            {
+                [HttpGet]
+                public IEnumerable<Contact> Get()
+                {
+                    return new Contact[]
+                    {
+                        new Contact { Id = 1, EmailAddress = "barney@contoso.com", Name = "Barney Poland"},
+                        new Contact { Id = 2, EmailAddress = "lacy@contoso.com", Name = "Lacy Barrera"},
+                        new Contact { Id = 3, EmailAddress = "lora@microsoft.com", Name = "Lora Riggs"}
+                    };
+                }
+        
+                [HttpPost]
+                public Contact Post([FromBody] Contact contact)
+                {
+                    return contact;
+                }
+            }
+        }
 1. If you'd already deployed your API App to Azure prior to adding support for CORS, re-deploy the code so that CORS will be enabled in your Azure-hosted API. 
 
 ## Creating a Web App to Consume the API App
@@ -147,81 +147,81 @@ In this section, you'll create a new Empty Web Application, install and use Angu
 
 1. Right-click the solution that you created earlier in [Create an API App](app-service-dotnet-create-api-app.md), and select **Add -> New Project**
 
-	![apiapp.json and Metadata in Solution Explorer](./media/app-service-api-javascript-client/02-add-project.png)
+    ![apiapp.json and Metadata in Solution Explorer](./media/app-service-api-javascript-client/02-add-project.png)
 
 1. Select the **ASP.NET Web Application** template. 
 
-	![apiapp.json and Metadata in Solution Explorer](./media/app-service-api-javascript-client/03-new-web-project.png)
+    ![apiapp.json and Metadata in Solution Explorer](./media/app-service-api-javascript-client/03-new-web-project.png)
 
 1. Select the **Empty** template from the One ASP.NET dialog.
 
-	![apiapp.json and Metadata in Solution Explorer](./media/app-service-api-javascript-client/04-empty-web.png)
+    ![apiapp.json and Metadata in Solution Explorer](./media/app-service-api-javascript-client/04-empty-web.png)
 
 1. Using either the **Package Manager** or by using the **Manage NuGet Packages** context menu item, install the [AngularJS](https://www.nuget.org/packages/angularjs) NuGet package.
 
-	![apiapp.json and Metadata in Solution Explorer](./media/app-service-api-javascript-client/05-install-angular.png)
+    ![apiapp.json and Metadata in Solution Explorer](./media/app-service-api-javascript-client/05-install-angular.png)
 
 1. Using either the **Package Manager** or by using the **Manage NuGet Packages** context menu item, install the [Bootstrap](https://www.nuget.org/packages/bootstrap) NuGet package.
 
-	![apiapp.json and Metadata in Solution Explorer](./media/app-service-api-javascript-client/05-install-bootstrap.png) 
+    ![apiapp.json and Metadata in Solution Explorer](./media/app-service-api-javascript-client/05-install-bootstrap.png) 
 
 1. Add a new HTML file to the Web App project. 
 
-	![apiapp.json and Metadata in Solution Explorer](./media/app-service-api-javascript-client/06-new-html-file.png) 
+    ![apiapp.json and Metadata in Solution Explorer](./media/app-service-api-javascript-client/06-new-html-file.png) 
 
 1. Name the file *index.html*. 
 
-	![apiapp.json and Metadata in Solution Explorer](./media/app-service-api-javascript-client/07-index-html.png)
+    ![apiapp.json and Metadata in Solution Explorer](./media/app-service-api-javascript-client/07-index-html.png)
 
 1. Add the bootstrap CSS and AngularJS JavaScript files to the HTML page, as well as use a simple Bootstrap template ([like this one](http://getbootstrap.com/examples/starter-template/)) and create an empty script tag to prepare the page. 
-	
-	> Note: The comments in the HTML and JavaScript code below are preludes to subsequent steps in this section.  
+    
+    > Note: The comments in the HTML and JavaScript code below are preludes to subsequent steps in this section.  
 
-		<!DOCTYPE html>
-		<html xmlns="http://www.w3.org/1999/xhtml">
-		<head>
-		    <title>Contacts HTML Client</title>
-		    <link href="Content/bootstrap.css" rel="stylesheet" />
-		    <style type="text/css">
-		        body {
-		            margin-top: 60px;
-		        }
-		    </style>
-		</head>
-		<body>
-		
-		    <nav class="navbar navbar-inverse navbar-fixed-top">
-		        <div class="container">
-		            <div class="navbar-header">
-		                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-		                    <span class="sr-only">Toggle navigation</span>
-		                    <span class="icon-bar"></span>
-		                    <span class="icon-bar"></span>
-		                    <span class="icon-bar"></span>
-		                </button>
-		                <a class="navbar-brand" href="#">Contacts</a>
-		            </div>
-		            <div id="navbar" class="collapse navbar-collapse">
-		                <ul class="nav navbar-nav"></ul>
-		            </div>
-		        </div>
-		    </nav>
-		
-		    <div class="container">
-		        <!-- contacts ui here -->
-		    </div>
-		
-		    <script src="Scripts/angular.js" type="text/javascript"></script>
-		    <script type="text/javascript">
-		        /* client javascript code here */
-		    </script>
-		
-		</body>
-		</html>
+        <!DOCTYPE html>
+        <html xmlns="http://www.w3.org/1999/xhtml">
+        <head>
+            <title>Contacts HTML Client</title>
+            <link href="Content/bootstrap.css" rel="stylesheet" />
+            <style type="text/css">
+                body {
+                    margin-top: 60px;
+                }
+            </style>
+        </head>
+        <body>
+        
+            <nav class="navbar navbar-inverse navbar-fixed-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">Contacts</a>
+                    </div>
+                    <div id="navbar" class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav"></ul>
+                    </div>
+                </div>
+            </nav>
+        
+            <div class="container">
+                <!-- contacts ui here -->
+            </div>
+        
+            <script src="Scripts/angular.js" type="text/javascript"></script>
+            <script type="text/javascript">
+                /* client javascript code here */
+            </script>
+        
+        </body>
+        </html>
 
 1. Add the HTML table code shown below to the **container** *div* element in the HTML.
 
-		<!-- contacts ui here -->
+        <!-- contacts ui here -->
         <table class="table table-striped" ng-app="myApp" ng-controller="contactListCtrl">
             <thead>
                 <tr>
@@ -260,13 +260,13 @@ In this section, you'll create a new Empty Web Application, install and use Angu
 
 3. Right-click the *index.html* file and click **View in Browser**. 
 
-	Notice the template handlebars in the HTML output. You'll data-bind those HTML elements using AngularJS in the next step. 
+    Notice the template handlebars in the HTML output. You'll data-bind those HTML elements using AngularJS in the next step. 
 
-	![apiapp.json and Metadata in Solution Explorer](./media/app-service-api-javascript-client/09-template-ui.png)
+    ![apiapp.json and Metadata in Solution Explorer](./media/app-service-api-javascript-client/09-template-ui.png)
 
 1. Add the JavaScript code below to the *index.html* file to call the API and databind the HTML UI to the API output. 
 
-		/* client javascript code here */
+        /* client javascript code here */
         angular.module('myApp', []).controller('contactListCtrl', function ($scope, $http) {
             $scope.baseUrl = 'http://localhost:1578';
 
@@ -318,11 +318,11 @@ In this section, you'll create a new Empty Web Application, install and use Angu
 
 1. Make sure that the API App project is also running when you run the HTML client, or the JavaScript HTML will not function properly. Right-click the solution and select **Properties**. Then set both Web projects to **Start without Debugging**, and that the API project runs first. 
 
-	![apiapp.json and Metadata in Solution Explorer](./media/app-service-api-javascript-client/10-run-both-web-projects.png)
+    ![apiapp.json and Metadata in Solution Explorer](./media/app-service-api-javascript-client/10-run-both-web-projects.png)
 
 1. Run the solution and the HTML/JavaScript client connects to and displays data from the API App project. 
 
-	![apiapp.json and Metadata in Solution Explorer](./media/app-service-api-javascript-client/11-web-client-running.png)
+    ![apiapp.json and Metadata in Solution Explorer](./media/app-service-api-javascript-client/11-web-client-running.png)
 
 ## Deploying the Web App
 
@@ -332,43 +332,44 @@ In this section you'll deploy the HTML/JavaScript client as an App Service Web A
 
 1. Open the API App's blade in the Azure preview portal. Click the URL in the blade to open it up in your browser. Once it opens, copy out the URL of the API App from the browser address bar. 
 
-	![apiapp.json and Metadata in Solution Explorer](./media/app-service-api-javascript-client/12-open-api-app-from-blade.png)
+    ![apiapp.json and Metadata in Solution Explorer](./media/app-service-api-javascript-client/12-open-api-app-from-blade.png)
 
 1. Paste the API App's URL to overwrite the previous value for the **$scope.baseUrl** property in the JavaScript code. 
 
-		$scope.baseUrl = 'https://microsoft-apiappf7e042ba8e5233ab4312021d2aae5d86.azurewebsites.net';
+        $scope.baseUrl = 'https://microsoft-apiappf7e042ba8e5233ab4312021d2aae5d86.azurewebsites.net';
 
-	Notice that the URL specifies HTTPS.  The use of HTTPS is not optional;  API Apps does not support HTTP.
+    Notice that the URL specifies HTTPS.  The use of HTTPS is not optional;  API Apps does not support HTTP.
 
 1. Right-click the HTML/JavaScript Web Project and select the **Publish** context menu item.
 
-	![apiapp.json and Metadata in Solution Explorer](./media/app-service-api-javascript-client/13-publish-web-app.png)
+    ![apiapp.json and Metadata in Solution Explorer](./media/app-service-api-javascript-client/13-publish-web-app.png)
 
 1. Select the **Microsoft Azure Web Apps** option in the Publish Web dialog. 
 
-	![apiapp.json and Metadata in Solution Explorer](./media/app-service-api-javascript-client/14-publish-web-dialog.png)
+    ![apiapp.json and Metadata in Solution Explorer](./media/app-service-api-javascript-client/14-publish-web-dialog.png)
 
 1. Click the **New** button to create a new Web App.
 
-	![apiapp.json and Metadata in Solution Explorer](./media/app-service-api-javascript-client/15-new-web-app.png)
+    ![apiapp.json and Metadata in Solution Explorer](./media/app-service-api-javascript-client/15-new-web-app.png)
 
 1. Select the same App Hosting Plan and Resource Group in which your API App is already running.
 
-	> **Note**: This isn't a requirement, but for demonstration purposes it makes it easier to clean up your Azure resources later if everything is contained in one Resource Group.
+    > **Note**: This isn't a requirement, but for demonstration purposes it makes it easier to clean up your Azure resources later if everything is contained in one Resource Group.
 
-	![apiapp.json and Metadata in Solution Explorer](./media/app-service-api-javascript-client/16-new-web-app-creation-dialog.png)
+    ![apiapp.json and Metadata in Solution Explorer](./media/app-service-api-javascript-client/16-new-web-app-creation-dialog.png)
 
 1. Complete the Web Publish steps to deploy the HTML/JavaScript client to App Service Web Apps. 
 1. Once the Web App is deployed it should automatically open in your Web browser and display the data from the API App. 
 
-	![apiapp.json and Metadata in Solution Explorer](./media/app-service-api-javascript-client/17-web-app-running-in-ie.png)
+    ![apiapp.json and Metadata in Solution Explorer](./media/app-service-api-javascript-client/17-web-app-running-in-ie.png)
 
 1. At this point, if you browse to the Resource Group you'll see the new Web App running alongside the API App. 
 
-	![apiapp.json and Metadata in Solution Explorer](./media/app-service-api-javascript-client/18-web-app-visible-in-resource-group.png)
+    ![apiapp.json and Metadata in Solution Explorer](./media/app-service-api-javascript-client/18-web-app-visible-in-resource-group.png)
 
 ## Next steps 
 
 This example demonstrated how you can use AngularJS as your JavaScript platform for accessing API App back ends. You can change the REST access functionality to use any other JavaScript framework. 
 
 This example shows unauthenticated access to an API app. For information about authentication in App Service, see [Authentication for API apps and mobile apps](../app-service/app-service-authentication-overview.md).
+

@@ -87,3 +87,4 @@ and name is the name of the extension resource from the template
     Remove-AzureVMExtension -ResourceGroupName $RGName -VMName $vmName -Name "myCustomScriptExtension"
 
 Once the extension has been removed, the template can be re-executed to run the scripts on the VM.
+

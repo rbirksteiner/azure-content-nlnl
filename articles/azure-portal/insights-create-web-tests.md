@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Monitor availability and responsiveness of any web site" 
-	description="Create web tests to verify the responsiveness and availability of Azure web apps." 
-	services="azure-portal" 
+    pageTitle="Monitor availability and responsiveness of any web site" 
+    description="Create web tests to verify the responsiveness and availability of Azure web apps." 
+    services="azure-portal" 
     documentationCenter=""
-	authors="alancameronwills" 
-	manager="keboyd"/>
+    authors="alancameronwills" 
+    manager="keboyd"/>
 
 <tags
-	ms.service="azure-portal" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/28/2015" 
-	ms.author="awills"/>
+    ms.service="azure-portal" 
+    ms.workload="na" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="04/28/2015" 
+    ms.author="awills"/>
 
 
 # Monitor availability and responsiveness of any web site

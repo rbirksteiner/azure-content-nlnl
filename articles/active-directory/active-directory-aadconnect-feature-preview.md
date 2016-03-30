@@ -59,3 +59,4 @@ These attributes will now be available through Graph:
 Continue your [Custom installation of Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
 
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
+

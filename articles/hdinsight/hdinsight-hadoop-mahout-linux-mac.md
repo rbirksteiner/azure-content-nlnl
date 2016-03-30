@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Generate recommendations using Mahout and Linux-based HDInsight | Microsoft Azure"
-	description="Learn how to use the Apache Mahout machine learning library to generate movie recommendations with Linux-based HDInsight (Hadoop)."
-	services="hdinsight"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="paulettm"
-	editor="cgronlun"
-	tags="azure-portal"/>
+    pageTitle="Generate recommendations using Mahout and Linux-based HDInsight | Microsoft Azure"
+    description="Learn how to use the Apache Mahout machine learning library to generate movie recommendations with Linux-based HDInsight (Hadoop)."
+    services="hdinsight"
+    documentationCenter=""
+    authors="Blackmist"
+    manager="paulettm"
+    editor="cgronlun"
+    tags="azure-portal"/>
 
 <tags
-	ms.service="hdinsight"
-	ms.workload="big-data"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/06/2015"
-	ms.author="larryfr"/>
+    ms.service="hdinsight"
+    ms.workload="big-data"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/06/2015"
+    ms.author="larryfr"/>
 
 #Generate movie recommendations by using Apache Mahout with Linux-based Hadoop in HDInsight (preview)
 
@@ -57,7 +57,7 @@ Conveniently, [GroupLens Research][movielens] provides rating data for movies in
 
 1. Use SSH to connect to the Linux-based HDInsight cluster. The address to use when connecting is `CLUSTERNAME-ssh.azurehdinsight.net` and the port is `22`.
 
-	For more information on using SSH to connect to HDInsight, see the following documents:
+    For more information on using SSH to connect to HDInsight, see the following documents:
 
     * **Linux, Unix or OS X clients**: See [Connect to a Linux-based HDInsight cluster from Linux, OS X or Unix](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-linux-based-hdinsight-cluster)
 
@@ -82,17 +82,17 @@ Conveniently, [GroupLens Research][movielens] provides rating data for movies in
     The data contained in this file has a structure of `userID`, `movieID`, `userRating`, and `timestamp`, which tells us how highly each user rated a movie. Here is an example of the data:
 
 
-		196	242	3	881250949
-		186	302	3	891717742
-		22	377	1	878887116
-		244	51	2	880606923
-		166	346	1	886397596
+        196 242 3   881250949
+        186 302 3   891717742
+        22  377 1   878887116
+        244 51  2   880606923
+        166 346 1   886397596
 
 ##Run the job
 
 Use the following command to run the recommendation job:
 
-	mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /example/data/u.data -o /example/data/mahoutout --tempDir /temp/mahouttemp
+    mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /example/data/u.data -o /example/data/mahoutout --tempDir /temp/mahouttemp
 
 > [AZURE.NOTE] The job may take several minutes to complete, and may run multiple MapReduce jobs.
 
@@ -100,28 +100,28 @@ Use the following command to run the recommendation job:
 
 1. Once the job completes, use the following command to view the generated output:
 
-		hdfs dfs -text /example/data/mahoutout/part-r-00000
+        hdfs dfs -text /example/data/mahoutout/part-r-00000
 
-	The output will appear as follows:
+    The output will appear as follows:
 
-		1	[234:5.0,347:5.0,237:5.0,47:5.0,282:5.0,275:5.0,88:5.0,515:5.0,514:5.0,121:5.0]
-		2	[282:5.0,210:5.0,237:5.0,234:5.0,347:5.0,121:5.0,258:5.0,515:5.0,462:5.0,79:5.0]
-		3	[284:5.0,285:4.828125,508:4.7543354,845:4.75,319:4.705128,124:4.7045455,150:4.6938777,311:4.6769233,248:4.65625,272:4.649266]
-		4	[690:5.0,12:5.0,234:5.0,275:5.0,121:5.0,255:5.0,237:5.0,895:5.0,282:5.0,117:5.0]
+        1   [234:5.0,347:5.0,237:5.0,47:5.0,282:5.0,275:5.0,88:5.0,515:5.0,514:5.0,121:5.0]
+        2   [282:5.0,210:5.0,237:5.0,234:5.0,347:5.0,121:5.0,258:5.0,515:5.0,462:5.0,79:5.0]
+        3   [284:5.0,285:4.828125,508:4.7543354,845:4.75,319:4.705128,124:4.7045455,150:4.6938777,311:4.6769233,248:4.65625,272:4.649266]
+        4   [690:5.0,12:5.0,234:5.0,275:5.0,121:5.0,255:5.0,237:5.0,895:5.0,282:5.0,117:5.0]
 
-	The first column is the `userID`. The values contained in '[' and ']' are `movieId`:`recommendationScore`.
+    The first column is the `userID`. The values contained in '[' and ']' are `movieId`:`recommendationScore`.
 
 2. Some of the other data contained in the **ml-100k** directory can be used to make the data more user friendly. First, download the data using the following command:
 
-		hdfs dfs -get /example/data/mahoutout/part-r-00000 recommendations.txt
+        hdfs dfs -get /example/data/mahoutout/part-r-00000 recommendations.txt
 
-	This will copy the output data to a file named **recommendations.txt** in the current directory.
+    This will copy the output data to a file named **recommendations.txt** in the current directory.
 
 3. Use the following command to create a new Python script that will look up movie names for the data in the recommendations output:
 
-		nano show_recommendations.py
+        nano show_recommendations.py
 
-	When the editor opens, use the following as the contents of the file:
+    When the editor opens, use the following as the contents of the file:
 
         #!/usr/bin/env python
         
@@ -173,73 +173,73 @@ Use the following command to run the recommendation job:
                 print "%s, score=%s" % (movieById[movieId][0], score)
         print "------------------------"
 
-	Press **Ctrl-X**, **Y**, and finally **Enter** to save the data.
+    Press **Ctrl-X**, **Y**, and finally **Enter** to save the data.
 
 3. Use the following command to make the file executable:
 
-		chmod +x show_recommendations.py
+        chmod +x show_recommendations.py
 
 4. Run the Python script. The following assumes you are in the ml-100k directory, where the `u.data` and `u.item` files are located:
 
-		./show_recommendations.py 4 u.data u.item recommendations.txt
+        ./show_recommendations.py 4 u.data u.item recommendations.txt
 
-	This will look at the recommendations generated for user ID 4.
+    This will look at the recommendations generated for user ID 4.
 
-	* The **u.data** file is used to retrieve movies that the user has rated
-	* The **u.item** file is used to retrieve the names of the movies
-	* The **recommendations.txt** is used to retrieve the movie recommendations for this user
+    * The **u.data** file is used to retrieve movies that the user has rated
+    * The **u.item** file is used to retrieve the names of the movies
+    * The **recommendations.txt** is used to retrieve the movie recommendations for this user
 
-	The output from this command will be similar to the following:
+    The output from this command will be similar to the following:
 
-		Reading Movies Descriptions
-		Reading Rated Movies
-		Reading Recommendations
-		Rated Movies
-		------------------------
-		Mimic (1997), rating=3
-		Ulee's Gold (1997), rating=5
-		Incognito (1997), rating=5
-		One Flew Over the Cuckoo's Nest (1975), rating=4
-		Event Horizon (1997), rating=4
-		Client, The (1994), rating=3
-		Liar Liar (1997), rating=5
-		Scream (1996), rating=4
-		Star Wars (1977), rating=5
-		Wedding Singer, The (1998), rating=5
-		Starship Troopers (1997), rating=4
-		Air Force One (1997), rating=5
-		Conspiracy Theory (1997), rating=3
-		Contact (1997), rating=5
-		Indiana Jones and the Last Crusade (1989), rating=3
-		Desperate Measures (1998), rating=5
-		Seven (Se7en) (1995), rating=4
-		Cop Land (1997), rating=5
-		Lost Highway (1997), rating=5
-		Assignment, The (1997), rating=5
-		Blues Brothers 2000 (1998), rating=5
-		Spawn (1997), rating=2
-		Wonderland (1997), rating=5
-		In & Out (1997), rating=5
-		------------------------
-		Recommended Movies
-		------------------------
-		Seven Years in Tibet (1997), score=5.0
-		Indiana Jones and the Last Crusade (1989), score=5.0
-		Jaws (1975), score=5.0
-		Sense and Sensibility (1995), score=5.0
-		Independence Day (ID4) (1996), score=5.0
-		My Best Friend's Wedding (1997), score=5.0
-		Jerry Maguire (1996), score=5.0
-		Scream 2 (1997), score=5.0
-		Time to Kill, A (1996), score=5.0
-		Rock, The (1996), score=5.0
-		------------------------
+        Reading Movies Descriptions
+        Reading Rated Movies
+        Reading Recommendations
+        Rated Movies
+        ------------------------
+        Mimic (1997), rating=3
+        Ulee's Gold (1997), rating=5
+        Incognito (1997), rating=5
+        One Flew Over the Cuckoo's Nest (1975), rating=4
+        Event Horizon (1997), rating=4
+        Client, The (1994), rating=3
+        Liar Liar (1997), rating=5
+        Scream (1996), rating=4
+        Star Wars (1977), rating=5
+        Wedding Singer, The (1998), rating=5
+        Starship Troopers (1997), rating=4
+        Air Force One (1997), rating=5
+        Conspiracy Theory (1997), rating=3
+        Contact (1997), rating=5
+        Indiana Jones and the Last Crusade (1989), rating=3
+        Desperate Measures (1998), rating=5
+        Seven (Se7en) (1995), rating=4
+        Cop Land (1997), rating=5
+        Lost Highway (1997), rating=5
+        Assignment, The (1997), rating=5
+        Blues Brothers 2000 (1998), rating=5
+        Spawn (1997), rating=2
+        Wonderland (1997), rating=5
+        In & Out (1997), rating=5
+        ------------------------
+        Recommended Movies
+        ------------------------
+        Seven Years in Tibet (1997), score=5.0
+        Indiana Jones and the Last Crusade (1989), score=5.0
+        Jaws (1975), score=5.0
+        Sense and Sensibility (1995), score=5.0
+        Independence Day (ID4) (1996), score=5.0
+        My Best Friend's Wedding (1997), score=5.0
+        Jerry Maguire (1996), score=5.0
+        Scream 2 (1997), score=5.0
+        Time to Kill, A (1996), score=5.0
+        Rock, The (1996), score=5.0
+        ------------------------
 
 ##Delete temporary data
 
 Mahout jobs do not remove temporary data that is created while processing the job. The `--tempDir` parameter is specified in the example job to isolate the temporary files into a specific path for easy deletion. To remove the temp files, use the following command:
 
-	hdfs dfs -rm -f -r /temp/mahouttemp
+    hdfs dfs -rm -f -r /temp/mahouttemp
 
 > [AZURE.WARNING] If you want to run the command again, you must also delete the output directory. Use the following to delete this directory:
 >

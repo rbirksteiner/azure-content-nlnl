@@ -21,21 +21,21 @@ An underpinning need in today’s business success, is the ability to build and 
 Azure Resource Manager relies on different resource providers to provide access to your resources. There are three main resource providers: Network, Storage and Compute. This document discusses the characteristics and benefits of the Network Resource Provider, including:
 
 - **Metadata** – you can add information to resources using tags. These tags can be used to track resource utilization across resource groups and subscriptions.
-- **Greater control of your network** - network resources are loosely coupled and you can control them in a more granular fashion. This means you have more flexibility in managing the networking resources.
-- **Faster configuration** - because network resources are loosely coupled, you can create and orchestrate network resources in parallel. This has drastically reduced configuration time.
+- **Greater control of your network** - network resources are loosely coupled and you can control them in a more granular fashion. This means you have more flexibility in managing the networking resources.
+- **Faster configuration** - because network resources are loosely coupled, you can create and orchestrate network resources in parallel. This has drastically reduced configuration time.
 - **Role Based Access Control** - RBAC provides default roles, with specific security scope, in addition to allowing the creation of custom roles for secure management. 
 - **Easier management and deployment** - it’s easier to deploy and manage applications since you can can create an entire application stack as a single collection of resources in a resource group. And faster to deploy, since you can deploy by simply providing a template JSON payload.
-- **Rapid customization** - you can use declarative-style templates to enable repeatable and rapid customization of deployments. 
+- **Rapid customization** - you can use declarative-style templates to enable repeatable and rapid customization of deployments. 
 - **Repeatable customization** - you can use declarative-style templates to enable repeatable and rapid customization of deployments.
 - **Management interfaces** - you can use any of the following interfaces to manage your resources:
-	- REST based API
-	- PowerShell
-	- .NET SDK
-	- Node.JS SDK
-	- Java SDK
-	- Azure CLI
-	- Preview Portal
-	- ARM template language
+    - REST based API
+    - PowerShell
+    - .NET SDK
+    - Node.JS SDK
+    - Java SDK
+    - Azure CLI
+    - Preview Portal
+    - ARM template language
 
 ## Network resources 
 You can now manage network resources independently, instead of having them all managed through a single compute resource (a virtual machine). This ensures a higher degree of flexibility and agility in composing a complex and large scale infrastructure in a resource group.
@@ -82,7 +82,7 @@ As mentioned earlier, network resources can be managed via a variety of interfac
 
 The Rest API’s conform to the HTTP 1.1 protocol specification. The general URI structure of the API is presented below: 
 
-	https://management.azure.com/subscriptions/{subscription-id}/providers/{resource-provider-namespace}/locations/{region-location}/register?api-version={api-version}
+    https://management.azure.com/subscriptions/{subscription-id}/providers/{resource-provider-namespace}/locations/{region-location}/register?api-version={api-version}
 
 And the parameters in braces represent the following elements:
 
@@ -103,128 +103,128 @@ In addition to managing resources imperatively (via APIs or SDK), you can also u
 
 A sample representation of a template is provided below – 
 
-	{
-	  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
-	  "contentVersion": "<version-number-of-template>",
-	  "parameters": { <parameter-definitions-of-template> },
-	  "variables": { <variable-definitions-of-template> },
-	  "resources": [ { <definition-of-resource-to-deploy> } ],
-	  "outputs": { <output-of-template> }    
-	}
+    {
+      "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+      "contentVersion": "<version-number-of-template>",
+      "parameters": { <parameter-definitions-of-template> },
+      "variables": { <variable-definitions-of-template> },
+      "resources": [ { <definition-of-resource-to-deploy> } ],
+      "outputs": { <output-of-template> }    
+    }
 
 The template is primarily a JSON description of the resources and the instance values injected via parameters. The example below can be used to create a virtual network with 2 subnets.
 
-	{
-	    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/VNET.json",
-	    "contentVersion": "1.0.0.0",
-	    "parameters" : {
-	      "location": {
-	        "type": "String",
-	        "allowedValues": ["East US", "West US", "West Europe", "East Asia", "South East Asia"],
-	        "metadata" : {
-	          "Description" : "Deployment location"
-	        }
-	      },
-	      "virtualNetworkName":{
-	        "type" : "string",
-	        "defaultValue":"myVNET",
-	        "metadata" : {
-	          "Description" : "VNET name"
-	        }
-	      },
-	      "addressPrefix":{
-	        "type" : "string",
-	        "defaultValue" : "10.0.0.0/16",
-	        "metadata" : {
-	          "Description" : "Address prefix"
-	        }
-	
-	      },
-	      "subnet1Name": {
-	        "type" : "string",
-	        "defaultValue" : "Subnet-1",
-	        "metadata" : {
-	          "Description" : "Subnet 1 Name"
-	        }
-	      },
-	      "subnet2Name": {
-	        "type" : "string",
-	        "defaultValue" : "Subnet-2",
-	        "metadata" : {
-	          "Description" : "Subnet 2 name"
-	        }
-	      },
-	      "subnet1Prefix" : {
-	        "type" : "string",
-	        "defaultValue" : "10.0.0.0/24",
-	        "metadata" : {
-	          "Description" : "Subnet 1 Prefix"
-	        }
-	      },
-	      "subnet2Prefix" : {
-	        "type" : "string",
-	        "defaultValue" : "10.0.1.0/24",
-	        "metadata" : {
-	          "Description" : "Subnet 2 Prefix"
-	        }
-	      }
-	    },
-	    "resources": [
-	    {
-	      "apiVersion": "2015-05-01-preview",
-	      "type": "Microsoft.Network/virtualNetworks",
-	      "name": "[parameters('virtualNetworkName')]",
-	      "location": "[parameters('location')]",
-	      "properties": {
-	        "addressSpace": {
-	          "addressPrefixes": [
-	            "[parameters('addressPrefix')]"
-	          ]
-	        },
-	        "subnets": [
-	          {
-	            "name": "[parameters('subnet1Name')]",
-	            "properties" : {
-	              "addressPrefix": "[parameters('subnet1Prefix')]"
-	            }
-	          },
-	          {
-	            "name": "[parameters('subnet2Name')]",
-	            "properties" : {
-	              "addressPrefix": "[parameters('subnet2Prefix')]"
-	            }
-	          }
-	        ]
-	      }
-	    }
-	    ]
-	}
+    {
+        "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/VNET.json",
+        "contentVersion": "1.0.0.0",
+        "parameters" : {
+          "location": {
+            "type": "String",
+            "allowedValues": ["East US", "West US", "West Europe", "East Asia", "South East Asia"],
+            "metadata" : {
+              "Description" : "Deployment location"
+            }
+          },
+          "virtualNetworkName":{
+            "type" : "string",
+            "defaultValue":"myVNET",
+            "metadata" : {
+              "Description" : "VNET name"
+            }
+          },
+          "addressPrefix":{
+            "type" : "string",
+            "defaultValue" : "10.0.0.0/16",
+            "metadata" : {
+              "Description" : "Address prefix"
+            }
+    
+          },
+          "subnet1Name": {
+            "type" : "string",
+            "defaultValue" : "Subnet-1",
+            "metadata" : {
+              "Description" : "Subnet 1 Name"
+            }
+          },
+          "subnet2Name": {
+            "type" : "string",
+            "defaultValue" : "Subnet-2",
+            "metadata" : {
+              "Description" : "Subnet 2 name"
+            }
+          },
+          "subnet1Prefix" : {
+            "type" : "string",
+            "defaultValue" : "10.0.0.0/24",
+            "metadata" : {
+              "Description" : "Subnet 1 Prefix"
+            }
+          },
+          "subnet2Prefix" : {
+            "type" : "string",
+            "defaultValue" : "10.0.1.0/24",
+            "metadata" : {
+              "Description" : "Subnet 2 Prefix"
+            }
+          }
+        },
+        "resources": [
+        {
+          "apiVersion": "2015-05-01-preview",
+          "type": "Microsoft.Network/virtualNetworks",
+          "name": "[parameters('virtualNetworkName')]",
+          "location": "[parameters('location')]",
+          "properties": {
+            "addressSpace": {
+              "addressPrefixes": [
+                "[parameters('addressPrefix')]"
+              ]
+            },
+            "subnets": [
+              {
+                "name": "[parameters('subnet1Name')]",
+                "properties" : {
+                  "addressPrefix": "[parameters('subnet1Prefix')]"
+                }
+              },
+              {
+                "name": "[parameters('subnet2Name')]",
+                "properties" : {
+                  "addressPrefix": "[parameters('subnet2Prefix')]"
+                }
+              }
+            ]
+          }
+        }
+        ]
+    }
 
 You have the option of providing the parameter values manually when using a template, or you can use a parameter file. The example below shows a possible set of parameter values to be used with the template above:
 
-	{
-	  "location": {
-	      "value": "East US"
-	  },
-	  "virtualNetworkName": {
-	      "value": "VNET1"
-	  },
-	  "subnet1Name": {
-	      "value": "Subnet1"
-	  },
-	  "subnet2Name": {
-	      "value": "Subnet2"
-	  },
-	  "addressPrefix": {
-	      "value": "192.168.0.0/16"
-	  },
-	  "subnet1Prefix": {
-	      "value": "192.168.1.0/24"
-	  },
-	  "subnet2Prefix": {
-	      "value": "192.168.2.0/24"
-	  }
-	}
+    {
+      "location": {
+          "value": "East US"
+      },
+      "virtualNetworkName": {
+          "value": "VNET1"
+      },
+      "subnet1Name": {
+          "value": "Subnet1"
+      },
+      "subnet2Name": {
+          "value": "Subnet2"
+      },
+      "addressPrefix": {
+          "value": "192.168.0.0/16"
+      },
+      "subnet1Prefix": {
+          "value": "192.168.1.0/24"
+      },
+      "subnet2Prefix": {
+          "value": "192.168.2.0/24"
+      }
+    }
 
 
 The main advantages of using templates are:
@@ -275,3 +275,4 @@ You can deploy services to Azure from a template by using PowerShell, AzureCLI, 
 [Template deployments](https://msdn.microsoft.com/library/azure/dn790549.aspx) 
 
 today’s
+

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle=".NET web app in Azure App Service with New Relic application performance management" 
-	description="Learn how to use New Relic's performance monitoring for ASP.NET applications running on Azure App Service." 
-	services="app-service\web" 
-	documentationCenter=".net" 
-	authors="cephalin" 
-	manager="wpickett" 
-	editor=""/>
+    pageTitle=".NET web app in Azure App Service with New Relic application performance management" 
+    description="Learn how to use New Relic's performance monitoring for ASP.NET applications running on Azure App Service." 
+    services="app-service\web" 
+    documentationCenter=".net" 
+    authors="cephalin" 
+    manager="wpickett" 
+    editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="07/30/2015" 
-	ms.author="stepsic"/>
+    ms.service="app-service-web" 
+    ms.workload="web" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="dotnet" 
+    ms.topic="article" 
+    ms.date="07/30/2015" 
+    ms.author="stepsic"/>
 
 
 
@@ -60,12 +60,12 @@ To sign up for New Relic directly from the Azure Marketplace, follow these four 
 1. Log in to the [Azure Portal](https://portal.azure.com) and click **New** in the corner.
 3. Click **Developer services** > **New Relic APM**.
 4. Configure your New Relic account by specifying the following, then click **Create**.
-	- **Name**
-	- **Pricing Tier**
-	- **Resource Group**
-	- **Subscription**
-	- **Location**
-	- **Legal Terms**
+    - **Name**
+    - **Pricing Tier**
+    - **Resource Group**
+    - **Subscription**
+    - **Location**
+    - **Legal Terms**
 
 11. After you click **Create**, your New Relic account will begin the creation process. You can monitor the status by clicking the **Notifications** button. Once it is created, the New Relic account's blade will be displayed.
 
@@ -80,11 +80,11 @@ To sign up for New Relic directly from the Azure Marketplace, follow these four 
 5. Click the **Application monitoring** tile and select **New Relic**.
 6. Select the account that you created in the previous step, then click **OK**. 
 
-	![](./media/store-new-relic-web-sites-dotnet-application-performance-management/configure-new-relic-integration.png)
+    ![](./media/store-new-relic-web-sites-dotnet-application-performance-management/configure-new-relic-integration.png)
 
-	Once the save operation has completed, click **All Settings** in the web app's blade, then click **Application settings**. You should see the **NEWRELIC\_LICENSEKEY** setting added to the **App settings** section of the blade to support New Relic:
+    Once the save operation has completed, click **All Settings** in the web app's blade, then click **Application settings**. You should see the **NEWRELIC\_LICENSEKEY** setting added to the **App settings** section of the blade to support New Relic:
 
-	>[AZURE.NOTE] It may take up to 30 seconds for the new app setting to take effect. To force the settings to take effect immediately, restart the web app.
+    >[AZURE.NOTE] It may take up to 30 seconds for the new app setting to take effect. To force the settings to take effect immediately, restart the web app.
 
 ## Step 3: Publish the ASP.NET web app
 
@@ -97,16 +97,16 @@ To view your New Relic dashboard:
 2. Open your web app's blade in the [Azure Portal](https://portal.azure.com).
 3. Click **Application monitoring** > **application name** > **View at New Relic**.
 
-	![](./media/store-new-relic-web-sites-dotnet-application-performance-management/view-new-relic-data.png)
+    ![](./media/store-new-relic-web-sites-dotnet-application-performance-management/view-new-relic-data.png)
 
 3. If this is the first time you use your account, configure your account information.
 3. From the New Relic menu bar, select **Applications > (application's name)**.
 
-	The **Monitoring > Overview** dashboard automatically appears.
+    The **Monitoring > Overview** dashboard automatically appears.
 
-	![New Relic monitoring dashboard](./media/store-new-relic-web-sites-dotnet-application-performance-management/NewRelic_app.png)
+    ![New Relic monitoring dashboard](./media/store-new-relic-web-sites-dotnet-application-performance-management/NewRelic_app.png)
 
-	After you select an app from the list on your **Applications** menu, the **Overview** dashboard shows current app server and browser information.
+    After you select an app from the list on your **Applications** menu, the **Overview** dashboard shows current app server and browser information.
 
 ### <a id="using-new-relic"></a>Using New Relic
 

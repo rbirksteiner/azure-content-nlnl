@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Deploy an API app with an existing gateway" 
-	description="Use an Azure Resource Manager template to deploy an API app that uses an existing gateway and App Service plan." 
-	services="app-service" 
-	documentationCenter="" 
-	authors="tfitzmac" 
-	manager="wpickett" 
-	editor=""/>
+    pageTitle="Deploy an API app with an existing gateway" 
+    description="Use an Azure Resource Manager template to deploy an API app that uses an existing gateway and App Service plan." 
+    services="app-service" 
+    documentationCenter="" 
+    authors="tfitzmac" 
+    manager="wpickett" 
+    editor=""/>
 
 <tags 
-	ms.service="app-service" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/03/2015" 
-	ms.author="tomfitz"/>
+    ms.service="app-service" 
+    ms.workload="web" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/03/2015" 
+    ms.author="tomfitz"/>
 
 # Provision an API app with an existing gateway
 
@@ -192,3 +192,4 @@ Notice that the names of the hosting web app and gateway are defined as properti
 
 
  
+

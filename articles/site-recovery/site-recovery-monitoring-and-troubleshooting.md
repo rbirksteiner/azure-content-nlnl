@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Monitor and troubleshoot protection for virtual machines and physical servers | Microsoft Auzre" 
-	description="Azure Site Recovery coordinates the replication, failover and recovery of virtual machines located on on-premises servers to Azure or a secondary datacenter. Use this article to monitor and troubleshoot  VMM or Hyper-V Site protection." 
-	services="site-recovery" 
-	documentationCenter="" 
-	authors="anbacker" 
-	manager="mkjain" 
-	editor=""/>
+    pageTitle="Monitor and troubleshoot protection for virtual machines and physical servers | Microsoft Auzre" 
+    description="Azure Site Recovery coordinates the replication, failover and recovery of virtual machines located on on-premises servers to Azure or a secondary datacenter. Use this article to monitor and troubleshoot  VMM or Hyper-V Site protection." 
+    services="site-recovery" 
+    documentationCenter="" 
+    authors="anbacker" 
+    manager="mkjain" 
+    editor=""/>
 
 <tags 
-	ms.service="site-recovery" 
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="storage-backup-recovery" 
-	ms.date="12/14/2015" 
-	ms.author="anbacker"/>
-	
+    ms.service="site-recovery" 
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="storage-backup-recovery" 
+    ms.date="12/14/2015" 
+    ms.author="anbacker"/>
+    
 # Monitor and troubleshoot protection for virtual machines and physical servers
 
 This Monitoring and Troubleshooting Guide enables you to learn tracking the replication health and troubleshooting techniques for Azure Site Recovery.
@@ -102,12 +102,12 @@ In case virtual machine migrates a new Hyper-V host (within the cluster or a sta
 
 ### Event Log
 
-| Event  Sources               	| Details                                                                                                                                                                                        	|
-|-------------------------	|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
-| **Applications and Service Logs/Microsoft/VirtualMachineManager/Server/Admin** (VMM Server)	|  This provides useful logging for troubleshooting many different VMM issues. |
-| **Applications and Service Logs/MicrosoftAzureRecoveryServices/Replication** (Hyper-V Host)	| This provides useful logging for troubleshooting many Microsoft Azure Recovery Services Agent issues. <br/> ![Event source for Hyper-V host](media/site-recovery-monitoring-and-troubleshooting/eventviewer03.png) |
-| **Applications and Service Logs/Microsoft/Azure Site Recovery/Provider/Operational** (Hyper-V Host)	| This provides useful logging for troubleshooting many Microsoft Azure Site Recovery Service issues. <br/> ![Event source for Hyper-V host](media/site-recovery-monitoring-and-troubleshooting/eventviewer02.png) |
-| **Applications and Service Logs/Microsoft/Windows/Hyper-V-VMMS/Admin** (Hyper-V Host)	| This provides useful logging for troubleshooting many Hyper-V virtual machine management issues. <br/> ![Event source for Hyper-V host](media/site-recovery-monitoring-and-troubleshooting/eventviewer01.png) |
+| Event  Sources                | Details                                                                                                                                                                                           |
+|-------------------------  |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------    |
+| **Applications and Service Logs/Microsoft/VirtualMachineManager/Server/Admin** (VMM Server)   |  This provides useful logging for troubleshooting many different VMM issues. |
+| **Applications and Service Logs/MicrosoftAzureRecoveryServices/Replication** (Hyper-V Host)   | This provides useful logging for troubleshooting many Microsoft Azure Recovery Services Agent issues. <br/> ![Event source for Hyper-V host](media/site-recovery-monitoring-and-troubleshooting/eventviewer03.png) |
+| **Applications and Service Logs/Microsoft/Azure Site Recovery/Provider/Operational** (Hyper-V Host)   | This provides useful logging for troubleshooting many Microsoft Azure Site Recovery Service issues. <br/> ![Event source for Hyper-V host](media/site-recovery-monitoring-and-troubleshooting/eventviewer02.png) |
+| **Applications and Service Logs/Microsoft/Windows/Hyper-V-VMMS/Admin** (Hyper-V Host) | This provides useful logging for troubleshooting many Hyper-V virtual machine management issues. <br/> ![Event source for Hyper-V host](media/site-recovery-monitoring-and-troubleshooting/eventviewer01.png) |
 
 
 ### Hyper-V Replication Logging Options
@@ -203,7 +203,7 @@ Below are the common errors that you may hit and their resolutions. Each of the 
 -   [The recovery plan contains virtual machines which are not ready for planned failover](http://social.technet.microsoft.com/wiki/contents/articles/25509.the-recovery-plan-contains-virtual-machines-which-are-not-ready-for-planned-failover.aspx)
 -   [The virtual machine isn't ready for planned failover](http://social.technet.microsoft.com/wiki/contents/articles/25507.the-virtual-machine-isn-t-ready-for-planned-failover.aspx)
 -   [Virtual machine is not running and is not powered off](http://social.technet.microsoft.com/wiki/contents/articles/25510.virtual-machine-is-not-running-and-is-not-powered-off.aspx)
--   [Out of band operation happened on a virtual machine and commit failover failed](http://social.technet.microsoft.com/wiki/contents/articles/25507.the-virtual-machine-isn-t-ready-for-planned-failover.aspx)
+-   [Out of band operation happened on a virtual machine and commit failover failed](http://social.technet.microsoft.com/wiki/contents/articles/25507.the-virtual-machine-isn-t-ready-for-planned-failover.aspx)
 -   Test Failover
     -   [Failover could not be initiated since test failover is in progress](http://social.technet.microsoft.com/wiki/contents/articles/31111.failover-could-not-be-initiated-since-test-failover-is-in-progress.aspx)
 
@@ -213,3 +213,4 @@ Configuration Server (CS), Process Server (PS), Master Targer (MT)
 
 ### Remote desktop troubleshooting after failover
 -   Many customers have faced issues to connect to the failed over VM in Azure. [Use the troubleshooting document to RDP into the VM](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)
+

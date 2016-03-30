@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How to use CDN | Microsoft Azure" 
-	description="Learn how to use the Azure Content Delivery Network (CDN) to deliver high-bandwidth content by caching blobs and static content." 
-	services="cdn" 
-	documentationCenter=".net" 
-	authors="camsoper" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="How to use CDN | Microsoft Azure" 
+    description="Learn how to use the Azure Content Delivery Network (CDN) to deliver high-bandwidth content by caching blobs and static content." 
+    services="cdn" 
+    documentationCenter=".net" 
+    authors="camsoper" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="12/02/2015" 
-	ms.author="casoper"/>
+    ms.service="cdn" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="get-started-article" 
+    ms.date="12/02/2015" 
+    ms.author="casoper"/>
 
 
 # Using CDN for Azure
@@ -34,21 +34,21 @@ The benefits of using CDN to cache Azure data include:
 
 1. Create a CDN profile with endpoint(s) pointing to your origin
 
-	A CDN profile is a collection of CDN endpoints.  Each profile contains one or more CDN endpoints.  Once you have created a CDN profile, you can create a new CDN endpoint using the origin you have chosen.
-	
-	>[AZURE.NOTE] A single Azure subscription is limited to four CDN profiles.  Each CDN profile is limited to four CDN endpoints.
-	>
-	> CDN pricing is applied at the CDN profile level.  If you wish to use a mix of Standard and Premium CDN features, you will need multiple CDN profiles.
-	
-	For a detailed tutorial on creating CDN profiles and endpoints, see [How to Enable the Content Delivery Network for Azure](cdn-create-new-endpoint.md).   
-	
+    A CDN profile is a collection of CDN endpoints.  Each profile contains one or more CDN endpoints.  Once you have created a CDN profile, you can create a new CDN endpoint using the origin you have chosen.
+    
+    >[AZURE.NOTE] A single Azure subscription is limited to four CDN profiles.  Each CDN profile is limited to four CDN endpoints.
+    >
+    > CDN pricing is applied at the CDN profile level.  If you wish to use a mix of Standard and Premium CDN features, you will need multiple CDN profiles.
+    
+    For a detailed tutorial on creating CDN profiles and endpoints, see [How to Enable the Content Delivery Network for Azure](cdn-create-new-endpoint.md).   
+    
 2. Set up your CDN configuration 
 
-	You can enable a number of features for your CDN endpoint, such as [caching policy](cdn-caching-policy.md), [query string caching](cdn-query-string.md), [rules engine](cdn-rules-engine.md), and more.  For details, see the **Manage** menu on the left.  
+    You can enable a number of features for your CDN endpoint, such as [caching policy](cdn-caching-policy.md), [query string caching](cdn-query-string.md), [rules engine](cdn-rules-engine.md), and more.  For details, see the **Manage** menu on the left.  
 
 3. Access CDN content
 
-	To access cached content on the CDN, use the CDN URL provided in the portal. For example, the address for a cached blob will be similar to the following: `http://<identifier>.azureedge.net/<myPublicContainer>/<BlobName>`
+    To access cached content on the CDN, use the CDN URL provided in the portal. For example, the address for a cached blob will be similar to the following: `http://<identifier>.azureedge.net/<myPublicContainer>/<BlobName>`
 
 ## Caching content from Azure storage
 
@@ -79,7 +79,7 @@ Caching for cloud services has the following constraints:
 
 - The CDN should be used to cache static content only.
 
-	>[AZURE.WARNING] Caching of highly volatile or truly dynamic content may adversely affect your performance or cause content problems, all at increased cost.
+    >[AZURE.WARNING] Caching of highly volatile or truly dynamic content may adversely affect your performance or cause content problems, all at increased cost.
 - Your cloud service must be deployed to in a production deployment.
 - Your cloud service must provide the object on port 80 using HTTP.
 - The cloud service must place the content to be cached in, or delivered from, the /cdn folder on the cloud service.
@@ -98,7 +98,7 @@ Caching for custom origins has the following constraints:
 
 - The CDN should be used to cache static content only.
 
-	>[AZURE.WARNING] Caching of highly volatile or truly dynamic content may adversely affect your performance or cause content problems, all at increased cost.
+    >[AZURE.WARNING] Caching of highly volatile or truly dynamic content may adversely affect your performance or cause content problems, all at increased cost.
 - The content on the custom origin must be hosted on a server with a public IP address.  CDN edge nodes are incapable of retrieving assets from intranet servers behind a firewall.
 
 When you enable CDN access for on a custom origin, the Azure Portal provides you with a CDN domain name in the following format: `http://<identifier>.azureedge.net/`. This domain name can be used to retrieve objects from the custom origin. For example, given a site located at www.contoso.com and an ASP.NET web page called music.aspx that delivers content, users can access the object using either of the following two URLs:
@@ -147,4 +147,5 @@ Microsoft Azure CDN can be managed programmatically using the [CDN Resource Prov
 - [Overview of the Azure Content Delivery Network (CDN)](cdn-overview.md)
 - [Purge an Azure CDN Endpoint](cdn-purge-endpoint.md)
 - [CDN Resource Provider REST API](https://msdn.microsoft.com/library/mt634456.aspx)
+
 

@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure AD Privileged Identity Management"
-	description="A topic that explains what Azure AD Privileged Identity management is and how to configure it."
-	services="active-directory"
-	documentationCenter=""
-	authors="IHenkel"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Azure AD Privileged Identity Management"
+    description="A topic that explains what Azure AD Privileged Identity management is and how to configure it."
+    services="active-directory"
+    documentationCenter=""
+    authors="IHenkel"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/21/2015"
-	ms.author="inhenk"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/21/2015"
+    ms.author="inhenk"/>
 
 # Azure AD Privileged Identity Management
 
@@ -104,3 +104,4 @@ Using Azure AD Privileged Identity Management you can also track changes in priv
 [4]: ./media/active-directory-privileged-identity-management-configure/PIM_RoleActivationSettings.png
 [5]: ./media/active-directory-privileged-identity-management-configure/PIM_RequestActivation.png
 [6]: ./media/active-directory-privileged-identity-management-configure/PIM_ActivationHistory.png
+

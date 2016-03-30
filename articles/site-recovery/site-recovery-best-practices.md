@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Prepare for Site Recovery deployment | Microsoft Azure"
-	description="Azure Site Recovery coordinates the replication, failover and recovery of virtual machines and physical servers located on on-premises servers to Azure or to a secondary datacenter."
-	services="site-recovery"
-	documentationCenter=""
-	authors="rayne-wiselman"
-	manager="jwhit"
-	editor="tysonn"/>
+    pageTitle="Prepare for Site Recovery deployment | Microsoft Azure"
+    description="Azure Site Recovery coordinates the replication, failover and recovery of virtual machines and physical servers located on on-premises servers to Azure or to a secondary datacenter."
+    services="site-recovery"
+    documentationCenter=""
+    authors="rayne-wiselman"
+    manager="jwhit"
+    editor="tysonn"/>
 
 <tags
-	ms.service="site-recovery"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="storage-backup-recovery"
-	ms.date="12/07/2015"
-	ms.author="raynew"/>
+    ms.service="site-recovery"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.workload="storage-backup-recovery"
+    ms.date="12/07/2015"
+    ms.author="raynew"/>
 
 # Prepare for Azure Site Recovery deployment
 
@@ -91,9 +91,9 @@ Use the following tips to help you optimize and scale your deployment.
 - **Azure service limits**: Every Azure subscription comes with a set of default limits on cores, cloud services etc. We recommend that you run a test failover to validate the availability of resources in your subscription. You can modify these limits via Azure support.
 - **Capacity planning**: Read the [capacity planner](http://www.microsoft.com/download/details.aspx?id=39057) if you're replicating Hyper-V VMs.
 - **Replication bandwidth**: If you're short on replication bandwidth note that:
-	- **ExpressRoute**: Site Recovery works with Azure ExpressRoute and WAN optimizers such as Riverbed. [Read more](http://blogs.technet.com/b/virtualization/archive/2014/07/20/expressroute-and-azure-site-recovery.aspx) about ExpressRoute.
-	- **Replication traffic**: Site Recovery uses performs a smart initial replication using only data blocks and not the entire VHD. Only changes are replicated during ongoing replication.
-	- **Network traffic**: You can control network traffic used for replication by setting up [Windows QoS](https://technet.microsoft.com/library/hh967468.aspx) with a policy based on the destination IP address and port.  In addition if you're replicating to Azure Site Recovery using the Azure Backup agent. You can configure throttling for that agent. [Read more](https://support.microsoft.com/kb/3056159).
+    - **ExpressRoute**: Site Recovery works with Azure ExpressRoute and WAN optimizers such as Riverbed. [Read more](http://blogs.technet.com/b/virtualization/archive/2014/07/20/expressroute-and-azure-site-recovery.aspx) about ExpressRoute.
+    - **Replication traffic**: Site Recovery uses performs a smart initial replication using only data blocks and not the entire VHD. Only changes are replicated during ongoing replication.
+    - **Network traffic**: You can control network traffic used for replication by setting up [Windows QoS](https://technet.microsoft.com/library/hh967468.aspx) with a policy based on the destination IP address and port.  In addition if you're replicating to Azure Site Recovery using the Azure Backup agent. You can configure throttling for that agent. [Read more](https://support.microsoft.com/kb/3056159).
 - **RTO**: If you want to measure the recovery time objective (RTO) you can expect with Site Recovery we suggest you run a test failover and view the Site Recovery jobs to analyze how much time it takes to complete the operations. If you're failing over to Azure, for the best RTO we recommend that you automate all manual actions by integrating with Azure automation and recovery plans.
 - **RPO**: Site Recovery supports a near-synchronous recovery point objective (RPO) when you replicate to Azure. This assumes sufficient bandwith between your datacenter and Azure.
 
@@ -111,3 +111,4 @@ After reviewing these best practices you can start deploying Site Recovery:
 - [Set up protection between two on-premises VMM sites with SAN](site-recovery-vmm-san.md)
 - [Set up protection with a single VMM server](site-recovery-single-vmm.md)
  
+

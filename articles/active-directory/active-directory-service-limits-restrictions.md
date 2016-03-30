@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure AD service limits and restrictions"
-	description="Usage constraints and other service limits for the Azure Active Directory service."
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Azure AD service limits and restrictions"
+    description="Usage constraints and other service limits for the Azure Active Directory service."
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="09/21/2015"
-	ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+    ms.date="09/21/2015"
+    ms.author="curtand"/>
 
 # Azure AD service limits and restrictions
 
@@ -26,3 +26,4 @@ If you’re looking for the full set of Microsoft Azure service limits, see [Azu
 - [Sign up for Azure as an organization](sign-up-organization.md)
 - [How Azure subscriptions are associated with Azure AD](active-directory-how-subscriptions-associated-directory.md)
 - [Azure AD terminology](active-directory-terminology.md)
+

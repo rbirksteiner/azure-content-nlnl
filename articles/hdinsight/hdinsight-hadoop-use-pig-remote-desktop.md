@@ -6,7 +6,7 @@
    authors="Blackmist"
    manager="paulettm"
    editor="cgronlun"
-	tags="azure-portal"/>
+    tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -43,53 +43,53 @@ Enable Remote Desktop for the HDInsight cluster, then connect to it by following
 
 2. Use the following to start the Pig command:
 
-		%pig_home%\bin\pig
+        %pig_home%\bin\pig
 
-	You will be presented with a `grunt>` prompt.
+    You will be presented with a `grunt>` prompt.
 
 3. Enter the following statement:
 
-		LOGS = LOAD 'wasb:///example/data/sample.log';
+        LOGS = LOAD 'wasb:///example/data/sample.log';
 
-	This command loads the contents of the sample.log file into the LOGS file. You can view the contents of the file by using the following command:
+    This command loads the contents of the sample.log file into the LOGS file. You can view the contents of the file by using the following command:
 
-		DUMP LOGS;
+        DUMP LOGS;
 
 4. Transform the data by applying a regular expression to extract only the logging level from each record:
 
-		LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
+        LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
 
-	You can use **DUMP** to view the data after the transformation. In this case, `DUMP LEVELS;`.
+    You can use **DUMP** to view the data after the transformation. In this case, `DUMP LEVELS;`.
 
 5. Continue applying transformations by using the following statements. Use `DUMP` to view the result of the transformation after each step.
 
-	<table>
-	<tr>
-	<th>Statement</th><th>What it does</th>
-	</tr>
-	<tr>
-	<td>FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;</td><td>Removes rows that contain a null value for the log level and stores the results into FILTEREDLEVELS.</td>
-	</tr>
-	<tr>
-	<td>GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;</td><td>Groups the rows by log level and stores the results into GROUPEDLEVELS.</td>
-	</tr>
-	<tr>
-	<td>FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;</td><td>Creates a new set of data that contains each unique log level value and how many times it occurs. This is stored into FREQUENCIES</td>
-	</tr>
-	<tr>
-	<td>RESULT = order FREQUENCIES by COUNT desc;</td><td>Orders the log levels by count (descending,) and stores into RESULT</td>
-	</tr>
-	</table>
+    <table>
+    <tr>
+    <th>Statement</th><th>What it does</th>
+    </tr>
+    <tr>
+    <td>FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;</td><td>Removes rows that contain a null value for the log level and stores the results into FILTEREDLEVELS.</td>
+    </tr>
+    <tr>
+    <td>GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;</td><td>Groups the rows by log level and stores the results into GROUPEDLEVELS.</td>
+    </tr>
+    <tr>
+    <td>FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;</td><td>Creates a new set of data that contains each unique log level value and how many times it occurs. This is stored into FREQUENCIES</td>
+    </tr>
+    <tr>
+    <td>RESULT = order FREQUENCIES by COUNT desc;</td><td>Orders the log levels by count (descending,) and stores into RESULT</td>
+    </tr>
+    </table>
 
 6. You can also save the results of a transformation by using the `STORE` statement. For example, the following command saves the `RESULT` to the **/example/data/pigout** directory in the default storage container for your cluster:
 
-		STORE RESULT into 'wasb:///example/data/pigout'
+        STORE RESULT into 'wasb:///example/data/pigout'
 
-	> [AZURE.NOTE] The data is stored in the specified directory in files named **part-nnnnn**. If the directory already exists, you will receive an error message.
+    > [AZURE.NOTE] The data is stored in the specified directory in files named **part-nnnnn**. If the directory already exists, you will receive an error message.
 
 7. To exit the grunt prompt, enter the following statement.
 
-		QUIT;
+        QUIT;
 
 ###Pig Latin batch files
 
@@ -99,26 +99,26 @@ You can also use the Pig command to run Pig Latin that is contained in a file.
 
 4. Type or paste the following lines into the **pigbatch.pig** file, and then save it:
 
-		LOGS = LOAD 'wasb:///example/data/sample.log';
-		LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
-		FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
-		GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
-		FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;
-		RESULT = order FREQUENCIES by COUNT desc;
-		DUMP RESULT;
+        LOGS = LOAD 'wasb:///example/data/sample.log';
+        LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
+        FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
+        GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
+        FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;
+        RESULT = order FREQUENCIES by COUNT desc;
+        DUMP RESULT;
 
 5. Use the following to run the **pigbatch.pig** file using the pig command.
 
-		pig %PIG_HOME%\pigbatch.pig
+        pig %PIG_HOME%\pigbatch.pig
 
-	When the batch job completes, you should see the following output, which should be the same as when you used `DUMP RESULT;` in the previous steps:
+    When the batch job completes, you should see the following output, which should be the same as when you used `DUMP RESULT;` in the previous steps:
 
-		(TRACE,816)
-		(DEBUG,434)
-		(INFO,96)
-		(WARN,11)
-		(ERROR,6)
-		(FATAL,2)
+        (TRACE,816)
+        (DEBUG,434)
+        (INFO,96)
+        (WARN,11)
+        (ERROR,6)
+        (FATAL,2)
 
 ##<a id="summary"></a>Summary
 
@@ -135,3 +135,4 @@ For information about other ways you can work with Hadoop on HDInsight:
 * [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
 
 * [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)
+

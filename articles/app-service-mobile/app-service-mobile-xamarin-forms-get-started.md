@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Get Started with Mobile Apps by using Xamarin.Forms"
-	description="Follow this tutorial to get started using Azure Mobile Apps for Xamarin.Forms development"
-	services="app-service\mobile"
-	documentationCenter="xamarin"
-	authors="wesmc7777"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Get Started with Mobile Apps by using Xamarin.Forms"
+    description="Follow this tutorial to get started using Azure Mobile Apps for Xamarin.Forms development"
+    services="app-service\mobile"
+    documentationCenter="xamarin"
+    authors="wesmc7777"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-xamarin"
-	ms.devlang="dotnet"
-	ms.topic="get-started-article"
-	ms.date="11/23/2015"
-	ms.author="normesta"/>
+    ms.service="app-service-mobile"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-xamarin"
+    ms.devlang="dotnet"
+    ms.topic="get-started-article"
+    ms.date="11/23/2015"
+    ms.author="normesta"/>
 
 #Create a Xamarin.Forms app
 
@@ -80,9 +80,9 @@ With all of this in mind, let's proceed.
 
  3. Extract the project that you downloaded, and then open it in Xamarin Studio or Visual Studio.
 
-	![][9]
+    ![][9]
 
-	![][8]
+    ![][8]
 
 ##(Optional) Run the iOS project
 
@@ -146,11 +146,11 @@ This section is for running the Xamarin WinApp project for Windows devices. You 
 6. Press the **F5** key to build the project and start the app in a Windows emulator.
 
 In the app, type meaningful text, such as _Learn Xamarin_ and then click the **+** button.
-	
+    
 This sends a POST request to the new mobile app backend hosted in Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile app backend, and the data is displayed in the list.
 
 ![][12]
-	
+    
 > [AZURE.NOTE]
 > You'll find the code that accesses your mobile app backend in the TodoItemManager.cs C# file of the portable class library project of your solution.
 

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Monitor Docker applications in Application Insights" 
-	description="Docker perf counters, events and exceptions can be displayed on Application Insights, along with the telemetry from the containerized apps." 
-	services="application-insights" 
+    pageTitle="Monitor Docker applications in Application Insights" 
+    description="Docker perf counters, events and exceptions can be displayed on Application Insights, along with the telemetry from the containerized apps." 
+    services="application-insights" 
     documentationCenter=""
-	authors="alancameronwills" 
-	manager="douge"/>
+    authors="alancameronwills" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/01/2015" 
-	ms.author="awills"/>
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/01/2015" 
+    ms.author="awills"/>
  
 # Monitor Docker applications in Application Insights
 
@@ -40,7 +40,7 @@ When you run the [Application Insights image](https://hub.docker.com/r/microsoft
 
     A third scenario is that you developed most of the apps, but you are using separate resources to display their telemetry. In that case, you'll probably also want to create a separate resource for the Docker data. 
 
-2.	Add the Docker tile: Choose **Add Tile**, drag the Docker tile from the gallery, and then click **Done**. 
+2.  Add the Docker tile: Choose **Add Tile**, drag the Docker tile from the gallery, and then click **Done**. 
 
     ![example](./media/app-insights-docker/03.png)
 
@@ -57,8 +57,8 @@ Keep that browser window handy, as you'll come back to it soon to look at your t
  
 Now that you've got somewhere to display the telemetry, you can set up the containerized app that will collect and send it.
 
-1.	Connect to your Docker host. 
-2.	Edit your instrumentation key into this command, and then run it:
+1.  Connect to your Docker host. 
+2.  Edit your instrumentation key into this command, and then run it:
  
     ```
 
@@ -147,3 +147,4 @@ Processor time and available memory performance counters, enriched and grouped b
 
 * Install the Application Insights SDK in the app. 
 Learn how for: [Java web apps](app-insights-java-get-started.md), [Windows web apps](app-insights-asp-net.md).
+

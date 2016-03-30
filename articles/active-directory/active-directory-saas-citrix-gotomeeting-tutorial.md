@@ -102,7 +102,7 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
      6.6. Click **Save**.
 
-6.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Next**.
+6.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Next**.
 
     ![Configure single sign-on](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769000.png "Configure single sign-on")
 
@@ -144,7 +144,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 1.  In the Azure AD portal, create a test account.
 
-2.  On the **Citrix GoToMeeting** application integration page, click **Assign users**.
+2.  On the **Citrix GoToMeeting** application integration page, click **Assign users**.
 
     ![Assign users](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769003.png "Assign users")
 
@@ -154,7 +154,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 You should now wait for 10 minutes and verify that the account has been synchronized to Dropbox for Business.
 
-As a first verification step, you can check the provisioning status, by clicking Dashboard in the D on the **Citrix GoToMeeting** application integration page on the Azure Management Portal.
+As a first verification step, you can check the provisioning status, by clicking Dashboard in the D on the **Citrix GoToMeeting** application integration page on the Azure Management Portal.
 
 ![Dashboard](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769004.png "Dashboard")
 
@@ -165,3 +165,4 @@ A successfully completed user provisioning cycle is indicated by a related statu
 If you want to test your single sign-on settings, open the Access Panel.
 
 For more details about the Access Panel, see [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586).
+

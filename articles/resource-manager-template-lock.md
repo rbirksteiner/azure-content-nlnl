@@ -79,7 +79,7 @@ The following example applies a read-only lock to a web app.
         "contentVersion": "1.0.0.0",
         "parameters": {
             "hostingPlanName": {
-      			"type": "string"
+                "type": "string"
             }
         },
         "variables": {
@@ -136,3 +136,4 @@ The next example applies a read-only lock to the resource group.
 
 - For information about the template structure, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
 - For more information about locks, see [Lock resources with Azure Resource Manager](resource-group-lock-resources.md).
+

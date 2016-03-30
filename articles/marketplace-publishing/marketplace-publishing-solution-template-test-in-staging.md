@@ -23,14 +23,14 @@ After the offer is staged, you can view and test the offer in the [Azure Portal]
 
 Follow the steps below to push your offer to staging and test it in the [Azure Portal](https://portal.azure.com/):
 
-1.	Go to the [Publishing Portal](https://publish.windowsazure.com) > **Solution Templates** tab > your offer > **Publish** > **Push to Staging**.
-2.	Provide the list of Azure subscriptions that you will use to preview and test your offer.
-3.	Sign in to the Azure preview portal by using the subscription ID that you used in the previous step.
-4.	Carry out at least one round of testing in the Azure preview portal on the points mentioned below:
-  -	Make sure that marketing content shows up correctly in the Azure Marketplace.
-  -	End-to-end deployment of the topology.
-  -	Perform performance testing and stress testing.
-  -	Ensure that your topology adheres to the best practices.
+1.  Go to the [Publishing Portal](https://publish.windowsazure.com) > **Solution Templates** tab > your offer > **Publish** > **Push to Staging**.
+2.  Provide the list of Azure subscriptions that you will use to preview and test your offer.
+3.  Sign in to the Azure preview portal by using the subscription ID that you used in the previous step.
+4.  Carry out at least one round of testing in the Azure preview portal on the points mentioned below:
+  - Make sure that marketing content shows up correctly in the Azure Marketplace.
+  - End-to-end deployment of the topology.
+  - Perform performance testing and stress testing.
+  - Ensure that your topology adheres to the best practices.
 
 ## Next steps
 If you are satisfied with the results, then you can proceed to the final offer publishing phase, **Step 4**:  [Deploying your offer to the Marketplace](marketplace-publishing-push-to-production.md). Otherwise, make changes in your offer and request certification again.
@@ -38,3 +38,4 @@ If you are satisfied with the results, then you can proceed to the final offer p
 > [AZURE.NOTE] For marketing content changes, certification is not required.
 
 See [Getting started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md) for a guide to all publisher tasks.
+

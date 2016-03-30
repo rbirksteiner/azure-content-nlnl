@@ -32,7 +32,7 @@ A connector can be created within a logic app or be created directly from the Az
 3. Enter the Name, App Service Plan, and other properties.
 4. Enter the following package settings:
 
-	Name | Required | Description
+    Name | Required | Description
 --- | --- | ---
 Site URL | Yes | Enter the complete URL of the SharePoint web site. For example, enter: *https://microsoft.sharepoint.com/teams/wabstest*.
 Document Library / List Relative URLs | Yes | Enter the document libraries/lists URLs, relative to the SharePoint site URL, that are allowed to be modified by the connector. For example, enter: *Lists/Task, Shared Documents*.
@@ -51,7 +51,7 @@ A connector can be created within a logic app or be created directly from the Az
 3. Enter the Name, App Service Plan, and other properties.
 4. Enter the following package settings:
 
-	Name | Required | Description
+    Name | Required | Description
 --- | --- | ---
 Site URL | Yes | Enter the complete URL of the SharePoint web site. For example, enter: *https://microsoft.sharepoint.com/teams/wabstest*.
 Authentication Mode | Yes | Enter the authentication mode to connect to SharePoint Site. Options include:<ul><li>Default</li><li>WindowsAuthentication</li><li>FormBasedAuthentication</li></ul><br/><br/>If you choose Default, the credentials running the SharePoint Connector are used; Username/Password are not required. Username and Password are required for other authentication types.<br/><br/>**Note** Anonymous authentication is not supported.
@@ -93,15 +93,15 @@ Once your API app is created, you can now use the SharePoint Connector as a trig
 
 **Relative URL configured for document list**
 
-> [AZURE.NOTE]For the following triggers, it is assumed that you entered 'Shared Documents, Lists/Task' in the Connector Package settings, where 'Shared Documents' is a document library and 'Lists/Task' is a List. 
+> [AZURE.NOTE]For the following triggers, it is assumed that you entered 'Shared Documents, Lists/Task' in the Connector Package settings, where 'Shared Documents' is a document library and 'Lists/Task' is a List. 
 
 ##  Triggers
 Use triggers if you want to initiate a logic app.
 
 > [AZURE.NOTE] Triggers delete the files after reading them. To preserve these files, please enter a value for the archive location.
 
-### 1.	New Document In Shared Documents (JSON)
-This trigger is fired when a new document is available in 'Shared Documents'. 
+### 1.  New Document In Shared Documents (JSON)
+This trigger is fired when a new document is available in 'Shared Documents'. 
 
 #### Input
 
@@ -183,7 +183,7 @@ ContentTransferEncoding | Content Transfer Encoding of the Message. ("none"or �
 
 
 ##  Actions
-For the following actions, it is assumed that you entered 'Shared Documents, Lists/Task' in Connector Package settings, where 'Shared Documents' is a document library and 'Lists/Task' is a List. 
+For the following actions, it is assumed that you entered 'Shared Documents, Lists/Task' in Connector Package settings, where 'Shared Documents' is a document library and 'Lists/Task' is a List. 
 
 ### 1. Upload To Shared Documents (JSON)
 
@@ -212,7 +212,7 @@ ItemId | ItemId of the document added in Document library.
 Status | A successful upload of document returns status code 200 (OK).
 
 
- 
+ 
 
 ### 2. Get From Shared Documents (JSON)
 This action gets the document from the document library given the relative URL (folder structure) of the document.
@@ -235,7 +235,7 @@ Param2* | This is one of the parameters of a document in the document library.
 
 **Note** All the parameters of the document library are dynamically populated. And, they are in advanced section.
 
- 
+ 
 
 ### 3. Delete From Shared Documents
 
@@ -360,7 +360,7 @@ Status | A successful insertion of List item returns status code 200 (OK).
 ### 9. Upload To Shared Documents (XML)
 
 This action uploads new document to 'Shared Documents'. The input document should be an XML payload. The response of the action will be an XML payload.
- 
+ 
 #### Input
 
 Name | Required | Description
@@ -369,7 +369,7 @@ Name | Yes | Name of the document.
 Content | Yes | Content of the document.
 ContentTransferEncoding | Yes | Content Transfer Encoding of the Message. ("none" or "base64”)
 Force Overwrite | Yes | If set to TRUE and a document exists with the given name, it is overwritten.
- 
+ 
 #### Output
 
 Name | Description
@@ -480,3 +480,4 @@ You can also review performance statistics and control security to the connector
 [5]: ./media/app-service-logic-connector-sharepoint/image_4.jpg
 [6]: ./media/app-service-logic-connector-sharepoint/image_5.png
 [7]: ./media/app-service-logic-connector-sharepoint/image_6.png
+

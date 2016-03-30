@@ -1,21 +1,21 @@
 <properties
-   	pageTitle="Create Hadoop, HBase, or Storm clusters on Linux in HDInsight using the Azure PowerShell | Microsoft Azure"
-   	description="Learn how to create Hadoop, HBase, or Storm clusters on Linux for HDInsight using the Azure PowerShell."
-   	services="hdinsight"
-   	documentationCenter=""
-   	authors="mumian"
-   	manager="paulettm"
-   	editor="cgronlun"
-	tags="azure-portal"/>
+    pageTitle="Create Hadoop, HBase, or Storm clusters on Linux in HDInsight using the Azure PowerShell | Microsoft Azure"
+    description="Learn how to create Hadoop, HBase, or Storm clusters on Linux for HDInsight using the Azure PowerShell."
+    services="hdinsight"
+    documentationCenter=""
+    authors="mumian"
+    manager="paulettm"
+    editor="cgronlun"
+    tags="azure-portal"/>
 
 <tags
-   	ms.service="hdinsight"
-   	ms.devlang="na"
-   	ms.topic="article"
-   	ms.tgt_pltfrm="na"
-   	ms.workload="big-data"
-   	ms.date="11/16/2015"
-   	ms.author="nitinme"/>
+    ms.service="hdinsight"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="big-data"
+    ms.date="11/16/2015"
+    ms.author="nitinme"/>
 
 #Create Linux-based clusters in HDInsight using Azure PowerShell
 
@@ -88,8 +88,8 @@ The following script demonstrates how to create a new cluster:
     $storageAccountKey = Get-AzureStorageAccountKey -Name $storageAccountName -ResourceGroupName $resourceGroupName | %{ $_.Key1 }
 
     # Set these variables
-    $clusterName = $containerName           		# As a best practice, have the same name for the cluster and container
-    $clusterNodes = <ClusterSizeInNodes>    		# The number of nodes in the HDInsight cluster
+    $clusterName = $containerName                   # As a best practice, have the same name for the cluster and container
+    $clusterNodes = <ClusterSizeInNodes>            # The number of nodes in the HDInsight cluster
     $credentials = Get-Credential
     $sshCredentials = Get-Credential
 

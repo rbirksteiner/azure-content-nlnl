@@ -149,3 +149,4 @@ We now know enough about Synchronization Rules to be able to understand how the 
 
 * [Azure AD Connect Sync: Customizing Synchronization options](active-directory-aadconnectsync-whatis.md)
 * [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
+

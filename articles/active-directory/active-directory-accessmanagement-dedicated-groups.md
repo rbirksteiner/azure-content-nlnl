@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Dedicated groups in Azure Active Directory | Microsoft Azure"
-	description="Overview of how dedicated groups work in Azure Active Directory and how they are created."
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="stevenpo"
-	editor=""
-	/>
+    pageTitle="Dedicated groups in Azure Active Directory | Microsoft Azure"
+    description="Overview of how dedicated groups work in Azure Active Directory and how they are created."
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="stevenpo"
+    editor=""
+    />
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/17/2015"
-	ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/17/2015"
+    ms.author="curtand"/>
 
 # Dedicated groups in Azure Active Directory
 
@@ -30,3 +30,4 @@ These articles provide additional information on Azure Active Directory.
 * [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
 * [What is Azure Active Directory?](active-directory-whatis.md)
 * [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
+

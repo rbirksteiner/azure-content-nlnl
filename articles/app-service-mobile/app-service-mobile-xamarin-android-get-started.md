@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Get Started with Azure Mobile Apps for Xamarin.Android apps"
-	description="Follow this tutorial to get started using Azure Mobile Apps for Xamarin Android development"
-	services="app-service\mobile"
-	documentationCenter="xamarin"
-	authors="ggailey777"
-	manager="dwrede"
-	editor="" />
+    pageTitle="Get Started with Azure Mobile Apps for Xamarin.Android apps"
+    description="Follow this tutorial to get started using Azure Mobile Apps for Xamarin Android development"
+    services="app-service\mobile"
+    documentationCenter="xamarin"
+    authors="ggailey777"
+    manager="dwrede"
+    editor="" />
 
 <tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-xamarin-android"
-	ms.devlang="dotnet"
-	ms.topic="hero-article"
-	ms.date="11/17/2015"
-	ms.author="glenga" />
+    ms.service="app-service-mobile"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-xamarin-android"
+    ms.devlang="dotnet"
+    ms.topic="hero-article"
+    ms.date="11/17/2015"
+    ms.author="glenga" />
 
 #Create a Xamarin.Android App
 
@@ -58,17 +58,17 @@ You have now provisioned an Azure Mobile App backend that can be used by your mo
 
 1. Under **Download and run your Xamarin.Android project**, click the **Download** button.
 
-  	This downloads a project that contains a client application that is connected to your mobile app. Save the compressed project file to your local computer, and make a note of where you save it.
+    This downloads a project that contains a client application that is connected to your mobile app. Save the compressed project file to your local computer, and make a note of where you save it.
 
 2. Press the **F5** key to build the project and start the app. 
 
 3. In the app, type meaningful text, such as _Complete the tutorial_ and then click the **Add** button.
 
-	![][10]
+    ![][10]
 
-	This sends a POST request to the new mobile app backend hosted in Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile app backend, and the data appears in the list.
+    This sends a POST request to the new mobile app backend hosted in Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile app backend, and the data appears in the list.
 
-	> [AZURE.NOTE] You can review the code that accesses your mobile app backend to query and insert data, which is found in the ToDoActivity.cs C# file.
+    > [AZURE.NOTE] You can review the code that accesses your mobile app backend to query and insert data, which is found in the ToDoActivity.cs C# file.
 
 ##Next steps
 
@@ -90,3 +90,4 @@ You have now provisioned an Azure Mobile App backend that can be used by your mo
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
  
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
+

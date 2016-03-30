@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Line of business application in Azure | Microsoft Azure" 
-	description="Learn the value of a line of business application in Azure, set up a test environment, and deploy a high-availability configuration." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
-	editor=""
-	tags="azure-resource-manager"/>
+    pageTitle="Line of business application in Azure | Microsoft Azure" 
+    description="Learn the value of a line of business application in Azure, set up a test environment, and deploy a high-availability configuration." 
+    services="virtual-machines" 
+    documentationCenter="" 
+    authors="JoeDavies-MSFT" 
+    manager="timlt" 
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="Windows" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/09/2015" 
-	ms.author="josephd"/>
+    ms.service="virtual-machines" 
+    ms.workload="infrastructure-services" 
+    ms.tgt_pltfrm="Windows" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/09/2015" 
+    ms.author="josephd"/>
 
 # Azure Infrastructure Services Workload: High-availability line of business application
 
@@ -84,10 +84,10 @@ To compute the estimated costs for this configuration, see the [Azure Pricing Ca
 
 1. In **Modules**, click **Compute**, and then click **Virtual Machines** enough times to create a list of seven virtual machines.
 2. For each virtual machine, select:
-	- Your intended region
-	- **Windows** for the type
-	- **Standard** for the pricing tier
-	- The default size in the previous table or your intended size for the **Instance size**
+    - Your intended region
+    - **Windows** for the type
+    - **Standard** for the pricing tier
+    - The default size in the previous table or your intended size for the **Instance size**
 
 > [AZURE.NOTE] The Azure Pricing Calculator does not include the additional costs for the SQL Server license for the two virtual machines running SQL Server 2014 Enterprise. See [Virtual Machines Pricing-SQL](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql) for more information.
 
@@ -97,23 +97,23 @@ To deploy this configuration, use the following process:
 
 - Phase 1: Configure Azure 
 
-	Use Azure PowerShell to create the storage accounts, availability sets, and a cross-premises virtual network. For the detailed configuration steps, see [Phase 1](virtual-machines-workload-high-availability-LOB-application-phase1.md).
+    Use Azure PowerShell to create the storage accounts, availability sets, and a cross-premises virtual network. For the detailed configuration steps, see [Phase 1](virtual-machines-workload-high-availability-LOB-application-phase1.md).
 
 - Phase 2: Configure the domain controllers 
 
-	Configure two Active Directory replica domain controllers and DNS settings for the virtual network. For the detailed configuration steps, see [Phase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md).
+    Configure two Active Directory replica domain controllers and DNS settings for the virtual network. For the detailed configuration steps, see [Phase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md).
 
 - Phase 3: Configure the SQL Server infrastructure.  
 
-	Create the virtual machines running SQL Server and the cluster. For the detailed configuration steps, see [Phase 3](virtual-machines-workload-high-availability-LOB-application-phase3.md).
+    Create the virtual machines running SQL Server and the cluster. For the detailed configuration steps, see [Phase 3](virtual-machines-workload-high-availability-LOB-application-phase3.md).
 
 - Phase 4: Configure the web servers.
 
-	Create the web server virtual machines and add your line of business application to it. For the detailed configuration, see [Phase 4](virtual-machines-workload-high-availability-LOB-application-phase4.md).
+    Create the web server virtual machines and add your line of business application to it. For the detailed configuration, see [Phase 4](virtual-machines-workload-high-availability-LOB-application-phase4.md).
 
 - Phase 5: Configure a SQL Server AlwaysOn Availability Group.
 
-	Prepare the application databases, create a SQL Server AlwaysOn Availability Group, and then add the application databases to it. For the detailed configuration steps, see [Phase 5](virtual-machines-workload-high-availability-LOB-application-phase5.md).
+    Prepare the application databases, create a SQL Server AlwaysOn Availability Group, and then add the application databases to it. For the detailed configuration steps, see [Phase 5](virtual-machines-workload-high-availability-LOB-application-phase5.md).
 
 Once configured, you can easily expand this line of business application by adding more web servers or virtual machines running SQL Servers to the cluster.
 
@@ -128,3 +128,4 @@ Once configured, you can easily expand this line of business application by addi
 [Azure infrastructure services implementation guidelines](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
 [Azure Infrastructure Services Workload: SharePoint Server 2013 farm](virtual-machines-workload-intranet-sharepoint-farm.md)
+

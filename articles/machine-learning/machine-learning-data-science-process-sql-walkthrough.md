@@ -1,20 +1,20 @@
 <properties
-	pageTitle="The Cortana Analytics Process in action: using SQL Server | Microsoft Azure"
-	description="Advanced Analytics Process and Technology in Action"  
-	services="machine-learning"
-	documentationCenter=""
-	authors="msolhab"
-	manager="paulettm"
-	editor="cgronlun" />
+    pageTitle="The Cortana Analytics Process in action: using SQL Server | Microsoft Azure"
+    description="Advanced Analytics Process and Technology in Action"  
+    services="machine-learning"
+    documentationCenter=""
+    authors="msolhab"
+    manager="paulettm"
+    editor="cgronlun" />
 
 <tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/27/2015" 
-	ms.author="mohabib;fashah;bradsev"/>
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/27/2015" 
+    ms.author="mohabib;fashah;bradsev"/>
 
 
 # The Cortana Analytics Process in action: using SQL Server
@@ -28,21 +28,21 @@ The NYC Taxi Trip data is about 20GB of compressed CSV files (~48GB uncompressed
 
 1. The 'trip_data' CSV contains trip details, such as number of passengers, pickup and dropoff points, trip duration, and trip length. Here are a few sample records:
 
-		medallion,hack_license,vendor_id,rate_code,store_and_fwd_flag,pickup_datetime,dropoff_datetime,passenger_count,trip_time_in_secs,trip_distance,pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude
-		89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,1,N,2013-01-01 15:11:48,2013-01-01 15:18:10,4,382,1.00,-73.978165,40.757977,-73.989838,40.751171
-		0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-06 00:18:35,2013-01-06 00:22:54,1,259,1.50,-74.006683,40.731781,-73.994499,40.75066
-		0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-05 18:49:41,2013-01-05 18:54:23,1,282,1.10,-74.004707,40.73777,-74.009834,40.726002
-		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:54:15,2013-01-07 23:58:20,2,244,.70,-73.974602,40.759945,-73.984734,40.759388
-		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:25:03,2013-01-07 23:34:24,1,560,2.10,-73.97625,40.748528,-74.002586,40.747868
+        medallion,hack_license,vendor_id,rate_code,store_and_fwd_flag,pickup_datetime,dropoff_datetime,passenger_count,trip_time_in_secs,trip_distance,pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude
+        89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,1,N,2013-01-01 15:11:48,2013-01-01 15:18:10,4,382,1.00,-73.978165,40.757977,-73.989838,40.751171
+        0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-06 00:18:35,2013-01-06 00:22:54,1,259,1.50,-74.006683,40.731781,-73.994499,40.75066
+        0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-05 18:49:41,2013-01-05 18:54:23,1,282,1.10,-74.004707,40.73777,-74.009834,40.726002
+        DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:54:15,2013-01-07 23:58:20,2,244,.70,-73.974602,40.759945,-73.984734,40.759388
+        DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:25:03,2013-01-07 23:34:24,1,560,2.10,-73.97625,40.748528,-74.002586,40.747868
 
 2. The 'trip_fare' CSV contains details of the fare paid for each trip, such as payment type, fare amount, surcharge and taxes, tips and tolls, and the total amount paid. Here are a few sample records:
 
-		medallion, hack_license, vendor_id, pickup_datetime, payment_type, fare_amount, surcharge, mta_tax, tip_amount, tolls_amount, total_amount
-		89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,2013-01-01 15:11:48,CSH,6.5,0,0.5,0,0,7
-		0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,2013-01-06 00:18:35,CSH,6,0.5,0.5,0,0,7
-		0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,2013-01-05 18:49:41,CSH,5.5,1,0.5,0,0,7
-		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:54:15,CSH,5,0.5,0.5,0,0,6
-		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:25:03,CSH,9.5,0.5,0.5,0,0,10.5
+        medallion, hack_license, vendor_id, pickup_datetime, payment_type, fare_amount, surcharge, mta_tax, tip_amount, tolls_amount, total_amount
+        89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,2013-01-01 15:11:48,CSH,6.5,0,0.5,0,0,7
+        0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,2013-01-06 00:18:35,CSH,6,0.5,0.5,0,0,7
+        0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,2013-01-05 18:49:41,CSH,5.5,1,0.5,0,0,7
+        DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:54:15,CSH,5,0.5,0.5,0,0,6
+        DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:25:03,CSH,9.5,0.5,0.5,0,0,10.5
 
 The unique key to join trip\_data and trip\_fare is composed of the fields: medallion, hack\_licence and pickup\_datetime.
 
@@ -54,11 +54,11 @@ We will formulate three prediction problems based on the *tip\_amount*, namely:
 
 2. Multiclass classification: To predict the range of tip paid for the trip. We divide the *tip\_amount* into five bins or classes:
 
-		Class 0 : tip_amount = $0
-		Class 1 : tip_amount > $0 and tip_amount <= $5
-		Class 2 : tip_amount > $5 and tip_amount <= $10
-		Class 3 : tip_amount > $10 and tip_amount <= $20
-		Class 4 : tip_amount > $20
+        Class 0 : tip_amount = $0
+        Class 1 : tip_amount > $0 and tip_amount <= $5
+        Class 2 : tip_amount > $5 and tip_amount <= $10
+        Class 3 : tip_amount > $10 and tip_amount <= $20
+        Class 4 : tip_amount > $20
 
 3. Regression task: To predict the amount of tip paid for a trip.  
 
@@ -80,10 +80,10 @@ To set up your Azure Data Science environment:
 
 3. [Provision a Data Science Virtual Machine](machine-learning-data-science-setup-sql-server-virtual-machine.md), which will serve as a SQL Server as well an IPython Notebook server.
 
-	> [AZURE.NOTE] The sample scripts and IPython notebooks will be downloaded to your Data Science virtual machine during the setup process. When the VM post-installation script completes, the samples will be in your VM's Documents library:  
-	> - Sample Scripts: `C:\Users\<user_name>\Documents\Data Science Scripts`  
-	> - Sample IPython Notebooks: `C:\Users\<user_name>\Documents\IPython Notebooks\DataScienceSamples`  
-	> where `<user_name>` is your VM's Windows login name. We will refer to the sample folders as **Sample Scripts** and **Sample IPython Notebooks**.
+    > [AZURE.NOTE] The sample scripts and IPython notebooks will be downloaded to your Data Science virtual machine during the setup process. When the VM post-installation script completes, the samples will be in your VM's Documents library:  
+    > - Sample Scripts: `C:\Users\<user_name>\Documents\Data Science Scripts`  
+    > - Sample IPython Notebooks: `C:\Users\<user_name>\Documents\IPython Notebooks\DataScienceSamples`  
+    > where `<user_name>` is your VM's Windows login name. We will refer to the sample folders as **Sample Scripts** and **Sample IPython Notebooks**.
 
 
 Based on the dataset size, data source location, and the selected Azure target environment, this scenario is similar to [Scenario \#5: Large dataset in a local files, target SQL Server in Azure VM](../machine-learning-data-science-plan-sample-scenarios.md#largelocaltodb).
@@ -100,9 +100,9 @@ To copy the data using AzCopy:
 
 3. In a Command Prompt window, run the following Azcopy command line, replacing <path_to_data_folder> with your data folder created in (2):
 
-		"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
+        "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
 
-	When the AzCopy completes, a total of 24 zipped CSV files (12 for trip\_data and 12 for trip\_fare) should be in the data folder.
+    When the AzCopy completes, a total of 24 zipped CSV files (12 for trip\_data and 12 for trip\_fare) should be in the data folder.
 
 4. Unzip the downloaded files. Note the folder where the uncompressed files reside. This folder will be referred to as the <path\_to\_data\_files\>.
 
@@ -114,44 +114,44 @@ The performance of loading/transferring large amounts of data to an SQL database
 
 2. Connect using Windows Authentication.
 
-	![SSMS Connect][12]
+    ![SSMS Connect][12]
 
 3. If you have not yet changed the SQL Server authentication mode and created a new SQL login user, open the script file named **change\_auth.sql** in the **Sample Scripts** folder. Change the  default user name and password. Click **!Execute** in the toolbar to run the script.
 
-	![Execute Script][13]
+    ![Execute Script][13]
 
 4. Verify and/or change the SQL Server default database and log folders to ensure that newly created databases will be stored in a Data Disk. The SQL Server VM image that is optimized for datawarehousing loads is pre-configured with data and log disks. If your VM did not include a Data Disk and you added new virtual hard disks during the VM setup process, change the default folders as follows:
 
-	- Right-click the SQL Server name in the left panel and click **Properties**.
+    - Right-click the SQL Server name in the left panel and click **Properties**.
 
-		![SQL Server Properties][14]
+        ![SQL Server Properties][14]
 
-	- Select **Database Settings** from the **Select a page** list to the left.
+    - Select **Database Settings** from the **Select a page** list to the left.
 
-	- Verify and/or change the **Database default locations** to the **Data Disk** locations of your choice. This is where new databases reside if created with the default location settings.
+    - Verify and/or change the **Database default locations** to the **Data Disk** locations of your choice. This is where new databases reside if created with the default location settings.
 
-		![SQL Database Defaults][15]  
+        ![SQL Database Defaults][15]  
 
 5. To create a new database and a set of filegroups to hold the partitioned tables, open the sample script **create\_db\_default.sql**. The script will create a new database named **TaxiNYC** and 12 filegroups in the default data location. Each filegroup will hold one month of trip\_data and trip\_fare data. Modify the database name, if desired. Click **!Execute** to run the script.
 
 6. Next, create two partition tables, one for the trip\_data and another for the trip\_fare. Open the sample script **create\_partitioned\_table.sql**, which will:
 
-	- Create a partition function to split the data by month.
-	- Create a partition scheme to map each month's data to a different filegroup.
-	- Create two partitioned tables mapped to the partition scheme: **nyctaxi\_trip** will hold the trip\_data and **nyctaxi\_fare** will hold the trip\_fare data.
+    - Create a partition function to split the data by month.
+    - Create a partition scheme to map each month's data to a different filegroup.
+    - Create two partitioned tables mapped to the partition scheme: **nyctaxi\_trip** will hold the trip\_data and **nyctaxi\_fare** will hold the trip\_fare data.
 
-	Click **!Execute** to run the script and create the partitioned tables.
+    Click **!Execute** to run the script and create the partitioned tables.
 
 7. In the **Sample Scripts** folder, there are two sample PowerShell scripts provided to demonstrate parallel bulk imports of data to SQL Server tables.
 
-	- **bcp\_parallel\_generic.ps1** is a generic script to parallel bulk import data into a table. Modify this script to set the input and target variables as indicated in the comment lines in the script.
-	- **bcp\_parallel\_nyctaxi.ps1** is a pre-configured version of the generic script and can be used to to load both tables for the NYC Taxi Trips data.  
+    - **bcp\_parallel\_generic.ps1** is a generic script to parallel bulk import data into a table. Modify this script to set the input and target variables as indicated in the comment lines in the script.
+    - **bcp\_parallel\_nyctaxi.ps1** is a pre-configured version of the generic script and can be used to to load both tables for the NYC Taxi Trips data.  
 
 8. Right-click the **bcp\_parallel\_nyctaxi.ps1** script name and click **Edit** to open it in PowerShell. Review the preset variables and modify according to your selected database name, input data folder, target log folder, and paths to the  sample format files **nyctaxi_trip.xml** and **nyctaxi\_fare.xml** (provided in the **Sample Scripts** folder).
 
-	![Bulk Import Data][16]
+    ![Bulk Import Data][16]
 
-	You may also select the authentication mode, default is Windows Authentication. Click the green arrow in the toolbar to run. The script will launch 24 bulk import operations in parallel, 12 for each partitioned table. You may monitor the data import progress by opening the SQL Server default data folder as set above.
+    You may also select the authentication mode, default is Windows Authentication. Click the green arrow in the toolbar to run. The script will launch 24 bulk import operations in parallel, 12 for each partitioned table. You may monitor the data import progress by opening the SQL Server default data folder as set above.
 
 9. The PowerShell script reports the starting and ending times. When all bulk imports complete, the ending time is reported. Check the target log folder to verify that the bulk imports were successful, i.e., no errors reported in the target log folder.
 
@@ -183,83 +183,83 @@ In this section we will save the final query to extract and sample the data. The
 
 For a quick verification of the number of rows and columns in the tables populated earlier using parallel bulk import,
 
-	-- Report number of rows in table nyctaxi_trip without table scan
-	SELECT SUM(rows) FROM sys.partitions WHERE object_id = OBJECT_ID('nyctaxi_trip')
+    -- Report number of rows in table nyctaxi_trip without table scan
+    SELECT SUM(rows) FROM sys.partitions WHERE object_id = OBJECT_ID('nyctaxi_trip')
 
-	-- Report number of columns in table nyctaxi_trip
-	SELECT COUNT(*) FROM information_schema.columns WHERE table_name = 'nyctaxi_trip'
+    -- Report number of columns in table nyctaxi_trip
+    SELECT COUNT(*) FROM information_schema.columns WHERE table_name = 'nyctaxi_trip'
 
 #### Exploration: Trip distribution by medallion
 
 This example identifies the medallion (taxi numbers) with more than 100 trips within a given time period. The query would benefit from the partitioned table access since it is conditioned by the partition scheme of **pickup\_datetime**. Querying the full dataset will also make use of the partitioned table and/or index scan.
 
-	SELECT medallion, COUNT(*)
-	FROM nyctaxi_fare
-	WHERE pickup_datetime BETWEEN '20130101' AND '20130331'
-	GROUP BY medallion
-	HAVING COUNT(*) > 100
+    SELECT medallion, COUNT(*)
+    FROM nyctaxi_fare
+    WHERE pickup_datetime BETWEEN '20130101' AND '20130331'
+    GROUP BY medallion
+    HAVING COUNT(*) > 100
 
 #### Exploration: Trip distribution by medallion and hack_license
 
-	SELECT medallion, hack_license, COUNT(*)
-	FROM nyctaxi_fare
-	WHERE pickup_datetime BETWEEN '20130101' AND '20130131'
-	GROUP BY medallion, hack_license
-	HAVING COUNT(*) > 100
+    SELECT medallion, hack_license, COUNT(*)
+    FROM nyctaxi_fare
+    WHERE pickup_datetime BETWEEN '20130101' AND '20130131'
+    GROUP BY medallion, hack_license
+    HAVING COUNT(*) > 100
 
 #### Data Quality Assessment: Verify records with incorrect longitude and/or latitude
 
 This example investigates if any of the longitude and/or latitude fields either contain an invalid value (radian degrees should be between -90 and 90), or have (0, 0) coordinates.
 
-	SELECT COUNT(*) FROM nyctaxi_trip
-	WHERE pickup_datetime BETWEEN '20130101' AND '20130331'
-	AND  (CAST(pickup_longitude AS float) NOT BETWEEN -90 AND 90
-	OR    CAST(pickup_latitude AS float) NOT BETWEEN -90 AND 90
-	OR    CAST(dropoff_longitude AS float) NOT BETWEEN -90 AND 90
-	OR    CAST(dropoff_latitude AS float) NOT BETWEEN -90 AND 90
-	OR    (pickup_longitude = '0' AND pickup_latitude = '0')
-	OR    (dropoff_longitude = '0' AND dropoff_latitude = '0'))
+    SELECT COUNT(*) FROM nyctaxi_trip
+    WHERE pickup_datetime BETWEEN '20130101' AND '20130331'
+    AND  (CAST(pickup_longitude AS float) NOT BETWEEN -90 AND 90
+    OR    CAST(pickup_latitude AS float) NOT BETWEEN -90 AND 90
+    OR    CAST(dropoff_longitude AS float) NOT BETWEEN -90 AND 90
+    OR    CAST(dropoff_latitude AS float) NOT BETWEEN -90 AND 90
+    OR    (pickup_longitude = '0' AND pickup_latitude = '0')
+    OR    (dropoff_longitude = '0' AND dropoff_latitude = '0'))
 
 #### Exploration: Tipped vs. Not Tipped Trips distribution
 
 This example finds the number of trips that were tipped vs. not tipped in a given time period (or in the full dataset if covering the full year). This distribution reflects the binary label distribution to be later used for binary classification modeling.
 
-	SELECT tipped, COUNT(*) AS tip_freq FROM (
-	  SELECT CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped, tip_amount
-	  FROM nyctaxi_fare
-	  WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
-	GROUP BY tipped
+    SELECT tipped, COUNT(*) AS tip_freq FROM (
+      SELECT CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped, tip_amount
+      FROM nyctaxi_fare
+      WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
+    GROUP BY tipped
 
 #### Exploration: Tip Class/Range Distribution
 
 This example computes the distribution of tip ranges in a given time period (or in the full dataset if covering the full year). This is the distribution of the label classes that will be used later for multiclass classification modeling.
 
-	SELECT tip_class, COUNT(*) AS tip_freq FROM (
-		SELECT CASE
-			WHEN (tip_amount = 0) THEN 0
-			WHEN (tip_amount > 0 AND tip_amount <= 5) THEN 1
-			WHEN (tip_amount > 5 AND tip_amount <= 10) THEN 2
-			WHEN (tip_amount > 10 AND tip_amount <= 20) THEN 3
-			ELSE 4
-		END AS tip_class
-	FROM nyctaxi_fare
-	WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
-	GROUP BY tip_class
+    SELECT tip_class, COUNT(*) AS tip_freq FROM (
+        SELECT CASE
+            WHEN (tip_amount = 0) THEN 0
+            WHEN (tip_amount > 0 AND tip_amount <= 5) THEN 1
+            WHEN (tip_amount > 5 AND tip_amount <= 10) THEN 2
+            WHEN (tip_amount > 10 AND tip_amount <= 20) THEN 3
+            ELSE 4
+        END AS tip_class
+    FROM nyctaxi_fare
+    WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
+    GROUP BY tip_class
 
 #### Exploration: Compute and Compare Trip Distance
 
 This example converts the pickup and drop-off longitude and latitude to SQL geography points, computes the trip distance using SQL geography points difference, and returns a random sample of the results for comparison. The example limits the results to valid coordinates only using the data quality assessment query covered earlier.
 
-	SELECT
-	pickup_location=geography::STPointFromText('POINT(' + pickup_longitude + ' ' + pickup_latitude + ')', 4326)
-	,dropoff_location=geography::STPointFromText('POINT(' + dropoff_longitude + ' ' + dropoff_latitude + ')', 4326)
-	,trip_distance
-	,computedist=round(geography::STPointFromText('POINT(' + pickup_longitude + ' ' + pickup_latitude + ')', 4326).STDistance(geography::STPointFromText('POINT(' + dropoff_longitude + ' ' + dropoff_latitude + ')', 4326))/1000, 2)
-	FROM nyctaxi_trip
-	tablesample(0.01 percent)
-	WHERE CAST(pickup_latitude AS float) BETWEEN -90 AND 90
-	AND   CAST(dropoff_latitude AS float) BETWEEN -90 AND 90
-	AND   pickup_longitude != '0' AND dropoff_longitude != '0'
+    SELECT
+    pickup_location=geography::STPointFromText('POINT(' + pickup_longitude + ' ' + pickup_latitude + ')', 4326)
+    ,dropoff_location=geography::STPointFromText('POINT(' + dropoff_longitude + ' ' + dropoff_latitude + ')', 4326)
+    ,trip_distance
+    ,computedist=round(geography::STPointFromText('POINT(' + pickup_longitude + ' ' + pickup_latitude + ')', 4326).STDistance(geography::STPointFromText('POINT(' + dropoff_longitude + ' ' + dropoff_latitude + ')', 4326))/1000, 2)
+    FROM nyctaxi_trip
+    tablesample(0.01 percent)
+    WHERE CAST(pickup_latitude AS float) BETWEEN -90 AND 90
+    AND   CAST(dropoff_latitude AS float) BETWEEN -90 AND 90
+    AND   pickup_longitude != '0' AND dropoff_longitude != '0'
 
 #### Feature Engineering in SQL Queries
 
@@ -269,20 +269,20 @@ The label generation and geography conversion exploration queries can also be us
 
 The following query joins the **nyctaxi\_trip** and **nyctaxi\_fare** tables, generates a binary classification label **tipped**, a multi-class classification label **tip\_class**, and extracts a 1% random sample from the full joined dataset. This query can be copied then pasted directly in the [Azure Machine Learning Studio](https://studio.azureml.net) [Reader][reader] module for direct data ingestion from the SQL Server database instance in Azure. The query excludes records with incorrect (0, 0) coordinates.
 
-	SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount, 	f.total_amount, f.tip_amount,
-	    CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
-	    CASE WHEN (tip_amount = 0) THEN 0
-	        WHEN (tip_amount > 0 AND tip_amount <= 5) THEN 1
-	        WHEN (tip_amount > 5 AND tip_amount <= 10) THEN 2
-	        WHEN (tip_amount > 10 AND tip_amount <= 20) THEN 3
-	        ELSE 4
-	    END AS tip_class
-	FROM nyctaxi_trip t, nyctaxi_fare f
-	TABLESAMPLE (1 percent)
-	WHERE t.medallion = f.medallion
-	AND   t.hack_license = f.hack_license
-	AND   t.pickup_datetime = f.pickup_datetime
-	AND   pickup_longitude != '0' AND dropoff_longitude != '0'
+    SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount,  f.total_amount, f.tip_amount,
+        CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
+        CASE WHEN (tip_amount = 0) THEN 0
+            WHEN (tip_amount > 0 AND tip_amount <= 5) THEN 1
+            WHEN (tip_amount > 5 AND tip_amount <= 10) THEN 2
+            WHEN (tip_amount > 10 AND tip_amount <= 20) THEN 3
+            ELSE 4
+        END AS tip_class
+    FROM nyctaxi_trip t, nyctaxi_fare f
+    TABLESAMPLE (1 percent)
+    WHERE t.medallion = f.medallion
+    AND   t.hack_license = f.hack_license
+    AND   t.pickup_datetime = f.pickup_datetime
+    AND   pickup_longitude != '0' AND dropoff_longitude != '0'
 
 
 ## <a name="ipnb"></a>Data Exploration and Feature Engineering in IPython Notebook
@@ -323,18 +323,18 @@ Initialize your database connection settings in the following variables:
 #### Report number of rows and columns in table nyctaxi_trip
 
     nrows = pd.read_sql('''
-		SELECT SUM(rows) FROM sys.partitions
-		WHERE object_id = OBJECT_ID('nyctaxi_trip')
-	''', conn)
+        SELECT SUM(rows) FROM sys.partitions
+        WHERE object_id = OBJECT_ID('nyctaxi_trip')
+    ''', conn)
 
-	print 'Total number of rows = %d' % nrows.iloc[0,0]
+    print 'Total number of rows = %d' % nrows.iloc[0,0]
 
     ncols = pd.read_sql('''
-		SELECT COUNT(*) FROM information_schema.columns
-		WHERE table_name = ('nyctaxi_trip')
-	''', conn)
+        SELECT COUNT(*) FROM information_schema.columns
+        WHERE table_name = ('nyctaxi_trip')
+    ''', conn)
 
-	print 'Total number of columns = %d' % ncols.iloc[0,0]
+    print 'Total number of columns = %d' % ncols.iloc[0,0]
 
 - Total number of rows = 173179759  
 - Total number of columns = 14
@@ -343,15 +343,15 @@ Initialize your database connection settings in the following variables:
 
     t0 = time.time()
 
-	query = '''
-		SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax,
-			f.tolls_amount, f.total_amount, f.tip_amount
-		FROM nyctaxi_trip t, nyctaxi_fare f
-		TABLESAMPLE (0.05 PERCENT)
-		WHERE t.medallion = f.medallion
-		AND   t.hack_license = f.hack_license
-		AND   t.pickup_datetime = f.pickup_datetime
-	'''
+    query = '''
+        SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax,
+            f.tolls_amount, f.total_amount, f.tip_amount
+        FROM nyctaxi_trip t, nyctaxi_fare f
+        TABLESAMPLE (0.05 PERCENT)
+        WHERE t.medallion = f.medallion
+        AND   t.hack_license = f.hack_license
+        AND   t.pickup_datetime = f.pickup_datetime
+    '''
 
     df1 = pd.read_sql(query, conn)
 
@@ -440,13 +440,13 @@ In this section, we join the tables **nyctaxi\_trip** and **nyctaxi\_fare**, ext
 
     nyctaxi_one_percent_insert = '''
         SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount, f.total_amount, f.tip_amount
-		INTO nyctaxi_one_percent
-		FROM nyctaxi_trip t, nyctaxi_fare f
-		TABLESAMPLE (1 PERCENT)
-		WHERE t.medallion = f.medallion
-		AND   t.hack_license = f.hack_license
-		AND   t.pickup_datetime = f.pickup_datetime
-		AND   pickup_longitude <> '0' AND dropoff_longitude <> '0'
+        INTO nyctaxi_one_percent
+        FROM nyctaxi_trip t, nyctaxi_fare f
+        TABLESAMPLE (1 PERCENT)
+        WHERE t.medallion = f.medallion
+        AND   t.hack_license = f.hack_license
+        AND   t.pickup_datetime = f.pickup_datetime
+        AND   pickup_longitude <> '0' AND dropoff_longitude <> '0'
     '''
 
     cursor.execute(drop_table_if_exists)
@@ -460,22 +460,22 @@ In this section, we explore data distributions using the 1% sampled data which i
 #### Exploration: Daily distribution of trips
 
     query = '''
-		SELECT CONVERT(date, dropoff_datetime) AS date, COUNT(*) AS c
-		FROM nyctaxi_one_percent
-		GROUP BY CONVERT(date, dropoff_datetime)
-	'''
+        SELECT CONVERT(date, dropoff_datetime) AS date, COUNT(*) AS c
+        FROM nyctaxi_one_percent
+        GROUP BY CONVERT(date, dropoff_datetime)
+    '''
 
     pd.read_sql(query,conn)
 
 #### Exploration: Trip distribution per medallion
 
     query = '''
-		SELECT medallion,count(*) AS c
-		FROM nyctaxi_one_percent
-		GROUP BY medallion
-	'''
+        SELECT medallion,count(*) AS c
+        FROM nyctaxi_one_percent
+        GROUP BY medallion
+    '''
 
-	pd.read_sql(query,conn)
+    pd.read_sql(query,conn)
 
 ### Feature Generation Using SQL Queries in IPython Notebook
 
@@ -488,15 +488,15 @@ In the following example, we generate two sets of labels to use for modeling:
 1. Binary Class Labels **tipped** (predicting if a tip will be given)
 2. Multiclass Labels **tip\_class** (predicting the tip bin or range)
 
-		nyctaxi_one_percent_add_col = '''
-			ALTER TABLE nyctaxi_one_percent ADD tipped bit, tip_class int
-		'''
+        nyctaxi_one_percent_add_col = '''
+            ALTER TABLE nyctaxi_one_percent ADD tipped bit, tip_class int
+        '''
 
-		cursor.execute(nyctaxi_one_percent_add_col)
-		cursor.commit()
+        cursor.execute(nyctaxi_one_percent_add_col)
+        cursor.commit()
 
-    	nyctaxi_one_percent_update_col = '''
-        	UPDATE nyctaxi_one_percent
+        nyctaxi_one_percent_update_col = '''
+            UPDATE nyctaxi_one_percent
             SET
                tipped = CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END,
                tip_class = CASE WHEN (tip_amount = 0) THEN 0
@@ -507,36 +507,36 @@ In the following example, we generate two sets of labels to use for modeling:
                             END
         '''
 
-    	cursor.execute(nyctaxi_one_percent_update_col)
-		cursor.commit()
+        cursor.execute(nyctaxi_one_percent_update_col)
+        cursor.commit()
 
 #### Feature Engineering: Count Features for Categorical Columns
 
 This example transforms a categorical field into a numeric field by replacing each category with the count of its occurrences in the data.
 
     nyctaxi_one_percent_insert_col = '''
-		ALTER TABLE nyctaxi_one_percent ADD cmt_count int, vts_count int
-	'''
+        ALTER TABLE nyctaxi_one_percent ADD cmt_count int, vts_count int
+    '''
 
     cursor.execute(nyctaxi_one_percent_insert_col)
     cursor.commit()
 
     nyctaxi_one_percent_update_col = '''
-		WITH B AS
-		(
-			SELECT medallion, hack_license,
-				SUM(CASE WHEN vendor_id = 'cmt' THEN 1 ELSE 0 END) AS cmt_count,
-				SUM(CASE WHEN vendor_id = 'vts' THEN 1 ELSE 0 END) AS vts_count
-			FROM nyctaxi_one_percent
-			GROUP BY medallion, hack_license
-		)
+        WITH B AS
+        (
+            SELECT medallion, hack_license,
+                SUM(CASE WHEN vendor_id = 'cmt' THEN 1 ELSE 0 END) AS cmt_count,
+                SUM(CASE WHEN vendor_id = 'vts' THEN 1 ELSE 0 END) AS vts_count
+            FROM nyctaxi_one_percent
+            GROUP BY medallion, hack_license
+        )
 
-		UPDATE nyctaxi_one_percent
-		SET nyctaxi_one_percent.cmt_count = B.cmt_count,
-			nyctaxi_one_percent.vts_count = B.vts_count
-		FROM nyctaxi_one_percent A INNER JOIN B
-		ON A.medallion = B.medallion AND A.hack_license = B.hack_license
-	'''
+        UPDATE nyctaxi_one_percent
+        SET nyctaxi_one_percent.cmt_count = B.cmt_count,
+            nyctaxi_one_percent.vts_count = B.vts_count
+        FROM nyctaxi_one_percent A INNER JOIN B
+        ON A.medallion = B.medallion AND A.hack_license = B.hack_license
+    '''
 
     cursor.execute(nyctaxi_one_percent_update_col)
     cursor.commit()
@@ -546,26 +546,26 @@ This example transforms a categorical field into a numeric field by replacing ea
 This example transforms a continuous numeric field into preset category ranges, i.e., transform numeric field into a categorical field.
 
     nyctaxi_one_percent_insert_col = '''
-		ALTER TABLE nyctaxi_one_percent ADD trip_time_bin int
-	'''
+        ALTER TABLE nyctaxi_one_percent ADD trip_time_bin int
+    '''
 
     cursor.execute(nyctaxi_one_percent_insert_col)
     cursor.commit()
 
     nyctaxi_one_percent_update_col = '''
-		WITH B(medallion,hack_license,pickup_datetime,trip_time_in_secs, BinNumber ) AS
-		(
-			SELECT medallion,hack_license,pickup_datetime,trip_time_in_secs,
-			NTILE(5) OVER (ORDER BY trip_time_in_secs) AS BinNumber from nyctaxi_one_percent
-		)
+        WITH B(medallion,hack_license,pickup_datetime,trip_time_in_secs, BinNumber ) AS
+        (
+            SELECT medallion,hack_license,pickup_datetime,trip_time_in_secs,
+            NTILE(5) OVER (ORDER BY trip_time_in_secs) AS BinNumber from nyctaxi_one_percent
+        )
 
-		UPDATE nyctaxi_one_percent
-		SET trip_time_bin = B.BinNumber
-		FROM nyctaxi_one_percent A INNER JOIN B
-		ON A.medallion = B.medallion
-		AND A.hack_license = B.hack_license
-		AND A.pickup_datetime = B.pickup_datetime
-	'''
+        UPDATE nyctaxi_one_percent
+        SET trip_time_bin = B.BinNumber
+        FROM nyctaxi_one_percent A INNER JOIN B
+        ON A.medallion = B.medallion
+        AND A.hack_license = B.hack_license
+        AND A.pickup_datetime = B.pickup_datetime
+    '''
 
     cursor.execute(nyctaxi_one_percent_update_col)
     cursor.commit()
@@ -575,24 +575,24 @@ This example transforms a continuous numeric field into preset category ranges, 
 This example breaks down the decimal representation of a latitude and/or longitude field into multiple region fields of different granularity, such as, country, city, town, block, etc. Note that the new geo-fields are not mapped to actual locations. For information on mapping geocode locations, see [Bing Maps REST Services](https://msdn.microsoft.com/library/ff701710.aspx).
 
     nyctaxi_one_percent_insert_col = '''
-		ALTER TABLE nyctaxi_one_percent
-		ADD l1 varchar(6), l2 varchar(3), l3 varchar(3), l4 varchar(3),
-			l5 varchar(3), l6 varchar(3), l7 varchar(3)
-	'''
+        ALTER TABLE nyctaxi_one_percent
+        ADD l1 varchar(6), l2 varchar(3), l3 varchar(3), l4 varchar(3),
+            l5 varchar(3), l6 varchar(3), l7 varchar(3)
+    '''
 
     cursor.execute(nyctaxi_one_percent_insert_col)
     cursor.commit()
 
     nyctaxi_one_percent_update_col = '''
-		UPDATE nyctaxi_one_percent
-		SET l1=round(pickup_longitude,0)
-			, l2 = CASE WHEN LEN (PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1)) >= 1 THEN SUBSTRING(PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1),1,1) ELSE '0' END     
-			, l3 = CASE WHEN LEN (PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1)) >= 2 THEN SUBSTRING(PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1),2,1) ELSE '0' END     
-			, l4 = CASE WHEN LEN (PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1)) >= 3 THEN SUBSTRING(PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1),3,1) ELSE '0' END     
-			, l5 = CASE WHEN LEN (PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1)) >= 4 THEN SUBSTRING(PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1),4,1) ELSE '0' END     
-			, l6 = CASE WHEN LEN (PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1)) >= 5 THEN SUBSTRING(PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1),5,1) ELSE '0' END     
-			, l7 = CASE WHEN LEN (PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1)) >= 6 THEN SUBSTRING(PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1),6,1) ELSE '0' END
-	'''
+        UPDATE nyctaxi_one_percent
+        SET l1=round(pickup_longitude,0)
+            , l2 = CASE WHEN LEN (PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1)) >= 1 THEN SUBSTRING(PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1),1,1) ELSE '0' END     
+            , l3 = CASE WHEN LEN (PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1)) >= 2 THEN SUBSTRING(PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1),2,1) ELSE '0' END     
+            , l4 = CASE WHEN LEN (PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1)) >= 3 THEN SUBSTRING(PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1),3,1) ELSE '0' END     
+            , l5 = CASE WHEN LEN (PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1)) >= 4 THEN SUBSTRING(PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1),4,1) ELSE '0' END     
+            , l6 = CASE WHEN LEN (PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1)) >= 5 THEN SUBSTRING(PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1),5,1) ELSE '0' END     
+            , l7 = CASE WHEN LEN (PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1)) >= 6 THEN SUBSTRING(PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1),6,1) ELSE '0' END
+    '''
 
     cursor.execute(nyctaxi_one_percent_update_col)
     cursor.commit()
@@ -638,7 +638,7 @@ In this exercise, we have already explored and engineered the data in SQL Server
 
 1. Get the data to Azure ML using the [Reader][reader] module, available in the **Data Input and Output** section. For more information, see the [Reader][reader] module reference page.
 
-	![Azure ML Reader][17]
+    ![Azure ML Reader][17]
 
 2. Select **Azure SQL Database** as the **Data source** in the **Properties** panel.
 
@@ -693,9 +693,9 @@ This sample walkthrough and its accompanying scripts and IPython notebook(s) are
 
 ### References
 
-•	[Andrés Monroy NYC Taxi Trips Download Page](http://www.andresmh.com/nyctaxitrips/)  
-•	[FOILing NYC’s Taxi Trip Data by Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
-•	[NYC Taxi and Limousine Commission Research and Statistics](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+•   [Andrés Monroy NYC Taxi Trips Download Page](http://www.andresmh.com/nyctaxitrips/)  
+•   [FOILing NYC’s Taxi Trip Data by Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
+•   [NYC Taxi and Limousine Commission Research and Statistics](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
 
 
 [1]: ./media/machine-learning-data-science-process-sql-walkthrough/sql-walkthrough_26_1.png
@@ -722,3 +722,4 @@ This sample walkthrough and its accompanying scripts and IPython notebook(s) are
 [metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+

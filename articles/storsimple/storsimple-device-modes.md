@@ -74,7 +74,7 @@ You can place the StorSimple device into maintenance mode (from normal mode) to 
 
 3. At the command prompt, type 
 
-	`Enter-HcsMaintenanceMode`
+    `Enter-HcsMaintenanceMode`
 
 4. You will see a warning message telling you that maintenance mode will disrupt all I/O requests and sever the connection to the Azure classic portal, and you will be prompted for confirmation. Type **Y** to enter maintenance mode.
 
@@ -87,7 +87,7 @@ You can place the StorSimple device into maintenance mode (from normal mode) to 
 
 2. At the command prompt, type:
 
-	`Exit-HcsMaintenanceMode`
+    `Exit-HcsMaintenanceMode`
 
 3. A warning message and a confirmation message will appear. Type **Y** to exit maintenance mode.
 
@@ -97,4 +97,5 @@ You can place the StorSimple device into maintenance mode (from normal mode) to 
 ## Next steps
 
 Learn how to [apply normal and maintenance mode updates](storsimple-update-device.md) on your StorSimple device.
+
 

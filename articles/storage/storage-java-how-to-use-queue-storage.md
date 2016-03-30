@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How to use Queue storage from Java | Microsoft Azure" 
-	description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Java." 
-	services="storage" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
-	editor="jimbe"/>
+    pageTitle="How to use Queue storage from Java | Microsoft Azure" 
+    description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Java." 
+    services="storage" 
+    documentationCenter="java" 
+    authors="rmcmurray" 
+    manager="wpickett" 
+    editor="jimbe"/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="12/01/2015" 
-	ms.author="robmcm"/>
+    ms.service="storage" 
+    ms.workload="storage" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="Java" 
+    ms.topic="article" 
+    ms.date="12/01/2015" 
+    ms.author="robmcm"/>
 
 # How to use Queue storage from Java
 
@@ -70,18 +70,18 @@ Use the **CloudQueueClient** object to get a reference to the queue you want to 
 
     try
     {
-    	// Retrieve storage account from connection-string.
-    	CloudStorageAccount storageAccount = 
-	       CloudStorageAccount.parse(storageConnectionString);
+        // Retrieve storage account from connection-string.
+        CloudStorageAccount storageAccount = 
+           CloudStorageAccount.parse(storageConnectionString);
 
-	   // Create the queue client.
-	   CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
+       // Create the queue client.
+       CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
 
-	   // Retrieve a reference to a queue.
-	   CloudQueue queue = queueClient.getQueueReference("myqueue");
+       // Retrieve a reference to a queue.
+       CloudQueue queue = queueClient.getQueueReference("myqueue");
 
-	   // Create the queue if it doesn't already exist.
-	   queue.createIfNotExists();
+       // Create the queue if it doesn't already exist.
+       queue.createIfNotExists();
     }
     catch (Exception e)
     {
@@ -95,22 +95,22 @@ To insert a message into an existing queue, first create a new **CloudQueueMessa
 
     try
     {
-    	// Retrieve storage account from connection-string.
-    	CloudStorageAccount storageAccount = 
-	       CloudStorageAccount.parse(storageConnectionString);
+        // Retrieve storage account from connection-string.
+        CloudStorageAccount storageAccount = 
+           CloudStorageAccount.parse(storageConnectionString);
 
-    	// Create the queue client.
-    	CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
+        // Create the queue client.
+        CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
 
-    	// Retrieve a reference to a queue.
-    	CloudQueue queue = queueClient.getQueueReference("myqueue");
+        // Retrieve a reference to a queue.
+        CloudQueue queue = queueClient.getQueueReference("myqueue");
 
-    	// Create the queue if it doesn't already exist.
-    	queue.createIfNotExists();
+        // Create the queue if it doesn't already exist.
+        queue.createIfNotExists();
 
-    	// Create a message and add it to the queue.
-    	CloudQueueMessage message = new CloudQueueMessage("Hello, World");
-    	queue.addMessage(message);
+        // Create a message and add it to the queue.
+        CloudQueueMessage message = new CloudQueueMessage("Hello, World");
+        queue.addMessage(message);
     }
     catch (Exception e)
     {
@@ -124,24 +124,24 @@ You can peek at the message in the front of a queue without removing it from the
 
     try
     {
-    	// Retrieve storage account from connection-string.
-    	CloudStorageAccount storageAccount = 
-	       CloudStorageAccount.parse(storageConnectionString);
+        // Retrieve storage account from connection-string.
+        CloudStorageAccount storageAccount = 
+           CloudStorageAccount.parse(storageConnectionString);
 
-    	// Create the queue client.
-    	CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
+        // Create the queue client.
+        CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
 
-    	// Retrieve a reference to a queue.
-    	CloudQueue queue = queueClient.getQueueReference("myqueue");
-			
-    	// Peek at the next message.
-    	CloudQueueMessage peekedMessage = queue.peekMessage();
-			
-    	// Output the message value.
-    	if (peekedMessage != null)
-    	{
-		  System.out.println(peekedMessage.getMessageContentAsString());
-	   }
+        // Retrieve a reference to a queue.
+        CloudQueue queue = queueClient.getQueueReference("myqueue");
+            
+        // Peek at the next message.
+        CloudQueueMessage peekedMessage = queue.peekMessage();
+            
+        // Output the message value.
+        if (peekedMessage != null)
+        {
+          System.out.println(peekedMessage.getMessageContentAsString());
+       }
     }
     catch (Exception e)
     {
@@ -161,11 +161,11 @@ The following code sample searches through the queue of messages, locates the fi
         CloudStorageAccount storageAccount = 
             CloudStorageAccount.parse(storageConnectionString);
 
-    	// Create the queue client.
-    	CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
+        // Create the queue client.
+        CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
 
-    	// Retrieve a reference to a queue.
-    	CloudQueue queue = queueClient.getQueueReference("myqueue");
+        // Retrieve a reference to a queue.
+        CloudQueue queue = queueClient.getQueueReference("myqueue");
 
         // The maximum number of messages that can be retrieved is 32. 
         final int MAX_NUMBER_OF_MESSAGES_TO_PEEK = 32;
@@ -198,21 +198,21 @@ Alternatively, the following code sample updates just the first visible message 
 
     try
     {
-    	// Retrieve storage account from connection-string.
-    	CloudStorageAccount storageAccount = 
-	       CloudStorageAccount.parse(storageConnectionString);
+        // Retrieve storage account from connection-string.
+        CloudStorageAccount storageAccount = 
+           CloudStorageAccount.parse(storageConnectionString);
 
-    	// Create the queue client.
-    	CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
+        // Create the queue client.
+        CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
 
-    	// Retrieve a reference to a queue.
-    	CloudQueue queue = queueClient.getQueueReference("myqueue");
+        // Retrieve a reference to a queue.
+        CloudQueue queue = queueClient.getQueueReference("myqueue");
 
-    	// Retrieve the first visible message in the queue.
-    	CloudQueueMessage message = queue.retrieveMessage();
-			
-    	if (message != null)
-    	{
+        // Retrieve the first visible message in the queue.
+        CloudQueueMessage message = queue.retrieveMessage();
+            
+        if (message != null)
+        {
             // Modify the message content.
             message.setMessageContent("Updated contents.");
             // Set it to be visible in 60 seconds.
@@ -221,7 +221,7 @@ Alternatively, the following code sample updates just the first visible message 
                 MessageUpdateFields.VISIBILITY);
             // Update the message.
             queue.updateMessage(message, 60, updateFields, null, null);
-    	}
+        }
     }
     catch (Exception e)
     {
@@ -235,24 +235,24 @@ You can get an estimate of the number of messages in a queue. The **downloadAttr
 
     try
     {
-    	// Retrieve storage account from connection-string.
-    	CloudStorageAccount storageAccount = 
-	       CloudStorageAccount.parse(storageConnectionString);
+        // Retrieve storage account from connection-string.
+        CloudStorageAccount storageAccount = 
+           CloudStorageAccount.parse(storageConnectionString);
 
-    	// Create the queue client.
-    	CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
+        // Create the queue client.
+        CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
 
-    	// Retrieve a reference to a queue.
-    	CloudQueue queue = queueClient.getQueueReference("myqueue");
+        // Retrieve a reference to a queue.
+        CloudQueue queue = queueClient.getQueueReference("myqueue");
 
-	   // Download the approximate message count from the server.
-    	queue.downloadAttributes();
+       // Download the approximate message count from the server.
+        queue.downloadAttributes();
 
-    	// Retrieve the newly cached approximate message count.
-    	long cachedMessageCount = queue.getApproximateMessageCount();
-			
-    	// Display the queue length.
-    	System.out.println(String.format("Queue length: %d", cachedMessageCount));
+        // Retrieve the newly cached approximate message count.
+        long cachedMessageCount = queue.getApproximateMessageCount();
+            
+        // Display the queue length.
+        System.out.println(String.format("Queue length: %d", cachedMessageCount));
     }
     catch (Exception e)
     {
@@ -266,24 +266,24 @@ Your code dequeues a message from a queue in two steps. When you call **retrieve
 
     try
     {
-    	// Retrieve storage account from connection-string.
-    	CloudStorageAccount storageAccount = 
-    	    CloudStorageAccount.parse(storageConnectionString);
+        // Retrieve storage account from connection-string.
+        CloudStorageAccount storageAccount = 
+            CloudStorageAccount.parse(storageConnectionString);
 
-    	// Create the queue client.
-    	CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
+        // Create the queue client.
+        CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
 
-    	// Retrieve a reference to a queue.
-    	CloudQueue queue = queueClient.getQueueReference("myqueue");
+        // Retrieve a reference to a queue.
+        CloudQueue queue = queueClient.getQueueReference("myqueue");
 
-    	// Retrieve the first visible message in the queue.
-    	CloudQueueMessage retrievedMessage = queue.retrieveMessage();
-			
-    	if (retrievedMessage != null)
-    	{
-    		// Process the message in less than 30 seconds, and then delete the message.
-    		queue.deleteMessage(retrievedMessage);
-    	}
+        // Retrieve the first visible message in the queue.
+        CloudQueueMessage retrievedMessage = queue.retrieveMessage();
+            
+        if (retrievedMessage != null)
+        {
+            // Process the message in less than 30 seconds, and then delete the message.
+            queue.deleteMessage(retrievedMessage);
+        }
     }
     catch (Exception e)
     {
@@ -390,3 +390,4 @@ Now that you've learned the basics of queue storage, follow these links to learn
 [Azure Storage Client SDK Reference]: http://dl.windowsazure.com/storage/javadoc/
 [Azure Storage REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
+

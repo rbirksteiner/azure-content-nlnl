@@ -66,7 +66,7 @@ After creating an indexer, you can retrieve its execution status using the [Get 
 ## Create Data Source ##
 
 In Azure Search, a data source is used with indexers, providing the connection information for ad hoc or scheduled data refresh of a target index. You can create a new data source within an Azure Search service using an HTTP POST request.
-	
+    
     POST https://[service name].search.windows.net/datasources?api-version=[api-version]
     Content-Type: application/json
     api-key: [admin key]
@@ -103,31 +103,31 @@ The body of the request contains a data source definition, which includes type o
 The syntax for structuring the request payload is as follows. A sample request is provided further on in this topic.
 
     { 
-		"name" : "Required for POST, optional for PUT. The name of the data source",
-    	"description" : "Optional. Anything you want, or nothing at all",
-    	"type" : "Required. Must be 'azuresql' or 'documentdb'",
-    	"credentials" : { "connectionString" : "Required. Connection string for your data source" },
-    	"container" : { "name" : "Required. The name of the table or collection you wish to index" },
-    	"dataChangeDetectionPolicy" : { Optional. See below for details }, 
-    	"dataDeletionDetectionPolicy" : { Optional. See below for details }
-	}
+        "name" : "Required for POST, optional for PUT. The name of the data source",
+        "description" : "Optional. Anything you want, or nothing at all",
+        "type" : "Required. Must be 'azuresql' or 'documentdb'",
+        "credentials" : { "connectionString" : "Required. Connection string for your data source" },
+        "container" : { "name" : "Required. The name of the table or collection you wish to index" },
+        "dataChangeDetectionPolicy" : { Optional. See below for details }, 
+        "dataDeletionDetectionPolicy" : { Optional. See below for details }
+    }
 
 Request contains the following properties: 
 
 - `name`: Required. The name of the data source. A data source name must only contain lowercase letters, digits or dashes, cannot start or end with dashes and is limited to 128 characters.
 - `description`: An optional description. 
 - `type`: Required. Must be one of the supported data source types:
-	- `azuresql` - Azure SQL Database or SQL Server on Azure VMs
-	- `documentdb` - Azure DocumentDB
+    - `azuresql` - Azure SQL Database or SQL Server on Azure VMs
+    - `documentdb` - Azure DocumentDB
 - `credentials`:
-	- The required `connectionString` property specifies the connection string for the data source. The format of the connection string depends on the data source type: 
-		- For Azure SQL, this is the usual SQL Server connection string. If you're using the Azure Classic Portal to retrieve the connection string, use the `ADO.NET connection string` option.
-		- For DocumentDB, the connection string must be in the following format: `"AccountEndpoint=https://[your account name].documents.azure.com;AccountKey=[your account key];Database=[your database id]"`. All of the values are required. You can find them in the [Azure Classic Portal](https://portal.azure.com/).   
-		
+    - The required `connectionString` property specifies the connection string for the data source. The format of the connection string depends on the data source type: 
+        - For Azure SQL, this is the usual SQL Server connection string. If you're using the Azure Classic Portal to retrieve the connection string, use the `ADO.NET connection string` option.
+        - For DocumentDB, the connection string must be in the following format: `"AccountEndpoint=https://[your account name].documents.azure.com;AccountKey=[your account key];Database=[your database id]"`. All of the values are required. You can find them in the [Azure Classic Portal](https://portal.azure.com/).   
+        
 - `container`: 
-	- The required `name` property specifies the table or view (for Azure SQL data source) or collection (for DocumentDB data source) that will be indexed. 
-	- For SQL data sources, omit schema prefixes, such as dbo., so that the container consists of just the table or view name.
-	- DocumentDB data sources support an optional `query` property that allows you to specify a query that flattens an arbitrary JSON document layout into a flat schema that Azure Search can index.   
+    - The required `name` property specifies the table or view (for Azure SQL data source) or collection (for DocumentDB data source) that will be indexed. 
+    - For SQL data sources, omit schema prefixes, such as dbo., so that the container consists of just the table or view name.
+    - DocumentDB data sources support an optional `query` property that allows you to specify a query that flattens an arbitrary JSON document layout into a flat schema that Azure Search can index.   
 - The optional `dataChangeDetectionPolicy` and `dataDeletionDetectionPolicy` are described below.
 
 <a name="DataChangeDetectionPolicies"></a>
@@ -137,7 +137,7 @@ The purpose of a data change detection policy is to efficiently identify changed
 
 **NOTE:** You can switch data detection policies after the indexer is already created, using the [Reset Indexer](#ResetIndexer) API.
 
-***High Watermark Change Detection Policy*** 
+***undefined*** 
 
 Use this policy when your data source contains a column or property that meets the following criteria:
  
@@ -152,12 +152,12 @@ When using DocumentDB data sources, you must use the `_ts` property provided by 
  
 This policy can be specified as follows:
 
-	{ 
-		"@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
-		"highWaterMarkColumnName" : "[a row version or last_updated column name]" 
-	} 
+    { 
+        "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
+        "highWaterMarkColumnName" : "[a row version or last_updated column name]" 
+    } 
 
-***SQL Integrated Change Detection Policy***
+***undefined***
 
 If your SQL database supports [change tracking](https://msdn.microsoft.com/library/bb933875.aspx), we recommend using SQL Integrated Change Tracking Policy. This policy enables the most efficient change tracking, and allows Azure Search to identify deleted rows without you having to have an explicit "soft delete" column in your schema.
 
@@ -171,20 +171,20 @@ This policy can only be used with tables; it cannot be used with views. You need
  
 When structuring the **Create Data Source** request, SQL integrated change tracking policy can be specified as follows:
 
-	{ 
-		"@odata.type" : "#Microsoft.Azure.Search.SqlIntegratedChangeTrackingPolicy" 
-	}
+    { 
+        "@odata.type" : "#Microsoft.Azure.Search.SqlIntegratedChangeTrackingPolicy" 
+    }
 
 <a name="DataDeletionDetectionPolicies"></a>
 **Data Deletion Detection Policies**
 
 The purpose of a data deletion detection policy is to efficiently identify deleted data items. Currently, the only supported policy is the `Soft Delete` policy, which allows identifying deleted items based on the value of a `soft delete` column or property in the data source. This policy can be specified as follows:
 
-	{ 
-		"@odata.type" : "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy",
-		"softDeleteColumnName" : "the column that specifies whether a row was deleted", 
-		"softDeleteMarkerValue" : "the value that identifies a row as deleted" 
-	}
+    { 
+        "@odata.type" : "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy",
+        "softDeleteColumnName" : "the column that specifies whether a row was deleted", 
+        "softDeleteMarkerValue" : "the value that identifies a row as deleted" 
+    }
 
 **NOTE:** Only columns with string, integer, or boolean values are supported. The value used as `softDeleteMarkerValue` must be a string, even if the corresponding column holds integers or booleans. For example, if the value that appears in your data source is 1, use `"1"` as the `softDeleteMarkerValue`.    
 
@@ -194,24 +194,24 @@ The purpose of a data deletion detection policy is to efficiently identify delet
 If you intend to use the data source with an indexer that runs on a schedule, this example shows how to specify change and deletion detection policies: 
 
     { 
-		"name" : "asqldatasource",
-		"description" : "a description",
-    	"type" : "azuresql",
-    	"credentials" : { "connectionString" : "Server=tcp:....database.windows.net,1433;Database=...;User ID=...;Password=...;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;" },
-    	"container" : { "name" : "sometable" },
-    	"dataChangeDetectionPolicy" : { "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy", "highWaterMarkColumnName" : "RowVersion" }, 
-    	"dataDeletionDetectionPolicy" : { "@odata.type" : "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy", "softDeleteColumnName" : "IsDeleted", "softDeleteMarkerValue" : "true" }
-	}
+        "name" : "asqldatasource",
+        "description" : "a description",
+        "type" : "azuresql",
+        "credentials" : { "connectionString" : "Server=tcp:....database.windows.net,1433;Database=...;User ID=...;Password=...;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;" },
+        "container" : { "name" : "sometable" },
+        "dataChangeDetectionPolicy" : { "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy", "highWaterMarkColumnName" : "RowVersion" }, 
+        "dataDeletionDetectionPolicy" : { "@odata.type" : "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy", "softDeleteColumnName" : "IsDeleted", "softDeleteMarkerValue" : "true" }
+    }
 
 If you only intend to use the data source for one-time copy of the data, the policies can be omitted:
 
     { 
-		"name" : "asqldatasource",
-    	"description" : "anything you want, or nothing at all",
-    	"type" : "azuresql",
-    	"credentials" : { "connectionString" : "Server=tcp:....database.windows.net,1433;Database=...;User ID=...;Password=...;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;" },
-    	"container" : { "name" : "sometable" }
-	} 
+        "name" : "asqldatasource",
+        "description" : "anything you want, or nothing at all",
+        "type" : "azuresql",
+        "credentials" : { "connectionString" : "Server=tcp:....database.windows.net,1433;Database=...;User ID=...;Password=...;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;" },
+        "container" : { "name" : "sometable" }
+    } 
 
 **Response**
 
@@ -262,7 +262,7 @@ Here is an example response body:
         {
           "name": "datasource1",
           "type": "azuresql",
-		  ... other data source properties
+          ... other data source properties
         }]
     }
 
@@ -296,20 +296,20 @@ Status Code: 200 OK is returned for a successful response.
 
 The response is similar to examples in [Create Data Source example requests](#CreateDataSourceRequestExamples): 
 
-	{ 
-		"name" : "asqldatasource",
-		"description" : "a description",
-    	"type" : "azuresql",
-    	"credentials" : { "connectionString" : "Server=tcp:....database.windows.net,1433;Database=...;User ID=...;Password=...;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;" },
-    	"container" : { "name" : "sometable" },
-    	"dataChangeDetectionPolicy" : { 
+    { 
+        "name" : "asqldatasource",
+        "description" : "a description",
+        "type" : "azuresql",
+        "credentials" : { "connectionString" : "Server=tcp:....database.windows.net,1433;Database=...;User ID=...;Password=...;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;" },
+        "container" : { "name" : "sometable" },
+        "dataChangeDetectionPolicy" : { 
             "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
-			"highWaterMarkColumnName" : "RowVersion" }, 
-    	"dataDeletionDetectionPolicy" : { 
+            "highWaterMarkColumnName" : "RowVersion" }, 
+        "dataDeletionDetectionPolicy" : { 
             "@odata.type" : "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy",
-			"softDeleteColumnName" : "IsDeleted", 
-			"softDeleteMarkerValue" : "true" }
-	}
+            "softDeleteColumnName" : "IsDeleted", 
+            "softDeleteMarkerValue" : "true" }
+    }
 
 **NOTE** Do not set the `Accept` request header to `application/json;odata.metadata=none` when calling this API as doing so will cause `@odata.type` attribute to be omitted from the response and you won't be able to differentiate between data change and data deletion detection policies of different types. 
 
@@ -335,7 +335,7 @@ Status Code: 204 No Content is returned for a successful response.
 ## Create Indexer ##
 
 You can create a new indexer within an Azure Search service using an HTTP POST request.
-	
+    
     POST https://[service name].search.windows.net/indexers?api-version=[api-version]
     Content-Type: application/json
     api-key: [admin key]
@@ -360,15 +360,15 @@ The body of the request contains an indexer definition, which specifies the data
 The syntax for structuring the request payload is as follows. A sample request is provided further on in this topic.
 
     { 
-		"name" : "Required for POST, optional for PUT. The name of the indexer",
-    	"description" : "Optional. Anything you want, or null",
-    	"dataSourceName" : "Required. The name of an existing data source",
+        "name" : "Required for POST, optional for PUT. The name of the indexer",
+        "description" : "Optional. Anything you want, or null",
+        "dataSourceName" : "Required. The name of an existing data source",
         "targetIndexName" : "Required. The name of an existing index",
         "schedule" : { Optional. See Indexing Schedule below. },
         "parameters" : { Optional. See Indexing Parameters below. },
         "fieldMappings" : { Optional. See Field Mappings below. },
         "disabled" : Optional boolean value indicating whether the indexer is disabled. False by default.  
-	}
+    }
 
 **Indexer Schedule**
 
@@ -391,15 +391,15 @@ An indexer can optionally specify several parameters that affect its behavior. A
 **Field Mappings**
 
 You can use field mappings to map a field name in the data source to a different field name in the target index. For example, consider a source table with a field `_id`. Azure Search doesn't allow a field name starting with an underscore, so the field must be renamed. This can be done using the `fieldMappings` property of the indexer as follows: 
-	
-	"fieldMappings" : [ { "sourceFieldName" : "_id", "targetFieldName" : "id" } ] 
+    
+    "fieldMappings" : [ { "sourceFieldName" : "_id", "targetFieldName" : "id" } ] 
 
 You can specify multiple field mappings: 
 
-	"fieldMappings" : [ 
-		{ "sourceFieldName" : "_id", "targetFieldName" : "id" },
+    "fieldMappings" : [ 
+        { "sourceFieldName" : "_id", "targetFieldName" : "id" },
         { "sourceFieldName" : "_timestamp", "targetFieldName" : "timestamp" },
-	 ]
+     ]
 
 Both source and target field names are case-insensitive.
 
@@ -410,7 +410,7 @@ Field mappings can also be used to transform source field values using *mapping 
 
 Only one such function is currently supported: `jsonArrayToStringCollection`. It parses a field that contains a string formatted as a JSON array into a Collection(Edm.String) field in the target index. It is intended for use with Azure SQL indexer in particular, since SQL doesn't have a native collection data type. It can be used as follows: 
 
-	"fieldMappings" : [ { "sourceFieldName" : "tags", "mappingFunction" : { "name" : "jsonArrayToStringCollection" } } ] 
+    "fieldMappings" : [ { "sourceFieldName" : "tags", "mappingFunction" : { "name" : "jsonArrayToStringCollection" } } ] 
 
 For example, if the source field contains the string `["red", "white", "blue"]`, then the target field of type `Collection(Edm.String)` will be populated with the three values `"red"`, `"white"` and `"blue"`.
 
@@ -421,14 +421,14 @@ Note that the `targetFieldName` property is optional; if left out, the `sourceFi
 
 The following example creates an indexer that copies data from the table referenced by the `ordersds` data source to the `orders` index on a schedule that starts on Jan 1, 2015 UTC and runs hourly. Each indexer invocation will be successful if no more than 5 items fail to be indexed in each batch, and no more than 10 items fail to be indexed in total. 
 
-	{
+    {
         "name" : "myindexer",
         "description" : "a cool indexer",
         "dataSourceName" : "ordersds",
         "targetIndexName" : "orders",
         "schedule" : { "interval" : "PT1H", "startTime" : "2015-01-01T00:00:00Z" },
         "parameters" : { "maxFailedItems" : 10, "maxFailedItemsPerBatch" : 5, "base64EncodeKeys": false }
-	}
+    }
 
 **Response**
 
@@ -484,7 +484,7 @@ Here is an example response body:
         "dataSourceName" : "ordersds",
         "targetIndexName" : "orders",
         ... other indexer properties
-	  }]
+      }]
     }
 
 Note that you can filter the response down to just the properties you're interested in. For example, if you want only a list of indexer names, use the OData `$select` query option:
@@ -518,14 +518,14 @@ Status Code: 200 OK is returned for a successful response.
 
 The response is similar to examples in [Create Indexer example requests](#CreateIndexerRequestExamples): 
 
-	{
+    {
         "name" : "myindexer",
         "description" : "a cool indexer",
         "dataSourceName" : "ordersds",
         "targetIndexName" : "orders",
         "schedule" : { "interval" : "PT1H", "startTime" : "2015-01-01T00:00:00Z" },
         "parameters" : { "maxFailedItems" : 10, "maxFailedItemsPerBatch" : 5, "base64EncodeKeys": false }
-	}
+    }
 
 
 <a name="DeleteIndexer"></a>
@@ -551,7 +551,7 @@ Status Code: 204 No Content is returned for a successful response.
 
 In addition to running periodically on a schedule, an indexer can also be invoked on demand via the **Run Indexer** operation: 
 
-	POST https://[service name].search.windows.net/indexers/[indexer name]/run?api-version=[api-version]
+    POST https://[service name].search.windows.net/indexers/[indexer name]/run?api-version=[api-version]
     api-key: [admin key]
 
 The `api-version` is required. The preview version is `2015-02-28-Preview`. [Azure Search versioning](https://msdn.microsoft.com/library/azure/dn864560.aspx) has details and more information about alternative versions.
@@ -567,7 +567,7 @@ Status Code: 202 Accepted is returned for a successful response.
 
 The **Get Indexer Status** operation retrieves the current status and execution history of an indexer: 
 
-	GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=[api-version]
+    GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=[api-version]
     api-key: [admin key]
 
 
@@ -583,31 +583,31 @@ The response body contains information about overall indexer health status, the 
 
 A sample response body looks like this: 
 
-	{
-		"status":"running",
-		"lastResult": {
-			"status":"success",
-			"errorMessage":null,
-			"startTime":"2014-11-26T03:37:18.853Z",
-			"endTime":"2014-11-26T03:37:19.012Z",
-			"errors":[],
-			"itemsProcessed":11,
-			"itemsFailed":0,
-			"initialTrackingState":null,
-			"finalTrackingState":null
+    {
+        "status":"running",
+        "lastResult": {
+            "status":"success",
+            "errorMessage":null,
+            "startTime":"2014-11-26T03:37:18.853Z",
+            "endTime":"2014-11-26T03:37:19.012Z",
+            "errors":[],
+            "itemsProcessed":11,
+            "itemsFailed":0,
+            "initialTrackingState":null,
+            "finalTrackingState":null
          },
-		"executionHistory":[ {
-			"status":"success",
-         	"errorMessage":null,
-			"startTime":"2014-11-26T03:37:18.853Z",
-			"endTime":"2014-11-26T03:37:19.012Z",
-			"errors":[],
-			"itemsProcessed":11,
-			"itemsFailed":0,
-			"initialTrackingState":null,
-			"finalTrackingState":null
-		}]
-	}
+        "executionHistory":[ {
+            "status":"success",
+            "errorMessage":null,
+            "startTime":"2014-11-26T03:37:18.853Z",
+            "endTime":"2014-11-26T03:37:19.012Z",
+            "errors":[],
+            "itemsProcessed":11,
+            "itemsFailed":0,
+            "initialTrackingState":null,
+            "finalTrackingState":null
+        }]
+    }
 
 **Indexer Status**
 
@@ -661,7 +661,7 @@ Indexer execution status captures the status of a single indexer execution. It c
 
 The **Reset Indexer** operation resets the change tracking state associated with the indexer. This allows you to trigger from-scratch re-indexing (for example, if your data source schema has changed), or to change the data change detection policy for a data source associated with the indexer.   
 
-	POST https://[service name].search.windows.net/indexers/[indexer name]/reset?api-version=[api-version]
+    POST https://[service name].search.windows.net/indexers/[indexer name]/reset?api-version=[api-version]
     api-key: [admin key]
 
 The `api-version` is required. The preview version is `2015-02-28-Preview`. [Azure Search versioning](https://msdn.microsoft.com/library/azure/dn864560.aspx) has details and more information about alternative versions.
@@ -676,7 +676,7 @@ Status Code: 204 No Content for a successful response.
 
 <table style="font-size:12">
 <tr>
-<td>SQL data type</td>	
+<td>SQL data type</td>  
 <td>Allowed target index field types</td>
 <td>Notes</td>
 </tr>
@@ -743,7 +743,7 @@ Status Code: 204 No Content for a successful response.
 
 <table style="font-size:12">
 <tr>
-<td>JSON data type</td>	
+<td>JSON data type</td> 
 <td>Allowed target index field types</td>
 <td>Notes</td>
 </tr>

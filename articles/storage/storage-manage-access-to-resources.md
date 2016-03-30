@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Manage anonymous read access to containers and blobs | Microsoft Azure" 
-	description="Learn how to make containers and blobs available for anonymous access, and how to access them programmatically." 
-	services="storage" 
-	documentationCenter="" 
-	authors="tamram" 
-	manager="carmonm" 
-	editor=""/>
+    pageTitle="Manage anonymous read access to containers and blobs | Microsoft Azure" 
+    description="Learn how to make containers and blobs available for anonymous access, and how to access them programmatically." 
+    services="storage" 
+    documentationCenter="" 
+    authors="tamram" 
+    manager="carmonm" 
+    editor=""/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/26/2015" 
-	ms.author="tamram"/>
+    ms.service="storage" 
+    ms.workload="storage" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/26/2015" 
+    ms.author="tamram"/>
 
 # Manage anonymous read access to containers and blobs
 
@@ -51,7 +51,7 @@ To set container permissions from the [Azure Portal](portal.azure.com), follow t
 3. Select **Edit** from the toolbar.
 4. In the **Edit Container Metadata** dialog, select your desired level of permissions from the **Access** field, as shown in the screenshot below.
 
-	![Edit Container Metadata dialog](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-1.png)
+    ![Edit Container Metadata dialog](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-1.png)
 
 ### Setting container permissions programmatically using .NET
 

@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Author Logic App definitions | Microsoft Azure" 
-	description="Learn how to write the JSON definition for Logic apps" 
-	authors="stepsic-microsoft-com" 
-	manager="dwrede" 
-	editor="" 
-	services="app-service\logic" 
-	documentationCenter=""/>
+    pageTitle="Author Logic App definitions | Microsoft Azure" 
+    description="Learn how to write the JSON definition for Logic apps" 
+    authors="stepsic-microsoft-com" 
+    manager="dwrede" 
+    editor="" 
+    services="app-service\logic" 
+    documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/07/2015"
-	ms.author="stepsic"/>
-	
+    ms.service="app-service-logic"
+    ms.workload="integration"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/07/2015"
+    ms.author="stepsic"/>
+    
 # Author Logic App definitions
 This topic demonstrates how to use [App Services Logic Apps](app-service-logic-what-are-logic-apps.md) definitions, which is a simple, declarative JSON language. If you haven't done so yet, check out [how to Create a new Logic app](../app-service-create-a-logic-app.md) first. You can also read the [full reference material of the definition language on MSDN](https://msdn.microsoft.com/library/azure/dn948512.aspx).
 
@@ -560,7 +560,7 @@ Date Times can be useful, particularly when you are trying to pull data from a d
             "inputs": {
                 "method": "GET",
                 "uri": "http://www.example.com/?recordLongOrderTime=@{parameters('order').id}&currentTime=@{utcNow('r')}"
-        	},
+            },
             "conditions": [
                 {
                     "expression": "@less(actions('order').startTime,addseconds(utcNow(),-1))"
@@ -722,3 +722,4 @@ You may have an API that you are calling, and you want to wait for a certain res
 ```
 
 See the [REST API documentation](https://msdn.microsoft.com/library/azure/dn948513.aspx) for all of the options you have for creating and managing Logic apps. 
+

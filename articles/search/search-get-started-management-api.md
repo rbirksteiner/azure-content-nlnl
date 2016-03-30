@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Get started with Azure Search Management REST API | Microsoft Azure | Hosted cloud search service" 
-	description="Administer your hosted cloud Azure Search service using a Management REST API" 
-	services="search" 
-	documentationCenter="" 
-	authors="HeidiSteen" 
-	manager="mblythe" 
-	editor=""/>
+    pageTitle="Get started with Azure Search Management REST API | Microsoft Azure | Hosted cloud search service" 
+    description="Administer your hosted cloud Azure Search service using a Management REST API" 
+    services="search" 
+    documentationCenter="" 
+    authors="HeidiSteen" 
+    manager="mblythe" 
+    editor=""/>
 
 <tags 
-	ms.service="search" 
-	ms.devlang="rest-api" 
-	ms.workload="search" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.date="11/04/2015" 
-	ms.author="heidist"/>
+    ms.service="search" 
+    ms.devlang="rest-api" 
+    ms.workload="search" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.date="11/04/2015" 
+    ms.author="heidist"/>
 
 # Get started with Azure Search Management REST API
 
@@ -130,23 +130,23 @@ If you have not yet [downloaded the sample application from Codeplex](https://az
 
 4. Provide `RedirectUrl`. Copy Redirect URI from the same portal page, and paste it into Program.cs.
 
-	![][9]
+    ![][9]
 
 5. Provide `TenantID.` 
-	- Go back to Active Directory | SearchTutorial (service). 
-	- Click **Applications** from the top bar. 
-	- Click **View Endpoints** at the bottom of the page. 
-	- Copy the OAUTH 2.0 Authorization Endpoint at the bottom of the list. 
-	- Paste the endpoint into TenantID, trimming the value of all URI parameters except the tenant ID.
+    - Go back to Active Directory | SearchTutorial (service). 
+    - Click **Applications** from the top bar. 
+    - Click **View Endpoints** at the bottom of the page. 
+    - Copy the OAUTH 2.0 Authorization Endpoint at the bottom of the list. 
+    - Paste the endpoint into TenantID, trimming the value of all URI parameters except the tenant ID.
 
     Given "https://login.windows.net/55e324c7-1656-4afe-8dc3-43efcd4ffa50/oauth2/authorize?api-version=1.0", delete everything except "55e324c7-1656-4afe-8dc3-43efcd4ffa50".
 
-	![][10]
+    ![][10]
 
 6. Provide `SubscriptionID`.
-	- Go to the main portal page.
-	- Click **Settings** at the bottom of the left navigation pane.
-	- From the Subscriptions tab, copy the subscription ID and paste it into Program.cs.
+    - Go to the main portal page.
+    - Click **Settings** at the bottom of the left navigation pane.
+    - From the Subscriptions tab, copy the subscription ID and paste it into Program.cs.
 
 7. Save and then build the solution.
 
@@ -169,11 +169,11 @@ The sample application creates a free Azure Search service for an existing Azure
 
 6. The remainder of the program uses the [Azure Search Management REST API](http://msdn.microsoft.com/library/dn832684.aspx). Notice that the `api-version` for this API is different from the Azure Resource Manager api-version. For example, `/listAdminKeys?api-version=2014-07-31-Preview` shows the `api-version` of the Azure Search Management REST API.
 
-	The next series of operations retrieve the service definition you just created, the admin api-keys, regenerates and retrieves keys, changes the replica and parition, and finally deletes the service.
+    The next series of operations retrieve the service definition you just created, the admin api-keys, regenerates and retrieves keys, changes the replica and parition, and finally deletes the service.
 
-	When changing the service replica or partition count, it is expected that this action will fail if you are using the free edition. Only the standard edition can make use of additional partitions and replicas.
+    When changing the service replica or partition count, it is expected that this action will fail if you are using the free edition. Only the standard edition can make use of additional partitions and replicas.
 
-	Deleting the service is the last operation.
+    Deleting the service is the last operation.
 
 ##Next steps
 

@@ -1,20 +1,20 @@
 <properties
-	pageTitle="App Service API Apps metadata for API discovery and code generation | Microsoft Azure"
-	description="Learn how API Apps in Azure App Service use Swagger metadata to facilitate API discovery and code generation."
-	services="app-service\api"
-	documentationCenter=".net"
-	authors="tdykstra"
-	manager="wpickett"
-	editor=""/>
+    pageTitle="App Service API Apps metadata for API discovery and code generation | Microsoft Azure"
+    description="Learn how API Apps in Azure App Service use Swagger metadata to facilitate API discovery and code generation."
+    services="app-service\api"
+    documentationCenter=".net"
+    authors="tdykstra"
+    manager="wpickett"
+    editor=""/>
 
 <tags
-	ms.service="app-service-api"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="11/25/2015"
-	ms.author="tdykstra"/>
+    ms.service="app-service-api"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="11/25/2015"
+    ms.author="tdykstra"/>
 
 # App Service API Apps metadata for API discovery and code generation 
 
@@ -38,9 +38,9 @@ You can also configure the API definition URL for an API app by using Azure Reso
 
 Set the `apiDefinition` property on the Microsoft.Web/sites/config resource type for your <site name>/web resource. For example, in **Resource Explorer**, go to **subscriptions > {your subscription} > resourceGroups > {your resource group} > providers > Microsoft.Web > sites > {your site} > config > web**, and you'll see the cors property:
 
-		"apiDefinition": {
-		  "url": "https://contactslistapi.azurewebsites.net/swagger/docs/v1"
-		}
+        "apiDefinition": {
+          "url": "https://contactslistapi.azurewebsites.net/swagger/docs/v1"
+        }
 
 ### Default value
 
@@ -55,3 +55,4 @@ You can generate client code for an API app by using Visual Studio or from the c
 ## Next steps
 
 For a step-by-step tutorial that guides you through creating, deploying, and consuming an API app, see [Get started with API Apps in Azure App Service](app-service-api-dotnet-get-started.md).
+

@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Get Started with Mobile Services for Xamarin iOS apps | Microsoft Azure"
-	description="Follow this tutorial to get started using Azure Mobile Services for Xamarin iOS development."
-	services="mobile-services"
-	documentationCenter="xamarin"
-	authors="conceptdev"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Get Started with Mobile Services for Xamarin iOS apps | Microsoft Azure"
+    description="Follow this tutorial to get started using Azure Mobile Services for Xamarin iOS development."
+    services="mobile-services"
+    documentationCenter="xamarin"
+    authors="conceptdev"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-xamarin-ios"
-	ms.devlang="dotnet"
-	ms.topic="hero-article"
-	ms.date="11/05/2015"
-	ms.author="craig.dunn@xamarin.com"/>
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-xamarin-ios"
+    ms.devlang="dotnet"
+    ms.topic="hero-article"
+    ms.date="11/05/2015"
+    ms.author="craig.dunn@xamarin.com"/>
 
 # <a name="getting-started"> </a>Get started with Mobile Services
 
@@ -58,11 +58,11 @@ In this section you will create a new Xamarin.iOS app that is connected to your 
 
 2. In the quickstart tab, click **Xamarin.iOS** under **Choose platform** and expand **Create a new Xamarin.iOS app**.
 
-	![][6]
+    ![][6]
 
-	This displays the three easy steps to create a Xamarin.iOS app connected to your mobile service.
+    This displays the three easy steps to create a Xamarin.iOS app connected to your mobile service.
 
-  	![][7]
+    ![][7]
 
 3. If you haven't already done so, download and install Xcode (we recommend the latest version, Xcode 6.0, or newer) and [Xamarin Studio].
 
@@ -70,7 +70,7 @@ In this section you will create a new Xamarin.iOS app that is connected to your 
 
 5. Under **Download and run app**, click **Download**.
 
-	This downloads the project for the sample _To do list_ application that is connected to your mobile service and references the Azure Mobile Services component for Xamarin.iOS. Save the compressed project file to your local computer, and make a note of where you saved it.
+    This downloads the project for the sample _To do list_ application that is connected to your mobile service and references the Azure Mobile Services component for Xamarin.iOS. Save the compressed project file to your local computer, and make a note of where you saved it.
 
 ## Run your new Xamarin.iOS app
 
@@ -78,27 +78,27 @@ The final stage of this tutorial is to build and run your new app.
 
 1. Browse to the location where you saved the compressed project files, expand the files on your computer, and open the **XamarinTodoQuickStart.iOS.sln** solution file using Xamarin Studio or Visual Studio.
 
-	![][8]
+    ![][8]
 
-	![][9]
+    ![][9]
 
 2. Press the **Run** button to build the project and start the app in the iPhone emulator, which is the default for this project.
 
 3. In the app, type meaningful text, such as _Complete the tutorial_ and then click the plus (**+**) icon.
 
-	![][10]
+    ![][10]
 
-	This sends a POST request to the new mobile service hosted in Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the list.
+    This sends a POST request to the new mobile service hosted in Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the list.
 
-	> [AZURE.NOTE] You can review the code that accesses your mobile service to query and insert data, which is found in the TodoService.cs C# file.
+    > [AZURE.NOTE] You can review the code that accesses your mobile service to query and insert data, which is found in the TodoService.cs C# file.
 
 4. Back in the [Azure classic portal], click the **Data** tab and then click the **TodoItems** table.
 
-	![][11]
+    ![][11]
 
-	This lets you browse the data inserted by the app into the table.
+    This lets you browse the data inserted by the app into the table.
 
-	![][12]
+    ![][12]
 
 
 ## Next Steps
@@ -145,3 +145,4 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
 [Azure classic portal]: https://manage.windowsazure.com/
+

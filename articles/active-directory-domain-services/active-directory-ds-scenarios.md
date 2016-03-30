@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure Active Directory Domain Services preview: Deployment scenarios | Microsoft Azure"
-	description="Deployment scenarios for Azure AD Domain Services"
-	services="active-directory-ds"
-	documentationCenter=""
-	authors="mahesh-unnikrishnan"
-	manager="stevenpo"
-	editor="curtand"/>
+    pageTitle="Azure Active Directory Domain Services preview: Deployment scenarios | Microsoft Azure"
+    description="Deployment scenarios for Azure AD Domain Services"
+    services="active-directory-ds"
+    documentationCenter=""
+    authors="mahesh-unnikrishnan"
+    manager="stevenpo"
+    editor="curtand"/>
 
 <tags
-	ms.service="active-directory-ds"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/16/2015"
-	ms.author="maheshu"/>
+    ms.service="active-directory-ds"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/16/2015"
+    ms.author="maheshu"/>
 
 
 # Deployment scenarios and use-cases
@@ -55,3 +55,4 @@ Contoso has a custom-built software vault application that includes a web front-
 A few important points to note when considering this scenario:
 
 - Ensure that the application uses username/password for authentication. Certificate/Smartcard based authentication is not supported by Azure AD Domain Services.
+

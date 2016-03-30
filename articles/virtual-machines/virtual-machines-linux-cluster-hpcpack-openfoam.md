@@ -93,9 +93,9 @@ Running a cross-node job on multiple Linux nodes requires the nodes to trust eac
 
 It's easy to generate an RSA key pair, which contains a public key and a private key, by running the Linux **ssh-keygen** command.
 
-1.	Log on to a Linux computer.
+1.  Log on to a Linux computer.
 
-2.	Run the following command.
+2.  Run the following command.
 
     ```
     ssh-keygen -t rsa
@@ -105,16 +105,16 @@ It's easy to generate an RSA key pair, which contains a public key and a private
 
     ![Generate an RSA key pair][keygen]
 
-3.	Change directory to the ~/.ssh directory. The private key is stored in id_rsa and the public key in id_rsa.pub.
+3.  Change directory to the ~/.ssh directory. The private key is stored in id_rsa and the public key in id_rsa.pub.
 
     ![Private and public keys][keys]
 
 ### Add the key pair to the HPC Pack cluster
-1.	Make a Remote Desktop connection to your head node with your HPC Pack administrator account (the administrator account you set up when you ran the deployment script).
+1.  Make a Remote Desktop connection to your head node with your HPC Pack administrator account (the administrator account you set up when you ran the deployment script).
 
 2. Use standard Windows Server procedures to create a domain user account in the cluster's Active Directory domain. For example, use the Active Directory User and Computers tool on the head node. The examples in this article assume you create a domain user named hpclab\hpcuser.
 
-3.	Create a file named C:\cred.xml and copy the RSA key data into it. You can find an example of this file in the sample files at the end of this article.
+3.  Create a file named C:\cred.xml and copy the RSA key data into it. You can find an example of this file in the sample files at the end of this article.
 
     ```
     <ExtendedData>
@@ -123,7 +123,7 @@ It's easy to generate an RSA key pair, which contains a public key and a private
     </ExtendedData>
     ```
 
-4.	Open a Command Prompt and enter the following command to set the credentials data for the hpclab\hpcuser account. You use the **extendeddata** parameter to pass the name of C:\cred.xml file you created for the key data.
+4.  Open a Command Prompt and enter the following command to set the credentials data for the hpclab\hpcuser account. You use the **extendeddata** parameter to pass the name of C:\cred.xml file you created for the key data.
 
     ```
     hpccred setcreds /extendeddata:c:\cred.xml /user:hpclab\hpcuser /password:<UserPassword>
@@ -131,7 +131,7 @@ It's easy to generate an RSA key pair, which contains a public key and a private
 
     This command completes successfully without output. After setting the credentials for the user accounts you need to run jobs, store the cred.xml file in a secure location, or delete it.
 
-5.	If you generated the RSA key pair on one of your Linux nodes, remember to delete the keys after you finish using them. HPC Pack does not set up mutual trust if it finds an existing id_rsa file or id_rsa.pub file.
+5.  If you generated the RSA key pair on one of your Linux nodes, remember to delete the keys after you finish using them. HPC Pack does not set up mutual trust if it finds an existing id_rsa file or id_rsa.pub file.
 
 >[AZURE.IMPORTANT] We don’t recommend running a Linux job as a cluster administrator on a shared cluster, because a job submitted by an administrator runs under the root account on the Linux nodes. A job submitted by a non-administrator user runs under a local Linux user account with the same name as the job user, and HPC Pack sets up mutual trust for this Linux user across all the nodes allocated to the job. You can set up the Linux user manually on the Linux nodes before running the job, or HPC Pack creates the user automatically when the job is submitted. If HPC Pack creates the user, HPC Pack deletes it after the job completes. The keys are removed after job completion on the nodes to reduce security threats.
 
@@ -139,9 +139,9 @@ It's easy to generate an RSA key pair, which contains a public key and a private
 
 Now set up a standard SMB share on a folder on the head node, and mount the shared folder on all Linux nodes to allow the Linux nodes to access application files with a common path. If you want, you can use another file sharing option, such as an Azure Files share - recommended for many scenarios - or an NFS share. See the file sharing information and detailed steps in [Get started with Linux compute nodes in an HPC Pack Cluster in Azure](virtual-machines-linux-cluster-hpcpack.md).
 
-1.	Create a folder on the head node, and share it to everyone by setting Read/Write privileges. For example, share C:\OpenFOAM on the head node as \\\\SUSE12RDMA-HN\OpenFOAM. Here, *SUSE12RDMA-HN* is the host name of the head node.
+1.  Create a folder on the head node, and share it to everyone by setting Read/Write privileges. For example, share C:\OpenFOAM on the head node as \\\\SUSE12RDMA-HN\OpenFOAM. Here, *SUSE12RDMA-HN* is the host name of the head node.
 
-2.	Open a Windows PowerShell window and run the following commands to mount the shared folder.
+2.  Open a Windows PowerShell window and run the following commands to mount the shared folder.
 
     ```
     clusrun /nodegroup:LinuxNodes mkdir -p /openfoam
@@ -300,9 +300,9 @@ Use the head node share you configured previously to share files among the Linux
 
 In this step you create a host file (a list of compute nodes) which the **mpirun** command will use.
 
-1.	On one of the Linux nodes, create a new file named hostfile under /openfoam, so this file can be reached at /openfoam/hostfile on all Linux nodes.
+1.  On one of the Linux nodes, create a new file named hostfile under /openfoam, so this file can be reached at /openfoam/hostfile on all Linux nodes.
 
-2.	Write your Linux node names into this file. In this example, the file looks like this:
+2.  Write your Linux node names into this file. In this example, the file looks like this:
     
     ```       
     SUSE12RDMA-LN1
@@ -315,13 +315,13 @@ In this step you create a host file (a list of compute nodes) which the **mpirun
 
     If you have many Linux nodes and your job will only run on some of them, it’s not a good idea to use a fixed host file, because you don’t know which nodes will be allocated to your job. In this case, write a bash script wrapper for **mpirun** to create the host file automatically. You can find an example bash script wrapper called hpcimpirun.sh in the sample files at the end of this article and save it as /openfoam/hpcimpirun.sh. This example script does the following:
 
-    1.	Sets up the environment variables for **mpirun**, and some addition command parameters to run the MPI job through the RDMA network. In this case, it sets the following:
+    1.  Sets up the environment variables for **mpirun**, and some addition command parameters to run the MPI job through the RDMA network. In this case, it sets the following:
 
-        *	I_MPI_FABRICS=shm:dapl
-        *	I_MPI_DAPL_PROVIDER=ofa-v2-ib0
-        *	I_MPI_DYNAMIC_CONNECTION=0
+        *   I_MPI_FABRICS=shm:dapl
+        *   I_MPI_DAPL_PROVIDER=ofa-v2-ib0
+        *   I_MPI_DYNAMIC_CONNECTION=0
 
-    2.	Creates a host file according to the environment variable $CCP_NODES_CORES, which is set by the HPC head node when the job is activated.
+    2.  Creates a host file according to the environment variable $CCP_NODES_CORES, which is set by the HPC head node when the job is activated.
 
         The format of $CCP_NODES_CORES follows this pattern:
 
@@ -343,7 +343,7 @@ In this step you create a host file (a list of compute nodes) which the **mpirun
         2 SUSE12RDMA-LN1 8 SUSE12RDMA-LN2 8
         ```
         
-    3.	Calls the **mpirun** command and appends 2 parameters to the command line.
+    3.  Calls the **mpirun** command and appends 2 parameters to the command line.
 
         * `--hostfile <hostfilepath>: <hostfilepath>` - the path of the host file the script creates
 
@@ -364,11 +364,11 @@ Now you can submit a job in HPC Cluster Manager. You'll need to pass the script 
 
     ![Job details][job_details]
 
-5.	In **Job resources**, choose the type of resource as “Node” and set the Minimum to 2. This will run the job on 2 Linux nodes each of which has 8 cores in this example.
+5.  In **Job resources**, choose the type of resource as “Node” and set the Minimum to 2. This will run the job on 2 Linux nodes each of which has 8 cores in this example.
 
     ![Job resources][job_resources]
 
-6.	Add 4 tasks to the job with the following command lines and settings for the tasks.
+6.  Add 4 tasks to the job with the following command lines and settings for the tasks.
 
     >[AZURE.NOTE]Running `source /openfoam/settings.sh` sets up the OpenFOAM and MPI runtime environments, so each of the following tasks calls it before the OpenFOAM command.
 
@@ -408,11 +408,11 @@ Now you can submit a job in HPC Cluster Manager. You'll need to pass the script 
 
         *   **Working directory** - /openfoam/sloshingTank3D
 
-6.	Add dependencies to these tasks in ascending task order.
+6.  Add dependencies to these tasks in ascending task order.
 
     ![Task dependencies][task_dependencies]
 
-7.	Click **Submit** to run this job.
+7.  Click **Submit** to run this job.
 
     By default, HPC Pack submits the job as your current logged-on user account. After you click **Submit**, you might see a dialog box prompting you to enter the user name and password.
 
@@ -424,7 +424,7 @@ Now you can submit a job in HPC Cluster Manager. You'll need to pass the script 
     hpccred delcreds
     ```
 
-8.	The job takes from tens of minutes to several hours according to the parameters you have set for the sample. In the heat map you will see the job running on 2 Linux nodes. 
+8.  The job takes from tens of minutes to several hours according to the parameters you have set for the sample. In the heat map you will see the job running on 2 Linux nodes. 
 
     ![Heat map][heat_map]
 
@@ -447,21 +447,21 @@ Optionally use [EnSight](https://www.ceisoftware.com/) to visualize and analyze 
 
     ![Tank in EnSight][tank]
 
-3.	Create an **Isosurface** from **internalMesh** and then choose the variable **alpha_water**.
+3.  Create an **Isosurface** from **internalMesh** and then choose the variable **alpha_water**.
 
     ![Create an isosurface][isosurface]
 
-4.	Set the color for **Isosurface_part** created in the previous step. For example, set it to water blue.
+4.  Set the color for **Isosurface_part** created in the previous step. For example, set it to water blue.
 
     ![Edit isosurface color][isosurface_color]
 
 5.  Create an **Iso-volume** from **walls** by selecting **walls** in the **Parts** panel and click the **Isosurfaces** button in the toolbar.
 
-6.	In the dialog box, select **Type** as **Isovolume** and set the Min of **Isovolume range** to 0.5. Click **Create with selected parts** to create the isovolume.
+6.  In the dialog box, select **Type** as **Isovolume** and set the Min of **Isovolume range** to 0.5. Click **Create with selected parts** to create the isovolume.
 
-7.	Set the color for **Iso_volume_part** created in the previous step. For example, set it to deep water blue.
+7.  Set the color for **Iso_volume_part** created in the previous step. For example, set it to deep water blue.
 
-8.	Set the color for **walls**. For example, set it to transparent white.
+8.  Set the color for **walls**. For example, set it to transparent white.
 
 9. Now click **Play** to see the results of the simulation.
 
@@ -608,25 +608,25 @@ COUNT=${#NODESCORES[@]}
 
 if [ ${COUNT} -eq 0 ]
 then
-	# CCP_NODES_CORES is not found or is empty, just run the mpirun without hostfile arg.
-	${MPIRUN} $*
+    # CCP_NODES_CORES is not found or is empty, just run the mpirun without hostfile arg.
+    ${MPIRUN} $*
 else
-	# Create the hostfile file
-	NODELIST_PATH=${SCRIPT_PATH}/hostfile_$$
+    # Create the hostfile file
+    NODELIST_PATH=${SCRIPT_PATH}/hostfile_$$
 
-	# Get every node name and write into the hostfile file
-	I=1
-	while [ ${I} -lt ${COUNT} ]
-	do
-		echo "${NODESCORES[${I}]}" >> ${NODELIST_PATH}
-		let "I=${I}+2"
-	done
+    # Get every node name and write into the hostfile file
+    I=1
+    while [ ${I} -lt ${COUNT} ]
+    do
+        echo "${NODESCORES[${I}]}" >> ${NODELIST_PATH}
+        let "I=${I}+2"
+    done
 
-	# Run the mpirun with hostfile arg
-	${MPIRUN} ${NUMPROCESS_OPT} ${CCP_NUMCPUS} ${NODELIST_OPT} ${NODELIST_PATH} $*
+    # Run the mpirun with hostfile arg
+    ${MPIRUN} ${NUMPROCESS_OPT} ${CCP_NUMCPUS} ${NODELIST_OPT} ${NODELIST_PATH} $*
 
-	RTNSTS=$?
-	rm -f ${NODELIST_PATH}
+    RTNSTS=$?
+    rm -f ${NODELIST_PATH}
 fi
 
 exit ${RTNSTS}
@@ -654,3 +654,4 @@ exit ${RTNSTS}
 [isosurface]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/isosurface.png
 [isosurface_color]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/isosurface_color.png
 [linux_processes]: ./media/virtual-machines-linux-cluster-hpcpack-openfoam/linux_processes.png
+

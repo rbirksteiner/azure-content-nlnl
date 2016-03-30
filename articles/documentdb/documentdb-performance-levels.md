@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Performance levels in DocumentDB | Microsoft Azure" 
-	description="Learn about how performance levels in DocumentDB enable you to reserve throughput on a per collection basis." 
-	services="documentdb" 
-	authors="johnfmacintyre" 
-	manager="jhubbard" 
-	editor="monicar" 
-	documentationCenter=""/>
+    pageTitle="Performance levels in DocumentDB | Microsoft Azure" 
+    description="Learn about how performance levels in DocumentDB enable you to reserve throughput on a per collection basis." 
+    services="documentdb" 
+    authors="johnfmacintyre" 
+    manager="jhubbard" 
+    editor="monicar" 
+    documentationCenter=""/>
 
 <tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/16/2015" 
-	ms.author="johnmac"/>
+    ms.service="documentdb" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/16/2015" 
+    ms.author="johnmac"/>
 
 #Performance levels in DocumentDB
 
@@ -22,10 +22,10 @@ This article provides an overview of performance levels in [Microsoft Azure Docu
 
 After reading this article, you'll be able to answer the following questions:  
 
--	What is a performance level?
--	How is throughput reserved for a database account?
--	How do I work with performance levels?
--	How am I billed for performance levels?
+-   What is a performance level?
+-   How is throughput reserved for a database account?
+-   How do I work with performance levels?
+-   How am I billed for performance levels?
 
 ##Introduction to performance levels
 
@@ -90,17 +90,17 @@ Another option for changing your collections' performance levels is through our 
 
 Here is a code snippet for changing the offer type:
 
-	//Fetch the resource to be updated
-	Offer offer = client.CreateOfferQuery()
-	                          .Where(r => r.ResourceLink == "collection selfLink")    
-	                          .AsEnumerable()
-	                          .SingleOrDefault();
-	                          
-	//Change the user mode to All
-	offer.OfferType = "S3";
-	                    
-	//Now persist these changes to the database by replacing the original resource
-	Offer updated = await client.ReplaceOfferAsync(offer);
+    //Fetch the resource to be updated
+    Offer offer = client.CreateOfferQuery()
+                              .Where(r => r.ResourceLink == "collection selfLink")    
+                              .AsEnumerable()
+                              .SingleOrDefault();
+                              
+    //Change the user mode to All
+    offer.OfferType = "S3";
+                        
+    //Now persist these changes to the database by replacing the original resource
+    Offer updated = await client.ReplaceOfferAsync(offer);
 
 Visit [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.aspx) to view additional examples and learn more about our offer methods: 
 
@@ -121,3 +121,4 @@ To learn more about pricing and managing data with Azure DocumentDB, explore the
 To learn more about DocumentDB, see the Azure DocumentDB [documentation](http://azure.microsoft.com/documentation/services/documentdb/). 
 
 [1]: ./media/documentdb-performance-levels/img1.png 
+

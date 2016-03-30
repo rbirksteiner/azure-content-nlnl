@@ -1,20 +1,20 @@
 <properties
-	pageTitle="How to use Access Control (.NET) | Microsoft Azure"
-	description="Learn how to use Access Control Service (ACS) in your Azure application to authenticate users when they try to gain access to a web app."
-	services="active-directory"
-	documentationCenter=".net"
-	authors="msmbaldwin"
-	manager="mbaldwin"
-	editor=""/>
+    pageTitle="How to use Access Control (.NET) | Microsoft Azure"
+    description="Learn how to use Access Control Service (ACS) in your Azure application to authenticate users when they try to gain access to a web app."
+    services="active-directory"
+    documentationCenter=".net"
+    authors="msmbaldwin"
+    manager="mbaldwin"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="12/05/2015" 
-	ms.author="mbaldwin"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="12/05/2015" 
+    ms.author="mbaldwin"/>
 
 
 
@@ -87,9 +87,9 @@ The following figure shows how ACS authentication works with a web application:
 
 To complete the tasks in this guide, you will need the following:
 
--	Azure subscription
--	Microsoft Visual Studio 2012
--	Identity and Access Tool for Visual Studio 2012 (To download, see [Identity and Access Tool][])
+-   Azure subscription
+-   Microsoft Visual Studio 2012
+-   Identity and Access Tool for Visual Studio 2012 (To download, see [Identity and Access Tool][])
 
 
 ## Create an Access Control Namespace
@@ -101,11 +101,11 @@ addressing ACS resources within your application.
 
 2.  Click **Active Directory**.  
 
-	![][1]
+    ![][1]
 
 3.  To create a new Access Control namespace, click **New**. **App Services** and **Access Control** will be selected. Click **Quick Create**.
 
-	![][2]
+    ![][2]
 
 4.  Enter a name for the namespace. Azure verifies that the name is unique.
 
@@ -117,13 +117,13 @@ Azure creates and activates the namespace.
 
 In this step, you create a ASP.NET MVC application. In later steps, we'll integrate this simple web forms application with ACS.
 
-1.	Start Visual Studio 2012 or Visual Studio Express for Web 2012 (Previous versions of Visual Studio will not work with this tutorial).
-1.	Click **File**, and then click **New Project**.
-1.	Select the Visual C#/Web template, and then select **ASP.NET MVC 4 Web Application**.
+1.  Start Visual Studio 2012 or Visual Studio Express for Web 2012 (Previous versions of Visual Studio will not work with this tutorial).
+1.  Click **File**, and then click **New Project**.
+1.  Select the Visual C#/Web template, and then select **ASP.NET MVC 4 Web Application**.
 
-	We'll use a MVC application for this guide, but you can use any web application type for this task.
+    We'll use a MVC application for this guide, but you can use any web application type for this task.
 
-	![][3]
+    ![][3]
 
 1. In **Name**, type **MvcACS**, and then click **OK**.
 1. In the next dialog, select **Internet Application**, and then click **OK**.
@@ -161,13 +161,13 @@ Currently, ACS doesn't set User.Identity.Name, so we need to make the above chan
 
 In this task, you will integrate your ASP.NET web application with ACS.
 
-1.	In Solution Explorer, right-click the MvcACS project, and then select **Identity and Access**.
+1.  In Solution Explorer, right-click the MvcACS project, and then select **Identity and Access**.
 
-	If the **Identity and Access** option does not appear on the context menu, install the Identity and Access Tool. For information, see [Identity and Access Tool].
+    If the **Identity and Access** option does not appear on the context menu, install the Identity and Access Tool. For information, see [Identity and Access Tool].
 
-	![][4]
+    ![][4]
 
-2.	On the **Providers** tab, select **Use the Azure Access Control Service**.
+2.  On the **Providers** tab, select **Use the Azure Access Control Service**.
 
     ![][44]
 
@@ -175,37 +175,37 @@ In this task, you will integrate your ASP.NET web application with ACS.
 
     ![][444]
 
-	Visual Studio requests information about the Access Control namespace. Enter the namespace name you created earlier (Test in this images above, but you will have a different namespace). Switch back to the Azure Management Portal to get the symmetric key.
+    Visual Studio requests information about the Access Control namespace. Enter the namespace name you created earlier (Test in this images above, but you will have a different namespace). Switch back to the Azure Management Portal to get the symmetric key.
 
-	![][17]
+    ![][17]
 
 4.  In the Azure Management Portal, click the Access Control namespace and then click **Manage**.
 
-	![][8]
+    ![][8]
 
-5.	Click **Management Service** and then click **Management Client**.
+5.  Click **Management Service** and then click **Management Client**.
 
-	![][18]
+    ![][18]
 
-6.	Click **Symmetric Key**, click **Show Key**, and copy the key value. Then, click **Cancel** to exit the Edit Management Client page without making changes.
+6.  Click **Symmetric Key**, click **Show Key**, and copy the key value. Then, click **Cancel** to exit the Edit Management Client page without making changes.
 
-	![][19]
+    ![][19]
 
 7.  In Visual Studio, paste the key in the **Enter the Management Key for the namespace** field and click **Save management key**, and then click **OK**.
 
-	![][20]
+    ![][20]
 
-	Visual Studio uses the information about the namespace to connect to the ACS Management Portal and get the settings for your namespace, including the identity providers, realm, and return URL.
+    Visual Studio uses the information about the namespace to connect to the ACS Management Portal and get the settings for your namespace, including the identity providers, realm, and return URL.
 
-8.	Select **Windows Live ID** (Microsoft account) and click OK.
+8.  Select **Windows Live ID** (Microsoft account) and click OK.
 
-	![][5]
+    ![][5]
 
 ## Test the Integration with ACS
 
 This task explains how to test the integration of your RP application and ACS.
 
--	Press F5 in Visual Studio to run the app.
+-   Press F5 in Visual Studio to run the app.
 
 When your application is integrated with ACS and you have selected Windows Live ID (Microsoft account), instead of opening the default ASP.NET Web Forms application, your browser is redirected to the sign-in page for Microsoft accounts. When you sign in with a valid user name a password, you are then redirected to the  MvcACS application.
 
@@ -219,7 +219,7 @@ In this section we will modify the application to view the claims sent by ACS.  
 
 1. Open the *Controllers\HomeController.cs* file. Add a **using** statement for **System.Threading**:
 
- 	using System.Threading;
+    using System.Threading;
 
 1. In the HomeController class add the *Claims* method:
 
@@ -302,33 +302,33 @@ When you select the Use Azure Access Control option and then run your applicatio
 
 You can review and change these configuration settings in the ACS Management Portal. Use the following steps to review the changes in the portal.
 
-1.	Log into the Windows [Azure Management Portal](http://manage.WindowsAzure.com).
+1.  Log into the Windows [Azure Management Portal](http://manage.WindowsAzure.com).
 
-2.	Click **Active Directory**.
+2.  Click **Active Directory**.
 
-	![][8]
+    ![][8]
 
-3.	Select an Access Control namespace and then click **Manage**. This action opens the ACS Management Portal.
+3.  Select an Access Control namespace and then click **Manage**. This action opens the ACS Management Portal.
 
-	![][9]
-
-
-4.	Click **Relying party applications**.
-
-	The new MvcACS application appears in the list of relying party applications. The realm is automatically set to the application main page.
-
-	![][10]
+    ![][9]
 
 
-5.	Click **MvcACS**.
+4.  Click **Relying party applications**.
 
-	The Edit Relying Party Application page contains configuration settings for the MvcACS web application. When you change the settings on this page and save them, the changes are immediately applied to the application.
+    The new MvcACS application appears in the list of relying party applications. The realm is automatically set to the application main page.
 
-	![][11]
+    ![][10]
 
-6.	Scroll down the page to see the remaining configuration settings for the MvcACS application, including the identity providers and claims transformation rules.
 
-	![][12]
+5.  Click **MvcACS**.
+
+    The Edit Relying Party Application page contains configuration settings for the MvcACS web application. When you change the settings on this page and save them, the changes are immediately applied to the application.
+
+    ![][11]
+
+6.  Scroll down the page to see the remaining configuration settings for the MvcACS application, including the identity providers and claims transformation rules.
+
+    ![][12]
 
 In the next section, we'll use the features of the ACS Management Portal to make a change to the web application -- just to show how easy it is to do.
 
@@ -336,17 +336,17 @@ In the next section, we'll use the features of the ACS Management Portal to make
 
 Let's use the ACS Management Portal to change the authentication of our MvcACS application. In this example, we'll add Google as an identity provider for MvcACS.
 
-1.	Click **Identity providers** (in the navigation menu) and then click **Add**.
+1.  Click **Identity providers** (in the navigation menu) and then click **Add**.
 
-	![][13]
+    ![][13]
 
-2.	Click **Google** and then click **Next**. The MvcACS app checkbox is selected by default.
+2.  Click **Google** and then click **Next**. The MvcACS app checkbox is selected by default.
 
-	![][14]
+    ![][14]
 
 3. Click Save.
 
-	![][15]
+    ![][15]
 
 
 Done! If you go back to Visual Studio, open the project for the MvcACS app, and click **Identity and Access**, the tool lists both the Windows Live ID and Google identity providers.  
@@ -413,3 +413,4 @@ To further explore ACS functionality and to experiment with more scenarios, see 
   [18]: ./media/active-directory-dotnet-how-to-use-access-control/acsManagementService.png
   [19]: ./media/active-directory-dotnet-how-to-use-access-control/acsShowKey.png
   [20]: ./media/active-directory-dotnet-how-to-use-access-control/acsConfigAcsNamespace2.png
+

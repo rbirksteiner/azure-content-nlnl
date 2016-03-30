@@ -178,3 +178,4 @@ AzureCon Announcement:
 Getting Started with ACS:  
 
 > [AZURE.VIDEO connect-2015-getting-started-developing-with-docker-and-azure-container-service]
+

@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Feature selection in the Cortana Analytics Process | Microsoft Azure" 
-	description="Explains the purpose of feature selection and provides examples of their role in the data enhancement process of machine learning."
-	services="machine-learning"
-	documentationCenter=""
-	authors="bradsev"
-	manager="paulettm"
-	editor="cgronlun"/>
+    pageTitle="Feature selection in the Cortana Analytics Process | Microsoft Azure" 
+    description="Explains the purpose of feature selection and provides examples of their role in the data enhancement process of machine learning."
+    services="machine-learning"
+    documentationCenter=""
+    authors="bradsev"
+    manager="paulettm"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/20/2015"
-	ms.author="zhangya;bradsev" />
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/20/2015"
+    ms.author="zhangya;bradsev" />
 
 
 # Feature selection in the Cortana Analytics Process
@@ -74,3 +74,4 @@ Note that it is not always necessarily to perform feature engineering or feature
 [filter-based-feature-selection]: https://msdn.microsoft.com/library/azure/918b356b-045c-412b-aa12-94a1d2dad90f/
 [fisher-linear-discriminant-analysis]: https://msdn.microsoft.com/library/azure/dcaab0b2-59ca-4bec-bb66-79fd23540080/
  
+

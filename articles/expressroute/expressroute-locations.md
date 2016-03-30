@@ -111,15 +111,15 @@ If your connectivity provider is not listed in previous sections, you can still 
 
 - Check with your connectivity provider to see if they are connected to any of the exchanges in the table above. You can check the following links to gather more information about services offered by exchange providers. Several connectivity providers are already connected to Ethernet exchanges.
 
-	- [Equinix Cloud Exchange](http://www.equinix.com/services/interconnection-connectivity/cloud-exchange/)
-	- [TeleCity CloudIX](http://www.telecitygroup.com/colocation-services/cloud-ix.htm)
-	- [InterXion](http://www.interxion.com/)
-	- [NextDC](http://www.nextdc.com/)
-	- [CoreSite](http://www.coresite.com/)
+    - [Equinix Cloud Exchange](http://www.equinix.com/services/interconnection-connectivity/cloud-exchange/)
+    - [TeleCity CloudIX](http://www.telecitygroup.com/colocation-services/cloud-ix.htm)
+    - [InterXion](http://www.interxion.com/)
+    - [NextDC](http://www.nextdc.com/)
+    - [CoreSite](http://www.coresite.com/)
 - Have your connectivity provider extend your network to the peering location of choice.
-	- Ensure that your connectivity provider extends your connectivity in a highly available manner so that there are no single points of failure.
+    - Ensure that your connectivity provider extends your connectivity in a highly available manner so that there are no single points of failure.
 - Order an ExpressRoute circuit with the exchange as your connectivity provider to connect to Microsoft.
-	- Follow steps in [Create an ExpressRoute circuit](expressroute-howto-circuit-classic.md) to set up connectivity.
+    - Follow steps in [Create an ExpressRoute circuit](expressroute-howto-circuit-classic.md) to set up connectivity.
 
 |**Connectivity provider**|**Exchange**|**Peering locations**|
 |---|---|---|
@@ -138,3 +138,4 @@ Enabling private connectivity to fit your needs can be challenging, based on the
 
 - For more information about ExpressRoute, see the [ExpressRoute FAQ](expressroute-faqs.md).
 - Ensure that all prerequisites are met. See [ExpressRoute prerequisites](expressroute-prerequisites.md).
+

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure SQL elastic database pool reference" 
-	description="This reference provides links and details to elastic database pool articles and programmability information." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="stevestein" 
-	manager="jeffreyg" 
-	editor=""/>
+    pageTitle="Azure SQL elastic database pool reference" 
+    description="This reference provides links and details to elastic database pool articles and programmability information." 
+    services="sql-database" 
+    documentationCenter="" 
+    authors="stevestein" 
+    manager="jeffreyg" 
+    editor=""/>
 
 <tags 
-	ms.service="sql-database"
-	ms.devlang="NA"
-	ms.date="12/01/2015" 
-	ms.author="sstein" 
-	ms.workload="data-management" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="NA"/>
+    ms.service="sql-database"
+    ms.devlang="NA"
+    ms.date="12/01/2015" 
+    ms.author="sstein" 
+    ms.workload="data-management" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="NA"/>
 
 
 # SQL Database elastic database pool reference
@@ -209,6 +209,7 @@ The unit eDTU price for an elastic pool is higher than the unit DTU price for a 
 | 40889 | EX_USER | The DTUs or storage limit for the elastic pool '%.*ls' cannot be decreased since that would not provide sufficient storage space for its databases. | Name of elastic pool. | Attempting to decrease the storage limit of the elastic pool below its storage usage. | Please consider reducing the storage usage of individual databases in the elastic pool or remove databases from the pool in order to reduce its DTUs or storage limit. |
 | 40891 | EX_USER | The DTU min per database (%d) cannot exceed the DTU max per database (%d). | DTU min per database; DTU max per database. | Attempting to set the DTU min per database higher than the DTU max per database. | Please ensure the DTU min per databases does not exceed the DTU max per database. |
 | TBD | EX_USER | The storage size for an individual database in a elastic pool cannot exceed the max size allowed by '%.*ls' service tier elastic pool. | elastic pool service tier | The max size for the database exceeds the max size allowed by the elastic pool service tier. | Please set the max size of the database within the limits of the max size allowed by the elastic pool service tier. |
+
 
 
 

@@ -43,4 +43,5 @@ If batches are created as part of X12 agreements in the associated Trading Partn
 
 <!--Image references-->
 [1]: ./media/app-service-logic-track-b2b-messages/AS2Tracking.png
-[2]: ./media/app-service-logic-track-b2b-messages/EDIFACTTracking.png
+[2]: ./media/app-service-logic-track-b2b-messages/EDIFACTTracking.jpg
+

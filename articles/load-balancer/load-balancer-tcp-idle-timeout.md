@@ -49,7 +49,7 @@ To support such scenarios, we have added support for a configurable idle timeout
  
 ### Configure TCP timeout for your Instance-Level Public IP to 15 minutes.
 
-	Set-AzurePublicIP –PublicIPName webip –VM MyVM -IdleTimeoutInMinutes 15
+    Set-AzurePublicIP –PublicIPName webip –VM MyVM -IdleTimeoutInMinutes 15
 
 IdleTimeoutInMinutes is optional. If not set, the default timeout is 4 minutes. 
 
@@ -59,33 +59,33 @@ IdleTimeoutInMinutes is optional. If not set, the default timeout is 4 minutes.
 
 In order to change the timeout setting for an endpoint
 
-	Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 -IdleTimeoutInMinutes 15| Update-AzureVM
+    Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 -IdleTimeoutInMinutes 15| Update-AzureVM
  
 Retrieve your idle timeout configuration
 
-	PS C:\> Get-AzureVM –ServiceName “MyService” –Name “MyVM” | Get-AzureEndpoint
-	VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
-	LBSetName : MyLoadBalancedSet
-	LocalPort : 80
-	Name : HTTP
-	Port : 80
-	Protocol : tcp
-	Vip : 65.52.xxx.xxx
-	ProbePath :
-	ProbePort : 80
-	ProbeProtocol : tcp
-	ProbeIntervalInSeconds : 15
-	ProbeTimeoutInSeconds : 31
-	EnableDirectServerReturn : False
-	Acl : {}
-	InternalLoadBalancerName :
-	IdleTimeoutInMinutes : 15
+    PS C:\> Get-AzureVM –ServiceName “MyService” –Name “MyVM” | Get-AzureEndpoint
+    VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
+    LBSetName : MyLoadBalancedSet
+    LocalPort : 80
+    Name : HTTP
+    Port : 80
+    Protocol : tcp
+    Vip : 65.52.xxx.xxx
+    ProbePath :
+    ProbePort : 80
+    ProbeProtocol : tcp
+    ProbeIntervalInSeconds : 15
+    ProbeTimeoutInSeconds : 31
+    EnableDirectServerReturn : False
+    Acl : {}
+    InternalLoadBalancerName :
+    IdleTimeoutInMinutes : 15
  
 ### Set the TCP timeout on a load balanced endpoint set
 
 If endpoints are part of a load balanced endpoint set, the TCP timeout must be set on the load balanced endpoint set:
 
-	Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 -IdleTimeoutInMinutes 15
+    Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 -IdleTimeoutInMinutes 15
  
 ### Changing timeout settings for cloud services
 
@@ -95,24 +95,24 @@ Endpoint settings for Cloud Services are made in the .csdef. In order to update 
 
 The .csdef changes for endpoint settings are:
 
-	<WorkerRole name="worker-role-name" vmsize="worker-role-size" enableNativeCodeExecution="[true|false]">
-	  <Endpoints>
+    <WorkerRole name="worker-role-name" vmsize="worker-role-size" enableNativeCodeExecution="[true|false]">
+      <Endpoints>
     <InputEndpoint name="input-endpoint-name" protocol="[http|https|tcp|udp]" localPort="local-port-number" port="port-number" certificate="certificate-name" loadBalancerProbe="load-balancer-probe-name" idleTimeoutInMinutes="tcp-timeout" />
-	  </Endpoints>
-	</WorkerRole>
+      </Endpoints>
+    </WorkerRole>
 
 The .cscfg changes for the timeout setting on Public IPs are:
 
-	<NetworkConfiguration>
- 	 <VirtualNetworkSite name="VNet"/>
- 	 <AddressAssignments>
+    <NetworkConfiguration>
+     <VirtualNetworkSite name="VNet"/>
+     <AddressAssignments>
     <InstanceAddress roleName="VMRolePersisted">
       <PublicIPs>
         <PublicIP name="public-ip-name" idleTimeoutInMinutes="timeout-in-minutes"/>
       </PublicIPs>
     </InstanceAddress>
- 	 </AddressAssignments>
-	</NetworkConfiguration>
+     </AddressAssignments>
+    </NetworkConfiguration>
 
 ## Rest API example
 
@@ -120,42 +120,42 @@ You can configure the TCP idle timeout using the service management API
 Make sure to add the x-ms-version header  is set to version 2014-06-01 or higher.
  
 Update the configuration of the specified load-balanced input endpoints on all Virtual Machines in a deployment
-	
-	Request
+    
+    Request
 
-	POST https://management.core.windows.net/<subscription-id>/services/hostedservices/<cloudservice-name>/deployments/<deployment-name>
+    POST https://management.core.windows.net/<subscription-id>/services/hostedservices/<cloudservice-name>/deployments/<deployment-name>
 <BR>
 
-	Response
+    Response
 
-	<LoadBalancedEndpointList xmlns="http://schemas.microsoft.com/windowsazure" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
-	<InputEndpoint>
-	<LoadBalancedEndpointSetName>endpoint-set-name</LoadBalancedEndpointSetName>
-	<LocalPort>local-port-number</LocalPort>
-	<Port>external-port-number</Port>
-	<LoadBalancerProbe>
-	<Path>path-of-probe</Path>
-	<Port>port-assigned-to-probe</Port>
-	<Protocol>probe-protocol</Protocol>
-	<IntervalInSeconds>interval-of-probe</IntervalInSeconds>
-	<TimeoutInSeconds>timeout-for-probe</TimeoutInSeconds>
-	</LoadBalancerProbe>
-	<LoadBalancerName>name-of-internal-loadbalancer</LoadBalancerName>
-	<Protocol>endpoint-protocol</Protocol>
-	<IdleTimeoutInMinutes>15</IdleTimeoutInMinutes>
-	<EnableDirectServerReturn>enable-direct-server-return</EnableDirectServerReturn>
-	<EndpointACL>
-	<Rules>
-	<Rule>
-	<Order>priority-of-the-rule</Order>
-	<Action>permit-rule</Action>
-	<RemoteSubnet>subnet-of-the-rule</RemoteSubnet>
-	<Description>description-of-the-rule</Description>
-	</Rule>
-	</Rules>
-	</EndpointACL>
-	</InputEndpoint>
-	</LoadBalancedEndpointList>
+    <LoadBalancedEndpointList xmlns="http://schemas.microsoft.com/windowsazure" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+    <InputEndpoint>
+    <LoadBalancedEndpointSetName>endpoint-set-name</LoadBalancedEndpointSetName>
+    <LocalPort>local-port-number</LocalPort>
+    <Port>external-port-number</Port>
+    <LoadBalancerProbe>
+    <Path>path-of-probe</Path>
+    <Port>port-assigned-to-probe</Port>
+    <Protocol>probe-protocol</Protocol>
+    <IntervalInSeconds>interval-of-probe</IntervalInSeconds>
+    <TimeoutInSeconds>timeout-for-probe</TimeoutInSeconds>
+    </LoadBalancerProbe>
+    <LoadBalancerName>name-of-internal-loadbalancer</LoadBalancerName>
+    <Protocol>endpoint-protocol</Protocol>
+    <IdleTimeoutInMinutes>15</IdleTimeoutInMinutes>
+    <EnableDirectServerReturn>enable-direct-server-return</EnableDirectServerReturn>
+    <EndpointACL>
+    <Rules>
+    <Rule>
+    <Order>priority-of-the-rule</Order>
+    <Action>permit-rule</Action>
+    <RemoteSubnet>subnet-of-the-rule</RemoteSubnet>
+    <Description>description-of-the-rule</Description>
+    </Rule>
+    </Rules>
+    </EndpointACL>
+    </InputEndpoint>
+    </LoadBalancedEndpointList>
 
 ## Next Steps
 

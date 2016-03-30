@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Get Started with Azure Mobile Services for HTML/JavaScript apps | Microsoft Azure"
-	description="Follow this tutorial to get started using Azure Mobile Services for HTML development."
-	services="mobile-services"
-	documentationCenter=""
-	authors="ggailey777"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Get Started with Azure Mobile Services for HTML/JavaScript apps | Microsoft Azure"
+    description="Follow this tutorial to get started using Azure Mobile Services for HTML development."
+    services="mobile-services"
+    documentationCenter=""
+    authors="ggailey777"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-html5"
-	ms.devlang="javascript"
-	ms.topic="get-started-article" 
-	ms.date="11/30/2015"
-	ms.author="glenga"/>
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-html5"
+    ms.devlang="javascript"
+    ms.topic="get-started-article" 
+    ms.date="11/30/2015"
+    ms.author="glenga"/>
 
 
 # <a name="getting-started"> </a>Get started with Mobile Services
@@ -42,11 +42,11 @@ The following are required to complete this tutorial:
 
 + You must have one of the following web servers running on your local computer:
 
-	+  **On Windows**: IIS Express. IIS Express is installed by the [Microsoft Web Platform Installer].
-	+  **On MacOS X**: Python, which should already be installed.
-	+  **On Linux**: Python. You must install the [latest version of Python].
+    +  **On Windows**: IIS Express. IIS Express is installed by the [Microsoft Web Platform Installer].
+    +  **On MacOS X**: Python, which should already be installed.
+    +  **On Linux**: Python. You must install the [latest version of Python].
 
-	You can use any web server to host the app, but these are the web servers that are supported by the downloaded scripts.  
+    You can use any web server to host the app, but these are the web servers that are supported by the downloaded scripts.  
 
 + A web browser that supports HTML5.
 + An Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank). 
@@ -67,23 +67,23 @@ In this section you will create a new HTML app that is connected to your mobile 
 
 2. In the quickstart tab, click **Windows** under **Choose platform** and expand **Create a new HTML app**.
 
-   	![][6]
+    ![][6]
 
-   	This displays the three easy steps to create and host an HTML app connected to your mobile service.
+    This displays the three easy steps to create and host an HTML app connected to your mobile service.
 
-  	![][7]
+    ![][7]
 
 3. Click **Create TodoItems table** to create a table to store app data.
 
 4. Under **Download and run your app**, click **Download**.
 
-  	This downloads the website files for the sample _To do list_ application that is connected to your mobile service. Save the compressed file to your local computer, and make a note of where you save it.
+    This downloads the website files for the sample _To do list_ application that is connected to your mobile service. Save the compressed file to your local computer, and make a note of where you save it.
 
 5. In the **Configure** tab, verify that `localhost` is already listed in the **Allow requests from host names** list under **Cross-Origin Resource Sharing (CORS)**. If it's not, type `localhost` in the **Host name** field and then click **Save**.
 
-  	![][9]
+    ![][9]
 
-	> [AZURE.IMPORTANT] If you deploy the quickstart app to a web server other than localhost, you must add the host name of the web server to the **Allow requests from host names** list. For more information, see [Cross-origin resource sharing](http://msdn.microsoft.com/library/windowsazure/dn155871.aspx).
+    > [AZURE.IMPORTANT] If you deploy the quickstart app to a web server other than localhost, you must add the host name of the web server to the **Allow requests from host names** list. For more information, see [Cross-origin resource sharing](http://msdn.microsoft.com/library/windowsazure/dn155871.aspx).
 
 ## Host and run your HTML app
 
@@ -91,31 +91,31 @@ The final stage of this tutorial is to host and run your new app on your local c
 
 1. Browse to the location where you saved the compressed project files, expand the files on your computer, and launch one of the following command files from the **server** subfolder.
 
-	+ **launch-windows** (Windows computers)
-	+ **launch-mac.command** (Mac OS X computers)
-	+ **launch-linux.sh** (Linux computers)
+    + **launch-windows** (Windows computers)
+    + **launch-mac.command** (Mac OS X computers)
+    + **launch-linux.sh** (Linux computers)
 
-	> [AZURE.NOTE] On a Windows computer, type `R` when PowerShell asks you to confirm that you want to run the script. Your web browser might warn you to not run the script because it was downloaded from the internet. When this happens, you must request that the browser proceed to load the script.
+    > [AZURE.NOTE] On a Windows computer, type `R` when PowerShell asks you to confirm that you want to run the script. Your web browser might warn you to not run the script because it was downloaded from the internet. When this happens, you must request that the browser proceed to load the script.
 
-	This starts a web server on your local computer to host the new app.
+    This starts a web server on your local computer to host the new app.
 
 2. Open the URL <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a> in a web browser to start the app.
 
 3. In the app, type meaningful text, such as _Complete the tutorial_, in **Enter new task**, and then click **Add**.
 
-   	![][10]
+    ![][10]
 
-   	This sends a POST request to the new mobile service hosted in Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the second column in the app.
+    This sends a POST request to the new mobile service hosted in Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the second column in the app.
 
-	> [AZURE.NOTE] You can review the code that accesses your mobile service to query and insert data, which is found in the page.js file.
+    > [AZURE.NOTE] You can review the code that accesses your mobile service to query and insert data, which is found in the page.js file.
 
 4. Back in the [Azure classic portal], click the **Data** tab and then click the **TodoItems** table.
 
-   	![][11]
+    ![][11]
 
-   	This lets you browse the data inserted by the app into the table.
+    This lets you browse the data inserted by the app into the table.
 
-   	![][12]
+    ![][12]
 
 ## <a name="next-steps"> </a>Next Steps
 Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services:
@@ -156,3 +156,4 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [Mobile Services HTML/JavaScript How-to Conceptual Reference]: mobile-services-html-how-to-use-client-library.md
 [Cross-origin resource sharing]: http://msdn.microsoft.com/library/azure/dn155871.aspx
  
+

@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Add push notifications to your universal Windows 8.1 app | Microsoft Azure"
-	description="Learn how to send push notifications to your universal Windows 8.1 app from your .NET backend mobile service using Azure Notification Hubs."
-	services="mobile-services,notification-hubs"
-	documentationCenter="windows"
-	authors="ggailey777"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Add push notifications to your universal Windows 8.1 app | Microsoft Azure"
+    description="Learn how to send push notifications to your universal Windows 8.1 app from your .NET backend mobile service using Azure Notification Hubs."
+    services="mobile-services,notification-hubs"
+    documentationCenter="windows"
+    authors="ggailey777"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-windows-store"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="11/11/2015"
-	ms.author="glenga"/>
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-windows-store"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="11/11/2015"
+    ms.author="glenga"/>
 
 # Add push notifications to your Mobile Services app
 
@@ -65,11 +65,11 @@ The remaining steps in this section are optional. They allow you to test your ap
 
 &nbsp;&nbsp;6. Comment-out this code and add code that creates a new [MobileServiceClient] of the same name but using the URL of the local host in the constructor, similar to the following:
 
-	// This MobileServiceClient has been configured to communicate with your local
-	// test project for debugging purposes.
-	public static MobileServiceClient todolistClient = new MobileServiceClient(
-		"http://localhost:4584"
-	);
+    // This MobileServiceClient has been configured to communicate with your local
+    // test project for debugging purposes.
+    public static MobileServiceClient todolistClient = new MobileServiceClient(
+        "http://localhost:4584"
+    );
 
 &nbsp;&nbsp;Using this [MobileServiceClient], the app will connect to the local service instead of the version hosted in Azure. When you want to switch back and run app against the mobile service hosted in Azure, change back to the original [MobileServiceClient] definitions.
 

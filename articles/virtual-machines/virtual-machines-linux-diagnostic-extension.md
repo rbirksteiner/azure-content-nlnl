@@ -1,22 +1,22 @@
 
 <properties
-		pageTitle="Monitoring a Linux VM with a VM extension | Microsoft Azure"
-		description="Learn how to use the Linux Diagnostic Extension to monitor performance and diagnostic data of a Linux VM in Azure."
-		services="virtual-machines"
-		documentationCenter=""
-  		authors="NingKuang"
-		manager="timlt"
-		editor=""
-  		tags="azure-service-management"/>
+        pageTitle="Monitoring a Linux VM with a VM extension | Microsoft Azure"
+        description="Learn how to use the Linux Diagnostic Extension to monitor performance and diagnostic data of a Linux VM in Azure."
+        services="virtual-machines"
+        documentationCenter=""
+        authors="NingKuang"
+        manager="timlt"
+        editor=""
+        tags="azure-service-management"/>
 
 <tags
-		ms.service="virtual-machines"
-		ms.workload="infrastructure-services"
-		ms.tgt_pltfrm="vm-linux"
-		ms.devlang="na"
-		ms.topic="article"
-		ms.date="07/20/2015"
-		ms.author="Ning"/>
+        ms.service="virtual-machines"
+        ms.workload="infrastructure-services"
+        ms.tgt_pltfrm="vm-linux"
+        ms.devlang="na"
+        ms.topic="article"
+        ms.date="07/20/2015"
+        ms.author="Ning"/>
 
 
 # Use the Linux Diagnostic Extension to monitor the performance and diagnostic data of a Linux VM
@@ -65,10 +65,10 @@ If you want to enable extra data, continue with steps in scenario 2 and 3.
 
 Step 1. Create a file named PrivateConfig.json with the following content.
 
-	{
-     	"storageAccountName":"the storage account to receive data",
-     	"storageAccountKey":"the key of the account"
-	}
+    {
+        "storageAccountName":"the storage account to receive data",
+        "storageAccountKey":"the key of the account"
+    }
 
 Step 2. Run **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --private-config-path PrivateConfig.json**.
 
@@ -82,14 +82,14 @@ For all supported providers and variables, reference this [document](https://scx
 
 By default, the Rsyslog data is always collected.
 
-	{
-     	"storageAccountName":"storage account to receive data",
-     	"storageAccountKey":"key of the account",
-      	"perfCfg":[
-           	{"query":"SELECT PercentAvailableMemory, AvailableMemory, UsedMemory ,PercentUsedSwap FROM SCX_MemoryStatisticalInformation","table":"LinuxMemory"
-           	}
+    {
+        "storageAccountName":"storage account to receive data",
+        "storageAccountKey":"key of the account",
+        "perfCfg":[
+            {"query":"SELECT PercentAvailableMemory, AvailableMemory, UsedMemory ,PercentUsedSwap FROM SCX_MemoryStatisticalInformation","table":"LinuxMemory"
+            }
           ]
-	}
+    }
 
 
 Step 2. Run **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions 2.*
@@ -102,15 +102,15 @@ You need to specify the path to your log file, and specify the table name to sto
 
 Step 1. Create a file named PrivateConfig.json with the following content.
 
-	{
-     	"storageAccountName":"the storage account to receive data",
-     	"storageAccountKey":"key of the account",
-      	"fileCfg":[
-           	{"file":"/var/log/mysql.err",
+    {
+        "storageAccountName":"the storage account to receive data",
+        "storageAccountKey":"key of the account",
+        "fileCfg":[
+            {"file":"/var/log/mysql.err",
              "table":"mysqlerr"
-           	}
+            }
           ]
-	}
+    }
 
 
 Step 2. Run **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions 2.*
@@ -120,12 +120,12 @@ Step 2. Run **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExten
 ###   Scenario 4. Disable the Linux monitor extension
 Step 1. Create a file named PrivateConfig.json with the following content.
 
-	{
-     	"storageAccountName":"the storage account to receive data",
-     	"storageAccountKey":"the key of the account",
-     	“perfCfg”:[],
-     	“enableSyslog”:”False”
-	}
+    {
+        "storageAccountName":"the storage account to receive data",
+        "storageAccountKey":"the key of the account",
+        “perfCfg”:[],
+        “enableSyslog”:”False”
+    }
 
 
 Step 2. Run **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions 2.*
@@ -137,8 +137,8 @@ The performance and diagnostic data are stored in an Azure Storage table. Review
 
 In addition, you can use following UI tools to access the data:
 
-1.	Use Visual Studio Server Explorer. Navigate to your storage account. After the VM runs about 5 minutes you should see the four default tables: “LinuxCpu”, ”LinuxDisk”, ”LinuxMemory”, and ”Linuxsyslog”. Double click the table name to view the data.
-2.	Use [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer") to access the data.
+1.  Use Visual Studio Server Explorer. Navigate to your storage account. After the VM runs about 5 minutes you should see the four default tables: “LinuxCpu”, ”LinuxDisk”, ”LinuxMemory”, and ”Linuxsyslog”. Double click the table name to view the data.
+2.  Use [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer") to access the data.
 
 ![image](./media/virtual-machines-linux-diagnostic-extension/no1.png)
 
@@ -149,3 +149,4 @@ If have enabled fileCfg or perfCfg specified in Scenario 2 and 3, you can use th
 ## Known issues
 - For version 2.0, the Rsyslog information and customer specified log file can only be accessed via scripting.
 - For version 2.0, if you have enabled the Linux Diagnostic extension via script first, then you cannot view the data from the portal. If you enable the extension from the portal first, then the scripts will still work.
+

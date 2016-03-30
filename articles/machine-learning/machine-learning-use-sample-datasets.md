@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Use the sample data sets in Machine Learning Studio | Microsoft Azure"
-	description="Descriptions of the data sets used in sample models included in ML Studio. You can use these sample data sets for your experiments."
-	services="machine-learning"
-	documentationCenter=""
-	authors="garyericson"
-	manager="paulettm"
-	editor="cgronlun"/>
+    pageTitle="Use the sample data sets in Machine Learning Studio | Microsoft Azure"
+    description="Descriptions of the data sets used in sample models included in ML Studio. You can use these sample data sets for your experiments."
+    services="machine-learning"
+    documentationCenter=""
+    authors="garyericson"
+    manager="paulettm"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/28/2015"
-	ms.author="garye"/>
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/28/2015"
+    ms.author="garye"/>
 
 
 # Use the sample data sets in Azure Machine Learning Studio
@@ -30,9 +30,9 @@ You can use any of these data sets in your own experiment by dragging it to your
 
 
 <!--
-For a list of sample experiments available in ML Studio, see [Machine Learning Sample Experiments][sample-experiments].
+For a list of sample experiments available in ML Studio, see [Machine Learning Sample Experiments].
 
-[sample-experiments]: machine-learning-sample-experiments.md
+-->mple-experiments]: machine-learning-sample-experiments.md
 -->
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -316,3 +316,4 @@ For a list of sample experiments available in ML Studio, see [Machine Learning S
 
 <!-- Module References -->
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+

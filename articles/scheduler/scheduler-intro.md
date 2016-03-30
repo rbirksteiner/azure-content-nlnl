@@ -49,3 +49,4 @@ Scheduler allows you to create, update, delete, view, and manage jobs and [job c
  [Azure Scheduler limits, defaults, and error codes](scheduler-limits-defaults-errors.md)
 
  [Azure Scheduler outbound authentication](scheduler-outbound-authentication.md)
+

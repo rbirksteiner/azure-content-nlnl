@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Monitor your on-premises identity infrastructure in the cloud."
-	description="This is the Azure AD Connect Health page that describes what it is and why you would use it."
-	services="active-directory"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
-	editor="curtand"/>
+    pageTitle="Monitor your on-premises identity infrastructure in the cloud."
+    description="This is the Azure AD Connect Health page that describes what it is and why you would use it."
+    services="active-directory"
+    documentationCenter=""
+    authors="billmath"
+    manager="stevenpo"
+    editor="curtand"/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="12/16/2015"
-	ms.author="billmath"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="12/16/2015"
+    ms.author="billmath"/>
 
 # Monitor your on-premises identity infrastructure and synchronization services in the cloud
 
@@ -122,3 +122,4 @@ To get started do one of the following:
 * [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adfs.md)
 * [Using Azure AD Connect Health for Sync](active-directory-aadconnect-health-sync.md)
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
+

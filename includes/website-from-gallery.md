@@ -22,17 +22,17 @@ You'll build a WordPress blog that uses a default template. The following illust
     ![Marketplace icon][marketplace]
 
     Or by clicking the **New** icon on the upper right of the dashboard, and selecting **Marketplace** at the bottow of the list.
-	
+    
     ![Create New][5]
-	
+    
 3. Select **Web + Mobile**. Search for **WordPress** and click the **WordPress** icon.
 
-	![WordPress from list][7]
-	
+    ![WordPress from list][7]
+    
 5. After reading the description of the WordPress app, select **Create**.
 
 6. Click on **Web app**, and provide the required values for configuring your web app.
-	
+    
     ![configure your app][8]
 
 7. Click on **Database**, and provide the required values for configuring your MySQL database. 
@@ -52,7 +52,7 @@ You'll build a WordPress blog that uses a default template. The following illust
    ![show group][resourcegroup]
 
 ## Launch and manage your WordPress web app
-	
+    
 1. Click on your new web app to see details about your app.
 
     ![launch dashboard][10]
@@ -67,7 +67,7 @@ You'll build a WordPress blog that uses a default template. The following illust
 
 5. You'll have a new WordPress web app that looks similar to the web app below.    
 
-	![your WordPress site][13]
+    ![your WordPress site][13]
 
 
 
@@ -87,3 +87,4 @@ You'll build a WordPress blog that uses a default template. The following illust
 [browse]: ./media/website-from-gallery/browse-web.png
 [marketplace]: ./media/website-from-gallery/marketplace-icon.png
 [groupname]: ./media/website-from-gallery/set-rg.png
+

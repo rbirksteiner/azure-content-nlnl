@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Manage Azure storage resources with Storage Explorer (Preview) | Microsoft Azure"
-	description="Describes how to use Microsoft Azure Storage Explorer (Preview) to create and manage Azure storage resources."
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tlee" />
+    pageTitle="Manage Azure storage resources with Storage Explorer (Preview) | Microsoft Azure"
+    description="Describes how to use Microsoft Azure Storage Explorer (Preview) to create and manage Azure storage resources."
+    services="visual-studio-online"
+    documentationCenter="na"
+    authors="kempb"
+    manager="douge"
+    editor="tlee" />
 
  <tags
-	ms.service="visual-studio-online"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="11/17/2015"
-	ms.author="kempb" />
+    ms.service="visual-studio-online"
+    ms.devlang="multiple"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="11/17/2015"
+    ms.author="kempb" />
 
 # Manage Azure storage resources with Storage Explorer (Preview)
 
@@ -28,41 +28,41 @@ To see your Azure storage resources in Storage Explorer, you need to log in to a
 
 ### Add an Azure account to Storage Explorer
 
-1.	Choose the **Settings** (gear) icon on the Storage Explorer toolbar.
-1.	Choose the **Add an account** link. Log into the Azure account whose storage resources you want to browse. The account you just added should be selected in the account picker dropdown list. All subscriptions for that account appear under the account entry.
+1.  Choose the **Settings** (gear) icon on the Storage Explorer toolbar.
+1.  Choose the **Add an account** link. Log into the Azure account whose storage resources you want to browse. The account you just added should be selected in the account picker dropdown list. All subscriptions for that account appear under the account entry.
 
-	![][0]
+    ![][0]
 
-1.	Select the check boxes for the account subscriptions you want to browse and then choose the **Apply** button. 
+1.  Select the check boxes for the account subscriptions you want to browse and then choose the **Apply** button. 
 
-	![][1]
+    ![][1]
 
-	The Azure storage resources for the selected subscriptions appear in Storage Explorer.
+    The Azure storage resources for the selected subscriptions appear in Storage Explorer.
 
 ### Attach an external storage
 
 1. Get the account name and key for the storage account you want to attach.
-	1.	In the Azure preview portal, choose the storage account that want to attach.
-	1.	In the **Manage** section of the **Settings** pane in the Azure preview portal, choose the **Keys** button.
-	1.	Copy the **Storage Account Name** and **Primary Access Key** values.
+    1.  In the Azure preview portal, choose the storage account that want to attach.
+    1.  In the **Manage** section of the **Settings** pane in the Azure preview portal, choose the **Keys** button.
+    1.  Copy the **Storage Account Name** and **Primary Access Key** values.
 
-		![][2]
+        ![][2]
 
-1.	On the shortcut menu of the **Storage Accounts** node in Storage Explorer, choose the **Attach External Storage** command.
+1.  On the shortcut menu of the **Storage Accounts** node in Storage Explorer, choose the **Attach External Storage** command.
 
-	![][3]
+    ![][3]
 
 1. Enter the Storage Account Name in the **Account name** box and Primary Access Key in the **Account key** box. Choose the **Ok** button to continue.
 
-	![][4]
+    ![][4]
 
-	The external storage appears in Storage Explorer. 
+    The external storage appears in Storage Explorer. 
 
-	![][5]
+    ![][5]
 
 1. To remove the external storage, on the shortcut menu of the external storage, choose the Detach command.
 
-	![][6]
+    ![][6]
 
 ## View and navigate storage resources
 
@@ -70,9 +70,9 @@ To navigate to an Azure storage resource and view its information in Storage Exp
 
 ![][7]
 
--	The **Actions** tab shows the actions you can take in Storage Explorer for the selected storage resource, such as opening, copying, or deleting it. Actions also appear on the shortcut menu of the resource.
+-   The **Actions** tab shows the actions you can take in Storage Explorer for the selected storage resource, such as opening, copying, or deleting it. Actions also appear on the shortcut menu of the resource.
 
--	The **Properties** tab shows properties of the storage resource, such as its type, locale, associated resource group, and URL.
+-   The **Properties** tab shows properties of the storage resource, such as its type, locale, associated resource group, and URL.
 
 All storage accounts have the action **Open in portal**. When you choose this action, Storage Explorer shows the selected storage account in the Azure preview portal.
 
@@ -96,66 +96,66 @@ You can create or delete blob containers, queues, and tables. You can also edit 
 
 ### Edit a blob container
 
-1.	Choose the **Open Blob Container Editor** action. The Blob Container Editor appears in the right pane.
+1.  Choose the **Open Blob Container Editor** action. The Blob Container Editor appears in the right pane.
 
-	![][10]
+    ![][10]
 
-1.	Choose the **Upload** button and then choose the **Upload Files** command.
+1.  Choose the **Upload** button and then choose the **Upload Files** command.
 
-	![][11]
+    ![][11]
 
-	If the files you want to upload are in a single folder, you can choose the Upload Folder command instead.
+    If the files you want to upload are in a single folder, you can choose the Upload Folder command instead.
 
 1. In the **Upload files** dialog box, choose the ellipsis (**…**) button on the right side of the Files box to select the files you want to upload. Then, choose the type of blob you want to upload it as (block, page, or append). If you want, you can choose to upload the files to a folder in the blob container. Enter the name of the folder in the **Upload to folder (optional)** box. If the folder doesn’t exist, it will be created.
 
-	![][12]
+    ![][12]
 
-	In the following screenshot, three image files have been uploaded to a new folder called **My New Files** in the **Images** blob container.
+    In the following screenshot, three image files have been uploaded to a new folder called **My New Files** in the **Images** blob container.
 
-	![][13]
+    ![][13]
 
-	Buttons on the blob editor toolbar let you to select, download, open, copy, and delete files and more. The **Activity** pane at the bottom of the dialog shows whether your operation was successful and enables you to remove only successful activities from view, or clear the pane entirely. Choose the **+** icon next to the uploaded files to view a detailed list of uploaded files.
+    Buttons on the blob editor toolbar let you to select, download, open, copy, and delete files and more. The **Activity** pane at the bottom of the dialog shows whether your operation was successful and enables you to remove only successful activities from view, or clear the pane entirely. Choose the **+** icon next to the uploaded files to view a detailed list of uploaded files.
 
 ## Create a Shared Access Signature (SAS)
 
 For some operations, you may need an SAS to access a storage resource. You can create one using Storage Explorer.
 
-1.	Select the item for which you want to create an SAS and then choose the **Get Shared Access Signature** command in the **Actions** pane or on the item’s shortcut menu.
+1.  Select the item for which you want to create an SAS and then choose the **Get Shared Access Signature** command in the **Actions** pane or on the item’s shortcut menu.
 
-	![][14]
+    ![][14]
 
-1.	In the **Shared Access Signature** dialog box, choose the policy, start and expiration dates, and time zone. Also, select the check boxes for the access levels you want for the resource, such as read-only, read-write, etc. When you’re done, choose the **Create** button to create the SAS.
+1.  In the **Shared Access Signature** dialog box, choose the policy, start and expiration dates, and time zone. Also, select the check boxes for the access levels you want for the resource, such as read-only, read-write, etc. When you’re done, choose the **Create** button to create the SAS.
 
-	![][15]
+    ![][15]
 
-1.	The **Shared Access Signature** dialog box lists the container along with the URL and QueryStrings you can use to access the storage resource. Choose the **Copy** button to copy the strings.
+1.  The **Shared Access Signature** dialog box lists the container along with the URL and QueryStrings you can use to access the storage resource. Choose the **Copy** button to copy the strings.
 
-	![][16]
+    ![][16]
 
 ## Manage SAS and permissions
 
 To control access to blob containers, you can choose the **Manage Access Control List** and **Set Public Access Level** commands. 
 
--	Manage Access Control List lets you add, edit, and remove access policies (whether users can read, write and so forth) on the selected blob container.
--	Set Public Access Level lets you determine how much access public users get to the resource.  
+-   Manage Access Control List lets you add, edit, and remove access policies (whether users can read, write and so forth) on the selected blob container.
+-   Set Public Access Level lets you determine how much access public users get to the resource.  
 
 -
 
-1.	Choose the blob container and then choose the **Manage Access Control List** command on the shortcut menu or in the **Actions** pane.
+1.  Choose the blob container and then choose the **Manage Access Control List** command on the shortcut menu or in the **Actions** pane.
 
-	![][17]
+    ![][17]
 
-1.	In the **Access Control List** dialog box, choose the **Add** button to add access policies. Choose an access policy and then select permissions for it. When you’re done, choose the **Save** button.
+1.  In the **Access Control List** dialog box, choose the **Add** button to add access policies. Choose an access policy and then select permissions for it. When you’re done, choose the **Save** button.
 
-	![][18]
+    ![][18]
 
-1.	To set an access level for a blob container, choose it in Storage Explorer and then choose the **Set Public Access Level** command on the shortcut menu or in the **Actions** pane.
+1.  To set an access level for a blob container, choose it in Storage Explorer and then choose the **Set Public Access Level** command on the shortcut menu or in the **Actions** pane.
 
-	![][19]
+    ![][19]
 
-1.	In the **Set Container Public Access Level** dialog box, select the option button for the level of access you want to give public users, then choose the **Apply** button.
+1.  In the **Set Container Public Access Level** dialog box, select the option button for the level of access you want to give public users, then choose the **Apply** button.
 
-	![][20]
+    ![][20]
 
 ## Next steps
 Learn about the features in Azure Storage services by reading articles in [Introduction to Microsoft Azure Storage](storage-introduction.md).

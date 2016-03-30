@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Service Bus AMQP overview with Java | Microsoft Azure" 
-	description="Learn about using Java with the Advanced Message Queuing Protocol (AMQP) 1.0 in Azure." 
-	services="service-bus" 
-	documentationCenter="java" 
-	authors="sethmanheim" 
-	manager="timlt" 
-	editor=""/>
+    pageTitle="Service Bus AMQP overview with Java | Microsoft Azure" 
+    description="Learn about using Java with the Advanced Message Queuing Protocol (AMQP) 1.0 in Azure." 
+    services="service-bus" 
+    documentationCenter="java" 
+    authors="sethmanheim" 
+    manager="timlt" 
+    editor=""/>
 
 <tags 
-	ms.service="service-bus" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="11/06/2015" 
-	ms.author="sethm"/>
+    ms.service="service-bus" 
+    ms.workload="na" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="Java" 
+    ms.topic="article" 
+    ms.date="11/06/2015" 
+    ms.author="sethm"/>
 
 
 # AMQP 1.0 support in Service Bus
@@ -100,3 +100,4 @@ Visit the following links to learn more about AMQP support in Service Bus.
 [Service Bus AMQP Developer's Guide]: service-bus-amqp-dotnet.md
 
  
+

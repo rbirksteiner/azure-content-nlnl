@@ -5,7 +5,7 @@ It is always a good practice to validate the length of data that is submitted by
 
 2. In the Solution Explorer window expand the todo list service project and expand **Contollers**. Open the TodoItemController.cs file which is part of the mobile service project.  
 
-   	![](./media/mobile-services-dotnet-backend-add-validation/mobile-services-open-todoitemcontroller.png)
+    ![](./media/mobile-services-dotnet-backend-add-validation/mobile-services-open-todoitemcontroller.png)
 
 3. Replace the `PostTodoItem` method with the following method which will validate that the text string is not greater than 10 characters. For items that do have a text length greater than 10 characters, the method returns an HTTP Status code 400 Bad Request with a descriptive message included as content.
 
@@ -27,7 +27,7 @@ It is always a good practice to validate the length of data that is submitted by
 
 4. Right click the service project and click **Build** to build the mobile service project. Verify no errors occurred.
 
-   	![](./media/mobile-services-dotnet-backend-add-validation/mobile-services-build-dotnet-service.png)
+    ![](./media/mobile-services-dotnet-backend-add-validation/mobile-services-build-dotnet-service.png)
 
 5. Right click the service project and click **Publish**. Publish the mobile service to your Microsoft Azure account using the publishing settings you previously used in the [Getting Started] or [Get started with data](../articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md)  tutorial.
  
@@ -41,3 +41,4 @@ It is always a good practice to validate the length of data that is submitted by
 
 <!-- URLs. -->
 [Getting Started]: ../articles/mobile-services/mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
+

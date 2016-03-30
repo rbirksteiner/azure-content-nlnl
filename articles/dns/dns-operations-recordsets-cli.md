@@ -40,7 +40,7 @@ Record sets are created using the `azure network dns record-set create` command 
 
 Azure DNS supports the following record types: A, AAAA, CNAME, MX, NS, SOA, SRV, TXT.  Record sets of type SOA are created automatically with each zone, they cannot be created separately.  Note that [the SPF record type has been deprecated by the DNS standards in favour of creating SPF records using the TXT record type](http://tools.ietf.org/html/rfc7208#section-3.1).
 
-	azure network dns record-set create myresourcegroup contoso.com  www  A --ttl 300
+    azure network dns record-set create myresourcegroup contoso.com  www  A --ttl 300
 
 
 >[AZURE.IMPORTANT] CNAME record sets cannot co-exist with other record sets with the same name.  For example, you cannot create a CNAME with the relative name ‘www’ and an A record with the relative name ‘www’ at the same time.  Since the zone apex (name = ‘@’) always contains the NS and SOA record sets created when the zone is created, this means you cannot create a CNAME record set at the zone apex.  These constraints arise from the DNS standards, they are not limitations of Azure DNS.
@@ -56,7 +56,7 @@ Azure DNS supports [wildcard records](https://en.wikipedia.org/wiki/Wildcard_DNS
 ## Get a record set
 To retrieve an existing record set, use `azure network dns record-set show`, specifying resource group, zone name, record set relative name and the record type:
 
-	azure network dns record-set show myresourcegroup contoso.com www A
+    azure network dns record-set show myresourcegroup contoso.com www A
 
 
 ## List record sets
@@ -66,14 +66,14 @@ You can list all records in a DNS Zone using `azure network dns record-set list`
 ### Option 1 
 List all record sets.  This will return all record sets, regardless of name or record type:
 
-	azure network dns record-set list myresourcegroup contoso.com
+    azure network dns record-set list myresourcegroup contoso.com
 
 ### Option 2 
 
 List record sets of a given record type.  This will return all record sets matching the given record type (in this case, A records):
 
 
-	azure network dns record-set list myresourcegroup contoso.com A 
+    azure network dns record-set list myresourcegroup contoso.com A 
 
 In both cases you will specify the resource group name and zone name.
 
@@ -88,27 +88,27 @@ The following examples show how to create a record set of each record type conta
 ### Create A record set with single record
 
 To create record set, use `azure network dns record-set create`, specifying resource group, zone name, record set relative name, the record type and time to live (TTL):
-	
-	azure network dns record-set create myresourcegroup  contoso.com "test-a"  A --ttl 300
+    
+    azure network dns record-set create myresourcegroup  contoso.com "test-a"  A --ttl 300
 
 >[AZURE.NOTE] If --ttl parameter is not defined, the value defaults to 4 (in seconds).
 
 
 After creating the A record set, add IPv4 address to record set with `azure network dns record-set add-record`:
 
-	azure network dns record-set add-record myresourcegroup contoso.com "test-a" A -a 192.168.1.1 
+    azure network dns record-set add-record myresourcegroup contoso.com "test-a" A -a 192.168.1.1 
 
 ### Create AAAA record set with single record
 
-	azure network dns record-set create myresourcegroup contoso.com "test-aaaa" AAAA --ttl 300
+    azure network dns record-set create myresourcegroup contoso.com "test-aaaa" AAAA --ttl 300
 
-	azure network dns record-set add-record myresourcegroup contoso.com "test-aaaa" AAAA -b "2607:f8b0:4009:1803::1005"
+    azure network dns record-set add-record myresourcegroup contoso.com "test-aaaa" AAAA -b "2607:f8b0:4009:1803::1005"
 
 ### Create CNAME record set with single record
 
-	azure network dns record-set create -g myresourcegroup contoso.com  "test-cname" CNAME --ttl 300
-	
-	azure network dns record-set add-record  myresourcegroup contoso.com  test-cname CNAME -c "www.contoso.com"
+    azure network dns record-set create -g myresourcegroup contoso.com  "test-cname" CNAME --ttl 300
+    
+    azure network dns record-set add-record  myresourcegroup contoso.com  test-cname CNAME -c "www.contoso.com"
 
 >[AZURE.NOTE] CNAME records only allows one single string value. 
 
@@ -116,31 +116,31 @@ After creating the A record set, add IPv4 address to record set with `azure netw
 
 In this example, we use the record set name "@" to create the MX record at the zone apex (e.g. "contoso.com").  This is common for MX records.
 
-	azure network dns record-set create myresourcegroup contoso.com  "@"  MX --ttl 300
+    azure network dns record-set create myresourcegroup contoso.com  "@"  MX --ttl 300
 
-	azure network dns record-set add-record -g myresourcegroup contoso.com  "@" MX -e "mail.contoso.com" -f 5
+    azure network dns record-set add-record -g myresourcegroup contoso.com  "@" MX -e "mail.contoso.com" -f 5
 
 
 ### Create NS record set with single record
 
-	azure network dns record-set create myresourcegroup contoso.com test-ns  NS --ttl 300
-	
-	azure network dns record-set add-record myresourcegroup  contoso.com  "test-ns" NS -d "ns1.contoso.com" 
-	
+    azure network dns record-set create myresourcegroup contoso.com test-ns  NS --ttl 300
+    
+    azure network dns record-set add-record myresourcegroup  contoso.com  "test-ns" NS -d "ns1.contoso.com" 
+    
 ### Create SRV record set with single record
 
 If creating an SRV record in root of zone, just specify _service and _protocol in the record name—there is no need to also include ‘.@’ in the record name
 
-	
-	azure network dns record-set create myresourcegroup contoso.com "_sip._tls" SRV --ttl 300 
+    
+    azure network dns record-set create myresourcegroup contoso.com "_sip._tls" SRV --ttl 300 
 
-	azure network dns record-set add-record myresourcegroup contoso.com  "_sip._tls" SRV -p 0 - w 5 -o 8080 -u "sip.contoso.com" 
+    azure network dns record-set add-record myresourcegroup contoso.com  "_sip._tls" SRV -p 0 - w 5 -o 8080 -u "sip.contoso.com" 
 
 ### Create TXT record set with single record
 
-	azure network dns record-set create myresourcegroup contoso.com "test-TXT" TXT --ttl 300
+    azure network dns record-set create myresourcegroup contoso.com "test-TXT" TXT --ttl 300
 
-	azure network dns record-set add-record myresourcegroup contoso.com "test-txt" TXT -x "this is a TXT record" 
+    azure network dns record-set add-record myresourcegroup contoso.com "test-txt" TXT -x "this is a TXT record" 
 
 
 ## Modifying existing record sets
@@ -152,41 +152,41 @@ This is shown by the following examples:
 
 For this example we will add another IP address (1.2.3.4) to an existing A record set (www): 
 
-	azure network dns record-set add-record  myresourcegroup contoso.com  A
-	-a 1.2.3.4
-	info:    Executing command network dns record-set add-record
-	Record set name: www
-	+ Looking up the dns zone "contoso.com"
-	+ Looking up the DNS record set "www"
-	+ Updating DNS record set "www"
-	data:    Id                              : /subscriptions/################################/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com/a/www
-	data:    Name                            : www	
-	data:    Type                            : Microsoft.Network/dnszones/a
-	data:    Location                        : global
-	data:    TTL                             : 4
-	data:    A records:
-	data:        IPv4 address                : 192.168.1.1
-	data:        IPv4 address                : 1.2.3.4
-	data:
-	info:    network dns record-set add-record command OK
+    azure network dns record-set add-record  myresourcegroup contoso.com  A
+    -a 1.2.3.4
+    info:    Executing command network dns record-set add-record
+    Record set name: www
+    + Looking up the dns zone "contoso.com"
+    + Looking up the DNS record set "www"
+    + Updating DNS record set "www"
+    data:    Id                              : /subscriptions/################################/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com/a/www
+    data:    Name                            : www  
+    data:    Type                            : Microsoft.Network/dnszones/a
+    data:    Location                        : global
+    data:    TTL                             : 4
+    data:    A records:
+    data:        IPv4 address                : 192.168.1.1
+    data:        IPv4 address                : 1.2.3.4
+    data:
+    info:    network dns record-set add-record command OK
 
 
 You will use `azure network dns record-set delete-record` to remove an existing value from a record set:
  
-	azure network dns record-set delete-record myresourcegroup contoso.com www A -a 1.2.3.4
-	info:    Executing command network dns record-set delete-record
-	+ Looking up the DNS record set "www"
-	Delete DNS record? [y/n] y
-	+ Updating DNS record set "www"
-	data:    Id                              : /subscriptions/################################/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com/A/www
-	data:    Name                            : www
-	data:    Type                            : Microsoft.Network/dnszones/A
-	data:    Location                        : global
-	data:    TTL                             : 4
-	data:    A records:
-	data:        IPv4 address                : 192.168.1.1
-	data:
-	info:    network dns record-set delete-record command OK
+    azure network dns record-set delete-record myresourcegroup contoso.com www A -a 1.2.3.4
+    info:    Executing command network dns record-set delete-record
+    + Looking up the DNS record set "www"
+    Delete DNS record? [y/n] y
+    + Updating DNS record set "www"
+    data:    Id                              : /subscriptions/################################/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com/A/www
+    data:    Name                            : www
+    data:    Type                            : Microsoft.Network/dnszones/A
+    data:    Location                        : global
+    data:    TTL                             : 4
+    data:    A records:
+    data:        IPv4 address                : 192.168.1.1
+    data:
+    info:    network dns record-set delete-record command OK
 
 
 
@@ -197,34 +197,34 @@ Records can be removed from a record set using `azure network dns record-set del
 Removing the last record from a record set does not delete the record set.  See [Delete a record set](#delete-a-record-set) below for more.
 
 
-	azure network dns record-set delete-record myresourcegroup contoso.com www A -a 192.168.1.1
+    azure network dns record-set delete-record myresourcegroup contoso.com www A -a 192.168.1.1
 
-	azure network dns record-set delete myresourcegroup contoso.com www A
+    azure network dns record-set delete myresourcegroup contoso.com www A
 
 ### Remove AAAA record from a record set
 
-	azure network dns record-set delete-record myresourcegroup contoso.com test-aaaa  AAAA -b "2607:f8b0:4009:1803::1005"
+    azure network dns record-set delete-record myresourcegroup contoso.com test-aaaa  AAAA -b "2607:f8b0:4009:1803::1005"
 
 ### Remove CNAME record from a record set
 
-	azure network dns record-set delete-record myresourcegroup contoso.com test-cname CNAME -c www.contoso.com
-	
+    azure network dns record-set delete-record myresourcegroup contoso.com test-cname CNAME -c www.contoso.com
+    
 
 ### Remove MX record from a record set
 
-	azure network dns record-set delete-record myresourcegroup contoso.com "@" MX -e "mail.contoso.com" -f 5
+    azure network dns record-set delete-record myresourcegroup contoso.com "@" MX -e "mail.contoso.com" -f 5
 
 ### Remove NS record from record set
-	
-	azure network dns record-set delete-record myresourcegroup contoso.com  "test-ns" NS -d "ns1.contoso.com"
+    
+    azure network dns record-set delete-record myresourcegroup contoso.com  "test-ns" NS -d "ns1.contoso.com"
 
 ### Remove SRV record from a record set
 
-	azure network dns record-set delete-record myresourcegroup contoso.com  "_sip._tls" SRV -p 0 -w 5 -o 8080 -u "sip.contoso.com" 
+    azure network dns record-set delete-record myresourcegroup contoso.com  "_sip._tls" SRV -p 0 -w 5 -o 8080 -u "sip.contoso.com" 
 
 ### Remove TXT record from a record set
 
-	azure network dns record-set delete-record myresourcegroup contoso.com  "test-TXT" TXT -x "this is a TXT record"
+    azure network dns record-set delete-record myresourcegroup contoso.com  "test-TXT" TXT -x "this is a TXT record"
 
 ## Delete a record set
 Record sets can be deleted using the Remove-AzureDnsRecordSet cmdlet.
@@ -233,7 +233,7 @@ Record sets can be deleted using the Remove-AzureDnsRecordSet cmdlet.
 
 In the example below, the A record set "test-a" will be removed from contoso.com DNS zone:
 
-	azure network dns record-set delete myresourcegroup contoso.com  "test-a" A 
+    azure network dns record-set delete myresourcegroup contoso.com  "test-a" A 
 
 The optional ‘-q’ switch can be used to suppress the confirmation prompt.
 
@@ -244,3 +244,4 @@ The optional ‘-q’ switch can be used to suppress the confirmation prompt.
 [Manage DNS zones](dns-operations-dnszones-cli.md)<BR>
 [Automate operations using .NET SDK](dns-sdk.md)
  
+

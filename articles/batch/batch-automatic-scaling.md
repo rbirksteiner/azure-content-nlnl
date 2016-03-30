@@ -1,21 +1,21 @@
 
 <properties
-	pageTitle="Automatically Scale Compute Nodes in an Azure Batch Pool | Microsoft Azure"
-	description="Enable automatic scaling on a cloud pool to dynamically adjust the number of compute nodes in the pool."
-	services="batch"
-	documentationCenter=""
-	authors="mmacy"
-	manager="timlt"
-	editor="tysonn"/>
+    pageTitle="Automatically Scale Compute Nodes in an Azure Batch Pool | Microsoft Azure"
+    description="Enable automatic scaling on a cloud pool to dynamically adjust the number of compute nodes in the pool."
+    services="batch"
+    documentationCenter=""
+    authors="mmacy"
+    manager="timlt"
+    editor="tysonn"/>
 
 <tags
-	ms.service="batch"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-windows"
-	ms.workload="multiple"
-	ms.date="12/04/2015"
-	ms.author="marsma"/>
+    ms.service="batch"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="vm-windows"
+    ms.workload="multiple"
+    ms.date="12/04/2015"
+    ms.author="marsma"/>
 
 # Automatically scale compute nodes in an Azure Batch pool
 
@@ -33,12 +33,12 @@ The scaling formulas you define determine the number of available compute nodes 
 
 Statements in a formula are free-formed expressions. They can include any system-defined variables, user-defined variables, constant values, and supported operations on these variables or constants.
 
-	VAR = Expression(system-defined variables, user-defined variables);
+    VAR = Expression(system-defined variables, user-defined variables);
 
 Complex formulas are created by using multiple statements and variables:
 
-	VAR₀ = Expression₀(system-defined variables);
-	VAR₁ = Expression₁(system-defined variables, VAR₀);
+    VAR₀ = Expression₀(system-defined variables);
+    VAR₁ = Expression₁(system-defined variables, VAR₀);
 
 > [AZURE.NOTE] An automatic scaling formula is comprised of [Batch REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) API variables, types, operations, and functions. These are used in formula strings even while working with the [Batch .NET](https://msdn.microsoft.com/library/azure/mt348682.aspx) library.
 
@@ -150,24 +150,24 @@ These **types** are supported in a formula.
 - doubleVec
 - string
 - timestamp -- timestamp is a compound structure which contains the following members:
-	- year
-	- month (1-12)
-	- day (1-31)
-	- weekday (in the format of number, e.g. 1 for Monday)
-	- hour (in 24-hour number format, e.g. 13 means 1PM)
-	- minute (00-59)
-	- second (00-59)
+    - year
+    - month (1-12)
+    - day (1-31)
+    - weekday (in the format of number, e.g. 1 for Monday)
+    - hour (in 24-hour number format, e.g. 13 means 1PM)
+    - minute (00-59)
+    - second (00-59)
 - timeinterval
-	- TimeInterval_Zero
-	- TimeInterval_100ns
-	- TimeInterval_Microsecond
-	- TimeInterval_Millisecond
-	- TimeInterval_Second
-	- TimeInterval_Minute
-	- TimeInterval_Hour
-	- TimeInterval_Day
-	- TimeInterval_Week
-	- TimeInterval_Year
+    - TimeInterval_Zero
+    - TimeInterval_100ns
+    - TimeInterval_Microsecond
+    - TimeInterval_Millisecond
+    - TimeInterval_Second
+    - TimeInterval_Minute
+    - TimeInterval_Hour
+    - TimeInterval_Day
+    - TimeInterval_Week
+    - TimeInterval_Year
 
 ### Operations
 
@@ -360,16 +360,16 @@ These methods can be used to get sample data.
   <tr>
     <td>GetSample()</td>
     <td><p>Returns a vector of data samples.
-	<p>A sample is 30 seconds worth of metrics data. In other words, samples are obtained every 30 seconds, but as noted below, there is a delay between when a sample is collected and when it is available to a formula. As such, not all samples for a given time period may be available for evaluation by a formula.
+    <p>A sample is 30 seconds worth of metrics data. In other words, samples are obtained every 30 seconds, but as noted below, there is a delay between when a sample is collected and when it is available to a formula. As such, not all samples for a given time period may be available for evaluation by a formula.
         <ul>
           <li><p><b>doubleVec GetSample(double count)</b> - Specifies the number of samples to obtain from the most recent samples collected.</p>
-				  <p>GetSample(1) returns the last available sample. For metrics like $CPUPercent, however, this should not be used because it is impossible to know <em>when</em> the sample was collected - it might be recent, or, because of system issues, it may be much older. It is better in such cases to use a time interval as shown below.</p></li>
+                  <p>GetSample(1) returns the last available sample. For metrics like $CPUPercent, however, this should not be used because it is impossible to know <em>when</em> the sample was collected - it might be recent, or, because of system issues, it may be much older. It is better in such cases to use a time interval as shown below.</p></li>
           <li><p><b>doubleVec GetSample((timestamp | timeinterval) startTime [, double samplePercent])</b> – Specifies a time frame for gathering sample data, and optionally specifies the percentage of samples that must be available in the requested time frame.</p>
           <p><em>$CPUPercent.GetSample(TimeInterval_Minute * 10)</em> would return 20 samples if all samples for the last ten minutes are present in the CPUPercent history. If the last minute of history was not available, however, only 18 samples would be returned, in which case:<br/>
-		  &nbsp;&nbsp;&nbsp;&nbsp;<em>$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)</em> would fail because only 90% of the samples are available, and<br/>
-		  &nbsp;&nbsp;&nbsp;&nbsp;<em>$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)</em> would succeed.</p></li>
+          &nbsp;&nbsp;&nbsp;&nbsp;<em>$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)</em> would fail because only 90% of the samples are available, and<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;<em>$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)</em> would succeed.</p></li>
           <li><p><b>doubleVec GetSample((timestamp | timeinterval) startTime, (timestamp | timeinterval) endTime [, double samplePercent])</b> – Specifies a time frame for gathering data with both a start time and an end time.</p></li></ul>
-		  <p>As mentioned above, there is a delay between when a sample is collected and when it is available to a formula. This must be considered when using the <em>GetSample</em> method - see <em>GetSamplePercent</em> below.</td>
+          <p>As mentioned above, there is a delay between when a sample is collected and when it is available to a formula. This must be considered when using the <em>GetSample</em> method - see <em>GetSamplePercent</em> below.</td>
   </tr>
   <tr>
     <td>GetSamplePeriod()</td>
@@ -383,7 +383,7 @@ These methods can be used to get sample data.
     <td>GetSamplePercent()</td>
     <td><p>Returns the percent of samples a history currently has for a given time interval. For example:</p>
     <p><b>doubleVec GetSamplePercent( (timestamp | timeinterval) startTime [, (timestamp | timeinterval) endTime] )</b>
-	<p>Because the GetSample method fails if the percent of samples returned is less than the samplePercent specified, you can use the GetSamplePercent method to first check, then perform an alternate action when enough samples are not present without halting their automatic scaling evaluation.</p></td>
+    <p>Because the GetSample method fails if the percent of samples returned is less than the samplePercent specified, you can use the GetSamplePercent method to first check, then perform an alternate action when enough samples are not present without halting their automatic scaling evaluation.</p></td>
   </tr>
 </table>
 
@@ -439,21 +439,21 @@ Constructing an autoscaling formula is done by forming statements using the abov
 
 For the *increase* of nodes during high CPU usage, we define the statement that populates a user-defined variable ($TotalNodes) with a value that is 110% of the current target number of nodes if the minimum average CPU usage during the last 10 minutes was above 70%:
 
-	$TotalNodes = (min($CPUPercent.GetSample(TimeInterval_Minute*10)) > 0.7) ? ($CurrentDedicated * 1.1) : $CurrentDedicated;
+    $TotalNodes = (min($CPUPercent.GetSample(TimeInterval_Minute*10)) > 0.7) ? ($CurrentDedicated * 1.1) : $CurrentDedicated;
 
 The next statement sets the same variable to 90% of the current target number of nodes if the average CPU usage of the past 60 minutes was *under* 20%, lowering the target number during low CPU usage. Note that this statement also references the user-defined variable *$TotalNodes* from the statement above.
 
-	$TotalNodes = (avg($CPUPercent.GetSample(TimeInterval_Minute*60)) < 0.2) ? ($CurrentDedicated * 0.9) : $TotalNodes;
+    $TotalNodes = (avg($CPUPercent.GetSample(TimeInterval_Minute*60)) < 0.2) ? ($CurrentDedicated * 0.9) : $TotalNodes;
 
 Now limit the target number of dedicated compute nodes to a **maximum** of 400:
 
-	$TargetDedicated = min(400, $TotalNodes)
+    $TargetDedicated = min(400, $TotalNodes)
 
 Here's the complete formula:
 
-	$TotalNodes = (min($CPUPercent.GetSample(TimeInterval_Minute*10)) > 0.7) ? ($CurrentDedicated * 1.1) : $CurrentDedicated;
-	$TotalNodes = (avg($CPUPercent.GetSample(TimeInterval_Minute*60)) < 0.2) ? ($CurrentDedicated * 0.9) : $TotalNodes;
-	$TargetDedicated = min(400, $TotalNodes)
+    $TotalNodes = (min($CPUPercent.GetSample(TimeInterval_Minute*10)) > 0.7) ? ($CurrentDedicated * 1.1) : $CurrentDedicated;
+    $TotalNodes = (avg($CPUPercent.GetSample(TimeInterval_Minute*60)) < 0.2) ? ($CurrentDedicated * 0.9) : $TotalNodes;
+    $TargetDedicated = min(400, $TotalNodes)
 
 ## Create a pool with automatic scaling enabled
 
@@ -467,10 +467,10 @@ To enable automatic scaling when creating a pool, use one of the following techn
 
 The following code snippet shows the creation of an autoscale-enabled [CloudPool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx) using the [Batch .NET](https://msdn.microsoft.com/library/azure/mt348682.aspx) library whose formula sets the target number of nodes to 5 on Mondays, and 1 on every other day of the week. In the snippet, "myBatchClient" is a properly initialized instance of [BatchClient](http://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx)):
 
-		CloudPool pool myBatchClient.PoolOperations.CreatePool("mypool", "3", "small");
-		pool.AutoScaleEnabled = true;
-		pool.AutoScaleFormula = "$TargetDedicated = (time().weekday==1?5:1);";
-		pool.Commit();
+        CloudPool pool myBatchClient.PoolOperations.CreatePool("mypool", "3", "small");
+        pool.AutoScaleEnabled = true;
+        pool.AutoScaleFormula = "$TargetDedicated = (time().weekday==1?5:1);";
+        pool.Commit();
 
 ## Enable automatic scaling after a pool was created
 
@@ -483,13 +483,13 @@ If you've already set up a pool with a specified number of compute nodes using t
 
 This code snippet demonstrates enabling autoscaling on an existing pool using the [Batch .NET](https://msdn.microsoft.com/library/azure/mt348682.aspx) library. Note that both enabling and updating the formula on an existing pool use the same method. As such, this technique would *update* the formula on the specified pool if autoscaling had already been enabled. This snippet assumes that "myBatchClient" is a properly initialized instance of [BatchClient](http://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx), and "mypool" is the ID of an existing [CloudPool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx).
 
-		 // Define the autoscaling formula. In this snippet, the  formula sets the target number of nodes to 5 on
-		 // Mondays, and 1 on every other day of the week
-		 string myAutoScaleFormula = "$TargetDedicated = (time().weekday==1?5:1);";
+         // Define the autoscaling formula. In this snippet, the  formula sets the target number of nodes to 5 on
+         // Mondays, and 1 on every other day of the week
+         string myAutoScaleFormula = "$TargetDedicated = (time().weekday==1?5:1);";
 
-		 // Update the existing pool's autoscaling formula by calling the BatchClient.PoolOperations.EnableAutoScale
-		 // method, passing in both the pool's ID and the new formula.
-		 myBatchClient.PoolOperations.EnableAutoScale("mypool", myAutoScaleFormula);
+         // Update the existing pool's autoscaling formula by calling the BatchClient.PoolOperations.EnableAutoScale
+         // method, passing in both the pool's ID and the new formula.
+         myBatchClient.PoolOperations.EnableAutoScale("mypool", myAutoScaleFormula);
 
 ## Evaluate the automatic scaling formula
 
@@ -502,44 +502,44 @@ It’s always good practice to evaluate a formula before you use it in your appl
 
 In this code snippet using the [Batch .NET](https://msdn.microsoft.com/library/azure/mt348682.aspx) library, we evaluate a formula prior to applying it to the [CloudPool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx).
 
-		// First obtain a reference to the existing pool
-		CloudPool pool = myBatchClient.PoolOperations.GetPool("mypool");
+        // First obtain a reference to the existing pool
+        CloudPool pool = myBatchClient.PoolOperations.GetPool("mypool");
 
-		// We must ensure that autoscaling is enabled on the pool prior to evaluating a formula
-		if (pool.AutoScaleEnabled.HasValue && pool.AutoScaleEnabled.Value)
-		{
-			// The formula to evaluate - adjusts target number of nodes based on day of week and time of day
-			string myFormula = @"
-				$CurTime=time();
-				$WorkHours=$CurTime.hour>=8 && $CurTime.hour<18;
-				$IsWeekday=$CurTime.weekday>=1 && $CurTime.weekday<=5;
-				$IsWorkingWeekdayHour=$WorkHours && $IsWeekday;
-				$TargetDedicated=$IsWorkingWeekdayHour?20:10;
-			";
+        // We must ensure that autoscaling is enabled on the pool prior to evaluating a formula
+        if (pool.AutoScaleEnabled.HasValue && pool.AutoScaleEnabled.Value)
+        {
+            // The formula to evaluate - adjusts target number of nodes based on day of week and time of day
+            string myFormula = @"
+                $CurTime=time();
+                $WorkHours=$CurTime.hour>=8 && $CurTime.hour<18;
+                $IsWeekday=$CurTime.weekday>=1 && $CurTime.weekday<=5;
+                $IsWorkingWeekdayHour=$WorkHours && $IsWeekday;
+                $TargetDedicated=$IsWorkingWeekdayHour?20:10;
+            ";
 
-			// Perform the autoscale formula evaluation. Note that this does not actually apply the formula to
-			// the pool.
-			AutoScaleEvaluation eval = client.PoolOperations.EvaluateAutoScale(pool.Id, myFormula);
+            // Perform the autoscale formula evaluation. Note that this does not actually apply the formula to
+            // the pool.
+            AutoScaleEvaluation eval = client.PoolOperations.EvaluateAutoScale(pool.Id, myFormula);
 
-			if (eval.AutoScaleRun.Error == null)
-			{
-				// Evaluation success - print the results of the AutoScaleRun. This will display the values of each
-				// variable as evaluated by the the autoscaling formula.
-				Console.WriteLine("AutoScaleRun.Results: " + eval.AutoScaleRun.Results);
+            if (eval.AutoScaleRun.Error == null)
+            {
+                // Evaluation success - print the results of the AutoScaleRun. This will display the values of each
+                // variable as evaluated by the the autoscaling formula.
+                Console.WriteLine("AutoScaleRun.Results: " + eval.AutoScaleRun.Results);
 
-				// Apply the formula to the pool since it evaluated successfully
-				client.PoolOperations.EnableAutoScale(pool.Id, myFormula);
-			}
-			else
-			{
-				// Evaluation failed, output the message associated with the error
-				Console.WriteLine("AutoScaleRun.Error.Message: " + eval.AutoScaleRun.Error.Message);
-			}
-		}
+                // Apply the formula to the pool since it evaluated successfully
+                client.PoolOperations.EnableAutoScale(pool.Id, myFormula);
+            }
+            else
+            {
+                // Evaluation failed, output the message associated with the error
+                Console.WriteLine("AutoScaleRun.Error.Message: " + eval.AutoScaleRun.Error.Message);
+            }
+        }
 
 Successful evaluation of the formula in this snippet will result in output similar to the following:
 
-		AutoScaleRun.Results: $TargetDedicated = 10;$NodeDeallocationOption = requeue;$CurTime = 2015 - 08 - 25T20: 08:42.271Z;$IsWeekday = 1;$IsWorkingWeekdayHour = 0;$WorkHours = 0
+        AutoScaleRun.Results: $TargetDedicated = 10;$NodeDeallocationOption = requeue;$CurTime = 2015 - 08 - 25T20: 08:42.271Z;$IsWeekday = 1;$IsWorkingWeekdayHour = 0;$WorkHours = 0
 
 ## Obtain information about automatic scaling runs
 
@@ -615,14 +615,14 @@ This example shows an autoscale formula that sets the pool size to a certain num
 string now = DateTime.UtcNow.ToString("r");
 string formula = string.Format(@"
 
-	$TargetDedicated = {1};
-	lifespan         = time() - time(""{0}"");
-	span             = TimeInterval_Minute * 60;
-	startup          = TimeInterval_Minute * 10;
-	ratio            = 50;
+    $TargetDedicated = {1};
+    lifespan         = time() - time(""{0}"");
+    span             = TimeInterval_Minute * 60;
+    startup          = TimeInterval_Minute * 10;
+    ratio            = 50;
 
-	$TargetDedicated = (lifespan > startup ? (max($RunningTasks.GetSample(span, ratio), $ActiveTasks.GetSample(span, ratio)) == 0 ? 0 : $TargetDedicated) : {1});
-	", now, 4);
+    $TargetDedicated = (lifespan > startup ? (max($RunningTasks.GetSample(span, ratio), $ActiveTasks.GetSample(span, ratio)) == 0 ? 0 : $TargetDedicated) : {1});
+    ", now, 4);
 ```
 
 The formula in the above code snippet has the following characteristics:
@@ -644,4 +644,5 @@ The formula in the above code snippet has the following characteristics:
         * [BatchClient.PoolOperations.GetRDPFile](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.getrdpfile.aspx) – This .NET method requires the ID of the pool, the node ID, and the name of the RDP file to create.
         * [Get a remote desktop protocol file from a node](https://msdn.microsoft.com/library/dn820120.aspx) – This REST API request requires the name of the pool and the name of the compute node. The response contains the contents of the RDP file.
         * [Get-AzureBatchRDPFile](https://msdn.microsoft.com/library/mt149851.aspx) – This PowerShell cmdlet gets the RDP file from the specified compute node and saves it to the specified file location or to a stream.
-2.	Some applications produce large amounts of data that can be difficult to process. One way to solve this is through [efficient list querying](batch-efficient-list-queries.md).
+2.  Some applications produce large amounts of data that can be difficult to process. One way to solve this is through [efficient list querying](batch-efficient-list-queries.md).
+

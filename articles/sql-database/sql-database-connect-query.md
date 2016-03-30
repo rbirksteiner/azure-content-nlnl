@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Connect to SQL Database with a C# query | Microsoft Azure"
-	description="Write a program in C# to query and connect to SQL database. Info about IP addresses, connection strings, secure login, and free Visual Studio."
-	services="sql-database"
-	keywords="c# database query, c# query, connect to database"
-	documentationCenter=""
-	authors="MightyPen"
-	manager="jeffreyg"
-	editor=""/>
+    pageTitle="Connect to SQL Database with a C# query | Microsoft Azure"
+    description="Write a program in C# to query and connect to SQL database. Info about IP addresses, connection strings, secure login, and free Visual Studio."
+    services="sql-database"
+    keywords="c# database query, c# query, connect to database"
+    documentationCenter=""
+    authors="MightyPen"
+    manager="jeffreyg"
+    editor=""/>
 
 <tags
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="get-started-article"
-	ms.date="10/09/2015"
-	ms.author="genemi"/>
+    ms.service="sql-database"
+    ms.workload="data-management"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="get-started-article"
+    ms.date="10/09/2015"
+    ms.author="genemi"/>
 
 
 # Write a program in C&#x23; to query and connect to a SQL Database
@@ -77,7 +77,7 @@ If you need to install Visual Studio, you can:
 
 6. Click the **Open in Visual Studio** button near the top on your database blade. A new blade about Visual Studio opens with links to install locations for Visual Studio.
 
-	![Open in Visual Studio button][20-OpenInVisualStudioButton]
+    ![Open in Visual Studio button][20-OpenInVisualStudioButton]
 
 7. Click the **Community (free)** link, or a similar link. A new webpage is added.
 
@@ -102,7 +102,7 @@ In Visual Studio, create a new project that is based on the starter template for
 
 2. Under **Installed**, expand to C# and Windows, so that the **Console Application** option appears in the middle pane.
 
-	![The New Project dialog][30-VSNewProject]
+    ![The New Project dialog][30-VSNewProject]
 
 2. For the **Name** enter **ConnectAndQuery_Example**. Click **OK**.
 
@@ -144,19 +144,19 @@ Your first use will be to connect Visual Studio to your Azure SQL Database **Adv
  - Replace the *{your_placeholders}* with your actual values:
 
 ```
-	<?xml version="1.0" encoding="utf-8" ?>
-	<configuration>
-	    <startup>
-	        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
-	    </startup>
+    <?xml version="1.0" encoding="utf-8" ?>
+    <configuration>
+        <startup>
+            <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
+        </startup>
 
-		<connectionStrings>
-			<clear />
-			<add name="ConnectionString4NoUserIDNoPassword"
-			connectionString="Server=tcp:{your_serverName_here}.database.windows.net,1433; Database={your_databaseName_here}; Connection Timeout=30; Encrypt=True; TrustServerCertificate=False;"
-			/>
-		</connectionStrings>
-	</configuration>
+        <connectionStrings>
+            <clear />
+            <add name="ConnectionString4NoUserIDNoPassword"
+            connectionString="Server=tcp:{your_serverName_here}.database.windows.net,1433; Database={your_databaseName_here}; Connection Timeout=30; Encrypt=True; TrustServerCertificate=False;"
+            />
+        </connectionStrings>
+    </configuration>
 ```
 
 3. Save the App.config change.
@@ -167,7 +167,7 @@ Your first use will be to connect Visual Studio to your Azure SQL Database **Adv
  - This causes the contents of your App.config file to replace the contents of the &#x2a;.exe.config file, in the directory where the &#x2a;.exe file is built to. The replacement occurs every time you recompile the &#x2a;.exe.
  - The &#x2a;.exe.config file is read when our sample C# program runs.
 
-	![Copy to Output Directory = Copy always][50-VSCopyToOutputDirectoryProperty]
+    ![Copy to Output Directory = Copy always][50-VSCopyToOutputDirectoryProperty]
 
 
 ## Step 6: Paste in the sample C# code
@@ -175,7 +175,7 @@ Your first use will be to connect Visual Studio to your Azure SQL Database **Adv
 
 1. In Visual Studio, use the **Solution Explorer** pane to open your **Program.cs** file.
 
-	![Paste in the sample C# query code.][40-VSProgramCsOverlay]
+    ![Paste in the sample C# query code.][40-VSProgramCsOverlay]
 
 2. Overwrite all the starter code in Program.cs by pasting in the following sample C# code.
  - If you want a shorter code sample, you can assign the whole connection string as a literal to the variable **SQLConnectionString**. Then you can erase the two methods **GetConnectionStringFromExeConfig** and **GatherPasswordFromConsole**.
@@ -190,94 +190,94 @@ using T = System.Text;
 
 namespace ConnectAndQuery_Example
 {
-	class Program
-	{
-		static void Main()
-		{
-			string connectionString4NoUserIDNoPassword,
-				password, userName, SQLConnectionString;
+    class Program
+    {
+        static void Main()
+        {
+            string connectionString4NoUserIDNoPassword,
+                password, userName, SQLConnectionString;
 
-			// Get most of the connection string from ConnectAndQuery_Example.exe.config
-			// file, in the same directory where ConnectAndQuery_Example.exe resides.
-			connectionString4NoUserIDNoPassword = Program.GetConnectionStringFromExeConfig
-				("ConnectionString4NoUserIDNoPassword");
-			// Get the user name from keyboard input.
-			Console.WriteLine("Enter your User ID, without the trailing @ and server name: ");
-			userName = Console.ReadLine();
-			// Get the password from keyboard input.
-			password = Program.GatherPasswordFromConsole();
+            // Get most of the connection string from ConnectAndQuery_Example.exe.config
+            // file, in the same directory where ConnectAndQuery_Example.exe resides.
+            connectionString4NoUserIDNoPassword = Program.GetConnectionStringFromExeConfig
+                ("ConnectionString4NoUserIDNoPassword");
+            // Get the user name from keyboard input.
+            Console.WriteLine("Enter your User ID, without the trailing @ and server name: ");
+            userName = Console.ReadLine();
+            // Get the password from keyboard input.
+            password = Program.GatherPasswordFromConsole();
 
-			SQLConnectionString = "Password=" + password + ';' +
-				"User ID=" + userName + ";" + connectionString4NoUserIDNoPassword;
+            SQLConnectionString = "Password=" + password + ';' +
+                "User ID=" + userName + ";" + connectionString4NoUserIDNoPassword;
 
-			// Create an SqlConnection from the provided connection string.
-			using (C.SqlConnection connection = new C.SqlConnection(SQLConnectionString))
-			{
-				// Formulate the command.
-				C.SqlCommand command = new C.SqlCommand();
-				command.Connection = connection;
+            // Create an SqlConnection from the provided connection string.
+            using (C.SqlConnection connection = new C.SqlConnection(SQLConnectionString))
+            {
+                // Formulate the command.
+                C.SqlCommand command = new C.SqlCommand();
+                command.Connection = connection;
 
-				// Specify the query to be executed.
-				command.CommandType = D.CommandType.Text;
-				command.CommandText = @"
-					SELECT TOP 9 CustomerID, NameStyle, Title, FirstName, LastName
-					FROM SalesLT.Customer;  -- In AdventureWorksLT database.
-					";
-				// Open a connection to database.
-				connection.Open();
+                // Specify the query to be executed.
+                command.CommandType = D.CommandType.Text;
+                command.CommandText = @"
+                    SELECT TOP 9 CustomerID, NameStyle, Title, FirstName, LastName
+                    FROM SalesLT.Customer;  -- In AdventureWorksLT database.
+                    ";
+                // Open a connection to database.
+                connection.Open();
 
-				// Read data returned for the query.
-				C.SqlDataReader reader = command.ExecuteReader();
-				while (reader.Read())
-				{
-					Console.WriteLine("Values:  {0}, {1}, {2}, {3}, {4}",
-						reader[0], reader[1], reader[2], reader[3], reader[4]);
-				}
-			}
-			Console.WriteLine("View the results here, then press any key to finish...");
-			Console.ReadKey(true);
-		}
-		//----------------------------------------------------------------------------------
+                // Read data returned for the query.
+                C.SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    Console.WriteLine("Values:  {0}, {1}, {2}, {3}, {4}",
+                        reader[0], reader[1], reader[2], reader[3], reader[4]);
+                }
+            }
+            Console.WriteLine("View the results here, then press any key to finish...");
+            Console.ReadKey(true);
+        }
+        //----------------------------------------------------------------------------------
 
-		static string GetConnectionStringFromExeConfig(string connectionStringNameInConfig)
-		{
-			G.ConnectionStringSettings connectionStringSettings =
-				G.ConfigurationManager.ConnectionStrings[connectionStringNameInConfig];
+        static string GetConnectionStringFromExeConfig(string connectionStringNameInConfig)
+        {
+            G.ConnectionStringSettings connectionStringSettings =
+                G.ConfigurationManager.ConnectionStrings[connectionStringNameInConfig];
 
-			if (connectionStringSettings == null)
-			{
-				throw new ApplicationException(String.Format
-					("Error. Connection string not found for name '{0}'.",
-					connectionStringNameInConfig));
-			}
-				return connectionStringSettings.ConnectionString;
-		}
+            if (connectionStringSettings == null)
+            {
+                throw new ApplicationException(String.Format
+                    ("Error. Connection string not found for name '{0}'.",
+                    connectionStringNameInConfig));
+            }
+                return connectionStringSettings.ConnectionString;
+        }
 
-		static string GatherPasswordFromConsole()
-		{
-			T.StringBuilder passwordBuilder = new T.StringBuilder(32);
-			ConsoleKeyInfo key;
-			Console.WriteLine("Enter your password: ");
-			do
-			{
-				key = Console.ReadKey(true);
-				if (key.Key != ConsoleKey.Backspace)
-				{
-					passwordBuilder.Append(key.KeyChar);
-					Console.Write("*");
-				}
-				else  // Backspace char was entered.
-				{
-					// Retreat the cursor, overlay '*' with ' ', retreat again.
-					Console.Write("\b \b");
-					passwordBuilder.Length = passwordBuilder.Length - 1;
-				}
-			}
-			while (key.Key != ConsoleKey.Enter); // Enter key will end the looping.
-			Console.WriteLine(Environment.NewLine);
-			return passwordBuilder.ToString();
-		}
-	}
+        static string GatherPasswordFromConsole()
+        {
+            T.StringBuilder passwordBuilder = new T.StringBuilder(32);
+            ConsoleKeyInfo key;
+            Console.WriteLine("Enter your password: ");
+            do
+            {
+                key = Console.ReadKey(true);
+                if (key.Key != ConsoleKey.Backspace)
+                {
+                    passwordBuilder.Append(key.KeyChar);
+                    Console.Write("*");
+                }
+                else  // Backspace char was entered.
+                {
+                    // Retreat the cursor, overlay '*' with ' ', retreat again.
+                    Console.Write("\b \b");
+                    passwordBuilder.Length = passwordBuilder.Length - 1;
+                }
+            }
+            while (key.Key != ConsoleKey.Enter); // Enter key will end the looping.
+            Console.WriteLine(Environment.NewLine);
+            return passwordBuilder.ToString();
+        }
+    }
 }
 ```
 
@@ -358,3 +358,4 @@ For more information, see:<br/>
 [40-VSProgramCsOverlay]: ./media/sql-database-connect-query/connqry-vs-program-cs-overlay-g.png
 
 [50-VSCopyToOutputDirectoryProperty]: ./media/sql-database-connect-query/connqry-vs-appconfig-copytoputputdir-h.png
+

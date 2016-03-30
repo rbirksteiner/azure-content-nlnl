@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="Some Azure Service Fabric Actors anti-patterns"
    description="Some potential pitfalls for customers who are learning Azure Service Fabric Actors"
    services="service-fabric"
@@ -29,3 +29,4 @@ We identified the following potential pitfalls for customers who are learning Se
 * Make a single actor the bottleneck. It is often too easy to be trapped with this one, having millions of actors funnelling into a single instance of another actor. Use the aggregation approach that we demonstrated in the [distributed computation design pattern](service-fabric-reliable-actors-pattern-distributed-computation.md).
 
 * Map entity models blindly. This is for developers who are coming from a relational universe where problems are modelled using entities and their relationships. While this approach is still useful for understanding the subject domain, it should be coupled with service-oriented thinking and blended with the behavior.
+

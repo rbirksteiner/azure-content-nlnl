@@ -80,7 +80,7 @@ As part of this procedure, you are required to upload a certificate to Work.com.
 
     ![Setup](./media/active-directory-saas-work-com-tutorial/IC794108.png "Setup")
 
-3.  On the left navigation pane, in the **Administer** section, click **Domain Management** to expand the related section, and then click **My Domain** to open the **My Domain** page. 
+3.  On the left navigation pane, in the **Administer** section, click **Domain Management** to expand the related section, and then click **My Domain** to open the **My Domain** page. 
 
     ![My Domain](./media/active-directory-saas-work-com-tutorial/IC767825.png "My Domain")
 
@@ -90,19 +90,19 @@ As part of this procedure, you are required to upload a certificate to Work.com.
 
 5.  In a different web browser window, log in to your Azure portal.
 
-6.  On the **Work.com **application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+6.  On the **Work.com **application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
     ![Configure Single Sign-On](./media/active-directory-saas-work-com-tutorial/IC794109.png "Configure Single Sign-On")
 
-7.  On the **How would you like users to sign on to Work.com** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+7.  On the **How would you like users to sign on to Work.com** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-work-com-tutorial/IC794110.png "Configure Single Sign-On")
 
-8.  On the **Configure App URL** page, in the **Work.com Sign On URL** textbox, type the URL used by your users to sign on to your Work.com application (e.g.:” *http://company.my.salesforce.com*”), and then click **Next**: 
+8.  On the **Configure App URL** page, in the **Work.com Sign On URL** textbox, type the URL used by your users to sign on to your Work.com application (e.g.:” *http://company.my.salesforce.com*”), and then click **Next**: 
 
     ![Configure App URL](./media/active-directory-saas-work-com-tutorial/IC794111.png "Configure App URL")
 
-9.  On the **Configure single sign-on at Work.com** page, to download your certificate, click **Download certificate**, and then save the certificate file locally on your computer.
+9.  On the **Configure single sign-on at Work.com** page, to download your certificate, click **Download certificate**, and then save the certificate file locally on your computer.
 
     ![Configure Single Sign-On](./media/active-directory-saas-work-com-tutorial/IC794112.png "Configure Single Sign-On")
 
@@ -129,7 +129,7 @@ As part of this procedure, you are required to upload a certificate to Work.com.
 
     1.  In the **Name** textbox, type a name for your configuration.  
 
-        >[AZURE.NOTE] Providing a value for **Name** does automatically populate the **API Name** textbox.
+        >[AZURE.NOTE] Providing a value for **Name** does automatically populate the **API Name** textbox.
 
     2.  In the Azure portal, on the **Configure single sign-on at Work.com** dialog page, copy the **Issuer URL** value, and then paste it into the **Issuer** textbox.
     3.  To upload the downloaded certificate, click **Browse**.
@@ -141,19 +141,19 @@ As part of this procedure, you are required to upload a certificate to Work.com.
     9.  As **Service Provider Initiated Request Binding**, select **HTTP Post**.
     10. Click **Save**.
 
-15. In your Work.com portal, on the left navigation pane, click **Domain Management** to expand the related section, and then click **My Domain** to open the **My Domain** page. 
+15. In your Work.com portal, on the left navigation pane, click **Domain Management** to expand the related section, and then click **My Domain** to open the **My Domain** page. 
 
     ![My Domain](./media/active-directory-saas-work-com-tutorial/IC794115.png "My Domain")
 
-16. On the **My Domain** page, in the **Login Page Branding** section, click **Edit**.
+16. On the **My Domain** page, in the **Login Page Branding** section, click **Edit**.
 
     ![Login Page Branding](./media/active-directory-saas-work-com-tutorial/IC767826.png "Login Page Branding")
 
-17. On the **Login Page Branding** page, in the **Authentication Service** section, the name of your **SAML SSO Settings** is displayed. Select it, and then click **Save**.
+17. On the **Login Page Branding** page, in the **Authentication Service** section, the name of your **SAML SSO Settings** is displayed. Select it, and then click **Save**.
 
     ![Login Page Branding](./media/active-directory-saas-work-com-tutorial/IC784366.png "Login Page Branding")
 
-18. On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+18. On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
     ![Configure Single Sign-On](./media/active-directory-saas-work-com-tutorial/IC794116.png "Configure Single Sign-On")
 
@@ -198,7 +198,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 1.  In the Azure AD portal, create a test account.
 
-2.  On the Work.com application integration page, click **Assign users**.
+2.  On the Work.com application integration page, click **Assign users**.
 
     ![Assign Users](./media/active-directory-saas-work-com-tutorial/IC794119.png "Assign Users")
 

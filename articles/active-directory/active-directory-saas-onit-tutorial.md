@@ -76,7 +76,7 @@ The following screenshot shows an example for this.
 
 ###To configure single sign-on, perform the following steps:
 
-1.  In the Azure AD portal, on the **Onit** application integration page, in the menu on the top, click **Attributes** to open the **SAML Token Attributes** dialog.
+1.  In the Azure AD portal, on the **Onit** application integration page, in the menu on the top, click **Attributes** to open the **SAML Token Attributes** dialog.
 
     ![Attributes](./media/active-directory-saas-onit-tutorial/IC791169.png "Attributes")
 
@@ -84,8 +84,8 @@ The following screenshot shows an example for this.
 
     
     |Attribute Name|Attribute Value|
-	|---|---|
-	|name|User.userprincipalname|
+    |---|---|
+    |name|User.userprincipalname|
     |email|User.mail|
 
     1.  For each data row in the table above, click **add user attribute**.
@@ -97,19 +97,19 @@ The following screenshot shows an example for this.
 
 4.  In your browser, click **Back** to open the **Quick Start** dialog again.
 
-5.  Click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+5.  Click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
     ![Configure Single Sign-On](./media/active-directory-saas-onit-tutorial/IC791170.png "Configure Single Sign-On")
 
-6.  On the **How would you like users to sign on to Onit** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+6.  On the **How would you like users to sign on to Onit** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-onit-tutorial/IC791171.png "Configure Single Sign-On")
 
-7.  On the **Configure App URL** page, in the **Onit Sign On URL** textbox, type the URL used by your users to sign on to your Onit application (e.g.: "*https://ms-sso-test.onit.com*”), and then click **Next**.
+7.  On the **Configure App URL** page, in the **Onit Sign On URL** textbox, type the URL used by your users to sign on to your Onit application (e.g.: "*https://ms-sso-test.onit.com*”), and then click **Next**.
 
     ![Configure App URL](./media/active-directory-saas-onit-tutorial/IC791172.png "Configure App URL")
 
-8.  On the **Configure single sign-on at Onit** page, to download your certificate, click **Download certificate**, and then save the certificate file locally on your computer.
+8.  On the **Configure single sign-on at Onit** page, to download your certificate, click **Download certificate**, and then save the certificate file locally on your computer.
 
     ![Configure Single Sign-On](./media/active-directory-saas-onit-tutorial/IC791173.png "Configure Single Sign-On")
 
@@ -143,7 +143,7 @@ The following screenshot shows an example for this.
     7.  Select **Login with SSO: Required for the following domains/users**, type the email address of a test user into the related textbox, and then click **Update**.
         ![Edit Corporation](./media/active-directory-saas-onit-tutorial/IC791178.png "Edit Corporation")
 
-14. On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+14. On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
     ![Configure Single Sign-On](./media/active-directory-saas-onit-tutorial/IC791179.png "Configure Single Sign-On")
 ##Configuring user provisioning
@@ -178,7 +178,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 1.  In the Azure AD portal, create a test account.
 
-2.  On the **Onit **application integration page, click **Assign users**.
+2.  On the **Onit **application integration page, click **Assign users**.
 
     ![Assign Users](./media/active-directory-saas-onit-tutorial/IC791182.png "Assign Users")
 

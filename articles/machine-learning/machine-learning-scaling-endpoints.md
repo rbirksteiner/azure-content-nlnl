@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Scaling API Endpoints | Microsoft Azure" 
-	description="Scaling web service endpoints in Azure Machine Learning" 
-	services="machine-learning"
-	documentationCenter="" 
-	authors="hiteshmadan" 
-	manager="padou" 
-	editor=""/>
+    pageTitle="Scaling API Endpoints | Microsoft Azure" 
+    description="Scaling web service endpoints in Azure Machine Learning" 
+    services="machine-learning"
+    documentationCenter="" 
+    authors="hiteshmadan" 
+    manager="padou" 
+    editor=""/>
 
 <tags
-	ms.service="machine-learning"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="tbd" 
-	ms.date="06/29/2015"
-	ms.author="himad"/>
+    ms.service="machine-learning"
+    ms.devlang="multiple"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="tbd" 
+    ms.date="06/29/2015"
+    ms.author="himad"/>
 
 
 # Scaling API Endpoints
@@ -48,3 +48,4 @@ The management UI allows to provide a custom concurrency number for scaling the 
 
 
  
+

@@ -1,20 +1,20 @@
 <properties
-	pageTitle="How to deploy an Azure API Management service instance to multiple Azure regions"
-	description="Learn how to deploy an Azure API Management service instance to multiple Azure regions." 
-	services="api-management"
-	documentationCenter=""
-	authors="steved0x"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="How to deploy an Azure API Management service instance to multiple Azure regions"
+    description="Learn how to deploy an Azure API Management service instance to multiple Azure regions." 
+    services="api-management"
+    documentationCenter=""
+    authors="steved0x"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="api-management"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/07/2015"
-	ms.author="sdanie"/>
+    ms.service="api-management"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/07/2015"
+    ms.author="sdanie"/>
 
 # How to deploy an Azure API Management service instance to multiple Azure regions
 
@@ -74,4 +74,5 @@ Once the desired regions are removed, click **Save**.
 
 [unit]: http://azure.microsoft.com/pricing/details/api-management/
 [Premium]: http://azure.microsoft.com/pricing/details/api-management/
+
 

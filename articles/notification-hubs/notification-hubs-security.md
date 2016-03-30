@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Security for Notification Hubs"
-	description="This topic explains security for Azure notification hubs."
-	services="notification-hubs"
-	documentationCenter=".net"
-	authors="wesmc7777"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Security for Notification Hubs"
+    description="This topic explains security for Azure notification hubs."
+    services="notification-hubs"
+    documentationCenter=".net"
+    authors="wesmc7777"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="notification-hubs"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-multiple"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="11/25/2015"
-	ms.author="wesmc"/>
+    ms.service="notification-hubs"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-multiple"
+    ms.devlang="multiple"
+    ms.topic="article"
+    ms.date="11/25/2015"
+    ms.author="wesmc"/>
 
 #Security
 

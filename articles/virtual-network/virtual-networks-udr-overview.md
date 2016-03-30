@@ -43,11 +43,11 @@ Packets are routed over a TCP/IP network based on a route table defined at each 
 
 - **Address Prefix**. The destination CIDR to which the route applies, such as 10.1.0.0/16.
 - **Next hop type**. The type of Azure hop the packet should be sent to. Possible values are:
-	- **Local**. Represents the local virtual network. For instance, if you have two subnets, 10.1.0.0/16 and 10.2.0.0/16 in the same virtual network, the route for each subnet in the route table will have a next hop value of *Local*.
-	- **VPN Gateway**. Represents an Azure S2S VPN Gateway. 
-	- **Internet**. Represents the default Internet gateway provided by the Azure Infrastructure 
-	- **Virtual Appliance**. Represents a virtual appliance you added to your Azure virtual network.
-	- **NULL**. Represents a black hole. Packets forwarded to a black hole will not be forwarded at all.
+    - **Local**. Represents the local virtual network. For instance, if you have two subnets, 10.1.0.0/16 and 10.2.0.0/16 in the same virtual network, the route for each subnet in the route table will have a next hop value of *Local*.
+    - **VPN Gateway**. Represents an Azure S2S VPN Gateway. 
+    - **Internet**. Represents the default Internet gateway provided by the Azure Infrastructure 
+    - **Virtual Appliance**. Represents a virtual appliance you added to your Azure virtual network.
+    - **NULL**. Represents a black hole. Packets forwarded to a black hole will not be forwarded at all.
 - **Nexthop Value**. The next hop value contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is *Virtual Appliance*.
 
 ## System Routes
@@ -89,3 +89,4 @@ This virtual appliance VM must be able to receive incoming traffic that is not a
 
 - Learn how to [create routes in the Resource Manager deployment model](../virtual-network-create-udr-arm-template) and associate them to subnets. 
 - Learn how to [create routes in the classic deployment model](../virtual-network-create-udr-classic-ps) and associate them to subnets.
+

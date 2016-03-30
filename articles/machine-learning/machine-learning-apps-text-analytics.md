@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Machine Learning APIs: Text Analytics | Microsoft Azure"
-	description="Text Analytics APIs provided by Azure Machine Learning. It can be used to analyze unstructured text for sentiment analysis, key phrase extraction and language detection."
-	services="machine-learning"
-	documentationCenter=""
-	authors="onewth"
-	manager="paulettm"
-	editor="cgronlun"/> 
+    pageTitle="Machine Learning APIs: Text Analytics | Microsoft Azure"
+    description="Text Analytics APIs provided by Azure Machine Learning. It can be used to analyze unstructured text for sentiment analysis, key phrase extraction and language detection."
+    services="machine-learning"
+    documentationCenter=""
+    authors="onewth"
+    manager="paulettm"
+    editor="cgronlun"/> 
 
 <tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/17/2015"
-	ms.author="onewth"/>
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/17/2015"
+    ms.author="onewth"/>
 
 
 # Machine Learning APIs: Text Analytics for Sentiment, Key Phrase Extraction and Language Detection
@@ -49,10 +49,10 @@ The API returns the detected language and a numeric score between 0 & 1. Scores 
 
 Ensure that you include the correct headers in your request, which should be as follows:
 
-	Authorization: Basic <creds>
-	Accept: application/json
+    Authorization: Basic <creds>
+    Accept: application/json
                
-	Where <creds> = ConvertToBase64(“AccountKey:” + yourActualAccountKey);  
+    Where <creds> = ConvertToBase64(“AccountKey:” + yourActualAccountKey);  
 
 You can find your account key from your account in the [Azure Data Market](https://datamarket.azure.com/account/keys). 
 
@@ -62,22 +62,22 @@ You can find your account key from your account in the [Azure Data Market](https
 
 ### GetSentiment
 
-**URL**	
+**URL** 
 
-	https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetSentiment
+    https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetSentiment
 
 **Example request**
 
 In the call below, we are requesting sentiment analysis for the phrase "Hello World":
 
-	GET https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetSentiment?Text=hello+world
+    GET https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetSentiment?Text=hello+world
 
 This will return a response as follows:
 
-	{
-	  "odata.metadata":"https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/$metadata",
-		"Score":1.0
-	}
+    {
+      "odata.metadata":"https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/$metadata",
+        "Score":1.0
+    }
 
 ---
 
@@ -85,25 +85,25 @@ This will return a response as follows:
 
 **URL**
 
-	https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetKeyPhrases
+    https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetKeyPhrases
 
 **Example request**
 
 In the call below, we are requesting the key phrases found in the text "It was a wonderful hotel to stay at, with unique decor and friendly staff":
 
-	GET https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetKeyPhrases?
-	Text=It+was+a+wonderful+hotel+to+stay+at,+with+unique+decor+and+friendly+staff
+    GET https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetKeyPhrases?
+    Text=It+was+a+wonderful+hotel+to+stay+at,+with+unique+decor+and+friendly+staff
 
 This will return a response as follows:
 
-	{
-	  "odata.metadata":"https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/$metadata",
-	  "KeyPhrases":[
-	    "wonderful hotel",
-	    "unique decor",
-	    "friendly staff"
-	  ]
-	}
+    {
+      "odata.metadata":"https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/$metadata",
+      "KeyPhrases":[
+        "wonderful hotel",
+        "unique decor",
+        "friendly staff"
+      ]
+    }
  
 ---
 
@@ -111,25 +111,25 @@ This will return a response as follows:
 
 **URL**
 
-	https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetLanguage
+    https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetLanguage
 
 **Example request**
 
 In the GET call below, we are requesting for the sentiment for the key phrases in the text *Hello World*
 
-	GET https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetLanguages?
-	Text=Hello+World
+    GET https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetLanguages?
+    Text=Hello+World
 
 This will return a response as follows:
 
-	{
-	  "UnknownLanguage": false,
-	  "DetectedLanguages": [{
-	    "Name": "English",
-	    "Iso6391Name": "en",
-	    "Score": 1.0
-	  }]
-	}
+    {
+      "UnknownLanguage": false,
+      "DetectedLanguages": [{
+        "Name": "English",
+        "Iso6391Name": "en",
+        "Score": 1.0
+      }]
+    }
 
 **Optional parameters**
 
@@ -146,37 +146,37 @@ Note that the IDs entered into the system are the IDs returned by the system. Th
 
 ### GetSentimentBatch
 
-**URL**	
+**URL** 
 
-	https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetSentimentBatch
+    https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetSentimentBatch
 
 **Example request**
 
 In the POST call below, we are requesting for the sentiments of the phrases "Hello World", "Hello Foo World" and "Hello My World" in the body of the request:
 
-	POST https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetSentimentBatch 
+    POST https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetSentimentBatch 
 
 Request body:
 
-	{"Inputs":
-	[
-	    {"Id":"1","Text":"hello world"},
-    	    {"Id":"2","Text":"hello foo world"},
-    	    {"Id":"3","Text":"hello my world"},
-	]}
+    {"Inputs":
+    [
+        {"Id":"1","Text":"hello world"},
+            {"Id":"2","Text":"hello foo world"},
+            {"Id":"3","Text":"hello my world"},
+    ]}
 
 In the response below, you get the list of scores associated with your text Ids:
 
-	{
-	  "odata.metadata":"https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/$metadata", 
-	  "SentimentBatch":
-	  [
-		{"Score":0.9549767,"Id":"1"},
-		{"Score":0.7767222,"Id":"2"},
-		{"Score":0.8988889,"Id":"3"}
-	  ],  
-	  "Errors":[]
-	}
+    {
+      "odata.metadata":"https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/$metadata", 
+      "SentimentBatch":
+      [
+        {"Score":0.9549767,"Id":"1"},
+        {"Score":0.7767222,"Id":"2"},
+        {"Score":0.8988889,"Id":"3"}
+      ],  
+      "Errors":[]
+    }
 
 
 ---
@@ -185,7 +185,7 @@ In the response below, you get the list of scores associated with your text Ids:
 
 **URL**
 
-	https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetKeyPhrasesBatch
+    https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetKeyPhrasesBatch
 
 **Example request**
 
@@ -201,24 +201,24 @@ This request is made as a POST call to the endpoint:
 
 Request body:
 
-	{"Inputs":
-	[
-		{"Id":"1","Text":"It was a wonderful hotel to stay at, with unique decor and friendly staff"},
-		{"Id":"2","Text":"It was an amazing build conference, with very interesting talks"},
-		{"Id":"3","Text":"The traffic was terrible, I spent three hours going to the airport"}
-	]}
+    {"Inputs":
+    [
+        {"Id":"1","Text":"It was a wonderful hotel to stay at, with unique decor and friendly staff"},
+        {"Id":"2","Text":"It was an amazing build conference, with very interesting talks"},
+        {"Id":"3","Text":"The traffic was terrible, I spent three hours going to the airport"}
+    ]}
 
 In the response below, you get the list of key phrases associated with your text Ids:
 
-	{ "odata.metadata":"https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/$metadata",
-	 	"KeyPhrasesBatch":
-		[
-		   {"KeyPhrases":["unique decor","friendly staff","wonderful hotel"],"Id":"1"},
-		   {"KeyPhrases":["amazing build conference","interesting talks"],"Id":"2"},
-		   {"KeyPhrases":["hours","traffic","airport"],"Id":"3" }
-		],
-		"Errors":[]
-	}
+    { "odata.metadata":"https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/$metadata",
+        "KeyPhrasesBatch":
+        [
+           {"KeyPhrases":["unique decor","friendly staff","wonderful hotel"],"Id":"1"},
+           {"KeyPhrases":["amazing build conference","interesting talks"],"Id":"2"},
+           {"KeyPhrases":["hours","traffic","airport"],"Id":"3" }
+        ],
+        "Errors":[]
+    }
 
 ---
 
@@ -260,3 +260,4 @@ This returns the following response, where English is detected in the first inpu
        }],
        "Errors": []
     }
+

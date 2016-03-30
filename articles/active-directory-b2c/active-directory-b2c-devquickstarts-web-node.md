@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Add sign-in to a nodeJS Web App for Azure B2C preview| Microsoft Azure"
-	description="How to build a Node.js Web App that signs-in users with a B2C tenant."
-	services="active-directory-b2c"
-	documentationCenter=""
-	authors="brandwe"
-	manager="msmbaldwin"
-	editor=""/>
+    pageTitle="Add sign-in to a nodeJS Web App for Azure B2C preview| Microsoft Azure"
+    description="How to build a Node.js Web App that signs-in users with a B2C tenant."
+    services="active-directory-b2c"
+    documentationCenter=""
+    authors="brandwe"
+    manager="msmbaldwin"
+    editor=""/>
 
 <tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
+    ms.service="active-directory-b2c"
+    ms.workload="identity"
   ms.tgt_pltfrm="na"
-	ms.devlang="javascript"
-	ms.topic="article"
-	ms.date="09/22/2015"
-	ms.author="brandwe"/>
+    ms.devlang="javascript"
+    ms.topic="article"
+    ms.date="09/22/2015"
+    ms.author="brandwe"/>
 
 # B2C Preview: Add sign-in to a nodeJS Web App
 
@@ -22,7 +22,7 @@
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 > [AZURE.NOTE]
-	This article does not cover how to implement sign-in, sign-up and profile management with Azure AD B2C.  It focuses on calling web APIs after the user is already authenticated.
+    This article does not cover how to implement sign-in, sign-up and profile management with Azure AD B2C.  It focuses on calling web APIs after the user is already authenticated.
 If you haven't already, you should start with the [.NET Web App getting started tutorial](active-directory-b2c-devquickstarts-web-dotnet.md) to learn about the basics of Azure AD B2C.
 
 **Passport** is authentication middleware for Node.js. Extremely flexible and modular, Passport can be unobtrusively dropped in to any Express-based or Resitify web application. A comprehensive set of strategies support authentication using a username and password, Facebook, Twitter, and more. We have developed a strategy for Microsoft Azure Active Directory. We will install this module and then add the Microsoft Azure Active Directory `passport-azure-ad` plug-in.
@@ -40,7 +40,7 @@ The code for this tutorial is maintained [on GitHub](https://github.com/AzureADQ
 
 The completed application is provided at the end of this tutorial as well.
 
-> [AZURE.WARNING] 	For our B2C Preview you must use the same client ID/Application ID and policies for both the Web-API task server and the client that connects to it. This is true for our iOS and Android tutorials. If you have previously created an application in either of those quickstarts, please use those values instead of creating new ones below.
+> [AZURE.WARNING]   For our B2C Preview you must use the same client ID/Application ID and policies for both the Web-API task server and the client that connects to it. This is true for our iOS and Android tutorials. If you have previously created an application in either of those quickstarts, please use those values instead of creating new ones below.
 
 ## 1. Get an Azure AD B2C directory
 
@@ -105,9 +105,9 @@ This will install the libraries that passport-azure-ad depend on.
 ## 5. Set up your app to use the passport-node-js strategy
 Here, we'll configure the Express middleware to use the OpenID Connect authentication protocol.  Passport will be used to issue sign-in and sign-out requests, manage the user's session, and get information about the user, amongst other things.
 
--	To begin, open the `config.js` file in the root of the project, and enter your app's configuration values in the `exports.creds` section.
-    -	The `clientID:` is the **Application Id** assigned to your app in the registration portal.
-    -	The `returnURL` is the **Redirect URI** you entered in the portal.
+-   To begin, open the `config.js` file in the root of the project, and enter your app's configuration values in the `exports.creds` section.
+    -   The `clientID:` is the **Application Id** assigned to your app in the registration portal.
+    -   The `returnURL` is the **Redirect URI** you entered in the portal.
     - The `tenantName:` is the **tenant name** of your app, e.g. contoso.onmicrosoft.com
 
 [AZURE.INCLUDE [active-directory-b2c-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
@@ -308,8 +308,8 @@ app.get('/logout', function(req, res){
 
 ```
 
--	Let's review these in detail:
-    -	The `/` route will redirect to the index.ejs view passing the user in the request (if it exists)
+-   Let's review these in detail:
+    -   The `/` route will redirect to the index.ejs view passing the user in the request (if it exists)
     - The `/account` route will first ***ensure we are authenticated*** (we implement that below) and then pass the user in the request so that we can get additional information about the user.
     - The `/login` route will call our azuread-openidconnect authenticator from `passport-azuread` and if that doesn't succeed will redirect the user back to /login
     - The `/logout` will simply call the logout.ejs (and route) which clears cookies and then return the user back to index.ejs
@@ -377,14 +377,14 @@ These simple routes will just pass along the request to our views, including the
 
 ```JavaScript
 <% if (!user) { %>
-	<h2>Welcome! Please log in.</h2>
-	<a href="/login/?p=your facebook policy">Sign In with Facebook</a>
-	<a href="/login/?p=your email sign-in policy">Sign In With Email</a>
-	<a href="/login/?p=your email sign-up policy">Sign Up With Email</a>
+    <h2>Welcome! Please log in.</h2>
+    <a href="/login/?p=your facebook policy">Sign In with Facebook</a>
+    <a href="/login/?p=your email sign-in policy">Sign In With Email</a>
+    <a href="/login/?p=your email sign-up policy">Sign Up With Email</a>
 <% } else { %>
-	<h2>Hello, <%= user.displayName %>.</h2>
-	<a href="/account">Account Info</a></br>
-	<a href="/logout">Log Out</a>
+    <h2>Hello, <%= user.displayName %>.</h2>
+    <a href="/account">Account Info</a></br>
+    <a href="/logout">Log Out</a>
 <% } %>
 ```
 
@@ -392,8 +392,8 @@ These simple routes will just pass along the request to our views, including the
 
 ```Javascript
 <% if (!user) { %>
-	<h2>Welcome! Please log in.</h2>
-	<a href="/login">Log In</a>
+    <h2>Welcome! Please log in.</h2>
+    <a href="/login">Log In</a>
 <% } else { %>
 <p>displayName: <%= user.displayName %></p>
 <p>givenName: <%= user.name.givenName %></p>
@@ -436,4 +436,5 @@ You can now move onto more advanced B2C topics.  You may want to try:
 [Customizing the your B2C App's UX >>]()
 
 -->
+
 

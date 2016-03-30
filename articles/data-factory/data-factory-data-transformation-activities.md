@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Data Transformation Activities | Microsoft Azure" 
-	description="Learn how you can use the Azure Data Factory service to transform and analyze data." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
-	editor="monicar"/>
+    pageTitle="Data Transformation Activities | Microsoft Azure" 
+    description="Learn how you can use the Azure Data Factory service to transform and analyze data." 
+    services="data-factory" 
+    documentationCenter="" 
+    authors="spelluru" 
+    manager="jhubbard" 
+    editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/04/2015" 
-	ms.author="spelluru"/>
+    ms.service="data-factory" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/04/2015" 
+    ms.author="spelluru"/>
 
 # Transform and analyze using Azure Data Factory
 
@@ -40,4 +40,5 @@ You need to create a linked service for the compute environment and then use the
 2. **Bring Your Own**: In this case, you can register your own computing environment (for example HDInsight cluster) as a linked service in Data Factory. The computing environment is managed by you and the Data Factory service uses it to execute the activities. 
 
 See [Compute Linked Services](data-factory-compute-linked-services.md) article to learn about compute linked services supported by Data Factory. 
+
 

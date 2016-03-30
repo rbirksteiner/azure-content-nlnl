@@ -80,3 +80,4 @@ To explore the C++ samples, download the [C++ Storage Client Library](https://ww
 
 - [Source code for the C++ storage client library](https://github.com/Azure/azure-storage-cpp)
 - [C++ Client Library Reference](http://azure.github.io/azure-storage-cpp/)
+

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Embedding a MPEG-DASH Adaptive Streaming Video in an HTML5 Application with DASH.js" 
-	description="This topic demonstrates how to embed an MPEG-DASH Adaptive Streaming Video in an HTML5 Application with DASH.js." 
-	authors="Juliako" 
-	manager="dwrede" 
-	editor="" 
-	services="media-services" 
-	documentationCenter=""/>
+    pageTitle="Embedding a MPEG-DASH Adaptive Streaming Video in an HTML5 Application with DASH.js" 
+    description="This topic demonstrates how to embed an MPEG-DASH Adaptive Streaming Video in an HTML5 Application with DASH.js." 
+    authors="Juliako" 
+    manager="dwrede" 
+    editor="" 
+    services="media-services" 
+    documentationCenter=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/16/2015" 
-	ms.author="juliako"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/16/2015" 
+    ms.author="juliako"/>
 
 
 #Embedding a MPEG-DASH Adaptive Streaming Video in an HTML5 Application with DASH.js
@@ -42,15 +42,15 @@ Initializing the player can be completed in just a handful of lines of JavaScrip
 ##Creating the HTML Page
 
 The first step is to create a standard HTML page containing the <video> element, save this file as basicPlayer.html, as the following example illustrates:
-	
-	<!DOCTYPE html>
-	<html>
-	  <head><title>Adaptive Streaming in HTML5</title></head>
-	  <body>
-	    <h1>Adaptive Streaming with HTML5</h1>
-	    <video id="videoplayer" controls></video>
-	  </body>
-	</html>
+    
+    <!DOCTYPE html>
+    <html>
+      <head><title>Adaptive Streaming in HTML5</title></head>
+      <body>
+        <h1>Adaptive Streaming with HTML5</h1>
+        <video id="videoplayer" controls></video>
+      </body>
+    </html>
 
 ##Adding the DASH.js Player
 
@@ -58,23 +58,23 @@ To add the dash.js reference implementation to the application, you’ll need to
 
 To add the dash.js player to your applications, add a script tag to the head section of basicPlayer.html:
 
-	<!-- DASH-AVC/265 reference implementation -->
-	< script src="js/dash.all.js"></script>
+    <!-- DASH-AVC/265 reference implementation -->
+    < script src="js/dash.all.js"></script>
 
 
 Next, create a function to initialize the player when the page loads. Add the following script after the line in which you load dash.all.js:
 
-	<script>
-	// setup the video element and attach it to the Dash player
-	function setupVideo() {
-	  var url = "http://wams.edgesuite.net/media/MPTExpressionData02/BigBuckBunny_1080p24_IYUV_2ch.ism/manifest(format=mpd-time-csf)";
-	  var context = new Dash.di.DashContext();
-	  var player = new MediaPlayer(context);
-	                  player.startup();
-	                  player.attachView(document.querySelector("#videoplayer"));
-	                  player.attachSource(url);
-	}
-	</script>
+    <script>
+    // setup the video element and attach it to the Dash player
+    function setupVideo() {
+      var url = "http://wams.edgesuite.net/media/MPTExpressionData02/BigBuckBunny_1080p24_IYUV_2ch.ism/manifest(format=mpd-time-csf)";
+      var context = new Dash.di.DashContext();
+      var player = new MediaPlayer(context);
+                      player.startup();
+                      player.attachView(document.querySelector("#videoplayer"));
+                      player.attachSource(url);
+    }
+    </script>
 
 This function first creates a DashContext. This is used to configure the application for a specific runtime environment. From a technical point of view, it defines the classes that the dependency injection framework should use when constructing the application. In most cases, you will use Dash.di.DashContext.
 
@@ -84,16 +84,16 @@ The startup() function of the MediaPlayer class is called to ensure that the pla
 
 Pass the URL of the MPD file to the MediaPlayer so that it knows about the video it is expected to play.The setupVideo() function just created will need to be executed once the page has fully loaded. Do this by using the onload event of the body element. Change your <body> element to:
 
-	<body onload="setupVideo()">
+    <body onload="setupVideo()">
 
 Finally, set the size of the video element using CSS. In an adaptive streaming environment, this is especially important because the size of the video being played may change as playback adapts to changing network conditions. In this simple demo simply force the video element to be 80% of the available browser window by adding the following CSS to the head section of the page:
-	
-	<style>
-	video {
-	  width: 80%;
-	  height: 80%;
-	}
-	</style>
+    
+    <style>
+    video {
+      width: 80%;
+      height: 80%;
+    }
+    </style>
 
 ##Playing a Video
 
@@ -113,3 +113,4 @@ To play a video, point your browser at the basicPlayback.html file and click pla
 [Develop video player applications](media-services-develop-video-players.md)
 
 [GitHub dash.js repository](https://github.com/Dash-Industry-Forum/dash.js) 
+

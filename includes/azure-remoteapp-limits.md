@@ -2,13 +2,13 @@
 |Resource | Default limit|
 |--------------|--------|
 |Collections per user| 1|
-|Published apps per collection|	100|	
+|Published apps per collection| 100|    
 |Trial collection duration| 30 days|
 |Trial collections| 2 per subscription|
 |Users per trial collection| 10|
-|Trial template images|	25|
+|Trial template images| 25|
 |Paid collections| 3 (you can request an increase)|
-|Paid template images| 25|	
+|Paid template images| 25|  
 |Users - basic tier*| 400 (default)/ 800 (maximum)|
 |Users - standard tier*| 250 (default)/ 500 (maximum)|
 |Concurrent connections across all collections in a subscription| 5000 (you can request an increase)|

@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Deploy SharePoint farms with ARM templates | Microsoft Azure"
-	description="Easily deploy 3-server or 9-server SharePoint farm with Resource Manager templates and the Azure portal, Azure PowerShell, or the Azure CLI."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="JoeDavies-MSFT"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    pageTitle="Deploy SharePoint farms with ARM templates | Microsoft Azure"
+    description="Easily deploy 3-server or 9-server SharePoint farm with Resource Manager templates and the Azure portal, Azure PowerShell, or the Azure CLI."
+    services="virtual-machines"
+    documentationCenter=""
+    authors="JoeDavies-MSFT"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows-sharepoint"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="10/20/2015"
-	ms.author="josephd"/>
+    ms.service="virtual-machines"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-windows-sharepoint"
+    ms.devlang="na"
+    ms.topic="hero-article"
+    ms.date="10/20/2015"
+    ms.author="josephd"/>
 
 # Deploy SharePoint farms with Azure Resource Manager templates
 
@@ -39,12 +39,12 @@ To deploy this workload using a Resource Manager template and the Azure portal, 
 
 ![](./media/virtual-machines-workload-template-sharepoint/azure-portal-template.png)
 
-1.	Click **Parameters**. On the **Parameters** pane, enter new values, select from allowed values, or accept default values, and then click **OK**.
-2.	If needed, click **Subscription** and select the correct Azure subscription.
-3.	Click **Resource group** and select an existing resource group. Alternately, click **Or create new** to create a new one for this workload.
-4.	If needed, click **Resource group location** and select the correct Azure location.
-6.	Click **Legal terms** to review the terms and agreement for using the template, and then click **Buy**.
-7.	Click **Create**.
+1.  Click **Parameters**. On the **Parameters** pane, enter new values, select from allowed values, or accept default values, and then click **OK**.
+2.  If needed, click **Subscription** and select the correct Azure subscription.
+3.  Click **Resource group** and select an existing resource group. Alternately, click **Or create new** to create a new one for this workload.
+4.  If needed, click **Resource group location** and select the correct Azure location.
+6.  Click **Legal terms** to review the terms and agreement for using the template, and then click **Buy**.
+7.  Click **Create**.
 
 Depending on the template, it can take some time for Azure to build the workload. When complete, you have a new three-server SharePoint farm in your existing or new resource group.
 
@@ -54,21 +54,21 @@ Depending on the template, it can take some time for Azure to build the workload
 
 Fill in an Azure deployment name, a new Resource Group name, and an Azure datacenter location in the following set of commands. Remove everything within the quotes, including the < and > characters.
 
-	$deployName="<deployment name>"
-	$RGName="<resource group name>"
-	$locName="<Azure location, such as West US>"
-	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json"
-	New-AzureRMResourceGroup -Name $RGName -Location $locName
-	New-AzureRMResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
+    $deployName="<deployment name>"
+    $RGName="<resource group name>"
+    $locName="<Azure location, such as West US>"
+    $templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json"
+    New-AzureRMResourceGroup -Name $RGName -Location $locName
+    New-AzureRMResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
 Here is an example.
 
-	$deployName="TestDeployment"
-	$RGName="TestRG"
-	$locname="West US"
-	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json"
-	New-AzureRMResourceGroup -Name $RGName -Location $locName
-	New-AzureRMResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
+    $deployName="TestDeployment"
+    $RGName="TestRG"
+    $locname="West US"
+    $templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json"
+    New-AzureRMResourceGroup -Name $RGName -Location $locName
+    New-AzureRMResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
 Next, run your command block in the Azure PowerShell prompt.
 
@@ -82,16 +82,16 @@ Before you begin, make sure you have the right version of Azure CLI installed, y
 
 First, you create a new resource group. Use the following command and specify the name of the group and the Azure data center location into which you want to deploy.
 
-	azure group create <group name> <location>
+    azure group create <group name> <location>
 
 Next, use the following command and specify the name of your new resource group and the name of an Azure deployment.
 
-	azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json <group name> <deployment name>
+    azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json <group name> <deployment name>
 
 Here is an example.
 
-	azure group create sp3serverfarm eastus2
-	azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json sp3serverfarm spdevtest
+    azure group create sp3serverfarm eastus2
+    azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json sp3serverfarm spdevtest
 
 When you run the **azure group deployment create** command, you will be prompted to supply the values for a series of parameters. When you have specified all the parameter values, Azure creates and configures the virtual machines.
 
@@ -111,12 +111,12 @@ To deploy this workload using a Resource Manager template and the Azure portal, 
 
 ![](./media/virtual-machines-workload-template-sharepoint/azure-portal-template.png)
 
-1.	Click **Parameters**. On the **Parameters** pane, enter new values, select from allowed values, or accept default values, and then click **OK**.
-2.	If needed, click **Subscription** and select the correct Azure subscription.
-3.	Click **Resource group** and select an existing resource group. Alternately, click **Or create new** to create a new one for this workload.
-4.	If needed, click **Resource group location** and select the correct Azure location.
-5.	Click **Legal terms** to review the terms and agreement for using the template, and then click **Buy**.
-6.	Click **Create**.
+1.  Click **Parameters**. On the **Parameters** pane, enter new values, select from allowed values, or accept default values, and then click **OK**.
+2.  If needed, click **Subscription** and select the correct Azure subscription.
+3.  Click **Resource group** and select an existing resource group. Alternately, click **Or create new** to create a new one for this workload.
+4.  If needed, click **Resource group location** and select the correct Azure location.
+5.  Click **Legal terms** to review the terms and agreement for using the template, and then click **Buy**.
+6.  Click **Create**.
 
 Depending on the template, it can take some time for Azure to build the workload. When complete, you have a new nine-server SharePoint farm in your existing or new resource group.
 
@@ -126,21 +126,21 @@ Depending on the template, it can take some time for Azure to build the workload
 
 Fill in an Azure deployment name, a new Resource Group name, and an Azure datacenter location in the following set of commands. Remove everything within the quotes, including the < and > characters.
 
-	$deployName="<deployment name>"
-	$RGName="<resource group name>"
-	$locName="<Azure location, such as West US>"
-	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-server-farm-ha/azuredeploy.json"
-	New-AzureRMResourceGroup -Name $RGName -Location $locName
-	New-AzureRMResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
+    $deployName="<deployment name>"
+    $RGName="<resource group name>"
+    $locName="<Azure location, such as West US>"
+    $templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-server-farm-ha/azuredeploy.json"
+    New-AzureRMResourceGroup -Name $RGName -Location $locName
+    New-AzureRMResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
 Here is an example.
 
-	$deployName="TestDeployment"
-	$RGName="TestRG"
-	$locname="West US"
-	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-server-farm-ha/azuredeploy.json"
-	New-AzureRMResourceGroup -Name $RGName -Location $locName
-	New-AzureRMResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
+    $deployName="TestDeployment"
+    $RGName="TestRG"
+    $locname="West US"
+    $templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-server-farm-ha/azuredeploy.json"
+    New-AzureRMResourceGroup -Name $RGName -Location $locName
+    New-AzureRMResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
 Next, run your command block in the Azure PowerShell command prompt.
 
@@ -154,16 +154,16 @@ Before you begin, make sure you have the right version of Azure CLI installed, y
 
 First, create a new resource group. Use the following command and specify the name of the group and the Azure data center location into which you want to deploy.
 
-	azure group create <group name> <location>
+    azure group create <group name> <location>
 
 Next, use the following command and specify the name of your new resource group and the name of an Azure deployment.
 
-	azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-server-farm-ha/azuredeploy.json <group name> <deployment name>
+    azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-server-farm-ha/azuredeploy.json <group name> <deployment name>
 
 Here is an example.
 
-	azure group create sphaserverfarm eastus2
-	azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-server-farm-ha/azuredeploy.json sphaserverfarm spdevtest
+    azure group create sphaserverfarm eastus2
+    azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-server-farm-ha/azuredeploy.json sphaserverfarm spdevtest
 
 When you run the **azure group deployment create** command, you will be prompted to supply the values for a series of parameters. When you have specified all the parameter values, Azure creates and configures the virtual machines.
 
@@ -185,5 +185,6 @@ When the template execution is complete, you now have a new nine-server SharePoi
 [Virtual machines documentation](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
 [How to install and configure Azure PowerShell](../install-configure-powershell.md)
+
 
 

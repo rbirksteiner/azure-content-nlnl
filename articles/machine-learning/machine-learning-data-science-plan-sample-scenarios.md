@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Scenarios for the Advanced Analytics Process and Technology in Azure Machine Learning | Microsoft Azure"
-	description="Select the appropriate scenarios for the advanced predictive analytics process in Azure Machine Learning."
-	services="machine-learning"
-	documentationCenter=""
-	authors="msolhab"
-	manager="paulettm"
-	editor="" />
+    pageTitle="Scenarios for the Advanced Analytics Process and Technology in Azure Machine Learning | Microsoft Azure"
+    description="Select the appropriate scenarios for the advanced predictive analytics process in Azure Machine Learning."
+    services="machine-learning"
+    documentationCenter=""
+    authors="msolhab"
+    manager="paulettm"
+    editor="" />
 
 <tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/18/2015"
-	ms.author="msolhab;bradsev" />
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/18/2015"
+    ms.author="msolhab;bradsev" />
 
 
 # Scenarios for advanced analytics in Azure Machine Learning
@@ -116,7 +116,7 @@ Each of the following sections presents a sample scenario. For each scenario, a 
 
     a.  Option \#1: Using SQL Server Management Studio.
 
-		i.  Login to SQL Server VM
+        i.  Login to SQL Server VM
         ii. Run SQL Server Management Studio.
         iii. Create database and target tables.
         iv. Use one of the bulk import methods to load the data from VM-local files.
@@ -168,7 +168,7 @@ Each of the following sections presents a sample scenario. For each scenario, a 
 
     d.  Create database and target tables.
 
-	e.  Use one of the bulk import methods to load the data.
+    e.  Use one of the bulk import methods to load the data.
 
     f.  If table joins are required, create indexes to expedite joins.
 
@@ -212,9 +212,9 @@ Each of the following sections presents a sample scenario. For each scenario, a 
 
     d.  Create database and target tables.
 
-	e.  Use one of the bulk import methods to load the data.
+    e.  Use one of the bulk import methods to load the data.
 
-	f.  If table joins are required, create indexes to expedite joins.
+    f.  If table joins are required, create indexes to expedite joins.
 
 > [AZURE.NOTE] For faster loading of large data sizes, create partitioned tables and to bulk import the data in parallel. For more information, see [Parallel Data Import to SQL Partitioned Tables](machine-learning/machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
 
@@ -273,17 +273,17 @@ To replicate the entire SQL Server database in your SQL Server VM, you should co
 
     d.  Run the Hive queries to create database and tables, and load data from blob storage to Hive tables.
 
- 	> [AZURE.NOTE] If the data is big, users can create the Hive table with partitions. Then, users can use a `for` loop in the Hadoop Command Line on the head node to load data into the Hive table partitioned by partition.
+    > [AZURE.NOTE] If the data is big, users can create the Hive table with partitions. Then, users can use a `for` loop in the Hadoop Command Line on the head node to load data into the Hive table partitioned by partition.
 
 6.  Explore data and create features as needed in Hadoop Command Line. Note that the features do not need to be materialized in the database tables. Only note the necessary query to create them.
 
-	a.  Log in to the head node of the Hadoop cluster
+    a.  Log in to the head node of the Hadoop cluster
 
     b.  Open the Hadoop Command Line.
 
     c.  Enter the Hive root directory by command `cd %hive_home%\bin` in Hadoop Command Line.
 
-	d.  Run the Hive queries in Hadoop Command Line on the head node of the Hadoop cluster to explore the data and create features as needed.
+    d.  Run the Hive queries in Hadoop Command Line on the head node of the Hadoop cluster to explore the data and create features as needed.
 
 7.  If needed and/or desired, sample the data to fit in Azure Machine Learning Studio.
 
@@ -322,3 +322,4 @@ For end-to-end Azure Machine Learning walkthroughs that employ the Advanced Anal
 
 <!-- Module References -->
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How to Scale an App in an App Service Environment" 
-	description="Scaling an app in an App Service Environment" 
-	services="app-service" 
-	documentationCenter="" 
-	authors="ccompy" 
-	manager="stefsch" 
-	editor="jimbe"/>
+    pageTitle="How to Scale an App in an App Service Environment" 
+    description="Scaling an app in an App Service Environment" 
+    services="app-service" 
+    documentationCenter="" 
+    authors="ccompy" 
+    manager="stefsch" 
+    editor="jimbe"/>
 
 <tags 
-	ms.service="app-service" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/26/2015" 
-	ms.author="ccompy"/>
+    ms.service="app-service" 
+    ms.workload="na" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/26/2015" 
+    ms.author="ccompy"/>
 
 # Scaling apps in an App Service Environment #
 
@@ -82,3 +82,4 @@ For more information about the Azure App Service platform, see [Azure App Servic
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 [AppScale]: http://azure.microsoft.com/documentation/articles/web-sites-scale/
+

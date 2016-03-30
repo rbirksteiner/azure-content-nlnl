@@ -50,9 +50,9 @@ Use the Azure Classic Portal to terminate the continuous copy relationship with 
 
 ###PowerShell
 Use PowerShell to initiate failover to Geo-Replicated secondary database by using the [Set-AzureRMSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt619393.aspx) cmdlet.
-		
-		$database = Get-AzureRMSqlDatabase –DatabaseName "mydb” –ResourceGroupName "rg2” –ServerName "srv2”
-		$database | Set-AzureRMSqlDatabaseSecondary –Failover -AllowDataLoss
+        
+        $database = Get-AzureRMSqlDatabase –DatabaseName "mydb” –ResourceGroupName "rg2” –ServerName "srv2”
+        $database | Set-AzureRMSqlDatabaseSecondary –Failover -AllowDataLoss
 
 ###REST API 
 Use REST to programmatically initiate failover to a secondary database.
@@ -78,21 +78,21 @@ To restore a SQL Database using Geo-Restore in the Azure Classic Portal, use the
 ###PowerShell 
 To restore a SQL Database using Geo-Restore with PowerShell, start a Geo-Restore request with the [start-AzureSqlDatabaseRecovery](https://msdn.microsoft.com/library/azure/dn720224.aspx) cmdlet.
 
-		$Database = Get-AzureSqlRecoverableDatabase -ServerName "ServerName" –DatabaseName “DatabaseToBeRecovered"
-		$RecoveryRequest = Start-AzureSqlDatabaseRecovery -SourceDatabase $Database –TargetDatabaseName “NewDatabaseName” –TargetServerName “TargetServerName”
-		Get-AzureSqlDatabaseOperation –ServerName "TargetServerName" –OperationGuid $RecoveryRequest.RequestID
+        $Database = Get-AzureSqlRecoverableDatabase -ServerName "ServerName" –DatabaseName “DatabaseToBeRecovered"
+        $RecoveryRequest = Start-AzureSqlDatabaseRecovery -SourceDatabase $Database –TargetDatabaseName “NewDatabaseName” –TargetServerName “TargetServerName”
+        Get-AzureSqlDatabaseOperation –ServerName "TargetServerName" –OperationGuid $RecoveryRequest.RequestID
 
 ###REST API 
 
 Use REST to programmatically perform database recovery.
 
-1.	Get your list of recoverable databases using the [List Recoverable Databases](http://msdn.microsoft.com/library/azure/dn800984.aspx) operation.
-	
-2.	Get the database you want to recover using the [Get Recoverable Database](http://msdn.microsoft.com/library/azure/dn800985.aspx) operation.
-	
-3.	Create the recovery request using the [Create Database Recovery Request](http://msdn.microsoft.com/library/azure/dn800986.aspx) operation.
-	
-4.	Track the status of the recovery using the [Database Operation Status](http://msdn.microsoft.com/library/azure/dn720371.aspx) operation.
+1.  Get your list of recoverable databases using the [List Recoverable Databases](http://msdn.microsoft.com/library/azure/dn800984.aspx) operation.
+    
+2.  Get the database you want to recover using the [Get Recoverable Database](http://msdn.microsoft.com/library/azure/dn800985.aspx) operation.
+    
+3.  Create the recovery request using the [Create Database Recovery Request](http://msdn.microsoft.com/library/azure/dn800986.aspx) operation.
+    
+4.  Track the status of the recovery using the [Database Operation Status](http://msdn.microsoft.com/library/azure/dn720371.aspx) operation.
  
 ## Configure your database after recovery<a name="postrecovery"></a>
 
@@ -130,3 +130,4 @@ For more information about database alert rules, see [Receive Alert Notification
 ### Enable Auditing
 
 If auditing is required to access your database, you need to enable Auditing after the database recovery. A good indicator of auditing is required is that client applications use secure connection strings in a pattern of *.database.secure.windows.net. For more information, see [Get started with SQL database auditing](sql-database-auditing-get-started.md). 
+

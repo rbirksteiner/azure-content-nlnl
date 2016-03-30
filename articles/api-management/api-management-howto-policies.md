@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Policies in Azure API Management" 
-	description="Learn how to create, edit, and configure policies in API Management." 
-	services="api-management" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="Policies in Azure API Management" 
+    description="Learn how to create, edit, and configure policies in API Management." 
+    services="api-management" 
+    documentationCenter="" 
+    authors="steved0x" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="api-management" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
-	ms.author="sdanie"/>
+    ms.service="api-management" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/02/2015" 
+    ms.author="sdanie"/>
 
 
 #Policies in Azure API Management
@@ -60,16 +60,16 @@ For example, to add a new statement to restrict incoming requests to specified I
 
 This will add an XML snippet to the `inbound` element that provides guidance on how to configure the statement.
 
-	<ip-filter action="allow | forbid">
-		<address>address</address>
-		<address-range from="address" to="address"/>
-	</ip-filter>
+    <ip-filter action="allow | forbid">
+        <address>address</address>
+        <address-range from="address" to="address"/>
+    </ip-filter>
 
 To limit inbound requests and accept only those from an IP address of 1.2.3.4 modify the XML as follows:
 
-	<ip-filter action="allow">
-		<address>1.2.3.4</address>
-	</ip-filter>
+    <ip-filter action="allow">
+        <address>1.2.3.4</address>
+    </ip-filter>
 
 ![Save][policies-save]
 
@@ -79,21 +79,21 @@ When complete configuring the statements for the policy, click **Save** and the 
 
 A policy is a series of statements that execute in order for a request and a response. The configuration is divided appropriately into `inbound`, `backend`, `outbound`, and `on-error` sections as shown in the following configuration.
 
-	<policies>
-	  <inbound>
-	    <!-- statements to be applied to the request go here -->
-	  </inbound>
-	  <backend>
-	    <!-- statements to be applied before the request is forwarded to 
-	         the backend service go here -->
-	  </backend>
-	  <outbound>
-	    <!-- statements to be applied to the response go here -->
-	  </outbound>
-	  <on-error>
-	    <!-- statements to be applied if there is an error condition go here -->
-	  </on-error>
-	</policies> 
+    <policies>
+      <inbound>
+        <!-- statements to be applied to the request go here -->
+      </inbound>
+      <backend>
+        <!-- statements to be applied before the request is forwarded to 
+             the backend service go here -->
+      </backend>
+      <outbound>
+        <!-- statements to be applied to the response go here -->
+      </outbound>
+      <on-error>
+        <!-- statements to be applied if there is an error condition go here -->
+      </on-error>
+    </policies> 
 
 If there is an error during the processing of a request, any remaining steps in the `inbound`, `backend`, or `outbound` sections are skipped and execution jumps to the statements in the `on-error` section. By placing policy statements in the `on-error` section you can review the error by using the `context.LastError` property, inspect and customize the error response using the `set-body` policy, and configure what happens if an error occurs. There are error codes for built-in steps and for errors that may occur during the processing of policy statements. For more information, see [Error handling in API Management policies](https://msdn.microsoft.com/library/azure/mt629506.aspx).
 
@@ -110,13 +110,13 @@ The statements within them are evaluated according to the placement of the `base
 
 For example, if you have a policy at the global level and a policy configured for an API, then whenever that particular API is used both policies will be applied. API Management allows for deterministic ordering of combined policy statements via the base element. 
 
-	<policies>
-    	<inbound>
-        	<cross-domain />
-        	<base />
-        	<find-and-replace from="xyz" to="abc" />
-    	</inbound>
-	</policies>
+    <policies>
+        <inbound>
+            <cross-domain />
+            <base />
+            <find-and-replace from="xyz" to="abc" />
+        </inbound>
+    </policies>
 
 In the example policy definition above, the `cross-domain` statement would execute before any higher policies which would in turn, be followed by the `find-and-replace` policy.
 
@@ -147,3 +147,4 @@ Check out following video on policy expressions.
 [policies-edit]: ./media/api-management-howto-policies/api-management-policies-edit.png
 [policies-restrict]: ./media/api-management-howto-policies/api-management-policies-restrict.png
 [policies-save]: ./media/api-management-howto-policies/api-management-policies-save.png
+

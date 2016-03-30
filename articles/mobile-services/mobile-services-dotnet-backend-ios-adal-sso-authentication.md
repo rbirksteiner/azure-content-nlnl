@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Authenticate your app with Active Directory Authentication Library Single Sign-On (iOS) | Microsoft Azure"
-	description="Learn how to authentication users for single sign-on with ADAL in your iOS application."
-	documentationCenter="ios"
-	authors="mattchenderson"
-	manager="dwrede"
-	editor=""
-	services="mobile-services"/>
+    pageTitle="Authenticate your app with Active Directory Authentication Library Single Sign-On (iOS) | Microsoft Azure"
+    description="Learn how to authentication users for single sign-on with ADAL in your iOS application."
+    documentationCenter="ios"
+    authors="mattchenderson"
+    manager="dwrede"
+    editor=""
+    services="mobile-services"/>
 
 <tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-ios"
-	ms.devlang="objective-c"
-	ms.topic="article"
-	ms.date="12/15/2015"
-	ms.author="mahender"/>
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-ios"
+    ms.devlang="objective-c"
+    ms.topic="article"
+    ms.date="12/15/2015"
+    ms.author="mahender"/>
 
 # Authenticate your app with Active Directory Authentication Library Single Sign-On
 
@@ -125,3 +125,4 @@ This tutorial requires the following:
 [How to Register with the Azure Active Directory]: mobile-services-how-to-register-active-directory-authentication.md
 [Azure classic portal]: https://manage.windowsazure.com/
 [Active Directory Authentication Library for iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
+

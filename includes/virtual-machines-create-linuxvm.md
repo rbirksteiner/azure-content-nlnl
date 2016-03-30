@@ -40,3 +40,4 @@
 7. The newly created virtual machine is ready to start with the `azure vm start` command.
 
 For details on all these Azure CLI virtual machine commands, please read the [Using the Azure CLI with the Service Management API](../articles/virtual-machines/virtual-machines-command-line-tools.md).
+

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How to manage media content with Azure Media Services using the Azure Classic Portal" 
-	description="Learn how to manage your media content in Azure Media Services. This includes: uploading, indexing, encoding, encrypting, and publishing." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="How to manage media content with Azure Media Services using the Azure Classic Portal" 
+    description="Learn how to manage your media content in Azure Media Services. This includes: uploading, indexing, encoding, encrypting, and publishing." 
+    services="media-services" 
+    documentationCenter="" 
+    authors="Juliako" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/09/2015"
-	ms.author="juliako"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/09/2015"
+    ms.author="juliako"/>
 
 
 # Manage Content with Azure Media Services using the Azure Classic Portal
@@ -44,18 +44,18 @@ This topic shows how to perform the following content operations directly from t
 3. Click the **Upload** button on the page or at the bottom of the portal. 
 4. In the **Upload content** dialog, browse to the desired asset file. Click the file and then click **Open** or press **Enter**.
 
-	![UploadContentDialog][uploadcontent]
+    ![UploadContentDialog][uploadcontent]
 
 5. In the Upload Content dialog, click the check button to accept the File and Content Name.
 6. The upload will start and you can track progress from the bottom of the portal.  
 
-	![JobStatus][status]
+    ![JobStatus][status]
 
 Once the upload has completed, you will see the new asset listed in the Content list. By convention the name will have "**-Source**" appended at the end to help track new content as source content for encoding tasks.
 
 ![ContentPage][contentpage]
 
-If the file size value does not get updated after the uploading process stops, press the **Sync Metadata** button. This synchronizes the asset file size with the actual file size in storage and refreshes the value on the Content page.	
+If the file size value does not get updated after the uploading process stops, press the **Sync Metadata** button. This synchronizes the asset file size with the actual file size in storage and refreshes the value on the Content page.  
 
 ##<a id="index"></a>How to: Index content
 
@@ -139,11 +139,11 @@ If you want for Media Services to dynamically encrypt your asset with an AES key
 - Configure "default aes clear key service policy" or "default playready license service policy". For more information, see [Configure Content Key Authorization Policy](media-services-portal-configure-content-key-auth-policy.md).  
 
 
-	When you are ready to enable encryption, press the **ENCRYPTION** button on the bottom of the **CONTENT** page.
+    When you are ready to enable encryption, press the **ENCRYPTION** button on the bottom of the **CONTENT** page.
 
-	![Encrypt][encrypt] 
+    ![Encrypt][encrypt] 
 
-	Once you enabled encryption, whenever a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content using AES or PlayReady encryption. To decrypt the stream, the player will request the key from the key delivery service. To decide whether or not the user is authorized to get the key, the service evaluates the authorization policies that you specified for the key.
+    Once you enabled encryption, whenever a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content using AES or PlayReady encryption. To decrypt the stream, the player will request the key from the key delivery service. To decide whether or not the user is authorized to get the key, the service evaluates the authorization policies that you specified for the key.
 
 Also, see:
 
@@ -165,19 +165,19 @@ When you use the Azure Classic Portal to publish your assets, the locators are c
 
 A SAS URL has the following format:
 
-	{blob container name}/{asset name}/{file name}/{SAS signature}
+    {blob container name}/{asset name}/{file name}/{SAS signature}
 
 A streaming URL has the following format and you can use it to play Smooth Streaming assets:
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
+    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
 
 To build an HLS streaming URL, append (format=m3u8-aapl) to the URL.
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
+    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
 
 To build an MPEG DASH streaming URL, append (format=mpd-time-csf) to the URL.
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
+    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
 
 
 Locators have expiration date. When using Portal to publish your assets, locators with a 100 years expiration date are created. 
@@ -192,7 +192,7 @@ To use Portal to publish an asset, do the following:
 
 1. Select the asset. 
 2. Then, click the publish button. 
-	
+    
  ![PublishedContent][publishedcontent]
 
 
@@ -232,3 +232,4 @@ Some considerations apply:
 [process2]: ./media/media-services-manage-content/media-services-process-video2.png
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-manage-content/media-services-portal-player.png 
+

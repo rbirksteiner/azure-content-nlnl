@@ -49,19 +49,19 @@ Use PowerShell to programmatically perform a Point In Time Restore with the [Sta
 
 > [AZURE.IMPORTANT] This article contains commands for versions of Azure PowerShell up to *but not including* versions 1.0 and later. You can check your version of Azure PowerShell with the **Get-Module azure | format-table version** command.
 
-		$Database = Get-AzureSqlDatabase -ServerName "YourServerName" –DatabaseName “YourDatabaseName”
-		$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceDatabase $Database –TargetDatabaseName “NewDatabaseName” –PointInTime “2015-01-01 06:00:00”
-		Get-AzureSqlDatabaseOperation –ServerName "YourServerName" –OperationGuid $RestoreRequest.RequestID
-		 
+        $Database = Get-AzureSqlDatabase -ServerName "YourServerName" –DatabaseName “YourDatabaseName”
+        $RestoreRequest = Start-AzureSqlDatabaseRestore -SourceDatabase $Database –TargetDatabaseName “NewDatabaseName” –PointInTime “2015-01-01 06:00:00”
+        Get-AzureSqlDatabaseOperation –ServerName "YourServerName" –OperationGuid $RestoreRequest.RequestID
+         
 
 ###REST API 
 Use REST to programmatically perform database restore.
 
 1. Get the database you want to restore using the [Get Database](http://msdn.microsoft.com/library/azure/dn505708.aspx) operation.
 
-2.	Create the restore request using the [Create Database Restore Request](http://msdn.microsoft.com/library/azure/dn509571.aspx) operation.
-	
-3.	Track the restore request using the [Database Operation Status](http://msdn.microsoft.com/library/azure/dn720371.aspx) operation.
+2.  Create the restore request using the [Create Database Restore Request](http://msdn.microsoft.com/library/azure/dn509571.aspx) operation.
+    
+3.  Track the restore request using the [Database Operation Status](http://msdn.microsoft.com/library/azure/dn720371.aspx) operation.
 
 ##Restore a deleted database
 In the event a database is deleted, Azure SQL Database allows you to restore the deleted database to the point in time of deletion. Azure SQL Database stores the deleted database backup for the retention period of the database.
@@ -85,23 +85,24 @@ To restore a deleted database using the Azure Portal, use the following steps.
 To restore a deleted database using PowerShell, use the [Start-AzureSqlDatabaseRestore](https://msdn.microsoft.com/library/dn720218.aspx?f=255&MSPPError=-2147217396) cmdlet.  For a detailed walk through, please [watch a video of this procedure](http://azure.microsoft.com/documentation/videos/restore-a-deleted-sql-database-with-microsoft-azure-powershell/).
 
 1. Find the deleted database and its deletion date from the list of deleted databases.
-		
-		Get-AzureSqlDatabase -RestorableDropped -ServerName "YourServerName"
+        
+        Get-AzureSqlDatabase -RestorableDropped -ServerName "YourServerName"
 
 2. Get the specific deleted database and start the restore.
 
-		$Database = Get-AzureSqlDatabase -RestorableDropped -ServerName "YourServerName" –DatabaseName “YourDatabaseName” -DeletionDate "1/01/2015 12:00:00 AM""
-		$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceRestorableDroppedDatabase $Database –TargetDatabaseName “NewDatabaseName”
-		Get-AzureSqlDatabaseOperation –ServerName "YourServerName" –OperationGuid $RestoreRequest.RequestID
-		 
+        $Database = Get-AzureSqlDatabase -RestorableDropped -ServerName "YourServerName" –DatabaseName “YourDatabaseName” -DeletionDate "1/01/2015 12:00:00 AM""
+        $RestoreRequest = Start-AzureSqlDatabaseRestore -SourceRestorableDroppedDatabase $Database –TargetDatabaseName “NewDatabaseName”
+        Get-AzureSqlDatabaseOperation –ServerName "YourServerName" –OperationGuid $RestoreRequest.RequestID
+         
 
 ###REST API 
 Use REST to programmatically perform database restore.
 
-1.	List all of your restorable deleted databases by using the [List Restorable Dropped Databases](http://msdn.microsoft.com/library/azure/dn509562.aspx) operation.
-	
-2.	Get the details for the deleted database you want to restore by using the [Get Restorable Dropped Database](http://msdn.microsoft.com/library/azure/dn509574.aspx) operation.
+1.  List all of your restorable deleted databases by using the [List Restorable Dropped Databases](http://msdn.microsoft.com/library/azure/dn509562.aspx) operation.
+    
+2.  Get the details for the deleted database you want to restore by using the [Get Restorable Dropped Database](http://msdn.microsoft.com/library/azure/dn509574.aspx) operation.
 
-3.	Begin your restore by using the [Create Database Restore Request](http://msdn.microsoft.com/library/azure/dn509571.aspx) operation.
-	
-4.	Track the status of your restore by using the [Database Operation Status](http://msdn.microsoft.com/library/azure/dn720371.aspx) operation.
+3.  Begin your restore by using the [Create Database Restore Request](http://msdn.microsoft.com/library/azure/dn509571.aspx) operation.
+    
+4.  Track the status of your restore by using the [Database Operation Status](http://msdn.microsoft.com/library/azure/dn720371.aspx) operation.
+

@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Change the service tier and performance level of an Azure SQL database"
-	description="Change the service tier and performance level of an Azure SQL database shows how to scale your SQL database up or down. Changing the pricing tier of an Azure SQL database."
-	services="sql-database"
-	documentationCenter=""
-	authors="stevestein"
-	manager="jeffreyg"
-	editor=""/>
+    pageTitle="Change the service tier and performance level of an Azure SQL database"
+    description="Change the service tier and performance level of an Azure SQL database shows how to scale your SQL database up or down. Changing the pricing tier of an Azure SQL database."
+    services="sql-database"
+    documentationCenter=""
+    authors="stevestein"
+    manager="jeffreyg"
+    editor=""/>
 
 <tags
-	ms.service="sql-database"
-	ms.devlang="NA"
-	ms.date="12/01/2015"
-	ms.author="sstein"
-	ms.workload="data-management"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"/>
+    ms.service="sql-database"
+    ms.devlang="NA"
+    ms.date="12/01/2015"
+    ms.author="sstein"
+    ms.workload="data-management"
+    ms.topic="article"
+    ms.tgt_pltfrm="NA"/>
 
 
 # Change the service tier and performance level (pricing tier) of a SQL database
@@ -50,11 +50,11 @@ Use the information in [Upgrade SQL Database Web/Business Databases to New Servi
 
 Open the SQL Database blade for the database you want to scale up or down:
 
-1.	Go to the [Azure portal](https://portal.azure.com).
-2.	Click **BROWSE ALL**.
-3.	Click **SQL databases**.
-2.	Click the database you want to change.
-3.	In the SQL Database blade click the **Pricing tier** tile:
+1.  Go to the [Azure portal](https://portal.azure.com).
+2.  Click **BROWSE ALL**.
+3.  Click **SQL databases**.
+2.  Click the database you want to change.
+3.  In the SQL Database blade click the **Pricing tier** tile:
 
     ![pricing tile][1]
 
@@ -64,7 +64,7 @@ Open the SQL Database blade for the database you want to scale up or down:
 
     ![select pricing tier][2]
 
-3.	In the left ribbon click **Notifications**:
+3.  In the left ribbon click **Notifications**:
 
     ![notifications][3]
 
@@ -72,12 +72,12 @@ Open the SQL Database blade for the database you want to scale up or down:
 
    After the scaling operation is complete inspect and confirm the database is at the desired tier:
 
-2.	Click **BROWSE ALL**.
-3.	Click **SQL databases**.
-2.	Click the database you updated.
-3.	Check the **Pricing tier** tile and confirm it is set to the correct tier.
+2.  Click **BROWSE ALL**.
+3.  Click **SQL databases**.
+2.  Click the database you updated.
+3.  Check the **Pricing tier** tile and confirm it is set to the correct tier.
 
-    ![new price][4]	
+    ![new price][4] 
 
 
 ## Next steps
@@ -97,3 +97,4 @@ Open the SQL Database blade for the database you want to scale up or down:
 [2]: ./media/sql-database-scale-up/choose-tier.png
 [3]: ./media/sql-database-scale-up/scale-notification.png
 [4]: ./media/sql-database-scale-up/new-tier.png
+

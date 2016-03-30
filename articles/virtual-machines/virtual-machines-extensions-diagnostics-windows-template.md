@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Create a Windows Virtual machine with monitoring and diagnostics using Azure Resource Manager Template | Microsoft Azure"
-	description="Use a Azure resource manager template to create a new Windows virtual machine with Azure diagnostics extension."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="sbtron"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    pageTitle="Create a Windows Virtual machine with monitoring and diagnostics using Azure Resource Manager Template | Microsoft Azure"
+    description="Use a Azure resource manager template to create a new Windows virtual machine with Azure diagnostics extension."
+    services="virtual-machines"
+    documentationCenter=""
+    authors="sbtron"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/15/2015"
-	ms.author="saurabh"/>
+    ms.service="virtual-machines"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-windows"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/15/2015"
+    ms.author="saurabh"/>
 
 # Create a Windows Virtual machine with monitoring and diagnostics using Azure Resource Manager Template
 
@@ -30,7 +30,7 @@ To enable the diagnostics extension on a Windows Virtual Machine you need to add
 
 For a simple Resource Manager based Virtual Machine add the extension configuration to the *resources* array for the Virtual Machine: 
 
-	"resources": [
+    "resources": [
                 {
                     "name": "Microsoft.Insights.VMDiagnosticsSettings",
                     "type": "extensions",
@@ -63,7 +63,7 @@ For a simple Resource Manager based Virtual Machine add the extension configurat
 
 Another common convention is add the extension configuration at the root resources node of the template instead of defining it under the virtual machine's resources node. With this approach you have to explicitly specify a hierarchical relation between the extension and the virtual machine with the *name* and *type* values. For example: 
   
-	"name": "[concat(variables('vmName'),'Microsoft.Insights.VMDiagnosticsSettings')]",
+    "name": "[concat(variables('vmName'),'Microsoft.Insights.VMDiagnosticsSettings')]",
     "type": "Microsoft.Compute/virtualMachines/extensions",
 
 The extension is always associated with the virtual machine, you can either directly define it under the virtual machine's resource node directly or define it at the base level and use the hierarchical naming convention to associate it with the virtual machine.
@@ -89,13 +89,13 @@ The diagnostics extension json snippet above assumes two parameters *existingdia
             "type": "string",
             "metadata": {
         "description": "The name of an existing storage account to which diagnostics data will be transfered."
-			}        
-		},
+            }        
+        },
         "existingdiagnosticsStorageResourceGroup": {
             "type": "string",
             "metadata": {
         "description": "The resource group for the storage account specified in existingdiagnosticsStorageAccountName"
-      		}
+            }
         }
 
 It is best practice to specify a diagnostics storage account in a different resource group than the resource group for the virtual machine. A resource group can be considered to be a deployment unit with its own lifetime, a virtual machine can be deployed and redeployed as new configurations updates are made it to it but you may want to continue storing the diagnostics data in the same storage account across those virtual machine deployments. Having the storage account in a different resource enables the storage account to accept data from various virtual machine deployments making it easy to troubleshoot issues across the various versions.
@@ -105,8 +105,8 @@ It is best practice to specify a diagnostics storage account in a different reso
 ## Diagnostics configuration variables
  
 The diagnostics extension json snippet above defines an *accountid* variable to simplify getting the storage account key for the diagnostics storage:   
-	
-	"accountid": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/',parameters('existingdiagnosticsStorageResourceGroup'), '/providers/','Microsoft.Storage/storageAccounts/', parameters('existingdiagnosticsStorageAccountName'))]"
+    
+    "accountid": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/',parameters('existingdiagnosticsStorageResourceGroup'), '/providers/','Microsoft.Storage/storageAccounts/', parameters('existingdiagnosticsStorageAccountName'))]"
 
 
 The *xmlcfg* property for the diagnostics extension is defined using multiple variables that are concatenated together. The values of these variables are in xml so they need to be escaped correctly when setting the json variables.
@@ -126,16 +126,16 @@ The Metrics definition xml node in the above configuration is an important confi
 
 The following is an example of the xml for metrics definitions: 
 
-		<Metrics resourceId="/subscriptions/subscription().subscriptionId/resourceGroups/resourceGroup().name/providers/Microsoft.Compute/virtualMachines/vmName">
-			<MetricAggregation scheduledTransferPeriod="PT1H"/>
-			<MetricAggregation scheduledTransferPeriod="PT1M"/>
-		</Metrics>
+        <Metrics resourceId="/subscriptions/subscription().subscriptionId/resourceGroups/resourceGroup().name/providers/Microsoft.Compute/virtualMachines/vmName">
+            <MetricAggregation scheduledTransferPeriod="PT1H"/>
+            <MetricAggregation scheduledTransferPeriod="PT1M"/>
+        </Metrics>
 
 The *resourceID* attribute uniquely identifies the virtual machine in your subscription. Make sure to use the subscription() and resourceGroup() functions so that the template automatically updates those values based on the subscription and resource group you are deploying to.
 
 If you are creating multiple Virtual Machines in a loop then you will have to populate the *resourceID* value with an copyIndex() function to correctly differentiate each individual VM. The *xmlCfg* value can be updated to support this as follows:  
 
-	"xmlCfg": "[base64(concat(variables('wadcfgxstart'), variables('wadmetricsresourceid'), concat(parameters('vmNamePrefix'), copyindex()), variables('wadcfgxend')))]", 
+    "xmlCfg": "[base64(concat(variables('wadcfgxstart'), variables('wadmetricsresourceid'), concat(parameters('vmNamePrefix'), copyindex()), variables('wadcfgxend')))]", 
 
 The MetricAggregation value of *PT1H* and *PT1M* signify an aggregation over a minute and an aggregation over an hour.
 
@@ -168,6 +168,7 @@ Each WADMetrics table will contain the following columns:
 - For a complete sample template of a Windows virtual machine with diagnostics extension see [201-vm-monitoring-diagnostics-extension](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-monitoring-diagnostics-extension)   
 - Deploy the resource manager template using [Azure PowerShell](virtual-machines-deploy-rmtemplates-powershell.md) or [Azure Command Line](virtual-machines-deploy-rmtemplates-powershell.md)
 - Learn more about [authoring Azure Resource Manager templates](resource-group-authoring-templates.md)
+
 
 
 

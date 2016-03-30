@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Get Started with Event Hubs in Java with Apache Storm | Microsoft Azure"
-	description="Follow this tutorial to get started using Azure Event Hubs; sending events with Java and receiving them in an Apache Storm cluster."
-	services="event-hubs"
-	documentationCenter=""
-	authors="fsautomata"
-	manager="timlt"
-	editor=""/>
+    pageTitle="Get Started with Event Hubs in Java with Apache Storm | Microsoft Azure"
+    description="Follow this tutorial to get started using Azure Event Hubs; sending events with Java and receiving them in an Apache Storm cluster."
+    services="event-hubs"
+    documentationCenter=""
+    authors="fsautomata"
+    manager="timlt"
+    editor=""/>
 
 <tags
-	ms.service="event-hubs"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/05/2015"
-	ms.author="sethm"/>
+    ms.service="event-hubs"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/05/2015"
+    ms.author="sethm"/>
 
 # Get started with Event Hubs
 
@@ -40,27 +40,27 @@ In order to complete this tutorial you will need the following:
 
 2. Click **App Services**, then **Service Bus**, then **Event Hub**, and then **Quick Create**.
 
-   	![][1]
+    ![][1]
 
 3. Type a name for your Event Hub, select your desired region, and then click **Create a new Event Hub**.
 
-   	![][2]
+    ![][2]
 
 4. Click the namespace you just created (usually ***event hub name*-ns**).
 
-   	![][3]
+    ![][3]
 
 5. Click the **Event Hubs** tab at the top of the page, and then click the Event Hub you just created.
 
-   	![][4]
+    ![][4]
 
 6. Click the **Configure** tab at the top of the page, add a rule called **SendRule** with *Send* rights, add another rule called **ReceiveRule** with *Listen* rights, and then click **Save**.
 
-   	![][5]
+    ![][5]
 
 7. On the same page, take note of the generated keys for **SendRule** and **ReceiveRule**.
 
-   	![][6c]
+    ![][6c]
 
 Your Event Hub is now created, and you have the connection strings you need to send and receive events.
 
@@ -73,11 +73,11 @@ Your Event Hub is now created, and you have the connection strings you need to s
 
 Now you are ready to run the applications.
 
-1.	Run the **LogTopology** class from Eclipse, then wait for it to start the receivers for all the partitions.
+1.  Run the **LogTopology** class from Eclipse, then wait for it to start the receivers for all the partitions.
 
-2.	Run the **Sender** project, press **Enter** in the console window, and see the events appear in the receiver window.
+2.  Run the **Sender** project, press **Enter** in the console window, and see the events appear in the receiver window.
 
-   	![][22]
+    ![][22]
 
 > [AZURE.NOTE] In this tutorial only, use Storm in local mode for development purposes. See the [HDInsight Storm Overview][] and the official [Apache Storm][] documentation for more information of Storm deployments and patterns.
 

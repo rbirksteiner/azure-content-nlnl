@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Site Recovery: Frequently asked questions | Microsoft Azure" 
-	description="This article discusses popular questions about Azure Site Recovery." 
-	services="site-recovery" 
-	documentationCenter=""
-	authors="rayne-wiselman"
-	manager="jwhit"
-	editor=""/>
+    pageTitle="Site Recovery: Frequently asked questions | Microsoft Azure" 
+    description="This article discusses popular questions about Azure Site Recovery." 
+    services="site-recovery" 
+    documentationCenter=""
+    authors="rayne-wiselman"
+    manager="jwhit"
+    editor=""/>
 
 <tags 
-	ms.service="get-started-article"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na" 
-	ms.workload="storage-backup-recovery"
-	ms.date="12/07/2015" 
-	ms.author="raynew"/>
+    ms.service="get-started-article"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na" 
+    ms.workload="storage-backup-recovery"
+    ms.date="12/07/2015" 
+    ms.author="raynew"/>
 
 
 # Azure Site Recovery: Frequently asked questions (FAQ)
@@ -172,12 +172,12 @@ Failover isn't automatic. You initiate failovers with single click in the portal
 ### If I'm replicating Hyper-V VMs can I throttle bandwidth allotted for Hyper-V replication traffic?
 - If you're replicating between Hyper-V VMs two on-premises sites then you can use Windows QoS. Here's a sample script: 
 
-    	New-NetQosPolicy -Name ASRReplication -IPDstPortMatchCondition 8084 -ThrottleRate (2048*1024)
-    	gpupdate.exe /force
+        New-NetQosPolicy -Name ASRReplication -IPDstPortMatchCondition 8084 -ThrottleRate (2048*1024)
+        gpupdate.exe /force
 
 - If you're replicating Hyper-V VMs to Azure then you can configure throttling using the following sample PowerShell cmdlet:
 
-    	Set-OBMachineSetting -WorkDay $mon, $tue -StartWorkHour "9:00:00" -EndWorkHour "18:00:00" -WorkHourBandwidth (512*1024) -NonWorkHourBandwidth (2048*1024)
+        Set-OBMachineSetting -WorkDay $mon, $tue -StartWorkHour "9:00:00" -EndWorkHour "18:00:00" -WorkHourBandwidth (512*1024) -NonWorkHourBandwidth (2048*1024)
 
 
 
@@ -222,3 +222,4 @@ Yes, you can replicate Hyper-V virtual virtual machines and Azure, or between se
 - Learn about [Site Recovery architecture](site-recovery-components.md)  
 
  
+

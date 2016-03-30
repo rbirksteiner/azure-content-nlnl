@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure AD B2C Preview | Microsoft Azure"
-	description="The types of applications you can build in the Azure AD B2C preview."
-	services="active-directory-b2c"
-	documentationCenter=""
-	authors="dstrockis"
-	manager="msmbaldwin"
-	editor=""/>
+    pageTitle="Azure AD B2C Preview | Microsoft Azure"
+    description="The types of applications you can build in the Azure AD B2C preview."
+    services="active-directory-b2c"
+    documentationCenter=""
+    authors="dstrockis"
+    manager="msmbaldwin"
+    editor=""/>
 
 <tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/28/2015"
-	ms.author="dastrock"/>
+    ms.service="active-directory-b2c"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/28/2015"
+    ms.author="dastrock"/>
 
 # Azure AD B2C Preview: Types of Applications
 
@@ -59,10 +59,10 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImtyaU1QZG1Cd...
 
 // Partial content of a decoded id_token
 {
-	"name": "John Smith",
-	"email": "john.smith@gmail.com",
-	"oid": "d9674823-dffc-4e3f-a6eb-62fe4bd48a58"
-	...
+    "name": "John Smith",
+    "email": "john.smith@gmail.com",
+    "oid": "d9674823-dffc-4e3f-a6eb-62fe4bd48a58"
+    ...
 }
 ```
 
@@ -94,7 +94,7 @@ Accept: application/json
 The Web API can then use the token to verify the API caller's identity and extract information about the caller from claims that are encoded in the token.  You can learn about all of the types of tokens and claims available to an app in the [Azure AD B2C token reference](active-directory-b2c-reference-tokens.md).
 
 > [AZURE.NOTE]
-	The Azure AD B2C preview currently only supports Web APIs that are accessed by their own, well-known clients.  For instance, your complete app may include an iOS app, and Android app, and a backend Web API.  This architecture is fully supported.  What is not currently supported is allowing a third party client, such as another iOS app, to also access the same web API.  In effect, each component of your complete app must all share a single Application ID.
+    The Azure AD B2C preview currently only supports Web APIs that are accessed by their own, well-known clients.  For instance, your complete app may include an iOS app, and Android app, and a backend Web API.  This architecture is fully supported.  What is not currently supported is allowing a third party client, such as another iOS app, to also access the same web API.  In effect, each component of your complete app must all share a single Application ID.
 
 A Web API can receive tokens from all types of clients, including web apps, desktop and mobile apps, single page apps, server side daemons, and even other Web APIs.  As an example, let's look at the complete flow for a web app that calls a Web API.
 
@@ -103,14 +103,14 @@ A Web API can receive tokens from all types of clients, including web apps, desk
 To learn more about authorization_codes, refresh_tokens, and the detailed steps of getting tokens, read about the [OAuth 2.0 protocol](active-directory-b2c-reference-oauth-code.md).
 
 To learn how to secure a Web API with Azure AD B2C, check out the Web API tutorials in our [Getting Started section](active-directory-b2c-overview.md#getting-started).
-	
+    
 ## Mobile and Native Apps
 Apps that are installed on a device, such as mobile and desktop apps, often need to access backend services or Web APIs on behalf of a user.  You can add customized identity management experiences to your native apps and securely call backend services using Azure AD B2C and the [OAuth 2.0 Authorization Code flow](active-directory-b2c-reference-oauth-code.md).  
 
 In this flow, the app executes [policies](active-directory-b2c-reference-policies.md) and receives an authorization_code from Azure AD after the user completes the policy.  The authorization_code represents the app's permission to call backend services on behalf of the currently signed-in user.  The app can then exchange the authoriztion_code in the background for an id_token and a refresh_token.  The app can use the id_token to authenticate to a backend Web API in HTTP requests, and can use the refresh_token to get new id_tokens when older ones expire.
 
 > [AZURE.NOTE]
-	The Azure AD B2C preview currently only supports getting id_tokens that are used to access an app's own backend web service.  For instance, your complete app may include an iOS app, and Android app, and a backend Web API.  This architecture is fully supported.  What is not currently supported is allowing your iOS app to access a third party web API using OAuth 2.0 access_tokens.  In effect, each component of your complete app must all share a single Application ID.
+    The Azure AD B2C preview currently only supports getting id_tokens that are used to access an app's own backend web service.  For instance, your complete app may include an iOS app, and Android app, and a backend Web API.  This architecture is fully supported.  What is not currently supported is allowing your iOS app to access a third party web API using OAuth 2.0 access_tokens.  In effect, each component of your complete app must all share a single Application ID.
 
 ![Native App Swimlanes Image](./media/active-directory-b2c-apps/native.png)
 

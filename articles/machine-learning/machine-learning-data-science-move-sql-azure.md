@@ -1,22 +1,22 @@
 <properties 
-	pageTitle="Move data to an Azure SQL Database for Azure Machine Learning | Azure" 
-	description="Create SQL Table and load data to SQL Table" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="fashah" 
-	manager="jacob.spoelstra" 
-	editor="" 
-	videoId="" [hee
-	scriptId="" />
+    pageTitle="Move data to an Azure SQL Database for Azure Machine Learning | Azure" 
+    description="Create SQL Table and load data to SQL Table" 
+    services="machine-learning" 
+    documentationCenter="" 
+    authors="fashah" 
+    manager="jacob.spoelstra" 
+    editor="" 
+    videoId="" [hee
+    scriptId="" />
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/12/2015" 
-	ms.author="fashah;bradsev" /> 
+    ms.service="machine-learning" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/12/2015" 
+    ms.author="fashah;bradsev" /> 
 
 # Move data to an Azure SQL Database for Azure Machine Learning
 
@@ -85,6 +85,7 @@ The steps for using database backup and restore are similar to those covered [Da
 The procedure for moving data to an Azure SQL database with Azure Data Factory (ADF) is provided in the topic [Move data from an on-premise SQL server to SQL Azure with Azure Data Factory](machine-learning-data-science-move-sql-azure-adf.md).This topic shows how to move data from an on-premise SQL Server database to a Azure SQL database via Azure Blob Storage using ADF. 
 
 Consider using ADF when data needs to be continually migrated in a hybrid scenario that accesses both on-premise and cloud resources, and when the data is transacted or needs to be modified or have business logic added to it in the course of being migrated. ADF allows for the scheduling and monitoring of jobs using simple JSON scripts that manage the movement of data on a periodic basis. ADF also has other capabilities such as support for complex operations.
+
 
 
 

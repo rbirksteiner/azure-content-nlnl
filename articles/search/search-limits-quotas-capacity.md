@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Service limits in Azure Search | Microsoft Azure | Hosted cloud search service"
-	description="Service limits used in capacity planning and maximum limits on requests and reponses for Azure Search, a hosted cloud search service."
-	services="search"
-	documentationCenter=""
-	authors="HeidiSteen"
-	manager="mblythe"
-	editor=""
+    pageTitle="Service limits in Azure Search | Microsoft Azure | Hosted cloud search service"
+    description="Service limits used in capacity planning and maximum limits on requests and reponses for Azure Search, a hosted cloud search service."
+    services="search"
+    documentationCenter=""
+    authors="HeidiSteen"
+    manager="mblythe"
+    editor=""
     tags="azure-portal"/>
 
 <tags
-	ms.service="search"
-	ms.devlang="NA"
-	ms.workload="search"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.date="11/19/2015"
-	ms.author="heidist"/>
+    ms.service="search"
+    ms.devlang="NA"
+    ms.workload="search"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.date="11/19/2015"
+    ms.author="heidist"/>
 
 # Service limits in Azure Search
 

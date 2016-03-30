@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Windows Phone Silverlight Engagement SDK Integration" 
-	description="How to Integrate Azure Mobile Engagement with Windows Phone Silverlight Apps" 					
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
-	editor="" />
+    pageTitle="Windows Phone Silverlight Engagement SDK Integration" 
+    description="How to Integrate Azure Mobile Engagement with Windows Phone Silverlight Apps"                  
+    services="mobile-engagement" 
+    documentationCenter="mobile" 
+    authors="piyushjo" 
+    manager="dwrede" 
+    editor="" />
 
 <tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="07/07/2015" 
-	ms.author="piyushjo" />
+    ms.service="mobile-engagement" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="mobile-windows-phone" 
+    ms.devlang="dotnet" 
+    ms.topic="article" 
+    ms.date="07/07/2015" 
+    ms.author="piyushjo" />
 
 #Windows Phone Silverlight Engagement SDK Integration
 
@@ -62,12 +62,12 @@ Edit this file to specify :
 
 If you want to specify it at runtime instead, you can call the following method before the Engagement agent initialization:
 
-	/* Engagement configuration. */
-	EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
-	engagementConfiguration.Agent.ConnectionString = "Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}";
+    /* Engagement configuration. */
+    EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
+    engagementConfiguration.Agent.ConnectionString = "Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}";
 
-	/* Initialize Engagement agent with above configuration. */
-	EngagementAgent.Instance.Init(engagementConfiguration);
+    /* Initialize Engagement agent with above configuration. */
+    EngagementAgent.Instance.Init(engagementConfiguration);
 
 The connection string for your application is displayed on the Azure Classic Portal.
 
@@ -79,21 +79,21 @@ Modify the `App.xaml.cs`:
 
 -   Add to your `using` statements :
 
-		using Microsoft.Azure.Engagement;
+        using Microsoft.Azure.Engagement;
 
 -   Insert `EngagementAgent.Instance.Init` in the `Application_Launching` method :
 
-		private void Application_Launching(object sender, LaunchingEventArgs e)
-		{
-		  EngagementAgent.Instance.Init();
-		}
+        private void Application_Launching(object sender, LaunchingEventArgs e)
+        {
+          EngagementAgent.Instance.Init();
+        }
 
 -   Insert `EngagementAgent.Instance.OnActivated` in the `Application_Activated` method :
 
-		private void Application_Activated(object sender, ActivatedEventArgs e)
-		{
-		   EngagementAgent.Instance.OnActivated(e);
-		}
+        private void Application_Activated(object sender, ActivatedEventArgs e)
+        {
+           EngagementAgent.Instance.OnActivated(e);
+        }
 
 > [AZURE.WARNING] We strongly discourage you to add the Engagement initialization in another place of your application. However, be aware that the `EngagementAgent.Instance.Init` method runs on a dedicated thread, and not on the UI thread.
 
@@ -111,31 +111,31 @@ Modify your page `.xaml.cs` file :
 
 -   Add to your `using` statements :
 
-		using Microsoft.Azure.Engagement;
+        using Microsoft.Azure.Engagement;
 
 -   Replace `PhoneApplicationPage` with `EngagementPage` :
 
 **Without Engagement:**
 
-		namespace Example
-		{
-		  public partial class ExamplePage : PhoneApplicationPage
-		  {
-		    [...]
-		  }
-		}
+        namespace Example
+        {
+          public partial class ExamplePage : PhoneApplicationPage
+          {
+            [...]
+          }
+        }
 
 **With Engagement:**
 
-		using Microsoft.Azure.Engagement;
-		
-		namespace Example
-		{
-		  public partial class ExamplePage : EngagementPage 
-		  {
-		    [...]
-		  }
-		}
+        using Microsoft.Azure.Engagement;
+        
+        namespace Example
+        {
+          public partial class ExamplePage : EngagementPage 
+          {
+            [...]
+          }
+        }
 
 > [AZURE.WARNING] If your page inherits from the `OnNavigatedTo` method, be careful to let the `base.OnNavigatedTo(e)` call. Otherwise, the activity will not be reported. Indeed, the `EngagementPage` is calling `StartActivity` inside the `OnNavigatedTo` method.
 
@@ -145,23 +145,23 @@ Modify your page `.xaml` file :
 
 -   Add to your namespaces declarations :
 
-		xmlns:engagement="clr-namespace:Microsoft.Azure.Engagement;assembly=Microsoft.Azure.Engagement.EngagementAgent.WP"
+        xmlns:engagement="clr-namespace:Microsoft.Azure.Engagement;assembly=Microsoft.Azure.Engagement.EngagementAgent.WP"
 
 -   Replace `phone:PhoneApplicationPage` with `engagement:EngagementPage` :
 
 **Without Engagement:**
 
-		<phone:PhoneApplicationPage>
-		    <!-- layout -->
-		</phone:PhoneApplicationPage>
+        <phone:PhoneApplicationPage>
+            <!-- layout -->
+        </phone:PhoneApplicationPage>
 
 **With Engagement:**
 
-		<engagement:EngagementPage 
-		    xmlns:engagement="clr-namespace:Microsoft.Azure.Engagement;assembly=Microsoft.Azure.Engagement.EngagementAgent.WP">
-		
-		    <!-- layout -->
-		</engagement:EngagementPage >
+        <engagement:EngagementPage 
+            xmlns:engagement="clr-namespace:Microsoft.Azure.Engagement;assembly=Microsoft.Azure.Engagement.EngagementAgent.WP">
+        
+            <!-- layout -->
+        </engagement:EngagementPage >
 
 #### Override the default behavior
 
@@ -169,21 +169,21 @@ By default, the class name of the page is reported as the activity name, with no
 
 If you want to override the default behavior for the name, simply add this to your code:
 
-		// in the .xaml.cs file
-		protected override string GetEngagementPageName()
-		{
-		   /* your code */
-		   return "new name";
-		}
+        // in the .xaml.cs file
+        protected override string GetEngagementPageName()
+        {
+           /* your code */
+           return "new name";
+        }
 
 If you want to report some extra information with your activity, you can add this to your code:
 
-		// in the .xaml.cs file
-		protected override Dictionary<object,object> GetEngagementPageExtra()
-		{
-		   /* your code */
-		   return extra;
-		}
+        // in the .xaml.cs file
+        protected override Dictionary<object,object> GetEngagementPageExtra()
+        {
+           /* your code */
+           return extra;
+        }
 
 These methods are called from within the `OnNavigatedTo` method of your page.
 
@@ -193,11 +193,11 @@ If you cannot or do not want to overload your `PhoneApplicationPage` classes, yo
 
 We recommend to call `StartActivity` inside your `OnNavigatedTo` method of your PhoneApplicationPage.
 
-		protected override void OnNavigatedTo(NavigationEventArgs e)
-		{
-		   base.OnNavigatedTo(e);
-		   EngagementAgent.Instance.StartActivity("MyPage");
-		}
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+           base.OnNavigatedTo(e);
+           EngagementAgent.Instance.StartActivity("MyPage");
+        }
 
 > [AZURE.IMPORTANT] Ensure you end your session correctly.
 >
@@ -227,10 +227,10 @@ Set report crash to `false` between `<reportCrash>` and `</reportCrash>` tags.
 
 Set report crash to false using your EngagementConfiguration object.
 
-		/* Engagement configuration. */
+        /* Engagement configuration. */
 
-		EngagementConfiguration engagementConfiguration = new EngagementConfiguration(); engagementConfiguration.Agent.ConnectionString = "Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}";
-		/\* Disable Engagement crash reporting. \*/ engagementConfiguration.Agent.ReportCrash = false;
+        EngagementConfiguration engagementConfiguration = new EngagementConfiguration(); engagementConfiguration.Agent.ConnectionString = "Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}";
+        /\* Disable Engagement crash reporting. \*/ engagementConfiguration.Agent.ReportCrash = false;
 
 ### Burst mode
 
@@ -238,7 +238,7 @@ By default, the Engagement service reports logs in real time. If your applicatio
 
 To do so, call the method:
 
-		EngagementAgent.Instance.SetBurstThreshold(int everyMs);
+        EngagementAgent.Instance.SetBurstThreshold(int everyMs);
 
 The argument is a value in **milliseconds**. At any time, if you want to reactivate the real-time logging, just call the method without any parameter, or with the 0 value.
 

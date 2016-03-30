@@ -44,3 +44,4 @@ The VIP of a cloud service is allocated when you first deploy it to Azure in a p
 ## Next steps
 
 To learn about publishing to Azure from Visual Studio, see [Publish Azure application wizard](vs-azure-tools-publish-azure-application-wizard.md).
+

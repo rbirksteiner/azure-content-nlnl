@@ -57,3 +57,4 @@ The hybrid networking architecture pattern is complex due to the possible number
 [Azure Search Tier](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-e581d65d) 
 
 [Batch Processing Tier](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-0bc3f8b1)
+

@@ -1,21 +1,21 @@
-﻿<properties 
-	pageTitle="Error messages for SQL Database client programs"
-	description="For each error, this gives the numeric ID and the textual message. Feel free to cross-reference your own preferred friendlier error message text if you see fit."
-	services="sql-database"
-	documentationCenter=""
-	authors="MightyPen"
-	manager="jeffreyg"
-	editor="" />
+<properties 
+    pageTitle="Error messages for SQL Database client programs"
+    description="For each error, this gives the numeric ID and the textual message. Feel free to cross-reference your own preferred friendlier error message text if you see fit."
+    services="sql-database"
+    documentationCenter=""
+    authors="MightyPen"
+    manager="jeffreyg"
+    editor="" />
 
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/06/2015" 
-	ms.author="genemi"/>
+    ms.service="sql-database" 
+    ms.workload="data-management" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/06/2015" 
+    ms.author="genemi"/>
 
 
 # Error messages for SQL Database client programs
@@ -160,7 +160,7 @@ The following table lists all the general errors that do not fall into any previ
 |18456|14|Login failed for user '%.&#x2a;ls'.%.&#x2a;ls%.&#x2a;ls(The login failed for user "%.&#x2a;ls". The password change failed. Password change during login is not supported in this version of SQL Server.)|
 |18470|14|Login failed for user '%.&#x2a;ls'. Reason: The account is disabled.%.&#x2a;ls|
 |40014|16|Multiple databases cannot be used in the same transaction.|
-|40054|16|Tables without a clustered index are not supported in this version of SQL Server. Create a clustered index and try again.|
+|40054|16|Tables without a clustered index are not supported in this version of SQL Server. Create a clustered index and try again.|
 |40133|15|This operation is not supported in this version of SQL Server.|
 |40506|16|Specified SID is invalid for this version of SQL Server.|
 |40507|16|'%.&#x2a;ls' cannot be invoked with parameters in this version of SQL Server.|
@@ -191,7 +191,7 @@ The following table lists all the general errors that do not fall into any previ
 |40607|16|Windows logins are not supported in this version of SQL Server.|
 |40611|16|Servers can have at most 128 firewall rules defined.|
 |40614|16|Start IP address of firewall rule cannot exceed End IP address.|
-|40615|16|Cannot open server '{0}' requested by the login. Client with IP address '{1}' is not allowed to access the server.  To enable access, use the SQL Database Portal or run sp_set_firewall_rule on the master database to create a firewall rule for this IP address or address range.  It may take up to five minutes for this change to take effect.|
+|40615|16|Cannot open server '{0}' requested by the login. Client with IP address '{1}' is not allowed to access the server.  To enable access, use the SQL Database Portal or run sp_set_firewall_rule on the master database to create a firewall rule for this IP address or address range.  It may take up to five minutes for this change to take effect.|
 |40617|16|The firewall rule name that starts with <rule name> is too long. Maximum length is 128.|
 |40618|16|The firewall rule name cannot be empty.|
 |40620|16|The login failed for user "%.&#x2a;ls". The password change failed. Password change during login is not supported in this version of SQL Server.|
@@ -218,11 +218,12 @@ The following table lists all the general errors that do not fall into any previ
 |40671|17|Communication failure between the gateway and the management service. Please retry later.|
 |40852|16|Cannot open database '%.*ls' on server '%.*ls' requested by the login. Access to the database is only allowed using a security-enabled connection string. To access this database, modify your connection strings to contain ‘secure’ in the server FQDN  -  'server name'.database.windows.net should be modified to 'server name'.database.`secure`.windows.net.|
 |45168|16|The SQL Azure system is under load, and is placing an upper limit on concurrent DB CRUD operations for a single server (e.g., create database). The server specified in the error message has exceeded the maximum number of concurrent connections. Try again later.|
-|45169|16|The SQL azure system is under load, and is placing an upper limit on the number of concurrent server CRUD operations for a single subscription (e.g., create server). The subscription specified in the error message has exceeded the maximum number of concurrent connections, and the request was denied. Try again later.|
+|45169|16|The SQL azure system is under load, and is placing an upper limit on the number of concurrent server CRUD operations for a single subscription (e.g., create server). The subscription specified in the error message has exceeded the maximum number of concurrent connections, and the request was denied. Try again later.|
 
 
 ## Related links
 
 - [Azure SQL Database General Limitations and Guidelines](sql-database-general-limitations.md)
 - [Azure SQL Database resource limits](sql-database-resource-limits.md)
+
 

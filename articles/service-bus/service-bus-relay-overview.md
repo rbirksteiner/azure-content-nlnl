@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Service Bus relayed messaging overview | Microsoft Azure"
-	description="Overview of Service Bus relay."
-	services="service-bus"
-	documentationCenter=".net"
-	authors="sethmanheim"
-	manager="timlt"
-	editor=""/>
+    pageTitle="Service Bus relayed messaging overview | Microsoft Azure"
+    description="Overview of Service Bus relay."
+    services="service-bus"
+    documentationCenter=".net"
+    authors="sethmanheim"
+    manager="timlt"
+    editor=""/>
 
 <tags
-	ms.service="service-bus"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="10/07/2015"
-	ms.author="sethm"/>
+    ms.service="service-bus"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="multiple"
+    ms.topic="article"
+    ms.date="10/07/2015"
+    ms.author="sethm"/>
 
 
 # Service Bus relayed messaging

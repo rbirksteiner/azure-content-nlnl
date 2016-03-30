@@ -1,18 +1,18 @@
 <properties
-	pageTitle="Release notes for Application Insights for Java"
-	description="The latest updates for Java SDK."
-	services="application-insights"
+    pageTitle="Release notes for Application Insights for Java"
+    description="The latest updates for Java SDK."
+    services="application-insights"
     documentationCenter=""
-	authors="alancameronwills"
-	manager="douge"/>
+    authors="alancameronwills"
+    manager="douge"/>
 <tags
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/21/2015"
-	ms.author="awills"/>
+    ms.service="application-insights"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="ibiza"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/21/2015"
+    ms.author="awills"/>
 
 # Release Notes for Application Insights SDK for Java
 
@@ -45,11 +45,11 @@ Compare the old and new ApplicationInsights.xml. Many of the changes you see are
 
 ## Version 1.0.1
 - The [Java agent](app-insights-java-agent.md) collects dependency information about the following:
-	- HTTP calls made via HttpClient, OkHttp and RestTemplate (Spring).
-	- Calls to Redis made via the Jedis client. When a configurable threshold is passed, the SDK will also fetch the call arguments.
-	- JDBC calls made with Oracle DB and Apache Derby DB clients.
-	- Support the 'executeBatch' query type for prepared statements – The SDK will show the statement with the number of batches.
-	- Provide the query plan for JDBC clients that has support for that (MySql, PostgreSql) – The query plan is fetched only when a configurable threshold is crossed
+    - HTTP calls made via HttpClient, OkHttp and RestTemplate (Spring).
+    - Calls to Redis made via the Jedis client. When a configurable threshold is passed, the SDK will also fetch the call arguments.
+    - JDBC calls made with Oracle DB and Apache Derby DB clients.
+    - Support the 'executeBatch' query type for prepared statements – The SDK will show the statement with the number of batches.
+    - Provide the query plan for JDBC clients that has support for that (MySql, PostgreSql) – The query plan is fetched only when a configurable threshold is crossed
 
 ## Version 1.0.0
 - Adding support for the Application Insights writer plugin for CollectD.
@@ -72,3 +72,4 @@ Compare the old and new ApplicationInsights.xml. Many of the changes you see are
 - Support collecting performance counters from 32-bit Windows machines.
 - Support manual tracking of dependencies using a new ```trackDependency``` method API.
 - Ability to tag a telemetry item as synthetic, by adding a ```SyntheticSource``` property to the reported item.
+

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How to use Blob Storage from Xamarin (Preview) | Microsoft Azure" 
-	description="The Azure Storage Client Library for Xamarin preview enables developers to create iOS, Android, and Windows Store apps with their native user interfaces. This tutorial shows how to use Xamarin to create an Android application that uses Azure Blob storage." 
-	services="storage" 
-	documentationCenter="xamarin" 
-	authors="micurd" 
-	manager="" 
-	editor=""/>
+    pageTitle="How to use Blob Storage from Xamarin (Preview) | Microsoft Azure" 
+    description="The Azure Storage Client Library for Xamarin preview enables developers to create iOS, Android, and Windows Store apps with their native user interfaces. This tutorial shows how to use Xamarin to create an Android application that uses Azure Blob storage." 
+    services="storage" 
+    documentationCenter="xamarin" 
+    authors="micurd" 
+    manager="" 
+    editor=""/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/01/2015" 
-	ms.author="tamram"/>
+    ms.service="storage" 
+    ms.workload="storage" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/01/2015" 
+    ms.author="tamram"/>
 
 # How to use Blob Storage from Xamarin (Preview)
 
@@ -39,13 +39,13 @@ First, you’ll need to install Azure PowerShell. Check out [How to install and 
 Next, open Azure PowerShell and run the following commands. Remember to replace `ACCOUNT_NAME` and `ACCOUNT_KEY== ` with your storage account credentials. Replace `CONTAINER_NAME` with a name of your choosing.
 
     PS C:\> $context = New-AzureStorageContext -StorageAccountName "ACCOUNT_NAME" -StorageAccountKey "ACCOUNT_KEY=="
-	PS C:\> New-AzureStorageContainer CONTAINER_NAME -Permission Off -Context $context
-	PS C:\> $now = Get-Date
-	PS C:\> New-AzureStorageContainerSASToken -Name CONTAINER_NAME -Permission rwdl -ExpiryTime $now.AddDays(1.0) -Context $context -FullUri
+    PS C:\> New-AzureStorageContainer CONTAINER_NAME -Permission Off -Context $context
+    PS C:\> $now = Get-Date
+    PS C:\> New-AzureStorageContainerSASToken -Name CONTAINER_NAME -Permission rwdl -ExpiryTime $now.AddDays(1.0) -Context $context -FullUri
 
 The shared access signature URI for the new container should be similar to the following:
 
-	https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2013-04-13T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3Dsss
+    https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2013-04-13T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3Dsss
 
 The shared access signature that you created on the container will be valid for the next day. The signature grants full permissions (*e.g.*, read, write, delete, and list) to blobs within the container.
 
@@ -68,98 +68,98 @@ Next, add code to perform a series of container operations using the SAS URI tha
 
 First add the following **using** statements:
 
-	using System.IO;
-	using System.Text;
-	using System.Threading.Tasks;
-	using Microsoft.WindowsAzure.Storage.Blob;
+    using System.IO;
+    using System.Text;
+    using System.Threading.Tasks;
+    using Microsoft.WindowsAzure.Storage.Blob;
 
 
 Next, add a line for your SAS token. Replace the `"SAS_URI"` string with the SAS URI that you generated in Azure PowerShell. Then add a line for a call to the `UseContainerSAS` method that we’ll create below. Note that the **async** keyword has been added before the delegate.
 
 
-	public class MainActivity : Activity
-	{
-    	int count = 1;
-    	string sas = "SAS_URI";
-    	protected override void OnCreate(Bundle bundle)
-    	{
-        	base.OnCreate(bundle);
+    public class MainActivity : Activity
+    {
+        int count = 1;
+        string sas = "SAS_URI";
+        protected override void OnCreate(Bundle bundle)
+        {
+            base.OnCreate(bundle);
 
-        	// Set our view from the "main" layout resource
-        	SetContentView(Resource.Layout.Main);
+            // Set our view from the "main" layout resource
+            SetContentView(Resource.Layout.Main);
 
-        	// Get our button from the layout resource, and attach an event to it
-        	Button button = FindViewById<Button>(Resource.Id.MyButton);
+            // Get our button from the layout resource, and attach an event to it
+            Button button = FindViewById<Button>(Resource.Id.MyButton);
 
-        	button.Click += async delegate	{
-             	button.Text = string.Format("{0} clicks!", count++);
-             	await UseContainerSAS(sas);
-         	};
+            button.Click += async delegate  {
+                button.Text = string.Format("{0} clicks!", count++);
+                await UseContainerSAS(sas);
+            };
      }
 
 Add a new method, `UseContainerSAS`, under the `OnCreate` method.
 
-	static async Task UseContainerSAS(string sas)
-	{
-    	//Try performing container operations with the SAS provided.
+    static async Task UseContainerSAS(string sas)
+    {
+        //Try performing container operations with the SAS provided.
 
-    	//Return a reference to the container using the SAS URI.
-    	CloudBlobContainer container = new CloudBlobContainer(new Uri(sas));
-    	string date = DateTime.Now.ToString();
-    	try
-    	{
-        	//Write operation: write a new blob to the container.
-        	CloudBlockBlob blob = container.GetBlockBlobReference("sasblob_" + date + ".txt");
+        //Return a reference to the container using the SAS URI.
+        CloudBlobContainer container = new CloudBlobContainer(new Uri(sas));
+        string date = DateTime.Now.ToString();
+        try
+        {
+            //Write operation: write a new blob to the container.
+            CloudBlockBlob blob = container.GetBlockBlobReference("sasblob_" + date + ".txt");
 
-        	string blobContent = "This blob was created with a shared access signature granting write permissions to the container. ";
-        	MemoryStream msWrite = new
-        	MemoryStream(Encoding.UTF8.GetBytes(blobContent));
-        	msWrite.Position = 0;
-        	using (msWrite)
-         	{
-             	await blob.UploadFromStreamAsync(msWrite);
-         	}
-         	Console.WriteLine("Write operation succeeded for SAS " + sas);
-         	Console.WriteLine();
-     	}
-     	catch (Exception e)
-     	{
-        	Console.WriteLine("Write operation failed for SAS " + sas);
-        	Console.WriteLine("Additional error information: " + e.Message);
-        	Console.WriteLine();
-     	}
-     	try
-     	{
-        	//Read operation: Get a reference to one of the blobs in the container and read it.
-        	CloudBlockBlob blob = container.GetBlockBlobReference("sasblob_” + date + “.txt");
-        	string data = await blob.DownloadTextAsync();
+            string blobContent = "This blob was created with a shared access signature granting write permissions to the container. ";
+            MemoryStream msWrite = new
+            MemoryStream(Encoding.UTF8.GetBytes(blobContent));
+            msWrite.Position = 0;
+            using (msWrite)
+            {
+                await blob.UploadFromStreamAsync(msWrite);
+            }
+            Console.WriteLine("Write operation succeeded for SAS " + sas);
+            Console.WriteLine();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("Write operation failed for SAS " + sas);
+            Console.WriteLine("Additional error information: " + e.Message);
+            Console.WriteLine();
+        }
+        try
+        {
+            //Read operation: Get a reference to one of the blobs in the container and read it.
+            CloudBlockBlob blob = container.GetBlockBlobReference("sasblob_” + date + “.txt");
+            string data = await blob.DownloadTextAsync();
 
-        	Console.WriteLine("Read operation succeeded for SAS " + sas);
-        	Console.WriteLine("Blob contents: " + data);
-     	}
-     	catch (Exception e)
-     	{
-        	Console.WriteLine("Additional error information: " + e.Message);
-       		Console.WriteLine("Read operation failed for SAS " + sas);
-        	Console.WriteLine();
-     	}
-     	Console.WriteLine();
-     	try
-     	{
-        	//Delete operation: Delete a blob in the container.
-         	CloudBlockBlob blob = container.GetBlockBlobReference("sasblob_” + date + “.txt");
-         	await blob.DeleteAsync();
+            Console.WriteLine("Read operation succeeded for SAS " + sas);
+            Console.WriteLine("Blob contents: " + data);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("Additional error information: " + e.Message);
+            Console.WriteLine("Read operation failed for SAS " + sas);
+            Console.WriteLine();
+        }
+        Console.WriteLine();
+        try
+        {
+            //Delete operation: Delete a blob in the container.
+            CloudBlockBlob blob = container.GetBlockBlobReference("sasblob_” + date + “.txt");
+            await blob.DeleteAsync();
 
-         	Console.WriteLine("Delete operation succeeded for SAS " + sas);
-         	Console.WriteLine();
-     	}
-     	catch (Exception e)
-     	{
-        	Console.WriteLine("Delete operation failed for SAS " + sas);
-        	Console.WriteLine("Additional error information: " + e.Message);
-        	Console.WriteLine();
-     	}
-	}
+            Console.WriteLine("Delete operation succeeded for SAS " + sas);
+            Console.WriteLine();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("Delete operation failed for SAS " + sas);
+            Console.WriteLine("Additional error information: " + e.Message);
+            Console.WriteLine();
+        }
+    }
 
 ## Run the application
 

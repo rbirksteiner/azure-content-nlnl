@@ -55,12 +55,12 @@ There are many architectures used to implement a DMZ, from a simple load balance
 
 As customers move their workloads to public clouds, it is critical to support similar capabilities for DMZ architecture in Azure to meet compliance and security requirements. This document provides guidelines on how customers can build a secure network environment in Azure, focusing on the DMZ but encompassing a comprehensive discussion on many aspects of network security started with but not limited to the following questions:
 
-1.	How can a DMZ in Azure be built?
-2.	What are some of the Azure features available to build the DMZ?
-3.	How can back end workloads be protected?
-4.	How are Internet communications controlled to the workloads in Azure?
-5.	How can the on-premises networks be protected from deployments in Azure?
-6.	When should native Azure security features be used versus third party appliances or services?
+1.  How can a DMZ in Azure be built?
+2.  What are some of the Azure features available to build the DMZ?
+3.  How can back end workloads be protected?
+4.  How are Internet communications controlled to the workloads in Azure?
+5.  How can the on-premises networks be protected from deployments in Azure?
+6.  When should native Azure security features be used versus third party appliances or services?
 
 The following diagram shows various layers of security Azure provides to customers both native in the Azure platform itself and through customer defined features:
 
@@ -73,17 +73,17 @@ The next section provides an overview of Azure Virtual Networks. Azure Virtual N
 ## Overview of Azure Virtual Networks
 Before Internet traffic can get to the Azure Virtual Networks, there are two layers of security inherent to the Azure platform:
 
-1.	**DDoS Protection**: Distributed Denial of Service Protection (DDoS) is a layer of the Azure physical network that protects the Azure platform itself from large scale internet based attacks where attackers use multiple “bot” nodes in an attempt to overwhelm an Internet service. Azure has a robust DDoS protection mesh on all inbound internet connectivity. This DDoS protection layer, has no user configurable attributes and is not accessible to customer. This protects Azure as a platform from large scale attacks, but will not directly protect individual customer application. Additional layers of resilience can be configured by the customer against a localized attack. For example; if customer A was attacked with a large scale DDoS attack on a public endpoint, Azure will block connections to that service. Customer A could fail-over to another Virtual Network or Service Endpoint not involved with the attack to restore service. It should be noted that while customer A could be affected on that endpoint, no other services outside of that endpoint would be affected. In addition, other customers and services would see no impact from that attack.
-2.	**Service Endpoints**: endpoints allow Cloud Services or Resource Groups to have public (on the Internet) IP addresses and ports exposed, the endpoint will NAT traffic to the internal address and port on the Azure Virtual Network. This is the primary path for external traffic to pass into the Azure Virtual Network. The Service Endpoints are user configurable to determine which traffic is passed in, and how/where its translated to on the Virtual Network. 
+1.  **DDoS Protection**: Distributed Denial of Service Protection (DDoS) is a layer of the Azure physical network that protects the Azure platform itself from large scale internet based attacks where attackers use multiple “bot” nodes in an attempt to overwhelm an Internet service. Azure has a robust DDoS protection mesh on all inbound internet connectivity. This DDoS protection layer, has no user configurable attributes and is not accessible to customer. This protects Azure as a platform from large scale attacks, but will not directly protect individual customer application. Additional layers of resilience can be configured by the customer against a localized attack. For example; if customer A was attacked with a large scale DDoS attack on a public endpoint, Azure will block connections to that service. Customer A could fail-over to another Virtual Network or Service Endpoint not involved with the attack to restore service. It should be noted that while customer A could be affected on that endpoint, no other services outside of that endpoint would be affected. In addition, other customers and services would see no impact from that attack.
+2.  **Service Endpoints**: endpoints allow Cloud Services or Resource Groups to have public (on the Internet) IP addresses and ports exposed, the endpoint will NAT traffic to the internal address and port on the Azure Virtual Network. This is the primary path for external traffic to pass into the Azure Virtual Network. The Service Endpoints are user configurable to determine which traffic is passed in, and how/where its translated to on the Virtual Network. 
 
 Once traffic reaches the Virtual Network, there are many features that come into play as Azure Virtual Networks are the foundation for customers to attach their workloads and where basic network level security applies. It is a private network (a virtual network overlay) in Azure for customers with the following features and characteristics:
  
-1.	**Traffic isolation**: A virtual network is the traffic isolation boundary on the Azure platform. VMs in one virtual network cannot communicate directly to VMs in a different virtual network, even if both virtual networks are created by the same customer. This is a critical property that ensures customer VMs and communication remains private within a virtual network. 
-2.	**Multi-tier topology**: Virtual Networks allow customers to define multi-tier topology by allocating subnets and designating separate address spaces for different elements or “tiers” of their workloads. These logical groupings and topologies enable customers to define different access policy based on the workload types, and also control traffic flows between the tiers. 
-3.	**Cross premises connectivity**: Customers can establish cross premises connectivity between a virtual network and multiple on-premises sites or other virtual networks in Azure through Azure VPN Gateways or 3rd party Network Virtual Appliances. Azure supports site-to-site (S2S) VPNs using standard IPsec/IKE protocols and ExpressRoute private connectivity. 
-4.	**Network Security Group** (NSG) allows customers to create rules (ACLs) at the desired level of granularity: network interfaces, individual VMs, or virtual subnets. Customers can control access by permitting or denying communication between the workloads within a virtual network, from systems on customer’s networks via cross premises connectivity, or direct Internet communication. 
-5.	**User-Defined Routes** (UDR) and **IP Forwarding** allows customers to define the communication paths between different tiers within a virtual network. Customers can deploy a firewall, IDS/IPS, and other virtual appliances and route network traffic through these security appliances for security boundary policy enforcement, auditing, and inspection.
-6.	**Network Virtual Appliances** in the Azure Marketplace: Security appliances such as firewalls, load balancers, and IDS/IPS (Intrusion Detection/Prevention Services) are available in the Azure Marketplace and the VM Image Gallery. Customers can deploy these appliances into their virtual networks, and specifically, at their security boundaries (including the DMZ subnets) to complete a multi-tiered secure network environment.
+1.  **Traffic isolation**: A virtual network is the traffic isolation boundary on the Azure platform. VMs in one virtual network cannot communicate directly to VMs in a different virtual network, even if both virtual networks are created by the same customer. This is a critical property that ensures customer VMs and communication remains private within a virtual network. 
+2.  **Multi-tier topology**: Virtual Networks allow customers to define multi-tier topology by allocating subnets and designating separate address spaces for different elements or “tiers” of their workloads. These logical groupings and topologies enable customers to define different access policy based on the workload types, and also control traffic flows between the tiers. 
+3.  **Cross premises connectivity**: Customers can establish cross premises connectivity between a virtual network and multiple on-premises sites or other virtual networks in Azure through Azure VPN Gateways or 3rd party Network Virtual Appliances. Azure supports site-to-site (S2S) VPNs using standard IPsec/IKE protocols and ExpressRoute private connectivity. 
+4.  **Network Security Group** (NSG) allows customers to create rules (ACLs) at the desired level of granularity: network interfaces, individual VMs, or virtual subnets. Customers can control access by permitting or denying communication between the workloads within a virtual network, from systems on customer’s networks via cross premises connectivity, or direct Internet communication. 
+5.  **User-Defined Routes** (UDR) and **IP Forwarding** allows customers to define the communication paths between different tiers within a virtual network. Customers can deploy a firewall, IDS/IPS, and other virtual appliances and route network traffic through these security appliances for security boundary policy enforcement, auditing, and inspection.
+6.  **Network Virtual Appliances** in the Azure Marketplace: Security appliances such as firewalls, load balancers, and IDS/IPS (Intrusion Detection/Prevention Services) are available in the Azure Marketplace and the VM Image Gallery. Customers can deploy these appliances into their virtual networks, and specifically, at their security boundaries (including the DMZ subnets) to complete a multi-tiered secure network environment.
 
 With these features and capabilities, one example of how a DMZ architecture could be constructed in Azure is:
 
@@ -196,12 +196,12 @@ In this example, a NSG group is built and then loaded with six rules.
 
 Declaratively, the following rules are being built for inbound traffic:
 
-1.	Internal DNS traffic (port 53) is allowed
-2.	RDP traffic (port 3389) from the Internet to any VM is allowed
-3.	HTTP traffic (port 80) from the Internet to web server (IIS01) is allowed
-4.	Any traffic (all ports) from IIS01 to AppVM1 is allowed
-5.	Any traffic (all ports) from the Internet to the entire VNet (both subnets) is Denied
-6.	Any traffic (all ports) from the Frontend subnet to the Backend subnet is Denied
+1.  Internal DNS traffic (port 53) is allowed
+2.  RDP traffic (port 3389) from the Internet to any VM is allowed
+3.  HTTP traffic (port 80) from the Internet to web server (IIS01) is allowed
+4.  Any traffic (all ports) from IIS01 to AppVM1 is allowed
+5.  Any traffic (all ports) from the Internet to the entire VNet (both subnets) is Denied
+6.  Any traffic (all ports) from the Frontend subnet to the Backend subnet is Denied
 
 With these rules bound to each subnet, if a HTTP request was inbound from the Internet to the web server, both rules 3 (allow) and 5 (deny) would apply, but since rule 3 has a higher priority only it would apply and rule 5 would not come into play. Thus the HTTP request would be allowed to the web server. If that same traffic was trying to reach the DNS01 server, rule 5 (Deny) would be the first to apply and the traffic would not be allowed to pass to the server. Rule 6 (Deny) blocks the Frontend subnet from talking to the Backend subnet (except for allowed traffic in rules 1 and 4), this protects the Backend network in case an attacker compromises the web application on the Frontend, the attacker would have limited access to the Backend “protected” network (only to resources exposed on the AppVM01 server).
 
@@ -242,12 +242,12 @@ In this example, a NSG group is built and then loaded with six rules.
 
 Declaratively the following rules are being built for inbound traffic:
 
-1.	Internal DNS traffic (port 53) is allowed
-2.	RDP traffic (port 3389) from the Internet to any VM is allowed
-3.	Any internet traffic (all ports) to the NVA (Firewall) is allowed
-4.	Any traffic (all ports) from IIS01 to AppVM1 is allowed
-5.	Any traffic (all ports) from the Internet to the entire VNet (both subnets) is Denied
-6.	Any traffic (all ports) from the Frontend subnet to the Backend subnet is Denied
+1.  Internal DNS traffic (port 53) is allowed
+2.  RDP traffic (port 3389) from the Internet to any VM is allowed
+3.  Any internet traffic (all ports) to the NVA (Firewall) is allowed
+4.  Any traffic (all ports) from IIS01 to AppVM1 is allowed
+5.  Any traffic (all ports) from the Internet to the entire VNet (both subnets) is Denied
+6.  Any traffic (all ports) from the Frontend subnet to the Backend subnet is Denied
 
 With these rules bound to each subnet, if an HTTP request was inbound from the Internet to the Firewall, both rules 3 (allow) and 5 (deny) would apply, but since rule 3 has a higher priority only it would apply and rule 5 would not come into play. Thus the HTTP request would be allowed to the firewall. If that same traffic was trying to reach the IIS01 server, even though it’s on the Frontend subnet, rule 5 (Deny) would apply and the traffic would not be allowed to pass to the server. Rule 6 (Deny) blocks the Frontend subnet from talking to the Backend subnet (except for allowed traffic in rules 1 and 4), this protects the Backend network in case an attacker compromises the web application on the Frontend, the attacker would have limited access to the Backend “protected” network (only to resources exposed on the AppVM01 server).
 
@@ -312,7 +312,7 @@ Once the routing tables are created they are bound to their subnets. For the Fro
          Address Prefix    Next hop type    Next hop IP address Status   Source     
          --------------    -------------    ------------------- ------   ------     
          {10.0.1.0/24}     VNETLocal                            Active 
-		 {10.0.0.0/16}     VirtualAppliance 10.0.0.4            Active    
+         {10.0.0.0/16}     VirtualAppliance 10.0.0.4            Active    
          {0.0.0.0/0}       VirtualAppliance 10.0.0.4            Active
 
 >[AZURE.NOTE] There are current limitations with UDR and hybrid networks. This is being resolved in a future release, examples of how to enable your DMZ with ExpressRoute or Site-to-Site networking are discussed below in Examples 3 and 4.
@@ -325,7 +325,7 @@ As an example, if traffic from AppVM01 makes a request to the DNS01 server, UDR 
 #### Network Security Group (NSG) Description
 In this example, a NSG group is built and then loaded with a single rule. This group is then bound only to the Frontend and Backend subnets (not the SecNet). Declaratively the following rule is being built:
 
-1.	Any traffic (all ports) from the Internet to the entire VNet (all subnets) is Denied
+1.  Any traffic (all ports) from the Internet to the entire VNet (all subnets) is Denied
 
 Although NSGs are used in this example, it’s main purpose is as a secondary layer of defense against manual misconfiguration. We want to block all inbound traffic from the internet to either the Frontend or Backend subnets, traffic should only flow through the SecNet subnet to the firewall (and then if appropriate on to the Frontend or Backend subnets). Plus, with the UDR rules in place, any traffic that did make it into the Frontend or Backend subnets would be directed out to the firewall (thanks to UDR). The firewall would see this as an asymmetric flow and would drop the outbound traffic. Thus there are three layers of security protecting the Frontend and Backend subnets; 1) no open endpoints on the FrontEnd001 and BackEnd001 cloud services, 2) NSGs denying traffic from the Internet, 3) the firewall dropping asymmetric traffic.
 
@@ -344,17 +344,17 @@ In the logical diagram above, the security subnet is not shown since the firewal
 For this example, we need 7 types of rules, these rule types are described as follows:
 
 - External Rules (for inbound traffic):
-  1.	Firewall Management Rule: This App Redirect rule allows traffic to pass to the management ports of the network virtual appliance.
-  2.	RDP Rules (for each windows server): These four rules (one for each server) will allow management of the individual servers via RDP. This could also be bundled into one rule depending on the capabilities of the Network Virtual Appliance being used.
-  3.	Application Traffic Rules: There are two Application Traffic Rules, the first for the front end web traffic, and the second for the back end traffic (eg web server to data tier). The configuration of these rules will depend on the network architecture (where your servers are placed) and traffic flows (which direction the traffic flows, and which ports are used).
+  1.    Firewall Management Rule: This App Redirect rule allows traffic to pass to the management ports of the network virtual appliance.
+  2.    RDP Rules (for each windows server): These four rules (one for each server) will allow management of the individual servers via RDP. This could also be bundled into one rule depending on the capabilities of the Network Virtual Appliance being used.
+  3.    Application Traffic Rules: There are two Application Traffic Rules, the first for the front end web traffic, and the second for the back end traffic (eg web server to data tier). The configuration of these rules will depend on the network architecture (where your servers are placed) and traffic flows (which direction the traffic flows, and which ports are used).
       - The first rule will allow the actual application traffic to reach the application server. While the other rules allow for security, management, etc., Application Rules are what allow external users or services to access the application(s). For this example, there is a single web server on port 80, thus a single firewall application rule will redirect inbound traffic to the external IP, to the web servers internal IP address. The redirected traffic session would be NAT’d to the internal server.
       - The second Application Traffic Rule is the back end rule to allow the Web Server to talk to the AppVM01 server (but not AppVM02) via any port.
 - Internal Rules (for intra-VNet traffic)
-  4.	Outbound to Internet Rule: This rule will allow traffic from any network to pass to the selected networks. This rule is usually a default rule already on the firewall, but in a disabled state. This rule should be enabled for this example.
-  5.	DNS Rule: This rule allows only DNS (port 53) traffic to pass to the DNS server. For this environment most traffic from the Frontend to the Backend is blocked, this rule specifically allows DNS from any local subnet.
-  6.	Subnet to Subnet Rule: This rule is to allow any server on the back end subnet to connect to any server on the front end subnet (but not the reverse).
+  4.    Outbound to Internet Rule: This rule will allow traffic from any network to pass to the selected networks. This rule is usually a default rule already on the firewall, but in a disabled state. This rule should be enabled for this example.
+  5.    DNS Rule: This rule allows only DNS (port 53) traffic to pass to the DNS server. For this environment most traffic from the Frontend to the Backend is blocked, this rule specifically allows DNS from any local subnet.
+  6.    Subnet to Subnet Rule: This rule is to allow any server on the back end subnet to connect to any server on the front end subnet (but not the reverse).
 - Fail-safe Rule (for traffic that doesn’t meet any of the above):
-  7.	Deny All Traffic Rule: This should always be the final rule (in terms of priority), and as such if a traffic flows fails to match any of the preceding rules it will be dropped by this rule. This is a default rule and usually activated, no modifications are generally needed.
+  7.    Deny All Traffic Rule: This should always be the final rule (in terms of priority), and as such if a traffic flows fails to match any of the preceding rules it will be dropped by this rule. This is a default rule and usually activated, no modifications are generally needed.
 
 >[AZURE.TIP] On the second application traffic rule, any port is allowed for easy of this example, in a real scenario the most specific port and address ranges should be used to reduce the attack surface of this rule.
 
@@ -506,4 +506,5 @@ will be available soon and linked from this page.
 [Example6]: ./virtual-network/virtual-networks-hybrid-expressroute-asm.md
 [Example7]: ./virtual-network/virtual-networks-vnet2vnet-direct-asm.md
 [Example8]: ./virtual-network/virtual-networks-vnet2vnet-transit-asm.md
+
 

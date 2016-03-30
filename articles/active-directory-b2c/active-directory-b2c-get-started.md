@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure Active Directory B2C preview: Creating an Azure Active Directory B2C tenant | Microsoft Azure"
-	description="A topic on how to create an Azure Active Directory B2C tenant"
-	services="active-directory-b2c"
-	documentationCenter=""
-	authors="swkrish"
-	manager="msmbaldwin"
-	editor="curtand"/>
+    pageTitle="Azure Active Directory B2C preview: Creating an Azure Active Directory B2C tenant | Microsoft Azure"
+    description="A topic on how to create an Azure Active Directory B2C tenant"
+    services="active-directory-b2c"
+    documentationCenter=""
+    authors="swkrish"
+    manager="msmbaldwin"
+    editor="curtand"/>
 
 <tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/28/2015"
-	ms.author="swkrish"/>
+    ms.service="active-directory-b2c"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/28/2015"
+    ms.author="swkrish"/>
 
 # Azure Active Directory B2C preview: how to create an Azure AD B2C Tenant
 
@@ -73,3 +73,4 @@ Use the following steps to create a new Azure AD B2C tenant. Currently B2C featu
 ## Next Steps
 
 Move onto [registering an application with Azure AD B2C and building a Quick Start Application](active-directory-b2c-app-registration.md).
+

@@ -28,18 +28,18 @@ Learn how to analyze website logs using Data Lake Analytics, especially on findi
 - **Microsoft Azure SDK for .NET version 2.5 or above**.  Install it using the [Web platform installer](http://www.microsoft.com/web/downloads/platform.aspx).
 - **[Data Lake Tools for Visual Studio](http://aka.ms/adltoolsvs)**. 
 
-	Once Data Lake Tools for Visual Studio is installed, you will see a **Data Lake** menu in Visual Studio:
-	
-	![U-SQL Visual Studio menu](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-menu.png)
+    Once Data Lake Tools for Visual Studio is installed, you will see a **Data Lake** menu in Visual Studio:
+    
+    ![U-SQL Visual Studio menu](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-menu.png)
 
 - **Basic knowledge of Data Lake Analytics and the Data Lake Tools for Visual Studio**. To get started, see:
  
-	- [Get Started with Azure Data Lake Analytics using Azure Portal](data-lake-analytics-get-started-portal.md).
-	- [Develop U-SQL script using Data Lake tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
+    - [Get Started with Azure Data Lake Analytics using Azure Portal](data-lake-analytics-get-started-portal.md).
+    - [Develop U-SQL script using Data Lake tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 
 - **A Data Lake Analytics account.**  See [Create an Azure Data Lake Analytics account](data-lake-analytics-get-started-portal.md#create_adl_analytics_account).
 
-	The Data Lake Tools doesn't support creating Data Lake Analytics accounts.  So you have to create it using the Azure Portal, Azure PowerShell, .NET SDK or Azure CLI. 
+    The Data Lake Tools doesn't support creating Data Lake Analytics accounts.  So you have to create it using the Azure Portal, Azure PowerShell, .NET SDK or Azure CLI. 
 - **Upload the sample data to the Data Lake Analytics account.** See [Upload SearchLog.tsv to the default Data Lake Storage account](data-lake-analytics-get-started-portal.md#update-data-to-the-default-adl-storage-account).
 
     To run a Data Lake Analytics job, you will need some data. Even though the Data Lake Tools supports uploading data, you will use the portal to upload the sample data to make this tutorial easier to follow. 
@@ -71,8 +71,8 @@ You can add addition user-defined operators to the application.  For more inform
 1. From the **File** menu, click **New**, and then click **Project**.
 2. Select the U-SQL Project type.
 
-	![new U-SQL Visual Studio project](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
-	
+    ![new U-SQL Visual Studio project](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
+    
 3. Click **OK**. Visual studio creates a solution with a Script.usql file.
 4. Enter the following script into the Script.usql file:
 
@@ -129,8 +129,8 @@ You can add addition user-defined operators to the application.  For more inform
                 s_timetaken int
             FROM @"/Samples/Data/WebLog.log"
             USING Extractors.Text(delimiter:' ');
-		    RETURN;
-		END;
+            RETURN;
+        END;
         
         // Create a table for storing referrers and status 
         DROP TABLE IF EXISTS SampleDBTutorials.dbo.ReferrersPerDay;
@@ -201,3 +201,4 @@ To see more development topics:
 - [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 - [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md)
 - [Develop U-SQL user defined operators for Data Lake Analytics jobs](data-lake-analytics-u-sql-user-defined-operators.md)
+

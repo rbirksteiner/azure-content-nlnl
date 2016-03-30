@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Deploy and configure a SaaS connector API app" 
-	description="Learn how to configure a SaaS connector that you install in your Azure subscription from the Azure Marketplace." 
-	services="app-service\api" 
-	documentationCenter=".net" 
-	authors="tdykstra" 
-	manager="wpickett" 
-	editor="jimbe"/>
+    pageTitle="Deploy and configure a SaaS connector API app" 
+    description="Learn how to configure a SaaS connector that you install in your Azure subscription from the Azure Marketplace." 
+    services="app-service\api" 
+    documentationCenter=".net" 
+    authors="tdykstra" 
+    manager="wpickett" 
+    editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-api" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="dotnet" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/03/2015" 
-	ms.author="tdykstra"/>
+    ms.service="app-service-api" 
+    ms.workload="web" 
+    ms.tgt_pltfrm="dotnet" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/03/2015" 
+    ms.author="tdykstra"/>
 
 # Deploy and configure a SaaS connector API app in Azure App Service
 
@@ -41,43 +41,43 @@ For more information about authentication in App Service, see [Authentication fo
 
 1. Go to the [Azure preview portal] home page and click **Marketplace**.
 
-	![Marketplace in Azure preview portal](./media/app-service-api-connnect-your-app-to-saas-connector/marketplace.png)
+    ![Marketplace in Azure preview portal](./media/app-service-api-connnect-your-app-to-saas-connector/marketplace.png)
 
 2. Search for Dropbox, and then click the **Dropbox Connector** icon.
 
-	![Click Dropbox Connector](./media/app-service-api-connnect-your-app-to-saas-connector/searchdb.png)
+    ![Click Dropbox Connector](./media/app-service-api-connnect-your-app-to-saas-connector/searchdb.png)
  
 3. Click **Create**.
 
-	![Click Create](./media/app-service-api-connnect-your-app-to-saas-connector/clickcreate.png)
+    ![Click Create](./media/app-service-api-connnect-your-app-to-saas-connector/clickcreate.png)
  
 5. In the **Dropbox Connector** blade, under **App Service plan** click **Create New**, and then in the **Create new App Service plan** box enter DropBoxPlan. 
 
-	For more information about App Service plans, see [Azure App Service plans in-depth overview](azure-web-sites-web-hosting-plans-in-depth-overview.md). 
+    For more information about App Service plans, see [Azure App Service plans in-depth overview](azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
 4. Under **Resource Group**, click **Create New**, and then in the **Create New Resource Group** box enter DropboxRG.
 
-	For more information about resource groups, see [Using resource groups to manage your Azure resources](../resource-group-overview.md).
+    For more information about resource groups, see [Using resource groups to manage your Azure resources](../resource-group-overview.md).
 
 7. Select the Free **Pricing Tier**. (If you don't see it in the list, click **View All**. After you click **F1 Free**, click the **Select** button.)
 
-	You can use a paid pricing tier, but it isn't required for this tutorial.
+    You can use a paid pricing tier, but it isn't required for this tutorial.
  
 11. Choose a **Location** close to you.  
 
 9. <a id="gateway"></a>Keep the default "DropboxConnector" as the **Name** of the connector, and then click **Create**. 
 
-	![Click create](./media/app-service-api-connnect-your-app-to-saas-connector/createdropbox.png) 
+    ![Click create](./media/app-service-api-connnect-your-app-to-saas-connector/createdropbox.png) 
 
-	Azure App Service creates a resource group, and in the resource group it creates a Dropbox connector API app, and a *gateway* web app. The gateway's function is to manage access to all API apps in the resource group. 
+    Azure App Service creates a resource group, and in the resource group it creates a Dropbox connector API app, and a *gateway* web app. The gateway's function is to manage access to all API apps in the resource group. 
 
-	You can check the progress of resource creation by clicking **Notifications** on the Azure preview portal home page.
+    You can check the progress of resource creation by clicking **Notifications** on the Azure preview portal home page.
 
 3. When Azure finishes creating the connector, click **Browse > Resource groups > DropboxRG**.
  
-	The **Resource Group** blade for DropboxRG shows the connector and the gateway in the resource group.
+    The **Resource Group** blade for DropboxRG shows the connector and the gateway in the resource group.
 
-	![Resource group diagram](./media/app-service-api-connnect-your-app-to-saas-connector/rgdiagram.png) 
+    ![Resource group diagram](./media/app-service-api-connnect-your-app-to-saas-connector/rgdiagram.png) 
 
 ## Configure your Dropbox account and the Dropbox connector
 
@@ -98,8 +98,8 @@ By default the connector's **Access level** is set to **Internal**, meaning it c
 1. Go back to the **Settings** blade, and click **Application settings**.
 
 2. In the **Application settings** blade, set **Access level** to **Public (authenticated)**, and then click **Save**. 
-	
-	![Set to Public (authenticated)](./media/app-service-api-connnect-your-app-to-saas-connector/pubauth.png)
+    
+    ![Set to Public (authenticated)](./media/app-service-api-connnect-your-app-to-saas-connector/pubauth.png)
 
 You have now configured the Dropbox Connector so that outgoing calls can access your Dropbox account, and incoming calls must be from authenticated users. In the next section you specify which authentication provider you want to use to authenticate users.
 
@@ -123,25 +123,25 @@ Do the following steps in a new browser window. Depending on what authentication
 
 2. Go to the login URL for the gateway and the authentication provider that you configured. The URL follows this pattern: 
 
-    	http://[gatewayurl]/login/[providername]
+        http://[gatewayurl]/login/[providername]
 
-	You can get the gateway URL from the **Gateway** blade in the [Azure preview portal]. (To get to the **Gateway** blade, click the gateway in the diagram shown on the **Resource group** blade.)
+    You can get the gateway URL from the **Gateway** blade in the [Azure preview portal]. (To get to the **Gateway** blade, click the gateway in the diagram shown on the **Resource group** blade.)
 
-	![Gateway URL](./media/app-service-api-connnect-your-app-to-saas-connector/gatewayurl.png)
+    ![Gateway URL](./media/app-service-api-connnect-your-app-to-saas-connector/gatewayurl.png)
 
-	The [providername] value is "facebook" for Facebook, "twitter" for Twitter, "aad" for Azure Active directory, etc.
+    The [providername] value is "facebook" for Facebook, "twitter" for Twitter, "aad" for Azure Active directory, etc.
 
-	Here is a sample login URL for Azure Active Directory:
+    Here is a sample login URL for Azure Active Directory:
 
-		https://dropboxrgaeb4ae60b7cb4f3d966dfa43.azurewebsites.net/login/aad/
+        https://dropboxrgaeb4ae60b7cb4f3d966dfa43.azurewebsites.net/login/aad/
 
 3. Enter your credentials when the browser displays a login page. 
  
-	If you configured Azure Active Directory login, log in as one of the users listed in the **Users** tab for the application you created in the Azure Active Directory tab of the [Azure portal], such as admin@contoso.onmicrosoft.com.
+    If you configured Azure Active Directory login, log in as one of the users listed in the **Users** tab for the application you created in the Azure Active Directory tab of the [Azure portal], such as admin@contoso.onmicrosoft.com.
 
-	When login is successful, you get a "Login complete" page.
+    When login is successful, you get a "Login complete" page.
 
-	![](./media/app-service-api-connnect-your-app-to-saas-connector/logindone.png)
+    ![](./media/app-service-api-connnect-your-app-to-saas-connector/logindone.png)
 
 ### Provide the user's identity to Dropbox
 
@@ -151,45 +151,45 @@ The HTTP Post request to the gateway has to include the authentication token tha
 
 1. In the browser window that has the "Login complete" message, go to the browser's developer tools and find the `x-zumo-auth` cookie. Keep this window open so you can copy the value of the cookie in the next step.
  
-	To get the cookie value in Chrome, perform the following steps:
+    To get the cookie value in Chrome, perform the following steps:
 
-	- Press F12 to open developer tools.
-	- Go to the **Resources** tab.
-	- Find the cookies for your gateway site, and triple-click the **Value** of the `x-zumo-auth` cookie to select all of it. (Make sure you get all of the cookie's value. If you double-click, you might get only the first part of it.)  
+    - Press F12 to open developer tools.
+    - Go to the **Resources** tab.
+    - Find the cookies for your gateway site, and triple-click the **Value** of the `x-zumo-auth` cookie to select all of it. (Make sure you get all of the cookie's value. If you double-click, you might get only the first part of it.)  
 
-	![Copy token](./media/app-service-api-connnect-your-app-to-saas-connector/copytoken.png) 
+    ![Copy token](./media/app-service-api-connnect-your-app-to-saas-connector/copytoken.png) 
 
 4. In a new browser tab or window, create and send an HTTP Post request to the gateway to request a consent URL. Include the `x-zumo-auth` token as an HTTP header.
 
-	The URL follows this pattern:
+    The URL follows this pattern:
 
-		[gatewayurl]/api/consent/list?api-version=2015-01-14&redirecturl=[a URL you want the browser to go to after you authenticate]
+        [gatewayurl]/api/consent/list?api-version=2015-01-14&redirecturl=[a URL you want the browser to go to after you authenticate]
 
-	For example:
+    For example:
 
-		https://dropboxrgaeb4ae60b7cb4f3d966dfa43.azurewebsites.net/api/consent/list?api-version=2015-01-14&redirecturl=https://portal.azure.com
+        https://dropboxrgaeb4ae60b7cb4f3d966dfa43.azurewebsites.net/api/consent/list?api-version=2015-01-14&redirecturl=https://portal.azure.com
 
-	To send the request in Postman in Chrome, perform the following steps:
+    To send the request in Postman in Chrome, perform the following steps:
 
-	- Enter the **Request URL** described above.
-	- Set the method to **Post**.
-	- Add a header named `x-zumo-auth`.
-	- In the header **Value** field paste the value you copied from the `x-zumo-auth` cookie.
-	- Click **Send**.
-	 
-	The following illustration shows the Postman tool in Chrome:
+    - Enter the **Request URL** described above.
+    - Set the method to **Post**.
+    - Add a header named `x-zumo-auth`.
+    - In the header **Value** field paste the value you copied from the `x-zumo-auth` cookie.
+    - Click **Send**.
+     
+    The following illustration shows the Postman tool in Chrome:
 
-	![Send for consent URL](./media/app-service-api-connnect-your-app-to-saas-connector/sendforconsent.png)
+    ![Send for consent URL](./media/app-service-api-connnect-your-app-to-saas-connector/sendforconsent.png)
 
-	The response includes a URL to use in order to initiate the process of logging in the user with Dropbox. (If you get an error response that indicates the Get method is not supported although you have the method dropdown set to **Post**, make sure that your gateway URL is HTTPS, not HTTP.)
+    The response includes a URL to use in order to initiate the process of logging in the user with Dropbox. (If you get an error response that indicates the Get method is not supported although you have the method dropdown set to **Post**, make sure that your gateway URL is HTTPS, not HTTP.)
 
-	![Consent URL](./media/app-service-api-connnect-your-app-to-saas-connector/getconsenturl.png)
+    ![Consent URL](./media/app-service-api-connnect-your-app-to-saas-connector/getconsenturl.png)
 
 2. Go to the URL that you received in response to the HTTP Post request.
 
-	The response to this URL redirects the browser to the Dropbox site, where the user logs in and grants consent for the app to access the user's account.
-	
-	When the login and consent process is done, Dropbox redirects the browser to the redirect URL that you specified (e.g., the Azure preview portal if you followed the example and used https://portal.azure.com). If you were calling from a web app, this would be the next page to be displayed in the web app.  The app should check the URL, because if there was an error in the login or consent process, the redirect URL could include an `error` querystring variable.
+    The response to this URL redirects the browser to the Dropbox site, where the user logs in and grants consent for the app to access the user's account.
+    
+    When the login and consent process is done, Dropbox redirects the browser to the redirect URL that you specified (e.g., the Azure preview portal if you followed the example and used https://portal.azure.com). If you were calling from a web app, this would be the next page to be displayed in the web app.  The app should check the URL, because if there was an error in the login or consent process, the redirect URL could include an `error` querystring variable.
 
 3. Keep this browser window open, as you'll use it in the following section.
 
@@ -211,21 +211,21 @@ In the following steps you make a Get request to the Dropbox connector to look a
  
 4. Click the **API definition** icon to see the API methods available in the connector.
 
-	![API App blade](./media/app-service-api-connnect-your-app-to-saas-connector/apiappblade.png) 
+    ![API App blade](./media/app-service-api-connnect-your-app-to-saas-connector/apiappblade.png) 
 
-	![API definition](./media/app-service-api-connnect-your-app-to-saas-connector/apidef.png) 
+    ![API definition](./media/app-service-api-connnect-your-app-to-saas-connector/apidef.png) 
 
 2. In the browser window that you used to authenticate to the gateway, call the GET method that retrieves file names from a folder. Here is the URL pattern:
 
-		[connectorurl]/folder/[foldername]
+        [connectorurl]/folder/[foldername]
    
 3. For example, if your connector URL is https://dropboxrg784237ad3e7.azurewebsites.net and you want to see the files in your blog folder, the URL would be:
 
-		https://dropboxrg784237ad3e7.azurewebsites.net/folder/blog
+        https://dropboxrg784237ad3e7.azurewebsites.net/folder/blog
 
-	Different browsers respond to API calls differently; if you're using Chrome you'll see a response similar to the following example:
+    Different browsers respond to API calls differently; if you're using Chrome you'll see a response similar to the following example:
 
-	![Get response to folder request](./media/app-service-api-connnect-your-app-to-saas-connector/dbresponse.png) 
+    ![Get response to folder request](./media/app-service-api-connnect-your-app-to-saas-connector/dbresponse.png) 
 
 ## Next steps
 
@@ -237,3 +237,4 @@ You've seen how to install, configure, and test a SaaS connector. For more infor
 [Azure preview portal]: https://portal.azure.com/
 [Azure portal]: https://manage.windowsazure.com/
  
+

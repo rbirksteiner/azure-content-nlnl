@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Tutorial: Azure Active Directory integration with TargetProcess | Microsoft Azure"
-	description="Learn how to configure single sign-on between Azure Active Directory and TargetProcess."
-	services="active-directory"
-	documentationCenter=""
-	authors="jeevansd"
-	manager="prasannas"
-	editor=""/>
+    pageTitle="Tutorial: Azure Active Directory integration with TargetProcess | Microsoft Azure"
+    description="Learn how to configure single sign-on between Azure Active Directory and TargetProcess."
+    services="active-directory"
+    documentationCenter=""
+    authors="jeevansd"
+    manager="prasannas"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/01/2015"
-	ms.author="jeedes"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/01/2015"
+    ms.author="jeedes"/>
 
 
 # Tutorial: Azure Active Directory integration with TargetProcess
@@ -265,6 +265,7 @@ When you click the TargetProcess tile in the Access Panel, you should get automa
 [203]: ./media/active-directory-saas-target-process-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-target-process-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-target-process-tutorial/tutorial_general_205.png
+
 
 
 

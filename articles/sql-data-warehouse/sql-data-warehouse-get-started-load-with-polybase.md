@@ -163,7 +163,7 @@ WITH
 -- Specify the blob service endpoint and the name of the database-scoped credential.
 
 CREATE EXTERNAL DATA SOURCE AzureStorage 
-WITH (	
+WITH (  
     TYPE = Hadoop, 
     LOCATION = 'wasbs://datacontainer@pbdemostorage.blob.core.windows.net',
     CREDENTIAL = AzureStorageCredential
@@ -222,7 +222,7 @@ WITH
 AS 
 SELECT * FROM [dbo].[DimDate2External];
 ```
-	
+    
 
 In SQL Server Object Explorer in Visual Studio, you can see the external file format, external data source, and the DimDate2External table.
 
@@ -281,5 +281,6 @@ See the [PolyBase guide][] for further information you should know as you develo
 [CREATE CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/ms189522.aspx
 [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/mt270260.aspx
 [DROP CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/ms189450.aspx
+
 
 

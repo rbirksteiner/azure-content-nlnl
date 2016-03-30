@@ -74,19 +74,19 @@ The following screenshot shows an example for this.
 
 ###To configure single sign-on, perform the following steps:
 
-1.  In the Azure AD portal, on the **Veracode** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  In the Azure AD portal, on the **Veracode** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
     ![Configure Single Sign-On](./media/active-directory-saas-veracode-tutorial/IC802907.png "Configure Single Sign-On")
 
-2.  On the **How would you like users to sign on to Veracode** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to Veracode** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-veracode-tutorial/IC802908.png "Configure Single Sign-On")
 
-3.  On the **Configure App Settings** page, click **Next**.
+3.  On the **Configure App Settings** page, click **Next**.
 
     ![Configure App Settings](./media/active-directory-saas-veracode-tutorial/IC802909.png "Configure App Settings")
 
-4.  On the **Configure single sign-on at Veracode** page, to download your certificate, click **Download certificate**, and then save the certificate file locally on your computer.
+4.  On the **Configure single sign-on at Veracode** page, to download your certificate, click **Download certificate**, and then save the certificate file locally on your computer.
 
     ![Configure Single Sign-On](./media/active-directory-saas-veracode-tutorial/IC802910.png "Configure Single Sign-On")
 
@@ -124,11 +124,11 @@ The following screenshot shows an example for this.
         -   **Team Memberships**
         -   **Default Team**
 
-10. On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+10. On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
     ![Configure Single Sign-On](./media/active-directory-saas-veracode-tutorial/IC802914.png "Configure Single Sign-On")
 
-11. In the menu on the top, click **Attributes** to open the **SAML Token Attributes** dialog.
+11. In the menu on the top, click **Attributes** to open the **SAML Token Attributes** dialog.
 
     ![Attributes](./media/active-directory-saas-veracode-tutorial/IC795920.png "Attributes")
 
@@ -136,15 +136,15 @@ The following screenshot shows an example for this.
 
     ![Attributes](./media/active-directory-saas-veracode-tutorial/IC802906.png "Attributes")
 
-	| Attribute Name | Attribute Value |
-	|:---------------|:----------------|
-	| firstname      | User.givenname  |
-	| lastname       | User.surname    |
-	| email          | User.mail       |
+    | Attribute Name | Attribute Value |
+    |:---------------|:----------------|
+    | firstname      | User.givenname  |
+    | lastname       | User.surname    |
+    | email          | User.mail       |
 
     1.  For each data row in the table above, click **add user attribute**.
     
-	2.  In the **Attribute Name** textbox, type the attribute name shown for that row.
+    2.  In the **Attribute Name** textbox, type the attribute name shown for that row.
 
     3.  In the **Attribute Value** textbox, select the attribute value shown for that row.
 
@@ -170,7 +170,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 1.  In the Azure AD portal, create a test account.
 
-2.  On the **Veracode **application integration page, click **Assign users**.
+2.  On the **Veracode **application integration page, click **Assign users**.
 
     ![Assign Users](./media/active-directory-saas-veracode-tutorial/IC802915.png "Assign Users")
 

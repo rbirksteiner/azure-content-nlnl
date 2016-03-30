@@ -56,7 +56,7 @@ Perform these required steps to configure your StorSimple device and connect it 
 | [Step 7: Mount, initialize, and format a volume](#step-7-mount-initialize-and-format-a-volume)</br>[Optional: Configure MPIO](storsimple-configure-mpio-windows-server.md)            | Connect your servers to the iSCSI storage provided by the device. Optionally configure MPIO to ensure that your servers can tolerate link, network and itnerface failure.                                                                                                                                                              |
 | [Step 8: Take a backup](#step-8-take-a-backup)                                                                  | Set up your backup policy to protect your data                                                                                                                 |
 |                                                                                        |                                                                                                                                                               |
-| **OTHER PROCEDURES**                                                                   | You may need to refer to these procedures as you deploy your solution.                                                                                     	 |
+| **OTHER PROCEDURES**                                                                   | You may need to refer to these procedures as you deploy your solution.                                                                                        |
 | [Configure a new storage account for the service](#configure-a-new-storage-account-for-the-service)                                      |                                                                                                                                                               |
 | [Use PuTTY to connect to the device serial console](#use-putty-to-connect-to-the-device-serial-console)                                    |                                                                                                                                                               |
 | [Get the IQN of a Windows Server host](#get-the-iqn-of-a-windows-server-host)                                                   |                                                                                                                                                               |
@@ -213,15 +213,15 @@ Updating your device can take several hours. Perform the following steps to scan
 
 #### To update your device
 
-1.	On the device **Quick Start** page, click **Devices**. Select the physical device, click **Maintenance** and then click **Scan Updates**.  
+1.  On the device **Quick Start** page, click **Devices**. Select the physical device, click **Maintenance** and then click **Scan Updates**.  
 
-2.	A job to scan for available updates is created. If updates are available, the **Scan Updates** changes to **Install Updates**. Click **Install Updates**. 
+2.  A job to scan for available updates is created. If updates are available, the **Scan Updates** changes to **Install Updates**. Click **Install Updates**. 
 
-3.	An update job will be created. Monitor the status of your update by navigating to **Jobs**.
+3.  An update job will be created. Monitor the status of your update by navigating to **Jobs**.
 
-	> [AZURE.NOTE] When the update job starts, it immediately displays the status as 50 percent. The status changes to 100 percent only after the update job is complete. There is no real-time status for the update process.
+    > [AZURE.NOTE] When the update job starts, it immediately displays the status as 50 percent. The status changes to 100 percent only after the update job is complete. There is no real-time status for the update process.
 
-4.	After the device is successfully updated, enable Data 2 and Data 3 network interfaces if these were disabled.
+4.  After the device is successfully updated, enable Data 2 and Data 3 network interfaces if these were disabled.
 
 <!-- In step 2, you may be requested to disable Data 2 and Data 3 prior to installing the updates. You must disable these network interfaces or the updates may fail.-->
 
@@ -244,3 +244,4 @@ Configure a [virtual device](storsimple-virtual-device.md).
 
 Use the [StorSimple Manager service](storsimple-manager-service-administration.md) to manage your StorSimple device.
  
+

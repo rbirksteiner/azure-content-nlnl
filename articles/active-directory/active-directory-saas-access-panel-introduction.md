@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Introduction to the Access Panel | Microsoft Azure"
-	description="Learn how to use the various flavors of the Access Panel (Web browser, Android app, iPhone and iPad app) to access the SaaS apps that are assigned to you."
-	services="active-directory"
-	documentationCenter=""
-	authors="markusvi"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Introduction to the Access Panel | Microsoft Azure"
+    description="Learn how to use the various flavors of the Access Panel (Web browser, Android app, iPhone and iPad app) to access the SaaS apps that are assigned to you."
+    services="active-directory"
+    documentationCenter=""
+    authors="markusvi"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/20/2015"
-	ms.author="markusvi"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/20/2015"
+    ms.author="markusvi"/>
 
 
 # Introduction to the Access Panel
@@ -189,3 +189,4 @@ For example, if there is an application that is configured to authenticate users
 [2]: ./media/active-directory-saas-access-panel-introduction/ic767167.png
 [3]: ./media/active-directory-saas-access-panel-introduction/ic767168.png
 [4]: ./media/active-directory-saas-access-panel-introduction/ic767169.png
+

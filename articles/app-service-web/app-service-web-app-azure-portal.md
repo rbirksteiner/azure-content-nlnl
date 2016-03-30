@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Reference for navigating the Azure portal"
-	description="Learn the different user experiences for App Service Web between the management portal and the Azure Portal"
-	services="app-service"
-	documentationCenter=""
-	authors="jaime-espinosa"
-	manager="wpickett"
-	editor="jimbe"/>
+    pageTitle="Reference for navigating the Azure portal"
+    description="Learn the different user experiences for App Service Web between the management portal and the Azure Portal"
+    services="app-service"
+    documentationCenter=""
+    authors="jaime-espinosa"
+    manager="wpickett"
+    editor="jimbe"/>
 
 <tags
-	ms.service="app-service"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/15/2015"
-	ms.author="jaime-espinosa"/>
+    ms.service="app-service"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/15/2015"
+    ms.author="jaime-espinosa"/>
 
 # Reference for navigating the class portal
 
@@ -86,3 +86,4 @@ Other than the brand name, a few things in the portal have been renamed or group
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
  
+

@@ -125,3 +125,4 @@ The following example assigns a group to a role for the resource group.
 
 - For information about the template structure, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
 - For more information about role-based access control, see [Azure Active Directory Role-based Access Control](active-directory/role-based-access-control-configure.md).
+

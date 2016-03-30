@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Plan your upgrade to SQL Database V12 | Microsoft Azure"
-	description="Describes the preparations and limitations involved in upgrading to version V12 of Azure SQL Database."
-	services="sql-database"
-	documentationCenter=""
-	authors="MightyPen"
-	manager="jeffreyg"
-	editor=""/>
+    pageTitle="Plan your upgrade to SQL Database V12 | Microsoft Azure"
+    description="Describes the preparations and limitations involved in upgrading to version V12 of Azure SQL Database."
+    services="sql-database"
+    documentationCenter=""
+    authors="MightyPen"
+    manager="jeffreyg"
+    editor=""/>
 
 
 <tags
-	ms.service="sql-database"
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/08/2015"
-	ms.author="genemi"/>
+    ms.service="sql-database"
+    ms.workload="data-management" 
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/08/2015"
+    ms.author="genemi"/>
 
 
 # Plan and prepare to upgrade to SQL Database V12
@@ -254,3 +254,4 @@ If the upgrade fails for any odd reason, your V11 database remains active and av
 <!--Anchors-->
 [Subheading 1]: #subheading-1
  
+

@@ -7,8 +7,8 @@ Managing and analyzing data in the cloud is just as important as it is anywhere 
 - [Blob Storage](#blob)
 - [Running a DBMS in a Virtual Machine](#dbinvm)
 - [SQL Database](#sqldb)
-	- [SQL Data Sync](#datasync)
-	- [SQL Data Reporting using Virtual Machines](#datarpt)
+    - [SQL Data Sync](#datasync)
+    - [SQL Data Reporting using Virtual Machines](#datarpt)
 - [Table Storage](#tblstor)
 - [Hadoop](#hadoop)
 
@@ -181,3 +181,4 @@ More broadly, data of all kinds is important. This is why Azure includes a range
 [SQL-report]: ./media/cloud-storage/Data_05_SQLReporting.png
 [SQL-tblstor]: ./media/cloud-storage/Data_06_TblStorage.png
 [hadoop]: ./media/cloud-storage/Data_07_Hadoop.png
+

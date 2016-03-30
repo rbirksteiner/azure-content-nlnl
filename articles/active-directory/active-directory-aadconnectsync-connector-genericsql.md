@@ -35,7 +35,7 @@ From a high level perspective, the following features supported by the current r
 | Feature | Support |
 | --- | --- |
 | Connected data source | The Connector is supported with all 64-bit ODBC drivers. It has been tested with the following: <li>Microsoft SQL Server & SQL Azure</li><li>IBM DB2 10.x</li><li>IBM DB2 9.x</li><li>Oracle 10 & 11g</li><li>MySQL 5.x</li>
-| Scenarios	| <li>Object Lifecycle Management</li><li>Password Management</li> |
+| Scenarios | <li>Object Lifecycle Management</li><li>Password Management</li> |
 | Operations | <li>Full Import and Delta Import, Export</li><li>For Export: Add, Delete, Update, and Replace</li><li>Set Password, Change Password</li>
 | Schema | <li>Dynamic discovery of objects and attributes</li>
 
@@ -84,7 +84,7 @@ The database should support one of the authentication methods mentioned below.
 
 **DN is Anchor**: If you select this option, the DN will also be used as the anchor attribute. It can be used for a simple implementation but also has the following limitations:
 
--	Connector supports only 1 object type. Therefore any reference attributes can only reference the same object type.
+-   Connector supports only 1 object type. Therefore any reference attributes can only reference the same object type.
 
 **Export Type: Object Replace**: During export when only some attributes have been changed, the entire object with all attributes will be exported and will replace the existing object.
 
@@ -306,4 +306,5 @@ If users chooses the SQL query option, Export require 3 different queries to per
 
 ## Troubleshooting
 
--	For information on how to enable logging to troubleshoot the connector, see the [How to Enable ETW Tracing for Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
+-   For information on how to enable logging to troubleshoot the connector, see the [How to Enable ETW Tracing for Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
+

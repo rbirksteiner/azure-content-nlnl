@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How to partition data in DocumentDB with the .NET SDK | Microsoft Azure" 
-	description="Learn how to use the Azure DocumentDB .NET SDK to partition (shard) data and route requests across multiple collections" 
-	services="documentdb" 
-	authors="arramac" 
-	manager="jhubbard" 
-	editor="cgronlun" 
-	documentationCenter=""/>
+    pageTitle="How to partition data in DocumentDB with the .NET SDK | Microsoft Azure" 
+    description="Learn how to use the Azure DocumentDB .NET SDK to partition (shard) data and route requests across multiple collections" 
+    services="documentdb" 
+    authors="arramac" 
+    manager="jhubbard" 
+    editor="cgronlun" 
+    documentationCenter=""/>
 
 <tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/05/2015" 
-	ms.author="arramac"/>
+    ms.service="documentdb" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/05/2015" 
+    ms.author="arramac"/>
 
 # How to partition data in DocumentDB with the .NET SDK
 

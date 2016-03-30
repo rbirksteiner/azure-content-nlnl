@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Add push notifications to your universal Windows 8.1 app | Microsoft Azure" 
-	description="Learn how to send push notifications to your universal Windows 8.1 app from your JavaScript backend mobile service using Azure Notification Hubs." 
-	services="mobile-services,notification-hubs" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="Add push notifications to your universal Windows 8.1 app | Microsoft Azure" 
+    description="Learn how to send push notifications to your universal Windows 8.1 app from your JavaScript backend mobile service using Azure Notification Hubs." 
+    services="mobile-services,notification-hubs" 
+    documentationCenter="windows" 
+    authors="ggailey777" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="11/10/2015" 
-	ms.author="glenga"/>
+    ms.service="mobile-services" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="mobile-windows" 
+    ms.devlang="dotnet" 
+    ms.topic="article" 
+    ms.date="11/10/2015" 
+    ms.author="glenga"/>
 
 
 # Add push notifications to your Mobile Services app
@@ -66,18 +66,18 @@ The following steps update the insert script registered to the TodoItem table. Y
 This tutorial demonstrated the basics of enabling a Windows Store app to use Mobile Services and Notification Hubs to send push notifications. Next, consider completing one of the following tutorials:
 
 + [Send push notifications to authenticated users](mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users.md)
-	<br/>Learn how to use tags to send push notifications from your mobile service to only an authenticated user.
+    <br/>Learn how to use tags to send push notifications from your mobile service to only an authenticated user.
 
 + [Send broadcast notifications to subscribers](../notification-hubs-windows-store-dotnet-send-breaking-news.md)
-	<br/>Learn how users can register and receive push notifications for categories they're interested in.
+    <br/>Learn how users can register and receive push notifications for categories they're interested in.
 
 + [Send platform-agnostic notifications to subscribers](../notification-hubs-aspnet-cross-platform-notify-users.md)
-	<br/>Learn how to use templates to send push notifications from your mobile service, without having to craft platform-specific payloads in your back-end.
+    <br/>Learn how to use templates to send push notifications from your mobile service, without having to craft platform-specific payloads in your back-end.
 
 Learn more about Mobile Services and Notification Hubs in the following topics:
 
 * [Azure Notification Hubs - Diagnosis guidelines](../notification-hubs-diagnosing.md)
-	<br/>Learn how to troubleshoot your push notification issues.
+    <br/>Learn how to troubleshoot your push notification issues.
 
 * [Get started with authentication]
   <br/>Learn how to authenticate users of your app with different account types using mobile services.

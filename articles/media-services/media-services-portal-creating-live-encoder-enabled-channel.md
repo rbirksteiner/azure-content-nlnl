@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Create Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream using the Azure Classic Portal" 
-	description="This tutorial walks you through the steps of creating a Channel that receives a single-bitrate live stream and encodes it to multi-bitrate stream using the Azure Classic Portal." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="juliako,anilmur" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="Create Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream using the Azure Classic Portal" 
+    description="This tutorial walks you through the steps of creating a Channel that receives a single-bitrate live stream and encodes it to multi-bitrate stream using the Azure Classic Portal." 
+    services="media-services" 
+    documentationCenter="" 
+    authors="juliako,anilmur" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/15/2015"  
-	ms.author="juliako"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/15/2015"  
+    ms.author="juliako"/>
 
 
 #Create channels that perform live encoding from a single-bitrate to multi-bitrate stream using the Azure Classic Portal
@@ -35,22 +35,22 @@ The following are general steps involved in creating common live streaming appli
 >[AZURE.NOTE] Currently, the max recommended duration of a live event is 8 hours. Please contact amslived at Microsoft dot com if you need to run a Channel for longer periods of time.
 
 1. Connect a video camera to a computer. Launch and configure an on-premises live encoder that can output a single bitrate stream in one of the following protocols: RTMP, Smooth Streaming, or RTP (MPEG-TS). For more information, see [Azure Media Services RTMP Support and Live Encoders](http://go.microsoft.com/fwlink/?LinkId=532824).
-	
-	This step could also be performed after you create your Channel.
+    
+    This step could also be performed after you create your Channel.
 
 1. Create and start a Channel. 
 
 1. Retrieve the Channel ingest URL. 
 
-	The ingest URL is used by the live encoder to send the stream to the Channel.
+    The ingest URL is used by the live encoder to send the stream to the Channel.
 1. Retrieve the Channel preview URL. 
 
-	Use this URL to verify that your channel is properly receiving the live stream.
+    Use this URL to verify that your channel is properly receiving the live stream.
 
 3. Create a program (that will also create an asset). 
 1. Publish the program (that will create an  OnDemand locator for the associated asset).  
 
-	Make sure to have at least one streaming reserved unit on the streaming endpoint from which you want to stream content.
+    Make sure to have at least one streaming reserved unit on the streaming endpoint from which you want to stream content.
 1. Start the program when you are ready to start streaming and archiving.
 2. Optionally, the live encoder can be signaled to start an advertisement. The advertisement is inserted in the output stream.
 1. Stop the program whenever you want to stop streaming and archiving the event.
@@ -92,23 +92,23 @@ To change the number of streaming reserved units, do the following:
 
 3. To specify the number of streaming units, select the SCALE tab and move the **reserved capacity** slider.
 
-	![Scale page](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-origin-scale.png)
+    ![Scale page](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-origin-scale.png)
 
 4. Press the SAVE button to save your changes.
 
-	The allocation of any new units takes around 20 minutes to complete. 
+    The allocation of any new units takes around 20 minutes to complete. 
 
-	 
-	>[AZURE.NOTE] Currently, going from any positive value of streaming units back to none, can disable streaming for up to an hour.
-	>
-	> The highest number of units specified for the 24-hour period is used in calculating the cost. For information about pricing details, see [Media Services Pricing Details](http://go.microsoft.com/fwlink/?LinkId=275107).
+     
+    >[AZURE.NOTE] Currently, going from any positive value of streaming units back to none, can disable streaming for up to an hour.
+    >
+    > The highest number of units specified for the 24-hour period is used in calculating the cost. For information about pricing details, see [Media Services Pricing Details](http://go.microsoft.com/fwlink/?LinkId=275107).
 
  
 ##Create a CHANNEL
 
-1.	In the [Azure Classic Portal](http://manage.windowsazure.com/), click Media Services and then click on the Media Services account name.
-2.	Select the CHANNELS page.
-3.	Select Add+ to add a new channel.
+1.  In the [Azure Classic Portal](http://manage.windowsazure.com/), click Media Services and then click on the Media Services account name.
+2.  Select the CHANNELS page.
+3.  Select Add+ to add a new channel.
 
 Choose **Standard** encoding types. This type specifies that you want to create a Channel that is enabled for live encoding. That means the incoming single bitrate stream is sent to the Channel and encoded into a multi-bitrate stream using specified live encoder settings. For more information, see [Working with Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream](media-services-manage-live-encoder-enabled-channels.md).
 
@@ -192,26 +192,26 @@ There are two ways to start event:
 
 1. From the **CHANNEL** page, press **ADD** to add a new program.
 
-	Specify: program name, asset name, archive window, and encryption option.
-	
-	![createprogram](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
-	
-	If you left **Publish this program now** checked, the program the PUBLISHING URLs will get created.
-	
-	You can press **START**, whenever you are ready streaming the program.
+    Specify: program name, asset name, archive window, and encryption option.
+    
+    ![createprogram](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
+    
+    If you left **Publish this program now** checked, the program the PUBLISHING URLs will get created.
+    
+    You can press **START**, whenever you are ready streaming the program.
 
-	Once you start the program, you can press PLAY to start playing the content.
+    Once you start the program, you can press PLAY to start playing the content.
 
 
-	![createdprogram](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-created-program.png)
+    ![createdprogram](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-created-program.png)
 
 2. Alternatively, you can use a shortcut and press **START STREAMING** button on the **CHANNEL** page. This will create an Asset, Program, and Streaming Locator.
 
-	The program is named DefaultProgram and the archive window is set to 1 hour.
+    The program is named DefaultProgram and the archive window is set to 1 hour.
 
-	You can play the published program from the CHANNEL page. 
+    You can play the published program from the CHANNEL page. 
 
-	![channelpublish](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-channel-play.png)
+    ![channelpublish](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-channel-play.png)
 
 
 If you click **STOP STREAMING** on the **CHANNEL** page, the default program will be stopped and deleted. The asset will still be there and you can publish or unpublish it from the **CONTENT**  page.
@@ -231,15 +231,15 @@ Dynamic packaging will take care of packaging the live stream into the specified
 
 By default, a streaming URL has the following format and you can use it to play Smooth Streaming assets:
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
+    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
 
 To build an HLS streaming URL, append (format=m3u8-aapl) to the URL.
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
+    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
 
 To build an  MPEG DASH streaming URL, append (format=mpd-time-csf) to the URL.
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
+    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
 
 For more information about delivering your content, see [Delivering content](media-services-deliver-content-overview.md).
 

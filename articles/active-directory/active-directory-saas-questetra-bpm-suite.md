@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Tutorial: Azure Active Directory integration with Questetra BPM Suite | Microsoft Aure"
-	description="Learn how to configure single sign-on between Azure Active Directory and Questetra BPM Suite."
-	services="active-directory"
-	documentationCenter=""
-	authors="markusvi"
-	manager="msStevenPo"
-	editor=""/>
+    pageTitle="Tutorial: Azure Active Directory integration with Questetra BPM Suite | Microsoft Aure"
+    description="Learn how to configure single sign-on between Azure Active Directory and Questetra BPM Suite."
+    services="active-directory"
+    documentationCenter=""
+    authors="markusvi"
+    manager="msStevenPo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/02/2015"
-	ms.author="markusvi"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/02/2015"
+    ms.author="markusvi"/>
 
 
 # Tutorial: Azure Active Directory integration with Questetra BPM Suite
@@ -204,9 +204,9 @@ The objective of this section is to create a user called Britta Simon in Questet
 
 **To create a user called Britta Simon in Questetra BPM Suite, perform the following steps:**
 
-1.	Sign-on to your Questetra BPM Suite company site as an administrator.
-2.	Go to **System Settings > User List > New User**. 
-3.	On the New User dialog, perform the following steps: <br><br>![Create test user][300] 
+1.  Sign-on to your Questetra BPM Suite company site as an administrator.
+2.  Go to **System Settings > User List > New User**. 
+3.  On the New User dialog, perform the following steps: <br><br>![Create test user][300] 
 
     a. In the **Name** textbox, type Britta's user name in Azure AD.
 
@@ -214,7 +214,7 @@ The objective of this section is to create a user called Britta Simon in Questet
 
     c. In the **Password** textbox, type a password.
 
-4.	Click **Add new user**.
+4.  Click **Add new user**.
 
 
 

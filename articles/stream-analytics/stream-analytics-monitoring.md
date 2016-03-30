@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Understanding Stream Analytics Job Monitoring | Microsoft Azure" 
-	description="Understanding Stream Analytics Job Monitoring" 
-	keywords="query monitor"
-	services="stream-analytics" 
-	documentationCenter="" 
-	authors="jeffstokes72" 
-	manager="paulettm" 
-	editor="cgronlun"/>
+    pageTitle="Understanding Stream Analytics Job Monitoring | Microsoft Azure" 
+    description="Understanding Stream Analytics Job Monitoring" 
+    keywords="query monitor"
+    services="stream-analytics" 
+    documentationCenter="" 
+    authors="jeffstokes72" 
+    manager="paulettm" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="stream-analytics" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="data-services" 
-	ms.date="12/04/2015" 
-	ms.author="jeffstok"/>
+    ms.service="stream-analytics" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="data-services" 
+    ms.date="12/04/2015" 
+    ms.author="jeffstok"/>
 
 # Understanding Stream Analytics job monitoring and how to monitor queries
 
@@ -103,3 +103,4 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 - [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
 - [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+

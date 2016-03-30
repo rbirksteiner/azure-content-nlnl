@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Data dependent routing | Microsoft Azure" 
-	description="How to use the ShardMapManager for data-dependent routing, a feature of elastic databases for Azure SQL Database" 
-	services="sql-database" 
-	documentationCenter="" 
-	manager="jeffreyg" 
-	authors="torsteng" 
-	editor=""/>
+    pageTitle="Data dependent routing | Microsoft Azure" 
+    description="How to use the ShardMapManager for data-dependent routing, a feature of elastic databases for Azure SQL Database" 
+    services="sql-database" 
+    documentationCenter="" 
+    manager="jeffreyg" 
+    authors="torsteng" 
+    editor=""/>
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="sql-database" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/04/2015" 
-	ms.author="torsteng;sidneyh"/>
+    ms.service="sql-database" 
+    ms.workload="sql-database" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/04/2015" 
+    ms.author="torsteng;sidneyh"/>
 
 #Data dependent routing
 

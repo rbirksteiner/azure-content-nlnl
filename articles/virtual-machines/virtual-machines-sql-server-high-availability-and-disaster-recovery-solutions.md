@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="High Availability and Disaster Recovery for SQL Server | Microsoft Azure"
-	description="This tutorial uses resources created with the classic deployment model, and discusses the various types of HADR strategies for SQL Server running in Azure Virtual Machines."
-	services="virtual-machines"
-	documentationCenter="na"
-	authors="rothja"
-	manager="jeffreyg"
-	editor="monicar" 
-	tags="azure-service-management"/>
+    pageTitle="High Availability and Disaster Recovery for SQL Server | Microsoft Azure"
+    description="This tutorial uses resources created with the classic deployment model, and discusses the various types of HADR strategies for SQL Server running in Azure Virtual Machines."
+    services="virtual-machines"
+    documentationCenter="na"
+    authors="rothja"
+    manager="jeffreyg"
+    editor="monicar" 
+    tags="azure-service-management"/>
 <tags 
-	ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services"
-	ms.date="11/13/2015"
-	ms.author="jroth" />
+    ms.service="virtual-machines"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="vm-windows-sql-server"
+    ms.workload="infrastructure-services"
+    ms.date="11/13/2015"
+    ms.author="jroth" />
 
 # High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines
 
@@ -121,7 +121,7 @@ You can still connect to each availability replica separately by connecting dire
 
 An example client connection string that corresponds to this database mirroring-like configuration using ADO.NET or SQL Server Native Client is below:
 
-	Data Source=ReplicaServer1;Failover Partner=ReplicaServer2;Initial Catalog=AvailabilityDatabase;
+    Data Source=ReplicaServer1;Failover Partner=ReplicaServer2;Initial Catalog=AvailabilityDatabase;
 
 For more information on client connectivity, see:
 
@@ -151,3 +151,4 @@ For other topics related to running SQL Server in Azure VMs, see [SQL Server on 
 
 - [Install a new Active Directory forest in Azure](../active-directory/active-directory-new-forest-virtual-machine.md)
 - [Create WSFC Cluster for AlwaysOn Availability Groups in Azure VM](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)
+

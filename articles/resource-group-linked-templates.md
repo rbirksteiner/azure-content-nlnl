@@ -122,3 +122,4 @@ If you need to pass a value from linked template to the main template, you can c
 ## Next steps
 - [Authoring templates](./resource-group-authoring-templates.md)
 - [Deploying templates](resource-group-template-deploy.md)
+

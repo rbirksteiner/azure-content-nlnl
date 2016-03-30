@@ -1,20 +1,20 @@
 <properties
-	pageTitle="OAUTH Security in SaaS Connectors and API Apps | Azure"
-	description="Read about OAUTH security in the Connectors and API Apps in Azure App Service; microservices architecture; saas"
-	services="app-service\logic"
-	documentationCenter=""
-	authors="MandiOhlinger"
-	manager="dwrede"
-	editor="cgronlun"/>
+    pageTitle="OAUTH Security in SaaS Connectors and API Apps | Azure"
+    description="Read about OAUTH security in the Connectors and API Apps in Azure App Service; microservices architecture; saas"
+    services="app-service\logic"
+    documentationCenter=""
+    authors="MandiOhlinger"
+    manager="dwrede"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="app-service-logic"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/15/2015"
-	ms.author="mandia"/> 
+    ms.service="app-service-logic"
+    ms.workload="integration"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/15/2015"
+    ms.author="mandia"/> 
 
 
 # Learn about OAUTH Security in SaaS connectors
@@ -26,19 +26,19 @@ This simplified experience is possible because we previously created and registe
 Even in the context of Logic Apps, you can use your own application instead of using the default application that we provide. If the "Authorize" button fails to connect, you can try creating your own app. The following lists these steps for the Twitter connector:
 
 1. Open your Twitter Connector in the Azure preview portal. Go to **Browse** > **API Apps**. Select your Twitter connector:  
-	![][1]
+    ![][1]
 
 2. Select **Settings** > **Authentication**:  
-	![][2]
+    ![][2]
 
 3. Copy the **Redirect URI** value:  
-	![][3]
+    ![][3]
 
 4. Go to [Twitter](http://apps.twitter.com) and **Create a New App**. In the **Callback URL** property, paste the **Redirect URI** value copied from  your Twitter connector:
-	![][4]  
+    ![][4]  
 5. When your Twitter app is created, select **Key and Access Tokens**. Copy these values.
 6. In your Twitter connector authentication settings, paste these values in the **Client ID** and **Client Secret** properties:   
-	![][5]  
+    ![][5]  
 7. Save your connector settings.  
 
 Now, you should be able to use your Connector from Logic Apps. When you use this Connector from Logic Apps, it uses your application instead of the default application.  
@@ -52,3 +52,4 @@ Now, you should be able to use your Connector from Logic Apps. When you use this
 [3]: ./media/app-service-logic-oauth-security/RedirectURI.png
 [4]: ./media/app-service-logic-oauth-security/TwitterApp.png
 [5]: ./media/app-service-logic-oauth-security/TwitterKeys.png
+

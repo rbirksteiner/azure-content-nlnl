@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Manage Azure SQL Databases using Azure Automation"
-	description="Learn about how the Azure Automation service can be used to manage Azure SQL databases at scale."
-	services="sql-database, automation"
-	documentationCenter=""
-	authors="jodoglevy"
-	manager="jeffreyg"
-	editor="monicar"/>
+    pageTitle="Manage Azure SQL Databases using Azure Automation"
+    description="Learn about how the Azure Automation service can be used to manage Azure SQL databases at scale."
+    services="sql-database, automation"
+    documentationCenter=""
+    authors="jodoglevy"
+    manager="jeffreyg"
+    editor="monicar"/>
 
 <tags
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/01/2015"
-	ms.author="jolevy"/>
+    ms.service="sql-database"
+    ms.workload="data-management"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/01/2015"
+    ms.author="jolevy"/>
 
 
 
@@ -52,3 +52,4 @@ Now that you've learned the basics of Azure Automation and how it can be used to
  * See the Azure Automation [Getting Started Tutorial](../automation-create-runbook-from-samples.md)
  * Read the [Azure Automation: Your SQL Agent in the Cloud](http://azure.microsoft.com/blog/2014/06/26/azure-automation-your-sql-agent-in-the-cloud/) blog post
  
+

@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Storage Analytics | Microsoft Azure"
-	description="How to manage concurrency for the Blob, Queue, Table, and File services"
-	services="storage"
-	documentationCenter=""
-	authors="tamram"
-	manager="adinah"
-	editor=""/>
+    pageTitle="Storage Analytics | Microsoft Azure"
+    description="How to manage concurrency for the Blob, Queue, Table, and File services"
+    services="storage"
+    documentationCenter=""
+    authors="tamram"
+    manager="adinah"
+    editor=""/>
 
 <tags
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="09/03/2015"
-	ms.author="tamram"/>
+    ms.service="storage"
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="09/03/2015"
+    ms.author="tamram"/>
 
 # Storage Analytics
 
@@ -79,15 +79,15 @@ Each log will be written in the following format.
 
 The following table describes each attribute in the log name.
 
-| Attribute      	| Description                                                                                                                                                                                	|
-|----------------	|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
-| <service-name> 	| The name of the storage service. For example: blob, table, or queue.                                                                                                                        	|
-| YYYY           	| The four digit year for the log. For example: 2011.                                                                                                                                         	|
-| MM             	| The two digit month for the log. For example: 07.                                                                                                                                           	|
-| DD             	| The two digit month for the log. For example: 07.                                                                                                                                           	|
-| hh             	| The two digit hour that indicates the starting hour for the logs, in 24 hour UTC format. For example: 18.                                                                                   	|
-| mm             	| The two digit number that indicates the starting minute for the logs. This value is unsupported in the current version of Storage Analytics, and its value will always be 00. 	|
-| <counter>      	| A zero-based counter with six digits that indicates the number of log blobs generated for the storage service in an hour time period. This counter starts at 000000. For example: 000001.   	|
+| Attribute         | Description                                                                                                                                                                                   |
+|----------------   |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------   |
+| <service-name>    | The name of the storage service. For example: blob, table, or queue.                                                                                                                          |
+| YYYY              | The four digit year for the log. For example: 2011.                                                                                                                                           |
+| MM                | The two digit month for the log. For example: 07.                                                                                                                                             |
+| DD                | The two digit month for the log. For example: 07.                                                                                                                                             |
+| hh                | The two digit hour that indicates the starting hour for the logs, in 24 hour UTC format. For example: 18.                                                                                     |
+| mm                | The two digit number that indicates the starting minute for the logs. This value is unsupported in the current version of Storage Analytics, and its value will always be 00.     |
+| <counter>         | A zero-based counter with six digits that indicates the number of log blobs generated for the storage service in an hour time period. This counter starts at 000000. For example: 000001.     |
 
 The following is a complete sample log name that combines the previous examples.
 
@@ -102,12 +102,12 @@ When a storage request is logged, the resulting log name correlates to the hour 
 ### Log metadata
 All log blobs are stored with metadata that can be used to identify what logging data the blob contains. The following table describes each metadata attribute.
 
-| Attribute  	| Description                                                                                                                                                                                                                                               	|
-|------------	|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
-| LogType    	| Describes whether the log contains information pertaining to read, write, or delete operations. This value can include one type or a combination of all three, separated by commas.   Example 1: write Example 2: read,write Example 3: read,write,delete. 	|
-| StartTime  	| The earliest time of an entry in the log, in the form of YYYY-MM-DDThh:mm:ssZ. For example: 2011-07-31T18:21:46Z.                                                                                                                                          	|
-| EndTime    	| The latest time of an entry in the log, in the form of YYYY-MM-DDThh:mm:ssZ. For example: 2011-07-31T18:22:09Z.                                                                                                                                           	|
-| LogVersion 	| The version of the log format. Currently the only supported value is 1.0.                                                                                                                                                                                 	|
+| Attribute     | Description                                                                                                                                                                                                                                                   |
+|------------   |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------    |
+| LogType       | Describes whether the log contains information pertaining to read, write, or delete operations. This value can include one type or a combination of all three, separated by commas.   Example 1: write Example 2: read,write Example 3: read,write,delete.    |
+| StartTime     | The earliest time of an entry in the log, in the form of YYYY-MM-DDThh:mm:ssZ. For example: 2011-07-31T18:21:46Z.                                                                                                                                             |
+| EndTime       | The latest time of an entry in the log, in the form of YYYY-MM-DDThh:mm:ssZ. For example: 2011-07-31T18:22:09Z.                                                                                                                                               |
+| LogVersion    | The version of the log format. Currently the only supported value is 1.0.                                                                                                                                                                                     |
 
 The following list displays complete sample metadata using the previous examples.
 
@@ -157,14 +157,14 @@ For more information about the capacity metrics, see [Storage Analytics Metrics 
 
 All metrics data for each of the storage services is stored in three tables reserved for that service: one table for transaction information, one table for minute transaction information, and another table for capacity information. Transaction and minute transaction information consists of request and response data, and capacity information consists of storage usage data. Hour metrics, minute metrics, and capacity for a storage account’s Blob service is can be accessed in tables that are named as described in the following table.
 
-| Metrics level                      	| Table names                                                                                                                 	| Supported versions                                                                                                                       	|
-|------------------------------------	|-----------------------------------------------------------------------------------------------------------------------------	|----------------------------------------------------------------------------------------------------------------------------------------------	|
-| Hourly metrics, primary location   	|  $MetricsTransactionsBlob <br/>$MetricsTransactionsTable <br/> $MetricsTransactionsQueue                                              	| Versions prior to 2013-08-15 only. While these names are still supported, it’s recommended that you switch to using the tables listed below. 	|
-| Hourly metrics, primary location   	| $MetricsHourPrimaryTransactionsBlob <br/>$MetricsHourPrimaryTransactionsTable <br/>$MetricsHourPrimaryTransactionsQueue             	| All versions, including 2013-08-15.                                                                                                           	|
-| Minute metrics, primary location   	| $MetricsMinutePrimaryTransactionsBlob <br/>$MetricsMinutePrimaryTransactionsTable <br/>$MetricsMinutePrimaryTransactionsQueue       	| All versions, including 2013-08-15.                                                                                                           	|
-| Hourly metrics, secondary location 	| $MetricsHourSecondaryTransactionsBlob <br/>$MetricsHourSecondaryTransactionsTable <br/>$MetricsHourSecondaryTransactionsQueue       	| All versions, including 2013-08-15. Read-access geo-redundant replication must be enabled.                                                   	|
-| Minute metrics, secondary location 	| $MetricsMinuteSecondaryTransactionsBlob <br/>$MetricsMinuteSecondaryTransactionsTable <br/>$MetricsMinuteSecondaryTransactionsQueue 	| All versions, including 2013-08-15. Read-access geo-redundant replication must be enabled.                                                   	|
-| Capacity (Blob service only)       	| $MetricsCapacityBlob                                                                                                        	| All versions, including 2013-08-15.                                                                                                           	|
+| Metrics level                         | Table names                                                                                                                   | Supported versions                                                                                                                        |
+|------------------------------------   |-----------------------------------------------------------------------------------------------------------------------------  |---------------------------------------------------------------------------------------------------------------------------------------------- |
+| Hourly metrics, primary location      |  $MetricsTransactionsBlob <br/>$MetricsTransactionsTable <br/> $MetricsTransactionsQueue                                                  | Versions prior to 2013-08-15 only. While these names are still supported, it’s recommended that you switch to using the tables listed below.  |
+| Hourly metrics, primary location      | $MetricsHourPrimaryTransactionsBlob <br/>$MetricsHourPrimaryTransactionsTable <br/>$MetricsHourPrimaryTransactionsQueue               | All versions, including 2013-08-15.                                                                                                               |
+| Minute metrics, primary location      | $MetricsMinutePrimaryTransactionsBlob <br/>$MetricsMinutePrimaryTransactionsTable <br/>$MetricsMinutePrimaryTransactionsQueue         | All versions, including 2013-08-15.                                                                                                               |
+| Hourly metrics, secondary location    | $MetricsHourSecondaryTransactionsBlob <br/>$MetricsHourSecondaryTransactionsTable <br/>$MetricsHourSecondaryTransactionsQueue         | All versions, including 2013-08-15. Read-access geo-redundant replication must be enabled.                                                    |
+| Minute metrics, secondary location    | $MetricsMinuteSecondaryTransactionsBlob <br/>$MetricsMinuteSecondaryTransactionsTable <br/>$MetricsMinuteSecondaryTransactionsQueue   | All versions, including 2013-08-15. Read-access geo-redundant replication must be enabled.                                                    |
+| Capacity (Blob service only)          | $MetricsCapacityBlob                                                                                                          | All versions, including 2013-08-15.                                                                                                               |
 
 
 These tables are automatically created when Storage Analytics is enabled for a storage account. They are accessed via the namespace of the storage account, for example: `https://<accountname>.table.core.windows.net/Tables("$MetricsTransactionsBlob")`
@@ -206,3 +206,4 @@ When looking at Storage Analytics data, you can use the tables in the [Storage A
 - [About Storage Analytics Metrics](https://msdn.microsoft.com/library/hh343258.aspx)
 - [Storage Analytics Metrics Table Schema](https://msdn.microsoft.com/library/hh343264.aspx)
 - [Storage Analytics Logged Operations and Status Messages](https://msdn.microsoft.com/library/hh343260.aspx)  
+

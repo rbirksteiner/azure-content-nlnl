@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Enable diagnostics logging for web apps in Azure App Service"
-	description="Learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure."
-	services="app-service"
-	documentationCenter=".net"
-	authors="cephalin"
-	manager="wpickett"
-	editor="jimbe"/>
+    pageTitle="Enable diagnostics logging for web apps in Azure App Service"
+    description="Learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure."
+    services="app-service"
+    documentationCenter=".net"
+    authors="cephalin"
+    manager="wpickett"
+    editor="jimbe"/>
 
 <tags
-	ms.service="app-service"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/20/2015"
-	ms.author="cephalin"/>
+    ms.service="app-service"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/20/2015"
+    ms.author="cephalin"/>
 
 # Enable diagnostics logging for web apps in Azure App Service
 
@@ -42,7 +42,7 @@ You can enable or disable the following kinds of logs:
 
 Application diagnostics allows you to capture information produced by a web application. ASP.NET applications can use the [System.Diagnostics.Trace](http://msdn.microsoft.com/library/36hhw2t6.aspx) class to log information to the application diagnostics log. For example:
 
-	System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
+    System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
 At runtime you can retrieve these logs to help with troubleshooting. For more information, see [Troubleshooting Azure web apps in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
@@ -107,7 +107,7 @@ To access diagnostic information using FTP, visit the **Dashboard** of your web 
 
 To download the log files, start a new instance of Azure PowerShell and use the following command:
 
-	Save-AzureWebSiteLog -Name webappname
+    Save-AzureWebSiteLog -Name webappname
 
 This will save the logs for the web app specified by the **-Name** parameter to a file named **logs.zip** in the current directory.
 
@@ -117,7 +117,7 @@ This will save the logs for the web app specified by the **-Name** parameter to 
 
 To download the log files using the Azure Command Line Interface, open a new command prompt, PowerShell, Bash, or Terminal session and enter the following command:
 
-	azure site log download webappname
+    azure site log download webappname
 
 This will save the logs for the web app named 'webappname' to a file named **diagnostics.zip** in the current directory.
 
@@ -148,17 +148,17 @@ While developing an application, it is often useful to see logging information i
 
 To stream logging information, start a new of Azure PowerShell and use the following command:
 
-	Get-AzureWebSiteLog -Name webappname -Tail
+    Get-AzureWebSiteLog -Name webappname -Tail
 
 This will connect to the web app specified by the **-Name** parameter and begin streaming information to the PowerShell window as log events occur on the web app. Any information written to files ending in .txt, .log, or .htm that are stored in the /LogFiles directory (d:/home/logfiles) will be streamed to the local console.
 
 To filter specific events, such as errors, use the **-Message** parameter. For example:
 
-	Get-AzureWebSiteLog -Name webappname -Tail -Message Error
+    Get-AzureWebSiteLog -Name webappname -Tail -Message Error
 
 To filter specific log types, such as HTTP, use the **-Path** parameter. For example:
 
-	Get-AzureWebSiteLog -Name webappname -Tail -Path http
+    Get-AzureWebSiteLog -Name webappname -Tail -Path http
 
 To see a list of available paths, use the -ListPath parameter.
 
@@ -168,17 +168,17 @@ To see a list of available paths, use the -ListPath parameter.
 
 To stream logging information, open a new command prompt, PowerShell, Bash, or Terminal session and enter the following command:
 
-	azure site log tail webappname
+    azure site log tail webappname
 
 This will connect to the web app named 'webappname' and begin streaming information to the window as log events occur on the web app. Any information written to files ending in .txt, .log, or .htm that are stored in the /LogFiles directory (d:/home/logfiles) will be streamed to the local console.
 
 To filter specific events, such as errors, use the **--Filter** parameter. For example:
 
-	azure site log tail webappname --filter Error
+    azure site log tail webappname --filter Error
 
 To filter specific log types, such as HTTP, use the **--Path** parameter. For example:
 
-	azure site log tail webappname --path http
+    azure site log tail webappname --path http
 
 > [AZURE.NOTE] If you have not installed the Azure Command-Line Interface, or have not configured it to use your Azure Subscription, see [How to Use Azure Command-Line Interface](../xplat-cli-install.md).
 
@@ -192,11 +192,11 @@ __File system__
 
 Each line logged to the file system or received using streaming will be in the following format:
 
-	{Date}  PID[{process id}] {event type/level} {message}
+    {Date}  PID[{process id}] {event type/level} {message}
 
 For example, an error event would appear similar to the following:
 
-	2014-01-30T16:36:59  PID[3096] Error       Fatal error on the page!
+    2014-01-30T16:36:59  PID[3096] Error       Fatal error on the page!
 
 Logging to the file system provides the most basic information of the three available methods, providing only the time, process id, event level, and message.
 
@@ -236,8 +236,8 @@ Message|Event detail message
 
 The data stored in a blob would similar to the following:
 
-	date,level,applicationName,instanceId,eventTickCount,eventId,pid,tid,message
-	2014-01-30T16:36:52,Error,mywebapp,6ee38a,635266966128818593,0,3096,9,An error occurred
+    date,level,applicationName,instanceId,eventTickCount,eventId,pid,tid,message
+    2014-01-30T16:36:52,Error,mywebapp,6ee38a,635266966128818593,0,3096,9,An error occurred
 
 > [AZURE.NOTE] The first line of the log will contain the column headers as represented in this example.
 
@@ -269,3 +269,4 @@ The web server logs are formatted using the [W3C extended log file format](http:
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
 * For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
  
+

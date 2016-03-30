@@ -1,21 +1,21 @@
 <properties
-	pageTitle="SQL Server IaaS Agent Extension | Microsoft Azure"
-	description="This topic uses resources created with the classic deployment model, and describes the SQL Server agent extension, which enables a VM running SQL Server on Azure to use automation features."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="jeffgoll"
-	manager="jeffreyg"
+    pageTitle="SQL Server IaaS Agent Extension | Microsoft Azure"
+    description="This topic uses resources created with the classic deployment model, and describes the SQL Server agent extension, which enables a VM running SQL Server on Azure to use automation features."
+    services="virtual-machines"
+    documentationCenter=""
+    authors="jeffgoll"
+    manager="jeffreyg"
    editor="monicar"    
    tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services"
-	ms.date="10/02/2015"
-	ms.author="jeffreyg"/>
+    ms.service="virtual-machines"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="vm-windows-sql-server"
+    ms.workload="infrastructure-services"
+    ms.date="10/02/2015"
+    ms.author="jeffreyg"/>
 
 # SQL Server IaaS Agent Extension
 
@@ -52,7 +52,7 @@ Set-AzureVMSqlServerExtension [-VM] <IPersistentVM> [[-Version] <string>] [-Auto
 > [AZURE.NOTE] Omitting the –Version parameter is recommended. Without it, the default is the latest version of the extension.
 
 ### Example
-	Get-AzureVM –ServiceName serviceName –Name vmName | Set-AzureVMSqlServerExtension –AutoBackupSettings $abs | Update-AzureVM**
+    Get-AzureVM –ServiceName serviceName –Name vmName | Set-AzureVMSqlServerExtension –AutoBackupSettings $abs | Update-AzureVM**
 
 ## Check the status of the extension
 If you want to check the status of this extension and the services associated with it, you can use either portal. In the details of your existing VM, find **Extensions** under **Settings**.
@@ -68,7 +68,7 @@ Get-AzureVMSqlServerExtension [[-VM] <IPersistentVM>] [[-Version] <string>] [<Co
 > [AZURE.NOTE] You can omit the –Version parameter. Without it, the default is the latest version of the extension.
 
 ### Example
-	Get-AzureVM –ServiceName "service" –Name "vmname" | Get-AzureVMSqlServerExtension
+    Get-AzureVM –ServiceName "service" –Name "vmname" | Get-AzureVMSqlServerExtension
 
 ## Remove the extension with Powershell   
 If you want to remove this extension from your VM, you can use the following Azure Powershell cmdlet.
@@ -77,3 +77,4 @@ If you want to remove this extension from your VM, you can use the following Azu
 
 ### Syntax
 Remove-AzureVMSqlServerExtension -VM <IPersistentVM> [<CommonParameters>]
+

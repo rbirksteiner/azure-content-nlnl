@@ -51,7 +51,7 @@ To connect to your database you need the full name  of the server (***servername
 3. In the **Authentication** list, select **SQL Server Authentication**.
 4. Enter the **Login** and **Password** you specified when you created your SQL Database server, and click **Connect**.
 
-	![Connect to server dialog][2]
+    ![Connect to server dialog][2]
 
 
 
@@ -63,21 +63,21 @@ Make sure that the firewall of the logical server you have created allows connec
 1. In **Object Explorer**, navigate to the **AdventureWorks** database.
 2. Right-click the database and then select **New Query**.
 
-	![New query][4]
+    ![New query][4]
 
 3. In the query window, copy and paste the following code:
 
-		SELECT
-		CustomerId
-		,Title
-		,FirstName
-		,LastName
-		,CompanyName
-		FROM SalesLT.Customer;
+        SELECT
+        CustomerId
+        ,Title
+        ,FirstName
+        ,LastName
+        ,CompanyName
+        FROM SalesLT.Customer;
 
 4. Click the **Execute** button.  The following screen shot shows a successful query.
 
-	![Sucess][5]
+    ![Sucess][5]
 
 
 
@@ -94,3 +94,4 @@ You can use Transact-SQL statements to create or manage databases. For more info
 [5]:./media/sql-database-connect-to-database/5-success.png
 [6]:./media/sql-database-connect-to-database/server-name.png
 [7]:./media/sql-database-connect-to-database/connect-dbengine.png
+

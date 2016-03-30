@@ -1,22 +1,22 @@
 <properties 
-	pageTitle="Extended events in SQL Database | Microsoft Azure" 
-	description="Describes extended events (XEvents) in Azure SQL Database, and how event sessions differ slightly from event sessions in Microsoft SQL Server." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="MightyPen" 
-	manager="jeffreyg" 
-	editor="" 
-	tags=""/>
+    pageTitle="Extended events in SQL Database | Microsoft Azure" 
+    description="Describes extended events (XEvents) in Azure SQL Database, and how event sessions differ slightly from event sessions in Microsoft SQL Server." 
+    services="sql-database" 
+    documentationCenter="" 
+    authors="MightyPen" 
+    manager="jeffreyg" 
+    editor="" 
+    tags=""/>
 
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/13/2015" 
-	ms.author="genemi"/>
+    ms.service="sql-database" 
+    ms.workload="data-management" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/13/2015" 
+    ms.author="genemi"/>
 
 
 # Extended events in SQL Database
@@ -152,22 +152,22 @@ You can run a simple SQL **SELECT** to obtain a list of the available events, ac
 
 ```
 SELECT
-		o.object_type,
-		p.name         AS [package_name],
-		o.name         AS [db_object_name],
-		o.description  AS [db_obj_description]
-	FROM
-		           sys.dm_xe_objects  AS o
-		INNER JOIN sys.dm_xe_packages AS p  ON p.guid = o.package_guid
-	WHERE
-		o.object_type in
-			(
-			'action',  'event',  'target'
-			)
-	ORDER BY
-		o.object_type,
-		p.name,
-		o.name;
+        o.object_type,
+        p.name         AS [package_name],
+        o.name         AS [db_object_name],
+        o.description  AS [db_obj_description]
+    FROM
+                   sys.dm_xe_objects  AS o
+        INNER JOIN sys.dm_xe_packages AS p  ON p.guid = o.package_guid
+    WHERE
+        o.object_type in
+            (
+            'action',  'event',  'target'
+            )
+    ORDER BY
+        o.object_type,
+        p.name,
+        o.name;
 ```
 
 
@@ -268,3 +268,4 @@ Other code sample topics for extended events are available at the following link
 - Code sample for SQL Server: [Determine Which Queries Are Holding Locks](http://msdn.microsoft.com/library/bb677357.aspx)
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
+

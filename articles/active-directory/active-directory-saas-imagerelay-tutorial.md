@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Tutorial: Azure Active Directory integration with ImageRelay | Microsoft Azure"
-	description="Learn how to configure single sign-on between Azure Active Directory and ImageRelay."
-	services="active-directory"
-	documentationCenter=""
-	authors="markusvi"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Tutorial: Azure Active Directory integration with ImageRelay | Microsoft Azure"
+    description="Learn how to configure single sign-on between Azure Active Directory and ImageRelay."
+    services="active-directory"
+    documentationCenter=""
+    authors="markusvi"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/16/2015"
-	ms.author="markusvi"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/16/2015"
+    ms.author="markusvi"/>
 
 
 # Tutorial: Azure Active Directory integration with ImageRelay
@@ -141,7 +141,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
     - Under **Binding Options for Requests from the Service Provider (Image Relay)**, select **POST Binding**.<br><br>![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_16.png)<br>  
 
-  	- Under **x.509 Certificate**, click **Update Certificate**.<br><br>![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_17.png)<br>
+    - Under **x.509 Certificate**, click **Update Certificate**.<br><br>![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_17.png)<br>
 
     - In Notepad, open the certificate downloaded from Azure Active Directory in step 4, and then copy and paste the content of the certificate here.<br><br>![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_18.png)<br>
 
@@ -210,7 +210,7 @@ The objective of this section is to create a user called Britta Simon in ImageRe
 
 1. Sign-on to your ImageRelay company site as an administrator.
 
-1. Go to **Users & Permissions** 	and select **Create SSO User**.<br><br>![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_21.png) <br>
+1. Go to **Users & Permissions**    and select **Create SSO User**.<br><br>![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_21.png) <br>
 
 1. Enter the **Email**, **First Name**, **Last Name** and **Company** of the user you want to provision and select the permission group (for example, SSO Basic ) which is the group that can sign in only through single sign-on.<br><br>![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_22.png) <br>
 
@@ -263,3 +263,4 @@ When you click the ImageRelay tile in the Access Panel, you should get automatic
 [203]: ./media/active-directory-saas-imagerelay-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-imagerelay-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-imagerelay-tutorial/tutorial_general_205.png
+

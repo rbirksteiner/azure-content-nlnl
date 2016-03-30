@@ -5,18 +5,18 @@ This tutorial is built on the [GetStartedWithMobileServices app](http://go.micro
 
 3. In Visual Studio 2013, open the downloaded project, expand the js folder in Solution Explorer, and examine the default.js file.
 
-   	Notice that added **TodoItem** objects are stored in an in-memory `WinJS.Binding.List`.
+    Notice that added **TodoItem** objects are stored in an in-memory `WinJS.Binding.List`.
 
 4. Press the **F5** key to rebuild the project and start the app.
 
 5. In the app, type some text in **Insert a TodoItem**, then click **Save**.
 
-   	![](./media/mobile-services-windows-universal-dotnet-download-project/mobile-quickstart-startup.png) 
+    ![](./media/mobile-services-windows-universal-dotnet-download-project/mobile-quickstart-startup.png) 
 
-   	Notice that the saved text is displayed.
+    Notice that the saved text is displayed.
 
 6. Right-click the Windows Phone 8.1 project, click **Set as Start-up Project**, then press **F5** to start the Windows Phone Store app.  
 
-	![](./media/mobile-services-windows-universal-dotnet-download-project/mobile-quickstart-startup-wp8.png)
+    ![](./media/mobile-services-windows-universal-dotnet-download-project/mobile-quickstart-startup-wp8.png)
 
 7. Repeat steps 3 and 4 to verify that the sample behaves the same way.

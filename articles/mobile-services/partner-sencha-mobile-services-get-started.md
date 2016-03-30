@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Get Started with Azure Mobile Services and Sencha"
-	description="Follow this tutorial to get started developing with Mobile Services and the Sencha HTML5 mobile app framework."
-	services="mobile-services"
-	documentationCenter=""
-	authors="ggailey777"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Get Started with Azure Mobile Services and Sencha"
+    description="Follow this tutorial to get started developing with Mobile Services and the Sencha HTML5 mobile app framework."
+    services="mobile-services"
+    documentationCenter=""
+    authors="ggailey777"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-sencha"
-	ms.devlang="multiple"
-	ms.topic="get-started-article"
-	ms.date="11/06/2015"
-	ms.author="glenga"/>
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-sencha"
+    ms.devlang="multiple"
+    ms.topic="get-started-article"
+    ms.date="11/06/2015"
+    ms.author="glenga"/>
 
 # <a name="getting-started"> </a>Get started with Mobile Services and Sencha Touch
 
@@ -71,7 +71,7 @@ a new database table for use in your mobile service.
 
 3. Click **Create TodoItems table** to create a table to store app data.
 
-	> [AZURE.NOTE] Do NOT download the HTML app from the Azure classic portal. Instead, we will manually create a Sencha Touch application in the section below.
+    > [AZURE.NOTE] Do NOT download the HTML app from the Azure classic portal. Instead, we will manually create a Sencha Touch application in the section below.
 
 
 1. Take note of the **appKey** and **appUrl** in the Azure classic portal. You will use them in other sections of this tutorial.
@@ -88,7 +88,7 @@ Generating a Sencha Touch template application is a simple task using Sencha Cmd
 
 From the directory where you installed the Touch framework, issue the following command:
 
-	$ sencha generate app Basic /path/to/application
+    $ sencha generate app Basic /path/to/application
 
 This generates a template Touch application with an application name of 'Basic'. To launch your application, simply point your browser to the directory /path/to/application and you should be presented with the standard Touch sample application.
 
@@ -107,8 +107,8 @@ You can manually add the Azure extensions to your application using the followin
 2. Copy the Azure extensions package from the download directory to where you would ultimately want it to reside and unpack it :
 
         $ cd /path/to/application
-	    $ mv /download-location/azure.zip .
-    	$ unzip azure.zip
+        $ mv /download-location/azure.zip .
+        $ unzip azure.zip
 
     This creates an **azure** directory containing the entire package source, examples and documentation. The source will reside in the **azure/src** directory.
 
@@ -125,16 +125,16 @@ To download and install the Azure extensions package from the Sencha Packages re
 
 1. Add the Azure package to the requires section of your app.json file:
 
-	    {
+        {
             "name": "Basic",
-	        "requires": [
-    	        "touch-azure"
-        	]
-    	}
+            "requires": [
+                "touch-azure"
+            ]
+        }
 
 2. Rebuild your application using **sencha cmd** to fetch and install the package:
 
-	    $ sencha app build
+        $ sencha app build
 
 Both **sencha app build** and **sencha app refresh** will both now perform the steps needed to integrate the package in to your application. Typically, after changing package requirements, you will need to run **sencha app refresh** so that the metadata required to support "dev mode" is up to date.
 
@@ -149,55 +149,55 @@ Now that the Azure extension has been downloaded and installed in your applicati
 1. Configure the Sencha Loader with the location of the source code:
 
         Ext.Loader.setConfig({
-       	    enabled : true,
-           	paths   : {
-               	'Ext'       : 'touch/src',
-               	'Ext.azure' : '/path-to/azure-for-touch/azure/src'
+            enabled : true,
+            paths   : {
+                'Ext'       : 'touch/src',
+                'Ext.azure' : '/path-to/azure-for-touch/azure/src'
             }
         });
 
 
 2. Require the Azure class files:
 
-		Ext.application({
+        Ext.application({
 
-			requires: [ 'Ext.azure.Azure' ],
+            requires: [ 'Ext.azure.Azure' ],
 
-			// ...
+            // ...
 
-		});
+        });
 
 
 3. Configuring Azure
 
-	The Azure package is initialized by calling the **Ext.Azure.init** method in the launch section of your application. This method is passed a configuration object containing mobile service credentials as well as other credentials and features you wish to utilize.
+    The Azure package is initialized by calling the **Ext.Azure.init** method in the launch section of your application. This method is passed a configuration object containing mobile service credentials as well as other credentials and features you wish to utilize.
 
-	While you can pass the configuration object directly to the init method, we suggest creating a Sencha application configuration property called **azure** and placing all the appropriate information there. You can then pass this property value to the Ext.Azure.init method.
+    While you can pass the configuration object directly to the init method, we suggest creating a Sencha application configuration property called **azure** and placing all the appropriate information there. You can then pass this property value to the Ext.Azure.init method.
 
-	When you create a mobile service in Azure (see [Getting Started with Azure](http://senchaazuredocs.azurewebsites.net/#!/guide/getting_started)), an application key and URL are assigned to that service. This information must be provided to your Azure package so it can connect to your service.
+    When you create a mobile service in Azure (see [Getting Started with Azure](http://senchaazuredocs.azurewebsites.net/#!/guide/getting_started)), an application key and URL are assigned to that service. This information must be provided to your Azure package so it can connect to your service.
 
-	This example shows a very simple Azure configuration and initialization supplying only the application key and URL:
+    This example shows a very simple Azure configuration and initialization supplying only the application key and URL:
 
-	    Ext.application({
-    	    name: 'Basic',
+        Ext.application({
+            name: 'Basic',
 
-        	requires: [ 'Ext.azure.Azure' ],
+            requires: [ 'Ext.azure.Azure' ],
 
-	        azure: {
-    	        appKey: 'myazureservice-access-key',
-        	    appUrl: 'myazure-service.azure-mobile.net'
-	        },
+            azure: {
+                appKey: 'myazureservice-access-key',
+                appUrl: 'myazure-service.azure-mobile.net'
+            },
 
-    	    launch: function() {
+            launch: function() {
 
-        	    // Call Azure initialization
+                // Call Azure initialization
 
-            	Ext.Azure.init(this.config.azure);
+                Ext.Azure.init(this.config.azure);
 
- 	       }
-    	});
+           }
+        });
 
-	For more information on the Azure configuration options, please consult the Ext.Azure API documentation.
+    For more information on the Azure configuration options, please consult the Ext.Azure API documentation.
 
 
 Congratulations! Your application should now have access to your mobile service.
@@ -218,39 +218,39 @@ In the code below you can see that we define the fields (and their types) for th
 
 The Azure proxy will automatically set all HTTP headers with the appropriate CRUD operations expected by the Azure API (including authentication credentials, if they exist).
 
-	Ext.define('Basic.model.TodoItem', {
-    	extend : 'Ext.data.Model',
+    Ext.define('Basic.model.TodoItem', {
+        extend : 'Ext.data.Model',
 
-	    requires : [
-    	    'Ext.azure.Proxy'
-    	],
+        requires : [
+            'Ext.azure.Proxy'
+        ],
 
-	    config : {
-    	    idProperty : 'id',
-        	useCache   : false,
+        config : {
+            idProperty : 'id',
+            useCache   : false,
 
-	        fields     : [
-    	        {
-        	        name : 'id',
-            	    type : 'int'
-            	},
-            	{
-                	name : 'text',
-                	type : 'string'
-            	},
-            	{
-	                name : 'complete',
-    	            type : 'boolean'
-        	    }
-	        ],
+            fields     : [
+                {
+                    name : 'id',
+                    type : 'int'
+                },
+                {
+                    name : 'text',
+                    type : 'string'
+                },
+                {
+                    name : 'complete',
+                    type : 'boolean'
+                }
+            ],
 
-	        proxy : {
-    	        type               : 'azure',
-        	    tableName          : 'TodoItem',
-            	enablePagingParams : true
-        	}
-    	}
-	});
+            proxy : {
+                type               : 'azure',
+                tableName          : 'TodoItem',
+                enablePagingParams : true
+            }
+        }
+    });
 
 
 ###Store your ToDo items
@@ -263,20 +263,20 @@ Here we define a store which will be used to hold all your store ToDo list items
 
 We also have some additional configuration options for the store such as specifying the page size (8 records), and that the sorting of records for this store is done remotely by the Azure mobile service (no sorting is done locally within the store itself).
 
-	Ext.define('Basic.store.TodoItems', {
-    	extend : 'Ext.data.Store',
+    Ext.define('Basic.store.TodoItems', {
+        extend : 'Ext.data.Store',
 
-	    requires : [
-    	    'Basic.model.TodoItem'
-	    ],
+        requires : [
+            'Basic.model.TodoItem'
+        ],
 
-	    config : {
-    	    model        : 'Basic.model.TodoItem',
-        	pageSize     : 8,
-	        remoteSort   : true,
-    	    remoteFilter : true
-    	}
-	});
+        config : {
+            model        : 'Basic.model.TodoItem',
+            pageSize     : 8,
+            remoteSort   : true,
+            remoteFilter : true
+        }
+    });
 
 
 ###View and edit your ToDo items
@@ -287,74 +287,74 @@ Now that we have defined the structure of each ToDo item, and created a store to
 
 The view below is comprised of a ListItem which defines how each record will be displayed along with some buttons which will accommodate actions to delete each item.
 
-	Ext.define('Basic.view.DataItem', {
-    	extend : 'Ext.dataview.component.ListItem',
-    	xtype  : 'basic-dataitem',
+    Ext.define('Basic.view.DataItem', {
+        extend : 'Ext.dataview.component.ListItem',
+        xtype  : 'basic-dataitem',
 
-	    requires : [
-    	    'Ext.Button',
-        	'Ext.layout.HBox',
-        	'Ext.field.Checkbox'
-    	],
+        requires : [
+            'Ext.Button',
+            'Ext.layout.HBox',
+            'Ext.field.Checkbox'
+        ],
 
-	    config : {
-    	    checkbox : {
-        	    docked     : 'left',
-            	xtype      : 'checkboxfield',
-            	width      : 50,
-            	labelWidth : 0
-        	},
+        config : {
+            checkbox : {
+                docked     : 'left',
+                xtype      : 'checkboxfield',
+                width      : 50,
+                labelWidth : 0
+            },
 
-	        text : {
-    	        flex : 1
-        	},
+            text : {
+                flex : 1
+            },
 
-	        button : {
-    	        docked   : 'right',
-        	    xtype    : 'button',
-            	ui       : 'plain',
-	            iconMask : true,
-    	        iconCls  : 'delete',
-        	    style    : 'color: red;'
-        	},
+            button : {
+                docked   : 'right',
+                xtype    : 'button',
+                ui       : 'plain',
+                iconMask : true,
+                iconCls  : 'delete',
+                style    : 'color: red;'
+            },
 
-	        dataMap : {
-    	        getText : {
-        	        setHtml : 'text'
-            	},
+            dataMap : {
+                getText : {
+                    setHtml : 'text'
+                },
 
-	            getCheckbox : {
-    	            setChecked : 'complete'
-        	    }
-        	},
+                getCheckbox : {
+                    setChecked : 'complete'
+                }
+            },
 
-	        layout : {
-    	        type : 'hbox',
-        	    align: 'stretch'
-        	}
-    	},
+            layout : {
+                type : 'hbox',
+                align: 'stretch'
+            }
+        },
 
-	    applyCheckbox : function(config) {
-    	    return Ext.factory(config, Ext.field.Checkbox, this.getCheckbox());
-    	},
+        applyCheckbox : function(config) {
+            return Ext.factory(config, Ext.field.Checkbox, this.getCheckbox());
+        },
 
-	    updateCheckbox : function (cmp) {
-    	    if (cmp) {
-        	    this.add(cmp);
-        	}
-    	},
+        updateCheckbox : function (cmp) {
+            if (cmp) {
+                this.add(cmp);
+            }
+        },
 
-	    applyButton : function(config) {
-    	    return Ext.factory(config, Ext.Button, this.getButton());
-    	},
+        applyButton : function(config) {
+            return Ext.factory(config, Ext.Button, this.getButton());
+        },
 
-	    updateButton : function (cmp) {
-    	    if (cmp) {
-        	    this.add(cmp);
-        	}
-    	}
+        updateButton : function (cmp) {
+            if (cmp) {
+                this.add(cmp);
+            }
+        }
 
-	});
+    });
 
 
 ###Create your primary view
@@ -363,66 +363,66 @@ The view below is comprised of a ListItem which defines how each record will be 
 
 Now that we have defined the layout of an individual ToDo list item (above) we want to wrap a full user interface around that list which defines the actual list of items, an application title, and a button to add a new task.
 
-	Ext.define('Basic.view.Main', {
-    	extend : 'Ext.dataview.List',
-    	xtype  : 'main',
+    Ext.define('Basic.view.Main', {
+        extend : 'Ext.dataview.List',
+        xtype  : 'main',
 
-	    requires : [
-    	    'Ext.TitleBar',
-        	'Ext.dataview.List',
-        	'Ext.data.Store',
-        	'Ext.plugin.PullRefresh',
-        	'Ext.plugin.ListPaging',
-        	'Basic.view.DataItem'
-    	],
+        requires : [
+            'Ext.TitleBar',
+            'Ext.dataview.List',
+            'Ext.data.Store',
+            'Ext.plugin.PullRefresh',
+            'Ext.plugin.ListPaging',
+            'Basic.view.DataItem'
+        ],
 
-	    config : {
-    	    store : 'TodoItems',
+        config : {
+            store : 'TodoItems',
 
-        	useSimpleItems : false,
-        	defaultType    : 'basic-dataitem',
+            useSimpleItems : false,
+            defaultType    : 'basic-dataitem',
 
-	        plugins : [
-    	        {
-        	        xclass          : 'Ext.plugin.PullRefresh',
-            	    pullRefreshText : 'Pull down to refresh!'
-            	},
-            	{
-                	xclass     : 'Ext.plugin.ListPaging',
-                	autoPaging : true
-            	}
-        	],
+            plugins : [
+                {
+                    xclass          : 'Ext.plugin.PullRefresh',
+                    pullRefreshText : 'Pull down to refresh!'
+                },
+                {
+                    xclass     : 'Ext.plugin.ListPaging',
+                    autoPaging : true
+                }
+            ],
 
-	        scrollable : {
-    	        direction     : 'vertical',
-        	    directionLock : true
-        	},
+            scrollable : {
+                direction     : 'vertical',
+                directionLock : true
+            },
 
-	        items : [
-    	        {
-        	        docked : 'top',
-            	    xtype  : 'titlebar',
-                	title  : 'Azure Mobile - Basic Data Example'
-            	},
-            	{
-                	xtype  : 'toolbar',
-                	docked : 'bottom',
-                	items  : [
-                    	{
-                        	xtype       : 'textfield',
-                        	placeHolder : 'Enter new task',
-                        	flex        : 1
-                    	},
-                    	{
-                        	xtype  : 'button',
-                        	action : 'add',
-                        	text   : 'Add'
-                    	}
-                	]
-            	}
-        	]
-    	}
-	});
+            items : [
+                {
+                    docked : 'top',
+                    xtype  : 'titlebar',
+                    title  : 'Azure Mobile - Basic Data Example'
+                },
+                {
+                    xtype  : 'toolbar',
+                    docked : 'bottom',
+                    items  : [
+                        {
+                            xtype       : 'textfield',
+                            placeHolder : 'Enter new task',
+                            flex        : 1
+                        },
+                        {
+                            xtype  : 'button',
+                            action : 'add',
+                            text   : 'Add'
+                        }
+                    ]
+                }
+            ]
+        }
+    });
 
 ###Make everything work together
 
@@ -430,156 +430,156 @@ Now that we have defined the layout of an individual ToDo list item (above) we w
 
 The final step in our application is to respond to button presses (delete, save, etc) and provide the logic behind all these requests. Sencha Touch utilizes controllers which listen for these events and responds accordingly.
 
-	Ext.define('Basic.controller.Main', {
-    	extend : 'Ext.app.Controller',
+    Ext.define('Basic.controller.Main', {
+        extend : 'Ext.app.Controller',
 
-	    config : {
-    	    refs : {
-        	    todoField : 'main toolbar textfield',
-            	main      : 'main'
-        	},
+        config : {
+            refs : {
+                todoField : 'main toolbar textfield',
+                main      : 'main'
+            },
 
-	        control : {
-    	        'button[action=add]'    : {
-        	        tap : 'onAddItem'
-            	},
-            	'button[action=reload]' : {
-                	tap : 'onReload'
-            	},
+            control : {
+                'button[action=add]'    : {
+                    tap : 'onAddItem'
+                },
+                'button[action=reload]' : {
+                    tap : 'onReload'
+                },
 
-	            main : {
-    	            activate      : 'loadInitialData',
-        	        itemdoubletap : 'onItemEdit'
-            	},
+                main : {
+                    activate      : 'loadInitialData',
+                    itemdoubletap : 'onItemEdit'
+                },
 
-	            'basic-dataitem checkboxfield' : {
-    	            change : 'onItemCompleteTap'
-        	    },
+                'basic-dataitem checkboxfield' : {
+                    change : 'onItemCompleteTap'
+                },
 
-            	'basic-dataitem button' : {
-                	tap : 'onItemDeleteTap'
-            	}
-        	}
-    	},
+                'basic-dataitem button' : {
+                    tap : 'onItemDeleteTap'
+                }
+            }
+        },
 
-	    loadInitialData : function () {
-    	    Ext.getStore('TodoItems').load();
-    	},
+        loadInitialData : function () {
+            Ext.getStore('TodoItems').load();
+        },
 
-	    onItemDeleteTap : function (button, e, eOpts) {
-    	    var store    = Ext.getStore('TodoItems'),
-        	    dataItem = button.up('dataitem'),
-            	rec      = dataItem.getRecord();
+        onItemDeleteTap : function (button, e, eOpts) {
+            var store    = Ext.getStore('TodoItems'),
+                dataItem = button.up('dataitem'),
+                rec      = dataItem.getRecord();
 
-	        rec.erase({
-    	        success: function (rec, operation) {
-        	        store.remove(rec);
-            	},
-            	failure: function (rec, operation) {
-                	Ext.Msg.alert(
-                    	'Error',
-                    	Ext.util.Format.format('There was an error deleting this task.<br/><br/>	Status Code: {0}<br/>Status Text: {1}',
-                    	operation.error.status,
-                    	operation.error.statusText)
-                	);
-            	}
-        	});
-    	},
+            rec.erase({
+                success: function (rec, operation) {
+                    store.remove(rec);
+                },
+                failure: function (rec, operation) {
+                    Ext.Msg.alert(
+                        'Error',
+                        Ext.util.Format.format('There was an error deleting this task.<br/><br/>    Status Code: {0}<br/>Status Text: {1}',
+                        operation.error.status,
+                        operation.error.statusText)
+                    );
+                }
+            });
+        },
 
-	    onItemCompleteTap : function (checkbox, newVal, oldVal, eOpts) {
-    	    var dataItem = checkbox.up('dataitem'),
-        	    rec      = dataItem.getRecord(),
-            	recVal   = rec.get('complete');
+        onItemCompleteTap : function (checkbox, newVal, oldVal, eOpts) {
+            var dataItem = checkbox.up('dataitem'),
+                rec      = dataItem.getRecord(),
+                recVal   = rec.get('complete');
 
-	        // this check is needed to prevent an issue where multiple creates get triggered from one create
-        	if (newVal !== recVal) {
-            	rec.set('complete', newVal);
-            	rec.save({
-                	success: function (rec, operation) {
-                    	rec.commit();
-                	},
-                	failure: function (rec, operation) {
-                    	// since there was a failure doing the update on the server then silently reject the change
-	                    rec.reject(true);
-    	                Ext.Msg.alert(
-        	                'Error',
-            	            Ext.util.Format.format('There was an error updating this task.<br/><br/>Status Code: {0}<br/>Status Text: {1}',
-            	            operation.error.status,
-            	            operation.error.statusText)
-	                    );
-    	            }
-        	    });
-        	}
-    	},
+            // this check is needed to prevent an issue where multiple creates get triggered from one create
+            if (newVal !== recVal) {
+                rec.set('complete', newVal);
+                rec.save({
+                    success: function (rec, operation) {
+                        rec.commit();
+                    },
+                    failure: function (rec, operation) {
+                        // since there was a failure doing the update on the server then silently reject the change
+                        rec.reject(true);
+                        Ext.Msg.alert(
+                            'Error',
+                            Ext.util.Format.format('There was an error updating this task.<br/><br/>Status Code: {0}<br/>Status Text: {1}',
+                            operation.error.status,
+                            operation.error.statusText)
+                        );
+                    }
+                });
+            }
+        },
 
-	    onItemEdit : function (list, index, target, record, e, eOpts) {
-    	    var rec = list.getSelection()[0];
+        onItemEdit : function (list, index, target, record, e, eOpts) {
+            var rec = list.getSelection()[0];
 
-        	Ext.Msg.prompt('Edit', 'Rename task',
-            	function (buttonId, value) {
-                	if (buttonId === 'ok') {
-                    	rec.set('text', value);
-                    	rec.save({
-                        	success: function (rec, operation) {
-                            	rec.commit();
-                        	},
-                        	failure: function (rec, operation) {
-                            	// since there was a failure doing the update on the server then reject the change
-                            	rec.reject();
-                            	Ext.Msg.alert(
-                                	'Error',
-                                	Ext.util.Format.format('There was an error updating this task.<br/><br/>Status Code: {0}<br/>Status Text: {1}',
-                                	operation.error.status,
-                                	operation.error.statusText)
-                            	);
-                        	}
-                    	});
-                	}
-            	},
-            	null,
-            	false,
-            	record.get('text')
-        	);
-    	},
+            Ext.Msg.prompt('Edit', 'Rename task',
+                function (buttonId, value) {
+                    if (buttonId === 'ok') {
+                        rec.set('text', value);
+                        rec.save({
+                            success: function (rec, operation) {
+                                rec.commit();
+                            },
+                            failure: function (rec, operation) {
+                                // since there was a failure doing the update on the server then reject the change
+                                rec.reject();
+                                Ext.Msg.alert(
+                                    'Error',
+                                    Ext.util.Format.format('There was an error updating this task.<br/><br/>Status Code: {0}<br/>Status Text: {1}',
+                                    operation.error.status,
+                                    operation.error.statusText)
+                                );
+                            }
+                        });
+                    }
+                },
+                null,
+                false,
+                record.get('text')
+            );
+        },
 
-	    onReload : function () {
-    	    Ext.getStore('TodoItems').load();
-    	},
+        onReload : function () {
+            Ext.getStore('TodoItems').load();
+        },
 
-	    onAddItem : function () {
-    	    var me = this,
-        	    rec,
-            	store = Ext.getStore('TodoItems'),
-            	field = me.getTodoField(),
-            	value = field.getValue();
+        onAddItem : function () {
+            var me = this,
+                rec,
+                store = Ext.getStore('TodoItems'),
+                field = me.getTodoField(),
+                value = field.getValue();
 
-	        if (value === '') {
-    	        Ext.Msg.alert('Error', 'Please enter Task name', Ext.emptyFn);
-        	}
-        	else {
-            	rec = Ext.create('Basic.model.TodoItem', {
-                	complete : false,
-                	text     : value
-            	});
-            	//store.insert(0, rec); //insert at the top
-            	//store.sync();
-            	rec.save({
-                	success: function (rec, operation) {
-                    	store.insert(0, rec); //insert at the top
-                    	field.setValue('');
-                	},
-                	failure: function (rec, operation) {
-                    	Ext.Msg.alert(
-                        	'Error',
-                        	Ext.util.Format.format('There was an error creating this task.<br/><br/>Status Code: {0}<br/>Status Text: {1}',
-                        	operation.error.status,
-                        	operation.error.statusText)
-                    	);
-                	}
-            	});
-        	}
-    	}
-	});
+            if (value === '') {
+                Ext.Msg.alert('Error', 'Please enter Task name', Ext.emptyFn);
+            }
+            else {
+                rec = Ext.create('Basic.model.TodoItem', {
+                    complete : false,
+                    text     : value
+                });
+                //store.insert(0, rec); //insert at the top
+                //store.sync();
+                rec.save({
+                    success: function (rec, operation) {
+                        store.insert(0, rec); //insert at the top
+                        field.setValue('');
+                    },
+                    failure: function (rec, operation) {
+                        Ext.Msg.alert(
+                            'Error',
+                            Ext.util.Format.format('There was an error creating this task.<br/><br/>Status Code: {0}<br/>Status Text: {1}',
+                            operation.error.status,
+                            operation.error.statusText)
+                        );
+                    }
+                });
+            }
+        }
+    });
 
 ###Put it all together
 
@@ -588,80 +588,80 @@ The final step in our application is to respond to button presses (delete, save,
 Our final step is to finish editing the main application file, and provide information about the models, stores, views and controllers that have defined. The source files for these resources are automatically loaded into the application. Finally, the launch method is called which creates and displays the primary application view 'Basic.main.View'.
 
 
-	Ext.Loader.setConfig({
-    	enabled : true,
-    	paths   : {
-        	'Ext'       : 'touch/src',
-        	'Ext.azure' : 'packages/azure/src'
-    	}
-	});
+    Ext.Loader.setConfig({
+        enabled : true,
+        paths   : {
+            'Ext'       : 'touch/src',
+            'Ext.azure' : 'packages/azure/src'
+        }
+    });
 
-	Ext.application({
-    	name : 'Basic',
+    Ext.application({
+        name : 'Basic',
 
-	    requires : [
-    	    'Ext.MessageBox',
-        	'Ext.azure.Azure'
-    	],
+        requires : [
+            'Ext.MessageBox',
+            'Ext.azure.Azure'
+        ],
 
-	    views : [
-    	    'Main'
-    	],
+        views : [
+            'Main'
+        ],
 
-	    controllers : [
-    	    'Main'
-    	],
+        controllers : [
+            'Main'
+        ],
 
-	    stores : [
-    	    'TodoItems'
-    	],
+        stores : [
+            'TodoItems'
+        ],
 
-	    azure : {
-    	    appUrl : 'YOUR_APP_URL.azure-mobile.net',
-        	appKey : 'YOUR_APP_KEY'
-    	},
+        azure : {
+            appUrl : 'YOUR_APP_URL.azure-mobile.net',
+            appKey : 'YOUR_APP_KEY'
+        },
 
-	    icon : {
-    	    '57'  : 'resources/icons/Icon.png',
-        	'72'  : 'resources/icons/Icon~ipad.png',
-        	'114' : 'resources/icons/Icon@2x.png',
-        	'144' : 'resources/icons/Icon~ipad@2x.png'
-    	},
+        icon : {
+            '57'  : 'resources/icons/Icon.png',
+            '72'  : 'resources/icons/Icon~ipad.png',
+            '114' : 'resources/icons/Icon@2x.png',
+            '144' : 'resources/icons/Icon~ipad@2x.png'
+        },
 
-	    isIconPrecomposed : true,
+        isIconPrecomposed : true,
 
-	    startupImage : {
-    	    '320x460'   : 'resources/startup/320x460.jpg',
-        	'640x920'   : 'resources/startup/640x920.png',
-        	'768x1004'  : 'resources/startup/768x1004.png',
-        	'748x1024'  : 'resources/startup/748x1024.png',
-        	'1536x2008' : 'resources/startup/1536x2008.png',
-        	'1496x2048' : 'resources/startup/1496x2048.png'
-    	},
+        startupImage : {
+            '320x460'   : 'resources/startup/320x460.jpg',
+            '640x920'   : 'resources/startup/640x920.png',
+            '768x1004'  : 'resources/startup/768x1004.png',
+            '748x1024'  : 'resources/startup/748x1024.png',
+            '1536x2008' : 'resources/startup/1536x2008.png',
+            '1496x2048' : 'resources/startup/1496x2048.png'
+        },
 
-	    launch : function () {
-    	    // Destroy the #appLoadingIndicator element
-        	Ext.fly('appLoadingIndicator').destroy();
+        launch : function () {
+            // Destroy the #appLoadingIndicator element
+            Ext.fly('appLoadingIndicator').destroy();
 
-	        // Initialize Azure
-    	    Ext.Azure.init(this.config.azure);
+            // Initialize Azure
+            Ext.Azure.init(this.config.azure);
 
-	        // Initialize the main view
-    	    Ext.Viewport.add(Ext.create('Basic.view.Main'));
-	    },
+            // Initialize the main view
+            Ext.Viewport.add(Ext.create('Basic.view.Main'));
+        },
 
-	    onUpdated : function () {
-    	    Ext.Msg.confirm(
-        	    "Application Update",
-            	"This application has just successfully been updated to the latest version. Reload now?",
-	            function (buttonId) {
-    	            if (buttonId === 'yes') {
-        	            window.location.reload();
-            	    }
-            	}
-        	);
-   		}
-	});
+        onUpdated : function () {
+            Ext.Msg.confirm(
+                "Application Update",
+                "This application has just successfully been updated to the latest version. Reload now?",
+                function (buttonId) {
+                    if (buttonId === 'yes') {
+                        window.location.reload();
+                    }
+                }
+            );
+        }
+    });
 
 ###Host and run your Sencha Touch app
 

@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Remote Desktop to a Linux VM | Microsoft Azure"
-	description="Learn how to install and configure Remote Desktop to connect to a Microsoft Azure Linux VM"
-	services="virtual-machines"
-	documentationCenter=""
-	authors="SuperScottz"
-	manager="timlt"
-	editor=""
-	tags="azure-service-management"/>
+    pageTitle="Remote Desktop to a Linux VM | Microsoft Azure"
+    description="Learn how to install and configure Remote Desktop to connect to a Microsoft Azure Linux VM"
+    services="virtual-machines"
+    documentationCenter=""
+    authors="SuperScottz"
+    manager="timlt"
+    editor=""
+    tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/14/2015"
-	ms.author="mingzhan"/>
+    ms.service="virtual-machines"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-linux"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/14/2015"
+    ms.author="mingzhan"/>
 
 
 #Using Remote Desktop to connect to a Microsoft Azure Linux VM
@@ -51,25 +51,25 @@ Connect to your Linux VM through putty, and install `Gnome Desktop`.
 
 For Ubuntu, use:
 
-	#sudo apt-get update
-	#sudo apt-get install ubuntu-desktop
+    #sudo apt-get update
+    #sudo apt-get install ubuntu-desktop
 
 
 For OpenSUSE, use:
 
-	#sudo zypper install gnome-session
+    #sudo zypper install gnome-session
 
 ##Install xrdp
 
 For Ubuntu, use:
 
-	#sudo apt-get install xrdp
+    #sudo apt-get install xrdp
 
 For OpenSUSE, use:
 
 > [AZURE.NOTE] Update the OpenSUSE version with the version you are using into below command, below is an example command for `OpenSUSE 13.2`.
 
-	#sudo zypper in http://download.opensuse.org/repositories/X11:/RemoteDesktop/openSUSE_13.2/x86_64/xrdp-0.9.0git.1401423964-2.1.x86_64.rpm
+    #sudo zypper in http://download.opensuse.org/repositories/X11:/RemoteDesktop/openSUSE_13.2/x86_64/xrdp-0.9.0git.1401423964-2.1.x86_64.rpm
     #sudo zypper install tigervnc xorg-x11-Xvnc xterm remmina-plugin-vnc
 
 
@@ -77,8 +77,8 @@ For OpenSUSE, use:
 
 For OpenSUSE, use:
 
-	#sudo systemctl start xrdp
-	#sudo systemctl enable xrdp
+    #sudo systemctl start xrdp
+    #sudo systemctl enable xrdp
 
 For Ubuntu, xrdp will be started and eanbled at boot-up automatically after installation.
 
@@ -115,3 +115,4 @@ Login with the `user` & `password` of your Linux VM, and enjoy the Remote Deskto
 
 ##Next
 For more information to use xrdp, you could refer [here](http://www.xrdp.org/).
+

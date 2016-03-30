@@ -123,3 +123,4 @@ Azure offers a [range of sizes](../virtual-machines/virtual-machines-size-specs.
 
 * For the latest announcements, see the [Microsoft HPC and Batch team blog](http://blogs.technet.com/b/windowshpc/) and the [Azure blog](http://azure.microsoft.com/blog/tag/hpc/).
 * Also see [what's new in Batch](http://azure.microsoft.com/updates/?service=batch) or subscribe to the [RSS feed](http://azure.microsoft.com/updates/feed/?service=batch).
+

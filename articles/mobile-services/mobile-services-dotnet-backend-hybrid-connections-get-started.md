@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Connect to an on-premises SQL Server from a .NET backend mobile service using Hybrid Connections |  Azure Mobile Services"
-	description="Learn how to connect to an on-premises SQL Server from a .NET backend mobile service using Azure Hybrid Connections"
-	services="mobile-services"
-	documentationCenter=""
-	authors="ggailey777"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Connect to an on-premises SQL Server from a .NET backend mobile service using Hybrid Connections |  Azure Mobile Services"
+    description="Learn how to connect to an on-premises SQL Server from a .NET backend mobile service using Azure Hybrid Connections"
+    services="mobile-services"
+    documentationCenter=""
+    authors="ggailey777"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="12/11/2015"
-	ms.author="glenga"/>
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="na"
+    ms.devlang="multiple"
+    ms.topic="article"
+    ms.date="12/11/2015"
+    ms.author="glenga"/>
 
 
 # Connect to an on-premises SQL Server from Azure Mobile Services using Hybrid Connections
@@ -54,11 +54,11 @@ In this step, you define a connection string for the on-premises database and mo
 
 1. In Visual Studio 2013, open the project that defines your .NET backend mobile service.
 
-	To learn how to download your .NET backend project, see [Get started with Mobile Services](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md) .
+    To learn how to download your .NET backend project, see [Get started with Mobile Services](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md) .
 
 2. In Solution Explorer, open the Web.config file, locate the **connectionStrings** section, add a new SqlClient entry like the following, which points to the on-premises SQL Server database:
 
-	    <add name="OnPremisesDBConnection"
+        <add name="OnPremisesDBConnection"
          connectionString="Data Source=OnPremisesServer,1433;
          Initial Catalog=OnPremisesDB;
          User ID=HybridConnectionLogin;
@@ -66,11 +66,11 @@ In this step, you define a connection string for the on-premises database and mo
          MultipleActiveResultSets=True"
          providerName="System.Data.SqlClient" />
 
-	Remember to replace `<**secure_password**>` in this string with the password you created for the *HbyridConnectionLogin*.
+    Remember to replace `<**secure_password**>` in this string with the password you created for the *HbyridConnectionLogin*.
 
 3. Click **Save** in Visual Studio to save the Web.config file.
 
-	> [AZURE.NOTE]This connection setting is used when running on the local computer. When running in Azure, this setting is overriden by the connection setting defined in the portal.
+    > [AZURE.NOTE]This connection setting is used when running on the local computer. When running in Azure, this setting is overriden by the connection setting defined in the portal.
 
 4. Expand the **Models** folder and open the data model file, which ends in *Context.cs*.
 
@@ -84,7 +84,7 @@ In this step, you define a connection string for the on-premises database and mo
             }
         }
 
-	The service will now use the new connection to the SQL Server database.
+    The service will now use the new connection to the SQL Server database.
 
 ##Test the database connection locally
 
@@ -100,30 +100,30 @@ Now that you have verified the database connection, you need to add an app setti
 
 1. Click the **Configure** tab, and locate **Connection Strings** section.
 
-	![Connection string for on-premises database](./media/mobile-services-dotnet-backend-hybrid-connections-get-started/11.png)
+    ![Connection string for on-premises database](./media/mobile-services-dotnet-backend-hybrid-connections-get-started/11.png)
 
 2. Add an new connection **SQL Server** string named `OnPremisesDBConnection` with a value like the following:
 
-		Server=OnPremisesServer,1433;Database=OnPremisesDB;User ID=HybridConnectionsLogin;Password=<**secure_password**>
+        Server=OnPremisesServer,1433;Database=OnPremisesDB;User ID=HybridConnectionsLogin;Password=<**secure_password**>
 
 
-	Replace `<**secure_password**>` with the secure password for *HybridConnectionLogin*.
+    Replace `<**secure_password**>` with the secure password for *HybridConnectionLogin*.
 
 2. Press **Save** to save the hybrid connection and connection string you just created.
 
 3. Using Visual Studio, publish your updated mobile service project to Azure.
 
-	The service start page is displayed.
+    The service start page is displayed.
 
 4. Using either the **Try it now** button on the start page as before or using a client app connected to your mobile service, invoke some operations that generate database changes.
 
-	>[AZURE.NOTE]When you use the **Try it now** button to launch the Help API pages, remember to supply your application key as the password (with a blank username).
+    >[AZURE.NOTE]When you use the **Try it now** button to launch the Help API pages, remember to supply your application key as the password (with a blank username).
 
 4. In SQL Server Management Studio, connect to your SQL Server instance, open the Object Explorer, expand the **OnPremisesDB** database and expand **Tables**.
 
 5. Right-click the **hybridService1.TodoItems** table and choose **Select Top 1000 Rows** to view the results.
 
-	Note that changes generated in your app have been saved by your mobile service to your on-premises database using the hybrid connection.
+    Note that changes generated in your app have been saved by your mobile service to your on-premises database using the hybrid connection.
 
 ##See Also##
 

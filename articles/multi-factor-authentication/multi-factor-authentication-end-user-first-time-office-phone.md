@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Use office phone as your contact method with Azure MFA" 
-	description="This page will show users how to use their office phone as the primary contact method for Azure MFA." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenp" 
-	editor="curtland"/>
+    pageTitle="Use office phone as your contact method with Azure MFA" 
+    description="This page will show users how to use their office phone as the primary contact method for Azure MFA." 
+    services="multi-factor-authentication" 
+    documentationCenter="" 
+    authors="billmath" 
+    manager="stevenp" 
+    editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/19/2015" 
-	ms.author="billmath"/>
+    ms.service="multi-factor-authentication" 
+    ms.workload="identity" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/19/2015" 
+    ms.author="billmath"/>
 
 # Use office phone as your contact method with Azure Multi-Factor Authentication
 

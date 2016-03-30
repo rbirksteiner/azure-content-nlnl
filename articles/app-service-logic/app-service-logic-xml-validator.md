@@ -61,3 +61,4 @@ The action returns the output as an object. The output contains the model repres
 [3]: ./media/app-service-logic-xml-validator/XmlValidator.SchemaUpload.PNG
 [4]: ./media/app-service-logic-xml-validator/XmlValidator.ListOfActions.PNG
 [5]: ./media/app-service-logic-xml-validator/XmlValidator.ValidateXml.PNG
+

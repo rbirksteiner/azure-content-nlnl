@@ -227,3 +227,4 @@ All it really does is leverage Reliable Actors' ability to allow any actor to ad
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-distributed-networks-and-graphs/distributedNetworks_arch1.png
 [2]: ./media/service-fabric-reliable-actors-pattern-distributed-networks-and-graphs/distributedNetworks_arch2.png
+

@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="Non-technical prerequisites for creating an offer for the Azure Marketplace | Microsoft Azure"
    description="Understand the requirements for creating and deploying an offer to the Azure Marketplace for others to purchase."
    services="marketplace-publishing"
@@ -54,3 +54,4 @@ Next are the technical prerequisites for each offer type. Click the link to the 
 
 ## See also
 - [Getting started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md)
+

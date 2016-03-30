@@ -31,7 +31,7 @@ To create a storage account, add the following schema to the resources section o
         "location": string,
         "properties": 
         {
-        	"accountType": string
+            "accountType": string
         }
     }
 
@@ -53,7 +53,7 @@ The following tables describe the values you need to set in the schema.
 | ---- | ---- | -------- | ---------------- | ----------- |
 | accountType | string | Yes | **Standard_LRS**<br />**Standard_ZRS**<br />**Standard_GRS**<br />**Standard_RAGRS**<br />**Premium_LRS** | The type of storage account. The permitted values correspond to Standard Locally Redundant, Standard Zone Redundant, Standard Geo-Redundant, Standard Read-Access Geo-Redundant, and Premium Locally Redundant. For information about these account types, see [Azure Storage replication](./storage/storage-redundancy.md ). |
 
-	
+    
 ## Examples
 
 The following example deploys a Standard Locally Redundant storage account with a unique name based on the resource group id.
@@ -68,17 +68,18 @@ The following example deploys a Standard Locally Redundant storage account with 
                 "type": "Microsoft.Storage/storageAccounts",
                 "apiVersion": "2015-06-15",
                 "name": "[concat('storage', uniqueString(resourceGroup().id))]",
-		         "location": "[resourceGroup().location]",
-        	     "properties": 
-        	     {
-        		      "accountType": "Standard_LRS"
-        	     }
-	        }
-	    ],
-	    "outputs": {}
+                 "location": "[resourceGroup().location]",
+                 "properties": 
+                 {
+                      "accountType": "Standard_LRS"
+                 }
+            }
+        ],
+        "outputs": {}
     }
 
 ## Next steps
 
 - For general information about storage, see [Introduction to Microsoft Azure Storage](./storage/storage-introduction.md).
 - For example templates that use a new storage account with a Virtual Machine, see [Deploy a simple Linux VM](https://azure.microsoft.com/documentation/templates/101-simple-linux-vm/) or [Deploy a simple Windows VM](https://azure.microsoft.com/documentation/templates/101-simple-windows-vm/).
+

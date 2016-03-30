@@ -73,15 +73,15 @@ The following screenshot shows an example for this.
 
 ###To configure single sign-on, perform the following steps:
 
-1.  In the Azure AD portal, on the **Benefitsolver** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  In the Azure AD portal, on the **Benefitsolver** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
     ![Configure Single Sign-On](./media/active-directory-saas-benefitsolver-tutorial/IC804824.png "Configure Single Sign-On")
 
-2.  On the **How would you like users to sign on to Benefitsolver** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to Benefitsolver** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-benefitsolver-tutorial/IC804825.png "Configure Single Sign-On")
 
-3.  On the **Configure App Settings** page, perform the following steps:
+3.  On the **Configure App Settings** page, perform the following steps:
 
     ![Configure App Settings](./media/active-directory-saas-benefitsolver-tutorial/IC804826.png "Configure App Settings")
 
@@ -92,7 +92,7 @@ The following screenshot shows an example for this.
 
     3.  Click **Next**.
 
-4.  On the **Configure single sign-on at Benefitsolver** page, to download your metadata, click **Download metadata**, and then save the metadata file locally on your computer.
+4.  On the **Configure single sign-on at Benefitsolver** page, to download your metadata, click **Download metadata**, and then save the metadata file locally on your computer.
 
     ![Configure Single Sign-On](./media/active-directory-saas-benefitsolver-tutorial/IC804827.png "Configure Single Sign-On")
 
@@ -101,11 +101,11 @@ The following screenshot shows an example for this.
     >[AZURE.NOTE] Your Benefitsolver support team has to do the actual SSO configuration.
      You will get a notification when SSO has been enabled for your subscription.
 
-6.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+6.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
     ![Configure Single Sign-On](./media/active-directory-saas-benefitsolver-tutorial/IC804828.png "Configure Single Sign-On")
 
-7.  In the menu on the top, click **Attributes** to open the **SAML Token Attributes** dialog.
+7.  In the menu on the top, click **Attributes** to open the **SAML Token Attributes** dialog.
 
     ![Attributes](./media/active-directory-saas-benefitsolver-tutorial/IC795920.png "Attributes")
 
@@ -113,7 +113,7 @@ The following screenshot shows an example for this.
 
     ![Attributes](./media/active-directory-saas-benefitsolver-tutorial/IC804823.png "Attributes")
 
-	|Attribute Name|Attribute Value|
+    |Attribute Name|Attribute Value|
     |---|---|
     |ClientID|You need to get this value from your Benefitsolver support team.|
     |ClientKey|You need to get this value from your Benefitsolver support team.|
@@ -141,7 +141,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 1.  In the Azure AD portal, create a test account.
 
-2.  On the **Benefitsolver **application integration page, click **Assign users**.
+2.  On the **Benefitsolver **application integration page, click **Assign users**.
 
     ![Assign Users](./media/active-directory-saas-benefitsolver-tutorial/IC804829.png "Assign Users")
 
@@ -150,3 +150,4 @@ To test your configuration, you need to grant the Azure AD users you want to all
     ![Yes](./media/active-directory-saas-benefitsolver-tutorial/IC767830.png "Yes")
 
 If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+

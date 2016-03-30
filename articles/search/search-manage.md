@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Manage your Search service on Microsoft Azure | Microsoft Azure | Hosted cloud search service" 
-	description="Manage Azure Search, hosted cloud search service on Microsoft Azure" 
-	services="search" 
-	documentationCenter="" 
-	authors="HeidiSteen" 
-	manager="mblythe" 
-	editor=""
+    pageTitle="Manage your Search service on Microsoft Azure | Microsoft Azure | Hosted cloud search service" 
+    description="Manage Azure Search, hosted cloud search service on Microsoft Azure" 
+    services="search" 
+    documentationCenter="" 
+    authors="HeidiSteen" 
+    manager="mblythe" 
+    editor=""
     tags="azure-portal"/>
 
 <tags 
-	ms.service="search" 
-	ms.devlang="rest-api" 
-	ms.workload="search" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.date="11/04/2015" 
-	ms.author="heidist"/>
+    ms.service="search" 
+    ms.devlang="rest-api" 
+    ms.workload="search" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.date="11/04/2015" 
+    ms.author="heidist"/>
 
 # Manage your Search service on Microsoft Azure
 
@@ -36,8 +36,8 @@ Standard search is billable because you are signing up for dedicated resources a
 
 To plan for capacity and understand the billing impact, we recommend these links:
 
-+	[Limits and constraints](search-limits-quotas-capacity.md)
-+	[Pricing Details](http://go.microsoft.com/fwlink/p/?LinkdID=509792)
++   [Limits and constraints](search-limits-quotas-capacity.md)
++   [Pricing Details](http://go.microsoft.com/fwlink/p/?LinkdID=509792)
 
 When you are ready to sign up, see [Create a Search service in the portal](search-create-service-portal.md).
 
@@ -47,12 +47,12 @@ When you are ready to sign up, see [Create a Search service in the portal](searc
 Although some services can have co-administrators, an Azure Search service has one administrator per subscription. You need to be an administrator to perform the tasks outlined in this section.
 Besides adding Search to the subscription, an administrator is responsible for these additional tasks:
 
-+	Distribution of the service URL (defined during service provisioning).
-+	Management and distribution of the api-keys.
-+	Monitor resource usage
-+	Scale up or down (applies to standard search only)
-+	Start or stop the service
-+	Set roles to control administrative access
++   Distribution of the service URL (defined during service provisioning).
++   Management and distribution of the api-keys.
++   Monitor resource usage
++   Scale up or down (applies to standard search only)
++   Start or stop the service
++   Set roles to control administrative access
 
 <a id="sub-3"></a>
 ## Service URL
@@ -63,10 +63,10 @@ Developers who are building search applications will need to know the service UR
 
 To get the service URL from the service dashboard:
 
-1.	Sign in to the [Azure Classic Portal](https://portal.azure.com).
-2.	Click **Browse** | **Everything** | **Search services**.
-3.	Click the name of your search service to open the dashboard.
-4.	Click **PROPERTIES** to slide open a property page. The service URL is at the top of the page. You can pin this page for fast access later.
+1.  Sign in to the [Azure Classic Portal](https://portal.azure.com).
+2.  Click **Browse** | **Everything** | **Search services**.
+3.  Click the name of your search service to open the dashboard.
+4.  Click **PROPERTIES** to slide open a property page. The service URL is at the top of the page. You can pin this page for fast access later.
 
     ![][8]
 
@@ -82,8 +82,8 @@ Developers who are building search applications will need to have an api-key in 
 
 Two types of keys are used to access your search service:
 
-+	Admin (valid for any operation)
-+	Query (valid only for query requests)
++   Admin (valid for any operation)
++   Query (valid only for query requests)
 
 An admin api-key is created with the service. There is a primary key and secondary key. You can use them equally; neither one conveys a higher or lower level of access, which is useful in the event you want to roll over keys. You can regenerate either admin key, but you cannot add to the total admin key count. There can be a maximum of two admin keys per search service.
 
@@ -103,8 +103,8 @@ On the service dashboard, in the Usage section, you can quickly determine whethe
 
 Using the Search Service API, you can get a count on documents and indexes. There are hard limits associated with these counts based on the pricing tier. See [Limits and constraints](search-limits-quotas-capacity.md) for details. 
 
-+	[Get Index Statistics](http://msdn.microsoft.com/library/dn798942.aspx)
-+	[Count Documents](http://msdn.microsoft.com/library/dn798924.aspx)
++   [Get Index Statistics](http://msdn.microsoft.com/library/dn798942.aspx)
++   [Count Documents](http://msdn.microsoft.com/library/dn798924.aspx)
 
 > [AZURE.NOTE] Caching behaviors can temporarily overstate a limit. For example, when using the shared service, you might see a document count over the hard limit of 10,000 documents. The overstatement is temporary and will be detected on the next limit enforcement check. 
 
@@ -193,3 +193,4 @@ Roles provide access control after the service is created. Only subscription man
 
 
  
+

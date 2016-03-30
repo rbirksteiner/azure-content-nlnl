@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="What are Logic Apps?" 
-	description="Learn more about App Service Logic Apps" 
-	authors="kevinlam1" 
-	manager="dwrede" 
-	editor="" 
-	services="app-service\logic" 
-	documentationCenter=""/>
+    pageTitle="What are Logic Apps?" 
+    description="Learn more about App Service Logic Apps" 
+    authors="kevinlam1" 
+    manager="dwrede" 
+    editor="" 
+    services="app-service\logic" 
+    documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/08/2015"
-	ms.author="klam"/>
+    ms.service="app-service-logic"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/08/2015"
+    ms.author="klam"/>
 
 #What are Logic Apps?
 
@@ -74,3 +74,4 @@ For more information on Azure App Service platform, see [Azure App Service][apps
 [rules]: app-service-logic-use-biztalk-rules.md
 [templates]: app-service-logic-use-logic-app-templates.md
  
+

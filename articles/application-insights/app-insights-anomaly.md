@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Application Insights: Proactive detection" 
-	description="Application Insights performs deep analysis of your app telemetry and warns you of potential problems." 
-	services="application-insights" 
+    pageTitle="Application Insights: Proactive detection" 
+    description="Application Insights performs deep analysis of your app telemetry and warns you of potential problems." 
+    services="application-insights" 
     documentationCenter="windows"
-	authors="antonfrMSFT" 
-	manager="douge"/>
+    authors="antonfrMSFT" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/17/2015" 
-	ms.author="awills"/>
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/17/2015" 
+    ms.author="awills"/>
 
 #  Application Insights: Proactive Detection
 

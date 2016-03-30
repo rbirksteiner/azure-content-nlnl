@@ -209,7 +209,7 @@ END;
 
 IF OBJECT_ID('tempdb..#stats_ddl') IS NOT NULL
 BEGIN;
-	DROP TABLE #stats_ddl;
+    DROP TABLE #stats_ddl;
 END;
 
 CREATE TABLE #stats_ddl
@@ -233,9 +233,9 @@ JOIN        sys.[columns] c         ON  t.[object_id]       = c.[object_id]
 LEFT JOIN   sys.[stats_columns] l   ON  l.[object_id]       = c.[object_id]
                                     AND l.[column_id]       = c.[column_id]
                                     AND l.[stats_column_id] = 1
-LEFT JOIN	sys.[external_tables] e	ON	e.[object_id]		= t.[object_id]
+LEFT JOIN   sys.[external_tables] e ON  e.[object_id]       = t.[object_id]
 WHERE       l.[object_id] IS NULL
-AND			e.[object_id] IS NULL -- not an external table
+AND         e.[object_id] IS NULL -- not an external table
 )
 SELECT  [table_schema_name]
 ,       [table_name]
@@ -460,3 +460,4 @@ For more development tips, see [SQL Data Warehouse development overview][].
 [sys.tables]:https://msdn.microsoft.com/library/ms187406.aspx
 [sys.table_types]:https://msdn.microsoft.com/library/bb510623.aspx
 [UPDATE STATISTICS]:https://msdn.microsoft.com/library/ms187348.aspx
+

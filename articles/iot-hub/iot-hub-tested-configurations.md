@@ -1,11 +1,11 @@
 <properties
-	pageTitle="OS platforms and hardware compatibility| Microsoft Azure"
-	description="Summarizes IoT device SDK compatibility with OS platforms and device hardware."
-	services="iot-hub"
-	documentationCenter=""
-	authors="hegate"
-	manager="timlt"
-	editor=""/>
+    pageTitle="OS platforms and hardware compatibility| Microsoft Azure"
+    description="Summarizes IoT device SDK compatibility with OS platforms and device hardware."
+    services="iot-hub"
+    documentationCenter=""
+    authors="hegate"
+    manager="timlt"
+    editor=""/>
 
 <tags
      ms.service="iot-hub"
@@ -143,3 +143,4 @@ Each device has been certified to work with our SDK in the OS and language chose
 ## Next steps
 
 Learn more about developing solutions using [Certified for IoT devices](http://azure.com/iotdev).
+

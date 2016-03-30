@@ -49,3 +49,4 @@ While you're staging an offer from the publishing portal, a subscription ID need
 
 ## See also
 - [Getting started: How to publish an offer for the Azure Marketplace](marketplace-publishing-getting-started.md)
+

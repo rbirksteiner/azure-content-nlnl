@@ -54,7 +54,7 @@ Next, let's add triggers and actions.
 1. In **Logic App Templates**, select **Create from Scratch**.
 1. Select **HTTP Listener** from the gallery to create a new listener. Call it **HTTP1**.
 2. Set the **Send response automatically?** setting to false. Configure the trigger action by setting _HTTP Method_ to _POST_ and setting _Relative URL_ to _/OneWayPipeline_:  
-	![HTTP Trigger][2]
+    ![HTTP Trigger][2]
 3. Select the green checkmark to complete the trigger.
 
 ## Add Validate Action
@@ -98,7 +98,7 @@ Once pipeline processing is done, send back an HTTP response for both success an
 2. Set **Response Content** to *Pipeline processing completed*.
 3. **Response Status Code** to *200* to indicate HTTP 200 OK.
 4. Select the drop down menu on the top right, and select **Add a condition to be met**.  Set the condition to the following expression:  
-	```@equals(actions('azureservicebusconnector').status,'Succeeded')```  <br/>
+    ```@equals(actions('azureservicebusconnector').status,'Succeeded')```  <br/>
 5. Repeat these steps to send an HTTP response on failure as well. Change **Condition** to the following expression:  
 ```@not(equals(actions('azureservicebusconnector').status,'Succeeded'))``` <br/>
 6. Select **OK** then **Create**.
@@ -119,3 +119,4 @@ Some helpful topics:
 [3]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/BizTalkXMLValidator.PNG
 [4]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/BizTalkTransforms.PNG
 [5]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/AzureServiceBus.PNG
+

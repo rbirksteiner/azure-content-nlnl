@@ -40,7 +40,7 @@ The **data flow** is in the opposite direction:
 For background on Atom, Atom Pub, and the OData protocol upon which the Azure Marketplace extensions build, please review: [http://msdn.microsoft.com/library/ff478141.aspx](http://msdn.microsoft.com/library/ff478141.aspx)
 
 Excerpt from above link:
-  	*“The purpose of the Open Data protocol (hereafter referred to as OData) is to provide a REST-based protocol for CRUD-style operations (Create, Read, Update and Delete) against resources exposed as data services. A “data service” is an endpoint where there is data exposed from one or more “collections” each with zero or more “entries”, which consist of typed named-value pairs. OData is published by Microsoft under OASIS (Organization for the Advancement of Structured Information Standards) Standards so that anyone that wants to can build servers, clients or tools without royalties or restrictions.”*
+    *“The purpose of the Open Data protocol (hereafter referred to as OData) is to provide a REST-based protocol for CRUD-style operations (Create, Read, Update and Delete) against resources exposed as data services. A “data service” is an endpoint where there is data exposed from one or more “collections” each with zero or more “entries”, which consist of typed named-value pairs. OData is published by Microsoft under OASIS (Organization for the Advancement of Structured Information Standards) Standards so that anyone that wants to can build servers, clients or tools without royalties or restrictions.”*
 
 ### Three Critical Pieces that have to be defined by the CSDL are:
 
@@ -59,7 +59,7 @@ The following diagram shows an overview of the flow from where the client enters
 
 1. Client sends request via Service call complete with Input Parameters defined in XML to the Azure Marketplace
 2. CSDL is used to validate the Service call.
-	- The Formatted Service Call is then sent to the Content Providers Service by the Azure Marketplace
+    - The Formatted Service Call is then sent to the Content Providers Service by the Azure Marketplace
 3. The Webservice executes and preforms the action of the Http Verb (i.e. GET)
   The data is returned to Azure Marketplace where the requested data (if any) is exposes in XML Format to the Client using the Mapping defined in the CSDL.
 4. The Client is sent the data (if any) in XML or JSON format
@@ -178,7 +178,7 @@ Connects to a service that is exposing an web application endpoint (like a C# ap
         <d:RequestBody d:httpMethod="POST">
                 <!-- Use {} for placeholders to insert parameters. -->
                 <!-- This example uses SOAP formatting, but any POST body can be used. -->
-        	<!-- This example shows how to pass userid and password via the header -->
+            <!-- This example shows how to pass userid and password via the header -->
                 <![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:MyOffer="http://services.organization.net/MyServicePath">
                   <soapenv:Header/>
                   <soapenv:Body>
@@ -232,7 +232,7 @@ Connects to a service that is exposing an web application endpoint (like a C# ap
         </d:ErrorHandling>
            </FunctionImport>
 
-        	<!-- The EntityContainer defines the output data schema -->
+            <!-- The EntityContainer defines the output data schema -->
         </EntityContainer>
         <!-- The EntityType @d:Map defines the repeating node (an XPath query) in the response (output data schema). -->
         <!-- If these nodes are outside a namespace, add the prefix in the xpath. -->
@@ -243,12 +243,12 @@ Connects to a service that is exposing an web application endpoint (like a C# ap
         The "." is relative to the repeating node in the EntityType @d:Map Xpath expression.
         -->
             <EntityType Name="MyEntityType" d:Map="/MyResponse/MyEntities">
-        <Property Name="ID"	d:IsPrimaryKey="True" Type="Int32"	Nullable="false" d:Map="./Remaining[@Amount]"/>
-        <Property Name="Amount"	Type="Double"	Nullable="false" d:Map="./Remaining[@Amount]"/>
-        <Property Name="City"	Type="String"	Nullable="false" d:Map="./City"/>
-        <Property Name="State"	Type="String"	Nullable="false" d:Map="./State"/>
-        <Property Name="Zip"	Type="Int32"	Nullable="false" d:Map="./Zip"/>
-        <Property Name="Updated"	Type="DateTime"	Nullable="false" d:Map="./Updated"/>
+        <Property Name="ID" d:IsPrimaryKey="True" Type="Int32"  Nullable="false" d:Map="./Remaining[@Amount]"/>
+        <Property Name="Amount" Type="Double"   Nullable="false" d:Map="./Remaining[@Amount]"/>
+        <Property Name="City"   Type="String"   Nullable="false" d:Map="./City"/>
+        <Property Name="State"  Type="String"   Nullable="false" d:Map="./State"/>
+        <Property Name="Zip"    Type="Int32"    Nullable="false" d:Map="./Zip"/>
+        <Property Name="Updated"    Type="DateTime" Nullable="false" d:Map="./Updated"/>
         <Property Name="AdditionalInfo" Type="String" Nullable="true"
         d:Map="./Info/More[1]"/>
             </EntityType>
@@ -267,19 +267,19 @@ Below example shows two APIs for Data base based API CSDL (can use views rather 
         <!-- EntityContainer groups all the data service calls together into a single offering. Every web service call has a FunctionImport definition. -->
         <EntityContainer Name="MyOfferContainer">
         <!-- EntitySet is defined for CSDL compatibility reasons, not required for ReturnType=”Raw”
-        	Think of the EntitySet as a Service
+            Think of the EntitySet as a Service
         @Name is used in the customer facing UI as name of the Service.
         @EntityType is used to point at the type definition (returned set of table columns). -->
         <EntitySet Name="CompanyInfoEntitySet" EntityType="MyOffer.CompanyInfo" />
         <EntitySet Name="ProductInfoEntitySet" EntityType="MyOffer.ProductInfo" />
         </EntityContainer>
         <!-- EntityType defines result (output); the table (or view) and columns to be returned by the data service.)
-        	Map is the schema.tabel or schema.view
-        	dals.TableName is the table Name
-        	Name is the name identifier for the EntityType and the Name of the service exposed to the client via the UI.
-        	dals:IsExposed determines if the table schema is exposed (generally true).
-        	dals:IsView (optional) true if this is based on a view rather than a table
-        	dals:TableSchema is the schema name of the table/view
+            Map is the schema.tabel or schema.view
+            dals.TableName is the table Name
+            Name is the name identifier for the EntityType and the Name of the service exposed to the client via the UI.
+            dals:IsExposed determines if the table schema is exposed (generally true).
+            dals:IsView (optional) true if this is based on a view rather than a table
+            dals:TableSchema is the schema name of the table/view
         -->
         <EntityType
         Map="[dbo].[CompanyInfo]"
@@ -290,16 +290,16 @@ Below example shows two APIs for Data base based API CSDL (can use views rather 
         dals:TableSchema="dbo"
         xmlns:dals="http://schemas.microsoft.com/dallas/2010/04">
         <!-- Property defines the column properties and the output of the service.
-        	dals:ColumnName is the name of the column in the table /view.
-        	Type is the emd.SimpleType
-        	Nullable determines if NULL is a valid output value
-        	dals.CharMaxLenght is the maximum length of the output value
-        	Name is the name of the Property and is exposed to the client facing UI
-        	dals:IsReturned is the Boolean that determines if the Service exposes this value to the client.
-        	IsQueryable is the Boolean that determines if the column can be used in a database query
-        	(For data Services: To improve Performance make sure that columns marked ISQueryable=”true” are in an index.)
-        	dals:OrdinalPosition is the numerical position x in the table or the View, where x is from 1 to the number of columns in the table.
-        	dals:DatabaseDataType is the data type of the column in the database, i.e. SQL data type dals:IsPrimaryKey indicates if the column is the Primary key in the table/view.  (The columns marked ISPrimaryKey are used in the Order by clause when returning data.)
+            dals:ColumnName is the name of the column in the table /view.
+            Type is the emd.SimpleType
+            Nullable determines if NULL is a valid output value
+            dals.CharMaxLenght is the maximum length of the output value
+            Name is the name of the Property and is exposed to the client facing UI
+            dals:IsReturned is the Boolean that determines if the Service exposes this value to the client.
+            IsQueryable is the Boolean that determines if the column can be used in a database query
+            (For data Services: To improve Performance make sure that columns marked ISQueryable=”true” are in an index.)
+            dals:OrdinalPosition is the numerical position x in the table or the View, where x is from 1 to the number of columns in the table.
+            dals:DatabaseDataType is the data type of the column in the database, i.e. SQL data type dals:IsPrimaryKey indicates if the column is the Primary key in the table/view.  (The columns marked ISPrimaryKey are used in the Order by clause when returning data.)
         -->
         <Property dals:ColumnName="data" Type="String" Nullable="true" dals:CharMaxLength="-1" Name="data" dals:IsReturned="true" dals:IsQueryable="false" dals:IsPrimaryKey="false" dals:OrdinalPosition="3" dals:DatabaseDataType="nvarchar" />
         <Property dals:ColumnName="id" Type="Int32" Nullable="false" Name="id" dals:IsReturned="true" dals:IsQueryable="true" dals:IsPrimaryKey="true" dals:OrdinalPosition="1" dals:NumericPrecision="10" dals:DatabaseDataType="int" />
@@ -316,3 +316,4 @@ Below example shows two APIs for Data base based API CSDL (can use views rather 
 - If you are interested in learning and understanding the specific nodes and their parameters, read this article [Data Service OData Mapping Nodes](marketplace-publishing-data-service-creation-odata-mapping-nodes.md) for definitions and explanations, examples, and use case context.
 - If you are interested in reviewing examples, read this article [Data Service OData Mapping Examples](marketplace-publishing-data-service-creation-odata-mapping-examples.md) to see sample code and understand code syntax and context.
 - To return to the prescribed path for publishing a Data Service to the Azure Marketplace, read this article [Data Service Publishing Guide](marketplace-publishing-data-service-creation.md).
+

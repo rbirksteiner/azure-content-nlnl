@@ -93,3 +93,4 @@ Given the above information we know that the only performance impact that Traffi
 
 [Azure Traffic Manager Cmdlets](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
+

@@ -93,7 +93,7 @@ Use PUT to create a new subordinate or to update the entire subordinate at a ser
         </d:Namespaces>
         </FunctionImport>
         <EntityType Name="UpdateAnExistingModelEntity" d:Map="//string">
-        <Property Name="string" 	Type="String" Nullable="true" d:Map="./string" />
+        <Property Name="string"     Type="String" Nullable="true" d:Map="./string" />
         </EntityType>
 
 
@@ -139,9 +139,9 @@ Use GET Raw data to return a subordinate that is unstructured, i.e. text.
 Use implement RESTful paging through your data with GET.  Default paging is set to 100 row per page of data.
 
         <EntitySet Name=”CropEntitySet" EntityType="MyOffer.CropEntity" />
-        <FunctionImport	Name="GetCropReport" EntitySet="CropEntitySet” ReturnType="Collection(MyOffer.CropEntity)" d:EmitSelfLink="false" d:EncodeParameterValues="true" d:Paging="SkipTake" d:MaxPageSize="100" d:BaseUri="http://api.mydata.org/Crop? report={report}&amp;series={series}&amp;start={$skip}&amp;size=100">
+        <FunctionImport Name="GetCropReport" EntitySet="CropEntitySet” ReturnType="Collection(MyOffer.CropEntity)" d:EmitSelfLink="false" d:EncodeParameterValues="true" d:Paging="SkipTake" d:MaxPageSize="100" d:BaseUri="http://api.mydata.org/Crop? report={report}&amp;series={series}&amp;start={$skip}&amp;size=100">
         <Parameter Name="report" Type="Int32" Mode="In" Nullable="false" d:SampleValues="4"  d:enum="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19"  />
-        <Parameter Name="series"	Type="String"	Mode="In" Nullable="false" d:SampleValues="FARM" />
+        <Parameter Name="series"    Type="String"   Mode="In" Nullable="false" d:SampleValues="FARM" />
         <d:Headers>
         <d:Header d:Name="Content-Type" d:Value="text/xml;charset=UTF-8" />
         </d:Headers>
@@ -154,3 +154,4 @@ Use implement RESTful paging through your data with GET.  Default paging is set 
 - If you are interested in understanding the overall OData mapping process and purpose, read this article [Data Service OData Mapping](marketplace-publishing-data-service-creation-odata-mapping.md) to review definitions, structures, and instructions.
 - If you are interested in learning and understanding the specific nodes and their parameters, read this article [Data Service OData Mapping Nodes](marketplace-publishing-data-service-creation-odata-mapping-nodes.md) for definitions and explanations, examples, and use case context.
 - To return to the prescribed path for publishing a Data Service to the Azure Marketplace, read this article [Data Service Publishing Guide](marketplace-publishing-data-service-creation.md).
+

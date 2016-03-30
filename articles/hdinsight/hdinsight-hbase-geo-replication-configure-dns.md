@@ -44,13 +44,13 @@ Before you begin this tutorial, you must have the following:
 
 - **A workstation with Azure PowerShell**. See [Install and use Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
-	Before running PowerShell scripts, make sure you are connected to your Azure subscription using the following cmdlet:
+    Before running PowerShell scripts, make sure you are connected to your Azure subscription using the following cmdlet:
 
-		Add-AzureAccount
+        Add-AzureAccount
 
-	If you have multiple Azure subscriptions, use the following cmdlet to set the current subscription:
+    If you have multiple Azure subscriptions, use the following cmdlet to set the current subscription:
 
-		Select-AzureSubscription <AzureSubscriptionName>
+        Select-AzureSubscription <AzureSubscriptionName>
 
 - **Two Azure virtual network with VPN connectivity**.  For instructions, see [Configure a VPN connection between two Azure virtual networks][hdinsight-hbase-geo-replication-vnet].
 
@@ -61,40 +61,40 @@ Before you begin this tutorial, you must have the following:
 
 **To create a virtual machine within Contoso-VNet-EU, called Contoso-DNS-EU**
 
-1.	Click **NEW**, **COMPUTE**, **VIRTUAL MACHINE**, **FROM GALLERY**.
-2.	Choose **Windows Server 2012 R2 Datacenter**.
-3.	Enter:
-	- **VIRTUAL MACHINE NAME**: Contoso-DNS-EU
-	- **NEW USER NAME**: 
-	- **NEW PASSWORD**: 
-4.	Enter:
-	- **CLOUD SERVICE**: Create a new cloud service
-	- **REGION/AFFINITY GROUP/VIRTUAL NETWORK**: (Select Contoso-VNet-EU)
-	- **VIRTUAL NETWORK SUBNETS**: Subnet-1
-	- **STORAGE ACCOUNT**: Use an automatically generated storage account
-	
-		The cloud service name will be the same as the virtual machine name. In this case, that is Contoso-DNS-EU. For subsequent virtual machines, I can choose to use the same cloud service.  All the virtual machines under the same cloud service share the same virtual network and domain suffix.
+1.  Click **NEW**, **COMPUTE**, **VIRTUAL MACHINE**, **FROM GALLERY**.
+2.  Choose **Windows Server 2012 R2 Datacenter**.
+3.  Enter:
+    - **VIRTUAL MACHINE NAME**: Contoso-DNS-EU
+    - **NEW USER NAME**: 
+    - **NEW PASSWORD**: 
+4.  Enter:
+    - **CLOUD SERVICE**: Create a new cloud service
+    - **REGION/AFFINITY GROUP/VIRTUAL NETWORK**: (Select Contoso-VNet-EU)
+    - **VIRTUAL NETWORK SUBNETS**: Subnet-1
+    - **STORAGE ACCOUNT**: Use an automatically generated storage account
+    
+        The cloud service name will be the same as the virtual machine name. In this case, that is Contoso-DNS-EU. For subsequent virtual machines, I can choose to use the same cloud service.  All the virtual machines under the same cloud service share the same virtual network and domain suffix.
 
-		The storage account is used to store the virtual machine image file. 
-	- **ENDPOINTS**: (scroll down and select **DNS**) 
+        The storage account is used to store the virtual machine image file. 
+    - **ENDPOINTS**: (scroll down and select **DNS**) 
 
 After the virtual machine is created, find out the internal IP and external IP.
 
-1.	Click the virtual machine name, **Contoso-DNS-EU**.
-2.	Click **DashBoard**.
-3.	Write down:
-	- PUBLIC VIRTUAL IP ADDRESS
-	- INTERNAL IP ADDRESS
+1.  Click the virtual machine name, **Contoso-DNS-EU**.
+2.  Click **DashBoard**.
+3.  Write down:
+    - PUBLIC VIRTUAL IP ADDRESS
+    - INTERNAL IP ADDRESS
 
 
 **To create a virtual machine within Contoso-VNet-US, called Contoso-DNS-US** 
 
 - Repeat the same procedure to create a virtual machine with the following values:
-	- VIRTUAL MACHINE NAME: Contoso-DNS-US
-	- REGION/AFFINITY GROUP/VIRTUAL NETWORK: Select Contoso-VNET-US
-	- VIRTUAL NETWORK SUBNETS: Subnet-1
-	- STORAGE ACCOUNT: Use an automatically generated storage account
-	- ENDPOINTS: (select DNS)
+    - VIRTUAL MACHINE NAME: Contoso-DNS-US
+    - REGION/AFFINITY GROUP/VIRTUAL NETWORK: Select Contoso-VNET-US
+    - VIRTUAL NETWORK SUBNETS: Subnet-1
+    - STORAGE ACCOUNT: Use an automatically generated storage account
+    - ENDPOINTS: (select DNS)
 
 ##Set static IP addresses for the two virtual machines
 
@@ -105,34 +105,34 @@ DNS servers requires static IP addresses.  This step can't be done from the Azur
 1. Open Windows PowerShell ISE.
 2. Run the following cmdlets.  
 
-		Add-AzureAccount
-		Select-AzureSubscription [YourAzureSubscriptionName]
-		
-		Get-AzureVM -ServiceName Contoso-DNS-EU -Name Contoso-DNS-EU | Set-AzureStaticVNetIP -IPAddress 10.1.0.4 | Update-AzureVM
-		Get-AzureVM -ServiceName Contoso-DNS-US -Name Contoso-DNS-US | Set-AzureStaticVNetIP -IPAddress 10.2.0.4 | Update-AzureVM 
+        Add-AzureAccount
+        Select-AzureSubscription [YourAzureSubscriptionName]
+        
+        Get-AzureVM -ServiceName Contoso-DNS-EU -Name Contoso-DNS-EU | Set-AzureStaticVNetIP -IPAddress 10.1.0.4 | Update-AzureVM
+        Get-AzureVM -ServiceName Contoso-DNS-US -Name Contoso-DNS-US | Set-AzureStaticVNetIP -IPAddress 10.2.0.4 | Update-AzureVM 
 
-	ServiceName is the cloud service name. Because the DNS server is the first virtual machine of the cloud service, the cloud service name is the same as the virtual machine name.
+    ServiceName is the cloud service name. Because the DNS server is the first virtual machine of the cloud service, the cloud service name is the same as the virtual machine name.
 
-	You might need to update ServiceName and Name to match the names that you have.
+    You might need to update ServiceName and Name to match the names that you have.
 
 
 ##Add the DNS Server role the two virtual machines
 
 **To add the DNS Server role for Contoso-DNS-EU**
 
-1.	From the Azure Classic Portal, click **Virtual Machines** on the left. 
-2.	Click **Contoso-DNS-EU**.
-3.	Click **DASHBOARD** from the top.
-4.	Click **CONNECT** from the bottom and follow the instructions to connect to the virtual machine via RDP.
-2.	Within the RDP session, click the Windows button on the bottom left corner to open the Start screen.
-3.	Click the **Server Manager** tile.
-4.	Click **Add Roles and Features**.
-5.	Click **Next**
-6.	Select **Role-based or feature-based installation**, and then click **Next**.
-7.	Select your DNS virtual machine (it shall be highlighted already), and then click **Next**.
-8.	Check **DNS Server**.
-9.	Click **Add Features**, and then click **Continue**.
-10.	Click **Next** three times, and then click **Install**. 
+1.  From the Azure Classic Portal, click **Virtual Machines** on the left. 
+2.  Click **Contoso-DNS-EU**.
+3.  Click **DASHBOARD** from the top.
+4.  Click **CONNECT** from the bottom and follow the instructions to connect to the virtual machine via RDP.
+2.  Within the RDP session, click the Windows button on the bottom left corner to open the Start screen.
+3.  Click the **Server Manager** tile.
+4.  Click **Add Roles and Features**.
+5.  Click **Next**
+6.  Select **Role-based or feature-based installation**, and then click **Next**.
+7.  Select your DNS virtual machine (it shall be highlighted already), and then click **Next**.
+8.  Check **DNS Server**.
+9.  Click **Add Features**, and then click **Continue**.
+10. Click **Next** three times, and then click **Install**. 
 
 **To add the DNS Server role for Contoso-DNS-US**
 
@@ -142,23 +142,23 @@ DNS servers requires static IP addresses.  This step can't be done from the Azur
 
 **To register the two DNS servers**
 
-1.	From the Azure Classic Portal, click **NEW**, **NETWORK SERVICES**, **VIRTUAL NETWORK**, **REGISTER DNS SERVER**.
-2.	Enter:
-	- **NAME**: Contoso-DNS-EU
-	- **DNS SERVER IP ADDRESS**: 10.1.0.4 – the IP address must matching the DNS server virtual machine IP address.
-	 
-3.	Repeat the process to register Contoso-DNS-US with the following settings:
-	- **NAME**: Contoso-DNS-US
-	- **DNS SERVER IP ADDRESS**: 10.2.0.4
+1.  From the Azure Classic Portal, click **NEW**, **NETWORK SERVICES**, **VIRTUAL NETWORK**, **REGISTER DNS SERVER**.
+2.  Enter:
+    - **NAME**: Contoso-DNS-EU
+    - **DNS SERVER IP ADDRESS**: 10.1.0.4 – the IP address must matching the DNS server virtual machine IP address.
+     
+3.  Repeat the process to register Contoso-DNS-US with the following settings:
+    - **NAME**: Contoso-DNS-US
+    - **DNS SERVER IP ADDRESS**: 10.2.0.4
 
 **To assign the two DNS servers to the two virtual networks**
 
-1.	Click **Networks** from the left pane in the Classic Portal.
-2.	Click **Contoso-VNet-EU**.
-3.	Click **CONFIGURE**.
-4.	Select **Contoso-DNS-EU** in the **dns servers** section.
-5.	Click **SAVE** on the bottom of the page, and click **Yes** to confirm.
-6.	Repeat the process to assign the **Contoso-DNS-US** DNS server to the **Contoso-VNet-US** virtual network.
+1.  Click **Networks** from the left pane in the Classic Portal.
+2.  Click **Contoso-VNet-EU**.
+3.  Click **CONFIGURE**.
+4.  Select **Contoso-DNS-EU** in the **dns servers** section.
+5.  Click **SAVE** on the bottom of the page, and click **Yes** to confirm.
+6.  Repeat the process to assign the **Contoso-DNS-US** DNS server to the **Contoso-VNet-US** virtual network.
 
 All the virtual machines that have been deployed to the virtual networks must be rebooted to update the DNS server configuration.
 
@@ -188,17 +188,17 @@ To configure conditional forwarder, you need to know the domain suffixes of the 
 
 **To configure DNS forwarders**
  
-1.	From the RDP session to **Contoso-DNS-EU**, click the Windows key on the lower left.
-2.	Click **Administrative Tools**.
-3.	Click **DNS**.
-4.	In the left pane, expand **DSN**, **Contoso-DNS-EU**.
-5.	Enter the following information:
-	- **DNS Domain**: enter the DNS suffix of the Contoso-DNS-US. For example: Contoso-DNS-US.b5.internal.cloudapp.net.
-	- **IP addresses of the master servers**: enter 10.2.0.4, which is the Contoso-DNS-US’s IP address.
-6.	Press **ENTER**, and then click **OK**.  Now you will be able to resolve the Contoso-DNS-US’s IP address from Contoso-DNS-EU.
-7.	Repeat the steps to add a DNS forwarder to the DNS service on the Contoso-DNS-US virtual machine with the following values:
-	- **DNS Domain**: enter the DNS suffix of the Contoso-DNS-EU. 
-	- **IP addresses of the master servers**: enter 10.2.0.4, which is the Contoso-DNS-EU’s IP address.
+1.  From the RDP session to **Contoso-DNS-EU**, click the Windows key on the lower left.
+2.  Click **Administrative Tools**.
+3.  Click **DNS**.
+4.  In the left pane, expand **DSN**, **Contoso-DNS-EU**.
+5.  Enter the following information:
+    - **DNS Domain**: enter the DNS suffix of the Contoso-DNS-US. For example: Contoso-DNS-US.b5.internal.cloudapp.net.
+    - **IP addresses of the master servers**: enter 10.2.0.4, which is the Contoso-DNS-US’s IP address.
+6.  Press **ENTER**, and then click **OK**.  Now you will be able to resolve the Contoso-DNS-US’s IP address from Contoso-DNS-EU.
+7.  Repeat the steps to add a DNS forwarder to the DNS service on the Contoso-DNS-US virtual machine with the following values:
+    - **DNS Domain**: enter the DNS suffix of the Contoso-DNS-EU. 
+    - **IP addresses of the master servers**: enter 10.2.0.4, which is the Contoso-DNS-EU’s IP address.
 
 ##Test the name resolution across the virtual networks
 

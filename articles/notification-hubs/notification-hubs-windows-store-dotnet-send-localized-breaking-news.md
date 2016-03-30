@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Notification Hubs Localized Breaking News Tutorial"
-	description="Learn how to use Azure Notification Hubs to send localized breaking news notifications."
-	services="notification-hubs"
-	documentationCenter="windows"
-	authors="wesmc7777"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Notification Hubs Localized Breaking News Tutorial"
+    description="Learn how to use Azure Notification Hubs to send localized breaking news notifications."
+    services="notification-hubs"
+    documentationCenter="windows"
+    authors="wesmc7777"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="notification-hubs"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-windows"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="12/15/2015" 
-	ms.author="wesmc"/>
+    ms.service="notification-hubs"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-windows"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="12/15/2015" 
+    ms.author="wesmc"/>
 
 # Use Notification Hubs to send localized breaking news
 
@@ -52,21 +52,21 @@ Note: one way to send localized notifications is to create multiple versions of 
 
 At a high level, templates are a way to specify how a specific device should receive a notification. The template specifies the exact payload format by referring to properties that are part of the message sent by your app back-end. In our case, we will send a locale-agnostic message containing all supported languages:
 
-	{
-		"News_English": "...",
-		"News_French": "...",
-		"News_Mandarin": "..."
-	}
+    {
+        "News_English": "...",
+        "News_French": "...",
+        "News_Mandarin": "..."
+    }
 
 Then we will ensure that devices register with a template that refers to the correct property. For instance, a Windows Store app that wants to receive a simple toast message will register for the following template with any corresponding tags:
 
-	<toast>
-	  <visual>
-	    <binding template=\"ToastText01\">
-	      <text id=\"1\">$(News_English)</text>
-	    </binding>
-	  </visual>
-	</toast>
+    <toast>
+      <visual>
+        <binding template=\"ToastText01\">
+          <text id=\"1\">$(News_English)</text>
+        </binding>
+      </visual>
+    </toast>
 
 
 
@@ -81,8 +81,8 @@ In your Windows Store app:
 
 Change your MainPage.xaml to include a locale combobox:
 
-	<Grid Margin="120, 58, 120, 80"  
-			Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Margin="120, 58, 120, 80"  
+            Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition />
@@ -137,13 +137,13 @@ Change your MainPage.xaml to include a locale combobox:
             return await hub.RegisterTemplateAsync(channel.Uri, templateBodyWNS, "localizedWNSTemplateExample", categories);
         }
 
-	Note that instead of calling the *RegisterNativeAsync* method we call *RegisterTemplateAsync*: we are registering a specific notification format in which the template depends on the locale. We also provide a name for the template ("localizedWNSTemplateExample"), because we might want to register more than one template (for instance one for toast notifications and one for tiles) and we need to name them in order to be able to update or delete them.
+    Note that instead of calling the *RegisterNativeAsync* method we call *RegisterTemplateAsync*: we are registering a specific notification format in which the template depends on the locale. We also provide a name for the template ("localizedWNSTemplateExample"), because we might want to register more than one template (for instance one for toast notifications and one for tiles) and we need to name them in order to be able to update or delete them.
 
-	Note that if a device registers multiple templates with the same tag, an incoming message targeting that tag will result in multiple notifications delivered to the device (one for each template). This behavior is useful when the same logical message has to result in multiple visual notifications, for instance showing both a badge and a toast in a Windows Store application.
+    Note that if a device registers multiple templates with the same tag, an incoming message targeting that tag will result in multiple notifications delivered to the device (one for each template). This behavior is useful when the same logical message has to result in multiple visual notifications, for instance showing both a badge and a toast in a Windows Store application.
 
 2. Add the following method to retrieve the stored locale:
 
-		public string RetrieveLocale()
+        public string RetrieveLocale()
         {
             var locale = (string) ApplicationData.Current.LocalSettings.Values["locale"];
             return locale != null ? locale : "English";
@@ -164,10 +164,10 @@ Change your MainPage.xaml to include a locale combobox:
             if (SportsToggle.IsOn) categories.Add("Sports");
 
             var result = await ((App)Application.Current).notifications.StoreCategoriesAndSubscribe(locale,
-				 categories);
+                 categories);
 
             var dialog = new MessageDialog("Locale: " + locale + " Subscribed to: " + 
-				string.Join(",", categories) + " on registration Id: " + result.RegistrationId);
+                string.Join(",", categories) + " on registration Id: " + result.RegistrationId);
             dialog.Commands.Add(new UICommand("OK"));
             await dialog.ShowAsync();
         }
@@ -228,3 +228,4 @@ Change your MainPage.xaml to include a locale combobox:
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
+

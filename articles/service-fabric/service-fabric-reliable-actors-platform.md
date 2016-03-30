@@ -242,3 +242,4 @@ Note that changing the state provider requires the actor service to be re-create
 [2]: ./media/service-fabric-reliable-actors-platform/app-deployment-scripts.png
 [3]: ./media/service-fabric-reliable-actors-platform/actor-partition-info.png
 [4]: ./media/service-fabric-reliable-actors-platform/actor-replica-role.png
+

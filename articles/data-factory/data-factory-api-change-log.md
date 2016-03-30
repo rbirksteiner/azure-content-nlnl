@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Data Factory - .NET API Change Log | Microsoft Azure" 
-	description="Describes breaking changes, feature additions, bug fixes etc... in a specific version of .NET API for the Azure Data Factory." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
-	editor="monicar"/>
+    pageTitle="Data Factory - .NET API Change Log | Microsoft Azure" 
+    description="Describes breaking changes, feature additions, bug fixes etc... in a specific version of .NET API for the Azure Data Factory." 
+    services="data-factory" 
+    documentationCenter="" 
+    authors="spelluru" 
+    manager="jhubbard" 
+    editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/10/2015" 
-	ms.author="spelluru"/>
+    ms.service="data-factory" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/10/2015" 
+    ms.author="spelluru"/>
 
 # Azure Data Factory - .NET SDK Change Log 
 This article provides information about changes to Azure Data Factory SDK in a specific version. You can find the latest Nuget package for Azure Data Factory [here](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactories) 
@@ -87,18 +87,18 @@ Release date: 2015-10-02
 
 - The **List** methods return paged results now. If the response contains a non-empty **NextLink** property, the client application needs to continue fetching the next page until all pages are returned.  Here is an example: 
 
-		PipelineListResponse response = client.Pipelines.List("ResourceGroupName", "DataFactoryName");
-	    var pipelines = new List<Pipeline>(response.Pipelines);
-	
-	    string nextLink = response.NextLink;
-	    while (string.IsNullOrEmpty(response.NextLink))
-	    {
-	        PipelineListResponse nextResponse = client.Pipelines.ListNext(nextLink);
-	        pipelines.AddRange(nextResponse.Pipelines);
-	
-	        nextLink = nextResponse.NextLink;
-	    }
-	
+        PipelineListResponse response = client.Pipelines.List("ResourceGroupName", "DataFactoryName");
+        var pipelines = new List<Pipeline>(response.Pipelines);
+    
+        string nextLink = response.NextLink;
+        while (string.IsNullOrEmpty(response.NextLink))
+        {
+            PipelineListResponse nextResponse = client.Pipelines.ListNext(nextLink);
+            pipelines.AddRange(nextResponse.Pipelines);
+    
+            nextLink = nextResponse.NextLink;
+        }
+    
 - **List** pipeline API returns only the summary of a pipeline instead of full details. For instance, activities in a pipeline summary only contain name and type.
 
 ### Feature Additions

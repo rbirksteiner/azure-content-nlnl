@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Create a PHP-MySQL web app in Azure App Service and deploy using FTP" 
-	description="A tutorial that demonstrates how to create a PHP web app that stores data in MySQL and use FTP deployment to Azure." 
-	services="app-service\web" 
-	documentationCenter="php" 
-	authors="tfitzmac" 
-	manager="wpickett" 
-	editor=""/>
+    pageTitle="Create a PHP-MySQL web app in Azure App Service and deploy using FTP" 
+    description="A tutorial that demonstrates how to create a PHP web app that stores data in MySQL and use FTP deployment to Azure." 
+    services="app-service\web" 
+    documentationCenter="php" 
+    authors="tfitzmac" 
+    manager="wpickett" 
+    editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="PHP" 
-	ms.topic="article" 
-	ms.date="10/01/2015" 
-	ms.author="tomfitz"/>
+    ms.service="app-service-web" 
+    ms.workload="web" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="PHP" 
+    ms.topic="article" 
+    ms.date="10/01/2015" 
+    ms.author="tomfitz"/>
 
 
 #Create a PHP-MySQL web app in Azure App Service and deploy using FTP
@@ -48,11 +48,11 @@ Follow these steps to create a web app and a MySQL database:
 1. Login to the [Azure Portal][management-portal].
 2. Click the **+ New** icon on the bottom left of the Azure Portal.
 
-	![Create New Azure Web Site][new-website]
+    ![Create New Azure Web Site][new-website]
 
 3. Click **Web + Mobile**, then **Web app + MySQL**.
 
-	![Custom Create a new Web Site][custom-create]
+    ![Custom Create a new Web Site][custom-create]
 
 4. Enter a valid name for your resource group.
 
@@ -64,19 +64,19 @@ Follow these steps to create a web app and a MySQL database:
 
 6. Enter values for your new database, including agreeing to the legal terms.
 
-	![Create new MySQL database][new-mysql-db]
-	
+    ![Create new MySQL database][new-mysql-db]
+    
 7. When the web app has been created, you will see the new resource group. Click the name of the web app to configure its settings.
 
-	![Open web app][go-to-webapp]
+    ![Open web app][go-to-webapp]
 
 6. Scroll down until you find **Set deployment credentials**. 
 
-	![Set deployment credentials][set-deployment-credentials]
+    ![Set deployment credentials][set-deployment-credentials]
 
 7. To enable FTP publishing, you must provide a user name and password. Save the credentials and make a note of the user name and password you create.
 
-	![Create publishing credentials][portal-ftp-username-password]
+    ![Create publishing credentials][portal-ftp-username-password]
 
 ##Build and test your app locally
 
@@ -89,134 +89,134 @@ To build and run the app locally, follow the steps below. Note that these steps 
 
 1. Create a MySQL database called `registration`. You can do this from the MySQL command prompt with this command:
 
-		mysql> create database registration;
+        mysql> create database registration;
 
 2. In your web server's root directory, create a folder called `registration` and create two files in it - one called `createtable.php` and one called `index.php`.
 
 3. Open the `createtable.php` file in a text editor or IDE and add the code below. This code will be used to create the `registration_tbl` table in the `registration` database.
 
-		<?php
-		// DB connection info
-		$host = "localhost";
-		$user = "user name";
-		$pwd = "password";
-		$db = "registration";
-		try{
-			$conn = new PDO( "mysql:host=$host;dbname=$db", $user, $pwd);
-			$conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-			$sql = "CREATE TABLE registration_tbl(
-						id INT NOT NULL AUTO_INCREMENT, 
-						PRIMARY KEY(id),
-						name VARCHAR(30),
-						email VARCHAR(30),
-						date DATE)";
-			$conn->query($sql);
-		}
-		catch(Exception $e){
-			die(print_r($e));
-		}
-		echo "<h3>Table created.</h3>";
-		?>
+        <?php
+        // DB connection info
+        $host = "localhost";
+        $user = "user name";
+        $pwd = "password";
+        $db = "registration";
+        try{
+            $conn = new PDO( "mysql:host=$host;dbname=$db", $user, $pwd);
+            $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+            $sql = "CREATE TABLE registration_tbl(
+                        id INT NOT NULL AUTO_INCREMENT, 
+                        PRIMARY KEY(id),
+                        name VARCHAR(30),
+                        email VARCHAR(30),
+                        date DATE)";
+            $conn->query($sql);
+        }
+        catch(Exception $e){
+            die(print_r($e));
+        }
+        echo "<h3>Table created.</h3>";
+        ?>
 
-	> [AZURE.NOTE] 
-	> You will need to update the values for <code>$user</code> and <code>$pwd</code> with your local MySQL user name and password.
+    > [AZURE.NOTE] 
+    > You will need to update the values for <code>$user</code> and <code>$pwd</code> with your local MySQL user name and password.
 
 4. Open a web browser and browse to [http://localhost/registration/createtable.php][localhost-createtable]. This will create the `registration_tbl` table in the database.
 
 5. Open the **index.php** file in a text editor or IDE and add the basic HTML and CSS code for the page (the PHP code will be added in later steps).
 
-		<html>
-		<head>
-		<Title>Registration Form</Title>
-		<style type="text/css">
-			body { background-color: #fff; border-top: solid 10px #000;
-			    color: #333; font-size: .85em; margin: 20; padding: 20;
-			    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
-			}
-			h1, h2, h3,{ color: #000; margin-bottom: 0; padding-bottom: 0; }
-			h1 { font-size: 2em; }
-			h2 { font-size: 1.75em; }
-			h3 { font-size: 1.2em; }
-			table { margin-top: 0.75em; }
-			th { font-size: 1.2em; text-align: left; border: none; padding-left: 0; }
-			td { padding: 0.25em 2em 0.25em 0em; border: 0 none; }
-		</style>
-		</head>
-		<body>
-		<h1>Register here!</h1>
-		<p>Fill in your name and email address, then click <strong>Submit</strong> to register.</p>
-		<form method="post" action="index.php" enctype="multipart/form-data" >
-		      Name  <input type="text" name="name" id="name"/></br>
-		      Email <input type="text" name="email" id="email"/></br>
-		      <input type="submit" name="submit" value="Submit" />
-		</form>
-		<?php
+        <html>
+        <head>
+        <Title>Registration Form</Title>
+        <style type="text/css">
+            body { background-color: #fff; border-top: solid 10px #000;
+                color: #333; font-size: .85em; margin: 20; padding: 20;
+                font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+            }
+            h1, h2, h3,{ color: #000; margin-bottom: 0; padding-bottom: 0; }
+            h1 { font-size: 2em; }
+            h2 { font-size: 1.75em; }
+            h3 { font-size: 1.2em; }
+            table { margin-top: 0.75em; }
+            th { font-size: 1.2em; text-align: left; border: none; padding-left: 0; }
+            td { padding: 0.25em 2em 0.25em 0em; border: 0 none; }
+        </style>
+        </head>
+        <body>
+        <h1>Register here!</h1>
+        <p>Fill in your name and email address, then click <strong>Submit</strong> to register.</p>
+        <form method="post" action="index.php" enctype="multipart/form-data" >
+              Name  <input type="text" name="name" id="name"/></br>
+              Email <input type="text" name="email" id="email"/></br>
+              <input type="submit" name="submit" value="Submit" />
+        </form>
+        <?php
 
-		?>
-		</body>
-		</html>
+        ?>
+        </body>
+        </html>
 
 6. Within the PHP tags, add PHP code for connecting to the database.
 
-		// DB connection info
-		$host = "localhost";
-		$user = "user name";
-		$pwd = "password";
-		$db = "registration";
-		// Connect to database.
-		try {
-			$conn = new PDO( "mysql:host=$host;dbname=$db", $user, $pwd);
-			$conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-		}
-		catch(Exception $e){
-			die(var_dump($e));
-		}
+        // DB connection info
+        $host = "localhost";
+        $user = "user name";
+        $pwd = "password";
+        $db = "registration";
+        // Connect to database.
+        try {
+            $conn = new PDO( "mysql:host=$host;dbname=$db", $user, $pwd);
+            $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+        }
+        catch(Exception $e){
+            die(var_dump($e));
+        }
 
-	> [AZURE.NOTE]
-	> Again, you will need to update the values for <code>$user</code> and <code>$pwd</code> with your local MySQL user name and password.
+    > [AZURE.NOTE]
+    > Again, you will need to update the values for <code>$user</code> and <code>$pwd</code> with your local MySQL user name and password.
 
 7. Following the database connection code, add code for inserting registration information into the database.
 
-		if(!empty($_POST)) {
-		try {
-			$name = $_POST['name'];
-			$email = $_POST['email'];
-			$date = date("Y-m-d");
-			// Insert data
-			$sql_insert = "INSERT INTO registration_tbl (name, email, date) 
-						   VALUES (?,?,?)";
-			$stmt = $conn->prepare($sql_insert);
-			$stmt->bindValue(1, $name);
-			$stmt->bindValue(2, $email);
-			$stmt->bindValue(3, $date);
-			$stmt->execute();
-		}
-		catch(Exception $e) {
-			die(var_dump($e));
-		}
-		echo "<h3>Your're registered!</h3>";
-		}
+        if(!empty($_POST)) {
+        try {
+            $name = $_POST['name'];
+            $email = $_POST['email'];
+            $date = date("Y-m-d");
+            // Insert data
+            $sql_insert = "INSERT INTO registration_tbl (name, email, date) 
+                           VALUES (?,?,?)";
+            $stmt = $conn->prepare($sql_insert);
+            $stmt->bindValue(1, $name);
+            $stmt->bindValue(2, $email);
+            $stmt->bindValue(3, $date);
+            $stmt->execute();
+        }
+        catch(Exception $e) {
+            die(var_dump($e));
+        }
+        echo "<h3>Your're registered!</h3>";
+        }
 
 8. Finally, following the code above, add code for retrieving data from the database.
 
-		$sql_select = "SELECT * FROM registration_tbl";
-		$stmt = $conn->query($sql_select);
-		$registrants = $stmt->fetchAll(); 
-		if(count($registrants) > 0) {
-			echo "<h2>People who are registered:</h2>";
-			echo "<table>";
-			echo "<tr><th>Name</th>";
-			echo "<th>Email</th>";
-			echo "<th>Date</th></tr>";
-			foreach($registrants as $registrant) {
-				echo "<tr><td>".$registrant['name']."</td>";
-				echo "<td>".$registrant['email']."</td>";
-				echo "<td>".$registrant['date']."</td></tr>";
-		    }
-		 	echo "</table>";
-		} else {
-			echo "<h3>No one is currently registered.</h3>";
-		}
+        $sql_select = "SELECT * FROM registration_tbl";
+        $stmt = $conn->query($sql_select);
+        $registrants = $stmt->fetchAll(); 
+        if(count($registrants) > 0) {
+            echo "<h2>People who are registered:</h2>";
+            echo "<table>";
+            echo "<tr><th>Name</th>";
+            echo "<th>Email</th>";
+            echo "<th>Date</th></tr>";
+            foreach($registrants as $registrant) {
+                echo "<tr><td>".$registrant['name']."</td>";
+                echo "<td>".$registrant['email']."</td>";
+                echo "<td>".$registrant['date']."</td></tr>";
+            }
+            echo "</table>";
+        } else {
+            echo "<h3>No one is currently registered.</h3>";
+        }
 
 You can now browse to [http://localhost/registration/index.php][localhost-index] to test the app.
 
@@ -226,39 +226,39 @@ To connect to the MySQL database that is running in Web Apps, your will need the
 
 1. From your resource group, click the database:
 
-	![Select database][select-database]
+    ![Select database][select-database]
 
 2. From the database sumamry, select **Properties**.
 
     ![Select properties][select-properties]
-	
+    
 2. Make note of the values for `Database`, `Host`, `User Id`, and `Password`.
 
     ![Note properties][note-properties]
 
 3. From your web app, click the **Download publish profile** link at the bottom right corner of the page:
 
-	![Download publish profile][download-publish-profile]
+    ![Download publish profile][download-publish-profile]
 
 4. Open the `.publishsettings` file in an XML editor. 
 
 3. Find the `<publishProfile >` element with `publishMethod="FTP"` that looks similar to this:
 
-		<publishProfile publishMethod="FTP" publishUrl="ftp://[mysite].azurewebsites.net/site/wwwroot" ftpPassiveMode="True" userName="[username]" userPWD="[password]" destinationAppUrl="http://[name].antdf0.antares-test.windows-int.net" 
-			...
-		</publishProfile>
-	
+        <publishProfile publishMethod="FTP" publishUrl="ftp://[mysite].azurewebsites.net/site/wwwroot" ftpPassiveMode="True" userName="[username]" userPWD="[password]" destinationAppUrl="http://[name].antdf0.antares-test.windows-int.net" 
+            ...
+        </publishProfile>
+    
 Make note of the `publishUrl`, `userName`, and `userPWD` attributes.
 
 ##Publish your app
 
 After you have tested your app locally, you can publish it to your web app using FTP. However, you first need to update the database connection information in the application. Using the database connection information you obtained earlier (in the **Get MySQL and FTP connection information** section), update the following information in **both** the `createdatabase.php` and `index.php` files with the appropriate values:
 
-	// DB connection info
-	$host = "value of Data Source";
-	$user = "value of User Id";
-	$pwd = "value of Password";
-	$db = "value of Database";
+    // DB connection info
+    $host = "value of Data Source";
+    $user = "value of User Id";
+    $pwd = "value of Password";
+    $db = "value of Database";
 
 Now you are ready to publish your app using FTP.
 
@@ -301,3 +301,4 @@ For more information, see the [PHP Developer Center](/develop/php/).
 [management-portal]: https://portal.azure.com
 [download-publish-profile]: ./media/web-sites-php-mysql-deploy-use-ftp/download_publish_profile_3.png
  
+

@@ -1,20 +1,20 @@
-﻿<properties
-	pageTitle="Deploy and manage backup for Azure VMs using PowerShell | Microsoft Azure"
-	description="Learn how to deploy and manage Azure Backup using PowerShell"
-	services="backup"
-	documentationCenter=""
-	authors="aashishr"
-	manager="shreeshd"
-	editor=""/>
+<properties
+    pageTitle="Deploy and manage backup for Azure VMs using PowerShell | Microsoft Azure"
+    description="Learn how to deploy and manage Azure Backup using PowerShell"
+    services="backup"
+    documentationCenter=""
+    authors="aashishr"
+    manager="shreeshd"
+    editor=""/>
 
 <tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/01/2015"
-	ms.author="aashishr";"trinadhk" />
+    ms.service="backup"
+    ms.workload="storage-backup-recovery"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/01/2015"
+    ms.author="aashishr";"trinadhk" />
 
 
 # Deploy and manage backup for Azure VMs using PowerShell
@@ -249,17 +249,17 @@ Building the VM out of the restored disks can be done using the older Azure Serv
 
  if (!($dds -eq $null))
  {
-	 foreach($d in $dds.DataVirtualHardDisk)
- 	 {
-		 $lun = 0;
-		 if(!($d.Lun -eq $null))
-		 {
-	 		 $lun = $d.Lun
-		 }
-		 $name = "panbhadataDisk" + $lun
+     foreach($d in $dds.DataVirtualHardDisk)
+     {
+         $lun = 0;
+         if(!($d.Lun -eq $null))
+         {
+             $lun = $d.Lun
+         }
+         $name = "panbhadataDisk" + $lun
      Add-AzureDisk -DiskName $name -MediaLocation $d.MediaLink
      $vm | Add-AzureDataDisk -Import -DiskName $name -LUN $lun
-	}
+    }
 }
 
 New-AzureVM -ServiceName "panbhasample" -Location "SouthEast Asia" -VM $vm
@@ -333,3 +333,4 @@ $DAILYBACKUPSTATS | Out-GridView
 ```
 
 If you want to add charting capabilities to this report output, learn from on the TechNet blog on [Charting with PowerShell](http://blogs.technet.com/b/richard_macdonald/archive/2009/04/28/3231887.aspx)
+

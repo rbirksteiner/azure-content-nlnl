@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Get started with Azure Mobile Engagement"
-	description="Learn how to use Azure Mobile Engagement with analytics and push notifications for Android apps."
-	services="mobile-engagement"
-	documentationCenter="mobile"
-	authors="piyushjo"
-	manager="dwrede"
-	editor="" />
+    pageTitle="Get started with Azure Mobile Engagement"
+    description="Learn how to use Azure Mobile Engagement with analytics and push notifications for Android apps."
+    services="mobile-engagement"
+    documentationCenter="mobile"
+    authors="piyushjo"
+    manager="dwrede"
+    editor="" />
 
 <tags
-	ms.service="mobile-engagement"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-android"
-	ms.devlang="Java"
-	ms.topic="hero-article"
-	ms.date="12/02/2015"
-	ms.author="piyushjo" />
+    ms.service="mobile-engagement"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-android"
+    ms.devlang="Java"
+    ms.topic="hero-article"
+    ms.date="12/02/2015"
+    ms.author="piyushjo" />
 
 # Get started with Azure Mobile Engagement for Android apps
 
@@ -58,7 +58,7 @@ We will create a basic app with Android Studio to demonstrate the integration.
 
 3. Select the target form factor and API level, and click **Next**.
 
-	>[AZURE.NOTE] Mobile Engagement requires API level 10 minimum (Android 2.3.3).
+    >[AZURE.NOTE] Mobile Engagement requires API level 10 minimum (Android 2.3.3).
 
     ![][3]
 
@@ -80,55 +80,55 @@ Download and integrate the SDK library
 2. Extract the archive file to a folder in your computer.
 3. Identify the .jar library for the current version of this SDK and copy it to the Clipboard.
 
-	  ![][6]
+      ![][6]
 
 4. Navigate to the **Project** section (1) and paste the .jar in the libs folder (2).
 
-	  ![][7]
+      ![][7]
 
 5. Sync your project to load the library.
 
-	  ![][8]
+      ![][8]
 
 ###Connect your app to Mobile Engagement backend with the Connection String
 
 1. Copy the following lines of code into the activity creation (must be done only in one place of your application, usually the main activity). For this sample app, open up the MainActivity under src -> main -> java folder and add the following:
 
-		EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
-		engagementConfiguration.setConnectionString("Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}");
-		EngagementAgent.getInstance(this).init(engagementConfiguration);
+        EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
+        engagementConfiguration.setConnectionString("Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}");
+        EngagementAgent.getInstance(this).init(engagementConfiguration);
 
 2. Resolve the references by pressing Alt + Enter or adding the following import statements:
 
-		import com.microsoft.azure.engagement.EngagementAgent;
-		import com.microsoft.azure.engagement.EngagementConfiguration;
+        import com.microsoft.azure.engagement.EngagementAgent;
+        import com.microsoft.azure.engagement.EngagementConfiguration;
 
 3. Go back to the Azure Classic Portal in your app's **Connection Info** page and copy the **Connection String**.
 
-	  ![][9]
+      ![][9]
 
 4. Paste it in the `setConnectionString` parameter to replace the example provided as shown below:
 
-		engagementConfiguration.setConnectionString("Endpoint=my-company-name.device.mobileengagement.windows.net;SdkKey=********************;AppId=*********");
+        engagementConfiguration.setConnectionString("Endpoint=my-company-name.device.mobileengagement.windows.net;SdkKey=********************;AppId=*********");
 
 ###Add permissions and a service declaration
 
 1. Add these permissions to the Manifest.xml of your project immediately before or after the `<application>` tag:
 
-		<uses-permission android:name="android.permission.INTERNET"/>
-		<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-		<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-		<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-		<uses-permission android:name="android.permission.VIBRATE" />
-		<uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
+        <uses-permission android:name="android.permission.INTERNET"/>
+        <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+        <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+        <uses-permission android:name="android.permission.VIBRATE" />
+        <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
 
 2. Add the following between the `<application>` and `</application>` tags to declare the agent service:
 
-		<service
- 			android:name="com.microsoft.azure.engagement.service.EngagementService"
- 			android:exported="false"
- 			android:label="<Your application name>"
- 			android:process=":Engagement"/>
+        <service
+            android:name="com.microsoft.azure.engagement.service.EngagementService"
+            android:exported="false"
+            android:label="<Your application name>"
+            android:process=":Engagement"/>
 
 3. In the code you just pasted, replace `"<Your application name>"` in the label. This is displayed in the **Settings** menu where users can see services running on the device. You can add the word "Service" in that label for example.
 
@@ -138,7 +138,7 @@ In order to start sending data and ensuring that the users are active, you must 
 
 Go to **MainActivity.java** and add the following to replace the base class of **MainActivity** to **EngagementActivity**:
 
-	public class MainActivity extends EngagementActivity {
+    public class MainActivity extends EngagementActivity {
 
 You should comment out (exclude) the following line for this simple sample scenario:
 
@@ -159,62 +159,62 @@ The following sections sets up your app to receive them.
 
 1. Copy the in-app messaging resources below into your Manifest.xml between the `<application>` and `</application>` tags.
 
-		<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity" android:theme="@android:style/Theme.Light">
-  			<intent-filter>
-    			<action android:name="com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT"/>
-    			<category android:name="android.intent.category.DEFAULT" />
-    			<data android:mimeType="text/plain" />
-  			</intent-filter>
-		</activity>
-		<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementWebAnnouncementActivity" android:theme="@android:style/Theme.Light">
-			<intent-filter>
-				<action android:name="com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT"/>
-				<category android:name="android.intent.category.DEFAULT" />
-				<data android:mimeType="text/html" />
-			</intent-filter>
-		</activity>
-		<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementPollActivity" android:theme="@android:style/Theme.Light">
-			<intent-filter>
-				<action android:name="com.microsoft.azure.engagement.reach.intent.action.POLL"/>
-				<category android:name="android.intent.category.DEFAULT" />
-			</intent-filter>
-		</activity>
-		<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementLoadingActivity" android:theme="@android:style/Theme.Dialog">
-			<intent-filter>
-				<action android:name="com.microsoft.azure.engagement.reach.intent.action.LOADING"/>
-				<category android:name="android.intent.category.DEFAULT"/>
-			</intent-filter>
-		</activity>
-		<receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachReceiver" android:exported="false">
-			<intent-filter>
-				<action android:name="android.intent.action.BOOT_COMPLETED"/>
-				<action android:name="com.microsoft.azure.engagement.intent.action.AGENT_CREATED"/>
-				<action android:name="com.microsoft.azure.engagement.intent.action.MESSAGE"/>
-				<action android:name="com.microsoft.azure.engagement.reach.intent.action.ACTION_NOTIFICATION"/>
-				<action android:name="com.microsoft.azure.engagement.reach.intent.action.EXIT_NOTIFICATION"/>
-				<action android:name="com.microsoft.azure.engagement.reach.intent.action.DOWNLOAD_TIMEOUT"/>
-			</intent-filter>
-		</receiver>
-		<receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachDownloadReceiver">
-			<intent-filter>
-				<action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
-			</intent-filter>
-		</receiver>
+        <activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity" android:theme="@android:style/Theme.Light">
+            <intent-filter>
+                <action android:name="com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT"/>
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementWebAnnouncementActivity" android:theme="@android:style/Theme.Light">
+            <intent-filter>
+                <action android:name="com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT"/>
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/html" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementPollActivity" android:theme="@android:style/Theme.Light">
+            <intent-filter>
+                <action android:name="com.microsoft.azure.engagement.reach.intent.action.POLL"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementLoadingActivity" android:theme="@android:style/Theme.Dialog">
+            <intent-filter>
+                <action android:name="com.microsoft.azure.engagement.reach.intent.action.LOADING"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="com.microsoft.azure.engagement.intent.action.AGENT_CREATED"/>
+                <action android:name="com.microsoft.azure.engagement.intent.action.MESSAGE"/>
+                <action android:name="com.microsoft.azure.engagement.reach.intent.action.ACTION_NOTIFICATION"/>
+                <action android:name="com.microsoft.azure.engagement.reach.intent.action.EXIT_NOTIFICATION"/>
+                <action android:name="com.microsoft.azure.engagement.reach.intent.action.DOWNLOAD_TIMEOUT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachDownloadReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
+            </intent-filter>
+        </receiver>
 
 2. Copy the resources to your project through the following steps:
-	1. Navigate back to your SDK download content and copy the 'res' folder.
+    1. Navigate back to your SDK download content and copy the 'res' folder.
 
-		 ![][13]
+         ![][13]
 
-	2. Go back to Android Studio, select the 'main' directory of your project files, and then paste it to add the resources to your project.
+    2. Go back to Android Studio, select the 'main' directory of your project files, and then paste it to add the resources to your project.
 
-		 ![][14]
+         ![][14]
 
 ###Specify an icon for notifications
 
 Paste the following XML snippet in your Manifest.xml between the `<application>` and `</application>` tags.
 
-		<meta-data android:name="engagement:reach:notification:icon" android:value="engagement_close"/>
+        <meta-data android:name="engagement:reach:notification:icon" android:value="engagement_close"/>
 
 This defines the icon that is displayed both in system and in-app notifications. It is optional for in-app notifications however mandatory for system notifications. Android will rejects system notifications with invalid icons.
 
@@ -235,30 +235,30 @@ Scroll down to the **Notification** section, click an icon, and then click `PNGS
 
 1. Paste the following into your Manifest.xml between the `<application>` and `</application>` tags after replacing the `project number` obtained from your Google Play console. The \n is intentional so make sure that you end the project number with it.
 
-		<meta-data android:name="engagement:gcm:sender" android:value="************\n" />
+        <meta-data android:name="engagement:gcm:sender" android:value="************\n" />
 
 2. Paste the code below into your Manifest.xml between the `<application>` and `</application>` tags. Replace the package name <Your package name>.
 
-		<receiver android:name="com.microsoft.azure.engagement.gcm.EngagementGCMEnabler"
-		android:exported="false">
-			<intent-filter>
-				<action android:name="com.microsoft.azure.engagement.intent.action.APPID_GOT" />
-			</intent-filter>
-		</receiver>
+        <receiver android:name="com.microsoft.azure.engagement.gcm.EngagementGCMEnabler"
+        android:exported="false">
+            <intent-filter>
+                <action android:name="com.microsoft.azure.engagement.intent.action.APPID_GOT" />
+            </intent-filter>
+        </receiver>
 
-		<receiver android:name="com.microsoft.azure.engagement.gcm.EngagementGCMReceiver" android:permission="com.google.android.c2dm.permission.SEND">
-			<intent-filter>
-				<action android:name="com.google.android.c2dm.intent.REGISTRATION" />
-				<action android:name="com.google.android.c2dm.intent.RECEIVE" />
-				<category android:name="<Your package name>" />
-			</intent-filter>
-		</receiver>
+        <receiver android:name="com.microsoft.azure.engagement.gcm.EngagementGCMReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <category android:name="<Your package name>" />
+            </intent-filter>
+        </receiver>
 
 3. Add the last set of permissions that are highlighted before the `<application>` tag. Replace `<Your package name>` by the actual package name of your application.
 
-		<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-		<uses-permission android:name="<Your package name>.permission.C2D_MESSAGE" />
-		<permission android:name="<Your package name>.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+        <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+        <uses-permission android:name="<Your package name>.permission.C2D_MESSAGE" />
+        <permission android:name="<Your package name>.permission.C2D_MESSAGE" android:protectionLevel="signature" />
 
 ###Grant Mobile Engagement access to your GCM API Key
 
@@ -266,21 +266,21 @@ To allow Mobile Engagement to send push notifications on your behalf, you need t
 
 1. Navigate to your Mobile Engagement portal
 
-	From your Azure Classic Portal, ensure you're in the app we're using for this project, and then click the **Engage** button at the bottom:
+    From your Azure Classic Portal, ensure you're in the app we're using for this project, and then click the **Engage** button at the bottom:
 
-	![][15]
+    ![][15]
 
 2. Then click the **Settings** -> **Native Push** section to enter your GCM Key:
 
-	![][16]
+    ![][16]
 
 3. Click the **Edit** icon in front of **API Key** in the **GCM Settings** section as shown below:
 
-	![][17]
+    ![][17]
 
 4. In the pop-up, paste the GCM Server Key you obtained before and then click **Ok**.
 
-	![][18]
+    ![][18]
 
 ##<a id="send"></a>Send a notification to your app
 
@@ -290,31 +290,31 @@ We will now create a simple push notification campaign that sends a push notific
 
 2. Click **New announcement** to create your push notification campaign.
 
-	![][20]
+    ![][20]
 
 3. Set up the first field of your campaign through the following steps:
 
-	![][21]
+    ![][21]
 
-	a. Name your campaign.
+    a. Name your campaign.
 
-	b. Select the **Delivery type** as *System notification -> Simple*: This is the simple Android push notification type that features a title and a small line of text.
+    b. Select the **Delivery type** as *System notification -> Simple*: This is the simple Android push notification type that features a title and a small line of text.
 
-	c. Select **Delivery time** as *Any time* to allow the app to receive a notification whether the app is started or not.
+    c. Select **Delivery time** as *Any time* to allow the app to receive a notification whether the app is started or not.
 
-	d. In the notification text type the **Title** which will be in bold in the push.
+    d. In the notification text type the **Title** which will be in bold in the push.
 
-	e. Then type your **Message**
+    e. Then type your **Message**
 
 4. Scroll down, and in the **Content** section, select **Notification only**.
 
-	![][22]
+    ![][22]
 
 5. You're done setting the most basic campaign possible. Now scroll down again and click the **Create** button to save your campaign.
 
 6. Last step: click **Activate** to activate your campaign to send push notifications.
 
-	![][24]
+    ![][24]
 
 <!-- URLs. -->
 [Mobile Engagement Android SDK]: https://aka.ms/vq9mfn
@@ -341,3 +341,4 @@ We will now create a simple push notification campaign that sends a push notific
 [21]: ./media/mobile-engagement-android-get-started/campaign-first-params.png
 [22]: ./media/mobile-engagement-android-get-started/campaign-content.png
 [24]: ./media/mobile-engagement-android-get-started/campaign-activate.png
+

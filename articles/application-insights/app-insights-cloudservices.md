@@ -212,17 +212,17 @@ For worker roles, there are two ways to track exceptions.
 The following counters are collected by default:
 
     * \Process(??APP_WIN32_PROC??)\% Processor Time
-	* \Memory\Available Bytes
-	* \.NET CLR Exceptions(??APP_CLR_PROC??)\# of Exceps Thrown / sec
-	* \Process(??APP_WIN32_PROC??)\Private Bytes
-	* \Process(??APP_WIN32_PROC??)\IO Data Bytes/sec
-	* \Processor(_Total)\% Processor Time
+    * \Memory\Available Bytes
+    * \.NET CLR Exceptions(??APP_CLR_PROC??)\# of Exceps Thrown / sec
+    * \Process(??APP_WIN32_PROC??)\Private Bytes
+    * \Process(??APP_WIN32_PROC??)\IO Data Bytes/sec
+    * \Processor(_Total)\% Processor Time
 
 In addition, the following are also collected for web roles:
 
-	* \ASP.NET Applications(??APP_W3SVC_PROC??)\Requests/Sec	
-	* \ASP.NET Applications(??APP_W3SVC_PROC??)\Request Execution Time
-	* \ASP.NET Applications(??APP_W3SVC_PROC??)\Requests In Application Queue
+    * \ASP.NET Applications(??APP_W3SVC_PROC??)\Requests/Sec    
+    * \ASP.NET Applications(??APP_W3SVC_PROC??)\Request Execution Time
+    * \ASP.NET Applications(??APP_W3SVC_PROC??)\Requests In Application Queue
 
 You can specify additional custom or other windows performance counters as shown [here](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/ApplicationInsights.config#L14)
 

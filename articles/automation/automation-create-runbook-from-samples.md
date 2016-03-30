@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Get Started with Azure Automation | Microsoft Azure"
-	description="Learn how to import and run an automation job in Azure."
-	services="automation"
-	documentationCenter=""
-	authors="bwren"
-	manager="stevenka"
-	editor=""/>
+    pageTitle="Get Started with Azure Automation | Microsoft Azure"
+    description="Learn how to import and run an automation job in Azure."
+    services="automation"
+    documentationCenter=""
+    authors="bwren"
+    manager="stevenka"
+    editor=""/>
 
 <tags
-	ms.service="automation"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="hero-article" 
-	ms.date="12/08/2015"
-	ms.author="bwren"/>
+    ms.service="automation"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="hero-article" 
+    ms.date="12/08/2015"
+    ms.author="bwren"/>
 
 
 # Get started with Azure Automation
@@ -40,85 +40,85 @@ Here's a walkthrough of this tutorial.
 
 An automation account is a container for your Azure Automation resources. It provides a way to separate your environments or further organize your workflows. For more information, see [Automation accounts](http://aka.ms/runbookauthor/azure/automationaccounts) in the Automation Library.  If you've already created an automation account, you can skip this step.
 
-1.	Log in to the [Azure portal](http://manage.windowsazure.com).
+1.  Log in to the [Azure portal](http://manage.windowsazure.com).
 
-2.	In the Azure portal, click **Create an Automation Account**.  
+2.  In the Azure portal, click **Create an Automation Account**.  
 
-	![Create Account](./media/automation-create-runbook-from-samples/automation_01_CreateAccount.png)
+    ![Create Account](./media/automation-create-runbook-from-samples/automation_01_CreateAccount.png)
 
-3.	On the **Add a New Automation Account** page, enter a name and pick a region for the account. The region specifies where the Automation resources in the account will be stored. This will not affect the functionality of your account, but your runbooks may execute faster if your account region is near where your other Azure resources are stored. When you're ready, click the check mark.
+3.  On the **Add a New Automation Account** page, enter a name and pick a region for the account. The region specifies where the Automation resources in the account will be stored. This will not affect the functionality of your account, but your runbooks may execute faster if your account region is near where your other Azure resources are stored. When you're ready, click the check mark.
 
-	![Add New Account](./media/automation-create-runbook-from-samples/automation_02_addnewautoacct.png)
+    ![Add New Account](./media/automation-create-runbook-from-samples/automation_02_addnewautoacct.png)
 
 ## <a name="importrunbook"></a>Import runbook from Runbook Gallery
 
 The [Runbook Gallery](http://aka.ms/runbookgallery) includes sample runbooks that you can import directly into an Azure Automation account, allowing you to leverage the work of other Azure Automation and PowerShell users. In this step, you will use the gallery to import the "Hello World" sample runbook.
 
-4.	On the **Automation** page, click the new account you just created.
+4.  On the **Automation** page, click the new account you just created.
 
-	![New Account](./media/automation-create-runbook-from-samples/automation_03_NewAutoAcct.png)
+    ![New Account](./media/automation-create-runbook-from-samples/automation_03_NewAutoAcct.png)
 
-5.	Click **RUNBOOKS**.
+5.  Click **RUNBOOKS**.
 
-	![Runbooks Tab](./media/automation-create-runbook-from-samples/automation_04_RunbooksTab.png)
+    ![Runbooks Tab](./media/automation-create-runbook-from-samples/automation_04_RunbooksTab.png)
 
-6.	Click **New** > **Runbook** > **From Gallery**.
+6.  Click **New** > **Runbook** > **From Gallery**.
 
-	![Runbook Gallery](./media/automation-create-runbook-from-samples/automation_05_ImportGallery.png)
+    ![Runbook Gallery](./media/automation-create-runbook-from-samples/automation_05_ImportGallery.png)
 
 7.  Select the **Tutorial** category, and then **Hello World for Azure Automation**. Click the right arrow button.
 
-	![Import Runbook](./media/automation-create-runbook-from-samples/automation_06_ImportRunbook.png)
+    ![Import Runbook](./media/automation-create-runbook-from-samples/automation_06_ImportRunbook.png)
 
 8.  Review the contents of the runbook, and then click the right arrow button.
 
-	![Runbook Definition](./media/automation-create-runbook-from-samples/automation_07_RunbookDefinition.png)
+    ![Runbook Definition](./media/automation-create-runbook-from-samples/automation_07_RunbookDefinition.png)
 
-8.	Review the runbook details, and then click the check mark button.
+8.  Review the runbook details, and then click the check mark button.
 
-	![Runbook Details](./media/automation-create-runbook-from-samples/automation_08_RunbookDetails.png)
+    ![Runbook Details](./media/automation-create-runbook-from-samples/automation_08_RunbookDetails.png)
 
 ## <a name="publishrunbook"></a>Publish runbook
 
 The runbook is first imported in Draft mode. This means you can continue to do work on it before authorizing it as a new version that can be run. Since this sample runbook requires no additional configuration, you will now publish it as-is.  For more information, see [Publishing a Runbook](http://aka.ms/runbookauthor/azure/publishrunbook).
 
-9.	When the runbook has finished importing, click **Write-HelloWorld**.
+9.  When the runbook has finished importing, click **Write-HelloWorld**.
 
-	![Imported Runbook](./media/automation-create-runbook-from-samples/automation_07_ImportedRunbook.png)
+    ![Imported Runbook](./media/automation-create-runbook-from-samples/automation_07_ImportedRunbook.png)
 
-9.	Click **AUTHOR**, and then click **DRAFT**.  
+9.  Click **AUTHOR**, and then click **DRAFT**.  
 
-	You can modify the contents of a runbook in Draft mode. For this runbook, you don’t need to make any modifications.
+    You can modify the contents of a runbook in Draft mode. For this runbook, you don’t need to make any modifications.
 
-	![Author Draft](./media/automation-create-runbook-from-samples/automation_08_AuthorDraft.png)  
+    ![Author Draft](./media/automation-create-runbook-from-samples/automation_08_AuthorDraft.png)  
 
-10.	Click **PUBLISH** to promote the runbook, marking it ready for production use.
+10. Click **PUBLISH** to promote the runbook, marking it ready for production use.
 
-	![Publish](./media/automation-create-runbook-from-samples/automation_085_Publish.png)
+    ![Publish](./media/automation-create-runbook-from-samples/automation_085_Publish.png)
 
-11.	When you are prompted for confirmation, click **Yes**.
+11. When you are prompted for confirmation, click **Yes**.
 
-	![Save and Pub prompt](./media/automation-create-runbook-from-samples/automation_09_SavePubPrompt.png)
+    ![Save and Pub prompt](./media/automation-create-runbook-from-samples/automation_09_SavePubPrompt.png)
 
 ## <a name="startrunbook"></a>Start runbook
 
 With the runbook imported and published, you can now run it and then inspect the output.  For more information, see [Starting a Runbook](http://aka.ms/runbookauthor/azure/startrunbook) and [Runbook Output and Messages](http://aka.ms/runbookauthor/azure/runbookoutput).
 
-12.	With the **Write-HelloWorld** runbook open, click **START**.
+12. With the **Write-HelloWorld** runbook open, click **START**.
 
-	![Published](./media/automation-create-runbook-from-samples/automation_10_PublishStart.png)
+    ![Published](./media/automation-create-runbook-from-samples/automation_10_PublishStart.png)
 
-13.	On the **Specify the runbook parameter values** page, type a **Name** that will be used as an input parameter for the Write-HelloWorld.ps1 script, and then click the check mark.
+13. On the **Specify the runbook parameter values** page, type a **Name** that will be used as an input parameter for the Write-HelloWorld.ps1 script, and then click the check mark.
 
-	![Runbook Parameters](./media/automation-create-runbook-from-samples/automation_11_RunbookParams.png)
+    ![Runbook Parameters](./media/automation-create-runbook-from-samples/automation_11_RunbookParams.png)
 
-14.	Click **JOBS** to check the status of the runbook job you just started, and then click the timestamp in the **JOB START** column to view the job summary.
+14. Click **JOBS** to check the status of the runbook job you just started, and then click the timestamp in the **JOB START** column to view the job summary.
 
-	![Runbook Status](./media/automation-create-runbook-from-samples/automation_12_RunbookStatus.png)
+    ![Runbook Status](./media/automation-create-runbook-from-samples/automation_12_RunbookStatus.png)
 
-15.	On the **SUMMARY** page you can see the summary, input parameters, and output of the job.
+15. On the **SUMMARY** page you can see the summary, input parameters, and output of the job.
 
-	![Runbook Summary](./media/automation-create-runbook-from-samples/automation_13_RunbookSummary_callouts.png)
+    ![Runbook Summary](./media/automation-create-runbook-from-samples/automation_13_RunbookSummary_callouts.png)
 
 Congratulations! You have finished the tutorial.
 
@@ -145,3 +145,4 @@ Microsoft and the Azure Automation community provide sample runbooks, which can 
 ## Feedback
 
 **Give us feedback!**  If you are looking for an Azure Automation runbook solution or an integration module, post a Script Request on Script Center. If you have feedback or feature requests for Azure Automation, post them on [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback). Thanks!
+

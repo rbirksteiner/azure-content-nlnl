@@ -78,7 +78,7 @@ In addition to the basic, we recommend the following best practices for loading 
 + **Express Route**: As stated above, this process can be sped up if express route is enabled.  An overview of Express Route and steps to configure can be found in the [ExpressRoute documentation][]. 
 
 + **Folder Structure**: To make transfer with PolyBase easier, ensure that each table is mapped to its own folder.  This will minimize and simplify your steps when loading with PolyBase later. That being said, there is no impact if a table is split into multiple files or even sub directories within the folder. 
-	 
+     
 
 ## Configuring PolyBase 
 
@@ -151,8 +151,8 @@ WITH
 CREATE TABLE <Table Name> 
 WITH 
 (
-	CLUSTERED COLUMNSTORE INDEX,
-	DISTRIBUTION = <HASH(<Column Name>)>/<ROUND_ROBIN>
+    CLUSTERED COLUMNSTORE INDEX,
+    DISTRIBUTION = <HASH(<Column Name>)>/<ROUND_ROBIN>
 )
 AS 
 SELECT  * 
@@ -200,3 +200,4 @@ For more development tips, see the [development overview][].
 [Import/Export]: https://azure.microsoft.com/en-us/documentation/articles/storage-import-export-service/
 [Azure Storage Documentation]:https://azure.microsoft.com/en-us/documentation/articles/storage-create-storage-account/
 [ExpressRoute documentation]:http://azure.microsoft.com/en-us/documentation/services/expressroute/
+

@@ -1,19 +1,19 @@
 <properties
-	pageTitle="Add Application Insights SDK to monitor your ASP.NET app | Microsoft Azure"
-	description="Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights."
-	services="application-insights"
+    pageTitle="Add Application Insights SDK to monitor your ASP.NET app | Microsoft Azure"
+    description="Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights."
+    services="application-insights"
     documentationCenter=".net"
-	authors="alancameronwills"
-	manager="douge"/>
+    authors="alancameronwills"
+    manager="douge"/>
 
 <tags
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="10/04/2015"
-	ms.author="awills"/>
+    ms.service="application-insights"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="ibiza"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="10/04/2015"
+    ms.author="awills"/>
 
 
 # Add Application Insights SDK to monitor your ASP.NET app
@@ -269,3 +269,4 @@ If this app is part of a bigger application, you might want to use **Configure s
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-overview.md
+

@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Monitor XTP in-memory storage | Microsoft Azure"
-	description="Estimate and monitor XTP in-memory storage use, capacity; resolve capacity error 41805"
-	services="sql-database"
-	documentationCenter=""
-	authors="jodebrui"
-	manager="jeffreyg"
-	editor=""/>
+    pageTitle="Monitor XTP in-memory storage | Microsoft Azure"
+    description="Estimate and monitor XTP in-memory storage use, capacity; resolve capacity error 41805"
+    services="sql-database"
+    documentationCenter=""
+    authors="jodebrui"
+    manager="jeffreyg"
+    editor=""/>
 
 
 <tags
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="10/28/2015"
-	ms.author="jodebrui"/>
+    ms.service="sql-database"
+    ms.workload="data-management"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="hero-article"
+    ms.date="10/28/2015"
+    ms.author="jodebrui"/>
 
 
 # Monitor XTP In-Memory Storage
@@ -57,3 +57,4 @@ To resolve this error, either:
 
 ## Next steps
 Learn more about about [Monitoring Azure SQL Database using dynamic management views](sql-database-monitoring-with-dmvs.md)
+

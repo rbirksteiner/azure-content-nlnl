@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How to use Service Bus topics with Node.js | Microsoft Azure" 
-	description="Learn how to use Service Bus topics and subscriptions in Azure from a Node.js app." 
-	services="service-bus" 
-	documentationCenter="nodejs" 
-	authors="sethmanheim" 
-	manager="timlt" 
-	editor=""/>
+    pageTitle="How to use Service Bus topics with Node.js | Microsoft Azure" 
+    description="Learn how to use Service Bus topics and subscriptions in Azure from a Node.js app." 
+    services="service-bus" 
+    documentationCenter="nodejs" 
+    authors="sethmanheim" 
+    manager="timlt" 
+    editor=""/>
 
 <tags 
-	ms.service="service-bus" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="10/07/2015" 
-	ms.author="sethm"/>
+    ms.service="service-bus" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="nodejs" 
+    ms.topic="article" 
+    ms.date="10/07/2015" 
+    ms.author="sethm"/>
 
 
 # How to Use Service Bus topics and subscriptions
@@ -46,19 +46,19 @@ communicate with the Service Bus REST services.
 2.  Type **npm install azure** in the command window, which should
     result in the following output:
 
-	```
-    	azure@0.7.5 node_modules\azure
-	├── dateformat@1.0.2-1.2.3
-	├── xmlbuilder@0.4.2
-	├── node-uuid@1.2.0
-	├── mime@1.2.9
-	├── underscore@1.4.4
-	├── validator@1.1.1
-	├── tunnel@0.0.2
-	├── wns@0.5.3
-	├── xml2js@0.2.7 (sax@0.5.2)
-	└── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
-	```
+    ```
+        azure@0.7.5 node_modules\azure
+    ├── dateformat@1.0.2-1.2.3
+    ├── xmlbuilder@0.4.2
+    ├── node-uuid@1.2.0
+    ├── mime@1.2.9
+    ├── underscore@1.4.4
+    ├── validator@1.1.1
+    ├── tunnel@0.0.2
+    ├── wns@0.5.3
+    ├── xml2js@0.2.7 (sax@0.5.2)
+    └── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
+    ```
 
 3.  You can manually run the **ls** command to verify that a
     **node\_modules** folder was created. Inside that folder find the
@@ -143,8 +143,8 @@ In this callback, and after processing the returnObject (the response from the r
 
 Two filters that implement retry logic are included with the Azure SDK for Node.js, **ExponentialRetryPolicyFilter** and **LinearRetryPolicyFilter**. The following creates a **ServiceBusService** object that uses the **ExponentialRetryPolicyFilter**:
 
-	var retryOperations = new azure.ExponentialRetryPolicyFilter();
-	var serviceBusService = azure.createServiceBusService().withFilter(retryOperations);
+    var retryOperations = new azure.ExponentialRetryPolicyFilter();
+    var serviceBusService = azure.createServiceBusService().withFilter(retryOperations);
 
 ## Create subscriptions
 
@@ -442,3 +442,4 @@ Now that you've learned the basics of Service Bus topics, follow these links to 
   [Node.js Cloud Service with Storage]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
   [Node.js Web Application with Storage]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
  
+

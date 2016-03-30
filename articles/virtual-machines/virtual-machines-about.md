@@ -1,21 +1,21 @@
 <properties
-	pageTitle="About Azure Virtual Machines | Microsoft Azure"
-	description="Learn about the basics of virtual machines in Azure using both deployment models."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="cynthn"
-	manager="timlt"
-	editor="tysonn"
-	tags="azure-resource-manager,azure-service-management"/>
+    pageTitle="About Azure Virtual Machines | Microsoft Azure"
+    description="Learn about the basics of virtual machines in Azure using both deployment models."
+    services="virtual-machines"
+    documentationCenter=""
+    authors="cynthn"
+    manager="timlt"
+    editor="tysonn"
+    tags="azure-resource-manager,azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/23/2015"
-	ms.author="cynthn"/>
+    ms.service="virtual-machines"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/23/2015"
+    ms.author="cynthn"/>
 
 #About Azure virtual machines 
 
@@ -51,3 +51,4 @@ If you're just starting to learn about Azure virtual machines, be sure to also c
 [App Service]: app-service-choose-me.md
 [Virtual Machines]: #tellmevm
 [Cloud Services]: cloud-services-choose-me.md
+

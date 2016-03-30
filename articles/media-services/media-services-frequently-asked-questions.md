@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Frequently asked questions" 
-	description="Frequently asked questions (FAQs)" 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="Frequently asked questions" 
+    description="Frequently asked questions (FAQs)" 
+    services="media-services" 
+    documentationCenter="" 
+    authors="Juliako" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/05/2015" 
-	ms.author="juliako"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/05/2015" 
+    ms.author="juliako"/>
 
 
 #Frequently asked questions  
@@ -48,19 +48,19 @@ A: To copy assets from one Media Services account to another, use [IAsset.Copy](
 Q: How can I rotate a video during the encoding process.
 
 A: The [Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md) supports rotation by angles of 90/180/270. The default behavior is "Auto", where it tries to detect the rotation metadata in the incoming MP4/MOV file and compensate for it. Include the following **Sources** element to one of the json presets defined [here](http://msdn.microsoft.com/library/azure/mt269960.aspx):
-	
-	"Version": 1.0,
-	"Sources": [
-	{
-	  "Streams": [],
-	  "Filters": {
-	    "Rotation": "90"
-	  }
-	}
-	],
-	"Codecs": [
-	
-	...
+    
+    "Version": 1.0,
+    "Sources": [
+    {
+      "Streams": [],
+      "Filters": {
+        "Rotation": "90"
+      }
+    }
+    ],
+    "Codecs": [
+    
+    ...
 
 ##Media Services learning paths
 
@@ -69,3 +69,4 @@ A: The [Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-
 ##Provide feedback
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+

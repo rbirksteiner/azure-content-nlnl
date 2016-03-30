@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Error During Authentication Detection" 
-	description="The active directory connection wizard detected an incompatible authentication type" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="TomArcher" 
-	manager="douge" 
-	editor=""/>
+    pageTitle="Error During Authentication Detection" 
+    description="The active directory connection wizard detected an incompatible authentication type" 
+    services="active-directory" 
+    documentationCenter="" 
+    authors="TomArcher" 
+    manager="douge" 
+    editor=""/>
   
 <tags 
-	ms.service="active-directory" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="vs-getting-started" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/10/2015" 
-	ms.author="tarcher"/>
+    ms.service="active-directory" 
+    ms.workload="web" 
+    ms.tgt_pltfrm="vs-getting-started" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/10/2015" 
+    ms.author="tarcher"/>
 
 # Error During Authentication Detection
 
@@ -34,16 +34,16 @@ The wizard also checks for authentication settings that have been previously con
 
 In an MVC project, the wizard checks for any of the following settings, which result from previous use of the wizard:
 
-	<add key="ida:ClientId" value="" />
-	<add key="ida:Tenant" value="" />
-	<add key="ida:AADInstance" value="" />
-	<add key="ida:PostLogoutRedirectUri" value="" />
+    <add key="ida:ClientId" value="" />
+    <add key="ida:Tenant" value="" />
+    <add key="ida:AADInstance" value="" />
+    <add key="ida:PostLogoutRedirectUri" value="" />
 
 In addition, the wizard checks for any of the following settings in a Web API project, which result from previous use of the wizard:
 
-	<add key="ida:ClientId" value="" />
-	<add key="ida:Tenant" value="" />
-	<add key="ida:Audience" value="" />
+    <add key="ida:ClientId" value="" />
+    <add key="ida:Tenant" value="" />
+    <add key="ida:Audience" value="" />
 
 ###Incompatible Authentication Code
 
@@ -57,39 +57,39 @@ Finally, the wizard attempts to detect versions of authentication code that have
 To detect Windows Authentication in an MVC project, the wizard looks for the `authentication` element from your **web.config** file.
 
 <pre>
-	&lt;configuration&gt;
-	    &lt;system.web&gt;
-	        <span style="background-color: yellow">&lt;authentication mode="Windows" /&gt;</span>
-	    &lt;/system.web&gt;
-	&lt;/configuration&gt;
+    &lt;configuration&gt;
+        &lt;system.web&gt;
+            <span style="background-color: yellow">&lt;authentication mode="Windows" /&gt;</span>
+        &lt;/system.web&gt;
+    &lt;/configuration&gt;
 </pre>
 
 To detect Windows Authentication in a Web API project, the wizard looks for the `IISExpressWindowsAuthentication` element from your project's **.csproj** file:
 
 <pre>
-	&lt;Project&gt;
-	    &lt;PropertyGroup&gt;
-	        <span style="background-color: yellow">&lt;IISExpressWindowsAuthentication&gt;enabled&lt;/IISExpressWindowsAuthentication&gt;</span>
-	    &lt;/PropertyGroup>
-	&lt;/Project&gt;
+    &lt;Project&gt;
+        &lt;PropertyGroup&gt;
+            <span style="background-color: yellow">&lt;IISExpressWindowsAuthentication&gt;enabled&lt;/IISExpressWindowsAuthentication&gt;</span>
+        &lt;/PropertyGroup>
+    &lt;/Project&gt;
 </pre>
 
 To detect Individual User Accounts authentication, the wizard looks for the package element from your **Packages.config** file.
 
 <pre>
-	&lt;packages&gt;
-	    <span style="background-color: yellow">&lt;package id="Microsoft.AspNet.Identity.EntityFramework" version="2.1.0" targetFramework="net45" /&gt;</span>
-	&lt;/packages&gt;
+    &lt;packages&gt;
+        <span style="background-color: yellow">&lt;package id="Microsoft.AspNet.Identity.EntityFramework" version="2.1.0" targetFramework="net45" /&gt;</span>
+    &lt;/packages&gt;
 </pre>
 
 To detect an old form of Organizational Account authentication, the wizard looks for the following element from **web.config**:
 
 <pre>
-	&lt;configuration&gt;
-	    &lt;appSettings&gt;
-	        <span style="background-color: yellow">&lt;add key="ida:Realm" value="***" /&gt;</span>
-	    &lt;/appSettings&gt;
-	&lt;/configuration&gt;
+    &lt;configuration&gt;
+        &lt;appSettings&gt;
+            <span style="background-color: yellow">&lt;add key="ida:Realm" value="***" /&gt;</span>
+        &lt;/appSettings&gt;
+    &lt;/configuration&gt;
 </pre>
 
 To change the authentication type, remove the incompatible authentication type and run the wizard again.

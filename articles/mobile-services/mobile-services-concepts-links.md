@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Mobile Services Concepts"
-	description="Links to Mobile Services concepts topics found in the Help Drawer in the Azure classic portal."
-	services="mobile-services"
-	documentationCenter="na"
-	authors="ggailey777"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Mobile Services Concepts"
+    description="Links to Mobile Services concepts topics found in the Help Drawer in the Azure classic portal."
+    services="mobile-services"
+    documentationCenter="na"
+    authors="ggailey777"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-multiple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/20/2015"
-	ms.author="glenga"/>
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-multiple"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/20/2015"
+    ms.author="glenga"/>
 
 # Mobile Services concepts
 
@@ -85,6 +85,7 @@ The following topics provide examples of how to perform tasks using server scrip
 - [Restrict access to admins](https://msdn.microsoft.com/library/azure/jj712649.aspx)
 - [Error handling](https://msdn.microsoft.com/library/azure/jj631632.aspx)
 - [Shortcut keys](https://msdn.microsoft.com/library/azure/jj552469.aspx)
+
 
 
 

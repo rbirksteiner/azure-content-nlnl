@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Learn about features in BizTalk Services editions | Microsoft Azure"
-	description="Compare the capabilities of the BizTalk Services editions: Free, Developer, Basic, Standard, and Premium. MABS, WABS."
-	services="biztalk-services"
-	documentationCenter=""
-	authors="MandiOhlinger"
-	manager="dwrede"
-	editor="cgronlun"/>
+    pageTitle="Learn about features in BizTalk Services editions | Microsoft Azure"
+    description="Compare the capabilities of the BizTalk Services editions: Free, Developer, Basic, Standard, and Premium. MABS, WABS."
+    services="biztalk-services"
+    documentationCenter=""
+    authors="MandiOhlinger"
+    manager="dwrede"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="biztalk-services"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="12/08/2015"
-	ms.author="mandia"/>
+    ms.service="biztalk-services"
+    ms.workload="integration"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="12/08/2015"
+    ms.author="mandia"/>
 
 
 # BizTalk Services: Editions chart
@@ -258,3 +258,4 @@ To create Azure BizTalk Services in the Azure portal, go to [BizTalk Services: P
 - [BizTalk Services: Throttling](biztalk-throttling-thresholds.md)<br/>
 - [BizTalk Services: Issuer Name and Issuer Key](biztalk-issuer-name-issuer-key.md)<br/>
 - [How do I Start Using the Azure BizTalk Services SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
+

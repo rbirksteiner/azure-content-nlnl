@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Create recovery plans | Microsoft Azure" 
-	description="Azure Site Recovery coordinates the replication, failover and recovery of virtual machines located on on-premises servers to Azure or a secondary datacenter." 
-	services="site-recovery" 
-	documentationCenter="" 
-	authors="rayne-wiselman" 
-	manager="jwhit" 
-	editor=""/>
+    pageTitle="Create recovery plans | Microsoft Azure" 
+    description="Azure Site Recovery coordinates the replication, failover and recovery of virtual machines located on on-premises servers to Azure or a secondary datacenter." 
+    services="site-recovery" 
+    documentationCenter="" 
+    authors="rayne-wiselman" 
+    manager="jwhit" 
+    editor=""/>
 
 <tags 
-	ms.service="site-recovery" 
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="storage-backup-recovery" 
-	ms.date="12/14/2015" 
-	ms.author="raynew"/>
+    ms.service="site-recovery" 
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="storage-backup-recovery" 
+    ms.date="12/14/2015" 
+    ms.author="raynew"/>
 
 # Create recovery plans
 
@@ -51,11 +51,11 @@ Create a recovery plan as follows:
 1. On the Recovery Plans tab, click Create Recovery Plan.
 Specify a name for the recovery plan, and a source and target. The source server must have virtual machines that are enabled for failover and recovery.
 
-	- If you're replicating from VMM to VMM select VMM in **Source Type**, and the source and target VMM servers. Click **Hyper-V** to see clouds that are configured to use Hyper-V Replica. 
-	- If you're replicating from VMM to VMM using SAN select VMM in **Source Type**, and the source and target VMM servers. Click **SAN** to see clouds that are configured for SAN replication.
-	- If you're replicating from VMM to Azure select VMM in **Source Type**.  Select the source VMM server and **Azure** as the target.
-	- If you're replicating from a Hyper-V site select Hyper-V site in Source Type. Select the site as the source and **Azure **as the target.
-	- If you're replicating from VMware or a physical on-premises server to Azure, select a configuration server as the source and **Azure** as the target
+    - If you're replicating from VMM to VMM select VMM in **Source Type**, and the source and target VMM servers. Click **Hyper-V** to see clouds that are configured to use Hyper-V Replica. 
+    - If you're replicating from VMM to VMM using SAN select VMM in **Source Type**, and the source and target VMM servers. Click **SAN** to see clouds that are configured for SAN replication.
+    - If you're replicating from VMM to Azure select VMM in **Source Type**.  Select the source VMM server and **Azure** as the target.
+    - If you're replicating from a Hyper-V site select Hyper-V site in Source Type. Select the site as the source and **Azure **as the target.
+    - If you're replicating from VMware or a physical on-premises server to Azure, select a configuration server as the source and **Azure** as the target
 
 2.In **Select virtual machines** select the virtual machines (or replication group) that you want to add to the default group (Group 1) in the recovery plan.
 
@@ -82,17 +82,17 @@ Note the following before you start:
 - VMM cmdlets are delivered in a Windows PowerShell module. The VMM Windows PowerShell module is installed when you install the VMM console. The VMM module can be loaded into your script using the following command in the script: Import-Module -Name virtualmachinemanager. [Get more details](hhttps://technet.microsoft.com/library/hh875013.aspx).
 - Ensure you have at least one library server in your VMM deployment. By default the library share path for a VMM server is located locally on the VMM server with the folder name MSCVMMLibrary.
 - If your library share path is remote (or local but not shared with MSCVMMLibrary, configure the share as follows (using \\libserver2.contoso.com\share\ as an example):
-	- Open the Registry Editor.
-	- Navigate to HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft System Center Virtual Machine Manager Server\DRAdapter\Registration.
-	- Edit the value ScriptLibraryPath.
-	- Place the value as \\libserver2.contoso.com\share\. Specify the full FQDN.
-	- Provide permissions to the share location.
+    - Open the Registry Editor.
+    - Navigate to HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft System Center Virtual Machine Manager Server\DRAdapter\Registration.
+    - Edit the value ScriptLibraryPath.
+    - Place the value as \\libserver2.contoso.com\share\. Specify the full FQDN.
+    - Provide permissions to the share location.
 
 - Scripts in a recovery plan run in the context of the VMM Service account. Make sure this account has Read permissions on the remote share on which the script is located, and test the script to run at the VMM service account privilege level.
-- 	Ensure that you test the script with a user account that has the same permissions as the VMM Service account, to ensure that stand-alone tested scripts run in the same way that they will in recovery plans.
-- 	On the VMM server, set the execution policy to bypass as follows:
-	- Open the 64-bit Windows PowerShell console using elevated privileges.
-	- Type: **Set-executionpolicy bypass**. [Get more details](https://technet.microsoft.com/library/ee176961.aspx).
+-   Ensure that you test the script with a user account that has the same permissions as the VMM Service account, to ensure that stand-alone tested scripts run in the same way that they will in recovery plans.
+-   On the VMM server, set the execution policy to bypass as follows:
+    - Open the 64-bit Windows PowerShell console using elevated privileges.
+    - Type: **Set-executionpolicy bypass**. [Get more details](https://technet.microsoft.com/library/ee176961.aspx).
 - Ensure that you use try-catch blocks, so that the exceptions are handled gracefully. If there is an exception in the script it stops running and the task shows as failed.  If an error does occur, any remaining part of the script won't run. If this occurs when you are running an unplanned failover, the recovery plan will continue. If this occurs when you are running a planned failover, the recovery plan will stop. If this occurs, fix the script, make sure it runs as expected, and then run the recovery plan again.
 - The Write-Host command doesn’t work in a recovery plan script, and the script will fail. If you want to create output, create a proxy script that in turn runs your main script, and ensure that all output is piped out using the >> command.
 - The script times out if it does not return within 600 seconds.

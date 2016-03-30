@@ -12,7 +12,8 @@ information from the Azure service configuration:
 
 If you are creating an application with no reference to Microsoft.WindowsAzure.CloudConfigurationManager, and your connection string is located in the `web.config` or `app.config` as show above, then you can use **ConfigurationManager** to retrieve the connection string.  You will need to add a reference to System.Configuration.dll to your project and add another namespace declaration for it:
 
-	using System.Configuration;
-	...
-	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-		ConfigurationManager.ConnectionStrings["StorageConnectionString"].ConnectionString);
+    using System.Configuration;
+    ...
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+        ConfigurationManager.ConnectionStrings["StorageConnectionString"].ConnectionString);
+

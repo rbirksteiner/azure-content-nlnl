@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Automatic device registration with Azure Active Directory for Windows Domain-Joined Devices| Microsoft Azure"
-	description="IT admins can choose to have their domain-joined Windows devices to register automatically and silently with Azure Active Directory (Azure AD) ."
-	services="active-directory"
-	documentationCenter=""
-	authors="femila"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Automatic device registration with Azure Active Directory for Windows Domain-Joined Devices| Microsoft Azure"
+    description="IT admins can choose to have their domain-joined Windows devices to register automatically and silently with Azure Active Directory (Azure AD) ."
+    services="active-directory"
+    documentationCenter=""
+    authors="femila"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/24/2015"
-	ms.author="femila"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/24/2015"
+    ms.author="femila"/>
 
 # Automatic device registration with Azure Active Directory for Windows Domain-Joined Devices
 

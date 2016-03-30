@@ -17,16 +17,16 @@ The following steps show how to create the new ASP.NET WebAPI backend:
 
 1. Start Visual Studio or Visual Studio Express. Click **Server Explorer** and sign in to your Azure account. Visual Studio will need you signed in to create the web site resources on your account.
 2. In Visual Studio, click **File**, then click **New**, then **Project**, expand **Templates**, **Visual C#**, then click **Web** and **ASP.NET Web Application**, type the name **AppBackend**, and then click **OK**. 
-	
-	![][B1]
+    
+    ![][B1]
 
 3. In the **New ASP.NET Project** dialog, click **Web API**, then click **OK**.
 
-	![][B2]
+    ![][B2]
 
 4. In the **Configure Microsoft Azure Web App** dialog, choose a subscription, and an **App Service plan** you have already created. You can also choose **Create a new app service plan** and create one from the dialog. You do not need a database for this tutorial. Once you have selected your app service plan, click **OK** to create the project.
 
-	![][B5]
+    ![][B5]
 
 
 
@@ -48,67 +48,67 @@ In this section, you will create a new message handler class named **Authenticat
 
 3. In AuthenticationTestHandler.cs, replacing the `AuthenticationTestHandler` class definition with the following code. 
 
-	This handler will authorize the request when the following three conditions are all true:
-	* The request included an *Authorization* header. 
-	* The request uses *basic* authentication. 
-	* The user name string and the password string are the same string.
+    This handler will authorize the request when the following three conditions are all true:
+    * The request included an *Authorization* header. 
+    * The request uses *basic* authentication. 
+    * The user name string and the password string are the same string.
 
-	Otherwise, the request will be rejected. This is not a true authentication and authorization approach. It is just a very simple example for this tutorial.
+    Otherwise, the request will be rejected. This is not a true authentication and authorization approach. It is just a very simple example for this tutorial.
 
-	If the request message is authenticated and authorized by the `AuthenticationTestHandler`, then the basic authentication user will be attached to the current request on the [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx). User information in the HttpContext will be used by another controller (RegisterController) later to add a [tag](https://msdn.microsoft.com/library/azure/dn530749.aspx) to the notification registration request.
+    If the request message is authenticated and authorized by the `AuthenticationTestHandler`, then the basic authentication user will be attached to the current request on the [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx). User information in the HttpContext will be used by another controller (RegisterController) later to add a [tag](https://msdn.microsoft.com/library/azure/dn530749.aspx) to the notification registration request.
 
-		public class AuthenticationTestHandler : DelegatingHandler
-	    {
-	        protected override Task<HttpResponseMessage> SendAsync(
-	        HttpRequestMessage request, CancellationToken cancellationToken)
-	        {
-	            var authorizationHeader = request.Headers.GetValues("Authorization").First();
-	
-	            if (authorizationHeader != null && authorizationHeader
-	                .StartsWith("Basic ", StringComparison.InvariantCultureIgnoreCase))
-	            {
-	                string authorizationUserAndPwdBase64 =
-	                    authorizationHeader.Substring("Basic ".Length);
-	                string authorizationUserAndPwd = Encoding.Default
-	                    .GetString(Convert.FromBase64String(authorizationUserAndPwdBase64));
-	                string user = authorizationUserAndPwd.Split(':')[0];
-	                string password = authorizationUserAndPwd.Split(':')[1];
-	
-	                if (verifyUserAndPwd(user, password))
-	                {
-	                    // Attach the new principal object to the current HttpContext object
-	                    HttpContext.Current.User =
-	                        new GenericPrincipal(new GenericIdentity(user), new string[0]);
-	                    System.Threading.Thread.CurrentPrincipal =
-	                        System.Web.HttpContext.Current.User;
-	                }
-	                else return Unauthorized();
-	            }
-	            else return Unauthorized();
-	
-	            return base.SendAsync(request, cancellationToken);
-	        }
-	
-	        private bool verifyUserAndPwd(string user, string password)
-	        {
-	            // This is not a real authentication scheme.
-	            return user == password;
-	        }
-	
-	        private Task<HttpResponseMessage> Unauthorized()
-	        {
-	            var response = new HttpResponseMessage(HttpStatusCode.Forbidden);
-	            var tsc = new TaskCompletionSource<HttpResponseMessage>();
-	            tsc.SetResult(response);
-	            return tsc.Task;
-	        }
-	    }
+        public class AuthenticationTestHandler : DelegatingHandler
+        {
+            protected override Task<HttpResponseMessage> SendAsync(
+            HttpRequestMessage request, CancellationToken cancellationToken)
+            {
+                var authorizationHeader = request.Headers.GetValues("Authorization").First();
+    
+                if (authorizationHeader != null && authorizationHeader
+                    .StartsWith("Basic ", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    string authorizationUserAndPwdBase64 =
+                        authorizationHeader.Substring("Basic ".Length);
+                    string authorizationUserAndPwd = Encoding.Default
+                        .GetString(Convert.FromBase64String(authorizationUserAndPwdBase64));
+                    string user = authorizationUserAndPwd.Split(':')[0];
+                    string password = authorizationUserAndPwd.Split(':')[1];
+    
+                    if (verifyUserAndPwd(user, password))
+                    {
+                        // Attach the new principal object to the current HttpContext object
+                        HttpContext.Current.User =
+                            new GenericPrincipal(new GenericIdentity(user), new string[0]);
+                        System.Threading.Thread.CurrentPrincipal =
+                            System.Web.HttpContext.Current.User;
+                    }
+                    else return Unauthorized();
+                }
+                else return Unauthorized();
+    
+                return base.SendAsync(request, cancellationToken);
+            }
+    
+            private bool verifyUserAndPwd(string user, string password)
+            {
+                // This is not a real authentication scheme.
+                return user == password;
+            }
+    
+            private Task<HttpResponseMessage> Unauthorized()
+            {
+                var response = new HttpResponseMessage(HttpStatusCode.Forbidden);
+                var tsc = new TaskCompletionSource<HttpResponseMessage>();
+                tsc.SetResult(response);
+                return tsc.Task;
+            }
+        }
 
-	> [AZURE.NOTE] **Security Note**: The `AuthenticationTestHandler` class does not provide true authentication. It is used only to mimic basic authentication and is not secure. You must implement a secure authentication mechanism in your production applications and services.				
+    > [AZURE.NOTE] **Security Note**: The `AuthenticationTestHandler` class does not provide true authentication. It is used only to mimic basic authentication and is not secure. You must implement a secure authentication mechanism in your production applications and services.               
 
 4. Add the following code at the end of the `Register` method in the **App_Start/WebApiConfig.cs** class to register the message handler:
 
-		config.MessageHandlers.Add(new AuthenticationTestHandler());
+        config.MessageHandlers.Add(new AuthenticationTestHandler());
 
 5. Save your changes.
 
@@ -125,11 +125,11 @@ In this section, we will add a new controller to the WebAPI backend to handle re
 
 3. In the results list, click **Microsoft Azure Notification Hubs**, and then click **Install**. Complete the installation, then close the NuGet package manager window.
 
-	This adds a reference to the Azure Notification Hubs SDK using the <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet package</a>.
+    This adds a reference to the Azure Notification Hubs SDK using the <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet package</a>.
 
 4. We will now create a new class file that represents the different secure notifications that will be sent. In a complete implementation, the notifications are stored in a database. For simplicity, this tutorial stores them in memory. In the Solution Explorer, right-click the **Models** folder, click **Add**, then click **Class**. Name the new class **Notifications.cs**, then click **Add** to generate the class. 
 
-	![][B6]
+    ![][B6]
 
 5. In Notifications.cs, add the following `using` statement at the top of the file:
 
@@ -137,7 +137,7 @@ In this section, we will add a new controller to the WebAPI backend to handle re
 
 6. Replace the `Notifications` class definition with the following and make sure to replace the two placeholders with the connection string (with full access) for your notification hub, and the hub name (available at [Azure Classic Portal](http://manage.windowsazure.com)):
 
-		public class Notifications
+        public class Notifications
         {
             public static Notifications Instance = new Notifications();
         
@@ -145,7 +145,7 @@ In this section, we will add a new controller to the WebAPI backend to handle re
 
             private Notifications() {
                 Hub = NotificationHubClient.CreateClientFromConnectionString("<your hub's DefaultFullSharedAccessSignature>", 
-																			 "<hub name>");
+                                                                             "<hub name>");
             }
         }
 
@@ -153,21 +153,21 @@ In this section, we will add a new controller to the WebAPI backend to handle re
 
 7. Next we will create a new controller named **RegisterController**. In Solution Explorer, right-click the **Controllers** folder, then click **Add**, then click **Controller**. Click the **Web API 2 Controller -- Empty** item, and then click **Add**. Name the new class **RegisterController**, and then click **Add** again to generate the controller.
 
-	![][B7]
+    ![][B7]
 
-	![][B8]
+    ![][B8]
 
 8. In RegisterController.cs, add the following `using` statements:
 
         using Microsoft.Azure.NotificationHubs;
-		using Microsoft.Azure.NotificationHubs.Messaging;
+        using Microsoft.Azure.NotificationHubs.Messaging;
         using AppBackend.Models;
         using System.Threading.Tasks;
         using System.Web;
 
 9. Add the following code inside the `RegisterController` class definition. Note that in this code, we add a user tag for the user this is attached to the HttpContext. The user was authenticated and attached to the HttpContext by the message filter we added, `AuthenticationTestHandler`. You can also add optional checks to verify that the user has rights to register for the requested tags.
 
-		private NotificationHubClient hub;
+        private NotificationHubClient hub;
 
         public RegisterController()
         {
@@ -206,7 +206,7 @@ In this section, we will add a new controller to the WebAPI backend to handle re
             }
 
             if (newRegistrationId == null) 
-				newRegistrationId = await hub.CreateRegistrationIdAsync();
+                newRegistrationId = await hub.CreateRegistrationIdAsync();
 
             return newRegistrationId;
         }
@@ -288,9 +288,9 @@ In this section you add a new controller that exposes a way for client devices t
 
 3. Add the following method to the **NotificationsController** class.
 
-	This code send a notification type based on the Platform Notification Service (PNS) `pns` parameter. The value of `to_tag` is used to set the *username* tag on the message. This tag must match a username tag of an active notification hub registration. The notification message is pulled from the body of the POST request and formatted for the target PNS. 
+    This code send a notification type based on the Platform Notification Service (PNS) `pns` parameter. The value of `to_tag` is used to set the *username* tag on the message. This tag must match a username tag of an active notification hub registration. The notification message is pulled from the body of the POST request and formatted for the target PNS. 
 
-	Depending on the Platform Notification Service (PNS) that your supported devices use to receive notifications, different notifications are supported using different formats. For example on Windows devices, you could use a [toast notification with WNS](https://msdn.microsoft.com/library/windows/apps/br230849.aspx) that isn't directly supported by another PNS. So your backend would need to format the notification into a supported notification for the PNS of devices you plan to support. Then use the appropriate send API on the [NotificationHubClient class](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.notificationhubclient_methods.aspx)
+    Depending on the Platform Notification Service (PNS) that your supported devices use to receive notifications, different notifications are supported using different formats. For example on Windows devices, you could use a [toast notification with WNS](https://msdn.microsoft.com/library/windows/apps/br230849.aspx) that isn't directly supported by another PNS. So your backend would need to format the notification into a supported notification for the PNS of devices you plan to support. Then use the appropriate send API on the [NotificationHubClient class](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.notificationhubclient_methods.aspx)
 
         public async Task<HttpResponseMessage> Post(string pns, [FromBody]string message, string to_tag)
         {
@@ -366,3 +366,4 @@ In this section you add a new controller that exposes a way for client devices t
 [B15]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users15.PNG
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
+

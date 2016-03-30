@@ -128,25 +128,25 @@ The following table will help you determine the method to start a runbook in Azu
 
 You can use the [Start-AzureAutomationRunbook](http://msdn.microsoft.com/library/azure/dn690259.aspx) to start a runbook with Windows PowerShell. The following sample code starts a runbook called Test-Runbook.
 
-	Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook"
+    Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook"
 
 Start-AzureAutomationRunbook returns a job object that you can use to track its status once the runbook is started. You can then use this job object with [Get-AzureAutomationJob](http://msdn.microsoft.com/library/azure/dn690263.aspx) to determine the status of the job and [Get-AzureAutomationJobOutput](http://msdn.microsoft.com/library/azure/dn690268.aspx) to get its output. The following sample code starts a runbook called Test-Runbook, waits until it has completed, and then displays its output.
 
-	$job = Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook"
-	
-	$doLoop = $true
-	While ($doLoop) {
-	   $job = Get-AzureAutomationJob –AutomationAccountName "MyAutomationAccount" -Id $job.Id
-	   $status = $job.Status
-	   $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped") 
-	}
-	
-	Get-AzureAutomationJobOutput –AutomationAccountName "MyAutomationAccount" -Id $job.Id –Stream Output
+    $job = Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook"
+    
+    $doLoop = $true
+    While ($doLoop) {
+       $job = Get-AzureAutomationJob –AutomationAccountName "MyAutomationAccount" -Id $job.Id
+       $status = $job.Status
+       $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped") 
+    }
+    
+    Get-AzureAutomationJobOutput –AutomationAccountName "MyAutomationAccount" -Id $job.Id –Stream Output
 
 If the runbook requires parameters, then you must provide them as a [hashtable](http://technet.microsoft.com/library/hh847780.aspx) where the key of the hashtable matches the parameter name and the value is the parameter value. The following example shows how to start a runbook with two string parameters named FirstName and LastName, an integer named RepeatCount, and a boolean parameter named Show. For additional information on parameters, see [Runbook Parameters](#Runbook-parameters) below.
 
-	$params = @{"FirstName"="Joe";"LastName"="Smith";"RepeatCount"=2;"Show"=$true}
-	Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" –Parameters $params
+    $params = @{"FirstName"="Joe";"LastName"="Smith";"RepeatCount"=2;"Show"=$true}
+    Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" –Parameters $params
 
 ## Runbook parameters
 
@@ -160,29 +160,29 @@ If the parameter is data type [object], then you can use the following JSON form
 
 Consider the following test runbook that accepts a parameter called user.
 
-	Workflow Test-Parameters
-	{
-	   param ( 
-	      [Parameter(Mandatory=$true)][object]$user
-	   )
-	    if ($user.Show) {
-	        foreach ($i in 1..$user.RepeatCount) {
-	            $user.FirstName
-	            $user.LastName
-	        }
-	    } 
-	}
+    Workflow Test-Parameters
+    {
+       param ( 
+          [Parameter(Mandatory=$true)][object]$user
+       )
+        if ($user.Show) {
+            foreach ($i in 1..$user.RepeatCount) {
+                $user.FirstName
+                $user.LastName
+            }
+        } 
+    }
 
 The following text could be used for the user parameter.
 
-	{"FirstName":"Joe","LastName":"Smith","RepeatCount":2,"Show":true}
+    {"FirstName":"Joe","LastName":"Smith","RepeatCount":2,"Show":true}
 
 This results in the following output.
 
-	Joe
-	Smith
-	Joe
-	Smith
+    Joe
+    Smith
+    Joe
+    Smith
 
 ### Arrays
 
@@ -190,29 +190,29 @@ If the parameter is an array such as [array] or [string[]], then you can use the
 
 Consider the following test runbook that accepts a parameter called *user*.
 
-	Workflow Test-Parameters
-	{
-	   param ( 
-	      [Parameter(Mandatory=$true)][array]$user
-	   )
-	    if ($user[3]) {
-	        foreach ($i in 1..$user[2]) {
-	            $ user[0]
-	            $ user[1]
-	        }
-	    } 
-	}
+    Workflow Test-Parameters
+    {
+       param ( 
+          [Parameter(Mandatory=$true)][array]$user
+       )
+        if ($user[3]) {
+            foreach ($i in 1..$user[2]) {
+                $ user[0]
+                $ user[1]
+            }
+        } 
+    }
 
 The following text could be used for the user parameter.
 
-	["Joe","Smith",2,true]
+    ["Joe","Smith",2,true]
 
 This results in the following output.
 
-	Joe
-	Smith
-	Joe
-	Smith
+    Joe
+    Smith
+    Joe
+    Smith
 
 ### Credentials
 
@@ -220,21 +220,21 @@ If the parameter is data type **PSCredential**, then you can provide the name of
 
 Consider the following test runbook that accepts a parameter called credential.
 
-	Workflow Test-Parameters
-	{
-	   param ( 
-	      [Parameter(Mandatory=$true)][PSCredential]$credential
-	   )
-	   $credential.UserName
-	}
+    Workflow Test-Parameters
+    {
+       param ( 
+          [Parameter(Mandatory=$true)][PSCredential]$credential
+       )
+       $credential.UserName
+    }
 
 The following text could be used for the user parameter assuming that there was a credential asset called *My Credential*.
 
-	My Credential
+    My Credential
 
 Assuming the username in the credential was *jsmith*, this results in the following output.
 
-	jsmith
+    jsmith
 
 ## Related articles
 

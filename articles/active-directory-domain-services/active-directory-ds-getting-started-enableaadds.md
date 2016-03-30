@@ -1,20 +1,20 @@
-﻿<properties
-	pageTitle="Azure Active Directory Domain Services preview: Getting Started | Microsoft Azure"
-	description="Getting started with Azure Active Directory Domain Services"
-	services="active-directory-ds"
-	documentationCenter=""
-	authors="mahesh-unnikrishnan"
-	manager="udayh"
-	editor="inhenk"/>
+<properties
+    pageTitle="Azure Active Directory Domain Services preview: Getting Started | Microsoft Azure"
+    description="Getting started with Azure Active Directory Domain Services"
+    services="active-directory-ds"
+    documentationCenter=""
+    authors="mahesh-unnikrishnan"
+    manager="udayh"
+    editor="inhenk"/>
 
 <tags
-	ms.service="active-directory-ds"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/16/2015"
-	ms.author="maheshu"/>
+    ms.service="active-directory-ds"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/16/2015"
+    ms.author="maheshu"/>
 
 # Azure AD Domain Services *(Preview)* - Getting started
 
@@ -72,3 +72,4 @@ In this step you can enable Azure AD Domain Services for your directory. Perform
 
 ---
 [**Next step - Update DNS settings for the Azure virtual network.**](active-directory-ds-getting-started-dns.md)
+

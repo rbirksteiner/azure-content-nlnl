@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Consistency levels in DocumentDB | Microsoft Azure" 
-	description="Review how DocumentDB has four consistency levels with associated performance levels to help balance eventual consistency, availability, and latency trade-offs." 
-	keywords="eventual consistency, documentdb, azure, Microsoft azure"
-	services="documentdb" 
-	authors="mimig1" 
-	manager="jhubbard" 
-	editor="cgronlun" 
-	documentationCenter=""/>
+    pageTitle="Consistency levels in DocumentDB | Microsoft Azure" 
+    description="Review how DocumentDB has four consistency levels with associated performance levels to help balance eventual consistency, availability, and latency trade-offs." 
+    keywords="eventual consistency, documentdb, azure, Microsoft azure"
+    services="documentdb" 
+    authors="mimig1" 
+    manager="jhubbard" 
+    editor="cgronlun" 
+    documentationCenter=""/>
 
 <tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/25/2015" 
-	ms.author="mimig"/>
+    ms.service="documentdb" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/25/2015" 
+    ms.author="mimig"/>
 
 # Using consistency levels to maximize availability and performance in DocumentDB
 
@@ -64,16 +64,16 @@ Eventual consistency provides the weakest read consistency but offers the lowest
 
 4. In the **Default Consistency** blade, select the new consistency level and click **Save**. 
 
-	![Screen shot highlighting the Default Consistency tile, the consistency settings and the Save button](./media/documentdb-consistency-levels/database-consistency-level.png)
+    ![Screen shot highlighting the Default Consistency tile, the consistency settings and the Save button](./media/documentdb-consistency-levels/database-consistency-level.png)
 
 ## Consistency levels for queries
 
 By default, for user defined resources, the consistency level of the queries is the same as the reads. By default, the index is updated synchronously on each insert, replace, or delete of a document to the collection. This enables the queries to honor the same consistency level as that of the document reads. While DocumentDB is write optimized and supports sustained volumes of document writes along with synchronous index maintenance and serving consistent queries, you can configure certain collections to update their index lazily. Lazy indexing further boosts the write performance and is ideal for bulk ingestion scenarios when a workload is primarily read-heavy.  
 
-Indexing Mode|	Reads|	Queries  
+Indexing Mode|  Reads|  Queries  
 -------------|-------|---------
-Consistent (default)|	Select from Strong, Bounded staleness, Session, or Eventual|	Select from Strong, Bounded staleness, Session, or Eventual|
-Lazy|	Select from Strong, Bounded staleness, Session, or Eventual|	Eventual  
+Consistent (default)|   Select from Strong, Bounded staleness, Session, or Eventual|    Select from Strong, Bounded staleness, Session, or Eventual|
+Lazy|   Select from Strong, Bounded staleness, Session, or Eventual|    Eventual  
 
 As with read requests, you can lower the consistency level of a specific query request by specifying the [x-ms-consistency-level] request header.  
 
@@ -81,14 +81,15 @@ As with read requests, you can lower the consistency level of a specific query r
 
 If you'd like to do more reading about consistency levels and tradeoffs, we recommend the following resources:
 
--	Doug Terry. Replicated Data Consistency explained through baseball.   
+-   Doug Terry. Replicated Data Consistency explained through baseball.   
 [http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
--	Doug Terry. Session Guarantees for Weakly Consistent Replicated Data.   
+-   Doug Terry. Session Guarantees for Weakly Consistent Replicated Data.   
 [http://dl.acm.org/citation.cfm?id=383631](http://dl.acm.org/citation.cfm?id=383631)
--	Daniel Abadi. Consistency Tradeoffs in Modern Distributed Database Systems Design: CAP is only part of the story”.   
+-   Daniel Abadi. Consistency Tradeoffs in Modern Distributed Database Systems Design: CAP is only part of the story”.   
 [http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html) 
--	Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein, Ion Stoica. Probabilistic Bounded Staleness (PBS) for Practical Partial Quorums.   
+-   Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein, Ion Stoica. Probabilistic Bounded Staleness (PBS) for Practical Partial Quorums.   
 [http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
--	Werner Vogels. Eventual Consistent - Revisited.    
+-   Werner Vogels. Eventual Consistent - Revisited.    
 [http://allthingsdistributed.com/2008/12/eventually_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
  
+

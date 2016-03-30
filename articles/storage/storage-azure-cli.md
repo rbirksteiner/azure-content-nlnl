@@ -45,30 +45,30 @@ See [Manage Accounts, Subscriptions, and Administrative Roles](https://msdn.micr
 3. In the command line interface, type `azure storage` to list out all the azure storage commands and get a first impression of the functionalities the Azure CLI provides. You can type command name with **-h** parameter (for example, `azure storage share create -h`) to see details of command syntax.
 4. Now, we’ll give you a simple script that shows basic Azure CLI commands to access Azure Storage. The script will first ask you to set two variables for your storage account and key. Then, the script will create a new container in this new storage account and upload an existing image file (blob) to that container. After the script lists all blobs in that container, it will download the image file to the destination directory which exists on the local computer.
 
-		#!/bin/bash
-		# A simple Azure storage example
+        #!/bin/bash
+        # A simple Azure storage example
 
-		export AZURE_STORAGE_ACCOUNT=<storage_account_name>
-		export AZURE_STORAGE_ACCESS_KEY=<storage_account_key>
+        export AZURE_STORAGE_ACCOUNT=<storage_account_name>
+        export AZURE_STORAGE_ACCESS_KEY=<storage_account_key>
 
-		export container_name=<container_name>
-		export blob_name=<blob_name>
-		export image_to_upload=<image_to_upload>
-		export destination_folder=<destination_folder>
+        export container_name=<container_name>
+        export blob_name=<blob_name>
+        export image_to_upload=<image_to_upload>
+        export destination_folder=<destination_folder>
 
-		echo "Creating the container..."
-		azure storage container create $container_name
+        echo "Creating the container..."
+        azure storage container create $container_name
 
-		echo "Uploading the image..."
-		azure storage blob upload $image_to_upload $container_name $blob_name
+        echo "Uploading the image..."
+        azure storage blob upload $image_to_upload $container_name $blob_name
 
-		echo "Listing the blobs..."
-		azure storage blob list $container_name
+        echo "Listing the blobs..."
+        azure storage blob list $container_name
 
-		echo "Downloading the image..."
-		azure storage blob download $container_name $blob_name $destination_folder
+        echo "Downloading the image..."
+        azure storage blob download $container_name $blob_name $destination_folder
 
-		echo "Done"
+        echo "Done"
 
 5. In your local computer, open your preferred text editor (vim for example). Type the above script into your text editor.
 
@@ -205,11 +205,11 @@ Note that the directory name is optional for the listing operation. If omitted, 
 
 Beginning with version 0.9.8 of Azure CLI, you can copy a file to another file, a file to a blob, or a blob to a file. Below we demonstrate how to perform these copy operations using CLI commands. To copy a file to the new directory:
 
-	azure storage file copy start --source-share srcshare --source-path srcdir/hello.txt --dest-share destshare --dest-path destdir/hellocopy.txt --connection-string $srcConnectionString --dest-connection-string $destConnectionString
-	
+    azure storage file copy start --source-share srcshare --source-path srcdir/hello.txt --dest-share destshare --dest-path destdir/hellocopy.txt --connection-string $srcConnectionString --dest-connection-string $destConnectionString
+    
 To copy a blob to a file directory:
 
-	azure storage file copy start --source-container srcctn --source-blob hello2.txt --dest-share hello --dest-path hellodir/hello2copy.txt --connection-string $srcConnectionString --dest-connection-string $destConnectionString
+    azure storage file copy start --source-container srcctn --source-blob hello2.txt --dest-share hello --dest-path hellodir/hello2copy.txt --connection-string $srcConnectionString --dest-connection-string $destConnectionString
 
 ## Next Steps
 
@@ -221,3 +221,4 @@ Here are some related articles and resources for learning more about Azure Stora
 
 [Image1]: ./media/storage-azure-cli/azure_command.png
  
+

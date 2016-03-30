@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Protecting Content Overview" 
-	description="This articles give an overview of content protection with Media Services." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="Protecting Content Overview" 
+    description="This articles give an overview of content protection with Media Services." 
+    services="media-services" 
+    documentationCenter="" 
+    authors="Juliako" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/05/2015" 
-	ms.author="juliako"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/05/2015" 
+    ms.author="juliako"/>
 
 #Protecting Content Overview
 
@@ -137,3 +137,4 @@ For more information, see [How to integrate Azure PlayReady License service with
 [Use Azure ACS to issue tokens](http://mingfeiy.com/acs-with-key-services).
 
 [content-protection]: ./media/media-services-content-protection-overview/media-services-content-protection.png
+

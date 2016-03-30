@@ -71,19 +71,19 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
 
 ###To configure single sign-on, perform the following steps:
 
-1.  In the Azure AD portal, on the **Envoy** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  In the Azure AD portal, on the **Envoy** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
     ![Enable single sign-on](./media/active-directory-saas-envoy-tutorial/IC776778.png "Enable single sign-on")
 
-2.  On the **How would you like users to sign on to Envoy** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to Envoy** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure single sign-on](./media/active-directory-saas-envoy-tutorial/IC776779.png "Configure single sign-on")
 
-3.  On the **Configure App URL** page, in the **Envoy Sign In URL** textbox, type your URL using the following pattern "*https://\<tenant-name\>.Envoy.com*", and then click **Next**.
+3.  On the **Configure App URL** page, in the **Envoy Sign In URL** textbox, type your URL using the following pattern "*https://\<tenant-name\>.Envoy.com*", and then click **Next**.
 
     ![Configure app URL](./media/active-directory-saas-envoy-tutorial/IC776780.png "Configure app URL")
 
-4.  On the **Configure single sign-on at Envoy** page, to download your certificate, click **Download certificate**, and then save the certificate file locally as **c:\\Envoy.cer**.
+4.  On the **Configure single sign-on at Envoy** page, to download your certificate, click **Download certificate**, and then save the certificate file locally as **c:\\Envoy.cer**.
 
     ![Configure single sign-on](./media/active-directory-saas-envoy-tutorial/IC776781.png "Configure single sign-on")
 
@@ -114,7 +114,7 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
     2.  In the Azure portal, on the **Configure single sign-on at Envoy** dialog page, copy the **SAML SSO URL** value, and then paste it into the **Identity Provider HTTP SAML URL** textbox.
     3.  Click **Save changes**.
 
-10. On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+10. On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
     ![Configure single sign-on](./media/active-directory-saas-envoy-tutorial/IC776786.png "Configure single sign-on")
 ##Configuring user provisioning
@@ -130,7 +130,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 1.  In the Azure AD portal, create a test account.
 
-2.  On the **Envoy **application integration page, click **Assign users**.
+2.  On the **Envoy **application integration page, click **Assign users**.
 
     ![Assign users](./media/active-directory-saas-envoy-tutorial/IC776787.png "Assign users")
 

@@ -37,7 +37,7 @@ The backup battery module for your Microsoft Azure StorSimple device is a field-
 
 1. In the Azure classic portal, navigate to **Devices** > **Maintenance** > **Hardware Status**. Under **Shared Components**, look at the status of the battery.
 
-2. Identify the PCM in which the battery has failed. Figure 1 shows the back of the StorSimple device.
+2. Identify the PCM in which the battery has failed. Figure 1 shows the back of the StorSimple device.
 
     ![Backplane Of Device Primary Enclosure Modules](./media/storsimple-battery-replacement/IC740994.png)
 
@@ -54,7 +54,7 @@ The backup battery module for your Microsoft Azure StorSimple device is a field-
 
     ![Backplane Of Device PCM Monitoring Indicator LEDs](./media/storsimple-battery-replacement/IC740992.png)
 
-    **Figure 2** Back of PCM showing the monitoring indicator LEDs
+    **Figure 2** Back of PCM showing the monitoring indicator LEDs
 
     |Label|Description|
     |:---|:-----------|
@@ -71,7 +71,7 @@ The backup battery module for your Microsoft Azure StorSimple device is a field-
 
     ![Removing Battery From PCM](./media/storsimple-battery-replacement/IC741019.png)
 
-    **Figure 3** Removing the battery from the PCM
+    **Figure 3** Removing the battery from the PCM
 
 5. Place the module in the field-replaceable unit packaging.
 
@@ -114,3 +114,4 @@ If the **DEGRADED** state appears, we recommend the following course of action:
 ## Next steps
 
 Learn more about [StorSimple hardware component replacement](storsimple-hardware-component-replacement.md).
+

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
    pageTitle=" Traffic Manager - traffic routing methods | Microsoft Azure"
    description="This articles will help you understand the different traffic routing methods used by Traffic Manager"
    services="traffic-manager"
@@ -43,9 +43,9 @@ Figure 1 shows an example of the Failover traffic routing method for a set of en
 
 ![Traffic Manager Failover load balancing](./media/traffic-manager-load-balancing-methods/IC750592.jpg)
 
-**Figure 1**
+**Figure 1**
 
-The following numbered steps correspond to the numbers in Figure 1.
+The following numbered steps correspond to the numbers in Figure 1.
 
 1. Traffic Manager receives an incoming request from a client through DNS and locates the profile.
 2. The profile contains an ordered list of endpoints. Traffic Manager checks which endpoint is first in the list. If the endpoint is online (based on the ongoing endpoint monitoring), it will specify that endpoint’s DNS name in the DNS response to the client. If the endpoint is offline, Traffic Manager determines the next online endpoint in the list. In this example CS-A is offline (unavailable), but CS-B is online (available).
@@ -60,9 +60,9 @@ Figure 2 shows an example of the Round Robin traffic routing method for a set of
 
 ![Traffic Manager Round Robin load balancing](./media/traffic-manager-load-balancing-methods/IC750593.jpg)
 
-**Figure 2**
+**Figure 2**
 
-The following numbered steps correspond to the numbers in Figure 2.
+The following numbered steps correspond to the numbers in Figure 2.
 
 1. Traffic Manager receives an incoming request from a client and locates the profile.
 2. The profile contains a list of endpoints. Traffic Manager selects an endpoint from this list at random, excluding any offline (unavailable) endpoints determined by Traffic Manager endpoint monitoring. In this example, this is endpoint CS-B.
@@ -73,7 +73,7 @@ Round Robin traffic routing also supports weighted distribution of network traff
 
 ![Round Robin Weighted Load Balancing](./media/traffic-manager-load-balancing-methods/IC750594.png)
 
-**Figure 3**
+**Figure 3**
 
 Round Robin weighted traffic routing allows you to distribute load to various endpoints based on an assigned weight value of each endpoint. The higher the weight, the more frequently an endpoint will be returned. Scenarios where this method can be useful include:
 
@@ -99,9 +99,9 @@ Figure 4 shows an example of the Performance traffic routing method for a set of
 
 ![Traffic Manager Performance load balancing](./media/traffic-manager-load-balancing-methods/IC753237.jpg)
 
-**Figure 4**
+**Figure 4**
 
-The following numbered steps correspond to the numbers in Figure 4.
+The following numbered steps correspond to the numbers in Figure 4.
 
 1. Traffic Manager builds the Internet Latency Table periodically. The Traffic Manager infrastructure runs tests to determine the round trip times between different points in the world and the Azure datacenters that host endpoints.
 2. Traffic Manager receives an incoming request from a client through its local DNS server and locates the profile.

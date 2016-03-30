@@ -63,7 +63,7 @@ Perform the following steps to create a new bandwidth template.
 
 3. Define a **Bandwidth Schedule**. To create a schedule:
 
-   1. From the drop-down list, choose the days of the week the schedule is configured for. You can select multiple days by selecting the check boxes located before the respective days in the list.
+   1. From the drop-down list, choose the days of the week the schedule is configured for. You can select multiple days by selecting the check boxes located before the respective days in the list.
    2. Select the **All Day** option if the schedule is enforced for the entire day. When this option is checked, you can no longer specify a **Start Time** or an **End Time**. The schedule runs from 12:00 AM to 11:59 PM.
    3. From the drop-down list, select a **Start Time**. This is when the schedule will begin.
    4. From the drop-down list, select an **End Time**. This is when the schedule will stop.
@@ -104,7 +104,7 @@ Perform the following steps to delete a bandwidth template.
 
 1. In the tabular list of the bandwidth templates for your service, select the template that you wish to delete. A delete icon (**x**) will appear to the extreme right of the selected template. Click the **x** icon to delete the template.
 
-2. You will be prompted for confirmation. Click **OK** to proceed.
+2. You will be prompted for confirmation. Click **OK** to proceed.
 
 If the template is in use by any volume(s), you will not be allowed to delete it. You will see an error message indicating that the template is in use. An error message dialog box will appear advising you that all the references to the template should be removed.
 

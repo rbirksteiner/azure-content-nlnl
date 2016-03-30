@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Customizing Attribute Mappings | Microsoft Azure"
-	description="Learn what attribute mappings for SaaS apps in Azure Active Directory are how you can modify them to address your business needs."
-	services="active-directory"
-	documentationCenter=""
-	authors="markusvi"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Customizing Attribute Mappings | Microsoft Azure"
+    description="Learn what attribute mappings for SaaS apps in Azure Active Directory are how you can modify them to address your business needs."
+    services="active-directory"
+    documentationCenter=""
+    authors="markusvi"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/20/2015"
-	ms.author="markusvi"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/20/2015"
+    ms.author="markusvi"/>
 
 
 # Customizing Attribute Mappings
@@ -97,3 +97,4 @@ Microsoft Azure AD provides a very efficient implementation of a synchronization
 [2]: ./media/active-directory-saas-customizing-attribute-mappings/ic775419.png
 [3]: ./media/active-directory-saas-customizing-attribute-mappings/ic775420.png
 [4]: ./media/active-directory-saas-customizing-attribute-mappings/ic775421.png
+

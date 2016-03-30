@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Conditional access device policies for Office 365 services | Microsoft Azure"
-	description="Details on how device-based conditions control access to Office 365 services. While Information Workers (IWs) want to access Office 365 services like Exchange and SharePoint Online at work or school from their personal devices, their IT admin wants the access to be secure.IT admins can provision conditional access device policies to secure corporate resources, while at the same time allowing IWs on compliant devices to access the services."
-	services="active-directory"
-	documentationCenter=""
-	authors="femila"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Conditional access device policies for Office 365 services | Microsoft Azure"
+    description="Details on how device-based conditions control access to Office 365 services. While Information Workers (IWs) want to access Office 365 services like Exchange and SharePoint Online at work or school from their personal devices, their IT admin wants the access to be secure.IT admins can provision conditional access device policies to secure corporate resources, while at the same time allowing IWs on compliant devices to access the services."
+    services="active-directory"
+    documentationCenter=""
+    authors="femila"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/24/2015"
-	ms.author="femila"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/24/2015"
+    ms.author="femila"/>
 # Conditional access device policies for Office 365 services
 
 The term, “Conditional access” has many conditions associated with it such as multi-factor authenticated user, authenticated device, compliant device etc. This topic primarily focusses on device-based conditions to control access to Office 365 services. While Information Workers (IWs) want to access Office 365 services like Exchange and SharePoint Online at work or school from their personal devices, their IT admin wants the access to be secure. IT admins can provision conditional access device policies to secure corporate resources, while at the same time allowing IWs on compliant devices to access the services. Conditional access policies to Office 365 may be configured from Microsoft Intune conditional access portal.
@@ -44,3 +44,4 @@ It is on the roadmap to extend conditional access policy to users on other platf
 Q: When will conditional access policy to Office 365 services be extended to Browser based apps (for example, OWA, browser-based SharePoint).
 
 A: At the present time, conditional access to Office365 services is limited to rich applications on device. It is on the roadmap to extend conditional access policy to users accessing the services from browsers.
+

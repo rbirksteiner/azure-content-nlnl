@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Add authentication to your HTML/JavaScript app | Microsoft Azure" 
-	description="Learn how to use Mobile Services to authenticate users of your HTML app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft account." 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="ggailey777" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="Add authentication to your HTML/JavaScript app | Microsoft Azure" 
+    description="Learn how to use Mobile Services to authenticate users of your HTML app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft account." 
+    services="mobile-services" 
+    documentationCenter="" 
+    authors="ggailey777" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
-	ms.devlang="javascript" 
-	ms.topic="article" 
-	ms.date="11/30/2015" 
-	ms.author="glenga"/>
+    ms.service="mobile-services" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="mobile-multiple" 
+    ms.devlang="javascript" 
+    ms.topic="article" 
+    ms.date="11/30/2015" 
+    ms.author="glenga"/>
 
 # Add authentication to your Mobile Services app 
 
@@ -35,17 +35,17 @@ This tutorial is based on the Mobile Services quickstart. You must also first co
 
 3. In the app directory, launch one of the following command files from the **server** subfolder.
 
-	+ **launch-windows** (Windows computers) 
-	+ **launch-mac.command** (Mac OS X computers)
-	+ **launch-linux.sh** (Linux computers)
+    + **launch-windows** (Windows computers) 
+    + **launch-mac.command** (Mac OS X computers)
+    + **launch-linux.sh** (Linux computers)
 
-	>[AZURE.NOTE]On a Windows computer, type `R` when PowerShell asks you to confirm that you want to run the script. Your web browser might warn you to not run the script because it was downloaded from the internet. When this happens, you must request that the browser proceed to load the script.
+    >[AZURE.NOTE]On a Windows computer, type `R` when PowerShell asks you to confirm that you want to run the script. Your web browser might warn you to not run the script because it was downloaded from the internet. When this happens, you must request that the browser proceed to load the script.
 
-	This starts a web server on your local computer to host the new app.
+    This starts a web server on your local computer to host the new app.
 
 2. Open the URL <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a> in a web browser to start the app. 
 
-	The data fails to load. This happens because the app attempts to access Mobile Services as an unauthenticated user, but the _TodoItem_ table now requires authentication.
+    The data fails to load. This happens because the app attempts to access Mobile Services as an unauthenticated user, but the _TodoItem_ table now requires authentication.
 
 3. (Optional) Open the script debugger for your web browser and reload the page. Verify that an access denied error occurs. 
 
@@ -57,7 +57,7 @@ Next, you will update the app to allow authentication before requesting resource
 
 1. Open the project file index.html, locate the H1 element and under it add the following code snippet:
 
-	    <div id="logged-in">
+        <div id="logged-in">
             You are logged in as <span id="login-name"></span>.
             <button id="log-out">Log out</button>
         </div>
@@ -66,52 +66,52 @@ Next, you will update the app to allow authentication before requesting resource
             <button>Log in</button>
         </div>
 
-	This enables you to login to Mobile Services from the page.
+    This enables you to login to Mobile Services from the page.
 
 2. In the page.js file, locate the line of code at the very bottom of the file that calls to the refreshTodoItems function, and replace it with the following code: 
-	
-		function refreshAuthDisplay() {
-			var isLoggedIn = client.currentUser !== null;
-			$("#logged-in").toggle(isLoggedIn);
-			$("#logged-out").toggle(!isLoggedIn);
+    
+        function refreshAuthDisplay() {
+            var isLoggedIn = client.currentUser !== null;
+            $("#logged-in").toggle(isLoggedIn);
+            $("#logged-out").toggle(!isLoggedIn);
 
-			if (isLoggedIn) {
-				$("#login-name").text(client.currentUser.userId);
-				refreshTodoItems();
-			}
-		}
+            if (isLoggedIn) {
+                $("#login-name").text(client.currentUser.userId);
+                refreshTodoItems();
+            }
+        }
 
-		function logIn() {
-			client.login("facebook").then(refreshAuthDisplay, function(error){
-				alert(error);
-			});
-		}
+        function logIn() {
+            client.login("facebook").then(refreshAuthDisplay, function(error){
+                alert(error);
+            });
+        }
 
-		function logOut() {
-			client.logout();
-			refreshAuthDisplay();
-			$('#summary').html('<strong>You must login to access data.</strong>');
-		}
+        function logOut() {
+            client.logout();
+            refreshAuthDisplay();
+            $('#summary').html('<strong>You must login to access data.</strong>');
+        }
 
-		// On page init, fetch the data and set up event handlers
-		$(function () {
-			refreshAuthDisplay();
-			$('#summary').html('<strong>You must login to access data.</strong>');		    
-			$("#logged-out button").click(logIn);
-			$("#logged-in button").click(logOut);
-		});
+        // On page init, fetch the data and set up event handlers
+        $(function () {
+            refreshAuthDisplay();
+            $('#summary').html('<strong>You must login to access data.</strong>');          
+            $("#logged-out button").click(logIn);
+            $("#logged-in button").click(logOut);
+        });
 
     This creates a set of functions to handle the authentication process. The user is authenticated by using a Facebook login. If you are using an identity provider other than Facebook, change the value passed to the **login** method above to one of the following: *microsoftaccount*, *facebook*, *twitter*, *google*, or *aad*.
 
-	>[AZURE.IMPORTANT]In a PhoneGap app, you must also add the following plugins to the project:
-	><ul><li><code>phonegap plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git</code></li>
-	><li><code>phonegap plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git</code></li></ul>
+    >[AZURE.IMPORTANT]In a PhoneGap app, you must also add the following plugins to the project:
+    ><ul><li><code>phonegap plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git</code></li>
+    ><li><phonegap plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.gitr.git</code></li></ul>
 
 9. Go back to the browser where your app is running, and refresh the page. 
 
-	   When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
+       When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
 
-	>[AZURE.NOTE]When you use Internet Explorer, you may receive the error after login: <code>Cannot reach window opener. It may be on a different Internet Explorer zone</code>. This occurs because the pop-up runs in a different security zone (internet) from localhost (intranet). This only affects apps during development using localhost. As a workaround, open the **Security** tab of **Internet Options**, click **Local Intranet**, click **Sites**, and disable **Automatically detect intranet network**. Remember to change this setting back when you are done testing.
+    >[AZURE.NOTE]When you use Internet Explorer, you may receive the error after login: <code>Cannot reach window opener. It may be on a different Internet Explorer zone</code>. This occurs because the pop-up runs in a different security zone (internet) from localhost (intranet). This only affects apps during development using localhost. As a workaround, open the **Security** tab of **Internet Options**, click **Local Intranet**, click **Sites**, and disable **Automatically detect intranet network**. Remember to change this setting back when you are done testing.
 
 ## <a name="next-steps"> </a>Next steps
 

@@ -45,23 +45,23 @@ To create a service namespace:
     **Service Bus**.
 
 3.  In the lower pane of the portal, click **Create**.
-	![](./media/service-bus-java-how-to-create-queue/sb-queues-03.png)
+    ![](./media/service-bus-java-how-to-create-queue/sb-queues-03.png)
 
 4.  In the **Add a new namespace** dialog, enter a namespace name.
     The system immediately checks to see if the name is available.
-	![](./media/service-bus-java-how-to-create-queue/sb-queues-04.png)
+    ![](./media/service-bus-java-how-to-create-queue/sb-queues-04.png)
 
 5.  After making sure the namespace name is available, choose the
     country or region in which your namespace should be hosted (make
     sure you use the same country/region in which you are deploying your
     compute resources).
 
-	IMPORTANT: Pick the **same region** that you intend to choose for
+    IMPORTANT: Pick the **same region** that you intend to choose for
     deploying your application. This will give you the best performance.
 
-6. 	Leave the other fields in the dialog with their default values (**Messaging** and **Standard Tier**), then click the check mark. The system now creates your namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
+6.  Leave the other fields in the dialog with their default values (**Messaging** and **Standard Tier**), then click the check mark. The system now creates your namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
 
-	![](./media/service-bus-java-how-to-create-queue/getting-started-multi-tier-27.png)
+    ![](./media/service-bus-java-how-to-create-queue/getting-started-multi-tier-27.png)
 
 The namespace you created takes a moment to activate, and will then appear in the Azure portal. Wait until the namespace status is **Active** before continuing.
 
@@ -75,15 +75,16 @@ namespace. You can obtain these credentials from the portal.
 
 1.  In the left navigation pane, click the **Service Bus** node, to
     display the list of available namespaces:
-	![](./media/service-bus-java-how-to-create-queue/sb-queues-13.png)
+    ![](./media/service-bus-java-how-to-create-queue/sb-queues-13.png)
 
 2.  Click on the namespace you just created from the list shown.
 
 3.  Click **Configure** to view the shared access policies for your namespace.
-	![](./media/service-bus-java-how-to-create-queue/sb-queues-14.png)
+    ![](./media/service-bus-java-how-to-create-queue/sb-queues-14.png)
 
 4.  Make a note of the primary key, or copy it to the clipboard.
 
   [Azure classic portal]: http://manage.windowsazure.com
 
   [34]: ./media/service-bus-java-how-to-create-queue/VSProperties.png
+

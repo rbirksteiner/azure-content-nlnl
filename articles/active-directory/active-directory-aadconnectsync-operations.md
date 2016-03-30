@@ -22,9 +22,9 @@ The objective of this topic is to describe operation tasks for Azure AD Connect 
 ## Staging mode
 Staging mode can be used for several scenarios, including:
 
--	High availability.
--	Test and deploy new configuration changes.
--	Introduce a new server and decommission the old.
+-   High availability.
+-   Test and deploy new configuration changes.
+-   Introduce a new server and decommission the old.
 
 With a server in staging mode you can make changes to the configuration and preview the changes before you make the server active. It also allows you to run full import and full synchronization to verify that all changes are expected before you make these into your production environment.
 
@@ -84,15 +84,15 @@ If the attribute value is multi-valued then not every change is displayed. Only 
 ## Disaster recovery
 Part of the implementation design is to plan for what to do in case of a disaster where you lose the sync server. There are different models to use and which one to use will depend on several factors including:
 
--	What is your tolerance for not being able make changes to objects in Azure AD during the downtime?
--	If you use password synchronization, will the users accept that they have to use the old password in Azure AD in case they change it on-premises?
--	Do you have a dependency on real-time operations, such as password writeback?
+-   What is your tolerance for not being able make changes to objects in Azure AD during the downtime?
+-   If you use password synchronization, will the users accept that they have to use the old password in Azure AD in case they change it on-premises?
+-   Do you have a dependency on real-time operations, such as password writeback?
 
 Depending on the answers to these questions and your organization’s policy one of the following strategies can be implemented:
 
--	Rebuild when needed.
--	Have a spare standby server, known as **staging mode**.
--	Use virtual machines.
+-   Rebuild when needed.
+-   Have a spare standby server, known as **staging mode**.
+-   Use virtual machines.
 
 Since Azure AD Connect sync has a dependency on a SQL database, you should also review the SQL High Availability section if you do not use SQL Express, which is included with Azure AD Connect.
 
@@ -117,3 +117,4 @@ When not using the SQL Server Express which comes with Azure AD Connect, the hig
 Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
 
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
+

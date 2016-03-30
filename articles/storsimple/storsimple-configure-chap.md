@@ -44,10 +44,10 @@ In unidirectional authentication, the target authenticates the initiator. This a
     ![CHAP Initiator](./media/storsimple-configure-chap/IC740943.png)
 
 2. Scroll down on this page, and in the **CHAP Initiator** section:
-													
-	1. Provide a user name for your CHAP initiator.
+                                                    
+    1. Provide a user name for your CHAP initiator.
 
-	2. Supply a password for your CHAP initiator.
+    2. Supply a password for your CHAP initiator.
 
     > [AZURE.IMPORTANT] The CHAP user name must contain fewer than 233 characters. The CHAP password must be between 12 and 16 characters. A longer user name or password will result in an authentication failure on the Windows host.
 
@@ -56,32 +56,32 @@ In unidirectional authentication, the target authenticates the initiator. This a
 1. On the Windows host server, start the iSCSI Initiator.
 
 2. In the **iSCSI Initiator Properties** window, perform the following steps:
-													
-	1. Click the **Discovery** tab.
+                                                    
+    1. Click the **Discovery** tab.
 
-		![iSCSI initiator properties](./media/storsimple-configure-chap/IC740944.png)
+        ![iSCSI initiator properties](./media/storsimple-configure-chap/IC740944.png)
 
-	2. Click **Discover Portal**.
+    2. Click **Discover Portal**.
 
 3. In the **Discover Target Portal** dialog box:
-													
-	1. Specify the IP address of your device.
+                                                    
+    1. Specify the IP address of your device.
 
-	3. Click **Advanced**.
+    3. Click **Advanced**.
 
-		![Discover target portal](./media/storsimple-configure-chap/IC740945.png)
+        ![Discover target portal](./media/storsimple-configure-chap/IC740945.png)
 
 4. In the **Advanced Settings** dialog box:
-													
-	1. Select the **Enable CHAP log on** check box.
+                                                    
+    1. Select the **Enable CHAP log on** check box.
 
-	2. In the **Name** field, supply the user name that you specified for the CHAP Initiator in the classic portal.
+    2. In the **Name** field, supply the user name that you specified for the CHAP Initiator in the classic portal.
 
-	3. In the **Target secret** field, supply the password that you specified for the CHAP Initiator in the classic portal.
+    3. In the **Target secret** field, supply the password that you specified for the CHAP Initiator in the classic portal.
 
-	4. Click **OK**.
+    4. Click **OK**.
 
-		![Advanceds settings general](./media/storsimple-configure-chap/IC740946.png)
+        ![Advanceds settings general](./media/storsimple-configure-chap/IC740946.png)
 
 5. On the **Targets** tab of the **iSCSI Initiator Properties** window, the device status should appear as **Connected**.
 
@@ -101,20 +101,20 @@ In bidirectional authentication, the target authenticates the initiator and then
     ![CHAP target](./media/storsimple-configure-chap/IC740948.png)
 
 2. Scroll down on this page, and in the **CHAP Target** section:
-													
-	1. Provide a **Reverse CHAP user name** for your device.
+                                                    
+    1. Provide a **Reverse CHAP user name** for your device.
 
-	2. Supply a **Reverse CHAP password** for your device.
+    2. Supply a **Reverse CHAP password** for your device.
 
-	3. Confirm the password.
+    3. Confirm the password.
 
 3. In the **CHAP Initiator** section:
-												
-	1. Provide a **user name** for your device.
+                                                
+    1. Provide a **user name** for your device.
 
-	1. Provide a **password** for your device.
+    1. Provide a **password** for your device.
 
-	3. Confirm the password.
+    3. Confirm the password.
 
 4. Click **Save**. A confirmation message will be displayed. Click **OK** to save the changes.
 
@@ -127,12 +127,12 @@ In bidirectional authentication, the target authenticates the initiator and then
 3. Click **CHAP**.
 
 4. In the **iSCSI Initiator Mutual CHAP Secret** dialog box:
-													
-	1. Type the **Reverse CHAP Password** that you configured in the Azure classic portal.
+                                                    
+    1. Type the **Reverse CHAP Password** that you configured in the Azure classic portal.
 
-	2. Click **OK**.
+    2. Click **OK**.
 
-		![iSCSI initiator mutual CHAP secret](./media/storsimple-configure-chap/IC740949.png)
+        ![iSCSI initiator mutual CHAP secret](./media/storsimple-configure-chap/IC740949.png)
 
 5. Click the **Targets** tab.
 
@@ -141,18 +141,18 @@ In bidirectional authentication, the target authenticates the initiator and then
 7. In the **Connect To Target** dialog box, click **Advanced**.
 
 8. In the **Advanced Properties** dialog box:
-													
-	1. Select the **Enable CHAP log on** check box.
+                                                    
+    1. Select the **Enable CHAP log on** check box.
 
-	2. In the **Name** field, supply the user name that you specified for the CHAP Initiator in the classic portal.
+    2. In the **Name** field, supply the user name that you specified for the CHAP Initiator in the classic portal.
 
-	3. In the **Target secret** field, supply the password that you specified for the CHAP Initiator in the classic portal.
+    3. In the **Target secret** field, supply the password that you specified for the CHAP Initiator in the classic portal.
 
-	4. Select the **Perform mutual authentication** check box.
+    4. Select the **Perform mutual authentication** check box.
 
-		![Advanceds settings mutual authentication](./media/storsimple-configure-chap/IC740950.png)
+        ![Advanceds settings mutual authentication](./media/storsimple-configure-chap/IC740950.png)
 
-	5. Click **OK** to complete the CHAP configuration.
+    5. Click **OK** to complete the CHAP configuration.
 
 For more information about configuring CHAP on the Windows host server, go to [Additional considerations](#additional-considerations).
 
@@ -190,3 +190,4 @@ You can verify that CHAP is being used by completing the following steps.
 
 - Learn more about [StorSimple security](storsimple-security.md).
 - Learn more about [using the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
+

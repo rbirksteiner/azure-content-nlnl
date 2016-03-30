@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Import data into Machine Learning Studio | Microsoft Azure"
-	description="How to import your data into Azure Machine Learning Studio from various data sources. Learn what data types and data formats are supported."
-	keywords="import data,data format,data types,data sources,training data"
-	services="machine-learning"
-	documentationCenter=""
-	authors="bradsev"
-	manager="paulettm"
-	editor="cgronlun"/>
+    pageTitle="Import data into Machine Learning Studio | Microsoft Azure"
+    description="How to import your data into Azure Machine Learning Studio from various data sources. Learn what data types and data formats are supported."
+    keywords="import data,data format,data types,data sources,training data"
+    services="machine-learning"
+    documentationCenter=""
+    authors="bradsev"
+    manager="paulettm"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/27/2015"
-	ms.author="garye;bradsev" />
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/27/2015"
+    ms.author="garye;bradsev" />
 
 
 # Import your training data into Azure Machine Learning Studio from various data sources
@@ -91,3 +91,4 @@ Look in the **Data Format Conversions** section of the module palette for module
 [convert-to-dataset]: https://msdn.microsoft.com/library/azure/72bf58e0-fc87-4bb1-9704-f1805003b975/
 [metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+

@@ -26,11 +26,11 @@ Pushing your offer to staging allows you to test the offer before it becomes ava
 
   ![drawing](media/marketplace-publishing-data-service-test-in-staging/step-1.1.png)
 
-1.	Login into the [Publishing Portal](https://publish.windowsazure.com)
-2.	Select **Data Services** in the left navigation window
-3.	Select your offer you want to push to staging. You will see the above screen.
-4.	Click **Push To Staging** button.  
-5.	If there are issues with the offer that needed to be completed prior to pushing to staging, you will see a list displayed.  Correct these items by clicking on each item in the list. When all corrections made, click **Push to Staging** button again.
+1.  Login into the [Publishing Portal](https://publish.windowsazure.com)
+2.  Select **Data Services** in the left navigation window
+3.  Select your offer you want to push to staging. You will see the above screen.
+4.  Click **Push To Staging** button.  
+5.  If there are issues with the offer that needed to be completed prior to pushing to staging, you will see a list displayed.  Correct these items by clicking on each item in the list. When all corrections made, click **Push to Staging** button again.
 
 If there are no issues with your offer you will see the popup window below.  
 
@@ -85,3 +85,4 @@ If you are satisfied and ready to publish your offer please read the [Request Ap
 
 ## See Also
 - [Getting Started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md)
+

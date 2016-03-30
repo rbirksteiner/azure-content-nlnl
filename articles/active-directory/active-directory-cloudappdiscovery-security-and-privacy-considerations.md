@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Cloud App Discovery Security and Privacy Considerations | Microsoft Azure"
-	description="This topic describes the security and privacy considerations related to Cloud App Discovery."
-	services="active-directory"
-	documentationCenter=""
-	authors="markusvi"
-	manager="msStevenPo"
-	editor=""/>
+    pageTitle="Cloud App Discovery Security and Privacy Considerations | Microsoft Azure"
+    description="This topic describes the security and privacy considerations related to Cloud App Discovery."
+    services="active-directory"
+    documentationCenter=""
+    authors="markusvi"
+    manager="msStevenPo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/01/2015"
-	ms.author="markusvi"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/01/2015"
+    ms.author="markusvi"/>
 
 # Cloud App Discovery Security and Privacy Considerations
 
@@ -204,3 +204,4 @@ Any user accessing the data in the portal, must be licensed with an Azure AD Pre
 
 
 * [How can I discover unsanctioned cloud apps that are used within my organization](active-directory-cloudappdiscovery-whatis.md)
+

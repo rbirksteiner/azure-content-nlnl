@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure Data Factory - Frequently Asked Questions" 
-	description="Frequently asked questions about Azure Data Factory." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
-	editor="monicar"/>
+    pageTitle="Azure Data Factory - Frequently Asked Questions" 
+    description="Frequently asked questions about Azure Data Factory." 
+    services="data-factory" 
+    documentationCenter="" 
+    authors="spelluru" 
+    manager="jhubbard" 
+    editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/01/2015" 
-	ms.author="spelluru"/>
+    ms.service="data-factory" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/01/2015" 
+    ms.author="spelluru"/>
 
 # Azure Data Factory - Frequently Asked Questions
 
@@ -36,13 +36,13 @@ Azure Data Factory balances the agility of leveraging diverse data storage, proc
 
 
 - Data Developers: who are responsible for building integration services between Hadoop and other systems:
-	- Must keep up and integrate with a continually changing and growing data landscape
-	- Must write custom code for information production, and it  is expensive, hard to maintain, and not highly available or fault tolerant
+    - Must keep up and integrate with a continually changing and growing data landscape
+    - Must write custom code for information production, and it  is expensive, hard to maintain, and not highly available or fault tolerant
 
 - IT Professionals: who are looking to incorporate more diverse data within their IT infrastructure:
-	- Required to look across all of an organization’s data to derive rich business insights
-	- Must manage compute and storage resources to balance cost and scale across on-premises and cloud
-	- Must quickly add diverse sources and processing to address new business needs, while maintaining visibility across all compute and storage assets
+    - Required to look across all of an organization’s data to derive rich business insights
+    - Must manage compute and storage resources to balance cost and scale across on-premises and cloud
+    - Must quickly add diverse sources and processing to address new business needs, while maintaining visibility across all compute and storage assets
 
 ### Where can I find pricing details for Azure Data Factory?
 
@@ -112,17 +112,17 @@ If you are using your own HDInsight Cluster (BYOC - Bring Your Own Cluster), see
 
 If you are using an on-demand cluster that is created by the Data Factory service, you need to specify additional storage accounts for the HDInsight linked service so that the Data Factory service can register them on your behalf. In the JSON definition for the on-demand linked service, use **additionalLinkedServiceNames** property to specify alternate storage accounts as shown in the following JSON snippet:
  
-	{
-	    "name": "MyHDInsightOnDemandLinkedService",
-	    "properties":
-	    {
-	        "type": "HDInsightOnDemandLinkedService",
-	        "clusterSize": 1,
-	        "timeToLive": "00:01:00",
-	        "linkedServiceName": "LinkedService-SampleData",
-	        "additionalLinkedServiceNames": [ "otherLinkedServiceName1", "otherLinkedServiceName2" ] 
-	    }
-	} 
+    {
+        "name": "MyHDInsightOnDemandLinkedService",
+        "properties":
+        {
+            "type": "HDInsightOnDemandLinkedService",
+            "clusterSize": 1,
+            "timeToLive": "00:01:00",
+            "linkedServiceName": "LinkedService-SampleData",
+            "additionalLinkedServiceNames": [ "otherLinkedServiceName1", "otherLinkedServiceName2" ] 
+        }
+    } 
 
 In the example above, otherLinkedServiceName1 and otherLinkedServiceName2 represent linked services whose definitions contain credentials that the HDInsight cluster needs to access alternate storage accounts.
 
@@ -133,8 +133,8 @@ You can rerun a slice in one of the following ways:
 
 - Click **Run** in the command bar on the **DATA SLICE** blade for the slice in the portal. 
 - Run **Set-AzureRmDataFactorySliceStatus** cmdlet with Status set to **PendingExecution** for the slice.   
-	
-		Set-AzureRmDataFactorySliceStatus -Status PendingExecution -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00" 
+    
+        Set-AzureRmDataFactorySliceStatus -Status PendingExecution -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00" 
 
 See [Set-AzureRmDataFactorySliceStatus][set-azure-datafactory-slice-status] for details about the cmdlet. 
 
@@ -176,3 +176,4 @@ If you really want to stop all the executions immediately, the only way would be
 [hdinsight-alternate-storage]: http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
+

@@ -1,20 +1,20 @@
 <properties
-	pageTitle="What happened to my .NET project after adding Mobile Services by using Visual Studio Connected Services | Microsoft Azure"
-	description="Describes what happened in your Visual Studio .NET project after adding Azure Mobile Services by using Connected Services "
-	services="mobile-services"
-	documentationCenter=""
-	authors="TomArcher"
-	manager="douge"
-	editor=""/>
+    pageTitle="What happened to my .NET project after adding Mobile Services by using Visual Studio Connected Services | Microsoft Azure"
+    description="Describes what happened in your Visual Studio .NET project after adding Azure Mobile Services by using Connected Services "
+    services="mobile-services"
+    documentationCenter=""
+    authors="TomArcher"
+    manager="douge"
+    editor=""/>
 
 <tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="09/17/2015"
-	ms.author="tarcher"/>
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="09/17/2015"
+    ms.author="tarcher"/>
 
 # What happened to my Visual Studio .NET project after adding Azure Mobile Services by using Connected Services?
 
@@ -47,3 +47,4 @@ If a .NET mobile service is created in the Connected Service Provider, then a mo
 
 
 [Learn more about mobile services](http://azure.microsoft.com/documentation/services/mobile-services/)
+

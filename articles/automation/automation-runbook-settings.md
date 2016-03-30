@@ -50,11 +50,11 @@ You can use the [Set-AzureAutomationRunbook](https://msdn.microsoft.com/library/
 
 The following sample commands show how to set the properties for a runbook. This sample adds three tags to the existing tags and specifies that verbose records should be logged.
 
-	$automationAccountName = "MyAutomationAccount"
-	$runbookName = "Sample-TestRunbook"
-	$tags = (Get-AzureAutomationRunbook –AutomationAccountName $automationAccountName –Name $runbookName).Tags
-	$tags += "Tag1,Tag2,Tag3"
-	Set-AzureAutomationRunbook –AutomationAccountName $automationAccountName –Name $runbookName –LogVerbose $true –Tags $tags
+    $automationAccountName = "MyAutomationAccount"
+    $runbookName = "Sample-TestRunbook"
+    $tags = (Get-AzureAutomationRunbook –AutomationAccountName $automationAccountName –Name $runbookName).Tags
+    $tags += "Tag1,Tag2,Tag3"
+    Set-AzureAutomationRunbook –AutomationAccountName $automationAccountName –Name $runbookName –LogVerbose $true –Tags $tags
 
 ## Related articles
 - [Runbook Output and Messages](../automation-runbook-output-and-messages) 

@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Manage Azure Service Bus using Azure Automation | Microsoft Azure"
-	description="Learn about how the Azure Automation service can be used to manage Azure Service Bus."
-	services="service-bus, automation"
-	documentationCenter=""
-	authors="csand-msft"
-	manager="eamono"
-	editor=""/>
+    pageTitle="Manage Azure Service Bus using Azure Automation | Microsoft Azure"
+    description="Learn about how the Azure Automation service can be used to manage Azure Service Bus."
+    services="service-bus, automation"
+    documentationCenter=""
+    authors="csand-msft"
+    manager="eamono"
+    editor=""/>
 
 <tags
-	ms.service="service-bus"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/09/2015"
-	ms.author="csand"/>
+    ms.service="service-bus"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/09/2015"
+    ms.author="csand"/>
 
 
 

@@ -34,35 +34,35 @@ An indexer is a resource that connects data sources with target search indexes.
 To set up a blob indexer, do the following:
 
 1. Create a data source of type `azureblob` that references a container (and optionally, a folder in that container) in an Azure storage account
-	- Pass in your storage account connection string as the `credentials.connectionString` parameter
-	- Specify a container name. You can also optionally include a folder using the `query` parameter
+    - Pass in your storage account connection string as the `credentials.connectionString` parameter
+    - Specify a container name. You can also optionally include a folder using the `query` parameter
 2. Create the indexer by connecting your data source to an existing target index (create the index if you don't already have one)
 
 The following example provides an illustration:
 
-	POST https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
-	Content-Type: application/json
-	api-key: [admin key]
+    POST https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
+    Content-Type: application/json
+    api-key: [admin key]
 
-	{
-	    "name" : "blob-datasource",
-	    "type" : "azureblob",
-	    "credentials" : { "connectionString" : "<my storage connection string>" },
-	    "container" : { "name" : "my-container", "query" : "my-folder" }
-	}   
+    {
+        "name" : "blob-datasource",
+        "type" : "azureblob",
+        "credentials" : { "connectionString" : "<my storage connection string>" },
+        "container" : { "name" : "my-container", "query" : "my-folder" }
+    }   
 
 Next, create an indexer that references the data source and a target index. For example:
 
-	POST https://[service name].search.windows.net/indexers?api-version=2015-02-28-Preview
-	Content-Type: application/json
-	api-key: [admin key]
+    POST https://[service name].search.windows.net/indexers?api-version=2015-02-28-Preview
+    Content-Type: application/json
+    api-key: [admin key]
 
-	{
-	  "name" : "blob-indexer",
-	  "dataSourceName" : " blob-datasource ",
-	  "targetIndexName" : "my-target-index",
-	  "schedule" : { "interval" : "PT2H" }
-	}
+    {
+      "name" : "blob-indexer",
+      "dataSourceName" : " blob-datasource ",
+      "targetIndexName" : "my-target-index",
+      "schedule" : { "interval" : "PT2H" }
+    }
 
 
 ## Supported document formats
@@ -81,24 +81,24 @@ The blob indexer can extract text from the following document formats:
 Azure Search indexes each document (blob) as follows:
 
 - The entire text content of the document is extracted into a string field named `content`. Note that we currently don't provide support for extracting multiple documents from a single blob:
-	- For example, a CSV file is indexed as a single document.
-	- A compound or embedded document (such as a ZIP archive or a Word document with embedded Outlook email with a PDF attachment) is also indexed as a single document.
+    - For example, a CSV file is indexed as a single document.
+    - A compound or embedded document (such as a ZIP archive or a Word document with embedded Outlook email with a PDF attachment) is also indexed as a single document.
 
 - User-specified metadata properties present on the blob, if any, are extracted verbatim. The metadata properties can also be used to control certain aspects of the document extraction process – see [Using Custom Metadata to Control Document Extraction](#CustomMetadataControl) for more details.
 
 - Standard blob metadata properties are extracted into the following fields:
 
-	- **metadata\_storage\_name** (Edm.String) - the file name of the blob. For example, if you have a blob /my-container/my-folder/subfolder/resume.pdf, the value of this field is `resume.pdf`.
+    - **metadata\_storage\_name** (Edm.String) - the file name of the blob. For example, if you have a blob /my-container/my-folder/subfolder/resume.pdf, the value of this field is `resume.pdf`.
 
-	- **metadata\_storage\_path** (Edm.String) - the full URI of the blob, including the storage account. For example, `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
+    - **metadata\_storage\_path** (Edm.String) - the full URI of the blob, including the storage account. For example, `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
 
-	- **metadata\_storage\_content\_type** (Edm.String) - content type as specified by the code you used to upload the blob. For example, `application/octet-stream`.
+    - **metadata\_storage\_content\_type** (Edm.String) - content type as specified by the code you used to upload the blob. For example, `application/octet-stream`.
 
-	- **metadata\_storage\_last\_modified** (Edm.DateTimeOffset) - last modified timestamp for the blob. Azure Search uses this timestamp to identify changed blobs, in order to avoid re-indexing everything after the initial indexing.
+    - **metadata\_storage\_last\_modified** (Edm.DateTimeOffset) - last modified timestamp for the blob. Azure Search uses this timestamp to identify changed blobs, in order to avoid re-indexing everything after the initial indexing.
 
-	- **metadata\_storage\_size** (Edm.Int64) - blob size in bytes.
+    - **metadata\_storage\_size** (Edm.Int64) - blob size in bytes.
 
-	- **metadata\_storage\_content\_md5** (Edm.String) - MD5 hash of the blob content, if available.
+    - **metadata\_storage\_content\_md5** (Edm.String) - MD5 hash of the blob content, if available.
 
 - Metadata properties specific to each document format are extracted into the fields listed [here](#ContentSpecificMetadata).
 
@@ -122,27 +122,27 @@ You should carefully consider which extracted field should map to the key field 
 
 For this example, let's pick the `metadata_storage_name` field as the document key. Let's also assume your index has a key field named `key` and a field `fileSize` for storing the document size. To wire things up as desired, specify the following field mappings when creating or updating your indexer:
 
-	"fieldMappings" : [
-	  { "sourceFieldName" : "metadata_storage_name", "targetFieldName" : "key" },
-	  { "sourceFieldName" : "metadata_storage_size", "targetFieldName" : "fileSize" }
-	]
+    "fieldMappings" : [
+      { "sourceFieldName" : "metadata_storage_name", "targetFieldName" : "key" },
+      { "sourceFieldName" : "metadata_storage_size", "targetFieldName" : "fileSize" }
+    ]
 
 To bring this all together, here's how you can add field mappings and enable base-64 encoding of keys for an existing indexer:
 
-	PUT https://[service name].search.windows.net/indexers/blob-indexer?api-version=2015-02-28-Preview
-	Content-Type: application/json
-	api-key: [admin key]
+    PUT https://[service name].search.windows.net/indexers/blob-indexer?api-version=2015-02-28-Preview
+    Content-Type: application/json
+    api-key: [admin key]
 
-	{
-	  "dataSourceName" : " blob-datasource ",
-	  "targetIndexName" : "my-target-index",
-	  "schedule" : { "interval" : "PT2H" },
-	  "fieldMappings" : [
-	    { "sourceFieldName" : "metadata_storage_name", "targetFieldName" : "key" },
-	    { "sourceFieldName" : "metadata_storage_size", "targetFieldName" : "fileSize" }
-	  ],
-	  "parameters" : { "base64EncodeKeys": true }
-	}
+    {
+      "dataSourceName" : " blob-datasource ",
+      "targetIndexName" : "my-target-index",
+      "schedule" : { "interval" : "PT2H" },
+      "fieldMappings" : [
+        { "sourceFieldName" : "metadata_storage_name", "targetFieldName" : "key" },
+        { "sourceFieldName" : "metadata_storage_size", "targetFieldName" : "fileSize" }
+      ],
+      "parameters" : { "base64EncodeKeys": true }
+    }
 
 > [AZURE.NOTE] To learn more about field mappings, see [this article](search-indexers-customization.md).
 
@@ -158,21 +158,21 @@ To indicate that certain documents must be removed from the index, you should us
 
 For example, the policy shown below will consider that a blob is deleted if it has a metadata property `IsDeleted` with the value `true`:
 
-	PUT https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
-	Content-Type: application/json
-	api-key: [admin key]
+    PUT https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
+    Content-Type: application/json
+    api-key: [admin key]
 
-	{
-	    "name" : "blob-datasource",
-	    "type" : "azureblob",
-	    "credentials" : { "connectionString" : "<your storage connection string>" },
-		"container" : { "name" : "my-container", "query" : "my-folder" },
-		"dataDeletionDetectionPolicy" : {
-			"@odata.type" :"#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy", 	
-			"softDeleteColumnName" : "IsDeleted",
-			"softDeleteMarkerValue" : "true"
-		}
-	}   
+    {
+        "name" : "blob-datasource",
+        "type" : "azureblob",
+        "credentials" : { "connectionString" : "<your storage connection string>" },
+        "container" : { "name" : "my-container", "query" : "my-folder" },
+        "dataDeletionDetectionPolicy" : {
+            "@odata.type" :"#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy",   
+            "softDeleteColumnName" : "IsDeleted",
+            "softDeleteMarkerValue" : "true"
+        }
+    }   
 
 <a name="ContentSpecificMetadata"></a>
 ## Content type-specific metadata properties
@@ -207,3 +207,4 @@ AzureSearch_Skip | "true" | Instructs the blob indexer to completely skip the bl
 ## Help us make Azure Search better
 
 If you have feature requests or ideas for improvements, please reach out to us on our [UserVoice site](https://feedback.azure.com/forums/263029-azure-search).
+

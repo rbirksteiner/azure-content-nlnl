@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Explore data in the Cortana Analytics Process | Microsoft Azure" 
-	description="How to explore data in various storage enviromnents." 
-	services="machine-learning,storage" 
-	documentationCenter="" 
-	authors="bradsev" 
-	manager="paulettm" 
-	editor="cgronlun" />
+    pageTitle="Explore data in the Cortana Analytics Process | Microsoft Azure" 
+    description="How to explore data in various storage enviromnents." 
+    services="machine-learning,storage" 
+    documentationCenter="" 
+    authors="bradsev" 
+    manager="paulettm" 
+    editor="cgronlun" />
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/20/2015" 
-	ms.author="bradsev" /> 
+    ms.service="machine-learning" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/20/2015" 
+    ms.author="bradsev" /> 
 
 #Explore data in the Cortana Analytics Process
 
@@ -28,3 +28,4 @@ This document covers how to explore data in four different environments typicall
 - **SQL Server data** data is explored by using SQL and by using a programming language like Python.
 - **Hive table** data is explored using Hive queries.
 - **Azure Machine Learning (AML) Studio** data is explored using AML modules.
+

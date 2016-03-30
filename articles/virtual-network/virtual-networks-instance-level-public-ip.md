@@ -39,84 +39,84 @@ If you want to be able to connect to your VM or role instance by an IP address a
 ## How to request an ILPIP during VM creation
 The PowerShell script below creates a new cloud service named *FTPService*, then retrieves an image from Azure, and creates a VM named *FTPInstance* using the retrieved image, sets the VM to use an ILPIP, and adds the VM to the new service:
 
-	New-AzureService -ServiceName FTPService -Location "Central US"
-	$image = Get-AzureVMImage|?{$_.ImageName -like "*RightImage-Windows-2012R2-x64*"}
-	New-AzureVMConfig -Name FTPInstance -InstanceSize Small -ImageName $image.ImageName `
-	| Add-AzureProvisioningConfig -Windows -AdminUsername adminuser -Password MyP@ssw0rd!! `
-	| Set-AzurePublicIP -PublicIPName ftpip | New-AzureVM -ServiceName FTPService -Location "Central US"
+    New-AzureService -ServiceName FTPService -Location "Central US"
+    $image = Get-AzureVMImage|?{$_.ImageName -like "*RightImage-Windows-2012R2-x64*"}
+    New-AzureVMConfig -Name FTPInstance -InstanceSize Small -ImageName $image.ImageName `
+    | Add-AzureProvisioningConfig -Windows -AdminUsername adminuser -Password MyP@ssw0rd!! `
+    | Set-AzurePublicIP -PublicIPName ftpip | New-AzureVM -ServiceName FTPService -Location "Central US"
 
 ## How to retrieve ILPIP information for a VM
 To view the ILPIP information for the VM created with the script above, run the following PowerShell command and observe the values for *PublicIPAddress* and *PublicIPName*:
 
-	Get-AzureVM -Name FTPInstance -ServiceName FTPService
+    Get-AzureVM -Name FTPInstance -ServiceName FTPService
 
-	DeploymentName              : FTPService
-	Name                        : FTPInstance
-	Label                       : 
-	VM                          : Microsoft.WindowsAzure.Commands.ServiceManagement.Model.PersistentVM
-	InstanceStatus              : ReadyRole
-	IpAddress                   : 100.74.118.91
-	InstanceStateDetails        : 
-	PowerState                  : Started
-	InstanceErrorCode           : 
-	InstanceFaultDomain         : 0
-	InstanceName                : FTPInstance
-	InstanceUpgradeDomain       : 0
-	InstanceSize                : Small
-	HostName                    : FTPInstance
-	AvailabilitySetName         : 
-	DNSName                     : http://ftpservice888.cloudapp.net/
-	Status                      : ReadyRole
-	GuestAgentStatus            : Microsoft.WindowsAzure.Commands.ServiceManagement.Model.GuestAgentStatus
-	ResourceExtensionStatusList : {Microsoft.Compute.BGInfo}
-	PublicIPAddress             : 104.43.142.188
-	PublicIPName                : ftpip
-	NetworkInterfaces           : {}
-	ServiceName                 : FTPService
-	OperationDescription        : Get-AzureVM
-	OperationId                 : 568d88d2be7c98f4bbb875e4d823718e
-	OperationStatus             : OK
+    DeploymentName              : FTPService
+    Name                        : FTPInstance
+    Label                       : 
+    VM                          : Microsoft.WindowsAzure.Commands.ServiceManagement.Model.PersistentVM
+    InstanceStatus              : ReadyRole
+    IpAddress                   : 100.74.118.91
+    InstanceStateDetails        : 
+    PowerState                  : Started
+    InstanceErrorCode           : 
+    InstanceFaultDomain         : 0
+    InstanceName                : FTPInstance
+    InstanceUpgradeDomain       : 0
+    InstanceSize                : Small
+    HostName                    : FTPInstance
+    AvailabilitySetName         : 
+    DNSName                     : http://ftpservice888.cloudapp.net/
+    Status                      : ReadyRole
+    GuestAgentStatus            : Microsoft.WindowsAzure.Commands.ServiceManagement.Model.GuestAgentStatus
+    ResourceExtensionStatusList : {Microsoft.Compute.BGInfo}
+    PublicIPAddress             : 104.43.142.188
+    PublicIPName                : ftpip
+    NetworkInterfaces           : {}
+    ServiceName                 : FTPService
+    OperationDescription        : Get-AzureVM
+    OperationId                 : 568d88d2be7c98f4bbb875e4d823718e
+    OperationStatus             : OK
 
 ## How to remove an ILPIP from a VM
 To remove the ILPIP added to the VM in the script above, run the following PowerShell command:
-	
-	Get-AzureVM -ServiceName FTPService -Name FTPInstance `
-	| Remove-AzurePublicIP `
-	| Update-AzureVM
+    
+    Get-AzureVM -ServiceName FTPService -Name FTPInstance `
+    | Remove-AzurePublicIP `
+    | Update-AzureVM
 
 ## How to add an ILPIP to an existing VM
 To add an ILPIP to the VM created using the script above, runt he following command:
 
-	Get-AzureVM -ServiceName FTPService -Name FTPInstance `
-	| Set-AzurePublicIP -PublicIPName ftpip2 `
-	| Update-AzureVM
+    Get-AzureVM -ServiceName FTPService -Name FTPInstance `
+    | Set-AzurePublicIP -PublicIPName ftpip2 `
+    | Update-AzureVM
 
 ## How to associate an ILPIP to a VM by using a service configuration file
 You can also associate an ILPIP to a VM by using a service configuration (CSCFG) file. The sample xml below shows how to configure a cloud service to use a reserved IP named *MyReservedIP* as an ILPIP for a role instance: 
-	
-	<?xml version="1.0" encoding="utf-8"?>
-	<ServiceConfiguration serviceName="ReservedIPSample" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2014-01.2.3">
-	  <Role name="WebRole1">
-	    <Instances count="1" />
-	    <ConfigurationSettings>
-	      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
-	    </ConfigurationSettings>
-	  </Role>
+    
+    <?xml version="1.0" encoding="utf-8"?>
+    <ServiceConfiguration serviceName="ReservedIPSample" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2014-01.2.3">
+      <Role name="WebRole1">
+        <Instances count="1" />
+        <ConfigurationSettings>
+          <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+        </ConfigurationSettings>
+      </Role>
       <NetworkConfiguration>
-	    <VirtualNetworkSite name="VNet"/>
-	    <AddressAssignments>
-	      <InstanceAddress roleName="VMRolePersisted">
-	        <Subnets>
-	          <Subnet name="Subnet1"/>
-	          <Subnet name="Subnet2"/>
-	        </Subnets>
-	        <PublicIPs>
-	          <PublicIP name="MyReservedIP" domainNameLabel="MyReservedIP" />
-	        </PublicIPs>
-	      </InstanceAddress>
-	    </AddressAssignments>
-	  </NetworkConfiguration>
-	</ServiceConfiguration>
+        <VirtualNetworkSite name="VNet"/>
+        <AddressAssignments>
+          <InstanceAddress roleName="VMRolePersisted">
+            <Subnets>
+              <Subnet name="Subnet1"/>
+              <Subnet name="Subnet2"/>
+            </Subnets>
+            <PublicIPs>
+              <PublicIP name="MyReservedIP" domainNameLabel="MyReservedIP" />
+            </PublicIPs>
+          </InstanceAddress>
+        </AddressAssignments>
+      </NetworkConfiguration>
+    </ServiceConfiguration>
 
 ## Next steps
 

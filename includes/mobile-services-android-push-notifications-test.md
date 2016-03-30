@@ -6,11 +6,11 @@ When you run this app in the emulator, make sure that you use an Android Virtual
 
 1. From **Tools**, click **Open Android Emulator Manager**, select your device, and then click **Edit**.
 
-   	![Android Virtual Device Manager](./media/mobile-services-android-push-notifications-test/notification-hub-create-android-app7.png)
+    ![Android Virtual Device Manager](./media/mobile-services-android-push-notifications-test/notification-hub-create-android-app7.png)
 
 2. Select **Google APIs** in **Target**, then click **OK**.
 
-   	![Edit the Android Virtual Device](./media/mobile-services-android-push-notifications-test/notification-hub-create-android-app8.png)
+    ![Edit the Android Virtual Device](./media/mobile-services-android-push-notifications-test/notification-hub-create-android-app8.png)
 
 3. On the top toolbar, click **Run**, and then select your app. This starts the emulator and runs the app.
 
@@ -22,4 +22,4 @@ When you run this app in the emulator, make sure that you use an Android Virtual
 
 2. Swipe down from the top of the screen to open the device's Notification Center to see the notification.
 
-	![View notification in the Notification Center](./media/mobile-services-android-push-notifications-test/notification-area-received.png)
+    ![View notification in the Notification Center](./media/mobile-services-android-push-notifications-test/notification-area-received.png)

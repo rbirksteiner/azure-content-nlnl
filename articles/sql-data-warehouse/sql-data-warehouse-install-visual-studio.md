@@ -49,3 +49,4 @@ Now that you have the lastest version of SSDT, you are ready to [connect](./sql-
 
 <!--Image references-->
 
+

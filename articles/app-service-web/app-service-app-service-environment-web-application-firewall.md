@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Configuring a Web Application Firewall (WAF) for App Service Environment" 
-	description="Learn how to configure a web application firewall in front of your App Service Environment." 
-	services="app-service\web" 
-	documentationCenter="" 
-	authors="naziml" 
-	manager="wpickett" 
-	editor="jimbe"/>
+    pageTitle="Configuring a Web Application Firewall (WAF) for App Service Environment" 
+    description="Learn how to configure a web application firewall in front of your App Service Environment." 
+    services="app-service\web" 
+    documentationCenter="" 
+    authors="naziml" 
+    manager="wpickett" 
+    editor="jimbe"/>
 
 <tags 
-	ms.service="app-service" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/15/2015" 
-	ms.author="naziml"/>	
+    ms.service="app-service" 
+    ms.workload="web" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/15/2015" 
+    ms.author="naziml"/>    
 
 # Configuring a Web Application Firewall (WAF) for App Service Environment
 

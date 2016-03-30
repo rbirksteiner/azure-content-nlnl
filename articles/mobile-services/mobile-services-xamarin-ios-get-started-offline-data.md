@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Using offline data in Mobile Services (Xamarin iOS) | Microsoft Azure"
-	description="Learn how to use Azure Mobile Services to cache and sync offline data in your Xamarin iOS application"
-	documentationCenter="xamarin"
-	authors="lindydonna"
-	editor="wesmc"
-	manager="dwrede"
-	services="mobile-services"/>
+    pageTitle="Using offline data in Mobile Services (Xamarin iOS) | Microsoft Azure"
+    description="Learn how to use Azure Mobile Services to cache and sync offline data in your Xamarin iOS application"
+    documentationCenter="xamarin"
+    authors="lindydonna"
+    editor="wesmc"
+    manager="dwrede"
+    services="mobile-services"/>
 
 <tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="11/02/2015"
-	ms.author="donnam"/>
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="11/02/2015"
+    ms.author="donnam"/>
 
 # Using offline data sync in Mobile Services
 
@@ -187,3 +187,4 @@ In this section you will reconnect the app to the mobile service. This simulates
 [Xamarin Studio]: http://xamarin.com/download
 [Xamarin extension]: http://xamarin.com/visual-studio
 [Azure classic portal]: https://manage.windowsazure.com
+

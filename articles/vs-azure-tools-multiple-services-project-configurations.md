@@ -109,3 +109,4 @@ To configure settings that apply to an entire Azure cloud service project, you f
 |Build Events|From this page, you can set pre-build and post-build events.|
 |Development|From this page, you can specify build configuration instructions and the conditions under which any post-build events are run.|
 |Web|From this page, you can configure settings that relate to the web server.|
+

@@ -73,19 +73,19 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
 ###To configure single sign-on, perform the following steps:
 
-1.  In the Azure AD portal, on the **Zoho Mail** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  In the Azure AD portal, on the **Zoho Mail** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
     ![Configure Single Sign-On](./media/active-directory-saas-zoho-mail-tutorial/IC789603.png "Configure Single Sign-On")
 
-2.  On the **How would you like users to sign on to Zoho Mail** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to Zoho Mail** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-zoho-mail-tutorial/IC789604.png "Configure Single Sign-On")
 
-3.  On the **Configure App URL** page, in the **Zoho Mail Sign On URL** textbox, type your URL using the following pattern "*http://company.ZohoMail.com*", and then click **Next**.
+3.  On the **Configure App URL** page, in the **Zoho Mail Sign On URL** textbox, type your URL using the following pattern "*http://company.ZohoMail.com*", and then click **Next**.
 
     ![Configure App URL](./media/active-directory-saas-zoho-mail-tutorial/IC789605.png "Configure App URL")
 
-4.  On the **Configure single sign-on at Zoho Mail** page, click **Download certificate**, and then save the certificate file on your computer.
+4.  On the **Configure single sign-on at Zoho Mail** page, click **Download certificate**, and then save the certificate file on your computer.
 
     ![Configure Single Sign-On](./media/active-directory-saas-zoho-mail-tutorial/IC789606.png "Configure Single Sign-On")
 
@@ -114,7 +114,7 @@ If you are not familiar with this procedure, see [How to convert a binary certif
     6.  As **Algorithm**, select **RSA**.
     7.  Click **OK**.
 
-9.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+9.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
     ![Configure Single Sign-On](./media/active-directory-saas-zoho-mail-tutorial/IC789610.png "Configure Single Sign-On")
 
@@ -152,7 +152,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 1.  In the Azure AD portal, create a test account.
 
-2.  On the **Zoho Mail **application integration page, click **Assign users**.
+2.  On the **Zoho Mail **application integration page, click **Assign users**.
 
     ![Assign Users](./media/active-directory-saas-zoho-mail-tutorial/IC789613.png "Assign Users")
 

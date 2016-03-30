@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure AD Connect: Directory integration tools comparison | Microsoft Azure"
-	description="This is page will provide you with comprehensive tables that compare the various directory integration tools."
-	services="active-directory"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
-	editor="curtand"/>
+    pageTitle="Azure AD Connect: Directory integration tools comparison | Microsoft Azure"
+    description="This is page will provide you with comprehensive tables that compare the various directory integration tools."
+    services="active-directory"
+    documentationCenter=""
+    authors="billmath"
+    manager="stevenpo"
+    editor="curtand"/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/13/2015"
-	ms.author="billmath"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/13/2015"
+    ms.author="billmath"/>
 
 # Directory integration tools comparison
 
@@ -92,3 +92,4 @@ Allow advanced customization for attribute flows | ● | ● |  | ●
 
 ## Next steps
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
+

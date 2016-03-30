@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Create an Azure Search service in the portal | Microsoft Azure | Hosted cloud search service"
-	description="Add free or standard Azure Search to an existing subscription using the Azure Classic Portal. Azure Search is cloud hosted search service for custom apps."
-	services="search"
-	documentationCenter=""
-	authors="HeidiSteen"
-	manager="mblythe"
-	editor=""
+    pageTitle="Create an Azure Search service in the portal | Microsoft Azure | Hosted cloud search service"
+    description="Add free or standard Azure Search to an existing subscription using the Azure Classic Portal. Azure Search is cloud hosted search service for custom apps."
+    services="search"
+    documentationCenter=""
+    authors="HeidiSteen"
+    manager="mblythe"
+    editor=""
     tags="azure-portal"/>
 
 <tags
-	ms.service="search"
-	ms.devlang="rest-api"
-	ms.workload="search"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.date="11/04/2015"
-	ms.author="heidist"/>
+    ms.service="search"
+    ms.devlang="rest-api"
+    ms.workload="search"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.date="11/04/2015"
+    ms.author="heidist"/>
 
 # Create an Azure Search service in the Azure Classic Portal
 
@@ -35,18 +35,18 @@ As an administrator, you can add Azure Search to an existing Azure subscription 
 
      ![][2]
 
-	- **Service name** must be unique, lowercase, and under 15 characters, with no spaces. This name becomes part of the endpoint of your Azure Search service. See [Naming Rules](https://msdn.microsoft.com/library/azure/dn857353.aspx) for more information about naming conventions.
+    - **Service name** must be unique, lowercase, and under 15 characters, with no spaces. This name becomes part of the endpoint of your Azure Search service. See [Naming Rules](https://msdn.microsoft.com/library/azure/dn857353.aspx) for more information about naming conventions.
 
-	- **Pricing Tier** determines capacity and billing. Both tiers provide the same features, but at different resource levels.
+    - **Pricing Tier** determines capacity and billing. Both tiers provide the same features, but at different resource levels.
 
-		- **Free**  runs on clusters that are shared with other subscribers. It offers enough capacity to try out tutorials and write proof-of-concept code, but is not intended for production applications. Deploying a free service typically only takes a few minutes.
-		- **Standard** runs on dedicated resources and is highly scalable. Initially, a standard service is provisioned with one replica and one partition, but you can adjust capacity once the service is created. Deploying a standard service takes longer, usually about 15 minutes.
+        - **Free**  runs on clusters that are shared with other subscribers. It offers enough capacity to try out tutorials and write proof-of-concept code, but is not intended for production applications. Deploying a free service typically only takes a few minutes.
+        - **Standard** runs on dedicated resources and is highly scalable. Initially, a standard service is provisioned with one replica and one partition, but you can adjust capacity once the service is created. Deploying a standard service takes longer, usually about 15 minutes.
 
-	- **Resource Groups** are containers for services and resources used for a common purpose. For example, if you're building a custom search application based on Azure Search, the Web Apps feature in Azure App Service, and Azure Blob storage, you could create a resource group that keeps these services together in the portal management pages.
+    - **Resource Groups** are containers for services and resources used for a common purpose. For example, if you're building a custom search application based on Azure Search, the Web Apps feature in Azure App Service, and Azure Blob storage, you could create a resource group that keeps these services together in the portal management pages.
 
-	- **Subscription** allows you to choose among multiple subscriptions, if you have more than one subscription.
+    - **Subscription** allows you to choose among multiple subscriptions, if you have more than one subscription.
 
-	- **Location** is the datacenter region. Currently, all resources must run in the same datacenter. Distributing resources across multiple datacenters is not supported.
+    - **Location** is the datacenter region. Currently, all resources must run in the same datacenter. Distributing resources across multiple datacenters is not supported.
 
 4. Click **Create** to provision the service.
 
@@ -65,11 +65,11 @@ There is no in-place upgrade of the free version. Switching to standard, with it
 
 An Azure Search service at the standard tier is created with one replica and partition each, but can be easily re-scaled at higher resource levels.
 
-1.	Return to the service dashboard after the service is created.
+1.  Return to the service dashboard after the service is created.
 
-2.	Click the **Scale** tile.
+2.  Click the **Scale** tile.
 
-3.	Use the sliders to add replicas, partitions, or both.
+3.  Use the sliders to add replicas, partitions, or both.
 
 Additional replicas and partitions are billed in terms of search units. The total search units required to support any particular resource configuration are shown on the page, as you add resources.
 
@@ -84,7 +84,7 @@ After the service is created, you can return to the Azure Classic Portal to get 
 
 2. On the service dashboard, you'll see tiles for essential information, as well as the key icon for accessing the admin keys.
 
-  	![][3]
+    ![][3]
 
 3. Copy the service URL and an admin key. You will need them for your next task, [Test service operations](#sub-4).
 
@@ -122,3 +122,4 @@ The following information shows you how to build and manage search applications 
 [1]: ./media/search-create-service-portal/create-search-portal-1.PNG
 [2]: ./media/search-create-service-portal/create-search-portal-2.PNG
 [3]: ./media/search-create-service-portal/create-search-portal-3.PNG
+

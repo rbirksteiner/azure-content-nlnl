@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Configure a Connection String to Azure Storage | Microsoft Azure" 
-	description="Learn how to configure a connection string to an Azure storage account. A connection string includes the information needed to authenticate programmatic access to resources in a storage account. The connection string may encapsulate your account access key for an account that you own, or it may include a shared access signature for accessing resources in an account without the access key." 
-	services="storage" 
-	documentationCenter="" 
-	authors="tamram" 
-	manager="adinah" 
-	editor="cgronlun"/>
+    pageTitle="Configure a Connection String to Azure Storage | Microsoft Azure" 
+    description="Learn how to configure a connection string to an Azure storage account. A connection string includes the information needed to authenticate programmatic access to resources in a storage account. The connection string may encapsulate your account access key for an account that you own, or it may include a shared access signature for accessing resources in an account without the access key." 
+    services="storage" 
+    documentationCenter="" 
+    authors="tamram" 
+    manager="adinah" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/23/2015" 
-	ms.author="tamram"/>
+    ms.service="storage" 
+    ms.workload="storage" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/23/2015" 
+    ms.author="tamram"/>
 
 # Configure Azure Storage Connection Strings
 
@@ -53,9 +53,9 @@ To create a connection string to your Azure storage account, use the connection 
 
 For example, your connection string will look similar to the following sample connection string:
  
-	DefaultEndpointsProtocol=https;
-	AccountName=storagesample;
-	AccountKey=<account-key>
+    DefaultEndpointsProtocol=https;
+    AccountName=storagesample;
+    AccountKey=<account-key>
 
 > [AZURE.NOTE] Azure Storage supports both HTTP and HTTPS in a connection string; however, using HTTPS is highly recommended.
     
@@ -68,11 +68,11 @@ You can to explicitly specify the service endpoints in your connection string if
 
 To create a connection string that specifies an explicit Blob endpoint, specify the complete service endpoint for each service, including the protocol specification (HTTP or HTTPS), in the following format:
 
-	BlobEndpoint=myBlobEndpoint;
-	QueueEndpoint=myQueueEndpoint;
-	TableEndpoint=myTableEndpoint;
-	FileEndpoint=myFileEndpoint;
-	[credentials]
+    BlobEndpoint=myBlobEndpoint;
+    QueueEndpoint=myQueueEndpoint;
+    TableEndpoint=myTableEndpoint;
+    FileEndpoint=myFileEndpoint;
+    [credentials]
 
 
 You must specify at least one service endpoint, but you do not need to specify all of them. For example, if you're creating a connection string for use with a custom blob endpoint, specifying the queue and table endpoints is optional. Note that if you choose to omit the queue and table endpoints from the connection string, then you will not be able to access the Queue and Table services from your code by using that connection string.
@@ -88,10 +88,10 @@ If you have registered a custom domain name for use with the Blob service, you m
 
 For example, a connection string to a Blob endpoint on a custom domain may be similar to:
 
-	DefaultEndpointsProtocol=https;
-	BlobEndpoint=www.mydomain.com;
-	AccountName=storagesample;
-	AccountKey=<account-key> 
+    DefaultEndpointsProtocol=https;
+    BlobEndpoint=www.mydomain.com;
+    AccountName=storagesample;
+    AccountKey=<account-key> 
 
 
 ### Specifying a Blob endpoint with a shared access signature 
@@ -109,15 +109,15 @@ The endpoint can be either the default service endpoint or a custom endpoint. Th
 To create a connection string for storage service in regions or instances with different endpoint suffixes, such as for Azure China or Azure Governance, use the following connection string format. Indicate whether you want to connect to the storage account through HTTP or HTTPS, replace `myAccountName` with the name of your storage account, replace `myAccountKey` with your account access key, and replace `mySuffix` with the URI suffix:
 
 
-	DefaultEndpointsProtocol=[http|https];AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=mySuffix;
+    DefaultEndpointsProtocol=[http|https];AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=mySuffix;
 
 
 For example, your connection string should look similar to the following sample connection string:
 
-	DefaultEndpointsProtocol=https;
-	AccountName=storagesample;
-	AccountKey=<account-key>;
-	EndpointSuffix=core.chinacloudapi.cn;
+    DefaultEndpointsProtocol=https;
+    AccountName=storagesample;
+    AccountKey=<account-key>;
+    EndpointSuffix=core.chinacloudapi.cn;
 
 
  

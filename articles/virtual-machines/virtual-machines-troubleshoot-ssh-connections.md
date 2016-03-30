@@ -1,22 +1,22 @@
 <properties
-	pageTitle="Troubleshoot SSH connection to an Azure VM | Microsoft Azure"
-	description="Troubleshoot and fix SSH errors like SSH connection failed or SSH connection refused for an Azure virtual machine running Linux."
-	keywords="ssh connection refused,ssh error,azure ssh,SSH connection failed"
-	services="virtual-machines"
-	documentationCenter=""
-	authors="dsk-2015"
-	manager="timlt"
-	editor=""
-	tags="top-support-issue,azure-service-management,azure-resource-manager"/>
+    pageTitle="Troubleshoot SSH connection to an Azure VM | Microsoft Azure"
+    description="Troubleshoot and fix SSH errors like SSH connection failed or SSH connection refused for an Azure virtual machine running Linux."
+    keywords="ssh connection refused,ssh error,azure ssh,SSH connection failed"
+    services="virtual-machines"
+    documentationCenter=""
+    authors="dsk-2015"
+    manager="timlt"
+    editor=""
+    tags="top-support-issue,azure-service-management,azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/27/2015"
-	ms.author="dkshir"/>
+    ms.service="virtual-machines"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-linux"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/27/2015"
+    ms.author="dkshir"/>
 
 # Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine
 
@@ -39,7 +39,7 @@ To resolve the more common SSH connection failures in virtual machines created u
 
 1. **Reset Remote Access** from the [Azure portal](https://portal.azure.com). Click **Browse all** > **Virtual machines (classic)** > your Windows virtual machine > **Reset Remote Access**.
 
-	![Screenshot that shows resetting SSH configuration](./media/virtual-machines-troubleshoot-ssh-connections/Portal-SSH-Reset-Windows.png)  
+    ![Screenshot that shows resetting SSH configuration](./media/virtual-machines-troubleshoot-ssh-connections/Portal-SSH-Reset-Windows.png)  
 
 2. **Restart** the virtual machine. From the [Azure portal](https://portal.azure.com), click **Browse all** > **Virtual machines (classic)** > your Windows virtual machine > **Restart**. From the [Azure classic portal](https://manage.windowsazure.com), open the **Virtual machines** > **Instances** and click **Restart**.
 
@@ -47,12 +47,12 @@ To resolve the more common SSH connection failures in virtual machines created u
 
 4. Follow the instructions in [How to reset a password or SSH for Linux-based virtual machines](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md) on the virtual machine, to:
 
-	- Reset the password or SSH key.
-	- Create a new sudo user account.
-	- Reset the SSH configuration.
+    - Reset the password or SSH key.
+    - Create a new sudo user account.
+    - Reset the SSH configuration.
 
 5. Check VM's Resource Health for any platform issues. 
-	Click Browse all > Virtual Machines (classic) > your Linux virtual machine > **Check Health**
+    Click Browse all > Virtual Machines (classic) > your Linux virtual machine > **Check Health**
 
 
 ## Steps to fix common SSH errors in Resource Manager deployment model
@@ -61,110 +61,110 @@ To resolve the common SSH issues for virtual machines created using the Resource
 
 1. **Reset the SSH connection** to your Linux VM on the command line, using either the Azure CLI or Azure PowerShell. Make sure the [Microsoft Azure Linux Agent](virtual-machines-linux-agent-user-guide.md) version 2.0.5 or later is installed.
 
-	**Using Azure CLI**
+    **Using Azure CLI**
 
-	a. If you haven't already, [install the Azure CLI and connect to your Azure subscription](../xplat-cli-install.md) using the `azure login` command.
+    a. If you haven't already, [install the Azure CLI and connect to your Azure subscription](../xplat-cli-install.md) using the `azure login` command.
 
-	b. Switch to the Resource Manager mode.
+    b. Switch to the Resource Manager mode.
 
-	```
-	azure config mode arm
-	```
+    ```
+    azure config mode arm
+    ```
 
-	c. Reset the SSH connection using either of the following methods.
+    c. Reset the SSH connection using either of the following methods.
 
-	* Use the `vm reset-access` command as in the following example.
+    * Use the `vm reset-access` command as in the following example.
 
-	```
-	azure vm reset-access -g TestRgV2 -n TestVmV2 -r
-	```
+    ```
+    azure vm reset-access -g TestRgV2 -n TestVmV2 -r
+    ```
 
-	This will install the `VMAccessForLinux` extension on your virtual machine.
+    This will install the `VMAccessForLinux` extension on your virtual machine.
 
-	* Alternatively, create a file named PrivateConf.json with the following content:
+    * Alternatively, create a file named PrivateConf.json with the following content:
 
-	```
-	{  
-	"reset_ssh":"True"
-	}
-	```
+    ```
+    {  
+    "reset_ssh":"True"
+    }
+    ```
 
-	Then manually run the `VMAccessForLinux` extension to reset your SSH connection.
+    Then manually run the `VMAccessForLinux` extension to reset your SSH connection.
 
-	```
-	azure vm extension set "testRG" "testVM" VMAccessForLinux Microsoft.OSTCExtensions "1.2" --private-config-path PrivateConf.json
-	```
+    ```
+    azure vm extension set "testRG" "testVM" VMAccessForLinux Microsoft.OSTCExtensions "1.2" --private-config-path PrivateConf.json
+    ```
 
-	**Using Azure PowerShell**
+    **Using Azure PowerShell**
 
-	a. If you haven't already, [install Azure PowerShell and connect to your Azure subscription](../powershell-install-configure.md) using the Azure AD method.
+    a. If you haven't already, [install Azure PowerShell and connect to your Azure subscription](../powershell-install-configure.md) using the Azure AD method.
 
-	b. Switch to the Resource Manager mode.
+    b. Switch to the Resource Manager mode.
 
-	```
-	Switch-AzureMode -Name AzureResourceManager
-	```
+    ```
+    Switch-AzureMode -Name AzureResourceManager
+    ```
 
-	c. Run the `VMAccessForLinux` extension to reset your SSH connection, as shown in the following example.
+    c. Run the `VMAccessForLinux` extension to reset your SSH connection, as shown in the following example.
 
-	```
-	Set-AzureVMExtension -ResourceGroupName "testRG" -VMName "testVM" -Location "West US" -Name "VMAccessForLinux" -Publisher "Microsoft.OSTCExtensions" -ExtensionType "VMAccessForLinux" -TypeHandlerVersion "1.2" -SettingString "{}" -ProtectedSettingString '{"reset_ssh":true}'
-	```
+    ```
+    Set-AzureVMExtension -ResourceGroupName "testRG" -VMName "testVM" -Location "West US" -Name "VMAccessForLinux" -Publisher "Microsoft.OSTCExtensions" -ExtensionType "VMAccessForLinux" -TypeHandlerVersion "1.2" -SettingString "{}" -ProtectedSettingString '{"reset_ssh":true}'
+    ```
 
 2. **Restart** your Linux VM from the portal. From the [Azure portal](https://portal.azure.com), click **Browse all** > **Virtual machines** > your Windows virtual machine > **Restart**.
 
-	![Screenshot that shows restarting V2 virtual machine](./media/virtual-machines-troubleshoot-ssh-connections/Portal-SSH-Restart-V2-Windows.png)  
+    ![Screenshot that shows restarting V2 virtual machine](./media/virtual-machines-troubleshoot-ssh-connections/Portal-SSH-Restart-V2-Windows.png)  
 
 3. **Reset your password or the SSH key** for your Linux VM on the command line, using either the Azure CLI or Azure PowerShell. You can also create a new username and password with sudo authority as shown in the following example.
 
-	**Using Azure CLI**
+    **Using Azure CLI**
 
-	Install and configure Azure CLI as mentioned above. Switch to Resource Manager mode and then run the extension using either of the following methods.
+    Install and configure Azure CLI as mentioned above. Switch to Resource Manager mode and then run the extension using either of the following methods.
 
-	* Run the `vm reset-access` command to set any of the SSH credentials.
+    * Run the `vm reset-access` command to set any of the SSH credentials.
 
-	```
-	azure vm reset-access TestRgV2 TestVmV2 -u NewUser -p NewPassword
-	```
+    ```
+    azure vm reset-access TestRgV2 TestVmV2 -u NewUser -p NewPassword
+    ```
 
-	See more information about this by typing `azure vm reset-access -h` on the command line.
+    See more information about this by typing `azure vm reset-access -h` on the command line.
 
-	* Alternatively, create a file named PrivateConf.json with the following contents.
-	```
-	{
-	"username":"NewUsername", "password":"NewPassword", "expiration":"2016-01-01", "ssh_key":"", "reset_ssh":false, "remove_user":""
-	}
-	```
+    * Alternatively, create a file named PrivateConf.json with the following contents.
+    ```
+    {
+    "username":"NewUsername", "password":"NewPassword", "expiration":"2016-01-01", "ssh_key":"", "reset_ssh":false, "remove_user":""
+    }
+    ```
 
-	Then run the Linux extension using the above file.
+    Then run the Linux extension using the above file.
 
-	```
-	$azure vm extension set "testRG" "testVM" VMAccessForLinux Microsoft.OSTCExtensions "1.2" --private-config-path PrivateConf.json
-	```
+    ```
+    $azure vm extension set "testRG" "testVM" VMAccessForLinux Microsoft.OSTCExtensions "1.2" --private-config-path PrivateConf.json
+    ```
 
-	Note that you can follow steps similar to [How to reset a password or SSH for Linux-based virtual machines](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md) to try other variations. Remember to modify the Azure CLI instructions for the Resource Manager mode.
+    Note that you can follow steps similar to [How to reset a password or SSH for Linux-based virtual machines](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md) to try other variations. Remember to modify the Azure CLI instructions for the Resource Manager mode.
 
-	**Using Azure PowerShell**
+    **Using Azure PowerShell**
 
-	Install and configure Azure PowerShell as mentioned above. Switch to Resource Manager mode and then run the extension as follows.
+    Install and configure Azure PowerShell as mentioned above. Switch to Resource Manager mode and then run the extension as follows.
 
-	```
-	$RGName = 'testRG'
-	$VmName = 'testVM'
-	$Location = 'West US'
+    ```
+    $RGName = 'testRG'
+    $VmName = 'testVM'
+    $Location = 'West US'
 
-	$ExtensionName = 'VMAccessForLinux'
-	$Publisher = 'Microsoft.OSTCExtensions'
-	$Version = '1.2'
+    $ExtensionName = 'VMAccessForLinux'
+    $Publisher = 'Microsoft.OSTCExtensions'
+    $Version = '1.2'
 
-	$PublicConf = '{}'
-	$PrivateConf = '{"username":"NewUsername", "password":"NewPassword", "ssh_key":"", "reset_ssh":false, "remove_user":""}'
+    $PublicConf = '{}'
+    $PrivateConf = '{"username":"NewUsername", "password":"NewPassword", "ssh_key":"", "reset_ssh":false, "remove_user":""}'
 
-	Set-AzureVMExtension -ResourceGroupName $RGName -VMName $VmName -Location $Location -Name $ExtensionName -Publisher $Publisher -ExtensionType $ExtensionName -TypeHandlerVersion $Version -SettingString $PublicConf -ProtectedSettingString $PrivateConf
+    Set-AzureVMExtension -ResourceGroupName $RGName -VMName $VmName -Location $Location -Name $ExtensionName -Publisher $Publisher -ExtensionType $ExtensionName -TypeHandlerVersion $Version -SettingString $PublicConf -ProtectedSettingString $PrivateConf
 
-	```
+    ```
 
-	Make sure to replace the values of $RGName, $VmName, $Location, and the SSH credentials with values specific to your installation.
+    Make sure to replace the values of $RGName, $VmName, $Location, and the SSH credentials with values specific to your installation.
 
 ## Detailed troubleshooting of SSH errors
 
@@ -289,3 +289,4 @@ For virtual machines in classic deployment model, [How to reset a password or SS
 [Troubleshoot Windows Remote Desktop connections to a Windows-based Azure virtual machine](virtual-machines-troubleshoot-remote-desktop-connections.md)
 
 [Troubleshoot access to an application running on an Azure virtual machine](virtual-machines-troubleshoot-access-application.md)
+

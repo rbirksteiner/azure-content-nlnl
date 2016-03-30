@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Troubleshoot BizTalk Services using operation logs | Microsoft Azure" 
-	description="Troubleshoot BizTalk Services using operation logs. MABS, WABS" 
-	services="biztalk-services" 
-	documentationCenter="" 
-	authors="MandiOhlinger" 
-	manager="dwrede" 
-	editor="cgronlun"/>
+    pageTitle="Troubleshoot BizTalk Services using operation logs | Microsoft Azure" 
+    description="Troubleshoot BizTalk Services using operation logs. MABS, WABS" 
+    services="biztalk-services" 
+    documentationCenter="" 
+    authors="MandiOhlinger" 
+    manager="dwrede" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="biztalk-services" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
-	ms.author="mandia"/>
+    ms.service="biztalk-services" 
+    ms.workload="integration" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/02/2015" 
+    ms.author="mandia"/>
 
 
 # BizTalk Services: Troubleshoot using operation logs
@@ -29,7 +29,7 @@ This does not capture the logs for activities related to BizTalk Service runtime
 1. In the Azure classic portal, select **Management Services**, and then select the **Operation Logs** tab.
 2. You can filter the logs based on different parameters like subscription, date range, service type (e.g. BizTalk Services), service name, or status of the operation (Succeeded, Failed).
 3. Select the checkmark to view the filtered list. The following image shows activities related to testbiztalkservice:
-	![View operation logs][ViewLogs] 
+    ![View operation logs][ViewLogs] 
 4. To view more about a specific operation, select the row, and click **Details** in the task bar at the bottom.
 
 
@@ -68,3 +68,4 @@ PurgeBackupBizTalkService | Operation to purge backups of the BizTalk Service ou
 
 [ViewLogs]: ./media/biztalk-troubleshoot-using-ops-logs/Operation-Logs.png
  
+

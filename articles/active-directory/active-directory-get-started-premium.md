@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Getting started with Azure Active Directory Premium"
-	description="A topic that explains how to sign up for Azure Active Directory Premium edition."
-	services="active-directory"
-	documentationCenter=""
-	authors="markusvi"
-	manager="stevenpo" 
-	editor=""/>
+    pageTitle="Getting started with Azure Active Directory Premium"
+    description="A topic that explains how to sign up for Azure Active Directory Premium edition."
+    services="active-directory"
+    documentationCenter=""
+    authors="markusvi"
+    manager="stevenpo" 
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="10/30/2015"
-	ms.author="markvi"/>
+    ms.service="active-directory"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="10/30/2015"
+    ms.author="markvi"/>
 
 # Getting started with Azure Active Directory Premium
 
@@ -121,3 +121,4 @@ The availability of services and features for a Microsoft cloud service varies b
 [10]: ./media/active-directory-get-started-premium/contosolicenseplan.png
 [11]: ./media/active-directory-get-started-premium/Assignlicensespicker.png
 [12]: ./media/active-directory-get-started-premium/Usagelocation.png
+

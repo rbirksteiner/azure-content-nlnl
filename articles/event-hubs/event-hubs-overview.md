@@ -85,8 +85,8 @@ The publish/subscribe mechanism of Event Hubs is enabled through consumer groups
 
 The following are examples of the consumer group URI convention:
 
-	//<my namespace>.servicebus.windows.net/<event hub name>/<Consumer Group #1>
-	//<my namespace>.servicebus.windows.net/<event hub name>/<Consumer Group #2>
+    //<my namespace>.servicebus.windows.net/<event hub name>/<Consumer Group #1>
+    //<my namespace>.servicebus.windows.net/<event hub name>/<Consumer Group #2>
 
 The following image shows the event consumers within consumer groups.
 
@@ -146,7 +146,7 @@ For detailed pricing information, see [Event Hubs Pricing](http://azure.microsof
 
 Event Hubs enables granular control over event publishers through *publisher policies*. Publisher policies are a set of run-time features designed to facilitate large numbers of independent event publishers. With publisher policies, each publisher uses its own unique identifier when publishing events to an Event Hub, using the following mechanism:
 
-	//<my namespace>.servicebus.windows.net/<event hub name>/publishers/<my publisher name>
+    //<my namespace>.servicebus.windows.net/<event hub name>/publishers/<my publisher name>
 
 You don't have to create publisher names ahead of time, but they must match the SAS token used when publishing an event, in order to ensure independent publisher identities. For more information about SAS, see [Shared Access Signature Authentication with Service Bus](service-bus-shared-access-signature-authentication.md). When using publisher policies, the **PartitionKey** value is set to the publisher name. In order to work properly, these values must match.
 
@@ -167,3 +167,4 @@ Now that you've learned about Event Hubs concepts, you can move on to the follow
 [sample application that uses Event Hubs]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
 [queued messaging solution]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
+

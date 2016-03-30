@@ -43,7 +43,7 @@ The following property pages are available for Azure roles.
 * [Local storage properties](#local_storage_properties)
 * [Server configuration properties](#server_configuration_properties)
 * [SSL offloading properties](#ssl_offloading_properties)
-	
+    
 <a name="virtual_machine_properties"></a>
 ### Virtual machine properties ###
 
@@ -126,20 +126,20 @@ Components have the following properties:
     * **WAR:** The component is a Java web application archive (WAR) and is imported from a Dynamic Web Project at the local path specified by the **From** property. (This is detected automatically by the toolkit based on the nature of the project at that location).
     * **zip:** The component is a zip file and is imported by zipping the directory or file specified by the **From** property.
 * **From:** Source path on your local machine to the folder or file that represents the item(s) to import to your deployment. Windows environment variables can be used in this property. All importable components will be imported into the role's **approot** directory when the project is built.
-	
-	Note that you have the ability to deploy a component from a download when deploying to the cloud (not the compute emulator). See related information below about adding a component.	
-	
+    
+    Note that you have the ability to deploy a component from a download when deploying to the cloud (not the compute emulator). See related information below about adding a component.    
+    
 * **As:** File name under which the component will be imported into the role's **approot** directory and ultimately deployed in the Azure cloud. Leave this property blank to keep the name the same as it is on the local machine. (For executable components, that is, those whose **Deploy** method is set to **exec**, this can be an arbitrary Windows command line statement.)
 
-	>[AZURE.IMPORTANT] If you use space characters for this value, they will be handled differently depending on the deploy method. If the deploy method is **exec**, spaces will be interpreted as command line argument separators and not as part of the file name. For all other deploy methods, spaces will be interpreted as part of the file name.
-	
+    >[AZURE.IMPORTANT] If you use space characters for this value, they will be handled differently depending on the deploy method. If the deploy method is **exec**, spaces will be interpreted as command line argument separators and not as part of the file name. For all other deploy methods, spaces will be interpreted as part of the file name.
+    
 * **Deploy:** Method that indicates the action applied to the component when the deployment is started. This can be one of the following values:
     * **copy:** The component is copied to the destination path specified by the **To** property.
     * **exec:** The component is an executable Windows command line statement executed in the context of the path specified by the **To** property, at the time the deployment starts.
     * **none:** No action is applied to the component when the deployment starts.
     * **zip:** The component is unzipped to the destination path specified by the **To** property. This method is available only when the **Import** property is **zip**.
 * **To:** Destination path on the virtual machine where the component will be deployed. Windows environment variables can be used in this property, and file paths are relative to **approot**.
-	
+    
 To add a new component, click the **Add** button in the **Components** property page, and an **Azure Role Component** dialog will be opened. Provide values for the properties which are described above. 
 
 The following shows an example for adding a new WAR component.
@@ -287,19 +287,19 @@ If you are using the **Deploy a 3rd party JDK package available from Azure** opt
 1. Check the checkbox named **Deploy a 3rd party JDK package available from Azure**.
 1. From the drop-down list, select the 3rd party JDK package that is available on Azure.
 1. Your **JDK** tab will look similar to the following on Windows:
-	![][ic780648]
-	And it will look similar to the following on Mac OS or other supported non-Windows operating systems:
-	![][ic789643]
+    ![][ic780648]
+    And it will look similar to the following on Mac OS or other supported non-Windows operating systems:
+    ![][ic789643]
 1. Click **OK** to save your changes.
 1. When prompted to accept the license agreement from the 3rd party JDK package provider, review the license terms. Assuming you accept the terms, click **Yes** to close the **Accept license agreement** dialog.
-	Note that the underlying logic for which items appear in the drop-down list for the **Deploy a 3rd party JDK package available from Azure** option can be customized. To customize the items, in the **JDK** dialog, click the **Customize** link. This will close the **JDK** property page and open the **componentsets.xml** file in Eclipse, which you can then modify as needed. Documentation for **componentsets.xml** is included in the **componentsets.xml** file itself.
+    Note that the underlying logic for which items appear in the drop-down list for the **Deploy a 3rd party JDK package available from Azure** option can be customized. To customize the items, in the **JDK** dialog, click the **Customize** link. This will close the **JDK** property page and open the **componentsets.xml** file in Eclipse, which you can then modify as needed. Documentation for **componentsets.xml** is included in the **componentsets.xml** file itself.
 
 If you are using the **Deploy a JDK from a custom download** option:
 
 1. Create a ZIP of your JDK installation directory, ensuring that the directory node itself is the child of the ZIP structure, and not its contents. Take note of the name of the directory, as you will need it later, and keep in mind this JDK installation will be deployed to a Windows virtual machine.
 1. Upload the ZIP into your Azure storage account as a blob. You can do this using an externally available tool for uploading blobs to Azure storage. It is recommended to use a private blob. Take note of the blob URL of the ZIP contents.
 1. Check the checkbox named **Deploy a JDK from a custom download**.
-	If you want to download from your Azure storage account, select the storage account from the **Storage account** drop-down list (you can click the **Accounts** link to modify what is in the list), which will partially fill in the **URL** field, and then fill in the remaining portion of the URL. If you do not want to use Azure storage, select **(none)** from the **Storage account** drop-down list, and enter the URL to your JDK download in the **URL** field. If using Azure storage, blob names in the URL must be lowercase.
+    If you want to download from your Azure storage account, select the storage account from the **Storage account** drop-down list (you can click the **Accounts** link to modify what is in the list), which will partially fill in the **URL** field, and then fill in the remaining portion of the URL. If you do not want to use Azure storage, select **(none)** from the **Storage account** drop-down list, and enter the URL to your JDK download in the **URL** field. If using Azure storage, blob names in the URL must be lowercase.
 1. Ensure that the **JAVA_HOME** textbox refers to the correct directory name. By default, it will reference the same JDK directory name as the value you chose for your local use. But if the directory contained in the ZIP has a different name (for example, due to using a different version), update the directory name in the **JAVA_HOME** textbox accordingly, since this setting will be used in the cloud (not in the compute emulator).
 1. Click **OK** to save your changes.
 
@@ -329,9 +329,9 @@ If using the **Deploy from a custom download** option:
 
 1. Make sure that you have already selected a server type according to the preceding steps. This tells the plugin how to deploy the server from your custom download, as it must be from the same family as your selected server type.
 1. Check the checkbox named **Deploy from a custom download**.
-	If you want to download from your Azure storage account, select the storage account from the **Storage account** drop-down list (you can click the **Accounts** link to modify what is in the list), which will partially fill in the **URL** field, and then fill in the remaining portion of the URL to your server download ZIP (when using Azure storage, blob names in the URL must be lowercase). If you do not want to use Azure storage, select **(none)** from the **Storage account** drop-down list, and enter the URL to your server download ZIP in the **URL** field. The ZIP would contain a child folder representing your application server installation directory. For example, if you are using a zip for Apache Tomcat 7.0.35, within the zip would be the child folder representing the installation directory, such as **apache-tomcat-7.0.35**. 
+    If you want to download from your Azure storage account, select the storage account from the **Storage account** drop-down list (you can click the **Accounts** link to modify what is in the list), which will partially fill in the **URL** field, and then fill in the remaining portion of the URL to your server download ZIP (when using Azure storage, blob names in the URL must be lowercase). If you do not want to use Azure storage, select **(none)** from the **Storage account** drop-down list, and enter the URL to your server download ZIP in the **URL** field. The ZIP would contain a child folder representing your application server installation directory. For example, if you are using a zip for Apache Tomcat 7.0.35, within the zip would be the child folder representing the installation directory, such as **apache-tomcat-7.0.35**. 
 1. Specify the value for the home directory environment variable. It will default to the value used for your local application server, if any, but you can specify a different value if your cloud application server is different from your local application server. However, you need to make sure that your cloud application server is of the same family as the server type selected earlier.
-	If you update your cloud application server zip in the future, you can manually change the home directory setting, or, to have it again match your local setting (if you changed your local application server too).
+    If you update your cloud application server zip in the future, you can manually change the home directory setting, or, to have it again match your local setting (if you changed your local application server too).
 1. Click **OK** to save your changes.
 
 The underlying logic for which items appear in the **Server** tab of the **Server Configuration** property page can be customized. This is an advanced feature that you might need if your needs extend beyond the default values or if you want to add other servers. To customize the logic, in the **Server** dialog, click the **Customize** link. This will close the **Server Configuration** property page and open the **componentsets.xml** file in Eclipse, which you can then modify as needed to extend the server configuration template. Documentation for **componentsets.xml** is included in the **componentsets.xml** file itself.
@@ -445,3 +445,4 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 [ic796926]: ./media/azure-toolkit-for-eclipse-azure-role-properties/ic796926.png
 [ic719512]: ./media/azure-toolkit-for-eclipse-azure-role-properties/ic719512.png
 [ic719481]: ./media/azure-toolkit-for-eclipse-azure-role-properties/ic719481.png
+

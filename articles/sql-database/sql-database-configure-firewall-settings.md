@@ -1,21 +1,21 @@
 <properties
-	pageTitle="How to: Configure firewall settings | Microsoft Azure"
-	description="Learn how to configure the firewall for IP addresses that access Azure SQL databases."
-	services="sql-database"
-	documentationCenter=""
-	authors="BYHAM"
-	manager="jeffreyg"
-	editor=""/>
+    pageTitle="How to: Configure firewall settings | Microsoft Azure"
+    description="Learn how to configure the firewall for IP addresses that access Azure SQL databases."
+    services="sql-database"
+    documentationCenter=""
+    authors="BYHAM"
+    manager="jeffreyg"
+    editor=""/>
 
 
 <tags
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article" 
-	ms.date="12/16/2015"
-	ms.author="rickbyh"/>
+    ms.service="sql-database"
+    ms.workload="data-management"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="article" 
+    ms.date="12/16/2015"
+    ms.author="rickbyh"/>
 
 
 # How to: Configure firewall settings on SQL Database using the Azure Portal
@@ -46,10 +46,10 @@ SQL Database uses firewall rules to allow connections to your servers and databa
 3. Click the arrow beside the server for which you want to manage firewall rules.
 4. Click **Configure** at the top of the page.
 
-	*  To add the current computer, click Add to the Allowed IP Addresses.
-	*  To add additional IP addresses, type in the Rule Name, Start IP Address, and End IP Address.
-	*  To modify an existing rule, click any of the fields in the rule and modify.
-	*  To delete an existing rule, hover over the rule until the X appears at the end of the row. Click X to remove the rule.
+    *  To add the current computer, click Add to the Allowed IP Addresses.
+    *  To add additional IP addresses, type in the Rule Name, Start IP Address, and End IP Address.
+    *  To modify an existing rule, click any of the fields in the rule and modify.
+    *  To delete an existing rule, hover over the rule until the X appears at the end of the row. Click X to remove the rule.
 5. Click **Save** at the bottom of the page to save the changes.
 
 
@@ -65,3 +65,4 @@ To understand how to navigate to databases see [Managing Databases and Logins in
 <!--anchors-->
 
  
+

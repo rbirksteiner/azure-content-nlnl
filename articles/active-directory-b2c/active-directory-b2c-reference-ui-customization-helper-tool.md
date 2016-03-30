@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure Active Directory B2C preview: Page UI customization helper tool | Microsoft Azure"
-	description="A helper tool used to demonstrate the page UI customization feature in Azure Active Directory B2C"
-	services="active-directory-b2c"
-	documentationCenter=""
-	authors="swkrish"
-	manager="msmbaldwin"
-	editor="curtand"/>
+    pageTitle="Azure Active Directory B2C preview: Page UI customization helper tool | Microsoft Azure"
+    description="A helper tool used to demonstrate the page UI customization feature in Azure Active Directory B2C"
+    services="active-directory-b2c"
+    documentationCenter=""
+    authors="swkrish"
+    manager="msmbaldwin"
+    editor="curtand"/>
 
 <tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/08/2015"
-	ms.author="swkrish"/>
+    ms.service="active-directory-b2c"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/08/2015"
+    ms.author="swkrish"/>
 
 # Azure Active Directory B2C preview: A Helper Tool used to demonstrate the Page User Interface (UI) Customization feature
 
@@ -69,7 +69,7 @@ If you would like to use Azure Blob Storage to host your page content, you can c
 8. On the storage account blade, click **Keys** and note down the values of the **Storage Account Name** and **Primary Access Key** fields.
 
 > [AZURE.NOTE]
-	**Primary Access Key** is an important security credential.
+    **Primary Access Key** is an important security credential.
 
 #### Download the helper tool and sample files
 
@@ -90,3 +90,4 @@ In the same repo, unzip `B2CAzureStorageClient.zip` and run the `B2CAzureStorage
 Now that you've uploaded the sample content to your own storage account, you must edit your sign-up policy to reference it.  Repeat the steps from the ["Customize your policy"](#customize-your-policy) section above, this time using your own storage account's URLs.  For instance, the location of your `Index.html` file would be `<url-of-your-container>/Index.html`.  
         
 Now you can use the **Run Now** button or your own applicaition to execute your policy again.  The result should look almost exactly the same - you used the same sample HTML & CSS in both cases.  However, your policies are now referencing your own instance of Azure Blob Storage, and you are free to edit and re-upload the files as you please.  For more information on customizing the HTML & CSS, please refer to the [main UI customization article](active-directory-b2c-reference-ui-customization.md).
+

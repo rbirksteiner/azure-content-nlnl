@@ -67,3 +67,4 @@ The patterns described above are just two possible ways a big data store may be 
 
 ## Summary
 Registering data sources with **Azure Data Catalog** makes them easier to discover and understand. By registering and annotating the big data files and directories that represent logical data sets, you can help users find and use the big data sources they need.
+

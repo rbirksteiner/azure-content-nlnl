@@ -255,18 +255,18 @@ Consider the following points when planning how you will run background tasks in
 - The Azure load balancer starts directing traffic to the role instance when the **RoleEntryPoint.OnStart** method returns true. Therefore, consider putting all your initialization code in the **OnStart** method so that role instances that do not successfully initialize will not receive any traffic.
 - You can use startup tasks in addition to the methods of the **RoleEntryPoint** class. You should use startup tasks to initialize any settings you need to change in the Azure load balancer because these tasks will execute before the role receives any requests. For more information, see [Run Startup Tasks in Azure](http://msdn.microsoft.com/library/azure/hh180155.aspx).
 - If there is an error in a startup task, it may force the role to continually restart. This can prevent you from performing a VIP swap back to a previously staged version because the swap requires exclusive access to the role, and this cannot be obtained while the role is restarting. To resolve this:
-	-  Add the following code to the beginning of the **OnStart** and **Run** methods in your role:
+    -  Add the following code to the beginning of the **OnStart** and **Run** methods in your role:
 
-	```C#
-	var freeze = CloudConfigurationManager.GetSetting("Freeze");
-	if (freeze != null)
-	{
-		if (Boolean.Parse(freeze))
-	  	{
-		    Thread.Sleep(System.Threading.Timeout.Infinite);
-		}
-	}
-	```
+    ```C#
+    var freeze = CloudConfigurationManager.GetSetting("Freeze");
+    if (freeze != null)
+    {
+        if (Boolean.Parse(freeze))
+        {
+            Thread.Sleep(System.Threading.Timeout.Infinite);
+        }
+    }
+    ```
 
    - Add the definition of the **Freeze** setting as a Boolean value to the ServiceDefinition.csdef and ServiceConfiguration.*.cscfg files for the role and set it to **false**. If the role goes into a repeated restart mode, you can change the setting to **true** to freeze role execution and allow it to be swapped with a previous version.
 
@@ -317,3 +317,4 @@ Background tasks must offer sufficient performance to ensure they do not block t
 - [Get Started with the Azure WebJobs SDK](websites-dotnet-webjobs-sdk-get-started/)
 - [Azure Queues and Service Bus Queues - Compared and Contrasted](http://msdn.microsoft.com/library/hh767287.aspx)
 - [How To Enable Diagnostics in a Cloud Service](http://msdn.microsoft.com/library/dn482131.aspx)
+

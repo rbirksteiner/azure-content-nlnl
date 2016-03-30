@@ -60,41 +60,41 @@ You can't use positional parameters with activities and cmdlets in a workflow.  
 
 For example, consider the following code that gets all running services.
 
-	 Get-Service | Where-Object {$_.Status -eq "Running"}
+     Get-Service | Where-Object {$_.Status -eq "Running"}
 
 If you try to run this same code in a workflow, you'll get a message like "Parameter set cannot be resolved using the specified named parameters."  To correct this, simply provide the parameter name as in the following.
 
-	Workflow Get-RunningServices
-	{
-		Get-Service | Where-Object -FilterScript {$_.Status -eq "Running"}
-	}
+    Workflow Get-RunningServices
+    {
+        Get-Service | Where-Object -FilterScript {$_.Status -eq "Running"}
+    }
 
 ### Deserialized objects
 
 Objects in workflows are deserialized.  This means that their properties are still available, but not their methods.  For example, consider the following PowerShell code that stops a service using the Stop method of the Service object.
 
-	$Service = Get-Service -Name MyService
-	$Service.Stop()
+    $Service = Get-Service -Name MyService
+    $Service.Stop()
 
 If you try to run this in a workflow, you'll get an error saying "Method invocation is not supported in a Windows PowerShell Workflow".  
 
 One option is to wrap these two lines of code in an [InlineScript](#InlineScript) block in which case $Service would be a service object within the block. 
 
-	Workflow Stop-Service
-	{
-		InlineScript {
-			$Service = Get-Service -Name MyService
-			$Service.Stop()
-		}
-	} 
+    Workflow Stop-Service
+    {
+        InlineScript {
+            $Service = Get-Service -Name MyService
+            $Service.Stop()
+        }
+    } 
 
 Another option is to use another cmdlet that performs the same functionality as the method, if one is available.  In the case of our sample, the Stop-Service cmdlet provides the same functionality as the Stop method, and you could use the following for a workflow.
 
-	Workflow Stop-MyService
-	{
-		$Service = Get-Service -Name MyService
-		Stop-Service -Name $Service.Name
-	}
+    Workflow Stop-MyService
+    {
+        $Service = Get-Service -Name MyService
+        Stop-Service -Name $Service.Name
+    }
 
 
 ## InlineScript
@@ -110,32 +110,32 @@ InlineScript uses the syntax shown below.
 
 You can return output from an InlineScript by assigning the output to a variable. The following example stops a service and then outputs the service name.
 
-	Workflow Stop-MyService
-	{
-		$Output = InlineScript {
-			$Service = Get-Service -Name MyService
-			$Service.Stop()
-			$Service
-		}
+    Workflow Stop-MyService
+    {
+        $Output = InlineScript {
+            $Service = Get-Service -Name MyService
+            $Service.Stop()
+            $Service
+        }
 
-		$Output.Name
-	}
+        $Output.Name
+    }
 
 
 You can pass values into an InlineScript block, but you must use **$Using** scope modifier.  The following example is identical to the previous example except that the service name is provided by a variable. 
 
-	Workflow Stop-MyService
-	{
-		$ServiceName = "MyService"
-	
-		$Output = InlineScript {
-			$Service = Get-Service -Name $Using:MyService
-			$Service.Stop()
-			$Service
-		}
+    Workflow Stop-MyService
+    {
+        $ServiceName = "MyService"
+    
+        $Output = InlineScript {
+            $Service = Get-Service -Name $Using:MyService
+            $Service.Stop()
+            $Service
+        }
 
-		$Output.Name
-	}
+        $Output.Name
+    }
 
 
 While InlineScript activities may be critical in certain workflows, they do not support workflow constructs and should only be used when necessary for the following reasons:
@@ -163,23 +163,23 @@ You can use the **Parallel** keyword to create a script block with multiple comm
 
 For example, consider the following PowerShell commands that copy multiple files to a network destination.  These commands are run sequentially so that one file must finish copying before the next is started.     
 
-	$Copy-Item -Path C:\LocalPath\File1.txt -Destination \\NetworkPath\File1.txt
-	$Copy-Item -Path C:\LocalPath\File2.txt -Destination \\NetworkPath\File2.txt
-	$Copy-Item -Path C:\LocalPath\File3.txt -Destination \\NetworkPath\File3.txt
+    $Copy-Item -Path C:\LocalPath\File1.txt -Destination \\NetworkPath\File1.txt
+    $Copy-Item -Path C:\LocalPath\File2.txt -Destination \\NetworkPath\File2.txt
+    $Copy-Item -Path C:\LocalPath\File3.txt -Destination \\NetworkPath\File3.txt
 
 The following workflow runs these same commands in parallel so that they all start copying at the same time.  Only after they are all completely copied is the completion message displayed.
 
-	Workflow Copy-Files
-	{
-		Parallel 
-		{
-			$Copy-Item -Path "C:\LocalPath\File1.txt" -Destination "\\NetworkPath"
-			$Copy-Item -Path "C:\LocalPath\File2.txt" -Destination "\\NetworkPath"
-			$Copy-Item -Path "C:\LocalPath\File3.txt" -Destination "\\NetworkPath"
-		}
+    Workflow Copy-Files
+    {
+        Parallel 
+        {
+            $Copy-Item -Path "C:\LocalPath\File1.txt" -Destination "\\NetworkPath"
+            $Copy-Item -Path "C:\LocalPath\File2.txt" -Destination "\\NetworkPath"
+            $Copy-Item -Path "C:\LocalPath\File3.txt" -Destination "\\NetworkPath"
+        }
 
-		Write-Output "Files copied."
-	}
+        Write-Output "Files copied."
+    }
 
 
 You can use the **ForEach -Parallel** construct to process commands for each item in a collection concurrently. The items in the collection are processed in parallel while the commands in the script block run sequentially. This uses the syntax shown below. In this case, Activity1 will start at the same time for all items in the collection. For each item, Activity2 will start after Activity1 is complete. Activity3 will start only after both Activity1 and Activity2 have completed for all items.
@@ -193,18 +193,18 @@ You can use the **ForEach -Parallel** construct to process commands for each ite
 
 The following example is similar to the previous example copying files in parallel.  In this case, a message is displayed for each file after it copies.  Only after they are all completely copied is the final completion message displayed.
 
-	Workflow Copy-Files
-	{
-		$files = @("C:\LocalPath\File1.txt","C:\LocalPath\File2.txt","C:\LocalPath\File3.txt")
+    Workflow Copy-Files
+    {
+        $files = @("C:\LocalPath\File1.txt","C:\LocalPath\File2.txt","C:\LocalPath\File3.txt")
 
-		ForEach -Parallel ($File in $Files) 
-		{
-			$Copy-Item -Path $File -Destination \\NetworkPath
-			Write-Output "$File copied."
-		}
-		
-		Write-Output "All files copied."
-	}
+        ForEach -Parallel ($File in $Files) 
+        {
+            $Copy-Item -Path $File -Destination \\NetworkPath
+            Write-Output "$File copied."
+        }
+        
+        Write-Output "All files copied."
+    }
 
 > [AZURE.NOTE]  We do not recommend running child runbooks in parallel since this has been shown to give unreliable results.  The output from the child runbook sometimes will not show up, and settings in one child runbook can affect the other parallel child runbooks 
 
@@ -225,19 +225,19 @@ You should set checkpoints in a workflow after activities that may be prone to e
 
 The following example copies multiple files to a network location and sets a checkpoint after each file.  If the network location is lost, then the workflow will end in error.  When it is started again, it will resume at the last checkpoint meaning that only the files that have already been copied will be skipped.
 
-	Workflow Copy-Files
-	{
-		$files = @("C:\LocalPath\File1.txt","C:\LocalPath\File2.txt","C:\LocalPath\File3.txt")
+    Workflow Copy-Files
+    {
+        $files = @("C:\LocalPath\File1.txt","C:\LocalPath\File2.txt","C:\LocalPath\File3.txt")
 
-		ForEach ($File in $Files) 
-		{
-			$Copy-Item -Path $File -Destination \\NetworkPath
-			Write-Output "$File copied."
-			Checkpoint-Workflow
-		}
-		
-		Write-Output "All files copied."
-	}
+        ForEach ($File in $Files) 
+        {
+            $Copy-Item -Path $File -Destination \\NetworkPath
+            Write-Output "$File copied."
+            Checkpoint-Workflow
+        }
+        
+        Write-Output "All files copied."
+    }
 
 
 

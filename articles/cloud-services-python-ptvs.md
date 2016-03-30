@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Python web and worker roles with Python Tools 2.2 for Visual Studio | Microsoft Azure"
-	description="Overview of using Python Tools for Visual Studio to create Azure cloud services including web roles and worker roles."
-	services=""
-	documentationCenter="python"
-	authors="huguesv"
-	manager="wpickett"
-	editor=""/>
+    pageTitle="Python web and worker roles with Python Tools 2.2 for Visual Studio | Microsoft Azure"
+    description="Overview of using Python Tools for Visual Studio to create Azure cloud services including web roles and worker roles."
+    services=""
+    documentationCenter="python"
+    authors="huguesv"
+    manager="wpickett"
+    editor=""/>
 
 <tags
-	ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="python"
-	ms.topic="hero-article"
-	ms.date="08/30/2015"
-	ms.author="huvalo"/>
+    ms.service="cloud-services"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="python"
+    ms.topic="hero-article"
+    ms.date="08/30/2015"
+    ms.author="huvalo"/>
 
 
 
@@ -139,3 +139,4 @@ For more details about using Azure services from your web and worker roles, such
 [Azure SDK Tools for VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
 [Python 2.7 32-bit]: http://go.microsoft.com/fwlink/?LinkId=517190
 [Python 3.4 32-bit]: http://go.microsoft.com/fwlink/?LinkId=517191
+

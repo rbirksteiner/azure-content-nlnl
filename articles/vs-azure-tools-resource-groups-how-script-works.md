@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Overview of the Azure Resource Group project deployment script  | Microsoft Azure"
-	description="Describes how the PowerShell script in the Azure Resource Group deployment project works."
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tlee" />
+    pageTitle="Overview of the Azure Resource Group project deployment script  | Microsoft Azure"
+    description="Describes how the PowerShell script in the Azure Resource Group deployment project works."
+    services="visual-studio-online"
+    documentationCenter="na"
+    authors="kempb"
+    manager="douge"
+    editor="tlee" />
 
  <tags
-	ms.service="azure-resource-manager"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="11/17/2015"
-	ms.author="kempb" />
+    ms.service="azure-resource-manager"
+    ms.devlang="multiple"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="11/17/2015"
+    ms.author="kempb" />
 
 # Overview of the Azure Resource Group project deployment script
 
@@ -37,7 +37,7 @@ Following is a description of what select sections of the Deploy-AzureResourceGr
 
 >[AZURE.NOTE] This describes version 1.0 of the Deploy-AzureResourceGroup.ps1 script.
 
-1.	Declare parameters needed by Azure Resource Manager deployment project. Some parameters have default values that were set when the project was created. You can change these default values in the script or add different parameter values before you execute the script.
+1.  Declare parameters needed by Azure Resource Manager deployment project. Some parameters have default values that were set when the project was created. You can change these default values in the script or add different parameter values before you execute the script.
 
     ```
     Param(
@@ -69,18 +69,18 @@ Following is a description of what select sections of the Deploy-AzureResourceGr
     |$AzCopyPath|The path where the AzCopy.exe tool copies its .zip files, including the PowerShell script root folder. This path can be absolute or relative to the script location.|
     |$DSCSourceFolder|The path to the DSC (Desired State Configuration) source folder, including the PowerShell script root folder. This path can be absolute or relative to the script location. See [Introducing the Azure PowerShell DSC (Desired State Configuration) extension](http://blogs.msdn.com/b/powershell/archive/2014/08/07/introducing-the-azure-powershell-dsc-desired-state-configuration-extension.aspx), if applicable, for more information.|
 
-1.	Check to see whether artifacts need to be uploaded to Azure. If not, skip to step 11. Otherwise, perform the following steps.
+1.  Check to see whether artifacts need to be uploaded to Azure. If not, skip to step 11. Otherwise, perform the following steps.
 
-1.	Convert any variables with relative paths to absolute paths. For example, change a path such as `..\Tools\AzCopy.exe` to `C:\YourFolder\Tools\AzCopy.exe`. Also, initialize the variables *ArtifactsLocationName* and *ArtifactsLocationSasTokenName* to null. *ArtifactsLocation* and *SaSToken* may be parameters to the template. If their values are null after reading in the parameters file, the script generates values for them.
+1.  Convert any variables with relative paths to absolute paths. For example, change a path such as `..\Tools\AzCopy.exe` to `C:\YourFolder\Tools\AzCopy.exe`. Also, initialize the variables *ArtifactsLocationName* and *ArtifactsLocationSasTokenName* to null. *ArtifactsLocation* and *SaSToken* may be parameters to the template. If their values are null after reading in the parameters file, the script generates values for them.
 
     The Azure Tools use the parameter values *_artifactsLocation* and *_artifactsLocationSasToken* in the template to manage artifacts. If the PowerShell script finds parameters with those names, but the parameter values are not provided, the script uploads the artifacts and returns appropriate values for those parameters. It then passes them to the cmdlet via `@OptionsParameters`.
 
-	|Variable|Description|
+    |Variable|Description|
     |---|---|
     |ArtifactsLocationName|The path to where the Azure artifacts are located.|
     |ArtifactsLocationSasTokenName|The SAS (Shared Access Signature) token name that’s used by the script to authenticate to Service Bus. See [Shared Access Signature Authentication with Service Bus](service-bus-shared-access-signature-authentication.md) for more information.|
 
-	```
+    ```
     if ($UploadArtifacts) {
     # Convert relative paths to absolute paths if needed
     $AzCopyPath = [System.IO.Path]::Combine($PSScriptRoot, $AzCopyPath)
@@ -94,9 +94,9 @@ Following is a description of what select sections of the Deploy-AzureResourceGr
     $OptionalParameters.Add($ArtifactsLocationSasTokenName, $null)
     ```
 
-1.	This section checks whether the <app name>.parameters.json file (referred to as the “Parameters file”) has a parent node named **parameters** (in the `else` block). Otherwise, it has no parent node. Either format is acceptable.
+1.  This section checks whether the <app name>.parameters.json file (referred to as the “Parameters file”) has a parent node named **parameters** (in the `else` block). Otherwise, it has no parent node. Either format is acceptable.
     
-	```
+    ```
     if ($JsonParameters -eq $null) {
             $JsonParameters = $JsonContent
         }
@@ -105,7 +105,7 @@ Following is a description of what select sections of the Deploy-AzureResourceGr
         }
     ```
 
-1.	Iterate through the collection of JSON parameters. If a parameter value has been assigned to *_artifactsLocation* or *_artifactsLocationSasToken*, then set the variable *$OptionalParameters* with those values. This prevents the script from inadvertently overwriting any parameter values you provide.
+1.  Iterate through the collection of JSON parameters. If a parameter value has been assigned to *_artifactsLocation* or *_artifactsLocationSasToken*, then set the variable *$OptionalParameters* with those values. This prevents the script from inadvertently overwriting any parameter values you provide.
 
     ```
     $JsonParameters | Get-Member -Type NoteProperty | ForEach-Object {
@@ -117,7 +117,7 @@ Following is a description of what select sections of the Deploy-AzureResourceGr
     }
     ```
 
-1.	Get the Storage account key and context for the Storage account resource used to hold the artifacts for deployment.
+1.  Get the Storage account key and context for the Storage account resource used to hold the artifacts for deployment.
 
     ```
     $StorageAccountKey = (Get-AzureRMStorageAccountKey -ResourceGroupName $StorageAccountResourceGroupName -Name $StorageAccountName).Key1
@@ -125,7 +125,7 @@ Following is a description of what select sections of the Deploy-AzureResourceGr
     $StorageAccountContext = (Get-AzureRmStorageAccount -ResourceGroupName $StorageAccountResourceGroupName -Name $StorageAccountName).Context
     ```
 
-1.	If you're using PowerShell DSC to configure a virtual machine, the DSC extension requires the artifacts to be in a single zip file. So, create a .zip archive file for the DSC configuration. To do this, check to see if $DSCSourceFolder exists. If a DSC configuration exists, remove it and then create a new compressed file called dsc.zip.
+1.  If you're using PowerShell DSC to configure a virtual machine, the DSC extension requires the artifacts to be in a single zip file. So, create a .zip archive file for the DSC configuration. To do this, check to see if $DSCSourceFolder exists. If a DSC configuration exists, remove it and then create a new compressed file called dsc.zip.
 
     ```
     # Create DSC configuration archive
@@ -137,7 +137,7 @@ Following is a description of what select sections of the Deploy-AzureResourceGr
     }
     ```
 
-1.	If no path for Azure artifacts is provided in the Parameters file, set a path for the PowerShell script to use when uploading artifacts. To do this, create a path using a combination of the Storage account’s endpoint path plus the Storage container name. Then, update the Parameters file with this new path.
+1.  If no path for Azure artifacts is provided in the Parameters file, set a path for the PowerShell script to use when uploading artifacts. To do this, create a path using a combination of the Storage account’s endpoint path plus the Storage container name. Then, update the Parameters file with this new path.
 
     ```
     # Generate the value for artifacts location if it is not provided in the parameter file
@@ -148,7 +148,7 @@ Following is a description of what select sections of the Deploy-AzureResourceGr
     }
     ```
 
-1.	Use the **AzCopy** utility (included in the **Tools** folder of your Azure Resource Group deployment project) to copy any files from your local Storage drop path into your online Azure Storage account. If this step fails, exit the script since the deployment is not likely to succeed without the required artifacts.
+1.  Use the **AzCopy** utility (included in the **Tools** folder of your Azure Resource Group deployment project) to copy any files from your local Storage drop path into your online Azure Storage account. If this step fails, exit the script since the deployment is not likely to succeed without the required artifacts.
 
     ```
     # Use AzCopy to copy files from the local storage drop path to the storage account container
@@ -156,7 +156,7 @@ Following is a description of what select sections of the Deploy-AzureResourceGr
     if ($LASTEXITCODE -ne 0) { return }
     ```
 
-1.	If an SAS token for the artifacts location isn’t provided in the Parameters file, create one to provide temporary read-only access to the online Storage container. Then, pass that SAS token on to the cmdline as an “optionalParameter.” Note that any parameters passed on the cmdline will take precedence over values provided in the parameters file.
+1.  If an SAS token for the artifacts location isn’t provided in the Parameters file, create one to provide temporary read-only access to the online Storage container. Then, pass that SAS token on to the cmdline as an “optionalParameter.” Note that any parameters passed on the cmdline will take precedence over values provided in the parameters file.
 
     ```
     # Generate the value for artifacts location SAS token if it is not provided in the parameter file
@@ -172,10 +172,10 @@ Following is a description of what select sections of the Deploy-AzureResourceGr
 1.  Create the resource group if it does not already exist and check the template and parameters file for any validation errors that will prevent the deployment from succeeding.
 
     ```
-	# Create or update the resource group using the specified template file and template parameters file
+    # Create or update the resource group using the specified template file and template parameters file
     New-AzureRMResourceGroup -Name $ResourceGroupName -Location $ResourceGroupLocation -Verbose -Force -ErrorAction Stop
 
-	Test-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName -TemplateFile $TemplateFile -TemplateParameterFile $TemplateParametersFile @OptionalParameters -ErrorAction Stop
+    Test-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName -TemplateFile $TemplateFile -TemplateParameterFile $TemplateParametersFile @OptionalParameters -ErrorAction Stop
     ```
 
 1. Finally, deploy the template. This code creates a unique name for the deployment using a timestamp.
@@ -209,7 +209,7 @@ Following is a description of what select sections of the Deploy-AzureResourceGr
 
     ![][3]
 
-	>[AZURE.NOTE] If any required parameters need values, this dialog automatically appears when you deploy.
+    >[AZURE.NOTE] If any required parameters need values, this dialog automatically appears when you deploy.
 
     ![][4]
 

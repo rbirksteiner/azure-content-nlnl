@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure Active Directory hybrid identity design considerations - Determine hybrid identity management tasks | Microsoft Azure"
-	description="With Conditional access control, Azure Active Directory checks the specific conditions you pick when authenticating the user and before allowing access to the application. Once those conditions are met, the user is authenticated and allowed access to the application."
-	documentationCenter=""
-	services="active-directory"
-	authors="femila"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Azure Active Directory hybrid identity design considerations - Determine hybrid identity management tasks | Microsoft Azure"
+    description="With Conditional access control, Azure Active Directory checks the specific conditions you pick when authenticating the user and before allowing access to the application. Once those conditions are met, the user is authenticated and allowed access to the application."
+    documentationCenter=""
+    services="active-directory"
+    authors="femila"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/11/2015"
-	ms.author="femila"/>
+    ms.date="11/11/2015"
+    ms.author="femila"/>
 
 # Plan for Hybrid Identity Lifecycle 
 
@@ -57,9 +57,9 @@ One of the goals of an identity manager, to be able to bring all the identity pr
  
 ![](./media/hybrid-id-design-considerations/Directory_synchronization.png)
 To proper design the synchronization of your hybrid identity solution ensure that the following questions are answered:
-•	What are the sync solutions available for the hybrid identity solution?
-•	What are the single sign on capabilities available?
-•	What are the options for identity federation between B2B and B2C?
+•   What are the sync solutions available for the hybrid identity solution?
+•   What are the single sign on capabilities available?
+•   What are the options for identity federation between B2B and B2C?
 
 ## Next steps
 [Determine hybrid identity management adoption strategy](active-directory-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md)
@@ -67,4 +67,5 @@ To proper design the synchronization of your hybrid identity solution ensure tha
 
 ## See Also
 [Design considerations overview](active-directory-hybrid-identity-design-considerations-overview.md)
+
 

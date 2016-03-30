@@ -55,11 +55,11 @@ IoT Hub provides device command acknowledgment.
 
 ## Azure Stream Analytics job
 
-**Job: Telemetry** operates on the incoming device telemetry stream using two statements. The first selects all telemetry from the devices and sends this data to blob storage from where it is visualized in the web app. The second statement computes average sensor values over a two-minute sliding window and sends this data through the Event hub to an **event processor**.
+**Job: Telemetry** operates on the incoming device telemetry stream using two statements. The first selects all telemetry from the devices and sends this data to blob storage from where it is visualized in the web app. The second statement computes average sensor values over a two-minute sliding window and sends this data through the Event hub to an **event processor**.
 
 ## Event processor
 
-The **event processor** takes the average sensor values for a completed cycle and passes those values to an API that exposes the Machine Learning trained model to calculate the RUL for an engine.
+The **event processor** takes the average sensor values for a completed cycle and passes those values to an API that exposes the Machine Learning trained model to calculate the RUL for an engine.
 
 ## Azure Machine Learning
 
@@ -71,14 +71,14 @@ This section walks you through the components of the solution, describes the int
 
 ### Predictive Maintenance Dashboard
 
-This page in the web application uses PowerBI JavaScript controls (see the [PowerBI-visuals repository][lnk-powerbi]) to visualize:
+This page in the web application uses PowerBI JavaScript controls (see the [PowerBI-visuals repository][lnk-powerbi]) to visualize:
 
 - The output data from the Stream Analytics jobs in blob storage.
 - The RUL and cycle count per aircraft engine.
 
 ### Observing the behavior of the cloud solution
 
-You can view your provisioned resources by browsing to the Azure portal and then navigating to the resource group with the solution name you chose.
+You can view your provisioned resources by browsing to the Azure portal and then navigating to the resource group with the solution name you chose.
 
 ![][img-resource-group]
 
@@ -122,3 +122,4 @@ Now you've run the predictive maintenance preconfigured solution you may want to
 [lnk-cortana-analytics]: http://gallery.cortanaanalytics.com/Collection/Predictive-Maintenance-Template-3
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
+

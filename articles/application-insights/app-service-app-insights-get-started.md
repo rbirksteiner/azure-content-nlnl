@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Application Insights in Microsoft Azure" 
-	description="Detect, triage and diagnose problems in your live web or device application.   Continuously monitor and improve success with your users." 
-	services="application-insights" 
+    pageTitle="Application Insights in Microsoft Azure" 
+    description="Detect, triage and diagnose problems in your live web or device application.   Continuously monitor and improve success with your users." 
+    services="application-insights" 
     documentationCenter=""
-	authors="alancameronwills" 
-	manager="douge"/>
+    authors="alancameronwills" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/25/2015" 
-	ms.author="awills"/>
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/25/2015" 
+    ms.author="awills"/>
  
 # Visual Studio Application Insights
 

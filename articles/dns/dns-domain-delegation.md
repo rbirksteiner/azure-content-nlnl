@@ -71,18 +71,18 @@ To set up the delegation, you need to know the name server names for your zone. 
 
 Using Azure PowerShell, the authoritative NS records can be retrieved as follows (the record name “@” is used to refer to records at the apex of the zone).
 
-	PS C:> $zone = Get-AzureRmDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
-	PS C:> Get-AzureRmDnsRecordSet –Name “@” –RecordType NS –Zone $zone
+    PS C:> $zone = Get-AzureRmDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
+    PS C:> Get-AzureRmDnsRecordSet –Name “@” –RecordType NS –Zone $zone
 
-	Name              : @
-	ZoneName          : contoso.com
-	ResourceGroupName : MyResourceGroup
-	Ttl               : 3600
-	Etag              : 5fe92e48-cc76-4912-a78c-7652d362ca18
-	RecordType        : NS
-	Records           : {ns1-04.azure-dns.com, ns2-04.azure-dns.net, ns3-04.azure-dns.org,
+    Name              : @
+    ZoneName          : contoso.com
+    ResourceGroupName : MyResourceGroup
+    Ttl               : 3600
+    Etag              : 5fe92e48-cc76-4912-a78c-7652d362ca18
+    RecordType        : NS
+    Records           : {ns1-04.azure-dns.com, ns2-04.azure-dns.net, ns3-04.azure-dns.org,
                      ns4-04.azure-dns.info}
-	Tags              : {}
+    Tags              : {}
 
 In this example, the zone ‘contoso.com’ has been assigned name servers ‘ns1-04.azure-dns.com’, ‘ns2-04.azure-dns.net’, ‘ns3-04.azure-dns.org’, and ‘ns4-04.azure-dns.info’.
 
@@ -92,19 +92,19 @@ Having completed the delegation, you can verify that name resolution is working 
 
 Note that you do not have to specify the Azure DNS name servers, since the normal DNS resolution process will find the name servers automatically if the delegation has been set up correctly.
 
-	PS C:\> nslookup –type=SOA contoso.com
+    PS C:\> nslookup –type=SOA contoso.com
 
-	Server: ns1-04.azure-dns.com
-	Address: 208.76.47.4
+    Server: ns1-04.azure-dns.com
+    Address: 208.76.47.4
 
-	contoso.com
-	primary name server = ns1-04.azure-dns.com
-	responsible mail addr = msnhst.microsoft.com
-	serial = 1
-	refresh = 900 (15 mins)
-	retry = 300 (5 mins)
-	expire = 604800 (7 days)
-	default TTL = 300 (5 mins)
+    contoso.com
+    primary name server = ns1-04.azure-dns.com
+    responsible mail addr = msnhst.microsoft.com
+    serial = 1
+    refresh = 900 (15 mins)
+    retry = 300 (5 mins)
+    expire = 604800 (7 days)
+    default TTL = 300 (5 mins)
 
 ## Delegating sub-domains in Azure DNS
 
@@ -118,34 +118,34 @@ The only difference is that in step 3 the NS records must be created in the pare
 
 The following PowerShell example demonstrates. First, we create the parent and child zones—these can be in same resource group or different resource groups.
 
-	PS C:\> $parent = New-AzureRmDnsZone -Name contoso.com -ResourceGroupName RG1
-	PS C:\> $child = New-AzureRmDnsZone -Name partners.contoso.com -ResourceGroupName RG1
+    PS C:\> $parent = New-AzureRmDnsZone -Name contoso.com -ResourceGroupName RG1
+    PS C:\> $child = New-AzureRmDnsZone -Name partners.contoso.com -ResourceGroupName RG1
 
 Next, we retrieve the authoritative NS records from child zone as shown in the next example.
 
-	PS C:\> $child_ns_recordset = Get-AzureRmDnsRecordSet -Zone $child -Name "@" -RecordType NS
+    PS C:\> $child_ns_recordset = Get-AzureRmDnsRecordSet -Zone $child -Name "@" -RecordType NS
 
 Finally, we create corresponding NS record set in the parent zone to complete the delegation (note that the record set name in the parent zone matches the child zone name, in this case "partners").
 
-	PS C:\> $parent_ns_recordset = New-AzureRmDnsRecordSet -Zone $parent -Name "partners" -RecordType NS -Ttl 3600
-	PS C:\> $parent_ns_recordset.Records = $child_ns_recordset.Records
-	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $parent_ns_recordset
+    PS C:\> $parent_ns_recordset = New-AzureRmDnsRecordSet -Zone $parent -Name "partners" -RecordType NS -Ttl 3600
+    PS C:\> $parent_ns_recordset.Records = $child_ns_recordset.Records
+    PS C:\> Set-AzureRmDnsRecordSet -RecordSet $parent_ns_recordset
 
 As when delegating using a registrar, we can verify that everything is set up correctly by looking up the SOA record of the child zone.
 
-	PS C:\> nslookup –type=SOA partners.contoso.com
+    PS C:\> nslookup –type=SOA partners.contoso.com
 
-	Server: ns1-08.azure-dns.com
-	Address: 208.76.47.8
+    Server: ns1-08.azure-dns.com
+    Address: 208.76.47.8
 
-	partners.contoso.com
-		primary name server = ns1-08.azure-dns.com
-		responsible mail addr = msnhst.microsoft.com
-		serial = 1
-		refresh = 900 (15 mins)
-		retry = 300 (5 mins)
-		expire = 604800 (7 days)
-		default TTL = 300 (5 mins)
+    partners.contoso.com
+        primary name server = ns1-08.azure-dns.com
+        responsible mail addr = msnhst.microsoft.com
+        serial = 1
+        refresh = 900 (15 mins)
+        retry = 300 (5 mins)
+        expire = 604800 (7 days)
+        default TTL = 300 (5 mins)
 
 ## Next steps
 
@@ -158,3 +158,4 @@ As when delegating using a registrar, we can verify that everything is set up co
 [Automate Azure Operations with .NET SDK](dns-sdk.md)
 
 [Azure DNS REST API Reference](https://msdn.microsoft.com/library/azure/mt163862.aspx)
+

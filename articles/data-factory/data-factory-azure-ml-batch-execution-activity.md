@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Create predictive pipelines using Azure Machine Learning Bach Execution activity | Microsoft Azure" 
-	description="Describes how to create create predictive pipelines using Azure Data Factory and Azure Machine Learning" 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
-	editor="monicar"/>
+    pageTitle="Create predictive pipelines using Azure Machine Learning Bach Execution activity | Microsoft Azure" 
+    description="Describes how to create create predictive pipelines using Azure Data Factory and Azure Machine Learning" 
+    services="data-factory" 
+    documentationCenter="" 
+    authors="spelluru" 
+    manager="jhubbard" 
+    editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/06/2015" 
-	ms.author="spelluru"/>
+    ms.service="data-factory" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/06/2015" 
+    ms.author="spelluru"/>
 
 # Create predictive pipelines using Azure Machine Learning activities   
 ## Overview
@@ -49,13 +49,13 @@ See [Updating Azure ML models using the Update Resource Activity](#updating-azur
 You use Azure Data Factory to orchestrate  data movement and processing, and then perform batch execution using Azure Machine Learning. To achieve this, you will need to do the following:
 
 1. Create an Azure Machne Learning linked service. You will require the following:
-	1. **Request URI** for the Batch Execution API. You can find the Request URI by clicking on the **BATCH EXECUTION** link in the web services page (shown below).
-	1. **API key** for the published Azure Machine Learning web service. You can find the API key by clicking on the web service that you have published. 
+    1. **Request URI** for the Batch Execution API. You can find the Request URI by clicking on the **BATCH EXECUTION** link in the web services page (shown below).
+    1. **API key** for the published Azure Machine Learning web service. You can find the API key by clicking on the web service that you have published. 
  2. Use the **AzureMLBatchExecution** activity.
 
-	![Machine Learning Dashboard](./media/data-factory-azure-ml-batch-execution-activity/AzureMLDashboard.png)
+    ![Machine Learning Dashboard](./media/data-factory-azure-ml-batch-execution-activity/AzureMLDashboard.png)
 
-	![Batch URI](./media/data-factory-azure-ml-batch-execution-activity/batch-uri.png)
+    ![Batch URI](./media/data-factory-azure-ml-batch-execution-activity/batch-uri.png)
 
 
 ### Scenario: Experiments using Web service inputs/outputs that refer to data in Azure Blob Storage
@@ -64,26 +64,26 @@ In this scenario, the Azure Machine Learning Web service makes predictions using
 > [AZURE.NOTE] Datasets that are referenced by the **webServiceInput** and **webServiceOutputs** properties (in **typeProperties**) must also be included in the Activity **inputs** and **outputs**.
 
 
-	{
-	  "name": "PredictivePipeline",
-	  "properties": {
-	    "description": "use AzureML model",
-	    "activities": [
-	      {
-	        "name": "MLActivity",
-	        "type": "AzureMLBatchExecution",
-	        "description": "prediction analysis on batch input",
-	        "inputs": [
-	          {
-	            "name": "DecisionTreeInputBlob"
-	          }
-	        ],
-	        "outputs": [
-	          {
-	            "name": "DecisionTreeResultBlob"
-	          }
-	        ],
-	        "linkedServiceName": "MyAzureMLLinkedService",
+    {
+      "name": "PredictivePipeline",
+      "properties": {
+        "description": "use AzureML model",
+        "activities": [
+          {
+            "name": "MLActivity",
+            "type": "AzureMLBatchExecution",
+            "description": "prediction analysis on batch input",
+            "inputs": [
+              {
+                "name": "DecisionTreeInputBlob"
+              }
+            ],
+            "outputs": [
+              {
+                "name": "DecisionTreeResultBlob"
+              }
+            ],
+            "linkedServiceName": "MyAzureMLLinkedService",
             "typeProperties":
             {
                 "webServiceInput": "DecisionTreeInputBlob ",
@@ -91,18 +91,18 @@ In this scenario, the Azure Machine Learning Web service makes predictions using
                     "output1": "DecisionTreeResultBlob "
                 }                
             },
-	        "policy": {
-	          "concurrency": 3,
-	          "executionPriorityOrder": "NewestFirst",
-	          "retry": 1,
-	          "timeout": "02:00:00"
-	        }
-	      }
-	    ],
-	    "start": "2015-02-13T00:00:00Z",
-	    "end": "2015-02-14T00:00:00Z"
-	  }
-	}
+            "policy": {
+              "concurrency": 3,
+              "executionPriorityOrder": "NewestFirst",
+              "retry": 1,
+              "timeout": "02:00:00"
+            }
+          }
+        ],
+        "start": "2015-02-13T00:00:00Z",
+        "end": "2015-02-14T00:00:00Z"
+      }
+    }
 
 > [AZURE.NOTE] Only inputs and outputs of the AzureMLBatchExecution activity can be passed as parameters to the Web service. For example, in the above JSON snippet, DecisionTreeInputBlob is an input to the AzureMLBatchExecution activity, which is passed as an input to the Web service via webServiceInput parameter.   
 
@@ -115,131 +115,131 @@ We recommend that you go through the [Build your first pipeline with Data Factor
 
 1. Create a **linked service** for your **Azure Storage**. If the input and output files will be in different storage accounts, you will need two linked services. Here is a JSON example:
 
-		{
-		  "name": "StorageLinkedService",
-		  "properties": {
-		    "type": "AzureStorage",
-		    "typeProperties": {
-		      "connectionString": "DefaultEndpointsProtocol=https;AccountName=[acctName];AccountKey=[acctKey]"
-		    }
-		  }
-		}
+        {
+          "name": "StorageLinkedService",
+          "properties": {
+            "type": "AzureStorage",
+            "typeProperties": {
+              "connectionString": "DefaultEndpointsProtocol=https;AccountName=[acctName];AccountKey=[acctKey]"
+            }
+          }
+        }
 
 2. Create the **input** Azure Data Factory **dataset**. Note that unlike some other Data Factory datasets, these must both contain both **folderPath** and **fileName** values. You can use partitioning to cause each batch execution (each data slice) to process or produce unique input and output files. You will likely need to include some upstream activity to transform the input into the CSV file format and place it in the storage account for each slice. In that case, you would not include the **external** and **externalData** settings shown in the example below, and your DecisionTreeInputBlob would be the output dataset of a different Activity.
 
-		{
-		  "name": "DecisionTreeInputBlob",
-		  "properties": {
-		    "type": "AzureBlob",
-		    "linkedServiceName": "StorageLinkedService",
-		    "typeProperties": {
-		      "folderPath": "azuremltesting/input",
-		      "fileName": "in.csv",
-		      "format": {
-		        "type": "TextFormat",
-		        "columnDelimiter": ","
-		      }
-		    },
-		    "external": true,
-		    "availability": {
-		      "frequency": "Day",
-		      "interval": 1
-		    },
-		    "policy": {
-		      "externalData": {
-		        "retryInterval": "00:01:00",
-		        "retryTimeout": "00:10:00",
-		        "maximumRetry": 3
-		      }
-		    }
-		  }
-		}
-	
-	Your input csv file must have the column header row. If you are using the **Copy Activity** to create/move the csv into the blob storage, you should set the sink property **blobWriterAddHeader** to **true**. For example:
-	
-	     sink: 
-	     {
-	         "type": "BlobSink",     
-	         "blobWriterAddHeader": true 
-	     }
-	 
-	If the csv file does not have the header row, you may see the following error: **Error in Activity: Error reading string. Unexpected token: StartObject. Path '', line 1, position 1**.
+        {
+          "name": "DecisionTreeInputBlob",
+          "properties": {
+            "type": "AzureBlob",
+            "linkedServiceName": "StorageLinkedService",
+            "typeProperties": {
+              "folderPath": "azuremltesting/input",
+              "fileName": "in.csv",
+              "format": {
+                "type": "TextFormat",
+                "columnDelimiter": ","
+              }
+            },
+            "external": true,
+            "availability": {
+              "frequency": "Day",
+              "interval": 1
+            },
+            "policy": {
+              "externalData": {
+                "retryInterval": "00:01:00",
+                "retryTimeout": "00:10:00",
+                "maximumRetry": 3
+              }
+            }
+          }
+        }
+    
+    Your input csv file must have the column header row. If you are using the **Copy Activity** to create/move the csv into the blob storage, you should set the sink property **blobWriterAddHeader** to **true**. For example:
+    
+         sink: 
+         {
+             "type": "BlobSink",     
+             "blobWriterAddHeader": true 
+         }
+     
+    If the csv file does not have the header row, you may see the following error: **Error in Activity: Error reading string. Unexpected token: StartObject. Path '', line 1, position 1**.
 3. Create the **output** Azure Data Factory **dataset**. This example uses partitioning to create a unique output path for each slice execution. Without this, the activity would overwrite the file.
 
-		{
-		  "name": "DecisionTreeResultBlob",
-		  "properties": {
-		    "type": "AzureBlob",
-		    "linkedServiceName": "StorageLinkedService",
-		    "typeProperties": {
-		      "folderPath": "azuremltesting/scored/{folderpart}/",
-		      "fileName": "{filepart}result.csv",
-		      "partitionedBy": [
-		        {
-		          "name": "folderpart",
-		          "value": {
-		            "type": "DateTime",
-		            "date": "SliceStart",
-		            "format": "yyyyMMdd"
-		          }
-		        },
-		        {
-		          "name": "filepart",
-		          "value": {
-		            "type": "DateTime",
-		            "date": "SliceStart",
-		            "format": "HHmmss"
-		          }
-		        }
-		      ],
-		      "format": {
-		        "type": "TextFormat",
-		        "columnDelimiter": ","
-		      }
-		    },
-		    "availability": {
-		      "frequency": "Day",
-		      "interval": 15
-		    }
-		  }
-		}
+        {
+          "name": "DecisionTreeResultBlob",
+          "properties": {
+            "type": "AzureBlob",
+            "linkedServiceName": "StorageLinkedService",
+            "typeProperties": {
+              "folderPath": "azuremltesting/scored/{folderpart}/",
+              "fileName": "{filepart}result.csv",
+              "partitionedBy": [
+                {
+                  "name": "folderpart",
+                  "value": {
+                    "type": "DateTime",
+                    "date": "SliceStart",
+                    "format": "yyyyMMdd"
+                  }
+                },
+                {
+                  "name": "filepart",
+                  "value": {
+                    "type": "DateTime",
+                    "date": "SliceStart",
+                    "format": "HHmmss"
+                  }
+                }
+              ],
+              "format": {
+                "type": "TextFormat",
+                "columnDelimiter": ","
+              }
+            },
+            "availability": {
+              "frequency": "Day",
+              "interval": 15
+            }
+          }
+        }
 
 4. Create a **linked service** of type: **AzureMLLinkedService**, providing the API key and model batch execution URL.
-		
-		{
-		  "name": "MyAzureMLLinkedService",
-		  "properties": {
-		    "type": "AzureML",
-		    "typeProperties": {
-		      "mlEndpoint": "https://[batch execution endpoint]/jobs",
-		      "apiKey": "[apikey]"
-		    }
-		  }
-		}
+        
+        {
+          "name": "MyAzureMLLinkedService",
+          "properties": {
+            "type": "AzureML",
+            "typeProperties": {
+              "mlEndpoint": "https://[batch execution endpoint]/jobs",
+              "apiKey": "[apikey]"
+            }
+          }
+        }
 5. Finally, author a pipeline containing an **AzureMLBatchExecution** Activity. It will get the location of the input file from your input datasets, call the Azure Machine Learning batch execution API, and copy the batch execution output to the blob given in your output dataset. 
 
-	> [AZURE.NOTE] AzureMLBatchExecution activity can have zero or more inputs and one or more outputs.
+    > [AZURE.NOTE] AzureMLBatchExecution activity can have zero or more inputs and one or more outputs.
 
-		{
-		  "name": "PredictivePipeline",
-		  "properties": {
-		    "description": "use AzureML model",
-		    "activities": [
-		      {
-		        "name": "MLActivity",
-		        "type": "AzureMLBatchExecution",
-		        "description": "prediction analysis on batch input",
-		        "inputs": [
-		          {
-		            "name": "DecisionTreeInputBlob"
-		          }
-		        ],
-		        "outputs": [
-		          {
-		            "name": "DecisionTreeResultBlob"
-		          }
-		        ],
-		        "linkedServiceName": "MyAzureMLLinkedService",
+        {
+          "name": "PredictivePipeline",
+          "properties": {
+            "description": "use AzureML model",
+            "activities": [
+              {
+                "name": "MLActivity",
+                "type": "AzureMLBatchExecution",
+                "description": "prediction analysis on batch input",
+                "inputs": [
+                  {
+                    "name": "DecisionTreeInputBlob"
+                  }
+                ],
+                "outputs": [
+                  {
+                    "name": "DecisionTreeResultBlob"
+                  }
+                ],
+                "linkedServiceName": "MyAzureMLLinkedService",
                 "typeProperties":
                 {
                     "webServiceInput": "DecisionTreeInputBlob ",
@@ -247,22 +247,22 @@ We recommend that you go through the [Build your first pipeline with Data Factor
                         "output1": "DecisionTreeResultBlob "
                     }                
                 },
-		        "policy": {
-		          "concurrency": 3,
-		          "executionPriorityOrder": "NewestFirst",
-		          "retry": 1,
-		          "timeout": "02:00:00"
-		        }
-		      }
-		    ],
-		    "start": "2015-02-13T00:00:00Z",
-		    "end": "2015-02-14T00:00:00Z"
-		  }
-		}
+                "policy": {
+                  "concurrency": 3,
+                  "executionPriorityOrder": "NewestFirst",
+                  "retry": 1,
+                  "timeout": "02:00:00"
+                }
+              }
+            ],
+            "start": "2015-02-13T00:00:00Z",
+            "end": "2015-02-14T00:00:00Z"
+          }
+        }
 
-	Both **start** and **end** datetimes must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The **end** time is optional. If you do not specify value for the **end** property, it is calculated as "**start + 48 hours**". To run the pipeline indefinitely, specify **9999-09-09** as the value for the **end** property. See [JSON Scripting Reference](https://msdn.microsoft.com/library/dn835050.aspx) for details about JSON properties.
+    Both **start** and **end** datetimes must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The **end** time is optional. If you do not specify value for the **end** property, it is calculated as "**start + 48 hours**". To run the pipeline indefinitely, specify **9999-09-09** as the value for the **end** property. See [JSON Scripting Reference](https://msdn.microsoft.com/library/dn835050.aspx) for details about JSON properties.
 
-	> [AZURE.NOTE] Specifying input for the AzureMLBatchExecution activity is optional. 
+    > [AZURE.NOTE] Specifying input for the AzureMLBatchExecution activity is optional. 
 
 ### Scenario: Experiments using Reader/Writer Modules to refer to data in various storages
 
@@ -275,20 +275,20 @@ When using the reader and writer modules, it is good practice to use a Web servi
 Let's look at a scenario for using Web service parameters. You have a deployed Azure Machine Learning web service that is using a reader module to read data from one of the Azure Machine Learning supported data sources (for example: Azure SQL Database). After the batch execution is performed, the results are written using a Writer module (Azure SQL Database).  No web service inputs and outputs are defined in the experiments. In this case, we recommend that you setup the relevant Web service parameters for the reader and writer modules. This will allow the reader/writer modules to be configured when using the AzureMLBatchExecution activity. You specify Web service parameters in the **globalParameters** section in the activity JSON as follows. 
 
 
-	"typeProperties": {
-		"globalParameters": {
-			"Param 1": "Value 1",
-			"Param 2": "Value 2"
-		}
-	}
+    "typeProperties": {
+        "globalParameters": {
+            "Param 1": "Value 1",
+            "Param 2": "Value 2"
+        }
+    }
 
 You can also use [Data Factory Functions](https://msdn.microsoft.com/library/dn835056.aspx) in passing values for the Web service parameters as shown in the following example:
 
-	"typeProperties": {
-    	"globalParameters": {
-    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(WindowStart, 0))"
-    	}
-  	}
+    "typeProperties": {
+        "globalParameters": {
+           "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(WindowStart, 0))"
+        }
+    }
  
 > [AZURE.NOTE] The Web service parameters are case-sensitive, so ensure that the names you specify in the activity JSON match the ones exposed by the Web service. 
 
@@ -303,51 +303,51 @@ When using the reader module in an Azure Machine Learning experiment, you can sp
 ### Example 
 #### Pipeline with AzureMLBatchExecution activity with Web Service Parameters
 
-	{
-	  "name": "MLWithSqlReaderSqlWriter",
-	  "properties": {
-	    "description": "Azure ML model with sql azure reader/writer",
-	    "activities": [
-	      {
-	        "name": "MLSqlReaderSqlWriterActivity",
-	        "type": "AzureMLBatchExecution",
-	        "description": "test",
-	        "inputs": [
-	          {
-	            "name": "MLSqlInput"
-	          }
-	        ],
-	        "outputs": [
-	          {
-	            "name": "MLSqlOutput"
-	          }
-	        ],
-	        "linkedServiceName": "MLSqlReaderSqlWriterDecisionTreeModel",
+    {
+      "name": "MLWithSqlReaderSqlWriter",
+      "properties": {
+        "description": "Azure ML model with sql azure reader/writer",
+        "activities": [
+          {
+            "name": "MLSqlReaderSqlWriterActivity",
+            "type": "AzureMLBatchExecution",
+            "description": "test",
+            "inputs": [
+              {
+                "name": "MLSqlInput"
+              }
+            ],
+            "outputs": [
+              {
+                "name": "MLSqlOutput"
+              }
+            ],
+            "linkedServiceName": "MLSqlReaderSqlWriterDecisionTreeModel",
             "typeProperties":
             {
                 "webServiceInput": "MLSqlInput",
                 "webServiceOutputs": {
                     "output1": "MLSqlOutput"
                 }
-	          	"globalParameters": {
-	            	"Database server name": "<myserver>.database.windows.net",
-		            "Database name": "<database>",
-		            "Server user account name": "<user name>",
-		            "Server user account password": "<password>"
-	          	}              
+                "globalParameters": {
+                    "Database server name": "<myserver>.database.windows.net",
+                    "Database name": "<database>",
+                    "Server user account name": "<user name>",
+                    "Server user account password": "<password>"
+                }              
             },
-	        "policy": {
-	          "concurrency": 1,
-	          "executionPriorityOrder": "NewestFirst",
-	          "retry": 1,
-	          "timeout": "02:00:00"
-	        },
-	      }
-	    ],
-	    "start": "2015-02-13T00:00:00Z",
-	    "end": "2015-02-14T00:00:00Z"
-	  }
-	}
+            "policy": {
+              "concurrency": 1,
+              "executionPriorityOrder": "NewestFirst",
+              "retry": 1,
+              "timeout": "02:00:00"
+            },
+          }
+        ],
+        "start": "2015-02-13T00:00:00Z",
+        "end": "2015-02-14T00:00:00Z"
+      }
+    }
  
 In the above JSON example:
 
@@ -360,7 +360,7 @@ In the above JSON example:
 
 Azure ML batch execution web services can be used to run any workflows, for example R or Python scripts, that may not require any inputs. Or, the experiment might be configured with a Reader module that does not expose any GlobalParameters. In that case, the AzureMLBatchExecution Activity would be configured as follows:
 
-	{
+    {
         "name": "scoring service",
         "type": "AzureMLBatchExecution",
         "outputs": [
@@ -386,7 +386,7 @@ Azure ML batch execution web services can be used to run any workflows, for exam
 #### Web Service does not require an input/output
 The Azure ML batch execution web service might not have any Web Service output configured. In this example, there is no Web Service input or output, nor are any GlobalParameters configured. Note that there is still an output configured on the activity itself, but it is not given as a webServiceOutput.
 
-	{
+    {
         "name": "retraining",
         "type": "AzureMLBatchExecution",
         "outputs": [
@@ -409,32 +409,32 @@ The Azure ML batch execution web service might not have any Web Service output c
 
 The Azure ML web service reader and writer modules might be configured to run with or without any GlobalParameters. But you might want to embed the service calls in a processing pipeline that uses dataset dependencies to invoke the service only when some upstream processing has completed, and then to trigger some other action after the batch execution has completed. In that case, you can express the dependencies using activity inputs and outputs, without naming any of them as Web Service inputs or outputs.
 
-	{
-	    "name": "retraining",
-	    "type": "AzureMLBatchExecution",
-	    "inputs": [
-	        {
-	            "name": "upstreamData1"
-	        },
-	        {
-	            "name": "upstreamData2"
-	        }
-	    ],
-	    "outputs": [
-	        {
-	            "name": "downstreamData"
-	        }
-	    ],
-	    "typeProperties": {
-	     },
-	    "linkedServiceName": "mlEndpoint",
-	    "policy": {
-	        "concurrency": 1,
-	        "executionPriorityOrder": "NewestFirst",
-	        "retry": 1,
-	        "timeout": "02:00:00"
-	    }
-	},
+    {
+        "name": "retraining",
+        "type": "AzureMLBatchExecution",
+        "inputs": [
+            {
+                "name": "upstreamData1"
+            },
+            {
+                "name": "upstreamData2"
+            }
+        ],
+        "outputs": [
+            {
+                "name": "downstreamData"
+            }
+        ],
+        "typeProperties": {
+         },
+        "linkedServiceName": "mlEndpoint",
+        "policy": {
+            "concurrency": 1,
+            "executionPriorityOrder": "NewestFirst",
+            "retry": 1,
+            "timeout": "02:00:00"
+        }
+    },
 
 The **take-aways** are:
 
@@ -484,81 +484,81 @@ The Azure Storage holds the following data:
    
 Here is the sample JSON definition of the linked service: 
 
-	{
-		"name": "StorageLinkedService",
-	  	"properties": {
-	    	"type": "AzureStorage",
-			"typeProperties": {
-	    		"connectionString": "DefaultEndpointsProtocol=https;AccountName=name;AccountKey=key"
-			}
-		}
-	}
+    {
+        "name": "StorageLinkedService",
+        "properties": {
+            "type": "AzureStorage",
+            "typeProperties": {
+                "connectionString": "DefaultEndpointsProtocol=https;AccountName=name;AccountKey=key"
+            }
+        }
+    }
 
 
 #### Training input dataset:
 The following dataset represents the input training data for the Azure ML training web service. The Azure ML Batch Execution activity takes this dataset as an input. 
 
-	{
-	    "name": "trainingData",
-	    "properties": {
-	        "type": "AzureBlob",
-	        "linkedServiceName": "StorageLinkedService",
-	        "typeProperties": {
-	            "folderPath": "labeledexamples",
-	            "fileName": "labeledexamples.arff",
-	            "format": {
-	                "type": "TextFormat"
-	            }
-	        },
-	        "availability": {
-	            "frequency": "Week",
-	            "interval": 1
-	        },
-	        "policy": {          
-	            "externalData": {
-	                "retryInterval": "00:01:00",
-	                "retryTimeout": "00:10:00",
-	                "maximumRetry": 3
-	            }
-	        }
-	    }
-	}
+    {
+        "name": "trainingData",
+        "properties": {
+            "type": "AzureBlob",
+            "linkedServiceName": "StorageLinkedService",
+            "typeProperties": {
+                "folderPath": "labeledexamples",
+                "fileName": "labeledexamples.arff",
+                "format": {
+                    "type": "TextFormat"
+                }
+            },
+            "availability": {
+                "frequency": "Week",
+                "interval": 1
+            },
+            "policy": {          
+                "externalData": {
+                    "retryInterval": "00:01:00",
+                    "retryTimeout": "00:10:00",
+                    "maximumRetry": 3
+                }
+            }
+        }
+    }
 
 #### Training output dataset:
 The following dataset represents the output iLearner file from the Azure ML training web service. The Azure ML Batch Execution Activity produces this dataset. This dataset is also the input to the Azure ML Update Resource activity.
 
-	{
-	    "name": "trainedModelBlob",
-	    "properties": {
-	        "type": "AzureBlob",
-	        "linkedServiceName": "StorageLinkedService",
-	        "typeProperties": {
-	            "folderPath": "trainingoutput",
-	            "fileName": "model.ilearner",
-	            "format": {
-	                "type": "TextFormat"
-	            }
-	        },
-	        "availability": {
-	            "frequency": "Week",
-	            "interval": 1
-	        }
-	    }
-	}
+    {
+        "name": "trainedModelBlob",
+        "properties": {
+            "type": "AzureBlob",
+            "linkedServiceName": "StorageLinkedService",
+            "typeProperties": {
+                "folderPath": "trainingoutput",
+                "fileName": "model.ilearner",
+                "format": {
+                    "type": "TextFormat"
+                }
+            },
+            "availability": {
+                "frequency": "Week",
+                "interval": 1
+            }
+        }
+    }
 
 #### Linked service for Azure ML training endpoint 
 The following JSON snippet defines an Azure Machine Learning linked service that points to the  default endpoint of the training web service. 
 
-	{	
-		"name": "trainingEndpoint",
-	  	"properties": {
-	    	"type": "AzureML",
-	    	"typeProperties": {
-	    		"mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/xxx/services/--training experiment--/jobs",
-	      		"apiKey": "myKey"
-	    	}
-	  	}
-	}
+    {   
+        "name": "trainingEndpoint",
+        "properties": {
+            "type": "AzureML",
+            "typeProperties": {
+                "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/xxx/services/--training experiment--/jobs",
+                "apiKey": "myKey"
+            }
+        }
+    }
 
 In **Azure ML Studio**, do the following to get values for **mlEndpoint** and **apiKey**:
 
@@ -571,17 +571,17 @@ In **Azure ML Studio**, do the following to get values for **mlEndpoint** and **
 #### Linked Service for Azure ML updatable scoring endpoint:
 The following JSON snippet defines an Azure Machine Learning linked service that points to the non-default updatable endpoint of the scoring web service.  
 
-	{
-	    "name": "updatableScoringEndpoint2",
-	    "properties": {
-	        "type": "AzureML",
-	        "typeProperties": {
-	            "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/xxx/services/--scoring experiment--/jobs",
-	            "apiKey": "endpoint2Key",
-	            "updateResourceEndpoint": "https://management.azureml.net/workspaces/xxx/webservices/--scoring experiment--/endpoints/endpoint2"
-	        }
-	    }
-	}
+    {
+        "name": "updatableScoringEndpoint2",
+        "properties": {
+            "type": "AzureML",
+            "typeProperties": {
+                "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/xxx/services/--scoring experiment--/jobs",
+                "apiKey": "endpoint2Key",
+                "updateResourceEndpoint": "https://management.azureml.net/workspaces/xxx/webservices/--scoring experiment--/endpoints/endpoint2"
+            }
+        }
+    }
 
 
 Before creating and deploying an Azure ML linked service, follow the steps in [Create Endpoints](../machine-learning/machine-learning-create-endpoint.md) article to create a second (non-default and updatable) endpoint for the scoring web service.
@@ -594,23 +594,23 @@ After you create the non-default updatable endpoint, click **BATCH EXECUTION** t
 #### Placeholder output dataset:
 The Azure ML Update Resource activity does not generate any output, but in Azure Data Factory, an output dataset is required to drive the Pipeline schedule, so a dummy/placeholder dataset is used in this example.  
 
-	{
-	    "name": "placeholderBlob",
-	    "properties": {
-	        "availability": {
-	            "frequency": "Week",
-	            "interval": 1
-	        },
-	        "type": "AzureBlob",
-	        "linkedServiceName": "StorageLinkedService",
-	        "typeProperties": {
-	            "folderPath": "any",
-	            "format": {
-	                "type": "TextFormat"
-	            }
-	        }
-	    }
-	}
+    {
+        "name": "placeholderBlob",
+        "properties": {
+            "availability": {
+                "frequency": "Week",
+                "interval": 1
+            },
+            "type": "AzureBlob",
+            "linkedServiceName": "StorageLinkedService",
+            "typeProperties": {
+                "folderPath": "any",
+                "format": {
+                    "type": "TextFormat"
+                }
+            }
+        }
+    }
 
 
 #### Pipeline
@@ -619,66 +619,66 @@ The pipeline has two activities: **AzureMLBatchExecution** and **AzureMLUpdateRe
 ![pipeline diagram](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
 
 
-	{
-	    "name": "pipeline",
-	    "properties": {
-	        "activities": [
-	            {
-	                "name": "retraining",
-	                "type": "AzureMLBatchExecution",
-	                "inputs": [
-	                    {
-	                        "name": "trainingData"
-	                    }
-	                ],
-	                "outputs": [
-	                    {
-	                        "name": "trainedModelBlob"
-	                    }
-	                ],
-	                "typeProperties": {
-	                    "webServiceInput": "trainingData",
-	                    "webServiceOutputs": {
-	                        "output1": "trainedModelBlob"
-	                    }              
-	                 },
-	                "linkedServiceName": "trainingEndpoint",
-	                "policy": {
-	                    "concurrency": 1,
-	                    "executionPriorityOrder": "NewestFirst",
-	                    "retry": 1,
-	                    "timeout": "02:00:00"
-	                }
-	            },
-	            {
-	                "type": "AzureMLUpdateResource",
-	                "typeProperties": {
-	                    "trainedModelName": "Training Exp for ADF ML [trained model]",
-	                    "trainedModelDatasetName" :  "trainedModelBlob"
-	                },
-	                "inputs": [
-	                    {
-	                        "name": "trainedModelBlob"
-	                    }
-	                ],
-	                "outputs": [
-	                    {
-	                        "name": "placeholderBlob"
-	                    }
-	                ],
-	                "policy": {
-	                    "timeout": "01:00:00",
-	                    "concurrency": 1,
-	                    "retry": 3
-	                },
-	                "name": "AzureML Update Resource",
-	                "linkedServiceName": "updatableScoringEndpoint2"
-	            }
-	        ],
-	    	"start": "2015-02-13T00:00:00Z",
-	   		"end": "2015-02-14T00:00:00Z"
-	    }
-	}
+    {
+        "name": "pipeline",
+        "properties": {
+            "activities": [
+                {
+                    "name": "retraining",
+                    "type": "AzureMLBatchExecution",
+                    "inputs": [
+                        {
+                            "name": "trainingData"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "trainedModelBlob"
+                        }
+                    ],
+                    "typeProperties": {
+                        "webServiceInput": "trainingData",
+                        "webServiceOutputs": {
+                            "output1": "trainedModelBlob"
+                        }              
+                     },
+                    "linkedServiceName": "trainingEndpoint",
+                    "policy": {
+                        "concurrency": 1,
+                        "executionPriorityOrder": "NewestFirst",
+                        "retry": 1,
+                        "timeout": "02:00:00"
+                    }
+                },
+                {
+                    "type": "AzureMLUpdateResource",
+                    "typeProperties": {
+                        "trainedModelName": "Training Exp for ADF ML [trained model]",
+                        "trainedModelDatasetName" :  "trainedModelBlob"
+                    },
+                    "inputs": [
+                        {
+                            "name": "trainedModelBlob"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "placeholderBlob"
+                        }
+                    ],
+                    "policy": {
+                        "timeout": "01:00:00",
+                        "concurrency": 1,
+                        "retry": 3
+                    },
+                    "name": "AzureML Update Resource",
+                    "linkedServiceName": "updatableScoringEndpoint2"
+                }
+            ],
+            "start": "2015-02-13T00:00:00Z",
+            "end": "2015-02-14T00:00:00Z"
+        }
+    }
 
 
 ### Reader and Writer Modules
@@ -703,57 +703,57 @@ If you want to continue using the AzureMLBatchScoring activity, continue reading
 
 ### Azure ML Batch Scoring activity using Azure Storage for input/output 
 
-	{
-	  "name": "PredictivePipeline",
-	  "properties": {
-	    "description": "use AzureML model",
-	    "activities": [
-	      {
-	        "name": "MLActivity",
-	        "type": "AzureMLBatchScoring",
-	        "description": "prediction analysis on batch input",
-	        "inputs": [
-	          {
-	            "name": "ScoringInputBlob"
-	          }
-	        ],
-	        "outputs": [
-	          {
-	            "name": "ScoringResultBlob"
-	          }
-	        ],
-	        "linkedServiceName": "MyAzureMLLinkedService",
-	        "policy": {
-	          "concurrency": 3,
-	          "executionPriorityOrder": "NewestFirst",
-	          "retry": 1,
-	          "timeout": "02:00:00"
-	        }
-	      }
-	    ],
-	    "start": "2015-02-13T00:00:00Z",
-	    "end": "2015-02-14T00:00:00Z"
-	  }
-	}
+    {
+      "name": "PredictivePipeline",
+      "properties": {
+        "description": "use AzureML model",
+        "activities": [
+          {
+            "name": "MLActivity",
+            "type": "AzureMLBatchScoring",
+            "description": "prediction analysis on batch input",
+            "inputs": [
+              {
+                "name": "ScoringInputBlob"
+              }
+            ],
+            "outputs": [
+              {
+                "name": "ScoringResultBlob"
+              }
+            ],
+            "linkedServiceName": "MyAzureMLLinkedService",
+            "policy": {
+              "concurrency": 3,
+              "executionPriorityOrder": "NewestFirst",
+              "retry": 1,
+              "timeout": "02:00:00"
+            }
+          }
+        ],
+        "start": "2015-02-13T00:00:00Z",
+        "end": "2015-02-14T00:00:00Z"
+      }
+    }
 
 ### Web Service Parameters
 Add a **typeProperties** section to the **AzureMLBatchScoringActivty** section in the pipeline JSON to specify values for Web service parameters in that section as shown in the following example: 
 
-	"typeProperties": {
-		"webServiceParameters": {
-			"Param 1": "Value 1",
-			"Param 2": "Value 2"
-		}
-	}
+    "typeProperties": {
+        "webServiceParameters": {
+            "Param 1": "Value 1",
+            "Param 2": "Value 2"
+        }
+    }
 
 
 You can also use [Data Factory Functions](https://msdn.microsoft.com/library/dn835056.aspx) in passing values for the Web service parameters as shown in the following example:
 
-	"typeProperties": {
-    	"webServiceParameters": {
-    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(WindowStart, 0))"
-    	}
-  	}
+    "typeProperties": {
+        "webServiceParameters": {
+           "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(WindowStart, 0))"
+        }
+    }
  
 > [AZURE.NOTE] The Web service parameters are case-sensitive, so ensure that the names you specify in the activity JSON match the ones exposed by the Web service. 
 
@@ -771,3 +771,4 @@ You can also use [Data Factory Functions](https://msdn.microsoft.com/library/dn8
 
 
  
+

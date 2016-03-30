@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Create app passwords in the Azure portal for Azure Multi-Factor Authentication" 
-	description="This page shows users how they can create additional app passwords in the Azure portal." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenp" 
-	editor="curtland"/>
+    pageTitle="Create app passwords in the Azure portal for Azure Multi-Factor Authentication" 
+    description="This page shows users how they can create additional app passwords in the Azure portal." 
+    services="multi-factor-authentication" 
+    documentationCenter="" 
+    authors="billmath" 
+    manager="stevenp" 
+    editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/19/2015" 
-	ms.author="billmath"/>
+    ms.service="multi-factor-authentication" 
+    ms.workload="identity" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/19/2015" 
+    ms.author="billmath"/>
 
 # Create app passwords in the Azure portal for Azure Multi-Factor Authentication
 

@@ -1,12 +1,12 @@
 <properties
-	pageTitle="What is PowerApps Enterprise and how to get started | Microsoft Azure"
-	description="Get started with PowerApps Enterprise and create the app service environment"
-	services=""
+    pageTitle="What is PowerApps Enterprise and how to get started | Microsoft Azure"
+    description="Get started with PowerApps Enterprise and create the app service environment"
+    services=""
     suite="powerapps"
-	documentationCenter="" 
-	authors="linhtranms"
-	manager="dwrede"
-	editor=""/>
+    documentationCenter="" 
+    authors="linhtranms"
+    manager="dwrede"
+    editor=""/>
 
 <tags
    ms.service="powerapps"
@@ -60,14 +60,14 @@ If you have previously signed up for an Azure subscription with your individual 
 
 To do so, use the following steps. Alternatively, you may wish to create a new tenant and create an administrator in that tenant following a similar process.
 
-1.	Sign in to the [Azure classic portal](https://manage.windowsazure.com/) with your individual account.
-2.	Select **Active Directory**” in the left menu bar. 
-3.	Select **Default Directory** in the list of available directories.
-4.	Select the **Users** tab at the top. There is a single user listed with “Microsoft account” in the Sourced From column.
-5.	Select **Add User** at the bottom. 
-6.	In **Add User Form**, enter the following details:  
-	
-	Property | Description
+1.  Sign in to the [Azure classic portal](https://manage.windowsazure.com/) with your individual account.
+2.  Select **Active Directory**” in the left menu bar. 
+3.  Select **Default Directory** in the list of available directories.
+4.  Select the **Users** tab at the top. There is a single user listed with “Microsoft account” in the Sourced From column.
+5.  Select **Add User** at the bottom. 
+6.  In **Add User Form**, enter the following details:  
+    
+    Property | Description
 --- | ---
 Type of User | New user in your organization
 User name | Choose a user name for this administrator
@@ -75,8 +75,8 @@ First Name/Last Name/Display Name | Enter your values
 Role | Global Administrator
 Alternate Email Address | Enter your value
 Optional | Enable Multi-Factor Authentication  
-	
-	Select the **CREATE** button to complete and to display the temporary password.
+    
+    Select the **CREATE** button to complete and to display the temporary password.
 
 When finished, record this temporary password for the new administrative user. To change the temporary password, sign in to [https://login.microsoftonline.com](https://login.microsoftonline.com) with this new user account and change the password. You can also send the password directly to the user, using an alternative e-mail.
 
@@ -146,7 +146,7 @@ The regular Azure app service environment has different features. See [Introduct
 4. In the **PowerApps** blade, select **Create App Service Environment to get started** or select **App Service Environment** under *Settings*:  
 ![][5]
 
-	> [AZURE.NOTE] If you click on **Create App Service Environment to get started**, you will see one extra blade with details about the App Service Environment. Simply click Create link on that blade to launch the create blade. 
+    > [AZURE.NOTE] If you click on **Create App Service Environment to get started**, you will see one extra blade with details about the App Service Environment. Simply click Create link on that blade to launch the create blade. 
 
 5. Next, enter the name, select the subscription you want to use, select or create a new resource group, and select a virtual network. **Notice** that after you choose a virtual network, it cannot be changed:  
 ![][6]  
@@ -167,7 +167,7 @@ To get access to the app service environment, create APIs, connections and other
 ![][7]
 3. Select the RBAC icon to manage permissions:  
 ![][8]  
-	Adding users and assigning roles is just like using [Role-based access control](https://azure.microsoft.com/documentation/articles/role-based-access-control-configure) within Azure.
+    Adding users and assigning roles is just like using [Role-based access control](https://azure.microsoft.com/documentation/articles/role-based-access-control-configure) within Azure.
 
 > [AZURE.NOTE] Currently, you cannot give RBAC permissions to the app service environment. You can give RBAC permissions at the parent resource group level.
 
@@ -188,4 +188,5 @@ Your company is now signed up for PowerApps and has an app service environment. 
 [6]: ./media/powerapps-get-started-azure-portal/aseproperties.png
 [7]: ./media/powerapps-get-started-azure-portal/aseessentials.png
 [8]: ./media/powerapps-get-started-azure-portal/resourcegrouprbac.png
+
 

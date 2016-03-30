@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="Creating and deploying Azure Resource Group Visual Studio projects | Microsoft Azure"
    description="Use Visual Studio to create a Azure resource group project and deploy the resources to Azure."
    services="visual-studio-online"
@@ -45,7 +45,7 @@ In this procedure, you learn how to create an Azure Resource Group project with 
 
 1. Expand the nodes in the deployment project to see what was created.
 
-    Since we chose the Web app template for this example, you see the following files. 
+    Since we chose the Web app template for this example, you see the following files. 
 
     |File name|Description|
     |---|---|
@@ -195,3 +195,4 @@ Adjustments were also made to some variable names and build tasks to better alig
 ## Next steps
 
 To learn how to add resources to your Azure Resource Group in Visual Studio, see [Editing Resource Manager templates with Visual Studio](vs-azure-tools-resource-group-adding-resources.md).
+

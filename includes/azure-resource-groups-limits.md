@@ -7,3 +7,4 @@ Management Locks (per unique scope)|20|20
 Number of Tags (per resource or resource group)|15|15
 Tag key length|512|512
 Tag value length|256|256
+

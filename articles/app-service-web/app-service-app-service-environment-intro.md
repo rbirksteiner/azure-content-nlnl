@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Introduction to App Service Environment" 
-	description="Learn about the App Service Environment feature that provides secure, VNet-joined, dedicated scale units for running all of your apps." 
-	services="app-service" 
-	documentationCenter="" 
-	authors="ccompy" 
-	manager="wpickett" 
-	editor=""/>
+    pageTitle="Introduction to App Service Environment" 
+    description="Learn about the App Service Environment feature that provides secure, VNet-joined, dedicated scale units for running all of your apps." 
+    services="app-service" 
+    documentationCenter="" 
+    authors="ccompy" 
+    manager="wpickett" 
+    editor=""/>
 
 <tags 
-	ms.service="app-service" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/06/2015"
-	ms.author="stefsch"/>
+    ms.service="app-service" 
+    ms.workload="na" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/06/2015"
+    ms.author="stefsch"/>
 
 # Introduction to App Service Environment
 
@@ -105,3 +105,4 @@ For details on using an App Service Environment with ExpressRoute, see the follo
 <!-- IMAGES -->
 
  
+

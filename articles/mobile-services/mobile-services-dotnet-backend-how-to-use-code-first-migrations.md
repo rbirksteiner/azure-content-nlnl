@@ -1,21 +1,21 @@
 <properties
-	pageTitle="How to make data model changes to a .NET backend mobile service"
-	description="This topic describes data model initializers and how to make data model changes in a .NET backend mobile service."
-	services="mobile-services"
-	documentationCenter=""
-	authors="ggailey777"
-	writer="glenga"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="How to make data model changes to a .NET backend mobile service"
+    description="This topic describes data model initializers and how to make data model changes in a .NET backend mobile service."
+    services="mobile-services"
+    documentationCenter=""
+    authors="ggailey777"
+    writer="glenga"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="NA"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="12/07/2015"
-	ms.author="glenga"/>
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="NA"
+    ms.devlang="multiple"
+    ms.topic="article"
+    ms.date="12/07/2015"
+    ms.author="glenga"/>
 
 # How to make data model changes to a .NET backend mobile service
 
@@ -70,47 +70,47 @@ The following steps turn on Migrations and apply data model changes in the proje
 
 2. From the **Tools** menu, expand **NuGet Package Manager**, then click **Package Manager Console**.
 
-	This displays the Package Manager Console, which you will use to manage your Code First Migrations.
+    This displays the Package Manager Console, which you will use to manage your Code First Migrations.
 
 3. In the Package Manager Console, run the following command:
 
-		PM> Enable-Migrations
+        PM> Enable-Migrations
 
-	This turns on Code First Migrations for your project.
+    This turns on Code First Migrations for your project.
 
 4. In the console, run the following command:
 
-		PM> Add-Migration Initial
+        PM> Add-Migration Initial
 
-	This creates a new migration named *Initial*. Migration code is stored in the Migrations project folder.
+    This creates a new migration named *Initial*. Migration code is stored in the Migrations project folder.
 
 5. Expand the App_Start folder, open the WebApiConfig.cs project file and add the following **using** statements:
 
-		using System.Data.Entity.Migrations;
-		using todolistService.Migrations;
+        using System.Data.Entity.Migrations;
+        using todolistService.Migrations;
 
-	In the above code, you must replace the _todolistService_ string with the namespace of your project, which for the downloaded quickstart project is <em>mobile&#95;service&#95;name</em>Service.
+    In the above code, you must replace the _todolistService_ string with the namespace of your project, which for the downloaded quickstart project is <em>mobile&#95;service&#95;name</em>Service.
 
 6. In this same code file, comment-out the call to the **Database.SetInitializer** method and add the following code after it:
 
         var migrator = new DbMigrator(new Configuration());
         migrator.Update();
 
-	This disables the default Code First database initializer that drops and recreates the database and replaces it with an explicit request to apply the latest migration. At this point, any data model changes will result in an InvalidOperationException when the data is accessed, unless a migration has been created for it. Going forward, your service must use Code First Migrations to migrate data model changes to the database.
+    This disables the default Code First database initializer that drops and recreates the database and replaces it with an explicit request to apply the latest migration. At this point, any data model changes will result in an InvalidOperationException when the data is accessed, unless a migration has been created for it. Going forward, your service must use Code First Migrations to migrate data model changes to the database.
 
 7.  Press F5 to start the mobile service project on the local computer.
 
-	At this point, the database is in sync with the data model. If you provided seed data, you can verify it by clicking **Try it out**, **GET tables/todoitem**, then **Try this out** and **Send**. For more information, see [Seeding data in migrations].
+    At this point, the database is in sync with the data model. If you provided seed data, you can verify it by clicking **Try it out**, **GET tables/todoitem**, then **Try this out** and **Send**. For more information, see [Seeding data in migrations].
 
 8.   Now make a change to your data model, such as adding a new UserId property to the TodoItem type, rebuild the project, and then in the Package Manager, run the following command:
 
-		PM> Add-Migration NewUserId
+        PM> Add-Migration NewUserId
 
-	This creates a new migration named *NewUserId*. A new code file, which implements this change, is added in the Migrations folder
+    This creates a new migration named *NewUserId*. A new code file, which implements this change, is added in the Migrations folder
 
 9.  Press F5 again to restart the mobile service project on the local computer.
 
-	The migration is applied to the database and the database is again in sync with the data model. If you provided seed data, you can verify it by clicking **Try it out**, **GET tables/todoitem**, then **Try this out** and **Send**. For more information, see [Seeding data in migrations].
+    The migration is applied to the database and the database is again in sync with the data model. If you provided seed data, you can verify it by clicking **Try it out**, **GET tables/todoitem**, then **Try this out** and **Send**. For more information, see [Seeding data in migrations].
 
 10. Republish the mobile service to Azure, then run the client app to access the data and verify that data loads and no error occur.
 
@@ -180,3 +180,4 @@ This code calls the [AddOrUpdate] helper extension method to add seed data to th
 [TableController<TEntity>]: https://msdn.microsoft.com/library/azure/dn643359.aspx
 [EntityData]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.entitydata.aspx
 [DbSet<T>]: https://msdn.microsoft.com/library/azure/gg696460.aspx
+

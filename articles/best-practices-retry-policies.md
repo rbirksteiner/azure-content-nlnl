@@ -66,7 +66,7 @@ Configuration file:
 ```xml
 <RetryPolicyConfiguration defaultRetryStrategy="Fixed Interval Retry Strategy">
     <linearInterval name="Fixed Interval Retry Strategy"
-	retryInterval="00:00:01" maxRetryCount="10" />
+    retryInterval="00:00:01" maxRetryCount="10" />
     <exponentialBackoff name="Backoff Retry Strategy" minBackoff="00:00:01"
         maxBackoff="00:00:30" deltaBackoff="00:00:10" maxRetryCount="10"
         fastFirst="false"/>
@@ -193,3 +193,4 @@ iteration | "0"
 iterationSleep | "00:00:00.1000000"
 lastExceptionType | "Microsoft.ServiceBus.Messaging.MessagingCommunicationException"
 exceptionMessage | "The remote name could not be resolved: 'retry-guidance-tests.servicebus.windows.net'.TrackingId:6a26f99c-dc6d-422e-8565-f89fdd0d4fe3,TimeStamp:9/5/2014 10:00:13 PM"
+

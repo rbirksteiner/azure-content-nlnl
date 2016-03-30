@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure AD Connect Health Operations."
-	description="This article describes additional operations that can be performed once you have deployed Azure AD Connect Health."
-	services="active-directory"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
-	editor="curtand"/>
+    pageTitle="Azure AD Connect Health Operations."
+    description="This article describes additional operations that can be performed once you have deployed Azure AD Connect Health."
+    services="active-directory"
+    documentationCenter=""
+    authors="billmath"
+    manager="stevenpo"
+    editor="curtand"/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/19/2015"
-	ms.author="billmath"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/19/2015"
+    ms.author="billmath"/>
 
 # Azure AD Connect Health Operations
 
@@ -145,3 +145,4 @@ You can remove a user or a group added to Azure AD Connect Health Role Based Acc
 * [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adfs.md)
 * [Using Azure AD Connect Health for sync](active-directory-aadconnect-health-sync.md)
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
+

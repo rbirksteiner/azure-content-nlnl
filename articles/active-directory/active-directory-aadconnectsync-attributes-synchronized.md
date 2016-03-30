@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure AD Connect sync: Attributes synchronized to Azure Active Directory | Microsoft Azure"
-	description="Lists the attributes that are synchronized to Azure Active Directory."
-	services="active-directory"
-	documentationCenter=""
-	authors="markusvi"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Azure AD Connect sync: Attributes synchronized to Azure Active Directory | Microsoft Azure"
+    description="Lists the attributes that are synchronized to Azure Active Directory."
+    services="active-directory"
+    documentationCenter=""
+    authors="markusvi"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/24/2015"
-	ms.author="markusvi;andkjell"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/24/2015"
+    ms.author="markusvi;andkjell"/>
 
 
 # Azure AD Connect sync: Attributes synchronized to Azure Active Directory
@@ -435,3 +435,4 @@ These attributes are written back from Azure AD to on-premises Active Directory 
 Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
 
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
+

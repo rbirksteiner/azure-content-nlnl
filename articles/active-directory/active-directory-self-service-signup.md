@@ -1,20 +1,20 @@
 <properties
-	pageTitle="What is Self-Service Signup for Azure? | Microsoft Azure"
-	description="An overview self-service signup for Azure, how to manage the sign up process and how to ."
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="What is Self-Service Signup for Azure? | Microsoft Azure"
+    description="An overview self-service signup for Azure, how to manage the sign up process and how to ."
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="09/21/2015"
-	ms.author="stevenpo"/>
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+    ms.date="09/21/2015"
+    ms.author="stevenpo"/>
 
 
 # What is Self-Service Signup for Azure?
@@ -134,63 +134,63 @@ You have a few options for how to perform a domain validation (and do a takeover
 
 1.  Azure Management Portal
 
-	A takeover is triggered by doing a domain addition.  If a tenant already exists for the domain, you'll have the option to perform an external takeover.
+    A takeover is triggered by doing a domain addition.  If a tenant already exists for the domain, you'll have the option to perform an external takeover.
 
-	Sign in to the Azure portal using your credentials.  Navigate to your existing tenant and then to **Add domain**.
+    Sign in to the Azure portal using your credentials.  Navigate to your existing tenant and then to **Add domain**.
 
 2.  Office 365
 
-	You can use the options on the [Manage domains](https://support.office.com/article/Navigate-to-the-Office-365-Manage-domains-page-026af1f2-0e6d-4f2d-9b33-fd147420fac2/) page in Office 365 to work with your domains and DNS records. See [Verify your domain in Office 365](https://support.office.com/article/Verify-your-domain-in-Office-365-6383f56d-3d09-4dcb-9b41-b5f5a5efd611/).
+    You can use the options on the [Manage domains](https://support.office.com/article/Navigate-to-the-Office-365-Manage-domains-page-026af1f2-0e6d-4f2d-9b33-fd147420fac2/) page in Office 365 to work with your domains and DNS records. See [Verify your domain in Office 365](https://support.office.com/article/Verify-your-domain-in-Office-365-6383f56d-3d09-4dcb-9b41-b5f5a5efd611/).
 
 3.  Windows PowerShell
 
-	The following steps are required to perform a validation using Windows PowerShell.
+    The following steps are required to perform a validation using Windows PowerShell.
 
-	Step	|	Cmdlet to use
-	-------	| -------------
-	Create a credential object | Get-Credential
-	Connect to Azure AD	| Connect-MsolService
-	get a list of domains	| Get-MsolDomain
-	Create a challenge	| Get-MsolDomainVerificationDns
-	Create DNS record	| Do this on your DNS server
-	Verify the challenge	| Confirm-MsolEmailVerifiedDomain
+    Step    |   Cmdlet to use
+    ------- | -------------
+    Create a credential object | Get-Credential
+    Connect to Azure AD | Connect-MsolService
+    get a list of domains   | Get-MsolDomain
+    Create a challenge  | Get-MsolDomainVerificationDns
+    Create DNS record   | Do this on your DNS server
+    Verify the challenge    | Confirm-MsolEmailVerifiedDomain
 
 For example:
 
 1. Connect to Azure AD using the credentials that were used to respond to the self-service offering:
-		import-module MSOnline
-		$msolcred = get-credential
-		connect-msolservice -credential $msolcred
+        import-module MSOnline
+        $msolcred = get-credential
+        connect-msolservice -credential $msolcred
 
 2. Get a list of domains:
 
-	Get-MsolDomain
+    Get-MsolDomain
 
 3. Then run the Get-MsolDomainVerificationDns cmdlet to create a challenge:
 
-	Get-MsolDomainVerificationDns –DomainName *your_domain_name* –Mode DnsTxtRecord
+    Get-MsolDomainVerificationDns –DomainName *your_domain_name* –Mode DnsTxtRecord
 
-	For example:
+    For example:
 
-	Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
+    Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
 
 4. Copy the value (the challenge) that is returned from this command.
 
-	For example:
+    For example:
 
-	MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
+    MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
 
 5. In your public DNS namespace, create a DNS txt record that contains the value that you copied in the previous step.
 
-	The name for this record is the name of the parent domain, so if you create this resource record by using the DNS role from Windows Server, leave the Record name blank and just paste the value into the Text box
+    The name for this record is the name of the parent domain, so if you create this resource record by using the DNS role from Windows Server, leave the Record name blank and just paste the value into the Text box
 
 6. Run the Confirm-MsolDomain cmdlet to verify the challenge:
 
-	Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*
+    Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*
 
-	for example:
+    for example:
 
-	Confirm-MsolEmailVerifiedDomain -DomainName contoso.com
+    Confirm-MsolEmailVerifiedDomain -DomainName contoso.com
 
 A successful challenge returns you to the prompt without an error.
 
@@ -214,7 +214,7 @@ An admin can configure these capabilities using these Azure AD cmdlet Set-MsolCo
 
 These two parameters can be used in conjunction to define more precise control over self-service sign up. For example, the following command will allow users to perform self-service sign up, but only if those users already have an account in Azure AD (in other words, users who would need an email-verified account to be created cannot perform self-service sign up):
 
-	Set-MsolCompanySettings -AllowEmailVerifiedUsers $false -AllowAdHocSubscriptions $true
+    Set-MsolCompanySettings -AllowEmailVerifiedUsers $false -AllowAdHocSubscriptions $true
 
 The following flowchart explains all the different combinations for these parameters and the resulting conditions for the tenant and self-service sign up.
 
@@ -234,3 +234,4 @@ For more information and examples of how to use these parameters, see [Set-MsolC
 
 <!--Image references-->
 [1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png
+

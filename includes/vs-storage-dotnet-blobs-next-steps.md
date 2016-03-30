@@ -9,3 +9,4 @@ Now that you've learned the basics of blob storage, follow these links to learn 
   - Use [Queue Storage](./storage-dotnet-how-to-use-queues.md) to store unstructured data.
   - Use [SQL Database](../sql-database/sql-database-dotnet-how-to-use.md) to store relational data.
 
+

@@ -20,3 +20,4 @@ From here you can select a specific collection and drill down to individual docu
 [button-manage]: ./media/howto-access-mongolab-ui/button-manage.png
 [button-addons]: ./media/howto-access-mongolab-ui/button-addons.png
 [screen-dblanding]: ./media/howto-access-mongolab-ui/screen-mongolab_dblanding.png
+

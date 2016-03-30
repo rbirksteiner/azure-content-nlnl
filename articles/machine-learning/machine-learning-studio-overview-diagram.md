@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Overview diagram of Machine Learning Studio capabilities | Microsoft Azure"
-	description="A printable diagram of the capabilities of Azure Machine Learning Studio, demonstrating how to use Studio to develop a predictive analytics experiment and operationalize it in the Azure cloud."
-	keywords="machine learning studio,overview diagram,download"
-	services="machine-learning"
-	documentationCenter=""
-	authors="hning86"
-	manager="paulettm"
-	editor="cgronlun"/>
+    pageTitle="Overview diagram of Machine Learning Studio capabilities | Microsoft Azure"
+    description="A printable diagram of the capabilities of Azure Machine Learning Studio, demonstrating how to use Studio to develop a predictive analytics experiment and operationalize it in the Azure cloud."
+    keywords="machine learning studio,overview diagram,download"
+    services="machine-learning"
+    documentationCenter=""
+    authors="hning86"
+    manager="paulettm"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/28/2015"
-	ms.author="haining;garye" />
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/28/2015"
+    ms.author="haining;garye" />
 
 
 # Overview diagram of Azure Machine Learning Studio capabilities
@@ -47,3 +47,4 @@ Download the **Microsoft Azure Machine Learning Studio Capabilities Overview** d
 * For a detailed discussion of the machine learning algorithms available in Machine Learning Studio, see [How to choose algorithms for Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md).
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+

@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Azure AD B2C Preview | Microsoft Azure"
-	description="How to build a .NET Web API using Azure AD B2C, secured using OAuth 2.0 access tokens for authentication."
-	services="active-directory-b2c"
-	documentationCenter=".net"
-	authors="dstrockis"
-	manager="msmbaldwin"
-	editor=""/>
+    pageTitle="Azure AD B2C Preview | Microsoft Azure"
+    description="How to build a .NET Web API using Azure AD B2C, secured using OAuth 2.0 access tokens for authentication."
+    services="active-directory-b2c"
+    documentationCenter=".net"
+    authors="dstrockis"
+    manager="msmbaldwin"
+    editor=""/>
 
 <tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="09/22/2015"
-	ms.author="dastrock"/>
-	
+    ms.service="active-directory-b2c"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="09/22/2015"
+    ms.author="dastrock"/>
+    
 # Azure AD B2C Preview: Build a .NET Web API
 
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
@@ -161,7 +161,7 @@ Add an OWIN Startup class to the `TaskService` project called `Startup.cs`.  Rig
 // Change the class declaration to "public partial class Startup" - we’ve already implemented part of this class for you in another file.
 public partial class Startup
 {
-	// The OWIN middleware will invoke this method when the app starts
+    // The OWIN middleware will invoke this method when the app starts
     public void Configuration(IAppBuilder app)
     {
         ConfigureAuth(app);
@@ -177,27 +177,27 @@ Open the file `App_Start\Startup.Auth.cs`, and implement the `ConfigureAuth(...)
 
 public partial class Startup
 {
-	// These values are pulled from web.config
-	public static string aadInstance = ConfigurationManager.AppSettings["ida:AadInstance"];
-	public static string tenant = ConfigurationManager.AppSettings["ida:Tenant"];
-	public static string clientId = ConfigurationManager.AppSettings["ida:ClientId"];
-	public static string commonPolicy = ConfigurationManager.AppSettings["ida:PolicyId"];
-	private const string discoverySuffix = ".well-known/openid-configuration";
+    // These values are pulled from web.config
+    public static string aadInstance = ConfigurationManager.AppSettings["ida:AadInstance"];
+    public static string tenant = ConfigurationManager.AppSettings["ida:Tenant"];
+    public static string clientId = ConfigurationManager.AppSettings["ida:ClientId"];
+    public static string commonPolicy = ConfigurationManager.AppSettings["ida:PolicyId"];
+    private const string discoverySuffix = ".well-known/openid-configuration";
 
-	public void ConfigureAuth(IAppBuilder app)
-	{   
-		TokenValidationParameters tvps = new TokenValidationParameters
-		{
-			// This is where you specify that your API only accepts tokens from its own clients
-			ValidAudience = clientId,
-		};
+    public void ConfigureAuth(IAppBuilder app)
+    {   
+        TokenValidationParameters tvps = new TokenValidationParameters
+        {
+            // This is where you specify that your API only accepts tokens from its own clients
+            ValidAudience = clientId,
+        };
 
-		app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions
-		{   
-			// This SecurityTokenProvider fetches the Azure AD B2C metadata & signing keys from the OpenIDConnect metadata endpoint
-			AccessTokenFormat = new JwtFormat(tvps, new OpenIdConnectCachingSecurityTokenProvider(String.Format(aadInstance, tenant, "v2.0", discoverySuffix, commonPolicy)))
-		});
-	}
+        app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions
+        {   
+            // This SecurityTokenProvider fetches the Azure AD B2C metadata & signing keys from the OpenIDConnect metadata endpoint
+            AccessTokenFormat = new JwtFormat(tvps, new OpenIdConnectCachingSecurityTokenProvider(String.Format(aadInstance, tenant, "v2.0", discoverySuffix, commonPolicy)))
+        });
+    }
 }
 ```
 
@@ -212,7 +212,7 @@ You could also add the `[Authorize]` tag to individual actions for more fine-gra
 [Authorize]
 public class TasksController : ApiController
 {
-	...
+    ...
 }
 ```
 
@@ -225,9 +225,9 @@ is why you had to add the object ID as an application claim in all of your polic
 
 public IEnumerable<Models.Task> Get()
 {
-	string owner = ClaimsPrincipal.Current.FindFirst("http://schemas.microsoft.com/identity/claims/objectidentifier").Value;
-	IEnumerable<Models.Task> userTasks = db.Tasks.Where(t => t.owner == owner);
-	return userTasks;
+    string owner = ClaimsPrincipal.Current.FindFirst("http://schemas.microsoft.com/identity/claims/objectidentifier").Value;
+    IEnumerable<Models.Task> userTasks = db.Tasks.Where(t => t.owner == owner);
+    return userTasks;
 }
 ```
 
@@ -253,3 +253,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 [Customizing the your B2C App's UX >>]()
 
 -->
+

@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Troubleshooting Cloud Service allocation failure | Microsoft Azure"
-	description="Troubleshooting allocation failure when you deploy Cloud Services in Azure"
-	services="azure-service-management, cloud-services"
-	documentationCenter=""
-	authors="kenazk"
-	manager="drewm"
-	editor=""
-	tags="top-support-issue"/>
+    pageTitle="Troubleshooting Cloud Service allocation failure | Microsoft Azure"
+    description="Troubleshooting allocation failure when you deploy Cloud Services in Azure"
+    services="azure-service-management, cloud-services"
+    documentationCenter=""
+    authors="kenazk"
+    manager="drewm"
+    editor=""
+    tags="top-support-issue"/>
 
 <tags
-	ms.service="cloud-services"
-	ms.workload="na"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/04/2015"
-	ms.author="kenazk"/>
+    ms.service="cloud-services"
+    ms.workload="na"
+    ms.tgt_pltfrm="ibiza"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/04/2015"
+    ms.author="kenazk"/>
 
 
 
@@ -40,7 +40,7 @@ When an allocation request is pinned to a cluster, there's a higher chance of fa
 ### Error Message
 You may see the following error message:
 
-	"Azure operation '{operation id}' failed with code Compute.ConstrainedAllocationFailed. Details: Allocation failed; unable to satisfy constraints in request. The requested new service deployment is bound to an Affinity Group, or it targets a Virtual Network, or there is an existing deployment under this hosted service. Any of these conditions constrains the new deployment to specific Azure resources. Please retry later or try reducing the VM size or number of role instances. Alternatively, if possible, remove the aforementioned constraints or try deploying to a different region."
+    "Azure operation '{operation id}' failed with code Compute.ConstrainedAllocationFailed. Details: Allocation failed; unable to satisfy constraints in request. The requested new service deployment is bound to an Affinity Group, or it targets a Virtual Network, or there is an existing deployment under this hosted service. Any of these conditions constrains the new deployment to specific Azure resources. Please retry later or try reducing the VM size or number of role instances. Alternatively, if possible, remove the aforementioned constraints or try deploying to a different region."
 
 ### Common Issues
 Here are the common allocation scenarios that cause an allocation request to be pinned to a single cluster.
@@ -48,36 +48,36 @@ Here are the common allocation scenarios that cause an allocation request to be 
 - Deploying to Staging Slot - If a cloud service has a deployment in either slot, then the entire cloud service is pinned to a specific cluster.  This means that if a deployment already exists in the production slot, then a new staging deployment can only be allocated in the same cluster as the production slot. If the cluster is nearing capacity, the request may fail. 
  
 - Scaling - Adding new instances to an existing cloud service must allocate in the same cluster.  Small scaling requests can usually be allocated, but not always. If the cluster is nearing capacity, the request may fail. 
-	
+    
 - Affinity Group - A new deployment to an empty cloud service can be allocated by the fabric in any cluster in that region, unless the cloud service is pinned to an affinity group. Deployments to the same affinity group will be attempted on the same cluster. If the cluster is nearing capacity, the request may fail. 
-	
+    
 - Affinity Group vNet - Older Virtual Networks were tied to affinity groups instead of regions, and cloud services in these Virtual Networks would be pinned to the affinity group cluster. Deployments to this type of virtual network will be attempted on the pinned cluster. If the cluster is nearing capacity, the request may fail. 
 
 ## Solutions
 
 1. Redeploy to a new cloud service - This solution is likely to be most successful as it allows the platform to choose from all clusters in that region.
-	
-	- Deploy the workload to a new cloud service  
-	
-	- Update the CNAME or A record to point traffic to the new cloud service
-		
-	- Once zero traffic is going to the old site, you can delete the old cloud service. This solution should incur zero downtime.
+    
+    - Deploy the workload to a new cloud service  
+    
+    - Update the CNAME or A record to point traffic to the new cloud service
+        
+    - Once zero traffic is going to the old site, you can delete the old cloud service. This solution should incur zero downtime.
 
 2. Delete both production and staging slots - This solution will preserve your existing DNS name, but will cause downtime to your application. 
-	
-	- Delete the production and staging slots of an existing cloud service so that the cloud service is empty, and then 
-	
-	- Create a new deployment in the existing cloud service. This will re-attempt to allocation on all clusters in the region. Ensure the cloud service is not tied to an affinity group. 
+    
+    - Delete the production and staging slots of an existing cloud service so that the cloud service is empty, and then 
+    
+    - Create a new deployment in the existing cloud service. This will re-attempt to allocation on all clusters in the region. Ensure the cloud service is not tied to an affinity group. 
 
 3. Reserved IP -  This solution will preserve your existing IP address, but will cause downtime to your application.  
-	
-	- Create a ReservedIP for your existing deployment using Powershell 
+    
+    - Create a ReservedIP for your existing deployment using Powershell 
 
-	```
-	New-AzureReservedIP -ReservedIPName {new reserved IP name} -Location {location} -ServiceName {existing service name}
-	```
-		
-	- Follow #2 from above, making sure to specify the new ReservedIP in the service's CSCFG.
+    ```
+    New-AzureReservedIP -ReservedIPName {new reserved IP name} -Location {location} -ServiceName {existing service name}
+    ```
+        
+    - Follow #2 from above, making sure to specify the new ReservedIP in the service's CSCFG.
 
 4. Remove affinity group for new deployments - Affinity Groups are no longer recommended. Follow steps for #1 above to deploy a new cloud service. Ensure cloud service is not in an affinity group. 
 
@@ -88,3 +88,4 @@ Here are the common allocation scenarios that cause an allocation request to be 
 
 If this article didn’t help to solve your Azure issue, browse the Azure forums on [MSDN and Stack Overflow](http://azure.microsoft.com/support/forums/).
 You can also file an Azure support incident about your issue. Go to the [Azure Support](http://azure.microsoft.com/support/options/) site and click Get Support. For information about using Azure Support, read the[ Microsoft Azure Support FAQ](http://azure.microsoft.com/support/faq/).
+

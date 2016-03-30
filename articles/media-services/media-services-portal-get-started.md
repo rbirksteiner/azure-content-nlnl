@@ -1,20 +1,20 @@
 <properties
-	pageTitle=" Get started with delivering content on demand using the Azure Classic Portal | Microsoft Azure"
-	description="This tutorial walks you through the steps of implementing a Video-on-Demand (VoD) content delivery application with Azure Media Services using the Azure Classic Portal."
-	services="media-services"
-	documentationCenter=""
-	authors="Juliako"
-	manager="dwrede"
-	editor=""/>
+    pageTitle=" Get started with delivering content on demand using the Azure Classic Portal | Microsoft Azure"
+    description="This tutorial walks you through the steps of implementing a Video-on-Demand (VoD) content delivery application with Azure Media Services using the Azure Classic Portal."
+    services="media-services"
+    documentationCenter=""
+    authors="Juliako"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="10/05/2015"
-	ms.author="juliako"/>
+    ms.service="media-services"
+    ms.workload="media"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="10/05/2015"
+    ms.author="juliako"/>
 
 
 # Get started with delivering content on demand using the Azure Classic Portal
@@ -41,7 +41,7 @@ This tutorial includes the following tasks:
 
 1. In the [Azure Classic Portal](https://manage.windowsazure.com/), click **New**, click **Media Service**, and then click **Quick Create**.
 
-	![Media Services Quick Create](./media/media-services-portal-get-started/wams-QuickCreate.png)
+    ![Media Services Quick Create](./media/media-services-portal-get-started/wams-QuickCreate.png)
 
 2. In **NAME**, enter the name of the new account. A Media Services account name is all lowercase numbers or letters with no spaces, and is 3 to 24 characters in length.
 
@@ -53,15 +53,15 @@ This tutorial includes the following tasks:
 
 6. Click **Quick Create** at the bottom of the form.
 
-	You can monitor the status of the process in the message area at the bottom of the window.
+    You can monitor the status of the process in the message area at the bottom of the window.
 
-	Once the account is successfully created, the status changes to Active.
+    Once the account is successfully created, the status changes to Active.
 
-	At the bottom of the page, the **MANAGE KEYS** button appears. When you click this button, a dialog box with the Media Services account name and the primary and secondary keys is displayed. You will need the account name and the primary key information to programmatically access the Media Services account.
+    At the bottom of the page, the **MANAGE KEYS** button appears. When you click this button, a dialog box with the Media Services account name and the primary and secondary keys is displayed. You will need the account name and the primary key information to programmatically access the Media Services account.
 
-	![Media Services Page](./media/media-services-portal-get-started/wams-mediaservices-page.png)
+    ![Media Services Page](./media/media-services-portal-get-started/wams-mediaservices-page.png)
 
-	When you double-click the account name, the Quick Start page is displayed by default. This page enables you to do some management tasks that are also available on other pages of the portal. For example, you can upload a video file from this page, or do it from the CONTENT page.
+    When you double-click the account name, the Quick Start page is displayed by default. This page enables you to do some management tasks that are also available on other pages of the portal. For example, you can upload a video file from this page, or do it from the CONTENT page.
 
 
 ## Configure streaming endpoint using the portal
@@ -85,15 +85,15 @@ To change the number of streaming reserved units, do the following:
 
 3. To specify the number of streaming units, select the **SCALE** tab and move the **reserved capacity** slider.
 
-	![Scale page](./media/media-services-portal-get-started/media-services-origin-scale.png)
+    ![Scale page](./media/media-services-portal-get-started/media-services-origin-scale.png)
 
 4. Click the **SAVE** button to save your changes.
 
-	The allocation of any new units takes around 20 minutes to complete.
+    The allocation of any new units takes around 20 minutes to complete.
 
-	>[AZURE.NOTE] Currently, going from any positive value of streaming units back to none, can disable streaming for up to an hour.
-	>
-	> The highest number of units specified for the 24-hour period is used in calculating the cost. For information about pricing details, see [Media Services Pricing Details](http://go.microsoft.com/fwlink/?LinkId=275107).
+    >[AZURE.NOTE] Currently, going from any positive value of streaming units back to none, can disable streaming for up to an hour.
+    >
+    > The highest number of units specified for the 24-hour period is used in calculating the cost. For information about pricing details, see [Media Services Pricing Details](http://go.microsoft.com/fwlink/?LinkId=275107).
 
 ## Upload content
 
@@ -103,12 +103,12 @@ To change the number of streaming reserved units, do the following:
 3. Click the **Upload** button on the page or at the bottom of the portal.
 4. In the **Upload content** dialog box, browse to the desired asset file. Click the file and then click **Open** or press Enter.
 
-	![UploadContentDialog][uploadcontent]
+    ![UploadContentDialog][uploadcontent]
 
 5. In the **Upload content** dialog box, click the check button to accept the **File** and **Content Name**.
 6. The upload will start and you can track progress from the bottom of the portal.  
 
-	![JobStatus][status]
+    ![JobStatus][status]
 
 Once the upload has completed, you will see the new asset listed in the Content list. By convention the name will have "**-Source**" appended at the end to help track new content as source content for encoding tasks.
 
@@ -140,31 +140,31 @@ Note that in addition to being able to use the dynamic packaging capabilities, O
 This section describes the steps you can take to encode your content with Azure Media Encoder using the Azure Classic Portal.
 
 1.  Select the file that you would like to encode.
-	If encoding is supported for this file type, the **PROCESS** button will be enabled on the bottom of the CONTENT page.
+    If encoding is supported for this file type, the **PROCESS** button will be enabled on the bottom of the CONTENT page.
 4. In the **Process** dialog box, select the** Azure Media Encoder **processor.
 5. Choose one of the **encoding configurations**.
 
-	![Process2][process2]
+    ![Process2][process2]
 
-	The [Task Preset Strings for Azure Media Encoder](https://msdn.microsoft.com/library/azure/dn619392.aspx) topic explains what each preset in **Presets for Adaptive Streaming (dynamic packaging)**, **Presets for Progressive Download**, **Legacy Prsests for Adaptive Streaming**  categories means.  
+    The [Task Preset Strings for Azure Media Encoder](https://msdn.microsoft.com/library/azure/dn619392.aspx) topic explains what each preset in **Presets for Adaptive Streaming (dynamic packaging)**, **Presets for Progressive Download**, **Legacy Prsests for Adaptive Streaming**  categories means.  
 
-	The **Other** configurations are described next.
+    The **Other** configurations are described next.
 
-	+ **Encode with PlayReady content protection**. This preset produces an asset encoded with PlayReady content protection.  
+    + **Encode with PlayReady content protection**. This preset produces an asset encoded with PlayReady content protection.  
 
-		By default the Media Services PlayReady license service is used. To specify some other service from which clients can obtain a license to play the PlayReady encrypted content, use REST or Media Services .NET SDK APIs. For more information, see [Using Static Encryption to Protect your Content]() and set the **licenseAcquisitionUrl** property in the Media Encryptor preset. Alternatively, you can use dynamic encryption and set the **PlayReadyLicenseAcquisitionUrl** property as described in [Using PlayReady Dynamic Encryption and License Delivery Service](http://go.microsoft.com/fwlink/?LinkId=507720 ).
-	+ **Playback on PC/Mac (via Flash/Silverlight)**. This preset produces a Smooth Streaming asset with the following characteristics: 44.1 kHz 16 bits/sample stereo audio CBR encoded at 96 kbps using AAC, and 720p video CBR encoded at 6 bitrates ranging from 3400 kbps to 400 kbps using H.264 Main Profile, and two second GOPs.
-	+ **Playback via HTML5 (IE/Chrome/Safari)**. This preset produces a single MP4 file with the following characteristics: 44.1 kHz 16 bits/sample stereo audio CBR encoded at 128 kbps using AAC, and 720p video CBR encoded at 4500 kbps using H.264 Main Profile.
-	+ **Playback on iOS devices and PC/Mac**. This preset produces an asset with the same characteristics as the Smooth Streaming asset (described earlier), but in a format that can be used to deliver Apple HLS streams to iOS devices.
+        By default the Media Services PlayReady license service is used. To specify some other service from which clients can obtain a license to play the PlayReady encrypted content, use REST or Media Services .NET SDK APIs. For more information, see [Using Static Encryption to Protect your Content]() and set the **licenseAcquisitionUrl** property in the Media Encryptor preset. Alternatively, you can use dynamic encryption and set the **PlayReadyLicenseAcquisitionUrl** property as described in [Using PlayReady Dynamic Encryption and License Delivery Service](http://go.microsoft.com/fwlink/?LinkId=507720 ).
+    + **Playback on PC/Mac (via Flash/Silverlight)**. This preset produces a Smooth Streaming asset with the following characteristics: 44.1 kHz 16 bits/sample stereo audio CBR encoded at 96 kbps using AAC, and 720p video CBR encoded at 6 bitrates ranging from 3400 kbps to 400 kbps using H.264 Main Profile, and two second GOPs.
+    + **Playback via HTML5 (IE/Chrome/Safari)**. This preset produces a single MP4 file with the following characteristics: 44.1 kHz 16 bits/sample stereo audio CBR encoded at 128 kbps using AAC, and 720p video CBR encoded at 4500 kbps using H.264 Main Profile.
+    + **Playback on iOS devices and PC/Mac**. This preset produces an asset with the same characteristics as the Smooth Streaming asset (described earlier), but in a format that can be used to deliver Apple HLS streams to iOS devices.
 
 5. Then, enter the desired friendly output content name or accept the default. Then click the check button to start the encoding operation and you can track progress from the bottom of the portal.
 6. Select **OK**.
 
-	After the encoding is done, the CONTENT page will contain the encoded file.
+    After the encoding is done, the CONTENT page will contain the encoded file.
 
-	To view the progress of the encoding job, switch to the **JOBS** page.  
+    To view the progress of the encoding job, switch to the **JOBS** page.  
 
-	If the file size value does not get updated after the encoding is done, select the **Sync Metadata** button. This synchronizes the output asset file size with the actual file size in storage and refreshes the value on the Content page.
+    If the file size value does not get updated after the encoding is done, select the **Sync Metadata** button. This synchronizes the output asset file size with the actual file size in storage and refreshes the value on the Content page.
 
 
 ## Publish content
@@ -177,19 +177,19 @@ When you use the Azure Classic Portal to publish your assets, the locators are c
 
 A SAS URL has the following format.
 
-	{blob container name}/{asset name}/{file name}/{SAS signature}
+    {blob container name}/{asset name}/{file name}/{SAS signature}
 
 A streaming URL has the following format and you can use it to play Smooth Streaming assets.
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
+    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
 
 To build an HLS streaming URL, append (format=m3u8-aapl) to the URL.
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
+    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
 
 To build an  MPEG DASH streaming URL, append (format=mpd-time-csf) to the URL.
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
+    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
 
 
 Locators have an expiration date. When using the portal to publish your assets, locators with a 100 year expiration date are created.
@@ -260,3 +260,4 @@ If this topic didn't contain what you were expecting, is missing something, or i
 [process2]: ./media/media-services-portal-get-started/media-services-process-video2.png
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-portal-get-started/media-services-portal-player.png
+

@@ -275,7 +275,7 @@ The application manifest below shows many of the different settings described ab
       <DefaultRunAsPolicy UserRef="LocalAdmin" />
    </Policies>
    <Certificates>
-	 <EndpointCertificate Name="Cert1" X509FindValue="FF EE E0 TT JJ DD JJ EE EE XX 23 4T 66 "/>
+     <EndpointCertificate Name="Cert1" X509FindValue="FF EE E0 TT JJ DD JJ EE EE XX 23 4T 66 "/>
   </Certificates>
 </ApplicationManifest>
 ~~~
@@ -289,3 +289,4 @@ The application manifest below shows many of the different settings described ab
 * [Deploy an application](service-fabric-deploy-remove-applications.md)
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png
+

@@ -30,10 +30,10 @@ Similarly, the REST APIs for **SQL Azure Database** can also be used for **SQL D
 2. To run the module, at the start window type **Microsoft Azure PowerShell**.
 3. If you have not already added your account to the machine, run the following cmdlet. (For more information, see [How to install and configure Azure PowerShell]():
 
-		Add-AzureAccount
+        Add-AzureAccount
 3. Switch the mode with this cmdlet:
 
-		Switch-AzureMode AzureResourceManager
+        Switch-AzureMode AzureResourceManager
 
 ## Suspend-AzureSqlDatabase
 ### Example 1: Pause a database by name on a server
@@ -47,8 +47,8 @@ This example pauses a database named "Database02" hosted on a server named "Serv
 
 This example retrieves a database named "Database02" from a server named "Server01" contained in a resource group named "ResourceGroup1." It pipes the retrieved object to **Suspend-AzureSqlDatabase**. As a result, the database is paused.
 
-	$database = Get-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
-	$resultDatabase = $database | Suspend-AzureSqlDatabase
+    $database = Get-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
+    $resultDatabase = $database | Suspend-AzureSqlDatabase
 
 ## Resume-AzureSqlDatabase
 
@@ -56,14 +56,14 @@ This example retrieves a database named "Database02" from a server named "Server
 
 This example resumes operation of a database named "Database02" hosted on a server named "Server01." The server is contained in a resource group named "ResourceGroup1."
 
-	Resume-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
+    Resume-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
 
 ### Example 2: Resuming a database object
 
 This example retrieves a database named "Database02" from a server named "Server01" that is contained in a resource group named "ResourceGroup1." The object is piped to **Resume-AzureSqlDatabase**. 
 
-	$database = Get-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
-	$resultDatabase = $database | Resume-AzureSqlDatabase
+    $database = Get-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
+    $resultDatabase = $database | Resume-AzureSqlDatabase
 
 ## Get-AzureSqlDatabaseRestorePoints
 
@@ -79,7 +79,7 @@ RestorePointCreationDate |Backup Snapshot Time (Populated when restorePointType 
 ### Example 1: Retrieving a database’s restore points by name on a server
 This example retrieves the restore points for a database named "Database02" from a server named "Server01," contained in a resource group named "ResourceGroup1."
 
-	$restorePoints = Get-AzureSqlDatabaseRestorePoints –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
+    $restorePoints = Get-AzureSqlDatabaseRestorePoints –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
 
 
 
@@ -87,8 +87,8 @@ This example retrieves the restore points for a database named "Database02" from
 
 This example retrieves a database named "Database02" from a server named "Server01," contained in a resource group named "ResourceGroup1." The database object is piped to **Get-AzureSqlDatabase**, and the result is the database’s restore points.
 
-	$database = Get-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
-	$restorePoints = $database | Get-AzureSqlDatabaseRestorePoints
+    $database = Get-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
+    $restorePoints = $database | Get-AzureSqlDatabaseRestorePoints
 
 
 
@@ -111,3 +111,4 @@ For more reference information, see [SQL Data Warehouse reference overview][].
 [gog]: http://google.com/
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
+

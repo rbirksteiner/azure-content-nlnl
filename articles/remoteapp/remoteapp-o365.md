@@ -48,3 +48,4 @@ When you activate your account, this will affect all the RemoteApp collections i
 
 
 If you do not transition to production mode by the expiration of your trial, your RemoteApp collections will be disabled. Don't worry - Your settings and users’ data are saved for another 90 days, so you can still activate your service and switch to production mode without any data loss.
+

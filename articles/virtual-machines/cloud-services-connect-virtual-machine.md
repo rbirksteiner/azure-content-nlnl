@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Connect VMs in a cloud service | Microsoft Azure"
-	description="Connect a virtual machine created with the classic deployment model to an Azure cloud service or virtual network."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="cynthn"
-	manager="timlt"
-	editor=""
-	tags="azure-service-management"/>
+    pageTitle="Connect VMs in a cloud service | Microsoft Azure"
+    description="Connect a virtual machine created with the classic deployment model to an Azure cloud service or virtual network."
+    services="virtual-machines"
+    documentationCenter=""
+    authors="cynthn"
+    manager="timlt"
+    editor=""
+    tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-multiple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/15/2015"
-	ms.author="cynthn"/>
+    ms.service="virtual-machines"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-multiple"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/15/2015"
+    ms.author="cynthn"/>
 
 
 # Connect virtual machines created with the classic deployment model with a virtual network or cloud service
@@ -41,9 +41,9 @@ Virtual networks are the recommended way to connect virtual machines in Azure. T
 
 To connect virtual machines in a virtual network:
 
-1.	Create the virtual network in the [Azure portal](../articles/virtual-network/virtual-networks-create-vnet-classic-pportal.md).
-2.	Create the set of cloud services for your deployment to reflect your design for availability sets and load balancing. In the Azure classic portal, click **New > Compute > Cloud Service > Custom Create** for each cloud service.
-3.	To create each new virtual machine, click **New > Compute > Virtual Machine > From Gallery**. Choose the correct cloud service and virtual network for the VM. If the cloud service is already joined to a virtual network, its name will already be selected for you.
+1.  Create the virtual network in the [Azure portal](../articles/virtual-network/virtual-networks-create-vnet-classic-pportal.md).
+2.  Create the set of cloud services for your deployment to reflect your design for availability sets and load balancing. In the Azure classic portal, click **New > Compute > Cloud Service > Custom Create** for each cloud service.
+3.  To create each new virtual machine, click **New > Compute > Virtual Machine > From Gallery**. Choose the correct cloud service and virtual network for the VM. If the cloud service is already joined to a virtual network, its name will already be selected for you.
 
 ![Selecting a cloud service for a virtual machine](./media/howto-connect-vm-cloud-service/VMConfig1.png)
 
@@ -51,8 +51,8 @@ To connect virtual machines in a virtual network:
 
 To connect virtual machines in a standalone cloud service:
 
-1.	Create the cloud service in the [Azure classic portal](http://manage.windowsazure.com). Click **New > Compute > Cloud Service > Custom Create**. Or, you can create the cloud service for your deployment when you create your first virtual machine.
-2.	When you create the virtual machines, choose the name of cloud service created in the previous step.
+1.  Create the cloud service in the [Azure classic portal](http://manage.windowsazure.com). Click **New > Compute > Cloud Service > Custom Create**. Or, you can create the cloud service for your deployment when you create your first virtual machine.
+2.  When you create the virtual machines, choose the name of cloud service created in the previous step.
 ![Add a virtual machine to an existing cloud service](./media/howto-connect-vm-cloud-service/Connect-VM-to-CS.png)
 
 ##Resources
@@ -67,3 +67,4 @@ After you create a virtual machine, it's a good idea to add a data disk so your 
 [How to Attach a Data Disk to a Linux Virtual Machine](../articles/virtual-machines/virtual-machines-linux-how-to-attach-disk.md)
 
 [How to Attach a Data Disk to a Windows Virtual Machine](../articles/virtual-machines/storage-windows-attach-disk.md)
+

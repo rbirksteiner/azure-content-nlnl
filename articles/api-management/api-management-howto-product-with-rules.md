@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Protect your API with Azure API Management | Microsoft Azure"
-	description="Learn how to protect your API with quotas and throttling (rate-limiting) policies."
-	services="api-management"
-	documentationCenter=""
-	authors="steved0x"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Protect your API with Azure API Management | Microsoft Azure"
+    description="Learn how to protect your API with quotas and throttling (rate-limiting) policies."
+    services="api-management"
+    documentationCenter=""
+    authors="steved0x"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="api-management"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="12/07/2015"
-	ms.author="sdanie"/>
+    ms.service="api-management"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="12/07/2015"
+    ms.author="sdanie"/>
 
 # Protect your API with rate limits using Azure API Management
 
@@ -103,64 +103,64 @@ The two policies we are adding in this tutorial are the [Limit call rate][] and 
 
 After the cursor is positioned in the **inbound** policy element, click the arrow beside **Limit call rate** to insert its policy template.
 
-	<rate-limit calls="number" renewal-period="seconds">
-	<api name="name" calls="number">
-	<operation name="name" calls="number" />
-	</api>
-	</rate-limit>
+    <rate-limit calls="number" renewal-period="seconds">
+    <api name="name" calls="number">
+    <operation name="name" calls="number" />
+    </api>
+    </rate-limit>
 
 **Limit call rate** can be used at the product level and can also be used at the API and individual operation name levels. In this tutorial, only product-level policies are used, so delete the **api** and **operation** elements from the **rate-limit** element, so only the outer **rate-limit** element remains, as shown in the following example.
 
-	<rate-limit calls="number" renewal-period="seconds">
-	</rate-limit>
+    <rate-limit calls="number" renewal-period="seconds">
+    </rate-limit>
 
 In the Free Trial product, the maximum allowable call rate is 10 calls per minute, so type **10** as the value for the **calls** attribute, and **60** for the **renewal-period** attribute.
 
-	<rate-limit calls="10" renewal-period="60">
-	</rate-limit>
+    <rate-limit calls="10" renewal-period="60">
+    </rate-limit>
 
 To configure the **Set usage quota** policy, position your cursor immediately below the newly added **rate-limit** element within the **inbound** element, and then click the arrow to the left of **Set usage quota**.
 
-	<quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
-	<api name="name" calls="number" bandwidth="kilobytes">
-	<operation name="name" calls="number" bandwidth="kilobytes" />
-	</api>
-	</quota>
+    <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
+    <api name="name" calls="number" bandwidth="kilobytes">
+    <operation name="name" calls="number" bandwidth="kilobytes" />
+    </api>
+    </quota>
 
 Because this policy is also intended to be at the product level, delete the **api** and **operation** name elements, as shown in the following example.
 
-	<quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
-	</quota>
+    <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
+    </quota>
 
 Quotas can be based on the number of calls per interval, bandwidth, or both. In this tutorial, we are not throttling based on bandwidth, so delete the **bandwidth** attribute.
 
-	<quota calls="number" renewal-period="seconds">
-	</quota>
+    <quota calls="number" renewal-period="seconds">
+    </quota>
 
 In the Free Trial product, the quota is 200 calls per week. Specify **200** as the value for the **calls** attribute, and then specify **604800** as the value for the **renewal-period** attribute.
 
-	<quota calls="200" renewal-period="604800">
-	</quota>
+    <quota calls="200" renewal-period="604800">
+    </quota>
 
 >Policy intervals are specified in seconds. To calculate the interval for a week, you can multiply the number of days (7) by the number of hours in a day (24) by the number of minutes in an hour (60) by the number of seconds in a minute (60): 7 * 24 * 60 * 60 = 604800.
 
 When you have finished configuring the policy, it should match the following example.
 
-	<policies>
-		<inbound>
-			<rate-limit calls="10" renewal-period="60">
-			</rate-limit>
-			<quota calls="200" renewal-period="604800">
-			</quota>
-			<base />
+    <policies>
+        <inbound>
+            <rate-limit calls="10" renewal-period="60">
+            </rate-limit>
+            <quota calls="200" renewal-period="604800">
+            </quota>
+            <base />
 
-	</inbound>
-	<outbound>
+    </inbound>
+    <outbound>
 
-		<base />
+        <base />
 
-		</outbound>
-	</policies>
+        </outbound>
+    </policies>
 
 After the desired policies are configured, click **Save**.
 
@@ -237,8 +237,8 @@ When the rate limit policy of 10 calls per minute is in effect, subsequent calls
 
 ## <a name="next-steps"> </a>Next steps
 
--	Check out the other topics in the [Get started with advanced API configuration][] tutorial.
--	Watch a demo of setting rate limits and quotas in the following video.
+-   Check out the other topics in the [Get started with advanced API configuration][] tutorial.
+-   Watch a demo of setting rate limits and quotas in the following video.
 
 > [AZURE.VIDEO rate-limits-and-quotas]
 
@@ -292,3 +292,4 @@ When the rate limit policy of 10 calls per minute is in effect, subsequent calls
 
 [Limit call rate]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [Set usage quota]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
+

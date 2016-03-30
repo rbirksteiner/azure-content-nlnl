@@ -61,3 +61,4 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 <!-- IMG List -->
 
 [ic719493]: ./media/azure-toolkit-for-eclipse-azure-service-endpoints/ic719493.png
+

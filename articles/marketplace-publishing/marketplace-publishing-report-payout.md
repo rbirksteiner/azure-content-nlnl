@@ -70,3 +70,4 @@ For other support queries, please log an issue at https://portal.azure.com.
 [3]: ./media/marketplace-publishing-report-payout/financialdefinitions.png
 [4]: ./media/marketplace-publishing-report-payout/ledgerdefinitions.png
 [5]: ./media/marketplace-publishing-report-payout/payoutquestions.png
+

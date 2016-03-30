@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Send Push Notifications to Authenticated Users in iOS (JavaScript backend)"
-	description="Learn how to send push notifications to specific users"
-	services="mobile-services,notification-hubs"
-	documentationCenter="ios"
-	authors="krisragh"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Send Push Notifications to Authenticated Users in iOS (JavaScript backend)"
+    description="Learn how to send push notifications to specific users"
+    services="mobile-services,notification-hubs"
+    documentationCenter="ios"
+    authors="krisragh"
+    manager="dwrede"
+    editor=""/>
 
 
 <tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-ios"
-	ms.devlang="objective-c"
-	ms.topic="article"
-	ms.date="10/01/2015"
-	ms.author="krisragh"/>
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-ios"
+    ms.devlang="objective-c"
+    ms.topic="article"
+    ms.date="10/01/2015"
+    ms.author="krisragh"/>
 
 # Send Push Notifications to Authenticated Users
 
@@ -70,3 +70,4 @@ function insert(item, user, request) {
 [Get started with authentication]: mobile-services-ios-get-started-users.md
 [Get started with push notifications]: mobile-services-javascript-backend-ios-get-started-push.md
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-ios-how-to-use-client-library.md
+

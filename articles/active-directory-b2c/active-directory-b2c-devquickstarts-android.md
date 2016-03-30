@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure AD B2C Preview: Calling a Web API from an Android application | Microsoft Azure"
-	description="This article will show you how to create an Android "To-Do List" app that calls a node.js web API using OAuth 2.0 bearer tokens. Both the Android app and web api use Azure AD B2C to manage user identities and authenticate users."
-	services="active-directory-b2c"
-	documentationCenter="android"
-	authors="brandwe"
-	manager="msmbaldwin"
-	editor=""/>
+    pageTitle="Azure AD B2C Preview: Calling a Web API from an Android application | Microsoft Azure"
+    description="This article will show you how to create an Android "To-Do List" app that calls a node.js web API using OAuth 2.0 bearer tokens. Both the Android app and web api use Azure AD B2C to manage user identities and authenticate users."
+    services="active-directory-b2c"
+    documentationCenter="android"
+    authors="brandwe"
+    manager="msmbaldwin"
+    editor=""/>
 
 <tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="mobile-android"
-	ms.devlang="java"
-	ms.topic="article"
-	ms.date="11/19/2015"
-	ms.author="brandwe"/>
+    ms.service="active-directory-b2c"
+    ms.workload="identity"
+    ms.tgt_pltfrm="mobile-android"
+    ms.devlang="java"
+    ms.topic="article"
+    ms.date="11/19/2015"
+    ms.author="brandwe"/>
 
 # Azure AD B2C Preview: Calling a Web API from an Android application
 
@@ -23,22 +23,22 @@ and authenticate users.
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
- 	
+    
 > [AZURE.NOTE]
-	This quickstart has a pre-requisite that you have a Web API protected by Azure AD with B2C in order to work fully. We have built one for both .Net and node.js for you to use. This walk-through assumes the node.js Web-API sample is configured. 
-	please refer to the [Azure AD B2C Web API for Node.js tutorial](active-directory-b2c-devquickstarts-api-node.md).
+    This quickstart has a pre-requisite that you have a Web API protected by Azure AD with B2C in order to work fully. We have built one for both .Net and node.js for you to use. This walk-through assumes the node.js Web-API sample is configured. 
+    please refer to the [Azure AD B2C Web API for Node.js tutorial](active-directory-b2c-devquickstarts-api-node.md).
 
  
 > [AZURE.NOTE]
-	This article does not cover how to implement sign-in, sign-up and profile management with Azure AD B2C.  It focuses on calling web APIs after the user is already authenticated.
+    This article does not cover how to implement sign-in, sign-up and profile management with Azure AD B2C.  It focuses on calling web APIs after the user is already authenticated.
     If you haven't already, you should start with the [.NET Web App getting started tutorial](active-directory-b2c-devquickstarts-web-dotnet.md) to learn about the basics of Azure AD B2C.
 
 
 For Android clients that need to access protected resources, Azure AD provides the Active Directory Authentication Library, or ADAL.  ADAL’s sole purpose in life is to make it easy for your app to get access tokens.  To demonstrate just how easy it is, here we’ll build an Android To-Do List application that:
 
--	Gets access tokens for calling a To-Do List API using the [OAuth 2.0 authentication protocol](https://msdn.microsoft.com/library/azure/dn645545.aspx).
--	Gets a user's To-Do List
--	Signs users out.
+-   Gets access tokens for calling a To-Do List API using the [OAuth 2.0 authentication protocol](https://msdn.microsoft.com/library/azure/dn645545.aspx).
+-   Gets a user's To-Do List
+-   Signs users out.
 
 
 
@@ -220,7 +220,7 @@ public class Constants {
 ### Step 7: Add references to Android ADAL to your project
 
 
-> [AZURE.NOTE]	ADAL for Android uses an Intent based model to invoke Authentication. Intents lay "over" the app to do work. This entire sample, and indeed all of using ADAL for Android, is managing intents and passing information between them. 
+> [AZURE.NOTE]  ADAL for Android uses an Intent based model to invoke Authentication. Intents lay "over" the app to do work. This entire sample, and indeed all of using ADAL for Android, is managing intents and passing information between them. 
 
 
 The first thing we have to do is tell Android about the layout of our application including the Intents() we wish to use. I'll explain these intents in detail later. 
@@ -413,17 +413,17 @@ import com.microsoft.aad.taskapplication.helpers.Constants;
  */
 public class SettingsActivity extends Activity {
 
-	//private CheckBox checkboxAskBroker, checkboxCheckBroker;
+    //private CheckBox checkboxAskBroker, checkboxCheckBroker;
     private Switch fullScreenSwitch;
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_settings);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_settings);
 
         loadSettings();
-//		checkboxAskBroker = (CheckBox) findViewById(R.id.askInstall);
-//		checkboxCheckBroker = (CheckBox) findViewById(R.id.useBroker);
+//      checkboxAskBroker = (CheckBox) findViewById(R.id.askInstall);
+//      checkboxCheckBroker = (CheckBox) findViewById(R.id.useBroker);
 
         Button save = (Button) findViewById(R.id.settingsSave);
 
@@ -471,7 +471,7 @@ public class SettingsActivity extends Activity {
         });
 
 
-	}
+    }
 
     private void loadSettings() {
         TextView textView = (TextView)findViewById(R.id.authority);
@@ -499,13 +499,13 @@ public class SettingsActivity extends Activity {
         fullScreenSwitch.setChecked(Constants.FULL_SCREEN);
     }
 
-	private void saveSettings(String key, boolean value) {
-		SharedPreferences prefs = SettingsActivity.this.getSharedPreferences(
-				Constants.SHARED_PREFERENCE_NAME, Activity.MODE_PRIVATE);
-		Editor prefsEditor = prefs.edit();
-		prefsEditor.putBoolean(key, value);
-		prefsEditor.commit();
-	}
+    private void saveSettings(String key, boolean value) {
+        SharedPreferences prefs = SettingsActivity.this.getSharedPreferences(
+                Constants.SHARED_PREFERENCE_NAME, Activity.MODE_PRIVATE);
+        Editor prefsEditor = prefs.edit();
+        prefsEditor.putBoolean(key, value);
+        prefsEditor.commit();
+    }
 }
 ```
 
@@ -756,7 +756,7 @@ public class ToDoActivity extends Activity {
 ```
 
         
- You may notice that this relies on methods we haven't written yet, such as `updateLoggedInUser()`, `clearSessionCookie()` and `getTasks()`. We'll write those below.	You can safely ignore the errors in Android Studio for now.
+ You may notice that this relies on methods we haven't written yet, such as `updateLoggedInUser()`, `clearSessionCookie()` and `getTasks()`. We'll write those below.   You can safely ignore the errors in Android Studio for now.
 
 Explanation of the parameters:
 
@@ -770,7 +770,7 @@ Explanation of the parameters:
 
   The Callback will have an object of AuthenticationResult which has accesstoken, date expired, and idtoken info.
 
-> [AZURE.NOTE]	Microsoft Intune's Company portal app provides the broker component and may be installed on the user's device. Developers should be prepared to allow for it's use as it provides SSO across all applications on the device. ADAL for Android will use the broker account if there is one user account created in the Authenticator. To use the broker, the developer needs to register a special redirectUri for broker usage. RedirectUri is in the format of msauth://packagename/Base64UrlencodedSignature. You can get your redirecturi for your app using the script `brokerRedirectPrint.ps1` or use API call `mContext.getBrokerRedirectUri()`. The signature is related to your signing certificates from the Google Play store.
+> [AZURE.NOTE]  Microsoft Intune's Company portal app provides the broker component and may be installed on the user's device. Developers should be prepared to allow for it's use as it provides SSO across all applications on the device. ADAL for Android will use the broker account if there is one user account created in the Authenticator. To use the broker, the developer needs to register a special redirectUri for broker usage. RedirectUri is in the format of msauth://packagename/Base64UrlencodedSignature. You can get your redirecturi for your app using the script `brokerRedirectPrint.ps1` or use API call `mContext.getBrokerRedirectUri()`. The signature is related to your signing certificates from the Google Play store.
 
  A Developer can skip the broker user with:
 

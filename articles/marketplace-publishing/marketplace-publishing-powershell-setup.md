@@ -29,3 +29,4 @@ The first command associates a default storage account with the subscription (ne
 ## See also
 - [Getting started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md)
 - [Creating a virtual machine image for the Marketplace](marketplace-publishing-vm-image-creation.md)
+

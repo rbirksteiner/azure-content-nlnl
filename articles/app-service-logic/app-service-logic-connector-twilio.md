@@ -27,38 +27,38 @@ A connector can be created within a logic app or be created directly from the Az
 2. Search for “Twilio Connector”, select it, and select **Create**.
 3. Configure the Twilio connector as follows:  
 ![][1]  
-	- **Location** - choose the geographic location where you would like the connector to be deployed
-	- **Subscription** - choose a subscription you want this connector to be created in
-	- **Resource group** - select or create a resource group where the connector should reside
-	- **Web hosting plan** - select or create a web hosting plan
-	- **Pricing tier** - choose a pricing tier for the connector
-	- **Name** - give a name for your Twilio Connector
-	- **Package settings**
-		- **Account SID** - The unique identifier of the account. Account SID for your account can be retrieved from <https://www.twilio.com/user/account/settings>
-		- **Auth Token** - Authorization token associated with the account. Authorization Token for your account can be retrieved from <https://www.twilio.com/user/account/settings>
+    - **Location** - choose the geographic location where you would like the connector to be deployed
+    - **Subscription** - choose a subscription you want this connector to be created in
+    - **Resource group** - select or create a resource group where the connector should reside
+    - **Web hosting plan** - select or create a web hosting plan
+    - **Pricing tier** - choose a pricing tier for the connector
+    - **Name** - give a name for your Twilio Connector
+    - **Package settings**
+        - **Account SID** - The unique identifier of the account. Account SID for your account can be retrieved from <https://www.twilio.com/user/account/settings>
+        - **Auth Token** - Authorization token associated with the account. Authorization Token for your account can be retrieved from <https://www.twilio.com/user/account/settings>
 
 
-4.	Click on Create. A new Twilio Connector is created.
-5.	Once the API app instance is created, you can create a logic App to use the Twilio connector.
+4.  Click on Create. A new Twilio Connector is created.
+5.  Once the API app instance is created, you can create a logic App to use the Twilio connector.
 
 ## Using the Twilio Connector in your Logic App ##
 Once your API app is created, you can now use the Twilio connector as an action for your Logic App. To do this, you need to:
 
-1.	Create a new Logic App and choose the same resource group which has the Twilio Connector:  
+1.  Create a new Logic App and choose the same resource group which has the Twilio Connector:  
 ![][2]
-2.	Open “Triggers and Actions” to open the Logic Apps Designer and configure your flow:  
+2.  Open “Triggers and Actions” to open the Logic Apps Designer and configure your flow:  
 ![][3]
-3.	The Twilio connector would appear in the “API Apps in this resource group” section in the gallery on the right hand side:  
+3.  The Twilio connector would appear in the “API Apps in this resource group” section in the gallery on the right hand side:  
 ![][4]
 4. You can drop the Twilio Connector API app into the editor by clicking on the “Twilio Connector”.
 
-5.	You can now use Twilio connector in the flow. You can use the "Send Message" action in the flow to send a message. Configure the input properties for "Send Message" action as follows:
-	- **From Phone Number** - Enter a Twilio phone number enabled for the type of message you wish to send. Only phone numbers or short codes purchased from Twilio will work with this connector.
-	- **To Phone Number** - The destination phone number. The format accepted is: +, followed by the country code, then the phone number. For example, +16175551212. If you omit the +, Twilio will use the country code you entered in the 'From' number.
-	- **Text** - The text of the message you want to send.
+5.  You can now use Twilio connector in the flow. You can use the "Send Message" action in the flow to send a message. Configure the input properties for "Send Message" action as follows:
+    - **From Phone Number** - Enter a Twilio phone number enabled for the type of message you wish to send. Only phone numbers or short codes purchased from Twilio will work with this connector.
+    - **To Phone Number** - The destination phone number. The format accepted is: +, followed by the country code, then the phone number. For example, +16175551212. If you omit the +, Twilio will use the country code you entered in the 'From' number.
+    - **Text** - The text of the message you want to send.
 
-	![][5]  
-	![][6]
+    ![][5]  
+    ![][6]
 
 ## Do more with your Connector
 Now that the connector is created, you can add it to a business workflow using a Logic App. See [What are Logic Apps?](app-service-logic-what-are-logic-apps.md).
@@ -76,3 +76,4 @@ You can also review performance statistics and control security to the connector
 [4]: ./media/app-service-logic-connector-twilio/img4.png
 [5]: ./media/app-service-logic-connector-twilio/img5.PNG
 [6]: ./media/app-service-logic-connector-twilio/img6.PNG
+

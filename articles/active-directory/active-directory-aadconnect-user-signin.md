@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure AD Connect: User Sign In | Microsoft Azure"
-	description="Azure AD Connect user sign in for custom settings."
-	services="active-directory"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
-	editor="curtand"/>
+    pageTitle="Azure AD Connect: User Sign In | Microsoft Azure"
+    description="Azure AD Connect user sign in for custom settings."
+    services="active-directory"
+    documentationCenter=""
+    authors="billmath"
+    manager="stevenpo"
+    editor="curtand"/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/13/2015"
-	ms.author="billmath"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/13/2015"
+    ms.author="billmath"/>
 
 
 
@@ -61,10 +61,11 @@ Some organizations, however, have particular reasons for using a federated sign 
 - Your security policy prohibits synchronizing password hashes to the cloud
 - You require that users experience seamless SSO (without additional password prompts) when accessing cloud resources from domain joined machines on the corporate network
 - You require some specific capabilities AD FS has
-	- On-premises multi-factor authentication using a third party provider or smart cards (learn about third party MFA providers for AD FS in Windows Server 2012 R2)
-	- Active Directory integration features such as soft account lockout or AD password and work hours policy
-	- Conditional access to both on-premises and cloud resources using device registration, Azure AD join, or Intune MDM policies
+    - On-premises multi-factor authentication using a third party provider or smart cards (learn about third party MFA providers for AD FS in Windows Server 2012 R2)
+    - Active Directory integration features such as soft account lockout or AD password and work hours policy
+    - Conditional access to both on-premises and cloud resources using device registration, Azure AD join, or Intune MDM policies
 
 
 ## Next steps
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
+

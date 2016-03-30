@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Use SSH on Windows to connect to Linux virtual machines | Microsoft Azure" 
+    pageTitle="Use SSH on Windows to connect to Linux virtual machines | Microsoft Azure" 
 description="Learn how to generate and use SSH keys on a Windows computer to connect to a Linux virtual machine on Azure." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="squillace" 
-	manager="timlt" 
-	editor=""
-	tags="azure-service-management,azure-resource-manager" />
+    services="virtual-machines" 
+    documentationCenter="" 
+    authors="squillace" 
+    manager="timlt" 
+    editor=""
+    tags="azure-service-management,azure-resource-manager" />
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/05/2015" 
-	ms.author="rasquill"/>
+    ms.service="virtual-machines" 
+    ms.workload="infrastructure-services" 
+    ms.tgt_pltfrm="vm-linux" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/05/2015" 
+    ms.author="rasquill"/>
 
 #How to Use SSH with Windows on Azure
 
@@ -58,57 +58,57 @@ Here are the deployment scenarios, and the types of files you use in each:
 
 ### Use Msysgit ###
 
-1.	Download and install msysgit from the following location: [http://msysgit.github.com/](http://msysgit.github.com/)
-2.	Run `msys` from the installed directory (example: c:\msysgit\msys.exe)
-3.	Change to the `bin` directory by typing in `cd bin`
+1.  Download and install msysgit from the following location: [http://msysgit.github.com/](http://msysgit.github.com/)
+2.  Run `msys` from the installed directory (example: c:\msysgit\msys.exe)
+3.  Change to the `bin` directory by typing in `cd bin`
 
 
 ### Use GitHub for Windows ###
 
-1.	Download and install GitHub for Windows from the following location: [http://windows.github.com/](http://windows.github.com/)
-2.	Run Git Shell from the Start Menu > All Programs > GitHub, Inc
+1.  Download and install GitHub for Windows from the following location: [http://windows.github.com/](http://windows.github.com/)
+2.  Run Git Shell from the Start Menu > All Programs > GitHub, Inc
 
 > [AZURE.NOTE] You may encounter the following error when running the `openssl` commands above:
 
-			Unable to load config info from /usr/local/ssl/openssl.cnf
-	<!-- -->
-		The easiest way to resolve this is to set the `OPENSSL_CONF` environment variable. The process for setting this variable will vary depending on the shell that you have configured in Github:
-	<!-- -->
-		**Powershell:**
-	<!-- -->
-			$Env:OPENSSL_CONF="$Env:GITHUB_GIT\ssl\openssl.cnf"
-	<!-- -->
-		**CMD:**
-	<!-- -->
-			set OPENSSL_CONF=%GITHUB_GIT%\ssl\openssl.cnf
-	<!-- -->
-		**Git Bash:**
-	<!-- -->
-			export OPENSSL_CONF=$GITHUB_GIT/ssl/openssl.cnf
-	
+            Unable to load config info from /usr/local/ssl/openssl.cnf
+    <!-- -->
+        The easiest way to resolve this is to set the `OPENSSL_CONF` environment variable. The process for setting this variable will vary depending on the shell that you have configured in Github:
+    <!-- -->
+        **Powershell:**
+    <!-- -->
+            $Env:OPENSSL_CONF="$Env:GITHUB_GIT\ssl\openssl.cnf"
+    <!-- -->
+        **CMD:**
+    <!-- -->
+            set OPENSSL_CONF=%GITHUB_GIT%\ssl\openssl.cnf
+    <!-- -->
+        **Git Bash:**
+    <!-- -->
+            export OPENSSL_CONF=$GITHUB_GIT/ssl/openssl.cnf
+    
 
 ###Use Cygwin###
 
-1.	Download and install Cygwin from the following location: [http://cygwin.com/](http://cygwin.com/)
-2.	Ensure that the OpenSSL package and all of its dependencies are installed.
-3.	Run `cygwin`
+1.  Download and install Cygwin from the following location: [http://cygwin.com/](http://cygwin.com/)
+2.  Ensure that the OpenSSL package and all of its dependencies are installed.
+3.  Run `cygwin`
 
 ## Create a Private Key##
 
-1.	Follow one of the set of instructions above to be able to run `openssl.exe`
-2.	Type in the following command:
+1.  Follow one of the set of instructions above to be able to run `openssl.exe`
+2.  Type in the following command:
 
-		# openssl.exe req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem
+        # openssl.exe req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem
 
-3.	Your screen should look like the following:
+3.  Your screen should look like the following:
 
-	![linuxwelcomegit](./media/virtual-machines-linux-use-ssh-key/linuxwelcomegit.png)
+    ![linuxwelcomegit](./media/virtual-machines-linux-use-ssh-key/linuxwelcomegit.png)
 
-4.	Answer the questions that are asked.
-5.	It would have created two files: `myPrivateKey.key` and `myCert.pem`.
-6.	If you are going to use the API directly, and not use the Management Portal, convert the `myCert.pem` to `myCert.cer` (DER encoded X509 certificate) using the following command:
+4.  Answer the questions that are asked.
+5.  It would have created two files: `myPrivateKey.key` and `myCert.pem`.
+6.  If you are going to use the API directly, and not use the Management Portal, convert the `myCert.pem` to `myCert.cer` (DER encoded X509 certificate) using the following command:
 
-		# openssl.exe  x509 -outform der -in myCert.pem -out myCert.cer
+        # openssl.exe  x509 -outform der -in myCert.pem -out myCert.cer
 
 ## Create a PPK for Putty ##
 
@@ -116,10 +116,10 @@ Here are the deployment scenarios, and the types of files you use in each:
 
 2. Puttygen may not be able to read the private key that was created earlier (`myPrivateKey.key`). Run the following command to translate it into an RSA private key that Puttygen can understand:
 
-		# openssl rsa -in ./myPrivateKey.key -out myPrivateKey_rsa
-		# chmod 600 ./myPrivateKey_rsa
+        # openssl rsa -in ./myPrivateKey.key -out myPrivateKey_rsa
+        # chmod 600 ./myPrivateKey_rsa
 
-	The command above should produce a new private key called myPrivateKey_rsa.
+    The command above should produce a new private key called myPrivateKey_rsa.
 
 3. Run `puttygen.exe`
 
@@ -129,28 +129,28 @@ Here are the deployment scenarios, and the types of files you use in each:
 
 6. Click **Open**. You will receive a prompt which should look like this:
 
-	![linuxgoodforeignkey](./media/virtual-machines-linux-use-ssh-key/linuxgoodforeignkey.png)
+    ![linuxgoodforeignkey](./media/virtual-machines-linux-use-ssh-key/linuxgoodforeignkey.png)
 
 7. Click **OK**
 
 8. Click **Save Private Key**, which is highlighted in the screenshot below:
 
-	![linuxputtyprivatekey](./media/virtual-machines-linux-use-ssh-key/linuxputtygenprivatekey.png)
+    ![linuxputtyprivatekey](./media/virtual-machines-linux-use-ssh-key/linuxputtygenprivatekey.png)
 
 9. Save the file as a PPK
 
 
 ## Use Putty to Connect to a Linux Machine ##
 
-1.	Download and install putty from the following location: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
-2.	Run putty.exe
-3.	Fill in the host name using the IP from the Management Portal:
+1.  Download and install putty from the following location: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
+2.  Run putty.exe
+3.  Fill in the host name using the IP from the Management Portal:
 
-	![linuxputtyconfig](./media/virtual-machines-linux-use-ssh-key/linuxputtyconfig.png)
+    ![linuxputtyconfig](./media/virtual-machines-linux-use-ssh-key/linuxputtyconfig.png)
 
-4.	Before selecting **Open**, click the Connection > SSH > Auth tab to choose your key. See the screenshot below for the field to fill in:
+4.  Before selecting **Open**, click the Connection > SSH > Auth tab to choose your key. See the screenshot below for the field to fill in:
 
-	![linuxputtyprivatekey](./media/virtual-machines-linux-use-ssh-key/linuxputtyprivatekey.png)
+    ![linuxputtyprivatekey](./media/virtual-machines-linux-use-ssh-key/linuxputtyprivatekey.png)
 
-5.	Click **Open** to connect to your virtual machine
+5.  Click **Open** to connect to your virtual machine
  

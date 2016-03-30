@@ -23,8 +23,8 @@
 We will first set up a Virtual Network (VNET) in Azure. We will then add an Active Directory Domain Controller (hosted on an Azure Virtual Machine) to the VNET. Next, we will add existing cloud service roles to the pre-created VNET and subsequently connect them to the Domain Controller.
 
 Before we get started, couple of things to keep in mind:
-1.	This tutorial uses Powershell, so please make sure you have Azure Powershell installed and ready to go. To get help with setting up Azure Powershell, see [How to install and configure Azure PowerShell](../install-configure-powershell.md).
-2.	Your AD Domain Controller and Web/Worker Role instances need to be in the VNET.
+1.  This tutorial uses Powershell, so please make sure you have Azure Powershell installed and ready to go. To get help with setting up Azure Powershell, see [How to install and configure Azure PowerShell](../install-configure-powershell.md).
+2.  Your AD Domain Controller and Web/Worker Role instances need to be in the VNET.
 
 Follow this step-by-step guide and if you run into any issues, leave us a comment below. Someone will get back to you (yes, we do read comments).
 

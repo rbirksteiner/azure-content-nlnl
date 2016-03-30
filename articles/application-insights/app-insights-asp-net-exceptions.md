@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Diagnose failures and exceptions in ASP.NET apps with Application Insights" 
-	description="Capture exceptions from ASP.NET apps along with request telemetry." 
-	services="application-insights" 
+    pageTitle="Diagnose failures and exceptions in ASP.NET apps with Application Insights" 
+    description="Capture exceptions from ASP.NET apps along with request telemetry." 
+    services="application-insights" 
     documentationCenter=".net"
-	authors="alancameronwills" 
-	manager="douge"/>
+    authors="alancameronwills" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/17/2015" 
-	ms.author="awills"/>
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/17/2015" 
+    ms.author="awills"/>
 
 
 # Set up Application Insights: Diagnose exceptions

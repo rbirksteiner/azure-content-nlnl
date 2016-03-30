@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Configure a custom domain name for a web app in Azure App Service that uses Traffic Manager"wpickett"Use a custom domain name for an a web app in Azure App Service that includes Traffic Manager for load balancing." 
+    pageTitle="Configure a custom domain name for a web app in Azure App Service that uses Traffic Manager"wpickett"Use a custom domain name for an a web app in Azure App Service that includes Traffic Manager for load balancing." 
     description="Use a custom domain name for an a web app in Azure App Service that includes Traffic Manager for load balancing." 
-	services="app-service\web" 
-	documentationCenter="" 
-	authors="rmcmurray" 
-	manager="wpickett" 
-	editor=""/>
+    services="app-service\web" 
+    documentationCenter="" 
+    authors="rmcmurray" 
+    manager="wpickett" 
+    editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/18/2015" 
-	ms.author="robmcm"/>
+    ms.service="app-service-web" 
+    ms.workload="web" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/18/2015" 
+    ms.author="robmcm"/>
 
 #Configuring a custom domain name for a web app in Azure App Service using Traffic Manager
 
@@ -49,9 +49,9 @@ To associate your custom domain with a web app in Azure App Service, you must ad
 
 4. Once you have found the management page for your domain name, look for a link that allows you to edit the DNS records. This might be listed as a **Zone file**, **DNS Records**, or as an **Advanced** configuration link.
 
-	* The page will most likely have a few records already created, such as an entry associating '**@**' or '\*' with a 'domain parking' page. It may also contain records for common sub-domains such as **www**.
-	* The page will mention **CNAME records**, or provide a drop-down to select a record type. It may also mention other records such as **A records** and **MX records**. In some cases, CNAME records will be called by other names such as an **Alias Record**.
-	* The page will also have fields that allow you to **map** from a **Host name** or **Domain name** to another domain name.
+    * The page will most likely have a few records already created, such as an entry associating '**@**' or '\*' with a 'domain parking' page. It may also contain records for common sub-domains such as **www**.
+    * The page will mention **CNAME records**, or provide a drop-down to select a record type. It may also mention other records such as **A records** and **MX records**. In some cases, CNAME records will be called by other names such as an **Alias Record**.
+    * The page will also have fields that allow you to **map** from a **Host name** or **Domain name** to another domain name.
 
 5. While the specifics of each registrar vary, in general you map *from* your custom domain name (such as **contoso.com**,) *to* the Traffic Manager domain name (**contoso.trafficmanager.net**) that is used for your web app.
 
@@ -67,3 +67,4 @@ To associate your custom domain with a web app in Azure App Service, you must ad
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
  
  
+

@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Connect to SQL Database by using Ruby with TinyTDS on Windows"
-	description="Give a Ruby code sample you can run on Windows to connect to Azure SQL Database."
-	services="sql-database"
-	documentationCenter=""
-	authors="meet-bhagdev"
-	manager="jeffreyg"
-	editor=""/>
+    pageTitle="Connect to SQL Database by using Ruby with TinyTDS on Windows"
+    description="Give a Ruby code sample you can run on Windows to connect to Azure SQL Database."
+    services="sql-database"
+    documentationCenter=""
+    authors="meet-bhagdev"
+    manager="jeffreyg"
+    editor=""/>
 
 
 <tags
-	ms.service="sql-database"
-	ms.workload="sql-database"
-	ms.tgt_pltfrm="na"
-	ms.devlang="ruby"
-	ms.topic="article"
-	ms.date="12/08/2015"
-	ms.author="mebha"/>
+    ms.service="sql-database"
+    ms.workload="sql-database"
+    ms.tgt_pltfrm="na"
+    ms.devlang="ruby"
+    ms.topic="article"
+    ms.date="12/08/2015"
+    ms.author="mebha"/>
 
 
 # Connect to SQL Database by using Ruby on Windows
@@ -55,16 +55,16 @@ After the download is finished, do the following:
 
 Now open the Command Prompt and enter the following commands:
 
-	> chdir C:\DevKit
-	> ruby dk.rb init
-	> ruby dk.rb install
+    > chdir C:\DevKit
+    > ruby dk.rb init
+    > ruby dk.rb install
 
 You now have a fully functional Ruby and RubyGems!
 
 
 **3) TinyTDS:** Navigate to C:\DevKit and run the following command from your terminal. This will install TinyTDS on your machine.
 
-	gem inst tiny_tds --pre
+    gem inst tiny_tds --pre
 
 ### A SQL database
 
@@ -88,7 +88,7 @@ The [TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) function is u
 
 Copy and paste the following code in an empty file. Call it test.rb. Then execute it by entering the following command from your command prompt:
 
-	ruby test.rb
+    ruby test.rb
 
 In the code sample, the [TinyTds::Result](https://github.com/rails-sqlserver/tiny_tds) function is used to retrieve a result set from a query against SQL Database. This function accepts a query and returns a result set. The results set is iterated over by using [result.each do |row|](https://github.com/rails-sqlserver/tiny_tds).
 
@@ -130,3 +130,4 @@ To align with the Microsoft SQL Server [datetime](http://msdn.microsoft.com/libr
     results.each do |row|
     puts row
     end
+

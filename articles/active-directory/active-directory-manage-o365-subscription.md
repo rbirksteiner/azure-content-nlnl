@@ -51,22 +51,23 @@ In order for Michael Smith to manage both directories while he is signed in to A
 > [AZURE.NOTE]
 > These steps can be completed only when a user is signed in with a Microsoft account. If the user is signed in with a work or school account, the option to **Use existing directory** is not available because a work or school account can be authenticated only by its home directory (that is, the directory where the work or school account is stored, and which is owned by the work or school).
 
-1.	Sign in to the Azure classic portal as msmith@hotmail.com.
-2.	Click **New** > **App services** > **Active Directory** > **Directory** > **Custom Create**.
-3.	Click Use existing directory and select the **I am ready to be signed out now** checkbox.
-4.	Sign in to the Azure classic portal as global admin of Contoso.onmicrosoft.com (for example, msmith@contoso.com).
-5.	When prompted to **Use the Contoso directory with Azure?**, click **Continue**.
-6.	Click **Sign out now**.
-7.	Sign in to the Azure classic portal as msmith@hotmail.com. The Contoso directory and the Default directory appear in the Active Directory extension.
+1.  Sign in to the Azure classic portal as msmith@hotmail.com.
+2.  Click **New** > **App services** > **Active Directory** > **Directory** > **Custom Create**.
+3.  Click Use existing directory and select the **I am ready to be signed out now** checkbox.
+4.  Sign in to the Azure classic portal as global admin of Contoso.onmicrosoft.com (for example, msmith@contoso.com).
+5.  When prompted to **Use the Contoso directory with Azure?**, click **Continue**.
+6.  Click **Sign out now**.
+7.  Sign in to the Azure classic portal as msmith@hotmail.com. The Contoso directory and the Default directory appear in the Active Directory extension.
 
 After completing these steps, msmith@hotmail.com is a global administrator in the Contoso directory.
 
 ##To administer resources as the global admin
 Now let’s suppose that John Doe needs to sign in to the Azure classic portal and administer the websites and database resources that are associated with the Azure subscription of msmith@hotmail.com. To do that, Michael Smith needs to complete these additional steps:
 
-1.	Sign in to the Azure classic portal by using the Service Administrator account of the Azure subscription (in this example, msmith@hotmail.com).
-2.	Transfer the subscription to the Contoso directory: click **Settings** > **Subscriptions** > select the subscription > **Edit Directory** > select **Contoso (Contoso.com)**. As part of the transfer, any work or school accounts that are co-administrators of the subscription will be removed.
-3.	Add John Doe as co-administrator of the subscription: click **Settings** > **Administrators** > select the subscription > **Add** > type **JohnDoe@Contoso.com**.
+1.  Sign in to the Azure classic portal by using the Service Administrator account of the Azure subscription (in this example, msmith@hotmail.com).
+2.  Transfer the subscription to the Contoso directory: click **Settings** > **Subscriptions** > select the subscription > **Edit Directory** > select **Contoso (Contoso.com)**. As part of the transfer, any work or school accounts that are co-administrators of the subscription will be removed.
+3.  Add John Doe as co-administrator of the subscription: click **Settings** > **Administrators** > select the subscription > **Add** > type **JohnDoe@Contoso.com**.
 
 ##Next steps
 For more information about the relationship between subscriptions and directories, see [How a subscription is associated with a directory](active-directory-how-subscriptions-associated-directory.md).
+

@@ -90,7 +90,7 @@ Some key differences between these two technologies are included in the table be
 |Supports a variety of log formats, such as Windows event logs, [Event Tracing for Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) traces, and IIS logs. For more information, see [Azure Diagnostics supported data sources](#diagnostics) |Supports Windows event logs only |
 |Pushes collected data to Azure Storage |Moves collected data to central collector servers |
 
-##	Security event data collection with Windows Event Forwarding
+##  Security event data collection with Windows Event Forwarding
 For domain-joined Azure Virtual Machines, you can configure WEF by using Group Policy settings in the same manner as for on-premises domain-joined computers. For more information, see [Hybrid Cloud](http://www.microsoft.com/server-cloud/solutions/hybrid-cloud.aspx).
 
 Using this approach, an organization could purchase an IaaS subscription, connect it to their corporate network by using [ExpressRoute](http://azure.microsoft.com/services/expressroute/) or site-to-site VPN, and then join the virtual machines that you have in Azure to the corporate domain. Afterwards, you can configure WEF from the domain-joined machines.
@@ -164,14 +164,14 @@ Use the following procedure to validate that there is no error in the configurat
   - Press F4 to open **Properties**
   - Click **Schema**, click **Add**, select the schema file that you downloaded (WadConfigSchema.XSD), and then click **OK**
 
-3.	On the **View** menu, click **Error List** to see if there are any validation errors.
+3.  On the **View** menu, click **Error List** to see if there are any validation errors.
 
 ##### <a name="step4"></a> Step 4: Configure Azure Diagnostics
  Use the following steps to enable Azure Diagnostics and start the data collection:
 
- 1.	To open Azure PowerShell, type **Add-AzureAccount**, and press ENTER.
- 2.	Sign in with your Azure account.
- 3.	Run the following PowerShell script. Make sure to update the storage_name, key, config_path, service_name, and vm_name.
+ 1. To open Azure PowerShell, type **Add-AzureAccount**, and press ENTER.
+ 2. Sign in with your Azure account.
+ 3. Run the following PowerShell script. Make sure to update the storage_name, key, config_path, service_name, and vm_name.
 
  ```PowerShell
 $storage_name ="<Storage Name>"
@@ -190,9 +190,9 @@ For demonstration purposes, we will create some logon events and verify that dat
 
  To generate these events:
 
-1.	Open an RDP session to your virtual machine.
-2.	Enter incorrect credentials to generate some failed logon events (Event ID 4625).
-3.	After a few failed logon attempts, enter the correct credentials to generate a successful logon event (EventID 4624).
+1.  Open an RDP session to your virtual machine.
+2.  Enter incorrect credentials to generate some failed logon events (Event ID 4625).
+3.  After a few failed logon attempts, enter the correct credentials to generate a successful logon event (EventID 4624).
 
 ##### Step 6: View data
 About five minutes after you complete the previous steps, data should start flowing to the customer storage account based on the configuration in the XML file. There are many tools available to view data from Azure Storage. For more information, see:
@@ -202,12 +202,12 @@ About five minutes after you complete the previous steps, data should start flow
 
 To view your data:
 
-1.	In Visual Studio (2013, 2012 and 2010 with SP1), click **View**, and then click **Server Explorer**.
-2.	Navigate to the storage account.
-3.	Click **Tables** and then double-click the appropriate tables to view the security logs collected from the virtual machines.
+1.  In Visual Studio (2013, 2012 and 2010 with SP1), click **View**, and then click **Server Explorer**.
+2.  Navigate to the storage account.
+3.  Click **Tables** and then double-click the appropriate tables to view the security logs collected from the virtual machines.
 ![][2]
 
-4.	Right-click the table named WADWindowsEventLogsTable, then click **View Data** to open the table view as shown here:
+4.  Right-click the table named WADWindowsEventLogsTable, then click **View Data** to open the table view as shown here:
 
 ![][3]
 
@@ -286,23 +286,23 @@ Open Server Explorer in Visual Studio to view the log data. You should see an **
 
 We will now use Azure Diagnostics to explore the same two log collection scenarios from Azure Cloud Services as in the previous Virtual Machines (IaaS) section:
 
-1.	Set up a new instance of security log pipeline in a cloud service.
-2.	Update an existing log collection pipeline with a new configuration in a cloud service.
+1.  Set up a new instance of security log pipeline in a cloud service.
+2.  Update an existing log collection pipeline with a new configuration in a cloud service.
 
 The step-by-step walkthrough in this section includes:
 
-1.	Build a cloud service.
-2.	Configure the cloud service for security log collection by using Azure Diagnostics.
-3.	Illustrate the generation and collection of security events on the Cloud Service:
+1.  Build a cloud service.
+2.  Configure the cloud service for security log collection by using Azure Diagnostics.
+3.  Illustrate the generation and collection of security events on the Cloud Service:
 
     - Add an administrator to a local group with an elevation of privilege
     - New process creation
-4.	Update an existing log collection pipeline in a cloud service:
+4.  Update an existing log collection pipeline in a cloud service:
 
     - Enable auditing of host firewall events (as an example of network security events) by using Auditpol
     - Configure firewall audit data to be collected, and show the collected events in the customer storage account
-5.	Show Windows security event distribution and spike detection.
-6.	Configure the collection of IIS logs and verify the data.
+5.  Show Windows security event distribution and spike detection.
+6.  Configure the collection of IIS logs and verify the data.
 
 All of the events and logs are collected into a customer storage account in Azure. The events can be viewed and exported by the customer to on-premises SIEM systems. They can also be aggregated and analyzed by using HDInsight.
 
@@ -311,17 +311,17 @@ In this example, we set up a new instance of a security log collection pipeline 
 
 #### Step 1: Create a cloud service (web role) and deploy
 
-1.	On your development computer, launch Visual Studio 2013.
-2.	Create a new cloud service project (our example uses ContosoWebRole).
-3.	Select the **ASP.NET** web role.
-4.	Select the **MVC** project.
-5.	In Solution Explorer, click **Roles**, then double-click the web role (WebRole1) to open the **Properties** window.
-6.	On the **Configuration** tab, clear the **Enable Diagnostics** check box to disable the version of Azure Diagnostics that ships with Visual Studio 2013.
+1.  On your development computer, launch Visual Studio 2013.
+2.  Create a new cloud service project (our example uses ContosoWebRole).
+3.  Select the **ASP.NET** web role.
+4.  Select the **MVC** project.
+5.  In Solution Explorer, click **Roles**, then double-click the web role (WebRole1) to open the **Properties** window.
+6.  On the **Configuration** tab, clear the **Enable Diagnostics** check box to disable the version of Azure Diagnostics that ships with Visual Studio 2013.
 ![][8]
 
-7.	Build your solution to verify that you have no errors.
-8.	Open the file WebRole1/Controllers/HomeController.cs.
-9.	Add the following method to enable the sample application to log HTTP status code 500 as a sample IIS log event (this will be used in the IIS example later):
+7.  Build your solution to verify that you have no errors.
+8.  Open the file WebRole1/Controllers/HomeController.cs.
+9.  Add the following method to enable the sample application to log HTTP status code 500 as a sample IIS log event (this will be used in the IIS example later):
 
     ```
     public ActionResult StatusCode500()
@@ -330,7 +330,7 @@ In this example, we set up a new instance of a security log collection pipeline 
         }
     ```
 
-10.	 Right-click the name of the cloud service project, and click **Publish**.
+10.  Right-click the name of the cloud service project, and click **Publish**.
 
 #### Step 2: Prepare the configuration file
 We will now prepare the Azure Diagnostics configuration file to add the events that can help detect the following situations:
@@ -371,14 +371,14 @@ To verify that your service has the latest diagnostic configuration, run the fol
 #### Step 5: Generate events
 To generate events:
 
-1.	To start a Remote Desktop session to your cloud service instance, in Visual Studio, open Server Explorer, right-click the role instance, and click Connect using Remote Desktop.
-2.	Open an elevated command prompt and run the following commands to create a local administrator account on the virtual machine:
+1.  To start a Remote Desktop session to your cloud service instance, in Visual Studio, open Server Explorer, right-click the role instance, and click Connect using Remote Desktop.
+2.  Open an elevated command prompt and run the following commands to create a local administrator account on the virtual machine:
 
 
     net user contosoadmin  <enterpassword> /add
     net localgroup administrators contosoadmin  /add
 
-3.	Open Event Viewer, open the **Security** channel, and notice that an Event 4732 has been created, as shown here:
+3.  Open Event Viewer, open the **Security** channel, and notice that an Event 4732 has been created, as shown here:
 
 ![][9]
 
@@ -441,8 +441,8 @@ To verify that your service has the latest diagnostic configuration, run the fol
 
 #### Step 4: Enable firewall events
 
-1.	Open a Remote Desktop session to your cloud service instance.
-2.	Open an elevated command prompt and run the following command:
+1.  Open a Remote Desktop session to your cloud service instance.
+2.  Open an elevated command prompt and run the following command:
 
     ```
     auditpol.exe /set /category:"Policy Change" /subcategory:"MPSSVC rule-level Policy Change" /success:enable /failure:enable
@@ -450,11 +450,11 @@ To verify that your service has the latest diagnostic configuration, run the fol
 
 #### Step 5: Generate events
 
-1.	Open Windows Firewall, and click **Inbound Rules**.
-2.	Click **Add New Rule**, and then click **Port**.
-3.	In the **Local Ports** field, type **5000**, and then click **Next** three times.
-4.	In the **Name** field, type **Test5000**, and then click **Finish**.
-5.	Open Event Viewer, open the **Security** channel, and notice that an Event ID 4946 has been created as shown here:
+1.  Open Windows Firewall, and click **Inbound Rules**.
+2.  Click **Add New Rule**, and then click **Port**.
+3.  In the **Local Ports** field, type **5000**, and then click **Next** three times.
+4.  In the **Name** field, type **Test5000**, and then click **Finish**.
+5.  Open Event Viewer, open the **Security** channel, and notice that an Event ID 4946 has been created as shown here:
 
 ![][13]
 
@@ -512,22 +512,22 @@ To verify that your service has the latest diagnostic configuration, run the fol
 
 #### Step 3: Generate IIS logs
 
-1.	Open a web browser and navigate to the cloud service web role (for example, http://contosowebrole.cloudapp.net/).
-2.	Navigate to the **About** and **Contact** pages to create some log events.
-3.	Navigate to a page that generates a status code 500 (for example, http://contosowebrole.cloudapp.net/Home/StatusCode500).
+1.  Open a web browser and navigate to the cloud service web role (for example, http://contosowebrole.cloudapp.net/).
+2.  Navigate to the **About** and **Contact** pages to create some log events.
+3.  Navigate to a page that generates a status code 500 (for example, http://contosowebrole.cloudapp.net/Home/StatusCode500).
 You should see an error such as the one that follows. Remember that we added code for **StatusCode500** in Step 1 of section titled Set up new instance of log collection pipeline on a cloud ServiceName.
 ![][16]
-4.	Open a Remote Desktop session to your cloud service instance.
-5.	Open IIS Manager.
-6.	IIS Logging is enabled by default and it is set to hourly generate files that contain all fields in W3C format. Click **Browse**, and there will be at least one log file, as shown here:
+4.  Open a Remote Desktop session to your cloud service instance.
+5.  Open IIS Manager.
+6.  IIS Logging is enabled by default and it is set to hourly generate files that contain all fields in W3C format. Click **Browse**, and there will be at least one log file, as shown here:
 ![][17]
 
-7.	Wait for about five minutes for the Azure Diagnostics agent to push the log file to the blob container. To validate the data, open **Server Explorer** > **Storage** > **Storage Account** > **Blobs**. As shown here, the blob **iislogs** is created:
+7.  Wait for about five minutes for the Azure Diagnostics agent to push the log file to the blob container. To validate the data, open **Server Explorer** > **Storage** > **Storage Account** > **Blobs**. As shown here, the blob **iislogs** is created:
 ![][18]
 
-8.	Right-click and select **View Blob Container** to display the IIS log file stored in the blob:
+8.  Right-click and select **View Blob Container** to display the IIS log file stored in the blob:
 ![][19]
-9.	After the IIS events are in the customer’s storage account, applications that leverage HDInsight analysis can be used to perform event aggregation. The following line chart is an example of an event aggregation task that shows HTTP Status Code 500:
+9.  After the IIS events are in the customer’s storage account, applications that leverage HDInsight analysis can be used to perform event aggregation. The following line chart is an example of an event aggregation task that shows HTTP Status Code 500:
 ![][20]
 
 ## Security log collection recommendations
@@ -624,3 +624,4 @@ The following resources provide general information about Microsoft Azure and re
 [18]: ./media/azure-security-audit-log-management/sec-blob-iis-logs.png
 [19]: ./media/azure-security-audit-log-management/sec-view-blob-container.png
 [20]: ./media/azure-security-audit-log-management/sec-hdinsight-analysis.png
+

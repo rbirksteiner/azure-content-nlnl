@@ -131,3 +131,4 @@ Once you have your registry set up, it's time to go use it some more. Start with
 [registry-docs]: http://docs.docker.com/registry/
 [registry-config]: http://docs.docker.com/registry/configuration/
  
+

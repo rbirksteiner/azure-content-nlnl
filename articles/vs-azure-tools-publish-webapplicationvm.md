@@ -188,3 +188,4 @@ The JSON configuration file specifies the details of what is to be deployed. It 
 ```
 
 You can edit the JSON configuration file to change what is provisioned. A virtual machine and a cloud service are required, but the database section is optional.
+

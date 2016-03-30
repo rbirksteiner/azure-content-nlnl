@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Machine learning web services examples built with R | Microsoft Azure" 
-	description="Find a useful set of web services examples created with R code and Machine Learning, and published to the Azure Marketplace." 
-	keywords="csharp,r code,web services examples"
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="jaymathe" 
-	manager="paulettm" 
-	editor="cgronlun"/>
+    pageTitle="Machine learning web services examples built with R | Microsoft Azure" 
+    description="Find a useful set of web services examples created with R code and Machine Learning, and published to the Azure Marketplace." 
+    keywords="csharp,r code,web services examples"
+    services="machine-learning" 
+    documentationCenter="" 
+    authors="jaymathe" 
+    manager="paulettm" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/24/2015" 
-	ms.author="jaymathe"/> 
+    ms.service="machine-learning" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/24/2015" 
+    ms.author="jaymathe"/> 
 
 
 #Web services examples using R code on Azure Machine Learning and published to Microsoft Azure Marketplace
@@ -73,3 +73,4 @@ For frequently asked questions on consumption of the web service or publishing t
 
 
  
+

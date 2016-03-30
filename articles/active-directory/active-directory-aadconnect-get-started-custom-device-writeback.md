@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure AD Connect: Enabling device writeback | Microsoft Azure"
-	description="This document details how to enable device writeback using Azure AD Connect"
-	services="active-directory"
-	documentationCenter=""
-	authors="billmath"
-	manager="StevenPo"
-	editor="curtand"/>
+    pageTitle="Azure AD Connect: Enabling device writeback | Microsoft Azure"
+    description="This document details how to enable device writeback using Azure AD Connect"
+    services="active-directory"
+    documentationCenter=""
+    authors="billmath"
+    manager="StevenPo"
+    editor="curtand"/>
 
 <tags
-	ms.service="active-directory"  
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/12/2015"
-	ms.author="billmath;andkjell"/>
+    ms.service="active-directory"  
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/12/2015"
+    ms.author="billmath;andkjell"/>
 
 # Enabling device writeback in Azure AD Connect
 
@@ -33,17 +33,17 @@ This provides additional security and assurance that access to applications is g
 ## Part 2: Prepare Active Directory
 Use the following steps to prepare for using device writeback.
 
-1.	From the machine where Azure AD Connect is installed, launch PowerShell in elevated mode.
+1.  From the machine where Azure AD Connect is installed, launch PowerShell in elevated mode.
 
-2.	If the Active Directory PowerShell module is NOT installed. Install it using the following command:
+2.  If the Active Directory PowerShell module is NOT installed. Install it using the following command:
 
-	`Install-WindowsFeature –Name AD-DOMAIN-Services –IncludeManagementTools`
+    `Install-WindowsFeature –Name AD-DOMAIN-Services –IncludeManagementTools`
 
-3.	With enterprise admin credentials, run the following commands and then exit PowerShell.
+3.  With enterprise admin credentials, run the following commands and then exit PowerShell.
 
-	`Import-Module 'C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1'`
+    `Import-Module 'C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1'`
 
-	`Initialize-ADSyncDeviceWriteback {Optional:–DomainName [name] Optional:-AdConnectorAccount [account]}`
+    `Initialize-ADSyncDeviceWriteback {Optional:–DomainName [name] Optional:-AdConnectorAccount [account]}`
 
 
 ![Powershell](./media/active-directory-aadconnect-get-started-custom-device-writeback/powershell.png)
@@ -63,13 +63,13 @@ Parameters:
 ## Part 3: Enable device writeback in Azure AD Connect
 Use the following procedure to enable device writeback in Azure AD Connect.
 
-1.	Run the installation wizard again. Select **customize synchronization options** from the Additional Tasks page and click **Next**.
+1.  Run the installation wizard again. Select **customize synchronization options** from the Additional Tasks page and click **Next**.
 ![Custom Install](./media/active-directory-aadconnect-get-started-custom-device-writeback/devicewriteback2.png)
-2.	In the Optional Features page, device writeback will no longer be grayed out. Please note that if the Azure AD Connect prep steps are not completed device writeback will be grayed out in the Optional features page. Check the box for device writeback and click **next**. If the checkbox is still disabled, see the [troubleshooting section](#the-writeback-checkbox-is-still-disabled).
+2.  In the Optional Features page, device writeback will no longer be grayed out. Please note that if the Azure AD Connect prep steps are not completed device writeback will be grayed out in the Optional features page. Check the box for device writeback and click **next**. If the checkbox is still disabled, see the [troubleshooting section](#the-writeback-checkbox-is-still-disabled).
 ![Device Writeback](./media/active-directory-aadconnect-get-started-custom-device-writeback/devicewriteback3.png)
-3.	On the writeback page, you will see the supplied domain as the default Device writeback forest.
+3.  On the writeback page, you will see the supplied domain as the default Device writeback forest.
 ![Custom Install](./media/active-directory-aadconnect-get-started-custom-device-writeback/devicewriteback4.png)
-4.	Complete the installation of the Wizard with no additional configuration changes. If needed, refer to [Custom installation of Azure AD Connect.](active-directory-aadconnect-get-started-custom.md)
+4.  Complete the installation of the Wizard with no additional configuration changes. If needed, refer to [Custom installation of Azure AD Connect.](active-directory-aadconnect-get-started-custom.md)
 
 
 ## Enable conditional access
@@ -78,10 +78,10 @@ Detailed instructions to enable this scenario are available within [Setting up O
 ## Verify Devices are synchronized to Active Directory
 Device writeback should now be working properly. Be aware that it can take up to 3 hours for device objects to be written-back to AD.  To verify that your devices are being synced properly, do the following after the sync rules complete:
 
-1.	Launch Active Directory Administrative Center.
-2.	Expand RegisteredDevices, within the Domain that is being federated.
+1.  Launch Active Directory Administrative Center.
+2.  Expand RegisteredDevices, within the Domain that is being federated.
 ![Custom Install](./media/active-directory-aadconnect-get-started-custom-device-writeback/devicewriteback5.png)
-3.	Current registered devices will be listed there.
+3.  Current registered devices will be listed there.
 
 ![Custom Install](./media/active-directory-aadconnect-get-started-custom-device-writeback/devicewriteback6.png)
 
@@ -95,11 +95,11 @@ First things first:
 - Make sure at least one forest has Windows Server 2012R2. The device object type must be present.
 - If the installation wizard is already running, then any changes will not be detected. In this case, complete the installation wizard and run it again.
 - Make sure the account you provide in the initialization script is actually the correct user used by the Active Directory Connector. To verify this, follow these steps:
-	- From the start menu, open **Synchronization Service**.
-	- Open the **Connectors** tab.
-	- Find the Connector with type Active Directory Domain Services and select it.
-	- Under **Actions**, select **Properties**.
-	- Go to **Connect to Active Directory Forest**. Verify that the domain and user name specified on this screen match the account provided to the script.
+    - From the start menu, open **Synchronization Service**.
+    - Open the **Connectors** tab.
+    - Find the Connector with type Active Directory Domain Services and select it.
+    - Under **Actions**, select **Properties**.
+    - Go to **Connect to Active Directory Forest**. Verify that the domain and user name specified on this screen match the account provided to the script.
 ![Connector account](./media/active-directory-aadconnect-get-started-custom-device-writeback/connectoraccount.png)
 
 Verify configuration in Active Directory:
@@ -131,3 +131,4 @@ Verify configuration in Active Directory:
 
 ## Next steps
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
+

@@ -69,29 +69,29 @@ The objective of this section is to outline how to enable users to authenticate 
 
 ###To configure single sign-on, perform the following steps:
 
-1.  In the Azure AD portal, on the **Huddle** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  In the Azure AD portal, on the **Huddle** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
     ![Configure Single Sign-On](./media/active-directory-saas-huddle-tutorial/IC787833.png "Configure Single Sign-On")
 
-2.  On the **How would you like users to sign on to Huddle** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to Huddle** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-huddle-tutorial/IC787834.png "Configure Single Sign-On")
 
-3.  On the **Configure App URL** page, in the **Huddle Sign On URL** textbox, type the URL of your Huddle tenant using the following pattern "*http://company.huddle.com*", and then click **Next**.
+3.  On the **Configure App URL** page, in the **Huddle Sign On URL** textbox, type the URL of your Huddle tenant using the following pattern "*http://company.huddle.com*", and then click **Next**.
 
     ![Configure App URL](./media/active-directory-saas-huddle-tutorial/IC787835.png "Configure App URL")
 
-4.  On the **Configure single sign-on at Huddle** page, perform the following steps:
+4.  On the **Configure single sign-on at Huddle** page, perform the following steps:
 
     ![Configure Single Sign-On](./media/active-directory-saas-huddle-tutorial/IC787836.png "Configure Single Sign-On")
 
-    1.  Click **Download certificate**, and then save the certificate file on your computer.
+    1.  Click **Download certificate**, and then save the certificate file on your computer.
     2.  Copy the **Issuer URL** value, the **SAML SSO URL** value and the downloaded certificate, and then send them to the Huddle support team.
 
     >[AZURE.NOTE] Single sign-on needs to be enabled by the Huddle support team.
     You will get a notification when the configuration has been completed.
 
-5.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+5.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
     ![Configure Single Sign-On](./media/active-directory-saas-huddle-tutorial/IC787837.png "Configure Single Sign-On")
 ##Configuring user provisioning
@@ -129,7 +129,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 1.  In the Azure AD portal, create a test account.
 
-2.  On the **Huddle **application integration page, click **Assign users**.
+2.  On the **Huddle **application integration page, click **Assign users**.
 
     ![Assign Users](./media/active-directory-saas-huddle-tutorial/IC787840.png "Assign Users")
 

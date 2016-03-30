@@ -43,60 +43,60 @@ For the Python and PHP apps, this example uses the Proton client libraries from 
 
 2.  Install the prerequisite packages:
 
-	```
-	# required dependencies 
-	yum install gcc cmake libuuid-devel
-	
-	# dependencies needed for ssl support
-	yum install openssl-devel
-	
-	# dependencies needed for bindings
-	yum install swig python-devel ruby-devel php-devel java-1.6.0-openjdk
-	
-	# dependencies needed for python docs
-	yum install epydoc
-	```
+    ```
+    # required dependencies 
+    yum install gcc cmake libuuid-devel
+    
+    # dependencies needed for ssl support
+    yum install openssl-devel
+    
+    # dependencies needed for bindings
+    yum install swig python-devel ruby-devel php-devel java-1.6.0-openjdk
+    
+    # dependencies needed for python docs
+    yum install epydoc
+    ```
 
 1.  Download the Proton library:
 
-	```
-	[azureuser@this-user ~]$ wget http://www.bizdirusa.com/mirrors/apache/qpid/proton/0.4/qpid-proton-0.4.tar.gz 
-		--2013-05-23 21:27:55-- http://www.bizdirusa.com/mirrors/apache/qpid/proton/0.4/qpid-proton-0.4.tar.gz 
-		Resolving www.bizdirusa.com... 205.186.175.195 
-		Connecting to www.bizdirusa.com|205.186.175.195|:80... connected. 
-		HTTP request sent, awaiting response... 200 OK 
-		Length: 456693 (446K) [application/x-gzip] 
-		Saving to: âqpid-proton-0.4.tar.gzâ
+    ```
+    [azureuser@this-user ~]$ wget http://www.bizdirusa.com/mirrors/apache/qpid/proton/0.4/qpid-proton-0.4.tar.gz 
+        --2013-05-23 21:27:55-- http://www.bizdirusa.com/mirrors/apache/qpid/proton/0.4/qpid-proton-0.4.tar.gz 
+        Resolving www.bizdirusa.com... 205.186.175.195 
+        Connecting to www.bizdirusa.com|205.186.175.195|:80... connected. 
+        HTTP request sent, awaiting response... 200 OK 
+        Length: 456693 (446K) [application/x-gzip] 
+        Saving to: âqpid-proton-0.4.tar.gzâ
 
-		100%[======================================\>] 456,693 --.-K/s in 0.06s
+        100%[======================================\>] 456,693 --.-K/s in 0.06s
 
-		2015-05-23 21:27:55 (6.84 MB/s) - qpid-proton-0.4.tar.gz
-	```
+        2015-05-23 21:27:55 (6.84 MB/s) - qpid-proton-0.4.tar.gz
+    ```
 
 1.  Extract the Proton code from the distribution archive:
 
-	```
-	tar xvfz qpid-proton-0.4.tar.gz
-	```
+    ```
+    tar xvfz qpid-proton-0.4.tar.gz
+    ```
 
 1.  Build and install the code using the following steps, taken from the Readme file:
 
-	```
-	From the directory where you found this README file:	
-	
-	mkdir build cd build
-			
-	# Set the install prefix. You may need to adjust depending on your		
-	# system.		
-	cmake -DCMAKE\_INSTALL\_PREFIX=/usr ..
-			
-	# Omit the docs target if you do not wish to build or install		
-	# documentation.		
-	make all docs
-			
-	# Note that this step will require root privileges.		
-	make install
-	```
+    ```
+    From the directory where you found this README file:    
+    
+    mkdir build cd build
+            
+    # Set the install prefix. You may need to adjust depending on your      
+    # system.       
+    cmake -DCMAKE\_INSTALL\_PREFIX=/usr ..
+            
+    # Omit the docs target if you do not wish to build or install       
+    # documentation.        
+    make all docs
+            
+    # Note that this step will require root privileges.     
+    make install
+    ```
 
 After performing these steps, Proton is installed on the computer and ready for use.
 
@@ -113,5 +113,6 @@ Ready to learn more? Visit the following links:
 [3]: ./media/service-bus-amqp-apache/amqp-apache-4.png
 
 [Azure classic portal]: http://manage.windowsazure.com
+
 
 

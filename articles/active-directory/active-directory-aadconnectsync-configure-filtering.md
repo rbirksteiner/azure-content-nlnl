@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure AD Connect sync: Configure filtering | Microsoft Azure"
-	description="Explains how to configure filtering in Azure AD Connect sync."
-	services="active-directory"
-	documentationCenter=""
-	authors="markusvi"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Azure AD Connect sync: Configure filtering | Microsoft Azure"
+    description="Explains how to configure filtering in Azure AD Connect sync."
+    services="active-directory"
+    documentationCenter=""
+    authors="markusvi"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/13/2015"
-	ms.author="markusvi;andkjell"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/13/2015"
+    ms.author="markusvi;andkjell"/>
 
 
 # Azure AD Connect sync: Configure Filtering
@@ -280,3 +280,4 @@ In this example, we will change the filtering so only users where both mail and 
 Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
 
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
+

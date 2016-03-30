@@ -78,14 +78,14 @@ The user must possess ALTER ANY EXTERNAL DATA SOURCE permission. This permission
 
 The following example illustrates the use of the CREATE statement for external data sources. 
 
-	CREATE EXTERNAL DATA SOURCE RemoteReferenceData 
-	WITH 
-	( 
-		TYPE=RDBMS, 
-		LOCATION='myserver.database.windows.net', 
-		DATABASE_NAME='ReferenceData', 
-		CREDENTIAL= SqlUser 
-	); 
+    CREATE EXTERNAL DATA SOURCE RemoteReferenceData 
+    WITH 
+    ( 
+        TYPE=RDBMS, 
+        LOCATION='myserver.database.windows.net', 
+        DATABASE_NAME='ReferenceData', 
+        CREDENTIAL= SqlUser 
+    ); 
  
 To retrieve the list of current external data sources from the following catalog view: 
 
@@ -101,12 +101,12 @@ Elastic query extends the existing external table syntax to define external tabl
 
 Using an external data source as outlined in the previous section, the syntax to create external tables is as follows: 
 
-	CREATE EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name . ] table_name  
+    CREATE EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name . ] table_name  
     ( { <column_definition> } [ ,...n ])     
-	{ WITH ( <rdbms_external_table_options> ) } 
-	)[;] 
-	
-	<rdbms_external_table_options> ::= 
+    { WITH ( <rdbms_external_table_options> ) } 
+    )[;] 
+    
+    <rdbms_external_table_options> ::= 
       DATA_SOURCE = <External_Data_Source>, 
       [ SCHEMA_NAME = N'nonescaped_schema_name',] 
       [ OBJECT_NAME = N'nonescaped_object_name',] 
@@ -117,7 +117,7 @@ The SCHEMA_NAME and OBJECT_NAME clauses provide the ability to map the external 
 
 The following DDL statement drops an existing external table definition from the local catalog. It does not impact the remote database. 
 
-	DROP EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name. ] table_name[;]  
+    DROP EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name. ] table_name[;]  
 
 **Permissions for CREATE/DROP EXTERNAL TABLE**: ALTER ANY EXTERNAL DATA SOURCE permissions are needed for external table DDL which is also needed to refer to the underlying data source.  
 
@@ -126,23 +126,23 @@ The following DDL statement drops an existing external table definition from the
 
  **Example**: The following example illustrates how to create an external table:  
 
-	CREATE EXTERNAL TABLE [dbo].[customer]( 
-		[c_id] int NOT NULL, 
-		[c_firstname] nvarchar(256) NULL, 
-		[c_lastname] nvarchar(256) NOT NULL, 
-		[street] nvarchar(256) NOT NULL, 
-		[city] nvarchar(256) NOT NULL, 
-		[state] nvarchar(20) NULL, 
-		[country] nvarchar(50) NOT NULL, 
-	) 
-	WITH 
-	( 
-	       DATA_SOURCE = RemoteReferenceData 
-	); 
+    CREATE EXTERNAL TABLE [dbo].[customer]( 
+        [c_id] int NOT NULL, 
+        [c_firstname] nvarchar(256) NULL, 
+        [c_lastname] nvarchar(256) NOT NULL, 
+        [street] nvarchar(256) NOT NULL, 
+        [city] nvarchar(256) NOT NULL, 
+        [state] nvarchar(20) NULL, 
+        [country] nvarchar(50) NOT NULL, 
+    ) 
+    WITH 
+    ( 
+           DATA_SOURCE = RemoteReferenceData 
+    ); 
 
 The following example shows how to retrieve the list of external tables from the current database: 
 
-	select * from sys.external_tables; 
+    select * from sys.external_tables; 
 
 ## Querying
 
@@ -152,19 +152,19 @@ Once you have defined your external data source and your external tables, you ca
 
 **Example for vertical partitioning**: The following query performs a three-way join between the two local tables for orders and order lines and the remote table for customers. This is an example of the reference data use case for elastic query: 
 
-	SELECT  	
-	 c_id as customer,
-	 c_lastname as customer_name,
-	 count(*) as cnt_orderline, 
-	 max(ol_quantity) as max_quantity,
-	 avg(ol_amount) as avg_amount,
-	 min(ol_delivery_d) as min_deliv_date
-	FROM customer 
-	JOIN orders 
-	ON c_id = o_c_id
-	JOIN  order_line 
-	ON o_id = ol_o_id and o_c_id = ol_c_id
-	WHERE c_id = 100
+    SELECT      
+     c_id as customer,
+     c_lastname as customer_name,
+     count(*) as cnt_orderline, 
+     max(ol_quantity) as max_quantity,
+     avg(ol_amount) as avg_amount,
+     min(ol_delivery_d) as min_deliv_date
+    FROM customer 
+    JOIN orders 
+    ON c_id = o_c_id
+    JOIN  order_line 
+    ON o_id = ol_o_id and o_c_id = ol_c_id
+    WHERE c_id = 100
 
   
 ## Connectivity for tools
@@ -183,3 +183,4 @@ You can use regular SQL Server connection strings to connect your BI and data in
 
 <!--Image references-->
 <!--anchors-->
+

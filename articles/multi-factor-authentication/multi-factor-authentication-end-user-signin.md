@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure MFA Signin experience with Azure Multi-Factor Authentication" 
-	description="This page will provide you guidance on where to go to see the various signin methods available with Azure MFA." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
-	editor="curtland"/>
+    pageTitle="Azure MFA Signin experience with Azure Multi-Factor Authentication" 
+    description="This page will provide you guidance on where to go to see the various signin methods available with Azure MFA." 
+    services="multi-factor-authentication" 
+    documentationCenter="" 
+    authors="billmath" 
+    manager="stevenpo" 
+    editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/19/2015" 
-	ms.author="billmath"/>
+    ms.service="multi-factor-authentication" 
+    ms.workload="identity" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/19/2015" 
+    ms.author="billmath"/>
 
 # The sign in experience with Azure Multi-Factor Authentication
 > [AZURE.NOTE]  The following documentation provided on this page shows a typical sign-in experience.  For help with signing in see [Having trouble with Azure Multi-Factor Authentication](multi-factor-authentication-end-user-manage-settings.md)

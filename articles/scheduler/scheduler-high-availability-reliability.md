@@ -87,3 +87,4 @@ To learn how to configure an alternate endpoint, refer to [errorAction](schedule
 [2]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image2.png
 
  
+

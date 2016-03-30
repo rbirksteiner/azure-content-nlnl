@@ -1,20 +1,20 @@
 <properties
-	pageTitle="How to silently install the Azure AD Application Proxy Connector | Microsoft Azure"
-	description="Covers how to perform a silent installation of Azure AD Application Proxy Connector to provide secure remote access to your on-premises apps."
-	services="active-directory"
-	documentationCenter=""
-	authors="kgremban"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="How to silently install the Azure AD Application Proxy Connector | Microsoft Azure"
+    description="Covers how to perform a silent installation of Azure AD Application Proxy Connector to provide secure remote access to your on-premises apps."
+    services="active-directory"
+    documentationCenter=""
+    authors="kgremban"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/19/2015"
-	ms.author="kgremban"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/19/2015"
+    ms.author="kgremban"/>
 
 # How to silently install the Azure AD Application Proxy Connector
 
@@ -143,3 +143,4 @@ There's a lot more you can do with Application Proxy:
 ## Additional resources
 * [Sign up for Azure as an organization](sign-up-organization.md)
 * [Azure Identity](fundamentals-identity.md)
+

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Integrating your on-premises identities with Azure Active Directory." 
-	description="This is the Azure AD Connect that describes what it is and why you would use it." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
-	editor="curtand"/>
+    pageTitle="Integrating your on-premises identities with Azure Active Directory." 
+    description="This is the Azure AD Connect that describes what it is and why you would use it." 
+    services="multi-factor-authentication" 
+    documentationCenter="" 
+    authors="billmath" 
+    manager="stevenpo" 
+    editor="curtand"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/19/2015" 
-	ms.author="billmath"/>
+    ms.service="multi-factor-authentication" 
+    ms.workload="identity" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/19/2015" 
+    ms.author="billmath"/>
 
 # Building Multi-Factor Authentication into Custom Apps (SDK)
 
@@ -101,95 +101,96 @@ This minimal implementation can be written in a just a few lines. However, in pr
 
 The following is web client code for a demo page.
 
-	
-	<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
-	
-	<!DOCTYPE html>
-	
-	<html xmlns="http://www.w3.org/1999/xhtml">
-	<head runat="server">
-	<title>Multi-Factor Authentication Demo</title>
-	</head>
-	<body>
-	<h1>Azure Multi-Factor Authentication Demo</h1>
-	<form id="form1" runat="server">
-	
-	<div style="width:auto; float:left">
-	Username:&nbsp;<br />
-	Password:&nbsp;<br />
-	</div>
-	
-	<div">
-	<asp:TextBox id="username" runat="server" width="100px"/><br />
-	<asp:Textbox id="password" runat="server" width="100px" TextMode="password" /><br />
-	</div>
-	
-	<asp:Button id="btnSubmit" runat="server" Text="Log in" onClick="btnSubmit_Click"/>
-	
-	<p><asp:Label ID="lblResult" runat="server"></asp:Label></p>
-	
-	</form>
-	</body>
-	</html>
+    
+    <%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
+    
+    <!DOCTYPE html>
+    
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head runat="server">
+    <title>Multi-Factor Authentication Demo</title>
+    </head>
+    <body>
+    <h1>Azure Multi-Factor Authentication Demo</h1>
+    <form id="form1" runat="server">
+    
+    <div style="width:auto; float:left">
+    Username:&nbsp;<br />
+    Password:&nbsp;<br />
+    </div>
+    
+    <div">
+    <asp:TextBox id="username" runat="server" width="100px"/><br />
+    <asp:Textbox id="password" runat="server" width="100px" TextMode="password" /><br />
+    </div>
+    
+    <asp:Button id="btnSubmit" runat="server" Text="Log in" onClick="btnSubmit_Click"/>
+    
+    <p><asp:Label ID="lblResult" runat="server"></asp:Label></p>
+    
+    </form>
+    </body>
+    </html>
 
 
 ### Server-Side Code
 
 In the following server-side code, Multi-Factor Authentication is configured and run in Step 2. Standard mode (MODE_STANDARD) is a telephone call to which the user responds by pressing the # key. 
 
-	using System;
-	using System.Collections.Generic;
-	using System.Linq;
-	using System.Web;
-	using System.Web.UI;
-	using System.Web.UI.WebControls;
-	
-	public partial class _Default : System.Web.UI.Page
-	{
-	    protected void Page_Load(object sender, EventArgs e)
-	    {
-	    }
-	
-	    protected void btnSubmit_Click(object sender, EventArgs e)
-	    {
-	        // Step 1: Validate the username and password
-	        if (username.Text != "Contoso" || password.Text != "password")
-	        {
-	            lblResult.ForeColor = System.Drawing.Color.Red;
-	            lblResult.Text = "Username or password incorrect.";
-	        }
-	        else
-	        {
-	            // Step 2: Perform multi-factor authentication
-	
-	            // Add call details from the user database.
-	            PfAuthParams pfAuthParams = new PfAuthParams();
-	            pfAuthParams.Username = username.Text;
-	            pfAuthParams.Phone = "9134884271";
-	            pfAuthParams.Mode = pf_auth.MODE_STANDARD;
-	            
-	            // Specify a client certificate 
-	            // NOTE: This file contains the private key for the client
-	            // certificate. It must be stored with appropriate file 
-	            // permissions.
-	            pfAuthParams.CertFilePath = "c:\\cert_key.p12";
-	
-	            // Perform phone-based authentication
-	            int callStatus;
-	            int errorId;
-	
-	            if(pf_auth.pf_authenticate(pfAuthParams, out callStatus, out errorId))
-	            {
-	                lblResult.ForeColor = System.Drawing.Color.Green;
-	                lblResult.Text = "Multi-Factor Authentication succeeded.";
-	            }
-	            else
-	            {
-	                lblResult.ForeColor = System.Drawing.Color.Red;
-	                lblResult.Text = " Multi-Factor Authentication failed.";
-	            }
-	        }
-	
-	    }
-	}
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Web;
+    using System.Web.UI;
+    using System.Web.UI.WebControls;
+    
+    public partial class _Default : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+        }
+    
+        protected void btnSubmit_Click(object sender, EventArgs e)
+        {
+            // Step 1: Validate the username and password
+            if (username.Text != "Contoso" || password.Text != "password")
+            {
+                lblResult.ForeColor = System.Drawing.Color.Red;
+                lblResult.Text = "Username or password incorrect.";
+            }
+            else
+            {
+                // Step 2: Perform multi-factor authentication
+    
+                // Add call details from the user database.
+                PfAuthParams pfAuthParams = new PfAuthParams();
+                pfAuthParams.Username = username.Text;
+                pfAuthParams.Phone = "9134884271";
+                pfAuthParams.Mode = pf_auth.MODE_STANDARD;
+                
+                // Specify a client certificate 
+                // NOTE: This file contains the private key for the client
+                // certificate. It must be stored with appropriate file 
+                // permissions.
+                pfAuthParams.CertFilePath = "c:\\cert_key.p12";
+    
+                // Perform phone-based authentication
+                int callStatus;
+                int errorId;
+    
+                if(pf_auth.pf_authenticate(pfAuthParams, out callStatus, out errorId))
+                {
+                    lblResult.ForeColor = System.Drawing.Color.Green;
+                    lblResult.Text = "Multi-Factor Authentication succeeded.";
+                }
+                else
+                {
+                    lblResult.ForeColor = System.Drawing.Color.Red;
+                    lblResult.Text = " Multi-Factor Authentication failed.";
+                }
+            }
+    
+        }
+    }
+
 

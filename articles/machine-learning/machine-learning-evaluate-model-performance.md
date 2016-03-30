@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Evaluate model performance in Machine Learning | Microsoft Azure" 
-	description="Explains how to evaluate model performance in Azure Machine Learning." 
-	services="machine-learning"
-	documentationCenter="" 
-	authors="garyericson" 
-	manager="paulettm" 
-	editor="cgronlun"/>
+    pageTitle="Evaluate model performance in Machine Learning | Microsoft Azure" 
+    description="Explains how to evaluate model performance in Azure Machine Learning." 
+    services="machine-learning"
+    documentationCenter="" 
+    authors="garyericson" 
+    manager="paulettm" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/04/2015" 
-	ms.author="bradsev;garye" />
+    ms.service="machine-learning" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/04/2015" 
+    ms.author="bradsev;garye" />
 
 
 # How to evaluate model performance in Azure Machine Learning

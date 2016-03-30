@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Explore .NET trace logs in Application Insights" 
-	description="Search logs generated with Trace, NLog, or Log4Net." 
-	services="application-insights" 
+    pageTitle="Explore .NET trace logs in Application Insights" 
+    description="Search logs generated with Trace, NLog, or Log4Net." 
+    services="application-insights" 
     documentationCenter=".net"
-	authors="alancameronwills" 
-	manager="douge"/>
+    authors="alancameronwills" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/25/2015" 
-	ms.author="awills"/>
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/25/2015" 
+    ms.author="awills"/>
  
 # Explore .NET trace logs in Application Insights  
 

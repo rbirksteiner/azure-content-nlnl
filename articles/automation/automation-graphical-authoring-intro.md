@@ -149,7 +149,7 @@ For example the following code performs date calculations using a runbook input 
 
     $DateTimeNow = InlineScript{(Get-Date).ToUniversalTime()}
     $DateTimeStart = InlineScript{($using:DateTimeNow).AddDays(-$using:NumberOfDays)}
-	$DateTimeStart
+    $DateTimeStart
 
 
 ## Links and workflow
@@ -179,20 +179,20 @@ When you specify a condition on a link, the destination activity is only run if 
 
 For a pipeline link, you specify a condition for a single object, and the condition is evaluated for each object output by the source activity.  The destination activity is then run for each object that satisfies the condition.  For example, with a source activity of Get-AzureVM, the following syntax could be used for a conditional pipeline link to retrieve only virtual machines that are currently running.  
 
-	$ActivityOutput['Get-AzureVM'].PowerState -eq 'Started'
+    $ActivityOutput['Get-AzureVM'].PowerState -eq 'Started'
 
 For a sequence link, the condition is only evaluated once since a single array is returned containing all objects output from the source activity.  Because of this, a sequence link cannot be used for filtering like a pipeline link but will simply determine whether or not the next activity is run.  The following code shows the same example of evaluating output from Get-AzureVM to determine virtual machines that are running.  In this case, the code walks through each object in the array and resolves to true if at least one virtual machine is running.  The destination activity would be responsible for parsing this data.
 
-	$test = $false
-	$VMs = $ActivityOutput['Get-AzureVm']
-	Foreach ($VM in VMs)
-	{
-		If ($VM.PowerState –eq 'Started')
-			{
-				$test = $true
-			}
-	}
-	$test
+    $test = $false
+    $VMs = $ActivityOutput['Get-AzureVm']
+    Foreach ($VM in VMs)
+    {
+        If ($VM.PowerState –eq 'Started')
+            {
+                $test = $true
+            }
+    }
+    $test
 
 When you use a conditional link, the data available from the source activity to other activities in that branch will be filtered by the condition.  If an activity is the source to multiple links, then the data available to activities in each branch will depend on the condition in the link connecting to that branch.
 
@@ -234,8 +234,8 @@ You can access data on the databus using one of two methods.  First is using an 
 
 You can also retrieve the output of an activity in a **PowerShell Expression** data source or from a **Workflow Script** activity with an ActivityOutput variable.  If the output is an object, you can specify a single property.  ActivityOutput variables use the following syntax.
 
-	$ActivityOutput['Activity Label']
-	$ActivityOutput['Activity Label'].PropertyName 
+    $ActivityOutput['Activity Label']
+    $ActivityOutput['Activity Label'].PropertyName 
 
 ### Checkpoints
 
@@ -298,38 +298,38 @@ You can use a PowerShell expression as a data source to populate the value of an
 
 For example, the following command would output the current date. 
 
-	Get-Date
+    Get-Date
 
 The following commands build a string from the current date and assign it to a variable.  The contents of the variable are then sent to the output 
 
-	$string = "The current date is " + (Get-Date)
-	$string
+    $string = "The current date is " + (Get-Date)
+    $string
 
 The following commands evaluate the current date and return a string indicating whether the current day is a weekend or weekday. 
 
-	$date = Get-Date
-	if (($date.DayOfWeek = "Saturday") -or ($date.DayOfWeek = "Sunday")) { "Weekend" }
-	else { "Weekday" }
-	
+    $date = Get-Date
+    if (($date.DayOfWeek = "Saturday") -or ($date.DayOfWeek = "Sunday")) { "Weekend" }
+    else { "Weekday" }
+    
  
 
 ### Activity output
 
 To use the output from a previous activity in the runbook, use the $ActivityOutput variable with the following syntax.
 
-	$ActivityOutput['Activity Label'].PropertyName
+    $ActivityOutput['Activity Label'].PropertyName
 
 For example, you may have an activity with a property that requires the name of a virtual machine in which case you could use the following expression.
 
-	$ActivityOutput['Get-AzureVm'].Name
+    $ActivityOutput['Get-AzureVm'].Name
 
 If the property that required the virtual machine object instead of just a property, then you would return the entire object using the following syntax.
 
-	$ActivityOutput['Get-AzureVm']
+    $ActivityOutput['Get-AzureVm']
 
 You can also use the output of an activity in a more complex expression such as the following that concatenates text to the virtual machine name.
 
-	"The computer name is " + $ActivityOutput['Get-AzureVm'].Name
+    "The computer name is " + $ActivityOutput['Get-AzureVm'].Name
 
 
 ### Conditions
@@ -338,15 +338,15 @@ Use [comparison operators](https://technet.microsoft.com/library/hh847759.aspx) 
 
 For example, the following condition determines whether the virtual machine from an activity named *Get-AzureVM* is currently *stopped*. 
 
-	$ActivityOutput["Get-AzureVM"].PowerState –eq "Stopped"
+    $ActivityOutput["Get-AzureVM"].PowerState –eq "Stopped"
 
 The following condition checks whether the same virtual machine is in any state other than *stopped*.
 
-	$ActivityOutput["Get-AzureVM"].PowerState –ne "Stopped"
+    $ActivityOutput["Get-AzureVM"].PowerState –ne "Stopped"
 
 You can join multiple conditions using a [logical operator](https://technet.microsoft.com/library/hh847789.aspx) such as **-and** or **-or**.  For example, the following condition checks whether the same virtual machine in the previous example is in a state of *stopped* or *stopping*.
 
-	($ActivityOutput["Get-AzureVM"].PowerState –eq "Stopped") -or ($ActivityOutput["Get-AzureVM"].PowerState –eq "Stopping") 
+    ($ActivityOutput["Get-AzureVM"].PowerState –eq "Stopped") -or ($ActivityOutput["Get-AzureVM"].PowerState –eq "Stopping") 
 
 
 ### Hashtables
@@ -355,21 +355,21 @@ You can join multiple conditions using a [logical operator](https://technet.micr
 
 You create a hashtable with the following syntax.  A hashtable can contain any number of entries but each is defined by a name and value.
 
-	@{ <name> = <value>; [<name> = <value> ] ...}
+    @{ <name> = <value>; [<name> = <value> ] ...}
 
 For example, the following expression creates a hashtable to be used in the data source for an activity parameter that expected a hashtable with values for an internet search.
 
-	$query = "Azure Automation"
-	$count = 10
-	$h = @{'q'=$query; 'lr'='lang_ja';  'count'=$Count}
-	$h
+    $query = "Azure Automation"
+    $count = 10
+    $h = @{'q'=$query; 'lr'='lang_ja';  'count'=$Count}
+    $h
 
 The following example uses output from an activity called *Get Twitter Connection* to populate a hashtable.
 
-	@{'ApiKey'=$ActivityOutput['Get Twitter Connection'].ConsumerAPIKey;
-	  'ApiSecret'=$ActivityOutput['Get Twitter Connection'].ConsumerAPISecret;
-	  'AccessToken'=$ActivityOutput['Get Twitter Connection'].AccessToken;
-	  'AccessTokenSecret'=$ActivityOutput['Get Twitter Connection'].AccessTokenSecret}
+    @{'ApiKey'=$ActivityOutput['Get Twitter Connection'].ConsumerAPIKey;
+      'ApiSecret'=$ActivityOutput['Get Twitter Connection'].ConsumerAPISecret;
+      'AccessToken'=$ActivityOutput['Get Twitter Connection'].AccessToken;
+      'AccessTokenSecret'=$ActivityOutput['Get Twitter Connection'].AccessTokenSecret}
 
 
 
@@ -379,3 +379,4 @@ The following example uses output from an activity called *Get Twitter Connectio
 - [Automation assets](http://msdn.microsoft.com/library/azure/dn939988.aspx)
 - [Operators](https://technet.microsoft.com/library/hh847732.aspx)
  
+

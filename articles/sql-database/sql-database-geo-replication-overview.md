@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Active Geo-Replication for Azure SQL Database"
-	description="This topic explains Active Geo-Replication for SQL Database and its uses."
-	services="sql-database"
-	documentationCenter="na"
-	authors="rothja"
-	manager="jeffreyg"
-	editor="monicar" />
+    pageTitle="Active Geo-Replication for Azure SQL Database"
+    description="This topic explains Active Geo-Replication for SQL Database and its uses."
+    services="sql-database"
+    documentationCenter="na"
+    authors="rothja"
+    manager="jeffreyg"
+    editor="monicar" />
 
 
 <tags
-	ms.service="sql-database"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="data-management"
-	ms.date="10/21/2015"
-	ms.author="jroth" />
+    ms.service="sql-database"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="data-management"
+    ms.date="10/21/2015"
+    ms.author="jroth" />
 
 # Active Geo-Replication for Azure SQL Database
 
@@ -37,7 +37,7 @@ To achieve real business continuity, adding redundancy between datacenters to re
 The Active Geo-Replication feature provides the following essential capabilities:
 
 - **Automatic Asynchronous Replication**: After an online secondary database has been seeded, updates to the primary database are asynchronously copied to the online secondary database automatically. This means that transactions are committed on the primary database before they are copied to the online secondary database. However, after seeding, the online secondary database is transactionally consistent at any given point in time. 
-	>[AZURE.NOTE] Asynchronous replication accommodates the latency that typifies wide-area networks by which remote datacenters are connected.
+    >[AZURE.NOTE] Asynchronous replication accommodates the latency that typifies wide-area networks by which remote datacenters are connected.
 
 - **Multiple online secondary databases**: Two or more online secondary databases increase redundancy and protection for the primary database and application. If multiple online secondary databases exist, the application will remain protected even if one of the online secondary databases fails. If there is only one online secondary database, and it fails, the application is exposed to higher risk until a new online secondary database is created.
 

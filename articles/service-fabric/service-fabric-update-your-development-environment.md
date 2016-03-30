@@ -52,3 +52,4 @@ That's it! You can now start Visual Studio and continue building Service Fabric 
 >[AZURE.NOTE] The default project structure has changed in this release. You should be able to open and run existing projects in Visual Studio. However, if you encounter any issues with building, deploying, or debugging your applications, consider creating a new project and migrating your code over.
 
  [1]:  http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "WebPI link"
+

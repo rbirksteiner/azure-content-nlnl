@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Enabling storage metrics in the Azure Portal | Microsoft Azure" 
-	description="How to enable storage metrics for the Blob, Queue, Table, and File services" 
-	services="storage" 
-	documentationCenter="" 
-	authors="tamram" 
-	manager="adinah" 
-	editor=""/>
+    pageTitle="Enabling storage metrics in the Azure Portal | Microsoft Azure" 
+    description="How to enable storage metrics for the Blob, Queue, Table, and File services" 
+    services="storage" 
+    documentationCenter="" 
+    authors="tamram" 
+    manager="adinah" 
+    editor=""/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="12/01/2015" 
-	ms.author="tamram"/>
+    ms.service="storage" 
+    ms.workload="storage" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="dotnet" 
+    ms.topic="article" 
+    ms.date="12/01/2015" 
+    ms.author="tamram"/>
 
 # Enabling Azure Storage metrics and viewing metrics data
 
@@ -64,7 +64,7 @@ For information about how to configure the Azure PowerShell cmdlets to work with
 
 The following C# snippet shows how to enable metrics and logging for the Blob service using the storage client library for .NET:
 
-	// Parse connection string.
+    // Parse connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
     // Create service client for credentialed access to the Blob service.

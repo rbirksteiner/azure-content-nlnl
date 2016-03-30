@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Use reference data and lookup tables in Stream Analytics | Microsoft Azure" 
-	description="Use reference data in a Stream Analytics query" 
-	keywords="lookup table, reference data"
-	services="stream-analytics" 
-	documentationCenter="" 
-	authors="jeffstokes72" 
-	manager="paulettm"
-	editor="cgronlun"/>
+    pageTitle="Use reference data and lookup tables in Stream Analytics | Microsoft Azure" 
+    description="Use reference data in a Stream Analytics query" 
+    keywords="lookup table, reference data"
+    services="stream-analytics" 
+    documentationCenter="" 
+    authors="jeffstokes72" 
+    manager="paulettm"
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="stream-analytics" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="data-services" 
-	ms.date="12/04/2015" 
-	ms.author="jeffstok"/>
+    ms.service="stream-analytics" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="data-services" 
+    ms.date="12/04/2015" 
+    ms.author="jeffstok"/>
 
 # Using reference data or lookup tables in a Stream Analytics input stream
 
@@ -81,8 +81,8 @@ If your reference data is a slowly changing dataset, then support for refreshing
 ## Tips on refreshing your reference data ##
 
 1. Overwriting reference data blobs will not cause Stream Analytics to reload the blob and in some cases it can cause the job to fail. The recommended way to change reference data is to add a new blob using the same container and path pattern defined in the job input and use a date/time **greater** than the one specified by the last blob in the sequence.
-2.	Reference data blobs are not ordered by the blob’s “Last Modified” time but only by the time and date specified in the blob name using the {date} and {time} substitutions.
-3.	On a few occasions a job must go back in time, therefore reference data blobs must not be altered or deleted.
+2.  Reference data blobs are not ordered by the blob’s “Last Modified” time but only by the time and date specified in the blob name using the {date} and {time} substitutions.
+3.  On a few occasions a job must go back in time, therefore reference data blobs must not be altered or deleted.
 
 ## Get help
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
@@ -102,3 +102,4 @@ You've been introduced to Stream Analytics, a managed service for streaming anal
 [stream.analytics.get.started]: stream-analytics-get-started.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
+

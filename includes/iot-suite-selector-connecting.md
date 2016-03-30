@@ -64,3 +64,4 @@ To add a new device to your remote monitoring solution, complete the following s
 [lnk-getstarted]: http://www.microsoft.com/server-cloud/internet-of-things/getting-started.aspx
 [lnk-what-are-preconfig-solutions]: ../articles/iot-suite/iot-suite-what-are-preconfigured-solutions.md
 [lnk-remote-monitoring]: ../articles/iot-suite/iot-suite-remote-monitoring-sample-walkthrough.md
+

@@ -172,3 +172,4 @@ like Azure.
 Customers should contact Oracle directly to discuss this topic.
 
 
+

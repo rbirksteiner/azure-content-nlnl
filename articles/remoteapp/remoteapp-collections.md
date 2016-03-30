@@ -2,7 +2,7 @@
     pageTitle="What kind of collection do you need for Azure RemoteApp? | Microsoft Azure" 
     description="Learn about the types of collections available with Azure RemoteApp." 
     services="remoteapp" 
-	documentationCenter="" 
+    documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 

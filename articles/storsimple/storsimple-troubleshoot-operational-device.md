@@ -55,7 +55,7 @@ Errors are listed in numeric order.
 |:---|:---|:---|
 |10502|An error was encountered while accessing your storage account.|Wait for a few minutes and then try again. If the error persists, please Contact Microsoft Support for next steps.|
 |40017|Unable to resolve a disk in a backup set.|If the error persists, please Contact Microsoft Support for next steps.|
-|40018|Unable to resolve any of the disks in  backup set.|If the error persists, please Contact Microsoft Support for next steps.|
+|40018|Unable to resolve any of the disks in  backup set.|If the error persists, please Contact Microsoft Support for next steps.|
 |390061|The system is busy or unavailable.|Wait for a few minutes and then try again. If the error persists, please Contact Microsoft Support for next steps.|
 |390143|An error has occurred with error code 390143. (Unknown error.)|If the error persists, please contact Microsoft Support for next steps.|
 
@@ -66,3 +66,4 @@ If you are unable to resolve the problem, [contact Microsoft Support](storsimple
 
 [1]: https://technet.microsoft.com/en-us/%5Clibrary/Dn688135(v=WPS.630).aspx
 [2]: https://technet.microsoft.com/en-us/%5Clibrary/Dn715782(v=WPS.630).aspx
+

@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Azure SQL Database performance guidance for single databases"
-	description="This topic provides guidance to help you determine which service tier is right for your application and provides recommendations for tuning your application to get the most out of your Azure SQL Database."
-	services="sql-database"
-	documentationCenter="na"
-	authors="rothja"
-	manager="jeffreyg"
-	editor="monicar" />
+    pageTitle="Azure SQL Database performance guidance for single databases"
+    description="This topic provides guidance to help you determine which service tier is right for your application and provides recommendations for tuning your application to get the most out of your Azure SQL Database."
+    services="sql-database"
+    documentationCenter="na"
+    authors="rothja"
+    manager="jeffreyg"
+    editor="monicar" />
 
 
 <tags
-	ms.service="sql-database"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="data-management"
-	ms.date="11/03/2015"
-	ms.author="jroth" />
+    ms.service="sql-database"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="data-management"
+    ms.date="11/03/2015"
+    ms.author="jroth" />
 
 # Azure SQL Database performance guidance for single databases
 
@@ -123,15 +123,15 @@ For more information, see the [Business Continuity Overview](sql-database-busine
 
 **Max concurrent requests** is the maximum number of concurrent user/application requests executing at the same time in the database. To see the number of concurrent requests, run the following Transact-SQL query on your SQL database:
 
-	SELECT COUNT(*) AS [Concurrent_Requests] 
-	FROM sys.dm_exec_requests R
+    SELECT COUNT(*) AS [Concurrent_Requests] 
+    FROM sys.dm_exec_requests R
 
 If you are analyzing the workload of an on-premises SQL Server database, you should modify this query to filter on the specific database you are analyzing. For example, if you have an on-premises database named MyDatabase, the following Transact-SQL query will return the count of concurrent requests in that database.
 
-	SELECT COUNT(*) AS [Concurrent_Requests] 
-	FROM sys.dm_exec_requests R
-	INNER JOIN sys.databases D ON D.database_id = R.database_id
-	AND D.name = 'MyDatabase'
+    SELECT COUNT(*) AS [Concurrent_Requests] 
+    FROM sys.dm_exec_requests R
+    INNER JOIN sys.databases D ON D.database_id = R.database_id
+    AND D.name = 'MyDatabase'
 
 Note that this is just a snapshot at a single point in time. To get a better understanding of your workload, you would have to collect many samples over time to understand your concurrent request requirements.
 
@@ -147,16 +147,16 @@ There is no query or DMV that can show you concurrent login counts or history. Y
 
 **Max sessions** is the maximum number of concurrent open connections to the database. When a user logs in, a session is established and remains active until they logout or the session times out. To see your current number of active sessions, run the following Transact-SQL query on you SQL database:
 
-	SELECT COUNT(*) AS [Sessions]
-	FROM sys.dm_exec_connections
+    SELECT COUNT(*) AS [Sessions]
+    FROM sys.dm_exec_connections
 
 If you are analyzing an on-premises SQL Server workload, modify the query to focus on a specific database. This will help you to determine the possible session needs for that database if you were to move it to Azure SQL Database.
 
-	SELECT COUNT(*)  AS [Sessions]
-	FROM sys.dm_exec_connections C
-	INNER JOIN sys.dm_exec_sessions S ON (S.session_id = C.session_id)
-	INNER JOIN sys.databases D ON (D.database_id = S.database_id)
-	WHERE D.name = 'MyDatabase'
+    SELECT COUNT(*)  AS [Sessions]
+    FROM sys.dm_exec_connections C
+    INNER JOIN sys.dm_exec_sessions S ON (S.session_id = C.session_id)
+    INNER JOIN sys.databases D ON (D.database_id = S.database_id)
+    WHERE D.name = 'MyDatabase'
 
 Again, these queries return a point-in-time count, so collecting multiple samples over time gives you the best understanding of your session usage.
 
@@ -175,16 +175,16 @@ The [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)
 
 Because this view provides a more granular look at resource utilization, you should first use **sys.dm_db_resource_stats ** for any current-state analysis or troubleshooting. For example, the following query show the average and maximum resource utilization for the current database over the last hour:
 
-	SELECT  
-	    AVG(avg_cpu_percent) AS 'Average CPU Utilization In Percent', 
-	    MAX(avg_cpu_percent) AS 'Maximum CPU Utilization In Percent', 
-	    AVG(avg_data_io_percent) AS 'Average Data IO In Percent', 
-	    MAX(avg_data_io_percent) AS 'Maximum Data IO In Percent', 
-	    AVG(avg_log_write_percent) AS 'Average Log Write Utilization In Percent', 
-	    MAX(avg_log_write_percent) AS 'Maximum Log Write Utilization In Percent', 
-	    AVG(avg_memory_usage_percent) AS 'Average Memory Usage In Percent', 
-	    MAX(avg_memory_usage_percent) AS 'Maximum Memory Usage In Percent' 
-	FROM sys.dm_db_resource_stats;  
+    SELECT  
+        AVG(avg_cpu_percent) AS 'Average CPU Utilization In Percent', 
+        MAX(avg_cpu_percent) AS 'Maximum CPU Utilization In Percent', 
+        AVG(avg_data_io_percent) AS 'Average Data IO In Percent', 
+        MAX(avg_data_io_percent) AS 'Maximum Data IO In Percent', 
+        AVG(avg_log_write_percent) AS 'Average Log Write Utilization In Percent', 
+        MAX(avg_log_write_percent) AS 'Maximum Log Write Utilization In Percent', 
+        AVG(avg_memory_usage_percent) AS 'Average Memory Usage In Percent', 
+        MAX(avg_memory_usage_percent) AS 'Maximum Memory Usage In Percent' 
+    FROM sys.dm_db_resource_stats;  
 
 For other queries, see the examples in [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx).
 
@@ -206,10 +206,10 @@ Azure SQL Database exposes consumed resource information for each active databas
 
 The following example demonstrates how the data in this view is exposed:
 
-	SELECT TOP 10 * 
-	FROM sys.resource_stats 
-	WHERE database_name = 'resource1' 
-	ORDER BY start_time DESC
+    SELECT TOP 10 * 
+    FROM sys.resource_stats 
+    WHERE database_name = 'resource1' 
+    ORDER BY start_time DESC
 
 ![sys resource stats](./media/sql-database-performance-guidance/sys_resource_stats.png)
 
@@ -218,61 +218,61 @@ The following example demonstrate different ways that you can understand the res
 >[AZURE.NOTE] Some of the columns of **sys.resource_stats** have changed in current V12 databases, so the sample queries in the following examples might generate errors. Future updates to this topic will provide new versions of the queries that addresses this issue.
 
 1. For example, to look at past week’s resource usage for database, "userdb1", you can run following query.
-	
-		SELECT * 
-		FROM sys.resource_stats 
-		WHERE database_name = 'userdb1' AND 
-		      start_time > DATEADD(day, -7, GETDATE())
-		ORDER BY start_time DESC;
-	
+    
+        SELECT * 
+        FROM sys.resource_stats 
+        WHERE database_name = 'userdb1' AND 
+              start_time > DATEADD(day, -7, GETDATE())
+        ORDER BY start_time DESC;
+    
 2. In order to evaluate how well your workload fits into the performance level, you have to drill down at each different aspect of the resource metrics: CPU, reads, write, number of workers, and number of sessions. Here is a revised query using sys.resource_stats to report the average as well as maximum values of these resource metrics.
-	
-		SELECT 
-		    avg(avg_cpu_percent) AS 'Average CPU Utilization In Percent',
-		    max(avg_cpu_percent) AS 'Maximum CPU Utilization In Percent',
-		    avg(avg_physical_data_read_percent) AS 'Average Physical Data Read Utilization In Percent',
-		    max(avg_physical_data_read_percent) AS 'Maximum Physical Data Read Utilization In Percent',
-		    avg(avg_log_write_percent) AS 'Average Log Write Utilization In Percent',
-		    max(avg_log_write_percent) AS 'Maximum Log Write Utilization In Percent',
-		    avg(active_session_count) AS 'Average # of Sessions',
-		    max(active_session_count) AS 'Maximum # of Sessions',
-		    avg(active_worker_count) AS 'Average # of Workers',
-		    max(active_worker_count) AS 'Maximum # of Workers'
-		FROM sys.resource_stats 
-		WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
-	
+    
+        SELECT 
+            avg(avg_cpu_percent) AS 'Average CPU Utilization In Percent',
+            max(avg_cpu_percent) AS 'Maximum CPU Utilization In Percent',
+            avg(avg_physical_data_read_percent) AS 'Average Physical Data Read Utilization In Percent',
+            max(avg_physical_data_read_percent) AS 'Maximum Physical Data Read Utilization In Percent',
+            avg(avg_log_write_percent) AS 'Average Log Write Utilization In Percent',
+            max(avg_log_write_percent) AS 'Maximum Log Write Utilization In Percent',
+            avg(active_session_count) AS 'Average # of Sessions',
+            max(active_session_count) AS 'Maximum # of Sessions',
+            avg(active_worker_count) AS 'Average # of Workers',
+            max(active_worker_count) AS 'Maximum # of Workers'
+        FROM sys.resource_stats 
+        WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
+    
 3. With the above information of average and maximum values of each resource metric, you can assess how well your workload fits into the performance level you chose. In most cases, average values from sys.resource_stats give you a good baseline to use against the target size. It should be your primary measurement stick. For example, if you are using the Standard service tier with S2 performance level, the average utilization percentages for CPU, reads and writes are below 40%, the average number of workers is below 50 and the average number of session is below 200, your workload might fit into the S1 performance level. It is easy to see if your database fits within the worker and session limits. To see if a database fits into a lower performance level with regards to CPU, reads and writes, you divide the DTU number of the lower performance level by the DTU number of your current performance level and multiply the result by 100:
-	
-	**S1 DTU / S2 DTU * 100 = 20 / 50 * 100 = 40**
-	
-	The result is the relative performance difference between the two performance levels in percent. If your utilization is not exceeding this percentage, your workload might fit into the lower performance level. However, you need to look at all ranges of resource usage values as well and determine, percentage wise, how often your database workload would fit into the lower performance level. The following query outputs the fit percentage per resource dimension, based on the threshold of 40% calculated above.
-	
-		SELECT 
-		    (COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU Fit Percent'
-		    ,(COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Log Write Fit Percent'
-		    ,(COUNT(database_name) - SUM(CASE WHEN avg_physical_data_read_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical Data Read Fit Percent'
-		FROM sys.resource_stats
-		WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
-	
-	Based on your database service level objective (SLO), you can decide if your workload fits into the lower performance level. If your database workload SLO is 99.9% and the query above returns values greater than 99.9 for all three resource dimensions, your workload is very likely to fit into the lower performance level.
-	
-	Looking at the fit percentage also gives you insights into whether you have to move to the next higher performance level to meet your SLO. For example, "userdb1" shows the following utilization for the past week.
-	
-	| Average CPU Percent | Maximum CPU Percent |
-	|---|---|
-	| 24.5 | 100.00 |
-	
-	Average CPU is about a quarter of the limit of the performance level, which would fit nicely into the performance level of the database. However the maximum value shows that the database reaches the limit of the performance level. Do you need to move to the next higher performance level? Again you have to look at how many times your workload reaches 100% and compare it to your database workload SLO.
-	
-		SELECT 
-		(COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU Fit Percent'
-		,(COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Log Write Fit Percent’
-		,(COUNT(database_name) - SUM(CASE WHEN avg_physical_data_read_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical Data Read Fit Percent'
-		FROM sys.resource_stats
-		WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
-	
-	If the query above returns a value less than 99.9 for any of the three resource dimensions, you should consider either moving to the next higher performance level or use application tuning techniques to reduce the load on the Azure SQL Database.
-	
+    
+    **S1 DTU / S2 DTU * 100 = 20 / 50 * 100 = 40**
+    
+    The result is the relative performance difference between the two performance levels in percent. If your utilization is not exceeding this percentage, your workload might fit into the lower performance level. However, you need to look at all ranges of resource usage values as well and determine, percentage wise, how often your database workload would fit into the lower performance level. The following query outputs the fit percentage per resource dimension, based on the threshold of 40% calculated above.
+    
+        SELECT 
+            (COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU Fit Percent'
+            ,(COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Log Write Fit Percent'
+            ,(COUNT(database_name) - SUM(CASE WHEN avg_physical_data_read_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical Data Read Fit Percent'
+        FROM sys.resource_stats
+        WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
+    
+    Based on your database service level objective (SLO), you can decide if your workload fits into the lower performance level. If your database workload SLO is 99.9% and the query above returns values greater than 99.9 for all three resource dimensions, your workload is very likely to fit into the lower performance level.
+    
+    Looking at the fit percentage also gives you insights into whether you have to move to the next higher performance level to meet your SLO. For example, "userdb1" shows the following utilization for the past week.
+    
+    | Average CPU Percent | Maximum CPU Percent |
+    |---|---|
+    | 24.5 | 100.00 |
+    
+    Average CPU is about a quarter of the limit of the performance level, which would fit nicely into the performance level of the database. However the maximum value shows that the database reaches the limit of the performance level. Do you need to move to the next higher performance level? Again you have to look at how many times your workload reaches 100% and compare it to your database workload SLO.
+    
+        SELECT 
+        (COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU Fit Percent'
+        ,(COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Log Write Fit Percent’
+        ,(COUNT(database_name) - SUM(CASE WHEN avg_physical_data_read_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical Data Read Fit Percent'
+        FROM sys.resource_stats
+        WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
+    
+    If the query above returns a value less than 99.9 for any of the three resource dimensions, you should consider either moving to the next higher performance level or use application tuning techniques to reduce the load on the Azure SQL Database.
+    
 4. The above exercise should also take into account your projected workload increase in the future.
 
 ## Tuning your application
@@ -304,21 +304,21 @@ A common problem in OLTP database performance relates to the physical database d
 
 The following example creates a case where the selected query plan contains a scan when a seek would suffice.
 
-	DROP TABLE dbo.missingindex;
-	CREATE TABLE dbo.missingindex (col1 INT IDENTITY PRIMARY KEY, col2 INT);
-	DECLARE @a int = 0;
-	SET NOCOUNT ON;
-	BEGIN TRANSACTION
-	WHILE @a < 20000
-	BEGIN
-	    INSERT INTO dbo.missingindex(col2) VALUES (@a);
-	    SET @a += 1;
-	END
-	COMMIT TRANSACTION;
-	GO
-	SELECT m1.col1 
-	FROM dbo.missingindex m1 INNER JOIN dbo.missingindex m2 ON(m1.col1=m2.col1) 
-	WHERE m1.col2 = 4;
+    DROP TABLE dbo.missingindex;
+    CREATE TABLE dbo.missingindex (col1 INT IDENTITY PRIMARY KEY, col2 INT);
+    DECLARE @a int = 0;
+    SET NOCOUNT ON;
+    BEGIN TRANSACTION
+    WHILE @a < 20000
+    BEGIN
+        INSERT INTO dbo.missingindex(col2) VALUES (@a);
+        SET @a += 1;
+    END
+    COMMIT TRANSACTION;
+    GO
+    SELECT m1.col1 
+    FROM dbo.missingindex m1 INNER JOIN dbo.missingindex m2 ON(m1.col1=m2.col1) 
+    WHERE m1.col2 = 4;
 
 ![query plan with missing indexes](./media/sql-database-performance-guidance/query_plan_missing_indexes.png)
 
@@ -328,31 +328,31 @@ Azure SQL Database contains functionality to help hint database administrators o
 
 The following query can be used to evaluate potential missing indexes.
 
-	SELECT CONVERT (varchar, getdate(), 126) AS runtime, 
-	    mig.index_group_handle, mid.index_handle, 
-	    CONVERT (decimal (28,1), migs.avg_total_user_cost * migs.avg_user_impact * 
-	            (migs.user_seeks + migs.user_scans)) AS improvement_measure, 
-	    'CREATE INDEX missing_index_' + CONVERT (varchar, mig.index_group_handle) + '_' + 
-	              CONVERT (varchar, mid.index_handle) + ' ON ' + mid.statement + ' 
-	              (' + ISNULL (mid.equality_columns,'') 
-	              + CASE WHEN mid.equality_columns IS NOT NULL 
-	                          AND mid.inequality_columns IS NOT NULL 
-	                     THEN ',' ELSE '' END + ISNULL (mid.inequality_columns, '')
-	              + ')' 
-	              + ISNULL (' INCLUDE (' + mid.included_columns + ')', '') AS create_index_statement, 
-	    migs.*, 
-	    mid.database_id, 
-	    mid.[object_id]
-	FROM sys.dm_db_missing_index_groups AS mig
-	INNER JOIN sys.dm_db_missing_index_group_stats AS migs 
-	    ON migs.group_handle = mig.index_group_handle
-	INNER JOIN sys.dm_db_missing_index_details AS mid 
-	    ON mig.index_handle = mid.index_handle
-	ORDER BY migs.avg_total_user_cost * migs.avg_user_impact * (migs.user_seeks + migs.user_scans) DESC
+    SELECT CONVERT (varchar, getdate(), 126) AS runtime, 
+        mig.index_group_handle, mid.index_handle, 
+        CONVERT (decimal (28,1), migs.avg_total_user_cost * migs.avg_user_impact * 
+                (migs.user_seeks + migs.user_scans)) AS improvement_measure, 
+        'CREATE INDEX missing_index_' + CONVERT (varchar, mig.index_group_handle) + '_' + 
+                  CONVERT (varchar, mid.index_handle) + ' ON ' + mid.statement + ' 
+                  (' + ISNULL (mid.equality_columns,'') 
+                  + CASE WHEN mid.equality_columns IS NOT NULL 
+                              AND mid.inequality_columns IS NOT NULL 
+                         THEN ',' ELSE '' END + ISNULL (mid.inequality_columns, '')
+                  + ')' 
+                  + ISNULL (' INCLUDE (' + mid.included_columns + ')', '') AS create_index_statement, 
+        migs.*, 
+        mid.database_id, 
+        mid.[object_id]
+    FROM sys.dm_db_missing_index_groups AS mig
+    INNER JOIN sys.dm_db_missing_index_group_stats AS migs 
+        ON migs.group_handle = mig.index_group_handle
+    INNER JOIN sys.dm_db_missing_index_details AS mid 
+        ON mig.index_handle = mid.index_handle
+    ORDER BY migs.avg_total_user_cost * migs.avg_user_impact * (migs.user_seeks + migs.user_scans) DESC
 
 In this example, it suggested the following index.
 
-	CREATE INDEX missing_index_5006_5005 ON [dbo].[missingindex] ([col2])  
+    CREATE INDEX missing_index_5006_5005 ON [dbo].[missingindex] ([col2])  
 
 Once created, that same SELECT statement now picks a different plan that uses a seek instead of a scan, executing more efficiently as shown in the following query plan.
 
@@ -369,72 +369,72 @@ The following example demonstrates how the query processor can generate a plan t
 
 The following is an example setup.
 
-	DROP TABLE psptest1;
-	CREATE TABLE psptest1(col1 int primary key identity, col2 int, col3 binary(200));
-	
-	DECLARE @a int = 0;
-	SET NOCOUNT ON;
-	BEGIN TRANSACTION
-	WHILE @a < 20000
-	BEGIN
-	    INSERT INTO psptest1(col2) values (1);
-	    INSERT INTO psptest1(col2) values (@a);
-	    SET @a += 1;
-	END
-	COMMIT TRANSACTION
-	CREATE INDEX i1 on psptest1(col2);
-	GO
-	
-	CREATE PROCEDURE psp1 (@param1 int)
-	AS
-	BEGIN
-	    INSERT INTO t1 SELECT * FROM psptest1 
-	    WHERE col2 = @param1
-	    ORDER BY col2;
-	END
-	GO
-	
-	CREATE PROCEDURE psp2 (@param2 int)
-	AS
-	BEGIN
-	    INSERT INTO t1 SELECT * FROM psptest1 WHERE col2 = @param2
-	    ORDER BY col2
-	    OPTION (OPTIMIZE FOR (@param2 UNKNOWN))
-	END
-	GO
-	
-	CREATE TABLE t1 (col1 int primary key, col2 int, col3 binary(200));
-	GO
+    DROP TABLE psptest1;
+    CREATE TABLE psptest1(col1 int primary key identity, col2 int, col3 binary(200));
+    
+    DECLARE @a int = 0;
+    SET NOCOUNT ON;
+    BEGIN TRANSACTION
+    WHILE @a < 20000
+    BEGIN
+        INSERT INTO psptest1(col2) values (1);
+        INSERT INTO psptest1(col2) values (@a);
+        SET @a += 1;
+    END
+    COMMIT TRANSACTION
+    CREATE INDEX i1 on psptest1(col2);
+    GO
+    
+    CREATE PROCEDURE psp1 (@param1 int)
+    AS
+    BEGIN
+        INSERT INTO t1 SELECT * FROM psptest1 
+        WHERE col2 = @param1
+        ORDER BY col2;
+    END
+    GO
+    
+    CREATE PROCEDURE psp2 (@param2 int)
+    AS
+    BEGIN
+        INSERT INTO t1 SELECT * FROM psptest1 WHERE col2 = @param2
+        ORDER BY col2
+        OPTION (OPTIMIZE FOR (@param2 UNKNOWN))
+    END
+    GO
+    
+    CREATE TABLE t1 (col1 int primary key, col2 int, col3 binary(200));
+    GO
 
 The setup code creates a table that contains skewed data distribution. The optimal query plan differs based on which parameter is being selected. Unfortunately, the plan caching behavior does not always recompile the query based on the most common parameter value, meaning that it is possible for a suboptimal plan to be cached and used for many values, even when a different plan would be a better average plan choice. It then creates two stored procedures which are identical except one contains a special query hint (reasoning explained below).
 
 **Example (part 1):**
 
-	-- Prime Procedure Cache with scan plan
-	EXEC psp1 @param1=1;
-	TRUNCATE TABLE t1;
-	
-	-- Iterate multiple times to show the performance difference
-	DECLARE @i int = 0;
-	WHILE @i < 1000
-	BEGIN
-	    EXEC psp1 @param1=2;
-	    TRUNCATE TABLE t1;
-	    SET @i += 1;
-	END
+    -- Prime Procedure Cache with scan plan
+    EXEC psp1 @param1=1;
+    TRUNCATE TABLE t1;
+    
+    -- Iterate multiple times to show the performance difference
+    DECLARE @i int = 0;
+    WHILE @i < 1000
+    BEGIN
+        EXEC psp1 @param1=2;
+        TRUNCATE TABLE t1;
+        SET @i += 1;
+    END
 
 **Example (part 2 – please wait 10 minutes before trying this part so that it is obviously different in the resulting telemetry data):**
 
-	EXEC psp2 @param2=1;
-	TRUNCATE TABLE t1;
-	
-	DECLARE @i int = 0;
-	WHILE @i < 1000
-	BEGIN
-	    EXEC psp2 @param2=2;
-	    TRUNCATE TABLE t1;
-	    SET @i += 1;
-	END
+    EXEC psp2 @param2=1;
+    TRUNCATE TABLE t1;
+    
+    DECLARE @i int = 0;
+    WHILE @i < 1000
+    BEGIN
+        EXEC psp2 @param2=2;
+        TRUNCATE TABLE t1;
+        SET @i += 1;
+    END
 
 Each part of this example attempts to run a parameterized insert statement 1000 times (to generate sufficient load to be interested on a test data set). When executing stored procedures, the query processor examines the parameter value passed to the procedure during its first compilation (known as parameter "sniffing"). The resulting plan is cached and used for later invocations, even if the parameter value is different. As a result, the optimal plan may not be used in all cases. Sometimes customers need to guide the optimizer to pick a plan that is better for the average case rather than the specific case when the query was first compiled. In this example, the initial plan will generate a "scan" plan which reads all rows to find each value that matches the parameter.
 
@@ -452,10 +452,10 @@ The second part of the example uses a query hint to tell the optimizer to use a 
 
 The impact of this can be seen by examining the **sys.resource_stats** table (Note: there will be a delay from the time that you execute the test to the time where the data is populated into the table). For this example, part 1 executed during the 22:25:00 time window and part 2 was executed 22:35:00. Note that the earlier time window used more resources in that time window than the later one (due to plan efficiency improvements).
 
-	SELECT TOP 1000 * 
-	FROM sys.resource_stats 
-	WHERE database_name = 'resource1' 
-	ORDER BY start_time DESC
+    SELECT TOP 1000 * 
+    FROM sys.resource_stats 
+    WHERE database_name = 'resource1' 
+    ORDER BY start_time DESC
 
 ![Query Tuning](./media/sql-database-performance-guidance/query_tuning_4.png)
 
@@ -490,3 +490,4 @@ Some database applications contain read-heavy workloads. It is possible to utili
 ## Conclusion
 
 The service tiers in Azure SQL Database empower you to raise the bar on the types of applications you build in the cloud. When combined with diligent application tuning, you can get powerful and predictable performance for your application. This document outlines recommended techniques to optimize a database’s resource consumption to fit nicely into one of the performance levels. Tuning is an ongoing exercise in the cloud model, and the service tiers and their performance levels allow administrators to maximize performance while minimizing costs on the Microsoft Azure platform.
+

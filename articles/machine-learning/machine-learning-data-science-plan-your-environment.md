@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How to identify scenarios and plan for advanced analytics data processing | Microsoft Azure" 
-	description="Plan for advanced analytics by considering a series of key questions." 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="bradsev"
-	manager="paulettm" 
-	editor="cgronlun" />
+    pageTitle="How to identify scenarios and plan for advanced analytics data processing | Microsoft Azure" 
+    description="Plan for advanced analytics by considering a series of key questions." 
+    services="machine-learning" 
+    documentationCenter="" 
+    authors="bradsev"
+    manager="paulettm" 
+    editor="cgronlun" />
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/23/2015" 
-	ms.author="bradsev" /> 
+    ms.service="machine-learning" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/23/2015" 
+    ms.author="bradsev" /> 
 
 
 # How to identify scenarios and plan for advanced analytics data processing
@@ -27,23 +27,23 @@ What resources should you plan to include when setting up an environment to do a
 The logistic questions concern the location of the **data source**, the **target destination** in Azure, and requirements for moving the data, including the schedule, amount and resources involved. The data may need to be moved several times during the analytics process. A common scenario is to move local data into some form of storage on Azure and then into Machine Learning Studio.
 
 1. **What is your data source?** Is it local or in the cloud? For example:
-	- The data is publicly available at an HTTP address.
-	- The data resides in a local/network file location.
-	- The data is in a SQL Server database.
-	- The data is stored in an Azure storage container
+    - The data is publicly available at an HTTP address.
+    - The data resides in a local/network file location.
+    - The data is in a SQL Server database.
+    - The data is stored in an Azure storage container
 
 2. **What is the Azure destination?** Where does it need to be for processing or modeling? For example:
-	- Azure Blob Storage
-	- SQL Azure databases
-	- SQL Server on Azure VM
-	- HDInsight (Hadoop on Azure) or Hive tables
-	- Azure Machine Learning
-	- Mountable Azure virtual hard disks.
+    - Azure Blob Storage
+    - SQL Azure databases
+    - SQL Server on Azure VM
+    - HDInsight (Hadoop on Azure) or Hive tables
+    - Azure Machine Learning
+    - Mountable Azure virtual hard disks.
 
 3. **How are you going to move the data?** The procedures and resources available to ingest or load data into a variety of different storage and processing environments are outlined in the following topics.
 
-	-  [Load data into storage environments for analytics](machine-learning-data-science-ingest-data.md) 
-	-  [Import your training data into Azure Machine Learning Studio from various data sources](machine-learning-data-science-import-data,md).
+    -  [Load data into storage environments for analytics](machine-learning-data-science-ingest-data.md) 
+    -  [Import your training data into Azure Machine Learning Studio from various data sources](machine-learning-data-science-import-data,md).
 
 4. **Does the data need to be moved on a regular schedule or modified during migration?** Consider using Azure Data Factory (ADF) when data needs to be continually migrated, particularly if a hybrid scenario that accesses both on-premise and cloud resources is involved, or when the data is transacted or needs to be modified or have business logic added to it in the course of being migrated. For further information, see [Move data from an on-premise SQL server to SQL Azure with Azure Data Factory](machine-learning-data-science-move-sql-azure-adf.md)
 
@@ -54,22 +54,22 @@ The logistic questions concern the location of the **data source**, the **target
 These questions are key to planning your storage and processing environments, each of which are appropriate to various types of data and each of which have certain restrictions. 
 
 1. **What are the data types?** For Example: 
-	- Numerical
-	- Categorical
-	- Strings
-	- Binary
+    - Numerical
+    - Categorical
+    - Strings
+    - Binary
 
 2. **How is your data formatted?** For Example:
     - Comma-separated (CSV) or tab-separated (TSV) flat files
     - Compressed or uncompressed
-	- Azure blobs
-	- Hadoop Hive tables
-	- SQL Server tables
+    - Azure blobs
+    - Hadoop Hive tables
+    - SQL Server tables
 
 2. **How large is your data?**
     - Small: Less than 2GB
     - Medium: Greater than 2GB and less than 10GB
-	- Large: Greater than 10GB
+    - Large: Greater than 10GB
 
 Take the Azure Machine Learning Studio environment for example:
 
@@ -90,19 +90,19 @@ Pre-processing and cleaning data are important tasks that typically must be cond
 There are lots of options here depending on what languages and development environments or tools you need or are most conformable using.
  
 1. **What languages do you prefer to use for analysis?**  
-	- R
-	- Python
-	- SQL
+    - R
+    - Python
+    - SQL
 
 2. **What tools should you use for data analysis?**
-	- [Microsoft Azure Powershell](powershell-install-configure.md) - a script language used to administer your Azure resources in a script language.
-	- [Azure Machine Learning Studio](machine-learning-what-is-ml-studio/)
-	- [Revolution Analytics](http://www.revolutionanalytics.com/revolution-r-open)
-	- [RStudio](http://www.rstudio.com)
-	- [Python Tools for Visual Studio](http://microsoft.github.io/PTVS/)
-	- [Anaconda](https://www.continuum.io/why-anaconda)
-	- [Jupiter notebooks](http://jupyter.org/)
-	- [Microsoft Power BI](http://powerbi.microsoft.com) 
+    - [Microsoft Azure Powershell](powershell-install-configure.md) - a script language used to administer your Azure resources in a script language.
+    - [Azure Machine Learning Studio](machine-learning-what-is-ml-studio/)
+    - [Revolution Analytics](http://www.revolutionanalytics.com/revolution-r-open)
+    - [RStudio](http://www.rstudio.com)
+    - [Python Tools for Visual Studio](http://microsoft.github.io/PTVS/)
+    - [Anaconda](https://www.continuum.io/why-anaconda)
+    - [Jupiter notebooks](http://jupyter.org/)
+    - [Microsoft Power BI](http://powerbi.microsoft.com) 
 
 
 ## Identify your advanced analytics scenario

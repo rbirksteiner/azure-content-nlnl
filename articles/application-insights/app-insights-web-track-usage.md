@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Usage analysis for web applications with Application Insights" 
-	description="Overview of usage analytics for web apps with Application Insights" 
-	services="application-insights" 
+    pageTitle="Usage analysis for web applications with Application Insights" 
+    description="Overview of usage analytics for web apps with Application Insights" 
+    services="application-insights" 
     documentationCenter=""
-	authors="alancameronwills" 
-	manager="douge"/>
+    authors="alancameronwills" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/25/2015" 
-	ms.author="awills"/>
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/25/2015" 
+    ms.author="awills"/>
  
 # Usage analysis for web applications with Application Insights
 
@@ -149,7 +149,7 @@ Let's suppose that instead of implementing each game in a separate web page, you
 
 But you'd still like Application Insights to log the number of times each game is opened, in exactly the same way as when they were on separate web pages. That's easy: just insert a call to the telemetry module into your JavaScript where you want to record that a new 'page' has opened:
 
-	appInsights.trackPageView(game.Name);
+    appInsights.trackPageView(game.Name);
 
 ## Custom events
 
@@ -376,3 +376,4 @@ And of course, when the feature is live, make sure you look at the analytics and
 [windows]: app-insights-windows-get-started.md
 
  
+

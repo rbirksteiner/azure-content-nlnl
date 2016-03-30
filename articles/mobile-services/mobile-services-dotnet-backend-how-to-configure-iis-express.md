@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Configure IIS Express for local mobile service testing | Azure Mobile Services"
-	description="Learn how to configure IIS Express to allow connections to a local mobile service project for testing."
-	authors="ggailey777"
-	manager="dwrede"
-	services="mobile-services"
-	documentationCenter=""
-	editor=""/>
+    pageTitle="Configure IIS Express for local mobile service testing | Azure Mobile Services"
+    description="Learn how to configure IIS Express to allow connections to a local mobile service project for testing."
+    authors="ggailey777"
+    manager="dwrede"
+    services="mobile-services"
+    documentationCenter=""
+    editor=""/>
 
 <tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="12/07/2015"
-	ms.author="glenga"/>
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="na"
+    ms.devlang="multiple"
+    ms.topic="article"
+    ms.date="12/07/2015"
+    ms.author="glenga"/>
 
 # Configure the local web server to allow connections to a local mobile service
 
@@ -28,3 +28,4 @@ Azure Mobile Services enables you create your mobile service in Visual Studio us
 To be able to test a mobile service locally with clients running on an emulator, virtual machine or on a separate workstation, you have to configure the local Web server and host computer to allow connections to the workstation's IP address and port. This topic shows you how to configure IIS Express to enable connections to your locally hosted mobile service.
 
 [AZURE.INCLUDE [mobile-services-how-to-configure-iis-express](../../includes/mobile-services-how-to-configure-iis-express.md)]
+

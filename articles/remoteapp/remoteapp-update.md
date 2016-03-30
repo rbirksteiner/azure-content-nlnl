@@ -29,7 +29,8 @@ So, how do you go about updating your collection? It's fairly straightforward:
 3. Now, on the collection page, click **Update**.
 4. Choose the new image from the **Template Image** list.
 4. Here's the tricky part - you need to decide how to deal with any users that are currently using an app in the collection. You have the following choices:
-	- **Give users 60 minutes after the update**. As soon as the update is finished, Azure RemoteApp will display a message to any active users telling them to save their work and log off and log back in. After 60 minutes, any active users who have not logged off will be automatically logged off. Users can immediately log back on.
-	- **Sign users out immediately**. As soon as the update is finished, log off all users automatically without any warning. If you choose this option, users might lose data. However, they can reconnect to the app immediately.
+    - **Give users 60 minutes after the update**. As soon as the update is finished, Azure RemoteApp will display a message to any active users telling them to save their work and log off and log back in. After 60 minutes, any active users who have not logged off will be automatically logged off. Users can immediately log back on.
+    - **Sign users out immediately**. As soon as the update is finished, log off all users automatically without any warning. If you choose this option, users might lose data. However, they can reconnect to the app immediately.
 
 1. Click the check mark to start the update.
+

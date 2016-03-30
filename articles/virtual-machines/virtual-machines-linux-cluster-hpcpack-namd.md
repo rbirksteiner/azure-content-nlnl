@@ -83,9 +83,9 @@ Running a cross-node job on multiple Linux nodes requires the nodes to trust eac
 ### Generate an RSA key pair
 It's easy to generate an RSA key pair, which contains a public key and a private key, by running the Linux **ssh-keygen** command.
 
-1.	Log on to a Linux computer.
+1.  Log on to a Linux computer.
 
-2.	Run the following command.
+2.  Run the following command.
 
     ```
     ssh-keygen -t rsa
@@ -95,16 +95,16 @@ It's easy to generate an RSA key pair, which contains a public key and a private
 
     ![Generate an RSA key pair][keygen]
 
-3.	Change directory to the ~/.ssh directory. The private key is stored in id_rsa and the public key in id_rsa.pub.
+3.  Change directory to the ~/.ssh directory. The private key is stored in id_rsa and the public key in id_rsa.pub.
 
     ![Private and public keys][keys]
 
 ### Add the key pair to the HPC Pack cluster
-1.	Make a Remote Desktop connnection to your head node with your HPC Pack administrator account (the administrator account you set up when you ran the deployment script).
+1.  Make a Remote Desktop connnection to your head node with your HPC Pack administrator account (the administrator account you set up when you ran the deployment script).
 
 2. Use standard Windows Server procedures to create a domain user account in the cluster's Active Directory domain. For example, use the Active Directory User and Computers tool on the head node. The examples in this article assume you create a domain user named hpclab\hpcuser.
 
-2.	Create a file named C:\cred.xml and copy the RSA key data into it. You can find an example in the sample files at the end of this article.
+2.  Create a file named C:\cred.xml and copy the RSA key data into it. You can find an example in the sample files at the end of this article.
 
     ```
     <ExtendedData>
@@ -113,7 +113,7 @@ It's easy to generate an RSA key pair, which contains a public key and a private
     </ExtendedData>
     ```
 
-3.	Open a Command Prompt and enter the following command to set the credentials data for the hpclab\hpcuser account. You use the **extendeddata** parameter to pass the name of C:\cred.xml file you created for the key data.
+3.  Open a Command Prompt and enter the following command to set the credentials data for the hpclab\hpcuser account. You use the **extendeddata** parameter to pass the name of C:\cred.xml file you created for the key data.
 
     ```
     hpccred setcreds /extendeddata:c:\cred.xml /user:hpclab\hpcuser /password:<UserPassword>
@@ -121,7 +121,7 @@ It's easy to generate an RSA key pair, which contains a public key and a private
 
     This command completes successfully without output. After setting the credentials for the user accounts you need to run jobs, store the cred.xml file in a secure location, or delete it.
 
-5.	If you generated the RSA key pair on one of your Linux nodes, remember to delete the keys after you finish using them. HPC Pack does not set up mutual trust if it finds an existing id_rsa file or id_rsa.pub file.
+5.  If you generated the RSA key pair on one of your Linux nodes, remember to delete the keys after you finish using them. HPC Pack does not set up mutual trust if it finds an existing id_rsa file or id_rsa.pub file.
 
 >[AZURE.IMPORTANT] We don’t recommend running a Linux job as a cluster administrator on a shared cluster, because a job submitted by an administrator runs under the root account on the Linux nodes. A job submitted by a non-administrator user runs under a local Linux user account with the same name as the job user, and HPC Pack sets up mutual trust for this Linux user across all the nodes allocated to the job. You can set up the Linux user manually on the Linux nodes before running the job, or HPC Pack creates the user automatically when the job is submitted. If HPC Pack creates the user, HPC Pack deletes it after the job completes. The keys are removed after job completion on the nodes to reduce security threats.
 
@@ -129,11 +129,11 @@ It's easy to generate an RSA key pair, which contains a public key and a private
 
 Now set up a standard SMB share on a folder on the head node, and mount the shared folder on all Linux nodes to allow the Linux nodes to access NAMD files with a common path. See the file sharing options and steps in [Get started with Linux compute nodes in an HPC Pack Cluster in Azure](virtual-machines-linux-cluster-hpcpack.md). (We recommend mounting a shared folder on the head node in this article because CentOS 6.6 Linux nodes don’t currently support the Azure File service, which provides similar features. For more about mounting an Azure File share, see [Persisting connections to Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).)
 
-1.	Create a folder on the head node, and share it to everyone by setting Read/Write privileges. In this example, \\\\CentOS66HN\Namd is the name of the folder, where CentOS66HN is the host name of the head node.
+1.  Create a folder on the head node, and share it to everyone by setting Read/Write privileges. In this example, \\\\CentOS66HN\Namd is the name of the folder, where CentOS66HN is the host name of the head node.
 
 2. Extract the NAMD files in the folder by using a Windows version of **tar** or another Windows utility that operates on .tar archives. Extract the NAMD tar archive to \\\\CentOS66HN\Namd\namd2, and extract the tutorial files under \\\\CentOS66HN\Namd\namd2\namdsample.
 
-2.	Open a Windows PowerShell window and run the following commands to mount the shared folder.
+2.  Open a Windows PowerShell window and run the following commands to mount the shared folder.
 
     ```
     clusrun /nodegroup:LinuxNodes mkdir -p /namd2
@@ -186,7 +186,7 @@ Using a text editor of your choice, create the following Bash script in the fold
 
 >[AZURE.TIP] Save your script as a text file with Linux line endings (LF only, not CR LF). This ensures that it runs properly on the Linux nodes.
 
-1.	Define some variables.
+1.  Define some variables.
 
     ```
     #!/bin/bash
@@ -201,7 +201,7 @@ Using a text editor of your choice, create the following Bash script in the fold
     NUMPROCESS="+p"
     ```
 
-2.	Get node information from the environment variables. $NODESCORES stores a list of split words from $CCP_NODES_CORES. $COUNT is the size of $NODESCORES.
+2.  Get node information from the environment variables. $NODESCORES stores a list of split words from $CCP_NODES_CORES. $COUNT is the size of $NODESCORES.
 
     ```
     # Get node information from the environment variables
@@ -210,49 +210,49 @@ Using a text editor of your choice, create the following Bash script in the fold
     COUNT=${#NODESCORES[@]}
     ```
 
-3.	If the $CCP_NODES_CORES variable is not set, just start **charmrun** directly. (This should only occur when you run this script directly on your Linux nodes.)
+3.  If the $CCP_NODES_CORES variable is not set, just start **charmrun** directly. (This should only occur when you run this script directly on your Linux nodes.)
 
     ```
     if [ ${COUNT} -eq 0 ]
     then
-    	# CCP_NODES is_CORES is not found or is empty, so just run charmrun without nodelist arg.
-    	#echo ${CHARMRUN} $*
-    	${CHARMRUN} $*
+        # CCP_NODES is_CORES is not found or is empty, so just run charmrun without nodelist arg.
+        #echo ${CHARMRUN} $*
+        ${CHARMRUN} $*
     ```
 
-4.	Or create a nodelist file for **charmrun**.
+4.  Or create a nodelist file for **charmrun**.
 
     ```
     else
-    	# Create the nodelist file
-    	NODELIST_PATH=${SCRIPT_PATH}/nodelist_$$
+        # Create the nodelist file
+        NODELIST_PATH=${SCRIPT_PATH}/nodelist_$$
 
-    	# Write the head line
-    	echo "group main" > ${NODELIST_PATH}
+        # Write the head line
+        echo "group main" > ${NODELIST_PATH}
 
-    	# Get every node name and number of cores and write into the nodelist file
-    	I=1
-    	while [ ${I} -lt ${COUNT} ]
-    	do
-    		echo "host ${NODESCORES[${I}]} ++cpus ${NODESCORES[$(($I+1))]}" >> ${NODELIST_PATH}
-    		let "I=${I}+2"
-    	done
+        # Get every node name and number of cores and write into the nodelist file
+        I=1
+        while [ ${I} -lt ${COUNT} ]
+        do
+            echo "host ${NODESCORES[${I}]} ++cpus ${NODESCORES[$(($I+1))]}" >> ${NODELIST_PATH}
+            let "I=${I}+2"
+        done
 ```
-5.	Run **charmrun** with the nodelist file, get its return status, and remove the nodelist file at the end.
+5.  Run **charmrun** with the nodelist file, get its return status, and remove the nodelist file at the end.
 
     ${CCP_NUMCPUS} is another environment variable set by the HPC Pack head node. It stores the number of total cores allocated to this job. We use it to specify the number of processes for charmrun.
 
     ```
-	# Run charmrun with nodelist arg
-	#echo ${CHARMRUN} ${NUMPROCESS}${CCP_NUMCPUS} ${NODELIST_OPT} ${NODELIST_PATH} $*
-	${CHARMRUN} ${NUMPROCESS}${CCP_NUMCPUS} ${NODELIST_OPT} ${NODELIST_PATH} $*
+    # Run charmrun with nodelist arg
+    #echo ${CHARMRUN} ${NUMPROCESS}${CCP_NUMCPUS} ${NODELIST_OPT} ${NODELIST_PATH} $*
+    ${CHARMRUN} ${NUMPROCESS}${CCP_NUMCPUS} ${NODELIST_OPT} ${NODELIST_PATH} $*
 
-	RTNSTS=$?
-	rm -f ${NODELIST_PATH}
+    RTNSTS=$?
+    rm -f ${NODELIST_PATH}
     fi
 
     ```
-6.	Exit with the **charmrun** return status.
+6.  Exit with the **charmrun** return status.
 
     ```
     exit ${RTNSTS}
@@ -262,21 +262,21 @@ Using a text editor of your choice, create the following Bash script in the fold
 
 Now you are ready to submit a NAMD job in HPC Cluster Manager.
 
-1.	Connect to your cluster head node and start HPC Cluster Manager.
+1.  Connect to your cluster head node and start HPC Cluster Manager.
 
 2.  In **Node Management**, ensure that the Linux compute nodes are in the **Online** state. If they are not, select them and click **Bring Online**.
 
 2.  In **Job Management**, click **New Job**.
 
-3.	Enter a name for job such as *hpccharmrun*.
+3.  Enter a name for job such as *hpccharmrun*.
 
     ![New HPC job][namd_job]
 
-4.	On the **Job Details** page, under **Job Resources**, select the type of resource as **Node** and set the **Minimum** to 3. In this example we'll run the job on 3 Linux nodes and each node has 4 cores.
+4.  On the **Job Details** page, under **Job Resources**, select the type of resource as **Node** and set the **Minimum** to 3. In this example we'll run the job on 3 Linux nodes and each node has 4 cores.
 
     ![Job resources][job_resources]
 
-5.	On the **Task Details and I/O Redirection** page, add a new task to the job and set the following values.
+5.  On the **Task Details and I/O Redirection** page, add a new task to the job and set the following values.
 
     * **Command line** -
 `/namd2/hpccharmrun.sh ++remote-shell ssh /namd2/namd2 /namd2/namdsample/1-2-sphere/ubq_ws_eq.conf > /namd2/namd2_hpccharmrun.log`
@@ -290,7 +290,7 @@ Now you are ready to submit a NAMD job in HPC Cluster Manager.
     >[AZURE.NOTE] You set the working directory here because **charmrun** tries to navigate to the same working directory on each node. If the working directory isn't set, HPC Pack starts the command in a randomly named folder created on one of the Linux nodes. This causes the following error on the other nodes:
 `/bin/bash: line 37: cd: /tmp/nodemanager_task_94_0.mFlQSN: No such file or directory.` To avoid this, specify a folder path which can be accessed by all nodes as the working directory.
 
-5.	Click **Submit** to run this job.
+5.  Click **Submit** to run this job.
 
     By default, HPC Pack submits the job as your current logged-on user account. A dialog box might prompt you to enter the user name and password after you click **Submit**.
 
@@ -302,11 +302,11 @@ Now you are ready to submit a NAMD job in HPC Cluster Manager.
     hpccred delcreds
     ```
 
-6.	The job takes several minutes to finish.
+6.  The job takes several minutes to finish.
 
-7.	Find the job log at \\<headnodeName>\Namd\namd2\namd2_hpccharmrun.log and the output files in \\<headnode>\Namd\namd2\namdsample\1-2-sphere\.
+7.  Find the job log at \\<headnodeName>\Namd\namd2\namd2_hpccharmrun.log and the output files in \\<headnode>\Namd\namd2\namdsample\1-2-sphere\.
 
-8.	Optionally, start VMD to view your job results. The steps for visualizing the NAMD output files (in this case, a ubiquitin protein molecule in a water sphere) are beyond the scope of this article. See [NAMD Tutorial](http://www.life.illinois.edu/emad/biop590c/namd-tutorial-unix-590C.pdf) for details.
+8.  Optionally, start VMD to view your job results. The steps for visualizing the NAMD output files (in this case, a ubiquitin protein molecule in a water sphere) are beyond the scope of this article. See [NAMD Tutorial](http://www.life.illinois.edu/emad/biop590c/namd-tutorial-unix-590C.pdf) for details.
 
     ![Job results][vmd_view]
 
@@ -333,30 +333,30 @@ COUNT=${#NODESCORES[@]}
 
 if [ ${COUNT} -eq 0 ]
 then
-	# If CCP_NODES_CORES is not found or is empty, just run the charmrun without nodelist arg.
-	#echo ${CHARMRUN} $*
-	${CHARMRUN} $*
+    # If CCP_NODES_CORES is not found or is empty, just run the charmrun without nodelist arg.
+    #echo ${CHARMRUN} $*
+    ${CHARMRUN} $*
 else
-	# Create the nodelist file
-	NODELIST_PATH=${SCRIPT_PATH}/nodelist_$$
+    # Create the nodelist file
+    NODELIST_PATH=${SCRIPT_PATH}/nodelist_$$
 
-	# Write the head line
-	echo "group main" > ${NODELIST_PATH}
+    # Write the head line
+    echo "group main" > ${NODELIST_PATH}
 
-	# Get every node name & cores and write into the nodelist file
-	I=1
-	while [ ${I} -lt ${COUNT} ]
-	do
-		echo "host ${NODESCORES[${I}]} ++cpus ${NODESCORES[$(($I+1))]}" >> ${NODELIST_PATH}
-		let "I=${I}+2"
-	done
+    # Get every node name & cores and write into the nodelist file
+    I=1
+    while [ ${I} -lt ${COUNT} ]
+    do
+        echo "host ${NODESCORES[${I}]} ++cpus ${NODESCORES[$(($I+1))]}" >> ${NODELIST_PATH}
+        let "I=${I}+2"
+    done
 
-	# Run the charmrun with nodelist arg
-	#echo ${CHARMRUN} ${NUMPROCESS}${CCP_NUMCPUS} ${NODELIST_OPT} ${NODELIST_PATH} $*
-	${CHARMRUN} ${NUMPROCESS}${CCP_NUMCPUS} ${NODELIST_OPT} ${NODELIST_PATH} $*
+    # Run the charmrun with nodelist arg
+    #echo ${CHARMRUN} ${NUMPROCESS}${CCP_NUMCPUS} ${NODELIST_OPT} ${NODELIST_PATH} $*
+    ${CHARMRUN} ${NUMPROCESS}${CCP_NUMCPUS} ${NODELIST_OPT} ${NODELIST_PATH} $*
 
-	RTNSTS=$?
-	rm -f ${NODELIST_PATH}
+    RTNSTS=$?
+    rm -f ${NODELIST_PATH}
 fi
 
 exit ${RTNSTS}
@@ -409,3 +409,4 @@ a8lxTKnZCsRXU1HexqZs+DSc+30tz50bNqLdido/l5B4EJnQP03ciO0=
 [creds]: ./media/virtual-machines-linux-cluster-hpcpack-namd/creds.png
 [task_details]: ./media/virtual-machines-linux-cluster-hpcpack-namd/task_details.png
 [vmd_view]: ./media/virtual-machines-linux-cluster-hpcpack-namd/vmd_view.png
+

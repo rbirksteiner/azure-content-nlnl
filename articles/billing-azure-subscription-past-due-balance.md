@@ -1,22 +1,22 @@
 <properties
-	pageTitle="Why have you received a notification that your Azure subscription has a past due balance | Microsoft Azure"
-	description="Describes how to make payment if your Azure subscription has a past due balance"
-	services="billing"
-	documentationCenter=""
-	authors="genlin"
-	manager="jarrettr"
-	editor="meerak"
-	tags="billing"
-	/>
+    pageTitle="Why have you received a notification that your Azure subscription has a past due balance | Microsoft Azure"
+    description="Describes how to make payment if your Azure subscription has a past due balance"
+    services="billing"
+    documentationCenter=""
+    authors="genlin"
+    manager="jarrettr"
+    editor="meerak"
+    tags="billing"
+    />
 
 <tags
-	ms.service="billing"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/23/2015"
-	ms.author="genli"/>
+    ms.service="billing"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/23/2015"
+    ms.author="genli"/>
 
 # Why have you received a notification that your Azure subscription has a past due balance?
 If you are the Account Administrator for your Azure subscription, and have not made your payment on time, you will receive an email notification about your past due balance or you will see an alert either on http://accounts.windowsazure.com or http://portal.azure.com.  
@@ -34,3 +34,4 @@ Pay your outstanding balance in full.
 
 
 **Scenario 3**:  If the bill notice was not received because the Account Administrator has left the company or changed roles, contact [Azure Support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to resolve the issue.
+

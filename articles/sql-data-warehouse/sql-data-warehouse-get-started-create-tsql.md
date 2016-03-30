@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Create a SQL Data Warehouse with TSQL | Microsoft Azure"
-	description="Learn how to create an Azure SQL Data Warehouse with TSQL"
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="lodipalm"
-	manager="barbkess"
-	editor=""
-	tags="azure-sql-data-warehouse"/>
+    pageTitle="Create a SQL Data Warehouse with TSQL | Microsoft Azure"
+    description="Learn how to create an Azure SQL Data Warehouse with TSQL"
+    services="sql-data-warehouse"
+    documentationCenter="NA"
+    authors="lodipalm"
+    manager="barbkess"
+    editor=""
+    tags="azure-sql-data-warehouse"/>
 
 <tags
    ms.service="sql-data-warehouse"
@@ -75,3 +75,4 @@ After your SQL Data Warehouse has finished provisioning you can [load sample dat
 [load]: ./sql-data-warehouse-overview-load.md
 [load sample data]: ./sql-data-warehouse-get-started-manually-load-samples.md
 [pricing page]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
+

@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Get Started with Azure Mobile Engagement for iOS in Swift"
-	description="Learn how to use Azure Mobile Engagement with Analytics and Push Notifications for iOS Apps."
-	services="mobile-engagement"
-	documentationCenter="Mobile"
-	authors="piyushjo"
-	manager="dwrede"
-	editor="" />
+    pageTitle="Get Started with Azure Mobile Engagement for iOS in Swift"
+    description="Learn how to use Azure Mobile Engagement with Analytics and Push Notifications for iOS Apps."
+    services="mobile-engagement"
+    documentationCenter="Mobile"
+    authors="piyushjo"
+    manager="dwrede"
+    editor="" />
 
 <tags
-	ms.service="mobile-engagement"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-ios"
-	ms.devlang="swift"
-	ms.topic="get-started-article"
-	ms.date="09/22/2015"
-	ms.author="piyushjo" />
+    ms.service="mobile-engagement"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-ios"
+    ms.devlang="swift"
+    ms.topic="get-started-article"
+    ms.date="09/22/2015"
+    ms.author="piyushjo" />
 
 # Get Started with Azure Mobile Engagement for iOS Apps in Swift
 
@@ -61,49 +61,49 @@ We will create a basic app with XCode to demonstrate the integration:
 2. Extract the .tar.gz file to a folder in your computer
 3. Right click the project and select "Add files to ..."
 
-	![][1]
+    ![][1]
 
 4. Navigate to the folder where you extracted the SDK and select the `EngagementSDK` folder then press OK.
 
-	![][2]
+    ![][2]
 
 5. Open the `Build Phases` tab and in the `Link Binary With Libraries` menu add the frameworks as shown below:
 
-	![][3]
+    ![][3]
 
 6. For **XCode 7** - add `libxml2.tbd` instead of `libxml2.dylib`.
 
 7. Create a Bridging header to be able to use the SDK's Objective C APIs by choosing File > New > File > iOS > Source > Header File.
 
-	![][4]
+    ![][4]
 
 8. Edit the bridging header file to expose Mobile Engagement Objective-C code to your Swift code, add the following imports :
 
-		/* Mobile Engagement Agent */
-		#import "AEModule.h"
-		#import "AEPushMessage.h"
-		#import "AEStorage.h"
-		#import "EngagementAgent.h"
-		#import "EngagementTableViewController.h"
-		#import "EngagementViewController.h"
-		#import "AEIdfaProvider.h"
+        /* Mobile Engagement Agent */
+        #import "AEModule.h"
+        #import "AEPushMessage.h"
+        #import "AEStorage.h"
+        #import "EngagementAgent.h"
+        #import "EngagementTableViewController.h"
+        #import "EngagementViewController.h"
+        #import "AEIdfaProvider.h"
 
 9. Under Build Settings, make sure the Objective-C Bridging Header build setting under Swift Compiler - Code Generation has a path to this header. Here is a path example: **$(SRCROOT)/MySuperApp/MySuperApp-Bridging-Header.h (depending on the path)**
 
-	![][6]
+    ![][6]
 
 10. Go back to the Azure portal in your app's *Connection Info* page and copy the Connection String
 
-	![][5]
+    ![][5]
 
 11. Now paste the connection string in the `didFinishLaunchingWithOptions` delegate
 
-		func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
-		{
-  			[...]
-				EngagementAgent.init("Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}")
-  			[...]
-		}
+        func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
+        {
+            [...]
+                EngagementAgent.init("Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}")
+            [...]
+        }
 
 ##<a id="monitor"></a>Enabling real-time monitoring
 
@@ -111,7 +111,7 @@ In order to start sending data and ensuring that the users are active, you must 
 
 1. Open the **ViewController.swift** file and replace the base class of **ViewController** to be **EngagementViewController**:
 
-	`class ViewController : EngagementViewController {`
+    `class ViewController : EngagementViewController {`
 
 ##<a id="monitor"></a>Connect app with real-time monitoring
 
@@ -135,68 +135,68 @@ The following sections will setup your app to receive them.
 5. Click Add
 6. Edit the bridging header file to expose Mobile Engagement Objective-C Reach headers and add the following imports :
 
-		/* Mobile Engagement Reach */
-		#import "AEAnnouncementViewController.h"
-		#import "AEAutorotateView.h"
-		#import "AEContentViewController.h"
-		#import "AEDefaultAnnouncementViewController.h"
-		#import "AEDefaultNotifier.h"
-		#import "AEDefaultPollViewController.h"
-		#import "AEInteractiveContent.h"
-		#import "AENotificationView.h"
-		#import "AENotifier.h"
-		#import "AEPollViewController.h"
-		#import "AEReachAbstractAnnouncement.h"
-		#import "AEReachAnnouncement.h"
-		#import "AEReachContent.h"
-		#import "AEReachDataPush.h"
-		#import "AEReachDataPushDelegate.h"
-		#import "AEReachModule.h"
-		#import "AEReachNotifAnnouncement.h"
-		#import "AEReachPoll.h"
-		#import "AEReachPollQuestion.h"
-		#import "AEViewControllerUtil.h"
-		#import "AEWebAnnouncementJsBridge.h"
+        /* Mobile Engagement Reach */
+        #import "AEAnnouncementViewController.h"
+        #import "AEAutorotateView.h"
+        #import "AEContentViewController.h"
+        #import "AEDefaultAnnouncementViewController.h"
+        #import "AEDefaultNotifier.h"
+        #import "AEDefaultPollViewController.h"
+        #import "AEInteractiveContent.h"
+        #import "AENotificationView.h"
+        #import "AENotifier.h"
+        #import "AEPollViewController.h"
+        #import "AEReachAbstractAnnouncement.h"
+        #import "AEReachAnnouncement.h"
+        #import "AEReachContent.h"
+        #import "AEReachDataPush.h"
+        #import "AEReachDataPushDelegate.h"
+        #import "AEReachModule.h"
+        #import "AEReachNotifAnnouncement.h"
+        #import "AEReachPoll.h"
+        #import "AEReachPollQuestion.h"
+        #import "AEViewControllerUtil.h"
+        #import "AEWebAnnouncementJsBridge.h"
 
 ### Modify your Application Delegate
 
 1. Inside  the `didFinishLaunchingWithOptions` -  create a reach module and pass it to your existing Engagement initialization line:
 
-		func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-			let reach = AEReachModule.moduleWithNotificationIcon(UIImage(named:"icon.png")) as! AEReachModule
-			EngagementAgent.init("Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}", modulesArray:[reach])
-			[...]
-			return true
-		}
+        func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+            let reach = AEReachModule.moduleWithNotificationIcon(UIImage(named:"icon.png")) as! AEReachModule
+            EngagementAgent.init("Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}", modulesArray:[reach])
+            [...]
+            return true
+        }
 
 ###Enable your app to receive APNS Push Notifications
 1. Add the following line to the `didFinishLaunchingWithOptions` method:
 
-		/* Ask user to receive push notifications */
-		if #available(iOS 8.0, *)
-		{
-		   let settings = UIUserNotificationSettings(forTypes: [UIUserNotificationType.Alert, UIUserNotificationType.Badge, UIUserNotificationType.Sound], categories: nil)
-		   application.registerUserNotificationSettings(settings)
-		   application.registerForRemoteNotifications()
-		}
-		else
-		{
-		   application.registerForRemoteNotificationTypes([UIRemoteNotificationType.Alert, UIRemoteNotificationType.Badge, UIRemoteNotificationType.Sound])
-		}
+        /* Ask user to receive push notifications */
+        if #available(iOS 8.0, *)
+        {
+           let settings = UIUserNotificationSettings(forTypes: [UIUserNotificationType.Alert, UIUserNotificationType.Badge, UIUserNotificationType.Sound], categories: nil)
+           application.registerUserNotificationSettings(settings)
+           application.registerForRemoteNotifications()
+        }
+        else
+        {
+           application.registerForRemoteNotificationTypes([UIRemoteNotificationType.Alert, UIRemoteNotificationType.Badge, UIRemoteNotificationType.Sound])
+        }
 
 2. Add the `didRegisterForRemoteNotificationsWithDeviceToken` method as follows:
 
-		func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData)
-		{
-			EngagementAgent.shared().registerDeviceToken(deviceToken)
-		}
+        func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData)
+        {
+            EngagementAgent.shared().registerDeviceToken(deviceToken)
+        }
 
 3. Add the `didReceiveRemoteNotification:fetchCompletionHandler:` method as follows:
 
-		func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void)
-		{
-			EngagementAgent.shared().applicationDidReceiveRemoteNotification(userInfo, fetchCompletionHandler:completionHandler)
-		}
+        func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void)
+        {
+            EngagementAgent.shared().applicationDidReceiveRemoteNotification(userInfo, fetchCompletionHandler:completionHandler)
+        }
 
 [AZURE.INCLUDE [mobile-engagement-ios-send-push-push](../../includes/mobile-engagement-ios-send-push.md)]
 
@@ -210,3 +210,4 @@ The following sections will setup your app to receive them.
 [4]: ./media/mobile-engagement-ios-swift-get-started/add-header-file.png
 [5]: ./media/mobile-engagement-ios-get-started/app-connection-info-page.png
 [6]: ./media/mobile-engagement-ios-swift-get-started/add-bridging-header.png
+

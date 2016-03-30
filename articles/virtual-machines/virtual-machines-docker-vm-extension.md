@@ -1,20 +1,20 @@
 <properties
-	pageTitle="The Docker Virtual Machine Extension for Linux on Azure"
-	description="Describes Docker and containers, the Azure Virtual Machines extensions, and points to more resources to create Docker containers from both the Azure CLI and the Portal."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="squillace"
-	manager="timlt"
-	editor="tysonn"/>
+    pageTitle="The Docker Virtual Machine Extension for Linux on Azure"
+    description="Describes Docker and containers, the Azure Virtual Machines extensions, and points to more resources to create Docker containers from both the Azure CLI and the Portal."
+    services="virtual-machines"
+    documentationCenter=""
+    authors="squillace"
+    manager="timlt"
+    editor="tysonn"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-linux"
-	ms.workload="infrastructure-services"
-	ms.date="10/21/2015"
-	ms.author="rasquill"/>
+    ms.service="virtual-machines"
+    ms.devlang="multiple"
+    ms.topic="article"
+    ms.tgt_pltfrm="vm-linux"
+    ms.workload="infrastructure-services"
+    ms.date="10/21/2015"
+    ms.author="rasquill"/>
 
 # The Docker Virtual Machine Extension for Linux on Azure
 
@@ -83,3 +83,4 @@ For a complete list, see [Azure VM Extensions](virtual-machines-extensions-featu
 [Docker and Linux Containers]: #Docker-and-Linux-Containers
 [How to use the Docker VM Extension with Azure]: #How-to-use-the-Docker-VM-Extension-with-Azure
 [Virtual Machine Extensions for Linux and Windows]: #Virtual-Machine-Extensions-For-Linux-and-Windows
+

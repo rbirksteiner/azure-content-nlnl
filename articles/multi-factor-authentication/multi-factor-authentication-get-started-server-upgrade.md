@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Upgrading the PhoneFactor Agent to Azure Multi-Factor Authentication Server" 
-	description="This document describes how to get started with Azure MFA Server and how to upgrade from the older phonefactor agent." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
-	editor="curtland"/>
+    pageTitle="Upgrading the PhoneFactor Agent to Azure Multi-Factor Authentication Server" 
+    description="This document describes how to get started with Azure MFA Server and how to upgrade from the older phonefactor agent." 
+    services="multi-factor-authentication" 
+    documentationCenter="" 
+    authors="billmath" 
+    manager="stevenpo" 
+    editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/19/2015" 
-	ms.author="billmath"/>
+    ms.service="multi-factor-authentication" 
+    ms.workload="identity" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/19/2015" 
+    ms.author="billmath"/>
 
 # Upgrading the PhoneFactor Agent to Azure Multi-Factor Authentication Server
 

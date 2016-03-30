@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How manage user accounts in Azure API Management" 
-	description="Learn how to create or invite users in Azure API Management" 
-	services="api-management" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="How manage user accounts in Azure API Management" 
+    description="Learn how to create or invite users in Azure API Management" 
+    services="api-management" 
+    documentationCenter="" 
+    authors="steved0x" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="api-management" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/07/2015" 
-	ms.author="sdanie"/>
+    ms.service="api-management" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/07/2015" 
+    ms.author="sdanie"/>
 
 # How to manage user accounts in Azure API Management
 

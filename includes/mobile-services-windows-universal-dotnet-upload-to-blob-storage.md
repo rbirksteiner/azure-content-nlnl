@@ -6,9 +6,9 @@ To be able to use an SAS to upload images to Blob storage, you must first add th
 
 2. In the left pane, select the **Online** category, search for `WindowsAzure.Storage`, click **Install** on the **Azure Storage** package, then accept the license agreements. 
 
-  	![](./media/mobile-services-windows-universal-dotnet-upload-to-blob-storage/mobile-add-storage-nuget-package-dotnet.png)
+    ![](./media/mobile-services-windows-universal-dotnet-upload-to-blob-storage/mobile-add-storage-nuget-package-dotnet.png)
 
-  	This adds the client library for Azure storage services to the project.
+    This adds the client library for Azure storage services to the project.
 
 Next, you will update the quickstart app to capture and upload images.
 
@@ -16,15 +16,15 @@ Next, you will update the quickstart app to capture and upload images.
 
 1. In Visual Studio, open the Package.appxmanifest file for the Windows app project and in the **Capabilities** tab enable the **Webcam** and **Microphone** capabilities.
 
-   	![](./media/mobile-services-windows-universal-dotnet-upload-to-blob-storage/mobile-app-manifest-camera.png)
+    ![](./media/mobile-services-windows-universal-dotnet-upload-to-blob-storage/mobile-app-manifest-camera.png)
  
-   	This makes sure that your app can use a camera attached to the computer. Users will be requested to allow camera access the first time that the app is run.
+    This makes sure that your app can use a camera attached to the computer. Users will be requested to allow camera access the first time that the app is run.
 
 2. Repeat the step above for the Windows Phone app project.
  
 3. In the Windows app project, open the MainPage.xaml file and replace the **StackPanel** element directly after the first **QuickStartTask** element with the following code:
 
-		<StackPanel Orientation="Horizontal" Margin="72,0,0,0">
+        <StackPanel Orientation="Horizontal" Margin="72,0,0,0">
             <TextBox Name="TextInput" Margin="5" MaxHeight="40" MinWidth="300"></TextBox>
             <AppBarButton Label="Photo" Icon="Camera" Name="ButtonCapture" Click="ButtonCapture_Click" />
             <AppBarButton Label="Upload" Icon="Upload" Name="ButtonSave" Click="ButtonSave_Click"/>
@@ -53,7 +53,7 @@ Next, you will update the quickstart app to capture and upload images.
                     MaxHeight="250"/>
         </StackPanel> 
 
-   	This adds an image to the **ItemTemplate** and sets its binding source as the URI of the uploaded image in the Blob Storage service.
+    This adds an image to the **ItemTemplate** and sets its binding source as the URI of the uploaded image in the Blob Storage service.
 
 3. In the Windows Phone app project, open the MainPage.xaml file and replace the **ButtonSave** element with the following code:
 
@@ -96,25 +96,25 @@ Next, you will update the quickstart app to capture and upload images.
 
         [JsonProperty(PropertyName = "containerName")]
         public string ContainerName { get; set; }
-		
+        
         [JsonProperty(PropertyName = "resourceName")]
         public string ResourceName { get; set; }
-		
+        
         [JsonProperty(PropertyName = "sasQueryString")]
         public string SasQueryString { get; set; }
-		
+        
         [JsonProperty(PropertyName = "imageUri")]
         public string ImageUri { get; set; } 
 
 3. Open the shared MainPage.cs project file and add the following **using** statements:
-	
-		using Windows.Media.Capture;
-		using Windows.Media.MediaProperties;
-		using Windows.Storage;
-		using Windows.UI.Xaml.Input;
-		using Microsoft.WindowsAzure.Storage.Auth;
-		using Microsoft.WindowsAzure.Storage.Blob;
-		using Windows.UI.Xaml.Media.Imaging;
+    
+        using Windows.Media.Capture;
+        using Windows.Media.MediaProperties;
+        using Windows.Storage;
+        using Windows.UI.Xaml.Input;
+        using Microsoft.WindowsAzure.Storage.Auth;
+        using Microsoft.WindowsAzure.Storage.Blob;
+        using Windows.UI.Xaml.Media.Imaging;
 
 5. Add the following code to the MainPage class:
 
@@ -160,7 +160,7 @@ Next, you will update the quickstart app to capture and upload images.
 
                 captureButtons.Visibility = Visibility.Visible;
 
-				// Use the stored image as the preview source.
+                // Use the stored image as the preview source.
                 BitmapImage tempBitmap = new BitmapImage(new Uri(media.Path));
                 imagePreview.Source = tempBitmap;
                 imagePreview.Visibility = Visibility.Visible;
@@ -211,7 +211,7 @@ Next, you will update the quickstart app to capture and upload images.
             media = null;
         }
 
-  	This code displays the UI used to capture an image, and saves the image to a storage file.
+    This code displays the UI used to capture an image, and saves the image to a storage file.
 
 6. Replace the existing `InsertTodoItem` method with the following code:
  
@@ -264,10 +264,10 @@ Next, you will update the quickstart app to capture and upload images.
             items.Add(todoItem);
         }
 
-	This code sends a request to the mobile service to insert a new TodoItem. The response contains the SAS, which is then used to upload the image from local storage to Azure Blob storage. The URL of the uploaded image is used in data binding.
+    This code sends a request to the mobile service to insert a new TodoItem. The response contains the SAS, which is then used to upload the image from local storage to Azure Blob storage. The URL of the uploaded image is used in data binding.
 
 The final step is to test both versions of the app and validate that uploads succeed from both devices.
-		
+        
 ##<a name="test"></a>Test uploading the images in your app
 
 1. In Visual Studio, make sure that the Windows project is set as the default project, then press the F5 key to run the app.
@@ -276,24 +276,24 @@ The final step is to test both versions of the app and validate that uploads suc
 
 3. Click or tap the preview to take a picture, then click **Upload** to insert the new item and upload the image.
 
-	![](./media/mobile-services-windows-universal-dotnet-upload-to-blob-storage/mobile-quickstart-blob-appbar2.png)
+    ![](./media/mobile-services-windows-universal-dotnet-upload-to-blob-storage/mobile-quickstart-blob-appbar2.png)
 
 4. The new item, along with the uploaded image, is displayed in the list view.
 
-	![](./media/mobile-services-windows-universal-dotnet-upload-to-blob-storage/mobile-quickstart-blob-ie.png)
+    ![](./media/mobile-services-windows-universal-dotnet-upload-to-blob-storage/mobile-quickstart-blob-ie.png)
 
-   	>[AZURE.NOTE]The image is downloaded automatically from Blob storage when the *imageUri* property of the new item is bound to the **Image** control.
+    >[AZURE.NOTE]The image is downloaded automatically from Blob storage when the *imageUri* property of the new item is bound to the **Image** control.
 
 5. Stop the app and restart the Windows Phone project version of the app.
 
-	The previously uploaded image is displayed.
+    The previously uploaded image is displayed.
 
 6. As before, enter some text in the textbox, then click **Photo**.
 
-   	![](./media/mobile-services-windows-universal-dotnet-upload-to-blob-storage/mobile-upload-blob-app-view-wp8.png)
+    ![](./media/mobile-services-windows-universal-dotnet-upload-to-blob-storage/mobile-upload-blob-app-view-wp8.png)
 
 3. Tap the preview to take a picture, then click **Upload** to insert the new item and upload the image.
 
-	![](./media/mobile-services-windows-universal-dotnet-upload-to-blob-storage/mobile-upload-blob-app-view-final-wp8.png)
+    ![](./media/mobile-services-windows-universal-dotnet-upload-to-blob-storage/mobile-upload-blob-app-view-final-wp8.png)
 
 You have completed the upload images tutorial.

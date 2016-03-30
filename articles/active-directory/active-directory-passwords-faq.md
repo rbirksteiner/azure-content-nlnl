@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="FAQ: Azure AD Password Management | Microsoft Azure" 
-	description="Frequently asked questions (FAQ) about password management in Azure AD, including password reset, registration, reports, and writeback to on-premises Active Directory ." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
-	editor="billmath"/>
+    pageTitle="FAQ: Azure AD Password Management | Microsoft Azure" 
+    description="Frequently asked questions (FAQ) about password management in Azure AD, including password reset, registration, reports, and writeback to on-premises Active Directory ." 
+    services="active-directory" 
+    documentationCenter="" 
+    authors="asteen" 
+    manager="kbrint" 
+    editor="billmath"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/16/2015" 
-	ms.author="asteen"/>
+    ms.service="active-directory" 
+    ms.workload="identity" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/16/2015" 
+    ms.author="asteen"/>
 
 # Password Management Frequently Asked Questions
 The following are some frequently asked questions for all things related to password management. 
@@ -204,3 +204,4 @@ Below are links to all of the Azure AD Password Reset documentation pages:
 
 [001]: ./media/active-directory-passwords-faq/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-faq/002.jpg "Image_002.jpg"
+

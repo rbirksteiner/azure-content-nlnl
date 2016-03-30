@@ -34,7 +34,7 @@ The stored procedure below generates the DDL required to update the statistics o
 ```
 CREATE PROCEDURE    [dbo].[prc_sqldw_update_stats]
 (   @update_type    tinyint -- 1 default 2 fullscan 3 sample 4 resample
-	,@sample_pct     tinyint
+    ,@sample_pct     tinyint
 )
 AS
 
@@ -51,35 +51,35 @@ END;
 CREATE TABLE #stats_ddl
 WITH
 (
-	DISTRIBUTION = HASH([seq_nmbr])
+    DISTRIBUTION = HASH([seq_nmbr])
 )
 AS
 (
 SELECT
-		sm.[name]				                                                AS [schema_name]
-,		tb.[name]				                                                AS [table_name]
-,		st.[name]				                                                AS [stats_name]
-,		st.[has_filter]			                                                AS [stats_is_filtered]
+        sm.[name]                                                               AS [schema_name]
+,       tb.[name]                                                               AS [table_name]
+,       st.[name]                                                               AS [stats_name]
+,       st.[has_filter]                                                         AS [stats_is_filtered]
 ,       ROW_NUMBER()
         OVER(ORDER BY (SELECT NULL))                                            AS [seq_nmbr]
-,								 QUOTENAME(sm.[name])+'.'+QUOTENAME(tb.[name])  AS [two_part_name]
-,		QUOTENAME(DB_NAME())+'.'+QUOTENAME(sm.[name])+'.'+QUOTENAME(tb.[name])  AS [three_part_name]
-FROM	sys.objects			AS ob
-JOIN	sys.stats			AS st	ON	ob.[object_id]		= st.[object_id]
-JOIN	sys.stats_columns	AS sc	ON	st.[stats_id]		= sc.[stats_id]
-									AND st.[object_id]		= sc.[object_id]
-JOIN	sys.columns			AS co	ON	sc.[column_id]		= co.[column_id]
-									AND	sc.[object_id]		= co.[object_id]
-JOIN	sys.tables			AS tb	ON	co.[object_id]		= tb.[object_id]
-JOIN	sys.schemas			AS sm	ON	tb.[schema_id]		= sm.[schema_id]
-WHERE	1=1
-AND		st.[user_created]   = 1
+,                                QUOTENAME(sm.[name])+'.'+QUOTENAME(tb.[name])  AS [two_part_name]
+,       QUOTENAME(DB_NAME())+'.'+QUOTENAME(sm.[name])+'.'+QUOTENAME(tb.[name])  AS [three_part_name]
+FROM    sys.objects         AS ob
+JOIN    sys.stats           AS st   ON  ob.[object_id]      = st.[object_id]
+JOIN    sys.stats_columns   AS sc   ON  st.[stats_id]       = sc.[stats_id]
+                                    AND st.[object_id]      = sc.[object_id]
+JOIN    sys.columns         AS co   ON  sc.[column_id]      = co.[column_id]
+                                    AND sc.[object_id]      = co.[object_id]
+JOIN    sys.tables          AS tb   ON  co.[object_id]      = tb.[object_id]
+JOIN    sys.schemas         AS sm   ON  tb.[schema_id]      = sm.[schema_id]
+WHERE   1=1
+AND     st.[user_created]   = 1
 GROUP BY
-		sm.[name]
-,		tb.[name]
-,		st.[name]
-,		st.[filter_definition]
-,		st.[has_filter]
+        sm.[name]
+,       tb.[name]
+,       st.[name]
+,       st.[filter_definition]
+,       st.[has_filter]
 )
 SELECT
     CASE @update_type
@@ -146,3 +146,4 @@ For more development tips, see [development overview][].
 <!--MSDN references-->
 
 <!--Other Web references-->
+

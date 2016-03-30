@@ -90,3 +90,4 @@ Please refer to the following to the VM Templates to get a fully complete Templa
 [Custom Script Extension on a Linux VM](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
 
 After authoring the template, you can deploy them using Azure CLI or Azure Powershell.
+

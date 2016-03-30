@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Provision the Microsoft Data Science Virtual Machine | Microsoft Azure" 
-	description="Configure and create a Data Science Virtual Machine on Azure to do analytics and machine learning." 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="bradsev" 
-	manager="paulettm" 
-	editor="cgronlun" />
+    pageTitle="Provision the Microsoft Data Science Virtual Machine | Microsoft Azure" 
+    description="Configure and create a Data Science Virtual Machine on Azure to do analytics and machine learning." 
+    services="machine-learning" 
+    documentationCenter="" 
+    authors="bradsev" 
+    manager="paulettm" 
+    editor="cgronlun" />
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/26/2015" 
-	ms.author="bradsev" />
+    ms.service="machine-learning" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/26/2015" 
+    ms.author="bradsev" />
 
 
 # Provision the Microsoft Data Science Virtual Machine
@@ -51,9 +51,9 @@ Before you can create a Microsoft Data Science Virtual Machine, you must have th
 
 Here are the steps to create an instance of the Microsoft Data Science Virtual Machine:
 
-1.	Navigate to the virtual machine listing on [Azure Classic Portal](https://portal.azure.com/#gallery/microsoft-ads.standard-data-science-vmstandard-data-science-vm).
-2.	 Click on the **Create** button at the bottom to be taken into a wizard.![configure-data-science-vm](./media/machine-learning-data-science-provision-vm/configure-data-science-virtual-machine.png)
-3.	 The following sections provide the **inputs** for each of the **5 steps** (enumerated on the right of the figure above) in the wizard used to create the Microsoft Data Science Virtual Machine. Here are the inputs needed to configure each of these steps:
+1.  Navigate to the virtual machine listing on [Azure Classic Portal](https://portal.azure.com/#gallery/microsoft-ads.standard-data-science-vmstandard-data-science-vm).
+2.   Click on the **Create** button at the bottom to be taken into a wizard.![configure-data-science-vm](./media/machine-learning-data-science-provision-vm/configure-data-science-virtual-machine.png)
+3.   The following sections provide the **inputs** for each of the **5 steps** (enumerated on the right of the figure above) in the wizard used to create the Microsoft Data Science Virtual Machine. Here are the inputs needed to configure each of these steps:
 
   **a. Basics**: 
 
@@ -125,6 +125,7 @@ Note: You will need an Office 365 account to access Power BI.
 
 ## Additional Microsoft development tools
 The [**Microsoft Web Platform Installer**](https://www.microsoft.com/web/downloads/platform.aspx) can be used to discover and download other Microsoft development tools. There is also a shortcut to the tool provided on the Microsoft Data Science Virtual Machine desktop.  
+
 
 
 

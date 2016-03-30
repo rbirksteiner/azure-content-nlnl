@@ -585,3 +585,4 @@ The following example lists all databases in a pool:
 [7]: ./media/sql-database-elastic-pool-csharp/add-application.png
 [8]: ./media/sql-database-elastic-pool-csharp/add-application2.png
 [9]: ./media/sql-database-elastic-pool-csharp/clientid.png
+

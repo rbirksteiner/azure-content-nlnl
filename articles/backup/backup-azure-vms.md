@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Back up Azure virtual machines | Microsoft Azure"
-	description="Discover, register, and back up your virtual machines with these procedures for Azure virtual machine backup."
-	services="backup"
-	documentationCenter=""
-	authors="Jim-Parker"
-	manager="jwhit"
-	editor=""
-	keywords="virtual machine backup; back up virtual machine; backup and disaster recovery"/>
+    pageTitle="Back up Azure virtual machines | Microsoft Azure"
+    description="Discover, register, and back up your virtual machines with these procedures for Azure virtual machine backup."
+    services="backup"
+    documentationCenter=""
+    authors="Jim-Parker"
+    manager="jwhit"
+    editor=""
+    keywords="virtual machine backup; back up virtual machine; backup and disaster recovery"/>
 
 <tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="11/17/2015"
-	ms.author="trinadhk; aashishr; jimpark; markgal"/>
+    ms.service="backup"
+    ms.workload="storage-backup-recovery"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="hero-article"
+    ms.date="11/17/2015"
+    ms.author="trinadhk; aashishr; jimpark; markgal"/>
 
 
 # Back up Azure virtual machines
@@ -163,3 +163,4 @@ If you run into issues while backing up your virtual machine, take a look at thi
 
 - [Manage and monitor your virtual machines](backup-azure-manage-vms.md)
 - [Restore virtual machines](backup-azure-restore-vms.md)
+

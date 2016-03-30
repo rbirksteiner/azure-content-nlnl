@@ -1,19 +1,19 @@
-﻿<properties
-	pageTitle="Analytics for Windows Phone and Store apps | Microsoft Azure"
-	description="Analyze usage and performance of your Windows device app."
-	services="application-insights"
+<properties
+    pageTitle="Analytics for Windows Phone and Store apps | Microsoft Azure"
+    description="Analyze usage and performance of your Windows device app."
+    services="application-insights"
     documentationCenter="windows"
-	authors="alancameronwills"
-	manager="douge"/>
+    authors="alancameronwills"
+    manager="douge"/>
 
 <tags
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="11/21/2015"
-	ms.author="awills"/>
+    ms.service="application-insights"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="ibiza"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="11/21/2015"
+    ms.author="awills"/>
 
 # Analytics for Windows Phone and Store apps
 
@@ -72,28 +72,28 @@ If it's a Windows Universal app, repeat the steps for both the Windows Phone pro
 
 4. Add an ApplicationInsights.config file to the root of your project and insert the instrumentation key copied from the portal. A sample xml for this config file is shown below. 
 
-	```xml
-		<?xml version="1.0" encoding="utf-8" ?>
-		<ApplicationInsights>
-			<InstrumentationKey>YOUR COPIED INSTRUMENTATION KEY</InstrumentationKey>
-		</ApplicationInsights>
-	```
+    ```xml
+        <?xml version="1.0" encoding="utf-8" ?>
+        <ApplicationInsights>
+            <InstrumentationKey>YOUR COPIED INSTRUMENTATION KEY</InstrumentationKey>
+        </ApplicationInsights>
+    ```
 
     Set the properties of the ApplicationInsights.config file: **Build Action** == **Content** and **Copy to Output Directory** == **Copy always**.
-	
-	![](./media/app-insights-windows-get-started/AIConfigFileSettings.png)
+    
+    ![](./media/app-insights-windows-get-started/AIConfigFileSettings.png)
 
 5. Add the following initialization code. It is best to add this code to the `App()` constructor. If you do it somewhere else, you might miss auto collection of the first pageviews.  
 
 ```C#
-	public App()
-	{
-	   // Add this initilization line. 
-	   WindowsAppInitializer.InitializeAsync();
-	
-	   this.InitializeComponent();
-	   this.Suspending += OnSuspending;
-	}  
+    public App()
+    {
+       // Add this initilization line. 
+       WindowsAppInitializer.InitializeAsync();
+    
+       this.InitializeComponent();
+       this.Suspending += OnSuspending;
+    }  
 ```
 
 **Windows Universal apps**: Repeat the steps for both the Phone and the Store project. [Example of a Windows 8.1 Universal app](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/Windows%208.1%20Universal).
@@ -232,3 +232,4 @@ When a [new SDK version is released](app-insights-release-notes-windows.md):
 [roles]: app-insights-resources-roles-access-control.md
 [windowsCrash]: app-insights-windows-crashes.md
 [windowsUsage]: app-insights-windows-usage.md
+

@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Convert a Machine Learning training experiment to a predictive experiment | Microsoft Azure"
-	description="How to convert a Machine Learning training experiment, used for training your predictive analytics model, to a predictive experiment which can be deployed as a web service."
-	services="machine-learning"
-	documentationCenter=""
-	authors="garyericson"
-	manager="paulettm"
-	editor="cgronlun"/>
+    pageTitle="Convert a Machine Learning training experiment to a predictive experiment | Microsoft Azure"
+    description="How to convert a Machine Learning training experiment, used for training your predictive analytics model, to a predictive experiment which can be deployed as a web service."
+    services="machine-learning"
+    documentationCenter=""
+    authors="garyericson"
+    manager="paulettm"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/09/2015"
-	ms.author="garye"/>
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/09/2015"
+    ms.author="garye"/>
 
 # Convert a Machine Learning training experiment to a predictive experiment
 
@@ -28,17 +28,17 @@ By converting to a predictive experiment, you're getting your trained model read
 
 The process of converting a training experiment to a predictive experiment involves three steps:
 
-1.	Save the machine learning model that you've trained, and then replace the machine learning algorithm and [Train Model][train-model] modules with your saved trained model.
-2.	Trim the experiment to only those modules that are needed for scoring. A training experiment includes a number of modules that are necessary for training but are not needed once the model is trained and ready to use for scoring.
-3.	Define where in your experiment you will accept data from the web service user, and what data will be returned.
+1.  Save the machine learning model that you've trained, and then replace the machine learning algorithm and [Train Model][train-model] modules with your saved trained model.
+2.  Trim the experiment to only those modules that are needed for scoring. A training experiment includes a number of modules that are necessary for training but are not needed once the model is trained and ready to use for scoring.
+3.  Define where in your experiment you will accept data from the web service user, and what data will be returned.
 
 ## Set Up Web Service button
 
 After you have run your experiment (**RUN** button at the bottom of the experiment canvas), the **Set Up Web Service** button (select the **Predictive Web Service** option) will perform for you the three steps of converting your training experiment to a predictive experiment:
 
-1.	It saves your trained model as a module in the **Trained Models** section of the module palette (to the left of the experiment canvas), then replaces the machine learning algorithm and [Train Model][train-model] modules with the saved trained model.
-2.	It removes modules that are clearly not needed. In our example, this includes the [Split][split], 2nd [Score Model][score-model], and [Evaluate Model][evaluate-model] modules.
-3.	It creates Web service input and output modules and adds them in default locations in your experiment.
+1.  It saves your trained model as a module in the **Trained Models** section of the module palette (to the left of the experiment canvas), then replaces the machine learning algorithm and [Train Model][train-model] modules with the saved trained model.
+2.  It removes modules that are clearly not needed. In our example, this includes the [Split][split], 2nd [Score Model][score-model], and [Evaluate Model][evaluate-model] modules.
+3.  It creates Web service input and output modules and adds them in default locations in your experiment.
 
 For example, the following experiment trains a two-class boosted decision tree model using sample census data:
 
@@ -54,7 +54,7 @@ When you convert this training experiment to a predictive experiment, some of th
 
 - **Prep** - Depending on the data that will be submitted for scoring, these modules may or may not be necessary to process the incoming data.
 
-	For instance, in this example the sample dataset may have missing values and it includes columns that are not needed to train the model. So a [Clean Missing Data][clean-missing-data] module was included to deal with missing values, and a [Project Columns][project-columns] module was included to exclude those extra columns from the data flow. If you know that the data that will be submitted for scoring through the web service will not have missing values, then you can remove the [Clean Missing Data][clean-missing-data] module. However, since the [Project Columns][project-columns] module helps define the set of features being scored, that module needs to remain.
+    For instance, in this example the sample dataset may have missing values and it includes columns that are not needed to train the model. So a [Clean Missing Data][clean-missing-data] module was included to deal with missing values, and a [Project Columns][project-columns] module was included to exclude those extra columns from the data flow. If you know that the data that will be submitted for scoring through the web service will not have missing values, then you can remove the [Clean Missing Data][clean-missing-data] module. However, since the [Project Columns][project-columns] module helps define the set of features being scored, that module needs to remain.
 
 - **Train** - Once the model has been successfully trained, you save it as a single trained model module. You then replace these individual modules with the saved trained model.
 
@@ -131,3 +131,4 @@ For more information on the complete deployment process, see [Deploy an Azure Ma
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 [writer]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
+

@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Supported browsers and devices" 
-	description="" 
-	services="" 
-	documentationCenter="" 
-	authors="flanakin" 
-	writer="flanakin" 
-	manager="lwelicki" 
-	editor=""/>
+    pageTitle="Supported browsers and devices" 
+    description="" 
+    services="" 
+    documentationCenter="" 
+    authors="flanakin" 
+    writer="flanakin" 
+    manager="lwelicki" 
+    editor=""/>
 
 <tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/23/2015" 
-	ms.author="micflan"/>
+    ms.service="multiple" 
+    ms.workload="multiple" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="07/23/2015" 
+    ms.author="micflan"/>
 
 #Supported browsers and devices
 The Microsoft Azure portal runs on all modern desktop and tablet devices and browsers.
@@ -31,3 +31,4 @@ The latest versions of the following browsers are supported:
 - Safari (latest, Mac only)
 - Chrome (latest)
 - Firefox (latest)
+

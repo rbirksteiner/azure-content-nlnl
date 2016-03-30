@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Integrate with an on-premises SAP server in Azure App Service | Microsoft Azure"
-	description="Learn how to integrate with an on-premises SAP server"
-	authors="rajeshramabathiran"
-	manager="dwrede"
-	editor=""
-	services="app-service\logic"
-	documentationCenter=""/>
+    pageTitle="Integrate with an on-premises SAP server in Azure App Service | Microsoft Azure"
+    description="Learn how to integrate with an on-premises SAP server"
+    authors="rajeshramabathiran"
+    manager="dwrede"
+    editor=""
+    services="app-service\logic"
+    documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/07/2015"
-	ms.author="sameerch"/>
+    ms.service="app-service-logic"
+    ms.workload="integration"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/07/2015"
+    ms.author="sameerch"/>
 
 
 # Integrate with an on-premises SAP server
@@ -44,29 +44,29 @@ The SAP specific client libraries are required on the client machine where the h
 2. Select **New**.
 3. In the create blade, select **Compute** > **Azure Marketplace**.
 4. In the marketplace blade, select **API Apps**, and search for SAP in the search bar:  
-	![SAP Connector API App][2]
+    ![SAP Connector API App][2]
 5. Select the **SAP Connector** published by Microsoft.
 6. In the SAP connector blade, select **Create**.
 7. In the new blade that opens, enter the following:  
-	1. **Location** - Choose the geographic location where you would like the connector to deploy
-	2. **Subscription** - Choose a subscription you want this connector to be created in
-	3. **Resource group** - Select or create a resource group where the connector should reside
-	4. **Web hosting plan** - Select or create a web hosting plan
-	5. **Pricing tier** - Choose a pricing tier for the connector
-	6. **Name** - Enter a name for your SAP Connector
-	7. **Package settings**
-		- **Server name** - Enter the SAP Server name. Example: "SAPserver" or "SAPserver.mydomain.com".
-		- **User name** - Enter a valid user name to connect to the SAP server.
-		- **Password** - Enter a valid password to connect to the SAP server.
-		- **System number** - Enter the system number of the SAP Application server.
-		- **Language** - Enter the logon language, like "EN". If no value is entered, "EN" is considered.
-		- **On-premises** - Enter whether your SAP server is on-premises behind a firewall or not. If set to TRUE, you need to install a listener agent on a server that can access your SAP server. You can go to your API App summary page and select 'Hybrid Connection' to install the agent.
-		- **Service bus connection string** - Enter this parameter if your SAP Server is on-premises. This should be a valid Service Bus Namespace connection string.
-		- **RFCs** - Enter the RFCs in SAP that are allowed to be called by the connector.
-		- **TRFCs** - Enter the TRFCs in SAP that are allowed to be called by the connector.
-		- **BAPI** - Enter the BAPIs in SAP that are allowed to be called by the connector.
-		- **IDOCs** - Enter the IDOCs in SAP that can be sent by the connector.
-	8. Select Select. Within a few minutes, your SAP connector is created.
+    1. **Location** - Choose the geographic location where you would like the connector to deploy
+    2. **Subscription** - Choose a subscription you want this connector to be created in
+    3. **Resource group** - Select or create a resource group where the connector should reside
+    4. **Web hosting plan** - Select or create a web hosting plan
+    5. **Pricing tier** - Choose a pricing tier for the connector
+    6. **Name** - Enter a name for your SAP Connector
+    7. **Package settings**
+        - **Server name** - Enter the SAP Server name. Example: "SAPserver" or "SAPserver.mydomain.com".
+        - **User name** - Enter a valid user name to connect to the SAP server.
+        - **Password** - Enter a valid password to connect to the SAP server.
+        - **System number** - Enter the system number of the SAP Application server.
+        - **Language** - Enter the logon language, like "EN". If no value is entered, "EN" is considered.
+        - **On-premises** - Enter whether your SAP server is on-premises behind a firewall or not. If set to TRUE, you need to install a listener agent on a server that can access your SAP server. You can go to your API App summary page and select 'Hybrid Connection' to install the agent.
+        - **Service bus connection string** - Enter this parameter if your SAP Server is on-premises. This should be a valid Service Bus Namespace connection string.
+        - **RFCs** - Enter the RFCs in SAP that are allowed to be called by the connector.
+        - **TRFCs** - Enter the TRFCs in SAP that are allowed to be called by the connector.
+        - **BAPI** - Enter the BAPIs in SAP that are allowed to be called by the connector.
+        - **IDOCs** - Enter the IDOCs in SAP that can be sent by the connector.
+    8. Select Select. Within a few minutes, your SAP connector is created.
 
 
 ## Install the hybrid listener
@@ -121,3 +121,4 @@ For the selected action, you see the input and output parameters. You can enter 
 [7]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/HybridConnectionManager.Install.Completed.PNG
 [8]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/SAPConnector.HybridConnection.Connected.PNG
 [9]: http://download.microsoft.com/download/2/D/7/2D7CE8DF-A6C5-45F0-8319-14C3F1F9A0C7/InstallationGuide.htm
+

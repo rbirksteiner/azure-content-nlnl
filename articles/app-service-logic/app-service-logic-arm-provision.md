@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Create a Logic App using Azure Resource Manager templates in Azure App Service | Microsoft Azure" 
-	description="Use an Azure Resource Manager template to deploy an empty Logic App for defining workflows." 
-	services="app-service\logic" 
-	documentationCenter="" 
-	authors="tfitzmac" 
-	manager="wpickett" 
-	editor=""/>
+    pageTitle="Create a Logic App using Azure Resource Manager templates in Azure App Service | Microsoft Azure" 
+    description="Use an Azure Resource Manager template to deploy an empty Logic App for defining workflows." 
+    services="app-service\logic" 
+    documentationCenter="" 
+    authors="tfitzmac" 
+    manager="wpickett" 
+    editor=""/>
 
 <tags 
-	ms.service="app-service-logic" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/16/2015" 
-	ms.author="tomfitz"/>
+    ms.service="app-service-logic" 
+    ms.workload="integration" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/16/2015" 
+    ms.author="tomfitz"/>
 
 # Create a Logic App using a template
 
@@ -141,3 +141,4 @@ This particular definition runs once an hour, and pings the location specified i
 
 
  
+

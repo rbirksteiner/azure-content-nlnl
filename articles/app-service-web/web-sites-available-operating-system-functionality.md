@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Operating System Functionality on Azure App Service Web Apps" 
-	description="Learn about the OS functionality available to web applications on Azure App Service" 
-	services="app-service\web" 
-	documentationCenter="" 
-	authors="cephalin" 
-	manager="wpickett" 
-	editor="mollybos"/>
+    pageTitle="Operating System Functionality on Azure App Service Web Apps" 
+    description="Learn about the OS functionality available to web applications on Azure App Service" 
+    services="app-service\web" 
+    documentationCenter="" 
+    authors="cephalin" 
+    manager="wpickett" 
+    editor="mollybos"/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/29/2015" 
-	ms.author="cephalin"/>
+    ms.service="app-service-web" 
+    ms.workload="web" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/29/2015" 
+    ms.author="cephalin"/>
 
 # Operating System Functionality on Azure App Service Web Apps #
 
@@ -110,3 +110,4 @@ Write-access to the registry is blocked, including access to any per-user regist
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
  
  
+

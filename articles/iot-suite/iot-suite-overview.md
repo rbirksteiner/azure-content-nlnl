@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Microsoft Azure IoT Suite overview | Microsoft Azure"
-	description="This provides an overview of Azure IoT Suite including packaging and the preconfigured solutions."
-	services=""
-	documentationCenter=""
-	authors="dominicbetts"
-	manager="timlt"
-	editor=""/>
+    pageTitle="Microsoft Azure IoT Suite overview | Microsoft Azure"
+    description="This provides an overview of Azure IoT Suite including packaging and the preconfigured solutions."
+    services=""
+    documentationCenter=""
+    authors="dominicbetts"
+    manager="timlt"
+    editor=""/>
 
 <tags
      ms.service="na"

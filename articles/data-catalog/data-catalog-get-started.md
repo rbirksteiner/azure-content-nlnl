@@ -24,9 +24,9 @@ This article is an end-to-end tutorial of the scenarios and capabilities of Azur
 
 Before you begin this tutorial you must have the following:
 
--	**An Azure subscription** -  If you don't have a subscription, you can create a free trial account in just a couple of minutes. See the [Free Trial](http://azure.microsoft.com/pricing/free-trial/) article for details.
--	**Azure Active Directory** -  Azure Data Catalog uses [Azure Active Directory](http://azure.microsoft.com/services/active-directory/) for identity and access management.
--	**Data sources** - Azure Data Catalog provides capabilities for data source discovery, and to proceed with the tutorial you must have access to one or more data sources. The tutorial is written using the Adventure Works sample databases, but you can use any supported data source if you would prefer to work with data that is familiar and relevant to your role.
+-   **An Azure subscription** -  If you don't have a subscription, you can create a free trial account in just a couple of minutes. See the [Free Trial](http://azure.microsoft.com/pricing/free-trial/) article for details.
+-   **Azure Active Directory** -  Azure Data Catalog uses [Azure Active Directory](http://azure.microsoft.com/services/active-directory/) for identity and access management.
+-   **Data sources** - Azure Data Catalog provides capabilities for data source discovery, and to proceed with the tutorial you must have access to one or more data sources. The tutorial is written using the Adventure Works sample databases, but you can use any supported data source if you would prefer to work with data that is familiar and relevant to your role.
 
 ## Exercise 1: Install Adventure Works sample database
 
@@ -49,20 +49,20 @@ In this exercise you will use the Azure Data Catalog registration tool to regist
 
 ### Here’s how to register a data source
 
-1.	Log into the Azure Data Catalog portal.
+1.  Log into the Azure Data Catalog portal.
 
     ![register1][1]
 
-2.	Scroll down, and click **Publish data**.
+2.  Scroll down, and click **Publish data**.
 
     ![register2][2]
-3.	Click **Launch Application**.
-4.	In the **Welcome** page, click **Sign in**, and enter your credentials.
-5.	In the **Microsoft Azure Data Catalog** page, click **SQL Server**.
+3.  Click **Launch Application**.
+4.  In the **Welcome** page, click **Sign in**, and enter your credentials.
+5.  In the **Microsoft Azure Data Catalog** page, click **SQL Server**.
 
     ![register3][3]
-6.	Enter your **Server Name**, and click **CONNECT**.
-7.	The next page is where you register the metadata of your data source. In this example, you register **Product** objects from the AdventureWorks Production namespace. Here’s how to do it:
+6.  Enter your **Server Name**, and click **CONNECT**.
+7.  The next page is where you register the metadata of your data source. In this example, you register **Product** objects from the AdventureWorks Production namespace. Here’s how to do it:
 
     a. In the Hierarchy tree, click **Production**.
 
@@ -116,10 +116,10 @@ For this example, you will use a keyword search. **Azure Data Catalog** search h
 
 In this example, you do a **Grouping** search for data assets where name equals product and tags equal illustration or tags equal photo.
 
-1.	Log into the **Azure Data Catalog** portal.
-2.	Click **Discover**.
-3.	In **Search** box, enter a **Grouping** query: (tags:description OR tags:photo).
-4.	Click the search icon, or press Enter. **Azure Data Catalog** will display data assets for this search query.
+1.  Log into the **Azure Data Catalog** portal.
+2.  Click **Discover**.
+3.  In **Search** box, enter a **Grouping** query: (tags:description OR tags:photo).
+4.  Click the search icon, or press Enter. **Azure Data Catalog** will display data assets for this search query.
 
     ![search][8]
 
@@ -131,11 +131,11 @@ In this exercise you will use the **Azure Data Catalog** portal to annotate data
 
 ### Here’s how you annotate data assets
 
-1.	Log into the **Azure Data Catalog** portal.
-2.	Click **Discover**.
-3.	Choose one or more **Data Assets**. In this example, choose **ProductPhoto**, and enter “Product photos for marketing materials.”
-4.	Enter a **Description** that will help other discover and understand why and how to use the selected data asset. For example, enter “Product images”. You can also add more tags, and view columns.
-5.	Now you can try searching and filtering to discover data assets using the descriptive metadata you’ve added to the catalog.
+1.  Log into the **Azure Data Catalog** portal.
+2.  Click **Discover**.
+3.  Choose one or more **Data Assets**. In this example, choose **ProductPhoto**, and enter “Product photos for marketing materials.”
+4.  Enter a **Description** that will help other discover and understand why and how to use the selected data asset. For example, enter “Product images”. You can also add more tags, and view columns.
+5.  Now you can try searching and filtering to discover data assets using the descriptive metadata you’ve added to the catalog.
 
     ![annotate][9]
 
@@ -166,15 +166,15 @@ In this exercise you will use the **Azure Data Catalog** portal to connect to da
 
 ### Here’s how to connect to a data source from Excel
 
-1.	Log into the **Azure Data Catalog** portal.
-2.	Click **Discover**.
-3.	Choose a data asset. In this example, choose ProductCategory.
-4.	Choose **Open In** > **Excel**.
+1.  Log into the **Azure Data Catalog** portal.
+2.  Click **Discover**.
+3.  Choose a data asset. In this example, choose ProductCategory.
+4.  Choose **Open In** > **Excel**.
 
     ![connect1][10]
-5.	In the **Microsoft Excel Security Notice** window, click **Enable**.
-6.	Open the **ProductCategory.odc** file.
-7.	The data source is opened in Excel.
+5.  In the **Microsoft Excel Security Notice** window, click **Enable**.
+6.  Open the **ProductCategory.odc** file.
+7.  The data source is opened in Excel.
 
     ![connect2][11]
 
@@ -190,10 +190,10 @@ In **Azure Data Catalog**, you can remove preview from delete individual asset o
 
 ### Here’s how to delete multiple data assets
 
-1.	Log into the **Azure Data Catalog** portal.
-2.	Click **Discover**.
-3.	Choose one or more data assets.
-4.	Click **Delete**.
+1.  Log into the **Azure Data Catalog** portal.
+2.  Click **Discover**.
+3.  Choose one or more data assets.
+4.  Click **Delete**.
 
 In this exercise you removed registered data assets from the catalog.
 
@@ -206,11 +206,11 @@ In **Azure Data Catalog**, you can take ownership of data assets, add co-owners 
 
 ### Here’s how to take ownership of data assets and restrict visibility
 
-1.	Log into the **Azure Data Catalog** portal.
-2.	Click **Discover**.
-3.	Choose one or more data assets.
-4.	In the **Properties** panel, **Management** section, click **Take Ownership**.
-5.	To restrict visibility, click **Owners & These Users**.
+1.  Log into the **Azure Data Catalog** portal.
+2.  Click **Discover**.
+3.  Choose one or more data assets.
+4.  In the **Properties** panel, **Management** section, click **Take Ownership**.
+5.  To restrict visibility, click **Owners & These Users**.
 
     ![ownership][12]
 
@@ -235,3 +235,4 @@ In this tutorial you explored essential capabilities of the **Azure Data Catalog
 [11]: ./media/data-catalog-get-started/connect2.png
 [12]: ./media/data-catalog-get-started/ownership.png
 [13]: ./media/data-catalog-get-started/crowdsource.png
+

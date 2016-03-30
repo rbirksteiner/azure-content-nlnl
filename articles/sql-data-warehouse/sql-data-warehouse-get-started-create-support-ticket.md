@@ -74,7 +74,7 @@ After you have submitted the support request, the Azure support team will contac
 
 ![Check status](./media/sql-data-warehouse-get-started-create-support-ticket/check-status.png)
 
-Additionally, you can connect with the SQL Data Warehouse community using the azure-sqldw tag on [Stack Overflow][] or the [Azure SQL Data Warehouse MSDN forum][].
+Additionally, you can connect with the SQL Data Warehouse community using the azure-sqldw tag on [Stack Overflow][] or the [Azure SQL Data Warehouse MSDN forum][].
 
 <!-- External links -->
 
@@ -83,6 +83,7 @@ Additionally, you can connect with the SQL Data Warehouse community using the a
 [Microsoft Premier online portal]:https://premier.microsoft.com/
 [Stack Overflow]:http://stackoverflow.com/questions/tagged/azure-sqldw/
 [Azure SQL Data Warehouse MSDN forum]:https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
+
 
 
 

@@ -54,7 +54,7 @@ The following tables describe the values you need to set in the schema.
 | ---- | ---- | -------- | ---------------- | ----------- |
 | value | string | Yes |  | The secret value to store in the key vault. When passing in a value for this property, use a parameter of type **securestring**.  |
 
-	
+    
 ## Examples
 
 The first example deploys a secret as a child resource of a key vault.
@@ -228,5 +228,6 @@ The second example deploys the secret as a top-level resource that is stored in 
 
 - For general information about key vaults, see [Get started with Azure Key Vault](./key-vault/key-vault-get-started.md).
 - For an example of referencing a key vault secret when deploying templates, see [Pass secure values during deployment](resource-manager-keyvault-parameter.md).
+
 
 

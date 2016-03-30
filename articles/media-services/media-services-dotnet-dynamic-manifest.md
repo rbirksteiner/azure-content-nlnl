@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Creating Filters with Azure Media Services .NET SDK" 
-	description="This topic describes how to create filters so your client can use them to stream specific sections of a stream. Media Services creates dynamic manifests to achieve this selective streaming." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede,cenkdin" 
-	editor=""/>
+    pageTitle="Creating Filters with Azure Media Services .NET SDK" 
+    description="This topic describes how to create filters so your client can use them to stream specific sections of a stream. Media Services creates dynamic manifests to achieve this selective streaming." 
+    services="media-services" 
+    documentationCenter="" 
+    authors="Juliako" 
+    manager="dwrede,cenkdin" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="ne" 
-	ms.topic="article" 
-	ms.date="10/18/2015"  
-	ms.author="juliako"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="ne" 
+    ms.topic="article" 
+    ms.date="10/18/2015"  
+    ms.author="juliako"/>
 
 
 #Creating Filters with Azure Media Services .NET SDK
@@ -45,63 +45,63 @@ The following types are used when creating filters:
 ##Create/Update/Read/Delete global filters
 
 The following code shows how to use .NET to create, update,read, and delete asset filters.
-	
-	string filterName = "GlobalFilter_" + Guid.NewGuid().ToString();
-	            
-	List<FilterTrackSelectStatement> filterTrackSelectStatements = new List<FilterTrackSelectStatement>();
-	
-	FilterTrackSelectStatement filterTrackSelectStatement = new FilterTrackSelectStatement();
-	filterTrackSelectStatement.PropertyConditions = new List<IFilterTrackPropertyCondition>();
-	filterTrackSelectStatement.PropertyConditions.Add(new FilterTrackNameCondition("Track Name", FilterTrackCompareOperator.NotEqual));
-	filterTrackSelectStatement.PropertyConditions.Add(new FilterTrackBitrateRangeCondition(new FilterTrackBitrateRange(0, 1), FilterTrackCompareOperator.NotEqual));
-	filterTrackSelectStatement.PropertyConditions.Add(new FilterTrackTypeCondition(FilterTrackType.Audio, FilterTrackCompareOperator.NotEqual));
-	filterTrackSelectStatements.Add(filterTrackSelectStatement);
-	
-	// Create
-	IStreamingFilter filter = _context.Filters.Create(filterName, new PresentationTimeRange(), filterTrackSelectStatements);
-	
-	// Update
-	filter.PresentationTimeRange = new PresentationTimeRange(timescale: 500);
-	filter.Update();
-	
-	// Read
-	var filterUpdated = _context.Filters.FirstOrDefault();
-	Console.WriteLine(filterUpdated.Name);
+    
+    string filterName = "GlobalFilter_" + Guid.NewGuid().ToString();
+                
+    List<FilterTrackSelectStatement> filterTrackSelectStatements = new List<FilterTrackSelectStatement>();
+    
+    FilterTrackSelectStatement filterTrackSelectStatement = new FilterTrackSelectStatement();
+    filterTrackSelectStatement.PropertyConditions = new List<IFilterTrackPropertyCondition>();
+    filterTrackSelectStatement.PropertyConditions.Add(new FilterTrackNameCondition("Track Name", FilterTrackCompareOperator.NotEqual));
+    filterTrackSelectStatement.PropertyConditions.Add(new FilterTrackBitrateRangeCondition(new FilterTrackBitrateRange(0, 1), FilterTrackCompareOperator.NotEqual));
+    filterTrackSelectStatement.PropertyConditions.Add(new FilterTrackTypeCondition(FilterTrackType.Audio, FilterTrackCompareOperator.NotEqual));
+    filterTrackSelectStatements.Add(filterTrackSelectStatement);
+    
+    // Create
+    IStreamingFilter filter = _context.Filters.Create(filterName, new PresentationTimeRange(), filterTrackSelectStatements);
+    
+    // Update
+    filter.PresentationTimeRange = new PresentationTimeRange(timescale: 500);
+    filter.Update();
+    
+    // Read
+    var filterUpdated = _context.Filters.FirstOrDefault();
+    Console.WriteLine(filterUpdated.Name);
 
-	// Delete
-	filter.Delete();
+    // Delete
+    filter.Delete();
 
 
 ##Create/Update/Read/Delete asset filters
 
 The following code shows how to use .NET to create, update,read, and delete asset filters.
 
-	
-	string assetName = "AssetFilter_" + Guid.NewGuid().ToString();
-	var asset = _context.Assets.Create(assetName, AssetCreationOptions.None);
-	
-	string filterName = "AssetFilter_" + Guid.NewGuid().ToString();
-	
-	    
-	// Create
-	IStreamingAssetFilter filter = asset.AssetFilters.Create(filterName,
-	                                    new PresentationTimeRange(), 
-	                                    new List<FilterTrackSelectStatement>());
-	
-	// Update
-	filter.PresentationTimeRange = 
-	        new PresentationTimeRange(start: 6000000000, end: 72000000000);
-	
-	filter.Update();
-	
-	// Read
-	asset = _context.Assets.Where(c => c.Id == asset.Id).FirstOrDefault();
-	var filterUpdated = asset.AssetFilters.FirstOrDefault();
-	Console.WriteLine(filterUpdated.Name);
-	
-	// Delete
-	filterUpdated.Delete();
-	
+    
+    string assetName = "AssetFilter_" + Guid.NewGuid().ToString();
+    var asset = _context.Assets.Create(assetName, AssetCreationOptions.None);
+    
+    string filterName = "AssetFilter_" + Guid.NewGuid().ToString();
+    
+        
+    // Create
+    IStreamingAssetFilter filter = asset.AssetFilters.Create(filterName,
+                                        new PresentationTimeRange(), 
+                                        new List<FilterTrackSelectStatement>());
+    
+    // Update
+    filter.PresentationTimeRange = 
+            new PresentationTimeRange(start: 6000000000, end: 72000000000);
+    
+    filter.Update();
+    
+    // Read
+    asset = _context.Assets.Where(c => c.Id == asset.Id).FirstOrDefault();
+    var filterUpdated = asset.AssetFilters.FirstOrDefault();
+    Console.WriteLine(filterUpdated.Name);
+    
+    // Delete
+    filterUpdated.Delete();
+    
 
 
 
@@ -114,24 +114,24 @@ The following examples show how to add filters to your streaming URLs.
 
 **MPEG DASH** 
 
-	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf, filter=MyFilter)
+    http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf, filter=MyFilter)
 
 **Apple HTTP Live Streaming (HLS) V4**
 
-	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl, filter=MyFilter)
+    http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl, filter=MyFilter)
 
 **Apple HTTP Live Streaming (HLS) V3**
 
-	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3, filter=MyFilter)
+    http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3, filter=MyFilter)
 
 **Smooth Streaming**
 
-	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyFilter)
+    http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyFilter)
 
 
 **HDS**
 
-	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=f4m-f4f, filter=MyFilter)
+    http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=f4m-f4f, filter=MyFilter)
 
 
 ##Media Services learning paths
@@ -147,4 +147,5 @@ The following examples show how to add filters to your streaming URLs.
 
 [Dynamic manifests overview](media-services-dynamic-manifest-overview.md)
  
+
 

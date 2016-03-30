@@ -8,13 +8,13 @@
  documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/09/2015"
-	ms.author="klam"/>
+    ms.service="app-service-logic"
+    ms.workload="integration"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/09/2015"
+    ms.author="klam"/>
 
 # Use Logic App templates
 
@@ -43,3 +43,4 @@ Simple templates that integrate with social media services such as Twitter, Yamm
 
 After selecting one of the templates, complete the deployment as if you created your own logic app. The details steps are at [Create a Logic App](app-service-logic-create-a-logic-app.md).
  
+

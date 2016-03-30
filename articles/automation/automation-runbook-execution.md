@@ -88,10 +88,10 @@ You can use the [Get-AzureAutomationJob](http://msdn.microsoft.com/library/azure
 
 The following sample commands retrieves the last job for a sample runbook and displays it’s status, the values provide for the runbook parameters, and the output from the job.
 
-	$job = (Get-AzureAutomationJob –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" | sort LastModifiedDate –desc)[0]
-	$job.Status
-	$job.JobParameters
-	Get-AzureAutomationJobOutput –AutomationAccountName "MyAutomationAccount" -Id $job.Id –Stream Output
+    $job = (Get-AzureAutomationJob –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" | sort LastModifiedDate –desc)[0]
+    $job.Status
+    $job.JobParameters
+    Get-AzureAutomationJobOutput –AutomationAccountName "MyAutomationAccount" -Id $job.Id –Stream Output
 
 ## Fair share
 
@@ -108,3 +108,4 @@ When you create a runbook, you should ensure that the time to run any activities
 ## Related articles
 
 - [Starting a runbook in Azure Automation](automation-starting-a-runbook.md)
+

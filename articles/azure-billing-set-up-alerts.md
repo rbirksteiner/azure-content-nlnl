@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Set up billing alerts for your Microsoft Azure subscriptions | Microsoft Azure"
-	description="Describes how you can set up alerts on your Azure bill so you can avoid billing surprises."
-	services=""
-	documentationCenter=""
-	authors="vikdesai"
-	manager="msmbaldwin"
-	editor=""/>
+    pageTitle="Set up billing alerts for your Microsoft Azure subscriptions | Microsoft Azure"
+    description="Describes how you can set up alerts on your Azure bill so you can avoid billing surprises."
+    services=""
+    documentationCenter=""
+    authors="vikdesai"
+    manager="msmbaldwin"
+    editor=""/>
 
 <tags
-	ms.service="multiple"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/17/2015" 
-	ms.author="vikdesai"/>
+    ms.service="multiple"
+    ms.workload="multiple"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/17/2015" 
+    ms.author="vikdesai"/>
 
 # Set up billing alerts for your Microsoft Azure subscriptions
 
@@ -45,3 +45,4 @@ After you set up alerts, the Account Center lists them and shows how many more y
 [Image1]: ./media/azure-billing-set-up-alerts/billingalert1.png
 [Image2]: ./media/azure-billing-set-up-alerts/billingalert2.png
 [Image3]: ./media/azure-billing-set-up-alerts/billingalerts3.png
+

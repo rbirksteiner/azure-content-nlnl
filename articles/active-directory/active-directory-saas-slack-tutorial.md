@@ -73,19 +73,19 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
 ###To configure single sign-on, perform the following steps:
 
-1.  In the Azure AD portal, on the **Slack** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  In the Azure AD portal, on the **Slack** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
     ![Configure Single Sign-On](./media/active-directory-saas-slack-tutorial/IC794982.png "Configure Single Sign-On")
 
-2.  On the **How would you like users to sign on to Slack** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to Slack** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-slack-tutorial/IC794983.png "Configure Single Sign-On")
 
-3.  On the **Configure App URL** page, in the **Slack Sign In URL** textbox, type the URL of your Slack tenant (e.g.: "*https://azuread.slack.com*"), and then click **Next**.
+3.  On the **Configure App URL** page, in the **Slack Sign In URL** textbox, type the URL of your Slack tenant (e.g.: "*https://azuread.slack.com*"), and then click **Next**.
 
     ![Configure App URL](./media/active-directory-saas-slack-tutorial/IC794984.png "Configure App URL")
 
-4.  On the **Configure single sign-on at Slack** page, to download your certificate, click **Download certificate**, and then save the certificate file locally on your computer.
+4.  On the **Configure single sign-on at Slack** page, to download your certificate, click **Download certificate**, and then save the certificate file locally on your computer.
 
     ![Configure Single Sign-On](./media/active-directory-saas-slack-tutorial/IC794985.png "Configure Single Sign-On")
 
@@ -115,7 +115,7 @@ If you are not familiar with this procedure, see [How to convert a binary certif
     7.  As **Authentication for your team must be used by**, select **It’s optional**.
     8.  Click **Save Configuration**.
 
-9.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+9.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
     ![Configure Single Sign-On](./media/active-directory-saas-slack-tutorial/IC794989.png "Configure Single Sign-On")
 
@@ -134,7 +134,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 1.  In the Azure AD portal, create a test account.
 
-2.  On the **Slack **application integration page, click **Assign users**.
+2.  On the **Slack **application integration page, click **Assign users**.
 
     ![Assign Users](./media/active-directory-saas-slack-tutorial/IC794990.png "Assign Users")
 

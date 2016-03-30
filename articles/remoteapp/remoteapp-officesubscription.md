@@ -1,11 +1,11 @@
 
 <properties 
     pageTitle="How to use your Office 365 subscription with Azure RemoteApp | Microsoft Azure"
-	description="Learn how you can use your Office 365 subscription in Azure RemoteApp to share Office apps."
-	services="remoteapp"
-	documentationCenter="" 
-	authors="piotrci" 
-	manager="mbaldwin" />
+    description="Learn how you can use your Office 365 subscription in Azure RemoteApp to share Office apps."
+    services="remoteapp"
+    documentationCenter="" 
+    authors="piotrci" 
+    manager="mbaldwin" />
 
 <tags 
     ms.service="remoteapp" 
@@ -85,13 +85,13 @@ Your custom image is used by Azure RemoteApp as a template for adding additional
 
 To disable automatic updates, add the following to the Office Deployment Tool configuration file:
 
-		<Updates Enabled="FALSE" />
+        <Updates Enabled="FALSE" />
 
 So now your configuration file should contain these lines:
-	
-		<Display Level="NONE" AcceptEULA="TRUE" />
-		<Property Name="SharedComputerLicensing" Value="1" />
-		<Updates Enabled="FALSE" />
+    
+        <Display Level="NONE" AcceptEULA="TRUE" />
+        <Property Name="SharedComputerLicensing" Value="1" />
+        <Updates Enabled="FALSE" />
 
 ## So how can I update an image with Office 365 ProPlus?
 
@@ -122,3 +122,4 @@ Need more information about using the Office Deployment Tool for updates?
 - [Deploy Click-to-Run for Office 365 products by using the Office Deployment Tool](https://technet.microsoft.com/library/JJ219423.aspx)
 - [Deploying and Updating Office 365 ProPlus Using the Office Deployment Tool](https://channel9.msdn.com/Events/Ignite/2015/BRK3168) (video)
 - [Configure update settings for Office 365 ProPlus](https://technet.microsoft.com/library/dn761708.aspx)
+

@@ -1,20 +1,20 @@
-﻿<properties
-	pageTitle="Deploy and manage backup for Windows Server/Client using PowerShell | Microsoft Azure"
-	description="Learn how to deploy and manage Azure Backup using PowerShell"
-	services="backup"
-	documentationCenter=""
-	authors="aashishr"
-	manager="shreeshd"
-	editor=""/>
+<properties
+    pageTitle="Deploy and manage backup for Windows Server/Client using PowerShell | Microsoft Azure"
+    description="Learn how to deploy and manage Azure Backup using PowerShell"
+    services="backup"
+    documentationCenter=""
+    authors="aashishr"
+    manager="shreeshd"
+    editor=""/>
 
 <tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/20/2015"
-	ms.author="aashishr"; "jimpark"/>
+    ms.service="backup"
+    ms.workload="storage-backup-recovery"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/20/2015"
+    ms.author="aashishr"; "jimpark"/>
 
 
 # Deploy and manage backup to Azure for Windows Server/Windows Client using PowerShell
@@ -352,7 +352,7 @@ DsList : {DataSource
          FileSpec:D:\
          IsExclude:False
          IsRecursive:True
-	}
+    }
 PolicyName : c2eb6568-8a06-49f4-a20e-3019ae411bac
 RetentionPolicy : Retention Days : 7
               WeeklyLTRSchedule :
@@ -599,3 +599,4 @@ For more information about Azure Backup for Windows Server/Client see
 
 - [Introduction to Azure Backup](backup-configure-vault.md)
 - [Back up Windows Servers](backup-azure-backup-windows-server.md)
+

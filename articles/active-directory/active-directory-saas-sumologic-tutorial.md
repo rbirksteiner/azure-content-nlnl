@@ -73,19 +73,19 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
 ###To configure single sign-on, perform the following steps:
 
-1.  In the Azure AD portal, on the **SumoLogic** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  In the Azure AD portal, on the **SumoLogic** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
     ![Configure single sign-on](./media/active-directory-saas-sumologic-tutorial/IC778552.png "Configure single sign-on")
 
-2.  On the **How would you like users to sign on to SumoLogic** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to SumoLogic** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure single sign-on](./media/active-directory-saas-sumologic-tutorial/IC778553.png "Configure single sign-on")
 
-3.  On the **Configure App URL** page, in the **SumoLogic Sign In URL** textbox, type your URL using the following pattern "*https://\<tenant-name\>.SumoLogic.com*", and then click **Next**.
+3.  On the **Configure App URL** page, in the **SumoLogic Sign In URL** textbox, type your URL using the following pattern "*https://\<tenant-name\>.SumoLogic.com*", and then click **Next**.
 
     ![Configure aoo URL](./media/active-directory-saas-sumologic-tutorial/IC778554.png "Configure aoo URL")
 
-4.  On the **Configure single sign-on at SumoLogic** page, to download your certificate, click **Download certificate**, and then save the certificate file on your computer.
+4.  On the **Configure single sign-on at SumoLogic** page, to download your certificate, click **Download certificate**, and then save the certificate file on your computer.
 
     ![Configure single sign-on](./media/active-directory-saas-sumologic-tutorial/IC778555.png "Configure single sign-on")
 
@@ -121,7 +121,7 @@ If you are not familiar with this procedure, see [How to convert a binary certif
     9.  In the **Login Path** textbox, type **Azure**.
     10. Click **Save**.
 
-10. In the Azure portal, on the **Configure single sign-on at SumoLogic** dialogue page, select the single sign-on configuration confirmation, and then click **Complete**.
+10. In the Azure portal, on the **Configure single sign-on at SumoLogic** dialogue page, select the single sign-on configuration confirmation, and then click **Complete**.
 
     ![Configure single sign-on](./media/active-directory-saas-sumologic-tutorial/IC778560.png "Configure single sign-on")
 
@@ -161,7 +161,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 1.  In the Azure AD portal, create a test account.
 
-2.  On the **SumoLogic** application integration page, click **Assign users**.
+2.  On the **SumoLogic** application integration page, click **Assign users**.
 
     ![Assign users](./media/active-directory-saas-sumologic-tutorial/IC778564.png "Assign users")
 

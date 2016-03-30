@@ -52,3 +52,4 @@ For more development tips, see [development overview][].
 
 <!--Article references-->
 [development overview]: sql-data-warehouse-overview-develop.md
+

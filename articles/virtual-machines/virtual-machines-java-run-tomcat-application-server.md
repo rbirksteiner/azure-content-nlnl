@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Tomcat on a virtual machine | Microsoft Azure"
-	description="This tutorial uses resources created with  the classic deployment model, and shows how to create a Windows Virtual machine and configure it to run Apache Tomcat application server."
-	services="virtual-machines"
-	documentationCenter="java"
-	authors="rmcmurray"
-	manager="wpickett"
-	editor="jimbe"
+    pageTitle="Tomcat on a virtual machine | Microsoft Azure"
+    description="This tutorial uses resources created with  the classic deployment model, and shows how to create a Windows Virtual machine and configure it to run Apache Tomcat application server."
+    services="virtual-machines"
+    documentationCenter="java"
+    authors="rmcmurray"
+    manager="wpickett"
+    editor="jimbe"
     tags="azure-service-management" />
 
 <tags
-	ms.service="virtual-machines"
-	ms.workload="web"
-	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="11/19/2015"
-	ms.author="robmcm"/>
+    ms.service="virtual-machines"
+    ms.workload="web"
+    ms.tgt_pltfrm="vm-windows"
+    ms.devlang="Java"
+    ms.topic="article"
+    ms.date="11/19/2015"
+    ms.author="robmcm"/>
 
 # How to run a Java application server on a virtual machine created with the classic deployment model
 
@@ -152,3 +152,4 @@ Learn about other services (such as Azure Storage, service bus, and SQL Database
 [NewRuleAction]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleAction.png
 [NewRuleName]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
 [NewRuleProfile]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
+

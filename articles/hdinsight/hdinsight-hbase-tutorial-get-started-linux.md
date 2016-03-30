@@ -1,21 +1,21 @@
 <properties
-	pageTitle="HBase tutorial: Get started with HBase in Hadoop | Microsoft Azure"
-	description="Follow this HBase tutorial to get started using Apache HBase with Hadoop in HDInsight. Create tables from the HBase shell and query them using Hive."
-	keywords="apache hbase,hbase,hbase shell,hbase tutorial"
-	services="hdinsight"
-	documentationCenter=""
-	authors="mumian"
-	manager="paulettm"
-	editor="cgronlun"/>
+    pageTitle="HBase tutorial: Get started with HBase in Hadoop | Microsoft Azure"
+    description="Follow this HBase tutorial to get started using Apache HBase with Hadoop in HDInsight. Create tables from the HBase shell and query them using Hive."
+    keywords="apache hbase,hbase,hbase shell,hbase tutorial"
+    services="hdinsight"
+    documentationCenter=""
+    authors="mumian"
+    manager="paulettm"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="hdinsight"
-	ms.workload="big-data"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="12/02/2015"
-	ms.author="jgao"/>
+    ms.service="hdinsight"
+    ms.workload="big-data"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="12/02/2015"
+    ms.author="jgao"/>
 
 
 
@@ -48,25 +48,25 @@ Before you begin this HBase tutorial, you must have the following:
 3. Enter the following values:
 
 
-	- **Cluster Name** - Enter a name to identify this cluster.
-	- **Cluster Type** - Select **HBase**.
-	- **Cluster Operating System**: Select **Linux**. For creating Windows-based HBase cluster, see  [HBase tutorial: Get started using Apache HBase with Hadoop in HDInsight (Windows)](hdinsight-hbase-tutorial-get-started.md).
-	- **Version** - Select an HBase version.
-	- **Subscription** - Select your Azure subscription used for creating this cluster.
-	- **Resource Group** -  Create a new Azure resource group or select an existing one. For more information, see [Azure Resource Manager Overview](resource-group-overview.md)
-	- **Credentials**.  Enter a password for the HTTP web service user. The default username is **admin**. You must also enter an **SSH Username** and either a **PASSWORD** or **PUBLIC KEY**, which will be used to authenticate the SSH user. Using a public key is the recommended approach. For more information on using SSH with HDInsight, see one of the following articles:
+    - **Cluster Name** - Enter a name to identify this cluster.
+    - **Cluster Type** - Select **HBase**.
+    - **Cluster Operating System**: Select **Linux**. For creating Windows-based HBase cluster, see  [HBase tutorial: Get started using Apache HBase with Hadoop in HDInsight (Windows)](hdinsight-hbase-tutorial-get-started.md).
+    - **Version** - Select an HBase version.
+    - **Subscription** - Select your Azure subscription used for creating this cluster.
+    - **Resource Group** -  Create a new Azure resource group or select an existing one. For more information, see [Azure Resource Manager Overview](resource-group-overview.md)
+    - **Credentials**.  Enter a password for the HTTP web service user. The default username is **admin**. You must also enter an **SSH Username** and either a **PASSWORD** or **PUBLIC KEY**, which will be used to authenticate the SSH user. Using a public key is the recommended approach. For more information on using SSH with HDInsight, see one of the following articles:
 
-		- [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-		- [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
-	Click **Select** to save the changes.
-	- **Data Source** - create a new Azure storage account or select an existing Azure storage account to be used as the default file system for the cluster. The default storage account location determines the location of the cluster location. The default storage account and the cluster must co-locate in the same data center.
-	- **Note Pricing Tiers** - Select the number of region servers for the HBase cluster
+        - [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+        - [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    Click **Select** to save the changes.
+    - **Data Source** - create a new Azure storage account or select an existing Azure storage account to be used as the default file system for the cluster. The default storage account location determines the location of the cluster location. The default storage account and the cluster must co-locate in the same data center.
+    - **Note Pricing Tiers** - Select the number of region servers for the HBase cluster
 
-		> [AZURE.WARNING] For high availability of HBase services, you must create a cluster that contains at least **three** nodes. This ensures that, if one node goes down, the HBase data regions are available on other nodes.
+        > [AZURE.WARNING] For high availability of HBase services, you must create a cluster that contains at least **three** nodes. This ensures that, if one node goes down, the HBase data regions are available on other nodes.
 
-		> If you are learning HBase, always choose 1 for the cluster size, and delete the cluster after each use to reduce the cost.
+        > If you are learning HBase, always choose 1 for the cluster size, and delete the cluster after each use to reduce the cost.
 
-	- **Optional Configuration** - Configure Azure virtual network, configure Script actions, and add additional storage accounts.
+    - **Optional Configuration** - Configure Azure virtual network, configure Script actions, and add additional storage accounts.
 
 4. Click **Create**.
 
@@ -91,45 +91,45 @@ It will make more sense after you finish the next procedure.
 1. Open **PuTTY**.  See the Prerequisites listed at the beginning of the article.
 2. If you provided an SSH key when you created your user account during the creation process, you must perform the following step to select the private key to use when authenticating to the cluster:
 
-	In **Category**, expand **Connection**, expand **SSH**, and select **Auth**. Finally, click **Browse** and select the .ppk file that contains your private key.
+    In **Category**, expand **Connection**, expand **SSH**, and select **Auth**. Finally, click **Browse** and select the .ppk file that contains your private key.
 
 3. In **Category**, click **Session**.
 4. From the Basic options for your PuTTY session screen, enter the following values:
 
-	- Host Name: the SSH address of your HDInsight server in the Host name (or IP address) field. The SSH address is your cluster name, then **-ssh.azurehdinsight.net**. For example, *mycluster-ssh.azurehdinsight.net*.
-	- Port: 22. The ssh port on the head node 0 is 22.  See [Information about using HDInsight on Linux (preview)](hdinsight-hadoop-linux-information.md#remote-access-to-services).
+    - Host Name: the SSH address of your HDInsight server in the Host name (or IP address) field. The SSH address is your cluster name, then **-ssh.azurehdinsight.net**. For example, *mycluster-ssh.azurehdinsight.net*.
+    - Port: 22. The ssh port on the head node 0 is 22.  See [Information about using HDInsight on Linux (preview)](hdinsight-hadoop-linux-information.md#remote-access-to-services).
 4. Click **Open** to connect to the cluster.
 5. When prompted, enter the user that you entered when you created the cluster. If you provided a password for the user, you will be prompted to enter it also.
 6. Run the following command:
 
-		hbase shell
+        hbase shell
 
 4. Create an HBase with two column families:
 
-		create 'Contacts', 'Personal', 'Office'
-		list
+        create 'Contacts', 'Personal', 'Office'
+        list
 5. Insert some data:
 
-		put 'Contacts', '1000', 'Personal:Name', 'John Dole'
-		put 'Contacts', '1000', 'Personal:Phone', '1-425-000-0001'
-		put 'Contacts', '1000', 'Office:Phone', '1-425-000-0002'
-		put 'Contacts', '1000', 'Office:Address', '1111 San Gabriel Dr.'
-		scan 'Contacts'
+        put 'Contacts', '1000', 'Personal:Name', 'John Dole'
+        put 'Contacts', '1000', 'Personal:Phone', '1-425-000-0001'
+        put 'Contacts', '1000', 'Office:Phone', '1-425-000-0002'
+        put 'Contacts', '1000', 'Office:Address', '1111 San Gabriel Dr.'
+        scan 'Contacts'
 
-	![hdinsight hadoop hbase shell][img-hbase-shell]
+    ![hdinsight hadoop hbase shell][img-hbase-shell]
 
 6. Get a single row
 
-		get 'Contacts', '1000'
+        get 'Contacts', '1000'
 
-	You will see the same results as using the scan command because there is only one row.
+    You will see the same results as using the scan command because there is only one row.
 
-	For more information about the HBase table schema, see [Introduction to HBase Schema Design][hbase-schema]. For more HBase commands, see [Apache HBase reference guide][hbase-quick-start].
+    For more information about the HBase table schema, see [Introduction to HBase Schema Design][hbase-schema]. For more HBase commands, see [Apache HBase reference guide][hbase-quick-start].
 
 
 6. Exit the shell
 
-		exit
+        exit
 
 **To bulk load data into the contacts HBase table**
 
@@ -138,16 +138,16 @@ HBase includes several methods of loading data into tables.  For more informatio
 
 A sample data file has been uploaded to a public blob container, wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt.  The content of the data file is:
 
-	8396	Calvin Raji		230-555-0191	230-555-0191	5415 San Gabriel Dr.
-	16600	Karen Wu		646-555-0113	230-555-0192	9265 La Paz
-	4324	Karl Xie		508-555-0163	230-555-0193	4912 La Vuelta
-	16891	Jonn Jackson	674-555-0110	230-555-0194	40 Ellis St.
-	3273	Miguel Miller	397-555-0155	230-555-0195	6696 Anchor Drive
-	3588	Osa Agbonile	592-555-0152	230-555-0196	1873 Lion Circle
-	10272	Julia Lee		870-555-0110	230-555-0197	3148 Rose Street
-	4868	Jose Hayes		599-555-0171	230-555-0198	793 Crawford Street
-	4761	Caleb Alexander	670-555-0141	230-555-0199	4775 Kentucky Dr.
-	16443	Terry Chander	998-555-0171	230-555-0200	771 Northridge Drive
+    8396    Calvin Raji     230-555-0191    230-555-0191    5415 San Gabriel Dr.
+    16600   Karen Wu        646-555-0113    230-555-0192    9265 La Paz
+    4324    Karl Xie        508-555-0163    230-555-0193    4912 La Vuelta
+    16891   Jonn Jackson    674-555-0110    230-555-0194    40 Ellis St.
+    3273    Miguel Miller   397-555-0155    230-555-0195    6696 Anchor Drive
+    3588    Osa Agbonile    592-555-0152    230-555-0196    1873 Lion Circle
+    10272   Julia Lee       870-555-0110    230-555-0197    3148 Rose Street
+    4868    Jose Hayes      599-555-0171    230-555-0198    793 Crawford Street
+    4761    Caleb Alexander 670-555-0141    230-555-0199    4775 Kentucky Dr.
+    16443   Terry Chander   998-555-0171    230-555-0200    771 Northridge Drive
 
 You can create a text file and upload the file to your own storage account if you want. For the instructions, see [Upload data for Hadoop jobs in HDInsight][hdinsight-upload-data].
 
@@ -156,11 +156,11 @@ You can create a text file and upload the file to your own storage account if yo
 1. Open **PuTTY**, and connect to the cluster.  See the instructions in the previous procedure.
 3. Run the following command to transform the data file to StoreFiles and store at a relative path specified by Dimporttsv.bulk.output:
 
-		hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name, Personal:Phone, Office:Phone, Office:Address" -Dimporttsv.bulk.output="/example/data/storeDataFileOutput" Contacts wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
+        hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name, Personal:Phone, Office:Phone, Office:Address" -Dimporttsv.bulk.output="/example/data/storeDataFileOutput" Contacts wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
 
 4. Run the following command to upload the data from  /example/data/storeDataFileOutput to the HBase table:
 
-		hbase org.apache.hadoop.hbase.mapreduce.LoadIncrementalHFiles /example/data/storeDataFileOutput Contacts
+        hbase org.apache.hadoop.hbase.mapreduce.LoadIncrementalHFiles /example/data/storeDataFileOutput Contacts
 
 5. You can open the HBase shell, and use the scan command to list the table content.
 
@@ -174,17 +174,17 @@ You can query data in HBase tables by using Hive. This section creates a Hive ta
 1. Open **PuTTY**, and connect to the cluster.  See the instructions in the previous procedure.
 2. Open the Hive shell.
 
-	hive
+    hive
 3. Run the following HiveQL script  to create an Hive Table that maps to the HBase table. Make sure that you have created the sample table referenced earlier in this tutorial by using the HBase shell before you run this statement.
 
-		CREATE EXTERNAL TABLE hbasecontacts(rowkey STRING, name STRING, homephone STRING, officephone STRING, officeaddress STRING)
-		STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
-		WITH SERDEPROPERTIES ('hbase.columns.mapping' = ':key,Personal:Name,Personal:Phone,Office:Phone,Office:Address')
-		TBLPROPERTIES ('hbase.table.name' = 'Contacts');
+        CREATE EXTERNAL TABLE hbasecontacts(rowkey STRING, name STRING, homephone STRING, officephone STRING, officeaddress STRING)
+        STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
+        WITH SERDEPROPERTIES ('hbase.columns.mapping' = ':key,Personal:Name,Personal:Phone,Office:Phone,Office:Address')
+        TBLPROPERTIES ('hbase.table.name' = 'Contacts');
 
 2. Run the following HiveQL script . The Hive query queries the data in the HBase table:
 
-     	SELECT count(*) FROM hbasecontacts;
+        SELECT count(*) FROM hbasecontacts;
 
 ## Use HBase REST APIs using Curl
 
@@ -196,9 +196,9 @@ You can query data in HBase tables by using Hive. This section creates a Hive ta
 
 1. From a command line, use the following command to verify that you can connect to your HDInsight cluster:
 
-		curl -u <UserName>:<Password> -G https://<ClusterName>.azurehdinsight.net/templeton/v1/status
+        curl -u <UserName>:<Password> -G https://<ClusterName>.azurehdinsight.net/templeton/v1/status
 
-	You should receive a response similar to the following:
+    You should receive a response similar to the following:
 
     {"status":"ok","version":"v1"}
 
@@ -209,21 +209,21 @@ You can query data in HBase tables by using Hive. This section creates a Hive ta
 
 2. Use the following command to list the exisiting HBase tables:
 
-		curl -u <UserName>:<Password> -G https://<ClusterName>.azurehdinsight.net/hbaserest/
+        curl -u <UserName>:<Password> -G https://<ClusterName>.azurehdinsight.net/hbaserest/
 
 3. Use the following command to create a new HBase table wit two column families:
 
-		curl -u <UserName>:<Password> -v -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/schema" -H "Accept: application/json" -H "Content-Type: application/json" -d "{\"@name\":\"test\",\"ColumnSchema\":[{\"name\":\"Personal\"},{\"name\":\"Office\"}]}"
+        curl -u <UserName>:<Password> -v -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/schema" -H "Accept: application/json" -H "Content-Type: application/json" -d "{\"@name\":\"test\",\"ColumnSchema\":[{\"name\":\"Personal\"},{\"name\":\"Office\"}]}"
 
-	The schema is provided in the JSon format.
+    The schema is provided in the JSon format.
 
 4. Use the following command to insert some data:
 
-		curl -u <UserName>:<Password> -v -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/schema" -H "Accept: application/json" -H "Content-Type: application/json" -d "{\"Row\":{\"key\":\"1000\",\"Cell\":{\"column\":\"Personal:Name\", \"$\":\"John Dole\"}}}"
+        curl -u <UserName>:<Password> -v -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/schema" -H "Accept: application/json" -H "Content-Type: application/json" -d "{\"Row\":{\"key\":\"1000\",\"Cell\":{\"column\":\"Personal:Name\", \"$\":\"John Dole\"}}}"
 
 5. Use the following command to get a row:
 
-		curl -u <UserName>:<Password> -v -X GET "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/1000" -H "Accept: application/json"
+        curl -u <UserName>:<Password> -v -X GET "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/1000" -H "Accept: application/json"
 
 ## Check cluster status
 
@@ -236,18 +236,18 @@ SSH can also be used to tunnel local requests, such as web requests, to the HDIn
 1. Open **PuTTY**.  
 2. If you provided an SSH key when you created your user account during the creation process, you must perform the following step to select the private key to use when authenticating to the cluster:
 
-	In **Category**, expand **Connection**, expand **SSH**, and select **Auth**. Finally, click **Browse** and select the .ppk file that contains your private key.
+    In **Category**, expand **Connection**, expand **SSH**, and select **Auth**. Finally, click **Browse** and select the .ppk file that contains your private key.
 
 3. In **Category**, click **Session**.
 4. From the Basic options for your PuTTY session screen, enter the following values:
 
-	- **Host Name**: the SSH address of your HDInsight server in the Host name (or IP address) field. The SSH address is your cluster name, then **-ssh.azurehdinsight.net**. For example, *mycluster-ssh.azurehdinsight.net*.
-	- **Port**: 22. The ssh port on the head node 0 is 22.  
+    - **Host Name**: the SSH address of your HDInsight server in the Host name (or IP address) field. The SSH address is your cluster name, then **-ssh.azurehdinsight.net**. For example, *mycluster-ssh.azurehdinsight.net*.
+    - **Port**: 22. The ssh port on the head node 0 is 22.  
 5. In the **Category** section to the left of the dialog, expand **Connection**, expand **SSH**, and then click **Tunnels**.
 6. Provide the following information on the Options controlling SSH port forwarding form:
 
-	- **Source port** - The port on the client that you wish to forward. For example, 9876.
-	- **Dynamic** - Enables dynamic SOCKS proxy routing.
+    - **Source port** - The port on the client that you wish to forward. For example, 9876.
+    - **Dynamic** - Enables dynamic SOCKS proxy routing.
 7. Click **Add** to add the settings.
 8. Click **Open** at the bottom of the dialog to open an SSH connection.
 9. When prompted, log in to the server using a SSH account. This will establish an SSH session and enable the tunnel.
@@ -269,10 +269,10 @@ SSH can also be used to tunnel local requests, such as web requests, to the HDIn
 5. Select **Manual proxy configuration**.
 6. Enter the following values:
 
-	- **Socks Host**: localhost
-	- **Port**: Use the same port you configured in the Putty SSH tunnelling.  For example, 9876.
-	- **SOCKS v5**: (selected)
-	- **Remote DNS**: (selected)
+    - **Socks Host**: localhost
+    - **Port**: Use the same port you configured in the Putty SSH tunnelling.  For example, 9876.
+    - **SOCKS v5**: (selected)
+    - **Remote DNS**: (selected)
 7. Click **OK** to save the changes.
 8. Browse to http://<TheFQDN of a ZooKeeper>:60010/master-status
 
@@ -315,3 +315,4 @@ HBase is an Apache, open-source, NoSQL database built on Hadoop that provides ra
 [img-hbase-shell]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-shell.png
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png
+

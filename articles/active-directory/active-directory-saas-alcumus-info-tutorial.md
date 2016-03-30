@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Tutorial: Azure Active Directory integration with Alcumus Info Exchange | Microsoft Azure"
-	description="Learn how to configure single sign-on between Azure Active Directory and Alcumus Info Exchange."
-	services="active-directory"
-	documentationCenter=""
-	authors="markusvi"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Tutorial: Azure Active Directory integration with Alcumus Info Exchange | Microsoft Azure"
+    description="Learn how to configure single sign-on between Azure Active Directory and Alcumus Info Exchange."
+    services="active-directory"
+    documentationCenter=""
+    authors="markusvi"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/06/2015"
-	ms.author="markusvi"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/06/2015"
+    ms.author="markusvi"/>
 
 
 # Tutorial: Azure Active Directory integration with Alcumus Info Exchange

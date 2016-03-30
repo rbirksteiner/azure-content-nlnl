@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Using soft delete in Mobile Services (Windows Store) | Microsoft Azure"
-	description="Learn how to use Azure Mobile Services soft delete feature in your application"
-	documentationCenter=""
-	authors="wesmc7777"
-	manager="dwrede"
-	editor=""
-	services="mobile-services"/>
+    pageTitle="Using soft delete in Mobile Services (Windows Store) | Microsoft Azure"
+    description="Learn how to use Azure Mobile Services soft delete feature in your application"
+    documentationCenter=""
+    authors="wesmc7777"
+    manager="dwrede"
+    editor=""
+    services="mobile-services"/>
 
 <tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-windows"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="12/07/2015"
-	ms.author="wesmc"/>
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-windows"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="12/07/2015"
+    ms.author="wesmc"/>
 
 # Using soft delete in Mobile Services
 
@@ -165,5 +165,6 @@ To learn more about scheduled jobs with JavaScript backend Mobile Services, see:
 [SQL bit type]: http://msdn.microsoft.com/library/ms177603.aspx
 [Offline data Sync for Mobile Services]: mobile-services-windows-store-dotnet-get-started-offline-data.md
 [Azure classic portal]: https://manage.windowsazure.com/
+
 
 

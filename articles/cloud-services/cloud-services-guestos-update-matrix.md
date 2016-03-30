@@ -45,16 +45,16 @@ The following table captures the changes which will be applied.
 | Guest OS Family | Installed .NET Framework prior to Guest OS 201511-02 Release | Installed .NET Framework on Guest OS 201511-02 Release | Installed .NET Framework on Guest OS 201512-01 Release  | Installed .NET Framework on Guest OS 201601-01 Release or later |
 | --------------- | ---------------- | ---------------- | ---------------- | ---------------- |
 | OS Family 2.x based on Windows Server 2008 R2 | .NET 3.5, .NET 4.0 | .NET 3.5, .NET 4.5.2 | .NET 3.5, .NET 4.0  | .NET 3.5, .NET 4.5.2 |
-| OS Family 3.x based on Windows Server 2012	   | .NET 4.5           | .NET 4.5.2         |  .NET 4.5   | .NET 4.5.2 | 
+| OS Family 3.x based on Windows Server 2012       | .NET 4.5           | .NET 4.5.2         |  .NET 4.5   | .NET 4.5.2 | 
 | OS Family 4.x based on Windows Server 2012 R2 | .NET 4.5.1         | .NET 4.5.2         |  .NET 4.5.1 | .NET 4.5.2 | 
  
 If you are on Guest OS manual update, there will be two Guest OS versions released for all Guest OS families in November. 
 
-   • 	   WA-GUEST-OS-4.26_201511-01, WA-GUEST-OS-3.33_201511-01, WA-GUEST-OS-2.45_201511-01 (Default) 
+   •       WA-GUEST-OS-4.26_201511-01, WA-GUEST-OS-3.33_201511-01, WA-GUEST-OS-2.45_201511-01 (Default) 
 
    These include the November MSRC and October Windows Rollups 
 
-   • 	   WA-GUEST-OS-4.26_201511-02, WA-GUEST-OS-3.33_201511-02, WA-GUEST-OS-2.45_201511-02 
+   •       WA-GUEST-OS-4.26_201511-02, WA-GUEST-OS-3.33_201511-02, WA-GUEST-OS-2.45_201511-02 
 
    These include the November MSRC, October Windows Rollups and .NET Framework upgraded to .NET 4.5.2 
 
@@ -62,11 +62,11 @@ If you are on Guest OS manual update, there will be two Guest OS versions releas
 
 Prior to upgrading, here are some of options to help validate your Cloud Service with .NET 4.5.2: 
 
-1. 	Deploy a test Cloud Service Role to 201511-02 release and conduct application compatibility validation. 
+1.  Deploy a test Cloud Service Role to 201511-02 release and conduct application compatibility validation. 
 
-2. 	Install .NET 4.5.2 on a test Cloud Service Role and conduct application compatibility validation. Visit [Install .NET on a Cloud Service Role] for instructions. 
+2.  Install .NET 4.5.2 on a test Cloud Service Role and conduct application compatibility validation. Visit [Install .NET on a Cloud Service Role] for instructions. 
 
-3. 	Conduct application compatibility validation on a standalone VM, either on premise, or on an Azure VM with .NET 4.5.2 installed. 
+3.  Conduct application compatibility validation on a standalone VM, either on premise, or on an Azure VM with .NET 4.5.2 installed. 
 
 
 
@@ -401,3 +401,4 @@ Because of the partial rollout of the last two releases, people on auto update o
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
  
+

@@ -1,20 +1,20 @@
-﻿<properties
-	pageTitle="Automate Service Fabric application management by using PowerShell | Microsoft Azure"
-	description="Deploy, upgrade, test, and remove Service Fabric applications by using PowerShell."
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="rwike77"
-	manager="timlt"
-	editor=""/>
+<properties
+    pageTitle="Automate Service Fabric application management by using PowerShell | Microsoft Azure"
+    description="Deploy, upgrade, test, and remove Service Fabric applications by using PowerShell."
+    services="service-fabric"
+    documentationCenter=".net"
+    authors="rwike77"
+    manager="timlt"
+    editor=""/>
 
 <tags
-	ms.service="service-fabric"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="12/14/2015"
-	ms.author="ryanwi"/>
+    ms.service="service-fabric"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="12/14/2015"
+    ms.author="ryanwi"/>
 
 # Deploy, upgrade, test, and remove Service Fabric applications by using PowerShell
 
@@ -86,7 +86,7 @@ After updating the service code, you'll need to increment the service version nu
     <StatefulServiceType ServiceTypeName="WordCountServiceType" HasPersistedState="true" />
   </ServiceTypes>
   <CodePackage Name="Code" Version="2.0.0">
-	  ...
+      ...
 ```
 
 Now you'll need to update the ApplicationManifest.xml file (found in the WordCount application project under the WordCount solution).  Update the **ServiceManifestRef** element to use version 2.0.0.0 of the **WordCountServicePkg** project. Also update the **ApplicationTypeVersion** to 2.0.0.0 from 1.0.0.0. The corresponding lines in ApplicationManifest.xml should read:
@@ -202,3 +202,4 @@ Remove-ServiceFabricApplicationPackage -ImageStoreConnectionString file:C:\SfDev
 [Azure Service Fabric cmdlets](https://msdn.microsoft.com/library/azure/mt125965.aspx)
 
 [Azure Service Fabric testability cmdlets](https://msdn.microsoft.com/library/azure/mt125844.aspx)
+

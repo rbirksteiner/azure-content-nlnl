@@ -25,7 +25,7 @@ Learn about Azure Security Center, its key capabilities, and how it works.
 ## What is Azure Security Center?
 Azure Security Center helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
 
-##	Key capabilities
+##  Key capabilities
 Azure Security Center delivers easy and effective threat prevention, detection, and response capabilities that are built-in to Azure. Key capabilities are:
 
 | | |
@@ -127,3 +127,4 @@ In this document you were introduced to Azure Security Center, its key capabilit
 [4]: ./media/security-center-intro/resources-health.png
 [5]: ./media/security-center-intro/security-alert.png
 [6]: ./media/security-center-intro/security-alert-detail.png
+

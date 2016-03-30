@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Get started with Azure Cloud Services and ASP.NET | Microsoft Azure"
-	description="Learn how to create a multi-tier app using ASP.NET MVC and Azure. The app runs in a cloud service, with web role and worker role. It uses Entity Framework, SQL Database, and Azure Storage queues and blobs."
-	services="cloud-services, storage"
-	documentationCenter=".net"
-	authors="tdykstra"
-	manager="wpickett"
-	editor="mollybos"/>
+    pageTitle="Get started with Azure Cloud Services and ASP.NET | Microsoft Azure"
+    description="Learn how to create a multi-tier app using ASP.NET MVC and Azure. The app runs in a cloud service, with web role and worker role. It uses Entity Framework, SQL Database, and Azure Storage queues and blobs."
+    services="cloud-services, storage"
+    documentationCenter=".net"
+    authors="tdykstra"
+    manager="wpickett"
+    editor="mollybos"/>
 
 <tags
-	ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="hero-article"
-	ms.date="09/01/2015"
-	ms.author="tdykstra"/>
+    ms.service="cloud-services"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="hero-article"
+    ms.date="09/01/2015"
+    ms.author="tdykstra"/>
 
 # Get started with Azure Cloud Services and ASP.NET
 
@@ -84,33 +84,33 @@ When a user uploads an image, the front-end running in a web role stores the ima
 
 3. Press CTRL+SHIFT+B to build the solution.
 
-	By default, Visual Studio automatically restores the NuGet package content, which was not included in the *.zip* file. If the packages don't restore, install them manually by going to the **Manage NuGet Packages for Solution** dialog box and clicking the **Restore** button at the top right.
+    By default, Visual Studio automatically restores the NuGet package content, which was not included in the *.zip* file. If the packages don't restore, install them manually by going to the **Manage NuGet Packages for Solution** dialog box and clicking the **Restore** button at the top right.
 
 3. In **Solution Explorer**, make sure that **ContosoAdsCloudService** is selected as the startup project.
 
 1. Press CTRL+F5 to run the application.
 
-	When you run a cloud service project locally, Visual Studio automatically invokes the Azure *compute emulator* and Azure *storage emulator*. The compute emulator uses your computer's resources to simulate the web role and worker role environments. The storage emulator uses a [SQL Server Express LocalDB](http://msdn.microsoft.com/library/hh510202.aspx) database to simulate Azure cloud storage.
+    When you run a cloud service project locally, Visual Studio automatically invokes the Azure *compute emulator* and Azure *storage emulator*. The compute emulator uses your computer's resources to simulate the web role and worker role environments. The storage emulator uses a [SQL Server Express LocalDB](http://msdn.microsoft.com/library/hh510202.aspx) database to simulate Azure cloud storage.
 
-	The first time you run a cloud service project, it takes a minute or so for the emulators to start up. When emulator startup is finished, the default browser opens to the application home page.
+    The first time you run a cloud service project, it takes a minute or so for the emulators to start up. When emulator startup is finished, the default browser opens to the application home page.
 
-	![Contoso Ads architecture](./media/cloud-services-dotnet-get-started/home.png)
+    ![Contoso Ads architecture](./media/cloud-services-dotnet-get-started/home.png)
 
 2. Click  **Create an Ad**.
 
 2. Enter some test data and select a *.jpg* image to upload, and then click **Create**.
 
-	![Create page](./media/cloud-services-dotnet-get-started/create.png)
+    ![Create page](./media/cloud-services-dotnet-get-started/create.png)
 
-	The app goes to the Index page, but it doesn't show a thumbnail for the new ad because that processing hasn't happened yet.
+    The app goes to the Index page, but it doesn't show a thumbnail for the new ad because that processing hasn't happened yet.
 
 3. Wait a moment and then refresh the Index page to see the thumbnail.
 
-	![Index page](./media/cloud-services-dotnet-get-started/list.png)
+    ![Index page](./media/cloud-services-dotnet-get-started/list.png)
 
 4. Click **Details** for your ad to see the full-size image.
 
-	![Details page](./media/cloud-services-dotnet-get-started/details.png)
+    ![Details page](./media/cloud-services-dotnet-get-started/details.png)
 
 You've been running the application entirely on your local computer, with no connection to the cloud. The storage emulator stores the queue and blob data in a SQL Server Express LocalDB database, and the application stores the ad data in another LocalDB database. Entity Framework Code First automatically created the ad database the first time the web app tried to access it.
 
@@ -137,17 +137,17 @@ An Azure cloud service is the environment the application will run in.
 
 4. In the URL input box, enter a URL prefix.
 
-	This URL has to be unique.  You'll get an error message if the prefix you choose is already in use by someone else.
+    This URL has to be unique.  You'll get an error message if the prefix you choose is already in use by someone else.
 
 5. Choose the region where you want to deploy the application.
 
-	This field specifies which datacenter your cloud service will be hosted in. For a production application, you'd choose the region closest to your customers. For this tutorial, choose the region closest to you.
+    This field specifies which datacenter your cloud service will be hosted in. For a production application, you'd choose the region closest to your customers. For this tutorial, choose the region closest to you.
 
 6. Click **Create Cloud Service**.
 
-	In the following image, a cloud service is created with the URL contosoads.cloudapp.net.
+    In the following image, a cloud service is created with the URL contosoads.cloudapp.net.
 
-	![New Cloud Service](./media/cloud-services-dotnet-get-started/newcs.png)
+    ![New Cloud Service](./media/cloud-services-dotnet-get-started/newcs.png)
 
 ### Create an Azure SQL database
 
@@ -159,19 +159,19 @@ When the app runs in the cloud, it will use a cloud-based database.
 
 1. From the **Server** drop-down list, choose **New SQL Database server**.
 
-	Alternatively, if your subscription already has a server, you can select that server from the drop-down list.
+    Alternatively, if your subscription already has a server, you can select that server from the drop-down list.
 
 1. Choose the same **Region** that you chose for the cloud service.
 
-	When the cloud service and database are in different datacenters (different regions), latency will increase and you will be charged for bandwidth outside the data center. Bandwidth within a data center is free.
+    When the cloud service and database are in different datacenters (different regions), latency will increase and you will be charged for bandwidth outside the data center. Bandwidth within a data center is free.
 
 1. Enter an administrator **Login Name** and **Password**.
 
-	If you selected **New SQL Database server** you aren't entering an existing name and password here, you're entering a new name and password that you're defining now to use later when you access the database. If you selected a server that you created previously, you'll be prompted for the password to the administrative user account you already created.
+    If you selected **New SQL Database server** you aren't entering an existing name and password here, you're entering a new name and password that you're defining now to use later when you access the database. If you selected a server that you created previously, you'll be prompted for the password to the administrative user account you already created.
 
 1. Click **Create SQL Database**.
 
-	![New SQL Database](./media/cloud-services-dotnet-get-started/newdb.png)
+    ![New SQL Database](./media/cloud-services-dotnet-get-started/newdb.png)
 
 1. After Azure finishes creating the database, click the **SQL Databases** tab in the left pane of the portal, and then click the name of the new database.
 
@@ -193,23 +193,23 @@ In a real-world application, you would typically create separate accounts for ap
 
 4. In the **URL** box, enter a URL prefix.
 
-	This prefix plus the text you see under the box will be the unique URL to your storage account. If the prefix you enter has already been used by someone else, you'll have to choose a different prefix.
+    This prefix plus the text you see under the box will be the unique URL to your storage account. If the prefix you enter has already been used by someone else, you'll have to choose a different prefix.
 
 5. Set the **Region** drop-down list to the same region you chose for the cloud service.
 
-	When the cloud service and storage account are in different datacenters (different regions), latency will increase and you will be charged for bandwidth outside the data center. Bandwidth within a data center is free.
+    When the cloud service and storage account are in different datacenters (different regions), latency will increase and you will be charged for bandwidth outside the data center. Bandwidth within a data center is free.
 
-	Azure affinity groups provide a mechanism to minimize the distance between resources in a data center, which can reduce latency. This tutorial does not use affinity groups. For more information, see [How to Create an Affinity Group in Azure](http://msdn.microsoft.com/library/jj156209.aspx).
+    Azure affinity groups provide a mechanism to minimize the distance between resources in a data center, which can reduce latency. This tutorial does not use affinity groups. For more information, see [How to Create an Affinity Group in Azure](http://msdn.microsoft.com/library/jj156209.aspx).
 
 6. Set the **Replication** drop-down list to **Locally redundant**.
 
-	When geo-replication is enabled for a storage account, the stored content is replicated to a secondary datacenter to enable failover to that location in case of a major disaster in the primary location. Geo-replication can incur additional costs. For test and development accounts, you generally don't want to pay for geo-replication. For more information, see [Create, manage, or delete a storage account](../storage-create-storage-account/#replication-options).
+    When geo-replication is enabled for a storage account, the stored content is replicated to a secondary datacenter to enable failover to that location in case of a major disaster in the primary location. Geo-replication can incur additional costs. For test and development accounts, you generally don't want to pay for geo-replication. For more information, see [Create, manage, or delete a storage account](../storage-create-storage-account/#replication-options).
 
 5. Click **Create Storage Account**.
 
-	![New storage account](./media/cloud-services-dotnet-get-started/newstorage.png)
+    ![New storage account](./media/cloud-services-dotnet-get-started/newstorage.png)
 
-	In the image, a storage account is created with the URL `contosoads.core.windows.net`.
+    In the image, a storage account is created with the URL `contosoads.core.windows.net`.
 
 ### Configure the solution to use your Azure SQL database when it runs in Azure
 
@@ -221,20 +221,20 @@ You'll use a [Web.config transform](http://www.asp.net/mvc/tutorials/deployment/
 
 1. In the ContosoAdsWeb project, open the *Web.Release.config* transform file for the application *Web.config* file, delete the comment block that contains a `<connectionStrings>` element, and paste the following code in its place.
 
-		<connectionStrings>
-	        <add name="ContosoAdsContext" connectionString="{connectionstring}"
-		    providerName="System.Data.SqlClient" xdt:Transform="SetAttributes" xdt:Locator="Match(name)"/>
-		</connectionStrings>
+        <connectionStrings>
+            <add name="ContosoAdsContext" connectionString="{connectionstring}"
+            providerName="System.Data.SqlClient" xdt:Transform="SetAttributes" xdt:Locator="Match(name)"/>
+        </connectionStrings>
 
-	Leave the file open for editing.
+    Leave the file open for editing.
 
 2. In the [Azure classic portal](http://manage.windowsazure.com), click **SQL Databases** in the left pane, click the database you created for this tutorial, click the **Dashboard** tab, and then click **Show connection strings**.
 
-	![Show connection strings](./media/cloud-services-dotnet-get-started/showcs.png)
+    ![Show connection strings](./media/cloud-services-dotnet-get-started/showcs.png)
 
-	The portal displays connection strings, with a placeholder for the password.
+    The portal displays connection strings, with a placeholder for the password.
 
-	![Connection strings](./media/cloud-services-dotnet-get-started/connstrings.png)
+    ![Connection strings](./media/cloud-services-dotnet-get-started/connstrings.png)
 
 4. In the *Web.Release.config* transform file, delete `{connectionstring}` and paste in its place the ADO.NET connection string from the Azure classic portal.
 
@@ -246,7 +246,7 @@ You'll use a [Web.config transform](http://www.asp.net/mvc/tutorials/deployment/
 
 5. In **Solution Explorer**, under **Roles** in the cloud service project, right-click **ContosoAdsWorker** and then click **Properties**.
 
-	![Role properties](./media/cloud-services-dotnet-get-started/rolepropertiesworker.png)
+    ![Role properties](./media/cloud-services-dotnet-get-started/rolepropertiesworker.png)
 
 6. Click the **Settings** tab.
 
@@ -254,7 +254,7 @@ You'll use a [Web.config transform](http://www.asp.net/mvc/tutorials/deployment/
 
 7. Select the text in the `ContosoAdsDbConnectionString` setting, and then paste the connection string that you copied from the previous section of the tutorial.
 
-	![Database connection string for worker role](./media/cloud-services-dotnet-get-started/workerdbcs.png)
+    ![Database connection string for worker role](./media/cloud-services-dotnet-get-started/workerdbcs.png)
 
 7. Save your changes.  
 
@@ -264,25 +264,25 @@ Azure storage account connection strings for both the web role project and the w
 
 4. In **Solution Explorer**, right-click **ContosoAdsWeb** under **Roles** in the **ContosoAdsCloudService** project, and then click **Properties**.
 
-	![Role properties](./media/cloud-services-dotnet-get-started/roleproperties.png)
+    ![Role properties](./media/cloud-services-dotnet-get-started/roleproperties.png)
 
 5. Click the **Settings** tab. In the **Service Configuration** drop-down box, choose **Cloud**.
 
-	![Cloud configuration](./media/cloud-services-dotnet-get-started/sccloud.png)
+    ![Cloud configuration](./media/cloud-services-dotnet-get-started/sccloud.png)
 
 6. Select the **StorageConnectionString** entry, and you'll see an ellipsis (**...**) button at the right end of the line. Click the ellipsis button to open the **Create Storage Account Connection String** dialog box.
 
-	![Open Connection String Create box](./media/cloud-services-dotnet-get-started/opencscreate.png)
+    ![Open Connection String Create box](./media/cloud-services-dotnet-get-started/opencscreate.png)
 
 1. In the **Create Storage Connection String** dialog box, click **Your subscription**, choose the storage account that you created earlier, and then click **OK**. If you're not already logged in, you'll be prompted for your Azure account credentials.
 
-	![Create Storage Connection String](./media/cloud-services-dotnet-get-started/createstoragecs.png)
+    ![Create Storage Connection String](./media/cloud-services-dotnet-get-started/createstoragecs.png)
 
 1. Save your changes.
 
 2. Follow the same procedure that you used for the `StorageConnectionString` connection string to set the `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString` connection string.
 
-	This connection string is used for logging.
+    This connection string is used for logging.
 
 2. Follow the same procedure that you used for the **ContosoAdsWeb** role to set both connection strings for the **ContosoAdsWorker** role. Don't forget to set **Service Configuration** to **Cloud**.
 
@@ -294,52 +294,52 @@ The role environment settings that you have configured using the Visual Studio U
 
 For example, the ServiceDefinition.csdef includes the following definitions.
 
-		<ConfigurationSettings>
-		  <Setting name="StorageConnectionString" />
-		  <Setting name="ContosoAdsDbConnectionString" />
-		</ConfigurationSettings>
+        <ConfigurationSettings>
+          <Setting name="StorageConnectionString" />
+          <Setting name="ContosoAdsDbConnectionString" />
+        </ConfigurationSettings>
 
 And the *ServiceConfiguration.Cloud.cscfg* file includes the values you entered for those settings in Visual Studio.
 
-		<Role name="ContosoAdsWorker">
-		  <Instances count="1" />
-		  <ConfigurationSettings>
-		    <Setting name="StorageConnectionString" value="{yourconnectionstring}" />
-		    <Setting name="ContosoAdsDbConnectionString" value="{yourconnectionstring}" />
-		    <!-- other settings not shown -->
-		  </ConfigurationSettings>
-		  <!-- other settings not shown -->
-		</Role>
+        <Role name="ContosoAdsWorker">
+          <Instances count="1" />
+          <ConfigurationSettings>
+            <Setting name="StorageConnectionString" value="{yourconnectionstring}" />
+            <Setting name="ContosoAdsDbConnectionString" value="{yourconnectionstring}" />
+            <!-- other settings not shown -->
+          </ConfigurationSettings>
+          <!-- other settings not shown -->
+        </Role>
 
 The `<Instances>` setting specifies the number of virtual machines that Azure will run the worker role code on. The [Next steps](#next-steps) section includes links to more information about scaling out a cloud service,
 
 ###  Deploy the project to Azure
 
-3.	In **Solution Explorer**, right-click the **ContosoAdsCloudService** cloud project and then select **Publish**.
+3.  In **Solution Explorer**, right-click the **ContosoAdsCloudService** cloud project and then select **Publish**.
 
-	![Publish menu](./media/cloud-services-dotnet-get-started/pubmenu.png)
+    ![Publish menu](./media/cloud-services-dotnet-get-started/pubmenu.png)
 
 2. In the **Sign in** step of the **Publish Azure Application** wizard, click **Next**.
 
-	![Sign in step](./media/cloud-services-dotnet-get-started/pubsignin.png)
+    ![Sign in step](./media/cloud-services-dotnet-get-started/pubsignin.png)
 
 3. In the **Settings** step of the wizard, click **Next**.
 
-	![Settings step](./media/cloud-services-dotnet-get-started/pubsettings.png)
+    ![Settings step](./media/cloud-services-dotnet-get-started/pubsettings.png)
 
-	The default settings in the **Advanced** tab are fine for this tutorial. For information about the advanced tab, see [Publish Azure Application Wizard](http://msdn.microsoft.com/library/hh535756.aspx).
+    The default settings in the **Advanced** tab are fine for this tutorial. For information about the advanced tab, see [Publish Azure Application Wizard](http://msdn.microsoft.com/library/hh535756.aspx).
 
 2. In the **Summary** step, click **Publish**.
 
-	![Summary step](./media/cloud-services-dotnet-get-started/pubsummary.png)
+    ![Summary step](./media/cloud-services-dotnet-get-started/pubsummary.png)
 
    The **Azure Activity Log** window opens in Visual Studio.
 
 2. Click the right arrow icon to expand the deployment details.
 
-	The deployment can take up to 5 minutes or more to complete.
+    The deployment can take up to 5 minutes or more to complete.
 
-	![Azure Activity Log window](./media/cloud-services-dotnet-get-started/waal.png)
+    ![Azure Activity Log window](./media/cloud-services-dotnet-get-started/waal.png)
 
 1. When the deployment status is complete, click the **Website URL** to start the application.
 
@@ -370,19 +370,19 @@ After the solution is created, you'll review the code that is unique to cloud se
 
 3. Name the project and solution ContosoAdsCloudService, and then click **OK**.
 
-	![New Project](./media/cloud-services-dotnet-get-started/newproject.png)
+    ![New Project](./media/cloud-services-dotnet-get-started/newproject.png)
 
 4. In the **New Azure Cloud Service** dialog box, add a web role and a worker role. Name the web role ContosoAdsWeb, and name the worker role ContosoAdsWorker. (Use the pencil icon in the right-hand pane to change the default names of the roles.)
 
-	![New Cloud Service Project](./media/cloud-services-dotnet-get-started/newcsproj.png)
+    ![New Cloud Service Project](./media/cloud-services-dotnet-get-started/newcsproj.png)
 
 5. When you see the **New ASP.NET Project** dialog box for the web role, choose the MVC template, and then click **Change Authentication**.
 
-	![Change Authentication](./media/cloud-services-dotnet-get-started/chgauth.png)
+    ![Change Authentication](./media/cloud-services-dotnet-get-started/chgauth.png)
 
 7. In the **Change Authentication** dialog box, choose **No Authentication**, and then click **OK**.
 
-	![No Authentication](./media/cloud-services-dotnet-get-started/noauth.png)
+    ![No Authentication](./media/cloud-services-dotnet-get-started/noauth.png)
 
 8. In the **New ASP.NET Project** dialog, click **OK**.
 
@@ -392,7 +392,7 @@ After the solution is created, you'll review the code that is unique to cloud se
 
 10. Name the project *ContosoAdsCommon*, and then click **OK**.
 
-	You need to reference the Entity Framework context and the data model from both web and worker role projects. As an alternative you could define the EF-related classes in the web role project and reference that project from the worker role project. But in the alternative approach, your worker role project would have a reference to web assemblies which it doesn't need.
+    You need to reference the Entity Framework context and the data model from both web and worker role projects. As an alternative you could define the EF-related classes in the web role project and reference that project from the worker role project. But in the alternative approach, your worker role project would have a reference to web assemblies which it doesn't need.
 
 ### Update and add NuGet packages
 
@@ -402,9 +402,9 @@ After the solution is created, you'll review the code that is unique to cloud se
 
 13. Look for the *WindowsAzure.Storage* package, and if it's in the list, click **Update** to get the latest version of the storage client library.
 
-	![Update SCL](./media/cloud-services-dotnet-get-started/updstg.png)
+    ![Update SCL](./media/cloud-services-dotnet-get-started/updstg.png)
 
-	The storage client library is updated more frequently than Visual Studio project templates, so you'll often find that the version in a newly created projected needs to be updated.
+    The storage client library is updated more frequently than Visual Studio project templates, so you'll often find that the version in a newly created projected needs to be updated.
 
 14. In the left pane, select **Online**.
 
@@ -418,11 +418,11 @@ After the solution is created, you'll review the code that is unique to cloud se
 
 11. In the ContosoAdsWorker project, set a reference to the ContosAdsCommon project.
 
-	ContosoAdsCommon will contain the Entity Framework data model and context class, which will be used by both the front-end and back-end.
+    ContosoAdsCommon will contain the Entity Framework data model and context class, which will be used by both the front-end and back-end.
 
 11. In the ContosoAdsWorker project, set a reference to `System.Drawing`.
 
-	This assembly is used by the back-end to convert images to thumbnails.
+    This assembly is used by the back-end to convert images to thumbnails.
 
 ### Configure connection strings
 
@@ -430,23 +430,23 @@ In this section you configure Azure Storage and SQL connection strings for testi
 
 3. In the ContosoAdsWeb project, open the application Web.config file, and insert the following `connectionStrings` element after the `configSections` element.
 
-		<connectionStrings>
-		  <add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" />
-		</connectionStrings>
+        <connectionStrings>
+          <add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" />
+        </connectionStrings>
 
 3. Save your changes.
 
 2. In the ContosoAdsCloudService project, right-click ContosoAdsWeb under **Roles**, and then click **Properties**.
 
-	![Role properties](./media/cloud-services-dotnet-get-started/roleproperties.png)
+    ![Role properties](./media/cloud-services-dotnet-get-started/roleproperties.png)
 
 3. In the **ContosAdsWeb [Role]** properties window, click the **Settings** tab, and then click **Add Setting**.
 
-	Leave **Service Configuration** set to **All Configurations**.
+    Leave **Service Configuration** set to **All Configurations**.
 
 4. Add a new setting named *StorageConnectionString*. Set **Type** to *ConnectionString*, and set **Value** to *UseDevelopmentStorage=true*.
 
-	![New connection string](./media/cloud-services-dotnet-get-started/scall.png)
+    ![New connection string](./media/cloud-services-dotnet-get-started/scall.png)
 
 5. Save your changes.
 
@@ -454,11 +454,11 @@ In this section you configure Azure Storage and SQL connection strings for testi
 
 5. Still in the **ContosoAdsWorker [Role]** properties window, add another connection string:
 
-	* Name: ContosoAdsDbConnectionString
-	* Type: String
-	* Value: Paste the same connection string you used for the web role project:
+    * Name: ContosoAdsDbConnectionString
+    * Type: String
+    * Value: Paste the same connection string you used for the web role project:
 
-			Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;
+            Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;
 
 ### Add code files
 
@@ -469,11 +469,11 @@ To add files to a project or a folder, right-click the project or folder and cli
 3. In the ContosoAdsCommon project, delete the *Class1.cs* file and add in its place the *Ad.cs* and *ContosoAdscontext.cs* files from the downloaded project.
 
 3. In the ContosoAdsWeb project, add the following files from the downloaded project.
-	- *Global.asax.cs*.  
-	- In the *Views\Shared* folder: <em>\_Layout.cshtml</em>.
-	- In the *Views\Home* folder: *Index.cshtml*.
-	- In the *Controllers* folder: *AdController.cs*.
-	- In the *Views\Ad* folder (create the folder first): five *.cshtml* files.
+    - *Global.asax.cs*.  
+    - In the *Views\Shared* folder: <em>\_Layout.cshtml</em>.
+    - In the *Views\Home* folder: *Index.cshtml*.
+    - In the *Controllers* folder: *AdController.cs*.
+    - In the *Views\Ad* folder (create the folder first): five *.cshtml* files.
 
 3. In the ContosoAdsWorker project, add *WorkerRole.cs* from the downloaded project.
 
@@ -489,60 +489,60 @@ The following sections explain the code related to working with the Azure enviro
 
 The Ad.cs file defines an enum for ad categories and a POCO entity class for ad information.
 
-		public enum Category
-		{
-		    Cars,
-		    [Display(Name="Real Estate")]
-		    RealEstate,
-		    [Display(Name = "Free Stuff")]
-		    FreeStuff
-		}
+        public enum Category
+        {
+            Cars,
+            [Display(Name="Real Estate")]
+            RealEstate,
+            [Display(Name = "Free Stuff")]
+            FreeStuff
+        }
 
-		public class Ad
-		{
-		    public int AdId { get; set; }
+        public class Ad
+        {
+            public int AdId { get; set; }
 
-		    [StringLength(100)]
-		    public string Title { get; set; }
+            [StringLength(100)]
+            public string Title { get; set; }
 
-		    public int Price { get; set; }
+            public int Price { get; set; }
 
-		    [StringLength(1000)]
-		    [DataType(DataType.MultilineText)]
-		    public string Description { get; set; }
+            [StringLength(1000)]
+            [DataType(DataType.MultilineText)]
+            public string Description { get; set; }
 
-		    [StringLength(1000)]
-		    [DisplayName("Full-size Image")]
-		    public string ImageURL { get; set; }
+            [StringLength(1000)]
+            [DisplayName("Full-size Image")]
+            public string ImageURL { get; set; }
 
-		    [StringLength(1000)]
-		    [DisplayName("Thumbnail")]
-		    public string ThumbnailURL { get; set; }
+            [StringLength(1000)]
+            [DisplayName("Thumbnail")]
+            public string ThumbnailURL { get; set; }
 
-		    [DataType(DataType.Date)]
-		    [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-		    public DateTime PostedDate { get; set; }
+            [DataType(DataType.Date)]
+            [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+            public DateTime PostedDate { get; set; }
 
-		    public Category? Category { get; set; }
-		    [StringLength(12)]
-		    public string Phone { get; set; }
-		}
+            public Category? Category { get; set; }
+            [StringLength(12)]
+            public string Phone { get; set; }
+        }
 
 ### ContosoAdsCommon - ContosoAdsContext.cs
 
 The ContosoAdsContext class specifies that the Ad class is used in a DbSet collection, which Entity Framework will store in a SQL database.
 
-		public class ContosoAdsContext : DbContext
-		{
-		    public ContosoAdsContext() : base("name=ContosoAdsContext")
-		    {
-		    }
-		    public ContosoAdsContext(string connString)
-		        : base(connString)
-		    {
-		    }
-		    public System.Data.Entity.DbSet<Ad> Ads { get; set; }
-		}
+        public class ContosoAdsContext : DbContext
+        {
+            public ContosoAdsContext() : base("name=ContosoAdsContext")
+            {
+            }
+            public ContosoAdsContext(string connString)
+                : base(connString)
+            {
+            }
+            public System.Data.Entity.DbSet<Ad> Ads { get; set; }
+        }
 
 The class has two constructors. The first of them is used by the web project, and specifies the name of a connection string that is stored in the Web.config file. The second constructor enables you to pass in the actual connection string. That is needed by the worker role project, since it doesn't have a Web.config file. You saw earlier where this connection string was stored, and you'll see later how the code retrieves the connection string when it instantiates the DbContext class.
 
@@ -552,27 +552,27 @@ Code that is called from the `Application_Start` method creates an *images* blob
 
 The code gets access to the storage account by using the storage connection string from the *.cscfg* file.
 
-		var storageAccount = CloudStorageAccount.Parse
-		    (RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+        var storageAccount = CloudStorageAccount.Parse
+            (RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
 
 Then it gets a reference to the *images* blob container, creates the container if it doesn't already exist, and sets access permissions on the new container. By default, new containers only allow clients with storage account credentials to access blobs. The website needs the blobs to be public so that it can display images using URLs that point to the image blobs.
 
-		var blobClient = storageAccount.CreateCloudBlobClient();
-		var imagesBlobContainer = blobClient.GetContainerReference("images");
-		if (imagesBlobContainer.CreateIfNotExists())
-		{
-		    imagesBlobContainer.SetPermissions(
-		        new BlobContainerPermissions
-		        {
-		            PublicAccess =BlobContainerPublicAccessType.Blob
-		        });
-		}
+        var blobClient = storageAccount.CreateCloudBlobClient();
+        var imagesBlobContainer = blobClient.GetContainerReference("images");
+        if (imagesBlobContainer.CreateIfNotExists())
+        {
+            imagesBlobContainer.SetPermissions(
+                new BlobContainerPermissions
+                {
+                    PublicAccess =BlobContainerPublicAccessType.Blob
+                });
+        }
 
 Similar code gets a reference to the *images* queue and creates a new queue. In this case no permissions change is needed.
 
-		CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
-		var imagesQueue = queueClient.GetQueueReference("images");
-		imagesQueue.CreateIfNotExists();
+        CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+        var imagesQueue = queueClient.GetQueueReference("images");
+        imagesQueue.CreateIfNotExists();
 
 ### ContosoAdsWeb - \_Layout.cshtml
 
@@ -582,10 +582,10 @@ The *_Layout.cshtml* file sets the app name in the header and footer, and create
 
 The *Views\Home\Index.cshtml* file displays category links on the home page. The links pass the integer value of the `Category` enum in a querystring variable to the Ads Index page.
 
-		<li>@Html.ActionLink("Cars", "Index", "Ad", new { category = (int)Category.Cars }, null)</li>
-		<li>@Html.ActionLink("Real estate", "Index", "Ad", new { category = (int)Category.RealEstate }, null)</li>
-		<li>@Html.ActionLink("Free stuff", "Index", "Ad", new { category = (int)Category.FreeStuff }, null)</li>
-		<li>@Html.ActionLink("All", "Index", "Ad", null, null)</li>
+        <li>@Html.ActionLink("Cars", "Index", "Ad", new { category = (int)Category.Cars }, null)</li>
+        <li>@Html.ActionLink("Real estate", "Index", "Ad", new { category = (int)Category.RealEstate }, null)</li>
+        <li>@Html.ActionLink("Free stuff", "Index", "Ad", new { category = (int)Category.FreeStuff }, null)</li>
+        <li>@Html.ActionLink("All", "Index", "Ad", null, null)</li>
 
 ### ContosoAdsWeb - AdController.cs
 
@@ -593,101 +593,101 @@ In the *AdController.cs* file the constructor calls the `InitializeStorage` meth
 
 Then the code gets a reference to the *images* blob container as you saw earlier in *Global.asax.cs*. While doing that it sets a default [retry policy](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) appropriate for a web app. The default exponential backoff retry policy could hang the web app for longer than a minute on repeated retries for a transient fault. The retry policy specified here waits 3 seconds after each try for up to 3 tries.
 
-		var blobClient = storageAccount.CreateCloudBlobClient();
-		blobClient.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
-		imagesBlobContainer = blobClient.GetContainerReference("images");
+        var blobClient = storageAccount.CreateCloudBlobClient();
+        blobClient.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
+        imagesBlobContainer = blobClient.GetContainerReference("images");
 
 Similar code gets a reference to the *images* queue.
 
-		CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
-		queueClient.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
-		imagesQueue = queueClient.GetQueueReference("images");
+        CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+        queueClient.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
+        imagesQueue = queueClient.GetQueueReference("images");
 
 Most of the controller code is typical for working with an Entity Framework data model using a DbContext class. An exception is the HttpPost `Create` method, which uploads a file and saves it in blob storage. The model binder provides an [HttpPostedFileBase](http://msdn.microsoft.com/library/system.web.httppostedfilebase.aspx) object to the method.
 
-		[HttpPost]
-		[ValidateAntiForgeryToken]
-		public async Task<ActionResult> Create(
-		    [Bind(Include = "Title,Price,Description,Category,Phone")] Ad ad,
-		    HttpPostedFileBase imageFile)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Create(
+            [Bind(Include = "Title,Price,Description,Category,Phone")] Ad ad,
+            HttpPostedFileBase imageFile)
 
 If the user selected a file to upload, the code uploads the file, saves it in a blob, and updates the Ad database record with a URL that points to the blob.
 
-		if (imageFile != null && imageFile.ContentLength != 0)
-		{
-		    blob = await UploadAndSaveBlobAsync(imageFile);
-		    ad.ImageURL = blob.Uri.ToString();
-		}
+        if (imageFile != null && imageFile.ContentLength != 0)
+        {
+            blob = await UploadAndSaveBlobAsync(imageFile);
+            ad.ImageURL = blob.Uri.ToString();
+        }
 
 The code that does the upload is in the `UploadAndSaveBlobAsync` method. It creates a GUID name for the blob, uploads and saves the file, and returns a reference to the saved blob.
 
-		private async Task<CloudBlockBlob> UploadAndSaveBlobAsync(HttpPostedFileBase imageFile)
-		{
-		    string blobName = Guid.NewGuid().ToString() + Path.GetExtension(imageFile.FileName);
-		    CloudBlockBlob imageBlob = imagesBlobContainer.GetBlockBlobReference(blobName);
-		    using (var fileStream = imageFile.InputStream)
-		    {
-		        await imageBlob.UploadFromStreamAsync(fileStream);
-		    }
-		    return imageBlob;
-		}
+        private async Task<CloudBlockBlob> UploadAndSaveBlobAsync(HttpPostedFileBase imageFile)
+        {
+            string blobName = Guid.NewGuid().ToString() + Path.GetExtension(imageFile.FileName);
+            CloudBlockBlob imageBlob = imagesBlobContainer.GetBlockBlobReference(blobName);
+            using (var fileStream = imageFile.InputStream)
+            {
+                await imageBlob.UploadFromStreamAsync(fileStream);
+            }
+            return imageBlob;
+        }
 
 After the HttpPost `Create` method uploads a blob and updates the database, it creates a queue message to inform that back-end process that an image is ready for conversion to a thumbnail.
 
-		string queueMessageString = ad.AdId.ToString();
-		var queueMessage = new CloudQueueMessage(queueMessageString);
-		await queue.AddMessageAsync(queueMessage);
+        string queueMessageString = ad.AdId.ToString();
+        var queueMessage = new CloudQueueMessage(queueMessageString);
+        await queue.AddMessageAsync(queueMessage);
 
 The code for the HttpPost `Edit` method is similar except that if the user selects a new image file any blobs that already exist must be deleted.
 
-		if (imageFile != null && imageFile.ContentLength != 0)
-		{
-		    await DeleteAdBlobsAsync(ad);
-		    imageBlob = await UploadAndSaveBlobAsync(imageFile);
-		    ad.ImageURL = imageBlob.Uri.ToString();
-		}
+        if (imageFile != null && imageFile.ContentLength != 0)
+        {
+            await DeleteAdBlobsAsync(ad);
+            imageBlob = await UploadAndSaveBlobAsync(imageFile);
+            ad.ImageURL = imageBlob.Uri.ToString();
+        }
 
 The next example shows the code that deletes blobs when you delete an ad.
 
-		private async Task DeleteAdBlobsAsync(Ad ad)
-		{
-		    if (!string.IsNullOrWhiteSpace(ad.ImageURL))
-		    {
-		        Uri blobUri = new Uri(ad.ImageURL);
-		        await DeleteAdBlobAsync(blobUri);
-		    }
-		    if (!string.IsNullOrWhiteSpace(ad.ThumbnailURL))
-		    {
-		        Uri blobUri = new Uri(ad.ThumbnailURL);
-		        await DeleteAdBlobAsync(blobUri);
-		    }
-		}
-		private static async Task DeleteAdBlobAsync(Uri blobUri)
-		{
-		    string blobName = blobUri.Segments[blobUri.Segments.Length - 1];
-		    CloudBlockBlob blobToDelete = imagesBlobContainer.GetBlockBlobReference(blobName);
-		    await blobToDelete.DeleteAsync();
-		}
+        private async Task DeleteAdBlobsAsync(Ad ad)
+        {
+            if (!string.IsNullOrWhiteSpace(ad.ImageURL))
+            {
+                Uri blobUri = new Uri(ad.ImageURL);
+                await DeleteAdBlobAsync(blobUri);
+            }
+            if (!string.IsNullOrWhiteSpace(ad.ThumbnailURL))
+            {
+                Uri blobUri = new Uri(ad.ThumbnailURL);
+                await DeleteAdBlobAsync(blobUri);
+            }
+        }
+        private static async Task DeleteAdBlobAsync(Uri blobUri)
+        {
+            string blobName = blobUri.Segments[blobUri.Segments.Length - 1];
+            CloudBlockBlob blobToDelete = imagesBlobContainer.GetBlockBlobReference(blobName);
+            await blobToDelete.DeleteAsync();
+        }
 
 ### ContosoAdsWeb - Views\Ad\Index.cshtml and Details.cshtml
 
 The *Index.cshtml* file displays thumbnails with the other ad data.
 
-		<img  src="@Html.Raw(item.ThumbnailURL)" />
+        <img  src="@Html.Raw(item.ThumbnailURL)" />
 
 The *Details.cshtml* file displays the full-size image.
 
-		<img src="@Html.Raw(Model.ImageURL)" />
+        <img src="@Html.Raw(Model.ImageURL)" />
 
 ### ContosoAdsWeb - Views\Ad\Create.cshtml and Edit.cshtml
 
 The *Create.cshtml* and *Edit.cshtml* files specify form encoding that enables the controller to get the `HttpPostedFileBase` object.
 
-		@using (Html.BeginForm("Create", "Ad", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        @using (Html.BeginForm("Create", "Ad", FormMethod.Post, new { enctype = "multipart/form-data" }))
 
 An `<input>` element tells the browser to provide a file selection dialog.
 
-		<input type="file" name="imageFile" accept="image/*" class="form-control fileupload" />
+        <input type="file" name="imageFile" accept="image/*" class="form-control fileupload" />
 
 ### ContosoAdsWorker - WorkerRole.cs - OnStart method
 
@@ -695,8 +695,8 @@ The Azure worker role environment calls the `OnStart` method in the `WorkerRole`
 
 The `OnStart` method gets the database connection string from the *.cscfg* file and passes it to the Entity Framework DbContext class. The SQLClient provider is used by default, so the provider does not have to be specified.
 
-		var dbConnString = CloudConfigurationManager.GetSetting("ContosoAdsDbConnectionString");
-		db = new ContosoAdsContext(dbConnString);
+        var dbConnString = CloudConfigurationManager.GetSetting("ContosoAdsDbConnectionString");
+        db = new ContosoAdsContext(dbConnString);
 
 After that the method gets a reference to the storage account and creates the blob container and queue if they don't exist. The code for that is similar to what you already saw in the web role `Application_Start` method.
 
@@ -704,34 +704,34 @@ After that the method gets a reference to the storage account and creates the bl
 
 The `Run` method is called when the `OnStart` method finishes its initialization work. The method executes an infinite loop that watches for new queue messages and processes them when they arrive.
 
-		public override void Run()
-		{
-		    CloudQueueMessage msg = null;
+        public override void Run()
+        {
+            CloudQueueMessage msg = null;
 
-		    while (true)
-		    {
-		        try
-		        {
-		            msg = this.imagesQueue.GetMessage();
-		            if (msg != null)
-		            {
-		                ProcessQueueMessage(msg);
-		            }
-		            else
-		            {
-		                System.Threading.Thread.Sleep(1000);
-		            }
-		        }
-		        catch (StorageException e)
-		        {
-		            if (msg != null && msg.DequeueCount > 5)
-		            {
-		                this.imagesQueue.DeleteMessage(msg);
-		            }
-		            System.Threading.Thread.Sleep(5000);
-		        }
-		    }
-		}
+            while (true)
+            {
+                try
+                {
+                    msg = this.imagesQueue.GetMessage();
+                    if (msg != null)
+                    {
+                        ProcessQueueMessage(msg);
+                    }
+                    else
+                    {
+                        System.Threading.Thread.Sleep(1000);
+                    }
+                }
+                catch (StorageException e)
+                {
+                    if (msg != null && msg.DequeueCount > 5)
+                    {
+                        this.imagesQueue.DeleteMessage(msg);
+                    }
+                    System.Threading.Thread.Sleep(5000);
+                }
+            }
+        }
 
 After each iteration of the loop, if no queue message was found, the program sleeps for a second. This prevents the worker role from incurring excessive CPU time and storage transaction costs. The Microsoft Customer Advisory Team tells a story about a  developer who forgot to include this, deployed to production, and left for vacation. When he got back, his oversight cost more than the vacation.
 
@@ -739,32 +739,32 @@ Sometimes the content of a queue message causes an error in processing. This is 
 
 `ProcessQueueMessage` is called when a queue message is found.
 
-		private void ProcessQueueMessage(CloudQueueMessage msg)
-		{
-		    var adId = int.Parse(msg.AsString);
-		    Ad ad = db.Ads.Find(adId);
-		    if (ad == null)
-		    {
-		        throw new Exception(String.Format("AdId {0} not found, can't create thumbnail", adId.ToString()));
-		    }
+        private void ProcessQueueMessage(CloudQueueMessage msg)
+        {
+            var adId = int.Parse(msg.AsString);
+            Ad ad = db.Ads.Find(adId);
+            if (ad == null)
+            {
+                throw new Exception(String.Format("AdId {0} not found, can't create thumbnail", adId.ToString()));
+            }
 
-		    CloudBlockBlob inputBlob = this.imagesBlobContainer.GetBlockBlobReference(ad.ImageURL);
+            CloudBlockBlob inputBlob = this.imagesBlobContainer.GetBlockBlobReference(ad.ImageURL);
 
-		    string thumbnailName = Path.GetFileNameWithoutExtension(inputBlob.Name) + "thumb.jpg";
-		    CloudBlockBlob outputBlob = this.imagesBlobContainer.GetBlockBlobReference(thumbnailName);
+            string thumbnailName = Path.GetFileNameWithoutExtension(inputBlob.Name) + "thumb.jpg";
+            CloudBlockBlob outputBlob = this.imagesBlobContainer.GetBlockBlobReference(thumbnailName);
 
-		    using (Stream input = inputBlob.OpenRead())
-		    using (Stream output = outputBlob.OpenWrite())
-		    {
-		        ConvertImageToThumbnailJPG(input, output);
-		        outputBlob.Properties.ContentType = "image/jpeg";
-		    }
+            using (Stream input = inputBlob.OpenRead())
+            using (Stream output = outputBlob.OpenWrite())
+            {
+                ConvertImageToThumbnailJPG(input, output);
+                outputBlob.Properties.ContentType = "image/jpeg";
+            }
 
-		    ad.ThumbnailURL = outputBlob.Uri.ToString();
-		    db.SaveChanges();
+            ad.ThumbnailURL = outputBlob.Uri.ToString();
+            db.SaveChanges();
 
-		    this.imagesQueue.DeleteMessage(msg);
-		}
+            this.imagesQueue.DeleteMessage(msg);
+        }
 
 This code reads the database to get the image URL, converts the image to a thumbnail, saves the thumbnail in a blob, updates the database with the thumbnail blob URL, and deletes the queue message.
 
@@ -813,3 +813,4 @@ For more information, see the following resources:
 * [Azure Cloud Services Part 1: Introduction](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [How to manage Cloud Services](cloud-services-how-to-manage.md)
 * [Azure Storage](/documentation/services/storage/)
+

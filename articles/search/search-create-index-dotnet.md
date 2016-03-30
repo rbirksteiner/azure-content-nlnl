@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Create an Azure Search index using .NET | Microsoft Azure | Hosted cloud search service"
-	description="Create an index in code using the Azure Search .NET SDK or library."
-	services="search"
-	documentationCenter=""
-	authors="HeidiSteen"
-	manager="mblythe"
-	editor=""
+    pageTitle="Create an Azure Search index using .NET | Microsoft Azure | Hosted cloud search service"
+    description="Create an index in code using the Azure Search .NET SDK or library."
+    services="search"
+    documentationCenter=""
+    authors="HeidiSteen"
+    manager="mblythe"
+    editor=""
     tags="azure-portal"/>
 
 <tags
-	ms.service="search"
-	ms.devlang="dotnet"
-	ms.workload="search"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.date="11/09/2015"
-	ms.author="heidist"/>
+    ms.service="search"
+    ms.devlang="dotnet"
+    ms.workload="search"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.date="11/09/2015"
+    ms.author="heidist"/>
 
 # Create an Azure Search index using .NET
 > [AZURE.SELECTOR]

@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Get started with test in production for Web Apps"
-	description="Learn about the Test in Production (TiP) feature in Azure App Service Web Apps."
-	services="app-service\web"
-	documentationCenter=""
-	authors="cephalin"
-	manager="wpickett"
-	editor=""/>
+    pageTitle="Get started with test in production for Web Apps"
+    description="Learn about the Test in Production (TiP) feature in Azure App Service Web Apps."
+    services="app-service\web"
+    documentationCenter=""
+    authors="cephalin"
+    manager="wpickett"
+    editor=""/>
 
 <tags
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/16/2015"
-	ms.author="cephalin"/>
+    ms.service="app-service-web"
+    ms.workload="web"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/16/2015"
+    ms.author="cephalin"/>
 
 # Get started with test in production for Web Apps
 
@@ -46,11 +46,11 @@ At the basic level in every TiP scenario, you route a predefined percentage of y
   ![](./media/app-service-web-test-in-production/01-traffic-routing.png)
 3. Select the slot that you want to route traffic to and the percentage of the total traffic you desire, then click **Save**.
 
-	![](./media/app-service-web-test-in-production/02-select-slot.png)
+    ![](./media/app-service-web-test-in-production/02-select-slot.png)
 
 4. Go to the deployment slot's blade. You should now see live traffic being routed to it.
 
-	![](./media/app-service-web-test-in-production/03-traffic-routed.png)
+    ![](./media/app-service-web-test-in-production/03-traffic-routed.png)
 
 Once Traffic Routing is configured, the specified percentage of clients will be randomly routed to your non-production slot. However, it is important to note that once a client is automatically routed to a specific slot, it will be "pinned" to that slot for the life of that client session. This done using a cookie to pin the user session. If you inspect the HTTP requests, you will find a `TipMix` cookie in every subsequent request.
 
@@ -78,11 +78,11 @@ The string `x-ms-routing-name=self` specifies the production slot. Once the clie
 
 To let users opt in to your beta app, set the same query parameter to the name of the non-production slot, for example:
 
-		<webappname>.azurewebsites.net/?x-ms-routing-name=staging
+        <webappname>.azurewebsites.net/?x-ms-routing-name=staging
 
 ## More resources ##
 
 -   [Set up staging environments for web apps in Azure App Service](web-sites-staged-publishing.md)
--	[Deploy a complex application predictably in Azure](app-service-deploy-complex-application-predictably.md)
+-   [Deploy a complex application predictably in Azure](app-service-deploy-complex-application-predictably.md)
 -   [Agile software development with Azure App Service](app-service-agile-software-development.md)
--	[Use DevOps environments effectively for your web apps](app-service-web-staged-publishing-realworld-scenarios.md)
+-   [Use DevOps environments effectively for your web apps](app-service-web-staged-publishing-realworld-scenarios.md)

@@ -1,20 +1,20 @@
 <properties
-	pageTitle="B2C Preview: Secure a Web API using node.js | Microsoft Azure"
-	description="How to build a NodeJS Web API that accepts tokens from a B2C tenant"
-	services="active-directory-b2c"
-	documentationCenter=""
-	authors="brandwe"
-	manager="msmbaldwin"
-	editor=""/>
+    pageTitle="B2C Preview: Secure a Web API using node.js | Microsoft Azure"
+    description="How to build a NodeJS Web API that accepts tokens from a B2C tenant"
+    services="active-directory-b2c"
+    documentationCenter=""
+    authors="brandwe"
+    manager="msmbaldwin"
+    editor=""/>
 
 <tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-  	ms.tgt_pltfrm="na"
-	ms.devlang="javascript"
-	ms.topic="article"
-	ms.date="09/22/2015"
-	ms.author="brandwe"/>
+    ms.service="active-directory-b2c"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="javascript"
+    ms.topic="article"
+    ms.date="09/22/2015"
+    ms.author="brandwe"/>
 
 # B2C Preview: Secure a Web API using node.js
 
@@ -24,7 +24,7 @@
 > [AZURE.NOTE] This article does not cover how to implement sign-in, sign-up and profile management with Azure AD B2C.  It focuses on calling web APIs after the user is already authenticated.  If you haven't already, you should start with the [.NET Web App getting started tutorial](active-directory-b2c-devquickstarts-web-dotnet.md) to learn about the basics of Azure AD B2C.
 
 
-> [AZURE.NOTE]	This sample was written to be connected to with our [iOS B2C sample application.](active-directory-b2c-devquickstarts-ios.md) Please do this walkthrough first, then follow along with that sample.
+> [AZURE.NOTE]  This sample was written to be connected to with our [iOS B2C sample application.](active-directory-b2c-devquickstarts-ios.md) Please do this walkthrough first, then follow along with that sample.
 
 **Passport** is authentication middleware for Node.js. Extremely flexible and modular, Passport can be unobtrusively dropped in to any Express-based or Resitify web application. A comprehensive set of strategies support authentication using a username and password, Facebook, Twitter, and more. We have developed a strategy for Microsoft Azure Active Directory. We will install this module and then add the Microsoft Azure Active Directory `passport-azure-ad` plug-in.
 
@@ -40,7 +40,7 @@ The code for this tutorial is maintained [on GitHub](https://github.com/AzureADQ
 
 The completed application is provided at the end of this tutorial as well.
 
-> [AZURE.WARNING] 	For our B2C Preview you must use the same client ID/Application ID and policies for both the Web-API task server and the client that connects to it. This is true for our iOS and Android tutorials. If you have previously created an application in either of those quickstarts, please use those values instead of creating new ones below.
+> [AZURE.WARNING]   For our B2C Preview you must use the same client ID/Application ID and policies for both the Web-API task server and the client that connects to it. This is true for our iOS and Android tutorials. If you have previously created an application in either of those quickstarts, please use those values instead of creating new ones below.
 
 
 ## 1. Get an Azure AD B2C directory
@@ -138,26 +138,26 @@ Restify provides a powerful mechanism to trace REST calls using DTrace. However,
 The output of this command should appear similar to the following:
 
 
-	restify@2.6.1 node_modules/restify
-	├── assert-plus@0.1.4
-	├── once@1.3.0
-	├── deep-equal@0.0.0
-	├── escape-regexp-component@1.0.2
-	├── qs@0.6.5
-	├── tunnel-agent@0.3.0
-	├── keep-alive-agent@0.0.1
-	├── lru-cache@2.3.1
-	├── node-uuid@1.4.0
-	├── negotiator@0.3.0
-	├── mime@1.2.11
-	├── semver@2.2.1
-	├── spdy@1.14.12
-	├── backoff@2.3.0
-	├── formidable@1.0.14
-	├── verror@1.3.6 (extsprintf@1.0.2)
-	├── csv@0.3.6
-	├── http-signature@0.10.0 (assert-plus@0.1.2, asn1@0.1.11, ctype@0.5.2)
-	└── bunyan@0.22.0 (mv@0.0.5)
+    restify@2.6.1 node_modules/restify
+    ├── assert-plus@0.1.4
+    ├── once@1.3.0
+    ├── deep-equal@0.0.0
+    ├── escape-regexp-component@1.0.2
+    ├── qs@0.6.5
+    ├── tunnel-agent@0.3.0
+    ├── keep-alive-agent@0.0.1
+    ├── lru-cache@2.3.1
+    ├── node-uuid@1.4.0
+    ├── negotiator@0.3.0
+    ├── mime@1.2.11
+    ├── semver@2.2.1
+    ├── spdy@1.14.12
+    ├── backoff@2.3.0
+    ├── formidable@1.0.14
+    ├── verror@1.3.6 (extsprintf@1.0.2)
+    ├── csv@0.3.6
+    ├── http-signature@0.10.0 (assert-plus@0.1.2, asn1@0.1.11, ctype@0.5.2)
+    └── bunyan@0.22.0 (mv@0.0.5)
 
 
 ## 7: Install Passport.js into your Web API
@@ -172,9 +172,9 @@ Enter the following command to install passport.js
 
 The output of the commadn should appear similar to the following:
 
-	passport@0.1.17 node_modules\passport
-	├── pause@0.0.1
-	└── pkginfo@0.2.3
+    passport@0.1.17 node_modules\passport
+    ├── pause@0.0.1
+    └── pkginfo@0.2.3
 
 ## 8: Add Passport-Azure-AD to your Web API
 
@@ -858,12 +858,12 @@ Let's use `curl` again to see if we now have OAuth2 protection against our endpo
 
 First, make sure that your monogoDB instance is running:
 
-	$sudo mongod
+    $sudo mongod
 
 Then, change to the directory and start curling..
 
-	$ cd azuread
-	$ node server.js
+    $ cd azuread
+    $ node server.js
 
 Try a basic POST:
 
@@ -896,3 +896,4 @@ For reference, the completed sample (without your configuration values) [is prov
 You can now move onto more advanced topics.  You may want to try:
 
 [Connect to a Web-API using iOS with B2C >>](active-directory-b2c-devquickstarts-ios.md)
+

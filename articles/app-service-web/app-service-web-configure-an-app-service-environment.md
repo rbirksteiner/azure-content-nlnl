@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How to Configure an App Service Environment" 
-	description="Configuration, management and monitoring of App Service Environments" 
-	services="app-service" 
-	documentationCenter="" 
-	authors="ccompy" 
-	manager="stefsch" 
-	editor=""/>
+    pageTitle="How to Configure an App Service Environment" 
+    description="Configuration, management and monitoring of App Service Environments" 
+    services="app-service" 
+    documentationCenter="" 
+    authors="ccompy" 
+    manager="stefsch" 
+    editor=""/>
 
 <tags 
-	ms.service="app-service" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/26/2015" 
-	ms.author="ccompy"/>
+    ms.service="app-service" 
+    ms.workload="na" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/26/2015" 
+    ms.author="ccompy"/>
 
 
 # Configuring an App Service Environment #
@@ -203,3 +203,4 @@ For more information about the Azure App Service platform, see [Azure App Servic
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 [ExpressRoute]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-network-configuration-expressroute/
+

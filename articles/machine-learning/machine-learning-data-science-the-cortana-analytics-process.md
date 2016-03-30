@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="What is the Cortana Analytics Process?  | Microsoft Azure" 
-	description="The Cortana Analytics Process is a systematic data science method for building intelligent applications that leverage advanced analytics." 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="bradsev"
-	manager="paulettm" 
-	editor="cgronlun" />
+    pageTitle="What is the Cortana Analytics Process?  | Microsoft Azure" 
+    description="The Cortana Analytics Process is a systematic data science method for building intelligent applications that leverage advanced analytics." 
+    services="machine-learning" 
+    documentationCenter="" 
+    authors="bradsev"
+    manager="paulettm" 
+    editor="cgronlun" />
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/23/2015" 
-	ms.author="bradsev;gopitk" /> 
+    ms.service="machine-learning" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/23/2015" 
+    ms.author="bradsev;gopitk" /> 
 
 
 # What is the Cortana Analytics Process (CAP)?
@@ -90,3 +90,4 @@ While CAP does not prescribe specific types of **documentation** artifacts, it i
 Full end-to-end walkthroughs that demonstrate all the steps in the process for **specific scenarios** are also provided. See [The Cortana Analytics Process in action: using SQL Server](machine-learning-data-science-process-sql-walkthrough.md) and [The Cortana Analytics Process in action: using HDInsight Hadoop clusters](machine-learning-data-science-process-hive-walkthrough.md).
 
  
+

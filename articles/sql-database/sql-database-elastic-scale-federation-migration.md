@@ -149,3 +149,4 @@ If your application is not yet ready to work without Federations, then contact M
 [2]: ./media/sql-database-elastic-scale-federation-migration/migrate-2.png
 [3]: ./media/sql-database-elastic-scale-federation-migration/migrate-3.png
  
+

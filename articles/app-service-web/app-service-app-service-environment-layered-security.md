@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Layered Security Architecture with App Service Environments" 
-	description="Implementing a layered security architecture with App Service Environments." 
-	services="app-service" 
-	documentationCenter="" 
-	authors="stefsch" 
-	manager="wpickett" 
-	editor=""/>
+    pageTitle="Layered Security Architecture with App Service Environments" 
+    description="Implementing a layered security architecture with App Service Environments." 
+    services="app-service" 
+    documentationCenter="" 
+    authors="stefsch" 
+    manager="wpickett" 
+    editor=""/>
 
 <tags 
-	ms.service="app-service" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/13/2015" 
-	ms.author="stefsch"/>	
+    ms.service="app-service" 
+    ms.workload="na" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/13/2015" 
+    ms.author="stefsch"/>   
 
 # Implementing a Layered Security Architecture with App Service Environments
 
@@ -108,3 +108,4 @@ Understanding [outbound IP addresses][NetworkArchitecture] and App Service Envir
 <!-- IMAGES -->
 [ConceptualArchitecture]: ./media/app-service-app-service-environment-layered-security/ConceptualArchitecture-1.png
 [NSGConfiguration]:  ./media/app-service-app-service-environment-layered-security/NSGConfiguration-1.png
+

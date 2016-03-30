@@ -28,3 +28,4 @@ Check out the following information to make sure your VNET is configured and wor
 
 - [Migrate from a personal VNET to an Azure VNET](remoteapp-migratevnet.md)
 - [Validate the Azure VNET to use with Azure RemoteApp](remoteapp-vnet.md)
+

@@ -1,20 +1,20 @@
 <properties
-	pageTitle="How to Use Docker Quickly with Ubuntu-Docker VM Image"
-	description="Describes and demonstrates how to be using Docker on Ubuntu Server in minutes directly from the Azure Image Gallery"
-	services="virtual-machines"
-	documentationCenter=""
-	authors="squillace"
-	manager="timlt"
-	editor="tysonn"/>
+    pageTitle="How to Use Docker Quickly with Ubuntu-Docker VM Image"
+    description="Describes and demonstrates how to be using Docker on Ubuntu Server in minutes directly from the Azure Image Gallery"
+    services="virtual-machines"
+    documentationCenter=""
+    authors="squillace"
+    manager="timlt"
+    editor="tysonn"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-linux"
-	ms.workload="infrastructure"
-	ms.date="10/04/2015"
-	ms.author="rasquill"/>
+    ms.service="virtual-machines"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="vm-linux"
+    ms.workload="infrastructure"
+    ms.date="10/04/2015"
+    ms.author="rasquill"/>
 
 # How to Get Started Quickly with Docker in the Azure Marketplace
 
@@ -79,3 +79,4 @@ You're going to want to start using [Docker]!
 [Canonical]: http://www.canonical.com/
 [MSOpenTech]: http://msopentech.com/
  
+

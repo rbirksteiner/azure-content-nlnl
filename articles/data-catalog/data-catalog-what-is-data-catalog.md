@@ -24,16 +24,16 @@ Microsoft **Azure Data Catalog** is a fully managed cloud service that serves as
 
 Traditionally, discovering enterprise data sources has been an organic process based on tribal knowledge. This presents numerous challenges for companies wanting to get the most value from their information assets.
 
--	Users are not aware that data sources exist unless they come into contact with it as part of another process; there is no central location where data sources are registered.
--	Unless a user knows the location of a data source, he cannot connect to the data using a client application; data consumption experiences require users to know the connection string or path.
--	Unless a user knows the location of a data source's documentation, he cannot understand the intended uses of the data; data sources and documentation live in different places and are consumed through different experiences.
--	If a user has questions about an information asset, he must locate the expert or team responsible for the data and engage those experts offline; there is no explicit connection between data and those with expert perspectives on its use.
+-   Users are not aware that data sources exist unless they come into contact with it as part of another process; there is no central location where data sources are registered.
+-   Unless a user knows the location of a data source, he cannot connect to the data using a client application; data consumption experiences require users to know the connection string or path.
+-   Unless a user knows the location of a data source's documentation, he cannot understand the intended uses of the data; data sources and documentation live in different places and are consumed through different experiences.
+-   If a user has questions about an information asset, he must locate the expert or team responsible for the data and engage those experts offline; there is no explicit connection between data and those with expert perspectives on its use.
 -  Unless a user understands the process for requesting access to the data source, discovering the data source and its documentation still does not enable him to access the data he requires.
 
 While these challenges face data consumers, users responsible for producing and maintaining information assets face challenges of their own.
 
--	Annotating data sources with descriptive metadata is often a lost effort; client applications typically ignore descriptions stored in the data source.
--	Creating documentation for data sources is often a lost effort; keeping documentation in sync with the data source is an ongoing responsibility, and users lack trust in documentation as it is often perceived as being out of date.
+-   Annotating data sources with descriptive metadata is often a lost effort; client applications typically ignore descriptions stored in the data source.
+-   Creating documentation for data sources is often a lost effort; keeping documentation in sync with the data source is an ongoing responsibility, and users lack trust in documentation as it is often perceived as being out of date.
 - Restricting access to the data source, and ensuring that data consumers know how to request access is an ongoing challenge.
 
 Creating and maintaining documentation for a data source is complex and time-consuming. The challenge of making that documentation readily available to everyone who uses the data source is often even more so.
@@ -58,9 +58,9 @@ Data source registration is performed using the **Azure Data Catalog** data sour
 
 The registration process involves three basic steps:
 
-1.	Connect to a data source - the user specifies the data source location and the credentials to connect to the data source, such as a SQL Server instance.
-2.	Select objects to register - the user selects the objects in the specified location that should be registered with **Azure Data Catalog**. This may be the full set of tables in all databases on the server, or a specifically selected subset of tables and views.
-3.	Complete registration - the user completes the process, and the data source registration tool extracts the structural metadata from the data source, and sends that metadata to the **Azure Data Catalog** cloud service.
+1.  Connect to a data source - the user specifies the data source location and the credentials to connect to the data source, such as a SQL Server instance.
+2.  Select objects to register - the user selects the objects in the specified location that should be registered with **Azure Data Catalog**. This may be the full set of tables in all databases on the server, or a specifically selected subset of tables and views.
+3.  Complete registration - the user completes the process, and the data source registration tool extracts the structural metadata from the data source, and sends that metadata to the **Azure Data Catalog** cloud service.
 
 > [AZURE.NOTE] For preview, **Azure Data Catalog** currently supports the following data source and asset types:
 
@@ -89,8 +89,8 @@ Additional data sources and asset types will be added during the **Azure Data Ca
 
 Once the registration is complete, the data sources can be discovered and consumed, but the true value of **Azure Data Catalog** comes from having descriptive business metadata in the same experience as the structural metadata extracted from the data source.  This additional metadata delivers three significant benefits:
 
--	The registered data sources are more easily discoverable. The user-provided metadata is added to the **Azure Data Catalog** search index. This allows users to discover the data by using terms and concepts that may not be present in the original data source. For example, if a database table that contains customer data is named "tbl_c45", providing a friendly name of "Customer" will make it more easily discoverable by users looking for customer data. Similarly, providing a description that includes the names of reports, dashboards, or processes that use the data will make the data source easier to find by users who use those downstream artifacts as their search terms.
--	The registered data sources are more easily understood once discovered. The user-provided metadata is presented to any **Azure Data Catalog** user who views the annotated data source, which helps provide additional context and information. Most data sources typically do not include meaningful descriptions or documentation, and those that do are often focused on the technical DBA or database developer audiences. By enriching data sources in **Azure Data Catalog** with audience-appropriate descriptions and tags, users can help ensure that those who discover the data can understand its details and intended use.
+-   The registered data sources are more easily discoverable. The user-provided metadata is added to the **Azure Data Catalog** search index. This allows users to discover the data by using terms and concepts that may not be present in the original data source. For example, if a database table that contains customer data is named "tbl_c45", providing a friendly name of "Customer" will make it more easily discoverable by users looking for customer data. Similarly, providing a description that includes the names of reports, dashboards, or processes that use the data will make the data source easier to find by users who use those downstream artifacts as their search terms.
+-   The registered data sources are more easily understood once discovered. The user-provided metadata is presented to any **Azure Data Catalog** user who views the annotated data source, which helps provide additional context and information. Most data sources typically do not include meaningful descriptions or documentation, and those that do are often focused on the technical DBA or database developer audiences. By enriching data sources in **Azure Data Catalog** with audience-appropriate descriptions and tags, users can help ensure that those who discover the data can understand its details and intended use.
 -  Each registered data source can include request access information, so that users can easily understand and follow existing processes to request access to the data source and its data.
 
 > [AZURE.NOTE] Each **Azure Data Catalog** user can add his own tags and descriptions for data assets and attributes. **Azure Data Catalog** will track the value and source of each annotation and will display the user who added it. This crowdsourcing approach to metadata ensures that every user with a perspective on the data and its use can share their opinions and resources with the user community at large.
@@ -109,8 +109,8 @@ To view more complete information for a data source, and to understand if it is 
 
 At the top of the properties pane there will be additional buttons:
 
-1.	Preview: Selecting this button will display the static set of preview records from the data source, if preview was selected during data source registration.
-2.	Schema: Selecting this button will display the schema for the data source, including column names and data types, and any column-level metadata in **Azure Data Catalog**.
+1.  Preview: Selecting this button will display the static set of preview records from the data source, if preview was selected during data source registration.
+2.  Schema: Selecting this button will display the schema for the data source, including column names and data types, and any column-level metadata in **Azure Data Catalog**.
 
 > [AZURE.NOTE] It's important to remember that the **Discover** experience can be an entry point into the **Enrich** experience, and not only into the **Consume** experience. The crowdsourcing approach that **Azure Data Catalog** brings means that any user who discovers a registered data source can share his opinions on the data, in addition to using the data he has discovered.
 
@@ -124,7 +124,8 @@ After a data source has been registered, it can sometimes be necessary to remove
 
 The ultimate goal of data discovery is to find the data that you need, and to use it in the data tool of your choice. The data consumption experience in Azure Data Catalog enables this capability in two ways.
 
-1.	For client applications that are directly supported by **Azure Data Catalog**, users can click on the **Open In** menu in the data source tile found in the portal. The client application will then launch with a connection to the selected data source.
-2.	For all client applications, users can use the connection information displayed in the properties pane for a selected data source. This information includes all details (such as server name, database name, and object name) required to connect to the data, and can be copied into the client tool's connection experience. If request access details have been provided for a data source, this information will be displayed next to the connection details.
+1.  For client applications that are directly supported by **Azure Data Catalog**, users can click on the **Open In** menu in the data source tile found in the portal. The client application will then launch with a connection to the selected data source.
+2.  For all client applications, users can use the connection information displayed in the properties pane for a selected data source. This information includes all details (such as server name, database name, and object name) required to connect to the data, and can be copied into the client tool's connection experience. If request access details have been provided for a data source, this information will be displayed next to the connection details.
 
 > [AZURE.NOTE] For the preview of Azure Data Catalog, only Microsoft Excel and SQL Server Reporting Services Report Manager will be directly supported and available in the **Open In** menu.  
+

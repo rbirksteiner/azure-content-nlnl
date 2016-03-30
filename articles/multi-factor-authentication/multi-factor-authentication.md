@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication - What is It? | Microsoft Azure" 
-	description="Azure Multi-factor authentication is a method of verifying who you are that requires the use of more than just a username and password. It provides an additional layer of security to user sign-ins and transactions." 
-	keywords="introduction to MFA, mfa overview"
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
-	editor="curtland"/>
+    pageTitle="Azure Multi-Factor Authentication - What is It? | Microsoft Azure" 
+    description="Azure Multi-factor authentication is a method of verifying who you are that requires the use of more than just a username and password. It provides an additional layer of security to user sign-ins and transactions." 
+    keywords="introduction to MFA, mfa overview"
+    services="multi-factor-authentication" 
+    documentationCenter="" 
+    authors="billmath" 
+    manager="stevenpo" 
+    editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/20/2015" 
-	ms.author="billmath"/>
+    ms.service="multi-factor-authentication" 
+    ms.workload="identity" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/20/2015" 
+    ms.author="billmath"/>
 
 # What is Azure Multi-Factor Authentication?
 Multi-factor authentication (MFA) is a method of authentication that requires the use of more than one verification method and adds a critical second layer of security to user sign-ins and transactions. It works by requiring any two or more of the following verification methods:
@@ -143,8 +143,8 @@ Choose the model that works best for your organization.  Then to get started see
 
 Because there are several flavors of Azure Multi-Factor Authentication we must determine a couple of things in order to figure out which version is the proper one to use.  Those things are:
 
--	[What am I trying to secure](#what-am-i-trying-to-secure)
--	[Where are the users located](#where-are-the-users-located)
+-   [What am I trying to secure](#what-am-i-trying-to-secure)
+-   [Where are the users located](#where-are-the-users-located)
 
 The following sections will provide guidance on determining each of these.
 
@@ -210,3 +210,4 @@ Now that we have determined whether to use cloud multi-factor authentication or 
 
 [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md)  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </center>
+

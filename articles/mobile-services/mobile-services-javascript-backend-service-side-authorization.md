@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Service-side authorization of users in a JavaScript backend mobile service | Microsoft Azure"
-	description="Learn how to authorize users in JavaScript backend of Azure Mobile Services"
-	services="mobile-services"
-	documentationCenter=""
-	authors="krisragh"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Service-side authorization of users in a JavaScript backend mobile service | Microsoft Azure"
+    description="Learn how to authorize users in JavaScript backend of Azure Mobile Services"
+    services="mobile-services"
+    documentationCenter=""
+    authors="krisragh"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-multiple"
-	ms.topic="article"
-	ms.devlang="javascript"
-	ms.date="11/30/2015"
-	ms.author="krisragh"/>
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-multiple"
+    ms.topic="article"
+    ms.devlang="javascript"
+    ms.date="11/30/2015"
+    ms.author="krisragh"/>
 
 # Service-side authorization of users in Mobile Services
 
@@ -37,7 +37,7 @@ This tutorial is based on the Mobile Services Quick Start and builds on the [Add
           request.execute();
         }
 
-	This script adds the user ID of the authenticated user to the item before insertion.
+    This script adds the user ID of the authenticated user to the item before insertion.
 
     >[AZURE.NOTE] Make sure that [dynamic schema](https://msdn.microsoft.com/library/azure/jj193175.aspx) is enabled. Otherwise, the *userId* column is not added automatically. This setting is enabled by default for a new mobile service.
 
@@ -69,3 +69,4 @@ This tutorial is based on the Mobile Services Quick Start and builds on the [Add
 
 [Azure classic portal]: https://manage.windowsazure.com/
  
+

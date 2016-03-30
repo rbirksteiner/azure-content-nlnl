@@ -18,21 +18,21 @@ Public IP addresses have a child object named **dnsSettings** containing the fol
 
 Sample public IP address in JSON format:
 
-	{
-	   "name": "PIP01",
-	   "location": "North US",
-	   "tags": { "key": "value" },
-	   "properties": {
-	      "publicIPAllocationMethod": "Static",
-	      "idleTimeoutInMinutes": 4,
-		  "ipAddress": "104.42.233.77",
-	      "dnsSettings": {
-	         "domainNameLabel": "mylabel",
-			 "fqdn": "mylabel.westus.cloudapp.azure.com",
-	         "reverseFqdn": "contoso.com."
-	      }
-	   }
-	} 
+    {
+       "name": "PIP01",
+       "location": "North US",
+       "tags": { "key": "value" },
+       "properties": {
+          "publicIPAllocationMethod": "Static",
+          "idleTimeoutInMinutes": 4,
+          "ipAddress": "104.42.233.77",
+          "dnsSettings": {
+             "domainNameLabel": "mylabel",
+             "fqdn": "mylabel.westus.cloudapp.azure.com",
+             "reverseFqdn": "contoso.com."
+          }
+       }
+    } 
 
 ### Additional resources
 

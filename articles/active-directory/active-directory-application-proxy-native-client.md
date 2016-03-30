@@ -1,20 +1,20 @@
 <properties
-	pageTitle="How to enable publishing of native client apps with proxy applications | Microsoft Azure"
-	description="Covers how to enable native client apps to communicate with Azure AD Application Proxy Connector to provide secure remote access to your on-premises apps."
-	services="active-directory"
-	documentationCenter=""
-	authors="kgremban"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="How to enable publishing of native client apps with proxy applications | Microsoft Azure"
+    description="Covers how to enable native client apps to communicate with Azure AD Application Proxy Connector to provide secure remote access to your on-premises apps."
+    services="active-directory"
+    documentationCenter=""
+    authors="kgremban"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/02/2015"
-	ms.author="kgremban"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/02/2015"
+    ms.author="kgremban"/>
 
 # How to enable native client apps to interact with proxy Applications
 Azure Active Directory Application Proxy is widely used to publish browser applications such as SharePoint, Outlook Web Access and custom line of business applications. It can also be used to publish HTTP backend applications that are consumed using native clients. This is done by supporting Azure AD issued tokens that are sent in standard Authorize HTTP headers.
@@ -40,17 +40,17 @@ The recommended method to publish such applications is to use the Azure AD Authe
 ![](./media/active-directory-application-proxy-native-client/delegate_native_app.png) </br></br>
 4. Edit the native application code in the authentication context of the Active Directory Authentication Library (ADAL) to include the following:
 
-		// Acquire Access Token from AAD for Proxy Application
-		AuthenticationContext authContext = new AuthenticationContext("https://login.microsoftonline.com/<TenantId>");
-		AuthenticationResult result = authContext.AcquireToken("< Frontend Url of Proxy App >",
+        // Acquire Access Token from AAD for Proxy Application
+        AuthenticationContext authContext = new AuthenticationContext("https://login.microsoftonline.com/<TenantId>");
+        AuthenticationResult result = authContext.AcquireToken("< Frontend Url of Proxy App >",
                                                         "< Client Id of the Native app>",
                                                         new Uri("< Redirect Uri of the Native App>"),
                                                         PromptBehavior.Never);
 
-		//Use the Access Token to access the Proxy Application
-		HttpClient httpClient = new HttpClient();
-		httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
-		HttpResponseMessage response = await httpClient.GetAsync("< Proxy App API Url >");
+        //Use the Access Token to access the Proxy Application
+        HttpClient httpClient = new HttpClient();
+        httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
+        HttpResponseMessage response = await httpClient.GetAsync("< Proxy App API Url >");
 
 The variables should be replaced as follows:
 
@@ -86,3 +86,4 @@ There's a lot more you can do with Application Proxy:
 ## Additional resources
 * [Sign up for Azure as an organization](sign-up-organization.md)
 * [Azure Identity](fundamentals-identity.md)
+

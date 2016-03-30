@@ -147,13 +147,13 @@ On-premises Windows machines and Windows machines in non-Azure clouds (such as A
 
 4. Download, from the Automation account you want to onboard nodes to, the PowerShell DSC metaconfigurations for the machines you want to onboard:
 
-	`Get-AzureRmAutomationDscOnboardingMetaconfig -ResourceGroupName MyResourceGroup -AutomationAccountName      		MyAutomationAccount -ComputerName MyServer1, MyServer2 -OutputFolder C:\Users\joe\Desktop`
+    `Get-AzureRmAutomationDscOnboardingMetaconfig -ResourceGroupName MyResourceGroup -AutomationAccountName             MyAutomationAccount -ComputerName MyServer1, MyServer2 -OutputFolder C:\Users\joe\Desktop`
 
 5. Optionally, view and update the metaconfigurations in the output folder as needed to match the [PowerShell DSC Local Configuration Manager fields and values](https://technet.microsoft.com/library/dn249922.aspx?f=255&MSPPError=-2147217396) you want, if the defaults do not match your use case.
 
 6. Remotely apply the PowerShell DSC metaconfiguration to the machines you want to onboard:
 
-	`Set-DscLocalConfigurationManager -Path C:\Users\joe\Desktop\DscMetaConfigs -ComputerName MyServer1, MyServer2`
+    `Set-DscLocalConfigurationManager -Path C:\Users\joe\Desktop\DscMetaConfigs -ComputerName MyServer1, MyServer2`
 
 7. If you cannot apply the PowerShell DSC metaconfigurations remotely, copy the output folder from step 4 onto each machine to onboard. Then call Set-DscLocalConfigurationManager locally on each machine to onboard.
 
@@ -167,41 +167,41 @@ On-premises Linux machines, Linux machines in Azure, and Linux machines in non-A
 
 2. If the [PowerShell DSC Local Configuration Manager defaults](https://technet.microsoft.com/library/dn249922.aspx?f=255&MSPPError=-2147217396) match your use case:
 
-	*    On each Linux machine to onboard to Azure Automation DSC, use Register.py to onboard using the PowerShell DSC Local Configuration Manager defaults:
+    *    On each Linux machine to onboard to Azure Automation DSC, use Register.py to onboard using the PowerShell DSC Local Configuration Manager defaults:
 
-		`/opt/microsoft/dsc/Scripts/Register.py <Automation account registration key> <Automation account registration URL>`
+        `/opt/microsoft/dsc/Scripts/Register.py <Automation account registration key> <Automation account registration URL>`
 
-	*    To find the registration key and registration URL for your Automation account, see the [**Secure registration**](#secure-registration) section below.
+    *    To find the registration key and registration URL for your Automation account, see the [**Secure registration**](#secure-registration) section below.
 
-	If the PowerShell DSC Local Configuration Manager defaults **do** **not** match your use case, follow steps 3 - 9. Otherwise, proceed directly to step 9.
+    If the PowerShell DSC Local Configuration Manager defaults **do** **not** match your use case, follow steps 3 - 9. Otherwise, proceed directly to step 9.
 
 3. Open the PowerShell console or PowerShell ISE as an administrator on a Windows machine in your local environment. This machine must have the latest version of [WMF 5](http://www.microsoft.com/en-us/download/details.aspx?id=48729) installed.
 
 4. Connect to Azure Resource Manager using the Azure PowerShell module:
 
-	`Login-AzureRmAccount`
+    `Login-AzureRmAccount`
 
 5.  Download, from the Automation account you want to onboard nodes to, the PowerShell DSC metaconfigurations for the machines you want to onboard:
-	
-	`Get-AzureRmAutomationDscOnboardingMetaconfig -ResourceGroupName MyResourceGroup -AutomationAccountName MyAutomationAccount -ComputerName MyServer1, MyServer2 -OutputFolder C:\Users\joe\Desktop_`
+    
+    `Get-AzureRmAutomationDscOnboardingMetaconfig -ResourceGroupName MyResourceGroup -AutomationAccountName MyAutomationAccount -ComputerName MyServer1, MyServer2 -OutputFolder C:\Users\joe\Desktop_`
 
 6.  Optionally, view and update the metaconfigurations in the output folder as needed to match the [PowerShell DSC Local Configuration Manager fields and values](http://https://technet.microsoft.com/library/dn249922.aspx?f=255&MSPPError=-2147217396) you want, if the defaults do not match your use case.
 
 7.  Remotely apply the PowerShell DSC metaconfiguration to the machines you want to onboard:
-    	
-    	$SecurePass = ConvertTo-SecureString -string "<root password>" -AsPlainText -Force
+        
+        $SecurePass = ConvertTo-SecureString -string "<root password>" -AsPlainText -Force
         $Cred = New-Object System.Management.Automation.PSCredential "root", $SecurPass
         $Opt = New-CimSessionOption -UseSs1:$true -SkipCACheck:$true -SkipCNCheck:$true -SkipRevocationCheck:$true
 
         # need a CimSession for each Linux machine to onboard
         
         $Session = New-CimSession -Credential:$Cred -ComputerName:<your Linux machine> -Port:5986 -Authentication:basic -SessionOption:$Opt
-    	
-    	Set-DscLocalConfigurationManager -CimSession $Session –Path C:\Users\joe\Desktop\DscMetaConfigs
+        
+        Set-DscLocalConfigurationManager -CimSession $Session –Path C:\Users\joe\Desktop\DscMetaConfigs
 
 8.  If you cannot apply the PowerShell DSC metaconfigurations remotely, for each Linux machine to onboard, copy the metaconfiguration corresponding to that machine from the folder in step 5 onto the Linux machine. Then call `SetDscLocalConfigurationManager.py` locally on each Linux machine you want to onboard to Azure Automation DSC:
 
-	`/opt/microsoft/dsc/Scripts/SetDscLocalConfigurationManager.py –configurationmof <path to metaconfiguration file>`
+    `/opt/microsoft/dsc/Scripts/SetDscLocalConfigurationManager.py –configurationmof <path to metaconfiguration file>`
 
 9.  Using the Azure portal or cmdlets, check that the machines to onboard now show up as DSC nodes registered in your Azure Automation account.
 
@@ -236,6 +236,7 @@ After registering, each node automatically negotiates a unique certificate for a
 * [Azure Automation DSC overview](automation-dsc-overview.md)
 * [Azure Automation DSC cmdlets](https://msdn.microsoft.com/library/mt244122.aspx)
 * [Azure Automation DSC pricing](http://azure.microsoft.com/pricing/details/automation/)
+
 
 
 

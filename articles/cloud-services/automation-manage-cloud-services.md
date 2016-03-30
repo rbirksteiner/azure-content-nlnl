@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Manage Azure Cloud Services using Azure Automation"
-	description="Learn about how the Azure Automation service can be used to manage Azure cloud services at scale."
-	services="cloud-services, automation"
-	documentationCenter=""
-	authors="jodoglevy"
-	manager="eamono"
-	editor=""/>
+    pageTitle="Manage Azure Cloud Services using Azure Automation"
+    description="Learn about how the Azure Automation service can be used to manage Azure cloud services at scale."
+    services="cloud-services, automation"
+    documentationCenter=""
+    authors="jodoglevy"
+    manager="eamono"
+    editor=""/>
 
 <tags
-	ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/03/2015"
-	ms.author="jolevy"/>
+    ms.service="cloud-services"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/03/2015"
+    ms.author="jolevy"/>
 
 
 
@@ -42,3 +42,4 @@ Now that you've learned the basics of Azure Automation and how it can be used to
 
 See the Azure Automation [Getting Started Tutorial](../automation/automation-create-runbook-from-samples.md)
  
+

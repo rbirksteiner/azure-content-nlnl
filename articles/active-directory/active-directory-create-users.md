@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Create or edit users in Azure Active Directory | Microsoft Azure"
-	description="Explains how to create or edit user accounts in Azure Active Directory."
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Create or edit users in Azure Active Directory | Microsoft Azure"
+    description="Explains how to create or edit user accounts in Azure Active Directory."
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/01/2015"
-	ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/01/2015"
+    ms.author="curtand"/>
 
 # Create or edit users in Azure Active Directory
 
@@ -25,9 +25,9 @@ You have to create an account in Azure Active Directory (Azure AD) for every use
 1. Click **Active Directory**, and then click the name of your organization’s directory.
 2. On the **Users** page, click **Add User**.
 3. On the **Tell us about this user** page, for **Type of User**, select either:
-	1. **New user in your organization** – Indicates that you want a new user account to be created and managed within your directory.
-	2. **User with an existing Microsoft account** – Indicates that you want to add an existing Microsoft account to your directory in order to collaborate on Azure resources with a co-administrator who accesses Azure with a Microsoft account.
-	3. **User in another Azure AD directory** – Indicates that you want to add a user account to your directory that is sourced from another Azure AD directory. You need to be a member of the other directory to select a user in it.
+    1. **New user in your organization** – Indicates that you want a new user account to be created and managed within your directory.
+    2. **User with an existing Microsoft account** – Indicates that you want to add an existing Microsoft account to your directory in order to collaborate on Azure resources with a co-administrator who accesses Azure with a Microsoft account.
+    3. **User in another Azure AD directory** – Indicates that you want to add a user account to your directory that is sourced from another Azure AD directory. You need to be a member of the other directory to select a user in it.
 4. Depending on the option you selected, type either a user name, or Microsoft account name that this user will sign in with.
 5. On the user **Profile** page, provide a user’s first and last name, a user friendly name, and a user role from the Roles drop-down menu. For more information about user and administrator roles, see [Assigning administrator roles in Azure AD](active-directory-assign-admin-roles.md). Specify whether to **Enable Multi-Factor Authentication**.
 6. On the **Get temporary password** page, click **Create**.
@@ -112,3 +112,4 @@ The ability for guests to see limited details of a user or group allows them to 
 <!--Image references-->
 [1]: ./media/active-directory-create-users/RBACDirConfigTab.png
 [2]: ./media/active-directory-create-users/RBACGuestAccessControls.png
+

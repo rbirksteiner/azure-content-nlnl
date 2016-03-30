@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Registration Management"
-	description="This topic explains how to register devices with notification hubs in order to receive push notifications."
-	services="notification-hubs"
-	documentationCenter=".net"
-	authors="wesmc7777"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Registration Management"
+    description="This topic explains how to register devices with notification hubs in order to receive push notifications."
+    services="notification-hubs"
+    documentationCenter=".net"
+    authors="wesmc7777"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="notification-hubs"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-multiple"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="11/25/2015"
-	ms.author="wesmc"/>
+    ms.service="notification-hubs"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-multiple"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="11/25/2015"
+    ms.author="wesmc"/>
 
 # Registration management
 
@@ -43,39 +43,39 @@ Installations are currently only supported by the [Notification Hub SDK for back
 
 An installation can contain the the following properties. For a complete listing of the installation properties see, [Create or Overwrite an Installation with REST](https://msdn.microsoft.com/library/azure/mt621153.aspx) or [Installation Properties](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx).
 
-	// Example installation format to show some supported properties
-	{
-	    installationId: "",
-	    expirationTime: "",
-	    tags: [],
-	    platform: "",
-	    pushChannel: "",
-	    ………
-	    templates: {
-	        "templateName1" : {
-				body: "",
-				tags: [] },
-			"templateName2" : {
-				body: "",
-				// Headers are for Windows Store only
-				headers: {
-					"X-WNS-Type": "wns/tile" }
-				tags: [] }
-	    },
-	    secondaryTiles: {
-	        "tileId1": {
-	            pushChannel: "",
-	            tags: [],
-	            templates: {
-	                "otherTemplate": {
-	                    bodyTemplate: "",
-	                    headers: {
-	                        ... }
-	                    tags: [] }
-	            }
-	        }
-	    }
-	}
+    // Example installation format to show some supported properties
+    {
+        installationId: "",
+        expirationTime: "",
+        tags: [],
+        platform: "",
+        pushChannel: "",
+        ………
+        templates: {
+            "templateName1" : {
+                body: "",
+                tags: [] },
+            "templateName2" : {
+                body: "",
+                // Headers are for Windows Store only
+                headers: {
+                    "X-WNS-Type": "wns/tile" }
+                tags: [] }
+        },
+        secondaryTiles: {
+            "tileId1": {
+                pushChannel: "",
+                tags: [],
+                templates: {
+                    "otherTemplate": {
+                        bodyTemplate: "",
+                        headers: {
+                            ... }
+                        tags: [] }
+                }
+            }
+        }
+    }
 
  
 
@@ -118,16 +118,16 @@ At this time, this is only supported using the [Notification Hubs REST API](http
 
 You can also use the PATCH method using the [JSON-Patch standard](https://tools.ietf.org/html/rfc6902) for updating the installation.
 
-	class DeviceInstallation
-	{
-	    public string installationId { get; set; }
-	    public string platform { get; set; }
-	    public string pushChannel { get; set; }
-	    public string[] tags { get; set; }
-	}
+    class DeviceInstallation
+    {
+        public string installationId { get; set; }
+        public string platform { get; set; }
+        public string pushChannel { get; set; }
+        public string[] tags { get; set; }
+    }
 
     private async Task<HttpStatusCode> CreateOrUpdateInstallationAsync(DeviceInstallation deviceInstallation,
-		 string hubName, string listenConnectionString)
+         string hubName, string listenConnectionString)
     {
         if (deviceInstallation.installationId == null)
             return HttpStatusCode.BadRequest;
@@ -141,7 +141,7 @@ You can also use the PATCH method using the [JSON-Patch standard](https://tools.
         string uri = connectionSaSUtil.Endpoint + hubName + "/" + hubResource + apiVersion;
 
         //=== Generate SaS Security Token for Authorization header ===
-		// See, https://msdn.microsoft.com/library/azure/dn495627.aspx
+        // See, https://msdn.microsoft.com/library/azure/dn495627.aspx
         string SasToken = connectionSaSUtil.getSaSToken(uri, 60);
 
         using (var httpClient = new HttpClient())
@@ -178,7 +178,7 @@ You can also use the PATCH method using the [JSON-Patch standard](https://tools.
     };
 
     var statusCode = await CreateOrUpdateInstallationAsync(deviceInstallation, 
-						"<HUBNAME>", "<SHARED LISTEN CONNECTION STRING>");
+                        "<HUBNAME>", "<SHARED LISTEN CONNECTION STRING>");
 
     if (statusCode != HttpStatusCode.Accepted)
     {
@@ -201,39 +201,39 @@ You can also use the PATCH method using the [JSON-Patch standard](https://tools.
 These methods create or update a registration for the device on which they are called. This means that in order to update the handle or the tags, you must overwrite the entire registration. Remember that registrations are transient, so you should always have a reliable store with the current tags that a specific device needs.
 
 
-	// Initialize the Notification Hub
-	NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(listenConnString, hubName);
+    // Initialize the Notification Hub
+    NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(listenConnString, hubName);
 
-	// The Device id from the PNS
+    // The Device id from the PNS
     var pushChannel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
 
     // If you are registering from the client itself, then store this registration id in device
-	// storage. Then when the app starts, you can check if a registration id already exists or not before
-	// creating.
-	var settings = ApplicationData.Current.LocalSettings.Values;
+    // storage. Then when the app starts, you can check if a registration id already exists or not before
+    // creating.
+    var settings = ApplicationData.Current.LocalSettings.Values;
 
-	// If we have not stored a registration id in application data, store in application data.
-	if (!settings.ContainsKey("__NHRegistrationId"))
-	{
-		// make sure there are no existing registrations for this push handle (used for iOS and Android)	
-		string newRegistrationId = null;
-		var registrations = await hub.GetRegistrationsByChannelAsync(pushChannel.Uri, 100);
-		foreach (RegistrationDescription registration in registrations)
-		{
-			if (newRegistrationId == null)
-			{
-				newRegistrationId = registration.RegistrationId;
-			}
-			else
-			{
-				await hub.DeleteRegistrationAsync(registration);
-			}
-		}
+    // If we have not stored a registration id in application data, store in application data.
+    if (!settings.ContainsKey("__NHRegistrationId"))
+    {
+        // make sure there are no existing registrations for this push handle (used for iOS and Android)    
+        string newRegistrationId = null;
+        var registrations = await hub.GetRegistrationsByChannelAsync(pushChannel.Uri, 100);
+        foreach (RegistrationDescription registration in registrations)
+        {
+            if (newRegistrationId == null)
+            {
+                newRegistrationId = registration.RegistrationId;
+            }
+            else
+            {
+                await hub.DeleteRegistrationAsync(registration);
+            }
+        }
 
-		newRegistrationId = await hub.CreateRegistrationIdAsync();
+        newRegistrationId = await hub.CreateRegistrationIdAsync();
 
         settings.Add("__NHRegistrationId", newRegistrationId);
-	}
+    }
      
     string regId = (string)settings["__NHRegistrationId"];
 
@@ -241,15 +241,15 @@ These methods create or update a registration for the device on which they are c
     registration.RegistrationId = regId;
     registration.Tags = new HashSet<string>(YourTags);
 
-	try
-	{
-		await hub.CreateOrUpdateRegistrationAsync(registration);
-	}
-	catch (Microsoft.WindowsAzure.Messaging.RegistrationGoneException e)
-	{
-		// regId likely expired, delete from local storage and try again
-		settings.Remove("__NHRegistrationId");
-	}
+    try
+    {
+        await hub.CreateOrUpdateRegistrationAsync(registration);
+    }
+    catch (Microsoft.WindowsAzure.Messaging.RegistrationGoneException e)
+    {
+        // regId likely expired, delete from local storage and try again
+        settings.Remove("__NHRegistrationId");
+    }
 
 
 ## Registration management from a backend
@@ -268,8 +268,8 @@ The client device still gets its PNS handle and relevant installation properties
 You can also use the PATCH method using the [JSON-Patch standard](https://tools.ietf.org/html/rfc6902) for updating the installation.
  
 
-	// Initialize the Notification Hub
-	NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(listenConnString, hubName);
+    // Initialize the Notification Hub
+    NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(listenConnString, hubName);
 
     // Custom API on the backend
     public async Task<HttpResponseMessage> Put(DeviceInstallation deviceUpdate)
@@ -313,25 +313,25 @@ You can also use the PATCH method using the [JSON-Patch standard](https://tools.
 
 From your app backend, you can perform basic CRUDS operations on registrations. For example:
 
-	var hub = NotificationHubClient.CreateClientFromConnectionString("{connectionString}", "hubName");
+    var hub = NotificationHubClient.CreateClientFromConnectionString("{connectionString}", "hubName");
             
-	// create a registration description object of the correct type, e.g.
-	var reg = new WindowsRegistrationDescription(channelUri, tags);
+    // create a registration description object of the correct type, e.g.
+    var reg = new WindowsRegistrationDescription(channelUri, tags);
 
-	// Create
-	await hub.CreateRegistrationAsync(reg);
+    // Create
+    await hub.CreateRegistrationAsync(reg);
 
-	// Get by id
-	var r = await hub.GetRegistrationAsync<RegistrationDescription>("id");
+    // Get by id
+    var r = await hub.GetRegistrationAsync<RegistrationDescription>("id");
 
-	// update
-	r.Tags.Add("myTag");
+    // update
+    r.Tags.Add("myTag");
 
-	// update on hub
-	await hub.UpdateRegistrationAsync(r);
+    // update on hub
+    await hub.UpdateRegistrationAsync(r);
 
-	// delete
-	await hub.DeleteRegistrationAsync(r);
+    // delete
+    await hub.DeleteRegistrationAsync(r);
 
 
 The backend must handle concurrency between registration updates. Service Bus offers optimistic concurrency control for registration management. At the HTTP level, this is implemented with the use of ETag on registration management operations. This feature is transparently used by Microsoft SDKs, which throw an exception if an update is rejected for concurrency reasons. The app backend is responsible for handling these exceptions and retrying the update if required.

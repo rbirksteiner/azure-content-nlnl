@@ -4,11 +4,11 @@
 
 When you send template notifications you only need to provide a set of properties, in our case we will send the set of properties containing the localized version of the current news, for instance:
 
-	{
-		"News_English": "World News in English!",
-    	"News_French": "World News in French!",
-    	"News_Mandarin": "World News in Mandarin!"
-	}
+    {
+        "News_English": "World News in English!",
+        "News_French": "World News in French!",
+        "News_Mandarin": "World News in Mandarin!"
+    }
 
 
 This section shows how to send notifications using a console app
@@ -24,12 +24,12 @@ Modify the `SendTemplateNotificationAsync` method in the console app you previou
         {
             // Define the notification hub.
             NotificationHubClient hub = 
-				NotificationHubClient.CreateClientFromConnectionString(
-					"<connection string with full access>", "<hub name>");
+                NotificationHubClient.CreateClientFromConnectionString(
+                    "<connection string with full access>", "<hub name>");
 
             // Sending the notification as a template notification. All template registrations that contain 
-			// "messageParam" or "News_<local selected>" and the proper tags will receive the notifications. 
-			// This includes APNS, GCM, WNS, and MPNS template registrations.
+            // "messageParam" or "News_<local selected>" and the proper tags will receive the notifications. 
+            // This includes APNS, GCM, WNS, and MPNS template registrations.
             Dictionary<string, string> templateParams = new Dictionary<string, string>();
 
             // Create an array of breaking news categories.
@@ -45,7 +45,7 @@ Modify the `SendTemplateNotificationAsync` method in the console app you previou
                 {
                     string key = "News_" + locale;
 
-					// Your real localized news content would go here.
+                    // Your real localized news content would go here.
                     templateParams[key] = "Breaking " + category + " News in " + locale + "!";
                 }
 
@@ -60,17 +60,18 @@ Note that this simple call will deliver the localized piece of news to **all** y
 
 In your Mobile Service scheduler, you can use the following script:
 
-	var azure = require('azure');
+    var azure = require('azure');
     var notificationHubService = azure.createNotificationHubService('<hub name>', '<connection string with full access>');
     var notification = {
-			"News_English": "World News in English!",
-			"News_French": "World News in French!",
-			"News_Mandarin", "World News in Mandarin!"
-	}
-	notificationHubService.send('World', notification, function(error) {
-		if (!error) {
-			console.warn("Notification successful");
-		}
-	});
-	
+            "News_English": "World News in English!",
+            "News_French": "World News in French!",
+            "News_Mandarin", "World News in Mandarin!"
+    }
+    notificationHubService.send('World', notification, function(error) {
+        if (!error) {
+            console.warn("Notification successful");
+        }
+    });
+    
+
 

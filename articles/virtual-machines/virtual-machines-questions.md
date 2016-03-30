@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Frequently asked questions for VMs | Microsoft Azure"
-	description="Provides answers to some of the common questions about Azure virtual machines created with the classic deployment model."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="cynthn"
-	manager="timlt"
-	editor=""
-	tags="azure-service-management"/>
+    pageTitle="Frequently asked questions for VMs | Microsoft Azure"
+    description="Provides answers to some of the common questions about Azure virtual machines created with the classic deployment model."
+    services="virtual-machines"
+    documentationCenter=""
+    authors="cynthn"
+    manager="timlt"
+    editor=""
+    tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-multiple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/16/2015"
-	ms.author="cynthn"/>
+    ms.service="virtual-machines"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-multiple"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/16/2015"
+    ms.author="cynthn"/>
 
 # Frequently asked question about Azure Virtual Machines created with the classic deployment model
 
@@ -157,3 +157,4 @@ To provide redundancy, put two or more similarly configured VMs in the same avai
 [Different Ways to Create a Linux Virtual Machine](virtual-machines-linux-choices-create-vm.md)
 
 [Different Ways to Create a Windows Virtual Machine](virtual-machines-windows-choices-create-vm.md)
+

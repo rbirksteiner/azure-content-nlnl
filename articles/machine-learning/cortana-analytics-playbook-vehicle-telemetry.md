@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Vehicle telemetry analytics solution playbook | Microsoft Azure" 
-	description="Use the capabilities of Cortana Analytics to gain real-time and predictive insights on vehicle health and driving habits." 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="bradsev" 
-	manager="paulettm" 
-	editor="cgronlun" />
+    pageTitle="Vehicle telemetry analytics solution playbook | Microsoft Azure" 
+    description="Use the capabilities of Cortana Analytics to gain real-time and predictive insights on vehicle health and driving habits." 
+    services="machine-learning" 
+    documentationCenter="" 
+    authors="bradsev" 
+    manager="paulettm" 
+    editor="cgronlun" />
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
-	ms.author="bradsev" />
+    ms.service="machine-learning" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/02/2015" 
+    ms.author="bradsev" />
 
 
 # Vehicle telemetry analytics solution playbook
@@ -49,3 +49,4 @@ This solution accesses two different **data sources**:
 
 - **Simulated vehicle signals and diagnostics**: A vehicle telematics simulator emits diagnostic information and signals that correspond to the state of the vehicle and the driving pattern at a given point in time. 
 - **Vehicle catalog**: A reference dataset containing a VIN to model mapping.
+

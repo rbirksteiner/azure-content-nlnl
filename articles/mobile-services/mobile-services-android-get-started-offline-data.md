@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Add Offline Data Sync to your Android Mobile Services app | Microsoft Azure"
-	description="Learn how to use Azure Mobile Services to cache and sync offline data in your Android application"
-	documentationCenter="android"
-	authors="RickSaling"
-	manager="dwrede"
-	editor=""
-	services="mobile-services"/>
+    pageTitle="Add Offline Data Sync to your Android Mobile Services app | Microsoft Azure"
+    description="Learn how to use Azure Mobile Services to cache and sync offline data in your Android application"
+    documentationCenter="android"
+    authors="RickSaling"
+    manager="dwrede"
+    editor=""
+    services="mobile-services"/>
 
 <tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-android"
-	ms.devlang="java"
-	ms.topic="article"
-	ms.date="12/06/2015"
-	ms.author="ricksal"/>
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-android"
+    ms.devlang="java"
+    ms.topic="article"
+    ms.date="12/06/2015"
+    ms.author="ricksal"/>
 
 # Add Offline Data Sync to your Android Mobile Services app
 
@@ -45,111 +45,111 @@ To push and pull changes between the device and Azure Mobile Services, you use a
 
 1. Add permission to check for network connectivity by adding this code to the *AndroidManifest.xml* file:
 
-	    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+        <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
 
 2. Add the following **import** statements to *ToDoActivity.java*:
 
-		import java.util.Map;
+        import java.util.Map;
 
-		import android.widget.Toast;
+        import android.widget.Toast;
 
-		import com.microsoft.windowsazure.mobileservices.table.query.Query;
-		import com.microsoft.windowsazure.mobileservices.table.sync.MobileServiceSyncContext;
-		import com.microsoft.windowsazure.mobileservices.table.sync.MobileServiceSyncTable;
-		import com.microsoft.windowsazure.mobileservices.table.sync.localstore.ColumnDataType;
-		import com.microsoft.windowsazure.mobileservices.table.sync.localstore.SQLiteLocalStore;
+        import com.microsoft.windowsazure.mobileservices.table.query.Query;
+        import com.microsoft.windowsazure.mobileservices.table.sync.MobileServiceSyncContext;
+        import com.microsoft.windowsazure.mobileservices.table.sync.MobileServiceSyncTable;
+        import com.microsoft.windowsazure.mobileservices.table.sync.localstore.ColumnDataType;
+        import com.microsoft.windowsazure.mobileservices.table.sync.localstore.SQLiteLocalStore;
 
 3. Near the top of the `ToDoActivity` class, change the declaration of the `mToDoTable` variable from a `MobileServiceTable<ToDoItem>` class to a `MobileServiceSyncTable<ToDoItem>` class.
 
-		 private MobileServiceSyncTable<ToDoItem> mToDoTable;
+         private MobileServiceSyncTable<ToDoItem> mToDoTable;
 
-	This is where you define the sync table.
+    This is where you define the sync table.
 
 4. To handle initialization of the local store, in the `onCreate` method, add the following lines after creating the `MobileServiceClient` instance:
 
-			// Saves the query which will be used for pulling data
-			mPullQuery = mClient.getTable(ToDoItem.class).where().field("complete").eq(false);
+            // Saves the query which will be used for pulling data
+            mPullQuery = mClient.getTable(ToDoItem.class).where().field("complete").eq(false);
 
-			SQLiteLocalStore localStore = new SQLiteLocalStore(mClient.getContext(), "ToDoItem", null, 1);
-			SimpleSyncHandler handler = new SimpleSyncHandler();
-			MobileServiceSyncContext syncContext = mClient.getSyncContext();
+            SQLiteLocalStore localStore = new SQLiteLocalStore(mClient.getContext(), "ToDoItem", null, 1);
+            SimpleSyncHandler handler = new SimpleSyncHandler();
+            MobileServiceSyncContext syncContext = mClient.getSyncContext();
 
-			Map<String, ColumnDataType> tableDefinition = new HashMap<String, ColumnDataType>();
-			tableDefinition.put("id", ColumnDataType.String);
-			tableDefinition.put("text", ColumnDataType.String);
-			tableDefinition.put("complete", ColumnDataType.Boolean);
-			tableDefinition.put("__version", ColumnDataType.String);
+            Map<String, ColumnDataType> tableDefinition = new HashMap<String, ColumnDataType>();
+            tableDefinition.put("id", ColumnDataType.String);
+            tableDefinition.put("text", ColumnDataType.String);
+            tableDefinition.put("complete", ColumnDataType.Boolean);
+            tableDefinition.put("__version", ColumnDataType.String);
 
-			localStore.defineTable("ToDoItem", tableDefinition);
-			syncContext.initialize(localStore, handler).get();
+            localStore.defineTable("ToDoItem", tableDefinition);
+            syncContext.initialize(localStore, handler).get();
 
-			// Get the Mobile Service Table instance to use
-			mToDoTable = mClient.getSyncTable(ToDoItem.class);
+            // Get the Mobile Service Table instance to use
+            mToDoTable = mClient.getSyncTable(ToDoItem.class);
 
 5. Following the preceding code, which is inside a `try` block, add an additional `catch` block following the `MalformedURLException` one:
 
-		} catch (Exception e) {
-			Throwable t = e;
-			while (t.getCause() != null) {
-					t = t.getCause();
-				}
-			createAndShowDialog(new Exception("Unknown error: " + t.getMessage()), "Error");
-		}
+        } catch (Exception e) {
+            Throwable t = e;
+            while (t.getCause() != null) {
+                    t = t.getCause();
+                }
+            createAndShowDialog(new Exception("Unknown error: " + t.getMessage()), "Error");
+        }
 
 6. Add this method to verify network connectivity:
 
-		private boolean isNetworkAvailable() {
-			ConnectivityManager connectivityManager
-					= (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-			NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-			return activeNetworkInfo != null && activeNetworkInfo.isConnected();
-		}
+        private boolean isNetworkAvailable() {
+            ConnectivityManager connectivityManager
+                    = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+            return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+        }
 
 
 7. Add this method to sync between the local *SQL Light* store and the Azure SQL Server:
 
-		public void syncAsync(){
-			if (isNetworkAvailable()) {
-				new AsyncTask<Void, Void, Void>() {
+        public void syncAsync(){
+            if (isNetworkAvailable()) {
+                new AsyncTask<Void, Void, Void>() {
 
-					@Override
-					protected Void doInBackground(Void... params) {
-						try {
-							mClient.getSyncContext().push().get();
-							mToDoTable.pull(mPullQuery).get();
+                    @Override
+                    protected Void doInBackground(Void... params) {
+                        try {
+                            mClient.getSyncContext().push().get();
+                            mToDoTable.pull(mPullQuery).get();
 
-						} catch (Exception exception) {
-							createAndShowDialog(exception, "Error");
-						}
-						return null;
-					}
-				}.execute();
-			} else {
-				Toast.makeText(this, "You are not online, re-sync later!" +
-						"", Toast.LENGTH_LONG).show();
-			}
-		}
+                        } catch (Exception exception) {
+                            createAndShowDialog(exception, "Error");
+                        }
+                        return null;
+                    }
+                }.execute();
+            } else {
+                Toast.makeText(this, "You are not online, re-sync later!" +
+                        "", Toast.LENGTH_LONG).show();
+            }
+        }
 
 
 8. In the `onCreate` method, add this code as the next-to-the-last line, right before the call to `refreshItemsFromTable`:
 
-			syncAsync();
+            syncAsync();
 
-	This causes the device on startup to sync with the Azure table. Otherwise you would display the last offline contents of the local store.
+    This causes the device on startup to sync with the Azure table. Otherwise you would display the last offline contents of the local store.
 
 
 
 9. Update the code in the `refreshItemsFromTable` method to use this query (first line of code inside the `try` block):
 
-		final MobileServiceList<ToDoItem> result = mToDoTable.read(mPullQuery).get();
+        final MobileServiceList<ToDoItem> result = mToDoTable.read(mPullQuery).get();
 
 10. In the `onOptionsItemSelected` method replace the contents of the `if` block with this code:
 
-			syncAsync();
-			refreshItemsFromTable();
+            syncAsync();
+            refreshItemsFromTable();
 
-	This code runs when you press the **Refresh** button in the upper right corner. This is the main way you sync your local store to Azure, in addition to syncing at startup. This encourages batching of sync changes, and is efficient given that the pull from Azure is a relatively expensive operation. You could also design this app to sync on every change by adding a call to `syncAsync` to the `addItem` and `checkItem` methods, if your app required this.
+    This code runs when you press the **Refresh** button in the upper right corner. This is the main way you sync your local store to Azure, in addition to syncing at startup. This encourages batching of sync changes, and is efficient given that the pull from Azure is a relatively expensive operation. You could also design this app to sync on every change by adding a call to `syncAsync` to the `addItem` and `checkItem` methods, if your app required this.
 
 
 ## Test the app
@@ -222,3 +222,4 @@ One thing which is important to point out: if there are pending changes in the l
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
 [Mobile Services Quick Start tutorial]: mobile-services-android-get-started.md
+

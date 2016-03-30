@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Install MongoDB on a Windows VM | Microsoft Azure"
-	description="Learn how to install MongoDB on an Azure VM created with the classic deployment model running Windows Server."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="dsk-2015"
-	manager="timlt"
-	editor="tysonn"
-	tags="azure-service-management"/>
+    pageTitle="Install MongoDB on a Windows VM | Microsoft Azure"
+    description="Learn how to install MongoDB on an Azure VM created with the classic deployment model running Windows Server."
+    services="virtual-machines"
+    documentationCenter=""
+    authors="dsk-2015"
+    manager="timlt"
+    editor="tysonn"
+    tags="azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/14/2015"
-	ms.author="dkshir"/>
+    ms.service="virtual-machines"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-windows"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/14/2015"
+    ms.author="dkshir"/>
 
 #Install MongoDB on a Windows VM
 
@@ -50,3 +50,4 @@ In this tutorial, you learned how to create a virtual machine running Windows Se
 [MongoDocs]: http://docs.mongodb.org/manual/
 [MongoDB]: http://www.mongodb.org/
 [AzurePortal]: http://manage.windowsazure.com
+

@@ -9,3 +9,4 @@
 - [How to Perform a Security Review](active-directory-privileged-identity-management-how-to-perform-security-review.md)
 - [How to Require MFA](active-directory-privileged-identity-management-how-to-require-mfa.md)
 - [How to Use the Audit Log](active-directory-privileged-identity-management-how-to-use-audit-log.md)
+

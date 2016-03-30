@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="How to use SQL Database (.NET) | Microsoft Azure" 
-	description="Get started with SQL Database. Learn how to create a SQL Database instance and connect to it using ADO.NET, ODBC, and EntityClient Provider." 
-	services="sql-database" 
-	documentationCenter=".net" 
-	authors="jeffgoll" 
-	manager="jeffreyg" 
-	editor=""/>
+    pageTitle="How to use SQL Database (.NET) | Microsoft Azure" 
+    description="Get started with SQL Database. Learn how to create a SQL Database instance and connect to it using ADO.NET, ODBC, and EntityClient Provider." 
+    services="sql-database" 
+    documentationCenter=".net" 
+    authors="jeffgoll" 
+    manager="jeffreyg" 
+    editor=""/>
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/07/2015" 
-	ms.author="jeffreyg"/>
+    ms.service="sql-database" 
+    ms.workload="data-management" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="07/07/2015" 
+    ms.author="jeffreyg"/>
 
 
 # How to use Azure SQL Database in .NET applications
@@ -59,13 +59,13 @@ Next, create and configure a database and server. In the Azure Classic Portal, r
 
 7. Choose an edition, maximum size, and collation. For the purposes of this guide, you can use the default values. 
 
-	SQL Database provides three database editions, Basic, Standard and Premium.
+    SQL Database provides three database editions, Basic, Standard and Premium.
 
-	The MAXSIZE is specified when the database is first created and can
+    The MAXSIZE is specified when the database is first created and can
 later be changed using ALTER DATABASE. MAXSIZE provides the ability to
 limit the size of the database.
 
-	For each SQL database created on Azure, there are actually three
+    For each SQL database created on Azure, there are actually three
 replicas of that database. This is done to ensure high availability.
 Failover is transparent and part of the service.
 
@@ -75,9 +75,9 @@ Failover is transparent and part of the service.
 
 10. In Server Settings, enter a SQL Server authentication login name.
 
-	SQL Database uses SQL Authentication over an encrypted connection. A new SQL Server authentication login assigned to the sysadmin fixed server role will be created using the name you provide. 
+    SQL Database uses SQL Authentication over an encrypted connection. A new SQL Server authentication login assigned to the sysadmin fixed server role will be created using the name you provide. 
 
-	The login cannot be an email address, Windows user account, or a Windows Live ID. Neither Claims nor Windows authentication is supported on SQL Database.
+    The login cannot be an email address, Windows user account, or a Windows Live ID. Neither Claims nor Windows authentication is supported on SQL Database.
 
 11. Provide a strong password that is over eight characters, using a combination of upper and lower case values, and a number or symbol.
 
@@ -101,7 +101,7 @@ In the next step, you will configure the firewall so that connections from appli
 
 1. Click **SQL Databases**, click **Servers** at the top of the page, and then click on the server you just created.
 
-	![Setting up a firewall](./media/sql-database-dotnet-how-to-use/SQLDBFirewall.PNG)
+    ![Setting up a firewall](./media/sql-database-dotnet-how-to-use/SQLDBFirewall.PNG)
 
 2. Click **Configure**. 
 
@@ -109,13 +109,13 @@ In the next step, you will configure the firewall so that connections from appli
 
 4. Paste the IP address into both the START IP ADDRESS and END IP ADDRESS to establish the range addresses that are allowed to access the server. Later, if you encounter connection errors indicating that the range is too narrow, you can edit this rule to widen the range.
 
-	If client computers use dynamically assigned IP addresses, you must specify a range that is broad enough to include IP addresses assigned to computers in your network. Start with a narrow range, and then expand it only if you need to.
+    If client computers use dynamically assigned IP addresses, you must specify a range that is broad enough to include IP addresses assigned to computers in your network. Start with a narrow range, and then expand it only if you need to.
 
 5. Enter a name for the firewall rule, such as the name of your computer or company.
 
 6. Click the checkmark next to the rule to save it.
 
-	![IP range for firewall settings](./media/sql-database-dotnet-how-to-use/SQLDBIPRange.PNG)
+    ![IP range for firewall settings](./media/sql-database-dotnet-how-to-use/SQLDBIPRange.PNG)
 
 7. Click **Save** at the bottom of the page to complete the step. If you do not see **Save**, refresh the browser page.
 
@@ -243,3 +243,4 @@ For more information, see [EntityClient Provider for the Entity Framework](http:
 
 Now that you have learned the basics of connecting to SQL Database, see [Development: How-to Topics (SQL Database)](http://msdn.microsoft.com/library/windowsazure/ee621787.aspx)
  
+

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="collectd: perf stats for Java on Unix in Application Insights" 
-	description="Extended monitoring of your Java website with the CollectD plug-in for Application Insights" 
-	services="application-insights" 
+    pageTitle="collectd: perf stats for Java on Unix in Application Insights" 
+    description="Extended monitoring of your Java website with the CollectD plug-in for Application Insights" 
+    services="application-insights" 
     documentationCenter="java"
-	authors="alancameronwills" 
-	manager="douge"/>
+    authors="alancameronwills" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/03/2015" 
-	ms.author="awills"/>
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/03/2015" 
+    ms.author="awills"/>
  
 # collectd: Unix performance metrics in Application Insights
 

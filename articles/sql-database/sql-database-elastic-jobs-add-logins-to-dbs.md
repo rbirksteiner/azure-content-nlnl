@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="How to add a users to an elastic database pool" 
-	description="You must add a user with privileges to each db in the pool" 
-	metaKeywords="azure sql database elastic databases credentials" 
-	services="sql-database" documentationCenter=""  
-	manager="jeffreyg" 
-	authors="ddove"/>
+    pageTitle="How to add a users to an elastic database pool" 
+    description="You must add a user with privileges to each db in the pool" 
+    metaKeywords="azure sql database elastic databases credentials" 
+    services="sql-database" documentationCenter=""  
+    manager="jeffreyg" 
+    authors="ddove"/>
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="sql-database" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/03/2015" 
-	ms.author="ddove; sidneyh" />
+    ms.service="sql-database" 
+    ms.workload="sql-database" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/03/2015" 
+    ms.author="ddove; sidneyh" />
 
 # How to add users to an Elastic Database pool
 
@@ -24,14 +24,14 @@ The **Elastic Database jobs** feature (preview) enables you to run a Transact-SQ
 
 ## How to add the users to the databases
 
-1.	First connect to **master** of the Azure SQL Database server where the databases in your elastic database pool reside and create a new login using the same credentials provided when installing **elastic database jobs**.
+1.  First connect to **master** of the Azure SQL Database server where the databases in your elastic database pool reside and create a new login using the same credentials provided when installing **elastic database jobs**.
 
-		CREATE LOGIN login1 WITH password='<ProvidePassword>';
+        CREATE LOGIN login1 WITH password='<ProvidePassword>';
 
 2. Log into each database in the pool and create a user using the same name and password. The user must have sufficient permissions to execute the job. This code must be run on each database.
 
-		CREATE USER admin1 FROM LOGIN login1;
-		
+        CREATE USER admin1 FROM LOGIN login1;
+        
 3. The user must have permissions as well, sufficient to execute the script specified for the job. Use the [ALTER ROLE](https://msdn.microsoft.com/library/ms189775.aspx) to provide the user with the minimum required permissions for the script to execute succesfully. 
 
 ## Next steps

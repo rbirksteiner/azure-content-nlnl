@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Tutorial: Web app with a multi-tenant database using Entity Framework and Row-Level Security"
-	description="Learn how to develop an ASP.NET MVC 5 web app with a multi-tenant SQL Database backent, using Entity Framework and Row-Level Security."
+    pageTitle="Tutorial: Web app with a multi-tenant database using Entity Framework and Row-Level Security"
+    description="Learn how to develop an ASP.NET MVC 5 web app with a multi-tenant SQL Database backent, using Entity Framework and Row-Level Security."
   metaKeywords="azure asp.net mvc entity framework multi tenant row level security rls sql database"
-	services="app-service\web"
-	documentationCenter=".net"
-	manager="jeffreyg"
+    services="app-service\web"
+    documentationCenter=".net"
+    manager="jeffreyg"
   authors="tmullaney"/>
 
 <tags
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="10/30/2015"
-	ms.author="thmullan"/>
+    ms.service="app-service-web"
+    ms.workload="web"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="10/30/2015"
+    ms.author="thmullan"/>
 
 # Tutorial: Web app with a multi-tenant database using Entity Framework and Row-Level Security
 
@@ -32,10 +32,10 @@ There is one application change we need to make. Because all application users c
 
 We will add an [interceptor](https://msdn.microsoft.com/data/dn469464.aspx), a new feature in Entity Framework (EF) 6, to automatically set the current UserId in the SESSION_CONTEXT by prepending a T-SQL statement before EF executes each query.
 
-1.	Open the ContactManager project in Visual Studio.
-2.	Right-click on the Models folder in the Solution Explorer, and choose Add > Class.
-3.	Name the new class "SessionContextInterceptor.cs" and click Add.
-4.	Replace the contents of SessionContextInterceptor.cs with the following code.
+1.  Open the ContactManager project in Visual Studio.
+2.  Right-click on the Models folder in the Solution Explorer, and choose Add > Class.
+3.  Name the new class "SessionContextInterceptor.cs" and click Add.
+4.  Replace the contents of SessionContextInterceptor.cs with the following code.
 
 ```
 using System;
@@ -150,16 +150,16 @@ CREATE SCHEMA Security
 go
 
 CREATE FUNCTION Security.userAccessPredicate(@UserId nvarchar(128))
-	RETURNS TABLE
-	WITH SCHEMABINDING
+    RETURNS TABLE
+    WITH SCHEMABINDING
 AS
-	RETURN SELECT 1 AS accessResult
-	WHERE @UserId = CAST(SESSION_CONTEXT(N'UserId') AS nvarchar(128))
+    RETURN SELECT 1 AS accessResult
+    WHERE @UserId = CAST(SESSION_CONTEXT(N'UserId') AS nvarchar(128))
 go
 
 CREATE SECURITY POLICY Security.userSecurityPolicy
-	ADD FILTER PREDICATE Security.userAccessPredicate(UserId) ON dbo.Contacts,
-	ADD BLOCK PREDICATE Security.userAccessPredicate(UserId) ON dbo.Contacts
+    ADD FILTER PREDICATE Security.userAccessPredicate(UserId) ON dbo.Contacts,
+    ADD BLOCK PREDICATE Security.userAccessPredicate(UserId) ON dbo.Contacts
 go
 
 ```
@@ -179,3 +179,4 @@ That's it! The simple Contact Manager web app has been converted into a multi-te
 This tutorial has only scratched the surface of what's possible with RLS. For instance, it's possible to have more sophisticated or granular access logic, and it's possible to store more than just the current UserId in the SESSION_CONTEXT. It's also possible to [integrate RLS with the elastic database tools client libraries](../sql-database/sql-database-elastic-tools-multi-tenant-row-level-security.md) to support multi-tenant shards in a scale-out data tier.
 
 Beyond these possibilities, we're also working to make RLS even better. If you have any questions, ideas, or things you'd like to see, please let us know in the comments. We appreciate your feedback!
+

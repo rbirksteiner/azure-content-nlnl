@@ -1,20 +1,20 @@
 <properties
-	pageTitle="How to use Azure storage for SQL Server backup and restore | Microsoft Azure"
-	description="Backup SQL Server and SQL Database to Azure Storage. Explains the benefits of backing up SQL databases to Azure Storage, and which SQL Server and Azure Storage components are required"
-	services="sql-database, virtual-machines"
-	documentationCenter=""
-	authors="carlrabeler"
-	manager="jeffreyg"
-	editor="tysonn"/>
+    pageTitle="How to use Azure storage for SQL Server backup and restore | Microsoft Azure"
+    description="Backup SQL Server and SQL Database to Azure Storage. Explains the benefits of backing up SQL databases to Azure Storage, and which SQL Server and Azure Storage components are required"
+    services="sql-database, virtual-machines"
+    documentationCenter=""
+    authors="carlrabeler"
+    manager="jeffreyg"
+    editor="tysonn"/>
 
 <tags
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="vm-windows-sql-server"
-	ms.topic="article"
-	ms.date="10/20/2015"
-	ms.author="carlrab"/>
+    ms.service="sql-database"
+    ms.workload="data-management"
+    ms.tgt_pltfrm="na"
+    ms.devlang="vm-windows-sql-server"
+    ms.topic="article"
+    ms.date="10/20/2015"
+    ms.author="carlrab"/>
 
 
 
@@ -76,3 +76,4 @@ If you choose to copy and upload a backup file to the Azure Blob storage service
 **Best Practices, Troubleshooting:**
 
 [Back and Restore Best Practices (Azure Blob Storage Service)](http://go.microsoft.com/fwlink/?LinkId=272394)
+

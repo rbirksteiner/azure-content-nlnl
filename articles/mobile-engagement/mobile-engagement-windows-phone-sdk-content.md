@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Windows Phone Silverlight SDK content" 
-	description="Learn about the contents of the Windows Phone Silverlight SDK for Azure Mobile Engagement" 					
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede"
-	editor="" />
+    pageTitle="Windows Phone Silverlight SDK content" 
+    description="Learn about the contents of the Windows Phone Silverlight SDK for Azure Mobile Engagement"                     
+    services="mobile-engagement" 
+    documentationCenter="mobile" 
+    authors="piyushjo" 
+    manager="dwrede"
+    editor="" />
 
 <tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/10/2015" 
-	ms.author="piyushjo" />
-	
+    ms.service="mobile-engagement" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="mobile-windows-phone"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/10/2015" 
+    ms.author="piyushjo" />
+    
 #Windows Phone Silverlight SDK content
 
 This document lists and describes the content deployed by the SDK in your application.
@@ -36,3 +36,4 @@ This folder contains all the resources that Mobile Engagement needs. You can als
 
 - `EngagementConfiguration.xml` : The Mobile Engagement's configuration file, this is where you can customize Engagement settings (Engagement connection string, report crashes etc).
  
+

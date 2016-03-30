@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Introduction to DocumentDB, a JSON database | Microsoft Azure" 
-	description="Learn about Azure DocumentDB, a NoSQL JSON database. This document database is built for big data, elastic scalability, and high availability." 
-	keywords="json database, document database"
-	services="documentdb" 
-	authors="mimig1" 
-	manager="jhubbard" 
-	editor="monicar" 
-	documentationCenter=""/>
+    pageTitle="Introduction to DocumentDB, a JSON database | Microsoft Azure" 
+    description="Learn about Azure DocumentDB, a NoSQL JSON database. This document database is built for big data, elastic scalability, and high availability." 
+    keywords="json database, document database"
+    services="documentdb" 
+    authors="mimig1" 
+    manager="jhubbard" 
+    editor="monicar" 
+    documentationCenter=""/>
 
 <tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/18/2015" 
-	ms.author="mimig"/>
+    ms.service="documentdb" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/18/2015" 
+    ms.author="mimig"/>
 
 # Introduction to DocumentDB: A NoSQL JSON Database
 
@@ -29,10 +29,10 @@ A quick way to learn about this JSON database and see it in action is to follow 
 
 Then, return to this article, where we'll dig in deeper and you'll learn the answers to the following questions:  
 
--	[What is DocumentDB and what value does it provide to cloud and mobile applications?](#what-is-azure-documentdb)
--	[How is my data managed in DocumentDB and how do I access it?](#data-management)
--	[How do I develop applications using DocumentDB?](#develop)
--	[What are my next steps to build a DocumentDB application?](#next-steps)  
+-   [What is DocumentDB and what value does it provide to cloud and mobile applications?](#what-is-azure-documentdb)
+-   [How is my data managed in DocumentDB and how do I access it?](#data-management)
+-   [How do I develop applications using DocumentDB?](#develop)
+-   [What are my next steps to build a DocumentDB application?](#next-steps)  
 
 ## What is Azure DocumentDB?  
 
@@ -44,18 +44,18 @@ As a JSON database, DocumentDB natively supports JSON documents enabling easy it
 
 Azure DocumentDB offers the following key capabilities and benefits:
 
--	**Ad hoc queries with familiar SQL syntax:** Store heterogeneous JSON documents within DocumentDB and query these documents through a familiar SQL syntax. DocumentDB utilizes a highly concurrent, lock free, log structured indexing technology to automatically index all document content. This enables rich real-time queries without the need to specify schema hints, secondary indexes, or views. Learn more in [Query DocumentDB](documentdb-sql-query.md). 
+-   **Ad hoc queries with familiar SQL syntax:** Store heterogeneous JSON documents within DocumentDB and query these documents through a familiar SQL syntax. DocumentDB utilizes a highly concurrent, lock free, log structured indexing technology to automatically index all document content. This enables rich real-time queries without the need to specify schema hints, secondary indexes, or views. Learn more in [Query DocumentDB](documentdb-sql-query.md). 
 
--	**JavaScript execution within the database:** Express application logic as stored procedures, triggers, and user defined functions (UDFs) using standard JavaScript. This allows your application logic to operate over data without worrying about the mismatch between the application and the database schema. DocumentDB provides full transactional execution of JavaScript application logic directly inside the database engine. The deep integration of JavaScript enables the execution of INSERT, REPLACE, DELETE, and SELECT operations from within a JavaScript program as an isolated transaction. Learn more in [DocumentDB server-side programming](documentdb-programming.md).
+-   **JavaScript execution within the database:** Express application logic as stored procedures, triggers, and user defined functions (UDFs) using standard JavaScript. This allows your application logic to operate over data without worrying about the mismatch between the application and the database schema. DocumentDB provides full transactional execution of JavaScript application logic directly inside the database engine. The deep integration of JavaScript enables the execution of INSERT, REPLACE, DELETE, and SELECT operations from within a JavaScript program as an isolated transaction. Learn more in [DocumentDB server-side programming](documentdb-programming.md).
 
--	**Tunable consistency levels:** Select from four well defined consistency levels to achieve optimal trade-off between consistency and performance. For queries and read operations, DocumentDB offers four distinct consistency levels: strong, bounded-staleness, session, and eventual. These granular, well-defined consistency levels allow you to make sound trade-offs between consistency, availa
--	bility, and latency. Learn more in [Using consistency levels to maximize availability and performance in DocumentDB](documentdb-consistency-levels.md).
+-   **Tunable consistency levels:** Select from four well defined consistency levels to achieve optimal trade-off between consistency and performance. For queries and read operations, DocumentDB offers four distinct consistency levels: strong, bounded-staleness, session, and eventual. These granular, well-defined consistency levels allow you to make sound trade-offs between consistency, availa
+-   bility, and latency. Learn more in [Using consistency levels to maximize availability and performance in DocumentDB](documentdb-consistency-levels.md).
 
--	**Fully managed:** Eliminate the need to manage database and machine resources. As a fully-managed Microsoft Azure service, you do not need to manage virtual machines, deploy and configure software, or deal with complex data-tier upgrades. Every database is automatically backed up and protected against regional failures. You can easily add a DocumentDB account and provision capacity as you need it, allowing you to focus on your application instead of operating and managing your database. 
+-   **Fully managed:** Eliminate the need to manage database and machine resources. As a fully-managed Microsoft Azure service, you do not need to manage virtual machines, deploy and configure software, or deal with complex data-tier upgrades. Every database is automatically backed up and protected against regional failures. You can easily add a DocumentDB account and provision capacity as you need it, allowing you to focus on your application instead of operating and managing your database. 
 
--	**Elastically scalable throughput and storage:** Easily scale up or scale down your DocumentDB JSON database to meet your application needs. Scaling is done through fine grained units (collections) of reserved SSD backed storage and throughput. You can elastically scale DocumentDB with predictable performance by creating more units as your application grows. 
+-   **Elastically scalable throughput and storage:** Easily scale up or scale down your DocumentDB JSON database to meet your application needs. Scaling is done through fine grained units (collections) of reserved SSD backed storage and throughput. You can elastically scale DocumentDB with predictable performance by creating more units as your application grows. 
 
--	**Open by design:** Get started quickly by using existing skills and tools. Programming against DocumentDB is simple, approachable, and does not require you to adopt new tools or adhere to custom extensions to JSON or JavaScript. You can access all of the database functionality including CRUD, query, and JavaScript processing over a simple RESTful HTTP interface. DocumentDB embraces existing formats, languages, and standards while offering high value database capabilities on top of them.
+-   **Open by design:** Get started quickly by using existing skills and tools. Programming against DocumentDB is simple, approachable, and does not require you to adopt new tools or adhere to custom extensions to JSON or JavaScript. You can access all of the database functionality including CRUD, query, and JavaScript processing over a simple RESTful HTTP interface. DocumentDB embraces existing formats, languages, and standards while offering high value database capabilities on top of them.
 
 You can use DocumentDB to store flexible datasets that require query retrieval and transactional processing. Application scenarios may include user data for interactive web and mobile applications as well as storage, retrieval, and processing of application JSON data. A database can store any number of JSON documents, as DocumentDB is well suited for applications that run at scale on the internet.
 

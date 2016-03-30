@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Add a Java application to Azure App Service Web Apps" 
-	description="This tutorial shows you how to add a page or application to your instance of Azure App Service Web Apps that is already configured to use Java." 
-	services="app-service\web" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
-	editor="jimbe"/>
+    pageTitle="Add a Java application to Azure App Service Web Apps" 
+    description="This tutorial shows you how to add a page or application to your instance of Azure App Service Web Apps that is already configured to use Java." 
+    services="app-service\web" 
+    documentationCenter="java" 
+    authors="rmcmurray" 
+    manager="wpickett" 
+    editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="11/19/2015" 
-	ms.author="robmcm"/>
+    ms.service="app-service-web" 
+    ms.workload="web" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="Java" 
+    ms.topic="article" 
+    ms.date="11/19/2015" 
+    ms.author="robmcm"/>
 
 # Add a Java application to Azure App Service Web Apps
 
@@ -39,3 +39,4 @@ For more information, see the [Java Developer Center](/develop/java/).
 
 <!-- External Links -->
 [Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
+

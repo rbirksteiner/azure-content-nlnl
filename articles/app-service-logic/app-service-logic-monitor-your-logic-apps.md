@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Monitor your Logic Apps in Azure App Service | Microsoft Azure" 
-	description="How to see what your Logic Apps have done" 
-	authors="stepsic-microsoft-com" 
-	manager="dwrede" 
-	editor="" 
-	services="app-service\logic" 
-	documentationCenter=""/>
+    pageTitle="Monitor your Logic Apps in Azure App Service | Microsoft Azure" 
+    description="How to see what your Logic Apps have done" 
+    authors="stepsic-microsoft-com" 
+    manager="dwrede" 
+    editor="" 
+    services="app-service\logic" 
+    documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/07/2015"
-	ms.author="stepsic"/>
+    ms.service="app-service-logic"
+    ms.workload="integration"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/07/2015"
+    ms.author="stepsic"/>
 
 # Monitor your Logic Apps
 

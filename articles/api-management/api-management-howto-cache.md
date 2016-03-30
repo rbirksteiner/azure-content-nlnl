@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Add caching to improve performance in Azure API Management | Microsoft Azure"
-	description="Learn how to improve the latency, bandwidth consumption, and web service load for API Management service calls."
-	services="api-management"
-	documentationCenter=""
-	authors="steved0x"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Add caching to improve performance in Azure API Management | Microsoft Azure"
+    description="Learn how to improve the latency, bandwidth consumption, and web service load for API Management service calls."
+    services="api-management"
+    documentationCenter=""
+    authors="steved0x"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="api-management"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="12/16/2015"
-	ms.author="sdanie"/>
+    ms.service="api-management"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="12/16/2015"
+    ms.author="sdanie"/>
 
 # Add caching to improve performance in Azure API Management
 
@@ -74,20 +74,20 @@ This displays the policies for this operation in the policy editor.
 
 The policy definition for this operation includes the policies that define the caching configuration that were reviewed using the **Caching** tab in the previous step.
 
-	<policies>
-		<inbound>
-			<base />
-			<cache-lookup vary-by-developer="false" vary-by-developer-groups="false">
-				<vary-by-header>Accept</vary-by-header>
-				<vary-by-header>Accept-Charset</vary-by-header>
-			</cache-lookup>
-			<rewrite-uri template="/resource" />
-		</inbound>
-		<outbound>
-			<base />
-			<cache-store caching-mode="cache-on" duration="3600" />
-		</outbound>
-	</policies>
+    <policies>
+        <inbound>
+            <base />
+            <cache-lookup vary-by-developer="false" vary-by-developer-groups="false">
+                <vary-by-header>Accept</vary-by-header>
+                <vary-by-header>Accept-Charset</vary-by-header>
+            </cache-lookup>
+            <rewrite-uri template="/resource" />
+        </inbound>
+        <outbound>
+            <base />
+            <cache-store caching-mode="cache-on" duration="3600" />
+        </outbound>
+    </policies>
 
 >[AZURE.NOTE] Changes made to the caching policies in the policy editor will be reflected on the **Caching** tab of an operation, and vice-versa.
 
@@ -129,9 +129,9 @@ Note that the value of **sampleheader** in the response is now **value2**. Becau
 
 ## <a name="next-steps"> </a>Next steps
 
--	Check out the other topics in the [Get started with advanced API configuration][] tutorial.
--	For more information about caching policies, see [Caching policies][] in the [API Management policy reference][].
--	For information on caching items by key using policy expressions, see [Custom caching in Azure API Management](api-management-sample-cache-by-key.md).
+-   Check out the other topics in the [Get started with advanced API configuration][] tutorial.
+-   For more information about caching policies, see [Caching policies][] in the [API Management policy reference][].
+-   For information on caching items by key using policy expressions, see [Custom caching in Azure API Management](api-management-sample-cache-by-key.md).
 
 [api-management-management-console]: ./media/api-management-howto-cache/api-management-management-console.png
 [api-management-echo-api]: ./media/api-management-howto-cache/api-management-echo-api.png
@@ -162,3 +162,4 @@ Note that the value of **sampleheader** in the response is now **value2**. Becau
 [Review the caching policies]: #caching-policies
 [Call an operation and test the caching]: #test-operation
 [Next steps]: #next-steps
+

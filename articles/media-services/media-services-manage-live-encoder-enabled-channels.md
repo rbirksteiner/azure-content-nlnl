@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services" 
-	description="This topic describes how to set up a Channel that receives a single bitrate live stream from an on-premises encoder and then performs live encoding to adaptive bitrate stream with Media Services. The stream can then be delivered to client playback applications through one or more Streaming Endpoints, using one of the following adaptive streaming protocols: HLS, Smooth Stream, MPEG DASH, HDS." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="juliako,anilmur" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services" 
+    description="This topic describes how to set up a Channel that receives a single bitrate live stream from an on-premises encoder and then performs live encoding to adaptive bitrate stream with Media Services. The stream can then be delivered to client playback applications through one or more Streaming Endpoints, using one of the following adaptive streaming protocols: HLS, Smooth Stream, MPEG DASH, HDS." 
+    services="media-services" 
+    documentationCenter="" 
+    authors="juliako,anilmur" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/20/2015"  
-	ms.author="juliako"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/20/2015"  
+    ms.author="juliako"/>
 
 #Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services
 
@@ -81,26 +81,26 @@ The following are general steps involved in creating common live streaming appli
 >[AZURE.NOTE] Currently, the max recommended duration of a live event is 8 hours. Please contact amslived at Microsoft dot com if you need to run a Channel for longer periods of time.Be aware that there is a billing impact for live encoding and you should remember that leaving a live encoding channel in the "Running" state will incur hourly billing charges.  It is recommended that you immediately stop your running channels after your live streaming event is complete to avoid extra hourly charges. 
 
 1. Connect a video camera to a computer. Launch and configure an on-premises live encoder that can output a **single** bitrate stream in one of the following protocols: RTMP, Smooth Streaming, or RTP (MPEG-TS). For more information, see [Azure Media Services RTMP Support and Live Encoders](http://go.microsoft.com/fwlink/?LinkId=532824).
-	
-	This step could also be performed after you create your Channel.
+    
+    This step could also be performed after you create your Channel.
 
 1. Create and start a Channel. 
 
 1. Retrieve the Channel ingest URL. 
 
-	The ingest URL is used by the live encoder to send the stream to the Channel.
+    The ingest URL is used by the live encoder to send the stream to the Channel.
 1. Retrieve the Channel preview URL. 
 
-	Use this URL to verify that your channel is properly receiving the live stream.
+    Use this URL to verify that your channel is properly receiving the live stream.
 
 3. Create a program. 
 
-	When using the Azure Classic Portal, creating a program also creates an asset. 
+    When using the Azure Classic Portal, creating a program also creates an asset. 
 
-	When using .NET SDK or REST you need to create an asset and specify to use this asset when creating a Program. 
+    When using .NET SDK or REST you need to create an asset and specify to use this asset when creating a Program. 
 1. Publish the asset associated with the program.   
 
-	Make sure to have at least one streaming reserved unit on the streaming endpoint from which you want to stream content.
+    Make sure to have at least one streaming reserved unit on the streaming endpoint from which you want to stream content.
 1. Start the program when you are ready to start streaming and archiving.
 2. Optionally, the live encoder can be signaled to start an advertisement. The advertisement is inserted in the output stream.
 1. Stop the program whenever you want to stop streaming and archiving the event.
@@ -136,47 +136,47 @@ Considerations:
 - The video stream should have an average bitrate below 15 Mbps
 - The aggregate average bitrate of the audio streams should be below 1 Mbps
 - Following are the supported codecs:
-	- MPEG-2 / H.262 Video 
-		
-		- Main Profile (4:2:0)
-		- High Profile (4:2:0, 4:2:2)
-		- 422 Profile (4:2:0, 4:2:2)
+    - MPEG-2 / H.262 Video 
+        
+        - Main Profile (4:2:0)
+        - High Profile (4:2:0, 4:2:2)
+        - 422 Profile (4:2:0, 4:2:2)
 
-	- MPEG-4 AVC / H.264 Video  
-	
-		- Baseline, Main, High Profile (8-bit 4:2:0)
-		- High 10 Profile (10-bit 4:2:0)
-		- High 422 Profile (10-bit 4:2:2)
+    - MPEG-4 AVC / H.264 Video  
+    
+        - Baseline, Main, High Profile (8-bit 4:2:0)
+        - High 10 Profile (10-bit 4:2:0)
+        - High 422 Profile (10-bit 4:2:2)
 
 
-	- MPEG-2 AAC-LC Audio 
-	
-		- Mono, Stereo, Surround (5.1, 7.1)
-		- MPEG-2 style ADTS packaging
+    - MPEG-2 AAC-LC Audio 
+    
+        - Mono, Stereo, Surround (5.1, 7.1)
+        - MPEG-2 style ADTS packaging
 
-	- Dolby Digital (AC-3) Audio 
+    - Dolby Digital (AC-3) Audio 
 
-		- Mono, Stereo, Surround (5.1, 7.1)
+        - Mono, Stereo, Surround (5.1, 7.1)
 
-	- MPEG Audio (Layer II and III) 
-			
-		- Mono, Stereo
+    - MPEG Audio (Layer II and III) 
+            
+        - Mono, Stereo
 
 - Recommended broadcast encoders include:
-	- Ateme AM2102
-	- Ericsson AVP2000
-	- eVertz 3480
-	- Ericsson RX8200
-	- Imagine Communications Selenio ENC 1
-	- Imagine Communications Selenio ENC 2
-	- AdTec EN-30
-	- AdTec EN-91P
-	- AdTec EN-100
-	- Harmonic ProStream 1000
-	- Thor H-2 4HD-EM
-	- eVertz 7880 SLKE
-	- Cisco Spinnaker
-	- Elemental Live
+    - Ateme AM2102
+    - Ericsson AVP2000
+    - eVertz 3480
+    - Ericsson RX8200
+    - Imagine Communications Selenio ENC 1
+    - Imagine Communications Selenio ENC 2
+    - AdTec EN-30
+    - AdTec EN-91P
+    - AdTec EN-100
+    - Harmonic ProStream 1000
+    - Thor H-2 4HD-EM
+    - eVertz 7880 SLKE
+    - Cisco Spinnaker
+    - Elemental Live
 
 ####<a id="single_bitrate_RTMP"></a>Single bitrate RTMP
 
@@ -187,23 +187,23 @@ Considerations:
 - The audio stream should have an average bitrate below 1 Mbps
 - Following are the supported codecs:
 
-	- MPEG-4 AVC / H.264 Video  
-	
-		- Baseline, Main, High Profile (8-bit 4:2:0)
-		- High 10 Profile (10-bit 4:2:0)
-		- High 422 Profile (10-bit 4:2:2)
+    - MPEG-4 AVC / H.264 Video  
+    
+        - Baseline, Main, High Profile (8-bit 4:2:0)
+        - High 10 Profile (10-bit 4:2:0)
+        - High 422 Profile (10-bit 4:2:2)
 
-	- MPEG-2 AAC-LC Audio
+    - MPEG-2 AAC-LC Audio
 
-		- Mono, Stereo, Surround (5.1, 7.1)
-		- 44.1 kHz sampling rate
-		- MPEG-2 style ADTS packaging
-	
+        - Mono, Stereo, Surround (5.1, 7.1)
+        - 44.1 kHz sampling rate
+        - MPEG-2 style ADTS packaging
+    
 - Recommended encoders include: 
 
-	- Telestream Wirecast
-	- Flash Media Live Encoder
-	- Tricaster
+    - Telestream Wirecast
+    - Flash Media Live Encoder
+    - Tricaster
 
 ####Single bitrate Fragmented MP4 (Smooth Streaming)
 
@@ -468,3 +468,4 @@ Choose **Portal**, **.NET**, **REST API** to see how to create and manage channe
 
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
  
+

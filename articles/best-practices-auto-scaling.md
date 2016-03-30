@@ -133,3 +133,4 @@ The following patterns and guidance may also be relevant to your scenario when i
 - [Operations on Autoscaling](http://msdn.microsoft.com/library/azure/dn510374.aspx)
 - [Microsoft.WindowsAzure.Management.Monitoring.Autoscale Namespace](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.management.monitoring.autoscale.aspx)
 - The [Autoscaling Application Block](http://msdn.microsoft.com/library/hh680892%28v=pandp.50%29.aspx) documentation and key scenarios on MSDN.
+

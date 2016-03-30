@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Develop or create an API hosted in the app service environment in PowerApps Enterprise | Microsoft Azure"
-	description="Learn how to register a custom API hosted in app service environment in the Azure portal"
-	services=""
+    pageTitle="Develop or create an API hosted in the app service environment in PowerApps Enterprise | Microsoft Azure"
+    description="Learn how to register a custom API hosted in app service environment in the Azure portal"
+    services=""
     suite="powerapps"
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="dwrede"
-	editor=""/>
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="dwrede"
+    editor=""/>
 
 <tags
    ms.service="powerapps"
@@ -59,9 +59,9 @@ After the API is deployed to your app service environment, use the following ste
 ![][12]  
 3. In **Add API**, enter the API properties:  
 
-	- In **Name**, enter a name for your API. Notice that the name you enter is included in the runtime URL of the API. Make the name meaningful and unique within your organization.	
-	- In **Source**, select **Import from APIs hosted in App Service Environment**:  
-	![][13]
+    - In **Name**, enter a name for your API. Notice that the name you enter is included in the runtime URL of the API. Make the name meaningful and unique within your organization.   
+    - In **Source**, select **Import from APIs hosted in App Service Environment**:  
+    ![][13]
 4. In **API hosted in App Service Environment**, select the API you want to import. This list shows every web app, API app, and mobile app in your app service environment  that has its **apiDefinition.url** property configured. To import the API, it uses the Swagger 2.0 API definition exposed using this property. Make sure this URL is publicly accessible when you register the API:  
 ![][14]
 5. Select **ADD** to complete these steps.
@@ -80,3 +80,4 @@ In this topic, you've seen how to register an APIs hosted in your app service en
 [12]: ./media/powerapps-register-api-hosted-in-app-service/add-api-button.png
 [13]: ./media/powerapps-register-api-hosted-in-app-service/add-api-blade.png
 [14]: ./media/powerapps-register-api-hosted-in-app-service/add-api-select-from-ase.png
+

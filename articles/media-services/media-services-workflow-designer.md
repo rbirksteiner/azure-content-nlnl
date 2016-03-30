@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Create Advanced Encoding Workflows with Workflow Designer" 
-	description="Learn about how to create advanced encoding workflows with Workflow Designer." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="juliako,johndeu,anilmur" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="Create Advanced Encoding Workflows with Workflow Designer" 
+    description="Learn about how to create advanced encoding workflows with Workflow Designer." 
+    services="media-services" 
+    documentationCenter="" 
+    authors="juliako,johndeu,anilmur" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/16/2015"  
-	ms.author="juliako"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/16/2015"  
+    ms.author="juliako"/>
 
 
 #Create Advanced Encoding Workflows with Workflow Designer
@@ -91,3 +91,4 @@ If you need support or have questions about creating custom workflows in the Wor
 ##See Also
 
 [Azure Premium Encoder Workflow Designer Training Videos](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
+

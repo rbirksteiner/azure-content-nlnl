@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Configure the Elemental Live encoder to send a single bitrate live stream" 
-	description="This topic shows how to configure the Elemental Live encoder to send a single bitrate stream to AMS channels that are enabled for live encoding." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako,cenkdin,anilmur" 
-	manager="dwrede" 
-	editor=""/>
+    pageTitle="Configure the Elemental Live encoder to send a single bitrate live stream" 
+    description="This topic shows how to configure the Elemental Live encoder to send a single bitrate stream to AMS channels that are enabled for live encoding." 
+    services="media-services" 
+    documentationCenter="" 
+    authors="Juliako,cenkdin,anilmur" 
+    manager="dwrede" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="ne" 
-	ms.topic="article" 
-	ms.date="10/15/2015"  
-	ms.author="juliako"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="ne" 
+    ms.topic="article" 
+    ms.date="10/15/2015"  
+    ms.author="juliako"/>
 
 #Use the Elemental Live encoder to send a single bitrate live stream
 
@@ -93,42 +93,42 @@ In this tutorial the following output settings are used. The rest of this sectio
 2. Once a new event is created, scroll down to the output groups and add the **UDP/TS** output group. 
 
 3. Create a new output by selecting **New Stream** and then clicking **Add Output**.  
-	
-	![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental13.png)
-	
-	>[AZURE.NOTE] It is recommended that the Elemental event has the timecode set to "System Clock" to help the encoder reconnect in the case of a stream failure.
+    
+    ![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental13.png)
+    
+    >[AZURE.NOTE] It is recommended that the Elemental event has the timecode set to "System Clock" to help the encoder reconnect in the case of a stream failure.
 
 4. Now that the Output has been created, click **Add Stream**. The output settings can now be configured. 
 5. Scroll down to the "Stream 1" that was just created, click the **Video** tab on the left and expand the **Advanced** settings section. 
 
-	![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental4.png)
+    ![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental4.png)
 
-	While Elemental Live has a wide range of available customizing, the following settings are recommended for getting started with streaming to AMS. 
-	
-	- Resolution: 1280 x 720 
-	- Framerate: 30 
-	- GOP Size: 60 frames 
-	- Interlace Mode: Progressive 
-	- Bitrate: 5000000 bit/s (This can be adjusted based on network limitations) 
-	
+    While Elemental Live has a wide range of available customizing, the following settings are recommended for getting started with streaming to AMS. 
+    
+    - Resolution: 1280 x 720 
+    - Framerate: 30 
+    - GOP Size: 60 frames 
+    - Interlace Mode: Progressive 
+    - Bitrate: 5000000 bit/s (This can be adjusted based on network limitations) 
+    
 
-	![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental5.png)
+    ![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental5.png)
 
 6. Get the channel's input URL.
-	
-	Navigate back to the AMSE tool, and check on the channel completion status. Once the State has changed from **Starting** to **Running**, you can get the input URL.
-	  
-	When the channel is running, right click the channel name, navigate down to hover over **Copy Input URL to clipboard** and then select **Primary Input 
-	URL**.  
-	
-	![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental6.png)
-	
+    
+    Navigate back to the AMSE tool, and check on the channel completion status. Once the State has changed from **Starting** to **Running**, you can get the input URL.
+      
+    When the channel is running, right click the channel name, navigate down to hover over **Copy Input URL to clipboard** and then select **Primary Input 
+    URL**.  
+    
+    ![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental6.png)
+    
 1. Paste this information in the **Primary Destination** field of the Elemental. All other settings can remain the default.
-	
-	![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental14.png)
+    
+    ![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental14.png)
 
-	For extra redundancy, repeat these steps with the Secondary Input URL by creating a separate "Output" tab for UDP/TS Streaming.
-	
+    For extra redundancy, repeat these steps with the Secondary Input URL by creating a separate "Output" tab for UDP/TS Streaming.
+    
 7. Click **Create** (if a new event was created) or **Update** (if editing a pre-existing event) and then proceed to start the encoder. 
 
 >[AZURE.IMPORTANT] Before you click **Start** on the Elemental Live web interface, you **must** ensure that the Channel is ready. 
@@ -140,7 +140,7 @@ After the stream has been running for 30 seconds, navigate back to the AMSE tool
   
 1. Navigate to the AMSE tool, and right click the channel to be tested. From the menu, hover over **Playback the Preview** and select **with Azure Media Player**.  
 
-	![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental8.png)
+    ![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental8.png)
 
 If the stream appears in the player, then the encoder has been properly configured to connect to AMS. 
 
@@ -150,13 +150,13 @@ If an error is received, the channel will need to be reset and encoder settings 
 
 1. Once channel playback is confirmed, create a program. Under the **Live** tab in the AMSE tool, right click within the program area and select **Create New Program**.  
 
-	![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental9.png)
+    ![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental9.png)
 
 2. Name the program and, if needed, adjust the **Archive Window Length** (which defaults to 4 hours). You can also specify a storage location or leave as the default.  
 3. Check the **Start the Program now** box.
 4. Click **Create Program**.  
   
-	Note: Program creation takes less time than channel creation.    
+    Note: Program creation takes less time than channel creation.    
  
 5. Once the program is running, confirm playback by right clicking the program and navigating to **Playback the program(s)** and then selecting **with Azure Media Player**.  
 6. Once confirmed, right click the program again and select **Copy the Output URL to Clipboard** (or retrieve this information from the **Program information and settings** option from the menu). 
@@ -175,3 +175,4 @@ Please see the [troubleshooting](media-services-troubleshooting-live-streaming.m
 ##Provide feedback
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+

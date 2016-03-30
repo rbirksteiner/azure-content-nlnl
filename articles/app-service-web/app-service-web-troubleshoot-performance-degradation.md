@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Troubleshoot: performance degradation in a web app"
-	description="This article helps you troubleshoot performance issues in your web app hosted in Azure App Service."
-	services="app-service\web"
-	documentationCenter=""
-	authors="cephalin"
-	manager="wpickett"
-	editor=""
-	tags="top-support-issue"/>
+    pageTitle="Troubleshoot: performance degradation in a web app"
+    description="This article helps you troubleshoot performance issues in your web app hosted in Azure App Service."
+    services="app-service\web"
+    documentationCenter=""
+    authors="cephalin"
+    manager="wpickett"
+    editor=""
+    tags="top-support-issue"/>
 
 <tags
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/23/2015"
-	ms.author="cephalin"/>
+    ms.service="app-service-web"
+    ms.workload="web"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/23/2015"
+    ms.author="cephalin"/>
 
 # Troubleshoot: performance degradation in a web app
 
@@ -31,17 +31,17 @@ When you browse the web app, the pages load slowly and sometimes timeout.
 
 This problem is often caused by application level issues, such as:
 
--	requests taking a long time
--	application using high memory/CPU
--	application crashing due to an exception.
+-   requests taking a long time
+-   application using high memory/CPU
+-   application crashing due to an exception.
 
 ## Troubleshooting steps
 
 Troubleshooting can be divided into three distinct tasks, in sequential order:
 
-1.	[Observe and monitor application behavior](#observe)
-2.	[Collect data](#collect)
-3.	[Mitigate the issue](#mitigate)
+1.  [Observe and monitor application behavior](#observe)
+2.  [Collect data](#collect)
+3.  [Mitigate the issue](#mitigate)
 
 [App Service Web Apps](/services/app-service/web/) gives you various options at each step.
 
@@ -58,18 +58,18 @@ This option enables you to find out if your application is having any issues. In
 
 Some of the metrics that you might want to monitor for your web app are
 
--	Average memory working set
--	Average response time
--	CPU time
--	Memory working set
--	Requests
+-   Average memory working set
+-   Average response time
+-   CPU time
+-   Memory working set
+-   Requests
 
 ![](./media/app-service-web-troubleshoot-performance-degradation/1-monitor-metrics.png)
 
 For more information, see:
 
--	[Monitor Web Apps in Azure App Service](web-sites-monitor.md)
--	[Receive alert notifications](insights-receive-alert-notifications.md)
+-   [Monitor Web Apps in Azure App Service](web-sites-monitor.md)
+-   [Receive alert notifications](insights-receive-alert-notifications.md)
 
 #### Monitor web endpoint status
 
@@ -98,7 +98,7 @@ To use New Relic, see [New Relic Application Performance Management on Azure](st
 <a name="collect" />
 ### 2. Collect data
 
-####	Enable diagnostics logging for your web app
+####    Enable diagnostics logging for your web app
 
 The Web Apps environment provides diagnostic functionality for logging information from both the web server and the web application. These are logically separated into web server diagnostics and application diagnostics.
 
@@ -106,9 +106,9 @@ The Web Apps environment provides diagnostic functionality for logging informati
 
 You can enable or disable the following kinds of logs:
 
--	**Detailed Error Logging** - Detailed error information for HTTP status codes that indicate a failure (status code 400 or greater). This may contain information that can help determine why the server returned the error code.
--	**Failed Request Tracing** - Detailed information on failed requests, including a trace of the IIS components used to process the request and the time taken in each component. This can be useful if you are attempting to improve web app performance or isolate what is causing a specific HTTP error.
--	**Web Server Logging** - Information about HTTP transactions using the W3C extended log file format. This is useful when determining overall web app metrics, such as the number of requests handled or how many requests are from a specific IP address.
+-   **Detailed Error Logging** - Detailed error information for HTTP status codes that indicate a failure (status code 400 or greater). This may contain information that can help determine why the server returned the error code.
+-   **Failed Request Tracing** - Detailed information on failed requests, including a trace of the IIS components used to process the request and the time taken in each component. This can be useful if you are attempting to improve web app performance or isolate what is causing a specific HTTP error.
+-   **Web Server Logging** - Information about HTTP transactions using the W3C extended log file format. This is useful when determining overall web app metrics, such as the number of requests handled or how many requests are from a specific IP address.
 
 ##### Application diagnostics
 
@@ -129,9 +129,9 @@ Web Apps provides you with the ability to troubleshoot issues related to your we
 
 The Azure App Service Support portal provides you with three separate tabs to support the three steps of a common troubleshooting scenario:
 
-1.	Observe current behavior
-2.	Analyze by collecting diagnostics information and running the built-in analyzers
-3.	Mitigate
+1.  Observe current behavior
+2.  Analyze by collecting diagnostics information and running the built-in analyzers
+3.  Mitigate
 
 If the issue is happening right now, click **Analyze** > **Diagnostics** > **Diagnose Now** to create a diagnostic session for you, which will collect HTTP logs, event viewer logs, memory dumps, PHP error logs and PHP process report.
 
@@ -149,10 +149,10 @@ You can access this dashboard by going to the link **https://&lt;Your app name>.
 
 Some of the things that Kudu provides are:
 
--	environment settings for your application
--	log stream
--	diagnostic dump
--	debug console in which you can run Powershell cmdlets and basic DOS commands.
+-   environment settings for your application
+-   log stream
+-   diagnostic dump
+-   debug console in which you can run Powershell cmdlets and basic DOS commands.
 
 
 Another useful feature of Kudu is that, in case your application is throwing first-chance exceptions, you can use Kudu and the SysInternals tool Procdump to create memory dumps. These memory dumps are snapshots of the process and can often help you troubleshoot more complicated issues with your web app.
@@ -163,7 +163,7 @@ For more information on features available in Kudu, see
 <a name="mitigate" />
 ### 3. Mitigate the issue
 
-####	Scale the web app
+####    Scale the web app
 
 In Azure App Service, for increased performance and throughput,  you can adjust the scale at which you are running your application. Scaling up a web app involves two related actions: changing your App Service plan to a higher pricing tier, and configuring certain settings after you have switched to the higher pricing tier.
 
@@ -173,13 +173,13 @@ Additionally, you can choose to run your application on more than one instance .
 
 You can set the scaling to be Manual or Automatic.
 
-####	Use AutoHeal
+####    Use AutoHeal
 
 AutoHeal recycles the worker process for your app based on settings you choose (like configuration changes, requests, memory-based limits, or the time needed to execute a request). Most of the time, recycle the process is the fastest way to recover from a problem. Though you can always restart the web app from directly within the Azure Portal, AutoHeal will do it automatically for you. All you need to do is add some triggers in the root web.config for your web app. Note that these settings would work in the same way even if your application is not a .Net one.
 
 For more information, see [Auto-Healing Azure Web Sites](/blog/auto-healing-windows-azure-web-sites/).
 
-####	Restart the web app
+####    Restart the web app
 
 This is often the simplest way to recover from one-time issues. On the [Azure Portal](https://portal.azure.com), on your web app’s blade, you have the options to stop or restart your app.
 
@@ -187,3 +187,4 @@ This is often the simplest way to recover from one-time issues. On the [Azure Po
 
 You can also manage your web app using Azure Powershell. For more information, see
 [Using Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager.md).
+

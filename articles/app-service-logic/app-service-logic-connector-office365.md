@@ -35,81 +35,81 @@ A connector can be created within a logic app or be created directly from the Az
 
 1. In the Azure startboard, select **Marketplace**.
 2. Search for “Office 365 Connector”, select it, and select **Create**.
-3.	Configure the Office 365 Connector by providing the details for Hosting Plan, the resource group and selecting the name of the API App:  
+3.  Configure the Office 365 Connector by providing the details for Hosting Plan, the resource group and selecting the name of the API App:  
 ![][21]
 
 
 ## Create a Logic App
 Let us create a simple logic app that gets triggered when an email is received (at your sales enquiry email id - say sales@contoso.com). And, it creates an event, adds a contact with the sender's details, sends an email to your personal account and finally sends a reply with an acknowledgment.
 
-1.	Sign in to Azure Portal and click on ‘New -> Web + mobile -> Logic App’:  
+1.  Sign in to Azure Portal and click on ‘New -> Web + mobile -> Logic App’:  
 ![][1]
 
-2.	In the ‘Create logic app’ page, provide the required details such as name, app service plan and location:  
+2.  In the ‘Create logic app’ page, provide the required details such as name, app service plan and location:  
 ![][2]
 
-3.	Click on ‘Triggers and Actions’ and the Logic App editor opens:  
+3.  Click on ‘Triggers and Actions’ and the Logic App editor opens:  
 ![][3]
 
-4.	Select the Office 365 trigger from the 'API Apps in this resource group' section in the gallery to add it to the flow:  
+4.  Select the Office 365 trigger from the 'API Apps in this resource group' section in the gallery to add it to the flow:  
 ![][4]
 
-6.	Connecting to Office 365 requires you to authorize the Logic App to be able to access your account. Click on ‘Authorize’ to provide Office 365 login credentials:  
+6.  Connecting to Office 365 requires you to authorize the Logic App to be able to access your account. Click on ‘Authorize’ to provide Office 365 login credentials:  
 ![][5]
 
-7.	You are redirected to Office 365 sign in page and you can authenticate with your Office 365 account credentials:  
+7.  You are redirected to Office 365 sign in page and you can authenticate with your Office 365 account credentials:  
 ![][6]  
 ![][7]
 
-8.	Once the authorization is complete, Office 365 triggers are displayed:  
+8.  Once the authorization is complete, Office 365 triggers are displayed:  
 ![][8]
 
-9.	Select ‘New Email’ trigger and the input parameters are displayed.
+9.  Select ‘New Email’ trigger and the input parameters are displayed.
 
 
-10.	Change the trigger frequency to 'Minutes' and click ✓:  
+10. Change the trigger frequency to 'Minutes' and click ✓:  
 ![][9]
 
 11. The Office 365 'New Email' trigger is configured and you can see the output parameters also displayed:  
 ![][10]
 
-12.	Select ‘Office 365 Connector’ from the ‘Recently Used’ section in the gallery and a new 'Office 365' action gets added.
+12. Select ‘Office 365 Connector’ from the ‘Recently Used’ section in the gallery and a new 'Office 365' action gets added.
 
-13.	Select ‘Send Event’ from the list of actions and the input parameters of ‘Send Event’ action are displayed:  
+13. Select ‘Send Event’ from the list of actions and the input parameters of ‘Send Event’ action are displayed:  
 ![][11]
 
-14.	Specify the event details and click ✓:  
+14. Specify the event details and click ✓:  
 ![][12]
 
-15.	Select ‘Office 365 Connector’ from the ‘Recently Used’ section in the gallery and a new 'Office 365' action gets added.
+15. Select ‘Office 365 Connector’ from the ‘Recently Used’ section in the gallery and a new 'Office 365' action gets added.
 
-16.	Select ‘Add Contact’ from the list of actions and the input parameters of ‘Add Contact’ action are displayed:  
+16. Select ‘Add Contact’ from the list of actions and the input parameters of ‘Add Contact’ action are displayed:  
 ![][13]
 
-17.	Click on '+' next to 'Email Address' field and select the 'From' output field value from the trigger:  
+17. Click on '+' next to 'Email Address' field and select the 'From' output field value from the trigger:  
 ![][14]
 
 18. Click on ✓ and the action configuration is complete:  
 ![][15]
 
-19.	Select ‘Office 365 Connector’ from the ‘Recently Used’ section in the gallery and a new 'Office 365' action gets added.
+19. Select ‘Office 365 Connector’ from the ‘Recently Used’ section in the gallery and a new 'Office 365' action gets added.
 
 
-20.	Select ‘Send Email’ from the list of actions and the input parameters of ‘Send Email’ action are displayed:  
+20. Select ‘Send Email’ from the list of actions and the input parameters of ‘Send Email’ action are displayed:  
 ![][19]
 
-21.	Provide the details required to send the email. You can construct a message by typing something like below. Once the 'Send Email' action is configured, click on ✓:
+21. Provide the details required to send the email. You can construct a message by typing something like below. Once the 'Send Email' action is configured, click on ✓:
 
-		Body - @concat('You got a new sales enquiry from',triggers().output.body.From)
+        Body - @concat('You got a new sales enquiry from',triggers().output.body.From)
 
-	![][20]
-22.	Select ‘Office 365 Connector’ from the ‘Recently Used’ section in the gallery and a new 'Office 365' action gets added.
+    ![][20]
+22. Select ‘Office 365 Connector’ from the ‘Recently Used’ section in the gallery and a new 'Office 365' action gets added.
 
 
-23.	Select ‘Reply To’ from the list of actions and the input parameters of ‘Reply To’ action are displayed:  
+23. Select ‘Reply To’ from the list of actions and the input parameters of ‘Reply To’ action are displayed:  
 ![][16]
 
-24.	Click '+' next to 'From' field and select the value from trigger's output message id and click ✓:  
+24. Click '+' next to 'From' field and select the value from trigger's output message id and click ✓:  
 ![][17]
 
 25. Click on OK on Logic app editor screen and then click 'Create'. It will take approximately 30 seconds for the creation to complete.
@@ -147,3 +147,4 @@ You can also review performance statistics and control security to the connector
 [19]: ./media/app-service-logic-connector-office365/19_Office365_Send_Inputs.png
 [20]: ./media/app-service-logic-connector-office365/20_Office365_Send_Configured.png
 [21]: ./media/app-service-logic-connector-office365/21-create-new-o365-api-app.png
+

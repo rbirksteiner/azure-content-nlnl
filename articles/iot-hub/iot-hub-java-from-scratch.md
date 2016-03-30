@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Create an IoT Hub Java client | Microsoft Azure"
-	description="Follow this tutorial to get build a IoT Hub Java client that uses Microsoft Azure IoT device SDK for Java* to communicate with the Azure IoT Hub."
-	services="iot-hub"
-	documentationCenter="java"
-	authors="dominicbetts"
-	manager="timlt"
-	editor=""/>
+    pageTitle="Create an IoT Hub Java client | Microsoft Azure"
+    description="Follow this tutorial to get build a IoT Hub Java client that uses Microsoft Azure IoT device SDK for Java* to communicate with the Azure IoT Hub."
+    services="iot-hub"
+    documentationCenter="java"
+    authors="dominicbetts"
+    manager="timlt"
+    editor=""/>
 
 <tags
      ms.service="iot-hub"
@@ -229,4 +229,5 @@ To log AMQP frames, set the environment variable `PN_TRACE_FRM=1` in your comman
 [devbox-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/java/device/doc/devbox_setup.md
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md
 [lnk-iothub-explorer]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/iothub-explorer/doc/provision_device.md
+
 

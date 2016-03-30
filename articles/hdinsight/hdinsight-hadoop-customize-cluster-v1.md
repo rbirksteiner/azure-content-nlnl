@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Customize HDInsight Clusters using script actions | Microsoft Azure" 
-	description="Learn how to customize HDInsight clusters using Script Action." 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="nitinme" 
-	manager="paulettm" 
-	editor="cgronlun"/> 
+    pageTitle="Customize HDInsight Clusters using script actions | Microsoft Azure" 
+    description="Learn how to customize HDInsight clusters using Script Action." 
+    services="hdinsight" 
+    documentationCenter="" 
+    authors="nitinme" 
+    manager="paulettm" 
+    editor="cgronlun"/> 
 
 <tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/29/2015" 
-	ms.author="nitinme"/> 
+    ms.service="hdinsight" 
+    ms.workload="big-data" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/29/2015" 
+    ms.author="nitinme"/> 
 
 # Customize HDInsight clusters using Script Action
 
@@ -66,21 +66,21 @@ Name | Script
 1. Start provisioning a cluster by using the **CUSTOM CREATE** option, as described at [Provisioning a cluster using custom options](hdinsight-provision-clusters.md#portal). 
 2. On the **Script Actions** page of the wizard, click **add script action** to provide details about the script action, as shown below:
 
-	![Use Script Action to customize a cluster](./media/hdinsight-hadoop-customize-cluster-v1/HDI.CustomProvision.Page6.png "Use Script Action to customize a cluster")
-	
-	<table border='1'>
-		<tr><th>Property</th><th>Value</th></tr>
-		<tr><td>Name</td>
-			<td>Specify a name for the script action.</td></tr>
-		<tr><td>Script URI</td>
-			<td>Specify the URI to the script that is invoked to customize the cluster. s</td></tr>
-		<tr><td>Node Type</td>
-			<td>Specify the nodes on which the customization script is run. You can choose <b>All Nodes</b>, <b>Head nodes only</b>, or <b>Worker nodes only</b>.
-		<tr><td>Parameters</td>
-			<td>Specify the parameters, if required by the script.</td></tr>
-	</table>
+    ![Use Script Action to customize a cluster](./media/hdinsight-hadoop-customize-cluster-v1/HDI.CustomProvision.Page6.png "Use Script Action to customize a cluster")
+    
+    <table border='1'>
+        <tr><th>Property</th><th>Value</th></tr>
+        <tr><td>Name</td>
+            <td>Specify a name for the script action.</td></tr>
+        <tr><td>Script URI</td>
+            <td>Specify the URI to the script that is invoked to customize the cluster. s</td></tr>
+        <tr><td>Node Type</td>
+            <td>Specify the nodes on which the customization script is run. You can choose <b>All Nodes</b>, <b>Head nodes only</b>, or <b>Worker nodes only</b>.
+        <tr><td>Parameters</td>
+            <td>Specify the parameters, if required by the script.</td></tr>
+    </table>
 
-	You can add more than one script action to install multiple components on the cluster. 
+    You can add more than one script action to install multiple components on the cluster. 
 
 3. Click the checkmark to start provisioning the cluster. 
   
@@ -90,19 +90,19 @@ Use Azure PowerShell commands for HDInsight to run a single script action or mul
 
 Use the following Azure PowerShell commands to run a single script action when deploying an HDInsight cluster:
 
-	$config = New-AzureHDInsightClusterConfig –ClusterSizeInNodes 4
+    $config = New-AzureHDInsightClusterConfig –ClusterSizeInNodes 4
 
-	$config = Add-AzureHDInsightScriptAction -Config $config –Name MyScriptActionName –Uri http://uri.to/scriptaction.ps1 –Parameters MyScriptActionParameter -ClusterRoleCollection HeadNode,DataNode
+    $config = Add-AzureHDInsightScriptAction -Config $config –Name MyScriptActionName –Uri http://uri.to/scriptaction.ps1 –Parameters MyScriptActionParameter -ClusterRoleCollection HeadNode,DataNode
 
-	New-AzureHDInsightCluster -Config $config
+    New-AzureHDInsightCluster -Config $config
 
 Use the following Azure PowerShell commands to run multiple script actions when deploying an HDInsight cluster:
 
-	$config = New-AzureHDInsightClusterConfig –ClusterSizeInNodes 4
+    $config = New-AzureHDInsightClusterConfig –ClusterSizeInNodes 4
 
-	$config = Add-AzureHDInsightScriptAction -Config $config –Name MyScriptActionName1 –Uri http://uri.to/scriptaction1.ps1 –Parameters MyScriptAction1Parameters -ClusterRoleCollection HeadNode,DataNode | Add-AzureHDInsightScriptAction -Config $config –Name MyScriptActionName2 –Uri http://uri.to/scriptaction2.ps1 -Parameters MyScriptAction2Parameters -ClusterRoleCollection HeadNode
+    $config = Add-AzureHDInsightScriptAction -Config $config –Name MyScriptActionName1 –Uri http://uri.to/scriptaction1.ps1 –Parameters MyScriptAction1Parameters -ClusterRoleCollection HeadNode,DataNode | Add-AzureHDInsightScriptAction -Config $config –Name MyScriptActionName2 –Uri http://uri.to/scriptaction2.ps1 -Parameters MyScriptAction2Parameters -ClusterRoleCollection HeadNode
 
-	New-AzureHDInsightCluster -Config $config
+    New-AzureHDInsightCluster -Config $config
 
 **From the HDInsight .NET SDK**
 
@@ -110,29 +110,29 @@ The HDInsight .NET SDK provides a <a href="http://msdn.microsoft.com/library/mic
 
 1. Create a Visual Studio application, and then install the SDK from NuGet. From the **Tools** menu, click **Nuget Package Manager**, and then click **Package Manager Console**. Run the following command in the console to install the package:
 
-		Install-Package Microsoft.WindowsAzure.Management.HDInsight
+        Install-Package Microsoft.WindowsAzure.Management.HDInsight
 
 2. Create a cluster by using the SDK. For instructions, see [Provision HDInsight cluster using .NET SDK](hdinsight-provision-clusters.md#sdk).
 
 3. Use the **ScriptAction** class to invoke a custom script as shown below:
 
-		
-		var clusterInfo = new ClusterCreateParameters()
-		{
-			// Provide the cluster information, like
-			// name, Storage account, credentials,
-			// cluster size, and version		    
-			...
-			...
-		};
+        
+        var clusterInfo = new ClusterCreateParameters()
+        {
+            // Provide the cluster information, like
+            // name, Storage account, credentials,
+            // cluster size, and version            
+            ...
+            ...
+        };
 
-		// Add the script action to install Spark
-		clusterInfo.ConfigActions.Add(new ScriptAction(
-	  		"MyScriptActionName", // Name of the config action
-	  		new ClusterNodeType[] { ClusterNodeType.HeadNode }, // List of nodes to install the component on
-	  		new Uri("http://uri.to/scriptaction.ps1"), // Location of the script to install the component
-	  		"MyScriptActionParameter" //Parameters, if any, required by the script
-		));
+        // Add the script action to install Spark
+        clusterInfo.ConfigActions.Add(new ScriptAction(
+            "MyScriptActionName", // Name of the config action
+            new ClusterNodeType[] { ClusterNodeType.HeadNode }, // List of nodes to install the component on
+            new Uri("http://uri.to/scriptaction.ps1"), // Location of the script to install the component
+            "MyScriptActionParameter" //Parameters, if any, required by the script
+        ));
 
 
 

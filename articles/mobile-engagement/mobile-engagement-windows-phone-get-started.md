@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Get started with Azure Mobile Engagement for Windows Phone Silverlight apps"
-	description="Learn how to use Azure Mobile Engagement with analytics and push notifications for Windows Phone Silverlight apps."
-	services="mobile-engagement"
-	documentationCenter="windows"
-	authors="piyushjo"
-	manager="dwrede"
-	editor="" />
+    pageTitle="Get started with Azure Mobile Engagement for Windows Phone Silverlight apps"
+    description="Learn how to use Azure Mobile Engagement with analytics and push notifications for Windows Phone Silverlight apps."
+    services="mobile-engagement"
+    documentationCenter="windows"
+    authors="piyushjo"
+    manager="dwrede"
+    editor="" />
 
 <tags
-	ms.service="mobile-engagement"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-windows-phone"
-	ms.devlang="dotnet"
-	ms.topic="hero-article"
-	ms.date="09/22/2015"
-	ms.author="piyushjo" />
+    ms.service="mobile-engagement"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-windows-phone"
+    ms.devlang="dotnet"
+    ms.topic="hero-article"
+    ms.date="09/22/2015"
+    ms.author="piyushjo" />
 
 # Get started with Azure Mobile Engagement for Windows Phone Silverlight apps
 
@@ -68,8 +68,8 @@ You have now created a new Windows Phone Silverlight app into which we will inte
 
 2. Open `WMAppManifest.xml` (under the Properties folder) and make sure the following are declared (add them if they are not) in the `<Capabilities />` tag:
 
-		<Capability Name="ID_CAP_NETWORKING" />
-		<Capability Name="ID_CAP_IDENTITY_DEVICE" />
+        <Capability Name="ID_CAP_NETWORKING" />
+        <Capability Name="ID_CAP_IDENTITY_DEVICE" />
 
     ![][2]
 
@@ -79,23 +79,23 @@ You have now created a new Windows Phone Silverlight app into which we will inte
 
 4. In the `App.xaml.cs` file:
 
-	a. Add the `using` statement:
+    a. Add the `using` statement:
 
-			using Microsoft.Azure.Engagement;
+            using Microsoft.Azure.Engagement;
 
-	b. Initialize the SDK in the `Application_Launching` method:
+    b. Initialize the SDK in the `Application_Launching` method:
 
-			private void Application_Launching(object sender, LaunchingEventArgs e)
-			{
-			  EngagementAgent.Instance.Init();
-			}
+            private void Application_Launching(object sender, LaunchingEventArgs e)
+            {
+              EngagementAgent.Instance.Init();
+            }
 
-	c. Insert the following in the `Application_Activated`:
+    c. Insert the following in the `Application_Activated`:
 
-			private void Application_Activated(object sender, ActivatedEventArgs e)
-			{
-			   EngagementAgent.Instance.OnActivated(e);
-			}
+            private void Application_Activated(object sender, ActivatedEventArgs e)
+            {
+               EngagementAgent.Instance.OnActivated(e);
+            }
 
 ##<a id="monitor"></a>Enable real-time monitoring
 
@@ -103,19 +103,19 @@ In order to start sending data and ensuring that the users are active, you must 
 
 1. In the MainPage.xaml.cs, add the `using` statement:
 
-    	using Microsoft.Azure.Engagement;
+        using Microsoft.Azure.Engagement;
 
 2. Replace the base class of **MainPage**, which is before **PhoneApplicationPage**, with **EngagementPage**.
 
-    	class MainPage : EngagementPage 
-	
+        class MainPage : EngagementPage 
+    
 3. In your `MainPage.xml` file:
 
-	a. Add to your namespaces declarations:
+    a. Add to your namespaces declarations:
 
-	   	 xmlns:engagement="clr-namespace:Microsoft.Azure.Engagement;assembly=Microsoft.Azure.Engagement.EngagementAgent.WP"
+         xmlns:engagement="clr-namespace:Microsoft.Azure.Engagement;assembly=Microsoft.Azure.Engagement.EngagementAgent.WP"
 
-	b. Replace `phone:PhoneApplicationPage` in the XML tag name with `engagement:EngagementPage`.
+    b. Replace `phone:PhoneApplicationPage` in the XML tag name with `engagement:EngagementPage`.
 
 ##<a id="monitor"></a>Connect app with real-time monitoring
 
@@ -130,8 +130,8 @@ The following sections set up your app to receive them.
 
 Add new Capabilities to your `WMAppManifest.xml` file:
 
-		ID_CAP_PUSH_NOTIFICATION
-		ID_CAP_WEBBROWSERCOMPONENT
+        ID_CAP_PUSH_NOTIFICATION
+        ID_CAP_WEBBROWSERCOMPONENT
 
    ![][5]
 
@@ -139,19 +139,19 @@ Add new Capabilities to your `WMAppManifest.xml` file:
 
 1. In `App.xaml.cs`, call `EngagementReach.Instance.Init();` in the **Application_Launching** function, right after the agent initialization:
 
-		private void Application_Launching(object sender, LaunchingEventArgs e)
-		{
-		   EngagementAgent.Instance.Init();
-		   EngagementReach.Instance.Init();
-		}
+        private void Application_Launching(object sender, LaunchingEventArgs e)
+        {
+           EngagementAgent.Instance.Init();
+           EngagementReach.Instance.Init();
+        }
 
 2. In `App.xaml.cs`, call `EngagementReach.Instance.OnActivated(e);` in the **Application_Activated** function, right after the agent initialization:
 
-		private void Application_Activated(object sender, ActivatedEventArgs e)
-		{
-		   EngagementAgent.Instance.OnActivated(e);
-		   EngagementReach.Instance.OnActivated(e);
-		}
+        private void Application_Activated(object sender, ActivatedEventArgs e)
+        {
+           EngagementAgent.Instance.OnActivated(e);
+           EngagementReach.Instance.OnActivated(e);
+        }
 
 You're all set. Now we will verify that you have correctly cried out this basic integration.
 
@@ -173,3 +173,4 @@ You should now see a notification on your device which will show up as an in-app
 [3]: ./media/mobile-engagement-windows-phone-get-started/add-connection-string.png
 [5]: ./media/mobile-engagement-windows-phone-get-started/reach-capabilities.png
 [6]: ./media/mobile-engagement-windows-phone-get-started/push-screenshot.png
+

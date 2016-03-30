@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Analyze flight delay data with Hadoop in HDInsight | Microsoft Azure"
-	description="Learn how to use one Windows PowerShell script to create an HDInsight cluster, run a Hive job, run a Sqoop job, and delete the cluster."
-	services="hdinsight"
-	documentationCenter=""
-	authors="mumian"
-	manager="paulettm"
-	editor="cgronlun"/>
+    pageTitle="Analyze flight delay data with Hadoop in HDInsight | Microsoft Azure"
+    description="Learn how to use one Windows PowerShell script to create an HDInsight cluster, run a Hive job, run a Sqoop job, and delete the cluster."
+    services="hdinsight"
+    documentationCenter=""
+    authors="mumian"
+    manager="paulettm"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="hdinsight"
-	ms.workload="big-data"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/01/2015"
-	ms.author="jgao"/>
+    ms.service="hdinsight"
+    ms.workload="big-data"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/01/2015"
+    ms.author="jgao"/>
 
 #Analyze flight delay data by using Hive in HDInsight
 
@@ -84,158 +84,158 @@ For more information on creating an HDInsight cluster and running Hive jobs, see
 1. Create an Azure SQL database and the table for the Sqoop job output by using the instructions in [Appendix C](#appendix-c).
 3. Open Windows PowerShell ISE, and run the following script:
 
-		$subscriptionID = "<Azure Subscription ID>"
-		$nameToken = "<Enter an Alias>" 
-		
-		###########################################
-		# You must configure the follwing variables
-		# for an existing Azure SQL Database
-		###########################################
-		$existingSqlDatabaseServerName = "<Azure SQL Database Server>"
-		$existingSqlDatabaseLogin = "<Azure SQL Database Server Login>"
-		$existingSqlDatabasePassword = "<Azure SQL Database Server login password>"
-		$existingSqlDatabaseName = "<Azure SQL Database name>"
-		
-		$localFolder = "E:\Tutorials\Downloads\" # A temp location for copying files. 
-		$azcopyPath = "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy" # depends on the version, the folder can be different
-		
-		###########################################
-		# (Optional) configure the following variables
-		###########################################
-		
-		$namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
+        $subscriptionID = "<Azure Subscription ID>"
+        $nameToken = "<Enter an Alias>" 
+        
+        ###########################################
+        # You must configure the follwing variables
+        # for an existing Azure SQL Database
+        ###########################################
+        $existingSqlDatabaseServerName = "<Azure SQL Database Server>"
+        $existingSqlDatabaseLogin = "<Azure SQL Database Server Login>"
+        $existingSqlDatabasePassword = "<Azure SQL Database Server login password>"
+        $existingSqlDatabaseName = "<Azure SQL Database name>"
+        
+        $localFolder = "E:\Tutorials\Downloads\" # A temp location for copying files. 
+        $azcopyPath = "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy" # depends on the version, the folder can be different
+        
+        ###########################################
+        # (Optional) configure the following variables
+        ###########################################
+        
+        $namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
 
-		$resourceGroupName = $namePrefix + "rg"
-		$location = "EAST US 2"
-		
-		$HDInsightClusterName = $namePrefix + "hdi"
-		$httpUserName = "admin"
-		$httpPassword = "Pass@word111"
-		
-		$defaultStorageAccountName = $namePrefix + "store"
-		$defaultBlobContainerName = $HDInsightClusterName # use the cluster name
-		
-		$existingSqlDatabaseTableName = "AvgDelays"
-		$sqlDatabaseConnectionString = "jdbc:sqlserver://$existingSqlDatabaseServerName.database.windows.net;user=$existingSqlDatabaseLogin@$existingSqlDatabaseServerName;password=$existingSqlDatabaseLogin;database=$existingSqlDatabaseName"
-		
-		$hqlScriptFile = "/tutorials/flightdelays/flightdelays.hql" 
-		
-		$jobStatusFolder = "/tutorials/flightdelays/jobstatus"
-		
-		###########################################
-		# Login
-		###########################################
-		try{
-			$acct = Get-AzureRmSubscription
-		}
-		catch{
-			Login-AzureRmAccount
-		}
-		Select-AzureRmSubscription -SubscriptionID $subscriptionID
-		
-		###########################################
-		# Create a new HDInsight cluster
-		###########################################
-		
-		# Create ARM group
-		New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
-		
-		# Create the default storage account
-		New-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName -Location $location -Type Standard_LRS
-		
-		# Create the default Blob container
-		$defaultStorageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName |  %{ $_.Key1 }
-		$defaultStorageAccountContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey 
-		New-AzureStorageContainer -Name $defaultBlobContainerName -Context $defaultStorageAccountContext 
-		
-		# Create the HDInsight cluster
-		$pw = ConvertTo-SecureString -String $httpPassword -AsPlainText -Force
-		$httpCredential = New-Object System.Management.Automation.PSCredential($httpUserName,$pw)
-		
-		New-AzureRmHDInsightCluster `
-			-ResourceGroupName $resourceGroupName `
-			-ClusterName $HDInsightClusterName `
-			-Location $location `
-			-ClusterType Hadoop `
-			-OSType Windows `
-			-ClusterSizeInNodes 2 `
-			-HttpCredential $httpCredential `
-			-DefaultStorageAccountName "$defaultStorageAccountName.blob.core.windows.net" `
-			-DefaultStorageAccountKey $defaultStorageAccountKey `
-			-DefaultStorageContainer $existingDefaultBlobContainerName 
-		
-		
-		###########################################
-		# Prepare the HiveQL script and source data
-		###########################################
-		
-		# Create the temp location  
-		New-Item -Path $localFolder -ItemType Directory -Force 
-		
-		# Download the sample file from Azure Blob storage
-		$context = New-AzureStorageContext -StorageAccountName "hditutorialdata" -Anonymous
-		$blobs = Get-AzureStorageBlob -Container "flightdelay" -Context $context
-		#$blobs | Get-AzureStorageBlobContent -Context $context -Destination $localFolder
-		
-		# Upload data to default container
-		
-		$azcopycmd = "cmd.exe /C '$azcopyPath\azcopy.exe' /S /Source:'$localFolder' /Dest:'https://$defaultStorageAccountName.blob.core.windows.net/$defaultBlobContainerName/tutorials/flightdelays' /DestKey:$defaultStorageAccountKey"
-		
-		Invoke-Expression -Command:$azcopycmd
-		
-		###########################################
-		# Submit the Hive job
-		###########################################
-		Use-AzureRmHDInsightCluster -ClusterName $HDInsightClusterName -HttpCredential $httpCredential
-		$response = Invoke-AzureRmHDInsightHiveJob `
-						-Files $hqlScriptFile `
-						-DefaultContainer $defaultBlobContainerName `
-						-DefaultStorageAccountName $defaultStorageAccountName `
-						-DefaultStorageAccountKey $defaultStorageAccountKey `
-						-StatusFolder $jobStatusFolder 
-		
-		write-Host $response
-		
-		
-		###########################################
-		# Submit the Sqoop job
-		###########################################
-		$exportDir = "wasb://$defaultBlobContainerName@$defaultStorageAccountName.blob.core.windows.net/tutorials/flightdelays/output"
-		
-		$sqoopDef = New-AzureRmHDInsightSqoopJobDefinition `
-						-Command "export --connect $sqlDatabaseConnectionString --table $sqlDatabaseTableName --export-dir $exportDir --fields-terminated-by \001 "
-		$sqoopJob = Start-AzureRmHDInsightJob `
-						-ResourceGroupName $resourceGroupName `
-						-ClusterName $hdinsightClusterName `
-						-HttpCredential $httpCredential `
-						-JobDefinition $sqoopDef #-Debug -Verbose
-		
-		Wait-AzureRmHDInsightJob `
-			-ResourceGroupName $resourceGroupName `
-			-ClusterName $HDInsightClusterName `
-			-HttpCredential $httpCredential `
-			-WaitTimeoutInSeconds 3600 `
-			-Job $sqoopJob.JobId
-		
-		
-		Get-AzureRmHDInsightJobOutput `
-			-ResourceGroupName $resourceGroupName `
-			-ClusterName $hdinsightClusterName `
-			-HttpCredential $httpCredential `
-			-DefaultContainer $existingDefaultBlobContainerName `
-			-DefaultStorageAccountName $defaultStorageAccountName `
-			-DefaultStorageAccountKey $defaultStorageAccountKey `
-			-JobId $sqoopJob.JobId `
-			-DisplayOutputType StandardError
-		
-		###########################################
-		# Delete the cluster
-		###########################################
-		Remove-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $hdinsightClusterName
+        $resourceGroupName = $namePrefix + "rg"
+        $location = "EAST US 2"
+        
+        $HDInsightClusterName = $namePrefix + "hdi"
+        $httpUserName = "admin"
+        $httpPassword = "Pass@word111"
+        
+        $defaultStorageAccountName = $namePrefix + "store"
+        $defaultBlobContainerName = $HDInsightClusterName # use the cluster name
+        
+        $existingSqlDatabaseTableName = "AvgDelays"
+        $sqlDatabaseConnectionString = "jdbc:sqlserver://$existingSqlDatabaseServerName.database.windows.net;user=$existingSqlDatabaseLogin@$existingSqlDatabaseServerName;password=$existingSqlDatabaseLogin;database=$existingSqlDatabaseName"
+        
+        $hqlScriptFile = "/tutorials/flightdelays/flightdelays.hql" 
+        
+        $jobStatusFolder = "/tutorials/flightdelays/jobstatus"
+        
+        ###########################################
+        # Login
+        ###########################################
+        try{
+            $acct = Get-AzureRmSubscription
+        }
+        catch{
+            Login-AzureRmAccount
+        }
+        Select-AzureRmSubscription -SubscriptionID $subscriptionID
+        
+        ###########################################
+        # Create a new HDInsight cluster
+        ###########################################
+        
+        # Create ARM group
+        New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+        
+        # Create the default storage account
+        New-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName -Location $location -Type Standard_LRS
+        
+        # Create the default Blob container
+        $defaultStorageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName |  %{ $_.Key1 }
+        $defaultStorageAccountContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey 
+        New-AzureStorageContainer -Name $defaultBlobContainerName -Context $defaultStorageAccountContext 
+        
+        # Create the HDInsight cluster
+        $pw = ConvertTo-SecureString -String $httpPassword -AsPlainText -Force
+        $httpCredential = New-Object System.Management.Automation.PSCredential($httpUserName,$pw)
+        
+        New-AzureRmHDInsightCluster `
+            -ResourceGroupName $resourceGroupName `
+            -ClusterName $HDInsightClusterName `
+            -Location $location `
+            -ClusterType Hadoop `
+            -OSType Windows `
+            -ClusterSizeInNodes 2 `
+            -HttpCredential $httpCredential `
+            -DefaultStorageAccountName "$defaultStorageAccountName.blob.core.windows.net" `
+            -DefaultStorageAccountKey $defaultStorageAccountKey `
+            -DefaultStorageContainer $existingDefaultBlobContainerName 
+        
+        
+        ###########################################
+        # Prepare the HiveQL script and source data
+        ###########################################
+        
+        # Create the temp location  
+        New-Item -Path $localFolder -ItemType Directory -Force 
+        
+        # Download the sample file from Azure Blob storage
+        $context = New-AzureStorageContext -StorageAccountName "hditutorialdata" -Anonymous
+        $blobs = Get-AzureStorageBlob -Container "flightdelay" -Context $context
+        #$blobs | Get-AzureStorageBlobContent -Context $context -Destination $localFolder
+        
+        # Upload data to default container
+        
+        $azcopycmd = "cmd.exe /C '$azcopyPath\azcopy.exe' /S /Source:'$localFolder' /Dest:'https://$defaultStorageAccountName.blob.core.windows.net/$defaultBlobContainerName/tutorials/flightdelays' /DestKey:$defaultStorageAccountKey"
+        
+        Invoke-Expression -Command:$azcopycmd
+        
+        ###########################################
+        # Submit the Hive job
+        ###########################################
+        Use-AzureRmHDInsightCluster -ClusterName $HDInsightClusterName -HttpCredential $httpCredential
+        $response = Invoke-AzureRmHDInsightHiveJob `
+                        -Files $hqlScriptFile `
+                        -DefaultContainer $defaultBlobContainerName `
+                        -DefaultStorageAccountName $defaultStorageAccountName `
+                        -DefaultStorageAccountKey $defaultStorageAccountKey `
+                        -StatusFolder $jobStatusFolder 
+        
+        write-Host $response
+        
+        
+        ###########################################
+        # Submit the Sqoop job
+        ###########################################
+        $exportDir = "wasb://$defaultBlobContainerName@$defaultStorageAccountName.blob.core.windows.net/tutorials/flightdelays/output"
+        
+        $sqoopDef = New-AzureRmHDInsightSqoopJobDefinition `
+                        -Command "export --connect $sqlDatabaseConnectionString --table $sqlDatabaseTableName --export-dir $exportDir --fields-terminated-by \001 "
+        $sqoopJob = Start-AzureRmHDInsightJob `
+                        -ResourceGroupName $resourceGroupName `
+                        -ClusterName $hdinsightClusterName `
+                        -HttpCredential $httpCredential `
+                        -JobDefinition $sqoopDef #-Debug -Verbose
+        
+        Wait-AzureRmHDInsightJob `
+            -ResourceGroupName $resourceGroupName `
+            -ClusterName $HDInsightClusterName `
+            -HttpCredential $httpCredential `
+            -WaitTimeoutInSeconds 3600 `
+            -Job $sqoopJob.JobId
+        
+        
+        Get-AzureRmHDInsightJobOutput `
+            -ResourceGroupName $resourceGroupName `
+            -ClusterName $hdinsightClusterName `
+            -HttpCredential $httpCredential `
+            -DefaultContainer $existingDefaultBlobContainerName `
+            -DefaultStorageAccountName $defaultStorageAccountName `
+            -DefaultStorageAccountKey $defaultStorageAccountKey `
+            -JobId $sqoopJob.JobId `
+            -DisplayOutputType StandardError
+        
+        ###########################################
+        # Delete the cluster
+        ###########################################
+        Remove-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $hdinsightClusterName
 
 6. Connect to your SQL database and see average flight delays by city in the AvgDelays table:
 
-	![HDI.FlightDelays.AvgDelays.Dataset][image-hdi-flightdelays-avgdelays-dataset]
+    ![HDI.FlightDelays.AvgDelays.Dataset][image-hdi-flightdelays-avgdelays-dataset]
 
 
 
@@ -253,96 +253,96 @@ Uploading the data file and the HiveQL script files (see [Appendix B](#appendix-
 1. Browse to [Research and Innovative Technology Administration, Bureau of Transportation Statistics][rita-website].
 2. On the page, select the following values:
 
-	<table border="1">
-	<tr><th>Name</th><th>Value</th></tr>
-	<tr><td>Filter Year</td><td>2013 </td></tr>
-	<tr><td>Filter Period</td><td>January</td></tr>
-	<tr><td>Fields</td><td>*Year*, *FlightDate*, *UniqueCarrier*, *Carrier*, *FlightNum*, *OriginAirportID*, *Origin*, *OriginCityName*, *OriginState*, *DestAirportID*, *Dest*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*, *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*, *LateAircraftDelay* (clear all other fields)</td></tr>
-	</table>
+    <table border="1">
+    <tr><th>Name</th><th>Value</th></tr>
+    <tr><td>Filter Year</td><td>2013 </td></tr>
+    <tr><td>Filter Period</td><td>January</td></tr>
+    <tr><td>Fields</td><td>*Year*, *FlightDate*, *UniqueCarrier*, *Carrier*, *FlightNum*, *OriginAirportID*, *Origin*, *OriginCityName*, *OriginState*, *DestAirportID*, *Dest*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*, *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*, *LateAircraftDelay* (clear all other fields)</td></tr>
+    </table>
 
 3. Click **Download**.
 4. Unzip the file to the **C:\Tutorials\FlightDelay\2013Data** folder. Each file is a CSV file and is approximately 60GB in size.
-5.	Rename the file to the name of the month that it contains data for. For example, the file containing the January data would be named *January.csv*.
+5.  Rename the file to the name of the month that it contains data for. For example, the file containing the January data would be named *January.csv*.
 6. Repeat steps 2 and 5 to download a file for each of the 12 months in 2013. You will need a minimum of one file to run the tutorial.  
 
 **To upload the flight delay data to Azure Blob storage**
 
 1. Prepare the parameters:
 
-	<table border="1">
-	<tr><th>Variable Name</th><th>Notes</th></tr>
-	<tr><td>$storageAccountName</td><td>The Azure Storage account where you want to upload the data to.</td></tr>
-	<tr><td>$blobContainerName</td><td>The Blob container where you want to upload the data to.</td></tr>
-	</table>
+    <table border="1">
+    <tr><th>Variable Name</th><th>Notes</th></tr>
+    <tr><td>$storageAccountName</td><td>The Azure Storage account where you want to upload the data to.</td></tr>
+    <tr><td>$blobContainerName</td><td>The Blob container where you want to upload the data to.</td></tr>
+    </table>
 2. Open Azure PowerShell ISE.
 3. Paste the following script into the script pane:
 
-		[CmdletBinding()]
-		Param(
+        [CmdletBinding()]
+        Param(
 
-		    [Parameter(Mandatory=$True,
-		               HelpMessage="Enter the Azure storage account name for creating a new HDInsight cluster. If the account doesn't exist, the script will create one.")]
-		    [String]$storageAccountName,
+            [Parameter(Mandatory=$True,
+                       HelpMessage="Enter the Azure storage account name for creating a new HDInsight cluster. If the account doesn't exist, the script will create one.")]
+            [String]$storageAccountName,
 
-		    [Parameter(Mandatory=$True,
-		               HelpMessage="Enter the Azure blob container name for creating a new HDInsight cluster. If not specified, the HDInsight cluster name will be used.")]
-		    [String]$blobContainerName
-		)
+            [Parameter(Mandatory=$True,
+                       HelpMessage="Enter the Azure blob container name for creating a new HDInsight cluster. If not specified, the HDInsight cluster name will be used.")]
+            [String]$blobContainerName
+        )
 
-		#Region - Variables
-		$localFolder = "C:\Tutorials\FlightDelay\2013Data"  # The source folder
-		$destFolder = "tutorials/flightdelay/2013data"     #The blob name prefix for the files to be uploaded
-		#EndRegion
-		
-		#Region - Connect to Azure subscription
-		Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
-		try{Get-AzureRmContext}
-		catch{Login-AzureRmAccount}
-		#EndRegion
-		
-		#Region - Validate user input
-		Write-Host "`nValidating the Azure Storage account and the Blob container..." -ForegroundColor Green
-		# Validate the Storage account
-		if (-not (Get-AzureRmStorageAccount|Where-Object{$_.StorageAccountName -eq $storageAccountName}))
-		{
-			Write-Host "The storage account, $storageAccountName, doesn't exist." -ForegroundColor Red
-			exit
-		}
-		else{
-			$resourceGroupName = (Get-AzureRmStorageAccount|Where-Object{$_.StorageAccountName -eq $storageAccountName}).ResourceGroupName
-		}
-		
-		# Validate the container
-		$storageAccountKey = Get-AzureRmStorageAccountKey -StorageAccountName $storageAccountName -ResourceGroupName $resourceGroupName | %{$_.Key1}
-		$storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
-		
-		if (-not (Get-AzureStorageContainer -Context $storageContext |Where-Object{$_.Name -eq $blobContainerName}))
-		{
-			Write-Host "The Blob container, $blobContainerName, doesn't exist" -ForegroundColor Red
-			Exit
-		}
-		#EngRegion
-		
-		#Region - Copy the file from local workstation to Azure Blob storage  
-		if (test-path -Path $localFolder)
-		{
-			foreach ($item in Get-ChildItem -Path $localFolder){
-				$fileName = "$localFolder\$item"
-				$blobName = "$destFolder/$item"
-		
-				Write-Host "Copying $fileName to $blobName" -ForegroundColor Green
-		
-				Set-AzureStorageBlobContent -File $fileName -Container $blobContainerName -Blob $blobName -Context $storageContext
-			}
-		}
-		else
-		{
-			Write-Host "The source folder on the workstation doesn't exist" -ForegroundColor Red
-		}
-		
-		# List the uploaded files on HDInsight
-		Get-AzureStorageBlob -Container $blobContainerName  -Context $storageContext -Prefix $destFolder
-		#EndRegion
+        #Region - Variables
+        $localFolder = "C:\Tutorials\FlightDelay\2013Data"  # The source folder
+        $destFolder = "tutorials/flightdelay/2013data"     #The blob name prefix for the files to be uploaded
+        #EndRegion
+        
+        #Region - Connect to Azure subscription
+        Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
+        try{Get-AzureRmContext}
+        catch{Login-AzureRmAccount}
+        #EndRegion
+        
+        #Region - Validate user input
+        Write-Host "`nValidating the Azure Storage account and the Blob container..." -ForegroundColor Green
+        # Validate the Storage account
+        if (-not (Get-AzureRmStorageAccount|Where-Object{$_.StorageAccountName -eq $storageAccountName}))
+        {
+            Write-Host "The storage account, $storageAccountName, doesn't exist." -ForegroundColor Red
+            exit
+        }
+        else{
+            $resourceGroupName = (Get-AzureRmStorageAccount|Where-Object{$_.StorageAccountName -eq $storageAccountName}).ResourceGroupName
+        }
+        
+        # Validate the container
+        $storageAccountKey = Get-AzureRmStorageAccountKey -StorageAccountName $storageAccountName -ResourceGroupName $resourceGroupName | %{$_.Key1}
+        $storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
+        
+        if (-not (Get-AzureStorageContainer -Context $storageContext |Where-Object{$_.Name -eq $blobContainerName}))
+        {
+            Write-Host "The Blob container, $blobContainerName, doesn't exist" -ForegroundColor Red
+            Exit
+        }
+        #EngRegion
+        
+        #Region - Copy the file from local workstation to Azure Blob storage  
+        if (test-path -Path $localFolder)
+        {
+            foreach ($item in Get-ChildItem -Path $localFolder){
+                $fileName = "$localFolder\$item"
+                $blobName = "$destFolder/$item"
+        
+                Write-Host "Copying $fileName to $blobName" -ForegroundColor Green
+        
+                Set-AzureStorageBlobContent -File $fileName -Container $blobContainerName -Blob $blobName -Context $storageContext
+            }
+        }
+        else
+        {
+            Write-Host "The source folder on the workstation doesn't exist" -ForegroundColor Red
+        }
+        
+        # List the uploaded files on HDInsight
+        Get-AzureStorageBlob -Container $blobContainerName  -Context $storageContext -Prefix $destFolder
+        #EndRegion
 
 
 
@@ -351,7 +351,7 @@ Uploading the data file and the HiveQL script files (see [Appendix B](#appendix-
 
 If you choose to use a different method for uploading the files, please make sure the file path is tutorials/flightdelay/data. The syntax for accessing the files is:
 
-	wasb://<ContainerName>@<StorageAccountName>.blob.core.windows.net/tutorials/flightdelay/data
+    wasb://<ContainerName>@<StorageAccountName>.blob.core.windows.net/tutorials/flightdelay/data
 
 The path tutorials/flightdelay/data is the virtual folder you created when you uploaded the files. Verify that there are 12 files, one for each month.
 
@@ -378,185 +378,185 @@ For a full list of the HiveQL commands, see [Hive Data Definition Language][hado
 
 1. Prepare the parameters:
 
-	<table border="1">
-	<tr><th>Variable Name</th><th>Notes</th></tr>
-	<tr><td>$storageAccountName</td><td>The Azure Storage account where you want to upload the HiveQL script to.</td></tr>
-	<tr><td>$blobContainerName</td><td>The Blob container where you want to upload the HiveQL script to.</td></tr>
-	</table>
+    <table border="1">
+    <tr><th>Variable Name</th><th>Notes</th></tr>
+    <tr><td>$storageAccountName</td><td>The Azure Storage account where you want to upload the HiveQL script to.</td></tr>
+    <tr><td>$blobContainerName</td><td>The Blob container where you want to upload the HiveQL script to.</td></tr>
+    </table>
 2. Open Azure PowerShell ISE.
 
 3. Copy and paste the following script into the script pane:
 
-		[CmdletBinding()]
-		Param(
+        [CmdletBinding()]
+        Param(
 
-		    # Azure Blob storage variables
-		    [Parameter(Mandatory=$True,
-		               HelpMessage="Enter the Azure storage account name for creating a new HDInsight cluster. If the account doesn't exist, the script will create one.")]
-		    [String]$storageAccountName,
+            # Azure Blob storage variables
+            [Parameter(Mandatory=$True,
+                       HelpMessage="Enter the Azure storage account name for creating a new HDInsight cluster. If the account doesn't exist, the script will create one.")]
+            [String]$storageAccountName,
 
-		    [Parameter(Mandatory=$True,
-		               HelpMessage="Enter the Azure blob container name for creating a new HDInsight cluster. If not specified, the HDInsight cluster name will be used.")]
-		    [String]$blobContainerName
-		)
+            [Parameter(Mandatory=$True,
+                       HelpMessage="Enter the Azure blob container name for creating a new HDInsight cluster. If not specified, the HDInsight cluster name will be used.")]
+            [String]$blobContainerName
+        )
 
-		#region - Define variables
-		# Treat all errors as terminating
-		$ErrorActionPreference = "Stop"
-		
-		# The HiveQL script file is exported as this file before it's uploaded to Blob storage
-		$hqlLocalFileName = "e:\tutorials\flightdelay\flightdelays.hql"
-		
-		# The HiveQL script file will be uploaded to Blob storage as this blob name
-		$hqlBlobName = "tutorials/flightdelay/flightdelays.hql"
-		
-		# These two constants are used by the HiveQL script file
-		#$srcDataFolder = "tutorials/flightdelay/data"
-		$dstDataFolder = "/tutorials/flightdelay/output"
-		#endregion
+        #region - Define variables
+        # Treat all errors as terminating
+        $ErrorActionPreference = "Stop"
+        
+        # The HiveQL script file is exported as this file before it's uploaded to Blob storage
+        $hqlLocalFileName = "e:\tutorials\flightdelay\flightdelays.hql"
+        
+        # The HiveQL script file will be uploaded to Blob storage as this blob name
+        $hqlBlobName = "tutorials/flightdelay/flightdelays.hql"
+        
+        # These two constants are used by the HiveQL script file
+        #$srcDataFolder = "tutorials/flightdelay/data"
+        $dstDataFolder = "/tutorials/flightdelay/output"
+        #endregion
 
-		#Region - Connect to Azure subscription
-		Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
-		try{Get-AzureRmContext}
-		catch{Login-AzureRmAccount}
-		#EndRegion
-		
-		#Region - Validate user input
-		Write-Host "`nValidating the Azure Storage account and the Blob container..." -ForegroundColor Green
-		# Validate the Storage account
-		if (-not (Get-AzureRmStorageAccount|Where-Object{$_.StorageAccountName -eq $storageAccountName}))
-		{
-			Write-Host "The storage account, $storageAccountName, doesn't exist." -ForegroundColor Red
-			exit
-		}
-		else{
-			$resourceGroupName = (Get-AzureRmStorageAccount|Where-Object{$_.StorageAccountName -eq $storageAccountName}).ResourceGroupName
-		}
-		
-		# Validate the container
-		$storageAccountKey = Get-AzureRmStorageAccountKey -StorageAccountName $storageAccountName -ResourceGroupName $resourceGroupName | %{$_.Key1}
-		$storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
-		
-		if (-not (Get-AzureStorageContainer -Context $storageContext |Where-Object{$_.Name -eq $blobContainerName}))
-		{
-			Write-Host "The Blob container, $blobContainerName, doesn't exist" -ForegroundColor Red
-			Exit
-		}
-		#EngRegion
-		
-		#region - Validate the file and file path
-		
-		# Check if a file with the same file name already exists on the workstation
-		Write-Host "`nvalidating the folder structure on the workstation for saving the HQL script file ..."  -ForegroundColor Green
-		if (test-path $hqlLocalFileName){
-		
-			$isDelete = Read-Host 'The file, ' $hqlLocalFileName ', exists.  Do you want to overwirte it? (Y/N)'
-		
-			if ($isDelete.ToLower() -ne "y")
-			{
-				Exit
-			}
-		}
-		
-		# Create the folder if it doesn't exist
-		$folder = split-path $hqlLocalFileName
-		if (-not (test-path $folder))
-		{
-			Write-Host "`nCreating folder, $folder ..." -ForegroundColor Green
-		
-			new-item $folder -ItemType directory  
-		}
-		#end region
-		
-		#region - Write the Hive script into a local file
-		Write-Host "`nWriting the Hive script into a file on your workstation ..." `
-					-ForegroundColor Green
-		
-		$hqlDropDelaysRaw = "DROP TABLE delays_raw;"
-		
-		$hqlCreateDelaysRaw = "CREATE EXTERNAL TABLE delays_raw (" +
-				"YEAR string, " +
-				"FL_DATE string, " +
-				"UNIQUE_CARRIER string, " +
-				"CARRIER string, " +
-				"FL_NUM string, " +
-				"ORIGIN_AIRPORT_ID string, " +
-				"ORIGIN string, " +
-				"ORIGIN_CITY_NAME string, " +
-				"ORIGIN_CITY_NAME_TEMP string, " +
-				"ORIGIN_STATE_ABR string, " +
-				"DEST_AIRPORT_ID string, " +
-				"DEST string, " +
-				"DEST_CITY_NAME string, " +
-				"DEST_CITY_NAME_TEMP string, " +
-				"DEST_STATE_ABR string, " +
-				"DEP_DELAY_NEW float, " +
-				"ARR_DELAY_NEW float, " +
-				"CARRIER_DELAY float, " +
-				"WEATHER_DELAY float, " +
-				"NAS_DELAY float, " +
-				"SECURITY_DELAY float, " +
-				"LATE_AIRCRAFT_DELAY float) " +
-			"ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' " +
-			"LINES TERMINATED BY '\n' " +
-			"STORED AS TEXTFILE " +
-			"LOCATION 'wasb://flightdelay@hditutorialdata.blob.core.windows.net/2013Data';"
-		
-		$hqlDropDelays = "DROP TABLE delays;"
-		
-		$hqlCreateDelays = "CREATE TABLE delays AS " +
-			"SELECT YEAR AS year, " +
-				"FL_DATE AS flight_date, " +
-				"substring(UNIQUE_CARRIER, 2, length(UNIQUE_CARRIER) -1) AS unique_carrier, " +
-				"substring(CARRIER, 2, length(CARRIER) -1) AS carrier, " +
-				"substring(FL_NUM, 2, length(FL_NUM) -1) AS flight_num, " +
-				"ORIGIN_AIRPORT_ID AS origin_airport_id, " +
-				"substring(ORIGIN, 2, length(ORIGIN) -1) AS origin_airport_code, " +
-				"substring(ORIGIN_CITY_NAME, 2) AS origin_city_name, " +
-				"substring(ORIGIN_STATE_ABR, 2, length(ORIGIN_STATE_ABR) -1)  AS origin_state_abr, " +
-				"DEST_AIRPORT_ID AS dest_airport_id, " +
-				"substring(DEST, 2, length(DEST) -1) AS dest_airport_code, " +
-				"substring(DEST_CITY_NAME,2) AS dest_city_name, " +
-				"substring(DEST_STATE_ABR, 2, length(DEST_STATE_ABR) -1) AS dest_state_abr, " +
-				"DEP_DELAY_NEW AS dep_delay_new, " +
-				"ARR_DELAY_NEW AS arr_delay_new, " +
-				"CARRIER_DELAY AS carrier_delay, " +
-				"WEATHER_DELAY AS weather_delay, " +
-				"NAS_DELAY AS nas_delay, " +
-				"SECURITY_DELAY AS security_delay, " +
-				"LATE_AIRCRAFT_DELAY AS late_aircraft_delay " +
-			"FROM delays_raw;"
-		
-		$hqlInsertLocal = "INSERT OVERWRITE DIRECTORY '$dstDataFolder' " +
-			"SELECT regexp_replace(origin_city_name, '''', ''), " +
-				"avg(weather_delay) " +
-			"FROM delays " +
-			"WHERE weather_delay IS NOT NULL " +
-			"GROUP BY origin_city_name;"
-		
-		$hqlScript = $hqlDropDelaysRaw + $hqlCreateDelaysRaw + $hqlDropDelays + $hqlCreateDelays + $hqlInsertLocal
-		
-		$hqlScript | Out-File $hqlLocalFileName -Encoding ascii -Force
-		#endregion
-		
-		#region - Upload the Hive script to the default Blob container
-		Write-Host "`nUploading the Hive script to the default Blob container ..." -ForegroundColor Green
-		
-		# Create a storage context object
-		$storageAccountKey = Get-AzureRmStorageAccountKey -StorageAccountName $storageAccountName -ResourceGroupName $resourceGroupName | %{$_.Key1}
-		$destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
-		
-		# Upload the file from local workstation to Blob storage
-		Set-AzureStorageBlobContent -File $hqlLocalFileName -Container $blobContainerName -Blob $hqlBlobName -Context $destContext
-		#endregion
-		
-		Write-host "`nEnd of the PowerShell script" -ForegroundColor Green
+        #Region - Connect to Azure subscription
+        Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
+        try{Get-AzureRmContext}
+        catch{Login-AzureRmAccount}
+        #EndRegion
+        
+        #Region - Validate user input
+        Write-Host "`nValidating the Azure Storage account and the Blob container..." -ForegroundColor Green
+        # Validate the Storage account
+        if (-not (Get-AzureRmStorageAccount|Where-Object{$_.StorageAccountName -eq $storageAccountName}))
+        {
+            Write-Host "The storage account, $storageAccountName, doesn't exist." -ForegroundColor Red
+            exit
+        }
+        else{
+            $resourceGroupName = (Get-AzureRmStorageAccount|Where-Object{$_.StorageAccountName -eq $storageAccountName}).ResourceGroupName
+        }
+        
+        # Validate the container
+        $storageAccountKey = Get-AzureRmStorageAccountKey -StorageAccountName $storageAccountName -ResourceGroupName $resourceGroupName | %{$_.Key1}
+        $storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
+        
+        if (-not (Get-AzureStorageContainer -Context $storageContext |Where-Object{$_.Name -eq $blobContainerName}))
+        {
+            Write-Host "The Blob container, $blobContainerName, doesn't exist" -ForegroundColor Red
+            Exit
+        }
+        #EngRegion
+        
+        #region - Validate the file and file path
+        
+        # Check if a file with the same file name already exists on the workstation
+        Write-Host "`nvalidating the folder structure on the workstation for saving the HQL script file ..."  -ForegroundColor Green
+        if (test-path $hqlLocalFileName){
+        
+            $isDelete = Read-Host 'The file, ' $hqlLocalFileName ', exists.  Do you want to overwirte it? (Y/N)'
+        
+            if ($isDelete.ToLower() -ne "y")
+            {
+                Exit
+            }
+        }
+        
+        # Create the folder if it doesn't exist
+        $folder = split-path $hqlLocalFileName
+        if (-not (test-path $folder))
+        {
+            Write-Host "`nCreating folder, $folder ..." -ForegroundColor Green
+        
+            new-item $folder -ItemType directory  
+        }
+        #end region
+        
+        #region - Write the Hive script into a local file
+        Write-Host "`nWriting the Hive script into a file on your workstation ..." `
+                    -ForegroundColor Green
+        
+        $hqlDropDelaysRaw = "DROP TABLE delays_raw;"
+        
+        $hqlCreateDelaysRaw = "CREATE EXTERNAL TABLE delays_raw (" +
+                "YEAR string, " +
+                "FL_DATE string, " +
+                "UNIQUE_CARRIER string, " +
+                "CARRIER string, " +
+                "FL_NUM string, " +
+                "ORIGIN_AIRPORT_ID string, " +
+                "ORIGIN string, " +
+                "ORIGIN_CITY_NAME string, " +
+                "ORIGIN_CITY_NAME_TEMP string, " +
+                "ORIGIN_STATE_ABR string, " +
+                "DEST_AIRPORT_ID string, " +
+                "DEST string, " +
+                "DEST_CITY_NAME string, " +
+                "DEST_CITY_NAME_TEMP string, " +
+                "DEST_STATE_ABR string, " +
+                "DEP_DELAY_NEW float, " +
+                "ARR_DELAY_NEW float, " +
+                "CARRIER_DELAY float, " +
+                "WEATHER_DELAY float, " +
+                "NAS_DELAY float, " +
+                "SECURITY_DELAY float, " +
+                "LATE_AIRCRAFT_DELAY float) " +
+            "ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' " +
+            "LINES TERMINATED BY '\n' " +
+            "STORED AS TEXTFILE " +
+            "LOCATION 'wasb://flightdelay@hditutorialdata.blob.core.windows.net/2013Data';"
+        
+        $hqlDropDelays = "DROP TABLE delays;"
+        
+        $hqlCreateDelays = "CREATE TABLE delays AS " +
+            "SELECT YEAR AS year, " +
+                "FL_DATE AS flight_date, " +
+                "substring(UNIQUE_CARRIER, 2, length(UNIQUE_CARRIER) -1) AS unique_carrier, " +
+                "substring(CARRIER, 2, length(CARRIER) -1) AS carrier, " +
+                "substring(FL_NUM, 2, length(FL_NUM) -1) AS flight_num, " +
+                "ORIGIN_AIRPORT_ID AS origin_airport_id, " +
+                "substring(ORIGIN, 2, length(ORIGIN) -1) AS origin_airport_code, " +
+                "substring(ORIGIN_CITY_NAME, 2) AS origin_city_name, " +
+                "substring(ORIGIN_STATE_ABR, 2, length(ORIGIN_STATE_ABR) -1)  AS origin_state_abr, " +
+                "DEST_AIRPORT_ID AS dest_airport_id, " +
+                "substring(DEST, 2, length(DEST) -1) AS dest_airport_code, " +
+                "substring(DEST_CITY_NAME,2) AS dest_city_name, " +
+                "substring(DEST_STATE_ABR, 2, length(DEST_STATE_ABR) -1) AS dest_state_abr, " +
+                "DEP_DELAY_NEW AS dep_delay_new, " +
+                "ARR_DELAY_NEW AS arr_delay_new, " +
+                "CARRIER_DELAY AS carrier_delay, " +
+                "WEATHER_DELAY AS weather_delay, " +
+                "NAS_DELAY AS nas_delay, " +
+                "SECURITY_DELAY AS security_delay, " +
+                "LATE_AIRCRAFT_DELAY AS late_aircraft_delay " +
+            "FROM delays_raw;"
+        
+        $hqlInsertLocal = "INSERT OVERWRITE DIRECTORY '$dstDataFolder' " +
+            "SELECT regexp_replace(origin_city_name, '''', ''), " +
+                "avg(weather_delay) " +
+            "FROM delays " +
+            "WHERE weather_delay IS NOT NULL " +
+            "GROUP BY origin_city_name;"
+        
+        $hqlScript = $hqlDropDelaysRaw + $hqlCreateDelaysRaw + $hqlDropDelays + $hqlCreateDelays + $hqlInsertLocal
+        
+        $hqlScript | Out-File $hqlLocalFileName -Encoding ascii -Force
+        #endregion
+        
+        #region - Upload the Hive script to the default Blob container
+        Write-Host "`nUploading the Hive script to the default Blob container ..." -ForegroundColor Green
+        
+        # Create a storage context object
+        $storageAccountKey = Get-AzureRmStorageAccountKey -StorageAccountName $storageAccountName -ResourceGroupName $resourceGroupName | %{$_.Key1}
+        $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
+        
+        # Upload the file from local workstation to Blob storage
+        Set-AzureStorageBlobContent -File $hqlLocalFileName -Container $blobContainerName -Blob $hqlBlobName -Context $destContext
+        #endregion
+        
+        Write-host "`nEnd of the PowerShell script" -ForegroundColor Green
 
-	Here are the variables used in the script:
+    Here are the variables used in the script:
 
-	- **$hqlLocalFileName** - The script saves the HiveQL script file locally before uploading it to Blob storage. This is the file name. The default value is <u>C:\tutorials\flightdelay\flightdelays.hql</u>.
-	- **$hqlBlobName** - This is the HiveQL script file blob name used in the Azure Blob storage. The default value is tutorials/flightdelay/flightdelays.hql. Because the file will be written directly to Azure Blob storage, there is NOT a "/" at the beginning of the blob name. If you want to access the file from Blob storage, you will need to add a "/" at the beginning of the file name.
-	- **$srcDataFolder** and **$dstDataFolder** - = "tutorials/flightdelay/data"
+    - **$hqlLocalFileName** - The script saves the HiveQL script file locally before uploading it to Blob storage. This is the file name. The default value is <u>C:\tutorials\flightdelay\flightdelays.hql</u>.
+    - **$hqlBlobName** - This is the HiveQL script file blob name used in the Azure Blob storage. The default value is tutorials/flightdelay/flightdelays.hql. Because the file will be written directly to Azure Blob storage, there is NOT a "/" at the beginning of the blob name. If you want to access the file from Blob storage, you will need to add a "/" at the beginning of the file name.
+    - **$srcDataFolder** and **$dstDataFolder** - = "tutorials/flightdelay/data"
  = "tutorials/flightdelay/output"
 
 
@@ -566,145 +566,145 @@ For a full list of the HiveQL commands, see [Hive Data Definition Language][hado
 
 1. Prepare the parameters:
 
-	<table border="1">
-	<tr><th>Variable Name</th><th>Notes</th></tr>
-	<tr><td>$sqlDatabaseServerName</td><td>The name of the Azure SQL database server. Enter nothing to create a new server.</td></tr>
-	<tr><td>$sqlDatabaseUsername</td><td>The login name for the Azure SQL database server. If $sqlDatabaseServerName is an existing server, the login and login password are used to authenticate with the server. Otherwise they are used to create a new server.</td></tr>
-	<tr><td>$sqlDatabasePassword</td><td>The login password for the Azure SQL database server.</td></tr>
-	<tr><td>$sqlDatabaseLocation</td><td>This value is used only when you're creating a new Azure database server.</td></tr>
-	<tr><td>$sqlDatabaseName</td><td>The SQL database used to create the AvgDelays table for the Sqoop job. Leaving it blank will create a database called HDISqoop. The table name for the Sqoop job output is AvgDelays. </td></tr>
-	</table>
+    <table border="1">
+    <tr><th>Variable Name</th><th>Notes</th></tr>
+    <tr><td>$sqlDatabaseServerName</td><td>The name of the Azure SQL database server. Enter nothing to create a new server.</td></tr>
+    <tr><td>$sqlDatabaseUsername</td><td>The login name for the Azure SQL database server. If $sqlDatabaseServerName is an existing server, the login and login password are used to authenticate with the server. Otherwise they are used to create a new server.</td></tr>
+    <tr><td>$sqlDatabasePassword</td><td>The login password for the Azure SQL database server.</td></tr>
+    <tr><td>$sqlDatabaseLocation</td><td>This value is used only when you're creating a new Azure database server.</td></tr>
+    <tr><td>$sqlDatabaseName</td><td>The SQL database used to create the AvgDelays table for the Sqoop job. Leaving it blank will create a database called HDISqoop. The table name for the Sqoop job output is AvgDelays. </td></tr>
+    </table>
 2. Open Azure PowerShell ISE.
 3. Copy and paste the following script into the script pane:
 
-		[CmdletBinding()]
-		Param(
-		
-			# Azure Resource group variables
-			[Parameter(Mandatory=$True,
-					HelpMessage="Enter the Azure resource group name. It will be created if it doesn't exist.")]
-			[String]$resourceGroupName,
-		
-			# SQL database server variables
-			[Parameter(Mandatory=$True,
-					HelpMessage="Enter the Azure SQL Database Server Name. It will be created if it doesn't exist.")]
-			[String]$sqlDatabaseServer, 
-		
-			[Parameter(Mandatory=$True,
-					HelpMessage="Enter the Azure SQL Database admin user.")]
-			[String]$sqlDatabaseLogin,
-		
-			[Parameter(Mandatory=$True,
-					HelpMessage="Enter the Azure SQL Database admin user password.")]
-			[String]$sqlDatabasePassword,
-		
-			[Parameter(Mandatory=$True,
-					HelpMessage="Enter the region to create the Database in.")]
-			[String]$sqlDatabaseLocation,   #For example, West US.
-		
-			# SQL database variables
-			[Parameter(Mandatory=$True,
-					HelpMessage="Enter the database name. It will be created if it doesn't exist.")]
-			[String]$sqlDatabaseName # specify the database name if you have one created. Otherwise use "" to have the script create one for you.
-		)
-		
-		# Treat all errors as terminating
-		$ErrorActionPreference = "Stop"
-		
-		#region - Constants and variables
-		
-		# IP address REST service used for retrieving external IP address and creating firewall rules
-		[String]$ipAddressRestService = "http://bot.whatismyipaddress.com"
-		[String]$fireWallRuleName = "FlightDelay"
-		
-		# SQL database variables
-		[String]$sqlDatabaseMaxSizeGB = 10
-		
-		#SQL query string for creating AvgDelays table
-		[String]$sqlDatabaseTableName = "AvgDelays"
-		[String]$sqlCreateAvgDelaysTable = " CREATE TABLE [dbo].[$sqlDatabaseTableName](
-					[origin_city_name] [nvarchar](50) NOT NULL,
-					[weather_delay] float,
-				CONSTRAINT [PK_$sqlDatabaseTableName] PRIMARY KEY CLUSTERED
-				(
-					[origin_city_name] ASC
-				)
-				)"
-		#endregion
-		
-		#Region - Connect to Azure subscription
-		Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
-		try{Get-AzureRmContext}
-		catch{Login-AzureRmAccount}
-		#EndRegion
-		
-		#region - Create and validate Azure resouce group
-		try{
-			Get-AzureRmResourceGroup -Name $resourceGroupName
-		}
-		catch{
-			New-AzureRmResourceGroup -Name $resourceGroupName -Location $sqlDatabaseLocation
-		}
-		
-		#EndRegion
-		
-		#region - Create and validate Azure SQL database server
-		try{
-			Get-AzureRmSqlServer -ServerName $sqlDatabaseServer -ResourceGroupName $resourceGroupName}
-		catch{
-			Write-Host "`nCreating SQL Database server ..."  -ForegroundColor Green
-		
-			$sqlDatabasePW = ConvertTo-SecureString -String $sqlDatabasePassword -AsPlainText -Force
-			$credential = New-Object System.Management.Automation.PSCredential($sqlDatabaseLogin,$sqlDatabasePW)
-		
-			$sqlDatabaseServer = (New-AzureRmSqlServer -ResourceGroupName $resourceGroupName -ServerName $sqlDatabaseServer -SqlAdministratorCredentials $credential -Location $sqlDatabaseLocation).ServerName
-			Write-Host "`tThe new SQL database server name is $sqlDatabaseServer." -ForegroundColor Cyan
-		
-			Write-Host "`nCreating firewall rule, $fireWallRuleName ..." -ForegroundColor Green
-			$workstationIPAddress = Invoke-RestMethod $ipAddressRestService
-			New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourceGroupName -ServerName $sqlDatabaseServer -FirewallRuleName "$fireWallRuleName-workstation" -StartIpAddress $workstationIPAddress -EndIpAddress $workstationIPAddress
-		
-			#To allow other Azure services to access the server add a firewall rule and set both the StartIpAddress and EndIpAddress to 0.0.0.0. Note that this allows Azure traffic from any Azure subscription to access the server.
-			New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourceGroupName -ServerName $sqlDatabaseServer -FirewallRuleName "$fireWallRuleName-Azureservices" -StartIpAddress "0.0.0.0" -EndIpAddress "0.0.0.0"
-		}
-		
-		#endregion
-		
-		#region - Create and validate Azure SQL database
-		
-		try {
-			Get-AzureRmSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $sqlDatabaseServer -DatabaseName $sqlDatabaseName
-		}
-		catch {
-			Write-Host "`nCreating SQL Database, $sqlDatabaseName ..."  -ForegroundColor Green
-			New-AzureRMSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $sqlDatabaseServer -DatabaseName $sqlDatabaseName -Edition "Standard" -RequestedServiceObjectiveName "S1"
-		}
-		
-		#endregion
-		
-		#region -  Execute an SQL command to create the AvgDelays table
-		
-		Write-Host "`nCreating SQL Database table ..."  -ForegroundColor Green
-		$conn = New-Object System.Data.SqlClient.SqlConnection
-		$conn.ConnectionString = "Data Source=$sqlDatabaseServer.database.windows.net;Initial Catalog=$sqlDatabaseName;User ID=$sqlDatabaseLogin;Password=$sqlDatabasePassword;Encrypt=true;Trusted_Connection=false;"
-		$conn.open()
-		$cmd = New-Object System.Data.SqlClient.SqlCommand
-		$cmd.connection = $conn
-		$cmd.commandtext = $sqlCreateAvgDelaysTable
-		$cmd.executenonquery()
-		
-		$conn.close()
-		
-		Write-host "`nEnd of the PowerShell script" -ForegroundColor Green
+        [CmdletBinding()]
+        Param(
+        
+            # Azure Resource group variables
+            [Parameter(Mandatory=$True,
+                    HelpMessage="Enter the Azure resource group name. It will be created if it doesn't exist.")]
+            [String]$resourceGroupName,
+        
+            # SQL database server variables
+            [Parameter(Mandatory=$True,
+                    HelpMessage="Enter the Azure SQL Database Server Name. It will be created if it doesn't exist.")]
+            [String]$sqlDatabaseServer, 
+        
+            [Parameter(Mandatory=$True,
+                    HelpMessage="Enter the Azure SQL Database admin user.")]
+            [String]$sqlDatabaseLogin,
+        
+            [Parameter(Mandatory=$True,
+                    HelpMessage="Enter the Azure SQL Database admin user password.")]
+            [String]$sqlDatabasePassword,
+        
+            [Parameter(Mandatory=$True,
+                    HelpMessage="Enter the region to create the Database in.")]
+            [String]$sqlDatabaseLocation,   #For example, West US.
+        
+            # SQL database variables
+            [Parameter(Mandatory=$True,
+                    HelpMessage="Enter the database name. It will be created if it doesn't exist.")]
+            [String]$sqlDatabaseName # specify the database name if you have one created. Otherwise use "" to have the script create one for you.
+        )
+        
+        # Treat all errors as terminating
+        $ErrorActionPreference = "Stop"
+        
+        #region - Constants and variables
+        
+        # IP address REST service used for retrieving external IP address and creating firewall rules
+        [String]$ipAddressRestService = "http://bot.whatismyipaddress.com"
+        [String]$fireWallRuleName = "FlightDelay"
+        
+        # SQL database variables
+        [String]$sqlDatabaseMaxSizeGB = 10
+        
+        #SQL query string for creating AvgDelays table
+        [String]$sqlDatabaseTableName = "AvgDelays"
+        [String]$sqlCreateAvgDelaysTable = " CREATE TABLE [dbo].[$sqlDatabaseTableName](
+                    [origin_city_name] [nvarchar](50) NOT NULL,
+                    [weather_delay] float,
+                CONSTRAINT [PK_$sqlDatabaseTableName] PRIMARY KEY CLUSTERED
+                (
+                    [origin_city_name] ASC
+                )
+                )"
+        #endregion
+        
+        #Region - Connect to Azure subscription
+        Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
+        try{Get-AzureRmContext}
+        catch{Login-AzureRmAccount}
+        #EndRegion
+        
+        #region - Create and validate Azure resouce group
+        try{
+            Get-AzureRmResourceGroup -Name $resourceGroupName
+        }
+        catch{
+            New-AzureRmResourceGroup -Name $resourceGroupName -Location $sqlDatabaseLocation
+        }
+        
+        #EndRegion
+        
+        #region - Create and validate Azure SQL database server
+        try{
+            Get-AzureRmSqlServer -ServerName $sqlDatabaseServer -ResourceGroupName $resourceGroupName}
+        catch{
+            Write-Host "`nCreating SQL Database server ..."  -ForegroundColor Green
+        
+            $sqlDatabasePW = ConvertTo-SecureString -String $sqlDatabasePassword -AsPlainText -Force
+            $credential = New-Object System.Management.Automation.PSCredential($sqlDatabaseLogin,$sqlDatabasePW)
+        
+            $sqlDatabaseServer = (New-AzureRmSqlServer -ResourceGroupName $resourceGroupName -ServerName $sqlDatabaseServer -SqlAdministratorCredentials $credential -Location $sqlDatabaseLocation).ServerName
+            Write-Host "`tThe new SQL database server name is $sqlDatabaseServer." -ForegroundColor Cyan
+        
+            Write-Host "`nCreating firewall rule, $fireWallRuleName ..." -ForegroundColor Green
+            $workstationIPAddress = Invoke-RestMethod $ipAddressRestService
+            New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourceGroupName -ServerName $sqlDatabaseServer -FirewallRuleName "$fireWallRuleName-workstation" -StartIpAddress $workstationIPAddress -EndIpAddress $workstationIPAddress
+        
+            #To allow other Azure services to access the server add a firewall rule and set both the StartIpAddress and EndIpAddress to 0.0.0.0. Note that this allows Azure traffic from any Azure subscription to access the server.
+            New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourceGroupName -ServerName $sqlDatabaseServer -FirewallRuleName "$fireWallRuleName-Azureservices" -StartIpAddress "0.0.0.0" -EndIpAddress "0.0.0.0"
+        }
+        
+        #endregion
+        
+        #region - Create and validate Azure SQL database
+        
+        try {
+            Get-AzureRmSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $sqlDatabaseServer -DatabaseName $sqlDatabaseName
+        }
+        catch {
+            Write-Host "`nCreating SQL Database, $sqlDatabaseName ..."  -ForegroundColor Green
+            New-AzureRMSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $sqlDatabaseServer -DatabaseName $sqlDatabaseName -Edition "Standard" -RequestedServiceObjectiveName "S1"
+        }
+        
+        #endregion
+        
+        #region -  Execute an SQL command to create the AvgDelays table
+        
+        Write-Host "`nCreating SQL Database table ..."  -ForegroundColor Green
+        $conn = New-Object System.Data.SqlClient.SqlConnection
+        $conn.ConnectionString = "Data Source=$sqlDatabaseServer.database.windows.net;Initial Catalog=$sqlDatabaseName;User ID=$sqlDatabaseLogin;Password=$sqlDatabasePassword;Encrypt=true;Trusted_Connection=false;"
+        $conn.open()
+        $cmd = New-Object System.Data.SqlClient.SqlCommand
+        $cmd.connection = $conn
+        $cmd.commandtext = $sqlCreateAvgDelaysTable
+        $cmd.executenonquery()
+        
+        $conn.close()
+        
+        Write-host "`nEnd of the PowerShell script" -ForegroundColor Green
 
-	>[AZURE.NOTE] The script uses a representational state transfer (REST) service, http://bot.whatismyipaddress.com, to retrieve your external IP address. The IP address is used for creating a firewall rule for your SQL database server.  
+    >[AZURE.NOTE] The script uses a representational state transfer (REST) service, http://bot.whatismyipaddress.com, to retrieve your external IP address. The IP address is used for creating a firewall rule for your SQL database server.  
 
-	Here are some variables used in the script:
+    Here are some variables used in the script:
 
-	- **$ipAddressRestService** - The default value is http://bot.whatismyipaddress.com. It is a public IP address REST service for getting your external IP address. You can use other services if you want. The external IP address retrieved through the service will be used to create a firewall rule for your Azure SQL database server, so that you can access the database from your workstation (by using a Windows PowerShell script).
-	- **$fireWallRuleName** - This is the name of the firewall rule for the Azure SQL database server. The default name is <u>FlightDelay</u>. You can rename it if you want.
-	- **$sqlDatabaseMaxSizeGB** - This value is used only when you're creating a new Azure SQL database server. The default value is 10GB. 10GB is sufficient for this tutorial.
-	- **$sqlDatabaseName** - This value is used only when you're creating a new Azure SQL database. The default value is HDISqoop. If you rename it, you must update the Sqoop Windows PowerShell script accordingly.
+    - **$ipAddressRestService** - The default value is http://bot.whatismyipaddress.com. It is a public IP address REST service for getting your external IP address. You can use other services if you want. The external IP address retrieved through the service will be used to create a firewall rule for your Azure SQL database server, so that you can access the database from your workstation (by using a Windows PowerShell script).
+    - **$fireWallRuleName** - This is the name of the firewall rule for the Azure SQL database server. The default name is <u>FlightDelay</u>. You can rename it if you want.
+    - **$sqlDatabaseMaxSizeGB** - This value is used only when you're creating a new Azure SQL database server. The default value is 10GB. 10GB is sufficient for this tutorial.
+    - **$sqlDatabaseName** - This value is used only when you're creating a new Azure SQL database. The default value is HDISqoop. If you rename it, you must update the Sqoop Windows PowerShell script accordingly.
 
 4. Press **F5** to run the script.
 5. Validate the script output. Make sure the script ran successfully.
@@ -749,3 +749,4 @@ Now you understand how to upload a file to Azure Blob storage, how to populate a
 [image-hdi-flightdelays-avgdelays-dataset]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.AvgDelays.DataSet.png
 [img-hdi-flightdelays-run-hive-job-output]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.RunHiveJob.Output.png
 [img-hdi-flightdelays-flow]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.Flow.png
+

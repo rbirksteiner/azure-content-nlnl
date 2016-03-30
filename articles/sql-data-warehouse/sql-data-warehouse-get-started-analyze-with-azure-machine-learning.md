@@ -152,3 +152,4 @@ To learn more about building predictive machine learning models, refer to [Intro
 [load sample data manually]: sql-data-warehouse-get-started-manually-load-samples.md
 [Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
 
+

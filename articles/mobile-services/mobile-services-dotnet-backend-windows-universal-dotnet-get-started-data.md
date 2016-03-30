@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Add Mobile Services to an existing universal Windows Store app | Microsoft Azure"
-	description="Learn how to get started using Mobile Services to leverage data in your Windows Store app."
-	services="mobile-services"
-	documentationCenter="windows"
-	authors="ggailey777"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Add Mobile Services to an existing universal Windows Store app | Microsoft Azure"
+    description="Learn how to get started using Mobile Services to leverage data in your Windows Store app."
+    services="mobile-services"
+    documentationCenter="windows"
+    authors="ggailey777"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-windows"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="11/10/2015"
-	ms.author="glenga"/>
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-windows"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="11/10/2015"
+    ms.author="glenga"/>
 
 # Add Mobile Services to an existing app
 
@@ -52,10 +52,10 @@ To complete this tutorial, you need the following:
 
 &nbsp;&nbsp;7. In Solution Explorer, open the App.xaml.cs code file in the GetStartedWithData.Shared project folder, and notice the new static field that was added to the **App** class inside a Windows Store app conditional compilation block, which looks like the following example:
 
-	public static Microsoft.WindowsAzure.MobileServices.MobileServiceClient
-	    todolistClient = new Microsoft.WindowsAzure.MobileServices.MobileServiceClient(
-	        "https://todolist.azure-mobile.net/",
-	        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+    public static Microsoft.WindowsAzure.MobileServices.MobileServiceClient
+        todolistClient = new Microsoft.WindowsAzure.MobileServices.MobileServiceClient(
+            "https://todolist.azure-mobile.net/",
+            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
 
 
 &nbsp;&nbsp;This code provides access to your new mobile service in your app by using an instance of the [MobileServiceClient](http://go.microsoft.com/fwlink/p/?LinkId=302030) class. The client is created by supplying the URI and the application key of the new mobile service. This static field is available to all pages in your app.
@@ -125,3 +125,4 @@ This tutorial demonstrated the basics of enabling a universal Windows app projec
 [Developer Code Samples site]:  http://go.microsoft.com/fwlink/p/?LinkID=510826
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
+

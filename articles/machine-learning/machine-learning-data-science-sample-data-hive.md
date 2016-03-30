@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Sample data in Azure HDInsight Hive tables | Microsoft Azure"
-	description="Down sampling data in Azure HDInsight  (Hadopop) Hive Tables"
-	services="machine-learning,hdinsight"
-	documentationCenter=""
-	authors="hangzh-msft"
-	manager="paulettm" 
-	editor="cgronlun"  />
+    pageTitle="Sample data in Azure HDInsight Hive tables | Microsoft Azure"
+    description="Down sampling data in Azure HDInsight  (Hadopop) Hive Tables"
+    services="machine-learning,hdinsight"
+    documentationCenter=""
+    authors="hangzh-msft"
+    manager="paulettm" 
+    editor="cgronlun"  />
 
 <tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/20/2015"
-	ms.author="hangzh;bradsev" />
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/20/2015"
+    ms.author="hangzh;bradsev" />
 
 # Sample data in Azure HDInsight Hive tables
 
@@ -39,16 +39,16 @@ Uniform random sampling means that each row in the data set has an equal chance 
 
 Here is an example query:
 
-	SET sampleRate=<sample rate, 0-1>;
-	select
-		field1, field2, …, fieldN
-	from
-		(
-		select
-			field1, field2, …, fieldN, rand() as samplekey
-		from <hive table name>
-		)a
-	where samplekey<='${hiveconf:sampleRate}'
+    SET sampleRate=<sample rate, 0-1>;
+    select
+        field1, field2, …, fieldN
+    from
+        (
+        select
+            field1, field2, …, fieldN, rand() as samplekey
+        from <hive table name>
+        )a
+    where samplekey<='${hiveconf:sampleRate}'
 
 Here, `<sample rate, 0-1>` specifies the proportion of records that the users want to sample.
 
@@ -59,29 +59,29 @@ For example, if you have a categorical variable "State", which has values NY, MA
 
 Here is an example query that samples by group:
 
-	SET sampleRate=<sample rate, 0-1>;
+    SET sampleRate=<sample rate, 0-1>;
     select
-		b.field1, b.field2, …, b.catfield, …, b.fieldN
-	from
-		(
-		select
-			field1, field2, …, catfield, …, fieldN
-		from <table name>
-		)b
-	join
-		(
-		select
-			catfield
-		from
-			(
-			select
-				catfield, rand() as samplekey
-			from <table name>
-			group by catfield
-			)a
-		where samplekey<='${hiveconf:sampleRate}'
-		)c
-	on b.catfield=c.catfield
+        b.field1, b.field2, …, b.catfield, …, b.fieldN
+    from
+        (
+        select
+            field1, field2, …, catfield, …, fieldN
+        from <table name>
+        )b
+    join
+        (
+        select
+            catfield
+        from
+            (
+            select
+                catfield, rand() as samplekey
+            from <table name>
+            group by catfield
+            )a
+        where samplekey<='${hiveconf:sampleRate}'
+        )c
+    on b.catfield=c.catfield
 
 ## <a name="stratified"></a>Stratified sampling
 
@@ -89,18 +89,18 @@ Random sampling is stratified with respect to a categorical variable when the sa
 
 Here is an example query:
 
-	SET sampleRate=<sample rate, 0-1>;
+    SET sampleRate=<sample rate, 0-1>;
     select
-		field1, field2, field3, ..., fieldN, state
-	from
-		(
-		select
-			field1, field2, field3, ..., fieldN, state,
-			count(*) over (partition by state) as state_cnt,
-      		rank() over (partition by state order by rand()) as state_rank
-      	from <table name>
-		) a
-	where state_rank <= state_cnt*'${hiveconf:sampleRate}'
+        field1, field2, field3, ..., fieldN, state
+    from
+        (
+        select
+            field1, field2, field3, ..., fieldN, state,
+            count(*) over (partition by state) as state_cnt,
+            rank() over (partition by state order by rand()) as state_rank
+        from <table name>
+        ) a
+    where state_rank <= state_cnt*'${hiveconf:sampleRate}'
 
 
 For information on more advanced sampling methods that are available in Hive, see [LanguageManual Sampling](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Sampling).

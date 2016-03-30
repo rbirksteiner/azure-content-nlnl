@@ -1,20 +1,20 @@
-﻿<properties
-	pageTitle="Troubleshoot Azure virtual machine backup | Microsoft Azure"
-	description="Troubleshoot backup and restore of Azure virtual machines"
-	services="backup"
-	documentationCenter=""
-	authors="trinadhk"
-	manager="shreeshd"
-	editor=""/>
+<properties
+    pageTitle="Troubleshoot Azure virtual machine backup | Microsoft Azure"
+    description="Troubleshoot backup and restore of Azure virtual machines"
+    services="backup"
+    documentationCenter=""
+    authors="trinadhk"
+    manager="shreeshd"
+    editor=""/>
 
 <tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/15/2015"
-	ms.author="trinadhk;aashishr;jimpark"/>
+    ms.service="backup"
+    ms.workload="storage-backup-recovery"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/15/2015"
+    ms.author="trinadhk;aashishr;jimpark"/>
 
 
 # Troubleshoot Azure virtual machine backup
@@ -64,7 +64,7 @@ You can troubleshoot errors encountered while using Azure Backup with informatio
 ## Restore
 | Operation | Error details | Workaround |
 | -------- | -------- | -------|
-| Restore | Restore failed with Cloud Internal error | <ol><li>Cloud service to which you are trying to restore is configured with DNS settings. You can check <br>$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production" 	Get-AzureDns -DnsSettings $deployment.DnsSettings<br>If there is Address configured, this means that DNS settings are configured.<br> <li>Cloud service to which to you are trying to restore is configured with ReservedIP and existing VMs in cloud service are in stopped state.<br>You can check a cloud service has reserved IP by using following powershell cmdlets:<br>$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName <br><li>You are trying to restore a virtual machine with following special network configurations in to same cloud service. <br>- Virtual machines under load balancer configuration ( Internal adn external)<br>- Virtual machines with multiple Reserved IPs<br>- Virtual machines with multiple NICs<br>Please select a new cloud service in the UI or please refer to [restore considerations](backup-azure-restore-vms.md/#restoring-vms-with-special-network-configurations) for VMs with special network configurations</ol> |
+| Restore | Restore failed with Cloud Internal error | <ol><li>Cloud service to which you are trying to restore is configured with DNS settings. You can check <br>$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production"  Get-AzureDns -DnsSettings $deployment.DnsSettings<br>If there is Address configured, this means that DNS settings are configured.<br> <li>Cloud service to which to you are trying to restore is configured with ReservedIP and existing VMs in cloud service are in stopped state.<br>You can check a cloud service has reserved IP by using following powershell cmdlets:<br>$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName <br><li>You are trying to restore a virtual machine with following special network configurations in to same cloud service. <br>- Virtual machines under load balancer configuration ( Internal adn external)<br>- Virtual machines with multiple Reserved IPs<br>- Virtual machines with multiple NICs<br>Please select a new cloud service in the UI or please refer to [restore considerations](backup-azure-restore-vms.md/#restoring-vms-with-special-network-configurations) for VMs with special network configurations</ol> |
 | Restore | The selected DNS name is already taken - Please specify a different DNS name and try again. | The DNS name here refers to the cloud service name (usually ending with .cloudapp.net). This needs to be unique. If you encounter this error, you need to choose a different VM name during restore. <br><br> Note that this error is shown only to users of the Azure portal. The restore operation through PowerShell will succeed because it only restores the disks and doesn't create the VM. The error will be faced when the VM is explicitly created by you after the disk restore operation. |
 | Restore | The specified virtual network configuration is not correct - Please specify a different virtual network configuration and try again. | None |
 | Restore | The specified cloud service is using a reserved IP, which doesn't match with the configuration of the virtual machine being restored - Please specify a different cloud service which is not using reserved IP, or choose another recovery point to restore from. | None |
@@ -132,3 +132,4 @@ Once the name resolution is done correctly, access to the Azure IPs also needs t
 2. Create a path for HTTP traffic to flow
     - If you have some network restriction in place (a Network Security Group, for example) deploy an HTTP proxy server to route the traffic. Steps to deploy a HTTP Proxy server can found [here](backup-azure-vms-prepare.md#2-network-connectivity).
     - Add rules to the NSG (if you have one in place) to allow access to the INTERNET from the HTTP Proxy.
+

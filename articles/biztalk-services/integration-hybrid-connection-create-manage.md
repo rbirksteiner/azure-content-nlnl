@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Create and Manage Hybrid Connections | Microsoft Azure" 
-	description="Learn how to create a hybrid connection, manage the connection, and install the Hybrid Connection Manager. MABS, WABS" 
-	services="biztalk-services" 
-	documentationCenter="" 
-	authors="MandiOhlinger" 
-	manager="dwrede" 
-	editor="cgronlun"/>
+    pageTitle="Create and Manage Hybrid Connections | Microsoft Azure" 
+    description="Learn how to create a hybrid connection, manage the connection, and install the Hybrid Connection Manager. MABS, WABS" 
+    services="biztalk-services" 
+    documentationCenter="" 
+    authors="MandiOhlinger" 
+    manager="dwrede" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="biztalk-services" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/03/2015" 
-	ms.author="mandia"/>
+    ms.service="biztalk-services" 
+    ms.workload="integration" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/03/2015" 
+    ms.author="mandia"/>
 
 
 # Create and Manage Hybrid Connections
@@ -40,13 +40,13 @@ A Hybrid Connection can be created in the Azure portal using Web Apps **or** usi
 1. Sign in to the [Azure classic portal](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. In the left navigation pane, select **BizTalk Services** and then select your BizTalk Service. 
 
-	If you don't have an existing BizTalk Service, you can [Create a BizTalk Service](biztalk-provision-services.md).
+    If you don't have an existing BizTalk Service, you can [Create a BizTalk Service](biztalk-provision-services.md).
 3. Select the **Hybrid Connections** tab:  
 ![Hybrid Connections Tab][HybridConnectionTab]
 
 4. Select **Create a Hybrid Connection** or select the **ADD** button in the task bar. Enter the following:
 
-	Property | Description
+    Property | Description
 --- | ---
 Name | The Hybrid Connection name must be unique and cannot be the same name as the BizTalk Service. You can enter any name but be specific with its purpose. Examples include:<br/><br/>Payroll*SQLServer*<br/>SupplyList*SharepointServer*<br/>Customers*OracleServer*
 Host Name | Enter the fully qualified host name, only the host name, or the IPv4 address of the on-premises resource. Examples include:<br/><br/>mySQLServer<br/>*mySQLServer*.*Domain*.corp.*yourCompany*.com<br/>*myHTTPSharePointServer*<br/>*myHTTPSharePointServer*.*yourCompany*.com<br/>10.100.10.10
@@ -93,15 +93,15 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 #### Additional
 - Hybrid Connections support on-premises resources installed on the following operating systems:
 
-	- Windows Server 2008 R2
-	- Windows Server 2012
-	- Windows Server 2012 R2
+    - Windows Server 2008 R2
+    - Windows Server 2012
+    - Windows Server 2012 R2
 
 
 - After you install the Hybrid Connection Manager, the following occurs: 
 
-	- The Hybrid Connection hosted on Azure is automatically configured to use the Primary Application Connection String. 
-	- The On-Premises resource is automatically configured to use the Primary On-Premises Connection String.
+    - The Hybrid Connection hosted on Azure is automatically configured to use the Primary Application Connection String. 
+    - The On-Premises resource is automatically configured to use the Primary On-Premises Connection String.
 
 - The Hybrid Connection Manager must use a valid on-premises connection string for authorization. The Azure Web Apps or Mobile Apps must use a valid application connection string for authorization.
 - You can scale Hybrid Connections by installing another instance of the Hybrid Connection Manager on another server. Configure the on-premises listener to use the same address as the first on-premises listener. In this situation, the traffic is randomly distributed (round robin) between the active on-premises listeners. 
@@ -122,11 +122,11 @@ To manage your Hybrid Connections, you can:
 4. Select the Hybrid Connection. In the task bar, select **Manage Connection**:  
 ![Manage Options][HCManageConnection]
 
-	**Manage Connection** lists the Application and On-Premises connection strings. You can copy the Connection Strings or regenerate the Access Key used in the connection string. 
+    **Manage Connection** lists the Application and On-Premises connection strings. You can copy the Connection Strings or regenerate the Access Key used in the connection string. 
 
-	**If you select Regenerate**, the Shared Access Key used within the Connection String is changed. Do the following:
-	- In the Azure classic portal, select **Sync Keys** in the Azure application.
-	- Re-run the **On-Premises Setup**. When you re-run the On-Premises Setup, the on-premises resource is automatically configured to use the updated Primary connection string.
+    **If you select Regenerate**, the Shared Access Key used within the Connection String is changed. Do the following:
+    - In the Azure classic portal, select **Sync Keys** in the Azure application.
+    - Re-run the **On-Premises Setup**. When you re-run the On-Premises Setup, the on-premises resource is automatically configured to use the updated Primary connection string.
 
 
 #### Use Group Policy to control the on-premises resources used by a Hybrid Connection
@@ -135,8 +135,8 @@ To manage your Hybrid Connections, you can:
 2. Extract the files.
 3. On the computer that modifies group policy, do the following:  
 
-	- Copy the .ADMX files to the *%WINROOT%\PolicyDefinitions* folder.
-	- Copy the .ADML files to the *%WINROOT%\PolicyDefinitions\en-us* folder.
+    - Copy the .ADMX files to the *%WINROOT%\PolicyDefinitions* folder.
+    - Copy the .ADML files to the *%WINROOT%\PolicyDefinitions\en-us* folder.
 
 Once copied, you can use Group Policy Editor to change the policy.
 
@@ -162,3 +162,4 @@ Once copied, you can use Group Policy Editor to change the policy.
 [HybridConnectionTab]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionTab.png
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionManageConn.png 
+

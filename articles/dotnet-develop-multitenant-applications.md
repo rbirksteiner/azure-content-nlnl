@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Multi-Tenant Web Application Pattern | Microsoft Azure"
-	description="Find architectural overviews and design patterns that describe how to implement a multi-tenant web application on Azure."
-	services=""
-	documentationCenter=".net"
-	authors="wadepickett" 
-	manager="wpickett"
-	editor=""/>
+    pageTitle="Multi-Tenant Web Application Pattern | Microsoft Azure"
+    description="Find architectural overviews and design patterns that describe how to implement a multi-tenant web application on Azure."
+    services=""
+    documentationCenter=".net"
+    authors="wadepickett" 
+    manager="wpickett"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="06/05/2015"
-	ms.author="wpickett"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="06/05/2015"
+    ms.author="wpickett"/>
 
 # Multitenant Applications in Azure
 
@@ -47,8 +47,8 @@ Azure provides many features that allow you to address the key problems encounte
 - Segment Website Tenants by Host Headers with or without SSL communication
 - Segment Website Tenants by Query Parameters
 - Web Services in Worker Roles
-	- Worker Roles. that typically process data on the backend of an application.
-	- Web Roles that typically act as the frontend for applications.
+    - Worker Roles. that typically process data on the backend of an application.
+    - Web Roles that typically act as the frontend for applications.
 
 **Storage**
 
@@ -83,10 +83,10 @@ Azure provides a number of ways provision new tenants for the application. For m
 - Azure Blobs can be used to provision compute or pre-initialized storage resources for new tenants while providing container level access policies to protect the compute service Packages, VHD images and other resources.
 - Options for provisioning SQL Database resources for a tenant include:
 
-	- 	DDL in scripts or embedded as resources within assemblies
-	- 	SQL Server 2008 R2 DAC Packages deployed programmatically.
-	- 	Copying from a master reference database
-	- 	Using database Import and Export to provision new databases from a file.
+    -   DDL in scripts or embedded as resources within assemblies
+    -   SQL Server 2008 R2 DAC Packages deployed programmatically.
+    -   Copying from a master reference database
+    -   Using database Import and Export to provision new databases from a file.
 
 
 
@@ -94,3 +94,4 @@ Azure provides a number of ways provision new tenants for the application. For m
 
 [Hosting a Multi-Tenant Application on Azure]: http://msdn.microsoft.com/library/hh534480.aspx
 [Designing Multitenant Applications on Azure]: http://msdn.microsoft.com/library/windowsazure/hh689716
+

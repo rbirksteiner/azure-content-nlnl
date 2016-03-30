@@ -1,21 +1,21 @@
 <properties
-   	pageTitle="Create Hadoop, HBase, or Storm clusters on Linux in HDInsight using cURL and the Azure REST API | Microsoft Azure"
-   	description="Learn how to create Hadoop, HBase, or Storm clusters on Linux for HDInsight using cURL and the Azure REST API."
-   	services="hdinsight"
-   	documentationCenter=""
-   	authors="mumian"
-   	manager="paulettm"
-   	editor="cgronlun"
-	tags="azure-portal"/>
+    pageTitle="Create Hadoop, HBase, or Storm clusters on Linux in HDInsight using cURL and the Azure REST API | Microsoft Azure"
+    description="Learn how to create Hadoop, HBase, or Storm clusters on Linux for HDInsight using cURL and the Azure REST API."
+    services="hdinsight"
+    documentationCenter=""
+    authors="mumian"
+    manager="paulettm"
+    editor="cgronlun"
+    tags="azure-portal"/>
 
 <tags
-   	ms.service="hdinsight"
-   	ms.devlang="na"
-   	ms.topic="article"
-   	ms.tgt_pltfrm="na"
-   	ms.workload="big-data"
-   	ms.date="10/23/2015"
-   	ms.author="jgao"/>
+    ms.service="hdinsight"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="big-data"
+    ms.date="10/23/2015"
+    ms.author="jgao"/>
 
 #Create Linux-based clusters in HDInsight using the .NET SDK
 
@@ -177,7 +177,7 @@ The HDInsight .NET SDK provides .NET client libraries that make it easier to wor
             }
         }
 
-		
+        
 10. Replace the class member values.
 
 7. Press **F5** to run the application. A console window should open and display the status of the application. You will also be prompted to enter your Azure account credentials. It can take several minutes to create an HDInsight cluster, normally around 15.

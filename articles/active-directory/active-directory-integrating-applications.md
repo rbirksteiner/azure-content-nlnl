@@ -123,23 +123,23 @@ You can develop a web API and make it available to other organizations by exposi
 
 1. Open the JSON application manifest file and replace “oauth2Permissions” node with the following JSON snippet. This snippet is an example of how to expose a permission scope known as user impersonation, make sure that you change the text and values for your own application:
 
-		"oauth2Permissions": [
-		{
-			"adminConsentDescription": "Allow the application full access to the Todo List service on behalf of the signed-in 	user",
-			"adminConsentDisplayName": "Have full access to the Todo List service",
-			"id": "b69ee3c9-c40d-4f2a-ac80-961cd1534e40",
-			"isEnabled": true,
-			“origin”: “Application”
-			"type": "User",
-			"userConsentDescription": "Allow the application full access to the todo service on your behalf",
-			"userConsentDisplayName": "Have full access to the todo service",
-			"value": "user_impersonation"
-			}
-		],
+        "oauth2Permissions": [
+        {
+            "adminConsentDescription": "Allow the application full access to the Todo List service on behalf of the signed-in   user",
+            "adminConsentDisplayName": "Have full access to the Todo List service",
+            "id": "b69ee3c9-c40d-4f2a-ac80-961cd1534e40",
+            "isEnabled": true,
+            “origin”: “Application”
+            "type": "User",
+            "userConsentDescription": "Allow the application full access to the todo service on your behalf",
+            "userConsentDisplayName": "Have full access to the todo service",
+            "value": "user_impersonation"
+            }
+        ],
 
     The id value must be a new generated GUID that you create by using a GUID generation tool or programmatically. It represents a unique identifier for the permission that is exposed by the web API. Once your client is appropriately configured to request access to your web API and calls the web API, it will present an OAuth 2.0 JWT token that has the scope (scp) claim set to the value above, which in this case is user_impersonation.
 
-	>[AZURE.NOTE] You can expose additional permission scopes later as necessary. Consider that your web API might expose multiple permissions associated with a variety of different functions. Now you can control access to the web API by using the scope (scp) claim in the received OAuth 2.0 JWT token.
+    >[AZURE.NOTE] You can expose additional permission scopes later as necessary. Consider that your web API might expose multiple permissions associated with a variety of different functions. Now you can control access to the web API by using the scope (scp) claim in the received OAuth 2.0 JWT token.
 
 1. Save the updated JSON file and upload it by clicking the Manage manifest button in the command bar, selecting Upload manifest, browsing to your updated manifest file and then selecting it. Once uploaded, your web API is now configured to be used by other applications in your directory.
 
@@ -259,7 +259,7 @@ The link for your application will look like this: `http://account.activedirecto
 |RequestedPermissions|Optional. Access level that your app is requesting, that will be displayed to the user granting your app access. If not specified, the requested access level will default to single sign-on only. The other options are DirectoryReaders and DirectoryWriters. See Application Access Levels for more details on these access levels.|
 |ConsentReturnUrl|Optional. The URL that you want the grant access response returned to. This value must be URL-encoded and must be under the same domain as the Reply URL configured in your app definition. If not supplied, the grant access response will be redirected to your configured Reply URL.|
 
-Specifying a ConsentReturnUrl separate from the Reply URL will allow your app to implement separate logic that can process the response on a different URL from the Reply URL (which normally processes SAML tokens for sign on). You may also specify additional parameters in the ConsentReturnURL encoded URL; these will be passed back as query string parameters to your app upon redirection.  This mechanism can be used to maintain additional info or to tie your app’s request for an access grant to the response from Azure AD.
+Specifying a ConsentReturnUrl separate from the Reply URL will allow your app to implement separate logic that can process the response on a different URL from the Reply URL (which normally processes SAML tokens for sign on). You may also specify additional parameters in the ConsentReturnURL encoded URL; these will be passed back as query string parameters to your app upon redirection.  This mechanism can be used to maintain additional info or to tie your app’s request for an access grant to the response from Azure AD.
 
 #### Grant Access User Experience and Response (Legacy)
 
@@ -351,3 +351,4 @@ In order for a company administrator to remove an app’s access to their direct
 - Understand the [Azure Active Directory application manifest](active-directory-application-manifest.md)
 
 - Visit the [Active Directory developer's guide](active-directory-developers-guide.md)
+

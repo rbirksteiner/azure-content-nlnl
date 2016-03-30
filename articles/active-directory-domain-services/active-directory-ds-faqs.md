@@ -1,20 +1,20 @@
-﻿<properties
-	pageTitle="Azure Active Directory Domain Services preview: FAQs | Microsoft Azure"
-	description="Frequently asked questions about Azure Active Directory Domain Services"
-	services="active-directory-ds"
-	documentationCenter=""
-	authors="mahesh-unnikrishnan"
-	manager="udayh"
-	editor="inhenk"/>
+<properties
+    pageTitle="Azure Active Directory Domain Services preview: FAQs | Microsoft Azure"
+    description="Frequently asked questions about Azure Active Directory Domain Services"
+    services="active-directory-ds"
+    documentationCenter=""
+    authors="mahesh-unnikrishnan"
+    manager="udayh"
+    editor="inhenk"/>
 
 <tags
-	ms.service="active-directory-ds"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/16/2015"
-	ms.author="maheshu"/>
+    ms.service="active-directory-ds"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/16/2015"
+    ms.author="maheshu"/>
 
 # Azure Active Directory Domain Services preview: FAQs
 
@@ -67,3 +67,4 @@ Refer to our [regions page](active-directory-ds-regions.md) to see a list of the
 
 #### When will Azure AD Domain Services be Generally Available?
 We cannot currently share timelines for when the service will be generally available.
+

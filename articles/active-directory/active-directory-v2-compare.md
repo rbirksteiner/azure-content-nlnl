@@ -1,27 +1,27 @@
 <properties
-	pageTitle="App Model v2.0 | Microsoft Azure"
-	description="An comparison between the generally available Azure AD and the v2.0 app model public preview."
-	services="active-directory"
-	documentationCenter=""
-	authors="dstrockis"
-	manager="mbaldwin"
-	editor=""/>
+    pageTitle="App Model v2.0 | Microsoft Azure"
+    description="An comparison between the generally available Azure AD and the v2.0 app model public preview."
+    services="active-directory"
+    documentationCenter=""
+    authors="dstrockis"
+    manager="mbaldwin"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/09/2015"
-	ms.author="dastrock"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/09/2015"
+    ms.author="dastrock"/>
 
 # App model v2.0 preview: What's different?
 
 If you're familiar with the generally available Azure AD service or have integrated apps with Azure AD in the past, there may be some differences in the v2.0 app model that you would not expect.  This document calls out those differences for your understanding.
 
 > [AZURE.NOTE]
-	This information applies to the v2.0 app model public preview.  For instructions on how to integrate with the generally available Azure AD service, please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
+    This information applies to the v2.0 app model public preview.  For instructions on how to integrate with the generally available Azure AD service, please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
 
 
 ## Microsoft Accounts and Azure AD Accounts
@@ -121,3 +121,4 @@ To learn about the specific claims emitted in v2.0 app model tokens, see the [v2
 
 ## Preview Limitations
 There are a number of restrictions to be aware of when building an app with the v2.0 app model during the public preview.  Please refer to the [v2.0 app model limitations doc](active-directory-v2-limitations.md) to see if any of these restrictions apply to your particular scenario.
+

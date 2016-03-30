@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Writing Expressions for Attribute Mappings in Azure Active Directory | Microsoft Azure"
-	description="Learn how to use expression mappings to transform attribute values into an acceptable format during automated provisioning of SaaS app objects in Azure Active Directory."
-	services="active-directory"
-	documentationCenter=""
-	authors="markusvi"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Writing Expressions for Attribute Mappings in Azure Active Directory | Microsoft Azure"
+    description="Learn how to use expression mappings to transform attribute values into an acceptable format during automated provisioning of SaaS app objects in Azure Active Directory."
+    services="active-directory"
+    documentationCenter=""
+    authors="markusvi"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/20/2015"
-	ms.author="markusvi"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/20/2015"
+    ms.author="markusvi"/>
 
 
 # Writing Expressions for Attribute Mappings in Azure Active Directory
@@ -330,3 +330,4 @@ If the state code doesn't match any of the predefined options, use default value
 
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+

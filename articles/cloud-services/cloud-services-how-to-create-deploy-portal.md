@@ -1,20 +1,20 @@
 <properties
-	pageTitle="How to create and deploy a cloud service | Microsoft Azure"
-	description="Learn how to create and deploy a cloud service using the Quick Create method in Azure. These examples use the Azure portal."
-	services="cloud-services"
-	documentationCenter=""
-	authors="Thraka"
-	manager="timlt"
-	editor=""/>
+    pageTitle="How to create and deploy a cloud service | Microsoft Azure"
+    description="Learn how to create and deploy a cloud service using the Quick Create method in Azure. These examples use the Azure portal."
+    services="cloud-services"
+    documentationCenter=""
+    authors="Thraka"
+    manager="timlt"
+    editor=""/>
 
 <tags
-	ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/07/2015"
-	ms.author="adegeo"/>
+    ms.service="cloud-services"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/07/2015"
+    ms.author="adegeo"/>
 
 
 
@@ -102,7 +102,7 @@ If your deployment package was [configured to use certificates](cloud-services-c
 
 1. Click the cloud service instance.
 
-	The status should show that the service is **Running**.
+    The status should show that the service is **Running**.
 
 2. Under **Essentials**, click the **Site URL** to open your cloud service in a web browser.
 

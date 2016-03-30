@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Linux and Open-Source Computing on Azure | Microsoft Azure"
-	description="Lists Linux and Open-Source Computing articles on Azure, including basic Linux usage, some fundamental concepts about running or uploading Linux images on Azure, and other content about specific technologies and optimizations."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="squillace"
-	manager="timlt"
-	editor="tysonn"
-	tags="azure-resource-manager,azure-service-management"/>
+    pageTitle="Linux and Open-Source Computing on Azure | Microsoft Azure"
+    description="Lists Linux and Open-Source Computing articles on Azure, including basic Linux usage, some fundamental concepts about running or uploading Linux images on Azure, and other content about specific technologies and optimizations."
+    services="virtual-machines"
+    documentationCenter=""
+    authors="squillace"
+    manager="timlt"
+    editor="tysonn"
+    tags="azure-resource-manager,azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-linux"
-	ms.workload="infrastructure-services"
-	ms.date="09/02/2015"
-	ms.author="rasquill"/>
+    ms.service="virtual-machines"
+    ms.devlang="NA"
+    ms.topic="article"
+    ms.tgt_pltfrm="vm-linux"
+    ms.workload="infrastructure-services"
+    ms.date="09/02/2015"
+    ms.author="rasquill"/>
 
 
 
@@ -217,8 +217,8 @@ This section contains information about several different storage approaches and
 
 ### Big Data
 2. Hadoop/Cloudera  
-	- [Blog: Installing Hadoop on Azure Linux VMs](http://blogs.msdn.com/b/benjguin/archive/2013/04/05/how-to-install-hadoop-on-windows-azure-linux-virtual-machines.aspx)
-	- [How to: Get Started with Hadoop and Hive using HDInsight](hdinsight-get-started.md)  
+    - [Blog: Installing Hadoop on Azure Linux VMs](http://blogs.msdn.com/b/benjguin/archive/2013/04/05/how-to-install-hadoop-on-windows-azure-linux-virtual-machines.aspx)
+    - [How to: Get Started with Hadoop and Hive using HDInsight](hdinsight-get-started.md)  
 3. [Azure HDInsight](http://azure.microsoft.com/services/hdinsight/) -- a fully managed Hadoop service on Azure.
 
 ### Relational database
@@ -248,13 +248,13 @@ Authentication and encryption are critical topics in software development, and t
 
 Run HPC workloads on Linux VM clusters built with open-source tools or with Microsoft HPC Pack.
 
-1.	[Quickstart template: Spin up a SLURM cluster](http://azure.microsoft.com/documentation/templates/slurm/)
+1.  [Quickstart template: Spin up a SLURM cluster](http://azure.microsoft.com/documentation/templates/slurm/)
  (and [blog post](http://blogs.technet.com/b/windowshpc/archive/2015/06/06/deploy-a-slurm-cluster-on-azure.aspx))
-2.	[Quickstart template: Spin up a Torque cluster](http://azure.microsoft.com/documentation/templates/torque-cluster/)
-3.	[Quickstart template: Create an HPC cluster with Linux compute nodes](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/)
-4.	[Tutorial: Get started with Linux compute nodes in an HPC Pack cluster in Azure](virtual-machines-linux-cluster-hpcpack.md)
-5.	[Tutorial: Run NAMD with Microsoft HPC Pack on Linux compute nodes in Azure](virtual-machines-linux-cluster-hpcpack-namd.md)
-6.	[Tutorial: Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-cluster-rdma.md)
+2.  [Quickstart template: Spin up a Torque cluster](http://azure.microsoft.com/documentation/templates/torque-cluster/)
+3.  [Quickstart template: Create an HPC cluster with Linux compute nodes](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/)
+4.  [Tutorial: Get started with Linux compute nodes in an HPC Pack cluster in Azure](virtual-machines-linux-cluster-hpcpack.md)
+5.  [Tutorial: Run NAMD with Microsoft HPC Pack on Linux compute nodes in Azure](virtual-machines-linux-cluster-hpcpack-namd.md)
+6.  [Tutorial: Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-cluster-rdma.md)
 
 
 ## Devops, management, and optimization
@@ -262,31 +262,31 @@ Run HPC workloads on Linux VM clusters built with open-source tools or with Micr
 This section starts with a blog entry containing a series of videos on [Video: Azure Virtual Machines : Using Chef, Puppet and Docker for managing Linux VMs](http://azure.microsoft.com/blog/2014/12/15/azure-virtual-machines-using-chef-puppet-and-docker-for-managing-linux-vms/). However, the world of devops, management, and optimization is quite expansive and changing very quickly, so you should consider the list below a starting point.
 
 1. Docker
-	- [Docker VM Extension for Linux on Azure](virtual-machines-docker-vm-extension.md)
-	- [Using the Docker VM Extension from the Azure Command-line Interface (Azure CLI)](virtual-machines-docker-with-../xplat-cli-install.md)
-	- [Using the Docker VM Extension from the Azure portal](virtual-machines-docker-with-portal.md)
-	- [Getting Started Quickly with Docker in the Azure Marketplace](virtual-machines-docker-ubuntu-quickstart.md)
-	- [How to use docker-machine on Azure](virtual-machines-docker-machine.md)
-	- [How to use docker with swarm on Azure](virtual-machines-docker-swarm.md)
-	- [Get Started with Docker and Compose on Azure](virtual-machines-docker-compose-quickstart.md)
+    - [Docker VM Extension for Linux on Azure](virtual-machines-docker-vm-extension.md)
+    - [Using the Docker VM Extension from the Azure Command-line Interface (Azure CLI)](virtual-machines-docker-with-../xplat-cli-install.md)
+    - [Using the Docker VM Extension from the Azure portal](virtual-machines-docker-with-portal.md)
+    - [Getting Started Quickly with Docker in the Azure Marketplace](virtual-machines-docker-ubuntu-quickstart.md)
+    - [How to use docker-machine on Azure](virtual-machines-docker-machine.md)
+    - [How to use docker with swarm on Azure](virtual-machines-docker-swarm.md)
+    - [Get Started with Docker and Compose on Azure](virtual-machines-docker-compose-quickstart.md)
 
 2. [Fleet with CoreOS](virtual-machines-linux-coreos-how-to.md)
 3. Deis
-	- [GitHub repo: Installing Deis on a CoreOS cluster on Azure](https://github.com/chanezon/azure-linux/tree/master/coreos/deis)
+    - [GitHub repo: Installing Deis on a CoreOS cluster on Azure](https://github.com/chanezon/azure-linux/tree/master/coreos/deis)
 4. Kubernetes
-	- [Complete guide to automated Kubernetes cluster deployment with CoreOS and Weave](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave)
-	- [Kubernetes Visualizer](http://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure)
+    - [Complete guide to automated Kubernetes cluster deployment with CoreOS and Weave](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave)
+    - [Kubernetes Visualizer](http://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure)
 5. Jenkins and Hudson
-	- [Blog: Jenkins Slave Plug-in for Azure](http://msopentech.com/blog/2014/09/23/announcing-jenkins-slave-plugin-azure/)
-	- [GitHub repo: Jenkins Storage Plug-in for Azure](https://github.com/jenkinsci/windows-azure-storage-plugin)
-	- [Third Party: Hudson Slave Plug-in for Azure](http://wiki.hudson-ci.org/display/HUDSON/Azure+Slave+Plugin)
-	- [Third Party: Hudson Storage Plug-in for Azure](https://github.com/hudson3-plugins/windows-azure-storage-plugin)
+    - [Blog: Jenkins Slave Plug-in for Azure](http://msopentech.com/blog/2014/09/23/announcing-jenkins-slave-plugin-azure/)
+    - [GitHub repo: Jenkins Storage Plug-in for Azure](https://github.com/jenkinsci/windows-azure-storage-plugin)
+    - [Third Party: Hudson Slave Plug-in for Azure](http://wiki.hudson-ci.org/display/HUDSON/Azure+Slave+Plugin)
+    - [Third Party: Hudson Storage Plug-in for Azure](https://github.com/hudson3-plugins/windows-azure-storage-plugin)
 10. Chef
-	- [Chef and Virtual Machines](virtual-machines-windows-install-chef-client.md)
-	- [Video: What is Chef and How does it Work?](https://msopentech.com/blog/2014/03/31/using-chef-to-manage-azure-resources/)
+    - [Chef and Virtual Machines](virtual-machines-windows-install-chef-client.md)
+    - [Video: What is Chef and How does it Work?](https://msopentech.com/blog/2014/03/31/using-chef-to-manage-azure-resources/)
 
 12. Azure Automation
-	- [Video: How to Use Azure Automation with Linux VMs](http://channel9.msdn.com/Shows/Azure-Friday/Azure-Automation-104-managing-Linux-and-creating-Modules-with-Joe-Levy)
+    - [Video: How to Use Azure Automation with Linux VMs](http://channel9.msdn.com/Shows/Azure-Friday/Azure-Automation-104-managing-Linux-and-creating-Modules-with-Joe-Levy)
 13. Powershell DSC for Linux
     - [Blog: How to do Powershell DSC for Linux](http://blogs.technet.com/b/privatecloud/archive/2014/05/19/powershell-dsc-for-linux-step-by-step.aspx)
     - [GitHub: Docker Client DSC](https://github.com/anweiss/DockerClientDSC)
@@ -296,7 +296,7 @@ This section starts with a blog entry containing a series of videos on [Video: A
 ## Support, troubleshooting, and "it just doesn't work"
 
 1. Microsoft support documentation
-	- [Support: Support for Linux Images on Microsoft Azure](http://support2.microsoft.com/kb/2941892)
+    - [Support: Support for Linux Images on Microsoft Azure](http://support2.microsoft.com/kb/2941892)
 
 <!--Anchors-->
 [Distros]: #distros
@@ -311,3 +311,4 @@ This section starts with a blog entry containing a series of videos on [Video: A
 <!--Link references--In actual articles, you only need a single period before the slash. -->
 [How to use docker-machine on Azure]: virtual-machines-docker-machine.md
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
+

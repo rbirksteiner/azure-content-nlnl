@@ -69,19 +69,19 @@ The objective of this section is to outline how to enable users to authenticate 
 
 ###To configure single sign-on, perform the following steps:
 
-1.  In the Azure AD portal, on the **Boomi** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  In the Azure AD portal, on the **Boomi** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
     ![Configure Single Sign-On](./media/active-directory-saas-boomi-tutorial/IC790824.png "Configure Single Sign-On")
 
-2.  On the **How would you like users to sign on to Boomi** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to Boomi** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-boomi-tutorial/IC790825.png "Configure Single Sign-On")
 
-3.  On the **Configure App URL** page, in the **Boomi Reply URL** textbox, type your **Boomi AtomSphere Login URL** (e.g.: “*https://platform.boomi.com/sso/AccountName/saml*”), and then click **Next**.
+3.  On the **Configure App URL** page, in the **Boomi Reply URL** textbox, type your **Boomi AtomSphere Login URL** (e.g.: “*https://platform.boomi.com/sso/AccountName/saml*”), and then click **Next**.
 
     ![Configure App URL](./media/active-directory-saas-boomi-tutorial/IC790826.png "Configure App URL")
 
-4.  On the **Configure single sign-on at Boomi** page, to download your certificate, click **Download certificate**, and then save the certificate file locally on your computer.
+4.  On the **Configure single sign-on at Boomi** page, to download your certificate, click **Download certificate**, and then save the certificate file locally on your computer.
 
     ![Configure Single Sign-On](./media/active-directory-saas-boomi-tutorial/IC790827.png "Configure Single Sign-On")
 
@@ -105,7 +105,7 @@ The objective of this section is to outline how to enable users to authenticate 
     4.  As **Federation Id Location**, select **Federation Id is in NameID element of the Subject**.
     5.  Click **Save**.
 
-9.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+9.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
     ![Configure Single Sign-On](./media/active-directory-saas-boomi-tutorial/IC775560.png "Configure Single Sign-On")
 ##Configuring user provisioning
@@ -142,7 +142,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 1.  In the Azure AD portal, create a test account.
 
-2.  On the **Boomi **application integration page, click **Assign users**.
+2.  On the **Boomi **application integration page, click **Assign users**.
 
     ![Assign Users](./media/active-directory-saas-boomi-tutorial/IC790834.png "Assign Users")
 
@@ -151,3 +151,4 @@ To test your configuration, you need to grant the Azure AD users you want to all
     ![Yes](./media/active-directory-saas-boomi-tutorial/IC767830.png "Yes")
 
 If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+

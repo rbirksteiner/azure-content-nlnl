@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure Service Bus | Microsoft Azure" 
-	description="An introduction to different ways you can use the Service Bus to connect Azure applications to other software." 
-	services="service-bus" 
-	documentationCenter=".net" 
-	authors="sethmanheim" 
-	manager="timlt" 
-	editor=""/>
+    pageTitle="Azure Service Bus | Microsoft Azure" 
+    description="An introduction to different ways you can use the Service Bus to connect Azure applications to other software." 
+    services="service-bus" 
+    documentationCenter=".net" 
+    authors="sethmanheim" 
+    manager="timlt" 
+    editor=""/>
 
 <tags 
-	ms.service="service-bus" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/06/2015" 
-	ms.author="sethm"/>
+    ms.service="service-bus" 
+    ms.workload="na" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/06/2015" 
+    ms.author="sethm"/>
 
 # Azure Service Bus
 
@@ -124,3 +124,4 @@ Now that you've learned the fundamentals of Azure Service Bus, follow these link
 [2]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_02_queues.png
 [3]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_03_topicsandsubscriptions.png
 [4]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_04_relay.png
+

@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Customizing claims issued in the SAML token for pre-integrated apps in Azure Active Directory | Microsoft Azure"
-	description="Learn how to custom the claims issued in the SAML token for pre-integrated apps in Azure Active Directory"
-	services="active-directory"
-	documentationCenter=""
-	authors="asmalser-msft"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Customizing claims issued in the SAML token for pre-integrated apps in Azure Active Directory | Microsoft Azure"
+    description="Learn how to custom the claims issued in the SAML token for pre-integrated apps in Azure Active Directory"
+    services="active-directory"
+    documentationCenter=""
+    authors="asmalser-msft"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/18/2015"
-	ms.author="asmalser"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/18/2015"
+    ms.author="asmalser"/>
 
 #Customizing claims issued in the SAML token for pre-integrated apps in Azure Active Directory
 
@@ -59,9 +59,10 @@ If for a given user there is no value stored for a selected attribute, then that
 **Note:** The **user.onpremisesecurityidentifier** and **user.onpremisesamaccountname** are only supported when synchronizing user data from on-premise Active Directory using the latest preview of the AAD Connect tool. You can download the preview of the connect tool at the link below:  
 
 http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=53949
-	
+    
 <!--Image references-->
 [1]: ./media/active-directory-saml-claims-customization/claimscustomization1.png
 [2]: ./media/active-directory-saml-claims-customization/claimscustomization2.png
 [3]: ./media/active-directory-saml-claims-customization/claimscustomization3.png
 [4]: ./media/active-directory-saml-claims-customization/claimscustomization4.png
+

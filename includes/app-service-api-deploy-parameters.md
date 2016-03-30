@@ -36,3 +36,4 @@ The location for the new API app. You can get valid locations by running the Pow
       "type": "string"
     }
 
+

@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure AD Connect Health Agent installation | Microsoft Azure"
-	description="This is the Azure AD Connect Health page that describes the agent installation for AD FS and Sync."
-	services="active-directory"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
-	editor="curtand"/>
+    pageTitle="Azure AD Connect Health Agent installation | Microsoft Azure"
+    description="This is the Azure AD Connect Health page that describes the agent installation for AD FS and Sync."
+    services="active-directory"
+    documentationCenter=""
+    authors="billmath"
+    manager="stevenpo"
+    editor="curtand"/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/15/2015"
-	ms.author="billmath"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/15/2015"
+    ms.author="billmath"/>
 
 
 
@@ -150,17 +150,17 @@ You have the following options to configure Azure AD Connect Health Agent to use
 ##### Import from Internet Explorer
 You can import your Internet Explorer HTTP proxy settings and use them for Azure AD Connect Health Agents by executing the following PowerShell command on each server running the Health Agent.
 
-	Set-AzureAdConnectHealthProxySettings -ImportFromInternetSettings
+    Set-AzureAdConnectHealthProxySettings -ImportFromInternetSettings
 
 ##### Import from WinHTTP
 You can import you WinHTTP proxy settings by executing the following PowerShell command on each server running the Health Agent.
 
-	Set-AzureAdConnectHealthProxySettings -ImportFromWinHttp
+    Set-AzureAdConnectHealthProxySettings -ImportFromWinHttp
 
 #### Specify Proxy addresses manually
 You can specify a proxy server manually by executing the following PowerShell command on each server running the Health Agent.
 
-	Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress address:port
+    Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress address:port
 
 Example: *Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress myproxyserver:443*
 
@@ -170,13 +170,13 @@ Example: *Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress myproxyserver
 #### Clear existing proxy configuration
 You can clear the existing proxy configuration by running the following command.
 
-	Set-AzureAdConnectHealthProxySettings -NoProxy
+    Set-AzureAdConnectHealthProxySettings -NoProxy
 
 
 ### Read current proxy settings
 You can use the following command to read the currently configured proxy settings.
 
-	Get-AzureAdConnectHealthProxySettings
+    Get-AzureAdConnectHealthProxySettings
 
 
 [//]: # (End of Agent Proxy Configuration Section)
@@ -189,3 +189,4 @@ You can use the following command to read the currently configured proxy setting
 * [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adfs.md)
 * [Using Azure AD Connect Health for sync](active-directory-aadconnect-health-sync.md)
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
+

@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Customize HDInsight Clusters using script actions | Microsoft Azure"
-	description="Learn how to customize HDInsight clusters using Script Action."
-	services="hdinsight"
-	documentationCenter=""
-	authors="nitinme"
-	manager="paulettm"
-	editor="cgronlun"
-	tags="azure-portal"/>
+    pageTitle="Customize HDInsight Clusters using script actions | Microsoft Azure"
+    description="Learn how to customize HDInsight clusters using Script Action."
+    services="hdinsight"
+    documentationCenter=""
+    authors="nitinme"
+    manager="paulettm"
+    editor="cgronlun"
+    tags="azure-portal"/>
 
 <tags
-	ms.service="hdinsight"
-	ms.workload="big-data"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/13/2015"
-	ms.author="nitinme"/>
+    ms.service="hdinsight"
+    ms.workload="big-data"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/13/2015"
+    ms.author="nitinme"/>
 
 # Customize HDInsight clusters using Script Action (Windows)
 
@@ -80,21 +80,21 @@ Name | Script
 1. Start creating a cluster as described at [Create Hadoop clusters in HDInsight](hdinsight-provision-clusters.md#portal).
 2. Under Optional Configuration, for the **Script Actions** blade, click **add script action** to provide details about the script action, as shown below:
 
-	![Use Script Action to customize a cluster](./media/hdinsight-hadoop-customize-cluster/HDI.CreateCluster.8.png "Use Script Action to customize a cluster")
+    ![Use Script Action to customize a cluster](./media/hdinsight-hadoop-customize-cluster/HDI.CreateCluster.8.png "Use Script Action to customize a cluster")
 
-	<table border='1'>
-		<tr><th>Property</th><th>Value</th></tr>
-		<tr><td>Name</td>
-			<td>Specify a name for the script action.</td></tr>
-		<tr><td>Script URI</td>
-			<td>Specify the URI to the script that is invoked to customize the cluster. s</td></tr>
-		<tr><td>Head/Worker</td>
-			<td>Specify the nodes (**Head** or **Worker**) on which the customization script is run.</b>.
-		<tr><td>Parameters</td>
-			<td>Specify the parameters, if required by the script.</td></tr>
-	</table>
+    <table border='1'>
+        <tr><th>Property</th><th>Value</th></tr>
+        <tr><td>Name</td>
+            <td>Specify a name for the script action.</td></tr>
+        <tr><td>Script URI</td>
+            <td>Specify the URI to the script that is invoked to customize the cluster. s</td></tr>
+        <tr><td>Head/Worker</td>
+            <td>Specify the nodes (**Head** or **Worker**) on which the customization script is run.</b>.
+        <tr><td>Parameters</td>
+            <td>Specify the parameters, if required by the script.</td></tr>
+    </table>
 
-	Press ENTER to add more than one script action to install multiple components on the cluster.
+    Press ENTER to add more than one script action to install multiple components on the cluster.
 
 3. Click **Select** to save the script action configuration and continue with cluster creation.
 
@@ -102,74 +102,74 @@ Name | Script
 
 This following PowerShell script demonstrates how to install Spark on Windows based HDInsight cluster.  
 
-	# Provide values for these variables
-	$subscriptionID = "<Azure Suscription ID>" # After "Login-AzureRmAccount", use "Get-AzureRmSubscription" to list IDs.
+    # Provide values for these variables
+    $subscriptionID = "<Azure Suscription ID>" # After "Login-AzureRmAccount", use "Get-AzureRmSubscription" to list IDs.
 
-	$nameToken = "<Enter A Name Token>"  # The token is use to create Azure service names.
-	$namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
-	
-	$resourceGroupName = $namePrefix + "rg"
-	$location = "EAST US 2" # used for creating resource group, storage account, and HDInsight cluster.
-	
-	$hdinsightClusterName = $namePrefix + "spark"
-	$httpUserName = "admin"
-	$httpPassword = "Pass@word111"
-	
-	$defaultStorageAccountName = "$namePrefix" + "store"
-	$defaultBlobContainerName = $hdinsightClusterName
-	
-	#############################################################
-	# Connect to Azure
-	#############################################################
-	
-	Try{
-		Get-AzureRmSubscription
-	}
-	Catch{
-		Login-AzureRmAccount
-	}
-	Select-AzureRmSubscription -SubscriptionId $subscriptionID
-	
-	#############################################################
-	# Prepare the dependent components
-	#############################################################
-	
-	# Create resource group
-	New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
-	
-	# Create storage account
-	New-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName -Location $location -Type Standard_LRS
-	$defaultStorageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName |  %{ $_.Key1 }
-	$defaultStorageAccountContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $storageAccountKey  
-	New-AzureStorageContainer -Name $defaultBlobContainerName -Context $defaultStorageAccountContext
-	
-	#############################################################
-	# Create cluster with Spark
-	#############################################################
-	
-	# Specify the configuration options
-	$config = New-AzureRmHDInsightClusterConfig `
-				-DefaultStorageAccountName "$defaultStorageAccountName.blob.core.windows.net" `
-				-DefaultStorageAccountKey $defaultStorageAccountKey 
-				
-	
-	# Add a script action to the cluster configuration
-	$config = Add-AzureRmHDInsightScriptAction `
-				-Config $config `
-				-Name "Install Spark" `
-				-NodeType HeadNode `
-				-Uri https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1 `
-	
-	# Start creating a cluster with Spark installed
-	New-AzureRmHDInsightCluster `
-			-ResourceGroupName $resourceGroupName `
-			-ClusterName $hdinsightClusterName `
-			-Location $location `
-			-ClusterSizeInNodes 2 `
-			-ClusterType Hadoop `
-			-OSType Windows `
-			-DefaultStorageContainer $defaultBlobContainerName `
-			-Config $config
+    $nameToken = "<Enter A Name Token>"  # The token is use to create Azure service names.
+    $namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
+    
+    $resourceGroupName = $namePrefix + "rg"
+    $location = "EAST US 2" # used for creating resource group, storage account, and HDInsight cluster.
+    
+    $hdinsightClusterName = $namePrefix + "spark"
+    $httpUserName = "admin"
+    $httpPassword = "Pass@word111"
+    
+    $defaultStorageAccountName = "$namePrefix" + "store"
+    $defaultBlobContainerName = $hdinsightClusterName
+    
+    #############################################################
+    # Connect to Azure
+    #############################################################
+    
+    Try{
+        Get-AzureRmSubscription
+    }
+    Catch{
+        Login-AzureRmAccount
+    }
+    Select-AzureRmSubscription -SubscriptionId $subscriptionID
+    
+    #############################################################
+    # Prepare the dependent components
+    #############################################################
+    
+    # Create resource group
+    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+    
+    # Create storage account
+    New-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName -Location $location -Type Standard_LRS
+    $defaultStorageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName |  %{ $_.Key1 }
+    $defaultStorageAccountContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $storageAccountKey  
+    New-AzureStorageContainer -Name $defaultBlobContainerName -Context $defaultStorageAccountContext
+    
+    #############################################################
+    # Create cluster with Spark
+    #############################################################
+    
+    # Specify the configuration options
+    $config = New-AzureRmHDInsightClusterConfig `
+                -DefaultStorageAccountName "$defaultStorageAccountName.blob.core.windows.net" `
+                -DefaultStorageAccountKey $defaultStorageAccountKey 
+                
+    
+    # Add a script action to the cluster configuration
+    $config = Add-AzureRmHDInsightScriptAction `
+                -Config $config `
+                -Name "Install Spark" `
+                -NodeType HeadNode `
+                -Uri https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1 `
+    
+    # Start creating a cluster with Spark installed
+    New-AzureRmHDInsightCluster `
+            -ResourceGroupName $resourceGroupName `
+            -ClusterName $hdinsightClusterName `
+            -Location $location `
+            -ClusterSizeInNodes 2 `
+            -ClusterType Hadoop `
+            -OSType Windows `
+            -DefaultStorageContainer $defaultBlobContainerName `
+            -Config $config
 
 
 To install other software, you will need to replace the script file in the script:
@@ -186,20 +186,20 @@ The following sample demonstrates how to install Spark on Windows based HDInsigh
 1. Create a C# console application in Visual Studio.
 2. From the Nuget Package Manager Console, run the following command.
 
-		Install-Package Microsoft.Azure.Management.HDInsight -Pre
-		Install-Package Microsoft.Azure.Common.Authentication -Pre
+        Install-Package Microsoft.Azure.Management.HDInsight -Pre
+        Install-Package Microsoft.Azure.Common.Authentication -Pre
 
 2. Use the following using statements in the Program.cs file:
 
-		using System;
-		using System.Security;
-		using Microsoft.Azure.Management.HDInsight;
-		using Microsoft.Azure.Management.HDInsight.Models;
-		
-		using Microsoft.Azure;
-		using Microsoft.Azure.Common.Authentication;
-		using Microsoft.Azure.Common.Authentication.Factories;
-		using Microsoft.Azure.Common.Authentication.Models;
+        using System;
+        using System.Security;
+        using Microsoft.Azure.Management.HDInsight;
+        using Microsoft.Azure.Management.HDInsight.Models;
+        
+        using Microsoft.Azure;
+        using Microsoft.Azure.Common.Authentication;
+        using Microsoft.Azure.Common.Authentication.Factories;
+        using Microsoft.Azure.Common.Authentication.Models;
 
 3. Place the code in the class with the following:
 
@@ -328,3 +328,4 @@ See [Develop Script Action scripts for HDInsight][hdinsight-write-script].
 
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Stages during cluster creation"
+

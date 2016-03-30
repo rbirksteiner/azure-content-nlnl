@@ -52,3 +52,4 @@ Use this stuff to create great things, quickly. In addition to these templates, 
 Discover all the templates at your disposal on [GitHub](https://github.com/Azure/azure-quickstart-templates).
 
 Learn more about [Azure Resource Manager](../resource-group-template-deploy.md).
+

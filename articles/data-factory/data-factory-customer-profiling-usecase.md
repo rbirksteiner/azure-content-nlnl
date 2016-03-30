@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Use Case - Customer Profiling" 
-	description="Learn how Azure Data Factory is used to create a data-driven workflow (pipeline) to profile gaming customers." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
-	editor="monicar"/>
+    pageTitle="Use Case - Customer Profiling" 
+    description="Learn how Azure Data Factory is used to create a data-driven workflow (pipeline) to profile gaming customers." 
+    services="data-factory" 
+    documentationCenter="" 
+    authors="spelluru" 
+    manager="jhubbard" 
+    editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/20/2015" 
-	ms.author="spelluru"/>
+    ms.service="data-factory" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/20/2015" 
+    ms.author="spelluru"/>
 
 # Use Case - Customer Profiling
 
@@ -39,15 +39,16 @@ This simple use case can be used as an example of how you can use Azure Data Fac
 ![End-to-end workflow](./media/data-factory-customer-profiling-usecase/EndToEndWorkflow.png)
 Figure above depicts how the data pipelines appear in the Azure Classic Portal UI after they have been deployed.
 
-1.	The **PartitionGameLogsPipeline** reads the raw game events from blob storage and creates partitions based on year, month, and day.
-2.	The **EnrichGameLogsPipeline** joins partitioned game events with geo code reference data and enriches the data by mapping IP addresses to the corresponding geo-locations.
-3.	The **AnalyzeMarketingCampaignPipeline** pipeline leverages the enriched data and processes it with the advertising data to create the final output that contains marketing campaign effectiveness.
+1.  The **PartitionGameLogsPipeline** reads the raw game events from blob storage and creates partitions based on year, month, and day.
+2.  The **EnrichGameLogsPipeline** joins partitioned game events with geo code reference data and enriches the data by mapping IP addresses to the corresponding geo-locations.
+3.  The **AnalyzeMarketingCampaignPipeline** pipeline leverages the enriched data and processes it with the advertising data to create the final output that contains marketing campaign effectiveness.
 
 In this example use case, Azure Data Factory is used to orchestrate activities that copy input data, transform and process the data with HDInsight Activities (Hive and Pig transformations) and output the final data to an Azure SQL Database.  You can also visualize the network of data pipelines, manage them, and monitor their status from the UI.
 
 ## Benefits
 
 By optimizing their user profile analytics and aligning it with business goals, gaming company is able to quickly collect usage patterns, and analyze the effectiveness of its marketing campaigns for all of its different gaming products.
+
 
 
 

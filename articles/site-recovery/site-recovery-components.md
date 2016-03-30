@@ -1,20 +1,20 @@
 <properties
-	pageTitle="How does Site Recovery work? | Microsoft Azure"
-	description="This article provides an overview of Site Recovery architecture"
-	services="site-recovery"
-	documentationCenter=""
-	authors="rayne-wiselman"
-	manager="jwhit"
-	editor=""/>
+    pageTitle="How does Site Recovery work? | Microsoft Azure"
+    description="This article provides an overview of Site Recovery architecture"
+    services="site-recovery"
+    documentationCenter=""
+    authors="rayne-wiselman"
+    manager="jwhit"
+    editor=""/>
 
 <tags
-	ms.service="site-recovery"
-	ms.workload="backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="12/07/2015"
-	ms.author="raynew"/>
+    ms.service="site-recovery"
+    ms.workload="backup-recovery"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="12/07/2015"
+    ms.author="raynew"/>
 
 # How does Azure Site Recovery work?
 
@@ -117,8 +117,8 @@ This workflow shows the process for protecting, replicating, and failing over Hy
 2. **Initial replication**: A virtual machine snapshot is taken and virtual hard disks are replicated one by one until they're all copied to Azure or to the secondary datacenter. This The time to complete this depends on the size and network bandwidth and the initial replication method you've chosen. If disk changes occur while initial replication is in progress the Hyper-V Replica Replication Tracker tracks those changes as Hyper-V Replication Logs (.hrl) that are located in the same folder as the disks. Each disk has an associated .hrl file that will be sent to secondary storage. Note that the snapshot and log files consume disk resources while initial replication is in progress. When the initial replication finishes the VM snapshot is deleted and the delta disk changes in the log are synchronized and merged.
 3. **Finalize protection**: After initial replication finishes the **Finalize protection** job configures network and other post-replication settings and the virtual machine is protected. If you're replicating to Azure you might need to tweak the settings for the virtual machine so that it's ready for failover. At this point you can run a test failover to check everything's working as expected.
 4. **Replication**: After initial replication delta synchronized occurs, in accordance with the replication settings and method. 
-	- **Replication failure**: If delta replication fails and a full replication would be costly in terms of bandwidth or time then resynchronization occurs. For example if the .hrl files reach 50% of the disk size then the virtual machine will be marked for resynchronization. Resynchronization minimizes the amount of data sent by computing checksums of the source and target virtual machines and sending only the delta. After resynchronization finishes delta replication should resume. By default resynchronization is scheduled to run automatically outside office hours, but you can resynchronize a virtual machine manually.
-	- **Replication error**: If a replication error occurs there's a built-in retry. If it's a non-recoverable error such as an authentication or authorization error, or a replica machine in an invalid state no retry will be attempted. If it's a recoverable error such as a network error, or low disk space/memory then a retry occurs with increasing intervals between retries (1, 2, 4, 8, 10, and then every 30 minutes).
+    - **Replication failure**: If delta replication fails and a full replication would be costly in terms of bandwidth or time then resynchronization occurs. For example if the .hrl files reach 50% of the disk size then the virtual machine will be marked for resynchronization. Resynchronization minimizes the amount of data sent by computing checksums of the source and target virtual machines and sending only the delta. After resynchronization finishes delta replication should resume. By default resynchronization is scheduled to run automatically outside office hours, but you can resynchronize a virtual machine manually.
+    - **Replication error**: If a replication error occurs there's a built-in retry. If it's a non-recoverable error such as an authentication or authorization error, or a replica machine in an invalid state no retry will be attempted. If it's a recoverable error such as a network error, or low disk space/memory then a retry occurs with increasing intervals between retries (1, 2, 4, 8, 10, and then every 30 minutes).
 4. **Planned/unplanned failovers**: You run planned/unplanned failovers when the need arises. If you run a planned failover source VMs are shut down to ensure no data loss. After replica VMs are created they're in a commit pending state. You need to commit them to complete the failover unless you're replicating with SAN in which case commit is automatic. After the primary site is up and running failback can occur. If you've replicated to Azure reverse replication is automatic. Otherwise you kick off a reverse replication.
  
 
@@ -155,3 +155,4 @@ In this scenario delta replication changes are sent from the Unified Agent runni
 ## Next steps
 
 [Get ready for deployment](site-recovery-best-practices.md).
+

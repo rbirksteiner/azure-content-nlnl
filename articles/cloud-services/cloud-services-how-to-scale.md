@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Configure autoscale for a cloud service | Microsoft Azure" 
-	description="Learn how to use the portal to configure autoscale rules for a cloud service and linked resources in Azure." 
-	services="cloud-services" 
-	documentationCenter="" 
-	authors="Thraka" 
-	manager="timlt" 
-	editor=""/>
+    pageTitle="Configure autoscale for a cloud service | Microsoft Azure" 
+    description="Learn how to use the portal to configure autoscale rules for a cloud service and linked resources in Azure." 
+    services="cloud-services" 
+    documentationCenter="" 
+    authors="Thraka" 
+    manager="timlt" 
+    editor=""/>
 
 <tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/07/2015"
-	ms.author="adegeo"/>
+    ms.service="cloud-services" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="12/07/2015"
+    ms.author="adegeo"/>
 
 
 
@@ -146,7 +146,7 @@ On the Scale page, you can configure your cloud service to automatically increas
 
 5. Select the storage account that is associated with the queue that you want to use.
 
-    ![Storage name][storage_name]	
+    ![Storage name][storage_name]   
 
 6. Select the queue.
 
@@ -170,7 +170,7 @@ On the Scale page, you can configure your cloud service to automatically increas
 
     ![Scale cpu down][scale_cpudown]
 
-11.	Set the number of minutes to wait between the last scaling action and the next scale-down action. The last scaling action can be either scale-up or scale-down.
+11. Set the number of minutes to wait between the last scaling action and the next scale-down action. The last scaling action can be either scale-up or scale-down.
 
     ![Down time][scale_downtime]
 
@@ -230,3 +230,4 @@ You can schedule automatic scaling of your application by configuring schedules 
 [linked_resources]: ./media/cloud-services-how-to-scale/CloudServices_ScaleLinkedResources.png
 [scale_schedule]: ./media/cloud-services-how-to-scale/CloudServices_SetUpSchedule.png
  
+

@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Create an iOS app on Azure App Service Mobile Apps | Microsoft Azure"
-	description="Follow this tutorial to get started with using Azure mobile app backends for iOS development in Objective-C or Swift"
-	services="app-service\mobile"
-	documentationCenter="ios"
-	authors="krisragh"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Create an iOS app on Azure App Service Mobile Apps | Microsoft Azure"
+    description="Follow this tutorial to get started with using Azure mobile app backends for iOS development in Objective-C or Swift"
+    services="app-service\mobile"
+    documentationCenter="ios"
+    authors="krisragh"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="app-service-mobile"
-	ms.workload="na"
-	ms.tgt_pltfrm="mobile-ios"
-	ms.devlang="objective-c"
-	ms.topic="hero-article"
-	ms.date="11/30/2015"
-	ms.author="krisragh"/>
+    ms.service="app-service-mobile"
+    ms.workload="na"
+    ms.tgt_pltfrm="mobile-ios"
+    ms.devlang="objective-c"
+    ms.topic="hero-article"
+    ms.date="11/30/2015"
+    ms.author="krisragh"/>
 
 #Create an iOS app
 
@@ -68,3 +68,4 @@ You have now provisioned an Azure Mobile App backend that can be used by your mo
 [Azure portal]: https://portal.azure.com/
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
+

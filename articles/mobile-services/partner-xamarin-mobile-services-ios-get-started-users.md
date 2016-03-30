@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Get started with authentication (Xamarin.iOS) - Mobile Services"
-	description="Learn how to use authentication in your Azure Mobile Services app for Xamarin.iOS."
-	documentationCenter="xamarin"
-	services="mobile-services"
-	manager="dwrede"
-	authors="lindydonna"
-	editor=""/>
+    pageTitle="Get started with authentication (Xamarin.iOS) - Mobile Services"
+    description="Learn how to use authentication in your Azure Mobile Services app for Xamarin.iOS."
+    documentationCenter="xamarin"
+    services="mobile-services"
+    manager="dwrede"
+    authors="lindydonna"
+    editor=""/>
 
 
 <tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-xamarin-ios"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="11/30/2015"
-	ms.author="donnam"/>
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-xamarin-ios"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="11/30/2015"
+    ms.author="donnam"/>
 
 # Add authentication to your Mobile Services app
 
@@ -52,7 +52,7 @@ Completing this tutorial requires [Xamarin.iOS], XCode 6.0 and iOS 7.0 or later 
 
 4. Press the **Run** button to build the project and start the app in the iPhone emulator; verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts.
 
-   	This happens because the app attempts to access Mobile Services as an unauthenticated user, but the _TodoItem_ table now requires authentication.
+    This happens because the app attempts to access Mobile Services as an unauthenticated user, but the _TodoItem_ table now requires authentication.
 
 Next, you will update the app to authenticate users before requesting resources from the mobile service.
 
@@ -60,9 +60,9 @@ Next, you will update the app to authenticate users before requesting resources 
 
 1. Open the **QSToDoService** project file and add the following variables
 
-		// Mobile Service logged in user
-		private MobileServiceUser user;
-		public MobileServiceUser User { get { return user; } }
+        // Mobile Service logged in user
+        private MobileServiceUser user;
+        public MobileServiceUser User { get { return user; } }
 
 2. Then add a new method named **Authenticate** to **ToDoService** defined as:
 
@@ -78,7 +78,7 @@ Next, you will update the app to authenticate users before requesting resources 
             }
         }
 
-	> [AZURE.NOTE] If you are using an identity provider other than a Microsoft Account, change the value passed to **LoginAsync** above to one of the following: _Facebook_, _Twitter_, _Google_, or _WindowsAzureActiveDirectory_.
+    > [AZURE.NOTE] If you are using an identity provider other than a Microsoft Account, change the value passed to **LoginAsync** above to one of the following: _Facebook_, _Twitter_, _Google_, or _WindowsAzureActiveDirectory_.
 
 3. Move the request for the **ToDoItem** table from the **ToDoService** constructor into a new method named **CreateTable**:
 
@@ -120,7 +120,7 @@ Next, you will update the app to authenticate users before requesting resources 
 
 7. Press the **Run** button to build the project, start the app in the iPhone emulator, then log-on with your chosen identity provider.
 
-   	When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
+    When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
 
 ## Get completed example
 Download the [completed example project]. Be sure to update the **applicationURL** and **applicationKey** variables with your own Azure settings.
@@ -154,3 +154,4 @@ In the next tutorial, [Authorize users with scripts], you will take the user ID 
 [Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios
 [completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331328
 [Xamarin.iOS]: http://xamarin.com/download
+

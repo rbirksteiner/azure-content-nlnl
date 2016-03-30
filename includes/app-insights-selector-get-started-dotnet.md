@@ -14,3 +14,4 @@ Install the SDK and then add monitoring for other data:
 - [Dependencies](../article/application-insights/app-insights-asp-net-dependencies.md#selector1)
 - [Availability](../article/application-insights/app-insights-monitor-web-app-availability.md#selector1)
 
+

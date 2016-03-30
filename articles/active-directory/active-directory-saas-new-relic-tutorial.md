@@ -68,21 +68,21 @@ This section outlines how to enable users to authenticate to New Relic with thei
 
 ###To configure single sign-on, perform the following steps:
 
-1.  In the Azure AD portal, on the **New Relic** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  In the Azure AD portal, on the **New Relic** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
     ![Configure single sign-on](./media/active-directory-saas-new-relic-tutorial/IC769534.png "Configure single sign-on")
 
-2.  On the **How would you like users to sign on to New Relic** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to New Relic** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-new-relic-tutorial/IC797033.png "Configure Single Sign-On")
 
-3.  On the **Configure App URL** page, in the **New Relic Sign On URL** textbox, type the URL used by your users to sign on to your New Relic application, and then click **Next**. 
+3.  On the **Configure App URL** page, in the **New Relic Sign On URL** textbox, type the URL used by your users to sign on to your New Relic application, and then click **Next**. 
 
     The app URL is your New Relic tenant URL (e.g.: *https://rpm.newrelic.com*):
 
     ![Configure App URL](./media/active-directory-saas-new-relic-tutorial/IC797034.png "Configure App URL")
 
-4.  On the **Configure single sign-on at New Relic** page, to download your certificate, click **Download certificate**, and then save the certificate file locally to your computer.
+4.  On the **Configure single sign-on at New Relic** page, to download your certificate, click **Download certificate**, and then save the certificate file locally to your computer.
 
     ![Configure Single Sign-On](./media/active-directory-saas-new-relic-tutorial/IC797035.png "Configure Single Sign-On")
 
@@ -101,11 +101,11 @@ This section outlines how to enable users to authenticate to New Relic with thei
     ![SAML](./media/active-directory-saas-new-relic-tutorial/IC797038.png "SAML")
 
     1.  Click **Choose File** to upload your downloaded Azure Active Directory certificate.
-    2.  In the Microsoft Azure portal, on the **Configure single sign-on at New Relic** page, copy the **Remote Login URL** value, and then paste it into the **Remote login URL** textbox.
-    3.  In the Microsoft Azure portal, on the **Configure single sign-on at New Relic** page, copy the **Remote Logout URL** value, and then paste it into the **Logout landing URL** textbox.
+    2.  In the Microsoft Azure portal, on the **Configure single sign-on at New Relic** page, copy the **Remote Login URL** value, and then paste it into the **Remote login URL** textbox.
+    3.  In the Microsoft Azure portal, on the **Configure single sign-on at New Relic** page, copy the **Remote Logout URL** value, and then paste it into the **Logout landing URL** textbox.
     4.  Click **Save my changes**.
 
-9.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+9.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
     ![Configure Single Sign-On](./media/active-directory-saas-new-relic-tutorial/IC797039.png "Configure Single Sign-On")
 ##Configuring user provisioning
@@ -143,7 +143,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 1.  In the Azure AD portal, create a test account.
 
-2.  On the **New Relic** application integration page, click **Assign users**.
+2.  On the **New Relic** application integration page, click **Assign users**.
 
     ![Assign Users](./media/active-directory-saas-new-relic-tutorial/IC797043.png "Assign Users")
 
@@ -152,6 +152,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
     ![Yes](./media/active-directory-saas-new-relic-tutorial/IC767830.png "Yes")
   
 If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+
 
 
 

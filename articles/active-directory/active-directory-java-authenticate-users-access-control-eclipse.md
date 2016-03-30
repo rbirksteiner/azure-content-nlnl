@@ -1,7 +1,7 @@
 <properties
     pageTitle="How to use Access Control (Java) | Microsoft Azure"
     description="Learn how to develop and use Access Control with Java in Azure."
-	services="active-directory" 
+    services="active-directory" 
     documentationCenter="java"
     authors="rmcmurray"
     manager="wpickett"
@@ -191,7 +191,7 @@ token, without filtering or modifying them.
 1.  On the ACS Management Portal main page, click **Rule groups**.
 2.  On the **Rule Groups** page, click **Default Rule Group for Azure Web App**.
 3.  On the **Edit Rule Group** page, click **Generate**.
-4.  On the **Generate Rules: Default Rule Group for Azure Web App** page, ensure Windows Live ID is checked and then click **Generate**.	
+4.  On the **Generate Rules: Default Rule Group for Azure Web App** page, ensure Windows Live ID is checked and then click **Generate**.    
 5.  On the **Edit Rule Group** page, click **Save**.
 
 ## Upload a certificate to your ACS namespace
@@ -377,3 +377,4 @@ At this point, your certificate would be included in your deployment. Note that 
 [create_acs_hello_world]: ./media/active-directory-java-authenticate-users-access-control-eclipse/CreateACSHelloWorld.png
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
  
+

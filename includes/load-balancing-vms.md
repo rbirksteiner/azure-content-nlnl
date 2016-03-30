@@ -29,10 +29,10 @@ The following figure shows an example of the Round Robin load balancing method f
 
 The basic process is the following:
 
-1.	An Internet client queries a domain name corresponding to a web service.
-2.	DNS forwards the name query request to Traffic Manager.
-3.	Traffic Manager sends back the DNS name of the cloud service in the round robin list. The Internet client's DNS server resolves the name to an IP address and sends it to the Internet client.
-4.	The Internet client connects with the chosen cloud service.
+1.  An Internet client queries a domain name corresponding to a web service.
+2.  DNS forwards the name query request to Traffic Manager.
+3.  Traffic Manager sends back the DNS name of the cloud service in the round robin list. The Internet client's DNS server resolves the name to an IP address and sends it to the Internet client.
+4.  The Internet client connects with the chosen cloud service.
 
 ## Azure load balancing for virtual machines ##
 
@@ -61,3 +61,4 @@ The following figure shows an example of an internal load-balanced endpoint for 
 For more information, see [Internal load balancing](../load-balancer/load-balancer-internal-overview.md). For the steps to create a load-balanced set, see [Configure an internal load-balanced set](../load-balancer/load-balancer-internal-getstarted.md).
 
 <!-- LINKS -->
+

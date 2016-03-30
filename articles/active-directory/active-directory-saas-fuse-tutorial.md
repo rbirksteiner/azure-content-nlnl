@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Tutorial: Azure Active Directory integration with Fuse | Microsoft Azure"
-	description="Learn how to configure single sign-on between Azure Active Directory and Fuse."
-	services="active-directory"
-	documentationCenter=""
-	authors="ashimaabrol"
-	manager="stevenpo"
-	editor=""/>
+    pageTitle="Tutorial: Azure Active Directory integration with Fuse | Microsoft Azure"
+    description="Learn how to configure single sign-on between Azure Active Directory and Fuse."
+    services="active-directory"
+    documentationCenter=""
+    authors="ashimaabrol"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/14/2015"
-	ms.author="v-aabrol"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/14/2015"
+    ms.author="v-aabrol"/>
 
 
 # Tutorial: Azure Active Directory integration with Fuse
@@ -241,3 +241,4 @@ When you click the Fuse tile in the Access Panel, you should get automatically s
 [203]: ./media/active-directory-saas-fuse-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-fuse-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-fuse-tutorial/tutorial_general_205.png
+

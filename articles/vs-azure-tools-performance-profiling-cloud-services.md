@@ -146,3 +146,4 @@ A profiling session is created for each instance of a role in your cloud service
 
 [Publishing to an Azure Cloud Service from Visual Studio](https://msdn.microsoft.com/library/azure/ee460772.aspx)
 
+

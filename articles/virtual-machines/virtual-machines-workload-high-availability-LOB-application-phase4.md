@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Line of business application Phase 4 | Microsoft Azure" 
-	description="Create the web servers and load your line of business application on them in Phase 4 of the line of business application in Azure." 
-	documentationCenter=""
-	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
-	editor=""
-	tags="azure-resource-manager"/>
+    pageTitle="Line of business application Phase 4 | Microsoft Azure" 
+    description="Create the web servers and load your line of business application on them in Phase 4 of the line of business application in Azure." 
+    documentationCenter=""
+    services="virtual-machines" 
+    authors="JoeDavies-MSFT" 
+    manager="timlt" 
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="Windows" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/20/2015" 
-	ms.author="josephd"/>
+    ms.service="virtual-machines" 
+    ms.workload="infrastructure-services" 
+    ms.tgt_pltfrm="Windows" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/20/2015" 
+    ms.author="josephd"/>
 
 # Line of Business Application Workload Phase 4: Configure web servers
 
@@ -45,20 +45,20 @@ Recall that you defined Table M in [Phase 2](virtual-machines-workload-high-avai
 
 When you have supplied all the proper values, run the resulting block at the Azure PowerShell command prompt.
 
-	# Set up key variables
-	$rgName="<resource group name>"
-	$locName="<Azure location of your resource group>"
-	$vnetName="<Table V – Item 1 – Value column>"
-	$privIP="<available IP address on the subnet>"
-	$vnet=Get-AzureRMVirtualNetwork -Name $vnetName -ResourceGroupName $rgName
+    # Set up key variables
+    $rgName="<resource group name>"
+    $locName="<Azure location of your resource group>"
+    $vnetName="<Table V – Item 1 – Value column>"
+    $privIP="<available IP address on the subnet>"
+    $vnet=Get-AzureRMVirtualNetwork -Name $vnetName -ResourceGroupName $rgName
 
-	$frontendIP=New-AzureRMLoadBalancerFrontendIpConfig -Name WebServers-LBFE -PrivateIPAddress $privIP -SubnetId $vnet.Subnets[1].Id
-	$beAddressPool=New-AzureRMLoadBalancerBackendAddressPoolConfig -Name WebServers-LBBE
+    $frontendIP=New-AzureRMLoadBalancerFrontendIpConfig -Name WebServers-LBFE -PrivateIPAddress $privIP -SubnetId $vnet.Subnets[1].Id
+    $beAddressPool=New-AzureRMLoadBalancerBackendAddressPoolConfig -Name WebServers-LBBE
 
-	# This example assumes unsecured (HTTP-based) web traffic to the web servers.
-	$healthProbe=New-AzureRMLoadBalancerProbeConfig -Name WebServersProbe -Protocol "TCP" -Port 80 -IntervalInSeconds 15 -ProbeCount 2
-	$lbrule=New-AzureRMLoadBalancerRuleConfig -Name "WebTraffic" -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol "TCP" -FrontendPort 80 -BackendPort 80
-	New-AzureRMLoadBalancer -ResourceGroupName $rgName -Name "WebServersInAzure" -Location $locName -LoadBalancingRule $lbrule -BackendAddressPool $beAddressPool -Probe $healthProbe -FrontendIpConfiguration $frontendIP
+    # This example assumes unsecured (HTTP-based) web traffic to the web servers.
+    $healthProbe=New-AzureRMLoadBalancerProbeConfig -Name WebServersProbe -Protocol "TCP" -Port 80 -IntervalInSeconds 15 -ProbeCount 2
+    $lbrule=New-AzureRMLoadBalancerRuleConfig -Name "WebTraffic" -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol "TCP" -FrontendPort 80 -BackendPort 80
+    New-AzureRMLoadBalancer -ResourceGroupName $rgName -Name "WebServersInAzure" -Location $locName -LoadBalancingRule $lbrule -BackendAddressPool $beAddressPool -Probe $healthProbe -FrontendIpConfiguration $frontendIP
 
 Next, add a DNS address record to your organization's internal DNS infrastructure that resolves the fully qualified domain name of the line of business application (such as lobapp.corp.contoso.com) to the IP address assigned to the internal load balancer (the value of $privIP in the preceding Azure PowerShell command block).
 
@@ -66,48 +66,48 @@ Next, use the following block of PowerShell commands to create the virtual machi
 
 When you have supplied all the proper values, run the resulting block at the Azure PowerShell prompt.
 
-	# Set up key variables
-	$rgName="<resource group name>"
-	$locName="<Azure location of your resource group>"
-	$webLB=Get-AzureRMLoadBalancer -ResourceGroupName $rgName -Name "WebServersInAzure"	
-	
-	# Use the standard storage account
-	$saName="<Table ST – Item 2 – Storage account name column>"
+    # Set up key variables
+    $rgName="<resource group name>"
+    $locName="<Azure location of your resource group>"
+    $webLB=Get-AzureRMLoadBalancer -ResourceGroupName $rgName -Name "WebServersInAzure" 
+    
+    # Use the standard storage account
+    $saName="<Table ST – Item 2 – Storage account name column>"
 
-	$vnetName="<Table V – Item 1 – Value column>"
-	$beSubnetName="<Table S - Item 2 - Name column>"
-	$avName="<Table A – Item 3 – Availability set name column>"
-	$vnet=Get-AzureRMVirtualNetwork -Name $vnetName -ResourceGroupName $rgName
-	$backendSubnet=Get-AzureRMVirtualNetworkSubnetConfig -Name $beSubnetName -VirtualNetwork $vnet
-	
-	# Create the first web server virtual machine
-	$vmName="<Table M – Item 6 - Virtual machine name column>"
-	$vmSize="<Table M – Item 6 - Minimum size column>"
-	$nic=New-AzureRMNetworkInterface -Name ($vmName + "-NIC") -ResourceGroupName $rgName -Location $locName -Subnet $backendSubnet -LoadBalancerBackendAddressPool $webLB.BackendAddressPools[0]
-	$avSet=Get-AzureRMAvailabilitySet -Name $avName –ResourceGroupName $rgName 
-	$vm=New-AzureRMVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avset.Id
-	$cred=Get-Credential -Message "Type the name and password of the local administrator account for the first web server." 
-	$vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-	$vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
-	$vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id
-	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
-	$osDiskUri=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/" + $vmName + "-OSDisk.vhd"
-	$vm=Set-AzureRMVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
-	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
-	
-	# Create the second web server virtual machine
-	$vmName="<Table M – Item 7 - Virtual machine name column>"
-	$vmSize="<Table M – Item 7 - Minimum size column>"
-	$nic=New-AzureRMNetworkInterface -Name ($vmName + "-NIC") -ResourceGroupName $rgName -Location $locName -Subnet $backendSubnet -LoadBalancerBackendAddressPool $webLB.BackendAddressPools[0]
-	$vm=New-AzureRMVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avset.Id
-	$cred=Get-Credential -Message "Type the name and password of the local administrator account for the second SQL Server computer." 
-	$vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-	$vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
-	$vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id
-	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
-	$osDiskUri=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/" + $vmName + "-OSDisk.vhd"
-	$vm=Set-AzureRMVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
-	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
+    $vnetName="<Table V – Item 1 – Value column>"
+    $beSubnetName="<Table S - Item 2 - Name column>"
+    $avName="<Table A – Item 3 – Availability set name column>"
+    $vnet=Get-AzureRMVirtualNetwork -Name $vnetName -ResourceGroupName $rgName
+    $backendSubnet=Get-AzureRMVirtualNetworkSubnetConfig -Name $beSubnetName -VirtualNetwork $vnet
+    
+    # Create the first web server virtual machine
+    $vmName="<Table M – Item 6 - Virtual machine name column>"
+    $vmSize="<Table M – Item 6 - Minimum size column>"
+    $nic=New-AzureRMNetworkInterface -Name ($vmName + "-NIC") -ResourceGroupName $rgName -Location $locName -Subnet $backendSubnet -LoadBalancerBackendAddressPool $webLB.BackendAddressPools[0]
+    $avSet=Get-AzureRMAvailabilitySet -Name $avName –ResourceGroupName $rgName 
+    $vm=New-AzureRMVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avset.Id
+    $cred=Get-Credential -Message "Type the name and password of the local administrator account for the first web server." 
+    $vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+    $vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
+    $vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id
+    $storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
+    $osDiskUri=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/" + $vmName + "-OSDisk.vhd"
+    $vm=Set-AzureRMVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
+    New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
+    
+    # Create the second web server virtual machine
+    $vmName="<Table M – Item 7 - Virtual machine name column>"
+    $vmSize="<Table M – Item 7 - Minimum size column>"
+    $nic=New-AzureRMNetworkInterface -Name ($vmName + "-NIC") -ResourceGroupName $rgName -Location $locName -Subnet $backendSubnet -LoadBalancerBackendAddressPool $webLB.BackendAddressPools[0]
+    $vm=New-AzureRMVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avset.Id
+    $cred=Get-Credential -Message "Type the name and password of the local administrator account for the second SQL Server computer." 
+    $vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+    $vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
+    $vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id
+    $storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
+    $osDiskUri=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/" + $vmName + "-OSDisk.vhd"
+    $vm=Set-AzureRMVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
+    New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
 > [AZURE.NOTE] Because these virtual machines are for an intranet application, they are not assigned a public IP address or a DNS domain name label and exposed to the Internet. However, this also means that you cannot connect to them from the Azure portal. The **Connect** button will be unavailable when you view the properties of the virtual machine.
 
@@ -115,9 +115,9 @@ Use the remote desktop client of your choice and create a remote desktop connect
 
 Next, for each web server virtual machine, join them to the appropriate Active Directory domain with these commands at the Windows PowerShell prompt.
 
-	$domName="<Active Directory domain name to join, such as corp.contoso.com>"
-	Add-Computer -DomainName $domName
-	Restart-Computer
+    $domName="<Active Directory domain name to join, such as corp.contoso.com>"
+    Add-Computer -DomainName $domName
+    Restart-Computer
 
 Note that you must supply domain account credentials after entering the **Add-Computer** command.
 
@@ -140,9 +140,9 @@ Next, for each web server, install and configure IIS.
 
 From a computer on your on-premises network:
 
-1.	Add the files for your line of business application to the two web servers.
-2.	Create the databases for your line of business application on the SQL Server cluster.
-3.	Test access to your line of business application and its functionality.
+1.  Add the files for your line of business application to the two web servers.
+2.  Create the databases for your line of business application on the SQL Server cluster.
+3.  Test access to your line of business application and its functionality.
 
 This diagram is the configuration resulting from the successful completion of this phase.
 
@@ -151,3 +151,4 @@ This diagram is the configuration resulting from the successful completion of th
 ## Next Step
 
 - Use [Phase 5](virtual-machines-workload-high-availability-LOB-application-phase5.md) to complete the configuration of this workload.
+

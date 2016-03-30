@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Sampling, filtering and preprocessing in the Application Insights SDK" 
-	description="Write plug-ins for the SDK to filter, sample or add properties to the data before the telemetry is sent to the Application Insights portal." 
-	services="application-insights"
+    pageTitle="Sampling, filtering and preprocessing in the Application Insights SDK" 
+    description="Write plug-ins for the SDK to filter, sample or add properties to the data before the telemetry is sent to the Application Insights portal." 
+    services="application-insights"
     documentationCenter="" 
-	authors="alancameronwills" 
-	manager="douge"/>
+    authors="alancameronwills" 
+    manager="douge"/>
  
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="11/04/2015" 
-	ms.author="awills"/>
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="multiple" 
+    ms.topic="article" 
+    ms.date="11/04/2015" 
+    ms.author="awills"/>
 
 # Sampling, filtering and preprocessing telemetry in the Application Insights SDK
 
@@ -61,12 +61,12 @@ To get fixed-rate sampling on the data from web pages, put an extra line in the 
 
 ```JavaScript
 
-	}({ 
+    }({ 
 
-	samplingPercentage: 10.0, 
+    samplingPercentage: 10.0, 
 
-	instrumentationKey:...
-	}); 
+    instrumentationKey:...
+    }); 
 ```
 
 * Set a percentage (10 in this example) that is equal to 100/N where N is an integer - for example 50 (=100/2), 33.33 (=100/3), 25 (=100/4), or 10 (=100/10). 

@@ -40,24 +40,24 @@ SQL Data Warehouse uses common SQL Server constructs for executing queries inclu
 
 ```
 SELECT
-	sm.[name]								    AS [schema_name],
-	tb.[name]								    AS [table_name],
-	co.[name]									AS [stats_column_name],
-	st.[name]									AS [stats_name],
-	STATS_DATE(st.[object_id],st.[stats_id])	AS [stats_last_updated_date]
+    sm.[name]                                   AS [schema_name],
+    tb.[name]                                   AS [table_name],
+    co.[name]                                   AS [stats_column_name],
+    st.[name]                                   AS [stats_name],
+    STATS_DATE(st.[object_id],st.[stats_id])    AS [stats_last_updated_date]
 FROM
-	sys.objects				AS ob
-	JOIN sys.stats			AS st	ON	ob.[object_id]		= st.[object_id]
-	JOIN sys.stats_columns	AS sc	ON	st.[stats_id]		= sc.[stats_id]
-									AND	st.[object_id]		= sc.[object_id]
-	JOIN sys.columns		AS co	ON	sc.[column_id]		= co.[column_id]
-									AND	sc.[object_id]		= co.[object_id]
-	JOIN sys.types           AS ty	ON	co.[user_type_id]	= ty.[user_type_id]
-	JOIN sys.tables          AS tb	ON	co.[object_id]		= tb.[object_id]
-	JOIN sys.schemas         AS sm	ON	tb.[schema_id]		= sm.[schema_id]
+    sys.objects             AS ob
+    JOIN sys.stats          AS st   ON  ob.[object_id]      = st.[object_id]
+    JOIN sys.stats_columns  AS sc   ON  st.[stats_id]       = sc.[stats_id]
+                                    AND st.[object_id]      = sc.[object_id]
+    JOIN sys.columns        AS co   ON  sc.[column_id]      = co.[column_id]
+                                    AND sc.[object_id]      = co.[object_id]
+    JOIN sys.types           AS ty  ON  co.[user_type_id]   = ty.[user_type_id]
+    JOIN sys.tables          AS tb  ON  co.[object_id]      = tb.[object_id]
+    JOIN sys.schemas         AS sm  ON  tb.[schema_id]      = sm.[schema_id]
 WHERE
-	1=1 
-	AND st.[user_created] = 1;
+    1=1 
+    AND st.[user_created] = 1;
 ```
 
 See our [Statistics](sql-data-warehouse-develop-statistics.md) page to learn more. 
@@ -89,3 +89,4 @@ Please refer to the [development overview][] article to get some guidance on bui
 <!--MSDN references-->
 
 <!--Other web references-->
+

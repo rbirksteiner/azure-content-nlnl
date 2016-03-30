@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Get Started with authentication in Mobile Services for Xamarin Android apps | Microsoft Azure"
-	description="Learn how to use Mobile Services to authenticate users of your Xamarin Android app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft."
-	services="mobile-services"
-	documentationCenter="xamarin"
-	authors="lindydonna"
-	manager="dwrede"
-	editor="mollybos"/>
+    pageTitle="Get Started with authentication in Mobile Services for Xamarin Android apps | Microsoft Azure"
+    description="Learn how to use Mobile Services to authenticate users of your Xamarin Android app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft."
+    services="mobile-services"
+    documentationCenter="xamarin"
+    authors="lindydonna"
+    manager="dwrede"
+    editor="mollybos"/>
 
 <tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-xamarin-android"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="12/01/2015" 
-	ms.author="donnam"/>
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-xamarin-android"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="12/01/2015" 
+    ms.author="donnam"/>
 
 # Get started with authentication in Mobile Services
 
@@ -48,7 +48,7 @@ This tutorial is based on the Mobile Services quickstart. You must also first co
 <ol start="6">
 <li><p>In Visual Studio or Xamarin Studio, run the client project on a device or simulator. Verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts.</p>
 
-   	<p>This happens because the app attempts to access Mobile Services as an unauthenticated user, but the <em>TodoItem</em> table now requires authentication.</p></li>
+    <p>This happens because the app attempts to access Mobile Services as an unauthenticated user, but the <em>TodoItem</em> table now requires authentication.</p></li>
 </ol>
 
 Next, you will update the app to authenticate users before requesting resources from the mobile service.
@@ -57,22 +57,22 @@ Next, you will update the app to authenticate users before requesting resources 
 
 1. Add the following property to the **TodoActivity** class:
 
-			private MobileServiceUser user;
+            private MobileServiceUser user;
 
 2. Add the following method to the **TodoActivity** class:
 
-	        private async Task Authenticate()
-	        {
-	            try
-	            {
-	                user = await client.LoginAsync(this, MobileServiceAuthenticationProvider.Facebook);
-	                CreateAndShowDialog(string.Format("you are now logged in - {0}", user.UserId), "Logged in!");
-	            }
-	            catch (Exception ex)
-	            {
-	                CreateAndShowDialog(ex, "Authentication failed");
-	            }
-	        }
+            private async Task Authenticate()
+            {
+                try
+                {
+                    user = await client.LoginAsync(this, MobileServiceAuthenticationProvider.Facebook);
+                    CreateAndShowDialog(string.Format("you are now logged in - {0}", user.UserId), "Logged in!");
+                }
+                catch (Exception ex)
+                {
+                    CreateAndShowDialog(ex, "Authentication failed");
+                }
+            }
 
     This creates a new method to handle the authentication process. The user is authenticated by using a Facebook login. A dialog is displayed which displays the ID of the authenticated user.
 
@@ -80,14 +80,14 @@ Next, you will update the app to authenticate users before requesting resources 
 
 3. In the **OnCreate** method, add the following line of code after the code that instantiates the `MobileServiceClient` object.
 
-		await Authenticate(); // add this line
+        await Authenticate(); // add this line
 
-	This call starts the authentication process and awaits it asynchronously.
+    This call starts the authentication process and awaits it asynchronously.
 
 
 4. From the **Run** menu, click **Start debugging** to start the app and sign in with your chosen identity provider.
 
-   	When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
+    When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
 
 
 <!-- ## <a name="next-steps"> </a>Next steps
@@ -111,4 +111,5 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 [Get started with push notifications]: mobile-services-dotnet-backend-xamarin-android-get-started-push.md
 [Authorize users with scripts]: ../mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts.md
 [JavaScript and HTML]: ../mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
+
 

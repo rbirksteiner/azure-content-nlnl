@@ -88,3 +88,4 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 
 [ic590123]: ./media/azure-toolkit-for-eclipse-installation/ic590123.png
 [ic719482]: ./media/azure-toolkit-for-eclipse-installation/ic719482.png
+

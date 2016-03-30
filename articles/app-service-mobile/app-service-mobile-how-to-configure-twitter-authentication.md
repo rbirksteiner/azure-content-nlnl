@@ -1,20 +1,20 @@
 <properties
-	pageTitle="How to configure Twitter authentication for your App Services application"
-	description="Learn how to configure Twitter authentication for your App Services application."
-	services="app-service\mobile"
-	documentationCenter=""
-	authors="mattchenderson" 
-	manager="dwrede"
-	editor=""/>
+    pageTitle="How to configure Twitter authentication for your App Services application"
+    description="Learn how to configure Twitter authentication for your App Services application."
+    services="app-service\mobile"
+    documentationCenter=""
+    authors="mattchenderson" 
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="10/29/2015"
-	ms.author="mahender"/>
+    ms.service="app-service-mobile"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="na"
+    ms.devlang="multiple"
+    ms.topic="article"
+    ms.date="10/29/2015"
+    ms.author="mahender"/>
 
 # How to configure your App Service application to use Twitter login
 
@@ -41,8 +41,8 @@ This topic demonstrates use of the App Service Authentication / Authorization fe
 
 3. Type in the **Name** and a **Description** for your new app. Paste in your application's **URL** for the **Website** value. Then, for the **Callback URL**, paste the **Callback URL** you copied earlier. This is your Mobile App gateway appended with the path, _/.auth/login/twitter/callback_. For example, `https://contoso.azurewebsites.net/.auth/login/twitter/callback`. Make sure that you are using the HTTPS scheme.
 
-	> [AZURE.NOTE]
-	If you are using the App Service Gateway instead of the App Service Authentication / Authorization feature, your redirect URL instead uses the gateway URL with the _/signin-twitter_ path.
+    > [AZURE.NOTE]
+    If you are using the App Service Gateway instead of the App Service Authentication / Authorization feature, your redirect URL instead uses the gateway URL with the _/signin-twitter_ path.
 
 3.  At the bottom the page, read and accept the terms. Then click **Create your Twitter application**. This registers the app displays the application details.
 
@@ -67,7 +67,7 @@ If using the App Service Gateway, ignore this section and instead navigate to yo
 
     ![][1]
 
-	By default, App Service provides authentication but does not restrict authorized access to your site content and APIs. You must authorize users in your app code. 
+    By default, App Service provides authentication but does not restrict authorized access to your site content and APIs. You must authorize users in your app code. 
 
 17. (Optional) To restrict access to your site to only users authenticated by Twitter, set **Action to take when request is not authenticated** to **Twitter**. This requires that all requests be authenticated, and all unauthenticated requests are redirected to Twitter for authentication.
 

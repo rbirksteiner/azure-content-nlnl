@@ -1,21 +1,21 @@
 <properties
-	pageTitle="What is Azure Backup? | Microsoft Azure"
-	description="With Azure Backup and recovery services you can backup and restore data and applications from Windows servers, Windows client machines, SCDPM servers or Azure virtual machines."
-	services="backup"
-	documentationCenter=""
-	authors="trinadhk"
-	manager="shreeshd"
-	editor="tysonn"
-	keywords="backup and restore; recovery services"/>
+    pageTitle="What is Azure Backup? | Microsoft Azure"
+    description="With Azure Backup and recovery services you can backup and restore data and applications from Windows servers, Windows client machines, SCDPM servers or Azure virtual machines."
+    services="backup"
+    documentationCenter=""
+    authors="trinadhk"
+    manager="shreeshd"
+    editor="tysonn"
+    keywords="backup and restore; recovery services"/>
 
 <tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/17/2015"
-	ms.author="aashishr"; "trinadhk"; "jimpark"/>
+    ms.service="backup"
+    ms.workload="storage-backup-recovery"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/17/2015"
+    ms.author="aashishr"; "trinadhk"; "jimpark"/>
 
 # What is Azure Backup?
 Azure Backup is a multi-tenanted Azure service that enables you to back up and restore your data on-premises or in Azure. It replaces your existing on-premises or offsite backup solution with a reliable, secure and cost competitive cloud backup solution. It also provides the flexibility of protecting your assets running in the cloud. Azure Backup is built on top of a world class infrastructure that is scalable, durable and highly available. Using this solution, you can back up data and applications from their System Center Data Protection Manager (SCDPM) servers, Windows servers, Windows client machines or Azure IaaS virtual machines. Azure Backup and SCDPM are the fundamental technologies which make up Microsoft's cloud-integrated backup solution.
@@ -75,3 +75,4 @@ The key features of this solution are:
 - [Try Azure Backup](backup-try-azure-backup-in-10-mins.md)
 - Frequently asked question on the Azure Backup service is listed [here](backup-azure-backup-faq.md).
 - Visit the [Azure Backup Forum](http://go.microsoft.com/fwlink/p/?LinkId=290933).
+

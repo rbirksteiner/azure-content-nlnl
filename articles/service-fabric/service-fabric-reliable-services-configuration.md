@@ -115,3 +115,4 @@ only use the space needed for the smaller record. It is expected that it would n
 
 The SharedLogId and SharedLogPath settings are always used together and allow a service to use a separate shared log from the default shared log for the node. For best efficiency, as many services as
 possible should specify the same shared log. Shared log files should be placed on disks that are used solely for the shared log file so that head movement contention is reduced. It is expected that it would need to be changed in only rare cases.
+

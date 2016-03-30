@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Azure Active Directory B2C preview: FAQs | Microsoft Azure"
-	description="Frequently asked questions about Azure Active Directory B2C"
-	services="active-directory-b2c"
-	documentationCenter=""
-	authors="swkrish"
-	manager="msmbaldwin"
-	editor="curtand"/>
+    pageTitle="Azure Active Directory B2C preview: FAQs | Microsoft Azure"
+    description="Frequently asked questions about Azure Active Directory B2C"
+    services="active-directory-b2c"
+    documentationCenter=""
+    authors="swkrish"
+    manager="msmbaldwin"
+    editor="curtand"/>
 
 <tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/08/2015"
-	ms.author="swkrish"/>
+    ms.service="active-directory-b2c"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/08/2015"
+    ms.author="swkrish"/>
 
 # Azure Active Directory B2C preview: FAQs
 
@@ -104,3 +104,4 @@ We can't provide any information on the generally available date at this time.
 ## More Information
 
 You also might want to review current [preview limitations, restrictions and constraints](active-directory-b2c-limitations.md).
+

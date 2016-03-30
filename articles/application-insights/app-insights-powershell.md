@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Create Application Insights resources using PowerShell" 
-	description="Programmatically create Application Insights resources as part of your build." 
-	services="application-insights" 
+    pageTitle="Create Application Insights resources using PowerShell" 
+    description="Programmatically create Application Insights resources as part of your build." 
+    services="application-insights" 
     documentationCenter=""
-	authors="alancameronwills" 
-	manager="douge"/>
+    authors="alancameronwills" 
+    manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/23/2015" 
-	ms.author="awills"/>
+    ms.service="application-insights" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="ibiza" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="11/23/2015" 
+    ms.author="awills"/>
  
 # Create Application Insights resources using PowerShell
 
@@ -48,7 +48,7 @@ Install the Azure Powershell module on the machine where you want to run the scr
             "text": { "type" : "string" }
           },
           "variables": {
-			"testName": "[concat(parameters('webTestName'), 
+            "testName": "[concat(parameters('webTestName'), 
                '-', toLower(parameters('appName')))]"
             "alertRuleName": "[concat(parameters('webTestName'), 
                '-', toLower(parameters('appName')), 

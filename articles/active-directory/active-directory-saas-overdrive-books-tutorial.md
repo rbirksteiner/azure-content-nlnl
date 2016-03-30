@@ -69,25 +69,25 @@ The objective of this section is to outline how to enable users to authenticate 
 
 ###To configure single sign-on, perform the following steps:
 
-1.  In the Azure AD portal, on the **OverDrive** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  In the Azure AD portal, on the **OverDrive** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
     ![Enable single sign-on](./media/active-directory-saas-overdrive-books-tutorial/IC784465.png "Enable single sign-on")
 
-2.  On the **How would you like users to sign on to OverDrive** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to OverDrive** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure single sign-on](./media/active-directory-saas-overdrive-books-tutorial/IC784466.png "Configure single sign-on")
 
-3.  On the **Configure App URL** page, in the **OverDrive Sign In URL** textbox, type your URL using the following pattern "*http://mslibrarytest.libraryreserve.com*", and then click **Next**.
+3.  On the **Configure App URL** page, in the **OverDrive Sign In URL** textbox, type your URL using the following pattern "*http://mslibrarytest.libraryreserve.com*", and then click **Next**.
 
     ![Configure App URL](./media/active-directory-saas-overdrive-books-tutorial/IC784467.png "Configure App URL")
 
-4.  On the **Configure single sign-on at OverDrive** page, to download the metadata file, and then send it to the OverDrive support team.
+4.  On the **Configure single sign-on at OverDrive** page, to download the metadata file, and then send it to the OverDrive support team.
 
     ![Configure single sign-on](./media/active-directory-saas-overdrive-books-tutorial/IC784468.png "Configure single sign-on")
 
     >[AZURE.NOTE]The OverDrive support team configures single sign-on for you and sends you a notification when the configuration has been completed.
 
-5.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+5.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
     ![Configure single sign-on](./media/active-directory-saas-overdrive-books-tutorial/IC784469.png "Configure single sign-on")
 ##Configuring user provisioning
@@ -105,7 +105,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 1.  In the Azure AD portal, create a test account.
 
-2.  On the **OverDrive **application integration page, click **Assign users**.
+2.  On the **OverDrive **application integration page, click **Assign users**.
 
     ![Assign Users](./media/active-directory-saas-overdrive-books-tutorial/IC784470.png "Assign Users")
 

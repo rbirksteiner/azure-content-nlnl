@@ -10,11 +10,11 @@
 <tags
    ms.service="backup"
    ms.workload="storage-backup-recovery"
-	 ms.tgt_pltfrm="na"
-	 ms.devlang="na"
-	 ms.topic="get-started-article"
-	 ms.date="11/26/2015"
-	 ms.author="aashishr"; "jimpark"/>
+     ms.tgt_pltfrm="na"
+     ms.devlang="na"
+     ms.topic="get-started-article"
+     ms.date="11/26/2015"
+     ms.author="aashishr"; "jimpark"/>
 
 # Getting started with Azure Backup
 It is extremely easy to setup Azure Backup and the following how-to videos will help you get started.
@@ -52,3 +52,4 @@ Go through the steps mentioned in the video [Getting Started with Azure Backup 3
 - To learn more about Azure Backup, see [Azure Backup Overview](backup-introduction-to-azure-backup.md)
 - [Back up Windows Server](backup-azure-backup-windows-server.md)
 - Visit the [Azure Backup Forum](http://go.microsoft.com/fwlink/p/?LinkId=290933).
+

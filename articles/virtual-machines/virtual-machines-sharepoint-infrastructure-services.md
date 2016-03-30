@@ -1,21 +1,21 @@
 <properties
-	pageTitle="SharePoint Server 2013 farms in Azure | Microsoft Azure"
-	description="Find the articles that describe how to set up a dev/test environment or a production SharePoint Server 2013 farm in Microsoft Azure."
-	documentationCenter=""
-	services="virtual-machines"
-	authors="JoeDavies-MSFT"
-	manager="timlt"
-	editor=""
-	tags="azure-service-management,azure-resource-manager"/>
+    pageTitle="SharePoint Server 2013 farms in Azure | Microsoft Azure"
+    description="Find the articles that describe how to set up a dev/test environment or a production SharePoint Server 2013 farm in Microsoft Azure."
+    documentationCenter=""
+    services="virtual-machines"
+    authors="JoeDavies-MSFT"
+    manager="timlt"
+    editor=""
+    tags="azure-service-management,azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="Windows"
-	ms.devlang="na"
-	ms.topic="index-page"
-	ms.date="10/20/2015"
-	ms.author="josephd"/>
+    ms.service="virtual-machines"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="Windows"
+    ms.devlang="na"
+    ms.topic="index-page"
+    ms.date="10/20/2015"
+    ms.author="josephd"/>
 
 # SharePoint farms hosted in Azure infrastructure services
 
@@ -68,3 +68,4 @@ This configuration uses the classic deployment model.
 [Using Microsoft Azure Active Directory for SharePoint 2013 authentication](https://technet.microsoft.com/library/dn635311.aspx)
 
 [Deploy Office 365 Directory Synchronization (DirSync) in Microsoft Azure](https://technet.microsoft.com/library/dn635310.aspx)
+

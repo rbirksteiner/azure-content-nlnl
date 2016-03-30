@@ -39,3 +39,4 @@ For more information on Service Fabric concepts, see the following:
 - [Scalability of Service Fabric services](service-fabric-concepts-scalability.md)
 
 - [Partitioning Service Fabric services](service-fabric-concepts-partitioning.md)
+

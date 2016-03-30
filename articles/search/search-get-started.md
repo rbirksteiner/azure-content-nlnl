@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Get started with Azure Search | Microsoft Azure | Hosted cloud search service" 
-	description="Get started with Azure Search, a cloud hosted search service on Microsoft Azure." 
-	services="search" 
-	documentationCenter="" 
-	authors="HeidiSteen" 
-	manager="mblythe" 
-	editor=""
+    pageTitle="Get started with Azure Search | Microsoft Azure | Hosted cloud search service" 
+    description="Get started with Azure Search, a cloud hosted search service on Microsoft Azure." 
+    services="search" 
+    documentationCenter="" 
+    authors="HeidiSteen" 
+    manager="mblythe" 
+    editor=""
     tags="azure-portal"/>
 
 <tags 
-	ms.service="search" 
-	ms.devlang="rest-api" 
-	ms.workload="search" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.date="11/04/2015" 
-	ms.author="heidist"/>
+    ms.service="search" 
+    ms.devlang="rest-api" 
+    ms.workload="search" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.date="11/04/2015" 
+    ms.author="heidist"/>
 
 # Get started with Azure Search
 
@@ -39,19 +39,19 @@ Subscribers automatically get free access to a shared, multitenant Search servic
 
 2. Click **New** at the top of the page.
  
-  	![][6]
+    ![][6]
 
 3. Click **Data + Storage** | **Search**.
 
-	- Type a lower-case service name to use in the service URL, avoiding spaces, and staying within the 15 character string limit.
+    - Type a lower-case service name to use in the service URL, avoiding spaces, and staying within the 15 character string limit.
 
-	- Click the arrow in **Pricing Tier** to select a pricing option. Choose **FREE** and then click **SELECT** at the bottom of the page. The free version offers enough capacity to try out tutorials and write proof-of-concept code, but is not intended for production applications. 
+    - Click the arrow in **Pricing Tier** to select a pricing option. Choose **FREE** and then click **SELECT** at the bottom of the page. The free version offers enough capacity to try out tutorials and write proof-of-concept code, but is not intended for production applications. 
 
-	- Click the arrow in **Resource Group** to pick an existing group or create a new one. Resource groups are containers for services and resources used for a common purpose. For example, if you're building a custom search application based on Azure Search, Azure Websites, Azure BLOB storage, you could create a resource group that keeps these services together in the portal management pages.
+    - Click the arrow in **Resource Group** to pick an existing group or create a new one. Resource groups are containers for services and resources used for a common purpose. For example, if you're building a custom search application based on Azure Search, Azure Websites, Azure BLOB storage, you could create a resource group that keeps these services together in the portal management pages.
 
-	- Click the arrow in **Subscription** if you have multiple subscriptions and you want to use a different subscription for this search service.
+    - Click the arrow in **Subscription** if you have multiple subscriptions and you want to use a different subscription for this search service.
 
-	- Click the arrow in **Location** to choose a data center region. In this preview, you can choose from West US, East US, North Europe, and Southeast Asia. Later, when other regions are online, choose one region for the service you are creating. Distributing resources across multiple data centers will not be a supported configuration for public preview.
+    - Click the arrow in **Location** to choose a data center region. In this preview, you can choose from West US, East US, North Europe, and Southeast Asia. Later, when other regions are online, choose one region for the service you are creating. Distributing resources across multiple data centers will not be a supported configuration for public preview.
 
 4. Click **CREATE** to provision the service. Notice that **CREATE** is enabled only after you fill in all required values. 
 
@@ -59,9 +59,9 @@ In a few minutes, the service is created. You can return to the configuration se
 
 14. Go to **Home** to open the dashboard. Click the Search service to open the service dashboard. 
 
-  	![][13]
+    ![][13]
 
-15.	On the service dashboard, you'll see tiles for **PROPERTIES** and **KEYS**, and usage information that shows resource usage at a glance. 
+15. On the service dashboard, you'll see tiles for **PROPERTIES** and **KEYS**, and usage information that shows resource usage at a glance. 
 
 Continue on to [Test service operations](#sub-3) for instructions on how to connect to the service using these values.
 
@@ -92,9 +92,9 @@ Setting up dedicated resources can take a while (15 minutes or longer).
 
 Standard search starts with one replica and partition each, but can be easily re-scaled at higher resource levels.
 
-1.	Once the service is created, return to the service dashboard, click the **Scale** tile.
+1.  Once the service is created, return to the service dashboard, click the **Scale** tile.
 
-2.	Use the sliders to add replicas, partitions, or both. 
+2.  Use the sliders to add replicas, partitions, or both. 
 
 Additional replicas and partitions are billed in search units. The total search units required to support any particular resource configuration is shown on the page, as you add resources. 
 
@@ -113,7 +113,7 @@ The following procedure works for both shared and standard search. In the steps 
 
 1. Start Fiddler. On the File menu, turn off **Capture Traffic** to hide extraneous HTTP activity that is unrelated to the current task. On the Composer tab, you'll formulate a request that looks like this: 
 
-  	![][16]
+    ![][16]
 
 2. Select **PUT**.
 
@@ -126,14 +126,14 @@ The following procedure works for both shared and standard search. In the steps 
 
          https://my-app.search.windows.net/indexes/hotels?api-version=2015-02-28
 
-4.	Specify the request header, replacing the host and api-key with values that are valid for your service.
+4.  Specify the request header, replacing the host and api-key with values that are valid for your service.
 
         User-Agent: Fiddler
         host: my-app.search.windows.net
         content-type: application/json
         api-key: 1111222233334444
 
-5.	In Request Body, paste in the fields that make up the index definition.
+5.  In Request Body, paste in the fields that make up the index definition.
 
          {
         "name": "hotels",  
@@ -152,7 +152,7 @@ The following procedure works for both shared and standard search. In the steps 
          ] 
         }
 
-6.	Click **Execute**.
+6.  Click **Execute**.
 
 In a few seconds, you should see an HTTP 201 response in the session list, indicating the index was created successfully. 
 
@@ -166,81 +166,81 @@ On the Composer tab, your request to post documents will look like the following
 
 1. Select **POST**.
 
-2.	Enter a URL that starts with HTTPS, followed by your service URL, followed by "/indexes/<'indexname'>/docs/index?api-version=2015-02-28". The full URL should look similar to the following example:
+2.  Enter a URL that starts with HTTPS, followed by your service URL, followed by "/indexes/<'indexname'>/docs/index?api-version=2015-02-28". The full URL should look similar to the following example:
 
         https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2015-02-28
 
-3.	Request Header should be the same as before. Remember that you replaced the host and api-key with values that are valid for your service.
+3.  Request Header should be the same as before. Remember that you replaced the host and api-key with values that are valid for your service.
 
         User-Agent: Fiddler
         host: my-app.search.windows.net
         content-type: application/json
         api-key: 1111222233334444
 
-4.	The Request Body contains four documents to be added to the hotels index.
+4.  The Request Body contains four documents to be added to the hotels index.
 
         {
         "value": [
         {
-        	"@search.action": "upload",
-        	"hotelId": "1",
-        	"baseRate": 199.0,
-        	"description": "Best hotel in town",
-        	"hotelName": "Fancy Stay",
-        	"category": "Luxury",
-        	"tags": ["pool", "view", "wifi", "concierge"],
-        	"parkingIncluded": false,
-        	"smokingAllowed": false,
-        	"lastRenovationDate": "2010-06-27T00:00:00Z",
-        	"rating": 5,
-        	"location": { "type": "Point", "coordinates": [-122.131577, 47.678581] }
+            "@search.action": "upload",
+            "hotelId": "1",
+            "baseRate": 199.0,
+            "description": "Best hotel in town",
+            "hotelName": "Fancy Stay",
+            "category": "Luxury",
+            "tags": ["pool", "view", "wifi", "concierge"],
+            "parkingIncluded": false,
+            "smokingAllowed": false,
+            "lastRenovationDate": "2010-06-27T00:00:00Z",
+            "rating": 5,
+            "location": { "type": "Point", "coordinates": [-122.131577, 47.678581] }
           },
           {
-        	"@search.action": "upload",
-        	"hotelId": "2",
-        	"baseRate": 79.99,
-        	"description": "Cheapest hotel in town",
-        	"hotelName": "Roach Motel",
-        	"category": "Budget",
-        	"tags": ["motel", "budget"],
-        	"parkingIncluded": true,
-        	"smokingAllowed": true,
-        	"lastRenovationDate": "1982-04-28T00:00:00Z",
-        	"rating": 1,
-        	"location": { "type": "Point", "coordinates": [-122.131577, 49.678581] }
+            "@search.action": "upload",
+            "hotelId": "2",
+            "baseRate": 79.99,
+            "description": "Cheapest hotel in town",
+            "hotelName": "Roach Motel",
+            "category": "Budget",
+            "tags": ["motel", "budget"],
+            "parkingIncluded": true,
+            "smokingAllowed": true,
+            "lastRenovationDate": "1982-04-28T00:00:00Z",
+            "rating": 1,
+            "location": { "type": "Point", "coordinates": [-122.131577, 49.678581] }
           },
           {
-        	"@search.action": "upload",
-        	"hotelId": "3",
-        	"baseRate": 279.99,
-        	"description": "Surprisingly expensive",
-        	"hotelName": "Dew Drop Inn",
-        	"category": "Bed and Breakfast",
-        	"tags": ["charming", "quaint"],
-        	"parkingIncluded": true,
-        	"smokingAllowed": false,
-        	"lastRenovationDate": null,
-        	"rating": 4,
-        	"location": { "type": "Point", "coordinates": [-122.33207, 47.60621] }
+            "@search.action": "upload",
+            "hotelId": "3",
+            "baseRate": 279.99,
+            "description": "Surprisingly expensive",
+            "hotelName": "Dew Drop Inn",
+            "category": "Bed and Breakfast",
+            "tags": ["charming", "quaint"],
+            "parkingIncluded": true,
+            "smokingAllowed": false,
+            "lastRenovationDate": null,
+            "rating": 4,
+            "location": { "type": "Point", "coordinates": [-122.33207, 47.60621] }
           },
           {
-        	"@search.action": "upload",
-        	"hotelId": "4",
-        	"baseRate": 220.00,
-        	"description": "This could be the one",
-        	"hotelName": "A Hotel for Everyone",
-        	"category": "Basic hotel",
-        	"tags": ["pool", "wifi"],
-        	"parkingIncluded": true,
-        	"smokingAllowed": false,
-        	"lastRenovationDate": null,
-        	"rating": 4,
-        	"location": { "type": "Point", "coordinates": [-122.12151, 47.67399] }
+            "@search.action": "upload",
+            "hotelId": "4",
+            "baseRate": 220.00,
+            "description": "This could be the one",
+            "hotelName": "A Hotel for Everyone",
+            "category": "Basic hotel",
+            "tags": ["pool", "wifi"],
+            "parkingIncluded": true,
+            "smokingAllowed": false,
+            "lastRenovationDate": null,
+            "rating": 4,
+            "location": { "type": "Point", "coordinates": [-122.12151, 47.67399] }
           }
          ]
         }
 
-8.	Click **Execute**.
+8.  Click **Execute**.
 
 In a few seconds, you should see an HTTP 200 response in the session list. This indicates the documents were created successfully. If you get a 207, at least one document failed to upload. If you get a 404, you have a syntax error in either the header or body of the request.
 
@@ -250,15 +250,15 @@ Now that an index and documents are loaded, you can issue queries against them. 
 
    ![][18]
 
-1.	Select **GET**.
+1.  Select **GET**.
 
-2.	Enter a URL that starts with HTTPS, followed by your service URL, followed by "/indexes/<'indexname'>/docs?", followed by query parameters. By way of example, use the following URL, replacing the sample host name with one that is valid for your service.
+2.  Enter a URL that starts with HTTPS, followed by your service URL, followed by "/indexes/<'indexname'>/docs?", followed by query parameters. By way of example, use the following URL, replacing the sample host name with one that is valid for your service.
 
         https://my-app.search.windows.net/indexes/hotels/docs?search=motel&facet=category&facet=rating,values:1|2|3|4|5&api-version=2015-02-28
 
     This query searches on the term “motel” and retrieves facet categories for ratings.
 
-3.	Request Header should be the same as before. Remember that you replaced the host and api-key with values that are valid for your service.
+3.  Request Header should be the same as before. Remember that you replaced the host and api-key with values that are valid for your service.
 
         User-Agent: Fiddler
         host: my-app.search.windows.net
@@ -284,42 +284,42 @@ You can also query the system to get document counts and storage consumption. On
 
    ![][20]
 
-1.	Select **GET**.
+1.  Select **GET**.
 
-2.	Enter a URL that includes your service URL, followed by "/indexes/hotels/stats?api-version=2015-02-28":
+2.  Enter a URL that includes your service URL, followed by "/indexes/hotels/stats?api-version=2015-02-28":
 
         https://my-app.search.windows.net/indexes/hotels/stats?api-version=2015-02-28 
 
-3.	Specify the request header, replacing the host and api-key with values that are valid for your service.
+3.  Specify the request header, replacing the host and api-key with values that are valid for your service.
 
         User-Agent: Fiddler
         host: my-app.search.windows.net
         content-type: application/json
         api-key: 1111222233334444
 
-4.	Leave the request body empty.
+4.  Leave the request body empty.
 
-5.	Click **Execute**. You should see an HTTP 200 status code in the session list. Select the entry posted for your command.
+5.  Click **Execute**. You should see an HTTP 200 status code in the session list. Select the entry posted for your command.
 
-6.	Click the Inspectors tab | Headers, and select the JSON format. You should see the document count and storage size (in KB).
+6.  Click the Inspectors tab | Headers, and select the JSON format. You should see the document count and storage size (in KB).
 
- 	![][21]
+    ![][21]
 
 <a id="sub-4"></a>
 ## Explore Search service dashboard
 
 If you need a refresher on where to find the configuration pages, follow these steps to locate the service dashboard.
 
-1.	Sign in to [Azure Classic Portal](https://portal.azure.com) using your existing subscription. 
-2.	Click **Home** and then click the tile for your Search service.
+1.  Sign in to [Azure Classic Portal](https://portal.azure.com) using your existing subscription. 
+2.  Click **Home** and then click the tile for your Search service.
 
- 	![][22]
+    ![][22]
 
-4.	Clicking the tile opens the service dashboard. Notice that **Start**, **Stop**, and **Delete** commands are at the top. 
+4.  Clicking the tile opens the service dashboard. Notice that **Start**, **Stop**, and **Delete** commands are at the top. 
 
-5.	Notice the service URL is near the top of the page. You will need this URL in to connect to your Azure Search service.
-	
-7.	Click the **KEYS** icon to view the api-keys. You will need an Admin key to authenticate to the service. You can use either the primary or secondary. Optionally, you can create query keys for read-only access to the service.
+5.  Notice the service URL is near the top of the page. You will need this URL in to connect to your Azure Search service.
+    
+7.  Click the **KEYS** icon to view the api-keys. You will need an Admin key to authenticate to the service. You can use either the primary or secondary. Optionally, you can create query keys for read-only access to the service.
 
 
 <!--Next steps and links -->
@@ -377,3 +377,4 @@ Ready for the next step? The following links take you to additional material tha
 [Azure Search development workflow]: search-workflow.md
 [Create your first azure search solution]: search-create-first-solution.md
 [Create a geospatial search app using Azure Search]: search-create-geospatial.md
+

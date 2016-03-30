@@ -21,11 +21,11 @@
 This article lists the open source big data applications that work with Azure Data Lake Store. For the applications in the table below, only the versions available with the listed distribution are supported. For information on what versions of these applications are available with HDInsight, see [HDInsight component versioning](/hdinsight/hdinsight-component-versioning.md).
 
 
-| Open Source Software | Distribution					   |
+| Open Source Software | Distribution                      |
 |----------------------|---------------------------------|
 | [Apache Sqoop](http://sqoop.apache.org/)               | HDInsight 3.2                   |
 | [MapReduce](http://hadoop.apache.org/docs/r1.0.4/mapred_tutorial.html)| HDInsight 3.2                   |
-| [Apache Storm](https://storm.apache.org/)                | HDInsight 3.2		           |
+| [Apache Storm](https://storm.apache.org/)                | HDInsight 3.2                 |
 | [Apache Hive](http://hive.apache.org/)                  | HDInsight 3.2                   |
 | [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog)            | HDInsight 3.2  |
 | [Apache Mahout](http://mahout.apache.org/)               | HDInsight 3.2                   |
@@ -33,10 +33,11 @@ This article lists the open source big data applications that work with Azure Da
 | [Apache Oozie](http://oozie.apache.org/)               | HDInsight 3.2                   |
 | [Apache Zookeeper](http://zookeeper.apache.org/)           | HDInsight 3.2                   |
 | [Apache HBase](http://hbase.apache.org/)                | HDInsight 3.2                   |
-| [Apache Tez](http://tez.apache.org/)                 | HDInsight 3.2	  			   |
+| [Apache Tez](http://tez.apache.org/)                 | HDInsight 3.2                 |
 
 
 ## See also
 
 - [Overview of Azure Data Lake Store](data-lake-store-overview.md)
  
+

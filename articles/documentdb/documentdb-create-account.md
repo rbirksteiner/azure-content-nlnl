@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Create NoSQL database account - Free Trial | Microsoft Azure" 
-	description="Learn how to create database accounts using the online database creator for Azure DocumentDB, a managed NoSQL document database for JSON. Get a free trial today."
-	keywords="Free trial, online database creator, create a database, create database, documentdb, azure, Microsoft azure"
-	services="documentdb" 
-	documentationCenter="" 
-	authors="mimig1" 
-	manager="jhubbard" 
-	editor="monicar"/>
+    pageTitle="Create NoSQL database account - Free Trial | Microsoft Azure" 
+    description="Learn how to create database accounts using the online database creator for Azure DocumentDB, a managed NoSQL document database for JSON. Get a free trial today."
+    keywords="Free trial, online database creator, create a database, create database, documentdb, azure, Microsoft azure"
+    services="documentdb" 
+    documentationCenter="" 
+    authors="mimig1" 
+    manager="jhubbard" 
+    editor="monicar"/>
 
 <tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="12/03/2015" 
-	ms.author="mimig"/>
+    ms.service="documentdb" 
+    ms.workload="data-services" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="get-started-article" 
+    ms.date="12/03/2015" 
+    ms.author="mimig"/>
 
 # Create a DocumentDB database account using the Azure portal
 
@@ -45,7 +45,8 @@ After you have documents in a collection, you can use [DocumentDB SQL](documentd
 
 To learn more about DocumentDB, explore these resources:
 
--	[Learning path for DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
--	[DocumentDB resource model and concepts](documentdb-resources.md)
+-   [Learning path for DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
+-   [DocumentDB resource model and concepts](documentdb-resources.md)
 
  
+

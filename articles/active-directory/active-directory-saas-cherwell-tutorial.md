@@ -66,26 +66,26 @@ The objective of this section is to outline how to enable users to authenticate 
 
 ###To configure single sign-on, perform the following steps:
 
-1.  In the Azure AD portal, on the **Cherwell** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  In the Azure AD portal, on the **Cherwell** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
     ![Configure Single Sign-On](./media/active-directory-saas-cherwell-tutorial/IC798990.png "Configure Single Sign-On")
 
-2.  On the **How would you like users to sign on to Cherwell** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  On the **How would you like users to sign on to Cherwell** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-cherwell-tutorial/IC798991.png "Configure Single Sign-On")
 
-3.  On the **Configure App URL** page, perform the following steps:
+3.  On the **Configure App URL** page, perform the following steps:
 
     ![Configure App URL](./media/active-directory-saas-cherwell-tutorial/IC798992.png "Configure App URL")
 
-    1.  In the **Sign On URL** textbox, type the URL used by your users to sign into your **Cherwell** (e.g.: *https://pictdev.cherwellondemand.com/cherwellclient*).
+    1.  In the **Sign On URL** textbox, type the URL used by your users to sign into your **Cherwell** (e.g.: *https://pictdev.cherwellondemand.com/cherwellclient*).
     2.  Click **Next**
 
-4.  On the **Configure single sign-on at Cherwell** page, perform the following steps:
+4.  On the **Configure single sign-on at Cherwell** page, perform the following steps:
 
     ![Configure Single Sign-On](./media/active-directory-saas-cherwell-tutorial/IC798993.png "Configure Single Sign-On")
 
-    1.  Click **Download certificate**, and then save the certificate locally on your computer.
+    1.  Click **Download certificate**, and then save the certificate locally on your computer.
     2.  Copy the **Identity Provider URL**.
     3.  Copy the **Single Sign-On Service URL**.
     4.  Click **Next**.
@@ -95,7 +95,7 @@ The objective of this section is to outline how to enable users to authenticate 
     >[AZURE.NOTE] Your Cherwell support team has to do the actual SSO configuration.
     You will get a notification when SSO has been enabled for your subscription.
 
-6.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+6.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
     ![Configure Single Sign-On](./media/active-directory-saas-cherwell-tutorial/IC798994.png "Configure Single Sign-On")
 ##Configuring user provisioning
@@ -113,7 +113,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 1.  In the Azure AD portal, create a test account.
 
-2.  On the **Cherwell **application integration page, click **Assign users**.
+2.  On the **Cherwell **application integration page, click **Assign users**.
 
     ![Assign Users](./media/active-directory-saas-cherwell-tutorial/IC798995.png "Assign Users")
 
@@ -122,3 +122,4 @@ To test your configuration, you need to grant the Azure AD users you want to all
     ![Yes](./media/active-directory-saas-cherwell-tutorial/IC767830.png "Yes")
 
 If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+

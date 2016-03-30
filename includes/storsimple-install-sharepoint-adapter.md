@@ -25,3 +25,4 @@
 7. Open the SharePoint Central Administration page. You should see a StorSimple Configuration group that contains the StorSimple Adapter for SharePoint links.
 
 8. Go to the next step: [Configure RBS](#configure-rbs).
+

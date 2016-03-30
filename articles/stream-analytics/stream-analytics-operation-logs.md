@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Utilize operation and service logs in Stream Analytics | Microsoft Azure" 
-	description="How-to use Stream Analytics operation logs" 
-	keywords="service logs"
-	services="stream-analytics" 
-	documentationCenter="" 
-	authors="jeffstokes72" 
-	manager="paulettm" 
-	editor="cgronlun"/>
+    pageTitle="Utilize operation and service logs in Stream Analytics | Microsoft Azure" 
+    description="How-to use Stream Analytics operation logs" 
+    keywords="service logs"
+    services="stream-analytics" 
+    documentationCenter="" 
+    authors="jeffstokes72" 
+    manager="paulettm" 
+    editor="cgronlun"/>
 
 <tags 
-	ms.service="stream-analytics" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="data-services" 
-	ms.date="12/04/2015" 
-	ms.author="jeffstok"/>
+    ms.service="stream-analytics" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="data-services" 
+    ms.date="12/04/2015" 
+    ms.author="jeffstok"/>
 
 # Understand Stream Analytics service and operation logs
 
@@ -38,8 +38,8 @@ A link to the corresponding logs of a Stream Analytics job is displayed on the j
 
 To manually navigate to the Operation Logs for Stream Analytics and other services in the Azure Portal:
 
-1.	Click on **Management Services** in the [Azure Portal](https://manage.windowsazure.com).
-2.	Select **Stream Analytics** for **Type** and the name of the job for **Service Name**.  
+1.  Click on **Management Services** in the [Azure Portal](https://manage.windowsazure.com).
+2.  Select **Stream Analytics** for **Type** and the name of the job for **Service Name**.  
 
   ![Select Stream Analytics](./media/stream-analytics-operation-logs/02-stream-analytics-operation-logs.png)  
 
@@ -95,3 +95,4 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 - [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
 - [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+

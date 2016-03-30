@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Get started with authentication (Windows Phone) | Microsoft Azure"
-	description="Learn how to use Mobile Services to authenticate users of your Windows Phone app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft."
-	services="mobile-services"
-	documentationCenter="windows"
-	authors="ggailey777"
-	manager="dwrede"
-	editor=""/>
+    pageTitle="Get started with authentication (Windows Phone) | Microsoft Azure"
+    description="Learn how to use Mobile Services to authenticate users of your Windows Phone app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft."
+    services="mobile-services"
+    documentationCenter="windows"
+    authors="ggailey777"
+    manager="dwrede"
+    editor=""/>
 
 <tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-windows-phone"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="11/02/2015"
-	ms.author="glenga"/>
+    ms.service="mobile-services"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-windows-phone"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="11/02/2015"
+    ms.author="glenga"/>
 
 # Add authentication to your Mobile Services app
 
@@ -81,3 +81,4 @@ In the next tutorial, [Service-side authorization of Mobile Services users](mobi
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Add Mobile Services to an existing app]: mobile-services-windows-phone-get-started-data.md
 [Authorize users with scripts]: ../mobile-services-windows-phone-authorize-users-in-scripts.md
+

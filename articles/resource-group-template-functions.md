@@ -563,10 +563,10 @@ Each supported type is returned in the following format:
 The following example shows how to use the provider function:
 
     "outputs": {
-	    "exampleOutput": {
-		    "value": "[providers('Microsoft.Storage', 'storageAccounts')]",
-		    "type" : "object"
-	    }
+        "exampleOutput": {
+            "value": "[providers('Microsoft.Storage', 'storageAccounts')]",
+            "type" : "object"
+        }
     }
 
 <a id="reference" />
@@ -589,47 +589,47 @@ The expression is not evaluated until the referenced resource has completed depl
 The following example references a storage account that is deployed in the same template.
 
     "outputs": {
-		"NewStorage": {
-			"value": "[reference(parameters('storageAccountName'))]",
-			"type" : "object"
-		}
-	}
+        "NewStorage": {
+            "value": "[reference(parameters('storageAccountName'))]",
+            "type" : "object"
+        }
+    }
 
 The following example references a storage account that is not deployed in this template, but exists within the same resource group as the resources being deployed.
 
     "outputs": {
-		"ExistingStorage": {
-			"value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2015-06-15')]",
-			"type" : "object"
-		}
-	}
+        "ExistingStorage": {
+            "value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2015-06-15')]",
+            "type" : "object"
+        }
+    }
 
 You can retrieve a particular value from the returned object, such as the blob endpoint URI, as shown below.
 
     "outputs": {
-		"BlobUri": {
-			"value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2015-06-15').primaryEndpoints.blob]",
-			"type" : "string"
-		}
-	}
+        "BlobUri": {
+            "value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2015-06-15').primaryEndpoints.blob]",
+            "type" : "string"
+        }
+    }
 
 If you do now wish to directly specify the API version in your template, you can use the **providers** expression and retrieve one the values, such as the latest version as shown below.
 
     "outputs": {
-		"BlobUri": {
-			"value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).primaryEndpoints.blob]",
-			"type" : "string"
-		}
-	}
+        "BlobUri": {
+            "value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).primaryEndpoints.blob]",
+            "type" : "string"
+        }
+    }
 
 The following example references a storage account in a different resource group.
 
     "outputs": {
-		"BlobUri": {
-			"value": "[reference(resourceId(parameters('relatedGroup'), 'Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2015-06-15').primaryEndpoints.blob]",
-			"type" : "string"
-		}
-	}
+        "BlobUri": {
+            "value": "[reference(resourceId(parameters('relatedGroup'), 'Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2015-06-15').primaryEndpoints.blob]",
+            "type" : "string"
+        }
+    }
 
 <a id="resourcegroup" />
 ### resourceGroup
@@ -747,4 +747,5 @@ The following example shows the subscription function called in the outputs sect
 - To merge multiple templates, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md)
 - To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md)
 - To see how to deploy the template you have created, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md)
+
 

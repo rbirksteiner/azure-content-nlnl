@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Introduction to Storage | Microsoft Azure" 
-	description="An overview of Microsoft Azure Storage." 
-	services="storage" 
-	documentationCenter="" 
-	authors="tamram" 
-	manager="adinah" 
-	editor=""/>
+    pageTitle="Introduction to Storage | Microsoft Azure" 
+    description="An overview of Microsoft Azure Storage." 
+    services="storage" 
+    documentationCenter="" 
+    authors="tamram" 
+    manager="adinah" 
+    editor=""/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/07/2015" 
-	ms.author="tamram"/>
+    ms.service="storage" 
+    ms.workload="storage" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="10/07/2015" 
+    ms.author="tamram"/>
 
 # Introduction to Microsoft Azure Storage
 
@@ -235,3 +235,4 @@ To get started with Azure Storage, explore these resources:
 - [How to use Table Storage from Python](storage-python-how-to-use-table-storage.md)
 - [How to use Queue Storage from Python](storage-python-how-to-use-queue-storage.md)
  
+

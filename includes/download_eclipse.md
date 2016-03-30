@@ -14,3 +14,4 @@ Installation steps:
 
 This plugin uses the latest version of the Azure SDK. This can be downloaded using the Web Platform Installer (WebPI) at <http://go.microsoft.com/fwlink/?LinkID=252838>. However, if you don't have it installed, when you create your first Azure deployment project, the Azure Toolkit for Eclipse will automatically install the appropriate version of the Azure SDK.
 
+

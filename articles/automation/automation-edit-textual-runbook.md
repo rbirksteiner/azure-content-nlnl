@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Editing textual runbooks in Azure Automation"
-	description="This article provides different procedures for working with PowerShell and PowerShell Workflow runbooks in Azure Automation using the textual editor."
-	services="automation"
-	documentationCenter=""
-	authors="bwren"
-	manager="stevenka"
-	editor="tysonn" />
+    pageTitle="Editing textual runbooks in Azure Automation"
+    description="This article provides different procedures for working with PowerShell and PowerShell Workflow runbooks in Azure Automation using the textual editor."
+    services="automation"
+    documentationCenter=""
+    authors="bwren"
+    manager="stevenka"
+    editor="tysonn" />
 <tags 
-	ms.service="automation"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="09/23/2015"
-	ms.author="bwren" />
+    ms.service="automation"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="infrastructure-services"
+    ms.date="09/23/2015"
+    ms.author="bwren" />
 
 # Editing textual runbooks in Azure Automation
 

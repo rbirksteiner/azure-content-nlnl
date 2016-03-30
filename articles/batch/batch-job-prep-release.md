@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Job preparation and cleanup in Batch | Microsoft Azure"
-	description="Employ job-level preparation tasks to minimize data transfer to Azure Batch compute nodes, and release tasks for node cleanup at job completion."
-	services="batch"
-	documentationCenter=".net"
-	authors="mmacy"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    pageTitle="Job preparation and cleanup in Batch | Microsoft Azure"
+    description="Employ job-level preparation tasks to minimize data transfer to Azure Batch compute nodes, and release tasks for node cleanup at job completion."
+    services="batch"
+    documentationCenter=".net"
+    authors="mmacy"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="batch"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-windows"
-	ms.workload="big-compute"
-	ms.date="10/15/2015"
-	ms.author="v-marsma"/>
+    ms.service="batch"
+    ms.devlang="multiple"
+    ms.topic="article"
+    ms.tgt_pltfrm="vm-windows"
+    ms.workload="big-compute"
+    ms.date="10/15/2015"
+    ms.author="v-marsma"/>
 
 # Run job preparation and completion tasks on Azure Batch compute nodes
 
@@ -55,28 +55,28 @@ Specifying a job preparation task is done by creating and configuring a [JobPrep
 
 In this code snippet, `myBatchClient` is a fully initialized instance of [BatchClient][net_batch_client], and `myPool` is an existing pool within the Batch account.
 
-		// Create the CloudJob for CloudPool "myPool"
-		CloudJob myJob = myBatchClient.JobOperations.CreateJob("JobPrepReleaseSampleJob",
-															   new PoolInformation() { PoolId = "myPool" });
+        // Create the CloudJob for CloudPool "myPool"
+        CloudJob myJob = myBatchClient.JobOperations.CreateJob("JobPrepReleaseSampleJob",
+                                                               new PoolInformation() { PoolId = "myPool" });
 
-		// Specify the command lines for the job preparation and release tasks
-		string jobPrepCmdLine = "cmd /c echo %AZ_BATCH_NODE_ID% > %AZ_BATCH_NODE_SHARED_DIR%\\shared_file.txt";
-		string jobReleaseCmdLine = "cmd /c del %AZ_BATCH_NODE_SHARED_DIR%\\shared_file.txt";
+        // Specify the command lines for the job preparation and release tasks
+        string jobPrepCmdLine = "cmd /c echo %AZ_BATCH_NODE_ID% > %AZ_BATCH_NODE_SHARED_DIR%\\shared_file.txt";
+        string jobReleaseCmdLine = "cmd /c del %AZ_BATCH_NODE_SHARED_DIR%\\shared_file.txt";
 
-		// Assign the job preparation task to the job
-		myJob.JobPreparationTask = new JobPreparationTask { CommandLine = jobPrepCmdLine };
+        // Assign the job preparation task to the job
+        myJob.JobPreparationTask = new JobPreparationTask { CommandLine = jobPrepCmdLine };
 
-		// Assign the job release task to the job
-		myJob.JobReleaseTask = new JobPreparationTask { CommandLine = jobReleaseCmdLine };
+        // Assign the job release task to the job
+        myJob.JobReleaseTask = new JobPreparationTask { CommandLine = jobReleaseCmdLine };
 
-		await myJob.CommitAsync();
+        await myJob.CommitAsync();
 
 As mentioned above, the release task is executed when a job is terminated or deleted. Terminating a job with the Batch .NET API is performed by calling [PoolOperations.TerminateJobAsync][net_job_terminate], and job deletion is performed with [PoolOperations.DeleteJobAsync][net_job_delete], both of which are typically done when a job's tasks have completed or a timeout you have defined has been reached.
 
-		// Terminate the job to mark it as Completed; this will initiate the Job Release Task on any node
-		// that executed job tasks. Note that the Job Release Task is also executed when a job is deleted,
-		// thus you need not call Terminate if you typically delete your jobs upon task completion.
-		await myBatchClient.JobOperations.TerminateJobAsync("JobPrepReleaseSampleJob");
+        // Terminate the job to mark it as Completed; this will initiate the Job Release Task on any node
+        // that executed job tasks. Note that the Job Release Task is also executed when a job is deleted,
+        // thus you need not call Terminate if you typically delete your jobs upon task completion.
+        await myBatchClient.JobOperations.TerminateJobAsync("JobPrepReleaseSampleJob");
 
 ## Next steps
 
@@ -178,3 +178,4 @@ The screenshot below highlights the job preparation and release task properties 
 
 [1]: ./media/batch-job-prep-release/batchexplorer-01.png
 [2]: ./media/batch-job-prep-release/batchexplorer-02.png
+
