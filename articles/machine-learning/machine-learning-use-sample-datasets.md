@@ -32,7 +32,7 @@ You can use any of these data sets in your own experiment by dragging it to your
 <!--
 For a list of sample experiments available in ML Studio, see [Machine Learning Sample Experiments].
 
--->mple-experiments]: machine-learning-sample-experiments.md
+[sample-experiments]: machine-learning-sample-experiments.md
 -->
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -316,4 +316,5 @@ For a list of sample experiments available in ML Studio, see [Machine Learning S
 
 <!-- Module References -->
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+
 

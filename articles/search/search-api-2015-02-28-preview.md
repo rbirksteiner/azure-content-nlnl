@@ -287,7 +287,7 @@ Azure Search supports a variety of languages. Each language requires a non-stand
 
 Some developers might prefer the more familiar, simple, open-source solution of Lucene. Lucene analyzers are faster, but the Microsoft analyzers have advanced capabilities, such as lemmatization, word decompounding (in languages like German, Danish, Dutch, Swedish, Norwegian, Estonian, Finish, Hungarian, Slovak) and entity recognition (URLs, emails, dates, numbers). If possible, you should run comparisons of both the Microsoft and Lucene analyzers to decide which one is a better fit.
 
-***undefined***
+***How they compare***
 
 The Lucene analyzer for English extends the standard analyzer. It removes possessives (trailing 's) from words, applies stemming as per [Porter Stemming algorithm](http://tartarus.org/~martin/PorterStemmer/), and removes English [stop words](http://en.wikipedia.org/wiki/Stop_words).
 
@@ -295,12 +295,12 @@ In comparison, the Microsoft analyzer performs lemmatization instead of stemming
 
 Indexing with Microsoft analyzers is on average two to three times slower than their Lucene equivalents, depending on the language. Search performance should not be significantly affected for average size queries.
 
-***undefined***
+***Configuration***
 
 For each field in the index definition, you can set the `analyzer` property to an analyzer name that specifies which language and vendor. The same analyzer will be applied when indexing and searching for that field.
 For example, you can have separate fields for English, French, and Spanish hotel descriptions that exist side-by-side in the same index. Use the ['searchFields' query parameter](#SearchQueryParameters) to specify which language-specific field to search against in your queries. You can review query examples that include the `analyzer` property in [Search Documents](#SearchDocs). 
 
-***undefined***
+***Analyzer list***
 
 Below is the list of supported languages together with Lucene and Microsoft analyzer names.
 
@@ -1747,4 +1747,5 @@ Retrieve 5 suggestions where the partial search input is 'lux'
       "top": 5,
       "suggesterName": "sg"
     }
+
 
