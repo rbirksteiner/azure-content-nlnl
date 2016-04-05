@@ -137,7 +137,7 @@ The purpose of a data change detection policy is to efficiently identify changed
 
 **NOTE:** You can switch data detection policies after the indexer is already created, using the [Reset Indexer](#ResetIndexer) API.
 
-***undefined*** 
+***High Watermark Change Detection Policy*** 
 
 Use this policy when your data source contains a column or property that meets the following criteria:
  
@@ -157,7 +157,7 @@ This policy can be specified as follows:
         "highWaterMarkColumnName" : "[a row version or last_updated column name]" 
     } 
 
-***undefined***
+***SQL Integrated Change Detection Policy***
 
 If your SQL database supports [change tracking](https://msdn.microsoft.com/library/bb933875.aspx), we recommend using SQL Integrated Change Tracking Policy. This policy enables the most efficient change tracking, and allows Azure Search to identify deleted rows without you having to have an explicit "soft delete" column in your schema.
 
@@ -788,3 +788,4 @@ Status Code: 204 No Content for a successful response.
 <td>Not supported; Azure Search currently supports only primitive types and string collections</td>
 </tr>
 </table>
+

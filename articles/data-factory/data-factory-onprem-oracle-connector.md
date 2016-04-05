@@ -293,14 +293,15 @@ You see the following **error message**: Copy activity met invalid parameters: '
 1. If you haven't installed the .NET Provider for Oracle, please [install it](http://www.oracle.com/technetwork/topics/dotnet/utilsoft-086879.html) and retry the scenario. 
 2. If you get the error message even after installing the provider, do the following: 
     1. Open machine config of .NET 2.0 from the folder: <system disk>:\Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config.
-    2. Search for **Oracle Data Provider for .NET**, and you should be able to find an entry like below under **system.data** -> **DbProviderFactories**:
-            “, Culture=neutral, PublicKeyT for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />”
+    2. Search for **Oracle Data Provider for .NET**, and you should be able to find an entry like below under **system.data** -> **DbProviderFactories**:elow under **system.data** -> **DbProviderFactories**:
+            “<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />”
 2.  Copy this entry to the machine.config file in the following v4.0 folder: <system disk>:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config, and change the version to 4.xxx.x.x.
 3.  Install “<ODP.NET Installed Path>\11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll” into the global assembly cache (GAC) by running “gacutil /i [provider path]”.
 
 
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
+
 
 
 

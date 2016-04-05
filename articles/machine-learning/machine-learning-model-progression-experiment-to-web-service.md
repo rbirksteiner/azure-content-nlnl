@@ -126,7 +126,7 @@ experiment](machine-learning-consume-web-services.md).
 Once you deploy the web service, the predictive experiment and web
 service remain connected, and you can go back-and-forth between them:
 
-|***undefined***|***undefined***|***undefined***|
+|***From this page…***|***click this…***|***to open this page…***|
 | ------------------- | --------------- | ---------------------- |
 |experiment canvas in Studio|**Go to web service**|web service configuration in Studio|
 |web service configuration in Studio|**View latest**|experiment canvas in Studio|
@@ -274,4 +274,5 @@ For examples of the whole process, see:
 -   [Walkthrough: Develop a predictive analytics solution for credit
     risk assessment in Azure Machine
     Learning](machine-learning-walkthrough-develop-predictive-solution.md)
+
 

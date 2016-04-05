@@ -243,7 +243,7 @@ tutorial](machine-learning-linear-regression-in-azure.md).
 
 ![Data with a linear trend][3]
 
-***undefined***
+***Data with a linear trend***
 
 ### Logistic regression
 
@@ -286,9 +286,8 @@ depending on whether you are doing classification or regression.
 
 ![Decision tree subdivides a feature space][5]
 
-***undefined
-ly
-uniform val***
+***A decision tree subdivides a feature space into regions of roughly
+uniform values***
 
 Because a feature space can be subdivided into arbitrarily small
 regions, it's easy to imagine dividing it finely enough to have one data
@@ -341,9 +340,8 @@ possibilities are inexhaustible.
 ![Boundaries learned by neural networks][6]
 ---------------------------
 
-***undefined
-nd
-irregu***
+***The boundaries learned by neural networks can be complex and
+irregular***
 
 The [two-class averaged
 perceptron](https://msdn.microsoft.com/library/azure/dn906036.aspx)
@@ -368,9 +366,8 @@ addition to requiring only a modest amount of memory.
 
 ![Support vector machine class boundary][7]
 
-***undefined
-in
-separating two clas***
+***A typical support vector machine class boundary maximizes the margin
+separating two classes***
 
 Another product of Microsoft Research, the [two-class locally deep
 SVM](https://msdn.microsoft.com/library/azure/dn913070.aspx) is a
@@ -431,7 +428,7 @@ that distribution are suspect*
 
 ![Data set grouped using K-means][9]
 
-***undefined***
+***A data set is grouped into 5 clusters using K-means***
 
 There is also an ensemble [one-v-all multiclass
 classifier](https://msdn.microsoft.com/library/azure/dn905887.aspx),
@@ -441,9 +438,8 @@ properties are determined by the two-class classifiers used.
 
 ![Two-class classifiers combined to form a three-class classifier][10]
 
-***undefined
-ss
-classif***
+***A pair of two-class classifiers combine to form a three-class
+classifier***
 
 Azure Machine Learning also includes access to a powerful machine learning framework
 under the title of [Vowpal
@@ -474,4 +470,5 @@ several languages.
 [8]: ./media/machine-learning-algorithm-choice/image8.png
 [9]: ./media/machine-learning-algorithm-choice/image9.png
 [10]: ./media/machine-learning-algorithm-choice/image10.png
+
 

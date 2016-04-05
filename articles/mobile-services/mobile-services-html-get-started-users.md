@@ -105,7 +105,7 @@ Next, you will update the app to allow authentication before requesting resource
 
     >[AZURE.IMPORTANT]In a PhoneGap app, you must also add the following plugins to the project:
     ><ul><li><code>phonegap plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git</code></li>
-    ><li><phonegap plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.gitr.git</code></li></ul>
+    ><li><code>phonegap plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git</code></li></ul>
 
 9. Go back to the browser where your app is running, and refresh the page. 
 
@@ -136,3 +136,4 @@ In the next tutorial, [Authorize users with scripts], you will take the user ID 
 [Authorize users with scripts]: mobile-services-javascript-backend-service-side-authorization.md
 [Mobile Services HTML/JavaScript How-to Conceptual Reference]: mobile-services-html-how-to-use-client-library.md
  
+
