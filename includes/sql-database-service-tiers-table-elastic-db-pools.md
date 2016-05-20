@@ -1,1 +1,0 @@
-![Service Tiers for Elastic DB Pools](./media/sql-database-service-tiers-table-elastic-db-pools/sql-database-service-tiers-table-elastic-db-pools.png) 
