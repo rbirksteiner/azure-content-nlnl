@@ -188,14 +188,14 @@ Zie het [Node.js Developer Center] voor meer informatie.
 
 <!-- IMG List -->
 
-[Het resultaat van de helloworld-opdracht van New-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node9.png
-[De uitvoer van de opdracht Add-AzureNodeWebRole]: ./media/cloud-services-nodejs-develop-deploy-app/node11.png
-[Een webbrowser waarin de webpagina 'Hallo wereld' wordt weergegeven]: ./media/cloud-services-nodejs-develop-deploy-app/node14.png
-[De uitvoer van de opdracht Publish-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node19.png
-[De volledige statusuitvoer van de opdracht Publish-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node20.png
-[Een browservenster met de Hallo wereld-pagina. De URL geeft aan dat de pagina wordt gehost in Azure.]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
-[De status van de opdracht Stop-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
-[De status van de opdracht Remove-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
+[The result of the New-AzureService helloworld command]: ./media/cloud-services-nodejs-develop-deploy-app/node9.png
+[The output of the Add-AzureNodeWebRole command]: ./media/cloud-services-nodejs-develop-deploy-app/node11.png
+[A web browser displaying the Hello World web page]: ./media/cloud-services-nodejs-develop-deploy-app/node14.png
+[The output of the Publish-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node19.png
+[The full status output of the Publish-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node20.png
+[A browser window displaying the hello world page; the URL indicates the page is hosted on Azure.]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
+[The status of the Stop-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
+[The status of the Remove-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
 
 
 

@@ -91,12 +91,12 @@ Laten we eens op een rijtje zetten wat u in deze zelfstudie hebt geleerd:
 
 De Microsoft Azure Portal vereenvoudigt het maken en beheren van uw toepassingen in de cloud aanzienlijk.  Bezoek ons [beheerblog](https://azure.microsoft.com/blog/topics/management/) om up-to-date te blijven, aangezien we continu [luisteren naar uw feedback](https://feedback.azure.com/forums/223579-azure-preview-portal/) en verbeteringen aanbrengen.  Ook het [blog van ScottGu](http://weblogs.asp.net/scottgu) is een goede plaats om te worden bijgepraat over alle Azure-updates.
 
-[Oriëntatie gebruikersinterface]: ./media/azure-portal-how-to-use/azure_portal_1.png
-[Portalcategorieën]: ./media/azure-portal-how-to-use/azure_portal_2.png
-[Bladerhub]: ./media/azure-portal-how-to-use/azure_portal_3.png
-[Resources beheren]: ./media/azure-portal-how-to-use/azure_portal_4.png
-[Blades aanpassen]: ./media/azure-portal-how-to-use/azure_portal_5.png
-[Help en ondersteuning]: ./media/azure-portal-how-to-use/azure_portal_6.png
+[UIOrientation]: ./media/azure-portal-how-to-use/azure_portal_1.png
+[PortalCategories]: ./media/azure-portal-how-to-use/azure_portal_2.png
+[BrowseHub]: ./media/azure-portal-how-to-use/azure_portal_3.png
+[ManageResource]: ./media/azure-portal-how-to-use/azure_portal_4.png
+[CustomizeBlades]: ./media/azure-portal-how-to-use/azure_portal_5.png
+[HelpSupport]: ./media/azure-portal-how-to-use/azure_portal_6.png
 
 
 

@@ -96,7 +96,7 @@ In deze zelfstudie ziet u hoe u vanaf een opdrachtregelomgeving, zoals cmd.exe o
 
     U ziet nu hoe uw node.js-web-app live in Azure App Service wordt uitgevoerd.
     
-    ![Voorbeeld van het bladeren naar de geïmplementeerde toepassing.][deployed-express-app]
+    ![Example of browsing to the deployed application.][deployed-express-app]
 
 ## De Node.js-web-app bijwerken
 
@@ -237,7 +237,7 @@ Volg deze stappen om Node-Inspector in te schakelen:
 
 <!-- IMG List -->
 
-[geïmplementeerd-express-app]: ./media/app-service-web-nodejs-get-started/deployed-express-app.png
+[deployed-express-app]: ./media/app-service-web-nodejs-get-started/deployed-express-app.png
 [iislog-kudu-console-zoeken]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-navigate.png
 [iislog-kudu-console-openen]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-open.png
 [iislog-kudu-console-lezen]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-read.png

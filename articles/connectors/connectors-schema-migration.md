@@ -23,8 +23,9 @@ U verplaatst uw bestaande logische apps als volgt naar het nieuwe schema:
 1. Open uw logische app in de Azure Portal  
 2. Klik op Schema bijwerken:
 
- ![API-pictogram][step1]   
-De pagina Schema bijwerken wordt weergegeven en bevat een koppeling naar een document dat gedetailleerde informatie bevat over de verbeteringen in het nieuwe schema: ![API-pictogram][step2]
+ ![API Icon][step1]   
+De pagina Schema bijwerken wordt weergegeven en bevat een koppeling naar een document dat gedetailleerde informatie bevat over de verbeteringen in het nieuwe schema:
+ ![API Icon][step2]
 
 >[AZURE.NOTE] Wanneer u **Schema bijwerken** selecteert, worden automatisch de migratiestappen uitgevoerd en krijgt u de code-uitvoer. U kunt deze gebruiken om uw definitie bij te werken, maar zorg ervoor dat u de richtlijnen voor codering volg, zoals die zijn beschreven in de **aanbevolen procedures** hieronder.
 
@@ -40,8 +41,8 @@ De pagina Schema bijwerken wordt weergegeven en bevat een koppeling naar een doc
 
 
 <!--Icon references-->
-[stap 1]: ./media/connectors-schema-migration/migrateschema1.png
-[stap 2]: ./media/connectors-schema-migration/migrateschema2.png
+[step1]: ./media/connectors-schema-migration/migrateschema1.png
+[step2]: ./media/connectors-schema-migration/migrateschema2.png
 
 
 
