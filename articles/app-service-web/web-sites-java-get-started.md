@@ -89,7 +89,7 @@ In deze sectie wordt beschreven hoe u een web-app maakt en deze voor Java config
 
 12. Kies de gewenste **Webcontainer**. Als u een containernaam selecteert die begint met **Nieuwste**, zal uw app altijd de nieuwste versie blijven gebruiken van de primaire versie van de webcontainer die beschikbaar is in de App Service. 
 
-    ![Webcontainerversies][versions]
+    ![Webcontainerversies][versies]
 
 13. Klik op **Opslaan**.
 

@@ -271,7 +271,7 @@ In deze sectie vindt u meer informatie over het maken van een nieuwe API-app met
 
     ![Implementatiereferenties instellen][deployment-credentials]
 
-1. Klik op de opdracht **Implementatiebron** in het menu Instellingen. Klik vervolgens op de knop **Bron kiezen**, selecteer de optie **Lokale Git-opslagplaats** en klik vervolgens op **OK**. Hiermee wordt een Git-opslagplaats gemaakt die in Azure wordt uitgevoerd, met een koppeling naar uw API-app. Telkens wanneer u code doorvoert naar de *hoofd*vertakking van de Git-opslagplaats, wordt de code gepubliceerd naar uw live API-app-exemplaar dat wordt uitgevoerd. 
+1. Klik op de opdracht **Implementatiebron** in het menu Instellingen. Klik vervolgens op de knop **Bron kiezen**, selecteer de optie **Lokale Git-opslagplaats** en klik vervolgens op **OK**. Hiermee wordt een Git-opslagplaats gemaakt die in Azure wordt uitgevoerd, met een koppeling naar uw API-app. Telkens wanneer u code doorvoert naar de *hoofd* vertakking van de Git-opslagplaats, wordt de code gepubliceerd naar uw live API-app-exemplaar dat wordt uitgevoerd. 
 
     ![Een nieuwe lokale Git-opslagplaats instellen][select-git-repo]
 
@@ -322,21 +322,21 @@ In het [Java Developer Center] vindt u meer informatie over het gebruik van Java
 
 <!-- IMG List -->
 
-[plakken-json]: ./media/app-service-api-java-api-app/paste-json.png
-[geplakt-swagger]: ./media/app-service-api-java-api-app/pasted-swagger.png
-[swagger-gegenereerde-documenten-weergeven]: ./media/app-service-api-java-api-app/view-swagger-generated-docs.png
-[menuopdracht-generate-code]: ./media/app-service-api-java-api-app/generate-code-menu-item.png
-[modelbestand-contactpersonen-openen]: ./media/app-service-api-java-api-app/open-contact-model-file.png
-[servicecodebestand-contactpersonen-openen]: ./media/app-service-api-java-api-app/open-contact-service-code-file.png
-[jetty-war-uitvoeren]: ./media/app-service-api-java-api-app/run-jetty-war.png
-[contactpersonen-api-aanroepen]: ./media/app-service-api-java-api-app/calling-contacts-api.png
-[specifieke-contactpersonen-api-aanroepen]: ./media/app-service-api-java-api-app/calling-specific-contact-api.png
-[api-app-maken]: ./media/app-service-api-java-api-app/create-api-app.png
-[java-installeren]: ./media/app-service-api-java-api-app/set-up-java.png
-[implementatie-referenties]: ./media/app-service-api-java-api-app/deployment-credentials.png
-[git-repo-selecteren]: ./media/app-service-api-java-api-app/select-git-repo.png
-[git-repo-url-kopiëren]: ./media/app-service-api-java-api-app/copy-git-repo-url.png
-[postman-aanroepen-azure-contactpersonen]: ./media/app-service-api-java-api-app/postman-calling-azure-contacts.png
+[paste-json]: ./media/app-service-api-java-api-app/paste-json.png
+[pasted-swagger]: ./media/app-service-api-java-api-app/pasted-swagger.png
+[view-swagger-generated-docs]: ./media/app-service-api-java-api-app/view-swagger-generated-docs.png
+[generate-code-menu-item]: ./media/app-service-api-java-api-app/generate-code-menu-item.png
+[open-contact-model-file]: ./media/app-service-api-java-api-app/open-contact-model-file.png
+[open-contact-service-code-file]: ./media/app-service-api-java-api-app/open-contact-service-code-file.png
+[run-jetty-war]: ./media/app-service-api-java-api-app/run-jetty-war.png
+[calling-contacts-api]: ./media/app-service-api-java-api-app/calling-contacts-api.png
+[calling-specific-contact-api]: ./media/app-service-api-java-api-app/calling-specific-contact-api.png
+[create-api-app]: ./media/app-service-api-java-api-app/create-api-app.png
+[set-up-java]: ./media/app-service-api-java-api-app/set-up-java.png
+[deployment-credentials]: ./media/app-service-api-java-api-app/deployment-credentials.png
+[select-git-repo]: ./media/app-service-api-java-api-app/select-git-repo.png
+[copy-git-repo-url]: ./media/app-service-api-java-api-app/copy-git-repo-url.png
+[postman-calling-azure-contacts]: ./media/app-service-api-java-api-app/postman-calling-azure-contacts.png
 
 
 
