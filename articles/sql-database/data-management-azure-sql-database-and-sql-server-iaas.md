@@ -200,12 +200,12 @@ Kies voor **SQL Server op Azure VM's** als:
 > [AZURE.NOTE] Wilt u SQL Server 2016 CTP2 proberen? Meld u aan voor Microsoft Azure en maak [hier](http://aka.ms/sql2016vm "hier") een virtuele machine waarop SQL Server 2016 CTP2 al is geïnstalleerd.
 
 ## Volgende stappen
-- Zie [SQL Database tutorial: Create a SQL database in minutes using the Azure portal](sql-database-get-started.md) om aan de slag te gaan met SQL Database.
+- Zie [SQL Database tutorial: maak in slechts enkele minuten een SQL database met behulp van de Azure portal](sql-database-get-started.md) om aan de slag te gaan met SQL Database.
 - Zie [prijzen SQL Database] (https://azure.microsoft.com/pricing/details/sql-database/)
 - Zie [Provision a SQL Server virtual machine in Azure](../virtual-machines/virtual-machines-windows-portal-sql-server-provision.md) om aan de slag te kunnen met SQL Server op Azure VM’s.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 
