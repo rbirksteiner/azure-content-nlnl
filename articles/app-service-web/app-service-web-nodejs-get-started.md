@@ -170,15 +170,15 @@ Voer de volgende stappen uit om iisnode-logboeken te lezen.
 
 5. Navigeer naar D:\home\site\wwwroot\iisnode
 
-    ![Navigeren naar de locatie van de iisnode-logboekbestanden][iislog-kudu-console-find]
+    ![Navigeren naar de locatie van de iisnode-logboekbestanden][iislog-kudu-console-zoeken]
 
 6. Klik op het pictogram **Bewerken** voor het logboek dat u wilt lezen. U kunt desgewenst ook op **Downloaden** of **Verwijderen** klikken.
 
-    ![Een iisnode-logboekbestand openen][iislog-kudu-console-open]
+    ![Een iisnode-logboekbestand openen][iislog-kudu-console-openen]
 
     Nu kunt u het logboek bekijken om u te helpen bij het opsporen van fouten in uw App Service-implementatie.
     
-    ![Een iisnode-logboekbestand bestuderen][iislog-kudu-console-read]
+    ![Een iisnode-logboekbestand bestuderen][iislog-kudu-console-lezen]
 
 ## Fouten in een app opsporen met Node-Inspector
 
