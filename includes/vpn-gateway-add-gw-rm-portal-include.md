@@ -1,29 +1,35 @@
-1. In the portal, go to **New**, then **Networking**. Select **Virtual network gateway** from the list.
+1. Ga, in de portal, naar **Nieuw** en vervolgens naar **Netwerken**. Selecteer **Virtuele netwerkgateway** uit de lijst.
 
-	![Gateway](./media/vpn-gateway-add-gw-rm-portal-include/creategw250.png)
+    ![Gateway](./media/vpn-gateway-add-gw-rm-portal-include/creategw250.png)
 
-2. On the **Create virtual network gateway** blade **Name** field, name your gateway. This is not the same as naming a gateway subnet. It's the name of the gateway object.
+2. Op de blade **Virtuele netwerkgateway aanmaken**, in het veld **Naam**, voert u de naam van uw gateway in. Deze mag niet gelijk zijn aan de naam van het gateway-subnet. De naam is degene van het gateway-object.
  
-3. Next, choose the virtual network that you want to deploy this gateway to. Click the arrow to open the **Choose a virtual network** blade, and then click the VNet. In order for the VNet to appear in the list, it must already have a valid gateway subnet.
+3. Kies vervolgens het virtuele netwerk waar u deze gateway wilt implementeren. Klik op de pijl om de blade **Een virtueel netwerk kiezen** te openen en klik daarna op het VNet. Het VNet moet al een geldig gateway-subnet hebben om in de lijst te worden weergegeven.
 
-4. Choose a public IP address. Click the arrow to open the **Choose public IP address blade**. Then click **Create New** to open the **Create public IP address blade**. Input a name your public IP address. Note that this is not asking for an IP address. The IP address will be assigned dynamically. Rather, this is the name of the IP address object that the address will be assigned to. Click **OK** to save your changes.
+4. Kies een openbaar IP-adres. Klik op de pijl om de blade **Kies openbaar IP-adres** te openen. Klik vervolgens op **Nieuw aanmaken** om de blade **Openbaar IP-adres** te openen. Geef uw openbare IP-adres een naam. Houd er rekening mee dat hier niet om een IP-adres wordt gevraagd. Het IP-adres wordt dynamisch toegewezen. Dit is in plaats daarvan de naam van het IP-adresobject waaraan het adres wordt toegewezen. Klik op **OK** om uw wijzigingen op te slaan.
 
-5. For **Gateway type**, select the Gateway type that is specified for your configuration.
+5. Bij **Gatewaytype** selecteert u het gatewaytype dat wordt opgegeven voor uw configuratie.
 
-6. For **VPN type**, select the VPN type that is specified for your configuration.
+6. Bij **VPN-type** selecteert u het VPN-type dat wordt opgegeven voor uw configuratie.
 
-7. For **Subscription**, verify that the correct subscription is selected.
+7. Bij **Abonnement** controleert u of het juiste abonnement is geselecteerd.
 
-8. For **Resource Group**, the resource group is determined by the Virtual Network that you select.
+8. Bij **Resourcegroep** wordt de resourcegroep bepaald door het virtuele netwerk dat u selecteert.
 
-9. For **Location**, make sure it's showing the location that both your Resource Group and VNet exist in.
+9. Bij **locatie** dient u ervoor te zorgen dat de locatie wordt weergegeven waarin zowel uw resourcegroep als uw VNet aanwezig zijn.
 
-10. You can select **Pin to dashboard** if you want your gateway to appear on the dashboard. Click **Create** to begin creating the gateway. You'll see the "Deploying Virtual network gateway" tile on the dashboard. Creating a gateway can take up to 45 minutes. There is a lot going on in the background. You may need to refresh your portal page to see the completed status.
+10. U kunt **Vastmaken aan dashboard** selecteren, als u wilt dat uw gateway op het dashboard wordt weergegeven. Klik op **Aanmaken** om de gateway aan te maken. Op het dashboard wordt de tegel 'Virtuele netwerkgateway implementeren' weergegeven. Het aanmaken van een gateway kan tot 45 minuten duren. Op de achtergrond is er veel gaande. U moet mogelijk uw portal-pagina vernieuwen om de voltooide status te kunnen zien.
 
-	
-	![Gateway](./media/vpn-gateway-add-gw-rm-portal-include/deployvnetgw150.png)
+    
+    ![Gateway](./media/vpn-gateway-add-gw-rm-portal-include/deployvnetgw150.png)
 
-11. After the gateway is created, you can view the IP address that has been assigned to it by looking at the virtual network in the portal. The gateway will appear as a connected device. You can click on the connected device (your virtual network gateway) to view more information.
+11. Nadat de gateway is aangemaakt, kunt u het IP-adres dat eraan is toegewezen bekijken door naar het virtuele netwerk in de portal te kijken. De gateway wordt weergegeven als aangesloten apparaat. U kunt op het aangesloten apparaat klikken (uw virtuele netwerkgateway) om meer informatie te laten weergeven.
 
+
+
+
+
+
+<!--HONumber=Jun16_HO2-->
 
 

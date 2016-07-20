@@ -1,1 +1,6 @@
-> [AZURE.NOTE] Your B2C tenant's name is the domain that you entered during tenant creation, and is displayed on the directory blade in the Azure preview portal.  It usually ends with the suffix `.onmicrosoft.com`, for instance, `contosob2c.onmicrosoft.com`.
+> [AZURE.NOTE] De naam van uw B2C-tenant is het domein dat u hebt opgegeven tijdens het maken van de tenant. Deze wordt weergegeven in de directory-blade van de Azure Preview-portal.  Deze heeft meestal het achtervoegsel `.onmicrosoft.com`, bijvoorbeeld `contosob2c.onmicrosoft.com`.
+
+
+<!--HONumber=Jun16_HO2-->
+
+

@@ -1,21 +1,26 @@
 <!---author: alkohli, last updated: 11/05/2015 --->
 
-#### To configure and register the virtual device
+#### Het virtuele apparaat configureren en registreren
 
-1. Select the StorSimple virtual device you just created in the **Devices** page. 
+1. Selecteer het virtuele StorSimple-apparaat dat u zojuist hebt gemaakt op de pagina **Apparaten**. 
 
-2. Click **complete device setup**. This starts the Configure device wizard.
+2. Klik op **Apparaatinstelling voltooien**. Hiermee wordt de wizard Apparaat configureren gestart.
 
-    ![StorSimple complete device setup in Devices page](./media/storsimple-configure-register-virtual-device/StorSimple_CompleteDeviceSetupSVA1M.png)
+    ![Instelling van StorSimple-apparaat voltooien op de pagina Apparaten](./media/storsimple-configure-register-virtual-device/StorSimple_CompleteDeviceSetupSVA1M.png)
 
-3. Enter the **Service Data Encryption Key** in the space provided.
+3. Voer de **gegevensversleutelingssleutel van de service** in het betreffende vak in.
 
-4. Enter the Snapshot Manager and Device Administrator passwords of the length and settings specified.
+4. Voer het wachtwoord voor Snapshot Manager en het apparaatbeheerderswachtwoord in met de lengte en instellingen die zijn opgegeven.
 
-5. Click the check mark to finish the initial configuration and registration of the virtual device. 
+5. Klik op het vinkje om de initiële configuratie en de registratie van het virtuele apparaat te voltooien. 
 
-    ![StorSimple virtual device settings](./media/storsimple-configure-register-virtual-device/StorSimple_VirtualDeviceSettings1.png)
+    ![Instellingen voor virtueel StorSimple-apparaat](./media/storsimple-configure-register-virtual-device/StorSimple_VirtualDeviceSettings1.png)
 
-After the configuration and registration is complete, the device will come online. (It may take several minutes for the device to come online.)
+Nadat de configuratie en de registratie zijn voltooid, komt het apparaat online. (Het kan enkele minuten duren voordat het apparaat online is.)
 
-![StorSimple virtual device online stage](./media/storsimple-configure-register-virtual-device/StorSimple_VirtualDeviceOnline1M.png)
+![Onlinefase voor het virtuele StorSimple-apparaat](./media/storsimple-configure-register-virtual-device/StorSimple_VirtualDeviceOnline1M.png)
+
+
+<!--HONumber=Jun16_HO2-->
+
+

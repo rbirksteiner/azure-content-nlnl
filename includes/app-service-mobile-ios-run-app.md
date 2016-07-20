@@ -1,10 +1,16 @@
 
-1. On your Mac, visit the [Azure Portal]. Click **Browse All** > **Mobile Apps** > the backend that you just created. In the mobile app settings, click **Quickstart** > **iOS (Objective-C)**. If you prefer Swift, click **Quickstart** > **iOS (Swift)** instead. Under **Download and run your iOS project**, click **Download**. This downloads a complete Xcode project for an app pre-configured to connect to your backend. Open the project using Xcode.
+1. Ga op uw Mac naar [Azure Portal]. Klik op **Door alles bladeren** > **Mobile Apps** > de back-end die u zojuist hebt gemaakt. Klik in de instellingen van de mobiele app op **Snelstartgids** > **iOS (Objective-C)**. Als u een voorkeur hebt voor Swift, klikt u in plaats daarvan op **Snelstartgids** > **iOS (Swift)**. Klik onder **Uw iOS-project downloaden en uitvoeren** op **Downloaden**. Er wordt dan een volledig Xcode-project voor een app gedownload, dat vooraf is geconfigureerd om verbinding te maken met uw back-end. Open het project met Xcode.
 
-2. Press the **Run** button to build the project and start the app in the iOS simulator.
+2. Druk op de knop **Uitvoeren** om het project te bouwen en de app te starten in de iOS-emulator.
 
-3. In the app, type meaningful text, such as _Complete the tutorial_ and then click the plus (**+**) icon. This sends a POST request to the Azure backend you deployed earlier. The backend inserts data from the request is into the TodoItem SQL table, and returns information about the newly stored items back to the mobile app. The mobile app displays this data in the list. 
+3. Typ in de app een stukje zinvolle tekst, zoals _Voltooi de zelfstudie_ en klik vervolgens op het plusteken (**+**). Er wordt nu een POST-aanvraag verzonden naar de back-end van Azure die u eerder hebt geïmplementeerd. De back-end voegt gegevens van de aanvraag toe aan de SQL-takentabel en stuurt informatie over de nieuw opgeslagen items terug naar de mobiele app. Deze gegevens worden in de lijst in de mobiele app weergegeven. 
 
-   	![](./media/mobile-services-ios-run-app/mobile-quickstart-startup-ios.png)
+    ![](./media/mobile-services-ios-run-app/mobile-quickstart-startup-ios.png)
 
 [Azure Portal]: https://portal.azure.com/
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

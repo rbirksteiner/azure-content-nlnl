@@ -1,3 +1,9 @@
->[AZURE.NOTE (Try Azure Machine Learning for free)]
+>[AZURE.NOTE (Probeer gratis Azure Machine Learning)]
 >
->No credit card or Azure subscription needed. <a href="https://studio.azureml.net/?selectAccess=true&o=2" target="_blank">**Get started now >**</a>
+>Geen creditcard of Azure-abonnement nodig. <a href="https://studio.azureml.net/?selectAccess=true&o=2" target="_blank">**Meteen aan de slag >**</a>
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

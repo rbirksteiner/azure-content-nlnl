@@ -1,10 +1,15 @@
 
-The following are screen captures from the completed app:
+Hier volgen enkele schermopnamen van een voltooide app:
 
 ![](./media/mobile-services-windows-universal-get-started/mobile-quickstart-completed.png)
-<br/>Windows Store app
+<br/>Windows Store-app
 
 ![](./media/mobile-services-windows-universal-get-started/mobile-quickstart-completed-wp8.png)
-<br/>Windows Phone Store app
+<br/>Windows Phone Store-app
 
-Completing this tutorial is a prerequisite for all other Mobile Services tutorials for Windows Store and Windows Phone Store apps. 
+Het voltooien van deze zelfstudie is een vereiste voor alle andere Mobile Services-zelfstudies voor Windows Store- en Windows Phone Store-apps. 
+
+
+<!--HONumber=Jun16_HO2-->
+
+

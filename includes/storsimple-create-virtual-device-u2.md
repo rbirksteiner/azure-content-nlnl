@@ -1,36 +1,42 @@
-#### To create a virtual device
+#### Een virtueel apparaat maken
 
-1.  In the Azure portal, go to the **StorSimple Manager** service.
+1.  Ga in Azure Portal naar de **StorSimple Manager**-service.
 
-2. Go to the **Devices** page. Click **Create virtual device** at the bottom of the **Devices** page.
+2. Ga naar de pagina **Apparaten**. Klik op **Virtueel apparaat maken** aan de onderkant van de pagina **Apparaten**.
 
-3. In the **Create Virtual Device dialog box**, specify the following details.
+3. Geef in het **dialoogvenster Virtueel apparaat maken** de volgende gegevens op.
 
-     ![StorSimple create virtual device](./media/storsimple-create-virtual-device-u2/CreatePremiumsva1.png)
+     ![Virtueel StorSimple-apparaat maken](./media/storsimple-create-virtual-device-u2/CreatePremiumsva1.png)
 
-	1. **Name** – A unique name for your virtual device.
+    1. **Naam**: een unieke naam voor uw virtuele apparaat.
 
 
-	2. **Model** - Choose the model of the virtual device. This field is presented only if you are running Update 2 or later. An 8010 device model offers 30 TB of Standard Storage whereas 8020 has 64 TB of Premium Storage. Specify 8010
-	3.  to deploy item level retrieval  scenarios from backups. Select 8020 to deploy high performance, low latency workloads or used as a secondary device for disaster recovery.
-	 
-	4. **Version** - Choose the version of the virtual device. If an 8020 device model is selected, then the version field will not be presented to the user. This option is absent if all the physical devices registered with this service are running Update 1 (or later). This field is presented only if you have a mix of pre-Update 1 and Update 1 physical devices registered with the same service. Given the version of the virtual device will determine which physical device you can failover or clone from, it is important that you create an appropriate version of the virtual device. Select:
+    2. **Model**: het model van het virtuele apparaat. Dit veld wordt alleen weergegeven als u Update 2 of hoger uitvoert. Een 8010-apparaatmodel biedt 30 TB Standard-opslag terwijl 8020 64 TB Premium-opslag heeft. Geef 8010 op
+    3.  om ophaalscenario's op itemniveau vanuit back-ups te implementeren. Selecteer 8020 om workloads met hoge prestaties en lage latentie te implementeren of voor gebruik als een tweede apparaat voor herstel na noodgevallen.
+     
+    4. **Versie**: kies de versie van het virtuele apparaat. Als het 8020-apparaatmodel wordt geselecteerd, wordt dit versieveld niet weergegeven voor de gebruiker. Deze optie ontbreekt als op alle fysieke apparaten die zijn geregistreerd met deze service Update 1 (of hoger) wordt uitgevoerd. Dit veld wordt alleen weergegeven als u een combinatie van fysieke pre-Update 1- en Update 1-apparaten hebt geregistreerd met dezelfde service. Aangezien de versie van het virtuele apparaat bepaalt welk fysiek apparaat voor failover kan dienen of van welk fysiek apparaat u een kloon kunt maken, is het belangrijk dat u de juiste versie van het virtuele apparaat maakt. Selecteer:
 
-	   - Version Update 0.3 if you will fail over or DR from a physical device running Update 0.3 or earlier. 
-	   - Version Update 1 if you will fail over or clone from a physical device running Update 1 (or later). 
-	   
-	
-	5. **Virtual Network** – Specify a virtual network that you want to use with this virtual device. If using Premium Storage (Update 2 or later), you must select a virtual network that is supported with the Premium Storage account. The unsupported virtual networks will be grayed out in the dropdown list. You will be warned if you select an unsupported virtual network. 
+       - Versie Update 0.3 voor failover of DR vanaf een fysiek apparaat met Update 0.3 of lager. 
+       - Versie Update 1 voor failover of klonen vanaf een fysiek apparaat met Update 1 (of lager). 
+       
+    
+    5. **Virtueel netwerk**: geef een virtueel netwerk op dat u wilt gebruiken met dit virtuele apparaat. Als u Premium-opslag (Update 2 of hoger) gebruikt, moet u een virtueel netwerk selecteren dat wordt ondersteund met het premium-opslagaccount. De niet-ondersteunde virtuele netwerken worden lichter gekleurd weergegeven in de vervolgkeuzelijst. U wordt gewaarschuwd als u een niet-ondersteund virtueel netwerk selecteert. 
 
-	5. **Storage Account for Virtual Device Creation** – Select a storage account to hold the image of the virtual device during provisioning. This storage account should be in the same region as the virtual device and virtual network. It should not be used for data storage by either the physical or the virtual device. By default, a new storage account will be created for this purpose. However, if you know that you already have a storage account that is suitable for this use, you can select it from the list. If creating a premium virtual device, the dropdown list will only display Premium Storage accounts. 
+    5. **Opslagaccount voor het maken van virtuele apparaten**: selecteer een opslagaccount voor de installatiekopie van het virtuele apparaat tijdens het inrichten. Dit opslagaccount moet zich in dezelfde regio bevinden als het virtuele apparaat en virtuele netwerk. Het mag niet worden gebruikt voor de opslag van gegevens door ofwel het fysieke of het virtuele apparaat. Voor dit doel wordt standaard een nieuw opslagaccount gemaakt. Als u echter al een opslagaccount hebt dat hiervoor geschikt is, kunt u dit in de lijst selecteren. Als u een Premium virtueel apparaat maakt, worden in de vervolgkeuzelijst alleen Premium-opslagaccounts weergegeven. 
 
-    	>[AZURE.NOTE] The virtual device can only work with the Azure storage accounts. Other cloud service providers such as Amazon, HP, and OpenStack (that are supported for the physical device) are not supported for the StorSimple virtual device.
-	
-	1. Click the check mark to indicate that you understand that the data stored on the virtual device will be hosted in a Microsoft datacenter. When you use only a physical device, your encryption key is kept with your device; therefore, Microsoft cannot decrypt it. 
-	 
-		When you use a virtual device, both the encryption key and the decryption key are stored in Microsoft Azure. For more information, see [security considerations for using a virtual device](storsimple-security/#storsimple-virtual-device-security).
-	2. Click the check icon to create the virtual device. The device may take around 30 minutes to be provisioned.
+        >[AZURE.NOTE] Het virtuele apparaat kan alleen met de Azure Storage-accounts werken. Andere cloudserviceproviders, zoals Amazon, HP en OpenStack (die worden ondersteund voor het fysieke apparaat), worden niet ondersteund voor het virtuele StorSimple-apparaat.
+    
+    1. Klik op het vinkje om aan te geven dat u begrijpt dat de gegevens die zijn opgeslagen op de virtuele apparaat, in een Microsoft-datacenter worden gehost. Wanneer u alleen een fysiek apparaat gebruikt, wordt de versleutelingssleutel op uw apparaat opgeslagen. Daarom kan Microsoft deze niet ontsleutelen. 
+     
+        Wanneer u een virtueel apparaat gebruikt, worden zowel de versleutelingssleutel als de ontsleutelingssleutel opgeslagen in Microsoft Azure. Zie de [beveiligingsoverwegingen voor het gebruik van een virtueel apparaat](storsimple-security/#storsimple-virtual-device-security) voor meer informatie.
+    2. Klik op het vinkje om het virtuele apparaat te maken. Het kan ongeveer 30 minuten duren voordat het apparaat is ingericht.
 
-	![StorSimple virtual device creating stage](./media/storsimple-create-virtual-device-u2/StorSimple_VirtualDeviceCreating1M.png)
+    ![Aanmaakfase voor een virtueel StorSimple-apparaat](./media/storsimple-create-virtual-device-u2/StorSimple_VirtualDeviceCreating1M.png)
 
     
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

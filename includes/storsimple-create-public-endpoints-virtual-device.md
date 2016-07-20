@@ -1,21 +1,26 @@
-#### To create public endpoints on the virtual device
+#### Openbare eindpunten op het virtuele apparaat maken
 
-1. Sign in to the Azure classic portal.
+1. Meld u aan bij de klassieke Azure-portal.
 
-- Click **Virtual Machines**, and then select the virtual machine that is being used as your virtual device.
+- Klik op **Virtuele machines** en selecteer vervolgens de virtuele machine die wordt gebruikt als uw virtuele apparaat.
 
-- Click **Endpoints**. The **Endpoints** page lists all endpoints for the virtual machine.
+- Klik op **Eindpunten**. Op de pagina **Eindpunten** worden alle eindpunten voor de virtuele machine weergegeven.
 
-- Click **Add**. The **Add Endpoint** dialog box appears. Click the arrow to continue.
+- Klik op **Add**. Het dialoogvenster **Eindpunt toevoegen** wordt weergegeven. Klik op de pijl om door te gaan.
 
-- For the **Name**, type the following name for the endpoint: **WinRMHttps**.
+- Typ voor **Naam** de volgende naam voor het eindpunt: **WinRMHttps**.
 
-- For the **Protocol**, specify **TCP**.
+- Geef voor **Protocol** de instelling **TCP** op.
 
-- For the **Public Port**, type the port numbers that you want to use for the connection.
+- Typ voor **Openbare poort** de poortnummers die u voor de verbinding wilt gebruiken.
 
-- For the **Private Port**, type **5986**.
+- Typ voor **Particuliere poort** de waarde **5986**.
 
-- Click the check mark to create the endpoint.
+- Klik op het vinkje om het eindpunt te maken.
 
-After the endpoint is created, you can view its details to determine the Public Virtual IP (VIP) address. Record this address.
+Nadat het eindpunt is gemaakt, kunt u de details van het eindpunt weergeven om het openbare VIP-adres (virtueel IP-adres) te bepalen. Noteer dit adres.
+
+
+<!--HONumber=Jun16_HO2-->
+
+

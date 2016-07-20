@@ -1,29 +1,35 @@
-## Defining a backup policy
+## Een back-upbeleid definiëren
 
-A backup policy defines a matrix of when the data snapshots are taken, and how long those snapshots are retained. When defining a policy for backing up a VM, you can trigger a backup job *once a day*. When you create a new policy, it is applied to the vault. The backup policy interface looks like this:
+Een back-upbeleid definieert een matrix met wanneer de momentopnamen van de gegevens zijn gemaakt en hoe lang deze momentopnamen worden bewaard. Bij het definiëren van een beleid voor het maken van een back-up van een virtuele machine, kunt u ervoor zorgen dat er *eenmaal per dag* een back-uptaak wordt uitgevoerd. Wanneer u een nieuw beleid maakt, wordt dit toegepast op de kluis. De interface voor het back-upbeleid ziet er als volgt uit:
 
-![Backup policy](./media/backup-create-policy-for-vms/backup-policy.png)
+![Back-upbeleid](./media/backup-create-policy-for-vms/backup-policy.png)
 
-To create a policy:
+Ga als volgt te werk om een beleid te maken:
 
-1. Enter a name for the **Policy name**.
+1. Voer een naam in voor de **beleidsnaam**.
 
-2. Snapshots of your data can be taken at Daily or Weekly intervals. Use the **Backup Frequency** drop-down menu to choose whether data snapshots are taken Daily or Weekly.
+2. Momentopnamen van uw gegevens kunnen met tussenpozen van een dag of een week worden gemaakt. Gebruik de vervolgkeuzelijst **Back-upfrequentie** om te kiezen of u wilt dat er dagelijks of wekelijks momentopnamen worden gemaakt.
 
-    - If you choose a Daily interval, use the highlighted control to select the time of the day for the snapshot. To change the hour, de-select the hour, and select the new hour.
+    - Als u voor een dagelijks interval kiest, moet u met het gemarkeerde besturingselement het tijdstip op de dag kiezen waarop de momentopname moet worden gemaakt. Als u het tijdstip wilt wijzigen, maakt u de selectie voor het huidige tijdstip ongedaan en selecteert u het nieuwe tijdstip.
 
-    ![Daily backup policy](./media/backup-create-policy-for-vms/backup-policy-daily.png) <br/>
+    ![Dagelijks back-upbeleid](./media/backup-create-policy-for-vms/backup-policy-daily.png) <br/>
 
-    - If you choose a Weekly interval, use the highlighted controls to select the day(s) of the week, and the time of day to take the snapshot. In the day menu, select one or multiple days. In the hour menu, select one hour. To change the hour, de-select the selected hour, and select the new hour.
+    - Als u voor een wekelijkse interval kiest, moet u met het gemarkeerde besturingselement de dag(en) van de week en het tijdstip op de dag kiezen waarop de momentopname moet worden gemaakt. Selecteer een of meer dagen in het menu met de dagen. Selecteer een tijdstip in het menu met de uren. Als u het tijdstip wilt wijzigen, maakt u de selectie voor het huidige tijdstip ongedaan en selecteert u het nieuwe tijdstip.
 
-    ![Weekly backup policy](./media/backup-create-policy-for-vms/backup-policy-weekly.png)
+    ![Wekelijks back-upbeleid](./media/backup-create-policy-for-vms/backup-policy-weekly.png)
 
-3. By default, all **Retention Range** options are selected. Uncheck any retention range limit you do not want to use. Then, specify the interval(s) to use.
+3. Standaard zijn alle opties voor een **bewaartermijn** geselecteerd. Schakel de limieten voor de bewaartermijnen uit die u niet wilt gebruiken. Geef vervolgens een of meer intervallen op die moeten worden gebruikt.
 
-    Monthly and Yearly retention ranges allow you to specify the snapshots based on a weekly or daily increment.
+    Door bewaartermijnen van een maand en een jaar te gebruiken, kunt u opgeven dat momentopnamen met tussenstappen van een week of een dag worden gemaakt.
 
-    >[AZURE.NOTE] When protecting a VM, a backup job runs once a day. The time when the backup runs is the same for each retention range.
+    >[AZURE.NOTE] Als u een virtuele machine beveiligt, wordt één keer per dag een back-uptaak uitgevoerd. Het tijdstip waarop de back-up wordt uitgevoerd, is voor elke bewaartermijn hetzelfde.
 
-4. After setting all options for the policy, at the top of the blade click **Save**.
+4. Nadat u alle opties voor het beleid hebt ingesteld, klikt u boven in de blade op **Opslaan**.
 
-    The new policy is immediately applied to the vault.
+    Het nieuwe beleid wordt onmiddellijk op de kluis toegepast.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

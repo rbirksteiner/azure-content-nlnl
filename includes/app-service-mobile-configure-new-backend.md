@@ -1,16 +1,22 @@
 
-1. Back in the Mobile App backend, click **Settings** > **Quick start** > your client platform. 
+1. Terug in de back-end van de mobiele app klikt u op **Instellingen** > **Snel starten** > uw clientplatform. 
 
-2. Under **Create a table API**, select your **Backend language**, either C# or Node.js:
+2. Onder **Een tabel-API maken** selecteert u uw **back-endtaal**, C# of Node.js:
 
-	+ **Node.js backend**:  
-	Accept the acknowledgment and click **Create TodoItem table**. This creates a new *TodoItem* table in your database. Remember that switching an existing backend to Node.js will overwrite all contents!
+    + **Node.js-back-end**:  
+    Accepteer de bevestiging en klik op **Takentabel maken**. Er wordt dan een nieuwe *taken*tabel in uw database gemaakt. Houd er rekening mee dat als u een bestaande back-end overzet naar Node.js, alle inhoud wordt overschreven.
 
-	+ **C# (.NET Backend)**:  
-		1. Click **Download**,
-		2. Open the extracted solution in Visual Studio,
-		3. Build the project to restore the NuGet packages, and 
-		4. Deploy the project to Azure. 
-	
-		For detailed, step-by-step instructions on deploying the C# project to Azure, see [How to: Publish Backend Project with Visual Studio](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#publish-server-project). 
+    + **C# (.NET-backend)**:  
+        1. Klik op **Downloaden**,
+        2. Open de uitgepakte oplossing in Visual Studio,
+        3. bouw het project om de NuGet-pakketten te herstellen en 
+        4. implementeer het project naar Azure. 
+    
+        Zie [How to: Publish Backend Project with Visual Studio](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#publish-server-project) (Procedure: back-endproject publiceren met Visual Studio) voor gedetailleerde, stapsgewijze instructies over het implementeren van het C#-project naar Azure. 
+
+
+
+
+<!--HONumber=Jun16_HO2-->
+
 

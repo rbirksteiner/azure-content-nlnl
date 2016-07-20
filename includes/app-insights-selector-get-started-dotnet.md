@@ -1,16 +1,22 @@
 
-*Application Insights is in preview.*
+*Application Insights verkeert nog in de preview-fase.*
 
 <a name="selector1"></a>
 
-[Visual Studio Application Insights](../articles/application-insights/app-insights-overview.md) monitors your live application to help you [detect and diagnose performance issues and exceptions](../articles/application-insights/app-insights-detect-triage-diagnose.md), and [discover how your app is used](../articles/application-insights/app-insights-overview-usage.md). 
+Met [Visual Studio Application Insights](../articles/application-insights/app-insights-overview.md) wordt uw live-toepassing bewaakt om u te helpen bij het [detecteren en onderzoeken van prestatieproblemen en -uitzonderingen](../articles/application-insights/app-insights-detect-triage-diagnose.md) en om te [ontdekken hoe uw app wordt gebruikt](../articles/application-insights/app-insights-overview-usage.md). 
 
-Install the SDK and then add monitoring for other data:
+Installeer de SDK en voeg bewaking toe voor andere gegevens:
 
 > [AZURE.SELECTOR]
-- [Install the SDK](../articles/application-insights/app-insights-asp-net.md#selector1)
-- [User & page data](../articles/application-insights/app-insights-javascript.md#selector1)
-- [Exceptions](../articles/application-insights/app-insights-asp-net-exceptions.md#selector1)
-- [Dependencies](../articles/application-insights/app-insights-asp-net-dependencies.md#selector1)
-- [Availability](../articles/application-insights/app-insights-monitor-web-app-availability.md#selector1)
+- [De SDK installeren](../articles/application-insights/app-insights-asp-net.md#selector1)
+- [Gebruikers- en paginagegevens toevoegen](../articles/application-insights/app-insights-javascript.md#selector1)
+- [Uitzonderingen](../articles/application-insights/app-insights-asp-net-exceptions.md#selector1)
+- [Afhankelijkheden](../articles/application-insights/app-insights-asp-net-dependencies.md#selector1)
+- [Beschikbaarheid](../articles/application-insights/app-insights-monitor-web-app-availability.md#selector1)
+
+
+
+
+<!--HONumber=Jun16_HO2-->
+
 

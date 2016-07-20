@@ -1,5 +1,11 @@
-|  | **Classic Deployment**  | **Resource Manager Deployment**|
+|  | **Klassieke implementatie**  | **Implementatie van Resource Manager**|
 |-----------------------------|-------------|---------------------|
-| **Classic Portal**          | Not Supported          | Not Supported                  |
-| **Azure Portal**            | Not Supported         | Not Supported                  |
-| **PowerShell** | [Article](../articles/expressroute/expressroute-howto-coexist-classic.md) | Not Supported |
+| **Klassieke portal**          | Niet ondersteund          | Niet ondersteund                  |
+| **Azure Portal**            | Niet ondersteund         | Niet ondersteund                  |
+| **PowerShell** | [Artikel](../articles/expressroute/expressroute-howto-coexist-classic.md) | Niet ondersteund |
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

@@ -8,26 +8,32 @@ As of circa 2016-04-11, the following topics might include this include:
 articles/sql-database/sql-database-get-started-tutorial.md
 
 -->
-## Connecting to the Microsoft Azure portal with a subscription
+## Met een abonnement verbinding maken met Microsoft Azure Portal
 
-To connect to the Microsoft Azure portal, you must have a subscription. 
+Om verbinding te kunnen maken met de Microsoft Azure Portal hebt u een abonnement nodig. 
 
-### Get a new account
+### Een nieuw account maken
 
-If you do not have an existing Microsoft Azure account, follow one of the links below to obtain an account:
+Als u nog geen Microsoft Azure-account hebt, moet u een van de onderstaande koppelingen volgen om een account te maken:
 
-- Get a [free account](https://azure.microsoft.com/get-started/)
-- Use an [MSDN subscription](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/)
+- Een [gratis account](https://azure.microsoft.com/get-started/) maken
+- Een [MSDN-abonnement](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) gebruiken
 
-###Sign in using your existing account
+###Aanmelden met uw bestaande account
 
-Using your [existing subscription]( https://account.windowsazure.com/Home/Index), follow the steps below to connect to the Azure portal. 
+Gebruik uw [bestaande abonnement]( https://account.windowsazure.com/Home/Index) en volg de onderstaande stappen om verbinding te maken met Azure Portal. 
 
-1. Open your browser of choice and connect to the [Azure portal](https://portal.azure.com/).
+1. Open de browser van uw keuze en maak verbinding met [Azure Portal](https://portal.azure.com/).
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
-1. When the sign in page appears, provide the credentials for your subscription
+1. Zodra de aanmeldingspagina wordt weergegeven, typt u de referenties voor uw abonnement.
 
-   ![sign in](./media/azure-getting-started-portal-login/login.png)
+   ![aanmelden](./media/azure-getting-started-portal-login/login.png)
    
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

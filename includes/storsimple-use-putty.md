@@ -1,31 +1,36 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### To connect through the serial console
+#### Verbinding maken via de seriële console
 
-1. Connect your serial cable to the device (directly or through a USB-serial adapter).
+1. Sluit de seriële kabel aan op het apparaat (rechtstreeks of via een USB-seriële adapter).
 
-2. Open the **Control Panel**, and then open the **Device Manager**.
+2. Open het **Configuratiescherm** en open vervolgens **Apparaatbeheer**.
 
-3. Identify the COM port as shown in the following illustration.
+3. Kijk waar de COM-poort zich bevindt, zoals weergegeven in de volgende afbeelding.
 
-     ![Connecting through serial console](./media/storsimple-use-putty/HCS_ConnectingDeviceS-include.png)
+     ![Verbinding maken via een seriële console](./media/storsimple-use-putty/HCS_ConnectingDeviceS-include.png)
 
 4. Start PuTTY. 
 
-5. In the right pane, change the **Connection type** to **Serial**.
+5. Wijzig in het rechterdeelvenster **Verbindingstype** in **Serieel**.
 
-6. In the right pane, type the appropriate COM port. Make sure that the serial configuration parameters are set as follows:
-  - Speed: 115,200
-  - Data bits: 8
-  - Stop bits: 1
-  - Parity: None
-  - Flow control: None
+6. Typ in het rechterdeelvenster de juiste COM-poort. Zorg ervoor dat de seriële configuratieparameters als volgt zijn ingesteld:
+  - Snelheid: 115.200
+  - Gegevensbits: 8
+  - Stopbits: 1
+  - Pariteit: Geen
+  - Datatransportbesturing: Geen
 
-    These settings are shown in the following illustration.
+    Deze instellingen worden weergegeven in de volgende afbeelding.
 
-     ![PuTTY settings](./media/storsimple-use-putty/HCS_PuttyConfig-include.png) 
+     ![Instellingen voor PuTTY](./media/storsimple-use-putty/HCS_PuttyConfig-include.png) 
 
-    > [AZURE.NOTE] If the default flow control setting does not work, try setting the flow control to XON/XOFF.
+    > [AZURE.NOTE] Als de standaardinstelling voor datatransportbesturing niet werkt, kunt u de datatransportbesturing instellen op XON/XOFF.
 
-7. Click **Open** to start a serial session.
+7. Klik op **Openen** om een seriële sessie te starten.
  
+
+
+<!--HONumber=Jun16_HO2-->
+
+

@@ -1,53 +1,58 @@
-###Grant Mobile Engagement access to your GCM API Key
+###Mobile Engagement toegang verlenen tot uw GCM-API-sleutel
 
-To allow Mobile Engagement to send push notifications on your behalf, you need to grant it access to your API Key. This is done by configuring and entering your key into the Mobile Engagement portal.
+Om Mobile Engagement namens u pushmeldingen te laten verzenden, moet u het toegang geven tot uw API-sleutel. Dit kunt u doen door uw sleutel te configureren en in te voeren in de Mobile Engagement-portal.
 
-1. From your Azure Classic Portal, ensure you're in the app we're using for this project, and then click the **Engage** button at the bottom:
+1. Controleer in de klassieke Azure-portal of u zich in de app bevindt die we voor dit project gebruiken en klik vervolgens op de knop **Engage** onderaan:
 
-	![](./media/mobile-engagement-android-send-push/engage-button.png)
+    ![](./media/mobile-engagement-android-send-push/engage-button.png)
 
-2. Then click the **Settings** -> **Native Push** section to enter your GCM Key:
+2. Klik vervolgens in de sectie **Instellingen** -> **Native pushbericht** om uw GCM-sleutel in te voeren:
 
-	![](./media/mobile-engagement-android-send-push/engagement-portal.png)
+    ![](./media/mobile-engagement-android-send-push/engagement-portal.png)
 
-3. Click the **Edit** icon in front of **API Key** in the **GCM Settings** section as shown below:
+3. Klik op het pictogram **Bewerken** vóór de **API-sleutel** in de sectie **GCM-instellingen** zoals hieronder weergegeven:
 
-	![](./media/mobile-engagement-android-send-push/native-push-settings.png)
+    ![](./media/mobile-engagement-android-send-push/native-push-settings.png)
 
-4. In the pop-up, paste the GCM Server Key you obtained before and then click **Ok**.
+4. Plak de GCM-serversleutel die u eerder hebt verkregen in het pop-upvenster en klik vervolgens op **OK**.
 
-	![](./media/mobile-engagement-android-send-push/api-key.png)
+    ![](./media/mobile-engagement-android-send-push/api-key.png)
 
-##<a id="send"></a>Send a notification to your app
+##<a id="send"></a>Een melding verzenden naar uw app
 
-We will now create a simple push notification campaign that sends a push notification to our app.
+We gaan nu een eenvoudige pushmeldingcampagne maken waarbij een pushmelding wordt verzonden naar uw app.
 
-1. Navigate to the **REACH** tab in your Mobile Engagement portal.
+1. Navigeer naar het tabblad **REACH** in uw Mobile Engagement-portal.
 
-2. Click **New announcement** to create your push notification campaign.
+2. Klik op **Nieuwe aankondiging** om uw pushmeldingcampagne te maken.
 
-	![](./media/mobile-engagement-android-send-push/new-announcement.png)
+    ![](./media/mobile-engagement-android-send-push/new-announcement.png)
 
-3. Set up the first field of your campaign through the following steps:
+3. Stel het eerste veld van uw campagne in via de volgende stappen:
 
-	![](./media/mobile-engagement-android-send-push/campaign-first-params.png)
+    ![](./media/mobile-engagement-android-send-push/campaign-first-params.png)
 
-	a. Name your campaign.
+    a. Geef uw campagne een naam.
 
-	b. Select the **Delivery type** as *System notification -> Simple*: This is the simple Android push notification type that features a title and a small line of text.
+    b. Selecteer het **Bezorgingstype** als *Systeemmelding -> Eenvoudig*: dit is het eenvoudige Android-pushmeldingentype met een titel en een korte tekstregel.
 
-	c. Select **Delivery time** as *Any time* to allow the app to receive a notification whether the app is started or not.
+    c. Selecteer **Leveringstijd** als *Elk tijdstip* om de app toe te staan een melding te ontvangen ongeacht of de app is gestart of niet.
 
-	d. In the notification text type the **Title** which will be in bold in the push.
+    d. Als teksttype van de melding typt u de **Titel** die in de pushmelding vet wordt weergegeven.
 
-	e. Then type your **Message**
+    e. Typ vervolgens uw **bericht**
 
-4. Scroll down, and in the **Content** section, select **Notification only**.
+4. Blader naar beneden en selecteer in de sectie **Inhoud** **Alleen melding**.
 
-	![](./media/mobile-engagement-android-send-push/campaign-content.png)
+    ![](./media/mobile-engagement-android-send-push/campaign-content.png)
 
-5. You're done setting the most basic campaign possible. Now scroll down again and click the **Create** button to save your campaign.
+5. U hebt nu een campagne gemaakt die zo eenvoudig mogelijk is. Blader nogmaals naar beneden en klik op de knop **Maken** om uw campagne op te slaan.
 
-6. Last step: click **Activate** to activate your campaign to send push notifications.
+6. Laatste stap: klik op **Activeren** om uw campagne om pushmeldingen te verzenden, te activeren.
 
-	![](./media/mobile-engagement-android-send-push/campaign-activate.png)
+    ![](./media/mobile-engagement-android-send-push/campaign-activate.png)
+
+
+<!--HONumber=Jun16_HO2-->
+
+

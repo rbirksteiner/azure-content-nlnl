@@ -1,12 +1,17 @@
-The table below lists the requirements for policy-based and route-based VPN gateways. This table applies to both the Resource Manager and classic deployment models. For the classic model, Policy-based VPN gateways are the same as Static gateways, and Route-based gateways are the same as Dynamic gateways.
+De volgende tabel bevat de vereisten voor VPN-gateways op basis van beleid en route. Deze tabel is van toepassing op de Resource Manager en de klassieke implementatiemodellen. Voor het klassieke model zijn op beleid gebaseerde VPN-gateways hetzelfde als statische gateways. Op route gebaseerde gateways zijn hetzelfde als dynamische gateways.
 
 
-|   | **Policy-based Basic VPN Gateway** | **Route-based Basic VPN Gateway** | **Route-based Standard VPN Gateway**   | **Route-based High Performance VPN Gateway** |
+|   | **Op beleid gebaseerde Basic VPN-gateway** | **Op route gebaseerde Basic VPN-gateway** | **Op route gebaseerde Standard VPN-gateway**   | **Op route gebaseerde High Performance VPN-gateway** |
 |---|---------------------------------------|---------------------------------------|----------------------------|----------------------------------|
-|    **Site-to-Site connectivity   (S2S)**  | Policy-based VPN configuration        | Route-based VPN configuration  | Route-based VPN configuration     | Route-based VPN configuration    |
-| **Point-to-Site connectivity (P2S**)      | Not supported   | Supported (Can coexist with S2S)  | Supported (Can coexist with S2S)  | Supported (Can coexist with S2S) |
-| **Authentication method**                 |    Pre-shared key  | Pre-shared key for S2S connectivity, Certificates for P2S connectivity | Pre-shared key for S2S connectivity, Certificates for P2S connectivity | Pre-shared key for S2S connectivity, Certificates for P2S connectivity |
-| **Maximum number of S2S connections**       | 1                              | 10                                                                    | 10                                | 30                               |
-| **Maximum number of P2S connections**       | Not supported                  | 128                                                                   | 128                               | 128                              |
-|**Active routing support (BGP)**           | Not supported                  | Not supported                                                         | Not supported                     | Not supported                    |
+|    **Site-naar-site-connectiviteit (S2S)**  | VPN-configuratie op basis van beleid        | VPN-configuratie op basis van route  | VPN-configuratie op basis van route     | VPN-configuratie op basis van route    |
+| **Punt-naar-site-verbinding (P2S**)      | Niet ondersteund   | Ondersteund (kan tegelijk bestaan met S2S)  | Ondersteund (kan tegelijk bestaan met S2S)  | Ondersteund (kan tegelijk bestaan met S2S) |
+| **Verificatiemethode**                 |    Vooraf gedeelde sleutel  | Vooraf gedeelde sleutel voor S2S-connectiviteit, certificaten voor P2S-connectiviteit | Vooraf gedeelde sleutel voor S2S-connectiviteit, certificaten voor P2S-connectiviteit | Vooraf gedeelde sleutel voor S2S-connectiviteit, certificaten voor P2S-connectiviteit |
+| **Maximumaantal S2S-verbindingen**       | 1                              | 10                                                                    | 10                                | 30                               |
+| **Maximumaantal P2S-verbindingen**       | Niet ondersteund                  | 128                                                                   | 128                               | 128                              |
+|**Ondersteuning voor actieve routering (BGP)**           | Niet ondersteund                  | Niet ondersteund                                                         | Niet ondersteund                     | Niet ondersteund                    |
  
+
+
+<!--HONumber=Jun16_HO2-->
+
+

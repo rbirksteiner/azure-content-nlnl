@@ -1,23 +1,29 @@
 
 
-1. Log on to the [Azure Portal](https://portal.azure.com), and then click **+NEW** at the top left of the screen.
+1. Meld u aan bij de [Azure-portal](https://portal.azure.com) en klik op **+NIEUW** linksboven in het scherm.
 
-2. Click on **New**, then **Web + Mobile**. Scroll down if necessary and click **Notification Hub**.
+2. Klik op **Nieuw** en vervolgens op **Web en mobiel**. Schuif indien nodig naar beneden en klik op **Notification Hub**.
 
-   	![Azure Portal - Create Notification Hubs](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-create.png)
+    ![Azure Portal - Notification Hubs maken](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-create.png)
 
-3. Make sure you specify a unique name in the **Notification Hub** field. Select your desired **Region**, **Subscription** and **Resource Group** (if you have one already). 
+3. Zorg ervoor dat een unieke naam opgeeft in het veld **Notification Hub**. Selecteer de gewenste **regio**, het **abonnement** en de **resourcegroep** (als u er al een hebt). 
  
-	If you already have a service bus namespace that you want to create the hub in, select it through the **Select Existing** option in the **Namespace** field.  Otherwise, you can use the default name which will be created based on the hub name as long as the namespace name is available. 
+    Als u al een Service Bus-naamruimte hebt waarin u de hub wilt maken, selecteert u deze via de optie **Bestaande selecteren** in het veld **Naamruimte**.  U kunt anders de standaardnaam gebruiken die wordt gemaakt op basis van de hubnaam, mits de naam van naamruimtenaam beschikbaar is. 
 
-	Once ready, click **Create**.
+    Zodra u daarmee klaar bent, klikt u op **Maken**.
 
-   	![Azure Portal - Set notification hub properties](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-settings.png)
+    ![Azure Portal - eigenschappen van de Notification Hub instellen](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-settings.png)
 
-4. Once the namespace and notification hub are created, you will be taken to the respective portal page. 
+4. Zodra de naamruimte en de Notification Hub zijn gemaakt, wordt u naar de respectievelijke portalpagina verder geleid. 
 
-   	![Azure Portal - Notification hub portal page](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-page.png)
+    ![Azure Portal - portalpagina Notification Hub](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-page.png)
        
-5. Click on **Settings** and then **Access Policies** - take note of the two connection strings that are made available to you, as you will need them to handle push notifications later.
+5. Klik op **Instellingen** en vervolgens op **Toegangsbeleid** - noteer de twee verbindingsreeksen die u ter beschikking zijn gesteld, want u hebt ze later nodig als u met pushmeldingen gaat werken.
 
-   	![Azure Portal - Notification hub connection strings](./media/notification-hubs-portal-create-new-hub/notification-hubs-connection-strings-portal.png)
+    ![Azure Portal - verbindingsreeksen voor de Notification Hub](./media/notification-hubs-portal-create-new-hub/notification-hubs-connection-strings-portal.png)
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

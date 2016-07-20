@@ -1,22 +1,27 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### To create a volume container
+#### Een volumecontainer maken
 
-1. In the device **Quick Start** page, click **Add a volume container**. The **Create Volume Container** dialog box appears.
+1. Klik op de pagina **Quick Start** van het apparaat op **Een volumecontainer toevoegen**. Het dialoogvenster **Volumecontainer maken** wordt weergegeven.
 
-    ![Create Volume Container](./media/storsimple-create-volume-container/HCS_CreateVolumeContainerM-include.png)
+    ![Een volumecontainer maken](./media/storsimple-create-volume-container/HCS_CreateVolumeContainerM-include.png)
 
-2. In the **Create Volume container** dialog box:
-  1. Supply a **Name** for your volume container. The name must be 3 to 32 characters long.
-  2. Select a **Storage Account** to associate with this volume container. You can choose the default account that is generated at the time of service creation. You can also use the **Add new** option to specify a storage account that is not linked to this service subscription.
-  3. Select **Enable Cloud Storage Encryption** to enable encryption of the data sent from the device to the cloud.
-  4. Provide and confirm a **Cloud Storage Encryption Key** that is 8 to 32 characters long. This key is used by the device to access encrypted data.
-  5. Select **Unlimited** in the **Specify bandwidth** drop-down list if you wish to consume all the available bandwidth. You can also set this option to **Custom** to employ bandwidth controls, and specify a value between 1 and 1,000 Mbps. 
-  If you have your bandwidth usage information available, you may be able to allocate bandwidth based on a schedule by specifying **Select a bandwidth template**. For a step-by-step procedure, go to [Add a bandwidth template](storsimple-manage-bandwidth-templates.md#add-a-bandwidth-template).
-  6. Click the check icon ![check-icon](./media/storsimple-create-volume-container/HCS_CheckIcon-include.png) to save this volume container and exit the wizard. 
+2. In het dialoogvenster **Volumecontainer maken** gaat u als volgt te werkt:
+  1. Geef een **naam** op voor uw volumecontainer. De naam moet 3 tot 32 tekens lang zijn.
+  2. Selecteer een **opslagaccount** om aan deze volumecontainer te koppelen. U kunt het standaardaccount kiezen dat is gegenereerd toen de service werd gemaakt. U kunt ook de optie **Nieuwe toevoegen** gebruiken om een opslagaccount op te geven dat niet is gekoppeld aan dit serviceabonnement.
+  3. Schakel **Versleuteling van cloudopslag inschakelen** in om versleuteling in te schakelen van de gegevens die van het apparaat naar de cloud worden verzonden.
+  4. Geef een **versleutelingssleutel voor cloudopslag** van 8 tot 32 tekens op en bevestig deze. De sleutel wordt door het apparaat gebruikt voor toegang tot versleutelde gegevens.
+  5. Selecteer **Onbeperkt** in de vervolgkeuzelijst **Bandbreedte opgeven** als u alle beschikbare bandbreedte wilt verbruiken. U kunt deze optie ook instellen op **Aangepast** om bandbreedtebesturingselementen te implementeren en een waarde tussen 1 en 1000 Mbps op te geven. 
+  Als u beschikt over informatie over uw bandbreedtegebruik, kunt u de bandbreedte mogelijk toewijzen op basis van een planning door een **bandbreedtesjabloon te selecteren**. Voor een stapsgewijze procedure gaat u naar [Add a bandwidth template](storsimple-manage-bandwidth-templates.md#add-a-bandwidth-template) (Een bandbreedtesjabloon toevoegen).
+  6. Klik op het vinkje ![vinkje](./media/storsimple-create-volume-container/HCS_CheckIcon-include.png) om deze volumecontainer op te slaan en de wizard af te sluiten. 
 
-  The newly created volume container will be listed on the **Volume containers** page.
+  De nieuw gemaakte volumecontainer wordt weergegeven op de pagina **Volumecontainers**.
 
-![Video available](./media/storsimple-create-volume-container/Video_icon.png) **Video available**
+![Video beschikbaar](./media/storsimple-create-volume-container/Video_icon.png) **Video beschikbaar**
 
-To watch a video that demonstrates how to create a volume container in your StorSimple solution, click [here](https://azure.microsoft.com/documentation/videos/create-a-volume-container-in-your-storsimple-solution/).
+Als u een video wilt bekijken over het maken van een volumecontainer in uw StorSimple-oplossing, klikt u [hier](https://azure.microsoft.com/documentation/videos/create-a-volume-container-in-your-storsimple-solution/).
+
+
+<!--HONumber=Jun16_HO2-->
+
+

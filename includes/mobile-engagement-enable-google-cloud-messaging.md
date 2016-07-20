@@ -1,36 +1,42 @@
 
-###Create a Google Cloud Messaging project with API key
+###Met API-sleutel een Google Cloud Messaging-project maken
 
->[AZURE.NOTE] To complete this procedure, you must have a Google account that has a verified email address. To create a new Google account, go to <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
+>[AZURE.NOTE] Voor deze procedure moet u een Google-account hebben met een bijbehorend e-mailadres dat is geverifieerd. Als u een nieuw Google-account wilt maken, gaat u naar <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
 
-1. Navigate to the [Google Cloud Console](https://console.developers.google.com/project) and sign-in with your Google account credentials.
+1. Navigeer naar [Google Cloud Console](https://console.developers.google.com/project) en meld u aan met de referenties voor uw Google-account.
 
-2. Click **Go to project**, and then click **Create Project**.
+2. Klik op **Ga naar project** en klik vervolgens op **Project maken**.
 <!--
-   	![](./media/mobile-engagement-enable-google-cloud-messaging/new-project.png)
+    ![](./media/mobile-engagement-enable-google-cloud-messaging/new-project.png)
 
-   	![](./media/mobile-engagement-enable-google-cloud-messaging/new-project-2.png)   
+    ![](./media/mobile-engagement-enable-google-cloud-messaging/new-project-2.png)   
 -->
-3. Enter a project name.
+3. Typ een naam van het project.
 
-4. Make a note of the project number which appears under the **Project name** text box. You will need it later in the tutorial to populate in the Android Manifest file.
-   	![](./media/mobile-engagement-enable-google-cloud-messaging/project-number.png)   
-5. Click **Create**.
+4. Noteer het projectnummer dat wordt weergegeven onder het tekstvak **Projectnaam**. U hebt dit verderop in de zelfstudie nodig om het in het manifestbestand van Android in te vullen.
+    ![](./media/mobile-engagement-enable-google-cloud-messaging/project-number.png)   
+5. Klik op **Maken**.
 
-6. In the left column, make sure **Overview** is selected, and under Mobile APIs click **Google Cloud Messaging**. Then on the next page click **Enable**.
+6. Controleer of in de linkerkolom **Overzicht** is geselecteerd en klik onder mobiele API's op **Google Cloud Messaging**. Klik op de volgende pagina op **Inschakelen**.
 
-	![](./media/mobile-engagement-enable-google-cloud-messaging/enable-GCM.png)
+    ![](./media/mobile-engagement-enable-google-cloud-messaging/enable-GCM.png)
 <!--
-	![](./media/mobile-engagement-enable-google-cloud-messaging/enable-gcm-2.png)
+    ![](./media/mobile-engagement-enable-google-cloud-messaging/enable-gcm-2.png)
 -->
-7. On the next page, click **Go to Credentials**, and on the following page, select **Google Cloud Messaging** from the first dropdown box and **Web server** from the second one, and then click **What credentials do I need?**
+7. Klik op de volgende pagina op **Ga naar referenties** en selecteer op de volgende pagina **Google Cloud Messaging** in de eerste vervolgkeuzelijst en **Webserver** in de tweede, klik vervolgens op **Welke referenties heb ik nodig?**
 
-   	![](./media/mobile-engagement-enable-google-cloud-messaging/create-server-key.png)
+    ![](./media/mobile-engagement-enable-google-cloud-messaging/create-server-key.png)
 
-8. In **Add credentials to your project** page, click **Create API key**.
+8. Op de pagina **Referenties aan uw project toevoegen** klikt u op **API-sleutel maken**.
 
-   	![](./media/mobile-engagement-enable-google-cloud-messaging/create-server-key5.png)
+    ![](./media/mobile-engagement-enable-google-cloud-messaging/create-server-key5.png)
 <!--
-   	![](./media/mobile-engagement-enable-google-cloud-messaging/create-server-key6.png)
+    ![](./media/mobile-engagement-enable-google-cloud-messaging/create-server-key6.png)
 -->
-9. Make a note of the **API KEY** value. You will use this API key value later to configure in the "Native Push" section. Now click **Done**.
+9. Noteer de waarde van de **API-SLEUTEL**. Deze API-sleutelwaarde gaat u later gebruiken voor de configuratie in de sectie Native pushbericht. Klik nu op **Gereed**.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

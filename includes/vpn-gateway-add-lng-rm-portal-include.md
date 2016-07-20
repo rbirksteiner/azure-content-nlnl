@@ -1,23 +1,29 @@
-1. In the Azure Portal, navigate to **New** **>** **Networking** **>** **Local network gateway**.
+1. Navigeer in de Azure-beheerportal naar **Nieuw** **>** **Netwerken** **>** **lokale netwerkgateway**.
 
-	![create local network gateway](./media/vpn-gateway-add-lng-rm-portal-include/addlng250.png)
+    ![maak een lokale netwerkgateway](./media/vpn-gateway-add-lng-rm-portal-include/addlng250.png)
 
-2. On the **Create local network gateway blade**, specify a **Name** for your local network gateway object.
+2. Op de **blade Lokale netwerkgateway maken**, voert u een **Naam** in voor uw lokale netwerkgateway-object.
  
-3. Specify an **IP address** for your gateway. This is the IP address of the external VPN device that you want to connect to. It cannot be behind NAT and has to be reachable by Azure.
+3. Voer een **IP-adres** voor uw gateway in. Dit is het IP-adres van het externe VPN-apparaat waarmee u verbinding wilt maken. Het mag zich niet achter NAT bevinden en moet bereikbaar zijn voor Azure.
 
-4. **Address Space** refers to the address ranges on your local (typically on-premises) network. You can add multiple address space ranges. The ranges that you enter here cannot overlap any of the address space ranges that you are using for any of the virtual networks that will communicate through the gateway.  You will need to coordinate with your on-premises configuration as well as with your Azure virtual network address spaces.
+4. **Adresruimte** verwijst naar de adresbereiken op uw lokale (meestal on-premises) netwerk. U kunt meerdere adresruimtebereiken toevoegen. De bereiken die u hier opgeeft, mogen de adresruimtebereiken die u gebruikt voor een van de virtuele netwerken die via de gateway communiceren niet overlappen.  U moet coördineren met uw on-premises configuratie evenals met de netwerkruimten van uw virtuele Azure-netwerk.
  
-5. For **Subscription**, verify that the correct subscription is showing.
+5. Voor **Abonnement** controleert u of het juiste abonnement wordt weergegeven.
 
-6. For **Resource Group**, select the resource group that you want to use. You can either create a new resource group, or select one that you have already created. To create a new resource group, type the name in the box. To select a resource group that you've already created, click **Resource Group** to open the **Resource group** blade, and then select the resource group that you want to use.
+6. Voor **Resourcegroep** selecteert u de resourcegroep die u wilt gebruiken. U kunt een nieuwe resourcegroep maken of een resourcegroep selecteren die u al hebt gemaakt. Typ de naam in het vak om een nieuwe resourcegroep te maken. Om een resourcegroep te selecteren die u al hebt gemaakt, klikt u op **Resourcegroep** om de blade **Resourcegroep** te openen en selecteert u vervolgens de resourcegroep die u wilt gebruiken.
 
-7. For **Location**, if you are creating a new local network gateway, you can use the same location as the virtual network gateway. But, this is not required. The local network gateway can be in a different location. 
+7. Als u een nieuwe lokale netwerkgateway maakt, kunt u voor **Locatie** dezelfde locatie gebruiken als de virtuele netwerkgateway. Maar dit is niet vereist. De lokale netwerkgateway kan zich op een andere locatie bevinden. 
 
-8. Leave "Pin to dashboard" selected if you want to find this local network gateway easily from the dashboard.
+8. Laat 'Vastmaken aan dashboard' geselecteerd als u deze lokale netwerkgateway eenvoudig vanuit het dashboard wilt vinden.
 
-9. Click **Create** to create the local network gateway. You'll see "Deploying Local network gateway" on your dashboard.
+9. Klik op **Maken** om de lokale netwerkgateway te maken. U ziet 'Lokale netwerkgateway implementeren' op uw dashboard.
 
-10. When the local network gateway has been created, it will open in the portal for you to view.
+10. Wanneer de  lokale netwerkgateway is gemaakt, wordt deze in de portal geopend, zodat u deze kunt bekijken.
 
-	
+    
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

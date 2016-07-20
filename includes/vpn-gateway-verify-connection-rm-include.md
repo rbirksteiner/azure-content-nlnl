@@ -1,40 +1,45 @@
-You can verify a VPN connection in the Azure portal by navigating to **Virtual network gateways** **>** ***click your gateway name*** **>** **Settings** **>** **Connections**. By selecting the name of the connection, you can view more information about the connection. In the example below, the connection is not connected and there is no data flowing through.
+U kunt een VPN-verbinding in de Azure Portal controleren door te navigeren naar **Gateways voor virtueel netwerk** **>** ***klik op uw gatewaynaam*** **>** **Instellingen** **>** **Verbindingen**. Als u de naam van de verbinding selecteert, kunt u meer informatie bekijken over de verbinding. In het onderstaande voorbeeld is geen verbinding gemaakt en is geen sprake van een gegevensstroom.
 
 
-![Verify connection](./media/vpn-gateway-verify-connection-rm-include/connectionverify450.png)
+![Verbinding controleren](./media/vpn-gateway-verify-connection-rm-include/connectionverify450.png)
 
 
-### To verify your connection using PowerShell
+### Uw verbinding controleren met behulp van PowerShell
 
-It is also possible to verify that your connection succeeded by using `Get-AzureRmVirtualNetworkGatewayConnection –Debug`. You can use the following cmdlet example, configuring the values to match your own. When prompted, select 'A' in order to run All.
+Het is ook mogelijk om te verifiëren of de verbinding is voltooid met behulp van `Get-AzureRmVirtualNetworkGatewayConnection –Debug`. U kunt het volgende cmdlet-voorbeeld gebruiken om de waarden aan te passen aan uw eigen waarden. Als dit wordt gevraagd, selecteert u "A" om alles uit te voeren.
 
-	Get-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Debug
+    Get-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Debug
 
- After the cmdlet has finished, scroll through to view the values. In the example below, the connection status shows as *Connected* and you can see ingress and egress bytes.
+ Nadat de cmdlet is voltooid, scrolt u om de waarden weer te geven. In het volgende voorbeeld wordt de verbindingsstatus getoond als *verbonden* en ziet u inkomende en uitgaande bytes.
 
-	Body:
-	{
-	  "name": "localtovon",
-	  "id":
-	"/subscriptions/086cfaa0-0d1d-4b1c-9455-f8e3da2a0c7789/resourceGroups/testrg/providers/Microsoft.Network/connections/loca
-	ltovon",
-	  "properties": {
-	    "provisioningState": "Succeeded",
-	    "resourceGuid": "1c484f82-23ec-47e2-8cd8-231107450446b",
-	    "virtualNetworkGateway1": {
-	      "id":
-	"/subscriptions/086cfaa0-0d1d-4b1c-9455-f8e3da2a0c7789/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworkGa
-	teways/vnetgw1"
-	    },
-	    "localNetworkGateway2": {
-	      "id":
-	"/subscriptions/086cfaa0-0d1d-4b1c-9455-f8e3da2a0c7789/resourceGroups/testrg/providers/Microsoft.Network/localNetworkGate
-	ways/LocalSite"
-	    },
-	    "connectionType": "IPsec",
-	    "routingWeight": 10,
-	    "sharedKey": "abc123",
-	    "connectionStatus": "Connected",
-	    "ingressBytesTransferred": 33509044,
-	    "egressBytesTransferred": 4142431
-	  }
+    Body:
+    {
+      "name": "localtovon",
+      "id":
+    "/subscriptions/086cfaa0-0d1d-4b1c-9455-f8e3da2a0c7789/resourceGroups/testrg/providers/Microsoft.Network/connections/loca
+    ltovon",
+      "properties": {
+        "provisioningState": "Succeeded",
+        "resourceGuid": "1c484f82-23ec-47e2-8cd8-231107450446b",
+        "virtualNetworkGateway1": {
+          "id":
+    "/subscriptions/086cfaa0-0d1d-4b1c-9455-f8e3da2a0c7789/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworkGa
+    teways/vnetgw1"
+        },
+        "localNetworkGateway2": {
+          "id":
+    "/subscriptions/086cfaa0-0d1d-4b1c-9455-f8e3da2a0c7789/resourceGroups/testrg/providers/Microsoft.Network/localNetworkGate
+    ways/LocalSite"
+        },
+        "connectionType": "IPsec",
+        "routingWeight": 10,
+        "sharedKey": "abc123",
+        "connectionStatus": "Connected",
+        "ingressBytesTransferred": 33509044,
+        "egressBytesTransferred": 4142431
+      }
+
+
+<!--HONumber=Jun16_HO2-->
+
+

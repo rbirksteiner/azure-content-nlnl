@@ -1,1 +1,7 @@
->[AZURE.IMPORTANT] Your storage account key is similar to the root password for your storage account. Always be careful to protect your account key. Avoid distributing it to other users, hard-coding it, or saving it in a plain-text file that is accessible to others. Regenerate your account key using the Azure Portal if you believe it may have been compromised. To learn how to regenerate your account key, see [How to create, manage, or delete a storage account in the Azure Portal](../articles/storage/storage-create-storage-account.md#manage-your-storage-account).
+>[AZURE.IMPORTANT] De sleutel van uw opslagaccount is vergelijkbaar met het hoofdwachtwoord voor uw opslagaccount. Zorg dat de sleutel van uw account altijd is beveiligd. Geef deze niet aan andere gebruikers en bewaar of noteer de sleutel op een veilige manier en plaats. Genereer een nieuwe sleutel met Azure Portal als de sleutel misschien is aangetast. Zie[Een opslagaccount in Azure Portal maken, beheren of verwijderen](../articles/storage/storage-create-storage-account.md#manage-your-storage-account) als u wilt weten hoe u een accountsleutel opnieuw genereert.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

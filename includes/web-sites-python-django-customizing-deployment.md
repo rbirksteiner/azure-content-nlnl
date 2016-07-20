@@ -1,34 +1,40 @@
-Azure will determine that your application uses Python **if both of these conditions are true**:
+Azure bepaalt dat uw toepassing Python gebruikt **als beide volgende voorwaarden waar zijn**:
 
-- requirements.txt file in the root folder
-- any .py file in the root folder OR a runtime.txt that specifies python
+- bestand requirements.txt in de hoofdmap
+- elk bestand .py in de hoofdmap OF een runtime.txt die Python specificeert
 
-When that's the case, it will use a Python specific deployment script, which performs the standard synchronization of files, as well as additional Python operations such as:
+Wanneer dit het geval is, wordt een implementatiescript gebruikt dat specifiek is voor Python en waarmee de standaard synchronisatie van bestanden wordt uitgevoerd, evenals extra Python-bewerkingen zoals:
 
-- Automatic management of virtual environment
-- Installation of packages listed in requirements.txt using pip
-- Creation of the appropriate web.config based on the selected Python version.
-- Collect static files for Django applications
+- Automatisch beheer van virtuele omgeving
+- Installatie van pakketten die zijn vermeld in requirements.txt met behulp van pip
+- Maken van de juiste web.config op basis van de geselecteerde Python-versie
+- Verzamelen van statische bestanden voor Django-toepassingen
 
-You can control certain aspects of the default deployment steps without having to customize the script.
+U kunt bepaalde aspecten van de standaard implementatiestappen beheren zonder dat u het script hoeft aan te passen.
 
-If you want to skip all Python specific deployment steps, you can create this empty file:
+Als u alle stappen die specifiek zijn voor de implementatie van Python wilt overslaan, kunt u dit lege bestand maken:
 
     \.skipPythonDeployment
 
-If you want to skip collection of static files for your Django application:
+Als u het verzamelen van statische bestanden voor uw Django-toepassing wilt overslaan:
 
     \.skipDjango 
 
-For more control over deployment, you can override the default deployment script by creating the following files:
+Voor meer controle over de implementatie kunt u het standaard implementatiescript overschrijven door de volgende bestanden te maken:
 
     \.deployment
     \deploy.cmd
 
-You can use the [Azure command-line interface][] to create the files.  Use this command from your project folder:
+U kunt de [Azure-opdrachtregelinterface][] gebruiken om de bestanden te maken.  Gebruik deze opdracht uit vanuit de projectmap:
 
     azure site deploymentscript --python
 
-When these files don't exist, Azure creates a temporary deployment script and runs it.  It is identical to the one you create with the command above.
+Als deze bestanden niet bestaan, maakt Azure een tijdelijk implementatiescript en voert dit script uit.  Het is identiek aan het script dat u met de bovenstaande opdracht maakt.
 
-[Azure command-line interface]: http://azure.microsoft.com/downloads/
+[Azure-opdrachtregelinterface]: http://azure.microsoft.com/downloads/
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

@@ -1,12 +1,17 @@
-A DNS zone is used to host the DNS records for a particular domain. In order to start hosting your domain, you need to create a DNS zone. Any DNS record created for a particular domain will be inside a DNS zone for the domain. 
+Een DNS-zone wordt gebruikt om de DNS-records voor een bepaald domein te hosten. Voordat u uw domein kunt gaan hosten, moet u een DNS-zone maken. Alle DNS-records die zijn gemaakt voor een bepaald domein, bevinden zich binnen een DNS-zone voor het domein. 
 
-For example, the domain "contoso.com" may contain a number of DNS records, such as "mail.contoso.com" (for a mail server) and "www.contoso.com" (for a web site). 
+Het domein 'contoso.com' kan bijvoorbeeld een aantal DNS-records bevatten, zoals 'mail.contoso.com' (voor een e-mailserver) en 'www.contoso.com' (voor een website). 
 
 
-## <a name="names"></a>About DNS zone names
+## <a name="names"></a>Over DNS-zonenamen
  
-- The name of the zone must be unique within the resource group, and the zone must not exist already. Otherwise, the operation will fail.
+- De naam van de zone moet uniek zijn binnen de resourcegroep en de zone mag niet al bestaan. Anders mislukt de bewerking.
 
-- The same zone name can be re-used in a different resource group or a different Azure subscription. 
+- Dezelfde zonenaam kan opnieuw worden gebruikt in een andere resourcegroep of een ander Azure-abonnement. 
 
-- Where multiple zones share the same name, each instance will be assigned different name server addresses, and only one instance can be delegated from the parent domain. For more information, see [Delegate a domain to Azure DNS](../articles/dns/dns-domain-delegation.md).
+- Als meerdere zones dezelfde naam delen, krijgt elk exemplaar andere serveradressen toegewezen en kan slechts één exemplaar van het bovenliggende domein worden overgedragen. Zie [Delegate a domain to Azure DNS](../articles/dns/dns-domain-delegation.md) (Een domein aan Azure DNS overdragen) voor meer informatie.
+
+
+<!--HONumber=Jun16_HO2-->
+
+

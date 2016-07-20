@@ -1,45 +1,45 @@
-## What is Azure File storage?
+## Wat is Azure File Storage?
 
-File storage offers shared storage for applications using the standard SMB 2.1 or SMB 3.0 protocol. Microsoft Azure virtual machines and cloud services can share file data across application components via mounted shares, and on-premises applications can access file data in a share via the File storage API.
+File Storage biedt gedeelde opslag voor toepassingen die gebruikmaken van het standaard SMB 2.1- of SMB 3.0-protocol. Microsoft Azure Virtual Machines en Cloud Services kunnen bestandsgegevens via gekoppelde shares delen tussen toepassingsonderdelen, en on-premises toepassingen hebben via de File Storage-API toegang tot bestandsgegevens in een share.
 
-Applications running in Azure virtual machines or cloud services can mount a File storage share to access file data, just as a desktop application would mount a typical SMB share. Any number of Azure virtual machines or roles can mount and access the File storage share simultaneously.
+Toepassingen die worden uitgevoerd in Azure Virtual Machines of Cloud Services kunnen een File Storage-share koppelen voor toegang tot bestandsgegevens, net zoals een bureaubladtoepassing een gewone SMB-share zou koppelen. Een willekeurig aantal virtuele machines of rollen in Azure kunnen de File Storage-share tegelijkertijd koppelen en gebruiken.
 
-Since a File storage share is a standard file share in Azure using the SMB protocol, applications running in Azure can access data in the share via file I/O APIs. Developers can therefore leverage their existing code and skills to migrate existing applications. IT Pros can use PowerShell cmdlets to create, mount, and manage File storage shares as part of the administration of Azure applications. This guide will show examples of both.
+Omdat een File Storage-share een standaardbestandsshare in Azure die het SMB-protocol gebruikt, hebben toepassingen die in Azure worden uitgevoerd via I/O API's toegang tot de gegevens in de share. Dat betekent dat ontwikkelaars bestaande code en vaardigheden kunnen inzetten voor het migreren van bestaande toepassingen. IT-professionals kunnen PowerShell-cmdlets gebruiken om File Storage-shares te maken, te koppelen en te beheren als onderdeel van het beheer van Azure-toepassingen. In deze gids vindt u voorbeelden van beide.
 
-Common uses of File storage include:
+Veelvoorkomende toepassingen van File Storage zijn onder andere:
 
-- Migrating on-premises applications that rely on file shares to run on Azure virtual machines or cloud services, without expensive rewrites
-- Storing shared application settings, for example in configuration files
-- Storing diagnostic data such as logs, metrics, and crash dumps in a shared location 
-- Storing tools and utilities needed for developing or administering Azure virtual machines or cloud services
+- De migratie van on-premises toepassingen die afhankelijk zijn van bestandsshares om zonder kostbare regeneraties te kunnen worden uitgevoerd op virtuele machines in Azure of cloudservices
+- De opslag van gedeelde toepassingsinstellingen, bijvoorbeeld in configuratiebestanden
+- De opslag op een gedeelde locatie van diagnostische gegevens, zoals logboeken, metrische gegevens en crashdumps 
+- De opslag van hulpprogramma’s en functies die nodig zijn voor de ontwikkeling of het beheer van virtuele machines in Azure of cloudservices
 
-## File storage concepts
+## Concepten van File Storage
 
-File storage contains the following components:
+File Storage bevat de volgende onderdelen:
 
-![files-concepts][files-concepts]
+![bestanden-concepten][files-concepts]
 
--   **Storage Account:** All access to Azure Storage is done
-    through a storage account. See [Azure Storage Scalability and Performance Targets](../articles/storage/storage-scalability-targets.md) for details about storage account capacity.
+-   **Opslagaccount:** Alle toegang tot Azure Storage vindt plaats via een opslagaccount. Zie [Azure Storage Scalability and Performance Targets](../articles/storage/storage-scalability-targets.md) (Schaalbaarheids- en prestatiedoeleinden in Azure Storage) voor meer informatie over opslagaccountcapaciteit.
 
--   **Share:** A File storage share is an SMB file share in Azure. 
-    All directories and files must be created in a parent share. An account can contain an
-    unlimited number of shares, and a share can store an unlimited
-    number of files, up to the 5 TB total capacity of the file share.
+-   **Share:** een File Storage-share is een SMB-bestandsshare in Azure. 
+    Alle mappen en bestanden moeten worden gemaakt in een bovenliggende share. Een account kan een onbeperkt aantal shares bevatten en een bestandsshare kan een onbeperkt aantal bestanden bevatten, tot de totale capaciteit van 5 TB van de bestandsshare.
 
--   **Directory:** An optional hierarchy of directories. 
+-   **Map:** een optionele hiërarchie van mappen. 
 
--	**File:** A file in the share. A file may be up to 1 TB in size.
+-   **Bestand:** Een bestand in de share. Een bestand mag maximaal 1 TB groot zijn.
 
--   **URL format:** Files are addressable using the following URL
-    format:   
+-   **URL-indeling:** Bestanden kunnen worden opgevraagd met de volgende URL-indeling:   
     https://`<storage
     account>`.file.core.windows.net/`<share>`/`<directory/directories>`/`<file>`  
     
-    The following example URL could be used to address one of the files in the
-    diagram above:  
+    De volgende voorbeeld-URL kan worden gebruikt om een van de bestanden in het bovenstaande diagram op te vragen:  
     `http://samples.file.core.windows.net/logs/CustomLogs/Log1.txt`
 
-For details about how to name shares, directories, and files, see [Naming and Referencing Shares, Directories, Files, and Metadata](http://msdn.microsoft.com/library/azure/dn167011.aspx).
+Zie [Shares, mappen, bestanden en metagegevens een naam geven en hiernaar verwijzen](http://msdn.microsoft.com/library/azure/dn167011.aspx) voor meer informatie over de naamgeving van shares, mappen en bestanden.
 
-[files-concepts]: ./media/storage-file-concepts-include/files-concepts.png
+[bestanden-concepten]: ./media/storage-file-concepts-include/files-concepts.png
+
+
+<!--HONumber=Jun16_HO2-->
+
+

@@ -1,6 +1,12 @@
 
-The goal of this topic is to help you get started using Notification Hubs quickly as possible. This topic presents a very simple broadcast scenario example in order to concentrate on the basic concepts for Notification Hubs.
+Het doel van dit onderwerp is dat u zo snel mogelijk aan de slag kunt met Notification Hubs. In dit onderwerp wordt een voorbeeld van een heel eenvoudig broadcastcenario gebruikt zodat u zich op de basisconcepten voor Notification Hubs kunt richten.
 
-If you are already familiar with Notification Hubs, you may want to select another topic from the left-navigation or see the relevant links in [Next steps](#next-steps).
+Als u al bekend bent met Notification Hubs, selecteert u een ander onderwerp in de navigatie aan de linkerkant of raadpleegt u de relevante koppelingen in [Volgende stappen](#next-steps).
 
-We do take your feedback seriously. If you have any difficulties completing this topic, or recommendations for improving this content, we would appreciate your feedback at the bottom of the page.
+We nemen uw feedback heel serieus. Als u problemen ondervindt tijdens het voltooien van dit onderwerp of aanbevelingen hebt voor het verbeteren van de inhoud ervan, zouden we het op prijs stellen als uw uw feedback onder aan de pagina geeft.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

@@ -1,36 +1,41 @@
-## How to create a VNet in the Azure portal
+## Een VNet aanmaken in de Azure-portal
 
-To create a VNet based on the scenario above by using the Azure preview portal, follow the steps below.
+Volg de onderstaande stappen om een VNet aan te maken met behulp van de Azure Preview Portal op basis van het bovenstaande scenario .
 
-1. From a browser, navigate to http://portal.azure.com and, if necessary, sign in with your Azure account.
-2. Click **NEW** > **Networking** > **Virtual network**, then click **Resource Manager** from the **Select a deployment model** list, and then click **Create**, as seen in the figure below.
+1. Navigeer via een browser naar http://portal.azure.com en log, indien nodig, in met uw Azure-account.
+2. Klik op **Nieuw** > **Netwerken** > **Virtueel netwerk** en vervolgens op **Resource Manager** vanuit de lijst **Selecteer een implementatiemodel**. Klik daarna op **Aanmaken**, zoals in de afbeelding hieronder wordt weergegeven.
 
-	![Create VNet in Azure portal](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure1.gif)
+    ![VNet aanmaken in Azure-portal](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure1.gif)
 
-3. On the **Create virtual network** blade, configure the VNet settings as shown in the figure below.
+3. Configureer de VNet-instellingen op de blade **Virtueel netwerk aanmaken**, zoals aangegeven in de onderstaande afbeelding.
 
-	![Create virtual network blade](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure2.png)
+    ![Een virtuele netwerkblade aanmaken](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure2.png)
 
-4. Click **Resource group** and select a resource group to add the VNet to, or click **Create new** to add the VNet to a new resource group. The figure below shows the resource group settings for a new resource group called **TestRG**. For more information about resource groups, visit [Azure Resource Manager Overview](../articles/resource-group-overview.md/#resource-groups).
+4. Klik op **Resourcegroep** en selecteer een resourcegroep om toe te voegen aan het VNet of klik op **Nieuwe aanmaken** om het VNet toe te voegen aan een nieuwe resourcegroep. In de onderstaande afbeelding worden de instellingen voor de resourcegroep genaamd **TestRG** weergegeven. Zie voor meer informatie over resourcegroepen [Overzicht van Azure Resource Manager](../articles/resource-group-overview.md/#resource-groups).
 
-	![Resource group](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure3.png)
+    ![Resourcegroep](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure3.png)
 
-5. If necessary, change the **Subscription** and **Location** settings for your VNet. 
+5. Wijzig zo nodig de instellingen van het **Abonnement** en de **Locatie** voor uw VNet. 
 
-6. If you do not want to see the VNet as a tile in the **Startboard**, disable **Pin to Startboard**. 
+6. Als u VNet niet als tegel wilt laten weergeven in het **Startboard** schakelt u **Vastmaken aan Startboard** uit. 
 
-7. Click **Create** and notice the tile named **Creating Virtual network** as shown in the figure below.
+7. Klik op **Aanmaken** en let op de tegel met de naam **Virtueel netwerk aanmaken** die in de onderstaande afbeelding wordt weergegeven.
 
-	![Creating virtual network tile](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure4.png)
+    ![Tegel Virtueel netwerk aanmaken](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure4.png)
 
-8. Wait for the VNet to be created, then in the **Virtual network** blade, click **All settings** > **Subnets** > **Add** as seen below.
+8. Wacht tot het VNet is aangemaakt en klik vervolgens, in de blade **Virtueel netwerk**, op **Alle instellingen** > **Subnetten** > **Toevoegen** zoals hieronder wordt weergegeven.
 
-	![Adding subnet in the Azure portal](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure5.gif)
+    ![Subnet toevoegen in de Azure-portal](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure5.gif)
 
-9. Specify the subnet settings for the *BackEnd* subnet, as shown below, and then click **OK**. 
+9. Geef de subnetinstellingen voor het *Back-end*-subnet op, zoals hieronder wordt weergegeven, en klik vervolgens op **OK**. 
 
-	![Subnet settings](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure6.png)
+    ![Subnetinstellingen](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure6.png)
 
-10. Notice the list of subnets, as shown in the figure below.
+10. Let op de lijst met subnetten, zoals wordt weergegeven in de afbeelding hieronder.
 
-	![List of subnets in VNet](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure7.png)
+    ![Lijst met subnetten in VNet](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure7.png)
+
+
+<!--HONumber=Jun16_HO2-->
+
+

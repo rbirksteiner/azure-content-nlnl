@@ -1,14 +1,19 @@
 
-####To configure remote management on the device
+####Extern beheer configureren op het apparaat
 
-1. On your virtual device, go to **Devices > Configure**.
+1. Ga op uw virtuele apparaat naar **Apparaten > Configureren**.
 
-2. Scroll down to the **Remote Management** section.
+2. Schuif omlaag naar het gedeelte **Extern beheer**.
 
-3. Set **Enable Remote Management** to **Yes**.
+3. Stel **Extern beheer inschakelen** in op **Ja**.
 
-4. You can now choose to connect using HTTP. The default is to connect over HTTPS. Connecting over HTTP is acceptable only on trusted networks.
+4. U kunt nu verbinding maken via HTTP. De standaardinstelling is verbinding maken via HTTPS. Verbinding maken via HTTP is alleen acceptabel in vertrouwde netwerken.
 
-5. Click **Download Remote Management Certificate** to download a remote management certificate. You will specify a location in which to save this file. This certificate then needs to be installed on the client or host machine that you will use to connect to the virtual device.
+5. Klik op **Certificaat voor extern beheer downloaden** om een certificaat voor extern beheer te downloaden. Geef een locatie op waar dit bestand moet worden opgeslagen. Dit certificaat moet vervolgens worden geïnstalleerd op de client of hostcomputer die u gebruikt voor de verbinding met het virtuele apparaat.
 
-6. Click **Save** at the bottom of the page.
+6. Klik op **Opslaan** onder aan de pagina.
+
+
+<!--HONumber=Jun16_HO2-->
+
+

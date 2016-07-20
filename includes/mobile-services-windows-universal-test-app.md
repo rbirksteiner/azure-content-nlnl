@@ -1,14 +1,19 @@
 
-1. Press the F5 key to rebuild the project and start the Windows Store app.
+1. Druk op de F5 om het project opnieuw te bouwen en de app te starten.
 
-2. In the app, type meaningful text, such as *Complete the tutorial*, in **Insert a TodoItem**, and then click **Save**.
+2. Typ in **Nieuwe taak invoeren** een stukje zinvolle tekst in de app, zoals *Voltooi de zelfstudie*, en klik op **Toevoegen**.
 
-	![](./media/mobile-services-windows-universal-test-app/mobile-quickstart-startup.png)
+    ![](./media/mobile-services-windows-universal-test-app/mobile-quickstart-startup.png)
 
-	This sends a POST request to the new mobile service hosted in Azure.
+    Er wordt nu een POST-aanvraag verzonden naar de nieuwe mobiele service die wordt gehost in Azure.
 
-3. Stop debugging and change the default start up project in the universal Windows solution to the Windows Phone Store app and press F5 again.
+3. Stop de foutopsporing en wijzig het standaardopstartproject in de universele Windows-oplossing in de Windows Phone Store-app en druk nogmaals op F5.
 
-	![](./media/mobile-services-windows-universal-test-app/mobile-quickstart-completed-wp8.png)
-	
-	Notice that data saved from the previous step is loaded from the mobile service after the app starts.
+    ![](./media/mobile-services-windows-universal-test-app/mobile-quickstart-completed-wp8.png)
+    
+    Na het starten van de app worden de gegevens die in de vorige stap zijn opgeslagen, vanuit de mobiele service geladen.
+
+
+<!--HONumber=Jun16_HO2-->
+
+

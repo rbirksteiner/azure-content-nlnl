@@ -1,20 +1,25 @@
 
-The mobile service project that you download lets you to run your new mobile service right on your local computer or virtual machine. This makes it easy to debug your service code before you even publish it to Azure.
+Met het mobiele-serviceproject dat u hebt gedownload, kunt u uw nieuwe mobiele service gewoon op uw lokale computer of virtuele machine uitvoeren. Hierdoor kunt u gemakkelijk fouten in uw servicecode opsporen voordat u deze naar Azure publiceert.
 
-In this section, you will test your new app against the mobile service running locally.
+In deze sectie gaat u uw nieuwe app testen in combinatie met de mobiele service die lokaal wordt uitgevoerd.
 
-1. Browse to the location where you saved the compressed project files, expand the files on your computer, and open the solution file in Visual Studio.
+1. Blader naar de locatie waar u de gecomprimeerde projectbestanden hebt opgeslagen, vouw de bestanden op uw computer uit en open het oplossingsbestand in Visual Studio.
 
-2. In the Solution Explorer in Visual Studio, right-click your service project, click **Set as StartUp Project**, and then press the **F5** key to build the project and start the mobile service locally.
+2. Klik in Solution Explorer in Visual Studio met de rechtermuisknop op **Instellen als opstartproject** en druk vervolgens op **F5** om het project te bouwen en de mobiele service lokaal te starten.
 
-	![](./media/mobile-services-dotnet-backend-test-local-service-dotnet/mobile-service-startup.png)
+    ![](./media/mobile-services-dotnet-backend-test-local-service-dotnet/mobile-service-startup.png)
 
-	A web page is displayed after the mobile service starts successfully.
+    Een webpagina wordt weergegeven nadat de mobiele service kon worden gestart.
 
-3. To test the store app, right-click your client app project, click **Set as StartUp Project**, and then press the **F5** key to rebuild the project and start the app.
+3. Als u de Store-app wilt testen, klikt u met de rechtermuisknop op uw client-app-project, klikt u op **Instellen als opstartproject** en drukt u vervolgens op **F5** om het project opnieuw te bouwen en de app te starten.
 
-	This starts the app, which connects to the local mobile service instance.	
+    Hiermee start u de app, die vervolgens verbinding maakt met het lokale mobiele-service-exemplaar.   
 
-4. In the app, type meaningful text, such as _Complete the tutorial_, in **Insert a TodoItem**, and then click **Save**.
+4. Typ zinvolle tekst in de app, zoals _Voltooi de zelfstudie_ in het tekstvak **Nieuwe taak invoegen** en klik op **Opslaan**.
 
-	This sends a POST request to the local mobile service. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the second column in the app.
+    Er wordt nu een POST-aanvraag verzonden naar de lokale mobiele service. De gegevens van de aanvraag worden opgenomen in de takentabel. De items die in de tabel zijn opgeslagen, worden door de mobiele service geretourneerd. Vervolgens worden de gegevens weergegeven in de tweede kolom in de app.
+
+
+<!--HONumber=Jun16_HO2-->
+
+

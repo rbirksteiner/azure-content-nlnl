@@ -1,30 +1,36 @@
-## About records
+## Over records
 
-Each DNS record has a name and a type. Records are organized into various types according to the data they contain. The most common type is an "A" record, which maps a name to an IPv4 address. Another type is an "MX" record, which maps a name to a mail server.
+Elke DNS-record heeft een naam en een type. Records zijn ingedeeld in verschillende typen overeenkomstig de gegevens die ze bevatten. Het meest voorkomende type is een 'A'-record, waarmee een naam aan een IPv4-adres wordt toegewezen. Een ander type is een 'MX'-record, waarmee een naam aan een e-mailserver wordt toegewezen.
 
-Azure DNS supports all common DNS record types, including A, AAAA, CNAME, MX, NS, SOA, SRV, and TXT. SOA record sets  are created automatically with each zone. They cannot be created separately. Note that SPF records should be created by using the TXT record type. For more information, see [this page](http://tools.ietf.org/html/rfc7208#section-3.1).
+Azure DNS ondersteunt alle algemene DNS-recordtypen, waaronder A, AAAA, CNAME MX, NS, SOA, SRV en TXT. SOA-recordsets worden automatisch met elke zone gemaakt. Ze kunnen niet afzonderlijk worden gemaakt. Houd er rekening mee dat SPF-records moeten worden gemaakt met het recordtype TXT. Ga voor meer informatie naar [deze pagina](http://tools.ietf.org/html/rfc7208#section-3.1).
 
-In Azure DNS, records are specified by using relative names. A "fully qualified" domain name (FQDN) includes the zone name, whereas a "relative" name does not. For example, the relative record name "www" in the zone "contoso.com" gives the fully qualified record name www.contoso.com.
+In Azure DNS worden records opgegeven met behulp van relatieve namen. Een FQDN-domeinnaam (Fully Qualified Domain Name) bevat anders dan een 'relatieve naam' de zonenaam. De relatieve record naam 'www' in de zone contoso.com geeft bijvoorbeeld de volledig gekwalificeerde naam van de record www.contoso.com.
 
-## About record sets
+## Over recordsets
 
-Sometimes you need to create more than one DNS record with a given name and type. For example, suppose the "www.contoso.com" web site is hosted on two different IP addresses. The website requires two different A records, one for each IP address. This is an example of a record set:
+Soms moet u meer dan één DNS-record maken met een bepaalde naam en een bepaald type. Stel bijvoorbeeld dat de website 'www.contoso.com' wordt gehost op twee verschillende IP-adressen. De website vereist twee verschillende A-records, één voor elk IP-adres. Dit is een voorbeeld van een recordset:
 
-	www.contoso.com.		3600	IN	A	134.170.185.46
-	www.contoso.com.		3600	IN	A	134.170.188.221
+    www.contoso.com.        3600    IN  A   134.170.185.46
+    www.contoso.com.        3600    IN  A   134.170.188.221
 
-Azure DNS manages DNS records by using record sets. A record set is the collection of DNS records in a zone that have the same name and are the same type. Most record sets contain a single record, but examples like this one, in which a record set contains more than one record, are not uncommon.
+Azure DNS beheert DNS-records door gebruik te maken van recordsets. Een recordset is een verzameling DNS-records in een zone die dezelfde naam hebben en van hetzelfde type zijn. De meeste recordsets bevatten één record, maar voorbeelden zoals deze, waarin een verzameling meer dan een record bevat, zijn niet ongewoon.
 
-SOA and CNAME record sets are exceptions. The DNS standards don't permit multiple records with the same name for these types.
+SOA- en CNAME-recordsets zijn uitzonderingen. De DNS-standaarden staan het gebruik van meerdere records met dezelfde naam voor deze typen niet toe.
 
-The time to live, or TTL, specifies how long each record is cached by clients before being re-queried. In this example, the TTL is 3600 seconds or 1 hour. The TTL is specified for the record set, not for each record, so the same value is used for all records within that record set.
+De TTL (of Time to Live) geeft aan hoe lang records door clients in de cache worden geplaatst voordat ze opnieuw worden opgevraagd. In dit voorbeeld is de TTL 3600 seconden oftewel 1 uur. De TTL is opgegeven voor de recordset en niet voor elke record, zodat dezelfde waarde wordt gebruikt voor alle records in deze recordset.
 
-#### Wildcard record sets
+#### Recordsets met jokertekens
 
-Azure DNS supports [wildcard records](https://en.wikipedia.org/wiki/Wildcard_DNS_record). These are returned for any query with a matching name (unless there is a closer match from a non-wildcard record set). Wildcard record sets are supported for all record types except NS and SOA.  
+Azure DNS ondersteunt [recordsets met jokertekens](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Deze worden geretourneerd voor elke query met een overeenkomende naam (tenzij er een exemplaar is dat meer overeenkomt en afkomstig is uit een andere recordset zonder jokertekens). Recordsets met jokertekens worden ondersteund voor alle recordtypen behalve NS en SOA.  
 
-To create a wildcard record set, use the record set name "\*". Or, use a name with the label "\*", for example, "\*.foo".
+Als u een recordset met jokertekens wilt maken, moet u de recordnaam '\*' gebruiken. Of gebruik een naam met het label '\*', bijvoorbeeld '\*.foo'.
 
-#### CNAME record sets
+#### CNAME-recordsets
 
-CNAME record sets cannot coexist with other record sets with the same name. For example, you cannot create a CNAME record set with the relative name "www" and an A record with the relative name "www" at the same time. Because the zone apex (name = ‘@’) always contains the NS and SOA record sets that were created when the zone was created, you can't create a CNAME record set at the zone apex. These constraints arise from the DNS standards and aren't limitations of Azure DNS.
+CNAME-recordsets kunnen niet worden gecombineerd met andere recordsets met dezelfde naam. U kunt bijvoorbeeld geen CNAME-recordset met de relatieve naam 'www' en tegelijkertijd een A-record met de relatieve naam 'www' maken. Omdat het toppunt van de zone (naam = '@') altijd NS- en SOA-recordsets bevat die zijn gemaakt toen de zone werd gemaakt, kunt u in het toppunt van de zone geen CNAME-recordset maken. Deze beperkingen worden veroorzaakt door de DNS-standaarden en zijn geen beperkingen van Azure DNS.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

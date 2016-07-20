@@ -1,31 +1,37 @@
 <!--author=SharS last changed: 02/04/2016-->
 
-#### To create a volume
+#### Een volume maken
 
-1. On the device **Quick Start** page, click **Add a volume**. This starts the Add a volume wizard.
+1. Klik op het apparaat op de pagina **Quick Start** en klik vervolgens op **Een volume toevoegen**. Hiermee start u de wizard Volume toevoegen.
 
-2. In the Add a volume wizard, under **Basic Settings**, do the following:
-   1. Supply a **Name** for your volume.
-   2. Specify the **Provisioned Capacity** for your volume in GB or TB. The volume capacity must be between 1 GB and 64 TB for a physical device.
-   3. On the drop-down list, select the **Usage Type** for your volume. 
-   4. If you are using this volume for archival data, select the **Use this volume for less frequently accessed archival data** check box. For all other use cases, simply select **Tiered Volume**. (Tiered volumes were formerly called primary volumes).
+2. Voer in de wizard onder **Basisinstellingen** de volgende stappen uit:
+   1. Geef een **naam** op voor het volume.
+   2. Geef de **ingerichte capaciteit** voor het volume in GB of TB op. De volumecapaciteit moet voor een fysiek apparaat tussen 1 GB en 64 TB zijn.
+   3. Selecteer in de vervolgkeuzelijst het **gebruikstype** voor het volume. 
+   4. Als u dit volume gebruikt voor de archivering van gegevens, schakelt u het selectievakje **Dit volume gebruiken voor minder frequent gebruikte gearchiveerde gegevens** in. In alle andere gevallen schakelt u **Gelaagd volume** in. (Gelaagde volumes werden voorheen primaire volumes genoemd.)
 
-        ![Add volume](./media/storsimple-create-volume/ScreenshotUpdate1VolumeFlow.png)
+        ![Volume toevoegen](./media/storsimple-create-volume/ScreenshotUpdate1VolumeFlow.png)
 
-    4. Click the arrow icon ![arrow-icon](./media/storsimple-create-volume/HCS_ArrowIcon-include.png) to go to the next page.
+    4. Klik op het pijlpictogram ![pijltje](./media/storsimple-create-volume/HCS_ArrowIcon-include.png) om naar de volgende pagina te gaan.
 
-3. In the **Additional Settings** dialog box, add a new access control record (ACR):
-   1. Supply a **Name** for your ACR.
-   2. Under **iSCSI Initiator Name**, provide the iSCSI Qualified Name (IQN) of your Windows host. If you don't have the IQN, go to [Get the IQN of a Windows Server host](#get-the-iqn-of-a-windows-server-host).
-   3. We recommend that you enable a default backup by selecting the **Enable a default backup for this volume** check box. The default backup will create a policy that executes at 22:30 each day (device time) and creates a cloud snapshot of this volume.
+3. Voeg in het dialoogvenster **Extra instellingen** een nieuwe record voor toegangscontrole (ACR) in:
+   1. Geef een **naam** voor uw ACR op.
+   2. Geef onder **iSCSI-initiatornaam** het IQN (iSCI Qualified Name) van uw Windows-host op. Als u het IQN niet hebt, gaat u naar [Het IQN van een Windows Server-host ophalen](#get-the-iqn-of-a-windows-server-host).
+   3. Het is verstandig standaard een back-up te maken door het selectievakje **Een standaardback-up voor dit volume in schakelen** in te schakelen. Met de standaardback-up wordt een beleid ingesteld waarmee elke dag om 22.30 uur (tijd op het apparaat) een back-up wordt gemaakt en een momentopname van dit volume in de cloud wordt geplaatst.
 
-        > [AZURE.NOTE] After the backup is enabled here, it cannot be reverted. You will need to edit the volume to modify this setting.
+        > [AZURE.NOTE] Nadat de back-up hier is ingeschakeld, kan dit niet ongedaan worden gemaakt. Als u deze instelling wilt wijzigen, moet u het volume bewerken.
 
-        ![Add volume](./media/storsimple-create-volume/AddVolume2-include.png)
+        ![Volume toevoegen](./media/storsimple-create-volume/AddVolume2-include.png)
 
-4. Click the check icon ![check icon](./media/storsimple-create-volume/HCS_CheckIcon-include.png). A volume will be created with the specified settings.
+4. Klik op het vinkje ![vinkje](./media/storsimple-create-volume/HCS_CheckIcon-include.png). Er wordt een volume gemaakt met de opgegeven instellingen.
 
-![Video available](./media/storsimple-create-volume/Video_icon.png) **Video available**
+![Video beschikbaar](./media/storsimple-create-volume/Video_icon.png) **Video beschikbaar**
 
-To watch a video that demonstrates how to create a StorSimple volume, click [here](https://azure.microsoft.com/documentation/videos/create-a-storsimple-volume/).
+Als u een video wilt bekijken over het maken van een StorSimple-volume, klikt u [hier](https://azure.microsoft.com/documentation/videos/create-a-storsimple-volume/).
+
+
+
+
+<!--HONumber=Jun16_HO2-->
+
 
