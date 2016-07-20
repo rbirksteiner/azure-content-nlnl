@@ -1,4 +1,9 @@
-## Prerequisite: Install the Azure PowerShell Module
-To perform the steps in this article, you'll need to [to install and configure Azure PowerShell](../articles/powershell-install-configure.md) and follow the instructions all the way to the end to sign into Azure and select your subscription.
+## Voorwaarde: installeer de Azure PowerShell-module
+Om de stappen in dit artikel uit te kunnen voeren, moet u [Azure PowerShell installeren en configureren](../articles/powershell-install-configure.md) en de instructies helemaal tot aan het einde volgen om u aan te melden bij Azure en uw abonnement te selecteren.
 
-> [AZURE.NOTE] If you don't have an Azure account, you'll need one. Go sign up for a [free trial here](../articles/active-directory/sign-up-organization.md). 
+> [AZURE.NOTE] Als u geen Azure-account hebt, moet u er een maken. U kunt zich [hier aanmelden voor een gratis proefversie](../articles/active-directory/sign-up-organization.md). 
+
+
+<!--HONumber=Jun16_HO2-->
+
+

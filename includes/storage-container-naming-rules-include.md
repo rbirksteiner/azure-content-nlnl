@@ -1,13 +1,18 @@
-Every blob in Azure storage must reside in a container. The container forms part of the blob name. For example, `mycontainer` is the name of the container in these sample blob URIs:
+Elke blob in Azure-opslag moet zich in een container bevinden. De container maakt deel uit van de blob-naam. Bijvoorbeeld, `mycontainer` is de naam van de container in deze voorbeelden van blob-URI's:
 
-	https://storagesample.blob.core.windows.net/mycontainer/blob1.txt
-	https://storagesample.blob.core.windows.net/mycontainer/photos/myphoto.jpg
+    https://storagesample.blob.core.windows.net/mycontainer/blob1.txt
+    https://storagesample.blob.core.windows.net/mycontainer/photos/myphoto.jpg
 
-A container name must be a valid DNS name, conforming to the following naming rules:
+Een containernaam moet een geldige DNS-naam zijn die voldoet aan de volgende naamgevingsregels:
 
-1. Container names must start with a letter or number, and can contain only letters, numbers, and the dash (-) character.
-1. Every dash (-) character must be immediately preceded and followed by a letter or number; consecutive dashes are not permitted in container names.
-1. All letters in a container name must be lowercase.
-1. Container names must be from 3 through 63 characters long.
+1. Containernamen moeten beginnen met een letter of cijfer en mogen alleen letters, cijfers en het streepje (-) bevatten.
+1. Elk streepje (-) moet direct worden voorafgegaan en worden gevolgd door een letter of cijfer; opeenvolgende streepjes zijn in containernamen niet toegestaan.
+1. Alle letters in een containernaam moeten kleine letters zijn.
+1. Containernamen moeten 3 tot 63 tekens lang zijn.
 
-> [AZURE.IMPORTANT] Note that the name of a container must always be lowercase. If you include an upper-case letter in a container name, or otherwise violate the container naming rules, you may receive a 400 error (Bad Request). 
+> [AZURE.IMPORTANT] De naam van een container bestaat alleen uit kleine letters. Als u een hoofdletter in een containernaam opneemt of de naamgevingsregels op een andere manier schendt, wordt mogelijk een 400-fout (ongeldige aanvraag) weergegeven. 
+
+
+<!--HONumber=Jun16_HO2-->
+
+

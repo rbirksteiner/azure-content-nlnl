@@ -1,40 +1,46 @@
-## Connect to Azure SQL Database as a user
+## Verbinding maken met Azure SQL Database als een gebruiker
 
-Use the following steps to connect to Azure SQL Database with SSMS as a user.
+Voer de volgende stappen uit als u verbinding wilt maken met Azure SQL Database met SSMS als een gebruiker.
 
-1. Type "Microsoft SQL Server Management Studio" in the Windows search box, and then click the desktop app to start SSMS.
+1. Typ 'Microsoft SQL Server Management Studio' in het zoekvak van Windows en klik vervolgens op de bureaublad-app om SSMS te starten.
 
-2. In the Connect to Server window, enter the following information:
+2. Voer in het venster Verbinding maken met server de volgende informatie in:
 
-- **Server type**: The default is database engine; do not change this value.
- - **Server name**: Enter the name of the server that hosts your SQL database in the followinbg format: *&lt;servername>*.**database.windows.net**
- - **Authentication type**: If you are just getting started, select SQL Authentication. If you have enabled Active Directory for your SQL Database logical server, you can select either Active Directory Password Authentication or Active Directory Integrated Authentication.
- - **User name**: If you selected either SQL Authentication or Active Directory Password Authentication, enter the name of a user with access to a database on the server.
- - **Password**: If you selected either SQL Authentication or Active Directory Password Authentication, enter the password for the specified user.
+- **Servertype**: de standaardwaarde is database-engine; verander deze waarde niet.
+ - **Servernaam**: voer in de volgende notatie de naam in van de server die als host fungeert voor de SQL-database: *&lt;servernaam>*.**database.Windows.NET**
+ - **Verificatietype**: Als u nog maar net begint, selecteer dan SQL-verificatie. Als u Active Directory voor de logische SQL Database-server hebt ingeschakeld, kunt u Active Directory-wachtwoordverificatie of geïntegreerde Active Directory-verificatie selecteren.
+ - **Gebruikersnaam**: als u SQL-verificatie of Active Directory-wachtwoordverificatie hebt geselecteerd, voert u de naam in van een gebruiker die toegang heeft tot een database op de server.
+ - **Wachtwoord**: als u SQL-verificatie of Active Directory-wachtwoordverificatie hebt geselecteerd, voert u het wachtwoord in van de opgegeven gebruiker.
    
        ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-1.png)
 
-3. Click **Options** to specify the database to which you want to connect.
+3. Klik op **Opties** om de database op te geven waarmee u verbinding wilt maken.
 
-      ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-2.png)
+      ![SQL Server Management Studio: Verbinding maken met SQL Database-server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-2.png)
  
-4. In the **Connect to Database**, select the database to which you wish to connect.
+4. Selecteer in **Verbinding maken met database** de database die u wilt verbinden.
 
-     ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-3.png)
+     ![SQL Server Management Studio: Verbinding maken met SQL Database-server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-3.png)
 
-5. Click **Connect**.
+5. Klik op **Verbinden**.
  
-6. If your client's IP address does not have access to the SQL Database logical server, you will be prompted to sign in to an Azure account and create a server-level firewall rule. If you are an Azure subscription administrator, Click **Sign in** to create a server-level firewall rule. If not, have an administrator create either a server-level firewall rule or a database-level firewall rule in the database to which you are trying to connect.
+6. Als het IP-adres van de client geen toegang nodig heeft tot de logische SQL Database-server, wordt u gevraagd om u aan te melden bij een Azure-account en een firewallregel op serverniveau te maken. Als u de beheerder van een Azure-abonnement bent, klikt u op **Aanmelden** om een firewallregel op serverniveau te maken. Als dat niet het geval is, vraagt u een beheerder om een firewallregel op serverniveau te maken of een firewallregel op databaseniveau in de database waarmee u verbinding probeert te maken.
  
-      ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-4.png)
+      ![SQL Server Management Studio: Verbinding maken met SQL Database-server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-4.png)
  
-7. If your credentials grant you access to the specified database, Object Explorer opens and you can now perform administrative tasks or query data, depending upon the user permissions.
+7. Als uw referenties u toegang verlenen tot de betreffende database, wordt Object Explorer geopend en kunt u nu administratieve taken uitvoeren of gegevens opvragen, afhankelijk van de gebruikersmachtigingen.
   
-      ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-5.png)
+      ![SQL Server Management Studio: Verbinding maken met SQL Database-server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-5.png)
       
  
- ## Troubleshoot connection failures
+ ## Verbindingsfouten oplossen
 
-The most common reason for connection failures are mistakes in the server name (remember, <*servername*> is the name of the logical server, not the database), the user name, or the password, as well as the server not allowing connections for security reasons. 
+De meest voorkomende oorzaak van verbindingsfouten zijn fouten in de servernaam (onthoud, <*servernaam*> is de naam van de logische server, niet van de database), de gebruikersnaam of het wachtwoord, plus het feit dat de server om veiligheidsoverwegingen geen verbinding toestaat. 
+
+
+
+
+
+<!--HONumber=Jun16_HO2-->
 
 

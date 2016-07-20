@@ -1,10 +1,16 @@
-You are billed for Azure Storage usage based on your storage account. Storage costs are based on the following factors: region/location, account type, storage capacity, replication scheme, storage transactions, and data egress.
+U wordt gefactureerd voor het gebruik van Azure Storage op basis van uw opslagaccount. Opslagkosten zijn gebaseerd op de volgende factoren: regio/locatie, accounttype, opslagcapaciteit, replicatieschema, opslagtransacties en uitgaande gegevens.
 
-- Region refers to the geographical region in which your account is based.
-- Account type refers to whether you are using a general-purpose storage account or a Blob storage account. With a Blob storage account, the access tier also determines the billing model for the account.
-- Storage capacity refers to how much of your storage account allotment you are using to store data.
-- Replication determines how many copies of your data are maintained at one time, and in what locations.
-- Transactions refer to all read and write operations to Azure Storage.
-- Data egress refers to data transferred out of an Azure region. When the data in your storage account is accessed by an application that is not running in the same region, you are charged for data egress. (For Azure services, you can take steps to group your data and services in the same data centers to reduce or eliminate data egress charges.)
+- Regio verwijst naar de geografische regio waarin uw account is gebaseerd.
+- Accounttype geeft aan of u een algemeen opslagaccount of een Blob-opslagaccount gebruikt. Met een Blob-opslagaccount bepaalt de laag ook het facturering model voor het account.
+- De opslagcapaciteit verwijst naar welk aandeel van uw opslagaccount u gebruikt voor het opslaan van gegevens.
+- Replicatie bepaalt hoeveel kopieën van uw gegevens gelijktijdig worden bewaard en op welke locaties.
+- Transacties verwijst naar alle lees- en schrijfbewerkingen naar Azure Storage.
+- Uitgaande gegevens verwijst naar alle gegevens die buiten een Azure-regio zijn overgedragen. Wanneer de gegevens in uw opslagaccount worden geopend door een toepassing die niet wordt uitgevoerd in dezelfde regio, wordt er een bedrag in rekening gebracht voor uitgaande gegevens. (Bij Azure-services kunt u stappen ondernemen om uw gegevens en services te groeperen in dezelfde datacenters om de kosten voor uitgaande gegevens te verlagen of elimineren.)
 
-The [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) page provides detailed pricing information based on account type, storage capacity, replication, and transactions. The [Data Transfers Pricing Details](https://azure.microsoft.com/pricing/details/data-transfers/) provides detailed pricing information for data egress. You can use the [Azure Storage Pricing Calculator](https://azure.microsoft.com/pricing/calculator/?scenario=data-management) to help estimate your costs.
+Op de pagina [Prijzen voor Azure Storage](https://azure.microsoft.com/pricing/details/storage/) vindt u gedetailleerde prijsinformatie op basis van accounttype, opslagcapaciteit, replicatie en transacties. In [Prijsinformatie over gegevensoverdracht](https://azure.microsoft.com/pricing/details/data-transfers/) vindt u gedetailleerde informatie over de prijzen voor uitgaande gegevens. Met de [Prijscalculator van Azure Storage](https://azure.microsoft.com/pricing/calculator/?scenario=data-management) kunt u een schatting maken van uw kosten.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

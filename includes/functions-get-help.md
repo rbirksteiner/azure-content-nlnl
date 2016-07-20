@@ -1,5 +1,10 @@
-### Need some help?
+### Hulp nodig?
 
-Post questions in the Azure forums. - [Visit MSDN](http://go.microsoft.com/fwlink/?LinkId=780719)
+Stel u vragen via de Azure-forums. - [Ga naar MSDN](http://go.microsoft.com/fwlink/?LinkId=780719)
 
-Tag questions with the keyword `azure-functions`. - [Visit Stack Overflow](http://stackoverflow.com/questions/tagged/azure-functions)
+Geef vragen een tag met het trefwoord `azure-functions`. - [Ga naar Stack Overflow](http://stackoverflow.com/questions/tagged/azure-functions)
+
+
+<!--HONumber=Jun16_HO2-->
+
+

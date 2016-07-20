@@ -1,7 +1,13 @@
 
 
-The mobile service project lets you run your new mobile service locally. This makes it easy to debug your service code before you even publish it to Azure.
+Met het mobiele-serviceproject kunt u uw nieuwe mobiele service lokaal uitvoeren. Hierdoor kunt u gemakkelijk fouten in uw servicecode opsporen voordat u deze naar Azure publiceert.
 
-1. On your Windows PC, download your personalized server project, extract it, and then open it in Visual Studio.
+1. Download uw aan uw persoonlijke voorkeuren aangepast serverproject op uw Windows-pc, pak het uit en open het vervolgens in Visual Studio.
 
-2. Press the **F5** key to rebuild the project and start the mobile service locally. A web page is displayed after the mobile service starts successfully.
+2. Druk op **F5** om het project opnieuw te bouwen en de mobiele service lokaal te starten. Een webpagina wordt weergegeven nadat de mobiele service kon worden gestart.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

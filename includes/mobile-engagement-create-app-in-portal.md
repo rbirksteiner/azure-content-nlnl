@@ -1,25 +1,31 @@
-1. Log on to the [Azure Classic Portal](https://manage.windowsazure.com), and then click **+NEW** at the bottom of the screen.
+1. Meld u aan bij de [klassieke Azure-portal](https://manage.windowsazure.com) en klik op **+NIEUW** onder aan het scherm.
 
-2. Click on **App Services**, then **Mobile Engagement**, and then **Create**.
+2. Klik op **App Services**, vervolgens op ** Mobile Engagement** en vervolgens op **Maken**.
 
-   	![](./media/mobile-engagement-create-app-in-portal/create-mobile-engagement-app.png)
+    ![](./media/mobile-engagement-create-app-in-portal/create-mobile-engagement-app.png)
 
-3. In the popup that appears, enter the following information:
+3. Typ de volgende informatie in de pop-up die daarna wordt weergegeven:
 
-   	![](./media/mobile-engagement-create-app-in-portal/create-azme-popup.png)
+    ![](./media/mobile-engagement-create-app-in-portal/create-azme-popup.png)
 
-	- **Application Name**: Name of your application. 
-	- **Platform**: Target platform for the app. You must create one Mobile Engagement app per platform that you are targeting for your mobile application. 
-	- **Application Resource Name**: Name by which this application will be accessible via APIs and URLs. 
-	- **Location**: Region/Data center where this app and app collection will be hosted.
-	- **Collection**: Select a previously created Collection or select 'New Collection'.
-	- **Collection Name**: Represents your group of applications. This will also ensure all your apps are in a group that will allow aggregated calculations of metrics. You should use your company name or department here if applicable.
+    - **Toepassingsnaam**: naam van uw toepassing. 
+    - **Platform**: doelplatform voor de app. U moet voor elk platform waarvoor uw mobiele toepassing is bedoeld één Mobile Engagement-app maken. 
+    - **Resourcenaam toepassing**: naam waaronder deze toepassing toegankelijk is via API's en URL's. 
+    - **Locatie**: regio/datacenter waar deze app en app-verzameling worden gehost.
+    - **Verzameling**: selecteer een eerder gemaakte verzameling of selecteer Nieuwe verzameling.
+    - **Naam van verzameling**: duidt uw groep met toepassingen aan. Zo zorgt u ervoor dat alle apps zich in een groep bevinden waardoor berekeningen van metrische gegevens geaggregeerd kunnen worden uitgevoerd. Gebruik hier indien van toepassing de naam van uw bedrijf of afdeling.
 
-4. Select the app you just created in the **Applications** tab.
+4. Selecteer de app die u zojuist hebt gemaakt op het tabblad **Toepassingen** .
 
-5. Click on **CONNECTION INFO** in order to display the connection settings to put into your SDK integration in your mobile app.
+5. Klik op **VERBINDINGSGEGEVENS** om de verbindingsinstellingen weer te geven die u in de SDK-integratie in uw mobiele app moet plaatsen.
 
-6. Copy the **CONNECTION STRING** - this is what you will need to identify this app in your Application code and connect with Mobile Engagement from your App.
+6. Kopieer de **VERBINDINGSREEKS** - dit is wat u nodig hebt om deze app in uw toepassingscode te herkennen en om vanuit uw app verbinding te maken met Mobile Engagement.
 
-   	![](./media/mobile-engagement-create-app-in-portal/app-connection-info-page.png)
+    ![](./media/mobile-engagement-create-app-in-portal/app-connection-info-page.png)
+
+
+
+
+<!--HONumber=Jun16_HO2-->
+
 

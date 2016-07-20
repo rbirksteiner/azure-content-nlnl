@@ -1,4 +1,10 @@
-To enable the non-SSL port, [browse](../articles/redis-cache/cache-configure.md#configure-redis-cache-settings) to your cache in the [Azure portal](https://portal.azure.com) and click **Settings > Access Ports**. Click **No** to enable the non-SSL port, and click **Save**.
+Als u de niet-SSL-poort wilt inschakelen, [bladert](../articles/redis-cache/cache-configure.md#configure-redis-cache-settings) u naar uw cache in de [Azure-portal](https://portal.azure.com) en klikt u op **Instellingen > Toegangspoorten**. Klik op **Nee** om de niet-SSL-poort in te schakelen en klik op **Opslaan**.
 
-![Redis cache settings](media/redis-cache-non-ssl-port/redis-cache-non-ssl-port.png)
+![Instellingen van Redis-cache](media/redis-cache-non-ssl-port/redis-cache-non-ssl-port.png)
+
+
+
+
+<!--HONumber=Jun16_HO2-->
+
 

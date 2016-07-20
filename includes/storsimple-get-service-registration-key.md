@@ -1,23 +1,28 @@
 <!--author=alkohli last changed: 9/17/15-->
 
-#### To get the StorSimple service registration key
+#### De StorSimple-serviceregistratiesleutel ophalen
 
-1. On the **StorSimple Manager service** page, click the service that you created. This will take you to the **Quick Start** page. (You can click the quick start icon ![StorSimple Quick Start icon ](./media/storsimple-get-service-registration-key/HCS_QuickStartIcon-include.png) to access the **Quick Start** page at any time.)
+1. Klik op de pagina **StorSimple Manager-service** op de service die u hebt gemaakt. Hiermee gaat u naar de pagina **Quick Start**. (U kunt op elk gewenst moment op het pictogram Quick Start ![pictogram Quick Start voor StorSimple](./media/storsimple-get-service-registration-key/HCS_QuickStartIcon-include.png) klikken voor toegang tot de pagina **Quick Start**.)
 
-     ![StorSimple Quick Start page](./media/storsimple-get-service-registration-key/HCS_ServiceQuickStart-include.png)
+     ![De pagina Quick Start voor StorSimple](./media/storsimple-get-service-registration-key/HCS_ServiceQuickStart-include.png)
 
-2. Click **Get service registration key**. You can also click **Registration Key** at the bottom of the page. You will have to wait for a few minutes while the key is retrieved. The **Service Registration Key** dialog box appears.
+2. Klik op **Serviceregistratiesleutel ophalen**. U kunt ook klikken op **Registratiesleutel** onder aan de pagina. U moet een paar minuten wachten terwijl de sleutel wordt opgehaald. Het dialoogvenster **Serviceregistratisleutel** wordt weergegeven.
 
-     ![Service Registration Key dialog box](./media/storsimple-get-service-registration-key/HCS_GetServiceRegistrationKey-include.png)
+     ![Het dialoogvenster Serviceregistratiesleutel](./media/storsimple-get-service-registration-key/HCS_GetServiceRegistrationKey-include.png)
 
-3. Locate the service registration key.
+3. Kijk waar de serviceregistratiesleutel wordt weergegeven.
 
-4. Click the copy icon ![StorSimple Copy icon](./media/storsimple-get-service-registration-key/HCS_CopyIcon-include.png) to copy the key and save it for later use.
+4. Klik op het pictogram kopiëren ![Pictogram StorSimple kopiëren](./media/storsimple-get-service-registration-key/HCS_CopyIcon-include.png) om de sleutel te kopiëren en op te slaan voor later gebruik.
 
-5. Click the check icon ![StorSimple Check icon](./media/storsimple-get-service-registration-key/HCS_CheckIcon-include.png) to close this dialog box and return to the **Quick Start** page.
+5. Klik op het vinkje ![Vinkje voor StorSimple](./media/storsimple-get-service-registration-key/HCS_CheckIcon-include.png) om dit dialoogvenster te sluiten en terug te gaan naar de pagina **Quick Start**.
 
-> [AZURE.NOTE] The service registration key is used to register all the devices that need to register with your StorSimple Manager service.
+> [AZURE.NOTE] De serviceregistratiesleutel wordt gebruikt voor de registratie van alle apparaten die bij uw StorSimple Manager-service moeten worden geregistreerd.
 
-![Video available](./media/storsimple-get-service-registration-key/Video_icon.png) **Video available**
+![Video beschikbaar](./media/storsimple-get-service-registration-key/Video_icon.png) **Video beschikbaar**
 
-To watch a video that demonstrates how to get the service registration key, click [here](https://azure.microsoft.com/documentation/videos/get-the-service-registration-key/).
+Als u een video wilt bekijken over het ophalen van de serviceregistratiesleutel, klikt u [hier](https://azure.microsoft.com/documentation/videos/get-the-service-registration-key/).
+
+
+<!--HONumber=Jun16_HO2-->
+
+

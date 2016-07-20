@@ -1,13 +1,18 @@
-Caches can be accessed in the [Azure Portal](https://portal.azure.com) using the **Browse** blade.
+Caches kunnen worden geopend in de [Azure-portal](https://portal.azure.com) met behulp van de blade **Bladeren**.
 
-![Azure Redis Cache Browse Blade](media/redis-cache-browse/redis-cache-browse.png)
+![Blade Bladeren in Azure Redis-cache](media/redis-cache-browse/redis-cache-browse.png)
 
-Click **Browse > Redis Caches** to view your caches. If you have recently browsed to a Redis Cache, you can click **Redis Caches** directly from the list without clicking **Browse**.
+Klik op **Bladeren > Redis-caches** om uw caches weer te geven. Als u onlangs naar een Redis-cache hebt gebladerd, kunt u in de lijst direct op **Redis-caches** klikken, zonder eerst op **Bladeren** te klikken.
 
-Select the desired cache to view the properties for that cache.
+Selecteer de gewenste cache om de eigenschappen voor die cache weer te geven.
 
-![Azure Redis Cache Browse Cache List](media/redis-cache-browse/redis-caches.png)
+![Lijst met caches voor Bladeren in Azure Redis-cache](media/redis-cache-browse/redis-caches.png)
 
-Click **Settings** or **All settings** to view and configure your cache.
+Klik op **Instellingen** of **Alle instellingen** als u de cache wilt weergeven en configureren.
 
-![Redis Cache All Settings](media/redis-cache-browse/redis-cache-blade.png)
+![Alle instellingen in Redis-cache](media/redis-cache-browse/redis-cache-blade.png)
+
+
+<!--HONumber=Jun16_HO2-->
+
+

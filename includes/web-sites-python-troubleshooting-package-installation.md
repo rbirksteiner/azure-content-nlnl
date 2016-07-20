@@ -1,69 +1,75 @@
-Some packages may not install using pip when run on Azure.  It may simply be that the package is not available on the Python Package Index.  It could be that a compiler is required (a compiler is not available on the machine running the web app in Azure App Service).
+Sommige pakketten kunnen niet worden geïnstalleerd met pip wanneer ze worden uitgevoerd op Azure.  Dit kan eenvoudig komen doordat het pakket niet beschikbaar is op de Python Package Index.  Mogelijk is een compiler vereist (een compiler is niet beschikbaar op de computer waarop de web-app in de Azure App Service wordt uitgevoerd).
 
-In this section, we'll look at ways to deal with this issue.
+In deze sectie zullen we kijken naar manieren om dit probleem op te lossen.
 
-### Request wheels
+### Wheels aanvragen
 
-If the package installation requires a compiler, you should try contacting the package owner to request that wheels be made available for the package.
+Als de pakketinstallatie een compiler vereist, dient u contact op te nemen met de eigenaar van het pakket om te vragen of wheels beschikbaar gesteld kunnen worden voor het pakket.
 
-With the recent availability of [Microsoft Visual C++ Compiler for Python 2.7][], it is now easier to build packages that have native code for Python 2.7.
+Met de recente beschikbaarheid van [Microsoft Visual C++ Compiler voor Python 2.7][] is het nu eenvoudiger geworden om pakketten met systeemeigen code voor Python 2.7 te bouwen.
 
-### Build wheels (requires Windows)
+### Wheels bouwen (vereist Windows)
 
-Note: When using this option, make sure to compile the package using a Python environment that matches the platform/architecture/version that is used on the web app in Azure App Service (Windows/32-bit/2.7 or 3.4).
+Opmerking: wanneer u deze optie gebruikt, dient u ervoor te zorgen dat u het pakket compileert met behulp van een Python-omgeving die overeenkomt met het platform of de architectuur of versie die wordt gebruikt op de web-app in Azure App Service (Windows/32-bits/2.7 of 3.4).
 
-If the package doesn't install because it requires a compiler, you can install the compiler on your local machine and build a wheel for the package, which you will then include in your repository.
+Als het pakket niet wordt geïnstalleerd omdat het een compiler vereist, kunt u de compiler installeren op uw lokale computer en een wheel bouwen voor het pakket dat u vervolgens kunt opnemen in de opslagplaats.
 
-Mac/Linux Users: If you don't have access to a Windows machine, see [Create a Virtual Machine Running Windows][] for how to create a VM on Azure.  You can use it to build the wheels, add them to the repository, and discard the VM if you like. 
+Gebruikers van Mac-/ Linux: als u geen toegang hebt tot een Windows-computer, raadpleegt u [Een virtuele machine met Windows maken][] voor het maken van een VM op Azure.  U kunt deze gebruiken om de wheels te bouwen, deze toevoegen aan de opslagplaats en de VM desgewenst verwijderen. 
 
-For Python 2.7, you can install [Microsoft Visual C++ Compiler for Python 2.7][].
+Voor Python 2.7 kunt u [Microsoft Visual C++ Compiler voor Python 2.7][] installeren.
 
-For Python 3.4, you can install [Microsoft Visual C++ 2010 Express][].
+Voor Python 3.4 kunt u [Microsoft Visual C++ 2010 Express][] installeren.
 
-To build wheels, you'll need the wheel package:
+Om wheels te bouwen, hebt u het wheel-pakket nodig:
 
     env\scripts\pip install wheel
 
-You'll use `pip wheel` to compile a dependency:
+U gebruikt `pip wheel` voor het compileren van een afhankelijkheid:
 
     env\scripts\pip wheel azure==0.8.4
 
-This creates a .whl file in the \wheelhouse folder.  Add the \wheelhouse folder and wheel files to your repository.
+Hierdoor wordt een .whl-bestand gemaakt in de map \wheelhouse.  Voeg de map \wheelhouse en de wheel-bestanden toe aan uw opslagplaats.
 
-Edit your requirements.txt to add the `--find-links` option at the top. This tells pip to look for an exact match in the local folder before going to the python package index.
+Voeg de optie `--find-links` bovenaan toe in requirements.txt. Hierdoor krijgt pip de opdracht te zoeken naar een exacte overeenkomst in de lokale map voordat hij naar de Python Package Index gaat.
 
     --find-links wheelhouse
     azure==0.8.4
 
-If you want to include all your dependencies in the \wheelhouse folder and not use the python package index at all, you can force pip to ignore the package index by adding `--no-index` to the top of your requirements.txt.
+Als u alle afhankelijkheden wilt opnemen in de map \wheelhouse en de Python Package Index helemaal niet wilt gebruiken, kunt u pip dwingen de Package Index te negeren door `--no-index` bovenaan toe te voegen in requirements.txt.
 
     --no-index
 
-### Customize installation
+### Installatie aanpassen
 
-You can customize the deployment script to install a package in the virtual environment using an alternate installer, such as easy\_install.  See deploy.cmd for an example that is commented out.  Make sure that such packages aren't listed in requirements.txt, to prevent pip from installing them.
+U kunt het implementatiescript aanpassen om een pakket te installeren in de virtuele omgeving met behulp van een alternatief installatieprogramma zoals easy\_install.  Zie deploy.cmd voor een voorbeeld met opmerkingen.  Zorg ervoor dat dergelijke pakketten niet zijn opgenomen in requirements.txt om te voorkomen dat pip ze installeert.
 
-Add this to the deployment script:
+Voeg dit toe aan het implementatiescript:
 
     env\scripts\easy_install somepackage
 
-You may also be able to use easy\_install to install from an exe installer (some are zip compatible, so easy\_install supports them).  Add the installer to your repository, and invoke easy\_install by passing the path to the executable.
+U kunt easy\_install mogelijk ook gebruiken om te installeren vanuit een exe-installatieprogramma (sommige zijn zip-compatibel en worden dus ondersteund door easy\_install).  Voeg het installatieprogramma toe aan uw opslagplaats en roep easy\_install aan door het pad door te geven aan het uitvoerbare bestand.
 
-Add this to the deployment script:
+Voeg dit toe aan het implementatiescript:
 
     env\scripts\easy_install "%DEPLOYMENT_SOURCE%\installers\somepackage.exe"
 
-### Include the virtual environment in the repository (requires Windows)
+### De virtuele omgeving opnemen in de opslagplaats (vereist Windows)
 
-Note: When using this option, make sure to use a virtual environment that matches the platform/architecture/version that is used on the web app in Azure App Service (Windows/32-bit/2.7 or 3.4).
+Opmerking: wanneer u deze optie gebruikt, dient u ervoor te zorgen dat u een virtuele omgeving gebruikt die overeenkomst met het platform of de architectuur of versie die wordt gebruikt op de web-app in Azure App Service (Windows/32-bits/2.7 of 3.4).
 
-If you include the virtual environment in the repository, you can prevent the deployment script from doing virtual environment management on Azure by creating an empty file:
+Als u de virtuele omgeving opneemt in de opslagplaats, kunt u voorkomen u dat het implementatiescript op Azure beheeractiviteiten uitvoert bij de virtuele omgeving door een leeg bestand te maken:
 
     .skipPythonDeployment
 
-We recommend that you delete the existing virtual environment on the app, to prevent leftover files from when the virtual environment was managed automatically.
+Het is raadzaam dat u de bestaande virtuele omgeving op de app verwijdert, om te voorkomen dat er bestanden overblijven uit de periode dat de virtuele omgeving automatisch werd beheerd.
 
 
-[Create a Virtual Machine Running Windows]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-hero-tutorial/
-[Microsoft Visual C++ Compiler for Python 2.7]: http://aka.ms/vcpython27
+[Een virtuele machine met Windows maken]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-hero-tutorial/
+[Microsoft Visual C++ Compiler voor Python 2.7]: http://aka.ms/vcpython27
 [Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

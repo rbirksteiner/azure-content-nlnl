@@ -1,11 +1,17 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### To get the IQN of a Windows host
+#### Het IQN ophalen van een Windows-host
 
-1. Start the Microsoft iSCSI initiator on your Windows host. Click **Start** > **Administrative Tools** > **iSCSI initiator**.
+1. Start de Microsoft iSCSI-initiator op uw Windows-host. Klik op **Start** > **Systeembeheer** > **iSCSI-initiator**.
 
-2. In the **iSCSI Initiator Properties** window, on the **Configuration** tab, select and copy the string from the **Initiator Name** field.
+2. Selecteer en kopieer in het venster **Eigenschappen iSCSI-initiator** op het tabblad **Configuratie** de tekenreeks in het veld **Naam van initiator**.
  
-    ![iSCSI initiator properties](./media/storsimple-get-iqn/HCS_iSCSIInitiatorPropertiesFigureIQN-include.png)
+    ![Eigenschappen iSCSI-initiator](./media/storsimple-get-iqn/HCS_iSCSIInitiatorPropertiesFigureIQN-include.png)
 
-3. Save this string.
+3. Bewaar deze tekenreeks.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

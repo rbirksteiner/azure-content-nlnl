@@ -1,8 +1,13 @@
-This setting allows you to specify the DNS server that you want to use for name resolution for this virtual network. It does not create a DNS server.
+Met deze instellingen kunt u de DNS-server opgeven die u wilt gebruiken voor de naamomzetting voor dit virtuele netwerk. Hierdoor wordt geen DNS-server aangemaakt.
 
-1. On the **Settings** page for your virtual network, navigate to **DNS Servers** and click to open the DNS servers blade.
-2. On the **DNS Servers** page, under **DNS servers**, select **Custom DNS**.
-3. In the **Primary DNS server** field, enter the IP address of the DNS server that you want to use for name resolution.
-4. Click **Save** at the top of the blade to save your configuration.
+1. Op de pagina **Instellingen** voor het virtuele netwerk, navigeert u naar **DNS-servers** en klikt u om de blade van DNS-servers te openen.
+2. Op de pagina **DNS-servers**, onder **DNS-servers**, selecteert u **Aangepaste DNS**.
+3. In het veld **Primaire DNS-server** voert u het IP-adres in van de DNS-server die u wilt gebruiken voor naamomzetting.
+4. Klik op **Opslaan** boven aan de blade om uw configuratie op te slaan.
 
-	![Custom DNS](./media/vpn-gateway-add-dns-rm-portal/customdns400.png)
+    ![Aangepaste DNS](./media/vpn-gateway-add-dns-rm-portal/customdns400.png)
+
+
+<!--HONumber=Jun16_HO2-->
+
+

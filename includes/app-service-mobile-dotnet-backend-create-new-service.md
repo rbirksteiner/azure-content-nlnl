@@ -1,27 +1,33 @@
-1. Log in at the [Azure Portal].
+1. Meld u aan bij [Azure Portal].
 
-2. Click **+NEW** > **Web + Mobile** > **Mobile App**, then provide a name for your Mobile App backend.
+2. Klik op **+NIEUW** > **Web en mobiel** > **Mobile App** en geef een naam op voor de nieuwe back-end van Mobile App.
 
-3. For the **Resource Group**, select an existing resource group, or create a new one (using the same name as your app.) 
+3. Selecteer voor de **Resourcegroep** een bestaande resourcegroep of maak een nieuwe (gebruik dezelfde naam als uw app). 
  
 
- You can either select another App Service plan or create a new one. For more about App Services plans and how to create a new plan in a different pricing tier and in your desired location, see [Azure App Service plans in-depth overview](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+ U kunt ofwel een ander App Service-abonnement selecteren of een nieuw maken. Zie [Azure App Service plans in-depth overview](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) (Uitgebreid overzicht van Azure App Service-abonnementen) voor meer informatie over App Service-abonnementen en hoe u een nieuw abonnement maakt in een andere prijscategorie op de door u gewenste locatie.
 
-4. For the **App Service plan**, the default plan (in the [Standard tier](https://azure.microsoft.com/pricing/details/app-service/)) is selected. You can also  select a different plan, or [create a new one](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md#create-an-app-service-plan). The App Service plan's settings determine the [location, features, cost and compute resources](https://azure.microsoft.com/pricing/details/app-service/) associated with your app. 
+4. Voor het **App Service-abonnement** is het standaardabonnement (in de [standaardcategorie](https://azure.microsoft.com/pricing/details/app-service/)) geselecteerd. U kunt ook een ander abonnement selecteren of [een nieuw abonnement maken](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md#create-an-app-service-plan). De instellingen van het App Service-abonnement bepalen de [locatie, functies, kosten en rekenresources](https://azure.microsoft.com/pricing/details/app-service/) die aan uw app zijn gekoppeld. 
 
-	After you decide on the plan, click **Create**. This creates the Mobile App backend. 
-	
-6. In the **Settings** blade for the new Mobile App backend, click **Quick start** > your client app platform > **Connect a database**. 
+    Nadat u voor een beslissing hebt genomen met betrekking tot een bepaald abonnement, klikt u op **Maken**. Hiermee maakt u de back-end voor de mobiele app. 
+    
+6. In de blade **Instellingen** van de nieuwe back-end van de mobiele app klikt u op **Snel starten** > het platform van uw client-app > **Verbinding maken met een database**. 
 
-	![](./media/app-service-mobile-dotnet-backend-create-new-service/dotnet-backend-create-data-connection.png)
+    ![](./media/app-service-mobile-dotnet-backend-create-new-service/dotnet-backend-create-data-connection.png)
 
-7. In the **Add data connection** blade, click **SQL Database** > **Create a new database**, type the database **Name**, choose a pricing tier, then click **Server**.  You can reuse this new database. If you already have a database in the same location, you can instead choose **Use an existing database**. The use of a database in a different location isn't recommended due to bandwidth costs and higher latency.
+7. In de blade **Gegevensverbinding toevoegen** klikt u op **SQL Database** > **Een nieuwe database maken**, typt u de **naam** van de database, kiest u een prijscategorie en klikt u vervolgens op **Server**.  U kunt deze nieuwe database opnieuw gebruiken. Als u al een database op dezelfde locatie hebt, kunt u in plaats daarvan **Een bestaande database gebruiken** kiezen. Het gebruik van een database op een andere locatie wordt niet aanbevolen vanwege bandbreedtekosten en hogere latentie.
  
     ![](./media/app-service-mobile-dotnet-backend-create-new-service/dotnet-backend-create-db.png)
 
-8. In the **New server** blade, type a unique server name in the **Server name** field, provide a login and password, check **Allow azure services to access server**, and click **OK**. This creates the new database.
+8. In de blade **Nieuwe server** typt u een unieke naam in het veld **Servernaam**, typt u een aanmeldingsnaam en wachtwoord, schakelt u **Toegang van Azure-services tot server toestaan** in en klikt u op **OK**. Nu wordt de nieuwe database gemaakt.
 
-9. Back in the **Add data connection** blade, click **Connection string**, type the login and password values for your database, and click **OK**. Wait a few minutes for the database to be deployed successfully before proceeding.
+9. Terug in de blade **Gegevensverbinding toevoegen** klikt u op **Verbindingsreeks**, typt u waarden voor de aanmeldingsnaam en het wachtwoord voor uw database en klikt u op **OK**. Wacht enkele minuten totdat de database is geïmplementeerd voordat u doorgaat.
 
 <!-- URLs. -->
 [Azure Portal]: https://portal.azure.com/
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

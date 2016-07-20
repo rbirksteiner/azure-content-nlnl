@@ -1,8 +1,14 @@
-| Mobile & Native Apps | Web Apps & Web APIs | Integrate Directly with Protocols |
+| Mobiele en systeemeigen apps | Web-apps en web-API's | Rechtstreeks integreren met protocollen |
 | ----------------------- | ------------------------------- | --------------------- |
-| [Add Sign Up & Sign In to an iOS App](active-directory-b2c-devquickstarts-ios.md) | Add Sign Up & Sign In to an AngularJS SPA (Coming Soon) | [Register an Application](active-directory-b2c-app-registration.md) |
-| [Add Sign Up & Sign In to an Android App](active-directory-b2c-devquickstarts-android.md) | [Add Sign Up & Sign In to a .NET MVC App](active-directory-b2c-devquickstarts-web-dotnet.md)  | [Mobile Apps with OAuth 2.0](active-directory-b2c-reference-oauth-code.md) |
-| Add Sign Up & Sign In to a Windows Universal App (Coming Soon) | [Add Sign Up & Sign In to a Node JS Web App](active-directory-b2c-devquickstarts-web-node.md) | [Web Apps with OpenID Connect](active-directory-b2c-reference-oidc.md) |
-| Add Sign Up & Sign In to a Windows Desktop App (Coming Soon) | [Secure a .NET Web API](active-directory-b2c-devquickstarts-api-dotnet.md) | Single Page Apps with OpenID Connect (Coming Soon)
-|  | [Secure a NodeJS Web API](active-directory-b2c-devquickstarts-api-node.md) | Server Side Daemons (Coming Soon) |
-|  | [Call a Web API from a .NET Web App](active-directory-b2c-devquickstarts-web-api-dotnet.md) | Server Side Daemons (Coming Soon) |
+| [Registreren en aanmelden toevoegen aan een iOS-app](active-directory-b2c-devquickstarts-ios.md) | Registreren en aanmelden toevoegen aan een AngularJS SPA (binnenkort) | [Een toepassing registreren](active-directory-b2c-app-registration.md) |
+| [Registreren en aanmelden toevoegen aan een Android-app](active-directory-b2c-devquickstarts-android.md) | [Registreren en aanmelden toevoegen aan een .NET MVC-app](active-directory-b2c-devquickstarts-web-dotnet.md)  | [Mobiele apps met OAuth 2.0](active-directory-b2c-reference-oauth-code.md) |
+| Aanmelden en registreren toevoegen aan een Windows universele app (binnenkort) | [Aanmelden en registreren toevoegen aan een Node.js-web-app](active-directory-b2c-devquickstarts-web-node.md) | [Web-apps met OpenID Connect](active-directory-b2c-reference-oidc.md) |
+| Aanmelden en registreren toevoegen aan een Windows Desktop App (binnenkort) | [Een .NET-web-API beveiligen](active-directory-b2c-devquickstarts-api-dotnet.md) | Apps van één pagina met OpenID Connect (binnenkort)
+|  | [Een Node.js-web-API beveiligen](active-directory-b2c-devquickstarts-api-node.md) | Daemons aan serverzijde (binnenkort) |
+|  | [Een Web-API aanroepen vanuit een .NET-web-app](active-directory-b2c-devquickstarts-web-api-dotnet.md) | Daemons aan serverzijde (binnenkort) |
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

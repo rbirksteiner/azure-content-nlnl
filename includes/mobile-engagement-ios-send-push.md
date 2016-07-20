@@ -1,57 +1,62 @@
-###Grant access to your Push Certificate to Mobile Engagement
+###Uw pushcertificaat toegang verlenen tot Mobile Engagement
 
-To allow Mobile Engagement to send Push Notifications on your behalf, you need to grant it access to your certificate. This is done by configuring and entering your certificate into the Mobile Engagement portal. Make sure you obtain your .p12 certificate as explained in [Apple's documentation](https://developer.apple.com/library/prerelease/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6)
+Om Mobile Engagement namens u pushmeldingen te laten verzenden, moet u het toegang geven tot uw certificaat. Dit kunt u doen door uw certificaat te configureren en in te voeren in de Mobile Engagement-portal. Zorg dat u uw .p12-certificaat verkrijgt zoals uitgelegd in de [Apple-documentatie](https://developer.apple.com/library/prerelease/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6)
 
-1. Navigate to your Mobile Engagement portal. Ensure you're in the correct and then click on the **Engage** button at the bottom:
+1. Navigeer naar uw Mobile Engagement-portal. Zorg ervoor dat u zich op de juiste locatie bevindt en klik vervolgens op de knop **Engage** onderaan:
 
-	![](./media/mobile-engagement-ios-send-push/engage-button.png)
+    ![](./media/mobile-engagement-ios-send-push/engage-button.png)
 
-2. Click on the **Settings** page in your Engagement Portal. From there click on the **Native Push** section to upload your p12 certificate:
+2. Klik op de pagina **Instellingen** in de Engagement-portal. Klik daarna op de sectie **Native pushbericht** om uw p12-certificaat te uploaden:
 
-	![](./media/mobile-engagement-ios-send-push/engagement-portal.png)
+    ![](./media/mobile-engagement-ios-send-push/engagement-portal.png)
 
-3. Select your p12, upload it and type your password:
+3. Selecteer uw p12, upload het en typ uw wachtwoord:
 
-	![](./media/mobile-engagement-ios-send-push/native-push-settings.png)
+    ![](./media/mobile-engagement-ios-send-push/native-push-settings.png)
 
-##<a id="send"></a>Send a notification to your app
+##<a id="send"></a>Een melding verzenden naar uw app
 
-We will now create a simple Push Notification campaign that will send a push to our app:
+We gaan nu een eenvoudige pushmeldingcampagne maken waarbij een pushmelding wordt verzonden naar de app:
 
-1. Navigate to the **Reach** tab in your Mobile Engagement portal.
+1. Navigeer naar het tabblad **Reach** in uw Mobile Engagement-portal.
 
-2. Click **New Announcement** to create your push campaign
+2. Klik op **Nieuwe aankondiging** om uw pushcampagne te maken.
 
-	![](./media/mobile-engagement-ios-send-push/new-announcement.png)
+    ![](./media/mobile-engagement-ios-send-push/new-announcement.png)
 
-3. Setup the first fields of your campaign:
+3. Stel de eerste velden van uw campagne in:
 
-	![](./media/mobile-engagement-ios-send-push/campaign-first-params.png)
+    ![](./media/mobile-engagement-ios-send-push/campaign-first-params.png)
 
-	- 	Provide a **Name** for your campaign 
-	- 	Select the **Delivery time** as **Out of app only**: this is the simple Apple push notification type that features some text.
-	- 	In the notification text, type first the **Title** which will be the first line in the push.
-	- 	Then type your **Message** which will be the second line
+    -   Geef uw campagne een **naam**. 
+    -   Selecteer als **Leveringstijd** **Alleen buiten app**: dit is het eenvoudig Apple-pushmeldingentype met een beetje tekst.
+    -   Typ in de meldingentekst eerst de **Titel** die als eerste regel in de pushmelding wordt weergegeven.
+    -   Typ vervolgens uw **bericht**. Dit wordt op de tweede regel weergegeven.
 
-4. Scroll down, and in the content section select **Notification only**
+4. Blader naar beneden en selecteer in de sectie Inhoud **Alleen melding**.
 
-	![](./media/mobile-engagement-ios-send-push/campaign-content.png)
+    ![](./media/mobile-engagement-ios-send-push/campaign-content.png)
 
-5. You're done setting the most basic campaign. Now scroll down and click on **Create** button to save your push notification campaign. 
+5. U hebt nu de meest elementaire campagne gemaakt. Schuif nu naar beneden en klik op de knop **Maken** om uw pushmeldingcampagne op te slaan. 
 
-6. Finally - click on **Activate** to send push notification. 
+6. Klik ten slotte op **Activeren** om de pushmelding te verzenden. 
 
-	![](./media/mobile-engagement-ios-send-push/campaign-activate.png)
+    ![](./media/mobile-engagement-ios-send-push/campaign-activate.png)
 
-7. You will be able receive the notification on your iOS device in the notification center like the following:
+7. U kunt de melding in het meldingencentrum op uw iOS-apparaat als volgt ontvangen:
 
-	![](./media/mobile-engagement-ios-send-push/iphone-notification.png)
+    ![](./media/mobile-engagement-ios-send-push/iphone-notification.png)
 
-8. If you have an Apple Watch paired with this iOS device then you will see the notification on your Apple Watch:
+8. Als u een Apple Watch hebt die is gekoppeld aan dit iOS-apparaat, ziet u de melding op uw Apple Watch:
 
-	![](./media/mobile-engagement-ios-send-push/apple-watch.png)
+    ![](./media/mobile-engagement-ios-send-push/apple-watch.png)
 
+
+ 
 
  
 
- 
+
+<!--HONumber=Jun16_HO2-->
+
+

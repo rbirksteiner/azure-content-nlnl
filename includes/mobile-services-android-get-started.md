@@ -1,40 +1,46 @@
-The final stage of this tutorial is to build and run your new app.
+De laatste fase van deze zelfstudie is het bouwen en uitvoeren van uw nieuwe app.
 
-### Load project into Android Studio and sync Gradle
+### Project in Android Studio laden en Gradle synchroniseren
 
-1. Browse to the location where you saved the compressed project files and expand the files on your computer into your Android Studio projects directory.
+1. Blader naar de locatie waar u de gecomprimeerde projectbestanden hebt opgeslagen en vouw de bestanden op uw computer uit in de map met Android Studio-projecten.
 
-2. Open Android Studio. If you are working with a project and it appears, close the project (File => Close Project).
+2. Open Android Studio. Als u aan een project werkt en dit wordt weergegeven, sluit u het project (Bestand => Project sluiten).
 
-3. Select **Open an existing Android Studio project**, browse to the project location, and then click **OK.** This will load the project and start to sync it with Gradle.
+3. Selecteer **Een bestaand Android Studio-project openen**, blader naar de projectlocatie en klik vervolgens op **OK**. Het project wordt nu geladen en met Gradle gesynchroniseerd.
 
- 	![](./media/mobile-services-android-get-started/android-studio-import-project.png)
+    ![](./media/mobile-services-android-get-started/android-studio-import-project.png)
 
-4. Wait for the Gradle sync activity to complete. If you see a "failed to find target" error, this is because the version used in Android Studio doesn't match that of the sample. The easiest way to fix this is to click the **Install missing platform(s) and sync project** link in the error message. You might get additional version error messages, and you simply repeat this process until no errors appear.
-    - There is another way to fix this if you want to run with the "latest and greatest" version of Android. You can update the **targetSdkVersion** in the *build.gradle* file in the *app* directory to match the version already installed on your machine, which you can discover by clicking the **SDK Manager** icon and seeing what version is listed. Next you press the **Sync Project with Gradle Files**. You may get an error message for the version of Build Tools, and you fix that the same way.
+4. Wacht tot de synchronisatie met Gradle is voltooid. Als de fout 'Kan doel niet vinden' wordt weergegeven, komt dat omdat de versie die in Android Studio wordt gebruikt niet overeenkomt met die in het voorbeeld. De eenvoudigste manier om dit probleem op te lossen is door op de koppeling **Ontbrekende platform(s) installeren en project synchroniseren** in het foutbericht te klikken. U ziet mogelijk nog meer foutberichten over versies. Herhaal dan eenvoudig deze procedure totdat er geen foutberichten meer worden weergegeven.
+    - Er is een andere manier om dit op te lossen als u de 'nieuwste en beste' versie van Android wilt gebruiken. U kunt **targetSdkVersion** in het bestand *build.gradle* in de map *app* bijwerken zodat deze overeenkomt met de versie die al op uw computer is geïnstalleerd. Welke versie dat is, kunt u zien als u op het pictogram **SDK Manager** klikt. Vervolgens drukt u op **Project met Gradle-bestanden synchroniseren**. Mogelijk wordt er een foutbericht weergegeven dat betrekking heeft op versies van opbouwhulpmiddelen. U kunt dit op dezelfde manier oplossen.
 
-### Running the app
+### De app uitvoeren
 
-You can run the app using the emulator, or using an actual device.
+U kunt de app uitvoeren met behulp van de emulator of met een daadwerkelijk apparaat.
 
-1. To run from a device, connect it to your computer with a USB cable. You must [set up the device for development](https://developer.android.com/training/basics/firstapp/running-app.html). If you are developing on a Windows machine, you must also download and install a USB driver.
+1. Als u de app op een apparaat wilt uitvoeren, moet u het apparaat via een USB-kabel met uw computer verbinden. U moet [het apparaat voorbereiden voor ontwikkelwerkzaamheden](https://developer.android.com/training/basics/firstapp/running-app.html). Als u op een Windows-computer ontwikkelt, moet u ook een USB-stuurprogramma downloaden en installeren.
 
-2. To run using the Android emulator, you must define at least one Android Virtual Device (AVD). Click the AVD Manager icon to create and manage these devices.
+2. Als u de app wilt uitvoeren met de Android-emulator, moet u minimaal één Android Virtual Device (AVD) definiëren. Klik op het pictogram AVD Manager om deze apparaten te maken en te beheren.
 
-3. From the **Run** menu, click **Run** to start the project. and choose a device or emulator from the dialog box that appears.
+3. Klik in het menu **Uitvoeren** op **Uitvoeren** om het project te starten. En kies een apparaat of emulator in het dialoogvenster dat verschijnt.
 
-4. When the app appears, type meaningful text, such as _Complete the tutorial_, and then click **Add**.
+4. Als de app wordt weergeven, typt u zinvolle tekst, zoals _Voltooi de zelfstudie_, en klikt u vervolgens op **Toevoegen**.
 
-   	![](./media/mobile-services-android-get-started/mobile-quickstart-startup-android.png)
+    ![](./media/mobile-services-android-get-started/mobile-quickstart-startup-android.png)
 
-   	This sends a POST request to the new mobile service hosted in Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the list.
+    Er wordt nu een POST-aanvraag verzonden naar de nieuwe mobiele service die wordt gehost in Azure. De gegevens van de aanvraag worden opgenomen in de takentabel. De items die in de tabel zijn opgeslagen, worden geretourneerd door de mobiele service en de gegevens worden weergegeven in de lijst.
 
-	> [AZURE.NOTE] You can review the code that accesses your mobile service to query and insert data, which is found in the ToDoActivity.java file.
+    > [AZURE.NOTE] U kunt de code bekijken die toegang heeft tot uw mobiele service, om zo gegevens op te vragen en in te voegen. Deze code vindt u in het bestand ToDoActivity.java.
 
-8. Back in the Azure classic portal, click the **Data** tab and then click the **TodoItems** table.
+8. Klik in de klassieke Azure-portal op het tabblad **Gegevens** en klik vervolgens op de tabel **Taken**.
 
-   	![](./media/mobile-services-android-get-started/mobile-data-tab1.png)
+    ![](./media/mobile-services-android-get-started/mobile-data-tab1.png)
 
-   	This lets you browse the data inserted by the app into the table.
+    U kunt nu door de gegevens bladeren die door de app in de tabel zijn ingevoegd.
 
-   	![](./media/mobile-services-android-get-started/mobile-data-browse.png)
+    ![](./media/mobile-services-android-get-started/mobile-data-browse.png)
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

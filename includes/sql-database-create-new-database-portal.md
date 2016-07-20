@@ -8,41 +8,46 @@ As of circa 2016-04-11, the following topics might include this include:
 articles/sql-database/sql-database-get-started-tutorial.md
 
 -->
-## Create a new Azure SQL database
+## Een nieuwe Azure SQL-database maken
 
-Use the following steps in the Azure portal to create a new Azure SQL database on a new or existing Azure SQL Database logical server.
+Voer de volgende stappen uit in Azure Portal als u een nieuwe Azure SQL-database wilt maken op een nieuwe of bestaande logische server met Azure SQL Database.
 
-1. If not currently connected, connect to the [Azure portal](http://portal.azure.com).
-2. Click **New** , type **SQL Database** and then click **SQL Database (new database)**
+1. Als u momenteel niet bent verbonden, maakt u eerst verbinding met [Azure Portal](http://portal.azure.com).
+2. Klik op **Nieuw** , typ **SQL Database** en klik op **SQL Database (nieuwe database)**
 
-     ![new database](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-1.png)
+     ![nieuwe database](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-1.png)
 
-3. Click SQL Database (new database).
+3. Klik op SQL Database (nieuwe database).
 
-     ![new database](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-2.png)
+     ![nieuwe database](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-2.png)
    
-4. Click **Create** to create a new database in the SQL Database service.
+4. Klik op **Maken** om een nieuwe database te maken in de service SQL Database.
 
-     ![new database](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-3.png)
+     ![nieuwe database](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-3.png)
 
-5. Provide the values for the following server properties:
+5. Geef de waarden op voor de volgende servereigenschappen:
 
- - Database name
- - Subscription (only if you have multiple subscriptions)
- - Resource group (if just getting started, use the resource group of the logical server)
- - Select source (you can choose a blank database, sample data or a database backup)
- - Server (a new or existing logical server)
- - Server admin password
- - Password
- - Pricing tier (if just getting started, use the default value S0)
- - Collation (only if blank database chosen)
+ - Databasenaam
+ - Abonnement (alleen als u meerdere abonnementen hebt)
+ - Resourcegroep (als u nog maar net begint, gebruik dan de resourcegroep van de logische server)
+ - Bron selecteren (u kunt een lege database, voorbeeldgegevens of een databaseback-up selecteren)
+ - Server (een nieuwe of bestaande logische server)
+ - Beheerderswachtwoord server
+ - Wachtwoord
+ - Prijscategorie (als u nog maar net begint, gebruik dan de standaardwaarde S0)
+ - Sortering (alleen als u lege database hebt gekozen)
 
         ![new database](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-4.png)
 
-6.  Click **Create** and in the notification area, you can see that deployment has started.
+6.  Wanneer u op **Maken** klikt, ziet u in het systeemvak dat de implementatie is gestart.
 
-     ![new database](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-5.png)
+     ![nieuwe database](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-5.png)
 
-7. Wait for deployment to finish before continuing to the next step.
+7. Wacht tot de implementatie is voltooid voordat u verder gaat met de volgende stap.
 
-     ![new database](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-6.png)
+     ![nieuwe database](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-6.png)
+
+
+<!--HONumber=Jun16_HO2-->
+
+

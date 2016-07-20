@@ -1,33 +1,38 @@
 <!--author=alkohli last changed: 9/17/15-->
 
-#### To complete the minimum StorSimple device setup
+#### De minimale StorSimple-apparaatinstelling voltooien
 
-1. Select the device and click **Quick Start**. Click **Complete device setup** to start the Configure device wizard.
+1. Selecteer het apparaat en klik op **Quick Start**. Klik op **Apparaatinstelling voltooien** om de wizard Apparaat configureren te starten.
 
-2. In the Configure device wizard **Basic Settings** dialog box, do the following:
-  1. Supply a **friendly name** for your device. The default device name reflects information such as the device model and serial number. You can assign a friendly name of up to 64 characters to manage your device.
-  2. Set the **time zone** based on the geographic location in which the device is being deployed. Your device will use this time zone for all scheduled operations.
-  3. Under **DNS Settings**, provide an address for your **Secondary DNS Server**. If you are using IPv6, the field will be populated based on the IPv6 prefix provided in the Windows PowerShell interface. 
-  If the secondary DNS server is not configured, you will not be allowed to save your device configuration.
-  4. Under iSCSI enabled interfaces, enable at least one network for iSCSI. At least one network interface needs to be cloud-enabled and one interface needs to be iSCSI-enabled. DATA 0 is automatically cloud-enabled.
+2. Ga in het dialoogvenster **Basisinstellingen** van de wizard Apparaat configureren als volgt te werk:
+  1. Geef een **beschrijvende naam** voor het apparaat op. De standaardapparaatnaam bevat informatie zoals het model en serienummer van het apparaat. U kunt een beschrijvende naam van maximaal 64 tekens toewijzen om uw apparaat te beheren.
+  2. Stel de **tijdzone** in op basis van de geografische regio waarin het apparaat wordt geïmplementeerd. Het apparaat zal deze tijdzone gebruiken voor alle geplande bewerkingen.
+  3. Geef onder **DNS-instellingen** het adres voor uw **secundaire DNS-server** op. Als u IPv6 gebruikt, wordt het veld ingevuld op basis van het IPv6-voorvoegsel dat is opgegeven in de Windows PowerShell-interface. 
+  Als de secundaire DNS-server niet is geconfigureerd, kunt u de apparaatconfiguratie niet opslaan.
+  4. Schakel onder de iSCSI-interfaces ten minste één netwerk voor iSCSI in. Ten minste één netwerkinterface moet worden ingeschakeld voor de cloud en één interface moet worden ingeschakeld voor iSCSI. DATA 0 is automatisch ingeschakeld voor de cloud.
  
-      ![StorSimple minimum device setup basic settings](./media/storsimple-complete-minimum-device-setup-u1/HCS_MinDeviceSetupBasicSettings1-include.png)
+      ![Basisinstellingen voor de minimale StorSimple-apparaatinstelling](./media/storsimple-complete-minimum-device-setup-u1/HCS_MinDeviceSetupBasicSettings1-include.png)
 
-3. Click the arrow icon. ![StorSimple arrow icon](./media/storsimple-complete-minimum-device-setup/HCS_ArrowIcon-include.png)
+3. Klik op het pijlpictogram. ![StorSimple-pijlpictogram](./media/storsimple-complete-minimum-device-setup/HCS_ArrowIcon-include.png)
 
-4. In the **Network Interfaces** dialog box, provide the fixed IP addresses for Controller 0 and Controller 1. **The controller fixed IP addresses need to be free IPs within the subnet accessible by the device IP address.** If the DATA 0 interface was configured for IPv4, the fixed IP addresses need to be provided in the IPv4 format. If you provided a prefix for IPv6 configuration, the fixed IP addresses will be populated automatically in these fields.
+4. Geef in het dialoogvenster **Netwerkinterfaces** de vaste IP-adressen voor Controller 0 en Controller 1 op. **De vaste IP-adressen voor de controllers moeten beschikbare IP-adressen binnen het subnet zijn die toegankelijk zijn voor het IP-adres van het apparaat.** Als de DATA 0-interface is geconfigureerd voor IPv4, moeten de vaste IP-adressen worden opgegeven in de IPv4-indeling. Als u een voorvoegsel voor IPv6-configuratie hebt opgegeven, worden de vaste IP-adressen automatisch in deze velden ingevuld.
 
 
-    ![StorSimple minimum device setup network interfaces](./media/storsimple-complete-minimum-device-setup-u1/HCS_MinDeviceSetupNetworkInterfaces2-include.png)
+    ![Netwerkinterfaces voor de minimale StorSimple-apparaatinstelling](./media/storsimple-complete-minimum-device-setup-u1/HCS_MinDeviceSetupNetworkInterfaces2-include.png)
 
-    The fixed IP addresses for the controller are used for servicing the updates to the device, and therefore the fixed IPs must be routable and able to connect to the Internet. You can check that your fixed controller IPs are routable by using the [Test-HcsmConnection][Test] cmdlet. The following example shows fixed controller IPs are routed to the Internet and can access the Microsoft Update servers. 
+    Omdat de vaste IP-adressen voor de controller worden gebruikt om de updates aan het apparaat te leveren, moeten de vaste IP-adressen routeerbaar zijn en verbinding kunnen maken met internet. U kunt controleren of uw vaste IP-adressen voor de controller routeerbaar zijn met de cmdlet [Test-HcsmConnection][Test]. In het volgende voorbeeld is te zien dat de vaste IP-adressen voor de controller worden doorgestuurd naar internet en dat deze toegang hebben tot de Microsoft Update-servers. 
 
-     ![Test-HcsmConnection showing routable IPs](./media/storsimple-complete-minimum-device-setup-u1/Test-HcsmConnectionOutputRegisteredDevice.png)
+     ![Test-HcsmConnection met routeerbare IP-adressen](./media/storsimple-complete-minimum-device-setup-u1/Test-HcsmConnectionOutputRegisteredDevice.png)
 
-5. Click the check icon ![StorSimple check icon](./media/storsimple-complete-minimum-device-setup/HCS_CheckIcon-include.png).
-  You will return to the device **Quick Start** page.
+5. Klik op het vinkje ![Vinkje voor StorSimple](./media/storsimple-complete-minimum-device-setup/HCS_CheckIcon-include.png).
+  U keert terug naar de pagina **Quick Start** van het apparaat.
 
- > [AZURE.NOTE] You can modify all the other device settings at any time by accessing the **Configure** page.
+ > [AZURE.NOTE] U kunt alle andere apparaatinstellingen op elk gewenst moment wijzigen door de pagina **Configureren** te openen.
 
 <!--Link reference-->
 [Test]: https://technet.microsoft.com/library/dn715782(v=wps.630).aspx
+
+
+<!--HONumber=Jun16_HO2-->
+
+

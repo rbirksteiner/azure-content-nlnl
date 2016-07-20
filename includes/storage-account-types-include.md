@@ -1,27 +1,33 @@
-There are two types of storage accounts:
+Er zijn twee typen opslagaccounts:
 
-### General-purpose Storage Accounts
+### Opslagaccounts voor algemeen gebruik
 
-A general-purpose storage account gives you access to Azure Storage services such as Tables, Queues, Files, Blobs and Azure virtual machine disks under a single account. This type of storage account has two performance tiers:
+Een opslagaccount voor algemeen gebruik biedt onder één account toegang tot Azure Storage-services zoals Tables, Queues, Files, Blobs en virtuele-machineschijven van Azure. Dit type opslagaccount heeft twee prestatielagen:
 
-- A standard storage performance tier which allows you to store Tables, Queues, Files, Blobs and Azure virtual machine disks.
-- A premium storage performance tier which currently only supports Azure virtual machine disks. See [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../articles/storage/storage-premium-storage.md) for an in-depth overview of Premium storage.
+- Een laag voor standaardopslagprestaties, waarmee u Tables, Queues, Files, Blobs en virtuele-machineschijven van Azure kunt opslaan.
+- Een Premium-opslagaccount, dat op dit moment alleen virtuele-machineschijven van Azure ondersteunt. Zie [Premium-opslag: krachtige opslag voor Azure Virtual Machine-werkbelasting](../articles/storage/storage-premium-storage.md) voor een gedetailleerd overzicht van Premium-opslag.
 
-### Blob Storage Accounts
+### Blob Storage-accounts
 
-A Blob storage account is a specialized storage account for storing your unstructured data as blobs (objects) in Azure Storage. Blob storage accounts are similar to your existing general-purpose storage accounts and share all the great durability, availability, scalability, and performance features that you use today including 100% API consistency for block blobs and append blobs. For applications requiring only block or append blob storage, we recommend using Blob storage accounts.
+Een Blob Storage-account is een gespecialiseerd opslagaccount voor het opslaan van ongestructureerde gegevens als blobs (objecten) in Azure Storage. Blob Storage-accounts zijn vergelijkbaar met de bestaande opslagaccounts voor algemeen gebruik en bieden dezelfde hoogwaardige kenmerken op het gebied van duurzaamheid, beschikbaarheid, schaalbaarheid en prestaties waarover u nu al beschikt, inclusief 100 procent API-consistentie voor blok-blobs en toevoeg-blobs. Voor toepassingen die alleen blok- of toevoeg-blob-opslag nodig hebben, wordt het gebruik van Blob-opslagaccounts aangeraden.
 
-> [AZURE.NOTE] Blob storage accounts support only block and append blobs, and not page blobs.
+> [AZURE.NOTE] Blob Storage-accounts ondersteunen alleen blok-blobs en toevoeg-blobs. Pagina-blobs worden niet ondersteund.
 
-Blob storage accounts expose the **Access Tier** attribute which can be specified during account creation and modified later as needed. There are two types of access tiers that can be specified based on your data access pattern:
+Blob-opslagaccounts hebben het kenmerk **Toegangslaag**, dat kan worden opgegeven wanneer het account wordt gemaakt en later naar behoefte kan worden gewijzigd. Er zijn twee soorten toegangslagen die u op basis van uw gegevenstoegangspatroon kunt opgeven:
 
-- A **Hot** access tier which indicates that the objects in the storage account will be more frequently accessed. This allows you to store data at a lower access cost.
-- A **Cool** access tier which indicates that the objects in the storage account will be less frequently accessed. This allows you to store data at a lower data storage cost.
+- De toegangslaag **Hot**, waarmee wordt aangegeven dat de objecten in het opslagaccount vaker worden gebruikt. Hiermee kunt u gegevens tegen lagere toegangskosten opslaan.
+- De toegangslaag **Cool**, waarmee wordt aangegeven dat de objecten in het opslagaccount minder vaak worden gebruikt. Hiermee kunt u gegevens tegen lagere gegevensopslagkosten opslaan.
 
-If there is a change in the usage pattern of your data, you can also switch between these access tiers at any time. Changing the access tier may result in additional charges. Please see [Pricing and billing for Blob storage accounts](../articles/storage/storage-blob-storage-tiers.md#pricing-and-billing) for more details.
+Als er een wijziging optreedt in het gebruikspatroon van de gegevens, kunt u op elk gewenst moment schakelen tussen deze toegangslagen. Aan het wijzigen van de toegangslaag kunnen extra kosten zijn verbonden. Zie [Blob Storage-accounts: prijzen en facturering](../articles/storage/storage-blob-storage-tiers.md#pricing-and-billing) voor meer informatie.
 
-For more details on Blob storage accounts, see [Azure Blob Storage: Cool and Hot tiers](../articles/storage/storage-blob-storage-tiers.md).
+Zie [Azure Blob Storage: Cool Storage-laag en Hot Storage-laag](../articles/storage/storage-blob-storage-tiers.md) voor meer informatie.
 
-Before you can create a storage account, you must have an Azure subscription, which is a plan that gives you access to a variety of Azure services. You can get started with Azure with a [free account](https://azure.microsoft.com/pricing/free-trial/). Once you decide to purchase a subscription plan, you can choose from a variety of [purchase options](https://azure.microsoft.com/pricing/purchase-options/). If you’re an [MSDN subscriber](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), you get free monthly credits that you can use with Azure services, including Azure Storage. See [Azure Storage Pricing ](https://azure.microsoft.com/pricing/details/storage/) for information on volume pricing.
+Voordat u een opslagaccount kunt maken, moet u een Azure-abonnement hebben, een abonnement dat u toegang geeft tot diverse Azure-services. Met een [gratis account](https://azure.microsoft.com/pricing/free-trial/) kunt u direct aan de slag met Azure. Als u besluit om een abonnement aan te schaffen, kunt u kiezen uit een aantal [aanschafopties](https://azure.microsoft.com/pricing/purchase-options/). Als u een [MSDN-abonnee](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) bent, krijgt u gratis maandelijkse tegoeden die u kunt gebruiken met Azure-services, waaronder Azure Storage. Zie [Prijzen van Azure Storage](https://azure.microsoft.com/pricing/details/storage/) voor meer informatie over volumeprijzen.
 
-To learn how to create a storage account, see [Create a storage account](../articles/storage/storage-create-storage-account.md#create-a-storage-account) for more details. You can create up to 100 uniquely named storage accounts with a single subscription. See [Azure Storage Scalability and Performance Targets](../articles/storage/storage-scalability-targets.md) for details about storage account limits.
+Zie [Een opslagaccount maken](../articles/storage/storage-create-storage-account.md#create-a-storage-account) voor informatie over het maken van een opslagaccount. Met één abonnement kunt u maximaal 100 opslagaccounts met een unieke naam maken. Zie [Azure Storage Scalability and Performance Targets](../articles/storage/storage-scalability-targets.md) (Schaalbaarheids- en prestatiedoeleinden in Azure Storage) voor meer informatie over opslagaccountlimieten.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

@@ -1,5 +1,11 @@
-> [AZURE.NOTE] Azure PowerShell is currently available in two releases - 1.0 and 0.9.8. If you have existing scripts and do not want to change them right now, you can continue using the 0.9.8 release. When using the 1.0 release, you should carefully test your scripts in pre-production environments before using them in production to avoid unexpected impacts.
+> [AZURE.NOTE] Azure PowerShell is momenteel beschikbaar in twee versies: 1.0 en 0.9.8. Als u al scripts hebt en deze nu niet wilt wijzigen, kunt u versie 0.9.8 blijven gebruiken. Wanneer u versie 1.0 gebruikt, moet u uw scripts zorgvuldig testen in pre-productieomgevingen om te voorkomen dat zich onverwachte effecten voordoen.
 >
-> 1.0 cmdlets follow the naming pattern {verb}-AzureRm{noun}; whereas, the 0.9.8 names do not include **Rm** (for example, New-AzureRmResourceGroup instead of New-AzureResourceGroup). When using Azure PowerShell 0.9.8, you must first enable the Resource Manager mode by running the **Switch-AzureMode AzureResourceManager** command. This command is not necessary in 1.0.
+> 1.0-cmdlets volgen het naamgevingspatroon {werkwoord}-AzureRm {zelfstandig naamwoord}; terwijl de namen in versie 0.9.8 geen **Rm** bevatten (bijvoorbeeld New-AzureRmResourceGroup in plaats van New-AzureResourceGroup). Wanneer u Azure PowerShell 0.9.8 gebruikt, moet u eerst de Resource Manager-modus inschakelen door de opdracht **Switch Azure AzureResourceManager** uit te voeren. Deze opdracht hoeft in 1.0 niet te worden uitgevoerd.
 >
-> New features will be added to only the 1.0 release. For information about the 1.0 release, including how to install and uninstall the release, see [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
+> Nieuwe functies worden alleen aan versie 1.0 toegevoegd. Zie [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/) voor informatie over de 1.0 release, zoals onder andere het installeren en verwijderen ervan.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

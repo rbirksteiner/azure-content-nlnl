@@ -8,38 +8,43 @@ As of circa 2016-04-11, the following topics might include this include:
 articles/sql-database/sql-database-get-started-tutorial.md
 
 -->
-## Create an Azure SQL Database logical server
+## Een logische server met Azure SQL Database maken
 
-Use the following steps in the Azure portal to create an Azure SQL Database logical server.
+Voer de volgende stappen uit in Azure Portal om een logische server met Azure SQL Database te maken.
 
-1. If not currently connected, connect to the [Azure portal](http://portal.azure.com).
-2. Click **New** , type **SQL Database** and then click **SQL Database (new logical server)**
+1. Als u momenteel niet bent verbonden, maakt u eerst verbinding met [Azure Portal](http://portal.azure.com).
+2. Klik op **Nieuw** , typ **SQL Database** en klik op **SQL Database (nieuwe logische server)**
 
-      ![new logocal server](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-1.png)
+      ![nieuwe logische server](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-1.png)
 
-3. Click SQL Database (new logical server).
+3. Klik op SQL Database (nieuwe logische server).
 
-      ![new logccal server](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-2.png)
+      ![nieuwe logische server](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-2.png)
    
-4. Click **Create** to open a template to create an empty logical server that can host single databases and elastic database pools.
+4. Klik op **Maken** om een sjabloon te openen voor het maken van een lege logische server die zowel individuele databases als pools voor elastische databases kan hosten.
 
-      ![new logical server](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-3.png)
+      ![nieuwe logische server](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-3.png)
 
-5. Provide the values for the following server properties:
+5. Geef de waarden op voor de volgende servereigenschappen:
 
- - Server name
- - Server admin login
- - Password
- - Subscription (only if have multiple subscriptions)
- - Resource group (new or existing)
- - Location
+ - Servernaam
+ - Aanmeldgegevens van serverbeheerder
+ - Wachtwoord
+ - Abonnement (alleen als u meerdere abonnementen hebt)
+ - Resourcegroep (nieuwe of bestaande)
+ - Locatie
 
         ![new logical server](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-4.png)
 
-6.  Click **Create** and in the notification area, you can see that deployment has started.
+6.  Wanneer u op **Maken** klikt, ziet u in het systeemvak dat de implementatie is gestart.
 
-       ![new logical server](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-5.png)
+       ![nieuwe logische server](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-5.png)
 
-7. Wait for deployment to finish before continuing to the next step.
+7. Wacht tot de implementatie is voltooid voordat u verder gaat met de volgende stap.
 
        ![new logical server](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-6.png)
+
+
+<!--HONumber=Jun16_HO2-->
+
+

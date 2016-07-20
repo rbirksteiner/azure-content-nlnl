@@ -1,5 +1,5 @@
 > [AZURE.SELECTOR]
-- [Universal Windows](../articles/mobile-engagement/mobile-engagement-windows-store-dotnet-get-started.md)
+- [Universeel Windows](../articles/mobile-engagement/mobile-engagement-windows-store-dotnet-get-started.md)
 - [Windows Phone Silverlight](../articles/mobile-engagement/mobile-engagement-windows-phone-get-started.md)
 - [iOS | Obj C](../articles/mobile-engagement/mobile-engagement-ios-get-started.md)
 - [iOS | Swift](../articles/mobile-engagement/mobile-engagement-ios-swift-get-started.md)
@@ -10,3 +10,9 @@
 - [Unity | iOS](../articles/mobile-engagement/mobile-engagement-unity-ios-get-started.md)
 - [Unity | Android](../articles/mobile-engagement/mobile-engagement-unity-android-get-started.md)
  
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

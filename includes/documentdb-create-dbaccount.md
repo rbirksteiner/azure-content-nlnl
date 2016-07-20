@@ -1,36 +1,42 @@
-1.	Sign in to the online [Microsoft Azure portal](https://portal.azure.com/).
-2.	In the Jumpbar, click **New**, then click **Data + Storage**, and then click **Azure DocumentDB**.
+1.  Meld u online aan bij [Microsoft Azure Portal](https://portal.azure.com/).
+2.  Klik in de snelbalk op **Nieuw**, klik vervolgens op **Gegevens en opslag**, en klik vervolgens op **Azure DocumentDB**.
 
-	![Screen shot of the Azure portal  to create a database, highlighting the New button, Data + storage in the Create blade, and Azure DocumentDB in the Data + Storage blade](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)  
+    ![Schermopname van de Azure Portal voor het maken van een database, waarbij de knop Nieuw, Gegevens en opslag in de blade Maken en Azure DocumentDB in de blade Gegevens zijn gemarkeerd](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)  
 
-3. In the **New DocumentDB account** blade, specify the desired configuration for the DocumentDB account.
+3. In de blade **Nieuw DocumentDB-account** geeft u de gewenste configuratie op voor het DocumentDB-account.
 
-	![Screen shot of the New DocumentDB blade](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
+    ![Schermopname van de nieuwe DocumentDB-blade](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
 
 
-	- In the **ID** box, enter a name to identify the DocumentDB account.  When the **ID** is validated, a green check mark appears in the **ID** box. The **ID** value becomes the host name within the URI. The **ID** may contain only lowercase letters, numbers, and the '-' character, and must be between 3 and 50 characters. Note that *documents.azure.com* is appended to the endpoint name you choose, the result of which will become your DocumentDB account endpoint.
+    - In het vak **ID** typt u de naam die het DocumentDB-account aanduidt.  Wanneer de **id** is gevalideerd, verschijnt een groen vinkje in het vak **ID**. De **ID**-waarde wordt de hostnaam binnen de URI. De **id** mag alleen kleine letters, cijfers en het minteken ('-') bevatten, en moet tussen 3 en 50 tekens zijn. Houd er rekening mee dat *documents.azure.com* wordt toegevoegd aan de eindpuntnaam die u kiest. Het resultaat hiervan wordt het eindpunt van uw DocumentDB-account.
 
-	- For **Subscription**, select the Azure subscription that you want to use for the DocumentDB account. If your account has only one subscription, that account is selected by default.
+    - Selecteer als **Abonnement** het Azure-abonnement dat u voor het DocumentDB-account wilt gebruiken. Als uw account slechts één abonnement heeft, wordt dit account standaard geselecteerd.
 
-	- In **Resource Group**, select or create a resource group for your DocumentDB account.  By default, an existing Resource group under the Azure subscription will be chosen.  You may, however, choose to select to create a new resource group to which you would like to add your DocumentDB account. For more information, see [Using the Azure portal to manage your Azure resources](resource-group-portal.md).
+    - In **Resourcegroep** selecteert of maakt u een resourcegroep voor uw DocumentDB-account.  Standaard wordt een bestaande resourcegroep onder het Azure-abonnement gekozen.  U kunt er echter voor kiezen om een nieuwe resourcegroep te maken waaraan u uw DocumentDB-account wilt toevoegen. Zie [De Azure Portal gebruiken om uw Azure-resources te beheren](resource-group-portal.md) voor meer informatie.
 
-	- Use **Location** to specify the geographic location in which to host your DocumentDB account.   
+    - Gebruik **Locatie** om de geografische locatie op te geven waar uw DocumentDB-account moet worden gehost.   
 
-4.	Once the new DocumentDB account options are configured, click **Create**.  It can take a few minutes to create the DocumentDB account.  To check the status, you can monitor the progress on the Startboard.  
-	![Screen shot of the Creating tile on the Startboard - Online database creator](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-3.png)  
+4.  Zodra de opties voor het nieuwe DocumentDB-account zijn geconfigureerd, klikt u op **Maken**.  Het kan een paar minuten duren voordat het DocumentDB-account is gemaakt.  Als u de status wilt zien, kunt u de voortgang via het startboard bekijken.  
+    ![Schermopname van de tegel Maken op het startboard - Onlinedatabase maken](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-3.png)  
 
-	Or, you can monitor your progress from the Notifications hub.  
+    Of u kunt de voortgang via Notification Hubs bekijken.  
 
-	![Create databases quickly - Screen shot of the Notifications hub, showing that the DocumentDB account is being created](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-4.png)  
+    ![Snel databases maken: schermopname van Notification Hubs, waarop wordt weergegeven dat het DocumentDB-account wordt gemaakt](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-4.png)  
 
-	![Screen shot of the Notifications hub, showing that the DocumentDB account was created successfully and deployed to a resource group - Online database creator notification](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-5.png)
+    ![Schermopname van Notification Hubs, waarop wordt weergegeven dat het DocumentDB-account is gemaakt en naar een resourcegroep is geïmplementeerd - melding van Onlinedatabase maken](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-5.png)
 
-5.	After the DocumentDB account is created, it is ready for use with the default settings in the online portal. Note that the default consistency of the DocumentDB account is set to **Session**.  You can adjust the default consistency setting by clicking the **Settings** icon on the top command bar, then clicking the **Default Consistency** entry under **Feature** on the **All Settings** blade.
+5.  Nadat het DocumentDB-account is gemaakt, kan het meteen met de standaardinstellingen in de onlineportal worden gebruikt. Merk op dat de standaardconsistentie van de DocumentDB-account is ingesteld op **Sessie**.  U kunt de standaardinstelling voor consistentie aanpassen door op het pictogram **Instellingen** op de bovenste opdrachtbalk te klikken, klik vervolgens op het item **Standaardconsistentie** onder **Functie** in de blade **Alle instellingen**.
 
-    ![Screen shot of the Resource Group blade - begin application development](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-6.png)  
+    ![Schermopname van de blade Resourcegroep - begin met het ontwikkelen van de toepassing](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-6.png)  
 
-    ![Screen shot of the Consistency Level blade - Session Consistency](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-7.png)  
+    ![Schermopname van de blade Consistentieniveau - sessie Consistentie](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-7.png)  
 
-[How to: Create a DocumentDB account]: #Howto
-[Next steps]: #NextSteps
+[Procedure: een DocumentDB-account maken]: #Howto
+[Volgende stappen]: #NextSteps
 [documentdb-manage]:../articles/documentdb/documentdb-manage.md
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

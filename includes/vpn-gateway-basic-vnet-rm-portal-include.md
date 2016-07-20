@@ -1,31 +1,36 @@
-To create a VNet by using the Azure portal, follow the steps below. Note that the screenshots are provided as examples. Be sure to replace the values with your own. For more information about working with virtual networks, see the [Virtual Network Overview](../articles/virtual-network/virtual-networks-overview.md).
+Volg de onderstaande stappen om een VNet aan te maken met behulp van de Azure Portal. Let op: de schermafbeeldingen dienen alleen als voorbeeld. Zorg dat u de waarden vervangt door die van uzelf. Bekijk het [Virtual Network-overzicht](../articles/virtual-network/virtual-networks-overview.md) voor meer informatie over het gebruik van virtuele netwerken.
 
-1. From a browser, navigate to the [Azure portal](http://portal.azure.com) and, if necessary, sign in with your Azure account.
+1. Navigeer via een browser naar de [Azure Portal](http://portal.azure.com) en log, indien nodig, in met uw Azure-account.
 
-2. Click **New** **>** **Networking** **>** **Virtual Network**.
+2. Klik op **Nieuw** **>** **Netwerken** **>** **Virtueel netwerk**.
 
-	![VNetBlade](./media/vpn-gateway-basic-vnet-rm-portal-include/newvnetportal650.png)
+    ![VNetBlade](./media/vpn-gateway-basic-vnet-rm-portal-include/newvnetportal650.png)
 
-3. Near the bottom of the Virtual Network blade, from the **Select a deployment model** list, select **Resource Manager**, and then click **Create**.
-
-
-	![Select Resource Manager](./media/vpn-gateway-basic-vnet-rm-portal-include/resourcemanager250.png)
-
-4. On the **Create virtual network** blade, configure the VNet settings. In this blade, you'll add your first address space and a single subnet address range. After you finish creating the VNet, you can go back and add additional subnets and address spaces. This is a current limitation of the portal. You can always come back to update these values by editing the VNet properties in the portal, or by using PowerShell. The values that you use will depend on the configuration you want to create. Be sure to refer to your planned configuration values. 
-
-	![Create virtual network blade](./media/vpn-gateway-basic-vnet-rm-portal-include/createavnet250.png)
-
-5. Verify that the **Subscription** is the correct one. You can change subscriptions by using the dropdown.
-
-6. Click **Resource group** and either select an existing resource group, or create a new one by typing a name for your new resource group. If you are creating a new group, name the resource group according to your planned configuration values. For more information about resource groups, visit [Azure Resource Manager Overview](resource-group-overview.md#resource-groups).
-
-7. Next, select the **Location** settings for your VNet. Note that the location will determine where the resources that you deploy to this VNet will reside. You can't change this later without redeploying your resources.
-
-8. Select **Pin to dashboard** if you want to be able to find your VNet easily on the dashboard, and then click **Create**.
-	
-	![Pin to dashboard](./media/vpn-gateway-basic-vnet-rm-portal-include/pintodashboard150.png)
+3. Kies, uit de lijst **Selecteer een implementatiemodel** aan de onderzijde van de blade virtueel netwerk, de optie **Resource Manager** en klik vervolgens op **Aanmaken**.
 
 
-9. After clicking Create, you will see a tile on your dashboard that will reflect the progress of your VNet. The tile will change as the VNet is being created.
+    ![Selecteer Resource Manager](./media/vpn-gateway-basic-vnet-rm-portal-include/resourcemanager250.png)
 
-	![Creating virtual network tile](./media/vpn-gateway-basic-vnet-rm-portal-include/deploying150.png)
+4. Configureer de VNet-instellingen op de blade **virtueel netwerk aanmaken**. Voeg uw eerste adresruimte en één adresbereik voor het subnet toe aan deze blade. Nadat u het VNet hebt aangemaakt, kunt u terugkeren en aanvullende subnets en adresruimten toevoegen. Dit is nog een beperking van de portal. Je kunt altijd terugkeren om deze waarden bij te werken door de eigenschappen van de VNet te bewerken in de portal of door PowerShell te gebruiken. De waarden die u gebruikt zijn afhankelijk van de configuratie die u wilt aanmaken. Zorg dat u verwijst naar uw geplande configuratiewaarden. 
+
+    ![Een virtuele netwerkblade aanmaken](./media/vpn-gateway-basic-vnet-rm-portal-include/createavnet250.png)
+
+5. Controleer of het **Abonnement** het juiste is. U kunt abonnementen wijzigen met behulp van de vervolgkeuzelijst.
+
+6. Klik op **Resourcegroep** en selecteer een bestaande resourcegroep of maak een nieuwe aan door een naam in te voeren voor uw nieuwe resourcegroep. Geef de resourcegroep een naam die aansluit bij de geplande configuratiewaarden wanneer u een nieuwe groep aanmaakt. Zie voor meer informatie over resourcegroepen [Overzicht van Azure Resource Manager](resource-group-overview.md#resource-groups).
+
+7. Selecteer vervolgens de **Locatie**-instellingen voor uw VNet. Houd er rekening mee dat de locatie bepaalt waar de resources die u in dit VNet implementeert, worden opgeslagen. U kunt dit later niet wijzigen zonder uw resources opnieuw te implementeren.
+
+8. Selecteer **Vastmaken aan dashboard** als u uw VNet gemakkelijk wilt terugvinden op het dashboard en klik vervolgens op **Aanmaken**.
+    
+    ![Vastmaken aan dashboard](./media/vpn-gateway-basic-vnet-rm-portal-include/pintodashboard150.png)
+
+
+9. Nadat u op Aanmaken klikt, ziet u een tegel op uw dashboard die de voortgang van uw VNet aangeeft. De tegel wordt gewijzigd wanneer het VNet wordt gemaakt.
+
+    ![Tegel Virtueel netwerk aanmaken](./media/vpn-gateway-basic-vnet-rm-portal-include/deploying150.png)
+
+
+<!--HONumber=Jun16_HO2-->
+
+

@@ -1,56 +1,40 @@
-## What is the Table Service
+## Wat is Tabelservice
 
-The Azure Table storage service stores large amounts of
-structured data. The service is a NoSQL datastore which accepts
-authenticated calls from inside and outside the Azure cloud. Azure
-tables are ideal for storing structured, non-relational data. Common
-uses of the Table service include:
+Met de service Azure Table Storage kunnen grote hoeveelheden gestructureerde gegevens worden opgeslagen. De service is een NoSQL-gegevensarchief die geverifieerde aanroepen in en buiten de Azure-cloud accepteert. Azure-tabellen zijn ideaal voor het opslaan van gestructureerde, niet-relationele gegevens. Veelvoorkomende toepassingen van Tabelservice zijn:
 
--   Storing TBs of structured data capable of serving web scale
-    applications
--   Storing datasets that don't require complex joins, foreign keys, or
-    stored procedures and can be denormalized for fast access
--   Quickly querying data using a clustered index
--   Accessing data using the OData protocol and LINQ queries with WCF
-    Data Service .NET Libraries
+-   Opslaan van terabytes aan gestructureerde gegevens die kunnen worden geleverd aan webschaaltoepassingen
+-   Opslaan van gegevenssets die geen complexe joins, refererende sleutels of opgeslagen procedures vereisen en die kunnen worden gedenormaliseerd voor snelle toegang
+-   Snel een query voor gegevens uitvoeren met een geclusterde index
+-   Toegang tot gegevens krijgen met het OData-protocol en LINQ-query's met WCF Data Service .NET-bibliotheken
 
-You can use the Table service to store and query huge sets of
-structured, non-relational data, and your tables will scale as demand
-increases.
+U kunt Tabelservice gebruiken om grote sets gestructureerde, niet-relationele gegevens op te slaan en query’s op de gegevens uit te voeren. En wanneer de vraag toeneemt, worden uw tabellen opgeschaald.
 
-## Table Service Concepts
+## Concepten van Tabelservice
 
-The Table service contains the following components:
+Tabelservice bevat de volgende onderdelen:
 
 ![Table1][Table1]
 
--   **URL format:** Code addresses tables in an account using this
-    address format:   
+-   **URL-indeling:** voor tabellen in een account wordt code met de volgende adresindeling gebruikt:   
     http://`<storage account>`.table.core.windows.net/`<table>`  
       
-    You can address Azure tables directly using this address with the
-    OData protocol. For more information, see [OData.org][]
+    U kunt rechtstreeks naar Azure-tabellen verwijzen met dit adres met het OData-protocol. Zie [OData.org][] voor meer informatie
 
--   **Storage Account:** All access to Azure Storage is done
-    through a storage account. See [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md) for details about storage account capacity.
+-   **Storage-account:** alle toegang tot Azure Storage vindt plaats via een opslagaccount. Zie [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md) (Schaalbaarheids- en prestatiedoelen in Azure Storage) voor meer informatie over opslagaccountcapaciteit.
 
--   **Table**: A table is a collection of entities. Tables don't enforce
-    a schema on entities, which means a single table can contain
-    entities that have different sets of properties. The number of tables that a 
-	storage account can contain is limited only by the 
-    storage account capacity limit.
+-   **Tabel**: een tabel is een verzameling entiteiten. Met tabellen wordt geen schema voor entiteiten afgedwongen, wat betekent dat één tabel entiteiten kan bevatten die verschillende sets eigenschappen hebben. Het aantal tabellen dat een opslagaccount kan bevatten, wordt alleen beperkt door de capaciteitslimiet van het opslagaccount.
 
--   **Entity**: An entity is a set of properties, similar to a database
-    row. An entity can be up to 1MB in size.
+-   **Entiteit**: een entiteit is een set eigenschappen die vergelijkbaar is met een databaserij. Een entiteit kan maximaal 1 MB groot zijn.
 
--   **Properties**: A property is a name-value pair. Each entity can
-    include up to 252 properties to store data. Each entity also has 3
-    system properties that specify a partition key, a row key, and a
-    timestamp. Entities with the same partition key can be queried more
-    quickly, and inserted/updated in atomic operations. An entity's row
-    key is its unique identifier within a partition.
+-   **Eigenschappen**: een eigenschap is een naamwaardepaar. Elke entiteit kan maximaal 252 eigenschappen voor het opslaan van gegevens bevatten. Elke entiteit heeft ook drie systeemeigenschappen waarmee een partitiesleutel, een rijsleutel en een timestamp worden opgegeven. Entiteiten met dezelfde partitiesleutel kunnen sneller worden opgevraagd en in atomische bewerkingen worden ingevoegd/bijgewerkt. De rijsleutel van een entiteit is de unieke id in een partitie.
 
-For details about naming tables and properties, see [Understanding the Table Service Data Model](https://msdn.microsoft.com/library/azure/dd179338.aspx).
+Zie [Understanding the Table Service Data Model](https://msdn.microsoft.com/library/azure/dd179338.aspx) (Inzicht krijgen in het Tabelservice-gegevensmodel) voor meer informatie over de naamgeving van tabellen en eigenschappen.
   
   [Table1]: ./media/storage-table-concepts-include/table1.png
   [OData.org]: http://www.odata.org/
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

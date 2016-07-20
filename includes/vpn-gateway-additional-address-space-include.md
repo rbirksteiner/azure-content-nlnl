@@ -1,16 +1,22 @@
-### To add address space
+### Adresruimte toevoegen
 
-1. To add additional address space, click **All settings** to open the **Settings** blade. 
+1. Om extra adresruimte toe te voegen, klikt u op **Alle instellingen** om de blade **Instellingen** te openen. 
 
-2. On the **Settings** blade, click **Address space** to open the Address space blade. Add the additional address space in this blade, and then click **Save** at the top of the blade.
+2. Op de blade **Instellingen** klikt u op **Adresruimte** om de blade Adresruimte te openen. Voeg de extra adresruimte toe in deze blade en klik vervolgens op **Opslaan** bovenaan de blade.
 
-	![Add address space](./media/vpn-gateway-additional-address-space-include/address400.png)
+    ![Adresruimte toevoegen](./media/vpn-gateway-additional-address-space-include/address400.png)
 
-### To add subnets 
+### Subnetten toevoegen 
 
-1. To add additional subnets to your address spaces, in the **Settings** blade, click **Subnets** to open the **Subnets** blade. 
+1. Om extra subnetten toe te voegen aan uw adresruimten klikt u in de blade **Instellingen** op **Subnetten** om de blade **Subnetten** te openen. 
 
-2. In the Subnets blade, click **Add** to open the **Add subnet** blade. Name your new subnet and specify the address range, and then click **OK** at the bottom of the blade. Once a subnet has been created, you can use the subnets blade to view all of your subnets for a VNet.
+2. In de blade Subnetten klikt u op **Toevoegen** om de blade **Subnet toevoegen** te openen. Geef uw nieuwe subnet een naam en voer het adresbereik in. Klik vervolgens op **OK** onderaan de blade. Zodra een subnet is gemaakt, kunt u de blade subnetten gebruiken om al uw subnetten voor een VNet weer te geven.
 
 
-	![Subnet settings](./media/vpn-gateway-additional-address-space-include/addsubnet250.png)		
+    ![Subnetinstellingen](./media/vpn-gateway-additional-address-space-include/addsubnet250.png)       
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

@@ -1,70 +1,76 @@
-## Set up your development environment
+## De ontwikkelomgeving instellen
 
-Next, set up your development environment in Visual Studio so that you are ready to try the code examples provided in this guide.
+Vervolgens stelt u uw ontwikkelomgeving in Visual Studio zo in dat u de codevoorbeelden in deze handleiding kunt uitproberen.
 
-### Create a Windows console application project
+### Een Windows-consoletoepassingsproject maken
 
-In Visual Studio, create a new Windows console application, as shown:
+Maak in Visual Studio een nieuwe Windows-consoletoepassing, zoals hier wordt weergegeven:
 
-![Create Windows console application](./media/storage-development-environment-include/storage-development-environment-include-1.png)
+![Windows-consoletoepassing maken](./media/storage-development-environment-include/storage-development-environment-include-1.png)
 
-All of the code examples in this tutorial can be added to the **Main()** method in `program.cs` in your console application.
+Alle codevoorbeelden in deze zelfstudie kunnen worden toegevoegd aan de methode **Main()** in `program.cs` in uw consoletoepassing.
 
-Note that you can use the Azure Storage Client Library from any type of .NET application, including an Azure cloud service, an Azure web app, a desktop application, or a mobile application. In this guide, we use a console application for simplicity.
+U kunt de Azure Storage-clientbibliotheek gebruiken vanuit elk type .NET-toepassing, waaronder een Azure-cloudservice, een Azure-web-app, een bureaubladtoepassing of een mobiele toepassing. In deze gids gebruiken we een consoletoepassing voor de eenvoud.
 
-### Use NuGet to install the required packages
+### NuGet gebruiken om de vereiste pakketten te installeren
 
-There are two packages that you'll need to install to your project to complete this tutorial:
+Er zijn twee pakketten die u moet installeren voor uw project om deze zelfstudie te kunnen voltooien:
 
-- [Microsoft Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/): This package provides programmatic access to data resources in your storage account.
-- [Microsoft Azure Configuration Manager library for .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): This package provides a class for parsing a connection string from a configuration file, regardless of where your application is running.
+- [Microsoft Azure Storage-clientbibliotheek voor .NET](https://www.nuget.org/packages/WindowsAzure.Storage/): dit pakket biedt programmatisch toegang tot gegevensbronnen in uw opslagaccount.
+- [Configuration Manager-bibliotheek van Microsoft Azure voor .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): dit pakket biedt een klasse voor het parseren van een verbindingsreeks vanuit een configuratiebestand, ongeacht waar de toepassing wordt uitgevoerd.
 
-You can use NuGet to obtain both packages. Follow these steps:
+Met NuGet kunt u beide pakketten verkrijgen. Volg deze stappen:
 
-1. Right-click your project in **Solution Explorer** and choose **Manage NuGet Packages**.
-2. Search online for "WindowsAzure.Storage" and click **Install** to install the Storage Client Library and its dependencies.
-3. Search online for "ConfigurationManager" and click **Install** to install the Azure Configuration Manager.
+1. Klik met de rechtermuisknop op het project in **Solution Explorer** en kies **NuGet-pakketten beheren**.
+2. Zoek online naar 'WindowsAzure.Storage' en klik op **Installeren** om de Storage-clientbibliotheek en de afhankelijkheden ervan te installeren.
+3. Zoek online naar 'ConfigurationManager' en klik op **Installeren** om Azure Configuration Manager te installeren.
 
->[AZURE.NOTE] The Storage Client Library package is also included in the [Azure SDK for .NET](https://azure.microsoft.com/downloads/). However, we recommend that you also install the Storage Client Library from NuGet to ensure that you always have the latest version of the client library.
+>[AZURE.NOTE] Het pakket met de Storage-clientbibliotheek is ook opgenomen in de [Azure-SDK voor .NET](https://azure.microsoft.com/downloads/). We raden u echter aan om ook de Storage-clientbibliotheek vanuit NuGet te installeren, zodat u zeker weet dat u altijd de meest recente versie van de clientbibliotheek hebt geïnstalleerd.
 >
->The ODataLib dependencies in the Storage Client Library for .NET are resolved through the ODataLib (version 5.0.2 and greater) packages available through NuGet, and not through WCF Data Services. The ODataLib libraries can be downloaded directly or referenced by your code project through NuGet. The specific ODataLib packages used by the Storage Client Library are [OData](http://nuget.org/packages/Microsoft.Data.OData/5.0.2), [Edm](http://nuget.org/packages/Microsoft.Data.Edm/5.0.2), and [Spatial](http://nuget.org/packages/System.Spatial/5.0.2). While these libraries are used by the Azure Table storage classes, they are required dependencies for programming with the Storage Client Library.
+>De ODataLib-afhankelijkheden in de Storage-clientbibliotheek voor .NET worden opgelost middels ODataLib-pakketten (versie 5.0.2 en hoger), die beschikbaar zijn via NuGet, en niet middels WCF Data Services. De ODataLib-bibliotheken kunnen rechtstreeks worden gedownload of er kan vanuit het codeproject via NuGet naar worden verwezen. De specifieke ODataLib-pakketten die door de Storage-clientbibliotheek worden gebruikt, zijn [OData](http://nuget.org/packages/Microsoft.Data.OData/5.0.2), [Edm](http://nuget.org/packages/Microsoft.Data.Edm/5.0.2) en [Spatial](http://nuget.org/packages/System.Spatial/5.0.2). Hoewel deze bibliotheken door de Azure Table-opslagklassen worden gebruikt, zijn het verplichte afhankelijkheden voor het programmeren met de Storage-clientbibliotheek.
 
 
-### Determine your target environment
+### De doelomgeving bepalen
 
-You have two environment options for running the examples in this guide:
+U kunt de voorbeelden in deze gids in twee omgevingen uitvoeren:
 
-- You can run your code against an Azure Storage account in the cloud. 
-- You can run your code against the Azure storage emulator. The storage emulator is a local environment that emulates an Azure Storage account in the cloud. The emulator is a free option for testing and debugging your code while your application is under development. The emulator uses a well-known account and key. For more details, see [Use the Azure Storage Emulator for Development and Testing](../articles/storage/storage-use-emulator.md)
+- U kunt de code uitvoeren met een Azure Storage-account in de cloud. 
+- U kunt de code uitvoeren met de Azure-opslagemulator. De opslagemulator is een lokale omgeving die een Azure Storage-account in de cloud emuleert. De emulator is een gratis optie waarmee u uw code kunt testen en fouten in de code kunt opsporen terwijl de toepassing nog in ontwikkeling is. De emulator maakt gebruik van een bekend account en een bekende sleutel. Zie [Use the Azure Storage Emulator for Development and Testing](../articles/storage/storage-use-emulator.md) (De Azure-opslagemulator gebruiken voor het ontwikkelen en testen) voor meer informatie.
 
-If you are targeting a storage account in the cloud, copy the primary access key for your storage account from the Azure Portal. For more information, see [View and copy storage access keys](../articles/storage/storage-create-storage-account.md#view-and-copy-storage-access-keys).
+Als u een opslagaccount in de cloud wilt gebruiken, kopieert u de primaire toegangssleutel voor uw opslagaccount vanuit Azure Portal. Zie [Opslagtoegangssleutels bekijken en kopiëren](../articles/storage/storage-create-storage-account.md#view-and-copy-storage-access-keys) voor meer informatie.
 
-> [AZURE.NOTE] You can target the storage emulator to avoid incurring any costs associated with Azure Storage. However, if you do choose to target an Azure storage account in the cloud, costs for performing this tutorial will be negligible.
+> [AZURE.NOTE] Gebruik de opslagemulator als u mogelijke kosten in verband met Azure-opslag wilt vermijden. Als u er echter voor kiest om een Azure-opslagaccount in de cloud te gebruiken, zijn de kosten voor de uitvoering van deze zelfstudie te verwaarlozen.
 
-### Configure your storage connection string
+### De opslagverbindingsreeks configureren
 
-The Azure Storage Client Library for .NET supports using a storage connection string to configure endpoints and credentials for accessing storage services. The best way to maintain your storage connection string is in a configuration file. 
+De clientbibliotheek van Azure Storage voor .NET ondersteunt het gebruik van een opslagverbindingsreeks om eindpunten en referenties voor toegang tot opslagservices te configureren. De beste manier om de opslagverbindingsreeks te onderhouden, is met een configuratiebestand. 
 
-For more information about connection strings, see [Configure a Connection String to Azure Storage](../articles/storage/storage-configure-connection-string.md).
+Zie [Azure Storage-verbindingsreeksen configureren](../articles/storage/storage-configure-connection-string.md) voor meer informatie over verbindingsreeksen.
 
-> [AZURE.NOTE] Your storage account key is similar to the root password for your storage account. Always be careful to protect your storage account key. Avoid distributing it to other users, hard-coding it, or saving it in a plain-text file that is accessible to others. Regenerate your key using the Azure Portal if you believe it may have been compromised.
+> [AZURE.NOTE] De sleutel van uw opslagaccount is vergelijkbaar met het hoofdwachtwoord voor uw opslagaccount. Zorg dat de sleutel van uw opslagaccount altijd is beveiligd. Geef deze niet aan andere gebruikers en bewaar of noteer de sleutel op een veilige manier en plaats. Genereer een nieuwe sleutel met Azure Portal als deze misschien is aangetast.
 
-To configure your connection string, open the `app.config` file from Solution Explorer in Visual Studio. Add the contents of the `<appSettings>` element shown below. Replace `account-name` with the name of your storage account, and `account-key` with your account access key:
+U configureert de verbindingsreeks door het bestand `app.config` te openen vanuit Solution Explorer in Visual Studio. Voeg de inhoud van het element `<appSettings>` hieronder toe. Vervang `account-name` door de naam van uw opslagaccount en `account-key` door de toegangssleutel van uw account:
 
-	<configuration>
-	    <startup> 
-	        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2" />
-	    </startup>
-  		<appSettings>
-    		<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key" />
-  		</appSettings>
-	</configuration>
+    <configuration>
+        <startup> 
+            <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2" />
+        </startup>
+        <appSettings>
+            <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key" />
+        </appSettings>
+    </configuration>
 
-For example, your configuration setting will be similar to:
+De configuratie-instelling kan er als volgt uitzien:
 
-	<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=nYV0gln6fT7mvY+rxu2iWAEyzPKITGkhM88J8HUoyofvK7C6fHcZc2kRZp6cKgYRUM74lHI84L50Iau1+9hPjB==" />
+    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=nYV0gln6fT7mvY+rxu2iWAEyzPKITGkhM88J8HUoyofvK7C6fHcZc2kRZp6cKgYRUM74lHI84L50Iau1+9hPjB==" />
 
-To target the storage emulator, you can use a shortcut that maps to the well-known account name and key. In that case, your connection string setting will be:
+Als u de opslagemulator wilt gebruiken, kunt u de bekende accountnaam en -sleutel op een snelle manier toewijzen. In dat geval ziet de instelling van de verbindingsreeks er als volgt uit:
 
-	<add key="StorageConnectionString" value="UseDevelopmentStorage=true;" />
+    <add key="StorageConnectionString" value="UseDevelopmentStorage=true;" />
+
+
+
+
+<!--HONumber=Jun16_HO2-->
+
 

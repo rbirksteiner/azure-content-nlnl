@@ -1,48 +1,54 @@
 <!--author=alkohli last changed: 9/17/15-->
 
-#### To add a storage account in StorSimple 8000 Series Update 1.0
+#### Een opslagaccount in StorSimple 8000 Series Update 1.0 toevoegen
 
-1. On the StorSimple Manager service landing page, select your service and double-click it. This will take you to the **Quick Start** page. Select the **Configure** page.
+1. Selecteer uw service op de landingspagina van de StorSimple Manager-service en dubbelklik erop. Hiermee gaat u naar de pagina **Quick Start**. Selecteer de pagina **Configureren**.
 
-2. Click **Add/edit storage account**.
+2. Klik op **Opslagaccount toevoegen/bewerken**.
 
-3. In the **Add/Edit Storage Account** dialog box, click **Add new**.
+3. Klik in het dialoogvenster **Opslagaccount toevoegen/bewerken** op **Nieuwe toevoegen**.
 
-4. In the **Provider** field, select the appropriate cloud service provider. The supported providers are Azure, Amazon S3, Amazon S3 with RRS, HP and OpenStack. Specify the credentials and the location associated with the storage account of your cloud service providers. The fields presented for credentials will be different depending upon the cloud service provider you have specified. 
-  - If you have selected Azure as your cloud service provider, supply the **Name** and the primary **Access Key** for your Microsoft Azure storage account. For an Azure account, the location will be automatically populated.
+4. Selecteer in het veld **Provider** de juiste cloudserviceprovider. De ondersteunde providers zijn Azure, Amazon S3, Amazon S3 met RRS, HP en OpenStack. Geef de referenties en de locatie voor het opslagaccount van uw cloudserviceproviders op. Welke velden voor referenties worden weergegeven is afhankelijk van de cloudserviceprovider die u hebt opgegeven. 
+  - Als u Azure hebt geselecteerd als uw cloudserviceprovider, geeft u de **naam** en de primaire **toegangssleutel** voor uw Microsoft Azure Storage-account op. Voor een Azure-account wordt de locatie automatisch ingevuld.
 
         ![Add Azure storage account](./media/storsimple-configure-new-storage-account-u1/AddAzureStorageaccount-include.png)
 
- - If you have selected Amazon S3 or Amazon S3 with RRS, provide a friendly **Storage Account name**, **Access Key**, and **Secret Key**. For Amazon S3 and Amazon S3 with RRS, the following locations are supported:
+ - Als u Amazon S3 of Amazon S3 met RRS hebt geselecteerd, geeft u een beschrijvende **opslagaccountnaam**, **toegangssleutel** en **geheime sleutel** op. Voor Amazon S3 en Amazon S3 met RSS worden de volgende locaties ondersteund:
 
-		- US Standard
-		- US West (Oregon)
-		- US West (Northern California)
-		- EU (Ireland)
-		- Asia Pacific (Singapore)
-		- Asia Pacific (Sydney)
-		- Asia Pacific (Tokyo)
-		- South America (Sao Paulo)
+        - US Standard
+        - US West (Oregon)
+        - US West (Northern California)
+        - EU (Ireland)
+        - Asia Pacific (Singapore)
+        - Asia Pacific (Sydney)
+        - Asia Pacific (Tokyo)
+        - South America (Sao Paulo)
 
         ![Add Amazon storage account](./media/storsimple-configure-new-storage-account-u1/AddAmazonStorageaccount-include.png)
-	  		
- - If you have selected HP as your cloud service provider, supply a friendly **Storage Account Name**, **Tenant ID**, **Username**, and **Password**. For HP, the following locations are supported:
+            
+ - Als u HP als uw cloudserviceprovider hebt geselecteerd, geeft u een beschrijvende **opslagaccountnaam**, **tenant-id**, **gebruikersnaam** en **wachtwoord** op. Voor HP worden de volgende locaties ondersteund:
 
-		- US East
-		- US West
-	  
+        - US East
+        - US West
+      
         ![Add HP storage account](./media/storsimple-configure-new-storage-account-u1/AddHPStorageaccount-include.png)
-	  		
- - If you have selected **Openstack** as your cloud service provider, provide a **Hostname**, **Access Key**, and **Secret Key**.
+            
+ - Als u **Openstack** als uw cloudserviceprovider hebt geselecteerd, geeft u een **hostnaam**, **toegangssleutel** en **geheime sleutel** op.
 
-        > [AZURE.NOTE] For all the cloud service providers, excluding Azure, a friendly name is allowed. You can use different friendly names and create more than one storage account with the same set of credentials.
+        > [AZURE.NOTE] Voor alle cloudserviceproviders, met uitzondering van Azure, is een beschrijvende naam toegestaan. U kunt verschillende beschrijvende namen gebruiken en meer dan een opslagaccount met dezelfde set referenties maken.
 
         ![Add Openstack storage account](./media/storsimple-configure-new-storage-account-u1/AddOpenstackStorageaccount-include.png)
 
-5. Select **Enable SSL Mode** to create a secure channel for network communication between your device and the cloud. Clear the **Enable SSL Mode** check box only if you are operating within a private cloud.
+5. Schakel **SSL-modus inschakelen** in om een beveiligd kanaal te maken voor de netwerkcommunicatie tussen uw apparaat en de cloud. Schakel het selectievakje **SSL-modus inschakelen** uit als u alleen binnen een privécloud werkt.
 
-      > [AZURE.NOTE] If you are using HP as your provider, SSL will always be enabled.
-  		
-6. Click the check icon ![check icon](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png). You will be notified after the storage account is successfully created.
+      > [AZURE.NOTE] Als u HP als provider gebruikt, wordt SSL altijd ingeschakeld.
+        
+6. Klik op het vinkje ![vinkje](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png). U ontvangt een melding nadat het opslagaccount is gemaakt.
 
-7. The newly created storage account will be displayed on the **Configure** page under **Storage accounts**. Click **Save** to save the new storage account. Click **OK** when prompted for confirmation.
+7. Het nieuwe opslagaccount wordt weergegeven op de pagina **Configureren** onder **Opslagaccounts**. Klik op **Opslaan** om het nieuwe opslagaccount op te slaan. Klik op **OK** als u om bevestiging wordt gevraagd.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

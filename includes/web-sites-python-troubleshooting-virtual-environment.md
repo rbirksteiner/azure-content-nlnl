@@ -1,22 +1,28 @@
-The deployment script will skip creation of the virtual environment on Azure if it detects that a compatible virtual environment already exists.  This can speed up deployment considerably.  Packages that are already installed will be skipped by pip.
+Het implementatiescript maakt geen virtuele omgeving op Azure als wordt gedetecteerd dat er al een compatibele virtuele omgeving bestaat.  Dit kan de implementatie aanzienlijk versnellen.  Pakketten die al zijn geïnstalleerd, worden door pip overgeslagen.
 
-In certain situations, you may want to force delete that virtual environment.  You'll want to do this if you decide to include a virtual environment as part of your repository.  You may also want to do this if you need to get rid of certain packages, or test changes to requirements.txt.
+In bepaalde situaties wilt u die virtuele omgeving mogelijk geforceerd verwijderen.  Bijvoorbeeld als u besluit dat u een virtuele omgeving wilt opnemen als onderdeel van uw opslagplaats.  Een ander voorbeeld kan zijn als u bepaalde pakketten kwijt wilt, of als u wijzigingen in requirements.txt wilt testen.
 
-There are a few options to manage the existing virtual environment on Azure:
+Er zijn een aantal opties voor het beheren van de bestaande virtuele omgeving op Azure:
 
-### Option 1: Use FTP
+### Optie 1: FTP gebruiken
 
-With an FTP client, connect to the server and you'll be able to delete the env folder.  Note that some FTP clients (such as web browsers) may be read-only and won't allow you to delete folders, so you'll want to make sure to use an FTP client with that capability.  The FTP host name and user are displayed in your web app's blade on the [Azure Portal](https://portal.azure.com).
+Maak verbinding met de server met een FTP-client, waarna u de map env kunt verwijderen.  Houd er rekening mee dat sommige FTP-clients (zoals webbrowsers) alleen-lezen kunnen zijn. Bij dergelijke FTP-clients kunt u geen mappen verwijderen. Zorg er daarom voor dat u een FTP-client gebruikt die wel die mogelijkheid biedt.  De FTP-hostnaam en de gebruiker worden weergegeven in de blade van uw web-app op de [Azure Portal](https://portal.azure.com).
 
-### Option 2: Toggle runtime
+### Optie 2: runtime wisselen
 
-Here's an alternative that takes advantage of the fact that the deployment script will delete the env folder when it doesn't match the desired version of Python.  This will effectively delete the existing environment, and create a new one.
+Bij dit alternatief wordt gebruikgemaakt van het feit dat het implementatiescript de map env verwijdert wanneer deze niet overeenkomt met de gewenste versie van Python.  Hierdoor wordt de bestaande omgeving effectief verwijderd en een nieuwe omgeving gemaakt.
 
-1. Switch to a different version of Python (via runtime.txt or the **Application Settings** blade in the Azure Portal)
-1. git push some changes (ignore any pip install errors if any)
-1. Switch back to initial version of Python
-1. git push some changes again
+1. Schakel over naar een andere versie van Python (via runtime.txt of de blade **Toepassingsinstellingen** in de Azure Portal)
+1. Git push enkele wijzigingen (negeer pip-installatiefouten indien aanwezig)
+1. Ga terug naar de oorspronkelijke versie van Python
+1. Git push sommige wijzigingen opnieuw
 
-### Option 3: Customize deployment script
+### Optie 3: implementatiescript aanpassen
 
-If you've customized the deployment script, you can change the code in deploy.cmd to force it to delete the env folder.
+Als u het implementatiescript hebt aangepast, kunt u de code in deploy.cmd wijzigen om deze te dwingen de map env te verwijderen.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

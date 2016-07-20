@@ -1,7 +1,13 @@
-#### To shut down a virtual device
+#### Een virtueel apparaat afsluiten
 
-1. Sign in to the Management Portal.
+1. Meld u aan bij Beheerportal.
 
-2. Click **Virtual Machines**, and then select the virtual device.
+2. Klik op **Virtuele machines** en selecteer vervolgens het virtuele apparaat.
 
-3. Click **Shutdown**.
+3. Klik op **Afsluiten**.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

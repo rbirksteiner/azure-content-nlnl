@@ -1,28 +1,33 @@
-## Deploy the ARM template by using click to deploy
+## De ARM-sjabloon implementeren met klik om te implementeren
 
-You can reuse pre-defined ARM templates upload to a github repository maintained by Microsoft and open to the community. THese templates can be deployed straight out of github, or downloaded and modified to fit your needs. To deploy a template that creates a VNet with two subnets, follow the steps below.
+U kunt vooraf gedefinieerde ARM-sjablonen hergebruiken door deze te uploaden naar een door Microsoft beheerde github-opslagplaats en toegankelijk voor de community. Deze sjablonen kunnen rechtstreeks uit de github geïmplementeerd worden of gedownload en gewijzigd worden zodat deze aansluiten op uw behoeften. Volg de onderstaande stappen voor het implementeren van een sjabloon die een VNet met twee subnetten maakt.
 
-1. From a browser, navigate to [https://github.com/Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates).
-2. Scroll down the list of templates, and click **101-vnet-two-subnets**. Check the **README.md** file, as shown below.
+1. Vanuit een browser gaat u naar [https://github.com/Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates).
+2. Scroll omlaag in de lijst met sjablonen en klik op **101-vnet-two-subnets**. Controleer het **README.md** -bestand, zoals hieronder weergegeven.
 
-	![READEME.md file in github](./media/virtual-networks-create-vnet-arm-template-click-include/figure1.png)
+    ![READEME.md-bestand in github](./media/virtual-networks-create-vnet-arm-template-click-include/figure1.png)
 
-3. Click **Deploy to Azure**. If necessary, enter your Azure login credentials. 
-4. In the **Parameters** blade, enter the values you want to use to create your new VNet, and then click **OK**. The figure below shows the values for our scenario.
+3. Klik op **Implementeren in Azure**. Voer indien nodig uw Azure-aanmeldingsreferenties in. 
+4. Voer de waarden die u wilt gebruiken om uw nieuwe VNet te maken in de **Parameters**-blade en klik vervolgens op **OK**. De onderstaande afbeelding geeft de waarden voor ons scenario weer.
 
-	![ARM template parameters](./media/virtual-networks-create-vnet-arm-template-click-include/figure2.png)
+    ![ARM-sjabloonparameters](./media/virtual-networks-create-vnet-arm-template-click-include/figure2.png)
 
-4. Click **Resource group** and select a resource group to add the VNet to, or click **Create new** to add the VNet to a new resource group. The figure below shows the resource group settings for a new resource group called **TestRG**.
+4. Klik op **Resourcegroep** en selecteer een resourcegroep om toe te voegen aan het VNet of klik op **Nieuwe aanmaken** om het VNet toe te voegen aan een nieuwe resourcegroep. In de onderstaande afbeelding worden de instellingen voor de resourcegroep genaamd **TestRG** weergegeven.
 
-	![Resource group](./media/virtual-networks-create-vnet-arm-template-click-include/figure3.png)
+    ![Resourcegroep](./media/virtual-networks-create-vnet-arm-template-click-include/figure3.png)
 
-5. If necessary, change the **Subscription** and **Location** settings for your VNet.
-6. If you do not want to see the VNet as a tile in the **Startboard**, disable **Pin to Startboard**.
-5. Click **Leagl terms**, read the terms, and click **Buy** to agree. 
-6. Click **Create** to create the VNet.
+5. Wijzig zo nodig de instellingen van het **Abonnement** en de **Locatie** voor uw VNet.
+6. Als u VNet niet als tegel wilt laten weergeven in het **Startboard** schakelt u **Vastmaken aan Startboard** uit.
+5. Klik op **Juridische voorwaarden**, lees de voorwaarden en klik op **Kopen** om akkoord te gaan.  
+6. Klik op **Maken** om het VNet aan te maken.
 
-	![Submitting deployment tile in preview portal](./media/virtual-networks-create-vnet-arm-template-click-include/figure4.png)
+    ![Tegel implementatie in Preview Portal verzenden](./media/virtual-networks-create-vnet-arm-template-click-include/figure4.png)
 
-7. Once the deployment is done, click **TestVNet** > **All settings** > **Subnets** to see the subnet properties, as shown below.
+7. Als de implementatie is voltooid, klikt u op **TestVNet** > **Alle instellingen** > **subnetten** om de subneteigenschappen te bekijken, zoals hieronder weergegeven.
 
-	![Create VNet in preview portal](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.gif)
+    ![VNet maken in de Preview Portal](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.gif)
+
+
+<!--HONumber=Jun16_HO2-->
+
+

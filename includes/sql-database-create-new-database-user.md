@@ -1,24 +1,30 @@
 
 
-## Create new database user using SSMS
+## Nieuwe databasegebruiker maken met behulp van SSMS
 
-Use the following steps to create a new database user in an existing database using SSMS. 
+Voer de volgende stappen uit als u in een bestaande database een nieuwe databasegebruiker wilt maken met behulp van SSMS. 
 
-These steps assume that you are connected to SQL Database in Object Explorer using SSMS and are connected to your SQL Database logical server as a server-level principal administrator or with a user account with permissions to create a new user. 
+Bij deze stappen wordt ervan uitgegaan dat u in Object Explorer met SSMS bent verbonden met SQL Database en dat u met uw logische server met SQL Database bent verbonden als principal-beheerder op serverniveau of met een gebruikersaccount dat is gemachtigd om een nieuwe gebruiker te maken. 
 
-1. In Object Explorer, expand the Databases node and select the database in which you wish to create a new user account.
+1. Vouw in Object Explorer het knooppunt Databases uit en selecteer de database waarin u een nieuw gebruikersaccount wilt maken.
 
-     ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-1.png)
+     ![SQL Server Management Studio: Verbinding maken met SQL Database-server](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-1.png)
 
-2. Right-click the selected database and then click **Query**.
+2. Klik met de rechtermuisknop op de geselecteerde database en klik op **Query**.
 
-     ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-2.png)
+     ![SQL Server Management Studio: Verbinding maken met SQL Database-server](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-2.png)
 
-3. In the query window, edit and use the following Transact-SQL statement to create a contained user in your user database. 
+3. In het queryvenster kunt u de volgende Transact-SQL-instructie bewerken en gebruiken om een contained-gebruiker in de gebruikersdatabase te maken. 
 
     ```CREATE USER user1 WITH PASSWORD ='p@ssw0rd1';
 
-     ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-3.png)
+     ![SQL Server Management Studio: Verbinding maken met SQL Database-server](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-3.png)
 
+
+
+
+
+
+<!--HONumber=Jun16_HO2-->
 
 

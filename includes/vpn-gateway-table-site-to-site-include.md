@@ -1,9 +1,15 @@
-|  | **Classic Deployment**  | **Resource Manager Deployment** |
+|  | **Klassieke implementatie**  | **Implementatie van Resource Manager** |
 |----------------------------------------|--------------|----------------------|
-| **Classic Portal**                     |[Article*](../articles/vpn-gateway/vpn-gateway-site-to-site-create.md) |  Not Supported |
-| **Azure Portal**                       | Supported               | [Article](vpn-gateway-howto-site-to-site-resource-manager-portal.md)|
-| **PowerShell**               |[Article+](..articles/vpn-gateway/vpn-gateway-multi-site.md)          | [Article](..articles/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)| 
+| **Klassieke portal**                     |[Artikel*](../articles/vpn-gateway/vpn-gateway-site-to-site-create.md) |  Niet ondersteund |
+| **Azure Portal**                       | Ondersteund               | [Artikel](vpn-gateway-howto-site-to-site-resource-manager-portal.md)|
+| **PowerShell**               |[Artikel+](..articles/vpn-gateway/vpn-gateway-multi-site.md)          | [Artikel](..articles/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)| 
 
-(*) denotes that the classic portal can only support creating one S2S VPN connection.
+(*) geeft aan dat de klassieke portal slechts ondersteuning biedt voor één S2S-VPN-verbinding.
 
-(+) denotes that this article is written for multi-site connections.
+(+) geeft aan dat dit artikel is geschreven voor verbindingen van meerdere sites.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

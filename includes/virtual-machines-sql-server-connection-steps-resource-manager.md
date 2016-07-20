@@ -1,33 +1,39 @@
-### Configure a DNS Label for the public IP address
+### Een DNS-label configureren voor het openbare IP-adres
 
-To connect to the SQL Server Database Engine from the Internet, first configure a DNS Label for your public IP address.
+Voor verbinding met de SQL Server Database Engine van het internet, moet u eerst een DNS-label voor uw openbare IP-adres configureren.
 
-> [AZURE.NOTE] DNS Labels are not required if you plan to only connect to the SQL Server instance within the same Virtual Network or only locally.
+> [AZURE.NOTE] DNS-labels zijn niet vereist als u alleen verbinding wilt maken met het SQL Server-exemplaar binnen hetzelfde virtuele netwerk of alleen lokaal verbinding wilt maken.
 
-To create a DNS Label, first select **Virtual machines** in the portal. Select your SQL Server VM to bring up its properties.
+Als u een DNS-label wilt maken, selecteert u eerst **Virtuele machines** in de portal. Selecteer uw SQL Server VM om de eigenschappen op te halen.
 
-1. In the virtual machine blade, select your **Public IP address.**
+1. Selecteer in de virtuele machineblade uw **openbare IP-adres.**
 
-	![public ip address](./media/virtual-machines-sql-server-connection-steps/rm-public-ip-address.png)
+    ![openbaar ip adres](./media/virtual-machines-sql-server-connection-steps/rm-public-ip-address.png)
 
-2. In the properties for your Public IP address, expand **Configuration**.
+2. Vouw in de eigenschappen voor uw openbare IP-adres **Configuratie** open.
 
-3. Enter a DNS Label name. This name is an A Record that can be used to connect to your SQL Server VM by name instead of by IP Address directly.
+3. Voer een naam voor het DNS-label in. Deze naam is een A-Record die kan worden gebruikt om verbinding maken met uw SQL Server VM met uw naam in plaats van rechtstreeks met het IP-adres.
 
-	![dns label](./media/virtual-machines-sql-server-connection-steps/rm-dns-label.png)
+    ![dns label](./media/virtual-machines-sql-server-connection-steps/rm-dns-label.png)
 
-### Connect to the Database Engine from another computer
+### Verbinding maken met de Database-engine vanaf een andere computer
 
-1. On a computer connected to the internet, open SQL Server Management Studio (SSMS).
+1. Open SQL Server Management Studio (SSMS) op een computer die is verbonden met internet.
 
-2. In the **Connect to Server** or **Connect to Database Engine** dialog box, edit the **Server name** value. Enter the full DNS name of the virtual machine (determined in the previous task).
+2. Bewerk in het dialoogvenster **Verbinding maken met server** of **Verbinding maken met Database-engine** de waarde voor **Servernaam**. Voer de volledige DNS-naam van de virtuele machine in (zoals bepaald in de vorige taak).
 
-3. In the **Authentication** box, select **SQL Server Authentication**.
+3. Kies in het vak **Verificatie** **SQL Server-verificatie**.
 
-5. In the **Login** box, type the name of a valid SQL login.
+5. Typ in het vak **Aanmelden** een geldige SQL-aanmeldingsnaam.
 
-6. In the **Password** box, type the password of the login.
+6. Typ in het vak **Wachtwoord** het wachtwoord van de aanmelding.
 
-7. Click **Connect**.
+7. Klik op **Verbinden**.
 
-	![ssms connect](./media/virtual-machines-sql-server-connection-steps/rm-ssms-connect.png)
+    ![ssms verbinden](./media/virtual-machines-sql-server-connection-steps/rm-ssms-connect.png)
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

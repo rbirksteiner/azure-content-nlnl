@@ -1,14 +1,20 @@
-This section shows you how to connect your app to the Mobile Engagement backend by using the Mobile Engagement's real-time monitoring feature. 
+In deze sectie wordt beschreven hoe u uw app kunt verbinden met de back-end van Mobile Engagement door gebruik te maken van de realtime-monitorfunctie van Mobile Engagement. 
 
-1. In your **Azure Mobile Engagement** account, make sure you select the app you wish to monitor and manage in the **Mobile Engagement** portal. Navigate to your Mobile Engagement portal by clicking the **Engage** button at the bottom. 
+1. In uw **Azure Mobile Engagement**-account, selecteert u de app die u wilt monitoren en beheren in de **Mobile Engagement**-portal. Navigeer naar de Mobile Engagement-portal door op de knop **Engage** onderaan te klikken. 
 
-	 ![](./media/mobile-engagement-connect-app-with-monitor/engage-button.png)
+     ![](./media/mobile-engagement-connect-app-with-monitor/engage-button.png)
 
-2. You will land in the Mobile Engagement portal. If the Monitor tab is not selected, click on the **Monitor**.
+2. U komt dan uit bij de Mobile Engagement-portal. Als het tabblad Monitor niet is geselecteerd, klikt u op **Monitor**.
 
-3. The monitor is ready to show you any device in real time, which will start your app.
-	 
-4. Start your app either in the emulator/simulator or on a connected device. You should see one session in the monitor if your integration is correct which means that your app is now connected to the Mobile Engagement backend and is sending data to it.  
-	
-	 ![](./media/mobile-engagement-connect-app-with-monitor/monitor.png)
+3. De monitor is nu klaar om u in realtime elk apparaat te tonen waarop uw app wordt gestart.
+     
+4. Start uw app ofwel in de emulator/simulator ofwel op een verbonden apparaat. U zou een sessie in de monitor moeten kunnen zien als uw integratie juist is, wat inhoudt dat uw app nu is verbonden met de back-end van Mobile Engagement en er gegevens naartoe zendt.  
+    
+     ![](./media/mobile-engagement-connect-app-with-monitor/monitor.png)
+
+
+
+
+<!--HONumber=Jun16_HO2-->
+
 
