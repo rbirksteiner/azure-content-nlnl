@@ -1,105 +1,116 @@
-# Azure Technical Documentation Contributor Guide
+# Handleiding voor bijdragers aan de technische documentatie voor Azure
 
-You've found the GitHub repository that houses the source for the technical documentation that is published to the Azure Documentation Center at [http://azure.microsoft.com/documentation](http://azure.microsoft.com/documentation).
+U hebt de GitHub-repository gevonden met de bron voor de technische documentatie die wordt gepubliceerd in het documentatiecentrum van Azure ([http://azure.microsoft.com/documentation](http://azure.microsoft.com/documentation)).
 
-This repository also contains guidance to help you contribute to our technical documentation.  For a list of the articles in the contributors' guide, see [the index](https://github.com/Azure/azure-content/blob/master/contributor-guide/contributor-guide-index.md).
+Deze repository bevat ook instructies waarmee u kunt bijdragen aan onze technische documentatie.  Raadpleeg de [index](https://github.com/Azure/azure-content/blob/master/contributor-guide/contributor-guide-index.md) voor een lijst van de artikelen in de handleiding voor bijdragers.
 
-## Contribute to Azure documentation
+## Bijdragen aan de Azure-documentatie
 
-Thank you for your interest in Azure documentation!
+Bedankt voor uw interesse in de Azure-documentatie.
 
-* [Ways to contribute](#ways-to-contribute)
-* [About your contributions to Azure content](#about-your-contributions-to-azure-content)
-* [Repository organization](#repository-organization)
-* [Use GitHub, Git, and this repository](#use-github-git-and-this-repository)
-* [How to use markdown to format your topic](#how-to-use-markdown-to-format-your-topic)
-* [More resources](#more-resources)
-* [Index of all contributors' guide articles](./contributor-guide/contributor-guide-index.md) (opens new page)
+* [Manieren om bij te dragen](#ways-to-contribute)
+* [Gedragscode](#code-of-conduct)
+* [Over uw bijdragen aan Azure-inhoud](#about-your-contributions-to-azure-content)
+* [Organisatie van de repository](#repository-organization)
+* [GitHub, Git en deze repository gebruiken](#use-github-git-and-this-repository)
+* [Hoe u markdown kunt gebruiken om uw onderwerp op te maken](#how-to-use-markdown-to-format-your-topic)
+* [Feedback, opmerkingen en ondersteuning](./contributor-guide/feedback-and-comments.md)
+* [Meer bronnen](#more-resources)
+* [Index van alle artikelen in de handleiding voor bijdragers](./contributor-guide/contributor-guide-index.md) (opent een nieuwe pagina)
 
-## Ways to contribute
+## Manieren om bij te dragen 
 
-You can contribute to [Azure documentation](http://azure.microsoft.com/documentation/) in a few different ways:
+U kunt op diverse manieren bijdragen aan de [Azure-documentatie](http://azure.microsoft.com/documentation/):
 
-* Contribute to a [forum discussion](http://social.msdn.microsoft.com/Forums/windowsazure/home).
-* Submit Disqus comments at the bottom of articles.
-* You can easily contribute to technical articles in the GitHub user interface. Either find the article in this repository, or visit the article on [http://azure.microsoft.com/documentation](http://azure.microsoft.com/documentation) and click the link in the article that goes to the GitHub source for the article.
-* If you are making substantial changes to an existing article, adding or changing images, or contributing a new article, you need to fork this repository, install Git Bash, Markdown Pad, and learn some git commands.
+* Doe mee aan een [forumdiscussie](http://social.msdn.microsoft.com/Forums/windowsazure/home).
+* Plaats Disqus-opmerkingen onder aan artikelen.
+* U kunt eenvoudig bijdragen aan technische artikelen in de GitHub-gebruikersinterface. Zoek het artikel in deze repository op of ga naar het artikel via [http://azure.microsoft.com/documentation](http://azure.microsoft.com/documentation). Klik vervolgens op de link in het artikel die u naar de GitHub-bron van het artikel leidt.
+* Als u belangrijke wijzigingen doorvoert in een bestaand artikel, afbeeldingen toevoegt of wijzigt, of een nieuw artikel maakt, moet u deze repository vertakken, Git Bash en Markdown Pad installeren en een aantal Git-opdrachten leren.
 
-##About your contributions to Azure content
+##Gedragscode
 
-###Minor corrections
+Op dit project is de [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/) (Microsoft Open Source-gedragscode) van toepassing. Raadpleeg voor meer informatie de [Microsoft Open Source Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) (Veelgestelde vragen over de Microsoft Open Source-gedragscode). Als u aanvullende vragen of opmerkingen hebt, neemt u contact op met [opencode@microsoft.com](mailto:opencode@microsoft.com).
 
-Minor corrections or clarifications you submit for documentation and code examples in this repo are covered by the [Azure Website Terms of Use (ToU)](http://azure.microsoft.com/support/legal/website-terms-of-use/).
+##Over uw bijdragen aan Azure-content
+
+###Kleine correcties
+
+Op kleine correcties of verduidelijkingen die u toevoegt aan de documentatie of codevoorbeelden in deze repository, zijn de [Gebruiksvoorwaarden voor de Microsoft Azure-website](http://azure.microsoft.com/support/legal/website-terms-of-use/) van toepassing.
 
 
-###Larger submissions
+###Grotere wijzigingen
 
-If you submit a pull request with new or significant changes to documentation and code examples, we'll send a comment in GitHub asking you to submit an online Contribution License Agreement (CLA) if you are in one of these groups:
+Als u een pull-aanvraag indient met nieuwe of belangrijke wijzigingen in de documentatie of codevoorbeelden, ontvangt u in GitHub een bericht met het verzoek een online licentieovereenkomst voor bijdragen (Contribution License Agreement, CLA) aan te vragen als u lid bent van een van deze groepen:
 
-* Members of the Microsoft Open Technologies group.
-* Contributors who don't work for Microsoft.
+* Leden van de Microsoft Open Technologies-groep.
+* Bijdragers die niet voor Microsoft werken.
 
-We need you to complete the online form before we can accept your pull request.
+U moet het online formulier invullen voordat we uw pull-aanvraag kunnen accepteren.
 
-Full details are available at [http://azure.github.io/guidelines.html#cla](http://azure.github.io/guidelines.html#cla).
+U vindt alle informatie via [http://azure.github.io/guidelines/#cla](http://azure.github.io/guidelines/#cla).
 
-## Repository organization
+## Organisatie van de repository
 
-The content in the azure-content repository follows the organization of documentation on [Azure.Microsoft.com](http://azure.microsoft.com). This repository contains two root folders:
+De inhoud van de repository azure-content volgt de documentatiestructuur op [Azure.Microsoft.com](http://azure.microsoft.com). Deze bibliotheek bevat twee hoofdmappen:
 
 ### \articles
 
-The *\articles* folder contains the documentation articles formatted as markdown files with an *.md* extension. 
+De map *\articles* bevat de documentatieartikelen die zijn opgemaakt als markdownbestanden met de indeling *.md*.
 
-Articles in the root directory are published to Azure.Microsoft.com in the path *http://azure.microsoft.com/documentation/articles/{article-name-without-md}/*.
+Artikelen in de hoofdmap worden naar Azure.Microsoft.com gepubliceerd via het pad *http://azure.microsoft.com/documentation/articles/{artikelnaam-zonder-md}/*.
 
-* **Article filenames:** See [our file naming guidance](./contributor-guide/file-names-and-locations.md).
+* **Bestandsnamen van artikelen:** raadpleeg [onze richtlijnen voor de naamgeving van bestanden](./contributor-guide/file-names-and-locations.md).
 
-Articles within their own service folder are published to Azure.Microsoft.com in the path
-*http://azure.microsoft.com/documentation/articles/service-folder/{article-name-without-md}/*
+Artikelen in een eigen servicemap worden naar Azure.Microsoft.com gepubliceerd via het pad *http://azure.microsoft.com/documentation/articles/service-folder/{artikelnaam-zonder-md}/*.
 
-* **Media subfolders:** The *\articles* folder contains the *\media* folder for root directory article media files, inside which are subfolders with the images for each article.  The service folders contain a separate media folder for the articles within each service folder. The article image folders are named identically to the article file, minus the *.md* file extension.
+* **Mediasubmappen:** de map *\articles* bevat de map *\media* voor mediabestanden bij artikelen in de hoofdmap. Binnen deze map bevinden zich submappen met de afbeeldingen voor elk artikel.  De servicemappen bevatten een afzonderlijke mediamap voor de artikelen in elke servicemap. De mappen met afbeeldingen voor de artikelen hebben dezelfde naam als het artikelbestand, maar zonder de bestandsextensie *.md*.
 
 ### \includes
 
-You can create reusable content sections to be included in one or more articles. See [Custom extensions used in our technical content](./contributor-guide/custom-markdown-extensions.md).
+U kunt herbruikbare blokken met conAtent maken die moeten worden opgenomen in een of meer artikelen. Raadpleeg [Custom extensions used in our technical content](./contributor-guide/custom-markdown-extensions.md) (Aangepaste extensies die in onze technische inhoud worden gebruikt).
 
 ### \markdown templates
 
-This folder contains our standard markdown template with the basic markdown formatting you need for an article.
+Deze map bevat onze standaardmarkdownsjabloon met de basismarkdownopmaak die u voor een artikel nodig hebt.
 
 ### \contributor-guide
 
-This folder contains articles that are part of our contributors' guide.  
+Deze map bevat artikelen die deel uitmaken van onze handleiding voor bijdragers.  
 
-## Use GitHub, Git, and this repository
+## GitHub, Git en deze repository gebruiken
 
-For information about how to contribute, how to use the GitHub UI to contribute small changes, and how to fork and clone the repository for more significant contributions, see [Install and set up tools for authoring in GitHub](./contributor-guide/tools-and-setup.md).
+Raadpleeg [Install and set up tools for authoring in GitHub](./contributor-guide/tools-and-setup.md) (Hulpprogramma’s voor ontwerpen in GitHub installeren) voor meer informatie over hoe u kunt bijdragen, hoe u de GitHub-gebruikersinterface kunt gebruiken om kleine wijzigingen aan te brengen, en hoe u de repository kunt vertakken en klonen voor grotere wijzigingen.
 
-If you install GitBash and choose to work locally, the steps for creating a new local working branch, making changes, and submitting the changes back to the main branch are listed in [Git commands for creating a new article or updating an existing article](./contributor-guide/git-commands-for-master.md)
+Als u GitBash installeert en ervoor kiest om lokaal te werken, volgt u de stappen voor het maken van een nieuwe lokale werkvertakking, het aanbrengen van wijzigingen en het verzenden van deze wijzigingen naar de hoofdvertakking. Deze stappen vindt u in [Git commands for creating a new article or updating an existing article](./contributor-guide/git-commands-for-master.md) (Git-opdrachten voor het maken van een nieuw artikel of het bijwerken van een bestaand artikel).
 
-### Branches
+### Vertakkingen
 
-We recommend that you create local working branches that target a specific scope of change. Each branch should be limited to a single concept/article both to streamline work flow and reduce the possibility of merge conflicts.  The following efforts are of the appropriate scope for a new branch:
+We raden u aan om lokale werkvertakkingen te maken die zijn gericht op specifieke wijzigingen. Elke vertakking moet worden beperkt tot één concept/artikel om de werkstroom te stroomlijnen en de kans op samenvoegconflicten te verminderen.  In de volgende gevallen is een nieuwe vertakking een goed idee:
 
-* A new article (and associated images)
-* Spelling and grammar edits on an article.
-* Applying a single formatting change across a large set of articles (e.g. new copyright footer).
+* U maakt een nieuw artikel (met bijbehorende afbeeldingen).
+* U corrigeert spel- en grammaticafouten in een artikel.
+* U past één wijziging in de opmaak toe op een groot aantal artikelen (u maakt bijvoorbeeld nieuwe voettekst met betrekking tot het auteursrecht).
 
-## How to use markdown to format your topic
+## Hoe u markdown kunt gebruiken om uw onderwerp op te maken
 
-All the articles in this repository use GitHub flavored markdown.  Here's a list of resources.
+Alle artikelen in deze bibliotheek gebruiken GitHub-markdown.  Hier volgt een lijst van resources.
 
-- [Markdown basics](https://help.github.com/articles/markdown-basics/)
+- [Basisbeginselen van markdown](https://help.github.com/articles/markdown-basics/)
 
-- [Printable markdown cheatsheet](./contributor-guide/media/documents/markdown-cheatsheet.pdf?raw=true)
+- [Afdrukbare cheatsheet voor markdown](./contributor-guide/media/documents/markdown-cheatsheet.pdf?raw=true)
 
-- For our list of markdown editors, see the [tools and setup topic](./contributor-guide/tools-and-setup.md#install-a-markdown-editor).
+- Raadpleeg [het onderwerp over hulpprogramma's en installatie](./contributor-guide/tools-and-setup.md#install-a-markdown-editor) voor onze lijst met markdowneditors.
 
-## Article metadata
+## Metadata van het artikel
 
-Article metadata enables certain functionalities on the azure.microsoft.com web site, such as author attribution, contributor attribution, breadcrumbs, article descriptions, and SEO optimizations as well as reporting Microsoft uses to evaluate the performance of the content. So, the metadata is important! [Here's the guidance for making sure your metadata is done right](./contributor-guide/article-metadata.md).
+De metadata van het artikel worden op de website azure.microsoft.com voor diverse functies gebruikt, zoals toewijzing aan een auteur, toewijzing aan een bijdrager, breadcrumbs, artikelbeschrijvingen, SEO-optimalisatie en rapportage. Microsoft gebruikt deze functies om de prestaties van de inhoud te evalueren. De metadata zijn dus belangrijk. [Hier vindt u de richtlijnen waarmee u ervoor zorgt dat uw metadata op de juiste manier worden gebruikt](./contributor-guide/article-metadata.md).
 
-## More resources
+## Meer bronnen
 
-See the [index of our contributor's guide](./contributor-guide/contributor-guide-index.md) for all our guidance topics.
+Raadpleeg de [index van onze handleiding voor bijdragers](./contributor-guide/contributor-guide-index.md) voor alle onderwerpen over onze richtlijnen.
+
+
+
+<!--HONumber=Aug16_HO1-->
+
+
