@@ -1,0 +1,7 @@
+﻿Copyright (c) Microsoft Corporation.  Gedistribueerd onder de volgende voorwaarden;
+ 
+1. Microsoft en contribuanten aan dit project verlenen u elk een licentie, op grond van hun respectieve auteursrechten, voor de Microsoft Azure Documentatie op grond van de [Creative Commons Attribution 3.0 United States Licentie](http://creativecommons.org/licenses/by/3.0/us/legalcode).  Daarnaast verlenen Microsoft en deze contribuanten u een aanvullende licentie voor eventuele voorbeeldcode die is opgenomen in de documentatie, op grond van hun respectieve auteursrechten, om de code te gebruiken voor het ontwikkelen of ontwerpen van uw software voor Microsoft Azure.
+ 
+2.  Microsoft, Windows, Microsoft Azure, en/of andere Microsoft-producten en -diensten waarnaar in de documentatie wordt verwezen, zijn mogelijk eveneens merkrechten of gedeponeerde merkrechten van Microsoft in de Verenigde Staten en/of andere landen. Deze licentie verleent u geen rechten voor het gebruik van namen, logo's of handelsmerken. Zie [http://go.microsoft.com/fwlink/?LinkID=254653](http://go.microsoft.com/fwlink/?LinkID=254653) voor de algemene richtlijnen betreffende handelsmerken van Microsoft.
+ 
+3.  Microsoft en eventuele contribuanten behouden zich alle overige rechten, hetzij op grond van auteursrecht, octrooirecht of handelsmerkrecht, of door implicatie, estoppel of anderszins, voor.
