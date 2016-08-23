@@ -1,1 +1,7 @@
-This content has been moved - see the [Readme page] (README.md) for information about how to contribute to the Azure tech docs.
+Deze inhoud is verplaatst. Zie [pagina met Leesmij-bestand] (README.md) voor informatie over hoe u kunt bijdragen aan de technische documentatie van Azure.
+
+
+
+<!--HONumber=Aug16_HO1-->
+
+
