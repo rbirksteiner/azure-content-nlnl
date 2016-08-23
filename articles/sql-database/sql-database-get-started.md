@@ -62,6 +62,4 @@ Nu u deze SQL Database-tutorial hebt afgerond en een database hebt gemaakt met w
 
 
 
-<!--HONumber=Jun16_HO2-->
-
-
+<!--HONumber=Jun16_HO2--->
